@@ -420,7 +420,7 @@ def test_public_caluma_instance_municipality_filter(
     assert len(response.json()["data"]) == 3
 
 
-def test_neighborhood_orientation_instance_be(
+def test_information_of_neighbors_instance_be(
     db,
     application_settings,
     client,
@@ -450,16 +450,16 @@ def test_neighborhood_orientation_instance_be(
     document = DocumentFactory()
     AnswerFactory(
         document=document,
-        question__slug="neighborhood-orientation-start-date",
+        question__slug="information-of-neighbors-start-date",
         date=timezone.now().date() - timedelta(days=1),
     )
     AnswerFactory(
         document=document,
-        question__slug="neighborhood-orientation-end-date",
+        question__slug="information-of-neighbors-end-date",
         date=timezone.now().date() + timedelta(days=1),
     )
     WorkItemFactory(
-        task_id="neighborhood-orientation",
+        task_id="information-of-neighbors",
         status="completed",
         document=document,
         case=be_instance.case,

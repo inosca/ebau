@@ -13,10 +13,10 @@ snapshots['test_instance_permissions_be[applicant-None-circulation-instance__use
     ],
     'dossierpruefung': [
     ],
+    'information-of-neighbors': [
+    ],
     'main': [
         'read'
-    ],
-    'neighborhood-orientation': [
     ],
     'nfd': [
     ],
@@ -34,10 +34,10 @@ snapshots['test_instance_permissions_be[applicant-None-circulation_init-instance
     ],
     'dossierpruefung': [
     ],
+    'information-of-neighbors': [
+    ],
     'main': [
         'read'
-    ],
-    'neighborhood-orientation': [
     ],
     'nfd': [
     ],
@@ -55,10 +55,10 @@ snapshots['test_instance_permissions_be[applicant-None-conclusion-instance__user
     ],
     'dossierpruefung': [
     ],
+    'information-of-neighbors': [
+    ],
     'main': [
         'read'
-    ],
-    'neighborhood-orientation': [
     ],
     'nfd': [
     ],
@@ -78,10 +78,10 @@ snapshots['test_instance_permissions_be[applicant-None-coordination-instance__us
     ],
     'dossierpruefung': [
     ],
+    'information-of-neighbors': [
+    ],
     'main': [
         'read'
-    ],
-    'neighborhood-orientation': [
     ],
     'nfd': [
     ],
@@ -99,10 +99,10 @@ snapshots['test_instance_permissions_be[applicant-None-correction-instance__user
     ],
     'dossierpruefung': [
     ],
+    'information-of-neighbors': [
+    ],
     'main': [
         'read'
-    ],
-    'neighborhood-orientation': [
     ],
     'nfd': [
     ],
@@ -120,10 +120,10 @@ snapshots['test_instance_permissions_be[applicant-None-evaluated-instance__user0
     ],
     'dossierpruefung': [
     ],
+    'information-of-neighbors': [
+    ],
     'main': [
         'read'
-    ],
-    'neighborhood-orientation': [
     ],
     'nfd': [
     ],
@@ -141,10 +141,10 @@ snapshots['test_instance_permissions_be[applicant-None-finished-instance__user0]
     ],
     'dossierpruefung': [
     ],
+    'information-of-neighbors': [
+    ],
     'main': [
         'read'
-    ],
-    'neighborhood-orientation': [
     ],
     'nfd': [
     ],
@@ -162,10 +162,10 @@ snapshots['test_instance_permissions_be[applicant-None-finished_internal-instanc
     ],
     'dossierpruefung': [
     ],
+    'information-of-neighbors': [
+    ],
     'main': [
         'read'
-    ],
-    'neighborhood-orientation': [
     ],
     'nfd': [
     ],
@@ -183,10 +183,10 @@ snapshots['test_instance_permissions_be[applicant-None-in_progress-instance__use
     ],
     'dossierpruefung': [
     ],
+    'information-of-neighbors': [
+    ],
     'main': [
         'read'
-    ],
-    'neighborhood-orientation': [
     ],
     'nfd': [
     ],
@@ -204,10 +204,10 @@ snapshots['test_instance_permissions_be[applicant-None-in_progress_internal-inst
     ],
     'dossierpruefung': [
     ],
+    'information-of-neighbors': [
+    ],
     'main': [
         'read'
-    ],
-    'neighborhood-orientation': [
     ],
     'nfd': [
     ],
@@ -225,11 +225,11 @@ snapshots['test_instance_permissions_be[applicant-None-new-instance__user0] 1'] 
     ],
     'dossierpruefung': [
     ],
+    'information-of-neighbors': [
+    ],
     'main': [
         'read',
         'write'
-    ],
-    'neighborhood-orientation': [
     ],
     'nfd': [
     ],
@@ -247,10 +247,10 @@ snapshots['test_instance_permissions_be[applicant-None-rejected-instance__user0]
     ],
     'dossierpruefung': [
     ],
+    'information-of-neighbors': [
+    ],
     'main': [
         'read'
-    ],
-    'neighborhood-orientation': [
     ],
     'nfd': [
     ],
@@ -268,10 +268,10 @@ snapshots['test_instance_permissions_be[applicant-None-sb1-instance__user0] 1'] 
     ],
     'dossierpruefung': [
     ],
+    'information-of-neighbors': [
+    ],
     'main': [
         'read'
-    ],
-    'neighborhood-orientation': [
     ],
     'nfd': [
     ],
@@ -291,10 +291,10 @@ snapshots['test_instance_permissions_be[applicant-None-sb2-instance__user0] 1'] 
     ],
     'dossierpruefung': [
     ],
+    'information-of-neighbors': [
+    ],
     'main': [
         'read'
-    ],
-    'neighborhood-orientation': [
     ],
     'nfd': [
     ],
@@ -315,10 +315,10 @@ snapshots['test_instance_permissions_be[applicant-None-subm-instance__user0] 1']
     ],
     'dossierpruefung': [
     ],
+    'information-of-neighbors': [
+    ],
     'main': [
         'read'
-    ],
-    'neighborhood-orientation': [
     ],
     'nfd': [
     ],
@@ -336,10 +336,10 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     ],
     'dossierpruefung': [
     ],
+    'information-of-neighbors': [
+    ],
     'main': [
         'read'
-    ],
-    'neighborhood-orientation': [
     ],
     'nfd': [
     ],
@@ -357,10 +357,10 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     ],
     'dossierpruefung': [
     ],
+    'information-of-neighbors': [
+    ],
     'main': [
         'read'
-    ],
-    'neighborhood-orientation': [
     ],
     'nfd': [
     ],
@@ -378,10 +378,10 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     ],
     'dossierpruefung': [
     ],
+    'information-of-neighbors': [
+    ],
     'main': [
         'read'
-    ],
-    'neighborhood-orientation': [
     ],
     'nfd': [
     ],
@@ -401,10 +401,10 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     ],
     'dossierpruefung': [
     ],
+    'information-of-neighbors': [
+    ],
     'main': [
         'read'
-    ],
-    'neighborhood-orientation': [
     ],
     'nfd': [
     ],
@@ -422,10 +422,10 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     ],
     'dossierpruefung': [
     ],
+    'information-of-neighbors': [
+    ],
     'main': [
         'read'
-    ],
-    'neighborhood-orientation': [
     ],
     'nfd': [
     ],
@@ -443,10 +443,10 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     ],
     'dossierpruefung': [
     ],
+    'information-of-neighbors': [
+    ],
     'main': [
         'read'
-    ],
-    'neighborhood-orientation': [
     ],
     'nfd': [
     ],
@@ -464,10 +464,10 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     ],
     'dossierpruefung': [
     ],
+    'information-of-neighbors': [
+    ],
     'main': [
         'read'
-    ],
-    'neighborhood-orientation': [
     ],
     'nfd': [
     ],
@@ -485,10 +485,10 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     ],
     'dossierpruefung': [
     ],
+    'information-of-neighbors': [
+    ],
     'main': [
         'read'
-    ],
-    'neighborhood-orientation': [
     ],
     'nfd': [
     ],
@@ -506,10 +506,10 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     ],
     'dossierpruefung': [
     ],
+    'information-of-neighbors': [
+    ],
     'main': [
         'read'
-    ],
-    'neighborhood-orientation': [
     ],
     'nfd': [
     ],
@@ -527,10 +527,10 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     ],
     'dossierpruefung': [
     ],
+    'information-of-neighbors': [
+    ],
     'main': [
         'read'
-    ],
-    'neighborhood-orientation': [
     ],
     'nfd': [
     ],
@@ -548,11 +548,11 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     ],
     'dossierpruefung': [
     ],
+    'information-of-neighbors': [
+    ],
     'main': [
         'read',
         'write'
-    ],
-    'neighborhood-orientation': [
     ],
     'nfd': [
     ],
@@ -570,10 +570,10 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     ],
     'dossierpruefung': [
     ],
+    'information-of-neighbors': [
+    ],
     'main': [
         'read'
-    ],
-    'neighborhood-orientation': [
     ],
     'nfd': [
     ],
@@ -591,10 +591,10 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     ],
     'dossierpruefung': [
     ],
+    'information-of-neighbors': [
+    ],
     'main': [
         'read'
-    ],
-    'neighborhood-orientation': [
     ],
     'nfd': [
     ],
@@ -614,10 +614,10 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     ],
     'dossierpruefung': [
     ],
+    'information-of-neighbors': [
+    ],
     'main': [
         'read'
-    ],
-    'neighborhood-orientation': [
     ],
     'nfd': [
     ],
@@ -638,10 +638,10 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     ],
     'dossierpruefung': [
     ],
+    'information-of-neighbors': [
+    ],
     'main': [
         'read'
-    ],
-    'neighborhood-orientation': [
     ],
     'nfd': [
     ],
@@ -660,10 +660,10 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -685,10 +685,10 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -710,10 +710,10 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -737,10 +737,10 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -762,10 +762,10 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
     'dossierpruefung': [
         'read'
     ],
+    'information-of-neighbors': [
+    ],
     'main': [
         'read'
-    ],
-    'neighborhood-orientation': [
     ],
     'nfd': [
         'read'
@@ -785,10 +785,10 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -810,10 +810,10 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -835,10 +835,10 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -860,10 +860,10 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -885,10 +885,10 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -910,9 +910,9 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
     ],
-    'neighborhood-orientation': [
+    'main': [
     ],
     'nfd': [
         'read'
@@ -932,10 +932,10 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -957,10 +957,10 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -982,10 +982,10 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -1008,10 +1008,10 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
     'dossierpruefung': [
         'read'
     ],
+    'information-of-neighbors': [
+    ],
     'main': [
         'read'
-    ],
-    'neighborhood-orientation': [
     ],
     'nfd': [
         'read'
@@ -1033,12 +1033,12 @@ snapshots['test_instance_permissions_be[municipality-lead-district-circulation-i
         'read',
         'write'
     ],
-    'main': [
-        'read'
-    ],
-    'neighborhood-orientation': [
+    'information-of-neighbors': [
         'read',
         'write'
+    ],
+    'main': [
+        'read'
     ],
     'nfd': [
         'read',
@@ -1063,12 +1063,12 @@ snapshots['test_instance_permissions_be[municipality-lead-district-circulation_i
         'read',
         'write'
     ],
-    'main': [
-        'read'
-    ],
-    'neighborhood-orientation': [
+    'information-of-neighbors': [
         'read',
         'write'
+    ],
+    'main': [
+        'read'
     ],
     'nfd': [
         'read',
@@ -1092,12 +1092,12 @@ snapshots['test_instance_permissions_be[municipality-lead-district-conclusion-in
     'dossierpruefung': [
         'read'
     ],
-    'main': [
-        'read'
-    ],
-    'neighborhood-orientation': [
+    'information-of-neighbors': [
         'read',
         'write'
+    ],
+    'main': [
+        'read'
     ],
     'nfd': [
         'read'
@@ -1121,12 +1121,12 @@ snapshots['test_instance_permissions_be[municipality-lead-district-coordination-
         'read',
         'write'
     ],
-    'main': [
-        'read'
-    ],
-    'neighborhood-orientation': [
+    'information-of-neighbors': [
         'read',
         'write'
+    ],
+    'main': [
+        'read'
     ],
     'nfd': [
         'read',
@@ -1150,11 +1150,11 @@ snapshots['test_instance_permissions_be[municipality-lead-district-correction-in
     'dossierpruefung': [
         'read'
     ],
+    'information-of-neighbors': [
+    ],
     'main': [
         'read',
         'write'
-    ],
-    'neighborhood-orientation': [
     ],
     'nfd': [
         'read'
@@ -1175,10 +1175,10 @@ snapshots['test_instance_permissions_be[municipality-lead-district-evaluated-ins
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -1201,10 +1201,10 @@ snapshots['test_instance_permissions_be[municipality-lead-district-finished-inst
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -1227,10 +1227,10 @@ snapshots['test_instance_permissions_be[municipality-lead-district-finished_inte
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -1253,12 +1253,12 @@ snapshots['test_instance_permissions_be[municipality-lead-district-in_progress-i
     'dossierpruefung': [
         'read'
     ],
-    'main': [
-        'read'
-    ],
-    'neighborhood-orientation': [
+    'information-of-neighbors': [
         'read',
         'write'
+    ],
+    'main': [
+        'read'
     ],
     'nfd': [
         'read'
@@ -1282,12 +1282,12 @@ snapshots['test_instance_permissions_be[municipality-lead-district-in_progress_i
         'read',
         'write'
     ],
-    'main': [
-        'read'
-    ],
-    'neighborhood-orientation': [
+    'information-of-neighbors': [
         'read',
         'write'
+    ],
+    'main': [
+        'read'
     ],
     'nfd': [
         'read',
@@ -1310,9 +1310,9 @@ snapshots['test_instance_permissions_be[municipality-lead-district-new-instance_
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
     ],
-    'neighborhood-orientation': [
+    'main': [
     ],
     'nfd': [
         'read'
@@ -1333,12 +1333,12 @@ snapshots['test_instance_permissions_be[municipality-lead-district-rejected-inst
     'dossierpruefung': [
         'read'
     ],
-    'main': [
-        'read'
-    ],
-    'neighborhood-orientation': [
+    'information-of-neighbors': [
         'read',
         'write'
+    ],
+    'main': [
+        'read'
     ],
     'nfd': [
         'read'
@@ -1361,12 +1361,12 @@ snapshots['test_instance_permissions_be[municipality-lead-district-sb1-instance_
     'dossierpruefung': [
         'read'
     ],
-    'main': [
-        'read'
-    ],
-    'neighborhood-orientation': [
+    'information-of-neighbors': [
         'read',
         'write'
+    ],
+    'main': [
+        'read'
     ],
     'nfd': [
         'read'
@@ -1389,12 +1389,12 @@ snapshots['test_instance_permissions_be[municipality-lead-district-sb2-instance_
     'dossierpruefung': [
         'read'
     ],
-    'main': [
-        'read'
-    ],
-    'neighborhood-orientation': [
+    'information-of-neighbors': [
         'read',
         'write'
+    ],
+    'main': [
+        'read'
     ],
     'nfd': [
         'read'
@@ -1417,10 +1417,10 @@ snapshots['test_instance_permissions_be[municipality-lead-district-subm-instance
     'dossierpruefung': [
         'read'
     ],
+    'information-of-neighbors': [
+    ],
     'main': [
         'read'
-    ],
-    'neighborhood-orientation': [
     ],
     'nfd': [
         'read'
@@ -1442,12 +1442,12 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-circulati
         'read',
         'write'
     ],
-    'main': [
-        'read'
-    ],
-    'neighborhood-orientation': [
+    'information-of-neighbors': [
         'read',
         'write'
+    ],
+    'main': [
+        'read'
     ],
     'nfd': [
         'read',
@@ -1472,12 +1472,12 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-circulati
         'read',
         'write'
     ],
-    'main': [
-        'read'
-    ],
-    'neighborhood-orientation': [
+    'information-of-neighbors': [
         'read',
         'write'
+    ],
+    'main': [
+        'read'
     ],
     'nfd': [
         'read',
@@ -1501,12 +1501,12 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-conclusio
     'dossierpruefung': [
         'read'
     ],
-    'main': [
-        'read'
-    ],
-    'neighborhood-orientation': [
+    'information-of-neighbors': [
         'read',
         'write'
+    ],
+    'main': [
+        'read'
     ],
     'nfd': [
         'read'
@@ -1530,12 +1530,12 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-coordinat
         'read',
         'write'
     ],
-    'main': [
-        'read'
-    ],
-    'neighborhood-orientation': [
+    'information-of-neighbors': [
         'read',
         'write'
+    ],
+    'main': [
+        'read'
     ],
     'nfd': [
         'read',
@@ -1559,11 +1559,11 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-correctio
     'dossierpruefung': [
         'read'
     ],
+    'information-of-neighbors': [
+    ],
     'main': [
         'read',
         'write'
-    ],
-    'neighborhood-orientation': [
     ],
     'nfd': [
         'read'
@@ -1584,10 +1584,10 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-evaluated
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -1610,10 +1610,10 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-finished-
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -1636,10 +1636,10 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-finished_
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -1662,12 +1662,12 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-in_progre
     'dossierpruefung': [
         'read'
     ],
-    'main': [
-        'read'
-    ],
-    'neighborhood-orientation': [
+    'information-of-neighbors': [
         'read',
         'write'
+    ],
+    'main': [
+        'read'
     ],
     'nfd': [
         'read'
@@ -1691,12 +1691,12 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-in_progre
         'read',
         'write'
     ],
-    'main': [
-        'read'
-    ],
-    'neighborhood-orientation': [
+    'information-of-neighbors': [
         'read',
         'write'
+    ],
+    'main': [
+        'read'
     ],
     'nfd': [
         'read',
@@ -1719,9 +1719,9 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-new-insta
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
     ],
-    'neighborhood-orientation': [
+    'main': [
     ],
     'nfd': [
         'read'
@@ -1742,12 +1742,12 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-rejected-
     'dossierpruefung': [
         'read'
     ],
-    'main': [
-        'read'
-    ],
-    'neighborhood-orientation': [
+    'information-of-neighbors': [
         'read',
         'write'
+    ],
+    'main': [
+        'read'
     ],
     'nfd': [
         'read'
@@ -1770,12 +1770,12 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-sb1-insta
     'dossierpruefung': [
         'read'
     ],
-    'main': [
-        'read'
-    ],
-    'neighborhood-orientation': [
+    'information-of-neighbors': [
         'read',
         'write'
+    ],
+    'main': [
+        'read'
     ],
     'nfd': [
         'read'
@@ -1798,12 +1798,12 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-sb2-insta
     'dossierpruefung': [
         'read'
     ],
-    'main': [
-        'read'
-    ],
-    'neighborhood-orientation': [
+    'information-of-neighbors': [
         'read',
         'write'
+    ],
+    'main': [
+        'read'
     ],
     'nfd': [
         'read'
@@ -1826,10 +1826,10 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-subm-inst
     'dossierpruefung': [
         'read'
     ],
+    'information-of-neighbors': [
+    ],
     'main': [
         'read'
-    ],
-    'neighborhood-orientation': [
     ],
     'nfd': [
         'read'
@@ -1849,10 +1849,10 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-circulati
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -1874,10 +1874,10 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-circulati
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -1899,10 +1899,10 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-conclusio
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -1924,10 +1924,10 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-coordinat
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -1949,10 +1949,10 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-correctio
     'dossierpruefung': [
         'read'
     ],
+    'information-of-neighbors': [
+    ],
     'main': [
         'read'
-    ],
-    'neighborhood-orientation': [
     ],
     'nfd': [
         'read'
@@ -1972,10 +1972,10 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-evaluated
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -1997,10 +1997,10 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-finished-
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -2022,10 +2022,10 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-finished_
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -2047,10 +2047,10 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-in_progre
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -2072,10 +2072,10 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-in_progre
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -2097,9 +2097,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-new-insta
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
     ],
-    'neighborhood-orientation': [
+    'main': [
     ],
     'nfd': [
         'read'
@@ -2119,10 +2119,10 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-rejected-
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -2144,10 +2144,10 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-sb1-insta
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -2169,10 +2169,10 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-sb2-insta
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -2194,10 +2194,10 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-subm-inst
     'dossierpruefung': [
         'read'
     ],
+    'information-of-neighbors': [
+    ],
     'main': [
         'read'
-    ],
-    'neighborhood-orientation': [
     ],
     'nfd': [
         'read'
@@ -2217,10 +2217,10 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-circu
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -2242,10 +2242,10 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-circu
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -2267,10 +2267,10 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-concl
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -2292,10 +2292,10 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-coord
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -2317,10 +2317,10 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-corre
     'dossierpruefung': [
         'read'
     ],
+    'information-of-neighbors': [
+    ],
     'main': [
         'read'
-    ],
-    'neighborhood-orientation': [
     ],
     'nfd': [
         'read'
@@ -2340,10 +2340,10 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-evalu
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -2365,10 +2365,10 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-finis
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -2390,10 +2390,10 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-finis
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -2415,10 +2415,10 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-in_pr
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -2440,10 +2440,10 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-in_pr
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -2465,9 +2465,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-new-i
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
     ],
-    'neighborhood-orientation': [
+    'main': [
     ],
     'nfd': [
         'read'
@@ -2487,10 +2487,10 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-rejec
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -2512,10 +2512,10 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-sb1-i
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -2537,10 +2537,10 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-sb2-i
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -2562,10 +2562,10 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-subm-
     'dossierpruefung': [
         'read'
     ],
+    'information-of-neighbors': [
+    ],
     'main': [
         'read'
-    ],
-    'neighborhood-orientation': [
     ],
     'nfd': [
         'read'
@@ -2585,10 +2585,10 @@ snapshots['test_instance_permissions_be[service-lead-service-circulation-instanc
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -2609,10 +2609,10 @@ snapshots['test_instance_permissions_be[service-lead-service-circulation_init-in
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -2633,10 +2633,10 @@ snapshots['test_instance_permissions_be[service-lead-service-conclusion-instance
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -2659,10 +2659,10 @@ snapshots['test_instance_permissions_be[service-lead-service-coordination-instan
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -2682,10 +2682,10 @@ snapshots['test_instance_permissions_be[service-lead-service-correction-instance
     ],
     'dossierpruefung': [
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -2706,10 +2706,10 @@ snapshots['test_instance_permissions_be[service-lead-service-evaluated-instance_
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -2730,10 +2730,10 @@ snapshots['test_instance_permissions_be[service-lead-service-finished-instance__
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -2754,10 +2754,10 @@ snapshots['test_instance_permissions_be[service-lead-service-finished_internal-i
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -2778,10 +2778,10 @@ snapshots['test_instance_permissions_be[service-lead-service-in_progress-instanc
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -2802,10 +2802,10 @@ snapshots['test_instance_permissions_be[service-lead-service-in_progress_interna
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -2825,10 +2825,10 @@ snapshots['test_instance_permissions_be[service-lead-service-new-instance__user0
     ],
     'dossierpruefung': [
     ],
-    'main': [
-    ],
-    'neighborhood-orientation': [
+    'information-of-neighbors': [
         'read'
+    ],
+    'main': [
     ],
     'nfd': [
     ],
@@ -2848,10 +2848,10 @@ snapshots['test_instance_permissions_be[service-lead-service-rejected-instance__
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -2872,10 +2872,10 @@ snapshots['test_instance_permissions_be[service-lead-service-sb1-instance__user0
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -2896,10 +2896,10 @@ snapshots['test_instance_permissions_be[service-lead-service-sb2-instance__user0
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -2920,10 +2920,10 @@ snapshots['test_instance_permissions_be[service-lead-service-subm-instance__user
     ],
     'dossierpruefung': [
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -2944,10 +2944,10 @@ snapshots['test_instance_permissions_be[service-readonly-service-circulation-ins
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -2968,10 +2968,10 @@ snapshots['test_instance_permissions_be[service-readonly-service-circulation_ini
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -2992,10 +2992,10 @@ snapshots['test_instance_permissions_be[service-readonly-service-conclusion-inst
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -3018,10 +3018,10 @@ snapshots['test_instance_permissions_be[service-readonly-service-coordination-in
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -3041,10 +3041,10 @@ snapshots['test_instance_permissions_be[service-readonly-service-correction-inst
     ],
     'dossierpruefung': [
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -3065,10 +3065,10 @@ snapshots['test_instance_permissions_be[service-readonly-service-evaluated-insta
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -3089,10 +3089,10 @@ snapshots['test_instance_permissions_be[service-readonly-service-finished-instan
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -3113,10 +3113,10 @@ snapshots['test_instance_permissions_be[service-readonly-service-finished_intern
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -3137,10 +3137,10 @@ snapshots['test_instance_permissions_be[service-readonly-service-in_progress-ins
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -3161,10 +3161,10 @@ snapshots['test_instance_permissions_be[service-readonly-service-in_progress_int
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -3184,10 +3184,10 @@ snapshots['test_instance_permissions_be[service-readonly-service-new-instance__u
     ],
     'dossierpruefung': [
     ],
-    'main': [
-    ],
-    'neighborhood-orientation': [
+    'information-of-neighbors': [
         'read'
+    ],
+    'main': [
     ],
     'nfd': [
     ],
@@ -3207,10 +3207,10 @@ snapshots['test_instance_permissions_be[service-readonly-service-rejected-instan
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -3231,10 +3231,10 @@ snapshots['test_instance_permissions_be[service-readonly-service-sb1-instance__u
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -3255,10 +3255,10 @@ snapshots['test_instance_permissions_be[service-readonly-service-sb2-instance__u
     'dossierpruefung': [
         'read'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -3279,10 +3279,10 @@ snapshots['test_instance_permissions_be[service-readonly-service-subm-instance__
     ],
     'dossierpruefung': [
     ],
-    'main': [
+    'information-of-neighbors': [
         'read'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read'
     ],
     'nfd': [
@@ -3305,11 +3305,11 @@ snapshots['test_instance_permissions_be[support-None-circulation-instance__user0
         'read',
         'write'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read',
         'write'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read',
         'write'
     ],
@@ -3340,11 +3340,11 @@ snapshots['test_instance_permissions_be[support-None-circulation_init-instance__
         'read',
         'write'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read',
         'write'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read',
         'write'
     ],
@@ -3375,11 +3375,11 @@ snapshots['test_instance_permissions_be[support-None-conclusion-instance__user0]
         'read',
         'write'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read',
         'write'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read',
         'write'
     ],
@@ -3410,11 +3410,11 @@ snapshots['test_instance_permissions_be[support-None-coordination-instance__user
         'read',
         'write'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read',
         'write'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read',
         'write'
     ],
@@ -3445,11 +3445,11 @@ snapshots['test_instance_permissions_be[support-None-correction-instance__user0]
         'read',
         'write'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read',
         'write'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read',
         'write'
     ],
@@ -3480,11 +3480,11 @@ snapshots['test_instance_permissions_be[support-None-evaluated-instance__user0] 
         'read',
         'write'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read',
         'write'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read',
         'write'
     ],
@@ -3515,11 +3515,11 @@ snapshots['test_instance_permissions_be[support-None-finished-instance__user0] 1
         'read',
         'write'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read',
         'write'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read',
         'write'
     ],
@@ -3550,11 +3550,11 @@ snapshots['test_instance_permissions_be[support-None-finished_internal-instance_
         'read',
         'write'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read',
         'write'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read',
         'write'
     ],
@@ -3585,11 +3585,11 @@ snapshots['test_instance_permissions_be[support-None-in_progress-instance__user0
         'read',
         'write'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read',
         'write'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read',
         'write'
     ],
@@ -3620,11 +3620,11 @@ snapshots['test_instance_permissions_be[support-None-in_progress_internal-instan
         'read',
         'write'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read',
         'write'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read',
         'write'
     ],
@@ -3655,11 +3655,11 @@ snapshots['test_instance_permissions_be[support-None-new-instance__user0] 1'] = 
         'read',
         'write'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read',
         'write'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read',
         'write'
     ],
@@ -3690,11 +3690,11 @@ snapshots['test_instance_permissions_be[support-None-rejected-instance__user0] 1
         'read',
         'write'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read',
         'write'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read',
         'write'
     ],
@@ -3725,11 +3725,11 @@ snapshots['test_instance_permissions_be[support-None-sb1-instance__user0] 1'] = 
         'read',
         'write'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read',
         'write'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read',
         'write'
     ],
@@ -3760,11 +3760,11 @@ snapshots['test_instance_permissions_be[support-None-sb2-instance__user0] 1'] = 
         'read',
         'write'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read',
         'write'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read',
         'write'
     ],
@@ -3795,11 +3795,11 @@ snapshots['test_instance_permissions_be[support-None-subm-instance__user0] 1'] =
         'read',
         'write'
     ],
-    'main': [
+    'information-of-neighbors': [
         'read',
         'write'
     ],
-    'neighborhood-orientation': [
+    'main': [
         'read',
         'write'
     ],

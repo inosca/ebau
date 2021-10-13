@@ -104,12 +104,12 @@ mutation CreatePublicationTask {
   }
 }
 
-mutation CreateNeighborhoodInformationTask {
+mutation CreateInformationOfNeighborsTask {
   saveCompleteTaskFormTask(
     input: {
-      slug: "neighborhood-orientation"
+      slug: "information-of-neighbors"
       name: "Nachbarschaftsorientierung"
-      form: "neighborhood-orientation"
+      form: "information-of-neighbors"
       addressGroups: "['municipality']|groups"
     }
   ) {

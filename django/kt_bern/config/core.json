@@ -62846,7 +62846,7 @@
     "model": "core.irtaskform",
     "pk": 15000001,
     "fields": {
-      "task": "neighborhood-orientation"
+      "task": "information-of-neighbors"
     }
   },
   {
