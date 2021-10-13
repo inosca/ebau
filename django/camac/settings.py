@@ -305,7 +305,7 @@ APPLICATIONS = {
                 "reject-form": {"cancel": ["complete-check", "depreciate-case"]},
                 "start-circulation": {"cancel": ["skip-circulation"]},
                 "skip-circulation": {"cancel": ["start-circulation"]},
-                "formal-adittion": {"cancel": ["archive-instance"]},
+                "formal-addition": {"cancel": ["archive-instance"]},
                 "start-additional-circulation": {
                     "cancel": ["check-statements", "start-decision"]
                 },
