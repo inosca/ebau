@@ -256,11 +256,15 @@ Vous recevez cette notification parce que vous avez sélectionné le paramètre 
 
 @on([pre_complete_work_item, pre_skip_work_item], raise_exception=True)
 @transaction.atomic
-def handle_pre_complete_work_item(sender, work_item, user, **kwargs):
-    # Completed work items should always be marked as read
+def mark_as_read(work_item, **kwargs):
+    # Completed and skipped work items should always be marked as read
     work_item.meta["not-viewed"] = False
     work_item.save()
 
+
+@on(pre_complete_work_item, raise_exception=True)
+@transaction.atomic
+def handle_pre_complete_work_item(sender, work_item, user, **kwargs):
     config = get_caluma_setting("PRE_COMPLETE", {}).get(work_item.task_id)
 
     if config:
