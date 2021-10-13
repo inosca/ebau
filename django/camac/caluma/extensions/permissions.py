@@ -121,6 +121,7 @@ class CustomPermission(IsAuthenticated):
                 and validate_parameters(
                     [
                         "work_item",
+                        "meta",
                         "assigned_users",
                     ],
                     params["input"],
