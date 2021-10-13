@@ -312,8 +312,8 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         only_own=True, props=["collateral"], join_by="\n\n"
     )
     neighbors = fields.MasterDataDictPersonField()
-    neighborhood_orientation_link = fields.NeighborhoodOrientationLinkField()
-    neighborhood_orientation_qr_code = fields.NeighborhoodOrientationLinkField(
+    information_of_neighbors_link = fields.InformationOfNeighborsLinkField()
+    information_of_neighbors_qr_code = fields.InformationOfNeighborsLinkField(
         as_qrcode=True
     )
     nutzung = fields.MasterDataField(

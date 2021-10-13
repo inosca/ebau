@@ -298,17 +298,17 @@ def be_master_data_case(
     )
 
     # Neighbors
-    neighborhood_document = caluma_form_factories.DocumentFactory(
+    information_of_neighbors_document = caluma_form_factories.DocumentFactory(
         pk="5a498238-6af4-472b-bc3c-83a4848ed6cc"
     )
     caluma_workflow_factories.WorkItemFactory(
-        task_id="neighborhood-orientation",
-        document=neighborhood_document,
+        task_id="information-of-neighbors",
+        document=information_of_neighbors_document,
         case=be_instance.case,
     )
     add_table_answer(
-        neighborhood_document,
-        "neighborhood-orientation-neighbors",
+        information_of_neighbors_document,
+        "information-of-neighbors-neighbors",
         [
             {
                 "vorname-gesuchstellerin": "Karl",
