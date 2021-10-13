@@ -215,7 +215,7 @@ class InstanceQuerysetMixin(object):
                         **{
                             self._get_instance_filter_expr(
                                 "case__work_items__task_id"
-                            ): "neighborhood-orientation",
+                            ): "information-of-neighbors",
                             self._get_instance_filter_expr(
                                 "case__work_items__document__pk__startswith"
                             ): public_access_key,
@@ -228,7 +228,7 @@ class InstanceQuerysetMixin(object):
                         **{
                             self._get_instance_filter_expr(
                                 "case__work_items__document__answers__question_id"
-                            ): "neighborhood-orientation-start-date",
+                            ): "information-of-neighbors-start-date",
                             self._get_instance_filter_expr(
                                 "case__work_items__document__answers__date__lte"
                             ): timezone.now(),
@@ -238,7 +238,7 @@ class InstanceQuerysetMixin(object):
                         **{
                             self._get_instance_filter_expr(
                                 "case__work_items__document__answers__question_id"
-                            ): "neighborhood-orientation-end-date",
+                            ): "information-of-neighbors-end-date",
                             self._get_instance_filter_expr(
                                 "case__work_items__document__answers__date__gte"
                             ): timezone.now(),

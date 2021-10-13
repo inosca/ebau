@@ -533,7 +533,7 @@ def caluma_forms_be(settings):
     caluma_form_models.Form.objects.create(slug="migriertes-dossier")
     caluma_form_models.Form.objects.create(slug="dossierpruefung")
     caluma_form_models.Form.objects.create(slug="publikation")
-    caluma_form_models.Form.objects.create(slug="neighborhood-orientation")
+    caluma_form_models.Form.objects.create(slug="information-of-neighbors")
 
     # dynamic choice options get cached, so we clear them
     # to ensure the new "gemeinde" options will be valid

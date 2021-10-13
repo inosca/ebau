@@ -357,7 +357,7 @@ class MasterDataDictPersonField(MasterDataField):
         ]
 
 
-class NeighborhoodOrientationLinkField(ReadOnlyField):
+class InformationOfNeighborsLinkField(ReadOnlyField):
     def __init__(
         self,
         as_qrcode=False,
@@ -369,7 +369,7 @@ class NeighborhoodOrientationLinkField(ReadOnlyField):
 
     def get_attribute(self, instance):
         work_item = instance.case.work_items.filter(
-            task_id="neighborhood-orientation"
+            task_id="information-of-neighbors"
         ).first()
 
         return (
