@@ -19,21 +19,31 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
 
         instance._master_data = MasterData(instance.case)
 
-    def to_representation(self, instance):
-        data = super().to_representation(instance)
+    def get_aliases(self, key, prefix):
+        return ALIASES.get(clean_join(prefix.upper(), key.upper(), separator="."), [])
+
+    def get_aliased_collection(self, collection, prefix=""):
         return OrderedDict(
             sorted(
                 itertools.chain(
                     *[
-                        [
-                            (name, "" if value is None else value)
-                            for name in ALIASES.get(key.upper(), []) + [key.upper()]
-                        ]
-                        for key, value in data.items()
+                        self.get_aliased_field(key, value, prefix)
+                        for key, value in collection.items()
                     ]
                 )
             )
         )
+
+    def get_aliased_field(self, key, value, prefix=""):
+        value = "" if value is None else value
+
+        if isinstance(value, list) and all([isinstance(row, dict) for row in value]):
+            value = [self.get_aliased_collection(row, key) for row in value]
+
+        return [(name, value) for name in self.get_aliases(key, prefix) + [key.upper()]]
+
+    def to_representation(self, instance):
+        return self.get_aliased_collection(super().to_representation(instance))
 
     address = fields.JointField(
         fields=[
@@ -300,6 +310,11 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
     )
     nebenbestimmungen = fields.ActivationsField(
         only_own=True, props=["collateral"], join_by="\n\n"
+    )
+    neighbors = fields.MasterDataDictPersonField()
+    neighborhood_orientation_link = fields.NeighborhoodOrientationLinkField()
+    neighborhood_orientation_qr_code = fields.NeighborhoodOrientationLinkField(
+        as_qrcode=True
     )
     nutzung = fields.MasterDataField(
         source="usage_type", parser=get_option_label, join_by=", "
