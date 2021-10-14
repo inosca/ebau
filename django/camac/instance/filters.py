@@ -39,13 +39,13 @@ class ResponsibleInstanceUserFilter(CharFilter):
 
         if value.lower() == "nobody":
             return qs.filter(
-                responsibilities__service__isnull=True,
-                responsibilities__user__isnull=True,
+                responsible_services__service__isnull=True,
+                responsible_services__responsible_user__isnull=True,
             )
 
         return qs.filter(
-            responsibilities__service=self.parent.request.group.service,
-            responsibilities__user=value,
+            responsible_services__service=self.parent.request.group.service,
+            responsible_services__responsible_user=value,
         )
 
 
