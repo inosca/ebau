@@ -8105,7 +8105,7 @@
       "modified_by_group": null,
       "form": "tabelle-wohnungen",
       "question": "ewid",
-      "sort": 8
+      "sort": 10
     }
   },
   {
@@ -8170,16 +8170,46 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "tabelle-wohnungen.stockwerk",
+    "pk": "tabelle-wohnungen.stockwerknummer",
     "fields": {
-      "created_at": "2020-11-09T12:45:31.899Z",
-      "modified_at": "2020-11-09T12:45:31.899Z",
+      "created_at": "2021-10-14T08:18:18.630Z",
+      "modified_at": "2021-10-14T08:18:18.630Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "tabelle-wohnungen",
-      "question": "stockwerk",
+      "question": "stockwerknummer",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "tabelle-wohnungen.stockwerktyp",
+    "fields": {
+      "created_at": "2021-10-14T08:13:15.347Z",
+      "modified_at": "2021-10-14T08:13:15.347Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "tabelle-wohnungen",
+      "question": "stockwerktyp",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "tabelle-wohnungen.weitere-angaben-zum-stockwerk",
+    "fields": {
+      "created_at": "2021-10-14T13:12:52.815Z",
+      "modified_at": "2021-10-14T13:12:52.815Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "tabelle-wohnungen",
+      "question": "weitere-angaben-zum-stockwerk",
       "sort": 7
     }
   },
@@ -8210,7 +8240,7 @@
       "modified_by_group": null,
       "form": "tabelle-wohnungen",
       "question": "zugehoerigkeit",
-      "sort": 9
+      "sort": 11
     }
   },
   {
@@ -18062,6 +18092,54 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Gesuch wird regul\\u00e4r eingereicht\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "stockwerktyp-obergeschoss",
+    "fields": {
+      "created_at": "2021-10-14T08:12:09.501Z",
+      "modified_at": "2021-10-14T13:10:28.178Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Obergeschoss\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "stockwerktyp-parterre",
+    "fields": {
+      "created_at": "2021-10-14T08:12:09.504Z",
+      "modified_at": "2021-10-14T13:10:28.216Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Parterre inkl. Hochparterre\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "stockwerktyp-untergeschoss",
+    "fields": {
+      "created_at": "2021-10-14T08:12:09.491Z",
+      "modified_at": "2021-10-14T13:10:28.180Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Untergeschoss\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -36291,26 +36369,56 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "stockwerk",
+    "pk": "stockwerknummer",
     "fields": {
-      "created_at": "2020-11-09T12:45:31.799Z",
-      "modified_at": "2020-11-09T12:45:31.800Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-10-14T08:18:18.507Z",
+      "modified_at": "2021-10-18T11:22:04.721Z",
+      "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
-      "label": "{\"de\": \"Stockwerk\", \"fr\": null}",
-      "type": "text",
+      "label": "{\"de\": \"Stockwerknummer\", \"fr\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "!('stockwerktyp-obergeschoss' =='stockwerktyp'|answer || 'stockwerktyp-untergeschoss' == 'stockwerktyp'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": 1
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "stockwerktyp",
+    "fields": {
+      "created_at": "2021-10-14T08:12:09.674Z",
+      "modified_at": "2021-10-14T13:10:28.721Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Stockwerktyp\", \"fr\": null}",
+      "type": "choice",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": \"####INFO\\n\\nGeben Sie bitte an, auf welchem Stockwerk sich die Wohnung befindet. Dazu k\\u00f6nnen Sie Angaben verwenden wie:\\n\\n    Einfamilienhaus\\n    Parterre\\n    Hochparterre\\n    1., 2., 3. Stock usw.\\n    1., 2. Untergeschoss usw.\", \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
+      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -38711,6 +38819,39 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "weitere-angaben-zum-stockwerk",
+    "fields": {
+      "created_at": "2021-10-14T13:12:52.704Z",
+      "modified_at": "2021-10-14T13:12:52.704Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Weitere Angaben zum Stockwerk\", \"fr\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "weitere-baulinien",
     "fields": {
       "created_at": "2020-11-11T09:58:52.656Z",
@@ -38884,7 +39025,7 @@
         "columnsToDisplay": [
           "schutzraum-betroffen",
           "zugehoerigkeit",
-          "stockwerk",
+          "stockwerktyp",
           "lage",
           "wohnungsgroesse",
           "kocheinrichtung",
@@ -47301,6 +47442,51 @@
       "modified_by_group": null,
       "question": "status-bauprojekt",
       "option": "status-bauprojekt-regulaer",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "stockwerktyp.stockwerktyp-obergeschoss",
+    "fields": {
+      "created_at": "2021-10-14T13:10:28.755Z",
+      "modified_at": "2021-10-14T13:10:28.755Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "stockwerktyp",
+      "option": "stockwerktyp-obergeschoss",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "stockwerktyp.stockwerktyp-parterre",
+    "fields": {
+      "created_at": "2021-10-14T13:10:28.742Z",
+      "modified_at": "2021-10-14T13:10:28.743Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "stockwerktyp",
+      "option": "stockwerktyp-parterre",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "stockwerktyp.stockwerktyp-untergeschoss",
+    "fields": {
+      "created_at": "2021-10-14T13:10:28.750Z",
+      "modified_at": "2021-10-14T13:10:28.751Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "stockwerktyp",
+      "option": "stockwerktyp-untergeschoss",
       "sort": 2
     }
   },
