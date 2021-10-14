@@ -37,7 +37,7 @@ class ActivationFilterSet(FilterSet):
         field_name="circulation__instance__creation_date__date", lookup_expr="lte"
     )
     responsible_instance_user = NumberFilter(
-        field_name="circulation__instance__responsibilities__user"
+        field_name="circulation__instance__responsible_services__user"
     )
 
     class Meta:
