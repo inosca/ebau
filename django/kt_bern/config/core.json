@@ -42011,7 +42011,7 @@
     "fields": {
       "button": 20050,
       "language": "fr",
-      "name": "Circulation compl\u00e8te",
+      "name": "Clore la circulation",
       "description": null
     }
   },
@@ -42131,7 +42131,7 @@
     "fields": {
       "button": 20016,
       "language": "fr",
-      "name": "Clore la proc\u00e9dure de circulation",
+      "name": "Vers la d\u00e9cision",
       "description": null
     }
   },
