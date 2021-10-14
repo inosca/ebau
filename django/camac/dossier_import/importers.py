@@ -8,6 +8,7 @@ from django.db import transaction
 from camac.dossier_import.dossier_classes import Dossier
 from camac.dossier_import.loaders import DossierLoader
 from camac.dossier_import.models import DossierImport
+from camac.user.models import Group, User
 
 
 class DossierImporter:
@@ -26,10 +27,17 @@ class DossierImporter:
     loader_class: DossierLoader = DossierLoader
     temp_dir: str = settings.DOSSIER_IMPORT_TMP_DIR
     additional_data_source: Optional[str] = None
+    user: Optional[User] = None
+    group: Optional[Group] = None
 
-    def __init__(self, settings: dict = settings.APPLICATION["DOSSIER_IMPORT"]):
+    def __init__(
+        self,
+        import_settings: dict = settings.APPLICATION["DOSSIER_IMPORT"],
+        user_id: int = None,
+    ):
         self.import_case = self._initialize_case()
-        self.settings = settings
+        self.settings = import_settings
+        self.user = user_id and User.objects.get(pk=user_id)
         self.loader = None
 
     @classmethod
