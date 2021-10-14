@@ -4,15 +4,15 @@ export default class InstanceAbility extends Ability {
   get canEdit() {
     return (
       (this.model.isReady && this.model.isAddressedToCurrentService) ||
-      this.canEditAsCreator
+      this.canEditAsCreatorOrController
     );
   }
 
-  get canEditAsCreator() {
+  get canEditAsCreatorOrController() {
     return (
       this.model.isReady &&
-      this.model.isCreatedByCurrentService &&
-      this.model.raw.task.slug === "create-manual-workitems"
+      (this.model.isCreatedByCurrentService ||
+        this.model.isControlledByCurrentService)
     );
   }
 

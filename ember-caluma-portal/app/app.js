@@ -15,7 +15,6 @@ export default class App extends Application {
         services: [
           "apollo",
           "notification",
-          "router",
           "intl",
           "caluma-options",
           "validator",
