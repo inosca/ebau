@@ -458,7 +458,7 @@ APPLICATIONS = {
             "XLSX_IMPORTER_CLASS": "camac.dossier_import.config.kt_schwyz.KtSchwyzXlsxDossierImporter",
             "INSTANCE_STATE_MAPPING": {"SUBMITTED": 2, "APPROVED": 8, "DONE": 10},
             "USER": "service-account-camac-admin",
-            "GROUP": 3,  # Group with service_id and this role_id is created Instances' group
+            "GROUP_ID": 3,  # Group with service_id and this role_id is created Instances' group
             "FORM_ID": 29,  # "migriertes-dossier"
             "ATTACHMENT_SECTION_ID": 2,  # attachmentsection for imported documents
             "TEMP_DIR": "/tmp/dossier_import/",
