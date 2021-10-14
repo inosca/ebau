@@ -769,7 +769,7 @@ def test_responsible_instance_user(
     admin_client, instance, user, service, service_factory
 ):
 
-    instance.responsibilities.create(user=user, service=service)
+    instance.responsible_services.create(responsible_user=user, service=service)
 
     # First make sure we can find instances with given responsible user
     resp = admin_client.get(
@@ -786,7 +786,7 @@ def test_responsible_instance_user(
     assert len(resp.json()["data"]) == 0
 
     # "nobody" filter should return instance where there is no responsible user
-    instance.responsibilities.all().delete()
+    instance.responsible_services.all().delete()
     resp = admin_client.get(
         reverse("instance-list"), {"responsible_instance_user": "NOBODY"}
     )
@@ -799,7 +799,9 @@ def test_responsible_instance_user(
     assert len(resp.json()["data"]) == 1
 
     # different service shouldnt return anything
-    instance.responsibilities.create(user=user, service=service_factory())
+    instance.responsible_services.create(
+        responsible_user=user, service=service_factory()
+    )
     resp = admin_client.get(
         reverse("instance-list"), {"responsible_instance_user": str(user.pk)}
     )
