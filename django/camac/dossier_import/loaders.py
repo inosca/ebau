@@ -25,6 +25,7 @@ class XlsxFileDossierLoader(DossierLoader):
         "egrid",
         "usage",
         "type",
+        "submit_date",
         "publication_date",
         "decision_date",
         "construction_start_date",
@@ -57,7 +58,7 @@ class XlsxFileDossierLoader(DossierLoader):
         completion_date = "COMPLETION-DATE"
         custom_1 = "CUSTOM-1"
         custom_2 = "CUSTOM-2"
-        link = "LINK"
+        link = "LINK4"
         applicant_first_name = "APPLICANT-FIRST-NAME"
         applicant_last_name = "APPLICANT-LAST-NAME"
         applicant_company = "APPLICANT-COMPANY"

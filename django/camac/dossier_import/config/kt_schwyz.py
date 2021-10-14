@@ -21,7 +21,8 @@ from camac.dossier_import.writers import (
 )
 from camac.instance.domain_logic import CreateInstanceLogic
 from camac.instance.models import Form, Instance, InstanceState
-from camac.user.models import Group, Service, User
+from camac.instance.serializers import CalumaInstanceSetEbauNumberSerializer
+from camac.user.models import Group
 
 PERSON_MAPPING = {
     "last_name": "name",
@@ -77,11 +78,6 @@ class KtSchwyzDossierWriter(DossierWriter):
         camac.instance.domain_logic.CreateInstanceLogic should be able to do the job and
         spit out a reasonably generic starting point.
         """
-        camac_user = User.objects.get(username=self.importer.settings["USER"])
-        group = Group.objects.get(
-            service_id=self.importer.import_case.service.pk,
-            role_id=self.importer.settings["ROLE_ID_GROUP"],
-        )
         instance_state = InstanceState.objects.get(
             pk=self.importer.settings["INSTANCE_STATE_MAPPING"][
                 dossier.Meta.target_state
@@ -94,19 +90,26 @@ class KtSchwyzDossierWriter(DossierWriter):
                 ]
             ),
             previous_instance_state=instance_state,
-            user=camac_user,
-            group=group,
+            user=self.importer.user,
+            group=self.importer.group,
             form=Form.objects.get(pk=self.importer.settings["FORM_ID"]),
-            # ebau number (??) mitgeben, präfix für import (default: jahreszal und nummer, e. g. `AV`-
         )
         instance = (
             CreateInstanceLogic.create(  # TODO: check if this instance is any good
                 creation_data,
                 caluma_user=BaseUser(),
-                camac_user=camac_user,
-                group=group,
+                camac_user=self.importer.user,
+                group=self.importer.group,
             )
         )
+        ebau_number_serializer = CalumaInstanceSetEbauNumberSerializer(
+            instance=instance
+        )
+        ebau_number = ebau_number_serializer.validate_ebau_number("")
+        if not ebau_number:
+            raise ValueError(f"Ebau number not valid in dossier import {dossier}")
+        instance.case.meta.update({"ebau-number": ebau_number})
+        instance.case.save()
         return instance
 
     def import_dossier(self, dossier: Dossier):
@@ -123,12 +126,6 @@ class KtSchwyzDossierWriter(DossierWriter):
     def _handle_dossier_attachments(self, dossier: Dossier, instance: Instance):
         """Create attachments for dossier."""
 
-        user = User.objects.get(username=self.importer.settings["USER"])
-        group = Group.objects.get(
-            service_id=self.importer.import_case.service.pk,
-            role_id=self.importer.settings["ROLE_ID_GROUP"],
-        )
-
         documents_dir = Path(self.importer.additional_data_source) / str(dossier.id)
 
         for document in documents_dir.iterdir():
@@ -141,9 +138,9 @@ class KtSchwyzDossierWriter(DossierWriter):
 
             attachment = Attachment.objects.create(
                 instance=instance,
-                user=user,
-                service=group.service,
-                group=group,
+                user=self.importer.user,
+                service=self.importer.group.service,
+                group=self.importer.group,
                 name=document.name,
                 context={},
                 path=str(target_file),
@@ -190,14 +187,10 @@ class KtSchwyzDossierWriter(DossierWriter):
 
         default_context = {"no-notification": True}
 
-        caluma_user = BaseUser(
-            username=self.importer.settings["USER"],
-            group=self.importer.import_case.service.pk,
-        )
-        caluma_user.camac_group = Group.objects.get(
-            service_id=self.importer.import_case.service.pk,
-            role_id=self.importer.settings["ROLE_ID_GROUP"],
-        ).pk
+        camac_user = self.importer.user
+
+        caluma_user = BaseUser(username=camac_user.name, group=self.importer.group.pk)
+        caluma_user.camac_group = self.importer.group.pk
 
         # In order for a work item to be completed no sibling work items can be
         # in state ready. They have to be dealt with in advance.
@@ -240,12 +233,12 @@ class KtSchwyzXlsxDossierImporter(DossierImporter):
 
     loader_class = XlsxFileDossierLoader
 
-    def initialize(self, service_id: int, path_to_archive: str, *args, **kwargs):
+    def initialize(self, group_id: int, path_to_archive: str, *args, **kwargs):
         """Initialize the import of a ZIP-Archive of dossiers.
 
         For Camac Dossier import kt_schwyz we require to identify the location/communality the
-        imported dossiers belong to. This is done via `service_id`. It will be later used to
-        set the correct group on the `Instance` created for all dossiers.
+        imported dossiers belong to. This is done via `group_id` that relates to service.
+        user_id selects the user doing the import.
         """
         super().initialize()
         path = Path(self.temp_dir) / str(self.import_case.id)
@@ -259,7 +252,8 @@ class KtSchwyzXlsxDossierImporter(DossierImporter):
             raise
         loader = self.get_loader()
         self.loader = loader(dossiers_filepath)
-        self.import_case.service = Service.objects.get(pk=service_id)
+        self.group = Group.objects.get(pk=group_id)
+        self.import_case.service = self.group.service
         self.import_case.save()
 
         # The additional data source point to the directory where the documents have been

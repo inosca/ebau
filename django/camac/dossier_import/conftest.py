@@ -27,30 +27,20 @@ def initialized_dossier_importer(
     db,
     setup_workflow_fixtures_for_config,
     settings,
-    service_factory,
-    user_factory,
     group_factory,
-    role_factory,
-    form_factory,
-    form_state_factory,
-    instance_state_factory,
+    role,
     attachment_section_factory,
 ):
-    def wrapper(config, service_id: int, path_to_archive: str = TEST_IMPORT_FILE):
+    def wrapper(
+        config, user_id: int, group_id: int, path_to_archive: str = TEST_IMPORT_FILE
+    ):
         application_settings = settings.APPLICATIONS[config]
         setup_workflow_fixtures_for_config(config)
         # form_state_factory(pk=1)
         # form_factory(
         #     pk=application_settings["DOSSIER_IMPORT"]["FORM_ID"], form_state_id=1
         # )
-        service = service_factory(service_id=service_id)
-        role = role_factory(pk=application_settings["DOSSIER_IMPORT"]["ROLE_ID_GROUP"])
-        group_factory(service=service, role=role)
-        user_factory(username=application_settings["DOSSIER_IMPORT"]["USER"])
-        # for mapping in application_settings["DOSSIER_IMPORT"][
-        #     "INSTANCE_STATE_MAPPING"
-        # ].values():
-        #     instance_state_factory(pk=mapping)
+        group_factory(pk=group_id, role=role)
         attachment_section_factory(
             pk=application_settings["DOSSIER_IMPORT"]["ATTACHMENT_SECTION_ID"]
         )
@@ -58,8 +48,10 @@ def initialized_dossier_importer(
         importer_cls = import_string(
             application_settings["DOSSIER_IMPORT"]["XLSX_IMPORTER_CLASS"]
         )
-        importer = importer_cls(settings=application_settings["DOSSIER_IMPORT"])
-        importer.initialize(service_id, path_to_archive)
+        importer = importer_cls(
+            user_id=user_id, import_settings=application_settings["DOSSIER_IMPORT"]
+        )
+        importer.initialize(group_id, path_to_archive)
         return importer
 
     return wrapper
