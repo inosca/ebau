@@ -33,7 +33,7 @@ mutation CreateFlow2 {
     input: {
       workflow: "preliminary-clarification"
       tasks: ["ebau-number"]
-      next: "['skip-circulation', 'init-circulation', 'audit', 'publication', 'fill-publication', 'neighborhood-orientation']|tasks"
+      next: "['skip-circulation', 'init-circulation', 'audit', 'publication', 'fill-publication', 'information-of-neighbors']|tasks"
     }
   ) {
     clientMutationId
