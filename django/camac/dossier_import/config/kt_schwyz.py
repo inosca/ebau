@@ -1,19 +1,21 @@
 import mimetypes
 import shutil
 import zipfile
+from dataclasses import dataclass
 from pathlib import Path
-from typing import List
 
 from caluma.caluma_user.models import BaseUser
 from caluma.caluma_workflow.api import skip_work_item
+from dataclasses_json import dataclass_json
 from django.conf import settings
+from django.core.exceptions import ObjectDoesNotExist
 from django.db import transaction
 from django.utils.timezone import now
 
 from camac.document.models import Attachment, AttachmentSection
 from camac.dossier_import.dossier_classes import Dossier
 from camac.dossier_import.importers import DossierImporter
-from camac.dossier_import.loaders import XlsxFileDossierLoader
+from camac.dossier_import.loaders import InvalidImportDataError, XlsxFileDossierLoader
 from camac.dossier_import.writers import (
     CamacNgAnswerFieldWriter,
     CamacNgListAnswerWriter,
@@ -21,8 +23,7 @@ from camac.dossier_import.writers import (
 )
 from camac.instance.domain_logic import CreateInstanceLogic
 from camac.instance.models import Form, Instance, InstanceState
-from camac.instance.serializers import CalumaInstanceSetEbauNumberSerializer
-from camac.user.models import Group
+from camac.user.models import Group, Location
 
 PERSON_MAPPING = {
     "last_name": "name",
@@ -31,6 +32,22 @@ PERSON_MAPPING = {
     "zip": "plz",
     "town": "ort",
 }
+
+LOG_LEVEL_DEBUG = 0
+LOG_LEVEL_INFO = 1
+LOG_LEVEL_WARNING = 2
+LOG_LEVEL_ERROR = 3
+
+
+@dataclass_json
+@dataclass
+class Message:
+    level: int
+    message: str
+
+
+class ConfigurationError(Exception):
+    pass
 
 
 class KtSchwyzDossierWriter(DossierWriter):
@@ -78,15 +95,16 @@ class KtSchwyzDossierWriter(DossierWriter):
         camac.instance.domain_logic.CreateInstanceLogic should be able to do the job and
         spit out a reasonably generic starting point.
         """
-        instance_state = InstanceState.objects.get(
-            pk=self.importer.settings["INSTANCE_STATE_MAPPING"][
-                dossier.Meta.target_state
-            ]
+        instance_state_id = self.importer.settings["INSTANCE_STATE_MAPPING"].get(
+            dossier._meta.target_state
+        )
+        instance_state = instance_state_id and InstanceState.objects.get(
+            pk=instance_state_id
         )
         creation_data = dict(
             instance_state=InstanceState.objects.get(
                 pk=self.importer.settings["INSTANCE_STATE_MAPPING"][
-                    dossier.Meta.target_state
+                    dossier._meta.target_state
                 ]
             ),
             previous_instance_state=instance_state,
@@ -102,31 +120,52 @@ class KtSchwyzDossierWriter(DossierWriter):
                 group=self.importer.group,
             )
         )
-        ebau_number_serializer = CalumaInstanceSetEbauNumberSerializer(
-            instance=instance
+        ebau_number_prefix = f"IM-{self.importer.group.pk}-{dossier.submit_date.year}"
+        last_seq = (
+            Instance.objects.filter(identifier__startswith=ebau_number_prefix)
+            .order_by("-identifier")
+            .values_list("identifier", flat=True)
         )
-        ebau_number = ebau_number_serializer.validate_ebau_number("")
-        if not ebau_number:
-            raise ValueError(f"Ebau number not valid in dossier import {dossier}")
-        instance.case.meta.update({"ebau-number": ebau_number})
-        instance.case.save()
+        next_seq = int(last_seq[0].split("-")[-1]) + 1 if last_seq else 1
+        ebau_number = f"{ebau_number_prefix}-{next_seq:04}"
+        instance.identifier = ebau_number
+        instance.save()
         return instance
 
     def import_dossier(self, dossier: Dossier):
-        message = {"dossier": dossier.id}
+        message = Message(level=LOG_LEVEL_INFO, message={"dossier": dossier.id})
+
+        if dossier._meta.missing:
+            message.level = LOG_LEVEL_WARNING
+            message.message["action"] = "dossier skipped"
+            message.message[
+                "reason"
+            ] = f"missing values in required fields: {dossier._meta.missing}"
+            self.importer.import_case.messages.append(message.to_dict())
+            return
+        if Instance.objects.filter(
+            fields__name="kantonale-gesuchsnummer", fields__value=dossier.cantonal_id
+        ).first():
+            message.level = LOG_LEVEL_WARNING
+            message.message["action"] = "dossier skipped"
+            message.message[
+                "reason"
+            ] = f"Dossier with `kantonale gesuchsnummer` {dossier.cantonal_id} already exists."
+            return
         instance = self.create_instance(dossier)
-        message["instance_id"] = instance.pk
+        instance.location = self.importer.location
+        instance.save()
+        message.message["instance_id"] = instance.pk
         self.write_fields(instance, dossier)
-        message["import"] = "success"
-        self.importer.import_case.messages.append(message)
+        message.message["import"] = "success"
+        self.importer.import_case.messages.append(message.to_dict())
         self.importer.import_case.save()
         # TODO: implement setting on workflow state on import
-        self._set_workflow_state(instance, dossier.Meta.target_state)
-
-    def _all_required(self, dossier: Dossier):
-        if all(dossier.id, dossier.proposal, dossier.Meta.target_state):
-            return True
-        return False
+        workflow_message = self._set_workflow_state(
+            instance, dossier._meta.target_state
+        )
+        message.level = workflow_message.level
+        message.message["set_workflow_state"] = workflow_message
 
     def _handle_dossier_attachments(self, dossier: Dossier, instance: Instance):
         """Create attachments for dossier.
@@ -163,7 +202,7 @@ class KtSchwyzDossierWriter(DossierWriter):
             )
             attachment_section.attachments.add(attachment)
 
-    def _set_workflow_state(self, instance: Instance, target_state) -> List[dict]:
+    def _set_workflow_state(self, instance: Instance, target_state) -> Message:
         """Advance instance's case through defined workflow sequence to target state.
 
         In order to advance to a specified worklow state after every flow all tasks need to be
@@ -182,7 +221,7 @@ class KtSchwyzDossierWriter(DossierWriter):
         If required this could be extended with the option to handle sibling tasks differently on each stage, such
          as cancelling them instead of skipping.
         """
-        messages = []
+        message = Message(level=LOG_LEVEL_INFO, message="")
 
         # configure workflow state advance path and strategies
         SUBMITTED = ["submit"]
@@ -205,7 +244,12 @@ class KtSchwyzDossierWriter(DossierWriter):
         # In order for a work item to be completed no sibling work items can be
         # in state ready. They have to be dealt with in advance.
         for task_id in path_to_state[target_state]:
-            work_item = instance.case.work_items.get(task_id=task_id)
+            try:
+                work_item = instance.case.work_items.get(task_id=task_id)
+            except ObjectDoesNotExist as e:
+                message.level = LOG_LEVEL_WARNING
+                message.message = f"Skip work item with task_id {task_id} failed with {ConfigurationError(e)}."
+                continue
             if work_item.status in [
                 work_item.STATUS_COMPLETED,
                 work_item.STATUS_SKIPPED,
@@ -214,17 +258,12 @@ class KtSchwyzDossierWriter(DossierWriter):
             try:
                 skip_work_item(work_item, user=caluma_user, context=default_context)
             except Exception as e:
-                messages.append(
-                    {
-                        "set_workflow_state": f"Skip work item with task_id {task_id} failed with {e}."
-                    }
+                message.level = LOG_LEVEL_WARNING
+                message.message = (
+                    f"Skip work item with task_id {task_id} failed with {e}."
                 )
-        messages.append(
-            {
-                "set_workflow_state": f"Advance workflow state to {target_state} successful."
-            }
-        )
-        return messages
+                continue
+        return message
 
 
 class KtSchwyzXlsxDossierImporter(DossierImporter):
@@ -243,7 +282,9 @@ class KtSchwyzXlsxDossierImporter(DossierImporter):
 
     loader_class = XlsxFileDossierLoader
 
-    def initialize(self, group_id: int, path_to_archive: str, *args, **kwargs):
+    def initialize(
+        self, group_id: int, location_id: int, path_to_archive: str, *args, **kwargs
+    ):
         """Initialize the import of a ZIP-Archive of dossiers.
 
         For Camac Dossier import kt_schwyz we require to identify the location/communality the
@@ -263,6 +304,7 @@ class KtSchwyzXlsxDossierImporter(DossierImporter):
         loader = self.get_loader()
         self.loader = loader(dossiers_filepath)
         self.group = Group.objects.get(pk=group_id)
+        self.location = Location.objects.get(pk=location_id)
         self.import_case.service = self.group.service
         self.import_case.save()
 
@@ -275,4 +317,11 @@ class KtSchwyzXlsxDossierImporter(DossierImporter):
     @transaction.atomic
     def import_dossiers(self):
         writer = KtSchwyzDossierWriter(importer=self)
-        writer.import_from_loader(self.loader)
+        try:
+            writer.import_from_loader(self.loader)
+        except InvalidImportDataError as e:
+            self.import_case.messages.append = Message(
+                level=LOG_LEVEL_ERROR,
+                message=f"Import failed because of bad import data: {e}",
+            ).to_dict()
+            raise

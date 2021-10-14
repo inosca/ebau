@@ -1,3 +1,4 @@
+import zipfile
 from dataclasses import fields
 from enum import Enum
 
@@ -33,6 +34,8 @@ class XlsxFileDossierLoader(DossierLoader):
         "completion_date",
         "link",
     ]
+
+    required_fields = ("ID", "STATUS", "PROPOSAL")
 
     class ListField(Enum):
         id = "ID"
@@ -148,13 +151,28 @@ class XlsxFileDossierLoader(DossierLoader):
                 )
             ],
         )
-        dossier.Meta.target_state = dossier_row.get(Dossier.Meta.ListField.status.value)
-        dossier.Meta.workflow = dossier_row.get(Dossier.Meta.ListField.workflow.value)
+        dossier._meta = Dossier.Meta(
+            target_state=dossier_row.get(Dossier.Meta.ListField.status.value),
+            workflow=dossier_row.get(Dossier.Meta.ListField.workflow.value),
+            missing=[],
+        )
+        for field in self.required_fields:
+            if not dossier_row.get(field):
+                dossier._meta.missing.append(field)
         return dossier
 
     def load(self):
-        records = pyexcel.iget_records(file_name=self.path_to_dossiers_file)
+        try:
+            records = pyexcel.iget_records(file_name=self.path_to_dossiers_file)
+        except zipfile.BadZipfile:
+            raise InvalidImportDataError(
+                "Meta data file in archive is corrupt or not a valid .xlsx file."
+            )
         dossiers = []
         for record in records:
             dossiers.append(self._load_dossier(record))
         return dossiers
+
+
+class InvalidImportDataError(Exception):
+    pass
