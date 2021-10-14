@@ -640,7 +640,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
     def _get_publikation_form_permissions_for_support(self, instance):
         return set(["read", "write"])
 
-    def _get_neighborhood_orientation_form_permissions(self, instance):
+    def _get_information_of_neighbors_form_permissions(self, instance):
         return self._get_publikation_form_permissions(instance)
 
     @permission_aware

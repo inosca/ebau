@@ -600,7 +600,7 @@ APPLICATIONS = {
                 "nfd",
                 "dossierpruefung",
                 "publikation",
-                "neighborhood-orientation",
+                "information-of-neighbors",
             ],
             "CIRCULATION_WORKFLOW": "circulation",
             "CIRCULATION_TASK": "circulation",
@@ -695,7 +695,7 @@ APPLICATIONS = {
                         "audit",
                         "publication",
                         "fill-publication",
-                        "neighborhood-orientation",
+                        "information-of-neighbors",
                     ],
                     "cancel": [
                         "reopen-circulation",
@@ -1229,15 +1229,15 @@ APPLICATIONS = {
                 "caluma_form.QuestionOption": Q(question__forms__pk="sb2"),
                 "caluma_form.Option": Q(questions__forms__pk="sb2"),
             },
-            "caluma_neighborhood_orientation_form": {
-                "caluma_form.Form": Q(pk="neighborhood-orientation"),
-                "caluma_form.FormQuestion": Q(form__pk="neighborhood-orientation"),
-                "caluma_form.Question": Q(forms__pk="neighborhood-orientation"),
+            "caluma_information_of_neighbors_form": {
+                "caluma_form.Form": Q(pk="information-of-neighbors"),
+                "caluma_form.FormQuestion": Q(form__pk="information-of-neighbors"),
+                "caluma_form.Question": Q(forms__pk="information-of-neighbors"),
                 "caluma_form.QuestionOption": Q(
-                    question__forms__pk="neighborhood-orientation"
+                    question__forms__pk="information-of-neighbors"
                 ),
                 "caluma_form.Option": Q(
-                    questions__forms__pk="neighborhood-orientation"
+                    questions__forms__pk="information-of-neighbors"
                 ),
             },
         },
@@ -1462,9 +1462,9 @@ APPLICATIONS = {
             ),
             "neighbors": (
                 "table",
-                "neighborhood-orientation-neighbors",
+                "information-of-neighbors-neighbors",
                 {
-                    "document_from_work_item": "neighborhood-orientation",
+                    "document_from_work_item": "information-of-neighbors",
                     "column_mapping": {
                         "last_name": "name-gesuchstellerin",
                         "first_name": "vorname-gesuchstellerin",
