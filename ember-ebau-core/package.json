@@ -30,8 +30,8 @@
     "potentially also related to missing transform-3d support, but details remain unclear"
   ],
   "dependencies": {
-    "@projectcaluma/ember-core": "9.0.1",
-    "@projectcaluma/ember-form": "9.0.2",
+    "@projectcaluma/ember-core": "9.0.3",
+    "@projectcaluma/ember-form": "9.1.1",
     "ember-apollo-client": "3.2.0",
     "ember-auto-import": "2.2.0",
     "ember-cli-babel": "7.26.6",

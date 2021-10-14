@@ -54,8 +54,11 @@ def get_current_service_id(info):
     return info.context.user.group
 
 
-def validate_parameters(valid_parameters, parameters):
-    return all(param in valid_parameters for param in parameters)
+def validate_parameters(valid_parameters, parameters, obj):
+    return all(
+        key in valid_parameters or (hasattr(obj, key) and getattr(obj, key) == value)
+        for key, value in parameters.items()
+    )
 
 
 class CustomPermission(IsAuthenticated):
@@ -119,25 +122,17 @@ class CustomPermission(IsAuthenticated):
             or (
                 is_addressed_to_service(work_item, service)
                 and validate_parameters(
-                    [
-                        "work_item",
-                        "meta",
-                        "assigned_users",
-                    ],
+                    ["work_item", "meta", "assigned_users"],
                     params["input"],
+                    work_item,
                 )
             )
             or (
                 is_controlled_by_service(work_item, service)
                 and validate_parameters(
-                    [
-                        "work_item",
-                        "deadline",
-                        "description",
-                        "meta",
-                        "assigned_users",
-                    ],
+                    ["work_item", "deadline", "description", "meta"],
                     params["input"],
+                    work_item,
                 )
             )
         )
