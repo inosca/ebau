@@ -123,10 +123,20 @@ class KtSchwyzDossierWriter(DossierWriter):
         # TODO: implement setting on workflow state on import
         self._set_workflow_state(instance, dossier.Meta.target_state)
 
+    def _all_required(self, dossier: Dossier):
+        if all(dossier.id, dossier.proposal, dossier.Meta.target_state):
+            return True
+        return False
+
     def _handle_dossier_attachments(self, dossier: Dossier, instance: Instance):
-        """Create attachments for dossier."""
+        """Create attachments for dossier.
+
+        Ignore if archive holds no documents directory
+        """
 
         documents_dir = Path(self.importer.additional_data_source) / str(dossier.id)
+        if not documents_dir.is_dir():
+            return
 
         for document in documents_dir.iterdir():
             path = f"{settings.MEDIA_ROOT}/attachments/files/{instance.pk}"
