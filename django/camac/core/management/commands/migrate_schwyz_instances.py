@@ -239,7 +239,7 @@ class Command(BaseCommand):
                 self.create_work_item_from_task(case, "create-manual-workitems")
                 self.create_work_item_from_task(case, "depreciate-case")
                 self.create_work_item_from_task(case, "publication", instance=instance)
-            elif instance_state in ["stopped", "done", "denied"]:
+            elif instance_state in ["stopped", "done"]:
                 self.create_work_item_from_task(case, "archive-instance")
 
         post_complete_work_item.connect(post_complete_circulation_work_item)
