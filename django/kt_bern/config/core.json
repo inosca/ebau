@@ -42336,6 +42336,16 @@
     }
   },
   {
+    "model": "core.buttont",
+    "pk": 15000000,
+    "fields": {
+      "button": 12000000,
+      "language": "fr",
+      "name": "Rendre la d\u00e9cision",
+      "description": null
+    }
+  },
+  {
     "model": "core.chapter",
     "pk": 1,
     "fields": {
