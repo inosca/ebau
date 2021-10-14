@@ -6,7 +6,7 @@ from django.db import transaction
 
 
 class Command(BaseCommand):
-    help = "Initialize work items for the neighborhood orientation"
+    help = "Initialize work items for the information of neighbors"
 
     def add_arguments(self, parser):
         parser.add_argument("-d", "--dry-run", action="store_true", dest="dry")
@@ -23,7 +23,7 @@ class Command(BaseCommand):
 
     @transaction.atomic
     def initialize_work_items(self):
-        form = Form.objects.get(pk="neighborhood-orientation")
+        form = Form.objects.get(pk="information-of-neighbors")
 
         cases = Case.objects.filter(
             instance__instance_state__name__in=[
@@ -32,7 +32,7 @@ class Command(BaseCommand):
                 "coordination",
                 "rejected",
             ],
-        ).exclude(work_items__task_id="neighborhood-orientation")
+        ).exclude(work_items__task_id="information-of-neighbors")
 
         for i, case in enumerate(cases):
             service = case.instance.responsible_service(filter_type="municipality")
@@ -48,7 +48,7 @@ class Command(BaseCommand):
             WorkItem.objects.create(
                 addressed_groups=[str(service.pk)],
                 controlling_groups=[],
-                task_id="neighborhood-orientation",
+                task_id="information-of-neighbors",
                 document=save_document(form),
                 case=case,
                 status=WorkItem.STATUS_SUSPENDED
