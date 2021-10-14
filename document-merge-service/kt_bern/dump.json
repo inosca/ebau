@@ -188,5 +188,15 @@
       "engine": "docx-template",
       "group": null
     }
+  },
+  {
+    "model": "api.template",
+    "pk": "de-nachbarschaftsorientierung",
+    "fields": {
+      "description": "DE Nachbarschaftsorientierung",
+      "template": "de-nachbarschaftsorientierung.docx",
+      "engine": "docx-template",
+      "group": null
+    }
   }
 ]
