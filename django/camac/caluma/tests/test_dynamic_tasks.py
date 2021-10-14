@@ -1,6 +1,6 @@
 import pytest
-from caluma.caluma_form.models import Form
-from caluma.caluma_workflow.api import skip_work_item, start_case
+from caluma.caluma_form.models import DynamicOption, Form
+from caluma.caluma_workflow.api import complete_work_item, skip_work_item, start_case
 from caluma.caluma_workflow.models import Case, Workflow, WorkItem
 
 from camac.constants.kt_bern import (
@@ -73,6 +73,8 @@ def test_dynamic_task_after_decision(
     decision_type,
     circulation,
     expected_case_status,
+    instance_state_factory,
+    service_factory,
 ):
     docx_decision_factory(
         decision=decision, decision_type=decision_type, instance=instance
@@ -86,15 +88,24 @@ def test_dynamic_task_after_decision(
     instance.case = case
     instance.save()
 
+    instance_state_factory(name="coordination")
+    instance_state_factory(name="finished")
+    instance_state_factory(name="sb1")
+    instance_state_factory(name="evaluated")
+
+    dynamic_option = DynamicOption.objects.create(
+        document=case.document, question_id="gemeinde", slug="1", label="Musterdorf"
+    )
+    case.document.answers.create(question_id="gemeinde", value=dynamic_option.slug)
+    service_factory(pk=1, service_group__name="construction-control")
+
     for task_id in [
         "submit",
         "ebau-number",
-        "init-circulation",
-        "circulation",
-        "start-decision",
+        "skip-circulation",
         "decision",
     ]:
-        skip_work_item(case.work_items.get(task_id=task_id), caluma_admin_user)
+        complete_work_item(case.work_items.get(task_id=task_id), caluma_admin_user)
 
     case.refresh_from_db()
 
