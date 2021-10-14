@@ -55,13 +55,15 @@ class Dossier:
     landowner: Optional[List[Person]] = None
     project_author: Optional[List[Person]] = None
 
+    @dataclass
     class Meta:
         TARGET_STATUS_CHOICES = ["SUBMITTED", "APPROVED", "DONE"]
         WORKFLOW_CHOICES = ["BUILDINGPERMIT", "PRELIMINARY"]
 
         target_state: str
-        workflow: Optional[str]
-        instance: Optional[Instance]
+        workflow: Optional[str] = None
+        instance: Optional[Instance] = None
+        missing: Optional[List] = list
 
         class ListField(Enum):
             id = "ID"
