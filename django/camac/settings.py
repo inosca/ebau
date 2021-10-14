@@ -315,10 +315,12 @@ APPLICATIONS = {
                 },
                 "reopen-circulation": {"cancel": ["make-decision"]},
                 "make-decision": {
+                    "skip": [
+                        "depreciate-case",
+                    ],
                     "cancel": [
                         "reopen-circulation",
-                        "depreciate-case",
-                    ]
+                    ],
                 },
                 "check-statement": {"cancel": ["revise-statement"]},
                 "revise-statement": {"cancel": ["check-statement"]},
