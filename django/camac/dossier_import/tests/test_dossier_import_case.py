@@ -9,15 +9,16 @@ from camac.dossier_import.config.kt_schwyz import KtSchwyzDossierWriter
 TEST_IMPORT_FILE = "tests/data/import-example.zip"
 
 
-@pytest.mark.skip("I failed to set application to the one I want to test.")
-@pytest.mark.parametrize("config,service_id", [("kt_schwyz", 42)])
-def test_import_dossiers_manage_command(
-    db, initialized_dossier_importer, settings, config, service_id
-):
+@pytest.mark.skip(
+    "Failed to overwrite `demo` application config with the one to be tested."
+)
+@pytest.mark.parametrize("config", ["kt_schwyz"])
+def test_import_dossiers_manage_command(db, settings, config, service, user, group):
     out = StringIO()
     call_command(
         "import_dossiers",
-        service_id,
+        user.pk,
+        group.pk,
         TEST_IMPORT_FILE,
         stdout=out,
         stderr=StringIO(),
@@ -26,11 +27,11 @@ def test_import_dossiers_manage_command(
     assert out
 
 
-@pytest.mark.parametrize("config,service_id", [("kt_schwyz", 42)])
+@pytest.mark.parametrize("config,group_id", [("kt_schwyz", 42)])
 def test_create_instance_dossier_import_case(
-    db, initialized_dossier_importer, settings, config, service_id
+    db, initialized_dossier_importer, settings, config, user, group_id
 ):
-    importer = initialized_dossier_importer(config, service_id)
+    importer = initialized_dossier_importer(config, user_id=user.pk, group_id=group_id)
     importer.import_dossiers()
     assert len(importer.import_case.messages) == 2
     assert not Path(f"/app/tmp/dossier_import/{str(importer.import_case.id)}").exists()
@@ -76,12 +77,13 @@ def test_create_instance_dossier_import_case(
 )
 def test_set_workflow_state_sz(
     db,
+    user,
     sz_instance,
     initialized_dossier_importer,
     instance_status,
     expected_work_items_states,
 ):
-    importer = initialized_dossier_importer("kt_schwyz", 42)
+    importer = initialized_dossier_importer("kt_schwyz", user.pk, group_id=1)
     writer = KtSchwyzDossierWriter(importer=importer)
     writer._set_workflow_state(sz_instance, instance_status)
     for task_id, expected_status in expected_work_items_states:
