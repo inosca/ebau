@@ -4,21 +4,31 @@ from django.utils.module_loading import import_string
 
 
 class Command(BaseCommand):
-    help = "Import instances and cases from zip package"
+
+    help = "Import instances and cases from zip package" "" ""
 
     def add_arguments(self, parser):
         parser.add_argument(
+            "user_id",
+            type=int,
+            help="The ID of the user who should perform the import",
+            nargs=1,
+        )
+        parser.add_argument(
             "service_id",
             type=int,
-            help="This identifies the 'Gemeinde' responsible"
-            " for the dossiers about to be imported.",
+            nargs=1,
+            help="The Service ID is required to assign the import to the original entity.",
         )
-        parser.add_argument("path_to_archive", type=str)
+        parser.add_argument("path_to_archive", type=str, nargs=1)
 
     def handle(self, *args, **options):
         importer_cls = import_string(
             settings.APPLICATION["DOSSIER_IMPORT"]["XLSX_IMPORTER_CLASS"]
         )
-        importer = importer_cls()
-        importer.initialize(options["service_id"], options["path_to_archive"])
+        importer = importer_cls(user_id=options["user_id"][0])
+        importer.initialize(options["service_id"][0], options["path_to_archive"][0])
         importer.import_dossiers()
+        self.stdout.write(f"Dossier import finished Ref: {importer.import_case.pk}")
+        for line in importer.import_case.messages:
+            self.stdout.write(str(line))
