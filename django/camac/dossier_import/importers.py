@@ -8,7 +8,7 @@ from django.db import transaction
 from camac.dossier_import.dossier_classes import Dossier
 from camac.dossier_import.loaders import DossierLoader
 from camac.dossier_import.models import DossierImport
-from camac.user.models import Group, User
+from camac.user.models import Group, Location, User
 
 
 class DossierImporter:
@@ -29,6 +29,7 @@ class DossierImporter:
     additional_data_source: Optional[str] = None
     user: Optional[User] = None
     group: Optional[Group] = None
+    location: Optional[Location] = None
 
     def __init__(
         self,
