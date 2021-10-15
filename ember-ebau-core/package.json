@@ -22,8 +22,7 @@
     "lint:js:fix": "eslint . --fix",
     "start": "ember serve",
     "test": "npm-run-all lint test:*",
-    "test:ember": "ember test",
-    "test:ember-compatibility": "ember try:each"
+    "test:ember": "ember test"
   },
   "//": [
     "html2canvas svg rendering of highlights seems to break in v1.0.0-rc7 and upwards",
@@ -76,7 +75,6 @@
     "ember-source": "3.24.5",
     "ember-source-channel-url": "3.0.0",
     "ember-template-lint": "3.7.0",
-    "ember-try": "1.4.0",
     "ember-uikit": "4.0.0",
     "eslint": "7.32.0",
     "eslint-config-prettier": "8.3.0",
