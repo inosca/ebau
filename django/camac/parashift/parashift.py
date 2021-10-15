@@ -161,7 +161,7 @@ class ParashiftImporter:
 
         try:
             return post_process[0](value)
-        except Exception as e:
+        except Exception as e:  # noqa: B902
             raise ParashiftValidationError(
                 f"{parashift_id}: {identifier}: {post_process[1]}",
                 original_exception=e,
@@ -217,7 +217,7 @@ class ParashiftImporter:
                 value = self.overrides.get(record["external-id"], {}).get(
                     identifier
                 ) or self._post_process_value(identifier, value, record["external-id"])
-            except Exception as e:
+            except Exception as e:  # noqa: B902
                 print(e)
                 return None
 

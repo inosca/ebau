@@ -38,7 +38,9 @@ class CamacRequest:
         oidc_user = self.request.user
         self.request.user = self._get_camac_user(oidc_user)
         self.request.auth = (
-            jwt_decode(oidc_user.token, verify=False) if oidc_user.token else None
+            jwt_decode(oidc_user.token, options={"verify_signature": False})
+            if oidc_user.token
+            else None
         )
         camac_group = get_group(self.request)
         self.request.group = camac_group

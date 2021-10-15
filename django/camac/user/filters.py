@@ -85,7 +85,9 @@ class AccessibleInstanceFilter(NumberFilter):
         groups_with_access = list(groups)
 
         view = InstanceView(
-            request=self.parent.request, queryset=Instance.objects.filter(pk=int(value))
+            request=self.parent.request,
+            queryset=Instance.objects.filter(pk=int(value)),
+            action="default",
         )
         return qs.filter(
             pk__in=[g.pk for g in groups_with_access if self._has_permission(view, g)]
