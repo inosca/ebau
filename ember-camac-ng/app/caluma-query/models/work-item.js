@@ -164,15 +164,13 @@ export default class CustomWorkItemModel extends WorkItemModel {
   }
 
   _getDirectLinkFor(configKey) {
-    try {
-      const config = this.shoebox.content.config.directLink;
+    const query = this.shoebox.content.config.directLink[configKey];
 
-      return `/index/redirect-to-instance-resource/instance-id/${this.instanceId}?${config[configKey]}`
-        .replace("{{CIRCULATION_ID}}", this.raw.meta["circulation-id"])
-        .replace("{{ACTIVATION_ID}}", this.raw.meta["activation-id"]);
-    } catch (error) {
-      return null;
-    }
+    return query
+      ? `/index/redirect-to-instance-resource/instance-id/${this.instanceId}?${query}`
+          .replace("{{CIRCULATION_ID}}", this.raw.meta["circulation-id"])
+          .replace("{{ACTIVATION_ID}}", this.raw.meta["activation-id"])
+      : null;
   }
 
   async toggleRead() {
