@@ -24,10 +24,6 @@
     "test": "npm-run-all lint test:*",
     "test:ember": "ember test"
   },
-  "//": [
-    "html2canvas svg rendering of highlights seems to break in v1.0.0-rc7 and upwards",
-    "potentially also related to missing transform-3d support, but details remain unclear"
-  ],
   "dependencies": {
     "@projectcaluma/ember-core": "9.0.3",
     "@projectcaluma/ember-form": "9.1.1",
@@ -40,7 +36,7 @@
     "ember-leaflet": "5.0.0-beta.7",
     "ember-load-initializers": "2.1.2",
     "graphql": "15.6.0",
-    "html2canvas": "1.0.0-rc.6",
+    "html2canvas": "1.3.2",
     "leaflet": "1.7.1",
     "proj4leaflet": "1.0.2"
   },
