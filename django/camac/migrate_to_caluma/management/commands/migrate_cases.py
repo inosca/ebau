@@ -461,7 +461,7 @@ class Command(BaseCommand):
         elif answer.question.type == answer.question.TYPE_DATE:
             try:
                 answer.date = datetime.strptime(new_value, "%d.%m.%Y").date()
-            except Exception:
+            except ValueError:
                 __import__("pdb").set_trace()  # noqa
         else:
             answer.value = new_value
