@@ -978,7 +978,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
                 try:
                     email.send()
                     logger.info(f'Sent email "{email.subject}" to {email.to}')
-                except Exception as e:
+                except Exception as e:  # noqa: B902
                     exceptions.append((e, email))
             connection.close()
 

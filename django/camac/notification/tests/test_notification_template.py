@@ -893,7 +893,7 @@ def test_recipient_type_submitter_list(
 
     try:
         res = serializer._get_recipients_submitter_list(instance)
-    except Exception as exc:
+    except Exception as exc:  # noqa: B902
         has_raised = exc
 
     if not is_portal_form:
