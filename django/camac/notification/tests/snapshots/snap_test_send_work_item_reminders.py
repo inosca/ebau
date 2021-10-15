@@ -18,7 +18,7 @@ snapshots['test_send_work_item_reminders[False-True-False-False-1-False] 1'] = [
         'Erinnerung an Aufgaben',
         '''Guten Tag
 
-Ihre Organisation (Jessica Walker DDS) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
+Ihre Organisation (Jeffrey Zhang) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
 
 - 0 überfällige Aufgaben
 - 1 ungelesene Aufgabe
@@ -27,7 +27,7 @@ Ihre Organisation (Jessica Walker DDS) hat folgende Aufgaben in eBau, welche Auf
 http://camac-ng.local
 ''',
         [
-            'keithchen@ortega.net'
+            'nicolefields@example.com'
         ],
         [
         ]
@@ -39,7 +39,7 @@ snapshots['test_send_work_item_reminders[False-True-False-False-1-True] 1'] = [
         'Erinnerung an Aufgaben / Rappel des tâches',
         '''Guten Tag
 
-Ihre Organisation (Allen Mathis) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
+Ihre Organisation (Jason Dickerson) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
 
 - 0 überfällige Aufgaben
 - 1 ungelesene Aufgabe
@@ -51,7 +51,7 @@ http://camac-ng.local
 
 Bonjour,
 
-Votre organisation (Michaela Zimmerman) a les tâches suivantes dans eBau qui requièrent une attention particulière :
+Votre organisation (Derek Wagner) a les tâches suivantes dans eBau qui requièrent une attention particulière :
 
 - 0 tâches de contrôle en retard
 - 1 tâche de contrôle non lue
@@ -60,7 +60,7 @@ Votre organisation (Michaela Zimmerman) a les tâches suivantes dans eBau qui re
 http://camac-ng.local
 ''',
         [
-            'keithchen@ortega.net'
+            'nicolefields@example.com'
         ],
         [
         ]
@@ -80,7 +80,7 @@ Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
 http://camac-ng.local
 ''',
         [
-            'cmiller@hotmail.com'
+            'fmalone@example.org'
         ],
         [
         ]
@@ -89,7 +89,7 @@ http://camac-ng.local
         'Erinnerung an Aufgaben',
         '''Guten Tag
 
-Ihre Organisation (Jessica Walker DDS) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
+Ihre Organisation (Jeffrey Zhang) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
 
 - 0 überfällige Aufgaben
 - 1 ungelesene Aufgabe
@@ -98,7 +98,7 @@ Ihre Organisation (Jessica Walker DDS) hat folgende Aufgaben in eBau, welche Auf
 http://camac-ng.local
 ''',
         [
-            'keithchen@ortega.net'
+            'nicolefields@example.com'
         ],
         [
         ]
@@ -129,7 +129,7 @@ Vous avez les tâches suivantes dans eBau qui requièrent votre attention :
 http://camac-ng.local
 ''',
         [
-            'cmiller@hotmail.com'
+            'fmalone@example.org'
         ],
         [
         ]
@@ -138,7 +138,7 @@ http://camac-ng.local
         'Erinnerung an Aufgaben / Rappel des tâches',
         '''Guten Tag
 
-Ihre Organisation (Allen Mathis) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
+Ihre Organisation (Jason Dickerson) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
 
 - 0 überfällige Aufgaben
 - 1 ungelesene Aufgabe
@@ -150,7 +150,7 @@ http://camac-ng.local
 
 Bonjour,
 
-Votre organisation (Michaela Zimmerman) a les tâches suivantes dans eBau qui requièrent une attention particulière :
+Votre organisation (Derek Wagner) a les tâches suivantes dans eBau qui requièrent une attention particulière :
 
 - 0 tâches de contrôle en retard
 - 1 tâche de contrôle non lue
@@ -159,7 +159,7 @@ Votre organisation (Michaela Zimmerman) a les tâches suivantes dans eBau qui re
 http://camac-ng.local
 ''',
         [
-            'keithchen@ortega.net'
+            'nicolefields@example.com'
         ],
         [
         ]
@@ -179,7 +179,7 @@ Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
 http://camac-ng.local
 ''',
         [
-            'cmiller@hotmail.com'
+            'fmalone@example.org'
         ],
         [
         ]
@@ -188,7 +188,7 @@ http://camac-ng.local
         'Erinnerung an Aufgaben',
         '''Guten Tag
 
-Ihre Organisation (Jessica Walker DDS) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
+Ihre Organisation (Jeffrey Zhang) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
 
 - 1 überfällige Aufgabe
 - 0 ungelesene Aufgaben
@@ -197,7 +197,7 @@ Ihre Organisation (Jessica Walker DDS) hat folgende Aufgaben in eBau, welche Auf
 http://camac-ng.local
 ''',
         [
-            'keithchen@ortega.net'
+            'nicolefields@example.com'
         ],
         [
         ]
@@ -228,7 +228,7 @@ Vous avez les tâches suivantes dans eBau qui requièrent votre attention :
 http://camac-ng.local
 ''',
         [
-            'cmiller@hotmail.com'
+            'fmalone@example.org'
         ],
         [
         ]
@@ -237,7 +237,7 @@ http://camac-ng.local
         'Erinnerung an Aufgaben / Rappel des tâches',
         '''Guten Tag
 
-Ihre Organisation (Allen Mathis) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
+Ihre Organisation (Jason Dickerson) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
 
 - 1 überfällige Aufgabe
 - 0 ungelesene Aufgaben
@@ -249,7 +249,7 @@ http://camac-ng.local
 
 Bonjour,
 
-Votre organisation (Michaela Zimmerman) a les tâches suivantes dans eBau qui requièrent une attention particulière :
+Votre organisation (Derek Wagner) a les tâches suivantes dans eBau qui requièrent une attention particulière :
 
 - 1 tâche de contrôle en retard
 - 0 tâches de contrôle non lues
@@ -258,7 +258,7 @@ Votre organisation (Michaela Zimmerman) a les tâches suivantes dans eBau qui re
 http://camac-ng.local
 ''',
         [
-            'keithchen@ortega.net'
+            'nicolefields@example.com'
         ],
         [
         ]
@@ -278,7 +278,7 @@ Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
 http://camac-ng.local
 ''',
         [
-            'cmiller@hotmail.com'
+            'fmalone@example.org'
         ],
         [
         ]
@@ -287,7 +287,7 @@ http://camac-ng.local
         'Erinnerung an Aufgaben',
         '''Guten Tag
 
-Ihre Organisation (Jessica Walker DDS) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
+Ihre Organisation (Jeffrey Zhang) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
 
 - 1 überfällige Aufgabe
 - 1 ungelesene Aufgabe
@@ -296,7 +296,7 @@ Ihre Organisation (Jessica Walker DDS) hat folgende Aufgaben in eBau, welche Auf
 http://camac-ng.local
 ''',
         [
-            'keithchen@ortega.net'
+            'nicolefields@example.com'
         ],
         [
         ]
@@ -327,7 +327,7 @@ Vous avez les tâches suivantes dans eBau qui requièrent votre attention :
 http://camac-ng.local
 ''',
         [
-            'cmiller@hotmail.com'
+            'fmalone@example.org'
         ],
         [
         ]
@@ -336,7 +336,7 @@ http://camac-ng.local
         'Erinnerung an Aufgaben / Rappel des tâches',
         '''Guten Tag
 
-Ihre Organisation (Allen Mathis) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
+Ihre Organisation (Jason Dickerson) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
 
 - 1 überfällige Aufgabe
 - 1 ungelesene Aufgabe
@@ -348,7 +348,7 @@ http://camac-ng.local
 
 Bonjour,
 
-Votre organisation (Michaela Zimmerman) a les tâches suivantes dans eBau qui requièrent une attention particulière :
+Votre organisation (Derek Wagner) a les tâches suivantes dans eBau qui requièrent une attention particulière :
 
 - 1 tâche de contrôle en retard
 - 1 tâche de contrôle non lue
@@ -357,7 +357,7 @@ Votre organisation (Michaela Zimmerman) a les tâches suivantes dans eBau qui re
 http://camac-ng.local
 ''',
         [
-            'keithchen@ortega.net'
+            'nicolefields@example.com'
         ],
         [
         ]
@@ -377,7 +377,7 @@ Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
 http://camac-ng.local
 ''',
         [
-            'cmiller@hotmail.com'
+            'fmalone@example.org'
         ],
         [
         ]
@@ -386,7 +386,7 @@ http://camac-ng.local
         'Erinnerung an Aufgaben',
         '''Guten Tag
 
-Ihre Organisation (Jessica Walker DDS) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
+Ihre Organisation (Jeffrey Zhang) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
 
 - 1 überfällige Aufgabe
 - 1 ungelesene Aufgabe
@@ -395,7 +395,7 @@ Ihre Organisation (Jessica Walker DDS) hat folgende Aufgaben in eBau, welche Auf
 http://camac-ng.local
 ''',
         [
-            'keithchen@ortega.net'
+            'nicolefields@example.com'
         ],
         [
         ]
@@ -404,7 +404,7 @@ http://camac-ng.local
         'Erinnerung an Aufgaben',
         '''Guten Tag
 
-Ihre Organisation (Erica Daniels) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
+Ihre Organisation (Maria Fuentes) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
 
 - 0 überfällige Aufgaben
 - 0 ungelesene Aufgaben
@@ -413,7 +413,7 @@ Ihre Organisation (Erica Daniels) hat folgende Aufgaben in eBau, welche Aufmerks
 http://camac-ng.local
 ''',
         [
-            'samantha15@jackson.com'
+            'calebsoto@example.net'
         ],
         [
         ]
@@ -444,7 +444,7 @@ Vous avez les tâches suivantes dans eBau qui requièrent votre attention :
 http://camac-ng.local
 ''',
         [
-            'cmiller@hotmail.com'
+            'fmalone@example.org'
         ],
         [
         ]
@@ -453,7 +453,7 @@ http://camac-ng.local
         'Erinnerung an Aufgaben / Rappel des tâches',
         '''Guten Tag
 
-Ihre Organisation (Allen Mathis) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
+Ihre Organisation (Jason Dickerson) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
 
 - 1 überfällige Aufgabe
 - 1 ungelesene Aufgabe
@@ -465,7 +465,7 @@ http://camac-ng.local
 
 Bonjour,
 
-Votre organisation (Michaela Zimmerman) a les tâches suivantes dans eBau qui requièrent une attention particulière :
+Votre organisation (Derek Wagner) a les tâches suivantes dans eBau qui requièrent une attention particulière :
 
 - 1 tâche de contrôle en retard
 - 1 tâche de contrôle non lue
@@ -474,7 +474,7 @@ Votre organisation (Michaela Zimmerman) a les tâches suivantes dans eBau qui re
 http://camac-ng.local
 ''',
         [
-            'keithchen@ortega.net'
+            'nicolefields@example.com'
         ],
         [
         ]
@@ -483,7 +483,7 @@ http://camac-ng.local
         'Erinnerung an Aufgaben / Rappel des tâches',
         '''Guten Tag
 
-Ihre Organisation (Ryan Davidson) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
+Ihre Organisation (Kayla Ruiz) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
 
 - 0 überfällige Aufgaben
 - 0 ungelesene Aufgaben
@@ -495,7 +495,7 @@ http://camac-ng.local
 
 Bonjour,
 
-Votre organisation (John Conner) a les tâches suivantes dans eBau qui requièrent une attention particulière :
+Votre organisation (Brandi Vargas) a les tâches suivantes dans eBau qui requièrent une attention particulière :
 
 - 0 tâches de contrôle en retard
 - 0 tâches de contrôle non lues
@@ -504,7 +504,7 @@ Votre organisation (John Conner) a les tâches suivantes dans eBau qui requière
 http://camac-ng.local
 ''',
         [
-            'samantha15@jackson.com'
+            'calebsoto@example.net'
         ],
         [
         ]
