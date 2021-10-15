@@ -290,20 +290,11 @@ export default class UrGisComponent extends Component {
     yield this.populateFields.perform(this.parcels);
     yield this.populateTable.perform(this.parcels);
 
-    const container = this._map.target._container.cloneNode(true);
-    document.querySelector("body").appendChild(container);
-    container.style.height = this._map.target._container.clientHeight
-      .toString()
-      .concat("px");
-    container.style.width = this._map.target._container.clientWidth
-      .toString()
-      .concat("px");
-    const zoomPanel = container.querySelector(".leaflet-control-zoom");
-    const leafletLink = container.querySelector(".leaflet-control-attribution");
-    leafletLink.textContent = "";
-    zoomPanel.hidden = true;
+    const container = this._map.target._container;
 
     const canvas = yield html2canvas(container, {
+      ignoreElements: (element) =>
+        element.classList.includes("leaflet-control-container"),
       logging: false,
       useCORS: true,
       x: window.scrollX + container.getBoundingClientRect().left,
@@ -312,7 +303,6 @@ export default class UrGisComponent extends Component {
 
     const image = yield new Promise((resolve) => canvas.toBlob(resolve));
     this.uploadBlob.perform(image);
-    container.remove();
   }
 
   @dropTask
