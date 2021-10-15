@@ -100,12 +100,38 @@
       {{on "submit" (perform this.saveWorkItem)}}
     >
       <fieldset>
-        {{#if (can "edit work-item" this.workItem)}}
-          <legend class="hide-sz">
-            {{t "workItems.actions.edit"}}
-          </legend>
+        <legend class="hide-sz">
+          {{t "workItems.actions.edit"}}
+        </legend>
 
-          <div class="row first">
+        {{#if this.workItem.isAddressedToCurrentService}}
+          <div class="row first" {{did-insert (perform this.fetchUserChoices)}}>
+            <div class="label">
+              <label>
+                {{t "workItems.assignedUser"}}
+                <span class="mandatory">
+                  *
+                </span>
+              </label>
+            </div>
+            <div class="column-2">
+              <PowerSelect
+                @searchEnabled={{true}}
+                @searchField="fullName"
+                @renderInPlace={{true}}
+                @options={{this.userChoices}}
+                @selected={{this.workItem.assignedUser}}
+                @noMatchesMessage={{t "global.noMatch"}}
+                @onChange={{fn (mut this.workItem.assignedUser)}} as |user|
+              >
+                {{user.fullName}}
+              </PowerSelect>
+            </div>
+          </div>
+        {{/if}}
+
+        {{#if (can "edit as creator or controller work-item" this.workItem)}}
+          <div class="row {{unless this.workItem.isAddressedToCurrentService "first"}}">
             <div class="label">
               <label for="description">
                 {{t "workItems.description"}}
@@ -158,31 +184,6 @@
                 />
                 {{t "workItems.notifyDeadline"}}
               </label>
-            </div>
-          </div>
-        {{/if}}
-        {{#if this.workItem.isAddressedToCurrentService}}
-          <div class="row" {{did-insert (perform this.fetchUserChoices)}}>
-            <div class="label">
-              <label>
-                {{t "workItems.assignedUser"}}
-                <span class="mandatory">
-                  *
-                </span>
-              </label>
-            </div>
-            <div class="column-2">
-              <PowerSelect
-                @searchEnabled={{true}}
-                @searchField="fullName"
-                @renderInPlace={{true}}
-                @options={{this.userChoices}}
-                @selected={{this.workItem.assignedUser}}
-                @noMatchesMessage={{t "global.noMatch"}}
-                @onChange={{fn (mut this.workItem.assignedUser)}} as |user|
-              >
-                {{user.fullName}}
-              </PowerSelect>
             </div>
           </div>
         {{/if}}

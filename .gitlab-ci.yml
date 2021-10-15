@@ -161,7 +161,7 @@ test-ember-ebau-core:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
     - sh -c "export CI_COMMIT_REF_SLUG=master; eval $COMPOSE pull --ignore-pull-failures --quiet ember-ebau-core"
     - eval $COMPOSE build ember-ebau-core
-    - eval $COMPOSE run --rm --no-deps ember-ebau-core yarn test:ember-compatibility
+    - eval $COMPOSE run --rm --no-deps ember-ebau-core yarn test:ember
   only:
     refs:
       - master
