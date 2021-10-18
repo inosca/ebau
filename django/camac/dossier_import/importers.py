@@ -1,6 +1,4 @@
-import shutil
 import tempfile
-from pathlib import Path
 from typing import List, Optional
 
 from django.conf import settings
@@ -52,14 +50,10 @@ class DossierImporter:
         self.import_case.save()
         # extend this with your specific requirements
 
-    def clean_up(self):
-        """Remove import case's temp dir."""
-        shutil.rmtree(str(Path(self.temp_dir) / str(self.import_case.id)))
-
     def import_dossiers(self) -> List[dict]:
-        raise NotImplementedError
+        raise NotImplementedError  # pragma: no cover
 
-    def validate_import(self, dossiers: List[Dossier]):
+    def validate_import(self, dossiers: List[Dossier]):  # pragma: no cover
         savepoint = transaction.savepoint()
         self.import_case.messages = self.import_dossiers()
         transaction.savepoint_rollback(savepoint)
