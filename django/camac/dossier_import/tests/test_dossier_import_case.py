@@ -33,9 +33,11 @@ def test_create_instance_dossier_import_case(
 ):
     importer = initialized_dossier_importer(config, user_id=user.pk, group_id=group_id)
     importer.import_dossiers()
+    importer.temp_dir.cleanup()
     assert len(importer.import_case.messages) == 2
-    assert not Path(f"/app/tmp/dossier_import/{str(importer.import_case.id)}").exists()
-    importer.clean_up()
+    assert (
+        Path(importer.temp_dir.name) / str(importer.import_case.id)
+    ).exists() is False
 
 
 @pytest.mark.parametrize(
