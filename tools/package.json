@@ -5,15 +5,23 @@
   "scripts": {
     "test": "tap",
     "link-checker": "node bin/link-checker.js",
-    "extract-be-links": "node bin/extract-be-links.js"
+    "extract-be-links": "node bin/extract-be-links.js",
+    "upload-rsta-templates": "node bin/upload-rsta-templates.js"
   },
   "dependencies": {
-    "csv-writer": "^1.6.0",
-    "markdown-it": "^12.0.4",
-    "node-fetch": "^2.6.1"
+    "chalk": "4.1.2",
+    "csv-writer": "1.6.0",
+    "form-data": "4.0.0",
+    "fs": "0.0.1-security",
+    "glob": "7.2.0",
+    "markdown-it": "12.2.0",
+    "node-fetch": "3.0.0",
+    "slugify": "1.6.1",
+    "uuid": "8.3.2",
+    "yargs": "17.2.1"
   },
   "devDependencies": {
-    "tap": "^15.0.2"
+    "tap": "15.0.10"
   },
   "type": "module"
 }
