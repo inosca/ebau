@@ -460,7 +460,7 @@ APPLICATIONS = {
             "USER": "service-account-camac-admin",
             "GROUP_ID": 3,  # Group with service_id and this role_id is created Instances' group
             "FORM_ID": 29,  # "migriertes-dossier"
-            "ATTACHMENT_SECTION_ID": 2,  # attachmentsection for imported documents
+            "ATTACHMENT_SECTION_ID": 7,  # attachmentsection for imported documents
             "TEMP_DIR": "/tmp/dossier_import/",
         },
         "MASTER_DATA": {
