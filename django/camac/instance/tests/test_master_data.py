@@ -420,7 +420,9 @@ def ur_master_data_case(db, ur_instance, workflow_entry_factory, camac_answer_fa
         [
             {
                 "zugehoerigkeit": "Villa",
-                "stockwerk": "1. OG",
+                "weitere-angaben-zum-stockwerk": "2. OG",
+                "stockwerktyp": "stockwerktyp-obergeschoss",
+                "stockwerknummer": "2",
                 "lage": "Süd",
                 "wohnungsgroesse": "20",
                 "kocheinrichtung": "kocheinrichtung-kochnische-greater-4-m2",
