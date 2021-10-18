@@ -183,7 +183,7 @@ class KtSchwyzDossierWriter(DossierWriter):
         message.message["import"] = "success"
         self.importer.import_case.messages.append(message.to_dict())
         self.importer.import_case.save()
-        # TODO: implement setting on workflow state on import
+        self._handle_dossier_attachments(dossier, instance)
         workflow_message = self._set_workflow_state(
             instance, dossier._meta.target_state
         )
