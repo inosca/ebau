@@ -27,12 +27,26 @@ class Command(BaseCommand):
             help="The location every imported instance is located to.",
         )
         parser.add_argument("path_to_archive", type=str, nargs=1)
+        parser.add_argument(
+            "override_application",
+            type=str,
+            nargs="?",
+            default=settings.APPLICATION_NAME,
+            help="Specify application name if you want to use another configuration than configured in the environment (e.g. when running tests).",
+        )
 
     def handle(self, *args, **options):
         importer_cls = import_string(
-            settings.APPLICATION["DOSSIER_IMPORT"]["XLSX_IMPORTER_CLASS"]
+            settings.APPLICATIONS[options["override_application"]]["DOSSIER_IMPORT"][
+                "XLSX_IMPORTER_CLASS"
+            ]
         )
-        importer = importer_cls(user_id=options["user_id"][0])
+        importer = importer_cls(
+            user_id=options["user_id"][0],
+            import_settings=settings.APPLICATIONS[options["override_application"]][
+                "DOSSIER_IMPORT"
+            ],
+        )
         importer.initialize(
             options["group_id"][0],
             options["location_id"][0],

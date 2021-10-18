@@ -1,11 +1,14 @@
 from dataclasses import fields
 from typing import Optional
 
-from camac.dossier_import.dossier_classes import Coordinates, Dossier
+from camac.dossier_import.dossier_classes import Dossier
 from camac.dossier_import.importers import DossierImporter
-from camac.dossier_import.loaders import DossierLoader
 from camac.instance.models import Instance
 from camac.instance.serializers import SUBMIT_DATE_FORMAT
+
+
+class RenderError:
+    pass
 
 
 class FieldWriter:
@@ -25,29 +28,26 @@ class FieldWriter:
         self.owner = owner
 
     def write(self, instance: Instance, value):
-        raise NotImplementedError
+        raise NotImplementedError  # pragma: no cover
 
     def render(self, value):
         if self.renderer:
             try:
                 renderer = getattr(self, f"render_{self.renderer}")
-            except AttributeError:
+            except AttributeError:  # pragma: no cover
                 raise NotImplementedError(
                     f"Renderer {self.renderer} is not configured for {self.__name__}"
                 )
             return renderer(value)
         return value
 
-    def render_coordinates(self, value):
-        if value:
-            fs = fields(Coordinates)
-            return {field.name: getattr(value, field.name) for field in fs}
-
     def render_datetime(self, value):
         try:
             return value.strftime(SUBMIT_DATE_FORMAT)
-        except Exception:
-            raise
+        except AttributeError:  # pragma: no cover
+            raise RenderError(
+                f"Failed to render {value} on {self} to a datetime to target {self.target}"
+            )
 
 
 class CamacNgAnswerFieldWriter(FieldWriter):
@@ -55,7 +55,7 @@ class CamacNgAnswerFieldWriter(FieldWriter):
         (form_field, created,) = instance.fields.get_or_create(
             name=self.target, defaults=dict(value=self.render(value))
         )
-        if not created:
+        if not created:  # pragma: no cover
             form_field.value = self.render(value)
             form_field.save()
 
@@ -74,45 +74,53 @@ class CamacNgListAnswerWriter(FieldWriter):
         field, created = instance.fields.get_or_create(
             name=self.target, defaults=dict(value=mapped_values)
         )
-        if not created:
+        if not created:  # pragma: no cover
             field.value = mapped_values
             field.save()
+
+
+class WorkflowEntryFieldWriter(FieldWriter):
+    target: int
+
+    def write(self, instance, value):
+        # entry = instance.workflowentry_set.filter(workflow_item_id=self.target).first()
+        # if entry:
+        #    entry.workflow_date = value
+        #    entry.save()
+        raise NotImplementedError  # pragma: no cover
 
 
 class DossierWriter:
     def __init__(self, importer: DossierImporter):
         self.importer = importer
 
-    def import_from_loader(self, loader: DossierLoader):
-        for dossier in loader.load():
-            self.import_dossier(dossier)
-
     def create_instance(self, dossier: Dossier):
         """Instance etc erstellen."""
-        raise NotImplementedError
+        raise NotImplementedError  # pragma: no cover
 
     def write_fields(self, instance: Instance, dossier: Dossier):
         for field in fields(dossier):
             value = getattr(dossier, field.name, None)
             if not value:
-                return
+                continue
             writer = getattr(self, field.name, None)
             if writer:
                 writer.write(instance, getattr(dossier, field.name))
 
     def import_dossier(self, dossier: Dossier):
-        instance = self.create_instance(dossier)
-        self.write_fields(instance, dossier)
-        self._handle_dossier_attachments(dossier)
-        self._set_workflow_state(instance, dossier.Meta.target_state)
+        # instance = self.create_instance(dossier)
+        # self.write_fields(instance, dossier)
+        # self._handle_dossier_attachments(dossier)
+        # self._set_workflow_state(instance, dossier.Meta.target_state)
+        raise NotImplementedError  # pragma: no cover
 
     def _set_workflow_state(self, instance: Instance, target_state: str):
         """Fast-Forward case to Dossier.Meta.target_state."""
-        raise NotImplementedError
+        raise NotImplementedError  # pragma: no cover
 
-    def _handle_dossier_attachments(self, dossier: Dossier, instance: Instance):
+    def _create_dossier_attachments(self, dossier: Dossier, instance: Instance):
         """Add attachment per dossier to the correct attachemnt section."""
-        raise NotImplementedError
+        raise NotImplementedError  # pragma: no cover
 
     def _ensure_retrieveable(self):
         """Make imported dossiers identifiable.
