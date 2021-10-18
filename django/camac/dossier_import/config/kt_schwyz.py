@@ -49,12 +49,19 @@ def handle_pre_skip_work_item_in_import(sender, work_item, user, **kwargs):
 
 
 PERSON_MAPPING = {
+    "company": "firma",
     "last_name": "name",
     "first_name": "vorname",
     "street": "strasse",
     "zip": "plz",
     "town": "ort",
+    "phone": "tel",
+    "email": "email",
 }
+
+PARCEL_MAPPING = {"egrid": "egrid", "number": "number", "municipality": "municipality"}
+
+COORDINATES_MAPPING = {"e": "lat", "n": "lng"}
 
 LOG_LEVEL_DEBUG = 0
 LOG_LEVEL_INFO = 1
@@ -66,7 +73,7 @@ LOG_LEVEL_ERROR = 3
 @dataclass
 class Message:
     level: int
-    message: str
+    message: dict
 
 
 class ConfigurationError(Exception):
@@ -77,9 +84,10 @@ class KtSchwyzDossierWriter(DossierWriter):
     id: str = CamacNgAnswerFieldWriter(target="kommunale-gesuchsnummer")
     proposal = CamacNgAnswerFieldWriter(target="bezeichnung")
     cantonal_id = CamacNgAnswerFieldWriter(target="kantonale-gesuchsnummer")
-    parcel = CamacNgAnswerFieldWriter(target="parzellen")
-    egrid = None
-    coordinates = CamacNgAnswerFieldWriter(target="punkte", renderer="coordinates")
+    parcel = CamacNgListAnswerWriter(target="parzellen", column_mapping=PARCEL_MAPPING)
+    coordinates = CamacNgListAnswerWriter(
+        target="punkte", column_mapping=COORDINATES_MAPPING
+    )
     address = None
     usage = CamacNgAnswerFieldWriter(target="betroffene-nutzungszonen")
     type = CamacNgAnswerFieldWriter(target="verfahrensart-migriertes-dossier")
@@ -165,39 +173,45 @@ class KtSchwyzDossierWriter(DossierWriter):
                 "reason"
             ] = f"missing values in required fields: {dossier._meta.missing}"
             self.importer.import_case.messages.append(message.to_dict())
+            self.importer.import_case.save()
             return
         if Instance.objects.filter(
-            fields__name="kantonale-gesuchsnummer", fields__value=dossier.cantonal_id
+            fields__name="kommunale-gesuchsnummer",
+            fields__value=dossier.id,
+            group_id=self.importer.group.pk,
         ).first():
             message.level = LOG_LEVEL_WARNING
             message.message["action"] = "dossier skipped"
             message.message[
                 "reason"
             ] = f"Dossier with `kantonale gesuchsnummer` {dossier.cantonal_id} already exists."
+            self.importer.import_case.messages.append(message.to_dict())
+            self.importer.import_case.save()
             return
         instance = self.create_instance(dossier)
         instance.location = self.importer.location
         instance.save()
+        instance.case.meta["import-id"] = str(self.importer.import_case.pk)
+        instance.case.save()
         message.message["instance_id"] = instance.pk
         self.write_fields(instance, dossier)
         message.message["import"] = "success"
-        self.importer.import_case.messages.append(message.to_dict())
         self.importer.import_case.save()
-        self._handle_dossier_attachments(dossier, instance)
+        self._create_dossier_attachments(dossier, instance)
         workflow_message = self._set_workflow_state(
             instance, dossier._meta.target_state
         )
         message.level = workflow_message.level
         message.message["set_workflow_state"] = workflow_message
 
-    def _handle_dossier_attachments(self, dossier: Dossier, instance: Instance):
+    def _create_dossier_attachments(self, dossier: Dossier, instance: Instance):
         """Create attachments for dossier.
 
         Ignore if archive holds no documents directory
         """
 
         documents_dir = Path(self.importer.additional_data_source) / str(dossier.id)
-        if not documents_dir.is_dir():
+        if not documents_dir.exists():
             return
 
         for document in documents_dir.iterdir():
@@ -273,22 +287,7 @@ class KtSchwyzDossierWriter(DossierWriter):
                 message.level = LOG_LEVEL_WARNING
                 message.message = f"Skip work item with task_id {task_id} failed with {ConfigurationError(e)}."
                 continue
-            if work_item.status in [
-                work_item.STATUS_COMPLETED,
-                work_item.STATUS_SKIPPED,
-            ]:
-                continue
-            try:
-                skip_work_item(work_item, user=caluma_user, context=default_context)
-            except Exception as e:
-                message.level = LOG_LEVEL_WARNING
-                message.message = (
-                    f"Skip work item with task_id {task_id} failed with {e}."
-                )
-                continue
-        pre_skip_work_item.disconnect(
-            handle_pre_skip_work_item_in_import, sender=pre_skip_work_item
-        )
+            skip_work_item(work_item, user=caluma_user, context=default_context)
         return message
 
 
@@ -341,10 +340,13 @@ class KtSchwyzXlsxDossierImporter(DossierImporter):
     def import_dossiers(self):
         writer = KtSchwyzDossierWriter(importer=self)
         try:
-            writer.import_from_loader(self.loader)
+            for dossier in self.loader.load():
+                writer.import_dossier(dossier)
         except InvalidImportDataError as e:
-            self.import_case.messages.append = Message(
+            message = Message(
                 level=LOG_LEVEL_ERROR,
                 message=f"Import failed because of bad import data: {e}",
             ).to_dict()
+            self.import_case.messages.append(message)
+            self.import_case.save()
             raise

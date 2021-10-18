@@ -7,6 +7,7 @@ import pyexcel
 from camac.dossier_import.dossier_classes import (
     Coordinates,
     Dossier,
+    Parcel,
     Person,
     SiteAddress,
 )
@@ -17,13 +18,18 @@ class DossierLoader:
 
 
 class XlsxFileDossierLoader(DossierLoader):
+    """Define the loader Excel file loader.
+
+    The expected file needs to comply  with the column names
+    and hold the data exactly as defined. This xlsx dossier loader
+    is not generic.
+    """
+
     path_to_dossiers_file: str
     simple_fields = [
         "id",
         "proposal",
         "cantonal_id",
-        "parcel",
-        "egrid",
         "usage",
         "type",
         "submit_date",
@@ -37,7 +43,7 @@ class XlsxFileDossierLoader(DossierLoader):
 
     required_fields = ("ID", "STATUS", "PROPOSAL")
 
-    class ListField(Enum):
+    class Column(Enum):
         id = "ID"
         cantonal_id = "CANTONAL-ID"
         status = "STATUS"
@@ -90,9 +96,6 @@ class XlsxFileDossierLoader(DossierLoader):
     def __init__(self, filepath: str):
         self.path_to_dossiers_file = filepath
 
-    def _get_data_dict(self):
-        pass
-
     def _load_dossier(self, dossier_row: dict) -> Dossier:
         """Read one line and handle each column.
 
@@ -101,19 +104,30 @@ class XlsxFileDossierLoader(DossierLoader):
         """
         dossier = Dossier(
             **{
-                key: dossier_row.get(getattr(Dossier.Meta.ListField, key).value)
+                key: dossier_row.get(getattr(XlsxFileDossierLoader.Column, key).value)
                 for key in self.simple_fields
             },
-            coordinates=Coordinates(
-                n=dossier_row[Dossier.Meta.ListField.coordinate_n.value],
-                e=dossier_row[Dossier.Meta.ListField.coordinate_e.value],
-            ),
+            parcel=[
+                Parcel(
+                    number=dossier_row[Dossier.Meta.ListField.parcel.value],
+                    egrid=dossier_row[Dossier.Meta.ListField.egrid.value],
+                    municipality="",
+                )
+            ],
+            coordinates=[
+                Coordinates(
+                    n=dossier_row[Dossier.Meta.ListField.coordinate_n.value],
+                    e=dossier_row[Dossier.Meta.ListField.coordinate_e.value],
+                )
+            ],
             address=SiteAddress(
                 **{
-                    key: dossier_row.get(
-                        getattr(Dossier.Meta.ListField, f"address_{key}").value
+                    field.name: dossier_row.get(
+                        getattr(
+                            XlsxFileDossierLoader.Column, f"address_{field.name}"
+                        ).value
                     )
-                    for key in SiteAddress.__annotations__.keys()
+                    for field in fields(SiteAddress)
                 }
             ),
             applicant=[
@@ -121,7 +135,7 @@ class XlsxFileDossierLoader(DossierLoader):
                     **{
                         field.name: dossier_row.get(
                             getattr(
-                                Dossier.Meta.ListField, f"applicant_{field.name}"
+                                XlsxFileDossierLoader.Column, f"applicant_{field.name}"
                             ).value
                         )
                         for field in fields(Person)
@@ -131,29 +145,40 @@ class XlsxFileDossierLoader(DossierLoader):
             landowner=[
                 Person(
                     **{
-                        key: dossier_row.get(
-                            getattr(Dossier.Meta.ListField, f"landowner_{key}").value
+                        field.name: dossier_row.get(
+                            getattr(
+                                XlsxFileDossierLoader.Column, f"landowner_{field.name}"
+                            ).value
                         )
-                        for key in Person.__annotations__.keys()
+                        for field in fields(Person)
                     }
                 )
             ],
             project_author=[
                 Person(
                     **{
-                        key: dossier_row.get(
+                        field.name: dossier_row.get(
                             getattr(
-                                Dossier.Meta.ListField, f"projectauthor_{key}"
+                                XlsxFileDossierLoader.Column,
+                                f"projectauthor_{field.name}",
                             ).value
                         )
-                        for key in Person.__annotations__.keys()
+                        for field in fields(Person)
                     }
                 )
             ],
         )
+        # fixes
+        dossier.parcel[0].municipality = dossier.address.city
+        for addr in ["applicant", "landowner", "project_author"]:
+            addr_list = getattr(dossier, addr)
+            addr_list[0].street = ", ".join(
+                [addr_list[0].street, str(addr_list[0].street_number)]
+            )
+            setattr(dossier, addr, addr_list)
         dossier._meta = Dossier.Meta(
-            target_state=dossier_row.get(Dossier.Meta.ListField.status.value),
-            workflow=dossier_row.get(Dossier.Meta.ListField.workflow.value),
+            target_state=dossier_row.get(XlsxFileDossierLoader.Column.status.value),
+            workflow=dossier_row.get(XlsxFileDossierLoader.Column.workflow.value),
             missing=[],
         )
         for field in self.required_fields:
@@ -161,17 +186,48 @@ class XlsxFileDossierLoader(DossierLoader):
                 dossier._meta.missing.append(field)
         return dossier
 
-    def load(self):
+    def load_coordinates(self, dossier_row):
+        out = []
+        nn = dossier_row[XlsxFileDossierLoader.Column.coordinate_n.value]
+        ee = dossier_row[XlsxFileDossierLoader.Column.coordinate_e.value]
+        nn = nn.split(",") if type(nn) == str else [nn]
+        ee = ee.split(",") if type(ee) == str else [ee]
+        for n, e in zip(nn, ee):
+            out.append(
+                Coordinates(
+                    n=int("".join(char for char in str(n) if char.isdigit()) or 0),
+                    e=int("".join(char for char in str(e) if char.isdigit()) or 0),
+                )
+            )
+        return out
+
+    def load_parcels(self, dossier_row):
+        out = []
+        numbers = dossier_row[XlsxFileDossierLoader.Column.parcel.value]
+        egrids = dossier_row[XlsxFileDossierLoader.Column.egrid.value]
         try:
-            records = pyexcel.iget_records(file_name=self.path_to_dossiers_file)
+            numbers = numbers.split(",") if type(numbers) == str else [numbers]
+            egrids = egrids.split(",") if type(egrids) == str else [egrids]
+            municipality = dossier_row[
+                getattr(XlsxFileDossierLoader.Column, "address_city").value
+            ]
+            for number, egrid in zip(numbers, egrids):
+                out.append(
+                    Parcel(number=int(number), egrid=egrid, municipality=municipality)
+                )
+        except ValueError:  # pragma: no cover
+            print(f"Failed to load parcels with numbers {numbers} and egrids {egrids}")
+        return out
+
+    def load(self):
+        records = pyexcel.iget_records(file_name=self.path_to_dossiers_file)
+        try:
+            for record in records:
+                yield self._load_dossier(record)
         except zipfile.BadZipfile:
             raise InvalidImportDataError(
                 "Meta data file in archive is corrupt or not a valid .xlsx file."
             )
-        dossiers = []
-        for record in records:
-            dossiers.append(self._load_dossier(record))
-        return dossiers
 
 
 class InvalidImportDataError(Exception):
