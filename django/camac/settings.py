@@ -2553,7 +2553,3 @@ PARASHIFT_SOURCE_FILES_URI = env.str(
 
 PARASHIFT_TENANT_ID = env.int("PARASHIFT_TENANT_ID", default=1665)
 PARASHIFT_API_KEY = env.str("PARASHIFT_API_KEY", default="ey...")
-
-DOSSIER_IMPORT_TMP_DIR = env.path(
-    "DOSSIER_IMPORT_TMP_DIR", default="/tmp/dossier_import"
-)

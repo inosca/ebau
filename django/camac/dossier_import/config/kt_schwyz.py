@@ -318,15 +318,12 @@ class KtSchwyzXlsxDossierImporter(DossierImporter):
         user_id selects the user doing the import.
         """
         super().initialize()
-        path = Path(self.temp_dir) / str(self.import_case.id)
+        path = Path(self.temp_dir.name) / str(self.import_case.id)
         Path(path).mkdir(parents=True, exist_ok=True)
-        try:
-            with zipfile.ZipFile(path_to_archive, "r") as archive:
-                path = Path(self.temp_dir) / str(self.import_case.id)
-                archive.extractall(path=path)
-                dossiers_filepath = str(path / "dossiers.xlsx")
-        except FileNotFoundError:
-            raise
+        with zipfile.ZipFile(path_to_archive, "r") as archive:
+            path = Path(self.temp_dir.name) / str(self.import_case.id)
+            archive.extractall(path=path)
+            dossiers_filepath = str(path / "dossiers.xlsx")
         loader = self.get_loader()
         self.loader = loader(dossiers_filepath)
         self.group = Group.objects.get(pk=group_id)
@@ -337,7 +334,7 @@ class KtSchwyzXlsxDossierImporter(DossierImporter):
         # The additional data source point to the directory where the documents have been
         # extracted to because they potentially are to big in size for handling them in memory.
         self.additional_data_source = str(
-            Path(self.temp_dir) / str(self.import_case.id)
+            Path(self.temp_dir.name) / str(self.import_case.id)
         )
 
     @transaction.atomic
