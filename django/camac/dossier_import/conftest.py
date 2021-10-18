@@ -29,6 +29,7 @@ def initialized_dossier_importer(
     settings,
     group_factory,
     role,
+    location,
     attachment_section_factory,
 ):
     def wrapper(
@@ -51,7 +52,7 @@ def initialized_dossier_importer(
         importer = importer_cls(
             user_id=user_id, import_settings=application_settings["DOSSIER_IMPORT"]
         )
-        importer.initialize(group_id, path_to_archive)
+        importer.initialize(group_id, location.pk, path_to_archive)
         return importer
 
     return wrapper
