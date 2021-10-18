@@ -8,12 +8,12 @@ module("Unit | Model | history entry", function (hooks) {
     const store = this.owner.lookup("service:store");
     const model = store.createRecord("history-entry", {});
 
-    assert.equal(model.icon, null);
+    assert.strictEqual(model.icon, null);
 
     model.set("historyType", "notification");
-    assert.equal(model.icon, "envelope");
+    assert.strictEqual(model.icon, "envelope");
 
     model.set("historyType", "status-change");
-    assert.equal(model.icon, "check-circle");
+    assert.strictEqual(model.icon, "check-circle");
   });
 });

@@ -143,6 +143,7 @@ gis:
     yes: "Ja"
     no: "Nein"
   info-text-ur: "Um die Adressdaten automatisch zu übernehmen, klicken Sie bitte auf den roten Punkt des betroffenen Gebäudes."
+  oereb: "ÖREB-Kataster:"
 
   notifications:
     min-one: "Sie müssen mindestens eine Parzelle auswählen."
