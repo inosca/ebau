@@ -4,14 +4,19 @@ import zipfile
 from dataclasses import dataclass
 from pathlib import Path
 
+from caluma.caluma_core.events import on
 from caluma.caluma_user.models import BaseUser
+from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.api import skip_work_item
+from caluma.caluma_workflow.events import pre_skip_work_item
+from caluma.caluma_workflow.models import WorkItem
 from dataclasses_json import dataclass_json
 from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
 from django.db import transaction
 from django.utils.timezone import now
 
+from camac.caluma.extensions.events.general import get_caluma_setting
 from camac.document.models import Attachment, AttachmentSection
 from camac.dossier_import.dossier_classes import Dossier
 from camac.dossier_import.importers import DossierImporter
@@ -24,6 +29,24 @@ from camac.dossier_import.writers import (
 from camac.instance.domain_logic import CreateInstanceLogic
 from camac.instance.models import Form, Instance, InstanceState
 from camac.user.models import Group, Location
+
+
+@on(pre_skip_work_item, raise_exception=True)
+@transaction.atomic
+def handle_pre_skip_work_item_in_import(sender, work_item, user, **kwargs):
+    config = get_caluma_setting("PRE_COMPLETE")
+    config.pop("depreciate-case", None)
+    config = config.get(work_item.task_id)
+    # skip side effects in task `make-decision`
+    if config:
+        for action_name, tasks in config.items():
+            action = getattr(workflow_api, f"{action_name}_work_item")
+
+            for item in work_item.case.work_items.filter(
+                task_id__in=tasks, status=WorkItem.STATUS_READY
+            ):
+                action(item, user)
+
 
 PERSON_MAPPING = {
     "last_name": "name",
@@ -263,6 +286,9 @@ class KtSchwyzDossierWriter(DossierWriter):
                     f"Skip work item with task_id {task_id} failed with {e}."
                 )
                 continue
+        pre_skip_work_item.disconnect(
+            handle_pre_skip_work_item_in_import, sender=pre_skip_work_item
+        )
         return message
 
 

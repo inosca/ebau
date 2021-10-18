@@ -61,18 +61,28 @@ def test_create_instance_dossier_import_case(
                 ("publication", "ready"),
                 ("start-circulation", "canceled"),
                 ("skip-circulation", "skipped"),
-                ("depreciate-case", "canceled"),
+                ("depreciate-case", "skipped"),
                 ("reopen-circulation", "canceled"),
                 ("make-decision", "skipped"),
+                ("archive-instance", "ready"),
             ],
         ),  # "Entscheid verfügen"
-        pytest.param(
+        (
             "DONE",
-            [("archive-instance", "skipped")],
-            marks=pytest.mark.skip(
-                "There is something weird in the 'PRE_COMPLETE' config of `make-decision` and `archive-instance`: depreciate-case is cancelled by make-decision which in turn conditions post_complete to not create archive instance. completing or skipping depreciate-case would however cancel each and every work-item"
-            ),
-        ),  # "Dossier archivieren"
+            [
+                ("submit", "skipped"),
+                ("create-manual-workitems", "canceled"),
+                ("reject-form", "canceled"),
+                ("complete-check", "skipped"),
+                ("publication", "ready"),
+                ("start-circulation", "canceled"),
+                ("skip-circulation", "skipped"),
+                ("depreciate-case", "skipped"),
+                ("reopen-circulation", "canceled"),
+                ("make-decision", "skipped"),
+                ("archive-instance", "skipped"),
+            ],
+        ),
     ],
 )
 def test_set_workflow_state_sz(
@@ -83,7 +93,11 @@ def test_set_workflow_state_sz(
     instance_status,
     expected_work_items_states,
 ):
-    importer = initialized_dossier_importer("kt_schwyz", user.pk, group_id=1)
+    importer = initialized_dossier_importer(
+        "kt_schwyz",
+        user.pk,
+        group_id=1,
+    )
     writer = KtSchwyzDossierWriter(importer=importer)
     writer._set_workflow_state(sz_instance, instance_status)
     for task_id, expected_status in expected_work_items_states:
