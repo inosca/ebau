@@ -11,6 +11,6 @@ module("Unit | Model | user", function (hooks) {
       surname: "Muster",
     });
 
-    assert.equal(model.fullName, "Max Muster");
+    assert.strictEqual(model.fullName, "Max Muster");
   });
 });
