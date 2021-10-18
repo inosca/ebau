@@ -27,6 +27,6 @@ module("Unit | Instance Initializer | uikit", function (hooks) {
   test("it works", async function (assert) {
     await this.instance.boot();
 
-    assert.equal(UIkit.container.id, "ember-testing");
+    assert.strictEqual(UIkit.container.id, "ember-testing");
   });
 });

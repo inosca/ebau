@@ -11,10 +11,10 @@ module("Integration | Component | cf-text-textcomponent", function (hooks) {
   setupIntl(hooks);
 
   test("it renders", async function (assert) {
-    this.set("field", { answer: { value: "" } });
+    this.field = { answer: { value: "" } };
 
     await render(hbs`<CfTextTextcomponent  @field={{@field}}/>`);
 
-    assert.equal(this.element.textContent.trim(), "t:global.empty:()");
+    assert.dom(this.element).hasText("t:global.empty:()");
   });
 });
