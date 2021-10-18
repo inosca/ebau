@@ -213,3 +213,21 @@ debug-django: ## start a api container with service ports for debugging
 	@docker-compose stop django
 	@echo "run ./manage.py runserver 0:80 to start debug server"
 	@docker-compose run --user root --use-alias --service-ports django bash
+
+.PHONY: load-be-dump
+load-be-dump: SHELL:=/bin/bash
+load-be-dump:
+	@echo "Enter credentials for https://cloud.adfinis.com:"; \
+	read -p "Username: " user; \
+	read -p "Password: " -s pass; \
+	wget --user=$$user --password=$$pass --quiet https://cloud.adfinis.com/remote.php/webdav/partner/KantonBE/db_dumps/ebau.apps.be.ch/latest.dmp > /dev/null 2>&1
+	@docker cp latest.dmp compose_db_1:/tmp
+	@echo "Importing dump into DB..."
+	@docker-compose restart db > /dev/null 2>&1
+	@docker-compose exec db dropdb -U camac ${APPLICATION}
+	@docker-compose exec db createdb -U camac ${APPLICATION}
+	@docker-compose exec db pg_restore -d ${APPLICATION} -U camac -c --no-privileges --no-owner --if-exists /tmp/latest.dmp
+	@echo "Running migrations and loading new config..."
+	@docker-compose restart > /dev/null 2>&1
+	@make loadconfig > /dev/null 2>&1
+	@rm latest.dmp
