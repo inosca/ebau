@@ -223,6 +223,7 @@ build-kt_schwyz-stage:
   extends: .build-image
   variables:
     KEYCLOAK_URL: https://camac-schwyz.sycloud.ch/auth/realms/ebau/protocol/openid-connect
+    APP_ENV: staging
     APPLICATION: kt_schwyz
     COMPOSE: docker-compose -f compose/kt_schwyz.yml -f compose/kt_schwyz-stage.yml
     CONTAINERS: ember ember-camac-ng django php db
@@ -233,6 +234,7 @@ build-kt_schwyz-production:
   extends: .build-image
   variables:
     KEYCLOAK_URL: https://ebau-sz.ch/auth/realms/ebau/protocol/openid-connect
+    APP_ENV: production
     APPLICATION: kt_schwyz
     # TODO We should make kt_schwyz-prod.yml base on kt_schwyz.yml
     COMPOSE: docker-compose -f compose/kt_schwyz-prod.yml
@@ -244,6 +246,7 @@ build-kt_uri-stage:
   extends: .build-image
   variables:
     KEYCLOAK_HOST: https://camac.ur.sycloud.ch
+    APP_ENV: staging
     APPLICATION: kt_uri
     COMPOSE: docker-compose -f compose/kt_uri.yml -f compose/kt_uri-stage.yml
     CONTAINERS: ember-camac-ng ember-caluma-portal django php db
@@ -254,6 +257,7 @@ build-kt_uri-stage-old:
   extends: .build-image
   variables:
     KEYCLOAK_HOST: https://camac-uri.sycloud.ch
+    APP_ENV: staging
     APPLICATION: kt_uri
     COMPOSE: docker-compose -f compose/kt_uri.yml -f compose/kt_uri-stage.yml
     CONTAINERS: ember-camac-ng ember-caluma-portal django php db
@@ -264,6 +268,7 @@ build-kt_uri-production:
   extends: .build-image
   variables:
     KEYCLOAK_HOST: https://camac.ur.ch
+    APP_ENV: production
     APPLICATION: kt_uri
     COMPOSE: docker-compose -f compose/kt_uri.yml -f compose/kt_uri-prod.yml
     CONTAINERS: ember-camac-ng ember-caluma-portal django php db
@@ -274,6 +279,7 @@ build-kt_bern-tarball:
   # Create a minimal tarball which is deployable by
   # https://github.com/camac-suisse/ansible-role-camac
   variables:
+    APP_ENV: production
     APPLICATION: kt_bern
     COMPOSE: docker-compose -f compose/kt_bern.yml -f compose/kt_bern-prod.yml
     SERVICES: "php ember-caluma-portal ember-camac-ng document-merge-service"
