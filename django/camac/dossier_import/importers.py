@@ -1,4 +1,5 @@
 import shutil
+import tempfile
 from pathlib import Path
 from typing import List, Optional
 
@@ -25,7 +26,6 @@ class DossierImporter:
     """
 
     loader_class: DossierLoader = DossierLoader
-    temp_dir: str = settings.DOSSIER_IMPORT_TMP_DIR
     additional_data_source: Optional[str] = None
     user: Optional[User] = None
     group: Optional[Group] = None
@@ -40,6 +40,7 @@ class DossierImporter:
         self.settings = import_settings
         self.user = user_id and User.objects.get(pk=user_id)
         self.loader = None
+        self.temp_dir = tempfile.TemporaryDirectory()
 
     @classmethod
     def get_loader(cls):
