@@ -35,8 +35,9 @@
   </div>
 </div>
 {{#if this.oerebLinkData.length}}
-  <div class="uk-margin-top uk-background-muted uk-padding-small">
-    <ul class="uk-margin-remove-bottom">
+  <div class="uk-margin-top uk-padding-small uk-box-shadow-small uk-border">
+    {{t "gis.oereb"}}
+    <ul class="uk-margin-remove-bottom uk-margin-small-top">
       {{#each this.oerebLinkData as |data|}}
         <li>
           <a href="https://oerebview.apps.be.ch/#!/d/{{data.egrid}}" target="_blank" rel="noopener noreferrer">{{ t "gis.parcel" }} {{data.parcel}} ({{data.egrid}})</a>
