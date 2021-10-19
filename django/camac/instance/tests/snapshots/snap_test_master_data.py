@@ -336,6 +336,18 @@ snapshots['test_master_data[kt_uri-de-ur_master_data_case-select_related2-prefet
             'name_of_building': 'Villa',
             'number_of_rooms': '20',
             'usage_limitation': 3401
+        },
+        {
+            'area': '72',
+            'floor_number': None,
+            'floor_type': 3100,
+            'has_kitchen_facilities': False,
+            'kitchen_facilities': 'kocheinrichtung-keine-kocheinrichtung',
+            'location_on_floor': 'Nord',
+            'multiple_floors': False,
+            'name_of_building': 'Villa',
+            'number_of_rooms': '10',
+            'usage_limitation': 3402
         }
     ],
     'energy_devices': [
