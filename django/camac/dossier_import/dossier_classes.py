@@ -6,14 +6,14 @@ from camac.instance.models import Instance
 
 @dataclass
 class Coordinates:
-    n: int
-    e: int
+    n: float
+    e: float
 
 
 @dataclass
 class Parcel:
     egrid: str
-    number: List[int]
+    number: int
     municipality: str
 
 
