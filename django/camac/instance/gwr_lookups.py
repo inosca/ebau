@@ -11,7 +11,7 @@ def complete_floor(dwelling):
     if dwelling.get("floor_type") and dwelling.get("floor_number"):
         return dwelling.get("floor_type") + int(dwelling.get("floor_number")) - 1
 
-    return None
+    return None  # pragma: no cover
 
 
 def to_int(string):
