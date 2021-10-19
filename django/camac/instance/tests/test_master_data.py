@@ -420,7 +420,6 @@ def ur_master_data_case(db, ur_instance, workflow_entry_factory, camac_answer_fa
         [
             {
                 "zugehoerigkeit": "Villa",
-                "weitere-angaben-zum-stockwerk": "2. OG",
                 "stockwerktyp": "stockwerktyp-obergeschoss",
                 "stockwerknummer": "2",
                 "lage": "Süd",

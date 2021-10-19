@@ -1949,7 +1949,6 @@ APPLICATIONS = {
                 {
                     "column_mapping": {
                         "name_of_building": "zugehoerigkeit",
-                        "floor": "weitere-angaben-zum-stockwerk",
                         "floor_type": (
                             "stockwerktyp",
                             {

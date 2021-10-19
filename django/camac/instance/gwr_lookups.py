@@ -14,6 +14,10 @@ def complete_floor(dwelling):
     return None
 
 
+def to_int(string):
+    return int(string) if string else None
+
+
 class GwrSerializer(serializers.Serializer):
     def __init__(self, case, *args, **kwargs):
         super().__init__(case, *args, **kwargs)
@@ -205,6 +209,8 @@ class GwrSerializer(serializers.Serializer):
                         "dwellings": [
                             {
                                 "floor": complete_floor(dwelling),
+                                "floorType": dwelling.get("floor_type"),
+                                "floorNumber": to_int(dwelling.get("floor_number")),
                                 "locationOfDwellingOnFloor": dwelling.get(
                                     "location_on_floor"
                                 ),
