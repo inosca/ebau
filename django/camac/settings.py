@@ -1974,7 +1974,22 @@ APPLICATIONS = {
                 {
                     "column_mapping": {
                         "name_of_building": "zugehoerigkeit",
-                        "floor": "stockwerk",
+                        "floor_type": (
+                            "stockwerktyp",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "stockwerktyp-obergeschoss": 3101,
+                                            "stockwerktyp-untergeschoss": 3401,
+                                            "stockwerktyp-parterre": 3100,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                        "floor_number": "stockwerknummer",
                         "location_on_floor": "lage",
                         "number_of_rooms": "wohnungsgroesse",
                         "kitchen_facilities": "kocheinrichtung",
