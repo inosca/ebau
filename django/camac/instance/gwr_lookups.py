@@ -4,6 +4,20 @@ from rest_framework import serializers
 from camac.instance.master_data import MasterData
 
 
+def complete_floor(dwelling):
+    if dwelling.get("floor_type") == 3100:
+        return 3100
+
+    if dwelling.get("floor_type") and dwelling.get("floor_number"):
+        return dwelling.get("floor_type") + int(dwelling.get("floor_number")) - 1
+
+    return None  # pragma: no cover
+
+
+def to_int(string):
+    return int(string) if string else None
+
+
 class GwrSerializer(serializers.Serializer):
     def __init__(self, case, *args, **kwargs):
         super().__init__(case, *args, **kwargs)
@@ -192,18 +206,11 @@ class GwrSerializer(serializers.Serializer):
                         }
                         if plot_data
                         else None,
-                        "coordinates": {
-                            "east": plot_data.get("coordinates_east"),
-                            "north": plot_data.get("coordinates_north"),
-                            "originOfCoordinates": plot_data.get(
-                                "origin_of_coordinates"
-                            ),
-                        }
-                        if plot_data
-                        else None,
                         "dwellings": [
                             {
-                                "floor": dwelling.get("floor"),
+                                "floor": complete_floor(dwelling),
+                                "floorType": dwelling.get("floor_type"),
+                                "floorNumber": to_int(dwelling.get("floor_number")),
                                 "locationOfDwellingOnFloor": dwelling.get(
                                     "location_on_floor"
                                 ),
