@@ -1,10 +1,10 @@
 from dataclasses import fields
-from typing import Optional
+from typing import Any, Optional
 
+from camac.core.models import WorkflowEntry
 from camac.dossier_import.dossier_classes import Dossier
 from camac.dossier_import.importers import DossierImporter
 from camac.instance.models import Instance
-from camac.instance.serializers import SUBMIT_DATE_FORMAT
 
 
 class RenderError:
@@ -13,11 +13,13 @@ class RenderError:
 
 class FieldWriter:
     target: str
-    value = None
+    value: Any = None
+    name: Optional[str] = None
 
     def __init__(
         self,
         target: str,
+        name=None,
         owner=None,
         column_mapping: Optional[dict] = None,
         renderer: Optional[str] = None,
@@ -26,37 +28,23 @@ class FieldWriter:
         self.column_mapping = column_mapping
         self.renderer = renderer
         self.owner = owner
+        self.name = name or target
 
     def write(self, instance: Instance, value):
         raise NotImplementedError  # pragma: no cover
 
     def render(self, value):
-        if self.renderer:
-            try:
-                renderer = getattr(self, f"render_{self.renderer}")
-            except AttributeError:  # pragma: no cover
-                raise NotImplementedError(
-                    f"Renderer {self.renderer} is not configured for {self.__name__}"
-                )
-            return renderer(value)
-        return value
-
-    def render_datetime(self, value):
-        try:
-            return value.strftime(SUBMIT_DATE_FORMAT)
-        except AttributeError:  # pragma: no cover
-            raise RenderError(
-                f"Failed to render {value} on {self} to a datetime to target {self.target}"
-            )
+        raise NotImplementedError  # pragma: no cover
 
 
 class CamacNgAnswerFieldWriter(FieldWriter):
     def write(self, instance, value):
-        (form_field, created,) = instance.fields.get_or_create(
-            name=self.target, defaults=dict(value=self.render(value))
-        )
+        (
+            form_field,
+            created,
+        ) = instance.fields.get_or_create(name=self.target, defaults=dict(value=value))
         if not created:  # pragma: no cover
-            form_field.value = self.render(value)
+            form_field.value = value
             form_field.save()
 
 
@@ -80,14 +68,24 @@ class CamacNgListAnswerWriter(FieldWriter):
 
 
 class WorkflowEntryFieldWriter(FieldWriter):
+    """Writes dates to workflow entries by workflow entry id.
+
+    Make sure to set up application with workflow_items from
+    `core.workflowitem` preferably dumped to application's
+    `core.json` file.
+    """
+
     target: int
 
     def write(self, instance, value):
-        # entry = instance.workflowentry_set.filter(workflow_item_id=self.target).first()
-        # if entry:
-        #    entry.workflow_date = value
-        #    entry.save()
-        raise NotImplementedError  # pragma: no cover
+        entry, created = WorkflowEntry.objects.get_or_create(
+            instance=instance,
+            workflow_item_id=self.target,
+            defaults={"workflow_date": value, "group": instance.group_id},
+        )
+        if not created:  # pragma: no cover
+            entry.workflow_date = value
+            entry.save()
 
 
 class DossierWriter:
@@ -101,7 +99,7 @@ class DossierWriter:
     def write_fields(self, instance: Instance, dossier: Dossier):
         for field in fields(dossier):
             value = getattr(dossier, field.name, None)
-            if not value:
+            if not value:  # pragma: no cover
                 continue
             writer = getattr(self, field.name, None)
             if writer:

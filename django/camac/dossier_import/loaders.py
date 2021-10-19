@@ -107,19 +107,8 @@ class XlsxFileDossierLoader(DossierLoader):
                 key: dossier_row.get(getattr(XlsxFileDossierLoader.Column, key).value)
                 for key in self.simple_fields
             },
-            parcel=[
-                Parcel(
-                    number=dossier_row[Dossier.Meta.ListField.parcel.value],
-                    egrid=dossier_row[Dossier.Meta.ListField.egrid.value],
-                    municipality="",
-                )
-            ],
-            coordinates=[
-                Coordinates(
-                    n=dossier_row[Dossier.Meta.ListField.coordinate_n.value],
-                    e=dossier_row[Dossier.Meta.ListField.coordinate_e.value],
-                )
-            ],
+            parcel=self.load_parcels(dossier_row),
+            coordinates=self.load_coordinates(dossier_row),
             address=SiteAddress(
                 **{
                     field.name: dossier_row.get(
@@ -169,7 +158,6 @@ class XlsxFileDossierLoader(DossierLoader):
             ],
         )
         # fixes
-        dossier.parcel[0].municipality = dossier.address.city
         for addr in ["applicant", "landowner", "project_author"]:
             addr_list = getattr(dossier, addr)
             addr_list[0].street = ", ".join(
