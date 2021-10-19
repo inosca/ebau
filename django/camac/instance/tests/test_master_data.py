@@ -428,7 +428,17 @@ def ur_master_data_case(db, ur_instance, workflow_entry_factory, camac_answer_fa
                 "flaeche-in-m2": "420",
                 "mehrgeschossige-wohnung": "mehrgeschossige-wohnung-ja",
                 "zwg": "zwg-keine",
-            }
+            },
+            {
+                "zugehoerigkeit": "Villa",
+                "stockwerktyp": "stockwerktyp-parterre",
+                "lage": "Nord",
+                "wohnungsgroesse": "10",
+                "kocheinrichtung": "kocheinrichtung-keine-kocheinrichtung",
+                "flaeche-in-m2": "72",
+                "mehrgeschossige-wohnung": "mehrgeschossige-wohnung-nein",
+                "zwg": "zwg-erstwohnung",
+            },
         ],
     )
 
