@@ -46,17 +46,14 @@ snapshots['test_gwr_data_ur 1'] = {
         {
             'building': {
                 'buildingCategory': 1060,
-                'coordinates': {
-                    'east': 2690970.9,
-                    'north': 1192891.9,
-                    'originOfCoordinates': 901
-                },
                 'dateOfConstruction': {
                     'yearMonthDay': '2021-08-05'
                 },
                 'dwellings': [
                     {
-                        'floor': '1. OG',
+                        'floor': 3102,
+                        'floorNumber': 2,
+                        'floorType': 3101,
                         'kitchen': True,
                         'locationOfDwellingOnFloor': 'Süd',
                         'multipleFloor': True,
