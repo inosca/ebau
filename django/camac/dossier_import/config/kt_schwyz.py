@@ -25,6 +25,7 @@ from camac.dossier_import.writers import (
     CamacNgAnswerFieldWriter,
     CamacNgListAnswerWriter,
     DossierWriter,
+    WorkflowEntryFieldWriter,
 )
 from camac.instance.domain_logic import CreateInstanceLogic
 from camac.instance.models import Form, Instance, InstanceState
@@ -91,22 +92,19 @@ class KtSchwyzDossierWriter(DossierWriter):
     address = None
     usage = CamacNgAnswerFieldWriter(target="betroffene-nutzungszonen")
     type = CamacNgAnswerFieldWriter(target="verfahrensart-migriertes-dossier")
-    publication_date = CamacNgAnswerFieldWriter(
-        target="publikationsdatum", renderer="datetime"
+    submit_date = WorkflowEntryFieldWriter(target=10, name="einreichedatum")
+    publication_date = WorkflowEntryFieldWriter(name="publikationsdatum", target=15)
+    construction_start_date = WorkflowEntryFieldWriter(
+        name="datum-baubeginn", target=55
     )
-    construction_start_date = CamacNgAnswerFieldWriter(
-        target="datum-baubeginn", renderer="datetime"
+    profile_approval_date = WorkflowEntryFieldWriter(
+        name="datum-schnurgeruestabnahme", target=56
     )
-    profile_approval_date = CamacNgAnswerFieldWriter(
-        target="datum-schnurgeruestabnahme", renderer="datetime"
+    decision_date = WorkflowEntryFieldWriter(name="tb-datum", target=47)
+    final_approval_date = WorkflowEntryFieldWriter(
+        name="datum-schlussabnahme", target=59
     )
-    decision_date = CamacNgAnswerFieldWriter(target="tb-datum", renderer="datetime")
-    final_approval_date = CamacNgAnswerFieldWriter(
-        target="datum-schlussabnahme", renderer="datetime"
-    )
-    completion_date = CamacNgAnswerFieldWriter(
-        target="datum-bauende", renderer="datetime"
-    )
+    completion_date = WorkflowEntryFieldWriter(name="datum-bauende", target=67)
     link = CamacNgAnswerFieldWriter(target="link")
     custom_1 = CamacNgAnswerFieldWriter(target="freies-textfeld-1")
     custom_2 = CamacNgAnswerFieldWriter(target="freies-textfeld-2")
@@ -203,6 +201,8 @@ class KtSchwyzDossierWriter(DossierWriter):
         )
         message.level = workflow_message.level
         message.message["set_workflow_state"] = workflow_message
+        self.importer.import_case.messages.append(message.to_dict())
+        self.importer.import_case.save()
 
     def _create_dossier_attachments(self, dossier: Dossier, instance: Instance):
         """Create attachments for dossier.

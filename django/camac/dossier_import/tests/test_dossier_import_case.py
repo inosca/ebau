@@ -4,9 +4,11 @@ from pathlib import Path
 import pytest
 from django.conf import settings
 from django.core.management import call_command
+from django.utils.module_loading import import_string
 
 from camac.dossier_import.config.kt_schwyz import KtSchwyzDossierWriter
 from camac.dossier_import.loaders import InvalidImportDataError
+from camac.instance.models import Instance
 
 TEST_IMPORT_FILE = str(
     Path(settings.ROOT_DIR) / "camac/dossier_import/tests/data/import-example.zip"
@@ -32,18 +34,15 @@ def test_import_dossiers_manage_command(
     db,
     settings,
     config,
-    instance_state_factory,
     setup_fixtures_required_by_application_config,
+    make_workflow_items_for_config,
     service,
     user,
     group,
     location,
 ):
+    make_workflow_items_for_config(config)
     setup_fixtures_required_by_application_config(config)
-    # for _, pk in settings.APPLICATIONS[config]["DOSSIER_IMPORT"][
-    #     "INSTANCE_STATE_MAPPING"
-    # ].items():
-    #     instance_state_factory(pk=pk)
     out = StringIO()
     call_command(
         "import_dossiers",
@@ -61,10 +60,10 @@ def test_import_dossiers_manage_command(
 
 @pytest.mark.parametrize("config,group_id", [("kt_schwyz", 42)])
 def test_create_instance_dossier_import_case(
-    db, initialized_dossier_importer, settings, config, user, group_id
+    db, initialized_dossier_importer, mocker, settings, config, user, group_id
 ):
     # The test import file features faulty lines for cov
-    # - 2 lines with good data
+    # - 3 lines with good data (1 without documents directory)
     # - 1 line with missing data
     # - 1 line with duplicate data (gemeinde-id)
     mocker.patch("django.conf.settings.APPLICATION", settings.APPLICATIONS[config])
@@ -76,6 +75,10 @@ def test_create_instance_dossier_import_case(
     assert (
         Path(importer.temp_dir.name) / str(importer.import_case.id)
     ).exists() is False
+    deletion = Instance.objects.filter(
+        **{"case__meta__import-id": str(importer.import_case.pk)}
+    ).delete()
+    assert deletion[1]["instance.Instance"] == 3
 
 
 @pytest.mark.parametrize(
@@ -173,3 +176,41 @@ def test_set_workflow_state_exceptions(
     sz_instance.case.work_items.get(task_id=expected_work_items_states[0]).delete()
     message = writer._set_workflow_state(sz_instance, instance_status)
     assert message.message.startswith("Skip work item with task_id submit failed")
+
+
+@pytest.mark.parametrize(
+    "config,dossier_row_patch",
+    [
+        (
+            "kt_schwyz",
+            {
+                "COORDINATE-N": "2 685 785, 7777777",
+                "COORDINATE-E": "1‘213‘425, 1'213'489",
+            },
+        ),
+    ],
+)
+def test_record_loading(
+    db,
+    mocker,
+    setup_fixtures_required_by_application_config,
+    application_settings,
+    settings,
+    user,
+    dossier_row,
+    config,
+    dossier_row_patch,
+):
+    # this test does no verifcation yet
+    mocker.patch("django.conf.settings.APPLICATION", settings.APPLICATIONS[config])
+    application_settings = settings.APPLICATIONS[config]
+    importer_cls = import_string(
+        application_settings["DOSSIER_IMPORT"]["XLSX_IMPORTER_CLASS"]
+    )
+    importer = importer_cls(
+        user_id=user.pk, import_settings=application_settings["DOSSIER_IMPORT"]
+    )
+    loader_cls = importer.get_loader()
+    loader = loader_cls("mock-mock")
+    dossier_row.update(dossier_row_patch)
+    loader._load_dossier(dossier_row)
