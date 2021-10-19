@@ -46,23 +46,31 @@ snapshots['test_gwr_data_ur 1'] = {
         {
             'building': {
                 'buildingCategory': 1060,
-                'coordinates': {
-                    'east': 2690970.9,
-                    'north': 1192891.9,
-                    'originOfCoordinates': 901
-                },
                 'dateOfConstruction': {
                     'yearMonthDay': '2021-08-05'
                 },
                 'dwellings': [
                     {
-                        'floor': '1. OG',
+                        'floor': 3102,
+                        'floorNumber': 2,
+                        'floorType': 3101,
                         'kitchen': True,
                         'locationOfDwellingOnFloor': 'Süd',
                         'multipleFloor': True,
                         'noOfHabitableRooms': '20',
                         'surfaceAreaOfDwelling': '420',
                         'usageLimitation': 3401
+                    },
+                    {
+                        'floor': 3100,
+                        'floorNumber': None,
+                        'floorType': 3100,
+                        'kitchen': False,
+                        'locationOfDwellingOnFloor': 'Nord',
+                        'multipleFloor': False,
+                        'noOfHabitableRooms': '10',
+                        'surfaceAreaOfDwelling': '72',
+                        'usageLimitation': 3402
                     }
                 ],
                 'nameOfBuilding': 'Villa',
