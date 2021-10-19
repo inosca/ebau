@@ -7,6 +7,7 @@ export default class GwrConfigService extends Service {
   @service shoebox;
 
   gwrAPI = "/housing-stat/regbl/api/ech0216/2";
+  isTestEnvironment = ENV.appEnv !== "production";
 
   get modalContainer() {
     return ENV.APPLICATION.gwr.modalContainer ?? "#ember-camac-ng";
