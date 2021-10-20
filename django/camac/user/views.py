@@ -18,14 +18,14 @@ from camac.user.permissions import permission_aware
 from . import filters, models, serializers
 
 
-class LocationView(PreloadIncludesMixin, MultilangMixin, ReadOnlyModelViewSet):
+class LocationView(MultilangMixin, ReadOnlyModelViewSet):
     swagger_schema = None
     filterset_class = filters.LocationFilterSet
     serializer_class = serializers.LocationSerializer
     queryset = models.Location.objects.all()
 
 
-class UserView(PreloadIncludesMixin, ReadOnlyModelViewSet):
+class UserView(ReadOnlyModelViewSet):
     swagger_schema = None
     filterset_class = filters.UserFilterSet
     serializer_class = serializers.UserSerializer
@@ -49,7 +49,7 @@ class UserView(PreloadIncludesMixin, ReadOnlyModelViewSet):
         return queryset.filter(groups__service=self.request.group.service).distinct()
 
 
-class PublicUserView(PreloadIncludesMixin, ReadOnlyModelViewSet):
+class PublicUserView(ReadOnlyModelViewSet):
     swagger_schema = None
     filterset_class = filters.PublicUserFilterSet
     serializer_class = serializers.PublicUserSerializer
@@ -96,7 +96,7 @@ class ServiceView(MultilangMixin, ModelViewSet):
         return super().get_queryset()
 
 
-class PublicServiceView(MultilangMixin, PreloadIncludesMixin, ReadOnlyModelViewSet):
+class PublicServiceView(MultilangMixin, ReadOnlyModelViewSet):
     filterset_class = filters.PublicServiceFilterSet
     serializer_class = serializers.PublicServiceSerializer
     queryset = models.Service.objects.filter(disabled=False)
@@ -151,7 +151,7 @@ class MeView(
         return super().retrieve(request, *args, **kwargs)
 
 
-class RoleView(MultilangMixin, PreloadIncludesMixin, ReadOnlyModelViewSet):
+class RoleView(MultilangMixin, ReadOnlyModelViewSet):
     swagger_schema = None
     serializer_class = serializers.RoleSerializer
     queryset = models.Role.objects.all()
@@ -161,7 +161,7 @@ class RoleView(MultilangMixin, PreloadIncludesMixin, ReadOnlyModelViewSet):
         return queryset.filter(pk__in=self.request.user.groups.values("role"))
 
 
-class GroupView(MultilangMixin, PreloadIncludesMixin, ReadOnlyModelViewSet):
+class GroupView(MultilangMixin, ReadOnlyModelViewSet):
     filterset_class = filters.GroupFilterSet
     serializer_class = serializers.GroupSerializer
     queryset = models.Group.objects.filter(disabled=False)
@@ -194,7 +194,7 @@ class GroupView(MultilangMixin, PreloadIncludesMixin, ReadOnlyModelViewSet):
         return super().list(request, *args, **kwargs)
 
 
-class PublicGroupView(MultilangMixin, PreloadIncludesMixin, ReadOnlyModelViewSet):
+class PublicGroupView(MultilangMixin, ReadOnlyModelViewSet):
     swagger_schema = None
     group_required = False
     filterset_class = filters.PublicGroupFilterSet
