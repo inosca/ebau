@@ -242,6 +242,15 @@ class PublicationEntryView(ModelViewSet):
             grundstuecknummern.append({"type": "KTN", "nummer": parcel["number"]})
         payload["grundstuecknummern"] = grundstuecknummern
 
+        standort_koordinaten = formFieldQuery.filter(
+            name="standort-koordinaten"
+        ).first()
+        if standort_koordinaten:
+            coordinates = standort_koordinaten.value.split()
+            coordinates_override = [
+                {"lat": coordinates[0], "lng": coordinates[1], "skip_transform": True}
+            ]
+
         koordinaten = []
         transformer = Transformer.from_crs(
             "EPSG:4326",
@@ -250,11 +259,14 @@ class PublicationEntryView(ModelViewSet):
             ),
         )
 
-        for coordSet in formFieldQuery.get(name="punkte").value:
+        for coordSet in coordinates_override or formFieldQuery.get(name="punkte").value:
             if not isinstance(coordSet, list):
                 coordSet = [coordSet]
             for coord in coordSet:
-                lat, lng = transformer.transform(coord["lat"], coord["lng"])
+                lat = coord["lat"]
+                lng = coord["lng"]
+                if not coord["skip_transform"]:
+                    lat, lng = transformer.transform(lat, lng)
                 lat = f"{int(lat)}"
                 lng = f"{int(lng)}"
                 koordinaten.append(
