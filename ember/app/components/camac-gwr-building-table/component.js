@@ -1,50 +1,51 @@
-import Component from "@ember/component";
-import { task } from "ember-concurrency";
+import { action } from "@ember/object";
+import Component from "@glimmer/component";
+import { tracked } from "@glimmer/tracking";
+import { restartableTask, dropTask } from "ember-concurrency-decorators";
 import { v4 } from "uuid";
 
-export default Component.extend({
-  addRow: task(function* () {
+export default class CamacGwrBuildingTableComponent extends Component {
+  @tracked editedRow;
+  @tracked showEdit;
+
+  @action
+  addRow() {
     const row = {
       uuid: v4(),
-      ...this.get("config.columns").reduce(
+      ...this.args.config.columns.reduce(
         (obj, { name }) => ({ ...obj, [name]: "" }),
         {}
       ),
     };
 
-    yield this.setProperties({
-      editedRow: row,
-      showEdit: true,
-    });
-  }).drop(),
+    this.editedRow = row;
+    this.showEdit = true;
+  }
 
-  saveRow: task(function* (row) {
-    yield this.getWithDefault("attrs.on-change", () => {})([
-      ...this.getWithDefault("value", []).filter((r) => r.uuid !== row.uuid),
+  @restartableTask
+  *saveRow(row) {
+    yield (this.args.onChange ?? (() => {}))([
+      ...(this.args.value ?? []).filter((r) => r.uuid !== row.uuid),
       row,
     ]);
 
-    this.setProperties({
-      editedRow: null,
-      showEdit: false,
-    });
-  }).restartable(),
+    this.editedRow = null;
+    this.showEdit = false;
+  }
 
-  editRow: task(function* (row) {
-    yield this.setProperties({
-      editedRow: row,
-      showEdit: true,
-    });
-  }).restartable(),
+  @action
+  editRow(row) {
+    this.editedRow = row;
+    this.showEdit = true;
+  }
 
-  deleteRow: task(function* (row) {
-    yield this.getWithDefault("attrs.on-change", () => {})(
-      this.getWithDefault("value", []).filter((r) => r.uuid !== row.uuid)
+  @dropTask
+  *deleteRow(row) {
+    yield (this.args.onChange ?? (() => {}))(
+      (this.args.value ?? []).filter((r) => r.uuid !== row.uuid)
     );
 
-    this.setProperties({
-      editedRow: null,
-      showEdit: false,
-    });
-  }),
-});
+    this.editedRow = null;
+    this.showEdit = false;
+  }
+}
