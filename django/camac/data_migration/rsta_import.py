@@ -562,7 +562,7 @@ class Import:
 
                 if instance.services.filter(service_id=self.service.pk).exists():
                     return match
-            except Exception:
+            except Instance.DoesNotExist:
                 pass
 
         return utils.assign_ebau_nr(self.instance, self.geschaeft.gJahr)
