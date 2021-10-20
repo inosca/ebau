@@ -18,7 +18,9 @@ module("Integration | Component | camac-gwr-building-table", function (hooks) {
   test("it renders", async function (assert) {
     assert.expect(2);
 
-    await render(hbs`{{camac-gwr-building-table value=value config=config}}`);
+    await render(
+      hbs`<CamacGwrBuildingTable @value={{this.value}} @config={{this.config}} @onChange={{fn (mut this.value)}}/>`
+    );
 
     assert.dom("table").exists();
     assert.dom("tbody > tr > td:first-child").hasText("test");
@@ -28,7 +30,7 @@ module("Integration | Component | camac-gwr-building-table", function (hooks) {
     assert.expect(2);
 
     await render(
-      hbs`{{camac-gwr-building-table value=value config=config on-change=(action (mut value))}}`
+      hbs`<CamacGwrBuildingTable @value={{this.value}} @config={{this.config}} @onChange={{fn (mut this.value)}}/>`
     );
 
     assert.dom("tbody > tr > td:first-child").hasText("test");
@@ -44,7 +46,7 @@ module("Integration | Component | camac-gwr-building-table", function (hooks) {
     assert.expect(2);
 
     await render(
-      hbs`{{camac-gwr-building-table value=value config=config on-change=(action (mut value))}}`
+      hbs`<CamacGwrBuildingTable @value={{this.value}} @config={{this.config}} @onChange={{fn (mut this.value)}}/>`
     );
 
     assert.dom("tbody > tr > td:first-child").hasText("test");
@@ -60,7 +62,7 @@ module("Integration | Component | camac-gwr-building-table", function (hooks) {
     assert.expect(2);
 
     await render(
-      hbs`{{camac-gwr-building-table value=value config=config on-change=(action (mut value))}}`
+      hbs`<CamacGwrBuildingTable @value={{this.value}} @config={{this.config}} @onChange={{fn (mut this.value)}}/>`
     );
 
     assert.dom("tbody > tr").exists({ count: 1 });

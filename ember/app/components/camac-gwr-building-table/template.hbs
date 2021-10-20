@@ -1,4 +1,4 @@
-{{#with config.columns as |columns|}}
+{{#with @config.columns as |columns|}}
   <table
     class="uk-table uk-table-striped uk-margin-remove uk-table-small uk-table-responsive uk-table-middle"
   >
@@ -9,13 +9,13 @@
             {{column.label}}
           </th>
         {{/each}}
-        {{#unless readonly}}
+        {{#unless @readonly}}
           <th></th>
         {{/unless}}
       </tr>
     </thead>
     <tbody>
-      {{#each value as |row|}}
+      {{#each @value as |row|}}
         <tr>
           {{#each columns as |column|}}
             <td>
@@ -29,7 +29,7 @@
                 data-test-edit-row
                 class="uk-icon-button"
                 uk-icon="pencil"
-                {{on "click" (perform this.editRow row)}}
+                {{on "click" (fn this.editRow row)}}
               ></button>
               <button
                 type="button"
@@ -52,11 +52,11 @@
         </tr>
       {{/each}}
     </tbody>
-    {{#unless readonly}}
+    {{#unless @readonly}}
       <tfoot>
         <tr>
           <td colspan={{add (count-keys columns) 1}} class="uk-text-center">
-            <UkButton @size="small" @on-click={{perform this.addRow}}>
+            <UkButton @size="small" @on-click={{fn this.addRow}}>
               <UkIcon @icon="plus"/>
             </UkButton>
           </td>
@@ -67,13 +67,13 @@
 
   {{camac-input-error error}}
 
-  {{#unless readonly}}
+  {{#unless @readonly}}
     <CamacTableModal
       @columns={{columns}}
-      @visible={{showEdit}}
-      @value={{editedRow}}
-      @parentName={{parentName}}
-      @on-save={{perform saveRow}}
+      @visible={{this.showEdit}}
+      @value={{this.editedRow}}
+      @parentName={{@parentName}}
+      @on-save={{perform this.saveRow}}
     />
   {{/unless}}
 {{/with}}
