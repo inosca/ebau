@@ -1883,10 +1883,7 @@
                   "type": "radio",
                   "required": false,
                   "config": {
-                    "options": [
-                      "Ja",
-                      "Nein"
-                    ]
+                    "options": ["Ja", "Nein"]
                   }
                 }
               ]
@@ -1937,7 +1934,6 @@
       "config": {
         "options": ["Ja", "Nein"]
       }
-
     },
     "vorabklaerung-hinweis-1": {
       "label": "Für die Bearbeitung Ihrer Vorabklärung ist es wichtig, dass Sie Ihr geplantes Vorhaben gut beschreiben (z. B. mit Projektbeschrieb, Situationsplan, Skizzen, Visualisierungen, Fotos oder dgl.).<br> Wichtig: Formulieren Sie zusätzlich konkrete Fragen, welche Sie beantwortet haben möchten, damit Sie wissen, wie Sie Ihr Vorhaben weiterplanen können",
@@ -6589,6 +6585,13 @@
     "standort-ort": {
       "restrict": ["municipality", "service", "reader"],
       "label": "Ort",
+      "type": "text",
+      "required": false,
+      "config": {}
+    },
+    "standort-koordinaten": {
+      "restrict": ["municipality", "service", "reader"],
+      "label": "Koordinaten",
       "type": "text",
       "required": false,
       "config": {}
