@@ -209,7 +209,7 @@ class KtSchwyzDossierWriter(DossierWriter):
                 group=self.importer.group,
                 name=document.name,
                 context={},
-                path=str(target_file),
+                path=f"attachments/files/{instance.pk}/{document.name}",
                 size=target_file.stat().st_size,
                 date=now(),
                 mime_type=mime_type,
