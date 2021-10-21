@@ -6,7 +6,7 @@ from pathlib import Path
 
 from caluma.caluma_user.models import BaseUser
 from caluma.caluma_workflow import api as workflow_api
-from caluma.caluma_workflow.api import skip_work_item
+from caluma.caluma_workflow.api import cancel_work_item, skip_work_item
 from caluma.caluma_workflow.models import WorkItem
 from dataclasses_json import dataclass_json
 from django.conf import settings
@@ -281,6 +281,15 @@ class KtSchwyzDossierWriter(DossierWriter):
                     ):
                         action(item, caluma_user)
             skip_work_item(work_item, user=caluma_user, context=default_context)
+            # post complete submit
+            if task_id == "submit":
+                item = work_item.case.work_items.filter(
+                    task_id="reject-form", status=WorkItem.STATUS_READY
+                ).first()
+                item and cancel_work_item(
+                    item, user=caluma_user, context=default_context
+                )
+
         return message
 
 
