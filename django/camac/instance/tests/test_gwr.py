@@ -1,10 +1,11 @@
-import functools
-
 import pytest
 from django.conf import settings
 from django.urls import reverse
 from rest_framework import status
 
+from camac.instance.tests.test_master_data import sz_master_data_case  # noqa
+from camac.instance.tests.test_master_data import sz_master_data_case_gwr  # noqa
+from camac.instance.tests.test_master_data import sz_master_data_case_gwr_v2  # noqa
 from camac.instance.tests.test_master_data import ur_master_data_case  # noqa
 from camac.instance.tests.test_master_data import add_table_answer
 
@@ -73,48 +74,41 @@ def test_gwr_data_ur(
     snapshot.assert_match(response.json())
 
 
-@pytest.mark.parametrize("role__name", ["Municipality"])
-@pytest.mark.parametrize("has_client", [True, False])
-def test_instance_gwr_data_sz(
+def test_instance_gwr_data_sz_gwr(
     admin_client,
     user,
     sz_instance,
     application_settings,
-    form_field_factory,
-    has_client,
+    snapshot,
+    sz_master_data_case_gwr,  # noqa
 ):
     application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_schwyz"][
         "MASTER_DATA"
     ]
-    url = reverse("instance-gwr-data", args=[sz_instance.pk])
 
-    add_field = functools.partial(form_field_factory, instance=sz_instance)
-    add_field(name="bezeichnung", value="Bezeichnung")
-    if has_client:
-        add_field(
-            name="bauherrschaft",
-            value=[
-                {
-                    "name": "Muster",
-                    "vorname": "Hans",
-                    "ort": "Musterhausen",
-                    "plz": 1234,
-                    "strasse": "Musterstrasse",
-                }
-            ],
-        )
+    url = reverse("instance-gwr-data", args=[sz_instance.pk])
 
     response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
-    data = response.json()
-    assert data["constructionProjectDescription"] == "Bezeichnung"
-    assert data["totalCostsOfProject"] is None
 
-    if has_client:
-        assert data["client"]["address"]["town"] == "Musterhausen"
-        assert (
-            data["client"]["identification"]["personIdentification"]["officialName"]
-            == "Muster"
-        )
-    else:
-        assert data["client"] is None
+    snapshot.assert_match(response.json())
+
+
+def test_instance_gwr_data_sz_gwr_v2(
+    admin_client,
+    user,
+    sz_instance,
+    application_settings,
+    snapshot,
+    sz_master_data_case_gwr_v2,  # noqa
+):
+    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_schwyz"][
+        "MASTER_DATA"
+    ]
+
+    url = reverse("instance-gwr-data", args=[sz_instance.pk])
+
+    response = admin_client.get(url)
+    assert response.status_code == status.HTTP_200_OK
+
+    snapshot.assert_match(response.json())
