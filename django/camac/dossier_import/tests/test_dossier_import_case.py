@@ -158,6 +158,7 @@ def test_set_workflow_state_sz(
 def test_set_workflow_state_exceptions(
     db,
     user,
+    mocker,
     sz_instance,
     initialized_dossier_importer,
     instance_status,

@@ -287,6 +287,19 @@ class KtSchwyzDossierWriter(DossierWriter):
                 message.level = LOG_LEVEL_WARNING
                 message.message = f"Skip work item with task_id {task_id} failed with {ConfigurationError(e)}."
                 continue
+            # overwrite side effects for import
+            config = get_caluma_setting("PRE_COMPLETE")
+            # skip side effects in task `make-decision`
+            config and config.pop("depreciate-case", None)
+            config = config and config.get(work_item.task_id)
+            if config:
+                for action_name, tasks in config.items():
+                    action = getattr(workflow_api, f"{action_name}_work_item")
+
+                    for item in work_item.case.work_items.filter(
+                        task_id__in=tasks, status=WorkItem.STATUS_READY
+                    ):
+                        action(item, caluma_user)
             skip_work_item(work_item, user=caluma_user, context=default_context)
         return message
 
@@ -321,7 +334,14 @@ class KtSchwyzXlsxDossierImporter(DossierImporter):
         Path(path).mkdir(parents=True, exist_ok=True)
         with zipfile.ZipFile(path_to_archive, "r") as archive:
             path = Path(self.temp_dir.name) / str(self.import_case.id)
-            archive.extractall(path=path)
+            for fileinfo in archive.infolist():
+                filename = fileinfo.filename
+                if filename.endswith("/"):
+                    attachment_dir = path / filename
+                    attachment_dir.mkdir(parents=True, exist_ok=True)
+                    continue
+                with open(f"{str(path)}/{filename}", "wb") as f:
+                    shutil.copyfileobj(archive.open(fileinfo.filename), f)
             dossiers_filepath = str(path / "dossiers.xlsx")
         loader = self.get_loader()
         self.loader = loader(dossiers_filepath)
