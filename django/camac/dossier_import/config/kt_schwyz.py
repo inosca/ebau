@@ -40,6 +40,8 @@ PERSON_MAPPING = {
     "email": "email",
 }
 
+ADDRESS_MAPPINIG = {"city": "ort", "street": "strasse", "street_nr": "nr"}
+
 PARCEL_MAPPING = {"egrid": "egrid", "number": "number", "municipality": "municipality"}
 
 COORDINATES_MAPPING = {"e": "lat", "n": "lng"}
@@ -69,7 +71,6 @@ class KtSchwyzDossierWriter(DossierWriter):
     coordinates = CamacNgListAnswerWriter(
         target="punkte", column_mapping=COORDINATES_MAPPING
     )
-    address = None
     usage = CamacNgAnswerFieldWriter(target="betroffene-nutzungszonen")
     type = CamacNgAnswerFieldWriter(target="verfahrensart-migriertes-dossier")
     submit_date = WorkflowEntryFieldWriter(target=10, name="einreichedatum")
@@ -88,6 +89,10 @@ class KtSchwyzDossierWriter(DossierWriter):
     link = CamacNgAnswerFieldWriter(target="link")
     custom_1 = CamacNgAnswerFieldWriter(target="freies-textfeld-1")
     custom_2 = CamacNgAnswerFieldWriter(target="freies-textfeld-2")
+    address_location = CamacNgAnswerFieldWriter(
+        target="ortsbezeichnung-des-vorhabens",
+    )
+    address_city = CamacNgAnswerFieldWriter(target="standort-ort")
     applicant = CamacNgListAnswerWriter(
         target="bauherrschaft", column_mapping=PERSON_MAPPING
     )

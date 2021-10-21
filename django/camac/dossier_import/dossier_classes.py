@@ -43,7 +43,8 @@ class Dossier:
     cantonal_id: Optional[str] = None
     parcel: Optional[List[Parcel]] = None
     coordinates: Optional[List[Coordinates]] = None
-    address: Optional[SiteAddress] = None
+    address_location: Optional[str] = None
+    address_city: Optional[str] = None
     usage: Optional[str] = None
     type: Optional[str] = None
     submit_date: Optional[str] = None
