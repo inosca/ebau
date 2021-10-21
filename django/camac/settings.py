@@ -326,6 +326,8 @@ APPLICATIONS = {
                 "check-statement": {"cancel": ["revise-statement"]},
                 "revise-statement": {"cancel": ["check-statement"]},
                 "depreciate-case": {
+                    # CAUTION: When importing dossiers this section is modified in runtime to avoid unwanted
+                    # outcomes when fast-forwarding workflow states of imported cases.
                     "cancel": [
                         "formal-addition",
                         "complete-check",
