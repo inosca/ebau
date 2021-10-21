@@ -91,7 +91,7 @@ def test_create_instance_dossier_import_case(
                 ("create-manual-workitems", "ready"),
                 ("complete-check", "ready"),
                 ("depreciate-case", "ready"),
-                ("reject-form", "ready"),
+                ("reject-form", "canceled"),
             ],
         ),  # "Gesuch einreichen"
         (
