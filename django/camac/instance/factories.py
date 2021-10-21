@@ -42,6 +42,11 @@ class InstanceStateFactory(DjangoModelFactory):
         model = models.InstanceState
 
 
+class InstanceGroupFactory(DjangoModelFactory):
+    class Meta:
+        model = models.InstanceGroup
+
+
 class InstanceFactory(DjangoModelFactory):
     identifier = None
     instance_state = SubFactory(InstanceStateFactory)

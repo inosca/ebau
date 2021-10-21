@@ -82,6 +82,12 @@ class InstanceStateSerializer(MultilingualSerializer, serializers.ModelSerialize
         fields = ("name", "description")
 
 
+class InstanceGroupSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.InstanceGroup
+        fields = ("id",)
+
+
 class FormSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Form
@@ -214,6 +220,7 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         fields = (
             "instance_id",
             "instance_state",
+            "instance_group",
             "identifier",
             "location",
             "form",
