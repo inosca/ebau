@@ -53,7 +53,7 @@ module.exports = function (environment) {
       kt_schwyz: {
         gwr: {
           cantonAbbreviation: "SZ",
-          importModels: ["project"],
+          importModels: ["project", "building", "dwelling"],
         },
 
         allowApplicantManualWorkItem: true,
