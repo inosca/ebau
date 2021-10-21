@@ -5,13 +5,7 @@ from enum import Enum
 import pyexcel
 from pyproj import Transformer
 
-from camac.dossier_import.dossier_classes import (
-    Coordinates,
-    Dossier,
-    Parcel,
-    Person,
-    SiteAddress,
-)
+from camac.dossier_import.dossier_classes import Coordinates, Dossier, Parcel, Person
 
 
 def numbers(string):
@@ -41,6 +35,7 @@ class XlsxFileDossierLoader(DossierLoader):
         "cantonal_id",
         "usage",
         "type",
+        "address_city",
         "submit_date",
         "publication_date",
         "decision_date",
@@ -118,15 +113,19 @@ class XlsxFileDossierLoader(DossierLoader):
             },
             parcel=self.load_parcels(dossier_row),
             coordinates=self.load_coordinates(dossier_row),
-            address=SiteAddress(
-                **{
-                    field.name: dossier_row.get(
-                        getattr(
-                            XlsxFileDossierLoader.Column, f"address_{field.name}"
-                        ).value
-                    )
-                    for field in fields(SiteAddress)
-                }
+            address_location=", ".join(
+                [
+                    str(
+                        dossier_row.get(
+                            XlsxFileDossierLoader.Column.address_street.value
+                        )
+                    ),
+                    str(
+                        dossier_row.get(
+                            XlsxFileDossierLoader.Column.address_street_nr.value
+                        )
+                    ).strip(),
+                ]
             ),
             applicant=[
                 Person(
