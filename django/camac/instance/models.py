@@ -109,6 +109,10 @@ class InstanceStateDescription(models.Model):
         db_table = "INSTANCE_STATE_DESCRIPTION"
 
 
+class InstanceGroup(models.Model):
+    pass
+
+
 @reversion.register()
 class Instance(models.Model):
     """
@@ -156,6 +160,9 @@ class Instance(models.Model):
         blank=True,
         on_delete=models.CASCADE,
         related_name="instance",
+    )
+    instance_group = models.ForeignKey(
+        InstanceGroup, models.CASCADE, related_name="instances", null=True
     )
 
     def _responsible_service_instance_service(self, filter_type=None, **kwargs):

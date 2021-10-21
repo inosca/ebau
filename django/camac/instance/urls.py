@@ -8,6 +8,7 @@ r = SimpleRouter(trailing_slash=False)
 urlpatterns = []
 
 r.register(r"instance-states", views.InstanceStateView, "instance-state")
+r.register(r"instance-groups", views.InstanceGroupView, "instance-group")
 r.register(r"forms", views.FormView, "form")
 r.register(r"instances", views.InstanceView, "instance")
 r.register(r"form-fields", views.FormFieldView, "form-field")
