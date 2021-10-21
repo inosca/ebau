@@ -3,6 +3,7 @@ from dataclasses import fields
 from enum import Enum
 
 import pyexcel
+from pyproj import Transformer
 
 from camac.dossier_import.dossier_classes import (
     Coordinates,
@@ -11,6 +12,14 @@ from camac.dossier_import.dossier_classes import (
     Person,
     SiteAddress,
 )
+
+
+def numbers(string):
+    return int("".join(char for char in str(string) if char.isdigit()) or 0)
+
+
+def transform_coordinates(n, e):
+    return Transformer.from_crs("epsg:2056", "epsg:4326").transform(n, e)
 
 
 class DossierLoader:
@@ -176,17 +185,13 @@ class XlsxFileDossierLoader(DossierLoader):
 
     def load_coordinates(self, dossier_row):
         out = []
-        nn = dossier_row[XlsxFileDossierLoader.Column.coordinate_n.value]
         ee = dossier_row[XlsxFileDossierLoader.Column.coordinate_e.value]
-        nn = nn.split(",") if type(nn) == str else [nn]
+        nn = dossier_row[XlsxFileDossierLoader.Column.coordinate_n.value]
         ee = ee.split(",") if type(ee) == str else [ee]
-        for n, e in zip(nn, ee):
-            out.append(
-                Coordinates(
-                    n=int("".join(char for char in str(n) if char.isdigit()) or 0),
-                    e=int("".join(char for char in str(e) if char.isdigit()) or 0),
-                )
-            )
+        nn = nn.split(",") if type(nn) == str else [nn]
+        for e, n in zip(ee, nn):
+            e, n = transform_coordinates(numbers(e), numbers(n))
+            out.append(Coordinates(e=e, n=n))
         return out
 
     def load_parcels(self, dossier_row):
