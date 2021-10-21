@@ -102,6 +102,8 @@ def test_master_data_parsers(
     db,
     application_settings,
     snapshot,
+    form_field_factory,
+    instance,
 ):
     application_settings["MASTER_DATA"] = {
         "date": ("case_meta", "my-date", {"value_parser": "date"}),
@@ -128,15 +130,67 @@ def test_master_data_parsers(
                 )
             },
         ),
+        "default_value": ("default", "some-default"),
+        "my_values": (
+            "ng_table",
+            ["values-v1", "values-v2"],
+            {
+                "column_mapping": {
+                    "my_default_value": ("default", 3.14),
+                    "my_value": "value-single",
+                    "my_list": (
+                        "list-values",
+                        {
+                            "value_parser": (
+                                "list_mapping",
+                                {
+                                    "mapping": {
+                                        "my_list_value": "value-list",
+                                    }
+                                },
+                            )
+                        },
+                    ),
+                }
+            },
+        ),
     }
 
     case = caluma_workflow_factories.CaseFactory(
-        meta={"my-date": "2021-08-18", "my-datetime": "2021-08-18T06:58:08.397Z"}
+        meta={"my-date": "2021-08-18", "my-datetime": "2021-08-18T06:58:08.397Z"},
+        instance=instance,
     )
 
     add_answer(case.document, "my-success", "my-success-yes")
     add_answer(
         case.document, "multiple-choice", ["multiple-choice-yes", "multiple-choice-no"]
+    )
+
+    form_field_factory(
+        instance=instance,
+        name="values-v1",
+        value=[
+            {
+                "value-single": 0,
+                "list-values": [
+                    {"value-list": 1},
+                    {"value-list": 2},
+                ],
+            }
+        ],
+    )
+    form_field_factory(
+        instance=instance,
+        name="values-v2",
+        value=[
+            {
+                "value-single": 10,
+                "list-values": [
+                    {"value-list": 11},
+                    {"value-list": 12},
+                ],
+            }
+        ],
     )
 
     master_data = MasterData(case)
@@ -418,7 +472,7 @@ def ur_master_data_case(db, ur_instance, workflow_entry_factory, camac_answer_fa
 
     # Type of applicant
     camac_answer_factory(
-        answer=6161,
+        answer=6141,
         question__question_id=267,
         instance=ur_instance,
     )
@@ -484,6 +538,82 @@ def ur_master_data_case(db, ur_instance, workflow_entry_factory, camac_answer_fa
 
 
 @pytest.fixture
+def sz_master_data_case_gwr(sz_master_data_case, form_field_factory):
+    sz_instance = sz_master_data_case.instance
+
+    # GWR Form
+    form_field_factory(
+        instance=sz_instance,
+        name="gwr",
+        value=[
+            {
+                "kategorie": "Gebäude ohne Wohnnutzung",
+                "heizungsart": "Einzelofenheizung",
+                "energietrager-heizung": "Holz",
+                "energietrager-warmwasser": "Elektrizität",
+                "geschosse": 2,
+                "wohnungen": [
+                    {
+                        "stockwerk": "1. OG",
+                        "maisonette": "Ja",
+                        "lage": "Nord",
+                        "zimmer": 4,
+                        "flache": 42,
+                        "kuchenart": "Kochnische (unter 4m²)",
+                    }
+                ],
+            }
+        ],
+    )
+
+    return sz_instance.case
+
+
+@pytest.fixture
+def sz_master_data_case_gwr_v2(sz_master_data_case, form_field_factory):
+    sz_instance = sz_master_data_case.instance
+
+    # GWR Form v2
+    form_field_factory(
+        instance=sz_instance,
+        name="gwr-v2",
+        value=[
+            {
+                "gebaeudebezeichnung": "Grosses Haus",
+                "kategorie": "Gebäude mit ausschliesslicher Wohnnutzung",
+                "zivilschutzraum": "Ja",
+                "heizungsart": "Wärmepumpe für mehrere Gebäude",
+                "energietrager-heizung": "Erdwärme (generisch)",
+                "waermeerzeuger-warmwasser": "Zentraler Elektroboiler",
+                "energietrager-warmwasser": "Sonne (thermisch)",
+                "geschosse": 4,
+                "wohnraeume": 24,
+                "wohnungen": [
+                    {
+                        "stockwerk": "Parterre",
+                        "maisonette": "Nein",
+                        "lage": "West",
+                        "zimmer": 2,
+                        "flache": 70,
+                        "kocheinrichtung": "Ja",
+                    },
+                    {
+                        "stockwerk": "2. UG",
+                        "maisonette": "Nein",
+                        "lage": "Ost",
+                        "zimmer": 3,
+                        "flache": 24,
+                        "kocheinrichtung": "Nein",
+                    },
+                ],
+            }
+        ],
+    )
+
+    return sz_instance.case
+
+
+@pytest.fixture
 def sz_master_data_case(db, sz_instance, form_field_factory, workflow_entry_factory):
     # Simple data
     form_field_factory(instance=sz_instance, name="bezeichnung", value="Grosses Haus")
@@ -495,20 +625,44 @@ def sz_master_data_case(db, sz_instance, form_field_factory, workflow_entry_fact
         name="bauherrschaft",
         value=[
             {
+                "anrede": "Herr",
                 "vorname": "Max",
                 "name": "Mustermann",
-                "strasse": "Teststrasse",
+                "firma": "ACME AG",
+                "strasse": "Teststrasse 2",
                 "plz": 1233,
                 "ort": "Musterdorf",
             }
         ],
     )
 
-    # Submit date
-    workflow_entry_factory(
+    # Applicant override (Vollständigkeitsprüfung)
+    form_field_factory(
         instance=sz_instance,
-        workflow_date="2021-07-16 08:00:06+00",
-        workflow_item__pk=10,
+        name="bauherrschaft-override",
+        value=[
+            {
+                "anrede": "Herr",
+                "vorname": "Max",
+                "name": "Mustermann",
+                "firma": "ACME AG",
+                "strasse": "Teststrasse 3",
+                "plz": 5678,
+                "ort": "Musterdorf",
+            }
+        ],
+    )
+
+    # Plot data
+    form_field_factory(
+        instance=sz_instance,
+        name="parzellen",
+        value=[
+            {
+                "number": 1234,
+                "egrid": "CH1234567890",
+            }
+        ],
     )
 
     return sz_instance.case
@@ -585,7 +739,18 @@ def sz_master_data_case(db, sz_instance, form_field_factory, workflow_entry_fact
         (
             "kt_schwyz",
             "de",
-            pytest.lazy_fixture("sz_master_data_case"),
+            pytest.lazy_fixture("sz_master_data_case_gwr"),
+            ["instance"],
+            ["instance__fields", "instance__workflowentry_set"],
+            # 1. Query for fetching case
+            # 2. Query for prefetching fields
+            # 3. Query for prefetching workflow entries
+            3,
+        ),
+        (
+            "kt_schwyz",
+            "de",
+            pytest.lazy_fixture("sz_master_data_case_gwr_v2"),
             ["instance"],
             ["instance__fields", "instance__workflowentry_set"],
             # 1. Query for fetching case
