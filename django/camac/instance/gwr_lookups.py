@@ -3,10 +3,15 @@ from rest_framework import serializers
 
 from camac.instance.master_data import MasterData
 
+KIND_OF_WORK_NEW = 6001
+FLOOR_GROUND_FLOOR = 3100
+COUNTRY_SWITZERLAND = "Schweiz"
+TYPE_OF_CLIENT_PERSON = 6161
+
 
 def complete_floor(dwelling):
-    if dwelling.get("floor_type") == 3100:
-        return 3100
+    if dwelling.get("floor_type") == FLOOR_GROUND_FLOOR:
+        return FLOOR_GROUND_FLOOR
 
     if dwelling.get("floor_type") and dwelling.get("floor_number"):
         return dwelling.get("floor_type") + int(dwelling.get("floor_number")) - 1
@@ -16,6 +21,27 @@ def complete_floor(dwelling):
 
 def to_int(string):
     return int(string) if string else None
+
+
+def get_kind_of_work(building):
+    building_proposal = building.get("proposal")
+    return (
+        building_proposal[0] if building_proposal and len(building_proposal) else None
+    )
+
+
+def dwelling_data(dwelling):
+    return {
+        "floor": complete_floor(dwelling),
+        "floorType": dwelling.get("floor_type"),
+        "floorNumber": to_int(dwelling.get("floor_number")),
+        "locationOfDwellingOnFloor": dwelling.get("location_on_floor"),
+        "noOfHabitableRooms": dwelling.get("number_of_rooms"),
+        "kitchen": dwelling.get("has_kitchen_facilities"),
+        "surfaceAreaOfDwelling": dwelling.get("area"),
+        "multipleFloor": dwelling.get("multiple_floors"),
+        "usageLimitation": dwelling.get("usage_limitation"),
+    }
 
 
 class GwrSerializer(serializers.Serializer):
@@ -46,7 +72,7 @@ class GwrSerializer(serializers.Serializer):
         applicants = self.master_data.applicants
 
         if not applicants or not len(applicants):
-            return None
+            return None  # pragma: no cover
 
         applicant = applicants[0]
 
@@ -56,7 +82,11 @@ class GwrSerializer(serializers.Serializer):
                 "swissZipCode": applicant.get("zip"),
                 "street": applicant.get("street"),
                 "houseNumber": applicant.get("street_number"),
-                "country": applicant.get("country"),
+                "country": {
+                    "countryNameShort": "ch"
+                    if applicant.get("country") == COUNTRY_SWITZERLAND
+                    else None,
+                },
             },
             "identification": {
                 "personIdentification": {
@@ -109,19 +139,22 @@ class GwrSerializer(serializers.Serializer):
         return self.master_data.construction_costs
 
     def get_realestateIdentification(self, case):
-        # TODO Configure this for SZ
         try:
             plot_data = self.master_data.plot_data[0]
             return {
                 "number": plot_data.get("plot_number"),
                 "EGRID": plot_data.get("egrid_number"),
             }
-        except (AttributeError, IndexError):  # pragma: no cover
+        except IndexError:  # pragma: no cover
             return None
 
     def get_projectAnnouncementDate(self, case):
-        submit_date = self.master_data.submit_date
-        return submit_date.date().isoformat() if submit_date else None
+        # TODO Configure this for SZ
+        try:
+            submit_date = self.master_data.submit_date
+            return submit_date.date().isoformat() if submit_date else None
+        except AttributeError:  # pragma: no cover
+            return None
 
     def get_buildingPermitIssueDate(self, case):
         # TODO Configure this for BE and SZ
@@ -148,45 +181,94 @@ class GwrSerializer(serializers.Serializer):
             return None
 
     def get_energy_device(self, building, is_heating, is_main_heating):
-        heating_type = "is_heating" if is_heating else "is_warm_water"
-        building_name = building.get("name")
-        return next(
-            (
-                {
-                    "energySourceHeating": device.get("energy_source"),
-                    "informationSourceHeating": device.get("information_source"),
-                    "revisionDate": timezone.now().date(),
-                }
-                for device in self.master_data.energy_devices
-                if device.get(heating_type)
-                and device.get("name_of_building") == building_name
-                and device.get("is_main_heating") == is_main_heating
-            ),
-            None,
+
+        canton = self.master_data.canton
+
+        if canton == "SZ" and is_main_heating:
+            heat_generator = (
+                building.get("heating_heat_generator")
+                if is_heating
+                else building.get("warmwater_heat_generator")
+            )
+            energy_source = (
+                building.get("heating_energy_source")
+                if is_heating
+                else building.get("warmwater_energy_source")
+            )
+
+            heat_generator_key = "heatGenerator" + (
+                "Heating" if is_heating else "HotWater"
+            )
+            return {
+                heat_generator_key: heat_generator,
+                "energySourceHeating": energy_source,
+            }
+
+        if canton == "UR":
+            heating_type = "is_heating" if is_heating else "is_warm_water"
+            building_name = building.get("name")
+            return next(
+                (
+                    {
+                        "energySourceHeating": device.get("energy_source"),
+                        "informationSourceHeating": device.get("information_source"),
+                        "revisionDate": timezone.now().date(),
+                    }
+                    for device in self.master_data.energy_devices
+                    if device.get(heating_type)
+                    and device.get("name_of_building") == building_name
+                    and device.get("is_main_heating") == is_main_heating
+                ),
+                None,
+            )
+
+        return None
+
+    def get_dwellings(self, building):
+
+        canton = self.master_data.canton
+
+        if canton == "SZ":
+            dwellings = building.get("dwellings") if building.get("dwellings") else []
+            return [dwelling_data(dwelling) for dwelling in dwellings]
+
+        if canton == "UR":
+            return [
+                dwelling_data(dwelling)
+                for dwelling in self.master_data.dwellings
+                if dwelling.get("name_of_building") == building.get("name")
+            ]
+
+        return []  # pragma: no cover
+
+    def get_construction_date(self, building):
+        construction_date = self.master_data.construction_end_date
+        proposal = building.get("proposal")
+
+        return (
+            {"yearMonthDay": construction_date.date().isoformat()}
+            if proposal and KIND_OF_WORK_NEW in proposal and construction_date
+            else None
         )
 
     def get_work(self, case):
-        # TODO Configure this for BE and SZ
+        # TODO Configure this for BE
         try:
             buildings = self.master_data.buildings
-            dwellings = self.master_data.dwellings
-
-            plot_data = self.master_data.plot_data
-            plot_data = plot_data[0] if len(plot_data) else None
-            construction_end_date = self.master_data.construction_end_date
 
             return [
                 {
-                    "kindOfWork": building["proposal"][0]
-                    if building["proposal"] and len(building["proposal"])
-                    else None,
+                    "kindOfWork": get_kind_of_work(building),
                     "building": {
                         "nameOfBuilding": building.get("name"),
                         "buildingCategory": building.get("building_category"),
-                        "dateOfConstruction": {
-                            "yearMonthDay": construction_end_date.date().isoformat()
-                        }
-                        if 6001 in building.get("proposal") and construction_end_date
+                        "civilDefenseShelter": building.get("civil_defense_shelter"),
+                        "numberOfFloors": building.get("number_of_floors"),
+                        "numberOfSeparateHabitableRooms": building.get(
+                            "number_of_rooms"
+                        ),
+                        "dateOfConstruction": self.get_construction_date(building)
+                        if self.master_data.canton == "UR"
                         else None,
                         "thermotechnicalDeviceForHeating1": self.get_energy_device(
                             building, is_heating=True, is_main_heating=True
@@ -200,29 +282,12 @@ class GwrSerializer(serializers.Serializer):
                         "thermotechnicalDeviceForWarmWater2": self.get_energy_device(
                             building, is_heating=False, is_main_heating=False
                         ),
-                        "realestateIdentification": {
-                            "number": plot_data.get("plot_number"),
-                            "EGRID": plot_data.get("egrid_number"),
-                        }
-                        if plot_data
+                        "realestateIdentification": self.get_realestateIdentification(
+                            case
+                        )
+                        if self.master_data.canton == "UR"
                         else None,
-                        "dwellings": [
-                            {
-                                "floor": complete_floor(dwelling),
-                                "floorType": dwelling.get("floor_type"),
-                                "floorNumber": to_int(dwelling.get("floor_number")),
-                                "locationOfDwellingOnFloor": dwelling.get(
-                                    "location_on_floor"
-                                ),
-                                "noOfHabitableRooms": dwelling.get("number_of_rooms"),
-                                "kitchen": dwelling.get("has_kitchen_facilities"),
-                                "surfaceAreaOfDwelling": dwelling.get("area"),
-                                "multipleFloor": dwelling.get("multiple_floors"),
-                                "usageLimitation": dwelling.get("usage_limitation"),
-                            }
-                            for dwelling in dwellings
-                            if dwelling.get("name_of_building") == building.get("name")
-                        ],
+                        "dwellings": self.get_dwellings(building),
                     },
                 }
                 for building in buildings
@@ -241,7 +306,19 @@ class GwrSerializer(serializers.Serializer):
     def get_typeOfClient(self, case):
         # TODO Configure this for BE and SZ
         try:
-            type_of_applicant = self.master_data.type_of_applicant
-            return int(type_of_applicant) if type_of_applicant else None
+            type_of_applicant = (
+                self.master_data.type_of_applicant
+                if self.master_data.canton == "UR"
+                else None
+            )
+            if type_of_applicant:
+                return int(type_of_applicant)
+
+            applicants = self.master_data.applicants
+            applicant = applicants[0] if applicants and len(applicants) else None
+            if applicant and applicant.get("is_juristic_person") is False:
+                return TYPE_OF_CLIENT_PERSON
+
+            return None  # pragma: no cover
         except AttributeError:  # pragma: no cover
             return None

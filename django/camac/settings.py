@@ -465,9 +465,10 @@ APPLICATIONS = {
             "ATTACHMENT_SECTION_ID": 7,  # attachmentsection for imported documents
         },
         "MASTER_DATA": {
+            "canton": ("static", "SZ"),
             "applicants": (
                 "ng_table",
-                "bauherrschaft",
+                ["bauherrschaft", "bauherrschaft-override"],
                 {
                     "column_mapping": {
                         "last_name": "name",
@@ -475,12 +476,266 @@ APPLICATIONS = {
                         "street": "strasse",
                         "zip": "plz",
                         "town": "ort",
+                        "country": ("static", "Schweiz"),
+                        "is_juristic_person": (
+                            "anrede",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "Herr": False,
+                                            "Frau": False,
+                                            "Firma": True,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                        "juristic_name": "firma",
                     }
                 },
             ),
-            "proposal": ("ng_answer", "bezeichnung"),
+            "proposal": ("ng_answer", ["bezeichnung", "bezeichnung-override"]),
             "construction_costs": ("ng_answer", "baukosten"),
-            "submit_date": ("first_workflow_entry", 10),
+            "plot_data": (
+                "ng_table",
+                "parzellen",
+                {
+                    "column_mapping": {
+                        "plot_number": "number",
+                        "egrid_number": "egrid",
+                    }
+                },
+            ),
+            "buildings": (
+                "ng_table",
+                ["gwr", "gwr-v2"],
+                {
+                    "column_mapping": {
+                        "name": "gebaeudebezeichnung",
+                        "building_category": (
+                            "kategorie",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "Andere Wohngebäude (Wohngebäude mit Nebennutzung)": 1030,
+                                            "Gebäude mit ausschliesslicher Wohnnutzung": 1020,
+                                            "Gebäude ohne Wohnnutzung": 1060,
+                                            "Provisorische Unterkunft": 1010,
+                                            "Sonderbau": 1080,
+                                            "Gebäude mit teilweiser Wohnnutzung": 1040,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                        "civil_defense_shelter": (
+                            "zivilschutzraum",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "Ja": True,
+                                            "Nein": False,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                        "heating_heat_generator": (
+                            "heizungsart",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "Einzelofenheizung": 7436,
+                                            "Etagenheizung": 7499,
+                                            "Zentralheizung für das Gebäude": 7450,
+                                            "Zentralheizung für mehrere Gebäude": 7451,
+                                            "Öffentliche Fernwärmeversorgung": 7461,
+                                            "Keine Heizung": 7400,
+                                            "Kein Wärmeerzeuger": 7400,
+                                            "Wärmepumpe für ein Gebäude": 7410,
+                                            "Wärmepumpe für mehrere Gebäude": 7411,
+                                            "Thermische Solaranlage für ein Gebäude": 7420,
+                                            "Thermische Solaranlage für mehrere Gebäude": 7421,
+                                            "Heizkessel (generisch) für ein Gebäude": 7430,
+                                            "Heizkessel (generisch) für mehrere Gebäude": 7431,
+                                            "Heizkessel nicht kondensierend für ein Gebäude": 7431,
+                                            "Heizkessel nicht kondensierend für mehrere Gebäude": 7432,
+                                            "Heizkessel kondensierend für ein Gebäude": 7434,
+                                            "Heizkessel kondensierend für mehrere Gebäude": 7435,
+                                            "Ofen": 7436,
+                                            "Wärmekraftkopplungsanlage für ein Gebäude": 7440,
+                                            "Wärmekraftkopplungsanlage für mehrere Gebäude": 7441,
+                                            "Elektrospeicher-Zentralheizung für ein Gebäude": 7450,
+                                            "Elektrospeicher-Zentralheizung für mehrere Gebäude": 7451,
+                                            "Elektro direkt": 7452,
+                                            "Wärmetauscher (einschliesslich für Fernwärme) für ein Gebäude": 7460,
+                                            "Wärmetauscher (einschliesslich für Fernwärme) für mehrere Gebäude": 7461,
+                                            "Andere": 7499,
+                                            "Noch nicht festgelegt": None,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                        "heating_energy_source": (
+                            "energietrager-heizung",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "Heizöl": 7530,
+                                            "Holz": 7540,
+                                            "Altholz": 7541,
+                                            "Wärmepumpe": 7599,
+                                            "Elektrizität": 7560,
+                                            "Gas": 7520,
+                                            "Fernwärme (Heisswasser oder Dampf)": 7581,
+                                            "Kohle": 7599,
+                                            "Sonnenkollektor": 7570,
+                                            "Keine": 7500,
+                                            "Luft": 7501,
+                                            "Erdwärme (generisch)": 7510,
+                                            "Erdwärmesonde": 7511,
+                                            "Erdregister": 7512,
+                                            "Wasser (Grundwasser, Oberflächenwasser, Abwasser)": 7513,
+                                            "Holz (generisch)": 7540,
+                                            "Holz (Stückholz)": 7541,
+                                            "Holz (Pellets)": 7542,
+                                            "Abwärme (innerhalb des Gebäudes)": 7550,
+                                            "Sonne (thermisch)": 7570,
+                                            "Fernwärme (generisch)": 7580,
+                                            "Fernwärme (Hochtemperatur)": 7581,
+                                            "Fernwärme (Niedertemperatur)": 7582,
+                                            "Unbestimmt": 7598,
+                                            "Andere": 7599,
+                                            "Noch nicht festgelegt": None,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                        "warmwater_heat_generator": (
+                            "waermeerzeuger-warmwasser",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "Kein Wärmeerzeuger": 7600,
+                                            "Wärmepumpe": 7610,
+                                            "Thermische Solaranlage": 7620,
+                                            "Heizkessel (generisch)": 7630,
+                                            "Heizkessel nicht kondensierend": 7632,
+                                            "Heizkessel kondensierend": 7634,
+                                            "Wärmekraftkopplungsanlage": 7640,
+                                            "Zentraler Elektroboiler": 7650,
+                                            "Kleinboiler": 7651,
+                                            "Wärmetauscher (einschliesslich für Fernwärme)": 7660,
+                                            "Andere": 7699,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                        "warmwater_energy_source": (
+                            "energietrager-warmwasser",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "Heizöl": 7530,
+                                            "Holz": 7540,
+                                            "Altholz": 7541,
+                                            "Wärmepumpe": 7599,
+                                            "Elektrizität": 7560,
+                                            "Gas": 7520,
+                                            "Fernwärme (Heisswasser oder Dampf)": 7581,
+                                            "Kohle": 7599,
+                                            "Sonnenkollektor": 7570,
+                                            "Keine": 7500,
+                                            "Luft": 7501,
+                                            "Erdwärme (generisch)": 7510,
+                                            "Erdwärmesonde": 7511,
+                                            "Erdregister": 7512,
+                                            "Wasser (Grundwasser, Oberflächenwasser, Abwasser)": 7513,
+                                            "Holz (generisch)": 7540,
+                                            "Holz (Stückholz)": 7541,
+                                            "Holz (Pellets)": 7542,
+                                            "Abwärme (innerhalb des Gebäudes)": 7550,
+                                            "Sonne (thermisch)": 7570,
+                                            "Fernwärme (generisch)": 7580,
+                                            "Fernwärme (Hochtemperatur)": 7581,
+                                            "Fernwärme (Niedertemperatur)": 7582,
+                                            "Unbestimmt": 7598,
+                                            "Andere": 7599,
+                                            "Noch nicht festgelegt": None,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                        "number_of_floors": "geschosse",
+                        "number_of_rooms": "wohnraeume",
+                        "dwellings": (
+                            "wohnungen",
+                            {
+                                "value_parser": (
+                                    "list_mapping",
+                                    {
+                                        "mapping": {
+                                            "location_on_floor": "lage",
+                                            "number_of_rooms": "zimmer",
+                                            "kitchen_facilities": "kuchenart",
+                                            "has_kitchen_facilities": (
+                                                ["kuchenart", "kocheinrichtung"],
+                                                {
+                                                    "value_parser": (
+                                                        "value_mapping",
+                                                        {
+                                                            "mapping": {
+                                                                "Ja": True,
+                                                                "Nein": False,
+                                                                "Küche (min. 4m²)": True,
+                                                                "Kochnische (unter 4m²)": True,
+                                                                "Weder Küche noch Kochnische": False,
+                                                            }
+                                                        },
+                                                    )
+                                                },
+                                            ),
+                                            "area": "flache",
+                                            "multiple_floors": (
+                                                "maisonette",
+                                                {
+                                                    "value_parser": (
+                                                        "value_mapping",
+                                                        {
+                                                            "mapping": {
+                                                                "Ja": True,
+                                                                "Nein": False,
+                                                            }
+                                                        },
+                                                    )
+                                                },
+                                            ),
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                    }
+                },
+            ),
         },
     },
     "kt_bern": {
@@ -1264,6 +1519,7 @@ APPLICATIONS = {
             "notification.NotificationTemplateT",
         ],
         "MASTER_DATA": {
+            "canton": ("static", "BE"),
             "applicants": (
                 "table",
                 "personalien-gesuchstellerin",
@@ -1695,6 +1951,7 @@ APPLICATIONS = {
             "ITEM": 1,
         },
         "MASTER_DATA": {
+            "canton": ("static", "UR"),
             "applicants": (
                 "table",
                 "applicant",
