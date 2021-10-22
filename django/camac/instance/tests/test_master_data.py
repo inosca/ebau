@@ -130,13 +130,13 @@ def test_master_data_parsers(
                 )
             },
         ),
-        "default_value": ("default", "some-default"),
+        "static_value": ("static", "some-value"),
         "my_values": (
             "ng_table",
             ["values-v1", "values-v2"],
             {
                 "column_mapping": {
-                    "my_default_value": ("default", 3.14),
+                    "my_static_value": ("static", 3.14),
                     "my_value": "value-single",
                     "my_list": (
                         "list-values",

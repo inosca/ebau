@@ -503,10 +503,8 @@ snapshots['test_master_data[kt_uri-de-ur_master_data_case-select_related2-prefet
 snapshots['test_master_data_parsers 1'] = {
     'date': GenericRepr('datetime.date(2021, 8, 18)'),
     'datetime': GenericRepr('datetime.datetime(2021, 8, 18, 6, 58, 8, 397000, tzinfo=tzutc())'),
-    'default_value': 'some-default',
     'my_values': [
         {
-            'my_default_value': 3.14,
             'my_list': [
                 {
                     'my_list_value': 11
@@ -515,8 +513,10 @@ snapshots['test_master_data_parsers 1'] = {
                     'my_list_value': 12
                 }
             ],
+            'my_static_value': 3.14,
             'my_value': 10
         }
     ],
+    'static_value': 'some-value',
     'success': True
 }

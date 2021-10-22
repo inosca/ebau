@@ -71,26 +71,23 @@ class MasterData(object):
 
         if isinstance(lookup_config, tuple):
             lookup, options = lookup_config
-            if lookup == "default":
+            if lookup == "static":
                 return options
         else:
             lookup = lookup_config
 
         return self._parse_value(row.get(lookup), **options)
 
-    def default_resolver(
-        self,
-        default,
-    ):
-        """Resolve default value for a master data key.
+    def static_resolver(self, value):
+        """Resolve static value for a master data key.
 
-        Example configuration for a default value:
+        Example configuration for a static value:
 
         MASTER_DATA = {
-            "some_string": ("default", "my-default-string")
+            "some_string": ("static", "my-string")
         }
         """
-        return default
+        return value
 
     def answer_resolver(
         self,
