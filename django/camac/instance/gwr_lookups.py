@@ -263,6 +263,10 @@ class GwrSerializer(serializers.Serializer):
                         "nameOfBuilding": building.get("name"),
                         "buildingCategory": building.get("building_category"),
                         "civilDefenseShelter": building.get("civil_defense_shelter"),
+                        "numberOfFloors": building.get("number_of_floors"),
+                        "numberOfSeparateHabitableRooms": building.get(
+                            "number_of_rooms"
+                        ),
                         "dateOfConstruction": self.get_construction_date(building)
                         if self.master_data.canton == "UR"
                         else None,
