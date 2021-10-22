@@ -77,6 +77,8 @@ snapshots['test_gwr_data_ur 1'] = {
                     }
                 ],
                 'nameOfBuilding': 'Villa',
+                'numberOfFloors': None,
+                'numberOfSeparateHabitableRooms': None,
                 'realestateIdentification': {
                     'EGRID': 'CH123456789',
                     'number': 123456789
@@ -157,6 +159,8 @@ snapshots['test_instance_gwr_data_sz_gwr 1'] = {
                     }
                 ],
                 'nameOfBuilding': None,
+                'numberOfFloors': 2,
+                'numberOfSeparateHabitableRooms': None,
                 'realestateIdentification': None,
                 'thermotechnicalDeviceForHeating1': {
                     'energySourceHeating': 7540,
@@ -243,6 +247,8 @@ snapshots['test_instance_gwr_data_sz_gwr_v2 1'] = {
                     }
                 ],
                 'nameOfBuilding': 'Grosses Haus',
+                'numberOfFloors': 4,
+                'numberOfSeparateHabitableRooms': 24,
                 'realestateIdentification': None,
                 'thermotechnicalDeviceForHeating1': {
                     'energySourceHeating': 7510,
