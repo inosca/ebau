@@ -248,8 +248,8 @@ class MasterData(object):
         MASTER_DATA = {
             "submit_date": (
                 "first_workflow_entry",
-                # ID of the workflow item, can also be multiple
-                10
+                # IDs of the workflow items
+                [10]
             )
         }
         """
