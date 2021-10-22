@@ -253,9 +253,6 @@ class MasterData(object):
             )
         }
         """
-        if not isinstance(lookup, list):
-            lookup = [lookup]  # pragma: no cover
-
         entry = next(
             filter(
                 lambda entry: entry.workflow_item_id in lookup,
