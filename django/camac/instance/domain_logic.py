@@ -446,7 +446,7 @@ class CreateInstanceLogic:
 
         case = workflow_api.start_case(
             workflow=workflow,
-            form=form_models.Form.objects.get(pk=caluma_form),
+            form=caluma_form and form_models.Form.objects.get(pk=caluma_form),
             user=caluma_user,
             meta=case_meta,
         )
@@ -458,16 +458,17 @@ class CreateInstanceLogic:
         if settings.APPLICATION.get("SET_SUBMIT_DATE_CAMAC_WORKFLOW") and group:
             CreateInstanceLogic.set_creation_date(instance, data)
 
-        CreateInstanceLogic.initialize_caluma(
-            instance,
-            source_instance,
-            case,
-            is_modification,
-            is_paper,
-            group,
-            caluma_user,
-            lead,
-        )
+        if caluma_form:  # TODO: check if that holds for Schwyz
+            CreateInstanceLogic.initialize_caluma(
+                instance,
+                source_instance,
+                case,
+                is_modification,
+                is_paper,
+                group,
+                caluma_user,
+                lead,
+            )
 
         CreateInstanceLogic.initialize_camac(
             instance,

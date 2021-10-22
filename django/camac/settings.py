@@ -91,6 +91,7 @@ INSTALLED_APPS = [
     "camac.migrate_to_caluma",
     "camac.stats.apps.StatsConfig",
     "camac.parashift",
+    "camac.dossier_import.apps.DossierImportConfig",
     "sorl.thumbnail",
     "django_clamd",
     "reversion",
@@ -325,6 +326,8 @@ APPLICATIONS = {
                 "check-statement": {"cancel": ["revise-statement"]},
                 "revise-statement": {"cancel": ["check-statement"]},
                 "depreciate-case": {
+                    # CAUTION: When importing dossiers this section is modified in runtime to avoid unwanted
+                    # outcomes when fast-forwarding workflow states of imported cases.
                     "cancel": [
                         "formal-addition",
                         "complete-check",
@@ -453,6 +456,14 @@ APPLICATIONS = {
                 "title": "Materieller Prüfbericht",
             }
         ],
+        "DOSSIER_IMPORT": {
+            "XLSX_IMPORTER_CLASS": "camac.dossier_import.config.kt_schwyz.KtSchwyzXlsxDossierImporter",
+            "INSTANCE_STATE_MAPPING": {"SUBMITTED": 2, "APPROVED": 8, "DONE": 10},
+            "USER": "service-account-camac-admin",
+            "GROUP_ID": 3,  # Group with service_id and this role_id is created Instances' group
+            "FORM_ID": 29,  # "migriertes-dossier"
+            "ATTACHMENT_SECTION_ID": 7,  # attachmentsection for imported documents
+        },
         "MASTER_DATA": {
             "applicants": (
                 "ng_table",

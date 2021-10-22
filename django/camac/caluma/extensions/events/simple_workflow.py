@@ -54,7 +54,7 @@ def post_complete_simple_workflow(sender, work_item, user, context, **kwargs):
             # create history entry
             create_history_entry(instance, camac_user, history_text)
 
-        if notification:
+        if notification and (not context or not context.get("no-notification")):
             additional_data = (
                 {"body": context.get("notification-body")}
                 if context.get("notification-body")
