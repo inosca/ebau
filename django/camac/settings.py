@@ -454,7 +454,7 @@ APPLICATIONS = {
             }
         ],
         "MASTER_DATA": {
-            "canton": ("default", "SZ"),
+            "canton": ("static", "SZ"),
             "applicants": (
                 "ng_table",
                 ["bauherrschaft", "bauherrschaft-override"],
@@ -465,7 +465,7 @@ APPLICATIONS = {
                         "street": "strasse",
                         "zip": "plz",
                         "town": "ort",
-                        "country": ("default", "Schweiz"),
+                        "country": ("static", "Schweiz"),
                         "is_juristic_person": (
                             "anrede",
                             {
@@ -1508,7 +1508,7 @@ APPLICATIONS = {
             "notification.NotificationTemplateT",
         ],
         "MASTER_DATA": {
-            "canton": ("default", "BE"),
+            "canton": ("static", "BE"),
             "applicants": (
                 "table",
                 "personalien-gesuchstellerin",
@@ -1940,7 +1940,7 @@ APPLICATIONS = {
             "ITEM": 1,
         },
         "MASTER_DATA": {
-            "canton": ("default", "UR"),
+            "canton": ("static", "UR"),
             "applicants": (
                 "table",
                 "applicant",
