@@ -66,6 +66,29 @@ class MasterData(object):
 
         return self.answer_resolver(lookup, document=row, **options)
 
+    def _get_ng_cell_value(self, row, lookup_config):
+        options = {}
+
+        if isinstance(lookup_config, tuple):
+            lookup, options = lookup_config
+            if lookup == "static":
+                return options
+        else:
+            lookup = lookup_config
+
+        return self._parse_value(row.get(lookup), **options)
+
+    def static_resolver(self, value):
+        """Resolve static value for a master data key.
+
+        Example configuration for a static value:
+
+        MASTER_DATA = {
+            "some_string": ("static", "my-string")
+        }
+        """
+        return value
+
     def answer_resolver(
         self,
         lookup,
@@ -225,14 +248,11 @@ class MasterData(object):
         MASTER_DATA = {
             "submit_date": (
                 "first_workflow_entry",
-                # ID of the workflow item, can also be multiple
-                10
+                # IDs of the workflow items
+                [10]
             )
         }
         """
-        if not isinstance(lookup, list):
-            lookup = [lookup]
-
         entry = next(
             filter(
                 lambda entry: entry.workflow_item_id in lookup,
@@ -256,7 +276,6 @@ class MasterData(object):
             )
         }
         """
-
         if not isinstance(lookup, list):
             lookup = [lookup]  # pragma: no cover
 
@@ -293,10 +312,10 @@ class MasterData(object):
 
         return self._parse_value(answer.answer if answer else default, **kwargs)
 
-    def ng_answer_resolver(self, lookup, **kwargs):
+    def ng_answer_resolver(self, lookup, default=None, **kwargs):
         """Resolve data from camac-ng fields.
 
-        Example configuration:
+        Example configuration for a "normal" value:
 
         MASTER_DATA = {
             "some_string": (
@@ -305,7 +324,21 @@ class MasterData(object):
                 "my-field"
             )
         }
+
+        Example configuration for a value with a potential override:
+
+        MASTER_DATA = {
+            "some_string": (
+                "ng_answer",
+                # name of the field and override field
+                ["my-field", "my-field-override"],
+            )
+        }
         """
+        lookup_previous = None
+        if isinstance(lookup, list):
+            *lookup_previous, lookup = lookup
+
         field = next(
             filter(
                 lambda field: field.name == lookup,
@@ -314,17 +347,27 @@ class MasterData(object):
             None,
         )
 
-        return self._parse_value(field.value if field else None, **kwargs)
+        if not field and lookup_previous:
+            field = next(
+                filter(
+                    lambda field: field.name in lookup_previous,
+                    self.case.instance.fields.all(),
+                ),
+                None,
+            )
+
+        parsed_value = self._parse_value(field.value if field else None, **kwargs)
+        return parsed_value if parsed_value else default
 
     def ng_table_resolver(self, lookup, column_mapping={}, **kwargs):
         """Resolve data from camac-ng table fields.
 
-        Example configuration:
+        Example configuration for a camac-ng table with potential table override:
 
         MASTER_DATA = {
             "applicant": {
                 "ng_table",
-                "bauherrschaft",
+                ["bauherrschaft", "bauherrschaft-override"],
                 {
                     "column_mapping": {
                         "last_name": "name",
@@ -332,14 +375,56 @@ class MasterData(object):
                         "street": "strasse",
                         "zip": "plz",
                         "town": "ort",
+                        "is_juristic_person": (
+                            "anrede",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "Herr": False,
+                                            "Frau": False,
+                                            "Firma": True,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
                     }
                 }
             }
         }
+
+        Example configuration for a camac-ng table with list value:
+
+        MASTER_DATA = {
+            "buildings": (
+                "ng_table",
+                "gwr-v2",
+                {
+                    "column_mapping": {
+                        "name": "gebaeudebezeichnung",
+                        "dwellings": (
+                            "wohnungen",
+                            {
+                                "value_parser": (
+                                    "list_mapping",
+                                    {
+                                        "mapping": {
+                                            "location_on_floor": "lage",
+                                        }
+                                    }
+                                )
+                            }
+                        ),
+                    }
+                }
+            ),
+        }
         """
         return [
             {
-                key: row.get(lookup_config)
+                key: self._get_ng_cell_value(row, lookup_config)
                 for key, lookup_config in column_mapping.items()
             }
             for row in self.ng_answer_resolver(lookup, default=[])
@@ -364,6 +449,32 @@ class MasterData(object):
             ]
 
         return mapping.get(value, default)
+
+    def list_mapping_parser(self, value, default, mapping={}, **kwargs):
+        return [
+            {
+                key: self._parse_value(
+                    next(
+                        filter(
+                            None,
+                            (
+                                item.get(f)
+                                for f in (
+                                    field[0]
+                                    if isinstance(field[0], list)
+                                    else [field[0]]
+                                )
+                            ),
+                        )
+                    ),
+                    **field[1],
+                )
+                if isinstance(field, tuple)
+                else item.get(field)
+                for key, field in mapping.items()
+            }
+            for item in value
+        ]
 
     def option_parser(self, value, default, answer=None, **kwargs):
         if isinstance(value, list):

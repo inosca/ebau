@@ -32,6 +32,7 @@ snapshots['test_master_data[kt_bern-de-be_master_data_case-select_related0-prefe
             'zip': 3002
         }
     ],
+    'canton': 'BE',
     'city': 'Musterhausen',
     'construction_costs': 199000,
     'development_regulations': 'Überbauung XY',
@@ -178,6 +179,7 @@ snapshots['test_master_data[kt_bern-fr-be_master_data_case-select_related1-prefe
             'zip': 3002
         }
     ],
+    'canton': 'BE',
     'city': 'Musterhausen',
     'construction_costs': 199000,
     'development_regulations': 'Überbauung XY',
@@ -299,19 +301,106 @@ snapshots['test_master_data[kt_bern-fr-be_master_data_case-select_related1-prefe
     ]
 }
 
-snapshots['test_master_data[kt_schwyz-de-sz_master_data_case-select_related3-prefetch_related3-3] 1'] = {
+snapshots['test_master_data[kt_schwyz-de-sz_master_data_case_gwr-select_related3-prefetch_related3-3] 1'] = {
     'applicants': [
         {
+            'country': 'Schweiz',
             'first_name': 'Max',
+            'is_juristic_person': False,
+            'juristic_name': 'ACME AG',
             'last_name': 'Mustermann',
-            'street': 'Teststrasse',
+            'street': 'Teststrasse 3',
             'town': 'Musterdorf',
-            'zip': 1233
+            'zip': 5678
         }
     ],
+    'buildings': [
+        {
+            'building_category': 1060,
+            'civil_defense_shelter': None,
+            'dwellings': [
+                {
+                    'area': 42,
+                    'has_kitchen_facilities': True,
+                    'kitchen_facilities': 'Kochnische (unter 4m²)',
+                    'location_on_floor': 'Nord',
+                    'multiple_floors': True,
+                    'number_of_rooms': 4
+                }
+            ],
+            'heating_energy_source': 7540,
+            'heating_heat_generator': 7436,
+            'name': None,
+            'number_of_floors': 2,
+            'number_of_rooms': None,
+            'warmwater_energy_source': 7560,
+            'warmwater_heat_generator': None
+        }
+    ],
+    'canton': 'SZ',
     'construction_costs': 129000,
-    'proposal': 'Grosses Haus',
-    'submit_date': GenericRepr('datetime.datetime(2021, 7, 16, 8, 0, 6, tzinfo=<UTC>)')
+    'plot_data': [
+        {
+            'egrid_number': 'CH1234567890',
+            'plot_number': 1234
+        }
+    ],
+    'proposal': 'Grosses Haus'
+}
+
+snapshots['test_master_data[kt_schwyz-de-sz_master_data_case_gwr_v2-select_related4-prefetch_related4-3] 1'] = {
+    'applicants': [
+        {
+            'country': 'Schweiz',
+            'first_name': 'Max',
+            'is_juristic_person': False,
+            'juristic_name': 'ACME AG',
+            'last_name': 'Mustermann',
+            'street': 'Teststrasse 3',
+            'town': 'Musterdorf',
+            'zip': 5678
+        }
+    ],
+    'buildings': [
+        {
+            'building_category': 1020,
+            'civil_defense_shelter': True,
+            'dwellings': [
+                {
+                    'area': 70,
+                    'has_kitchen_facilities': True,
+                    'kitchen_facilities': None,
+                    'location_on_floor': 'West',
+                    'multiple_floors': False,
+                    'number_of_rooms': 2
+                },
+                {
+                    'area': 24,
+                    'has_kitchen_facilities': False,
+                    'kitchen_facilities': None,
+                    'location_on_floor': 'Ost',
+                    'multiple_floors': False,
+                    'number_of_rooms': 3
+                }
+            ],
+            'heating_energy_source': 7510,
+            'heating_heat_generator': 7411,
+            'name': 'Grosses Haus',
+            'number_of_floors': 4,
+            'number_of_rooms': 24,
+            'warmwater_energy_source': 7570,
+            'warmwater_heat_generator': 7650
+        }
+    ],
+    'canton': 'SZ',
+    'construction_costs': 129000,
+    'plot_data': [
+        {
+            'egrid_number': 'CH1234567890',
+            'plot_number': 1234
+        }
+    ],
+    'proposal': 'Grosses Haus'
 }
 
 snapshots['test_master_data[kt_uri-de-ur_master_data_case-select_related2-prefetch_related2-8] 1'] = {
@@ -338,6 +427,7 @@ snapshots['test_master_data[kt_uri-de-ur_master_data_case-select_related2-prefet
             ]
         }
     ],
+    'canton': 'UR',
     'category': [
         6011,
         6010
@@ -402,7 +492,7 @@ snapshots['test_master_data[kt_uri-de-ur_master_data_case-select_related2-prefet
     'street': 'Musterstrasse',
     'street_number': 4,
     'submit_date': GenericRepr('datetime.datetime(2021, 7, 16, 8, 0, 6, tzinfo=<UTC>)'),
-    'type_of_applicant': '6161',
+    'type_of_applicant': '6141',
     'type_of_construction': [
         {
             'art_der_hochbaute': 6235
@@ -413,5 +503,20 @@ snapshots['test_master_data[kt_uri-de-ur_master_data_case-select_related2-prefet
 snapshots['test_master_data_parsers 1'] = {
     'date': GenericRepr('datetime.date(2021, 8, 18)'),
     'datetime': GenericRepr('datetime.datetime(2021, 8, 18, 6, 58, 8, 397000, tzinfo=tzutc())'),
+    'my_values': [
+        {
+            'my_list': [
+                {
+                    'my_list_value': 11
+                },
+                {
+                    'my_list_value': 12
+                }
+            ],
+            'my_static_value': 3.14,
+            'my_value': 10
+        }
+    ],
+    'static_value': 'some-value',
     'success': True
 }
