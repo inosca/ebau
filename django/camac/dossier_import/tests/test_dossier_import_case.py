@@ -82,7 +82,7 @@ def test_create_instance_dossier_import_case(
 
 
 @pytest.mark.parametrize(
-    "instance_status,expected_work_items_states",
+    "target_state,expected_work_items_states,expected_case_status",
     [
         (
             "SUBMITTED",
@@ -93,6 +93,7 @@ def test_create_instance_dossier_import_case(
                 ("depreciate-case", "ready"),
                 ("reject-form", "canceled"),
             ],
+            "running",
         ),  # "Gesuch einreichen"
         (
             "APPROVED",
@@ -101,7 +102,7 @@ def test_create_instance_dossier_import_case(
                 ("create-manual-workitems", "ready"),
                 ("reject-form", "canceled"),
                 ("complete-check", "skipped"),
-                ("publication", "ready"),
+                ("publication", "canceled"),
                 ("start-circulation", "canceled"),
                 ("skip-circulation", "skipped"),
                 ("depreciate-case", "skipped"),
@@ -109,6 +110,7 @@ def test_create_instance_dossier_import_case(
                 ("make-decision", "skipped"),
                 ("archive-instance", "ready"),
             ],
+            "running",
         ),  # "Entscheid verfügen"
         (
             "DONE",
@@ -117,7 +119,7 @@ def test_create_instance_dossier_import_case(
                 ("create-manual-workitems", "canceled"),
                 ("reject-form", "canceled"),
                 ("complete-check", "skipped"),
-                ("publication", "ready"),
+                ("publication", "canceled"),
                 ("start-circulation", "canceled"),
                 ("skip-circulation", "skipped"),
                 ("depreciate-case", "skipped"),
@@ -125,6 +127,7 @@ def test_create_instance_dossier_import_case(
                 ("make-decision", "skipped"),
                 ("archive-instance", "skipped"),
             ],
+            "completed",
         ),
     ],
 )
@@ -133,20 +136,24 @@ def test_set_workflow_state_sz(
     user,
     sz_instance,
     initialized_dossier_importer,
-    instance_status,
+    target_state,
     expected_work_items_states,
+    expected_case_status,
 ):
+    # This test skips instance creation where the instance's instance_state is set to the correct
+    # state.
     importer = initialized_dossier_importer(
         "kt_schwyz",
         user.pk,
         group_id=1,
     )
     writer = KtSchwyzDossierWriter(importer=importer)
-    writer._set_workflow_state(sz_instance, instance_status)
+    writer._set_workflow_state(sz_instance, target_state)
     for task_id, expected_status in expected_work_items_states:
         assert (
             sz_instance.case.work_items.get(task_id=task_id).status == expected_status
         )
+    assert sz_instance.case.status == expected_case_status
 
 
 @pytest.mark.parametrize(
