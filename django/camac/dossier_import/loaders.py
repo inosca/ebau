@@ -5,7 +5,7 @@ from enum import Enum
 import pyexcel
 from pyproj import Transformer
 
-from camac.dossier_import.dossier_classes import Coordinates, Dossier, Parcel, Person
+from camac.dossier_import.dossier_classes import Coordinates, Dossier, Person, PlotData
 
 
 def numbers(string):
@@ -34,12 +34,13 @@ class XlsxFileDossierLoader(DossierLoader):
         "proposal",
         "cantonal_id",
         "usage",
-        "type",
+        "procedure_type",
         "address_city",
         "submit_date",
         "publication_date",
         "decision_date",
         "construction_start_date",
+        "final_approval_date",
         "profile_approval_date",
         "completion_date",
         "link",
@@ -61,12 +62,12 @@ class XlsxFileDossierLoader(DossierLoader):
         address_street_nr = "ADDRESS-STREET-NR"
         address_city = "ADDRESS-CITY"
         usage = "USAGE"
-        type = "TYPE"
+        procedure_type = "TYPE"
         submit_date = "SUBMIT-DATE"
         publication_date = "PUBLICATION-DATE"
         decision_date = "DECISION-DATE"
         construction_start_date = "CONSTRUCTION-START-DATE"
-        profile_approval_date = "PROFILE_APPROVAL-DATE"
+        profile_approval_date = "PROFILE-APPROVAL-DATE"
         final_approval_date = "FINAL-APPROVAL-DATE"
         completion_date = "COMPLETION-DATE"
         custom_1 = "CUSTOM-1"
@@ -111,7 +112,7 @@ class XlsxFileDossierLoader(DossierLoader):
                 key: dossier_row.get(getattr(XlsxFileDossierLoader.Column, key).value)
                 for key in self.simple_fields
             },
-            parcel=self.load_parcels(dossier_row),
+            plot_data=self.load_plot_data(dossier_row),
             coordinates=self.load_coordinates(dossier_row),
             address_location=", ".join(
                 [
@@ -193,7 +194,7 @@ class XlsxFileDossierLoader(DossierLoader):
             out.append(Coordinates(e=e, n=n))
         return out
 
-    def load_parcels(self, dossier_row):
+    def load_plot_data(self, dossier_row):
         out = []
         numbers = dossier_row[XlsxFileDossierLoader.Column.parcel.value]
         egrids = dossier_row[XlsxFileDossierLoader.Column.egrid.value]
@@ -205,7 +206,7 @@ class XlsxFileDossierLoader(DossierLoader):
             ]
             for number, egrid in zip(numbers, egrids):
                 out.append(
-                    Parcel(number=int(number), egrid=egrid, municipality=municipality)
+                    PlotData(number=int(number), egrid=egrid, municipality=municipality)
                 )
         except ValueError:  # pragma: no cover
             print(f"Failed to load parcels with numbers {numbers} and egrids {egrids}")
