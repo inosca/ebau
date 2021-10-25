@@ -11,7 +11,7 @@ class Coordinates:
 
 
 @dataclass
-class Parcel:
+class PlotData:
     egrid: str
     number: int
     municipality: str
@@ -41,12 +41,12 @@ class Dossier:
     id: str
     proposal: str
     cantonal_id: Optional[str] = None
-    parcel: Optional[List[Parcel]] = None
+    plot_data: Optional[List[PlotData]] = None
     coordinates: Optional[List[Coordinates]] = None
     address_location: Optional[str] = None
     address_city: Optional[str] = None
     usage: Optional[str] = None
-    type: Optional[str] = None
+    procedure_type: Optional[str] = None
     submit_date: Optional[str] = None
     publication_date: Optional[str] = None
     decision_date: Optional[str] = None
