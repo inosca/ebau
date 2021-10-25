@@ -1,6 +1,7 @@
 import mimetypes
 import shutil
 import zipfile
+from copy import deepcopy
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -273,7 +274,7 @@ class KtSchwyzDossierWriter(DossierWriter):
                 message.message = f"Skip work item with task_id {task_id} failed with {ConfigurationError(e)}."
                 continue
             # overwrite side effects for import
-            config = get_caluma_setting("PRE_COMPLETE")
+            config = deepcopy(get_caluma_setting("PRE_COMPLETE"))
             # skip side effects in task `make-decision`
             config and config.pop("depreciate-case", None)
             config = config and config.get(work_item.task_id)
