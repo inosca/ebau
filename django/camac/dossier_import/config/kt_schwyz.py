@@ -166,9 +166,7 @@ class KtSchwyzDossierWriter(DossierWriter):
         ).first():
             message.level = LOG_LEVEL_WARNING
             message.message["action"] = "dossier skipped"
-            message.message[
-                "reason"
-            ] = f"Dossier with `kantonale gesuchsnummer` {dossier.cantonal_id} already exists."
+            message.message["reason"] = f"Dossier with ID {dossier.id} already exists."
             self.importer.import_case.messages.append(message.to_dict())
             self.importer.import_case.save()
             return
