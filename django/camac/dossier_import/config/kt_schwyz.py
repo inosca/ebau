@@ -275,6 +275,8 @@ class KtSchwyzDossierWriter(DossierWriter):
             config = deepcopy(get_caluma_setting("PRE_COMPLETE"))
             # skip side effects in task `make-decision`
             config and config.pop("depreciate-case", None)
+            if config.get("make-decision"):
+                config["make-decision"]["cancel"].append("publication")
             config = config and config.get(work_item.task_id)
             if config:
                 for action_name, tasks in config.items():
