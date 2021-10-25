@@ -1,6 +1,8 @@
 from dataclasses import fields
 from typing import Any, Optional
 
+from django.utils.timezone import is_aware, make_aware
+
 from camac.core.models import WorkflowEntry
 from camac.dossier_import.dossier_classes import Dossier
 from camac.dossier_import.importers import DossierImporter
@@ -67,7 +69,7 @@ class CamacNgListAnswerWriter(FieldWriter):
             field.save()
 
 
-class WorkflowEntryFieldWriter(FieldWriter):
+class WorkflowEntryDateWriter(FieldWriter):
     """Writes dates to workflow entries by workflow entry id.
 
     Make sure to set up application with workflow_items from
@@ -78,6 +80,8 @@ class WorkflowEntryFieldWriter(FieldWriter):
     target: int
 
     def write(self, instance, value):
+        if not is_aware(value):
+            value = make_aware(value)
         entry, created = WorkflowEntry.objects.get_or_create(
             instance=instance,
             workflow_item_id=self.target,

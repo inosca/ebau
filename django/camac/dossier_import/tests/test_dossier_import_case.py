@@ -5,6 +5,7 @@ import pytest
 from django.conf import settings
 from django.core.management import call_command
 from django.utils.module_loading import import_string
+from django.utils.timezone import datetime, make_aware
 
 from camac.dossier_import.config.kt_schwyz import KtSchwyzDossierWriter
 from camac.dossier_import.loaders import InvalidImportDataError
@@ -185,30 +186,177 @@ def test_set_workflow_state_exceptions(
     assert message.message.startswith("Skip work item with task_id submit failed")
 
 
+@pytest.mark.parametrize("config,writer", [("kt_schwyz", KtSchwyzDossierWriter)])
 @pytest.mark.parametrize(
-    "config,dossier_row_patch",
+    "dossier_row_patch,expected_target,expected_value",
     [
         (
-            "kt_schwyz",
             {
-                "COORDINATE-N": "2 685 785, 7777777",
-                "COORDINATE-E": "1‘213‘425, 1'213'489",
+                "COORDINATE-E": "2`710`662",
+                "COORDINATE-N": "1`225`997",
             },
+            "coordinates",
+            [{"lat": 47.175669937318816, "lng": 8.8984885140077}],
+        ),
+        (
+            {
+                "PARCEL": "123,234",
+                "EGRID": "HK207838123456,EGRIDDELLEY",
+                "ADDRESS-CITY": "Steinerberg",
+            },
+            "plot_data",
+            [
+                {"plot_number": 123, "egrid_number": "HK207838123456"},
+                {"plot_number": 234, "egrid_number": "EGRIDDELLEY"},
+            ],
+        ),
+        (
+            {"SUBMIT-DATE": datetime(2021, 12, 12)},
+            "submit_date",
+            make_aware(datetime(2021, 12, 12)),
+        ),
+        (
+            {"PUBLICATION-DATE": datetime(2021, 12, 12)},
+            "publication_date",
+            make_aware(datetime(2021, 12, 12)),
+        ),
+        (
+            {"CONSTRUCTION-START-DATE": datetime(2021, 12, 12)},
+            "construction_start_date",
+            make_aware(datetime(2021, 12, 12)),
+        ),
+        (
+            {"PROFILE-APPROVAL-DATE": datetime(2021, 12, 12)},
+            "profile_approval_date",
+            make_aware(datetime(2021, 12, 12)),
+        ),
+        (
+            {"DECISION-DATE": datetime(2021, 12, 12)},
+            "decision_date",
+            make_aware(datetime(2021, 12, 12)),
+        ),
+        (
+            {"FINAL-APPROVAL-DATE": datetime(2021, 12, 12)},
+            "final_approval_date",
+            make_aware(datetime(2021, 12, 12)),
+        ),
+        (
+            {"COMPLETION-DATE": datetime(2021, 12, 12)},
+            "completion_date",
+            make_aware(datetime(2021, 12, 12)),
+        ),
+        ({"TYPE": "Baugesuch"}, "procedure_type_migrated", "Baugesuch"),
+        (
+            dict(
+                [
+                    ("APPLICANT-FIRST-NAME", "Willy"),
+                    ("APPLICANT-LAST-NAME", "Wonka"),
+                    ("APPLICANT-COMPANY", "Chocolate Factory"),
+                    ("APPLICANT-STREET", "Candy Lane"),
+                    ("APPLICANT-STREET-NUMBER", "13"),
+                    ("APPLICANT-CITY", "Wonderland"),
+                    ("APPLICANT-PHONE", "+1 101 10 01 101"),
+                    ("APPLICANT-EMAIL", "candy@example.com"),
+                ]
+            ),
+            "applicants",
+            [
+                {
+                    "last_name": "Wonka",
+                    "first_name": "Willy",
+                    "street": "Candy Lane, 13",
+                    "town": "Wonderland",
+                    "country": "Schweiz",
+                    "email": "candy@example.com",
+                    "phone": "+1 101 10 01 101",
+                    "is_juristic_person": None,
+                    "juristic_name": "Chocolate Factory",
+                    "company": "Chocolate Factory",
+                    "zip": None,
+                }
+            ],
+        ),
+        (
+            dict(
+                [
+                    ("LANDOWNER-FIRST-NAME", "Willy"),
+                    ("LANDOWNER-LAST-NAME", "Wonka"),
+                    ("LANDOWNER-COMPANY", "Chocolate Factory"),
+                    ("LANDOWNER-STREET", "Candy Lane"),
+                    ("LANDOWNER-STREET-NUMBER", "13"),
+                    ("LANDOWNER-CITY", "Wonderland"),
+                    ("LANDOWNER-PHONE", "+1 101 10 01 101"),
+                    ("LANDOWNER-EMAIL", "candy@example.com"),
+                ]
+            ),
+            "landowners",
+            [
+                {
+                    "last_name": "Wonka",
+                    "first_name": "Willy",
+                    "street": "Candy Lane, 13",
+                    "town": "Wonderland",
+                    "country": "Schweiz",
+                    "email": "candy@example.com",
+                    "phone": "+1 101 10 01 101",
+                    "is_juristic_person": None,
+                    "juristic_name": "Chocolate Factory",
+                    "company": "Chocolate Factory",
+                    "zip": None,
+                }
+            ],
+        ),
+        (
+            dict(
+                [
+                    ("PROJECTAUTHOR-FIRST-NAME", "Willy"),
+                    ("PROJECTAUTHOR-LAST-NAME", "Wonka"),
+                    ("PROJECTAUTHOR-COMPANY", "Chocolate Factory"),
+                    ("PROJECTAUTHOR-STREET", "Candy Lane"),
+                    ("PROJECTAUTHOR-STREET-NUMBER", "13"),
+                    ("PROJECTAUTHOR-CITY", "Wonderland"),
+                    ("PROJECTAUTHOR-PHONE", "+1 101 10 01 101"),
+                    ("PROJECTAUTHOR-EMAIL", "candy@example.com"),
+                ]
+            ),
+            "project_authors",
+            [
+                {
+                    "last_name": "Wonka",
+                    "first_name": "Willy",
+                    "street": "Candy Lane, 13",
+                    "town": "Wonderland",
+                    "country": "Schweiz",
+                    "email": "candy@example.com",
+                    "phone": "+1 101 10 01 101",
+                    "is_juristic_person": None,
+                    "juristic_name": "Chocolate Factory",
+                    "company": "Chocolate Factory",
+                    "zip": None,
+                }
+            ],
         ),
     ],
 )
-def test_record_loading(
+def test_record_loading_sz(
     db,
     mocker,
     setup_fixtures_required_by_application_config,
+    make_workflow_items_for_config,
     application_settings,
     settings,
     user,
+    sz_instance,
+    writer,
     dossier_row,
     config,
     dossier_row_patch,
+    expected_target,
+    expected_value,
 ):
-    # this test does no verifcation yet
+    """Load data from import record, make persistant and verify with master_data API."""
+    setup_fixtures_required_by_application_config(config)
+    make_workflow_items_for_config(config)
     mocker.patch("django.conf.settings.APPLICATION", settings.APPLICATIONS[config])
     application_settings = settings.APPLICATIONS[config]
     importer_cls = import_string(
@@ -220,4 +368,10 @@ def test_record_loading(
     loader_cls = importer.get_loader()
     loader = loader_cls("mock-mock")
     dossier_row.update(dossier_row_patch)
-    loader._load_dossier(dossier_row)
+    dossier = loader._load_dossier(dossier_row)
+    writer = KtSchwyzDossierWriter(importer)
+    writer.write_fields(sz_instance, dossier)
+    from camac.instance.master_data import MasterData
+
+    md = MasterData(sz_instance.case)
+    assert getattr(md, expected_target) == expected_value

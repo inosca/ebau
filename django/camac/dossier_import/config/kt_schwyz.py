@@ -24,7 +24,7 @@ from camac.dossier_import.writers import (
     CamacNgAnswerFieldWriter,
     CamacNgListAnswerWriter,
     DossierWriter,
-    WorkflowEntryFieldWriter,
+    WorkflowEntryDateWriter,
 )
 from camac.instance.domain_logic import CreateInstanceLogic
 from camac.instance.models import Form, Instance, InstanceState
@@ -68,25 +68,25 @@ class KtSchwyzDossierWriter(DossierWriter):
     id: str = CamacNgAnswerFieldWriter(target="kommunale-gesuchsnummer")
     proposal = CamacNgAnswerFieldWriter(target="bezeichnung")
     cantonal_id = CamacNgAnswerFieldWriter(target="kantonale-gesuchsnummer")
-    parcel = CamacNgListAnswerWriter(target="parzellen", column_mapping=PARCEL_MAPPING)
+    plot_data = CamacNgListAnswerWriter(
+        target="parzellen", column_mapping=PARCEL_MAPPING
+    )
     coordinates = CamacNgListAnswerWriter(
         target="punkte", column_mapping=COORDINATES_MAPPING
     )
     usage = CamacNgAnswerFieldWriter(target="betroffene-nutzungszonen")
-    type = CamacNgAnswerFieldWriter(target="verfahrensart-migriertes-dossier")
-    submit_date = WorkflowEntryFieldWriter(target=10, name="einreichedatum")
-    publication_date = WorkflowEntryFieldWriter(name="publikationsdatum", target=15)
-    construction_start_date = WorkflowEntryFieldWriter(
-        name="datum-baubeginn", target=55
-    )
-    profile_approval_date = WorkflowEntryFieldWriter(
+    procedure_type = CamacNgAnswerFieldWriter(target="verfahrensart-migriertes-dossier")
+    submit_date = WorkflowEntryDateWriter(target=10, name="einreichedatum")
+    publication_date = WorkflowEntryDateWriter(name="publikationsdatum", target=15)
+    construction_start_date = WorkflowEntryDateWriter(name="datum-baubeginn", target=55)
+    profile_approval_date = WorkflowEntryDateWriter(
         name="datum-schnurgeruestabnahme", target=56
     )
-    decision_date = WorkflowEntryFieldWriter(name="tb-datum", target=47)
-    final_approval_date = WorkflowEntryFieldWriter(
+    decision_date = WorkflowEntryDateWriter(name="tb-datum", target=47)
+    final_approval_date = WorkflowEntryDateWriter(
         name="datum-schlussabnahme", target=59
     )
-    completion_date = WorkflowEntryFieldWriter(name="datum-bauende", target=67)
+    completion_date = WorkflowEntryDateWriter(name="datum-bauende", target=67)
     link = CamacNgAnswerFieldWriter(target="link")
     custom_1 = CamacNgAnswerFieldWriter(target="freies-textfeld-1")
     custom_2 = CamacNgAnswerFieldWriter(target="freies-textfeld-2")
