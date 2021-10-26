@@ -1,8 +1,10 @@
 import zipfile
 from dataclasses import fields
 from enum import Enum
+from typing import Generator
+from typing.io import IO
 
-import pyexcel
+import openpyxl
 from pyproj import Transformer
 
 from camac.dossier_import.dossier_classes import Coordinates, Dossier, Person, PlotData
@@ -98,9 +100,6 @@ class XlsxFileDossierLoader(DossierLoader):
         projectauthor_phone = "PROJECTAUTHOR-PHONE"
         projectauthor_email = "PROJECTAUTHOR-EMAIL"
 
-    def __init__(self, filepath: str):
-        self.path_to_dossiers_file = filepath
-
     def _load_dossier(self, dossier_row: dict) -> Dossier:
         """Read one line and handle each column.
 
@@ -169,10 +168,11 @@ class XlsxFileDossierLoader(DossierLoader):
         # fixes
         for addr in ["applicant", "landowner", "project_author"]:
             addr_list = getattr(dossier, addr)
-            addr_list[0].street = ", ".join(
-                [addr_list[0].street, str(addr_list[0].street_number)]
-            )
-            setattr(dossier, addr, addr_list)
+            if addr_list[0].street:
+                addr_list[0].street = ", ".join(
+                    [addr_list[0].street, str(addr_list[0].street_number)]
+                )
+                setattr(dossier, addr, addr_list)
         dossier._meta = Dossier.Meta(
             target_state=dossier_row.get(XlsxFileDossierLoader.Column.status.value),
             workflow=dossier_row.get(XlsxFileDossierLoader.Column.workflow.value),
@@ -206,20 +206,33 @@ class XlsxFileDossierLoader(DossierLoader):
             ]
             for number, egrid in zip(numbers, egrids):
                 out.append(
-                    PlotData(number=int(number), egrid=egrid, municipality=municipality)
+                    PlotData(
+                        number=number and int(number),
+                        egrid=egrid,
+                        municipality=municipality,
+                    )
                 )
         except ValueError:  # pragma: no cover
             print(f"Failed to load parcels with numbers {numbers} and egrids {egrids}")
         return out
 
-    def load(self):
-        records = pyexcel.iget_records(file_name=self.path_to_dossiers_file)
+    def load_dossiers(self, data_file: IO) -> Generator:
         try:
-            for record in records:
-                yield self._load_dossier(record)
+            work_book = openpyxl.load_workbook(data_file)
         except zipfile.BadZipfile:
             raise InvalidImportDataError(
                 "Meta data file in archive is corrupt or not a valid .xlsx file."
+            )
+        worksheet = work_book.worksheets[0]
+        headings = worksheet[1]
+        for row in worksheet.iter_rows(min_row=2):
+            yield self._load_dossier(
+                dict(
+                    zip(
+                        [heading.value for heading in headings],
+                        [cell.value for cell in row],
+                    )
+                )
             )
 
 

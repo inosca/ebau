@@ -4,11 +4,10 @@ from pathlib import Path
 import pytest
 from django.conf import settings
 from django.core.management import call_command
-from django.utils.module_loading import import_string
-from django.utils.timezone import datetime, make_aware
+from django.utils import timezone
 
-from camac.dossier_import.config.kt_schwyz import KtSchwyzDossierWriter
 from camac.dossier_import.loaders import InvalidImportDataError
+from camac.instance.master_data import MasterData
 from camac.instance.models import Instance
 
 TEST_IMPORT_FILE = str(
@@ -16,9 +15,13 @@ TEST_IMPORT_FILE = str(
 )
 
 
-def test_bad_file_format_dossier_xlsx(db, user, initialized_dossier_importer):
-    importer = initialized_dossier_importer(
-        "kt_schwyz",
+@pytest.mark.parametrize("config", ["kt_schwyz"])
+def test_bad_file_format_dossier_xlsx(
+    db, user, settings, config, make_dossier_writer, get_dossier_loader
+):
+    settings.APPLICATION = settings.APPLICATIONS[config]
+    writer = make_dossier_writer(
+        config,
         user.pk,
         11,
         str(
@@ -26,8 +29,9 @@ def test_bad_file_format_dossier_xlsx(db, user, initialized_dossier_importer):
             / "camac/dossier_import/tests/data/import-bad-example.zip"
         ),
     )
+    loader = get_dossier_loader()
     with pytest.raises(InvalidImportDataError):
-        importer.import_dossiers()
+        all(loader.load_dossiers(writer.dossiers_xlsx))
 
 
 @pytest.mark.parametrize("config", ["kt_schwyz"])
@@ -53,6 +57,7 @@ def test_import_dossiers_manage_command(
         location.pk,
         TEST_IMPORT_FILE,
         config,
+        "--verbosity=2",
         stdout=out,
         stderr=StringIO(),
     )
@@ -62,7 +67,7 @@ def test_import_dossiers_manage_command(
 
 @pytest.mark.parametrize("config,group_id", [("kt_schwyz", 42)])
 def test_create_instance_dossier_import_case(
-    db, initialized_dossier_importer, settings, config, user, group_id
+    db, make_dossier_writer, get_dossier_loader, settings, config, user, group_id
 ):
     # The test import file features faulty lines for cov
     # - 3 lines with good data (1 without documents directory)
@@ -71,16 +76,14 @@ def test_create_instance_dossier_import_case(
 
     settings.APPLICATION = settings.APPLICATIONS[config]
 
-    importer = initialized_dossier_importer(config, user_id=user.pk, group_id=group_id)
-    importer.import_dossiers()
-    importer.temp_dir.cleanup()
-    assert len([x for x in importer.import_case.messages if x["level"] == 1]) == 3
-    assert len([x for x in importer.import_case.messages if x["level"] == 2]) == 2
-    assert (
-        Path(importer.temp_dir.name) / str(importer.import_case.id)
-    ).exists() is False
+    writer = make_dossier_writer(config, user_id=user.pk, group_id=group_id)
+    loader = get_dossier_loader()
+    for dossier in loader.load_dossiers(writer.dossiers_xlsx):
+        writer.import_dossier(dossier)
+    assert len([x for x in writer.import_session.messages if x["level"] == 1]) == 3
+    assert len([x for x in writer.import_session.messages if x["level"] == 2]) == 2
     deletion = Instance.objects.filter(
-        **{"case__meta__import-id": str(importer.import_case.pk)}
+        **{"case__meta__import-id": str(writer.import_session.pk)}
     ).delete()
     assert deletion[1]["instance.Instance"] == 3
 
@@ -139,19 +142,18 @@ def test_set_workflow_state_sz(
     db,
     user,
     sz_instance,
-    initialized_dossier_importer,
+    make_dossier_writer,
     target_state,
     expected_work_items_states,
     expected_case_status,
 ):
     # This test skips instance creation where the instance's instance_state is set to the correct
     # state.
-    importer = initialized_dossier_importer(
+    writer = make_dossier_writer(
         "kt_schwyz",
         user.pk,
         group_id=1,
     )
-    writer = KtSchwyzDossierWriter(importer=importer)
     writer._set_workflow_state(sz_instance, target_state)
     for task_id, expected_status in expected_work_items_states:
         assert (
@@ -172,24 +174,22 @@ def test_set_workflow_state_sz(
 def test_set_workflow_state_exceptions(
     db,
     user,
-    mocker,
     sz_instance,
-    initialized_dossier_importer,
+    make_dossier_writer,
     instance_status,
     expected_work_items_states,
 ):
-    importer = initialized_dossier_importer(
+    writer = make_dossier_writer(
         "kt_schwyz",
         user.pk,
         group_id=1,
     )
-    writer = KtSchwyzDossierWriter(importer=importer)
     sz_instance.case.work_items.get(task_id=expected_work_items_states[0]).delete()
     message = writer._set_workflow_state(sz_instance, instance_status)
     assert message.message.startswith("Skip work item with task_id submit failed")
 
 
-@pytest.mark.parametrize("config,writer", [("kt_schwyz", KtSchwyzDossierWriter)])
+@pytest.mark.parametrize("config", ["kt_schwyz"])
 @pytest.mark.parametrize(
     "dossier_row_patch,expected_target,expected_value",
     [
@@ -214,39 +214,39 @@ def test_set_workflow_state_exceptions(
             ],
         ),
         (
-            {"SUBMIT-DATE": datetime(2021, 12, 12)},
+            {"SUBMIT-DATE": timezone.datetime(2021, 12, 12)},
             "submit_date",
-            make_aware(datetime(2021, 12, 12)),
+            timezone.make_aware(timezone.datetime(2021, 12, 12)),
         ),
         (
-            {"PUBLICATION-DATE": datetime(2021, 12, 12)},
+            {"PUBLICATION-DATE": timezone.datetime(2021, 12, 12)},
             "publication_date",
-            make_aware(datetime(2021, 12, 12)),
+            timezone.make_aware(timezone.datetime(2021, 12, 12)),
         ),
         (
-            {"CONSTRUCTION-START-DATE": datetime(2021, 12, 12)},
+            {"CONSTRUCTION-START-DATE": timezone.datetime(2021, 12, 12)},
             "construction_start_date",
-            make_aware(datetime(2021, 12, 12)),
+            timezone.make_aware(timezone.datetime(2021, 12, 12)),
         ),
         (
-            {"PROFILE-APPROVAL-DATE": datetime(2021, 12, 12)},
+            {"PROFILE-APPROVAL-DATE": timezone.datetime(2021, 12, 12)},
             "profile_approval_date",
-            make_aware(datetime(2021, 12, 12)),
+            timezone.make_aware(timezone.datetime(2021, 12, 12)),
         ),
         (
-            {"DECISION-DATE": datetime(2021, 12, 12)},
+            {"DECISION-DATE": timezone.datetime(2021, 12, 12)},
             "decision_date",
-            make_aware(datetime(2021, 12, 12)),
+            timezone.make_aware(timezone.datetime(2021, 12, 12)),
         ),
         (
-            {"FINAL-APPROVAL-DATE": datetime(2021, 12, 12)},
+            {"FINAL-APPROVAL-DATE": timezone.datetime(2021, 12, 12)},
             "final_approval_date",
-            make_aware(datetime(2021, 12, 12)),
+            timezone.make_aware(timezone.datetime(2021, 12, 12)),
         ),
         (
-            {"COMPLETION-DATE": datetime(2021, 12, 12)},
+            {"COMPLETION-DATE": timezone.datetime(2021, 12, 12)},
             "completion_date",
-            make_aware(datetime(2021, 12, 12)),
+            timezone.make_aware(timezone.datetime(2021, 12, 12)),
         ),
         ({"TYPE": "Baugesuch"}, "procedure_type_migrated", "Baugesuch"),
         (
@@ -343,14 +343,15 @@ def test_set_workflow_state_exceptions(
 )
 def test_record_loading_sz(
     db,
-    mocker,
     setup_fixtures_required_by_application_config,
     make_workflow_items_for_config,
     application_settings,
     settings,
     user,
+    group,
     sz_instance,
-    writer,
+    make_dossier_writer,
+    get_dossier_loader,
     dossier_row,
     config,
     dossier_row_patch,
@@ -358,23 +359,11 @@ def test_record_loading_sz(
     expected_value,
 ):
     """Load data from import record, make persistant and verify with master_data API."""
-    setup_fixtures_required_by_application_config(config)
-    make_workflow_items_for_config(config)
-    mocker.patch("django.conf.settings.APPLICATION", settings.APPLICATIONS[config])
-    application_settings = settings.APPLICATIONS[config]
-    importer_cls = import_string(
-        application_settings["DOSSIER_IMPORT"]["XLSX_IMPORTER_CLASS"]
-    )
-    importer = importer_cls(
-        user_id=user.pk, import_settings=application_settings["DOSSIER_IMPORT"]
-    )
-    loader_cls = importer.get_loader()
-    loader = loader_cls("mock-mock")
+    settings.APPLICATION = settings.APPLICATIONS[config]
+    writer = make_dossier_writer(config=config, user_id=user.pk, group_id=group.pk)
+    loader = get_dossier_loader()
     dossier_row.update(dossier_row_patch)
     dossier = loader._load_dossier(dossier_row)
-    writer = KtSchwyzDossierWriter(importer)
     writer.write_fields(sz_instance, dossier)
-    from camac.instance.master_data import MasterData
-
     md = MasterData(sz_instance.case)
     assert getattr(md, expected_target) == expected_value
