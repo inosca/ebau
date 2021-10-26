@@ -1801,7 +1801,13 @@ class PublicCalumaInstanceSerializer(serializers.Serializer):  # pragma: no cove
 
     def get_parcels(self, case):
         return ", ".join(
-            [plot.get("plot_number") for plot in self.get_master_data(case).plot_data]
+            filter(
+                None,
+                [
+                    plot.get("plot_number")
+                    for plot in self.get_master_data(case).plot_data
+                ],
+            )
         )
 
     class Meta:
