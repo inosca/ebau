@@ -471,7 +471,8 @@ APPLICATIONS = {
             }
         ],
         "DOSSIER_IMPORT": {
-            "XLSX_IMPORTER_CLASS": "camac.dossier_import.config.kt_schwyz.KtSchwyzXlsxDossierImporter",
+            "ZIP_ARCHIVE_IMPORT_DOSSIER_WRITER_CLASS": "camac.dossier_import.config.kt_schwyz.KtSchwyzDossierWriter",
+            "ZIP_ARCHIVE_IMPORT_DOSSIER_LOADER_CLASS": "camac.dossier_import.loaders.XlsxFileDossierLoader",
             "INSTANCE_STATE_MAPPING": {"SUBMITTED": 2, "APPROVED": 8, "DONE": 10},
             "USER": "service-account-camac-admin",
             "GROUP_ID": 3,  # Group with service_id and this role_id is created Instances' group
