@@ -16,6 +16,7 @@ export default class InstanceModel extends Model {
   @belongsTo form;
   @belongsTo instanceState;
   @belongsTo location;
+  @belongsTo instanceGroup;
 
   @hasMany circulations;
   @hasMany services;
@@ -30,6 +31,18 @@ export default class InstanceModel extends Model {
         variables: { instanceId: parseInt(this.id) },
       },
       "allCases.edges.firstObject.node.meta.ebau-number"
+    ) || null;
+  }
+
+  @lastValue("fetchDossierNumber") dossierNumber = null;
+  @dropTask
+  *fetchDossierNumber() {
+    return yield this.apollo.query(
+      {
+        query: getEbauNumberQuery,
+        variables: { instanceId: parseInt(this.id) },
+      },
+      "allCases.edges.firstObject.node.meta.dossier-number"
     ) || null;
   }
 }
