@@ -1,11 +1,11 @@
 from dataclasses import fields
 from typing import Any, Optional
 
-from django.utils.timezone import is_aware, make_aware
+from django.conf import settings
+from django.utils import timezone
 
 from camac.core.models import WorkflowEntry
 from camac.dossier_import.dossier_classes import Dossier
-from camac.dossier_import.importers import DossierImporter
 from camac.instance.models import Instance
 
 
@@ -80,8 +80,8 @@ class WorkflowEntryDateWriter(FieldWriter):
     target: int
 
     def write(self, instance, value):
-        if not is_aware(value):
-            value = make_aware(value)
+        if not timezone.is_aware(value):
+            value = timezone.make_aware(value)
         entry, created = WorkflowEntry.objects.get_or_create(
             instance=instance,
             workflow_item_id=self.target,
@@ -93,8 +93,19 @@ class WorkflowEntryDateWriter(FieldWriter):
 
 
 class DossierWriter:
-    def __init__(self, importer: DossierImporter):
-        self.importer = importer
+    def __init__(
+        self,
+        import_settings: dict = settings.APPLICATION["DOSSIER_IMPORT"],
+    ):
+        """Construct writer for importing dossier.
+
+        In order to make a clear difference between importing data fields and functional or
+        configuration properties make the latter private properties prefixed with an '_' to
+        avoid collision (e.g. user is pretty likely to collide at some point)
+
+        E. g. "_import_settings
+        """
+        self._import_settings = import_settings
 
     def create_instance(self, dossier: Dossier):
         """Instance etc erstellen."""
