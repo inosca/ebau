@@ -61,13 +61,15 @@ def test_import_dossiers_manage_command(
 
 @pytest.mark.parametrize("config,group_id", [("kt_schwyz", 42)])
 def test_create_instance_dossier_import_case(
-    db, initialized_dossier_importer, mocker, settings, config, user, group_id
+    db, initialized_dossier_importer, settings, config, user, group_id
 ):
     # The test import file features faulty lines for cov
     # - 3 lines with good data (1 without documents directory)
     # - 1 line with missing data
     # - 1 line with duplicate data (gemeinde-id)
-    mocker.patch("django.conf.settings.APPLICATION", settings.APPLICATIONS[config])
+
+    settings.APPLICATION = settings.APPLICATIONS[config]
+
     importer = initialized_dossier_importer(config, user_id=user.pk, group_id=group_id)
     importer.import_dossiers()
     importer.temp_dir.cleanup()
