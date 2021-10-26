@@ -36,7 +36,7 @@ PERSON_MAPPING = {
     "first_name": "vorname",
     "street": "strasse",
     "zip": "plz",
-    "town": "ort",
+    "city": "ort",
     "phone": "tel",
     "email": "email",
 }
