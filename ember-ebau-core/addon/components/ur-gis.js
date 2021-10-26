@@ -294,7 +294,7 @@ export default class UrGisComponent extends Component {
 
     const canvas = yield html2canvas(container, {
       ignoreElements: (element) =>
-        element.classList.includes("leaflet-control-container"),
+        element.classList.contains("leaflet-control-container"),
       logging: false,
       useCORS: true,
       x: window.scrollX + container.getBoundingClientRect().left,
