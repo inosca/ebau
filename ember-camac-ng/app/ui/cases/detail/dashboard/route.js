@@ -4,4 +4,9 @@ export default class CasesDashboardRoute extends Route {
   model() {
     return this.modelFor("cases.detail");
   }
+  queryParams = {
+    dossierNumber: {
+      refreshModel: true,
+    },
+  };
 }
