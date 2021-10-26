@@ -6,6 +6,7 @@ from django.core.management import call_command
 from django.utils.module_loading import import_string
 
 from camac.dossier_import.tests.test_dossier_import_case import TEST_IMPORT_FILE
+from camac.user.models import Group
 
 
 @pytest.fixture
@@ -17,23 +18,23 @@ def setup_fixtures_required_by_application_config(django_db_setup, django_db_blo
     slow down the pipeline.
     """
 
-    def wrapper(config):
+    def load_data(config):
         with django_db_blocker.unblock():
             call_command("loaddata", f"/app/{config}/config/instance.json")
             call_command("loaddata", f"/app/{config}/config/caluma_workflow.json")
             call_command("loaddata", f"/app/{config}/config/caluma_form.json")
             call_command("loaddata", f"/app/{config}/config/document.json")
 
-    return wrapper
+    return load_data
 
 
 @pytest.fixture
 def make_workflow_items_for_config(workflow_item_factory):
-    def wrapper(config):
+    def loop_workflow_item_factory(config):
         for pk in {"kt_schwyz": [10, 15, 55, 56, 47, 59, 67]}.get(config, []):
             workflow_item_factory(pk=pk)
 
-    return wrapper
+    return loop_workflow_item_factory
 
 
 @pytest.fixture
@@ -95,7 +96,7 @@ def dossier_row():
 
 
 @pytest.fixture
-def initialized_dossier_importer(
+def make_dossier_writer(
     db,
     setup_fixtures_required_by_application_config,
     make_workflow_items_for_config,
@@ -104,20 +105,38 @@ def initialized_dossier_importer(
     role,
     location,
 ):
-    def wrapper(
+    def init_writer(
         config, user_id: int, group_id: int, path_to_archive: str = TEST_IMPORT_FILE
     ):
         make_workflow_items_for_config(config)
-        application_settings = settings.APPLICATIONS[config]
+        settings.APPLICATION = settings.APPLICATIONS[config]
         setup_fixtures_required_by_application_config(config)
-        group_factory(pk=group_id, role=role)
-        importer_cls = import_string(
-            application_settings["DOSSIER_IMPORT"]["XLSX_IMPORTER_CLASS"]
+        Group.objects.get_or_create(pk=group_id, defaults={"role": role})
+        writer_cls = import_string(
+            settings.APPLICATION["DOSSIER_IMPORT"][
+                "ZIP_ARCHIVE_IMPORT_DOSSIER_WRITER_CLASS"
+            ]
         )
-        importer = importer_cls(
-            user_id=user_id, import_settings=application_settings["DOSSIER_IMPORT"]
+        return writer_cls(
+            user_id,
+            group_id,
+            location.pk,
+            path_to_archive,
+            import_settings=settings.APPLICATION["DOSSIER_IMPORT"],
         )
-        importer.initialize(group_id, location.pk, path_to_archive)
-        return importer
 
-    return wrapper
+    return init_writer
+
+
+@pytest.fixture
+def get_dossier_loader(db, settings, application_settings):
+    # this fixture requires configured DOSSIER_IMPORT properties in `settings.py`
+    # and generally might not run as expected with the 'demo' configuration.
+    def get_loader():
+        return import_string(
+            settings.APPLICATION["DOSSIER_IMPORT"][
+                "ZIP_ARCHIVE_IMPORT_DOSSIER_LOADER_CLASS"
+            ]
+        )()
+
+    return get_loader
