@@ -8,6 +8,7 @@ cases:
     user: "Ersteller"
     applicant: "Gesuchsteller"
     intent: "Vorhaben"
+    linkedInstances: "Verknüpfte Dossiers"
     street: "Strasse/Flurname"
     instanceState: "Status"
     coordination: "Koordinationsstelle"
@@ -50,3 +51,13 @@ cases:
     applicantName-placeholder: "Marc Muster"
     street: "Strasse / Flurname / Ort"
     street-placeholder: "Musterstrasse 1"
+
+  miscellaneous:
+    linkInstance: "Dossier verknüpfen"
+    linkInstanceSuccess: "Die Dossiers wurden erfolgreich verknüpft"
+    linkInstanceError: "Beim Verknüpfen der Dossiers ist etwas schief gelaufen. Sind Sie sicher, dass Sie eine gültige Dossiernummer eingegeben haben?"
+    unLinkInstance: "Verknüpfung löschen"
+    unLinkInstanceSuccess: "Die Verknüpfung der Dossiers wurde erfolgreich gelöscht"
+    unLinkInstanceError: "Beim Löschen der Verknüpfung ist etwas schief gelaufen"
+    instanceLink: "/dashboard/dashboard/index/instance-id/{ linkedDossierId }/instance-resource-id/180000#/cases/{ linkedDossierId }/dashboard"
+    enterDossierNumber: "Dossiernummer eingeben"

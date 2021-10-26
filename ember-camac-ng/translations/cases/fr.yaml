@@ -9,6 +9,7 @@ cases:
     user: ""
     applicant: ""
     intent: ""
+    linkedInstances: ""
     street: ""
     instanceState: ""
     coordination: ""
@@ -51,3 +52,13 @@ cases:
     applicantName-placeholder: ""
     street: ""
     street-placeholder: ""
+
+  miscellaneous:
+    linkInstance: ""
+    linkInstanceSuccess: ""
+    linkInstanceError: ""
+    unLinkInstance: ""
+    unLinkInstanceSuccess: ""
+    unLinkInstanceError: ""
+    instanceLink: ""
+    enterDossierNumber: ""
