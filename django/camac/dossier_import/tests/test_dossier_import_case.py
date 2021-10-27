@@ -42,6 +42,7 @@ def test_import_dossiers_manage_command(
     group,
     location,
 ):
+    settings.APPLICATION = settings.APPLICATIONS[config]
     make_workflow_items_for_config(config)
     setup_fixtures_required_by_application_config(config)
     out = StringIO()
