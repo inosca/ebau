@@ -411,6 +411,6 @@ deploy-kt_bern-production:
     - 'echo -e "camac_version: \"$(cat VERSION.txt)+${CI_COMMIT_SHORT_SHA}\"\ncamac_tarball_checksum: \"$(sha256sum ./camac-be-$(cat VERSION.txt)+${CI_COMMIT_SHORT_SHA}.tar.gz | cut -d " " -f 1)\"\n"'
 
   only:
-    - /^v\d+\.\d+\.\d+(-rc\d+)?$/
+    - /^v\d+\.\d+\.\d+(-rc\.\d+)?$/
   except:
     - branches
