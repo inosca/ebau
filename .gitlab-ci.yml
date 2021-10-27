@@ -324,7 +324,7 @@ build-kt_bern-tarball:
       - "camac-be-*.tar.gz"
     expire_in: 6 months
   only:
-    - /^v\d+\.\d+\.\d+(-rc\d+)?$/
+    - /^v\d+\.\d+\.\d+(-rc\.\d+)?$/
   except:
     - branches
 
