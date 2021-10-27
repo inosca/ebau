@@ -405,6 +405,7 @@ class CreateInstanceLogic:
         caluma_form=None,
         source_instance=None,
         copy_source=False,
+        start_caluma=True,
     ):
         """Create an instance.
 
@@ -458,7 +459,7 @@ class CreateInstanceLogic:
         if settings.APPLICATION.get("SET_SUBMIT_DATE_CAMAC_WORKFLOW") and group:
             CreateInstanceLogic.set_creation_date(instance, data)
 
-        if caluma_form:  # TODO: check if that holds for Schwyz
+        if start_caluma:
             CreateInstanceLogic.initialize_caluma(
                 instance,
                 source_instance,
