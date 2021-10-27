@@ -5,6 +5,7 @@ from copy import deepcopy
 from dataclasses import dataclass
 from pathlib import Path
 
+from caluma.caluma_form.models import Form as CalumaForm
 from caluma.caluma_user.models import BaseUser
 from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.api import cancel_work_item, skip_work_item
@@ -133,6 +134,10 @@ class KtSchwyzDossierWriter(DossierWriter):
                 caluma_user=BaseUser(),
                 camac_user=self.importer.user,
                 group=self.importer.group,
+                caluma_form=CalumaForm.objects.get(
+                    pk=settings.APPLICATION["DOSSIER_IMPORT"]["CALUMA_FORM"]
+                ),
+                start_caluma=False,
             )
         )
         ebau_number_prefix = f"IM-{self.importer.group.pk}-{dossier.submit_date.year}"
