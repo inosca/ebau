@@ -752,8 +752,14 @@ def test_notification_caluma_placeholders(
     ]
 
 
+@pytest.mark.parametrize("use_static_user", [True, False])
 def test_notification_template_merge_without_context(
-    db, be_instance, notification_template, mocker, system_operation_user
+    db,
+    be_instance,
+    notification_template,
+    system_operation_user,
+    application_settings,
+    use_static_user,
 ):
     """Test sendmail without request context.
 
@@ -765,6 +771,8 @@ def test_notification_template_merge_without_context(
     In this case the history entry should be sent in the name of the system
     operation user.
     """
+    if use_static_user:
+        application_settings["SYSTEM_USER"] = system_operation_user.username
 
     data = {
         "recipient_types": ["activation_deadline_yesterday"],

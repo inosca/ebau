@@ -29,7 +29,7 @@ from camac.core.utils import create_history_entry
 from camac.instance.mixins import InstanceEditableMixin
 from camac.instance.models import Instance
 from camac.instance.validators import transform_coordinates
-from camac.user.models import Group, Role, Service
+from camac.user.models import Group, Role, Service, User
 from camac.user.utils import unpack_service_emails
 from camac.utils import flatten, get_responsible_koor_service_id
 
@@ -931,9 +931,20 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             # If no request context was provided to the serializer we assume the
             # mail delivery is part of a batch job initalized by the system
             # operation user.
+            user = None
+
             if self.context:
                 user = self.context["request"].user
-            else:
+            elif settings.APPLICATION.get("SYSTEM_USER"):
+                user = User.objects.filter(
+                    username=settings.APPLICATION.get("SYSTEM_USER")
+                ).first()
+
+            if not user:
+                # This should be removed in the future since it's a really
+                # strange fallback that does not really make sense in any case
+                # to choose a random support user as sender. This can be removed
+                # when the notifyoverdue command of UR is using the system user
                 user = (
                     Role.objects.get(name__iexact="support")
                     .groups.order_by("group_id")

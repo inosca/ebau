@@ -740,6 +740,7 @@ APPLICATIONS = {
     },
     "kt_bern": {
         "LOG_NOTIFICATIONS": True,
+        "SYSTEM_USER": "service-account-camac-admin",
         "ROLE_PERMISSIONS": {
             "service-lead": "service",
             "service-clerk": "service",
