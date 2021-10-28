@@ -392,6 +392,7 @@ def ur_master_data_case(db, ur_instance, workflow_entry_factory, camac_answer_fa
     add_answer(document, "construction-cost", 129000)
     add_answer(document, "parcel-city", "Musterdorf")
     add_answer(document, "category", ["category-hochbaute", "category-tiefbaute"])
+    add_answer(document, "veranstaltung-art", ["veranstaltung-art-umbau"])
 
     # Municipality
     add_answer(document, "municipality", "1")

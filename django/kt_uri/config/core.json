@@ -456,6 +456,22 @@
     }
   },
   {
+    "model": "core.aformtransition",
+    "pk": 12000005,
+    "fields": {
+      "current_instance_state": null,
+      "next_instance_state": 34
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 12000008,
+    "fields": {
+      "current_instance_state": null,
+      "next_instance_state": 34
+    }
+  },
+  {
     "model": "core.alocation",
     "pk": 1009,
     "fields": {}
@@ -798,6 +814,24 @@
     "pk": 12000004,
     "fields": {
       "template": "dossier-abgewiesen",
+      "recipient_type": "Notification_Manager_Applicant",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
+    "pk": 12000006,
+    "fields": {
+      "template": "7-bau-und-einsprache-entscheid-bentzung-kantonsgebiet-versand-durch-dashboard",
+      "recipient_type": "Notification_Manager_Applicant",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
+    "pk": 12000009,
+    "fields": {
+      "template": "7-bau-und-einsprache-entscheid-bentzung-kantonsgebiet-versand-durch-dashboard",
       "recipient_type": "Notification_Manager_Applicant",
       "processor": "Notification_Processor_SendEmailAPI"
     }
@@ -4886,6 +4920,90 @@
       "description": null,
       "success_message": null,
       "error_message": "Beim Verschicken der E-Mail ist ein Fehler aufgetreten",
+      "execute_always": 0,
+      "sort": 2
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000005,
+    "fields": {
+      "available_action": "formtransition",
+      "button": 12000003,
+      "name": "Transition control",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000006,
+    "fields": {
+      "available_action": "notification",
+      "button": 12000003,
+      "name": "E-Mail an Gesuchsteller",
+      "description": null,
+      "success_message": "E-Mail wurde erfolgreich verschickt.",
+      "error_message": "Beim Verschicken der E-Mail ist ein Fehler aufgetreten.",
+      "execute_always": 0,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000007,
+    "fields": {
+      "available_action": "workflow",
+      "button": 12000003,
+      "name": "Datum Versand Entscheiddokumente per Portal",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 2
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000008,
+    "fields": {
+      "available_action": "formtransition",
+      "button": 12000004,
+      "name": "Transition control",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000009,
+    "fields": {
+      "available_action": "notification",
+      "button": 12000004,
+      "name": "E-Mail an Gesuchsteller",
+      "description": null,
+      "success_message": "E-Mail wurde erfolgreich verschickt.",
+      "error_message": "Beim Verschicken der E-Mail ist ein Fehler aufgetreten.",
+      "execute_always": 0,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000010,
+    "fields": {
+      "available_action": "workflow",
+      "button": 12000004,
+      "name": "Datum Versand Entscheiddokumente per Portal",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
       "execute_always": 0,
       "sort": 2
     }
@@ -15038,6 +15156,24 @@
     }
   },
   {
+    "model": "core.broleacl",
+    "pk": 12000015,
+    "fields": {
+      "button": 12000003,
+      "role": 1101,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000016,
+    "fields": {
+      "button": 12000004,
+      "role": 1129,
+      "instance_state": 24
+    }
+  },
+  {
     "model": "core.billingconfig",
     "pk": 1,
     "fields": {
@@ -15303,7 +15439,7 @@
     "pk": 67,
     "fields": {
       "building_authority_button": 14,
-      "email_text": "URec Info (automatisch generierte E-Mail von URec, bitte nicht darauf antworten) Statusmeldung zum Stand des Verfahrens\r\n\r\nER\u00d6FFNUNG STELLUNGNAHME / VORENTSCHEID\r\n\r\nSehr geehrte Dame Sehr geehrter Herr\r\n\r\nZum Dossier mit der ID Nr. [INSTANCE_ID], (URec Dossiernummer [DOSSIER_NUMBER]) wird Ihnen hiermit eine Stellungnahme / Vorentscheid via Gemeindebaubeh\u00f6rde [INSTANCE_LOCATION] zugestellt. Die Originaldokumente bleiben bei der ausstellenden Beh\u00f6rde und k\u00f6nnen bei Bedarf angefordert werden. Sie k\u00f6nnen die relevanten Dokumente \u00fcber den folgenden Link herunterladen:\r\n\r\n[PORTAL_LINK]\r\n\r\nUm die Dokumente herunterladen zu können, ist eine Registration auf dem URec Portal des Kanton Uri erforderlich. Unter folgendem Link können Sie sich registrieren: http://camac.ur.ch/auth/realms/urec/login-actions/registration?client_id=camac.\r\n\r\nMit dem \u00d6ffnen eines Dokuments beginnt gleichzeitig die in der Stellungnahme / Vorentscheid erw\u00e4hnte Frist f\u00fcr das rechtliche Geh\u00f6r. Das aktuelle Datum beim Anklicken des Links wurde im System gespeichert und gilt als Er\u00f6ffnungsdatum.\r\n\r\nMit freundlichen Gr\u00fcssen\r\nGemeindebaubeh\u00f6rde [INSTANCE_LOCATION]\r\n",
+      "email_text": "URec Info (automatisch generierte E-Mail von URec, bitte nicht darauf antworten) Statusmeldung zum Stand des Verfahrens\r\n\r\nER\u00d6FFNUNG STELLUNGNAHME / VORENTSCHEID\r\n\r\nSehr geehrte Dame Sehr geehrter Herr\r\n\r\nZum Dossier mit der ID Nr. [INSTANCE_ID], (URec Dossiernummer [DOSSIER_NUMBER]) wird Ihnen hiermit eine Stellungnahme / Vorentscheid via Gemeindebaubeh\u00f6rde [INSTANCE_LOCATION] zugestellt. Die Originaldokumente bleiben bei der ausstellenden Beh\u00f6rde und k\u00f6nnen bei Bedarf angefordert werden. Sie k\u00f6nnen die relevanten Dokumente \u00fcber den folgenden Link herunterladen:\r\n\r\n[PORTAL_LINK]\r\n\r\nUm die Dokumente herunterladen zu können, ist eine Registration auf dem URec Portal des Kanton Uri erforderlich. Unter folgendem Link können Sie sich registrieren: https://www.ur.ch/myservice/create.\r\n\r\nMit dem \u00d6ffnen eines Dokuments beginnt gleichzeitig die in der Stellungnahme / Vorentscheid erw\u00e4hnte Frist f\u00fcr das rechtliche Geh\u00f6r. Das aktuelle Datum beim Anklicken des Links wurde im System gespeichert und gilt als Er\u00f6ffnungsdatum.\r\n\r\nMit freundlichen Gr\u00fcssen\r\nGemeindebaubeh\u00f6rde [INSTANCE_LOCATION]\r\n",
       "receiver_query": "[gesuchsteller]",
       "email_subject": "URec Dossier Nr. [DOSSIER_NUMBER]: Bau- und Einsprache-Entscheid",
       "from_email": "urec@ur.ch",
@@ -15317,7 +15453,7 @@
     "pk": 68,
     "fields": {
       "building_authority_button": 13,
-      "email_text": "URec Info (automatisch generierte E-Mail von URec, bitte nicht darauf antworten) Statusmeldung zum Stand des Verfahrens\r\n\r\nER\u00d6FFNUNG STELLUNGNAHME / VORENTSCHEID\r\n\r\nSehr geehrte Dame Sehr geehrter Herr\r\n\r\nZum Dossier mit der ID Nr. [INSTANCE_ID], (URec Dossiernummer [DOSSIER_NUMBER]) wird Ihnen hiermit eine Stellungnahme / Vorentscheid via Gemeindebaubeh\u00f6rde [INSTANCE_LOCATION] zugestellt. Die Originaldokumente bleiben bei der ausstellenden Beh\u00f6rde und k\u00f6nnen bei Bedarf angefordert werden. Sie k\u00f6nnen die relevanten Dokumente \u00fcber den folgenden Link herunterladen:\r\n\r\n[PORTAL_LINK]\r\n\r\nUm die Dokumente herunterladen zu können, ist eine Registration auf dem URec Portal des Kanton Uri erforderlich. Unter folgendem Link können Sie sich registrieren: http://camac.ur.ch/auth/realms/urec/login-actions/registration?client_id=camac.\r\n\r\nMit dem \u00d6ffnen eines Dokuments beginnt gleichzeitig die in der Stellungnahme / Vorentscheid erw\u00e4hnte Frist f\u00fcr das rechtliche Geh\u00f6r. Das aktuelle Datum beim Anklicken des Links wurde im System gespeichert und gilt als Er\u00f6ffnungsdatum.\r\n\r\nMit freundlichen Gr\u00fcssen\r\nGemeindebaubeh\u00f6rde [INSTANCE_LOCATION]\r\n",
+      "email_text": "URec Info (automatisch generierte E-Mail von URec, bitte nicht darauf antworten) Statusmeldung zum Stand des Verfahrens\r\n\r\nER\u00d6FFNUNG STELLUNGNAHME / VORENTSCHEID\r\n\r\nSehr geehrte Dame Sehr geehrter Herr\r\n\r\nZum Dossier mit der ID Nr. [INSTANCE_ID], (URec Dossiernummer [DOSSIER_NUMBER]) wird Ihnen hiermit eine Stellungnahme / Vorentscheid via Gemeindebaubeh\u00f6rde [INSTANCE_LOCATION] zugestellt. Die Originaldokumente bleiben bei der ausstellenden Beh\u00f6rde und k\u00f6nnen bei Bedarf angefordert werden. Sie k\u00f6nnen die relevanten Dokumente \u00fcber den folgenden Link herunterladen:\r\n\r\n[PORTAL_LINK]\r\n\r\nUm die Dokumente herunterladen zu können, ist eine Registration auf dem URec Portal des Kanton Uri erforderlich. Unter folgendem Link können Sie sich registrieren: https://www.ur.ch/myservice/create.\r\n\r\nMit dem \u00d6ffnen eines Dokuments beginnt gleichzeitig die in der Stellungnahme / Vorentscheid erw\u00e4hnte Frist f\u00fcr das rechtliche Geh\u00f6r. Das aktuelle Datum beim Anklicken des Links wurde im System gespeichert und gilt als Er\u00f6ffnungsdatum.\r\n\r\nMit freundlichen Gr\u00fcssen\r\nGemeindebaubeh\u00f6rde [INSTANCE_LOCATION]\r\n",
       "receiver_query": "[gesuchsteller]",
       "email_subject": "URec Dossier Nr. [DOSSIER_NUMBER]: Bau- und Einsprache-Entscheid",
       "from_email": "urec@ur.ch",
@@ -15331,7 +15467,7 @@
     "pk": 69,
     "fields": {
       "building_authority_button": 15,
-      "email_text": "URec Info (automatisch generierte E-Mail von URec, bitte nicht darauf antworten) Statusmeldung zum Stand des Verfahrens\r\n\r\nER\u00d6FFNUNG STELLUNGNAHME / VORENTSCHEID\r\n\r\nSehr geehrte Dame Sehr geehrter Herr\r\n\r\nZum Dossier mit der ID Nr. [INSTANCE_ID], (URec Dossiernummer [DOSSIER_NUMBER]) wird Ihnen hiermit eine Stellungnahme / Vorentscheid via Gemeindebaubeh\u00f6rde [INSTANCE_LOCATION] zugestellt. Die Originaldokumente bleiben bei der ausstellenden Beh\u00f6rde und k\u00f6nnen bei Bedarf angefordert werden. Sie k\u00f6nnen die relevanten Dokumente \u00fcber den folgenden Link herunterladen:\r\n\r\n[PORTAL_LINK]\r\n\r\nUm die Dokumente herunterladen zu können, ist eine Registration auf dem URec Portal des Kanton Uri erforderlich. Unter folgendem Link können Sie sich registrieren: http://camac.ur.ch/auth/realms/urec/login-actions/registration?client_id=camac.\r\n\r\nMit dem \u00d6ffnen eines Dokuments beginnt gleichzeitig die in der Stellungnahme / Vorentscheid erw\u00e4hnte Frist f\u00fcr das rechtliche Geh\u00f6r. Das aktuelle Datum beim Anklicken des Links wurde im System gespeichert und gilt als Er\u00f6ffnungsdatum.\r\n\r\nMit freundlichen Gr\u00fcssen\r\nGemeindebaubeh\u00f6rde [INSTANCE_LOCATION]\r\n",
+      "email_text": "URec Info (automatisch generierte E-Mail von URec, bitte nicht darauf antworten) Statusmeldung zum Stand des Verfahrens\r\n\r\nER\u00d6FFNUNG STELLUNGNAHME / VORENTSCHEID\r\n\r\nSehr geehrte Dame Sehr geehrter Herr\r\n\r\nZum Dossier mit der ID Nr. [INSTANCE_ID], (URec Dossiernummer [DOSSIER_NUMBER]) wird Ihnen hiermit eine Stellungnahme / Vorentscheid via Gemeindebaubeh\u00f6rde [INSTANCE_LOCATION] zugestellt. Die Originaldokumente bleiben bei der ausstellenden Beh\u00f6rde und k\u00f6nnen bei Bedarf angefordert werden. Sie k\u00f6nnen die relevanten Dokumente \u00fcber den folgenden Link herunterladen:\r\n\r\n[PORTAL_LINK]\r\n\r\nUm die Dokumente herunterladen zu können, ist eine Registration auf dem URec Portal des Kanton Uri erforderlich. Unter folgendem Link können Sie sich registrieren: https://www.ur.ch/myservice/create.\r\n\r\nMit dem \u00d6ffnen eines Dokuments beginnt gleichzeitig die in der Stellungnahme / Vorentscheid erw\u00e4hnte Frist f\u00fcr das rechtliche Geh\u00f6r. Das aktuelle Datum beim Anklicken des Links wurde im System gespeichert und gilt als Er\u00f6ffnungsdatum.\r\n\r\nMit freundlichen Gr\u00fcssen\r\nGemeindebaubeh\u00f6rde [INSTANCE_LOCATION]\r\n",
       "receiver_query": "[gesuchsteller]",
       "email_subject": "URec Dossier Nr. [DOSSIER_NUMBER]: Bau- und Einsprache-Entscheid",
       "from_email": "urec@ur.ch",
@@ -15933,7 +16069,7 @@
       "description": "",
       "class_field": "",
       "hidden": 0,
-      "sort": 2
+      "sort": 1
     }
   },
   {
@@ -15945,7 +16081,7 @@
       "description": "",
       "class_field": "",
       "hidden": 0,
-      "sort": 3
+      "sort": 2
     }
   },
   {
@@ -15969,7 +16105,7 @@
       "description": "",
       "class_field": "button_reopen",
       "hidden": 0,
-      "sort": 4
+      "sort": 3
     }
   },
   {
@@ -16065,7 +16201,7 @@
       "description": "",
       "class_field": "",
       "hidden": 0,
-      "sort": 5
+      "sort": 4
     }
   },
   {
@@ -16473,7 +16609,7 @@
       "description": "",
       "class_field": "",
       "hidden": 0,
-      "sort": 1
+      "sort": 0
     }
   },
   {
@@ -16485,7 +16621,7 @@
       "description": "",
       "class_field": "",
       "hidden": 0,
-      "sort": 2
+      "sort": 1
     }
   },
   {
@@ -16497,7 +16633,7 @@
       "description": "Von Arch zur\u00fcck zu Redac",
       "class_field": "",
       "hidden": 0,
-      "sort": 3
+      "sort": 2
     }
   },
   {
@@ -16629,7 +16765,7 @@
       "description": "",
       "class_field": "oereb",
       "hidden": 0,
-      "sort": 4
+      "sort": 3
     }
   },
   {
@@ -16653,7 +16789,7 @@
       "description": "",
       "class_field": "oereb",
       "hidden": 0,
-      "sort": 6
+      "sort": 5
     }
   },
   {
@@ -16905,7 +17041,7 @@
       "description": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 1
+      "sort": 0
     }
   },
   {
@@ -16978,6 +17114,30 @@
       "class_field": null,
       "hidden": 0,
       "sort": 2
+    }
+  },
+  {
+    "model": "core.button",
+    "pk": 12000003,
+    "fields": {
+      "instance_resource": 180004,
+      "name": "Entscheid zustellen",
+      "description": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 6
+    }
+  },
+  {
+    "model": "core.button",
+    "pk": 12000004,
+    "fields": {
+      "instance_resource": 180008,
+      "name": "Entscheid zustellen",
+      "description": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 4
     }
   },
   {
@@ -20988,6 +21148,14 @@
     "fields": {
       "form_group": 221,
       "form": 61
+    }
+  },
+  {
+    "model": "core.formgroupform",
+    "pk": 12000009,
+    "fields": {
+      "form_group": 255,
+      "form": 247
     }
   },
   {
@@ -25031,6 +25199,134 @@
     "pk": 12000000,
     "fields": {
       "available_instance_resource": "editformpage",
+      "available_action": "notification"
+    }
+  },
+  {
+    "model": "core.instanceresourceaction",
+    "pk": 12000001,
+    "fields": {
+      "available_instance_resource": "dashboard",
+      "available_action": "activation"
+    }
+  },
+  {
+    "model": "core.instanceresourceaction",
+    "pk": 12000002,
+    "fields": {
+      "available_instance_resource": "dashboard",
+      "available_action": "checkquery"
+    }
+  },
+  {
+    "model": "core.instanceresourceaction",
+    "pk": 12000003,
+    "fields": {
+      "available_instance_resource": "dashboard",
+      "available_action": "copydata"
+    }
+  },
+  {
+    "model": "core.instanceresourceaction",
+    "pk": 12000004,
+    "fields": {
+      "available_instance_resource": "dashboard",
+      "available_action": "docx"
+    }
+  },
+  {
+    "model": "core.instanceresourceaction",
+    "pk": 12000005,
+    "fields": {
+      "available_instance_resource": "dashboard",
+      "available_action": "email"
+    }
+  },
+  {
+    "model": "core.instanceresourceaction",
+    "pk": 12000006,
+    "fields": {
+      "available_instance_resource": "dashboard",
+      "available_action": "formtransition"
+    }
+  },
+  {
+    "model": "core.instanceresourceaction",
+    "pk": 12000007,
+    "fields": {
+      "available_instance_resource": "dashboard",
+      "available_action": "location"
+    }
+  },
+  {
+    "model": "core.instanceresourceaction",
+    "pk": 12000008,
+    "fields": {
+      "available_instance_resource": "dashboard",
+      "available_action": "pageredirect"
+    }
+  },
+  {
+    "model": "core.instanceresourceaction",
+    "pk": 12000009,
+    "fields": {
+      "available_instance_resource": "dashboard",
+      "available_action": "pdf"
+    }
+  },
+  {
+    "model": "core.instanceresourceaction",
+    "pk": 12000010,
+    "fields": {
+      "available_instance_resource": "dashboard",
+      "available_action": "php"
+    }
+  },
+  {
+    "model": "core.instanceresourceaction",
+    "pk": 12000011,
+    "fields": {
+      "available_instance_resource": "dashboard",
+      "available_action": "proposal"
+    }
+  },
+  {
+    "model": "core.instanceresourceaction",
+    "pk": 12000012,
+    "fields": {
+      "available_instance_resource": "dashboard",
+      "available_action": "savepdf"
+    }
+  },
+  {
+    "model": "core.instanceresourceaction",
+    "pk": 12000013,
+    "fields": {
+      "available_instance_resource": "dashboard",
+      "available_action": "validate"
+    }
+  },
+  {
+    "model": "core.instanceresourceaction",
+    "pk": 12000014,
+    "fields": {
+      "available_instance_resource": "dashboard",
+      "available_action": "workflow"
+    }
+  },
+  {
+    "model": "core.instanceresourceaction",
+    "pk": 12000015,
+    "fields": {
+      "available_instance_resource": "dashboard",
+      "available_action": "wsgeocode"
+    }
+  },
+  {
+    "model": "core.instanceresourceaction",
+    "pk": 12000016,
+    "fields": {
+      "available_instance_resource": "dashboard",
       "available_action": "notification"
     }
   },
@@ -43773,7 +44069,7 @@
       "template": "/global/home.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 31
+      "sort": 32
     }
   },
   {
@@ -43786,7 +44082,7 @@
       "template": "/global/search.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 29
+      "sort": 30
     }
   },
   {
@@ -43799,7 +44095,7 @@
       "template": "/buildom/search.phtml",
       "class_field": "",
       "hidden": 1,
-      "sort": 27
+      "sort": 28
     }
   },
   {
@@ -43825,7 +44121,7 @@
       "template": "/portal/notfound.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 34
+      "sort": 33
     }
   },
   {
@@ -43838,7 +44134,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -43851,7 +44147,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 22
+      "sort": 23
     }
   },
   {
@@ -43864,7 +44160,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -43877,7 +44173,7 @@
       "template": "",
       "class_field": "",
       "hidden": 0,
-      "sort": 23
+      "sort": 24
     }
   },
   {
@@ -43890,7 +44186,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -43903,7 +44199,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 16
+      "sort": 17
     }
   },
   {
@@ -43916,7 +44212,7 @@
       "template": null,
       "class_field": "hasPendingBillingEntry",
       "hidden": 0,
-      "sort": 25
+      "sort": 26
     }
   },
   {
@@ -43929,7 +44225,7 @@
       "template": null,
       "class_field": "hasPendingSanction",
       "hidden": 0,
-      "sort": 24
+      "sort": 25
     }
   },
   {
@@ -43942,7 +44238,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 17
+      "sort": 18
     }
   },
   {
@@ -43955,7 +44251,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 18
+      "sort": 19
     }
   },
   {
@@ -43968,7 +44264,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 19
+      "sort": 20
     }
   },
   {
@@ -43981,7 +44277,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 26
+      "sort": 27
     }
   },
   {
@@ -43994,7 +44290,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -44059,7 +44355,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 21
+      "sort": 22
     }
   },
   {
@@ -44111,7 +44407,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 30
+      "sort": 31
     }
   },
   {
@@ -44124,7 +44420,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 20
+      "sort": 21
     }
   },
   {
@@ -44137,7 +44433,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -44163,7 +44459,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 28
+      "sort": 29
     }
   },
   {
@@ -44176,7 +44472,7 @@
       "template": "/ember/form-builder.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 35
+      "sort": 34
     }
   },
   {
@@ -44189,7 +44485,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 10
+      "sort": 9
     }
   },
   {
@@ -44478,6 +44774,22 @@
     "fields": {
       "workflow_item": 16,
       "multi_value": 0
+    }
+  },
+  {
+    "model": "core.workflowaction",
+    "pk": 12000007,
+    "fields": {
+      "workflow_item": 85,
+      "multi_value": 1
+    }
+  },
+  {
+    "model": "core.workflowaction",
+    "pk": 12000010,
+    "fields": {
+      "workflow_item": 85,
+      "multi_value": 1
     }
   },
   {
