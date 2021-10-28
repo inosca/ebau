@@ -225,6 +225,20 @@ APPLICATIONS = {
             ],
             "USER": "import@koor-bg.ur.ch",
         },
+        "CUSTOM_NOTIFICATION_TYPES": [
+            # BE
+            "inactive_municipality",
+            # UR
+            "submitter_list",
+            "municipality_users",
+            "unnotified_service_users",
+            "lisag",
+            "koor_np_users",
+            "koor_bg_users",
+            "koor_bd_users",
+            "koor_sd_users",
+            "responsible_koor",
+        ],
     },
     "kt_schwyz": {
         "LOG_NOTIFICATIONS": True,
@@ -1781,6 +1795,8 @@ APPLICATIONS = {
             "lisag",
             "koor_np_users",
             "koor_bg_users",
+            "koor_bd_users",
+            "koor_sd_users",
             "responsible_koor",
         ],
         "DOCUMENTS_SKIP_CONTEXT_VALIDATION": True,
@@ -1790,6 +1806,11 @@ APPLICATIONS = {
             "CREATE_IN_PROCESS": True,
             "GENERATE_IDENTIFIER": True,
             "USE_LOCATION": True,
+            "KOOR_SD_SLUGS": [
+                "veranstaltung-art-sportanlass",
+                "veranstaltung-art-foto-und-filmaufnahmen",
+                "veranstaltung-art-andere",
+            ],
             "SAVE_DOSSIER_NUMBER_IN_CALUMA": True,
             "SYNC_FORM_TYPE": True,
             "SUBMIT_TASKS": [],
@@ -1816,6 +1837,7 @@ APPLICATIONS = {
                         "commercial-permit",
                         "proposal-declaration",
                         "solar-declaration",
+                        "cantonal-territory-usage",
                     ],
                     "people_sources": {
                         "applicant",
@@ -1897,6 +1919,34 @@ APPLICATIONS = {
                 {
                     "template_slug": "dossier-eingereicht-gemeinde",
                     "recipient_types": ["municipality_users"],
+                },
+                {
+                    "template_slug": "dossier-eingereicht-koor-bd",
+                    "recipient_types": ["koor_bd_users"],
+                },
+                {
+                    "template_slug": "dossier-eingereicht-koor-sd",
+                    "recipient_types": ["koor_sd_users"],
+                },
+            ],
+            "SUBMIT_CANTONAL_TERRITORY_USAGE_SD": [
+                {
+                    "template_slug": "dossier-eingereicht-gesuchsteller",
+                    "recipient_types": ["applicant"],
+                },
+                {
+                    "template_slug": "dossier-eingereicht-koor-sd",
+                    "recipient_types": ["koor_sd_users"],
+                },
+            ],
+            "SUBMIT_CANTONAL_TERRITORY_USAGE_BD": [
+                {
+                    "template_slug": "dossier-eingereicht-gesuchsteller",
+                    "recipient_types": ["applicant"],
+                },
+                {
+                    "template_slug": "dossier-eingereicht-koor-bd",
+                    "recipient_types": ["koor_bd_users"],
                 },
             ],
             "APPLICANT": {
@@ -1991,6 +2041,10 @@ APPLICATIONS = {
                     "vorhaben-proposal-description",
                     "veranstaltung-beschrieb",
                 ],
+            ),
+            "veranstaltung_art": (
+                "answer",
+                "veranstaltung-art",
             ),
             "plot_data": (
                 "table",
