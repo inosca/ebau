@@ -4,7 +4,6 @@ from __future__ import unicode_literals
 
 from snapshottest import GenericRepr, Snapshot
 
-
 snapshots = Snapshot()
 
 snapshots['test_master_data[kt_bern-de-be_master_data_case-select_related0-prefetch_related0-14] 1'] = {
@@ -304,11 +303,14 @@ snapshots['test_master_data[kt_bern-fr-be_master_data_case-select_related1-prefe
 snapshots['test_master_data[kt_schwyz-de-sz_master_data_case_gwr-select_related3-prefetch_related3-3] 1'] = {
     'applicants': [
         {
+            'company': 'ACME AG',
             'country': 'Schweiz',
+            'email': None,
             'first_name': 'Max',
             'is_juristic_person': False,
             'juristic_name': 'ACME AG',
             'last_name': 'Mustermann',
+            'phone': None,
             'street': 'Teststrasse 3',
             'town': 'Musterdorf',
             'zip': 5678
@@ -338,24 +340,41 @@ snapshots['test_master_data[kt_schwyz-de-sz_master_data_case_gwr-select_related3
         }
     ],
     'canton': 'SZ',
+    'completion_date': None,
     'construction_costs': 129000,
+    'construction_start_date': None,
+    'coordinates': [
+    ],
+    'decision_date': None,
+    'final_approval_date': None,
+    'landowners': [
+    ],
     'plot_data': [
         {
             'egrid_number': 'CH1234567890',
             'plot_number': 1234
         }
     ],
-    'proposal': 'Grosses Haus'
+    'procedure_type_migrated': None,
+    'profile_approval_date': None,
+    'project_authors': [
+    ],
+    'proposal': 'Grosses Haus',
+    'publication_date': None,
+    'submit_date': None
 }
 
 snapshots['test_master_data[kt_schwyz-de-sz_master_data_case_gwr_v2-select_related4-prefetch_related4-3] 1'] = {
     'applicants': [
         {
+            'company': 'ACME AG',
             'country': 'Schweiz',
+            'email': None,
             'first_name': 'Max',
             'is_juristic_person': False,
             'juristic_name': 'ACME AG',
             'last_name': 'Mustermann',
+            'phone': None,
             'street': 'Teststrasse 3',
             'town': 'Musterdorf',
             'zip': 5678
@@ -393,14 +412,28 @@ snapshots['test_master_data[kt_schwyz-de-sz_master_data_case_gwr_v2-select_relat
         }
     ],
     'canton': 'SZ',
+    'completion_date': None,
     'construction_costs': 129000,
+    'construction_start_date': None,
+    'coordinates': [
+    ],
+    'decision_date': None,
+    'final_approval_date': None,
+    'landowners': [
+    ],
     'plot_data': [
         {
             'egrid_number': 'CH1234567890',
             'plot_number': 1234
         }
     ],
-    'proposal': 'Grosses Haus'
+    'procedure_type_migrated': None,
+    'profile_approval_date': None,
+    'project_authors': [
+    ],
+    'proposal': 'Grosses Haus',
+    'publication_date': None,
+    'submit_date': None
 }
 
 snapshots['test_master_data[kt_uri-de-ur_master_data_case-select_related2-prefetch_related2-8] 1'] = {
