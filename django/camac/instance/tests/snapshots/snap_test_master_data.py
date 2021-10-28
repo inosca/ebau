@@ -497,6 +497,9 @@ snapshots['test_master_data[kt_uri-de-ur_master_data_case-select_related2-prefet
         {
             'art_der_hochbaute': 6235
         }
+    ],
+    'veranstaltung_art': [
+        'veranstaltung-art-umbau'
     ]
 }
 

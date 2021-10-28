@@ -310,5 +310,41 @@
       "service": null,
       "type": "email"
     }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 1454,
+    "fields": {
+      "slug": "7-bau-und-einsprache-entscheid-bentzung-kantonsgebiet-versand-durch-dashboard",
+      "purpose": "7. Bau- und Einsprache-Entscheid Ben\u00fctzung Kantonsgebiet versand durch Dashboard",
+      "subject": "URec Dossier Nr. {{DOSSIER_NR}}: Bau- und Einsprache-Entscheid",
+      "body": "URec Info (automatisch generierte E-Mail von URec, bitte nicht darauf antworten) Statusmeldung zum Stand des Verfahrens\r\n\r\nER\u00d6FFNUNG STELLUNGNAHME / Entscheid\r\n\r\nSehr geehrte Dame Sehr geehrter Herr\r\n\r\nZum Dossiers mit der ID Nr. {{INSTANCE_ID}}, (URec Dossiernummer {{DOSSIER_NR}}) wird Ihnen hiermit eine Stellungnahme / Entscheid via {{CURRENT_SERVICE_DESCRIPTION}} zugestellt. Die Originaldokumente bleiben bei der ausstellenden Beh\u00f6rde und k\u00f6nnen bei Bedarf angefordert werden. Sie k\u00f6nnen die relevanten Dokumente \u00fcber den folgenden Link herunterladen:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nMit dem \u00d6ffnen eines Dokuments beginnt gleichzeitig die Frist f\u00fcr das rechtliche Geh\u00f6r. Das aktuelle Datum beim Anklicken des Links wurde im System gespeichert und gilt als Er\u00f6ffnungsdatum.\r\n\r\nMit freundlichen Gr\u00fcssen\r\n{{CURRENT_SERVICE_DESCRIPTION}}\r\n",
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 1455,
+    "fields": {
+      "slug": "dossier-eingereicht-koor-bd",
+      "purpose": "8 Info an KOOR BD - Neues Dossier wurde online eingereicht",
+      "subject": "Neues Dossier wurde online eingereicht",
+      "body": "URec Info\r\n(automatisch generierte E-Mail von URec, bitte nicht darauf antworten)\r\n\r\nNEUES ONLINE DOSSIER\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nVia Online Portal wurde ein neues Dossier mit der Nr. {{DOSSIER_NR}} eingereicht. Bitte pr\u00fcfen Sie das Dossier auf Vollst\u00e4ndigkeit. Falls zus\u00e4tzliche Unterlagen notwendig sind, schreiben Sie die entsprechende Nachricht in das daf\u00fcr vorgesehene Feld \u00abMitteilung an Gesuchsteller\u00bb und klicken Sie auf \u00abNachforderung\u00bb. Das Dossier wird blau hinterlegt und der Gesuchsteller erh\u00e4lt Ihre Mitteilung per E-Mail.\r\n\r\nFalls es sich offensichtlich um ein Fake-Gesuch handelt (z.B. wenn ein leeres Formular versehentlich abgeschickt wurde), k\u00f6nnen Sie dieses abweisen. Durch klicken auf \u00abAbweisen\u00bb wird das Dossier gel\u00f6scht.\r\n\r\nWenn das Dossier vollst\u00e4ndig ist, klicken Sie auf \u00abDossier annehmen\u00bb. Das Dossier wird in der Dossierbearbeitung starten angezeigt und erh\u00e4lt vom System die zugeh\u00f6rige URec Nummer. Der Gesuchsteller erh\u00e4lt eine entsprechende Annahmebest\u00e4tigung per E-Mail.\r\n\r\nBei Bedarf wandeln Sie das Dossier um in ein entsprechendes Verfahren mit kantonaler Beteiligung.\r\n\r\nBei Fragen schreiben Sie uns bitte eine E-Mail an:\r\nraumplanung@ur.ch",
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 1456,
+    "fields": {
+      "slug": "dossier-eingereicht-koor-sd",
+      "purpose": "8.1 Info an KOOR SD - Neues Dossier wurde online eingereicht",
+      "subject": "Neues Dossier wurde online eingereicht",
+      "body": "URec Info\r\n(automatisch generierte E-Mail von URec, bitte nicht darauf antworten)\r\n\r\nNEUES ONLINE DOSSIER\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nVia Online Portal wurde ein neues Dossier mit der Nr. {{DOSSIER_NR}} eingereicht. Bitte pr\u00fcfen Sie das Dossier auf Vollst\u00e4ndigkeit. Falls zus\u00e4tzliche Unterlagen notwendig sind, schreiben Sie die entsprechende Nachricht in das daf\u00fcr vorgesehene Feld \u00abMitteilung an Gesuchsteller\u00bb und klicken Sie auf \u00abNachforderung\u00bb. Das Dossier wird blau hinterlegt und der Gesuchsteller erh\u00e4lt Ihre Mitteilung per E-Mail.\r\n\r\nFalls es sich offensichtlich um ein Fake-Gesuch handelt (z.B. wenn ein leeres Formular versehentlich abgeschickt wurde), k\u00f6nnen Sie dieses abweisen. Durch klicken auf \u00abAbweisen\u00bb wird das Dossier gel\u00f6scht.\r\n\r\nWenn das Dossier vollst\u00e4ndig ist, klicken Sie auf \u00abDossier annehmen\u00bb. Das Dossier wird in der Dossierbearbeitung starten angezeigt und erh\u00e4lt vom System die zugeh\u00f6rige URec Nummer. Der Gesuchsteller erh\u00e4lt eine entsprechende Annahmebest\u00e4tigung per E-Mail.\r\n\r\nBei Bedarf wandeln Sie das Dossier um in ein entsprechendes Verfahren mit kantonaler Beteiligung.\r\n\r\nBei Fragen schreiben Sie uns bitte eine E-Mail an:\r\nraumplanung@ur.ch",
+      "service": null,
+      "type": "email"
+    }
   }
 ]
