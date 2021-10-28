@@ -55,6 +55,7 @@ omit=
     camac/core/management/commands/migrate_work_item_controlling.py
     camac/core/management/commands/initialize_information_of_neighbors.py
     camac/core/management/commands/migrate_stockwerk_uri.py
+    camac/core/management/commands/migrate_oereb_forms.py
     # Audit migration
     camac/core/management/commands/config/
     camac/core/management/commands/migrate_audit.py
