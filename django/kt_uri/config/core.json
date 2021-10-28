@@ -18976,70 +18976,6 @@
   },
   {
     "model": "core.formgroupform",
-    "pk": 38,
-    "fields": {
-      "form_group": 141,
-      "form": 101
-    }
-  },
-  {
-    "model": "core.formgroupform",
-    "pk": 39,
-    "fields": {
-      "form_group": 141,
-      "form": 102
-    }
-  },
-  {
-    "model": "core.formgroupform",
-    "pk": 40,
-    "fields": {
-      "form_group": 141,
-      "form": 103
-    }
-  },
-  {
-    "model": "core.formgroupform",
-    "pk": 41,
-    "fields": {
-      "form_group": 141,
-      "form": 104
-    }
-  },
-  {
-    "model": "core.formgroupform",
-    "pk": 42,
-    "fields": {
-      "form_group": 141,
-      "form": 105
-    }
-  },
-  {
-    "model": "core.formgroupform",
-    "pk": 43,
-    "fields": {
-      "form_group": 141,
-      "form": 106
-    }
-  },
-  {
-    "model": "core.formgroupform",
-    "pk": 44,
-    "fields": {
-      "form_group": 141,
-      "form": 107
-    }
-  },
-  {
-    "model": "core.formgroupform",
-    "pk": 45,
-    "fields": {
-      "form_group": 141,
-      "form": 108
-    }
-  },
-  {
-    "model": "core.formgroupform",
     "pk": 46,
     "fields": {
       "form_group": 141,
@@ -19120,70 +19056,6 @@
   },
   {
     "model": "core.formgroupform",
-    "pk": 56,
-    "fields": {
-      "form_group": 161,
-      "form": 101
-    }
-  },
-  {
-    "model": "core.formgroupform",
-    "pk": 57,
-    "fields": {
-      "form_group": 161,
-      "form": 102
-    }
-  },
-  {
-    "model": "core.formgroupform",
-    "pk": 58,
-    "fields": {
-      "form_group": 161,
-      "form": 103
-    }
-  },
-  {
-    "model": "core.formgroupform",
-    "pk": 59,
-    "fields": {
-      "form_group": 161,
-      "form": 104
-    }
-  },
-  {
-    "model": "core.formgroupform",
-    "pk": 60,
-    "fields": {
-      "form_group": 161,
-      "form": 105
-    }
-  },
-  {
-    "model": "core.formgroupform",
-    "pk": 61,
-    "fields": {
-      "form_group": 161,
-      "form": 106
-    }
-  },
-  {
-    "model": "core.formgroupform",
-    "pk": 62,
-    "fields": {
-      "form_group": 161,
-      "form": 107
-    }
-  },
-  {
-    "model": "core.formgroupform",
-    "pk": 63,
-    "fields": {
-      "form_group": 161,
-      "form": 108
-    }
-  },
-  {
-    "model": "core.formgroupform",
     "pk": 64,
     "fields": {
       "form_group": 161,
@@ -19220,70 +19092,6 @@
     "fields": {
       "form_group": 181,
       "form": 44
-    }
-  },
-  {
-    "model": "core.formgroupform",
-    "pk": 69,
-    "fields": {
-      "form_group": 181,
-      "form": 101
-    }
-  },
-  {
-    "model": "core.formgroupform",
-    "pk": 70,
-    "fields": {
-      "form_group": 181,
-      "form": 102
-    }
-  },
-  {
-    "model": "core.formgroupform",
-    "pk": 71,
-    "fields": {
-      "form_group": 181,
-      "form": 103
-    }
-  },
-  {
-    "model": "core.formgroupform",
-    "pk": 72,
-    "fields": {
-      "form_group": 181,
-      "form": 104
-    }
-  },
-  {
-    "model": "core.formgroupform",
-    "pk": 73,
-    "fields": {
-      "form_group": 181,
-      "form": 105
-    }
-  },
-  {
-    "model": "core.formgroupform",
-    "pk": 74,
-    "fields": {
-      "form_group": 181,
-      "form": 106
-    }
-  },
-  {
-    "model": "core.formgroupform",
-    "pk": 75,
-    "fields": {
-      "form_group": 181,
-      "form": 107
-    }
-  },
-  {
-    "model": "core.formgroupform",
-    "pk": 76,
-    "fields": {
-      "form_group": 181,
-      "form": 108
     }
   },
   {
@@ -20328,22 +20136,6 @@
   },
   {
     "model": "core.formgroupform",
-    "pk": 211,
-    "fields": {
-      "form_group": 246,
-      "form": 285
-    }
-  },
-  {
-    "model": "core.formgroupform",
-    "pk": 212,
-    "fields": {
-      "form_group": 252,
-      "form": 281
-    }
-  },
-  {
-    "model": "core.formgroupform",
     "pk": 213,
     "fields": {
       "form_group": 251,
@@ -20352,34 +20144,10 @@
   },
   {
     "model": "core.formgroupform",
-    "pk": 214,
-    "fields": {
-      "form_group": 141,
-      "form": 284
-    }
-  },
-  {
-    "model": "core.formgroupform",
-    "pk": 215,
-    "fields": {
-      "form_group": 161,
-      "form": 282
-    }
-  },
-  {
-    "model": "core.formgroupform",
     "pk": 216,
     "fields": {
       "form_group": 161,
       "form": 252
-    }
-  },
-  {
-    "model": "core.formgroupform",
-    "pk": 217,
-    "fields": {
-      "form_group": 161,
-      "form": 285
     }
   },
   {
@@ -20424,30 +20192,6 @@
   },
   {
     "model": "core.formgroupform",
-    "pk": 223,
-    "fields": {
-      "form_group": 241,
-      "form": 285
-    }
-  },
-  {
-    "model": "core.formgroupform",
-    "pk": 224,
-    "fields": {
-      "form_group": 161,
-      "form": 261
-    }
-  },
-  {
-    "model": "core.formgroupform",
-    "pk": 225,
-    "fields": {
-      "form_group": 161,
-      "form": 284
-    }
-  },
-  {
-    "model": "core.formgroupform",
     "pk": 226,
     "fields": {
       "form_group": 251,
@@ -20460,14 +20204,6 @@
     "fields": {
       "form_group": 161,
       "form": 255
-    }
-  },
-  {
-    "model": "core.formgroupform",
-    "pk": 228,
-    "fields": {
-      "form_group": 181,
-      "form": 261
     }
   },
   {
@@ -20504,26 +20240,10 @@
   },
   {
     "model": "core.formgroupform",
-    "pk": 233,
-    "fields": {
-      "form_group": 244,
-      "form": 285
-    }
-  },
-  {
-    "model": "core.formgroupform",
     "pk": 234,
     "fields": {
       "form_group": 244,
       "form": 250
-    }
-  },
-  {
-    "model": "core.formgroupform",
-    "pk": 235,
-    "fields": {
-      "form_group": 141,
-      "form": 261
     }
   },
   {
@@ -20536,26 +20256,10 @@
   },
   {
     "model": "core.formgroupform",
-    "pk": 237,
-    "fields": {
-      "form_group": 249,
-      "form": 282
-    }
-  },
-  {
-    "model": "core.formgroupform",
     "pk": 238,
     "fields": {
       "form_group": 161,
       "form": 254
-    }
-  },
-  {
-    "model": "core.formgroupform",
-    "pk": 239,
-    "fields": {
-      "form_group": 161,
-      "form": 281
     }
   },
   {
@@ -20596,22 +20300,6 @@
     "fields": {
       "form_group": 250,
       "form": 254
-    }
-  },
-  {
-    "model": "core.formgroupform",
-    "pk": 245,
-    "fields": {
-      "form_group": 245,
-      "form": 285
-    }
-  },
-  {
-    "model": "core.formgroupform",
-    "pk": 246,
-    "fields": {
-      "form_group": 242,
-      "form": 285
     }
   },
   {
@@ -20740,14 +20428,6 @@
     "fields": {
       "form_group": 255,
       "form": 260
-    }
-  },
-  {
-    "model": "core.formgroupform",
-    "pk": 265,
-    "fields": {
-      "form_group": 255,
-      "form": 281
     }
   },
   {
@@ -21000,38 +20680,6 @@
   },
   {
     "model": "core.formgroupform",
-    "pk": 309,
-    "fields": {
-      "form_group": 257,
-      "form": 104
-    }
-  },
-  {
-    "model": "core.formgroupform",
-    "pk": 310,
-    "fields": {
-      "form_group": 257,
-      "form": 106
-    }
-  },
-  {
-    "model": "core.formgroupform",
-    "pk": 311,
-    "fields": {
-      "form_group": 257,
-      "form": 108
-    }
-  },
-  {
-    "model": "core.formgroupform",
-    "pk": 312,
-    "fields": {
-      "form_group": 257,
-      "form": 101
-    }
-  },
-  {
-    "model": "core.formgroupform",
     "pk": 313,
     "fields": {
       "form_group": 257,
@@ -21156,6 +20804,30 @@
     "fields": {
       "form_group": 255,
       "form": 247
+    }
+  },
+  {
+    "model": "core.formgroupform",
+    "pk": 12000010,
+    "fields": {
+      "form_group": 161,
+      "form": 296
+    }
+  },
+  {
+    "model": "core.formgroupform",
+    "pk": 12000011,
+    "fields": {
+      "form_group": 141,
+      "form": 296
+    }
+  },
+  {
+    "model": "core.formgroupform",
+    "pk": 12000012,
+    "fields": {
+      "form_group": 181,
+      "form": 296
     }
   },
   {
@@ -37962,8 +37634,8 @@
     "pk": 81,
     "fields": {
       "name": "Hauptformular Nutzungsplanung",
-      "description": "",
-      "javascript": ""
+      "description": null,
+      "javascript": null
     }
   },
   {
@@ -38182,17 +37854,6 @@
   },
   {
     "model": "core.pageform",
-    "pk": 18,
-    "fields": {
-      "page": 81,
-      "form": 101,
-      "page_form_mode": 3,
-      "page_form_group": 1,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.pageform",
     "pk": 19,
     "fields": {
       "page": 41,
@@ -38200,83 +37861,6 @@
       "page_form_mode": 4,
       "page_form_group": 1,
       "sort": 1
-    }
-  },
-  {
-    "model": "core.pageform",
-    "pk": 20,
-    "fields": {
-      "page": 81,
-      "form": 102,
-      "page_form_mode": 3,
-      "page_form_group": 1,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.pageform",
-    "pk": 21,
-    "fields": {
-      "page": 81,
-      "form": 103,
-      "page_form_mode": 3,
-      "page_form_group": 1,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.pageform",
-    "pk": 22,
-    "fields": {
-      "page": 81,
-      "form": 104,
-      "page_form_mode": 3,
-      "page_form_group": 1,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.pageform",
-    "pk": 23,
-    "fields": {
-      "page": 81,
-      "form": 105,
-      "page_form_mode": 3,
-      "page_form_group": 1,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.pageform",
-    "pk": 24,
-    "fields": {
-      "page": 81,
-      "form": 106,
-      "page_form_mode": 3,
-      "page_form_group": 1,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.pageform",
-    "pk": 25,
-    "fields": {
-      "page": 81,
-      "form": 107,
-      "page_form_mode": 3,
-      "page_form_group": 1,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.pageform",
-    "pk": 26,
-    "fields": {
-      "page": 81,
-      "form": 108,
-      "page_form_mode": 3,
-      "page_form_group": 1,
-      "sort": 0
     }
   },
   {
@@ -38297,94 +37881,6 @@
       "page": 41,
       "form": 141,
       "page_form_mode": 4,
-      "page_form_group": 1,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.pageform",
-    "pk": 29,
-    "fields": {
-      "page": 41,
-      "form": 107,
-      "page_form_mode": 4,
-      "page_form_group": 1,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.pageform",
-    "pk": 30,
-    "fields": {
-      "page": 41,
-      "form": 105,
-      "page_form_mode": 4,
-      "page_form_group": 1,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.pageform",
-    "pk": 31,
-    "fields": {
-      "page": 41,
-      "form": 102,
-      "page_form_mode": 4,
-      "page_form_group": 1,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.pageform",
-    "pk": 32,
-    "fields": {
-      "page": 41,
-      "form": 103,
-      "page_form_mode": 4,
-      "page_form_group": 1,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.pageform",
-    "pk": 33,
-    "fields": {
-      "page": 41,
-      "form": 101,
-      "page_form_mode": 4,
-      "page_form_group": 1,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.pageform",
-    "pk": 34,
-    "fields": {
-      "page": 41,
-      "form": 108,
-      "page_form_mode": 4,
-      "page_form_group": 1,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.pageform",
-    "pk": 35,
-    "fields": {
-      "page": 41,
-      "form": 104,
-      "page_form_mode": 4,
-      "page_form_group": 1,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.pageform",
-    "pk": 36,
-    "fields": {
-      "page": 41,
-      "form": 106,
-      "page_form_mode": 1,
       "page_form_group": 1,
       "sort": 1
     }
@@ -38875,17 +38371,6 @@
   },
   {
     "model": "core.pageform",
-    "pk": 81,
-    "fields": {
-      "page": 1,
-      "form": 282,
-      "page_form_mode": 3,
-      "page_form_group": 1,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.pageform",
     "pk": 82,
     "fields": {
       "page": 1,
@@ -38926,17 +38411,6 @@
       "page_form_mode": 3,
       "page_form_group": 1,
       "sort": 0
-    }
-  },
-  {
-    "model": "core.pageform",
-    "pk": 86,
-    "fields": {
-      "page": 41,
-      "form": 284,
-      "page_form_mode": 4,
-      "page_form_group": 1,
-      "sort": 1
     }
   },
   {
@@ -38996,28 +38470,6 @@
   },
   {
     "model": "core.pageform",
-    "pk": 92,
-    "fields": {
-      "page": 1,
-      "form": 281,
-      "page_form_mode": 3,
-      "page_form_group": 1,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.pageform",
-    "pk": 93,
-    "fields": {
-      "page": 1,
-      "form": 285,
-      "page_form_mode": 3,
-      "page_form_group": 1,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.pageform",
     "pk": 94,
     "fields": {
       "page": 1,
@@ -39051,43 +38503,10 @@
   },
   {
     "model": "core.pageform",
-    "pk": 97,
-    "fields": {
-      "page": 41,
-      "form": 261,
-      "page_form_mode": 4,
-      "page_form_group": 1,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.pageform",
-    "pk": 98,
-    "fields": {
-      "page": 41,
-      "form": 281,
-      "page_form_mode": 4,
-      "page_form_group": 1,
-      "sort": 2
-    }
-  },
-  {
-    "model": "core.pageform",
     "pk": 99,
     "fields": {
       "page": 1,
       "form": 259,
-      "page_form_mode": 3,
-      "page_form_group": 1,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.pageform",
-    "pk": 100,
-    "fields": {
-      "page": 81,
-      "form": 261,
       "page_form_mode": 3,
       "page_form_group": 1,
       "sort": 0
@@ -39117,28 +38536,6 @@
   },
   {
     "model": "core.pageform",
-    "pk": 103,
-    "fields": {
-      "page": 41,
-      "form": 282,
-      "page_form_mode": 4,
-      "page_form_group": 1,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.pageform",
-    "pk": 104,
-    "fields": {
-      "page": 41,
-      "form": 285,
-      "page_form_mode": 4,
-      "page_form_group": 1,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.pageform",
     "pk": 105,
     "fields": {
       "page": 41,
@@ -39161,17 +38558,6 @@
   },
   {
     "model": "core.pageform",
-    "pk": 107,
-    "fields": {
-      "page": 81,
-      "form": 284,
-      "page_form_mode": 3,
-      "page_form_group": 1,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.pageform",
     "pk": 108,
     "fields": {
       "page": 41,
@@ -39179,17 +38565,6 @@
       "page_form_mode": 4,
       "page_form_group": 1,
       "sort": 1
-    }
-  },
-  {
-    "model": "core.pageform",
-    "pk": 109,
-    "fields": {
-      "page": 1,
-      "form": 261,
-      "page_form_mode": 1,
-      "page_form_group": 1,
-      "sort": 2
     }
   },
   {
@@ -39553,6 +38928,39 @@
       "page_form_mode": 1,
       "page_form_group": 1,
       "sort": 3
+    }
+  },
+  {
+    "model": "core.pageform",
+    "pk": 12000008,
+    "fields": {
+      "page": 81,
+      "form": 296,
+      "page_form_mode": 3,
+      "page_form_group": 1,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.pageform",
+    "pk": 12000009,
+    "fields": {
+      "page": 41,
+      "form": 296,
+      "page_form_mode": 4,
+      "page_form_group": 1,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.pageform",
+    "pk": 12000010,
+    "fields": {
+      "page": 1,
+      "form": 296,
+      "page_form_mode": 1,
+      "page_form_group": 1,
+      "sort": 2
     }
   },
   {
