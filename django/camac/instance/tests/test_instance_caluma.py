@@ -1,7 +1,10 @@
 from pathlib import Path
 
 import pytest
-from caluma.caluma_form import models as caluma_form_models
+from caluma.caluma_form import (
+    factories as caluma_form_factories,
+    models as caluma_form_models,
+)
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
 from django.core import mail
 from django.urls import reverse
@@ -630,6 +633,118 @@ def test_instance_submit_ur(
     assert mail.outbox[0].subject.startswith("[eBau Test]: ")
 
     assert ur_instance.instance_state.name == "subm"
+
+
+@pytest.mark.parametrize("service_group__name", ["coordination"])
+@pytest.mark.parametrize("submit_to", ["KOOR_BD", "KOOR_SD"])
+@pytest.mark.parametrize("instance_state__name", ["new"])
+@pytest.mark.parametrize(
+    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
+)
+def test_instance_submit_cantonal_territory_usage_ur(
+    mocker,
+    admin_client,
+    settings,
+    caluma_workflow_config_ur,
+    ur_instance,
+    notification_template,
+    application_settings,
+    mock_generate_and_store_pdf,
+    ech_mandatory_answers_einfache_vorabklaerung,
+    workflow_item_factory,
+    location_factory,
+    group_factory,
+    role_factory,
+    instance_state_factory,
+    submit_to,
+    service_factory,
+):
+    settings.APPLICATION_NAME = "kt_uri"
+    application_settings["CALUMA"]["USE_LOCATION"] = True
+    application_settings["CALUMA"]["GENERATE_IDENTIFIER"] = False
+    application_settings["USE_INSTANCE_SERVICE"] = False
+    application_settings["MASTER_DATA"] = {
+        "veranstaltung_art": (
+            "answer",
+            "veranstaltung-art",
+        ),
+    }
+
+    cantonal_territory_form = caluma_form_factories.FormFactory(
+        slug="cantonal-territory-usage"
+    )
+    caluma_form_factories.FormFactory(slug="personalien")
+    ur_instance.case.document.form = cantonal_territory_form
+    ur_instance.case.document.save()
+
+    ur_instance.case.document.form.questions.create(
+        slug="veranstaltung-art",
+        type=caluma_form_models.Question.TYPE_CHOICE,
+    )
+
+    if submit_to == "KOOR_BD":
+        koor_bd_service = service_factory(pk=302, email="koor-bd@example.com")
+        koor_email = group_factory(service=koor_bd_service).service.email
+        ur_instance.case.document.answers.create(
+            value="veranstaltung-art-umzug", question_id="veranstaltung-art"
+        )
+    else:
+        koor_sd_service = service_factory(pk=590, email="koor-sd@example.com")
+        koor_email = group_factory(service=koor_sd_service).service.email
+        ur_instance.case.document.answers.create(
+            value="veranstaltung-art-sportanlass", question_id="veranstaltung-art"
+        )
+
+    application_settings["NOTIFICATIONS"] = {
+        "SUBMIT_CANTONAL_TERRITORY_USAGE_SD": [
+            {
+                "template_slug": notification_template.slug,
+                "recipient_types": ["koor_sd_users"],
+            },
+        ],
+        "SUBMIT_CANTONAL_TERRITORY_USAGE_BD": [
+            {
+                "template_slug": notification_template.slug,
+                "recipient_types": ["koor_bd_users"],
+            },
+        ],
+    }
+    application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = True
+    application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
+
+    workflow_item_factory(workflow_item_id=WORKFLOW_ITEM_DOSSIEREINGANG_UR)
+
+    location = location_factory(location_id="1")
+
+    ur_instance.case.document.answers.create(
+        value=str(location.pk), question_id="municipality"
+    )
+
+    group_factory(pk=502)
+    group_factory(pk=1022)
+    mocker.patch.object(
+        DocumentParser,
+        "parse_answers",
+        return_value=ech_mandatory_answers_einfache_vorabklaerung,
+    )
+    instance_state_factory(name="ext")
+    instance_state_factory(name="subm")
+
+    response = admin_client.post(reverse("instance-submit", args=[ur_instance.pk]))
+
+    ur_instance.refresh_from_db()
+
+    assert response.status_code == status.HTTP_200_OK
+
+    assert len(mail.outbox) == 1
+    assert koor_email in mail.outbox[0].recipients()
+
+    assert ur_instance.instance_state.name == "ext"
+    assert ur_instance.location_id == 22
+    if submit_to == "KOOR_BD":
+        assert ur_instance.group.pk == 502
+    else:
+        assert ur_instance.group.pk == 1022
 
 
 @pytest.mark.parametrize("service_group__name", ["municipality"])
