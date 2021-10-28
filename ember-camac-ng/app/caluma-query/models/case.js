@@ -119,7 +119,23 @@ export default class CustomCaseModel extends CaseModel {
   }
 
   get form() {
+    const oerebProcedure = getAnswer(this.raw.document, "typ-des-verfahrens");
+    const oerebTopic = getAnswer(this.raw.document, "oereb-thema");
+
+    if (oerebProcedure && oerebTopic) {
+      const topics = oerebTopic?.node.selectedOptions.edges.map(function (
+        item
+      ) {
+        return item.node.label;
+      });
+      return oerebProcedure?.node.selectedOption.label.concat(
+        " ",
+        topics?.join(", ")
+      );
+    }
+
     const answer = getAnswer(this.raw.document, "form-type");
+
     return answer?.node.question.options.edges.find(
       (edge) => edge.node.slug === answer?.node.stringValue
     )?.node.label;
@@ -229,6 +245,8 @@ export default class CustomCaseModel extends CaseModel {
         "leitbehoerde",
         "grundnutzung",
         "ueberlagerte-nutzungen",
+        "typ-des-verfahrens",
+        "oereb-thema",
       ]) {
         edges {
           node {
@@ -244,8 +262,17 @@ export default class CustomCaseModel extends CaseModel {
                   }
                 }
               }
+              ... on MultipleChoiceQuestion{
+                options {
+                  edges {
+                    node {
+                      slug
+                      label
+                    }
+                  }
+                }
+              }
             }
-
             ... on TableAnswer {
               value {
                 answers {
@@ -270,6 +297,16 @@ export default class CustomCaseModel extends CaseModel {
             }
             ... on IntegerAnswer {
               integerValue: value
+            }
+            ...on ListAnswer {
+              listValue: value
+              selectedOptions {
+                edges {
+                  node {
+                    label
+                  }
+                }
+              }
             }
           }
         }
