@@ -471,11 +471,13 @@ APPLICATIONS = {
             }
         ],
         "DOSSIER_IMPORT": {
-            "XLSX_IMPORTER_CLASS": "camac.dossier_import.config.kt_schwyz.KtSchwyzXlsxDossierImporter",
+            "ZIP_ARCHIVE_IMPORT_DOSSIER_WRITER_CLASS": "camac.dossier_import.config.kt_schwyz.KtSchwyzDossierWriter",
+            "ZIP_ARCHIVE_IMPORT_DOSSIER_LOADER_CLASS": "camac.dossier_import.loaders.XlsxFileDossierLoader",
             "INSTANCE_STATE_MAPPING": {"SUBMITTED": 2, "APPROVED": 8, "DONE": 10},
             "USER": "service-account-camac-admin",
             "GROUP_ID": 3,  # Group with service_id and this role_id is created Instances' group
             "FORM_ID": 29,  # "migriertes-dossier"
+            "CALUMA_FORM": "baugesuch",  # "dummy"-Form
             "ATTACHMENT_SECTION_ID": 7,  # attachmentsection for imported documents
         },
         "MASTER_DATA": {
@@ -507,11 +509,96 @@ APPLICATIONS = {
                             },
                         ),
                         "juristic_name": "firma",
+                        "company": "firma",
+                        "email": "email",
+                        "phone": "tel",
                     }
                 },
             ),
+            "landowners": (
+                "ng_table",
+                ["grundeigentumerschaft", "grundeigentumerschaft-override"],
+                {
+                    "column_mapping": {
+                        "last_name": "name",
+                        "first_name": "vorname",
+                        "street": "strasse",
+                        "zip": "plz",
+                        "town": "ort",
+                        "country": ("static", "Schweiz"),
+                        "is_juristic_person": (
+                            "anrede",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "Herr": False,
+                                            "Frau": False,
+                                            "Firma": True,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                        "juristic_name": "firma",
+                        "company": "firma",
+                        "email": "email",
+                        "phone": "tel",
+                    }
+                },
+            ),
+            "project_authors": (
+                "ng_table",
+                ["projektverfasser-planer", "projektverfasser-planer-override"],
+                {
+                    "column_mapping": {
+                        "last_name": "name",
+                        "first_name": "vorname",
+                        "street": "strasse",
+                        "zip": "plz",
+                        "town": "ort",
+                        "country": ("static", "Schweiz"),
+                        "is_juristic_person": (
+                            "anrede",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "Herr": False,
+                                            "Frau": False,
+                                            "Firma": True,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                        "juristic_name": "firma",
+                        "company": "firma",
+                        "email": "email",
+                        "phone": "tel",
+                    }
+                },
+            ),
+            "submit_date": ("first_workflow_entry", [10]),
+            "publication_date": ("first_workflow_entry", [15]),
+            "construction_start_date": ("first_workflow_entry", [55]),
+            "profile_approval_date": ("first_workflow_entry", [56]),
+            "decision_date": ("first_workflow_entry", [47]),
+            "final_approval_date": ("first_workflow_entry", [59]),
+            "completion_date": ("first_workflow_entry", [67]),
             "proposal": ("ng_answer", ["bezeichnung", "bezeichnung-override"]),
             "construction_costs": ("ng_answer", "baukosten"),
+            "procedure_type_migrated": (  # not the same as regular procedure_type that requires predefined choices
+                "ng_answer",
+                "verfahrensart-migriertes-dossier",
+            ),
+            "coordinates": (
+                "ng_table",
+                "punkte",
+                {"column_mapping": {"lat": "lat", "lng": "lng"}},
+            ),
             "plot_data": (
                 "ng_table",
                 "parzellen",

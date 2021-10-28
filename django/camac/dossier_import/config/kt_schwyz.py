@@ -1,9 +1,11 @@
 import mimetypes
 import shutil
 import zipfile
+from copy import deepcopy
 from dataclasses import dataclass
 from pathlib import Path
 
+from caluma.caluma_form.models import Form as CalumaForm
 from caluma.caluma_user.models import BaseUser
 from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.api import cancel_work_item, skip_work_item
@@ -11,23 +13,21 @@ from caluma.caluma_workflow.models import WorkItem
 from dataclasses_json import dataclass_json
 from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
-from django.db import transaction
 from django.utils.timezone import now
 
 from camac.caluma.extensions.events.general import get_caluma_setting
 from camac.document.models import Attachment, AttachmentSection
 from camac.dossier_import.dossier_classes import Dossier
-from camac.dossier_import.importers import DossierImporter
-from camac.dossier_import.loaders import InvalidImportDataError, XlsxFileDossierLoader
+from camac.dossier_import.models import DossierImport
 from camac.dossier_import.writers import (
     CamacNgAnswerFieldWriter,
     CamacNgListAnswerWriter,
     DossierWriter,
-    WorkflowEntryFieldWriter,
+    WorkflowEntryDateWriter,
 )
 from camac.instance.domain_logic import CreateInstanceLogic
 from camac.instance.models import Form, Instance, InstanceState
-from camac.user.models import Group, Location
+from camac.user.models import Group, Location, User
 
 PERSON_MAPPING = {
     "company": "firma",
@@ -35,7 +35,7 @@ PERSON_MAPPING = {
     "first_name": "vorname",
     "street": "strasse",
     "zip": "plz",
-    "town": "ort",
+    "city": "ort",
     "phone": "tel",
     "email": "email",
 }
@@ -67,25 +67,25 @@ class KtSchwyzDossierWriter(DossierWriter):
     id: str = CamacNgAnswerFieldWriter(target="kommunale-gesuchsnummer")
     proposal = CamacNgAnswerFieldWriter(target="bezeichnung")
     cantonal_id = CamacNgAnswerFieldWriter(target="kantonale-gesuchsnummer")
-    parcel = CamacNgListAnswerWriter(target="parzellen", column_mapping=PARCEL_MAPPING)
+    plot_data = CamacNgListAnswerWriter(
+        target="parzellen", column_mapping=PARCEL_MAPPING
+    )
     coordinates = CamacNgListAnswerWriter(
         target="punkte", column_mapping=COORDINATES_MAPPING
     )
     usage = CamacNgAnswerFieldWriter(target="betroffene-nutzungszonen")
-    type = CamacNgAnswerFieldWriter(target="verfahrensart-migriertes-dossier")
-    submit_date = WorkflowEntryFieldWriter(target=10, name="einreichedatum")
-    publication_date = WorkflowEntryFieldWriter(name="publikationsdatum", target=15)
-    construction_start_date = WorkflowEntryFieldWriter(
-        name="datum-baubeginn", target=55
-    )
-    profile_approval_date = WorkflowEntryFieldWriter(
+    procedure_type = CamacNgAnswerFieldWriter(target="verfahrensart-migriertes-dossier")
+    submit_date = WorkflowEntryDateWriter(target=10, name="einreichedatum")
+    publication_date = WorkflowEntryDateWriter(name="publikationsdatum", target=15)
+    construction_start_date = WorkflowEntryDateWriter(name="datum-baubeginn", target=55)
+    profile_approval_date = WorkflowEntryDateWriter(
         name="datum-schnurgeruestabnahme", target=56
     )
-    decision_date = WorkflowEntryFieldWriter(name="tb-datum", target=47)
-    final_approval_date = WorkflowEntryFieldWriter(
+    decision_date = WorkflowEntryDateWriter(name="tb-datum", target=47)
+    final_approval_date = WorkflowEntryDateWriter(
         name="datum-schlussabnahme", target=59
     )
-    completion_date = WorkflowEntryFieldWriter(name="datum-bauende", target=67)
+    completion_date = WorkflowEntryDateWriter(name="datum-bauende", target=67)
     link = CamacNgAnswerFieldWriter(target="link")
     custom_1 = CamacNgAnswerFieldWriter(target="freies-textfeld-1")
     custom_2 = CamacNgAnswerFieldWriter(target="freies-textfeld-2")
@@ -103,13 +103,33 @@ class KtSchwyzDossierWriter(DossierWriter):
         target="projektverfasser-planer", column_mapping=PERSON_MAPPING
     )
 
+    def __init__(
+        self,
+        user_id,
+        group_id: int,
+        location_id: int,
+        path_to_archive: str,
+        *args,
+        **kwargs,
+    ):
+        super().__init__(*args, **kwargs)
+        self._user = user_id and User.objects.get(pk=user_id)
+        self._group = Group.objects.get(pk=group_id)
+        self._location = Location.objects.get(pk=location_id)
+        self.import_session = DossierImport.objects.create()
+        self.import_session.service = self._group.service
+        self.import_session.status = self.import_session.IMPORT_STATUS_INPROGRESS
+        self.import_session.save()
+        self._archive = zipfile.ZipFile(path_to_archive, "r")
+        self.dossiers_xlsx = self._archive.open("dossiers.xlsx")
+
     def create_instance(self, dossier: Dossier) -> Instance:
         """Create a Camac NG Instance with a case.
 
         camac.instance.domain_logic.CreateInstanceLogic should be able to do the job and
         spit out a reasonably generic starting point.
         """
-        instance_state_id = self.importer.settings["INSTANCE_STATE_MAPPING"].get(
+        instance_state_id = self._import_settings["INSTANCE_STATE_MAPPING"].get(
             dossier._meta.target_state
         )
         instance_state = instance_state_id and InstanceState.objects.get(
@@ -117,24 +137,28 @@ class KtSchwyzDossierWriter(DossierWriter):
         )
         creation_data = dict(
             instance_state=InstanceState.objects.get(
-                pk=self.importer.settings["INSTANCE_STATE_MAPPING"][
+                pk=self._import_settings["INSTANCE_STATE_MAPPING"][
                     dossier._meta.target_state
                 ]
             ),
             previous_instance_state=instance_state,
-            user=self.importer.user,
-            group=self.importer.group,
-            form=Form.objects.get(pk=self.importer.settings["FORM_ID"]),
+            user=self._user,
+            group=self._group,
+            form=Form.objects.get(pk=self._import_settings["FORM_ID"]),
         )
         instance = (
             CreateInstanceLogic.create(  # TODO: check if this instance is any good
                 creation_data,
                 caluma_user=BaseUser(),
-                camac_user=self.importer.user,
-                group=self.importer.group,
+                camac_user=self._user,
+                group=self._group,
+                caluma_form=CalumaForm.objects.get(
+                    pk=settings.APPLICATION["DOSSIER_IMPORT"]["CALUMA_FORM"]
+                ),
+                start_caluma=False,
             )
         )
-        ebau_number_prefix = f"IM-{self.importer.group.pk}-{dossier.submit_date.year}"
+        ebau_number_prefix = f"IM-{self._group.pk}-{dossier.submit_date.year}"
         last_seq = (
             Instance.objects.filter(identifier__startswith=ebau_number_prefix)
             .order_by("-identifier")
@@ -155,74 +179,79 @@ class KtSchwyzDossierWriter(DossierWriter):
             message.message[
                 "reason"
             ] = f"missing values in required fields: {dossier._meta.missing}"
-            self.importer.import_case.messages.append(message.to_dict())
-            self.importer.import_case.save()
+            self.import_session.messages.append(message.to_dict())
+            self.import_session.save()
             return
         if Instance.objects.filter(
             fields__name="kommunale-gesuchsnummer",
             fields__value=dossier.id,
-            group_id=self.importer.group.pk,
+            group_id=self._group.pk,
         ).first():
             message.level = LOG_LEVEL_WARNING
             message.message["action"] = "dossier skipped"
-            message.message[
-                "reason"
-            ] = f"Dossier with `kantonale gesuchsnummer` {dossier.cantonal_id} already exists."
-            self.importer.import_case.messages.append(message.to_dict())
-            self.importer.import_case.save()
-            return
+            message.message["reason"] = f"Dossier with ID {dossier.id} already exists."
+            self.import_session.messages.append(message.to_dict())
+            self.import_session.save()
+            return message
         instance = self.create_instance(dossier)
-        instance.location = self.importer.location
+        instance.location = self._location
         instance.save()
-        instance.case.meta["import-id"] = str(self.importer.import_case.pk)
+        instance.case.meta["import-id"] = str(self.import_session.pk)
         instance.case.save()
         message.message["instance_id"] = instance.pk
         self.write_fields(instance, dossier)
         message.message["import"] = "success"
-        self.importer.import_case.save()
+        self.import_session.save()
         self._create_dossier_attachments(dossier, instance)
         workflow_message = self._set_workflow_state(
             instance, dossier._meta.target_state
         )
         message.level = workflow_message.level
-        message.message["set_workflow_state"] = workflow_message
-        self.importer.import_case.messages.append(message.to_dict())
-        self.importer.import_case.save()
+        message.message["set_workflow_state"] = workflow_message.to_dict()
+        self.import_session.messages.append(message.to_dict())
+        self.import_session.save()
+        return message
 
     def _create_dossier_attachments(self, dossier: Dossier, instance: Instance):
         """Create attachments for dossier.
 
         Ignore if archive holds no documents directory
         """
-
-        documents_dir = Path(self.importer.additional_data_source) / str(dossier.id)
-        if not documents_dir.exists():
-            return
-
-        for document in documents_dir.iterdir():
+        for document_name in filter(
+            lambda x: x.filename.startswith(f"{dossier.id}/"), self._archive.infolist()
+        ):
             path = f"{settings.MEDIA_ROOT}/attachments/files/{instance.pk}"
-            Path(path).mkdir(parents=True, exist_ok=True)
-            target_file = Path(path) / document.name
-            shutil.copyfile(document, str(target_file))
+            if document_name.filename.endswith("/"):
+                (Path(path) / document_name.filename).mkdir(parents=True, exist_ok=True)
+                continue
+            filename = document_name.filename.encode(
+                "iso-8859-1", errors="ignore"
+            ).decode("utf-8", errors="ignore")
+            with open(str(Path(path) / filename), "wb") as target_file:
+                shutil.copyfileobj(
+                    self._archive.open(document_name.filename, "r"), target_file
+                )
 
-            mime_type, _ = mimetypes.guess_type(target_file)
+                mime_type, _ = mimetypes.guess_type(
+                    str(Path(path) / document_name.filename)
+                )
 
-            attachment = Attachment.objects.create(
-                instance=instance,
-                user=self.importer.user,
-                service=self.importer.group.service,
-                group=self.importer.group,
-                name=document.name,
-                context={},
-                path=f"attachments/files/{instance.pk}/{document.name}",
-                size=target_file.stat().st_size,
-                date=now(),
-                mime_type=mime_type,
-            )
-            attachment_section = AttachmentSection.objects.get(
-                attachment_section_id=self.importer.settings["ATTACHMENT_SECTION_ID"]
-            )
-            attachment_section.attachments.add(attachment)
+                attachment = Attachment.objects.create(
+                    instance=instance,
+                    user=self._user,
+                    service=self._group.service,
+                    group=self._group,
+                    name=filename,
+                    context={},
+                    path=f"attachments/files/{instance.pk}/{filename}",
+                    size=target_file.truncate(),
+                    date=now(),
+                    mime_type=mime_type,
+                )
+                attachment_section = AttachmentSection.objects.get(
+                    attachment_section_id=self._import_settings["ATTACHMENT_SECTION_ID"]
+                )
+                attachment_section.attachments.add(attachment)
 
     def _set_workflow_state(self, instance: Instance, target_state) -> Message:
         """Advance instance's case through defined workflow sequence to target state.
@@ -258,10 +287,10 @@ class KtSchwyzDossierWriter(DossierWriter):
 
         default_context = {"no-notification": True}
 
-        camac_user = self.importer.user
+        camac_user = self._user
 
-        caluma_user = BaseUser(username=camac_user.name, group=self.importer.group.pk)
-        caluma_user.camac_group = self.importer.group.pk
+        caluma_user = BaseUser(username=camac_user.name, group=self._group.pk)
+        caluma_user.camac_group = self._group.pk
 
         # In order for a work item to be completed no sibling work items can be
         # in state ready. They have to be dealt with in advance.
@@ -273,9 +302,11 @@ class KtSchwyzDossierWriter(DossierWriter):
                 message.message = f"Skip work item with task_id {task_id} failed with {ConfigurationError(e)}."
                 continue
             # overwrite side effects for import
-            config = get_caluma_setting("PRE_COMPLETE")
+            config = deepcopy(get_caluma_setting("PRE_COMPLETE"))
             # skip side effects in task `make-decision`
             config and config.pop("depreciate-case", None)
+            if config.get("make-decision"):
+                config["make-decision"]["cancel"].append("publication")
             config = config and config.get(work_item.task_id)
             if config:
                 for action_name, tasks in config.items():
@@ -296,71 +327,3 @@ class KtSchwyzDossierWriter(DossierWriter):
                 )
 
         return message
-
-
-class KtSchwyzXlsxDossierImporter(DossierImporter):
-    """
-    Dossier Importer for Kt Schwyz for importing ZIP archives of dossiers with attachments.
-
-    The importer expects an archive that holds metadata on dossiers and attachments in directories
-    per dossier.
-    It will extract from dossier_import.zip to the temporary import dir e.g.
-     /tmp/dossier-import/<import_case_id>/
-        - file: `dossiers.xlsx`
-        - dir: attachments/
-    Then create an instance with a case, fill in form data and other properties from metadata,  handle attachments
-     and "work" through workitems to suit the target state after import.
-    """
-
-    loader_class = XlsxFileDossierLoader
-
-    def initialize(
-        self, group_id: int, location_id: int, path_to_archive: str, *args, **kwargs
-    ):
-        """Initialize the import of a ZIP-Archive of dossiers.
-
-        For Camac Dossier import kt_schwyz we require to identify the location/communality the
-        imported dossiers belong to. This is done via `group_id` that relates to service.
-        user_id selects the user doing the import.
-        """
-        super().initialize()
-        path = Path(self.temp_dir.name) / str(self.import_case.id)
-        Path(path).mkdir(parents=True, exist_ok=True)
-        with zipfile.ZipFile(path_to_archive, "r") as archive:
-            path = Path(self.temp_dir.name) / str(self.import_case.id)
-            for fileinfo in archive.infolist():
-                filename = fileinfo.filename
-                if filename.endswith("/"):
-                    attachment_dir = path / filename
-                    attachment_dir.mkdir(parents=True, exist_ok=True)
-                    continue
-                with open(f"{str(path)}/{filename}", "wb") as f:
-                    shutil.copyfileobj(archive.open(fileinfo.filename), f)
-            dossiers_filepath = str(path / "dossiers.xlsx")
-        loader = self.get_loader()
-        self.loader = loader(dossiers_filepath)
-        self.group = Group.objects.get(pk=group_id)
-        self.location = Location.objects.get(pk=location_id)
-        self.import_case.service = self.group.service
-        self.import_case.save()
-
-        # The additional data source point to the directory where the documents have been
-        # extracted to because they potentially are to big in size for handling them in memory.
-        self.additional_data_source = str(
-            Path(self.temp_dir.name) / str(self.import_case.id)
-        )
-
-    @transaction.atomic
-    def import_dossiers(self):
-        writer = KtSchwyzDossierWriter(importer=self)
-        try:
-            for dossier in self.loader.load():
-                writer.import_dossier(dossier)
-        except InvalidImportDataError as e:
-            message = Message(
-                level=LOG_LEVEL_ERROR,
-                message=f"Import failed because of bad import data: {e}",
-            ).to_dict()
-            self.import_case.messages.append(message)
-            self.import_case.save()
-            raise
