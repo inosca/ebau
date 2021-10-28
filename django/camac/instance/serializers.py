@@ -21,7 +21,7 @@ from rest_framework import exceptions
 from rest_framework_json_api import relations, serializers
 
 from camac.caluma.api import CalumaApi
-from camac.constants import kt_bern as be_constants
+from camac.constants import kt_bern as be_constants, kt_uri as uri_constants
 from camac.core.models import (
     Answer,
     HistoryActionConfig,
@@ -817,10 +817,18 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
 
 
 class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
+    _master_data_cache = {}
+
+    def get_master_data(self, case):
+        if case.pk not in self._master_data_cache:
+            self._master_data_cache[case.pk] = MasterData(case)
+
+        return self._master_data_cache[case.pk]
+
     def _create_history_entry(self, text):
         create_history_entry(self.instance, self.context["request"].user, text)
 
-    def _notify_submit(self, template_slug, recipient_types):
+    def _send_notification(self, template_slug, recipient_types):
         """Send notification email."""
         send_mail(
             template_slug,
@@ -936,6 +944,36 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                 gettext_noop("Dossier completed by resubmission"),
             )
 
+    def _prepare_cantonal_territory_usage(self, instance):
+        instance.instance_state = models.InstanceState.objects.get(name="ext")
+
+        instance.location_id = 22  # Alle Gemeinden
+
+        self._update_instance_location(instance)
+
+        event_type_answer = self.get_master_data(instance.case).veranstaltung_art
+
+        if event_type_answer in settings.APPLICATION["CALUMA"].get("KOOR_SD_SLUGS"):
+            instance.group = Group.objects.get(pk=uri_constants.KOOR_SD_GROUP_ID)
+        else:
+            instance.group = Group.objects.get(pk=uri_constants.KOOR_BD_GROUP_ID)
+
+    def _send_notifications(self, case):
+        notification_key = "SUBMIT"
+        if case.workflow_id == "preliminary-clarification":
+            notification_key = "SUBMIT_PRELIMINARY_CLARIFICATION"  # pragma: no cover
+        if case.document.form_id == "cantonal-territory-usage":
+            if case.instance.group_id == uri_constants.KOOR_SD_GROUP_ID:
+                notification_key = "SUBMIT_CANTONAL_TERRITORY_USAGE_SD"
+            else:
+                notification_key = "SUBMIT_CANTONAL_TERRITORY_USAGE_BD"
+
+        # send out emails upon submission
+        for notification_config in settings.APPLICATION["NOTIFICATIONS"][
+            notification_key
+        ]:
+            self._send_notification(**notification_config)
+
     @transaction.atomic
     def update(self, instance, validated_data):
         request_logger.info(f"Submitting instance {instance.pk}")
@@ -963,6 +1001,12 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             )
 
             self._update_instance_location(instance)
+
+        if (
+            settings.APPLICATION_NAME == "kt_uri"
+            and instance.case.document.form.slug == "cantonal-territory-usage"
+        ):
+            self._prepare_cantonal_territory_usage(instance)
 
         instance.save()
 
@@ -1018,17 +1062,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             group_pk=self.context["request"].group.pk,
         )
 
-        notification_key = (
-            "SUBMIT_PRELIMINARY_CLARIFICATION"
-            if "preliminary-clarification" == case.workflow_id
-            else "SUBMIT"
-        )
-
-        # send out emails upon submission
-        for notification_config in settings.APPLICATION["NOTIFICATIONS"][
-            notification_key
-        ]:
-            self._notify_submit(**notification_config)
+        self._send_notifications(case)
 
         return instance
 
@@ -1068,7 +1102,7 @@ class CalumaInstanceReportSerializer(CalumaInstanceSubmitSerializer):
 
         # send out emails upon submission
         for notification_config in settings.APPLICATION["NOTIFICATIONS"]["REPORT"]:
-            self._notify_submit(**notification_config)
+            self._send_notification(**notification_config)
 
         return instance
 
@@ -1481,7 +1515,7 @@ class CalumaInstanceFinalizeSerializer(CalumaInstanceSubmitSerializer):
 
         # send out emails upon submission
         for notification_config in settings.APPLICATION["NOTIFICATIONS"]["FINALIZE"]:
-            self._notify_submit(**notification_config)
+            self._send_notification(**notification_config)
 
         return instance
 

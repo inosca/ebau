@@ -110,7 +110,9 @@
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {
         "category": "special-procedure",
-        "is-main-form": true
+        "is-creatable": true,
+        "is-main-form": true,
+        "camac-form-id": 247
       },
       "is_published": true,
       "is_archived": false,
@@ -3020,7 +3022,22 @@
       "modified_by_group": null,
       "form": "cantonal-territory-usage",
       "question": "allgemeine-informationen-cantonal-territory-usage",
-      "sort": 6
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "cantonal-territory-usage.einreichen",
+    "fields": {
+      "created_at": "2021-09-13T12:30:12.084Z",
+      "modified_at": "2021-09-13T12:30:12.084Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "cantonal-territory-usage",
+      "question": "einreichen",
+      "sort": 1
     }
   },
   {
@@ -3035,7 +3052,7 @@
       "modified_by_group": null,
       "form": "cantonal-territory-usage",
       "question": "lokalisierung",
-      "sort": 4
+      "sort": 3
     }
   },
   {
@@ -3050,7 +3067,7 @@
       "modified_by_group": null,
       "form": "cantonal-territory-usage",
       "question": "personalien",
-      "sort": 3
+      "sort": 2
     }
   },
   {
@@ -3065,7 +3082,7 @@
       "modified_by_group": null,
       "form": "cantonal-territory-usage",
       "question": "veranstaltung-form",
-      "sort": 5
+      "sort": 4
     }
   },
   {
@@ -20230,10 +20247,10 @@
     "pk": "veranstaltung-art-andere",
     "fields": {
       "created_at": "2020-10-21T12:56:14.633Z",
-      "modified_at": "2020-10-27T15:15:24.368Z",
+      "modified_at": "2021-10-06T09:31:54.824Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Andere\", \"fr\": null}",
       "is_archived": false,
@@ -20246,12 +20263,44 @@
     "pk": "veranstaltung-art-baustelleninstallation",
     "fields": {
       "created_at": "2020-10-21T12:56:14.535Z",
-      "modified_at": "2020-10-27T15:15:24.187Z",
+      "modified_at": "2021-10-06T09:31:54.646Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
-      "label": "{\"de\": \"Baustelleninstallation\", \"fr\": null}",
+      "label": "{\"de\": \"Tempor\\u00e4re Baustelleninstallation (z.B. Bauger\\u00fcst, Mulden, Abschrankungen, Materialdepot)\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "veranstaltung-art-foto-und-filmaufnahmen",
+    "fields": {
+      "created_at": "2021-10-06T09:25:38.286Z",
+      "modified_at": "2021-10-06T09:31:54.921Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Foto- und Filmaufnahmen\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "veranstaltung-art-ideelle-oder-politische-aktion",
+    "fields": {
+      "created_at": "2021-10-06T09:26:33.567Z",
+      "modified_at": "2021-10-06T09:31:54.894Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ideelle oder politische Aktion (z.B. Ride the Alps, Freepass Klausen usw.)\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -20262,12 +20311,12 @@
     "pk": "veranstaltung-art-parkieren",
     "fields": {
       "created_at": "2020-10-21T12:56:14.501Z",
-      "modified_at": "2020-10-27T15:15:24.137Z",
+      "modified_at": "2021-10-06T09:31:54.503Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
-      "label": "{\"de\": \"Parkieren\", \"fr\": null}",
+      "label": "{\"de\": \"Parkieren (z.B. Trottoirparkieren im Rahmen einer Veranstaltung)\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -20278,12 +20327,12 @@
     "pk": "veranstaltung-art-sportanlass",
     "fields": {
       "created_at": "2020-10-21T12:56:14.589Z",
-      "modified_at": "2020-10-27T15:15:24.311Z",
+      "modified_at": "2021-10-06T09:31:54.802Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
-      "label": "{\"de\": \"Sportanlass\", \"fr\": null}",
+      "label": "{\"de\": \"Sportanlass (z.B. Tour de Suisse, Alpenbrevet, Uri Triathlon, Fahrradrennen, Volksl\\u00e4ufe  usw.)\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -20294,12 +20343,12 @@
     "pk": "veranstaltung-art-standaktion",
     "fields": {
       "created_at": "2020-10-21T12:56:14.608Z",
-      "modified_at": "2020-10-27T15:15:24.281Z",
+      "modified_at": "2021-10-06T09:31:54.614Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
-      "label": "{\"de\": \"Standaktion\", \"fr\": null}",
+      "label": "{\"de\": \"Standaktion / Promotion (z.B. Strassenverkauf, Informationsstand usw.)\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -20310,13 +20359,13 @@
     "pk": "veranstaltung-art-strassenverkauf",
     "fields": {
       "created_at": "2020-10-21T12:56:14.596Z",
-      "modified_at": "2020-10-27T15:15:24.276Z",
+      "modified_at": "2021-10-06T09:31:54.652Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Strassenverkauf\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -20326,13 +20375,13 @@
     "pk": "veranstaltung-art-trottoirparkieren",
     "fields": {
       "created_at": "2020-10-21T12:56:14.518Z",
-      "modified_at": "2020-10-27T15:15:24.174Z",
+      "modified_at": "2021-10-06T09:31:54.765Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Trottoirparkieren\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -20342,12 +20391,12 @@
     "pk": "veranstaltung-art-umzug",
     "fields": {
       "created_at": "2020-10-21T12:56:14.507Z",
-      "modified_at": "2020-10-27T15:15:24.168Z",
+      "modified_at": "2021-10-06T09:31:54.570Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
-      "label": "{\"de\": \"Umzug\", \"fr\": null}",
+      "label": "{\"de\": \"Umzug (z.B. Fasnacht, Alpabzug)\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -20358,13 +20407,13 @@
     "pk": "veranstaltung-art-zwischenlagern-von-material",
     "fields": {
       "created_at": "2020-10-21T12:56:14.628Z",
-      "modified_at": "2020-10-27T15:15:24.303Z",
+      "modified_at": "2021-10-06T09:31:54.633Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Zwischenlagern von Material\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -26256,18 +26305,18 @@
     "pk": "date-time-migrated",
     "fields": {
       "created_at": "2021-03-22T16:43:29.456Z",
-      "modified_at": "2021-03-22T16:43:29.456Z",
+      "modified_at": "2021-09-14T07:47:41.652Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Datum / Zeit (migriert)\", \"fr\": null}",
       "type": "text",
       "is_required": "false",
-      "is_hidden": "!('migrated-from-camac-yes' in 'migrated-from-camac'|answer)",
+      "is_hidden": "!('migrated-from-camac-yes' == 'migrated-from-camac'|answer)",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -26415,18 +26464,18 @@
     "pk": "duration-migrated",
     "fields": {
       "created_at": "2021-03-22T16:44:40.511Z",
-      "modified_at": "2021-03-22T16:44:40.511Z",
+      "modified_at": "2021-09-14T07:48:01.850Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Dauer (von - bis) (migriert)\", \"fr\": null}",
       "type": "text",
       "is_required": "false",
-      "is_hidden": "!('migrated-from-camac-yes' in 'migrated-from-camac'|answer)",
+      "is_hidden": "!('migrated-from-camac-yes' == 'migrated-from-camac'|answer)",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -26579,15 +26628,15 @@
     "pk": "einreichen",
     "fields": {
       "created_at": "2020-11-02T15:50:57.270Z",
-      "modified_at": "2020-12-09T14:57:23.177Z",
+      "modified_at": "2021-09-13T12:34:39.681Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Einreichen\", \"fr\": null}",
       "type": "form",
       "is_required": "false",
-      "is_hidden": "!(\n  'form-type'|answer in [\n    \"form-type-building-permit-canton\",\n    \"form-type-building-permit-municipality\",\n    \"form-type-preliminary-clarification-canton\",\n    \"form-type-preliminary-clarification-municipality\",\n    \"form-type-project-announcement\",\n    \"form-type-solar-announcement\",\n    \"form-type-commercial-permit\",\n    \"form-type-veranstaltungsgesuch\"\n  ]\n)",
+      "is_hidden": "!(\n  'form-type'|answer in [\n    \"form-type-building-permit-canton\",\n    \"form-type-building-permit-municipality\",\n    \"form-type-preliminary-clarification-canton\",\n    \"form-type-preliminary-clarification-municipality\",\n    \"form-type-project-announcement\",\n    \"form-type-solar-announcement\",\n    \"form-type-commercial-permit\",\n    \"form-type-veranstaltungsgesuch\",\n    \"form-type-kantonsgebiet\"\n  ]\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -38022,7 +38071,7 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Beschreibung\", \"fr\": null}",
       "type": "text",
-      "is_required": "false",
+      "is_required": "\"veranstaltung-art-andere\" == \"veranstaltung-art\"|answer",
       "is_hidden": "!(\"veranstaltung-art-andere\" == \"veranstaltung-art\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
@@ -38048,12 +38097,12 @@
     "pk": "veranstaltung-art",
     "fields": {
       "created_at": "2020-10-21T12:56:14.806Z",
-      "modified_at": "2020-10-27T15:15:24.489Z",
+      "modified_at": "2021-10-06T09:31:55.132Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
-      "label": "{\"de\": \"Art\", \"fr\": null}",
+      "label": "{\"de\": \"Art der Beanspruchung\", \"fr\": null}",
       "type": "choice",
       "is_required": "true",
       "is_hidden": "false",
@@ -49444,41 +49493,71 @@
     "model": "caluma_form.questionoption",
     "pk": "veranstaltung-art.veranstaltung-art-andere",
     "fields": {
-      "created_at": "2020-10-27T15:15:24.496Z",
-      "modified_at": "2020-10-27T15:15:24.496Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-10-06T09:31:55.155Z",
+      "modified_at": "2021-10-06T09:31:55.155Z",
+      "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "veranstaltung-art",
       "option": "veranstaltung-art-andere",
-      "sort": 1
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "veranstaltung-art.veranstaltung-art-baustelleninstallation",
     "fields": {
-      "created_at": "2020-10-27T15:15:24.517Z",
-      "modified_at": "2020-10-27T15:15:24.517Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-10-06T09:31:55.184Z",
+      "modified_at": "2021-10-06T09:31:55.184Z",
+      "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "veranstaltung-art",
       "option": "veranstaltung-art-baustelleninstallation",
-      "sort": 6
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "veranstaltung-art.veranstaltung-art-foto-und-filmaufnahmen",
+    "fields": {
+      "created_at": "2021-10-06T09:31:55.149Z",
+      "modified_at": "2021-10-06T09:31:55.149Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "veranstaltung-art",
+      "option": "veranstaltung-art-foto-und-filmaufnahmen",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "veranstaltung-art.veranstaltung-art-ideelle-oder-politische-aktion",
+    "fields": {
+      "created_at": "2021-10-06T09:31:55.143Z",
+      "modified_at": "2021-10-06T09:31:55.143Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "veranstaltung-art",
+      "option": "veranstaltung-art-ideelle-oder-politische-aktion",
+      "sort": 8
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "veranstaltung-art.veranstaltung-art-parkieren",
     "fields": {
-      "created_at": "2020-10-27T15:15:24.531Z",
-      "modified_at": "2020-10-27T15:15:24.531Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-10-06T09:31:55.202Z",
+      "modified_at": "2021-10-06T09:31:55.202Z",
+      "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "veranstaltung-art",
       "option": "veranstaltung-art-parkieren",
@@ -49489,90 +49568,90 @@
     "model": "caluma_form.questionoption",
     "pk": "veranstaltung-art.veranstaltung-art-sportanlass",
     "fields": {
-      "created_at": "2020-10-27T15:15:24.504Z",
-      "modified_at": "2020-10-27T15:15:24.504Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-10-06T09:31:55.167Z",
+      "modified_at": "2021-10-06T09:31:55.167Z",
+      "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "veranstaltung-art",
       "option": "veranstaltung-art-sportanlass",
-      "sort": 3
+      "sort": 6
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "veranstaltung-art.veranstaltung-art-standaktion",
     "fields": {
-      "created_at": "2020-10-27T15:15:24.508Z",
-      "modified_at": "2020-10-27T15:15:24.508Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-10-06T09:31:55.173Z",
+      "modified_at": "2021-10-06T09:31:55.173Z",
+      "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "veranstaltung-art",
       "option": "veranstaltung-art-standaktion",
-      "sort": 4
+      "sort": 7
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "veranstaltung-art.veranstaltung-art-strassenverkauf",
     "fields": {
-      "created_at": "2020-10-27T15:15:24.512Z",
-      "modified_at": "2020-10-27T15:15:24.512Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-10-06T09:31:55.178Z",
+      "modified_at": "2021-10-06T09:31:55.178Z",
+      "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "veranstaltung-art",
       "option": "veranstaltung-art-strassenverkauf",
-      "sort": 5
+      "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "veranstaltung-art.veranstaltung-art-trottoirparkieren",
     "fields": {
-      "created_at": "2020-10-27T15:15:24.527Z",
-      "modified_at": "2020-10-27T15:15:24.527Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-10-06T09:31:55.196Z",
+      "modified_at": "2021-10-06T09:31:55.196Z",
+      "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "veranstaltung-art",
       "option": "veranstaltung-art-trottoirparkieren",
-      "sort": 8
+      "sort": 3
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "veranstaltung-art.veranstaltung-art-umzug",
     "fields": {
-      "created_at": "2020-10-27T15:15:24.522Z",
-      "modified_at": "2020-10-27T15:15:24.522Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-10-06T09:31:55.190Z",
+      "modified_at": "2021-10-06T09:31:55.190Z",
+      "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "veranstaltung-art",
       "option": "veranstaltung-art-umzug",
-      "sort": 7
+      "sort": 11
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "veranstaltung-art.veranstaltung-art-zwischenlagern-von-material",
     "fields": {
-      "created_at": "2020-10-27T15:15:24.500Z",
-      "modified_at": "2020-10-27T15:15:24.500Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-10-06T09:31:55.162Z",
+      "modified_at": "2021-10-06T09:31:55.162Z",
+      "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "veranstaltung-art",
       "option": "veranstaltung-art-zwischenlagern-von-material",
-      "sort": 2
+      "sort": 1
     }
   },
   {
