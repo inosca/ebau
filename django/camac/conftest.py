@@ -503,13 +503,12 @@ def caluma_publication(caluma_workflow_config_be):
 
 @pytest.fixture
 def caluma_workflow_config_sz(settings, caluma_forms_be, caluma_config_sz):
-    caluma_form_models.Form.objects.create(slug="baugesuch"),
+    caluma_form_models.Form.objects.create(slug="baugesuch")
+    caluma_form_models.Form.objects.create(slug="bauverwaltung")
 
     call_command("loaddata", settings.ROOT_DIR("kt_schwyz/config/caluma_workflow.json"))
 
-    workflows = caluma_workflow_models.Workflow.objects.all()
-
-    return workflows
+    return caluma_workflow_models.Workflow.objects.all()
 
 
 def yes(lang):
