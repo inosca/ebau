@@ -113,7 +113,6 @@ class InstanceFilterSet(FilterSet):
         field_name="creation_date__date", lookup_expr="lte"
     )
     instance_state = NumberMultiValueFilter()
-    instance_group = NumberFilter(field_name="instance_group")
     responsible_user = ResponsibleUserFilter(field_name="responsibilities__user")
     responsible_instance_user = ResponsibleInstanceUserFilter()
     responsible_service = ResponsibleServiceFilter()

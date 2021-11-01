@@ -31,8 +31,17 @@
             {{#each this.linkedDossiers as |linkedDossier|}}
               <li class="uk-margin-small">
                 <div class="uk-flex uk-flex-inline uk-flex-middle">
-                  <a href="{{t "cases.miscellaneous.instanceLink" linkedDossierId=linkedDossier.id }}">{{linkedDossier.form.name}} ({{linkedDossier.dossierNumber}})</a>
-                  <button class="uk-button-link uk-margin-small-left uk-flex uk-flex-middle" ratio="0.7" uk-icon="trash" type="button" title={{t "cases.miscellaneous.unLinkInstance"}} {{on "click" (perform this.unLinkDossier)}}></button>
+                  <a href="{{t "cases.miscellaneous.instanceLink" linkedDossierId=linkedDossier.id }}">
+                    {{linkedDossier.form.name}} ({{linkedDossier.dossierNumber}})
+                  </a>
+                  <button
+                    class="uk-button-link uk-margin-small-left uk-flex uk-flex-middle"
+                    ratio="0.7"
+                    uk-icon="trash"
+                    type="button"
+                    title={{t "cases.miscellaneous.unLinkInstance"}}
+                    {{on "click" (perform this.unLinkDossier linkedDossier)}}>
+                  </button>
                 </div>
               </li>
             {{/each}}
@@ -44,7 +53,6 @@
               class="uk-input uk-form-width-medium uk-form-small"
               aria-label={{t "cases.miscellaneous.linkedInstances"}}
               placeholder={{t "cases.miscellaneous.enterDossierNumber" }}
-              {{on "input" this.setDossierNumber}}
             />
             <button
               id={{t "cases.miscellaneous.linkedInstances"}}

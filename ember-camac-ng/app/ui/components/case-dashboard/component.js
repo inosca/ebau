@@ -1,5 +1,4 @@
 import { getOwner, setOwner } from "@ember/application";
-import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
@@ -34,8 +33,6 @@ export default class CaseDashboardComponent extends Component {
   @service fetch;
   @service notification;
 
-  queryParams = ["dossierNumber"];
-
   @tracked dossierNumber;
 
   get isLoading() {
@@ -50,32 +47,22 @@ export default class CaseDashboardComponent extends Component {
 
   @lastValue("fetchLinkedDossiers") linkedDossiers;
   @dropTask
-  *fetchLinkedDossiers() {
+  *fetchLinkedDossiers(reload = false) {
     const currentInstance = yield this.store.findRecord(
       "instance",
       this.args.caseId,
-      { reload: true }
+      { reload }
     );
 
-    if (!currentInstance.instanceGroup.get("id")) {
+    if (!currentInstance.linkedInstances) {
       return null;
     }
-    const instances = yield this.store.query("instance", {
-      instance_group: currentInstance.instanceGroup.get("id"),
-      relationship: "instance_group",
-    });
-    instances.forEach((element) => element.fetchDossierNumber.perform());
-
-    const filteredInstances = instances.filter(
+    const instances = currentInstance.linkedInstances.filter(
       (instance) => instance.id !== currentInstance.id
     );
 
-    return filteredInstances;
-  }
-
-  @action
-  setDossierNumber(e) {
-    this.dossierNumber = e.target.value;
+    instances.forEach((element) => element.fetchMeta.perform());
+    return instances;
   }
 
   @dropTask
@@ -100,7 +87,7 @@ export default class CaseDashboardComponent extends Component {
             metaFilter: [
               {
                 key: "dossier-number",
-                value: this.dossierNumber,
+                value: this.dossierNumber.trim(),
               },
             ],
           },
@@ -121,7 +108,7 @@ export default class CaseDashboardComponent extends Component {
         }),
       });
 
-      this.fetchLinkedDossiers.perform();
+      this.fetchLinkedDossiers.perform(true);
       this.dossierNumber = null;
       this.notification.success(
         this.intl.t("cases.miscellaneous.linkInstanceSuccess")
@@ -134,13 +121,13 @@ export default class CaseDashboardComponent extends Component {
   }
 
   @dropTask
-  *unLinkDossier() {
+  *unLinkDossier(instance) {
     try {
-      yield this.fetch.fetch(`/api/v1/instances/${this.args.caseId}/unlink`, {
+      yield this.fetch.fetch(`/api/v1/instances/${instance.id}/unlink`, {
         method: "PATCH",
         headers: { "content-type": "application/json" },
       });
-      this.fetchLinkedDossiers.perform();
+      this.fetchLinkedDossiers.perform(true);
       this.notification.success(
         this.intl.t("cases.miscellaneous.unLinkInstanceSuccess")
       );
