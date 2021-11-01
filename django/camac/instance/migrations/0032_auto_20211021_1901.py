@@ -7,19 +7,32 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('instance', '0031_reconnect_instance_case'),
+        ("instance", "0031_reconnect_instance_case"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='InstanceGroup',
+            name="InstanceGroup",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
             ],
         ),
         migrations.AddField(
-            model_name='instance',
-            name='instance_group',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, related_name='instances', to='instance.InstanceGroup'),
+            model_name="instance",
+            name="instance_group",
+            field=models.ForeignKey(
+                null=True,
+                on_delete=django.db.models.deletion.DO_NOTHING,
+                related_name="instances",
+                to="instance.InstanceGroup",
+            ),
         ),
     ]

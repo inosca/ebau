@@ -178,6 +178,7 @@ def test_instance_filter_fields(admin_client, instance, form_field_factory):
 def test_instance_group_filter(admin_client, instance, instance_group_factory):
     url = reverse("instance-list")
 
+    instance_group_factory()
     instance.instance_group = instance_group_factory()
     instance.save()
 
@@ -296,6 +297,7 @@ def test_instance_group_unlink(
     if more_than_one_other_group:
         other_instance_2.refresh_from_db()
 
+        assert response.status_code == status.HTTP_204_NO_CONTENT
         assert main_instance.instance_group is None
         assert other_instance.instance_group == main_group_before
         assert other_instance_2.instance_group == main_group_before
