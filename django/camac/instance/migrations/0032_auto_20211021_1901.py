@@ -30,7 +30,7 @@ class Migration(migrations.Migration):
             name="instance_group",
             field=models.ForeignKey(
                 null=True,
-                on_delete=django.db.models.deletion.DO_NOTHING,
+                on_delete=django.db.models.deletion.SET_NULL,
                 related_name="instances",
                 to="instance.InstanceGroup",
             ),

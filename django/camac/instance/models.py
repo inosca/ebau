@@ -143,7 +143,7 @@ class Instance(models.Model):
     )
     previous_instance_state = models.ForeignKey(
         InstanceState,
-        models.DO_NOTHING,
+        models.SET_NULL,
         db_column="PREVIOUS_INSTANCE_STATE_ID",
         related_name="+",
     )
