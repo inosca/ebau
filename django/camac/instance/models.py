@@ -143,7 +143,7 @@ class Instance(models.Model):
     )
     previous_instance_state = models.ForeignKey(
         InstanceState,
-        models.SET_NULL,
+        models.DO_NOTHING,
         db_column="PREVIOUS_INSTANCE_STATE_ID",
         related_name="+",
     )
@@ -162,7 +162,7 @@ class Instance(models.Model):
         related_name="instance",
     )
     instance_group = models.ForeignKey(
-        InstanceGroup, models.DO_NOTHING, related_name="instances", null=True
+        InstanceGroup, models.SET_NULL, related_name="instances", null=True
     )
 
     def _responsible_service_instance_service(self, filter_type=None, **kwargs):
