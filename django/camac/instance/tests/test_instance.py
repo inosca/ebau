@@ -1,5 +1,6 @@
 import datetime
 import functools
+import json
 
 import pyexcel
 import pytest
@@ -169,6 +170,142 @@ def test_instance_filter_fields(admin_client, instance, form_field_factory):
     assert response.status_code == status.HTTP_200_OK
     json = response.json()
     assert len(json["data"]) == 1
+
+
+@pytest.mark.parametrize(
+    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
+)
+def test_instance_group_filter(admin_client, instance, instance_group_factory):
+    url = reverse("instance-list")
+
+    instance_group_factory()
+    instance.instance_group = instance_group_factory()
+    instance.save()
+
+    response = admin_client.get(
+        url,
+        data={"instance_id": instance.pk, "instance_group": instance.instance_group.pk},
+    )
+
+    instance.refresh_from_db()
+
+    assert response.status_code == status.HTTP_200_OK
+    json = response.json()
+    assert len(json["data"]) == 1
+    assert json["data"][0]["relationships"]["instance-group"]["data"]["id"] == str(
+        instance.instance_group.pk
+    )
+
+
+@pytest.mark.parametrize("main_instance_has_group", [False, True])
+@pytest.mark.parametrize("other_instance_has_group", [False, True])
+@pytest.mark.parametrize("role__name", ["Municipality"])
+def test_instance_group_link(
+    admin_client,
+    instance,
+    instance_factory,
+    instance_group_factory,
+    main_instance_has_group,
+    other_instance_has_group,
+):
+    main_instance = instance
+    main_instance_2 = instance_factory()
+    other_instance = instance_factory(location=main_instance.location)
+    other_instance_2 = instance_factory()
+    if main_instance_has_group:
+        main_instance.instance_group = instance_group_factory()
+        main_instance.save()
+        main_instance_2.instance_group = main_instance.instance_group
+        main_instance_2.save()
+    if other_instance_has_group:
+        other_instance.instance_group = instance_group_factory()
+        other_instance.save()
+        other_instance_2.instance_group = other_instance.instance_group
+        other_instance_2.save()
+
+    url = reverse("instance-link", args=[main_instance.pk])
+
+    data = {
+        "data": {
+            "type": "instances",
+            "attributes": {"link-to": other_instance.pk},
+        }
+    }
+
+    response = admin_client.post(
+        url, data=json.dumps(data), content_type="application/json"
+    )
+    main_group_before = main_instance.instance_group
+    other_group_before = other_instance.instance_group
+
+    main_instance.refresh_from_db()
+    main_instance_2.refresh_from_db()
+    other_instance.refresh_from_db()
+    other_instance_2.refresh_from_db()
+
+    assert response.status_code == status.HTTP_200_OK
+
+    if main_instance_has_group:
+        assert main_instance.instance_group == main_group_before
+        assert main_instance_2.instance_group == main_group_before
+        assert other_instance.instance_group == main_group_before
+        if other_instance_has_group:
+            assert other_instance_2.instance_group == main_group_before
+        else:
+            assert other_instance_2.instance_group is None
+    elif other_instance_has_group:
+        assert main_instance.instance_group == other_group_before
+        assert main_instance_2.instance_group is None
+        assert other_instance.instance_group == other_group_before
+        assert other_instance_2.instance_group == other_group_before
+    else:
+        assert main_instance.instance_group == other_instance.instance_group
+        assert main_instance_2.instance_group is None
+        assert other_instance_2.instance_group is None
+
+
+@pytest.mark.parametrize("more_than_one_other_group", [False, True])
+@pytest.mark.parametrize("role__name", ["Municipality"])
+def test_instance_group_unlink(
+    admin_client,
+    instance,
+    instance_factory,
+    instance_group_factory,
+    more_than_one_other_group,
+):
+    main_instance = instance
+    main_instance.instance_group = instance_group_factory()
+    main_instance.save()
+
+    other_instance = instance_factory(location=main_instance.location)
+    other_instance.instance_group = main_instance.instance_group
+    other_instance.save()
+
+    if more_than_one_other_group:
+        main_group_before = main_instance.instance_group
+        other_instance_2 = instance_factory(location=main_instance.location)
+        other_instance_2.instance_group = main_instance.instance_group
+        other_instance_2.save()
+
+    url = reverse("instance-unlink", args=[main_instance.pk])
+
+    response = admin_client.patch(url)
+
+    main_instance.refresh_from_db()
+    other_instance.refresh_from_db()
+
+    if more_than_one_other_group:
+        other_instance_2.refresh_from_db()
+
+        assert response.status_code == status.HTTP_204_NO_CONTENT
+        assert main_instance.instance_group is None
+        assert other_instance.instance_group == main_group_before
+        assert other_instance_2.instance_group == main_group_before
+
+    else:
+        assert response.status_code == status.HTTP_204_NO_CONTENT
+        assert main_instance.instance_group is None
+        assert other_instance.instance_group is None
 
 
 @pytest.mark.parametrize(
