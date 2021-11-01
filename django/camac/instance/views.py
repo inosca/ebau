@@ -21,6 +21,7 @@ from drf_yasg import openapi
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework import response, status
 from rest_framework.decorators import action
+from rest_framework.exceptions import ValidationError
 from rest_framework.generics import ListAPIView, RetrieveAPIView
 from rest_framework.renderers import JSONRenderer
 from rest_framework.response import Response
@@ -38,6 +39,7 @@ from camac.core.models import (
 )
 from camac.core.views import SendfileHttpResponse
 from camac.document.models import Attachment, AttachmentSection
+from camac.instance.models import Instance, InstanceGroup
 from camac.notification.utils import send_mail
 from camac.swagger.utils import get_operation_description, group_param
 from camac.user.models import Service
@@ -64,6 +66,14 @@ class InstanceStateView(ReadOnlyModelViewSet):
 
     def get_queryset(self):
         return models.InstanceState.objects.all()
+
+
+class InstanceGroupView(ReadOnlyModelViewSet):
+    swagger_schema = None
+    serializer_class = serializers.InstanceGroupSerializer
+
+    def get_queryset(self):
+        return models.InstanceGroup.objects.all()
 
 
 class FormView(ReadOnlyModelViewSet):
@@ -665,6 +675,55 @@ class InstanceView(
             return response.Response(data=None, status=status_code)
 
         return response.Response(data=serializer.data, status=status_code)
+
+    @swagger_auto_schema(auto_schema=None)
+    @action(methods=["post"], detail=True, url_path="link")
+    def link(self, request, pk=None):
+        instance = self.get_object()
+        try:
+            instance_to_link = self.get_queryset().get(
+                pk=request.data["data"]["attributes"]["link-to"]
+            )
+        except models.Instance.DoesNotExist:  # pragma: no cover
+            raise ValidationError("Instance to link to not found")
+
+        if not instance.instance_group and not instance_to_link.instance_group:
+            instance_group = InstanceGroup.objects.create()
+
+            instance.instance_group = instance_group
+            instance.save()
+
+            instance_to_link.instance_group = instance_group
+            instance_to_link.save()
+        elif instance.instance_group and instance_to_link.instance_group:
+            instances_with_same_group = Instance.objects.filter(
+                instance_group=instance_to_link.instance_group
+            )
+            instances_with_same_group.update(instance_group=instance.instance_group)
+        elif instance.instance_group:
+            instance_to_link.instance_group = instance.instance_group
+            instance_to_link.save()
+        elif instance_to_link.instance_group:
+            instance.instance_group = instance_to_link.instance_group
+            instance.save()
+
+        return response.Response(status=status.HTTP_200_OK)
+
+    @swagger_auto_schema(auto_schema=None)
+    @action(methods=["patch"], detail=True, url_path="unlink")
+    def unlink(self, request, pk=None):
+        instance = self.get_object()
+        instances_with_same_group = Instance.objects.filter(
+            instance_group=instance.instance_group
+        ).exclude(pk=instance.pk)
+        # if only two dossiers were in group, unlink both
+        if len(instances_with_same_group) == 1:
+            instances_with_same_group.update(instance_group=None)
+
+        instance.instance_group = None
+        instance.save()
+
+        return response.Response(status=status.HTTP_204_NO_CONTENT)
 
     @swagger_auto_schema(auto_schema=None)
     @action(methods=["post"], detail=True)
