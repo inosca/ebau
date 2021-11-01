@@ -27,7 +27,7 @@ from camac.instance.serializers import (
     CalumaInstanceSerializer,
     CalumaInstanceSubmitSerializer,
 )
-from camac.user.models import Location
+from camac.user.models import Location, Role
 from camac.utils import flatten
 
 
@@ -234,6 +234,7 @@ def test_create_instance_caluma_be(
 @pytest.mark.freeze_time("2019-05-02")
 @pytest.mark.parametrize("service_group__name", ["municipality"])
 @pytest.mark.parametrize("instance_state__name", ["new"])
+@pytest.mark.parametrize("change_instance_state_to", ["ext", "comm"])
 @pytest.mark.parametrize("archive", [False, True])
 @pytest.mark.parametrize(
     "copy,modification", [(False, False), (True, False), (True, True)]
@@ -258,6 +259,7 @@ def test_create_instance_caluma_ur(
     mocker,
     workflow_item_factory,
     authority_factory,
+    change_instance_state_to,
 ):
     # Uri states
     instance_state_factory(name="comm")
@@ -316,6 +318,17 @@ def test_create_instance_caluma_ur(
             old_instance.instance_state = instance_state_factory(name="rejected")
             old_instance.save()
 
+        if change_instance_state_to == "comm":
+            instance.group.role = Role.objects.create(
+                pk=6, name="Sekretariat der Gemeindebaubehörde"
+            )
+            instance.group.save()
+        else:
+            instance.group.role = Role.objects.create(
+                pk=1061, name="Koordinationsstelle Nutzungsplanung NP"
+            )
+            instance.group.save()
+
         data["data"]["attributes"].update(
             {"copy-source": str(instance_id), "is-modification": modification}
         )
@@ -342,6 +355,11 @@ def test_create_instance_caluma_ur(
                 assert attachment.name == new_attachment.name
                 assert attachment.uuid != new_attachment.uuid
                 assert attachment.path.name != new_attachment.path.name
+
+                if change_instance_state_to == "comm":
+                    assert new_instance.instance_state.name == "comm"
+                else:
+                    assert new_instance.instance_state.name == "ext"
 
 
 @pytest.mark.parametrize("service_group__name", ["municipality"])
