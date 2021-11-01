@@ -123,11 +123,9 @@ export default class CustomCaseModel extends CaseModel {
     const oerebTopic = getAnswer(this.raw.document, "oereb-thema");
 
     if (oerebProcedure && oerebTopic) {
-      const topics = oerebTopic?.node.selectedOptions.edges.map(function (
-        item
-      ) {
-        return item.node.label;
-      });
+      const topics = oerebTopic?.node.selectedOptions.edges.map(
+        (item) => item.node.label
+      );
       return oerebProcedure?.node.selectedOption.label.concat(
         " ",
         topics?.join(", ")
