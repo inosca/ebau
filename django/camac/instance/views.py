@@ -716,6 +716,7 @@ class InstanceView(
         instances_with_same_group = Instance.objects.filter(
             instance_group=instance.instance_group
         ).exclude(pk=instance.pk)
+        # if only two dossiers were in group, unlink both
         if len(instances_with_same_group) == 1:
             instances_with_same_group.update(instance_group=None)
 
