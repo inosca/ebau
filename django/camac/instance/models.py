@@ -109,6 +109,10 @@ class InstanceStateDescription(models.Model):
         db_table = "INSTANCE_STATE_DESCRIPTION"
 
 
+class InstanceGroup(models.Model):
+    pass
+
+
 @reversion.register()
 class Instance(models.Model):
     """
@@ -139,7 +143,7 @@ class Instance(models.Model):
     )
     previous_instance_state = models.ForeignKey(
         InstanceState,
-        models.DO_NOTHING,
+        models.SET_NULL,
         db_column="PREVIOUS_INSTANCE_STATE_ID",
         related_name="+",
     )
@@ -156,6 +160,9 @@ class Instance(models.Model):
         blank=True,
         on_delete=models.CASCADE,
         related_name="instance",
+    )
+    instance_group = models.ForeignKey(
+        InstanceGroup, models.DO_NOTHING, related_name="instances", null=True
     )
 
     def _responsible_service_instance_service(self, filter_type=None, **kwargs):
