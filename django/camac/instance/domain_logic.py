@@ -187,6 +187,16 @@ class CreateInstanceLogic:
             CalumaApi().set_submit_date(instance.pk, creation_date)
 
     @staticmethod
+    def change_instance_state_for_copy(instance, source_instance, is_modification):
+        if not is_modification and source_instance:
+            if source_instance.group.role.pk == 6:
+                instance.instance_state = models.InstanceState.objects.get(name="comm")
+                instance.save()
+            elif source_instance.group.role.pk == 1061:
+                instance.instance_state = models.InstanceState.objects.get(name="ext")
+                instance.save()
+
+    @staticmethod
     def initialize_caluma(
         instance,
         source_instance,
@@ -222,6 +232,10 @@ class CreateInstanceLogic:
             user,
         )
 
+        CreateInstanceLogic.change_instance_state_for_copy(
+            instance, source_instance, is_modification
+        )
+
         if settings.APPLICATION["CALUMA"].get("SYNC_FORM_TYPE"):
             form_type = ur_constants.CALUMA_FORM_MAPPING.get(instance.form.pk)
             if not form_type:
@@ -253,12 +267,13 @@ class CreateInstanceLogic:
             )
 
             # Synchronize the 'Leitbehörde' for display in the dashboard
-            caluma_api.update_or_create_answer(
-                case.document,
-                "leitbehoerde",
-                str(lead),
-                user,
-            )
+            if lead:
+                caluma_api.update_or_create_answer(
+                    case.document,
+                    "leitbehoerde",
+                    str(lead),
+                    user,
+                )
 
         if group.pk == settings.APPLICATION.get("PORTAL_GROUP", False):
             # TODO pre-fill user data into personal data table
