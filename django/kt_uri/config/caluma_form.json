@@ -13399,12 +13399,12 @@
     "pk": "form-type-oereb",
     "fields": {
       "created_at": "2020-11-11T07:35:48.407Z",
-      "modified_at": "2020-11-24T13:09:22.464Z",
+      "modified_at": "2021-11-01T17:25:12.857Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
-      "label": "{\"de\": \"\\u00d6REB Verfahren (Meldung, Vorpr\\u00fcfung, Anpassung)\", \"fr\": null}",
+      "label": "{\"de\": \"\\u00d6REB Verfahren\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
