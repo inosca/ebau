@@ -68,14 +68,6 @@ class InstanceStateView(ReadOnlyModelViewSet):
         return models.InstanceState.objects.all()
 
 
-class InstanceGroupView(ReadOnlyModelViewSet):
-    swagger_schema = None
-    serializer_class = serializers.InstanceGroupSerializer
-
-    def get_queryset(self):
-        return models.InstanceGroup.objects.all()
-
-
 class FormView(ReadOnlyModelViewSet):
     swagger_schema = None
     serializer_class = serializers.FormSerializer
