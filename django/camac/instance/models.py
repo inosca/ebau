@@ -162,7 +162,7 @@ class Instance(models.Model):
         related_name="instance",
     )
     instance_group = models.ForeignKey(
-        InstanceGroup, models.CASCADE, related_name="instances", null=True
+        InstanceGroup, models.DO_NOTHING, related_name="instances", null=True
     )
 
     def _responsible_service_instance_service(self, filter_type=None, **kwargs):
