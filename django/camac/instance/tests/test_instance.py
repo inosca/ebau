@@ -173,28 +173,24 @@ def test_instance_filter_fields(admin_client, instance, form_field_factory):
 
 
 @pytest.mark.parametrize(
-    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
+    "role__name,instance__user", [("Municipality", LazyFixture("admin_user"))]
 )
-def test_instance_group_filter(admin_client, instance, instance_group_factory):
-    url = reverse("instance-list")
-
-    instance_group_factory()
+def test_linked_instances(
+    admin_client, instance, instance_group_factory, instance_factory
+):
     instance.instance_group = instance_group_factory()
     instance.save()
-
-    response = admin_client.get(
-        url,
-        data={"instance_id": instance.pk, "instance_group": instance.instance_group.pk},
+    other_instance = instance_factory(
+        location=instance.location, instance_group=instance.instance_group
     )
+    url = reverse("instance-detail", args=[instance.pk])
 
-    instance.refresh_from_db()
-
+    response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
     json = response.json()
-    assert len(json["data"]) == 1
-    assert json["data"][0]["relationships"]["instance-group"]["data"]["id"] == str(
-        instance.instance_group.pk
-    )
+    linked = json["data"]["relationships"]["linked-instances"]["data"]
+    assert len(linked) == 1
+    assert int(linked[0]["id"]) == other_instance.pk
 
 
 @pytest.mark.parametrize("main_instance_has_group", [False, True])

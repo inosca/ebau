@@ -82,12 +82,6 @@ class InstanceStateSerializer(MultilingualSerializer, serializers.ModelSerialize
         fields = ("name", "description")
 
 
-class InstanceGroupSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = models.InstanceGroup
-        fields = ("id",)
-
-
 class FormSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Form
@@ -114,6 +108,10 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         source="get_involved_services", model=Service, read_only=True, many=True
     )
 
+    linked_instances = relations.SerializerMethodResourceRelatedField(
+        source="get_linked_instances", model=models.Instance, read_only=True, many=True
+    )
+
     @permission_aware
     def get_access_type(self, obj):
         access_type = None
@@ -136,6 +134,16 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
 
     def get_access_type_for_service(self, obj):
         return "service"
+
+    def get_linked_instances(self, obj):
+        if not obj.instance_group:
+            return models.Instance.objects.none()
+        return (
+            self.context["view"]
+            .get_queryset()
+            .filter(instance_group=obj.instance_group)
+            .exclude(pk=obj.pk)
+        )
 
     def get_involved_services(self, obj):
         filters = Q(pk__in=obj.circulations.values("activations__service__pk"))
@@ -220,7 +228,6 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         fields = (
             "instance_id",
             "instance_state",
-            "instance_group",
             "identifier",
             "location",
             "form",
@@ -232,6 +239,7 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
             "circulations",
             "services",
             "involved_services",
+            "linked_instances",
         )
         read_only_fields = (
             "circulations",
@@ -240,6 +248,7 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
             "modification_date",
             "services",
             "involved_services",
+            "linked_instances",
         )
 
 
