@@ -13,6 +13,7 @@ CIRCULATION_STATE_IDLE = 21
 CIRCULATION_STATE_NFD = 41
 
 ROLE_MUNICIPALITY = 6  # Sekretariat der Gemeindebaubehörde
+ROLE_KOOR_NP = 1061
 
 INSTANCE_STATES_PRIVATE = ["new", "new_portal"]
 
