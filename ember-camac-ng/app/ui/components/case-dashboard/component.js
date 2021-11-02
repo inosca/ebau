@@ -61,7 +61,7 @@ export default class CaseDashboardComponent extends Component {
       (instance) => instance.id !== currentInstance.id
     );
 
-    instances.forEach((element) => element.fetchMeta.perform());
+    instances.forEach((element) => element.fetchCaseMeta.perform());
     return instances;
   }
 
