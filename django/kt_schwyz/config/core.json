@@ -477,20 +477,6 @@
   },
   {
     "model": "core.action",
-    "pk": 19,
-    "fields": {
-      "available_action": "workflow",
-      "button": 9,
-      "name": "Datum Zirkulation start",
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 2
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 20,
     "fields": {
       "available_action": "php",
@@ -949,20 +935,6 @@
       "error_message": "Zirkulation konnte nicht gestartet werden.",
       "execute_always": 0,
       "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 87,
-    "fields": {
-      "available_action": "workflow",
-      "button": 41,
-      "name": "Datum Zirkulation start",
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 2
     }
   },
   {
