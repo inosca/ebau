@@ -50615,7 +50615,7 @@
       "description": null,
       "template": null,
       "class_field": "menu-category-process",
-      "hidden": 0,
+      "hidden": 1,
       "sort": 15,
       "form_group": 40000
     }
