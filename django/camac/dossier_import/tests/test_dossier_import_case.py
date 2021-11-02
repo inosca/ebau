@@ -216,37 +216,37 @@ def test_set_workflow_state_exceptions(
         (
             {"SUBMIT-DATE": timezone.datetime(2021, 12, 12)},
             "submit_date",
-            timezone.make_aware(timezone.datetime(2021, 12, 12)),
+            timezone.make_aware(timezone.datetime(2021, 12, 12).replace(hour=12)),
         ),
         (
             {"PUBLICATION-DATE": timezone.datetime(2021, 12, 12)},
             "publication_date",
-            timezone.make_aware(timezone.datetime(2021, 12, 12)),
+            timezone.make_aware(timezone.datetime(2021, 12, 12).replace(hour=12)),
         ),
         (
             {"CONSTRUCTION-START-DATE": timezone.datetime(2021, 12, 12)},
             "construction_start_date",
-            timezone.make_aware(timezone.datetime(2021, 12, 12)),
+            timezone.make_aware(timezone.datetime(2021, 12, 12).replace(hour=12)),
         ),
         (
             {"PROFILE-APPROVAL-DATE": timezone.datetime(2021, 12, 12)},
             "profile_approval_date",
-            timezone.make_aware(timezone.datetime(2021, 12, 12)),
+            timezone.make_aware(timezone.datetime(2021, 12, 12).replace(hour=12)),
         ),
         (
             {"DECISION-DATE": timezone.datetime(2021, 12, 12)},
             "decision_date",
-            timezone.make_aware(timezone.datetime(2021, 12, 12)),
+            timezone.make_aware(timezone.datetime(2021, 12, 12).replace(hour=12)),
         ),
         (
             {"FINAL-APPROVAL-DATE": timezone.datetime(2021, 12, 12)},
             "final_approval_date",
-            timezone.make_aware(timezone.datetime(2021, 12, 12)),
+            timezone.make_aware(timezone.datetime(2021, 12, 12).replace(hour=12)),
         ),
         (
             {"COMPLETION-DATE": timezone.datetime(2021, 12, 12)},
             "completion_date",
-            timezone.make_aware(timezone.datetime(2021, 12, 12)),
+            timezone.make_aware(timezone.datetime(2021, 12, 12).replace(hour=12)),
         ),
         ({"TYPE": "Baugesuch"}, "procedure_type_migrated", "Baugesuch"),
         (
