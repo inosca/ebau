@@ -188,12 +188,17 @@ class CreateInstanceLogic:
 
     @staticmethod
     def change_instance_state_for_copy(instance, source_instance, is_modification):
-        if not is_modification and source_instance:
-            if source_instance.group.role.pk == 6:
-                instance.instance_state = models.InstanceState.objects.get(name="comm")
-                instance.save()
-            elif source_instance.group.role.pk == 1061:
-                instance.instance_state = models.InstanceState.objects.get(name="ext")
+        """In Kt. UR, municipalities and KOOR NP can copy ÖREB dossiers."""
+        if settings.APPLICATION_NAME == "kt_uri" and source_instance:
+            mapping = {
+                ur_constants.ROLE_MUNICIPALITY: "comm",
+                ur_constants.ROLE_KOOR_NP: "ext",
+            }
+            new_state = mapping.get(source_instance.group.role.pk, None)
+            if new_state:
+                instance.instance_state = models.InstanceState.objects.get(
+                    name=new_state
+                )
                 instance.save()
 
     @staticmethod
@@ -230,10 +235,6 @@ class CreateInstanceLogic:
             "is-paper",
             "is-paper-yes" if is_paper else "is-paper-no",
             user,
-        )
-
-        CreateInstanceLogic.change_instance_state_for_copy(
-            instance, source_instance, is_modification
         )
 
         if settings.APPLICATION["CALUMA"].get("SYNC_FORM_TYPE"):
@@ -414,6 +415,10 @@ class CreateInstanceLogic:
             CreateInstanceLogic.copy_extend_validity_answers(
                 extend_validity_instance, instance, user
             )
+
+        CreateInstanceLogic.change_instance_state_for_copy(
+            instance, source_instance, is_modification
+        )
 
     @staticmethod
     def create(
