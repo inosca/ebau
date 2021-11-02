@@ -81,7 +81,7 @@ class CreateInstanceLogic:
                 instance=instance, location_id=instance.location_id
             )
 
-    def generate_identifier(instance, year=None):
+    def generate_identifier(instance, year=None, prefix=None, seq_zero_padding=3):
         """
         Build identifier for instance.
 
@@ -115,9 +115,14 @@ class CreateInstanceLogic:
             if name in abbreviations.keys():
                 identifier_start = abbreviations[name]
             elif settings.APPLICATION.get("SHORT_DOSSIER_NUMBER", False):
-                identifier_start = instance.location.communal_federal_number[-2:]
+                identifier_start = (
+                    prefix
+                    and f"{prefix}-{instance.location.communal_federal_number[-2:]}"
+                ) or instance.location.communal_federal_number[-2:]
             else:
-                identifier_start = instance.location.communal_federal_number
+                identifier_start = (
+                    prefix and f"{prefix}-{instance.location.communal_federal_number}"
+                ) or instance.location.communal_federal_number
 
             start = "{0}-{1}-".format(identifier_start, str(year).zfill(2))
 
@@ -141,7 +146,9 @@ class CreateInstanceLogic:
             sequence = int(max_identifier[-3:])
 
             identifier = "{0}-{1}-{2}".format(
-                identifier_start, str(year).zfill(2), str(sequence + 1).zfill(3)
+                identifier_start,
+                str(year).zfill(2),
+                str(sequence + 1).zfill(seq_zero_padding),
             )
 
         return identifier
