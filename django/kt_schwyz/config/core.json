@@ -5335,21 +5335,6 @@
     }
   },
   {
-    "model": "core.instanceresource",
-    "pk": 53,
-    "fields": {
-      "available_instance_resource": "editnotice",
-      "resource": 1,
-      "name": "Eigener Fachbericht",
-      "description": null,
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 9,
-      "form_group": 1
-    }
-  },
-  {
     "model": "core.instanceresourceaction",
     "pk": 1,
     "fields": {
@@ -7419,18 +7404,6 @@
   {
     "model": "core.ireditnotice",
     "pk": 14,
-    "fields": {
-      "circulation_type": 1,
-      "editable_after_deadline": 1,
-      "pdf_class": null,
-      "edit_notice_template": null,
-      "hide_answered_notices": 0,
-      "is_always_editable": 1
-    }
-  },
-  {
-    "model": "core.ireditnotice",
-    "pk": 53,
     "fields": {
       "circulation_type": 1,
       "editable_after_deadline": 1,
@@ -14048,132 +14021,6 @@
     "fields": {
       "instance_resource": 52,
       "role": 11,
-      "instance_state": 10
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 940,
-    "fields": {
-      "instance_resource": 53,
-      "role": 3,
-      "instance_state": 5
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 941,
-    "fields": {
-      "instance_resource": 53,
-      "role": 3,
-      "instance_state": 6
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 942,
-    "fields": {
-      "instance_resource": 53,
-      "role": 3,
-      "instance_state": 7
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 943,
-    "fields": {
-      "instance_resource": 53,
-      "role": 3,
-      "instance_state": 13
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 944,
-    "fields": {
-      "instance_resource": 53,
-      "role": 3,
-      "instance_state": 8
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 945,
-    "fields": {
-      "instance_resource": 53,
-      "role": 3,
-      "instance_state": 9
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 946,
-    "fields": {
-      "instance_resource": 53,
-      "role": 3,
-      "instance_state": 10
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 947,
-    "fields": {
-      "instance_resource": 53,
-      "role": 8,
-      "instance_state": 5
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 948,
-    "fields": {
-      "instance_resource": 53,
-      "role": 8,
-      "instance_state": 6
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 949,
-    "fields": {
-      "instance_resource": 53,
-      "role": 8,
-      "instance_state": 7
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 950,
-    "fields": {
-      "instance_resource": 53,
-      "role": 8,
-      "instance_state": 13
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 951,
-    "fields": {
-      "instance_resource": 53,
-      "role": 8,
-      "instance_state": 8
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 952,
-    "fields": {
-      "instance_resource": 53,
-      "role": 8,
-      "instance_state": 9
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 953,
-    "fields": {
-      "instance_resource": 53,
-      "role": 8,
       "instance_state": 10
     }
   },
