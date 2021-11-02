@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 
 from snapshottest import GenericRepr, Snapshot
 
+
 snapshots = Snapshot()
 
 snapshots['test_master_data[kt_bern-de-be_master_data_case-select_related0-prefetch_related0-14] 1'] = {
@@ -508,10 +509,19 @@ snapshots['test_master_data[kt_uri-de-ur_master_data_case-select_related2-prefet
             'type': 'anlagetyp-hauptheizung'
         }
     ],
+    'form_type': [
+        'form-type-oereb'
+    ],
+    'legal_state': [
+        'rechtsstatus-rechtskraeftig'
+    ],
     'municipality': {
         'label': 'Altdorf',
         'slug': '1'
     },
+    'oereb_topic': [
+        'oereb-thema-knp'
+    ],
     'plot_data': [
         {
             'coordinates_east': 2690970.9,
