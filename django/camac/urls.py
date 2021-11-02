@@ -34,6 +34,7 @@ urlpatterns = [
     url(r"^api/v1/", include("camac.user.urls")),
     url(r"^api/v1/", include("camac.instance.urls")),
     url(r"^api/v1/", include("camac.document.urls")),
+    url(r"^api/v1/", include("camac.dossier_import.urls")),
     url(r"^api/v1/", include("camac.circulation.urls")),
     url(r"^api/v1/", include("camac.notification.urls")),
     url(r"^api/v1/", include("camac.objection.urls")),
