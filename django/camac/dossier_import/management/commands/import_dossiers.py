@@ -6,6 +6,7 @@ from django.core.management.base import BaseCommand
 from django.utils.module_loading import import_string
 
 from camac.document.models import Attachment
+from camac.dossier_import.messages import Summary, update_summary
 from camac.dossier_import.models import DossierImport
 from camac.instance.models import Instance
 from camac.user.models import Group
@@ -89,21 +90,28 @@ class Command(BaseCommand):
                 "DOSSIER_IMPORT"
             ],
         )
+        dossier_import.messages["import"] = {"details": []}
         for dossier in loader.load_dossiers(options["path_to_source"][0]):
             message = writer.import_dossier(dossier, str(dossier_import.id))
-            dossier_import.messages.append(message.to_dict())
+            dossier_import.messages["import"]["details"].append(message.to_dict())
             dossier_import.save()
-            if options["verbosity"] > 1:
-                self.stdout.write(pprint.pformat(message), self.style.NOTICE)
+        update_summary(dossier_import)
+        dossier_import.messages["import"]["summary"] = Summary(
+            dossiers_written=Instance.objects.filter(
+                **{"case__meta__import-id": str(dossier_import.pk)}
+            ).count(),
+            num_documents=Attachment.objects.filter(
+                **{"instance__case__meta__import-id": str(dossier_import.pk)}
+            ).count(),
+        ).to_dict()
+        dossier_import.save()
         self.stdout.write("========= Dossier import =========")
-        for line in filter(lambda x: x["level"] > 1, dossier_import.messages):
-            self.stdout.write(str(line))
+        if options["verbosity"] > 1:
+            self.stdout.write(
+                pprint.pformat(dossier_import.messages["import"]["details"]),
+                self.style.NOTICE,
+            )
         self.stdout.write(f"Dossier import finished Ref: {str(dossier_import.pk)}")
-        imported_count = Instance.objects.filter(
-            **{"case__meta__import-id": str(dossier_import.pk)}
-        ).count()
-        attachments_count = Attachment.objects.filter(
-            **{"instance__case__meta__import-id": str(dossier_import.pk)}
-        ).count()
-        self.stdout.write(f"{imported_count} instances imported.")
-        self.stdout.write(f"{attachments_count} attachments added.")
+        self.stdout.write(
+            f"{pprint.pformat(dossier_import.messages['import']['summary'])}"
+        )
