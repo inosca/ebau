@@ -113,7 +113,7 @@ class XlsxFileDossierLoader(DossierLoader):
             },
             plot_data=self.load_plot_data(dossier_row),
             coordinates=self.load_coordinates(dossier_row),
-            address_location=", ".join(
+            address_location=" ".join(
                 [
                     str(
                         dossier_row.get(
@@ -169,7 +169,7 @@ class XlsxFileDossierLoader(DossierLoader):
         for addr in ["applicant", "landowner", "project_author"]:
             addr_list = getattr(dossier, addr)
             if addr_list[0].street:
-                addr_list[0].street = ", ".join(
+                addr_list[0].street = " ".join(
                     [addr_list[0].street, str(addr_list[0].street_number)]
                 )
                 setattr(dossier, addr, addr_list)
