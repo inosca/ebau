@@ -393,6 +393,9 @@ def ur_master_data_case(db, ur_instance, workflow_entry_factory, camac_answer_fa
     add_answer(document, "parcel-city", "Musterdorf")
     add_answer(document, "category", ["category-hochbaute", "category-tiefbaute"])
     add_answer(document, "veranstaltung-art", ["veranstaltung-art-umbau"])
+    add_answer(document, "oereb-thema", ["oereb-thema-knp"])
+    add_answer(document, "form-type", ["form-type-oereb"])
+    add_answer(document, "rechtsstatus", ["rechtsstatus-rechtskraeftig"])
 
     # Municipality
     add_answer(document, "municipality", "1")
