@@ -7,6 +7,7 @@ from django.utils import timezone
 from camac.core.models import WorkflowEntry
 from camac.dossier_import.dossier_classes import Dossier
 from camac.dossier_import.loaders import safe_join
+from camac.dossier_import.messages import Message
 from camac.instance.models import Instance
 
 
@@ -124,7 +125,7 @@ class DossierWriter:
         """
         self._import_settings = import_settings
 
-    def create_instance(self, dossier: Dossier):
+    def create_instance(self, dossier: Dossier) -> Instance:
         """Instance etc erstellen."""
         raise NotImplementedError  # pragma: no cover
 
@@ -137,7 +138,7 @@ class DossierWriter:
             if writer:
                 writer.write(instance, getattr(dossier, field.name))
 
-    def import_dossier(self, dossier: Dossier):
+    def import_dossier(self, dossier: Dossier) -> Message:
         # instance = self.create_instance(dossier)
         # self.write_fields(instance, dossier)
         # self._handle_dossier_attachments(dossier)
