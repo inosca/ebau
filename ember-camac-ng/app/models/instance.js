@@ -20,16 +20,25 @@ export default class InstanceModel extends Model {
   @hasMany circulations;
   @hasMany services;
   @hasMany("service") involvedServices;
+  @hasMany("instance") linkedInstances;
 
-  @lastValue("fetchEbauNumber") ebauNumber = null;
+  @lastValue("fetchMeta") meta = null;
   @dropTask
-  *fetchEbauNumber() {
+  *fetchMeta() {
     return yield this.apollo.query(
       {
         query: getEbauNumberQuery,
         variables: { instanceId: parseInt(this.id) },
       },
-      "allCases.edges.firstObject.node.meta.ebau-number"
+      `allCases.edges.firstObject.node.meta`
     ) || null;
+  }
+
+  get ebauNumber() {
+    return this.meta?.["ebau-number"];
+  }
+
+  get dossierNumber() {
+    return this.meta?.["dossier-number"];
   }
 }
