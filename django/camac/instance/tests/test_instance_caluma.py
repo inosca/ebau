@@ -695,18 +695,16 @@ def test_instance_submit_cantonal_territory_usage_ur(
         type=caluma_form_models.Question.TYPE_CHOICE,
     )
 
-    if submit_to == "KOOR_BD":
-        koor_bd_service = service_factory(pk=302, email="koor-bd@example.com")
-        koor_email = group_factory(service=koor_bd_service).service.email
-        ur_instance.case.document.answers.create(
-            value="veranstaltung-art-umzug", question_id="veranstaltung-art"
-        )
-    else:
-        koor_sd_service = service_factory(pk=590, email="koor-sd@example.com")
-        koor_email = group_factory(service=koor_sd_service).service.email
-        ur_instance.case.document.answers.create(
-            value="veranstaltung-art-sportanlass", question_id="veranstaltung-art"
-        )
+    koor_service = service_factory(email=f"{submit_to}@example.com")
+    mocker.patch(f"camac.constants.kt_uri.{submit_to}_SERVICE_ID", koor_service.pk)
+    koor_group = group_factory(service=koor_service)
+    mocker.patch(f"camac.constants.kt_uri.{submit_to}_GROUP_ID", koor_group.pk)
+    koor_email = koor_group.service.email
+
+    veranstaltung = "umzug" if submit_to == "KOOR_BD" else "sportanlass"
+    ur_instance.case.document.answers.create(
+        value=f"veranstaltung-art-{veranstaltung}", question_id="veranstaltung-art"
+    )
 
     application_settings["NOTIFICATIONS"] = {
         "SUBMIT_CANTONAL_TERRITORY_USAGE_SD": [
@@ -733,8 +731,6 @@ def test_instance_submit_cantonal_territory_usage_ur(
         value=str(location.pk), question_id="municipality"
     )
 
-    group_factory(pk=502)
-    group_factory(pk=1022)
     mocker.patch.object(
         DocumentParser,
         "parse_answers",
@@ -754,10 +750,7 @@ def test_instance_submit_cantonal_territory_usage_ur(
 
     assert ur_instance.instance_state.name == "ext"
     assert ur_instance.location_id == 22
-    if submit_to == "KOOR_BD":
-        assert ur_instance.group.pk == 502
-    else:
-        assert ur_instance.group.pk == 1022
+    assert ur_instance.group == koor_group
 
 
 @pytest.mark.parametrize("service_group__name", ["municipality"])
