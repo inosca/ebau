@@ -4,6 +4,8 @@ from django.conf import settings
 from django.core.management.base import BaseCommand
 from django.utils.module_loading import import_string
 
+from camac.instance.models import Instance
+
 
 class Command(BaseCommand):
 
@@ -69,4 +71,7 @@ class Command(BaseCommand):
         for line in filter(lambda x: x["level"] > 1, writer.import_session.messages):
             self.stdout.write(str(line))
         self.stdout.write(f"Dossier import finished Ref: {writer.import_session.pk}")
-        self.stdout.write(f"{len(writer.import_session.messages)} instances imported.")
+        imported_count = Instance.objects.filter(
+            **{"case__meta__import-id": str(writer.import_session.pk)}
+        ).count()
+        self.stdout.write(f"{imported_count} instances imported.")
