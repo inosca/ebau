@@ -1806,11 +1806,18 @@ class PublicCalumaInstanceSerializer(serializers.Serializer):  # pragma: no cove
     document_id = serializers.CharField(read_only=True)
     instance_id = serializers.IntegerField(read_only=True)
     dossier_nr = serializers.CharField(read_only=True)
+    publication_date = serializers.DateTimeField(read_only=True)
+    publication_text = serializers.CharField(read_only=True)
+
     municipality = serializers.SerializerMethodField()
     applicant = serializers.SerializerMethodField()
     intent = serializers.SerializerMethodField()
     street = serializers.SerializerMethodField()
     parcels = serializers.SerializerMethodField()
+    oereb_topic = serializers.SerializerMethodField()
+    legal_state = serializers.SerializerMethodField()
+    instance_state = serializers.SerializerMethodField()
+    form_type = serializers.SerializerMethodField()
 
     _master_data_cache = {}
 
@@ -1859,6 +1866,26 @@ class PublicCalumaInstanceSerializer(serializers.Serializer):  # pragma: no cove
                 ],
             )
         )
+
+    def get_oereb_topic(self, case):
+        if settings.APPLICATION_NAME == "kt_uri":
+            return self.get_master_data(case).oereb_topic
+        return ""
+
+    def get_legal_state(self, case):
+        if settings.APPLICATION_NAME == "kt_uri":
+            return self.get_master_data(case).legal_state
+        return ""
+
+    def get_instance_state(self, case):
+        if settings.APPLICATION_NAME == "kt_uri":
+            return case.instance.instance_state.name
+        return ""
+
+    def get_form_type(self, case):
+        if settings.APPLICATION_NAME == "kt_uri":
+            return self.get_master_data(case).form_type
+        return ""
 
     class Meta:
         model = workflow_models.Case
