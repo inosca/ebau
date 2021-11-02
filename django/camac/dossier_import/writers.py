@@ -75,6 +75,12 @@ class WorkflowEntryDateWriter(FieldWriter):
     Make sure to set up application with workflow_items from
     `core.workflowitem` preferably dumped to application's
     `core.json` file.
+
+    NOTE: not all parts of camac-ng frontend treat dates the same way which
+    can lead to different dates displayed for the same value when the
+    hours of the datetime object are within 2 hours of midnight.
+    (Europe/Zurich to UTC offset in winter is -2 hours). Therefore
+    The hours are therefore set to noon.
     """
 
     target: int
@@ -82,6 +88,7 @@ class WorkflowEntryDateWriter(FieldWriter):
     def write(self, instance, value):
         if not timezone.is_aware(value):
             value = timezone.make_aware(value)
+        value = value.replace(hour=12)
         entry, created = WorkflowEntry.objects.get_or_create(
             instance=instance,
             workflow_item_id=self.target,
