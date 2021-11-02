@@ -1,12 +1,26 @@
 import datetime
+import shutil
 from collections import OrderedDict
+from pathlib import Path
 
 import pytest
+from django.core.files import File
 from django.core.management import call_command
 from django.utils.module_loading import import_string
 
-from camac.dossier_import.tests.test_dossier_import_case import TEST_IMPORT_FILE
+from camac.dossier_import.tests.test_dossier_import_case import TEST_IMPORT_FILE_PATH
 from camac.user.models import Group
+
+
+@pytest.fixture
+def archive_file(settings):
+    def get_django_file(name, path=TEST_IMPORT_FILE_PATH, mode="rb"):
+        target_path = Path(settings.MEDIA_ROOT) / "dossier_imports"
+        target_path.mkdir(parents=True, exist_ok=True)
+        shutil.copy(str(Path(path) / name), str(target_path / name))
+        return File(open(str(Path(path) / name), mode), name=f"dossier_imports/{name}")
+
+    return get_django_file
 
 
 @pytest.fixture
@@ -101,27 +115,23 @@ def make_dossier_writer(
     setup_fixtures_required_by_application_config,
     make_workflow_items_for_config,
     settings,
-    group_factory,
+    user,
+    group,
     role,
     location,
 ):
-    def init_writer(
-        config, user_id: int, group_id: int, path_to_archive: str = TEST_IMPORT_FILE
-    ):
+    def init_writer(config):
         make_workflow_items_for_config(config)
         settings.APPLICATION = settings.APPLICATIONS[config]
         setup_fixtures_required_by_application_config(config)
-        Group.objects.get_or_create(pk=group_id, defaults={"role": role})
+        Group.objects.get_or_create(pk=group.pk, defaults={"role": role})
         writer_cls = import_string(
-            settings.APPLICATION["DOSSIER_IMPORT"][
-                "ZIP_ARCHIVE_IMPORT_DOSSIER_WRITER_CLASS"
-            ]
+            settings.APPLICATION["DOSSIER_IMPORT"]["WRITER_CLASS"]
         )
         return writer_cls(
-            user_id,
-            group_id,
-            location.pk,
-            path_to_archive,
+            user_id=user.pk,
+            group_id=group.pk,
+            location_id=location.pk,
             import_settings=settings.APPLICATION["DOSSIER_IMPORT"],
         )
 
@@ -130,13 +140,7 @@ def make_dossier_writer(
 
 @pytest.fixture
 def get_dossier_loader(db, settings, application_settings):
-    # this fixture requires configured DOSSIER_IMPORT properties in `settings.py`
-    # and generally might not run as expected with the 'demo' configuration.
-    def get_loader():
-        return import_string(
-            settings.APPLICATION["DOSSIER_IMPORT"][
-                "ZIP_ARCHIVE_IMPORT_DOSSIER_LOADER_CLASS"
-            ]
-        )()
+    def get_loader(loader):
+        return import_string(settings.DOSSIER_IMPORT_LOADER_CLASSES[loader])()
 
     return get_loader
