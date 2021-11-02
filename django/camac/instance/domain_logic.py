@@ -187,6 +187,21 @@ class CreateInstanceLogic:
             CalumaApi().set_submit_date(instance.pk, creation_date)
 
     @staticmethod
+    def change_instance_state_for_copy(instance, source_instance, is_modification):
+        """In Kt. UR, municipalities and KOOR NP can copy ÖREB dossiers."""
+        if settings.APPLICATION_NAME == "kt_uri" and source_instance:
+            mapping = {
+                ur_constants.ROLE_MUNICIPALITY: "comm",
+                ur_constants.ROLE_KOOR_NP: "ext",
+            }
+            new_state = mapping.get(source_instance.group.role.pk, None)
+            if new_state:
+                instance.instance_state = models.InstanceState.objects.get(
+                    name=new_state
+                )
+                instance.save()
+
+    @staticmethod
     def initialize_caluma(
         instance,
         source_instance,
@@ -253,12 +268,13 @@ class CreateInstanceLogic:
             )
 
             # Synchronize the 'Leitbehörde' for display in the dashboard
-            caluma_api.update_or_create_answer(
-                case.document,
-                "leitbehoerde",
-                str(lead),
-                user,
-            )
+            if lead:
+                caluma_api.update_or_create_answer(
+                    case.document,
+                    "leitbehoerde",
+                    str(lead),
+                    user,
+                )
 
         if group.pk == settings.APPLICATION.get("PORTAL_GROUP", False):
             # TODO pre-fill user data into personal data table
@@ -399,6 +415,10 @@ class CreateInstanceLogic:
             CreateInstanceLogic.copy_extend_validity_answers(
                 extend_validity_instance, instance, user
             )
+
+        CreateInstanceLogic.change_instance_state_for_copy(
+            instance, source_instance, is_modification
+        )
 
     @staticmethod
     def create(
