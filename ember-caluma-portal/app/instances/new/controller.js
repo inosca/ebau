@@ -45,7 +45,7 @@ export default class InstancesNewController extends Controller {
         "instance",
         this.convertFrom
       );
-      yield instance.fetchMeta.perform();
+      yield instance.fetchCaseMeta.perform();
       return instance.ebauNumber;
     }
   }
