@@ -54,7 +54,7 @@ module(
 
       this.person = person;
       this.select = (selectedEmail) => {
-        assert.equal(selectedEmail, person.email);
+        assert.strictEqual(selectedEmail, person.email);
         assert.step("select");
       };
 

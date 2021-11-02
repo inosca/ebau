@@ -27,8 +27,8 @@ module("Integration | Component | notifications", function (hooks) {
 
     assert.dom(".hinweisbox.buttonstyle").exists({ count: 2 });
 
-    assert.equal(service.all.length, 2);
+    assert.strictEqual(service.all.length, 2);
     await click(".hinweisbox.buttonstyle:first-of-type");
-    assert.equal(service.all.length, 1);
+    assert.strictEqual(service.all.length, 1);
   });
 });

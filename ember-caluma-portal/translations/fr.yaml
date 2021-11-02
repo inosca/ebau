@@ -148,6 +148,7 @@ gis:
     yes: "Oui"
     no: "Non"
   info-text-ur: ""
+  oereb: "Cadastre RDPPF :"
 
   notifications:
     min-one: "Vous devez sélectionner au moins une parcelle."
