@@ -1,6 +1,7 @@
 import { getOwner, setOwner } from "@ember/application";
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
+import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
 import { dropTask, lastValue } from "ember-concurrency-decorators";
 import gql from "graphql-tag";
@@ -26,9 +27,13 @@ function convertToBase64(blob) {
 export default class CaseDashboardComponent extends Component {
   @queryManager apollo;
 
+  @service intl;
   @service store;
   @service shoebox;
   @service fetch;
+  @service notification;
+
+  @tracked dossierNumber;
 
   get isLoading() {
     return this.fetchCase.isRunning;
@@ -39,6 +44,99 @@ export default class CaseDashboardComponent extends Component {
   }
 
   @lastValue("fetchCase") models;
+
+  @lastValue("fetchLinkedDossiers") linkedDossiers;
+  @dropTask
+  *fetchLinkedDossiers(reload = false) {
+    const currentInstance = yield this.store.findRecord(
+      "instance",
+      this.args.caseId,
+      { reload }
+    );
+
+    if (!currentInstance.linkedInstances) {
+      return null;
+    }
+    const instances = currentInstance.linkedInstances.filter(
+      (instance) => instance.id !== currentInstance.id
+    );
+
+    instances.forEach((element) => element.fetchMeta.perform());
+    return instances;
+  }
+
+  @dropTask
+  *linkDossier() {
+    try {
+      const caseRecord = yield this.apollo.query(
+        {
+          query: gql`
+            query GetCase($metaFilter: [JSONValueFilterType]) {
+              allCases(metaValue: $metaFilter) {
+                edges {
+                  node {
+                    ...CaseFragment
+                  }
+                }
+              }
+            }
+
+            fragment CaseFragment on Case ${CustomCaseModel.fragment}
+          `,
+          variables: {
+            metaFilter: [
+              {
+                key: "dossier-number",
+                value: this.dossierNumber.trim(),
+              },
+            ],
+          },
+        },
+        "allCases.edges"
+      );
+      const modelInstance = new CustomCaseModel(caseRecord?.[0]?.node);
+
+      yield this.fetch.fetch(`/api/v1/instances/${this.args.caseId}/link`, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          data: {
+            attributes: {
+              "link-to": modelInstance.meta["camac-instance-id"],
+            },
+          },
+        }),
+      });
+
+      this.fetchLinkedDossiers.perform(true);
+      this.dossierNumber = null;
+      this.notification.success(
+        this.intl.t("cases.miscellaneous.linkInstanceSuccess")
+      );
+    } catch (e) {
+      this.notification.danger(
+        this.intl.t("cases.miscellaneous.linkInstanceError")
+      );
+    }
+  }
+
+  @dropTask
+  *unLinkDossier(instance) {
+    try {
+      yield this.fetch.fetch(`/api/v1/instances/${instance.id}/unlink`, {
+        method: "PATCH",
+        headers: { "content-type": "application/json" },
+      });
+      this.fetchLinkedDossiers.perform(true);
+      this.notification.success(
+        this.intl.t("cases.miscellaneous.unLinkInstanceSuccess")
+      );
+    } catch (e) {
+      this.notification.danger(
+        this.intl.t("cases.miscellaneous.unLinkInstanceError")
+      );
+    }
+  }
 
   @dropTask
   *fetchCase() {
