@@ -1,16 +1,21 @@
 import pprint
 
 from django.conf import settings
+from django.core.files import File
 from django.core.management.base import BaseCommand
 from django.utils.module_loading import import_string
 
 from camac.document.models import Attachment
+from camac.dossier_import.models import DossierImport
 from camac.instance.models import Instance
+from camac.user.models import Group
+
+DOSSIER_IMPORT_LOADER_DEFAULT = "zip-archive-xlsx"
 
 
 class Command(BaseCommand):
 
-    help = "Import instances and cases from zip package" "" ""
+    help = "Import instances and cases from zip package"
 
     def add_arguments(self, parser):
         parser.add_argument(
@@ -31,9 +36,18 @@ class Command(BaseCommand):
             nargs=1,
             help="The location every imported instance is located to.",
         )
-        parser.add_argument("path_to_archive", type=str, nargs=1)
         parser.add_argument(
-            "override_application",
+            "path_to_source", type=str, nargs=1, help="Where to find th"
+        )
+        parser.add_argument(
+            "--loader",
+            type=str,
+            nargs="?",
+            default=DOSSIER_IMPORT_LOADER_DEFAULT,
+            help=f"Specifies a loader class that provides the writer with Dossier dataclass instances. Available choices: {','.join(settings.DOSSIER_IMPORT_LOADER_CLASSES.keys())}. Defaults to {DOSSIER_IMPORT_LOADER_DEFAULT}",
+        )
+        parser.add_argument(
+            "--override_application",
             type=str,
             nargs="?",
             default=settings.APPLICATION_NAME,
@@ -41,42 +55,55 @@ class Command(BaseCommand):
         )
 
     def handle(self, *args, **options):
-
+        group = Group.objects.get(pk=options["group_id"][0])
+        f = open(options["path_to_source"][0], "rb")
+        file_content = File(f)
         configured_writer_cls = import_string(
             settings.APPLICATIONS[options["override_application"]]["DOSSIER_IMPORT"][
-                "ZIP_ARCHIVE_IMPORT_DOSSIER_WRITER_CLASS"
+                "WRITER_CLASS"
             ]
         )
 
         configured_loader_cls = import_string(
-            settings.APPLICATIONS[options["override_application"]]["DOSSIER_IMPORT"][
-                "ZIP_ARCHIVE_IMPORT_DOSSIER_LOADER_CLASS"
-            ]
+            settings.DOSSIER_IMPORT_LOADER_CLASSES.get(
+                options["loader"][0],
+                settings.DOSSIER_IMPORT_LOADER_CLASSES[DOSSIER_IMPORT_LOADER_DEFAULT],
+            )
         )
 
         loader = configured_loader_cls()
-        writer = configured_writer_cls(
+
+        dossier_import = DossierImport.objects.create(
             user_id=options["user_id"][0],
-            group_id=options["group_id"][0],
             location_id=options["location_id"][0],
-            path_to_archive=options["path_to_archive"][0],
+            group=group,
+            service=group.service,
+            source_file=file_content,
+        )
+
+        writer = configured_writer_cls(
+            user_id=dossier_import.user.pk,
+            group_id=dossier_import.group.pk,
+            location_id=dossier_import.location.pk,
             import_settings=settings.APPLICATIONS[options["override_application"]][
                 "DOSSIER_IMPORT"
             ],
         )
-        for dossier in loader.load_dossiers(writer.dossiers_xlsx):
-            message = writer.import_dossier(dossier)
+        for dossier in loader.load_dossiers(options["path_to_source"][0]):
+            message = writer.import_dossier(dossier, str(dossier_import.id))
+            dossier_import.messages.append(message.to_dict())
+            dossier_import.save()
             if options["verbosity"] > 1:
                 self.stdout.write(pprint.pformat(message), self.style.NOTICE)
         self.stdout.write("========= Dossier import =========")
-        for line in filter(lambda x: x["level"] > 1, writer.import_session.messages):
+        for line in filter(lambda x: x["level"] > 1, dossier_import.messages):
             self.stdout.write(str(line))
-        self.stdout.write(f"Dossier import finished Ref: {writer.import_session.pk}")
+        self.stdout.write(f"Dossier import finished Ref: {str(dossier_import.pk)}")
         imported_count = Instance.objects.filter(
-            **{"case__meta__import-id": str(writer.import_session.pk)}
+            **{"case__meta__import-id": str(dossier_import.pk)}
         ).count()
         attachments_count = Attachment.objects.filter(
-            **{"instance__case__meta__import-id": str(writer.import_session.pk)}
+            **{"instance__case__meta__import-id": str(dossier_import.pk)}
         ).count()
         self.stdout.write(f"{imported_count} instances imported.")
         self.stdout.write(f"{attachments_count} attachments added.")
