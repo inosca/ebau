@@ -58,7 +58,7 @@ const QUERY_LAYERS = [
   "ch.sz.anjf.anjf_kant_pflanzenschutzreservate",
   "ch.sz.anjf.komm_schutzzonen",
   "ch.sz.anjf.anjf_kant_biotope",
-  "ch.sz.a005.nutzungsplanung.grundnutzung",
+  //"ch.sz.a005.nutzungsplanung.grundnutzung",
   "ch.sz.a013a.planerischergewaesserschutz.gwszonen.status.gwszone",
   "ch.sz.a013a.planerischergewaesserschutz.gwszonen.gwsareal",
   "ch.sz.a013a.planerischergewaesserschutz.gsbereiche.bereich.au",
