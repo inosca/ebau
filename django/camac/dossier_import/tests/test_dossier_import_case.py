@@ -267,7 +267,7 @@ def test_set_workflow_state_exceptions(
                 {
                     "last_name": "Wonka",
                     "first_name": "Willy",
-                    "street": "Candy Lane, 13",
+                    "street": "Candy Lane 13",
                     "town": "Wonderland",
                     "country": "Schweiz",
                     "email": "candy@example.com",
@@ -297,7 +297,7 @@ def test_set_workflow_state_exceptions(
                 {
                     "last_name": "Wonka",
                     "first_name": "Willy",
-                    "street": "Candy Lane, 13",
+                    "street": "Candy Lane 13",
                     "town": "Wonderland",
                     "country": "Schweiz",
                     "email": "candy@example.com",
@@ -327,7 +327,7 @@ def test_set_workflow_state_exceptions(
                 {
                     "last_name": "Wonka",
                     "first_name": "Willy",
-                    "street": "Candy Lane, 13",
+                    "street": "Candy Lane 13",
                     "town": "Wonderland",
                     "country": "Schweiz",
                     "email": "candy@example.com",
