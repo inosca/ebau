@@ -2,7 +2,7 @@ import Model, { attr, belongsTo, hasMany } from "@ember-data/model";
 import { queryManager } from "ember-apollo-client";
 import { dropTask, lastValue } from "ember-concurrency-decorators";
 
-import getEbauNumberQuery from "camac-ng/gql/queries/get-ebau-number.graphql";
+import getCaseMetaQuery from "camac-ng/gql/queries/get-case-meta.graphql";
 
 export default class InstanceModel extends Model {
   @queryManager apollo;
@@ -22,12 +22,12 @@ export default class InstanceModel extends Model {
   @hasMany("service") involvedServices;
   @hasMany("instance") linkedInstances;
 
-  @lastValue("fetchMeta") meta = null;
+  @lastValue("fetchCaseMeta") _caseMeta = null;
   @dropTask
-  *fetchMeta() {
+  *fetchCaseMeta() {
     return yield this.apollo.query(
       {
-        query: getEbauNumberQuery,
+        query: getCaseMetaQuery,
         variables: { instanceId: parseInt(this.id) },
       },
       `allCases.edges.firstObject.node.meta`
@@ -35,10 +35,10 @@ export default class InstanceModel extends Model {
   }
 
   get ebauNumber() {
-    return this.meta?.["ebau-number"];
+    return this._caseMeta?.["ebau-number"];
   }
 
   get dossierNumber() {
-    return this.meta?.["dossier-number"];
+    return this._caseMeta?.["dossier-number"];
   }
 }

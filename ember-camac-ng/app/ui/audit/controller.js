@@ -7,7 +7,7 @@ import { queryManager } from "ember-apollo-client";
 import { dropTask, lastValue } from "ember-concurrency-decorators";
 
 import getAudit from "camac-ng/gql/queries/get-audit.graphql";
-import getEbauNumber from "camac-ng/gql/queries/get-ebau-number.graphql";
+import getCaseMeta from "camac-ng/gql/queries/get-case-meta.graphql";
 import Audit from "camac-ng/ui/audit/audit";
 
 export default class AuditController extends Controller {
@@ -87,7 +87,7 @@ export default class AuditController extends Controller {
     try {
       const ebauNumber = yield this.apollo.query(
         {
-          query: getEbauNumber,
+          query: getCaseMeta,
           fetchPolicy: "network-only",
           variables: { instanceId: this.model },
         },
