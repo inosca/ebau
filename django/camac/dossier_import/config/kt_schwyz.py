@@ -158,15 +158,10 @@ class KtSchwyzDossierWriter(DossierWriter):
                 start_caluma=False,
             )
         )
-        ebau_number_prefix = f"IM-{self._group.pk}-{dossier.submit_date.year}"
-        last_seq = (
-            Instance.objects.filter(identifier__startswith=ebau_number_prefix)
-            .order_by("-identifier")
-            .values_list("identifier", flat=True)
+        instance.location = self._location
+        instance.identifier = CreateInstanceLogic.generate_identifier(
+            instance, prefix="IM", seq_zero_padding=4
         )
-        next_seq = int(last_seq[0].split("-")[-1]) + 1 if last_seq else 1
-        ebau_number = f"{ebau_number_prefix}-{next_seq:04}"
-        instance.identifier = ebau_number
         instance.save()
         return instance
 
@@ -194,8 +189,6 @@ class KtSchwyzDossierWriter(DossierWriter):
             self.import_session.save()
             return message
         instance = self.create_instance(dossier)
-        instance.location = self._location
-        instance.save()
         instance.case.meta["import-id"] = str(self.import_session.pk)
         instance.case.save()
         message.message["instance_id"] = instance.pk
