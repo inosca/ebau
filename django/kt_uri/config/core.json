@@ -1257,6 +1257,20 @@
     }
   },
   {
+    "model": "core.aphp",
+    "pk": 12000011,
+    "fields": {
+      "php_class": "CopyInstance"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 12000012,
+    "fields": {
+      "php_class": "CopyInstance"
+    }
+  },
+  {
     "model": "core.action",
     "pk": 9,
     "fields": {
@@ -5006,6 +5020,34 @@
       "error_message": null,
       "execute_always": 0,
       "sort": 2
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000011,
+    "fields": {
+      "available_action": "php",
+      "button": 12000005,
+      "name": "Dossier kopieren",
+      "description": "Erstellt eine Kopie des Dossiers",
+      "success_message": "Das Dossier wurde erfolgreich kopiert",
+      "error_message": "Beim Kopieren des Dossiers ist ein Fehler aufgetreten",
+      "execute_always": 0,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000012,
+    "fields": {
+      "available_action": "php",
+      "button": 12000006,
+      "name": "Dossier kopieren",
+      "description": "Erstellt eine Kopie des Dossiers",
+      "success_message": "Das Dossier wurde erfolgreich kopiert",
+      "error_message": "Beim Kopieren des Dossiers ist ein Fehler aufgetreten",
+      "execute_always": 0,
+      "sort": 0
     }
   },
   {
@@ -15174,6 +15216,24 @@
     }
   },
   {
+    "model": "core.broleacl",
+    "pk": 12000017,
+    "fields": {
+      "button": 12000005,
+      "role": 6,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000018,
+    "fields": {
+      "button": 12000006,
+      "role": 1061,
+      "instance_state": 24
+    }
+  },
+  {
     "model": "core.billingconfig",
     "pk": 1,
     "fields": {
@@ -15817,7 +15877,7 @@
       "description": "",
       "class_field": " in_form_group:141",
       "hidden": 0,
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -15925,7 +15985,7 @@
       "description": null,
       "class_field": "return_to_community no-animation in_form_group:141",
       "hidden": 0,
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -16189,7 +16249,7 @@
       "description": "",
       "class_field": " in_form_group:141",
       "hidden": 0,
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -16741,7 +16801,7 @@
       "description": "",
       "class_field": "oereb in_form_group:141",
       "hidden": 0,
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -17077,7 +17137,7 @@
       "description": "\u00c4ndert den Status des Dossiers",
       "class_field": " in_form_group:141",
       "hidden": 0,
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -17138,6 +17198,30 @@
       "class_field": null,
       "hidden": 0,
       "sort": 4
+    }
+  },
+  {
+    "model": "core.button",
+    "pk": 12000005,
+    "fields": {
+      "instance_resource": 180000,
+      "name": "Dossier kopieren",
+      "description": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 8
+    }
+  },
+  {
+    "model": "core.button",
+    "pk": 12000006,
+    "fields": {
+      "instance_resource": 180003,
+      "name": "Dossier kopieren",
+      "description": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 7
     }
   },
   {
