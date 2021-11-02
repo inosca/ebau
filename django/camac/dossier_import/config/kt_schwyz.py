@@ -1,7 +1,6 @@
 import mimetypes
 import re
 import shutil
-import zipfile
 from copy import deepcopy
 from dataclasses import dataclass
 from pathlib import Path
@@ -20,7 +19,6 @@ from django.utils.timezone import now
 from camac.caluma.extensions.events.general import get_caluma_setting
 from camac.document.models import Attachment, AttachmentSection
 from camac.dossier_import.dossier_classes import Dossier
-from camac.dossier_import.models import DossierImport
 from camac.dossier_import.writers import (
     CamacNgAnswerFieldWriter,
     CamacNgListAnswerWriter,
@@ -67,6 +65,16 @@ class ConfigurationError(Exception):
 
 
 class KtSchwyzDossierWriter(DossierWriter):
+    """
+    Dossier writer for importing dossiers from a ZIP archive.
+
+    This writer assumes that the ZIP archive contains the following structure:
+
+    - dossiers.xlsx containing metadata as well as form data (one line per dossier)
+    - for each dossier: optionally a directory (named after the first column in dossier.xlsx)
+      containing the documents to be attached to the dossier.
+    """
+
     id: str = CamacNgAnswerFieldWriter(target="kommunale-gesuchsnummer")
     proposal = CamacNgAnswerFieldWriter(target="bezeichnung")
     cantonal_id = CamacNgAnswerFieldWriter(target="kantonale-gesuchsnummer")
@@ -111,7 +119,6 @@ class KtSchwyzDossierWriter(DossierWriter):
         user_id,
         group_id: int,
         location_id: int,
-        path_to_archive: str,
         *args,
         **kwargs,
     ):
@@ -119,12 +126,6 @@ class KtSchwyzDossierWriter(DossierWriter):
         self._user = user_id and User.objects.get(pk=user_id)
         self._group = Group.objects.get(pk=group_id)
         self._location = Location.objects.get(pk=location_id)
-        self.import_session = DossierImport.objects.create()
-        self.import_session.service = self._group.service
-        self.import_session.status = self.import_session.IMPORT_STATUS_INPROGRESS
-        self.import_session.save()
-        self._archive = zipfile.ZipFile(path_to_archive, "r")
-        self.dossiers_xlsx = self._archive.open("dossiers.xlsx")
 
     def create_instance(self, dossier: Dossier) -> Instance:
         """Create a Camac NG Instance with a case.
@@ -167,7 +168,7 @@ class KtSchwyzDossierWriter(DossierWriter):
         return instance
 
     @transaction.atomic
-    def import_dossier(self, dossier: Dossier):
+    def import_dossier(self, dossier: Dossier, import_session_id: str) -> Message:
         message = Message(level=LOG_LEVEL_INFO, message={"dossier": dossier.id})
 
         if dossier._meta.missing:
@@ -176,9 +177,7 @@ class KtSchwyzDossierWriter(DossierWriter):
             message.message[
                 "reason"
             ] = f"missing values in required fields: {dossier._meta.missing}"
-            self.import_session.messages.append(message.to_dict())
-            self.import_session.save()
-            return
+            return message
         if Instance.objects.filter(
             fields__name="kommunale-gesuchsnummer",
             fields__value=dossier.id,
@@ -187,16 +186,13 @@ class KtSchwyzDossierWriter(DossierWriter):
             message.level = LOG_LEVEL_WARNING
             message.message["action"] = "dossier skipped"
             message.message["reason"] = f"Dossier with ID {dossier.id} already exists."
-            self.import_session.messages.append(message.to_dict())
-            self.import_session.save()
             return message
         instance = self.create_instance(dossier)
-        instance.case.meta["import-id"] = str(self.import_session.pk)
+        instance.case.meta["import-id"] = import_session_id
         instance.case.save()
         message.message["instance_id"] = instance.pk
         self.write_fields(instance, dossier)
         message.message["import"] = "success"
-        self.import_session.save()
         attachment_messages = self._create_dossier_attachments(dossier, instance)
         workflow_message = self._set_workflow_state(
             instance, dossier._meta.target_state
@@ -208,43 +204,42 @@ class KtSchwyzDossierWriter(DossierWriter):
         message.message["attachments"] = (
             attachment_messages if attachment_messages else None
         )
-        self.import_session.messages.append(message.to_dict())
-        self.import_session.save()
         return message
 
     def _create_dossier_attachments(self, dossier: Dossier, instance: Instance):
-        """Create attachments for dossier.
-
-        Ignore if archive holds no documents directory
-        """
-
+        """Create attachments for file pointers in dossier's attachments."""
         messages = []
+        if not dossier.attachments:
+            return messages
 
-        for document_name in filter(
-            lambda x: x.filename.startswith(f"{dossier.id}/"), self._archive.infolist()
-        ):
+        instance_files_path = Path(
+            f"{settings.MEDIA_ROOT}/attachments/files/{instance.pk}"
+        )
+
+        attachments_path = instance_files_path / dossier.id
+
+        attachments_path.mkdir(parents=True, exist_ok=True)
+
+        for attachment in dossier.attachments:
             target_base_path = f"{settings.MEDIA_ROOT}/attachments/files/{instance.pk}"
 
             file_path = re.sub(
+                # ensure that dossier.id is only removed at the beginning of a path
                 r"^{dossier_id}/".format(dossier_id=dossier.id),
                 "",
-                document_name.filename.encode("utf-8", errors="ignore").decode(
+                attachment.name.encode("utf-8", errors="ignore").decode(
                     "utf-8", errors="ignore"
                 ),
             )
-            if not bool(file_path):
-                Path(target_base_path).mkdir(exist_ok=True, parents=True)
-                continue
 
-            if file_path.endswith("/"):
-                (Path(target_base_path) / file_path).mkdir(parents=True, exist_ok=True)
-                continue
+            # make sub_dirs
+            # ensure path exists if directory is not handled individually
+            (Path(target_base_path) / "/".join(file_path.split("/")[:-1])).mkdir(
+                parents=True, exist_ok=True
+            )
 
             mimetypes.add_type("application/vnd.ms-outlook", ".msg")
-
-            mime_type, _ = mimetypes.guess_type(
-                str(Path(target_base_path) / document_name.filename)
-            )
+            mime_type, _ = mimetypes.guess_type(str(Path(target_base_path) / file_path))
 
             if not mime_type:
                 messages.append(
@@ -256,9 +251,7 @@ class KtSchwyzDossierWriter(DossierWriter):
                 continue
 
             with open(str(Path(target_base_path) / file_path), "wb") as target_file:
-                shutil.copyfileobj(
-                    self._archive.open(document_name.filename, "r"), target_file
-                )
+                shutil.copyfileobj(attachment.file_accessor, target_file)
 
                 attachment = Attachment.objects.create(
                     instance=instance,
@@ -268,7 +261,7 @@ class KtSchwyzDossierWriter(DossierWriter):
                     name=file_path,
                     context={},
                     path=f"attachments/files/{instance.pk}/{file_path}",
-                    size=target_file.truncate(),
+                    size=target_file.tell(),
                     date=now(),
                     mime_type=mime_type,
                 )
