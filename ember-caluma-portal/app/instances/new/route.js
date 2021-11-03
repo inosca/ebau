@@ -14,6 +14,6 @@ export default class InstancesNewRoute extends Route {
   setupController(controller, model) {
     super.setupController(controller, model);
     controller.fetchForms.perform();
-    controller.fetchCaseMeta.perform();
+    controller.fetchEbauNumber.perform();
   }
 }
