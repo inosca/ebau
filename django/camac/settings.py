@@ -2940,6 +2940,10 @@ GWR_FERNET_KEY = env.str(
     "GWR_FERNET_KEY", default=default("RvjN3KHR3rZl9knGv3w_HkfapedVQ8F_TihgrFJgbXc=")
 )
 GWR_HOUSING_STAT_WSK_ID = env.int("GWR_WSK_ID", default=default(0))
+GWR_HOUSING_STAT_BASE_URI = env.str(
+    "GWR_HOUSING_STAT_BASE_URI",
+    default="https://www.housing-stat.ch/regbl/api/ech0216/2",
+)
 
 # Parashift
 PARASHIFT_BASE_URI = env.str(
