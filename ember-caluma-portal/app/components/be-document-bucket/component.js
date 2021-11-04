@@ -35,7 +35,7 @@ export default class BeDocumentBucketComponent extends Component {
     return config.APPLICATION.useConfidential;
   }
 
-  @dropTask
+  @task
   *upload(file) {
     if (this.args.disabled) return;
 
