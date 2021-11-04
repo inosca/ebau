@@ -4,6 +4,7 @@ from django.conf import settings
 from django.core.management.base import BaseCommand
 from django.utils.module_loading import import_string
 
+from camac.document.models import Attachment
 from camac.instance.models import Instance
 
 
@@ -74,4 +75,8 @@ class Command(BaseCommand):
         imported_count = Instance.objects.filter(
             **{"case__meta__import-id": str(writer.import_session.pk)}
         ).count()
+        attachments_count = Attachment.objects.filter(
+            **{"instance__case__meta__import-id": str(writer.import_session.pk)}
+        ).count()
         self.stdout.write(f"{imported_count} instances imported.")
+        self.stdout.write(f"{attachments_count} attachments added.")
