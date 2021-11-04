@@ -10,15 +10,15 @@ module("Integration | Component | be-documents-form", function (hooks) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`{{be-documents-form}}`);
+    await render(hbs`<BeDocumentsForm/>`);
 
     assert.dom(this.element).hasText("");
 
     // Template block usage:
     await render(hbs`
-      {{#be-documents-form}}
+      <BeDocumentsForm>
         template block text
-      {{/be-documents-form}}
+      </BeDocumentsForm>
     `);
 
     assert.dom(this.element).hasText("template block text");
