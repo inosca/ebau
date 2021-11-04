@@ -59,7 +59,6 @@ services:
       - LANGUAGES=de,fr
       - META_FIELDS=camac-instance-id,ebau-number,submit-date
       - ENABLE_HISTORICAL_API=true
-      - GWR_WSK_ID=351388
     volumes:
       - djangomedia:/var/lib/camac/media
       - djangotmpmedia:/tmp/camac/tmpfiles
