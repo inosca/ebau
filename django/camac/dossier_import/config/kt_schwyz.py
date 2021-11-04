@@ -1,4 +1,5 @@
 import mimetypes
+import re
 import shutil
 import zipfile
 from copy import deepcopy
@@ -13,6 +14,7 @@ from caluma.caluma_workflow.models import WorkItem
 from dataclasses_json import dataclass_json
 from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
+from django.db import transaction
 from django.utils.timezone import now
 
 from camac.caluma.extensions.events.general import get_caluma_setting
@@ -146,17 +148,15 @@ class KtSchwyzDossierWriter(DossierWriter):
             group=self._group,
             form=Form.objects.get(pk=self._import_settings["FORM_ID"]),
         )
-        instance = (
-            CreateInstanceLogic.create(  # TODO: check if this instance is any good
-                creation_data,
-                caluma_user=BaseUser(),
-                camac_user=self._user,
-                group=self._group,
-                caluma_form=CalumaForm.objects.get(
-                    pk=settings.APPLICATION["DOSSIER_IMPORT"]["CALUMA_FORM"]
-                ),
-                start_caluma=False,
-            )
+        instance = CreateInstanceLogic.create(
+            creation_data,
+            caluma_user=BaseUser(),
+            camac_user=self._user,
+            group=self._group,
+            caluma_form=CalumaForm.objects.get(
+                pk=settings.APPLICATION["DOSSIER_IMPORT"]["CALUMA_FORM"]
+            ),
+            start_caluma=False,
         )
         instance.location = self._location
         instance.identifier = CreateInstanceLogic.generate_identifier(
@@ -165,6 +165,7 @@ class KtSchwyzDossierWriter(DossierWriter):
         instance.save()
         return instance
 
+    @transaction.atomic
     def import_dossier(self, dossier: Dossier):
         message = Message(level=LOG_LEVEL_INFO, message={"dossier": dossier.id})
 
@@ -195,12 +196,17 @@ class KtSchwyzDossierWriter(DossierWriter):
         self.write_fields(instance, dossier)
         message.message["import"] = "success"
         self.import_session.save()
-        self._create_dossier_attachments(dossier, instance)
+        attachment_messages = self._create_dossier_attachments(dossier, instance)
         workflow_message = self._set_workflow_state(
             instance, dossier._meta.target_state
         )
         message.level = workflow_message.level
-        message.message["set_workflow_state"] = workflow_message.to_dict()
+        message.message["workflow_state"] = (
+            workflow_message.to_dict() if workflow_message.message else None
+        )
+        message.message["attachments"] = (
+            attachment_messages if attachment_messages else None
+        )
         self.import_session.messages.append(message.to_dict())
         self.import_session.save()
         return message
@@ -210,23 +216,47 @@ class KtSchwyzDossierWriter(DossierWriter):
 
         Ignore if archive holds no documents directory
         """
+
+        messages = []
+
         for document_name in filter(
             lambda x: x.filename.startswith(f"{dossier.id}/"), self._archive.infolist()
         ):
-            path = f"{settings.MEDIA_ROOT}/attachments/files/{instance.pk}"
-            if document_name.filename.endswith("/"):
-                (Path(path) / document_name.filename).mkdir(parents=True, exist_ok=True)
+            target_base_path = f"{settings.MEDIA_ROOT}/attachments/files/{instance.pk}"
+
+            file_path = re.sub(
+                r"^{dossier_id}/".format(dossier_id=dossier.id),
+                "",
+                document_name.filename.encode("utf-8", errors="ignore").decode(
+                    "utf-8", errors="ignore"
+                ),
+            )
+            if not bool(file_path):
+                Path(target_base_path).mkdir(exist_ok=True, parents=True)
                 continue
-            filename = document_name.filename.encode(
-                "iso-8859-1", errors="ignore"
-            ).decode("utf-8", errors="ignore")
-            with open(str(Path(path) / filename), "wb") as target_file:
+
+            if file_path.endswith("/"):
+                (Path(target_base_path) / file_path).mkdir(parents=True, exist_ok=True)
+                continue
+
+            mimetypes.add_type("application/vnd.ms-outlook", ".msg")
+
+            mime_type, _ = mimetypes.guess_type(
+                str(Path(target_base_path) / document_name.filename)
+            )
+
+            if not mime_type:
+                messages.append(
+                    Message(
+                        level=LOG_LEVEL_WARNING,
+                        message=f"MIME-Type could not be determined for {file_path}",
+                    ).to_dict()
+                )
+                continue
+
+            with open(str(Path(target_base_path) / file_path), "wb") as target_file:
                 shutil.copyfileobj(
                     self._archive.open(document_name.filename, "r"), target_file
-                )
-
-                mime_type, _ = mimetypes.guess_type(
-                    str(Path(path) / document_name.filename)
                 )
 
                 attachment = Attachment.objects.create(
@@ -234,9 +264,9 @@ class KtSchwyzDossierWriter(DossierWriter):
                     user=self._user,
                     service=self._group.service,
                     group=self._group,
-                    name=filename,
+                    name=file_path,
                     context={},
-                    path=f"attachments/files/{instance.pk}/{filename}",
+                    path=f"attachments/files/{instance.pk}/{file_path}",
                     size=target_file.truncate(),
                     date=now(),
                     mime_type=mime_type,
@@ -245,6 +275,7 @@ class KtSchwyzDossierWriter(DossierWriter):
                     attachment_section_id=self._import_settings["ATTACHMENT_SECTION_ID"]
                 )
                 attachment_section.attachments.add(attachment)
+        return messages
 
     def _set_workflow_state(self, instance: Instance, target_state) -> Message:
         """Advance instance's case through defined workflow sequence to target state.
@@ -318,5 +349,8 @@ class KtSchwyzDossierWriter(DossierWriter):
                 item and cancel_work_item(
                     item, user=caluma_user, context=default_context
                 )
-
+        final_msg = f"Set to {target_state}"
+        message.message = (
+            message.message and ". ".join([message.message, final_msg])
+        ) or final_msg
         return message
