@@ -1,6 +1,6 @@
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
-import { dropTask, restartableTask } from "ember-concurrency-decorators";
+import { task, dropTask, restartableTask } from "ember-concurrency-decorators";
 
 import config from "caluma-portal/config/environment";
 
@@ -104,7 +104,7 @@ export default class BeDocumentsFormComponent extends Component {
     });
   }
 
-  @dropTask
+  @task
   *upload({ file, bucket }) {
     try {
       const formData = new FormData();
