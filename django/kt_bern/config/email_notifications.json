@@ -584,7 +584,7 @@
       "language": "de",
       "purpose": "03 Verfahrensablauf (Gesuchsteller)",
       "subject": "Hinweis zum Verfahrensablauf (eBau Nr. {{EBAU_NUMBER}}) / Pr\u00e9cision sur le d\u00e9roulement de la proc\u00e9dure (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nDie/das {{FORM_NAME}} mit der eBau Nr. {{EBAU_NUMBER}} wurde gepr\u00fcft und das Verfahren ausgel\u00f6st. Entnehmen Sie die Verfahrensdaten den eBau-Dokumenten:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/feedback\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nLe {{FORM_NAME}} avec le num\u00e9ro d'eBau {{EBAU_NUMBER}}} a \u00e9t\u00e9 v\u00e9rifi\u00e9. La proc\u00e9dure directrice a \u00e9t\u00e9 lanc\u00e9e et vous trouverez les pr\u00e9cisions y relatives dans le document ci-joint.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/feedback\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME}}"
+      "body": "Guten Tag\r\n\r\nDie/das Dossier mit der eBau Nr. {{EBAU_NUMBER}} wurde gepr\u00fcft und das Verfahren ausgel\u00f6st. Entnehmen Sie die Verfahrensdaten den eBau-Dokumenten:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/feedback\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nLe dossier avec le num\u00e9ro d'eBau {{EBAU_NUMBER}}} a \u00e9t\u00e9 v\u00e9rifi\u00e9. La proc\u00e9dure directrice a \u00e9t\u00e9 lanc\u00e9e et vous trouverez les pr\u00e9cisions y relatives dans le document ci-joint.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/feedback\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME}}"
     }
   },
   {
