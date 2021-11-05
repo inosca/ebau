@@ -2820,6 +2820,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "brandschutz.auswahl-vorhaben-bs",
+    "fields": {
+      "created_at": "2021-11-04T17:29:39.347Z",
+      "modified_at": "2021-11-04T17:29:39.347Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz",
+      "question": "auswahl-vorhaben-bs",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "brandschutz.bemerkungen-brandschutz",
     "fields": {
       "created_at": "2021-10-28T17:03:16.019Z",
@@ -2845,7 +2860,22 @@
       "modified_by_group": null,
       "form": "brandschutz",
       "question": "brandschutz",
-      "sort": 3
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz.brandschutzabstand-eingehalten",
+    "fields": {
+      "created_at": "2021-11-04T17:52:31.957Z",
+      "modified_at": "2021-11-04T17:52:31.957Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz",
+      "question": "brandschutzabstand-eingehalten",
+      "sort": 4
     }
   },
   {
@@ -2860,6 +2890,36 @@
       "modified_by_group": null,
       "form": "brandschutz",
       "question": "brandschutzkonzept-inhalt",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz.feuerungsaggregate-vorhanden",
+    "fields": {
+      "created_at": "2021-11-04T18:06:12.904Z",
+      "modified_at": "2021-11-04T18:06:12.904Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz",
+      "question": "feuerungsaggregate-vorhanden",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz.links-thema-brandschutz",
+    "fields": {
+      "created_at": "2021-11-04T17:23:22.388Z",
+      "modified_at": "2021-11-04T17:23:22.388Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz",
+      "question": "links-thema-brandschutz",
       "sort": 2
     }
   },
@@ -2875,7 +2935,7 @@
       "modified_by_group": null,
       "form": "brandschutz",
       "question": "personen-und-gebaeudeschutz",
-      "sort": 4
+      "sort": 8
     }
   },
   {
@@ -11332,6 +11392,86 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "auswahl-vorhaben-bs-andere-gebaeude",
+    "fields": {
+      "created_at": "2021-11-04T17:29:38.901Z",
+      "modified_at": "2021-11-04T17:44:27.578Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"andere Geb\\u00e4ude / Nutzungs\\u00e4nderung\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "auswahl-vorhaben-bs-anfrage-gsp",
+    "fields": {
+      "created_at": "2021-11-04T17:29:38.983Z",
+      "modified_at": "2021-11-04T17:44:27.549Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"eine Anfrage betreffend einem Gastwirtschaftspatent\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "auswahl-vorhaben-bs-anzeige-wta",
+    "fields": {
+      "created_at": "2021-11-04T17:29:39.071Z",
+      "modified_at": "2021-11-04T17:44:27.592Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"eine Installationsanzeige f\\u00fcr w\\u00e4rmetechnische Anlagen (Neuinstallationen, \\u00c4nderungen, Ersatz)\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "auswahl-vorhaben-bs-efh",
+    "fields": {
+      "created_at": "2021-11-04T17:29:39.167Z",
+      "modified_at": "2021-11-04T17:44:27.583Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"ein EFH, freistehend oder angebaut (Reihenhaus), allenfalls mit Einliegerwohnung\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "auswahl-vorhaben-bs-nebengebaeude",
+    "fields": {
+      "created_at": "2021-11-04T17:29:39.214Z",
+      "modified_at": "2021-11-04T17:44:27.584Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"ein Nebengeb\\u00e4ude\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "bauabfallstoffe-entsorgt-ja",
     "fields": {
       "created_at": "2020-09-21T08:57:06.106Z",
@@ -11901,6 +12041,38 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Landwirtschaftliche Bauten: Aufbereitung, Lagerung, Verkauf\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "brandschutzabstand-eingehalten-ja",
+    "fields": {
+      "created_at": "2021-11-04T17:52:31.828Z",
+      "modified_at": "2021-11-04T18:02:01.433Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "brandschutzabstand-eingehalten-nein",
+    "fields": {
+      "created_at": "2021-11-04T17:52:31.827Z",
+      "modified_at": "2021-11-04T18:02:01.433Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12868,6 +13040,38 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "feuerungsaggregate-vorhanden-ja",
+    "fields": {
+      "created_at": "2021-11-04T18:06:12.796Z",
+      "modified_at": "2021-11-04T18:10:13.080Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "feuerungsaggregate-vorhanden-nein",
+    "fields": {
+      "created_at": "2021-11-04T18:06:12.201Z",
+      "modified_at": "2021-11-04T18:10:13.080Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "form-type-afe-korporationsgewaesser",
     "fields": {
       "created_at": "2020-11-02T11:28:59.418Z",
@@ -13447,12 +13651,12 @@
     "pk": "form-type-oereb",
     "fields": {
       "created_at": "2020-11-11T07:35:48.407Z",
-      "modified_at": "2021-11-01T17:25:12.857Z",
+      "modified_at": "2020-11-24T13:09:22.464Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"\\u00d6REB Verfahren\", \"fr\": null}",
+      "label": "{\"de\": \"\\u00d6REB Verfahren (Meldung, Vorpr\\u00fcfung, Anpassung)\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -23625,6 +23829,36 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "auswahl-vorhaben-bs",
+    "fields": {
+      "created_at": "2021-11-04T17:29:39.267Z",
+      "modified_at": "2021-11-04T17:44:27.659Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beim Vorhaben handelt es sich um:\", \"fr\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"**Definition Nebenbauten / Einliegerwohnung**\\n\\nAls Nebenbauten gelten eingeschossige Geb\\u00e4ude die nicht f\\u00fcr den dauernden Aufenthalt von Personen bestimmt sind, keine offenen Feuerstellen aufweisen und keine gef\\u00e4hrlichen Stoffe in massgebender Menge gelagert werden (z.B. Fahrzeugunterst\\u00e4nde, Garagen, Gartenh\\u00e4user, Kleintierst\\u00e4lle, Kleinlager) wenn ihre Grundfl\\u00e4che 150 m2 nicht \\u00fcbersteigt (BSR 10-15).\\n\\nNebenbauten sind von den Brandschutzabstandvorschriften gegen\\u00fcber grundst\\u00fcckinternen Bauten und Anlagen befreit. Diese Bauten haben untereinander und gegen\\u00fcber benachbarten, grundst\\u00fccksfremden Bauten und Anlagen einen Brandschutzabstand von 4 m einzuhalten.\\nMehrere Nebenbauten sind untereinander von Brandschutzabst\\u00e4nden befreit, sofern die zusammenh\\u00e4ngende Arealfl\\u00e4che 150 m2 nicht \\u00fcbersteigt (BSR 15-15 7 2.3.1)\\n\\nAls Einliegerwohnung wird eine zus\\u00e4tzliche Wohnung in einem Einfamilienhaus bezeichnet, die gegen\\u00fcber der Hauptwohnung von untergeordneter Bedeutung ist (BSR 10-15). In der Vollzugspraxis max. 2.5 Zimmer Wohnung.\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "bab-titel",
     "fields": {
       "created_at": "2020-11-03T14:01:11.314Z",
@@ -25869,6 +26103,36 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "brandschutzabstand-eingehalten",
+    "fields": {
+      "created_at": "2021-11-04T17:52:31.888Z",
+      "modified_at": "2021-11-04T18:02:01.513Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ist der Brandschutzabstand eingehalten?\", \"fr\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"**Definition Brandschutzabst\\u00e4nde**\\n\\nDie reduzierten Brandschutzabst\\u00e4nde betragen mindestens:\\n(RF1 = nicht brennbar)\\n\\n- 4 m, wenn die \\u00e4ussere Schicht beider Aussenwandkonstruktionen aus Baustoffen der RF1 besteht\\n- 5 m, wenn die \\u00e4ussere Schicht einer der beiden Aussenwandkonstruktionen aus brennbaren Baustoffen besteht\\n- 6 m, wenn die \\u00e4ussere Schicht beider Aussenwandkonstruktionen aus brennbaren Baustoffen besteht (BSR 15-15 / 2.2)\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "brandschutzkonzept",
     "fields": {
       "created_at": "2021-04-08T08:36:43.519Z",
@@ -25904,10 +26168,10 @@
     "pk": "brandschutzkonzept-inhalt",
     "fields": {
       "created_at": "2020-11-05T07:47:30.047Z",
-      "modified_at": "2020-11-06T20:09:16.976Z",
+      "modified_at": "2021-11-04T17:24:35.636Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Brandschutzkonzept Inhalt\", \"fr\": null}",
       "type": "static",
@@ -25916,7 +26180,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
-      "static_content": "{\"de\": \"**Erfordernis Brandschutzpl\\u00e4ne / Brandschutzkonzept**\\n\\nDie neue Brandschutzrichtlinie [Qualit\\u00e4tssicherung im Brandschutz 11-15](https://services.vkg.ch/rest/public/georg/bs/publikation/documents/BSPUB-1394520214-2706.pdf/content) regelt im Grundsatz die Erfordernis des Brandschutznachweises, welcher sich im Kanton Uri im Rahmen des Baubewilligungsverfahrens bereits etabliert hat.\\n\\nEine Vorbesprechung des Brandschutznachweises mit dem kommunalen Brandschutzverantwortlichen der Gemeinde ist insbesondere f\\u00fcr komplexe Bauvorhaben sinnvoll. Eine Vorbesprechung mit der kantonalen Brandschutzbeh\\u00f6rde ist nach R\\u00fccksprache mit der Gemeindebaubeh\\u00f6rde m\\u00f6glich.\\n\\nNachfolgende Links f\\u00fchren Sie Themenbezogen direkt zur Internetseite der Vereinigung Kantonaler Feuerversicherungen VKF:\\n\\n- [Brandschutzrichtlinie Qualit\\u00e4tssicherung im Brandschutz](https://services.vkg.ch/rest/public/georg/bs/publikation/documents/BSPUB-1394520214-2706.pdf/content)\\n\\n- [Brandschutzmerkblatt](https://services.vkg.ch/rest/public/georg/bs/publikation/documents/BSPUB-1394520214-203.pdf/content)\\n\\n- [Musterpl\\u00e4ne](https://services.vkg.ch/rest/public/georg/bs/publikation/documents/BSPUB-1394520214-207.zip/content)\\n\\nNachfolgende Links f\\u00fchren Sie Themenbezogen direkt zur gemeinsamen Internetseite der Zentralschweizer Brandschutzfachstellen:\\n\\n- [Anleitung und Muster Brandschutznachweis](https://www.brandschutznachweis.ch/de/vorlagen-arbeitshilfen/brandschutznachweise)\\n\\n- [Symbole f\\u00fcr Brandschutzpl\\u00e4ne](https://www.brandschutznachweis.ch/de/vorlagen-arbeitshilfen/symbole-fuer-brandschutzplaene)\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"Die neue Brandschutzrichtlinie [Qualit\\u00e4tssicherung im Brandschutz 11-15](https://services.vkg.ch/rest/public/georg/bs/publikation/documents/BSPUB-1394520214-2706.pdf/content) regelt im Grundsatz die Erfordernis des Brandschutznachweises, welcher sich im Kanton Uri im Rahmen des Baubewilligungsverfahrens bereits etabliert hat. Eine Vorbesprechung des Brandschutznachweises mit dem kommunalen Brandschutzverantwortlichen der Gemeinde ist insbesondere f\\u00fcr komplexe Bauvorhaben sinnvoll. Eine Vorbesprechung mit der kantonalen Brandschutzbeh\\u00f6rde ist nach R\\u00fccksprache mit der Gemeindebaubeh\\u00f6rde m\\u00f6glich.\\n\\n\\n**Erfordernis Brandschutzpl\\u00e4ne / Brandschutzkonzept**\\n\\nBei Neubauten, bei Um- und Anbauten oder bei Nutzungs\\u00e4nderungen bestehender Bauten muss gepr\\u00fcft werden, ob ein Bandschutznachweis erforderlich ist.\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -27908,6 +28172,36 @@
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"####Bewilligungsvoraussetzungen\\n\\nIn der Landwirtschaftzone k\\u00f6nnen Bewilligungen f\\u00fcr die Errichtung neuer oder die \\u00c4nderung bestehender Bauten und Anlagen als zonenkonform bewilligt werden, wenn diese f\\u00fcr die landwirtschaftliche Bewirtschaftung notwendig sind.\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "feuerungsaggregate-vorhanden",
+    "fields": {
+      "created_at": "2021-11-04T18:06:12.841Z",
+      "modified_at": "2021-11-04T18:10:13.142Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Sind Feuerungsaggregate vorhanden oder geplant?\", \"fr\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"**Definition Feuerungsaggregate**\\n\\nFeuerungsaggregate sind W\\u00e4rmeerzeugungsaggregate, die mit festen, fl\\u00fcssigen oder gasf\\u00f6rmigen Brennstoffen betrieben werden (BSR 10-15)\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -32093,6 +32387,69 @@
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"####Lichtschutz\\nUnter Lichtverschmutzung versteht man die k\\u00fcnstliche und ungewollte Aufhellung der Umgebung und des Nachthimmels mit sch\\u00e4dlichen oder l\\u00e4stigen Auswirkungen auf Mensch und Umwelt. Bei der Neuinstallation von Aussenbeleuchtungen im Rahmen von Baugesuchen, bei neuen Leuchtreklamen sowie bei Strassen- und Platzbeleuchtungen sind die Aspekte des Lichtschutzes zu ber\\u00fccksichtigen.\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "links-brandschutz",
+    "fields": {
+      "created_at": "2021-11-04T16:44:10.466Z",
+      "modified_at": "2021-11-04T16:44:10.466Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Links Brandschutz\", \"fr\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "links-thema-brandschutz",
+    "fields": {
+      "created_at": "2021-11-04T17:23:22.329Z",
+      "modified_at": "2021-11-04T17:23:51.331Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Links Thema Brandschutz\", \"fr\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"Nachfolgende Links f\\u00fchren Sie Themenbezogen direkt zur Internetseite der Vereinigung Kantonaler Feuerversicherungen VKF:\\n\\n- [Brandschutzrichtlinie Qualit\\u00e4tssicherung im Brandschutz](https://services.vkg.ch/rest/public/georg/bs/publikation/documents/BSPUB-1394520214-2706.pdf/content)\\n\\n- [Brandschutzmerkblatt](https://services.vkg.ch/rest/public/georg/bs/publikation/documents/BSPUB-1394520214-203.pdf/content)\\n\\n- [Musterpl\\u00e4ne](https://services.vkg.ch/rest/public/georg/bs/publikation/documents/BSPUB-1394520214-207.zip/content)\\n\\nNachfolgende Links f\\u00fchren Sie Themenbezogen direkt zur gemeinsamen Internetseite der Zentralschweizer Brandschutzfachstellen:\\n\\n- [Anleitung und Muster Brandschutznachweis](https://www.brandschutznachweis.ch/de/vorlagen-arbeitshilfen/brandschutznachweise)\\n\\n- [Symbole f\\u00fcr Brandschutzpl\\u00e4ne](https://www.brandschutznachweis.ch/de/vorlagen-arbeitshilfen/symbole-fuer-brandschutzplaene)\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -41352,6 +41709,81 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "auswahl-vorhaben-bs.auswahl-vorhaben-bs-andere-gebaeude",
+    "fields": {
+      "created_at": "2021-11-04T17:44:27.664Z",
+      "modified_at": "2021-11-04T17:44:27.664Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "auswahl-vorhaben-bs",
+      "option": "auswahl-vorhaben-bs-andere-gebaeude",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "auswahl-vorhaben-bs.auswahl-vorhaben-bs-anfrage-gsp",
+    "fields": {
+      "created_at": "2021-11-04T17:44:27.668Z",
+      "modified_at": "2021-11-04T17:44:27.668Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "auswahl-vorhaben-bs",
+      "option": "auswahl-vorhaben-bs-anfrage-gsp",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "auswahl-vorhaben-bs.auswahl-vorhaben-bs-anzeige-wta",
+    "fields": {
+      "created_at": "2021-11-04T17:44:27.666Z",
+      "modified_at": "2021-11-04T17:44:27.666Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "auswahl-vorhaben-bs",
+      "option": "auswahl-vorhaben-bs-anzeige-wta",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "auswahl-vorhaben-bs.auswahl-vorhaben-bs-efh",
+    "fields": {
+      "created_at": "2021-11-04T17:44:27.672Z",
+      "modified_at": "2021-11-04T17:44:27.672Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "auswahl-vorhaben-bs",
+      "option": "auswahl-vorhaben-bs-efh",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "auswahl-vorhaben-bs.auswahl-vorhaben-bs-nebengebaeude",
+    "fields": {
+      "created_at": "2021-11-04T17:44:27.670Z",
+      "modified_at": "2021-11-04T17:44:27.670Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "auswahl-vorhaben-bs",
+      "option": "auswahl-vorhaben-bs-nebengebaeude",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "bauabfallstoffe-entsorgt.bauabfallstoffe-entsorgt-ja",
     "fields": {
       "created_at": "2020-09-21T08:57:06.359Z",
@@ -41887,6 +42319,36 @@
       "modified_by_group": null,
       "question": "bewilligungsgrund",
       "option": "bewilligungsgrund-5002",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "brandschutzabstand-eingehalten.brandschutzabstand-eingehalten-ja",
+    "fields": {
+      "created_at": "2021-11-04T18:02:01.519Z",
+      "modified_at": "2021-11-04T18:02:01.519Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "brandschutzabstand-eingehalten",
+      "option": "brandschutzabstand-eingehalten-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "brandschutzabstand-eingehalten.brandschutzabstand-eingehalten-nein",
+    "fields": {
+      "created_at": "2021-11-04T18:02:01.517Z",
+      "modified_at": "2021-11-04T18:02:01.517Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "brandschutzabstand-eingehalten",
+      "option": "brandschutzabstand-eingehalten-nein",
       "sort": 1
     }
   },
@@ -42758,6 +43220,36 @@
       "question": "fenster",
       "option": "fenster-metall",
       "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "feuerungsaggregate-vorhanden.feuerungsaggregate-vorhanden-ja",
+    "fields": {
+      "created_at": "2021-11-04T18:10:13.149Z",
+      "modified_at": "2021-11-04T18:10:13.149Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "feuerungsaggregate-vorhanden",
+      "option": "feuerungsaggregate-vorhanden-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "feuerungsaggregate-vorhanden.feuerungsaggregate-vorhanden-nein",
+    "fields": {
+      "created_at": "2021-11-04T18:10:13.146Z",
+      "modified_at": "2021-11-04T18:10:13.146Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "feuerungsaggregate-vorhanden",
+      "option": "feuerungsaggregate-vorhanden-nein",
+      "sort": 1
     }
   },
   {
