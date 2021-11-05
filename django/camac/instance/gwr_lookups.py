@@ -1,12 +1,32 @@
+from functools import wraps
+from logging import getLogger
+
 from django.utils import timezone
 from rest_framework import serializers
 
 from camac.instance.master_data import MasterData
 
+logger = getLogger(__name__)
+
 KIND_OF_WORK_NEW = 6001
 FLOOR_GROUND_FLOOR = 3100
 COUNTRY_SWITZERLAND = "Schweiz"
 TYPE_OF_CLIENT_PERSON = 6161
+
+
+def catch_and_log(fallback=None):
+    def decorator(fn):
+        @wraps(fn)
+        def wrapper(*args, **kwargs):
+            try:
+                return fn(*args, **kwargs)
+            except Exception as e:  # noqa: B902
+                logger.exception(e)
+                return fallback
+
+        return wrapper
+
+    return decorator
 
 
 def complete_floor(dwelling):
@@ -104,82 +124,66 @@ class GwrSerializer(serializers.Serializer):
             },
         }
 
+    @catch_and_log()
     def get_officialConstructionProjectFileNo(self, case):
         # TODO Configure this for SZ
-        try:
-            return self.master_data.dossier_number
-        except AttributeError:  # pragma: no cover
-            return None
+        return self.master_data.dossier_number
 
+    @catch_and_log()
     def get_constructionProjectDescription(self, case):
         return self.master_data.proposal
 
+    @catch_and_log()
     def get_constructionLocalisation(self, case):
         # TODO Configure this for SZ
-        try:
-            return {"municipalityName": self.master_data.municipality.get("label")}
-        except AttributeError:  # pragma: no cover
-            return None
+        return {"municipalityName": self.master_data.municipality.get("label")}
 
+    @catch_and_log()
     def get_typeOfConstructionProject(self, case):
-        # TODO Configure this for BE and SZ
-        try:
-            return self.master_data.category[0]
-        except (AttributeError, IndexError):  # pragma: no cover
-            return None
+        return self.master_data.category[0]
 
+    @catch_and_log()
     def get_typeOfConstruction(self, case):
         # TODO Configure this for BE and SZ
-        try:
-            return self.master_data.type_of_construction[0]["art_der_hochbaute"]
-        except (AttributeError, IndexError):  # pragma: no cover
-            return None
+        return self.master_data.type_of_construction[0]["art_der_hochbaute"]
 
+    @catch_and_log()
     def get_totalCostsOfProject(self, case):
         return self.master_data.construction_costs
 
+    @catch_and_log()
     def get_realestateIdentification(self, case):
-        try:
-            plot_data = self.master_data.plot_data[0]
-            return {
-                "number": plot_data.get("plot_number"),
-                "EGRID": plot_data.get("egrid_number"),
-            }
-        except IndexError:  # pragma: no cover
-            return None
+        plot_data = self.master_data.plot_data[0]
+        return {
+            "number": plot_data.get("plot_number"),
+            "EGRID": plot_data.get("egrid_number"),
+        }
 
+    @catch_and_log()
     def get_projectAnnouncementDate(self, case):
         # TODO Configure this for SZ
-        try:
-            submit_date = self.master_data.submit_date
-            return submit_date.date().isoformat() if submit_date else None
-        except AttributeError:  # pragma: no cover
-            return None
+        submit_date = self.master_data.submit_date
+        return submit_date.date().isoformat() if submit_date else None
 
+    @catch_and_log()
     def get_buildingPermitIssueDate(self, case):
         # TODO Configure this for BE and SZ
-        try:
-            decision_date = self.master_data.decision_date
-            return decision_date.date().isoformat() if decision_date else None
-        except AttributeError:  # pragma: no cover
-            return None
+        decision_date = self.master_data.decision_date
+        return decision_date.date().isoformat() if decision_date else None
 
+    @catch_and_log()
     def get_projectStartDate(self, case):
         # TODO Configure this for BE and SZ
-        try:
-            start_date = self.master_data.construction_start_date
-            return start_date.date().isoformat() if start_date else None
-        except AttributeError:  # pragma: no cover
-            return None
+        start_date = self.master_data.construction_start_date
+        return start_date.date().isoformat() if start_date else None
 
+    @catch_and_log()
     def get_projectCompletionDate(self, case):
         # TODO Configure this for BE and SZ
-        try:
-            end_date = self.master_data.construction_end_date
-            return end_date.date().isoformat() if end_date else None
-        except AttributeError:  # pragma: no cover
-            return None
+        end_date = self.master_data.construction_end_date
+        return end_date.date().isoformat() if end_date else None
 
+    @catch_and_log()
     def get_energy_device(self, building, is_heating, is_main_heating):
 
         canton = self.master_data.canton
@@ -224,8 +228,8 @@ class GwrSerializer(serializers.Serializer):
 
         return None
 
+    @catch_and_log(fallback=[])
     def get_dwellings(self, building):
-
         canton = self.master_data.canton
 
         if canton == "SZ":
@@ -241,6 +245,7 @@ class GwrSerializer(serializers.Serializer):
 
         return []  # pragma: no cover
 
+    @catch_and_log()
     def get_construction_date(self, building):
         construction_date = self.master_data.construction_end_date
         proposal = building.get("proposal")
@@ -251,74 +256,64 @@ class GwrSerializer(serializers.Serializer):
             else None
         )
 
+    @catch_and_log(fallback=[])
     def get_work(self, case):
         # TODO Configure this for BE
-        try:
-            buildings = self.master_data.buildings
+        buildings = self.master_data.buildings
 
-            return [
-                {
-                    "kindOfWork": get_kind_of_work(building),
-                    "building": {
-                        "nameOfBuilding": building.get("name"),
-                        "buildingCategory": building.get("building_category"),
-                        "civilDefenseShelter": building.get("civil_defense_shelter"),
-                        "numberOfFloors": building.get("number_of_floors"),
-                        "numberOfSeparateHabitableRooms": building.get(
-                            "number_of_rooms"
-                        ),
-                        "dateOfConstruction": self.get_construction_date(building)
-                        if self.master_data.canton == "UR"
-                        else None,
-                        "thermotechnicalDeviceForHeating1": self.get_energy_device(
-                            building, is_heating=True, is_main_heating=True
-                        ),
-                        "thermotechnicalDeviceForHeating2": self.get_energy_device(
-                            building, is_heating=True, is_main_heating=False
-                        ),
-                        "thermotechnicalDeviceForWarmWater1": self.get_energy_device(
-                            building, is_heating=False, is_main_heating=True
-                        ),
-                        "thermotechnicalDeviceForWarmWater2": self.get_energy_device(
-                            building, is_heating=False, is_main_heating=False
-                        ),
-                        "realestateIdentification": self.get_realestateIdentification(
-                            case
-                        )
-                        if self.master_data.canton == "UR"
-                        else None,
-                        "dwellings": self.get_dwellings(building),
-                    },
-                }
-                for building in buildings
-            ]
-        except (AttributeError, IndexError):  # pragma: no cover
-            return []
+        return [
+            {
+                "kindOfWork": get_kind_of_work(building),
+                "building": {
+                    "nameOfBuilding": building.get("name"),
+                    "buildingCategory": building.get("building_category"),
+                    "civilDefenseShelter": building.get("civil_defense_shelter"),
+                    "numberOfFloors": building.get("number_of_floors"),
+                    "numberOfSeparateHabitableRooms": building.get("number_of_rooms"),
+                    "dateOfConstruction": self.get_construction_date(building)
+                    if self.master_data.canton == "UR"
+                    else None,
+                    "thermotechnicalDeviceForHeating1": self.get_energy_device(
+                        building, is_heating=True, is_main_heating=True
+                    ),
+                    "thermotechnicalDeviceForHeating2": self.get_energy_device(
+                        building, is_heating=True, is_main_heating=False
+                    ),
+                    "thermotechnicalDeviceForWarmWater1": self.get_energy_device(
+                        building, is_heating=False, is_main_heating=True
+                    ),
+                    "thermotechnicalDeviceForWarmWater2": self.get_energy_device(
+                        building, is_heating=False, is_main_heating=False
+                    ),
+                    "realestateIdentification": self.get_realestateIdentification(case)
+                    if self.master_data.canton == "UR"
+                    else None,
+                    "dwellings": self.get_dwellings(building),
+                },
+            }
+            for building in buildings
+        ]
 
+    @catch_and_log()
     def get_typeOfPermit(self, case):
         # TODO Configure this for BE and SZ
-        try:
-            reason = self.master_data.approval_reason
-            return int(reason) if reason else None
-        except AttributeError:  # pragma: no cover
-            return None
+        reason = self.master_data.approval_reason
+        return int(reason) if reason else None
 
+    @catch_and_log()
     def get_typeOfClient(self, case):
         # TODO Configure this for BE and SZ
-        try:
-            type_of_applicant = (
-                self.master_data.type_of_applicant
-                if self.master_data.canton == "UR"
-                else None
-            )
-            if type_of_applicant:
-                return int(type_of_applicant)
+        type_of_applicant = (
+            self.master_data.type_of_applicant
+            if self.master_data.canton == "UR"
+            else None
+        )
+        if type_of_applicant:
+            return int(type_of_applicant)
 
-            applicants = self.master_data.applicants
-            applicant = applicants[0] if applicants and len(applicants) else None
-            if applicant and applicant.get("is_juristic_person") is False:
-                return TYPE_OF_CLIENT_PERSON
+        applicants = self.master_data.applicants
+        applicant = applicants[0] if applicants and len(applicants) else None
+        if applicant and applicant.get("is_juristic_person") is False:
+            return TYPE_OF_CLIENT_PERSON
 
-            return None  # pragma: no cover
-        except AttributeError:  # pragma: no cover
-            return None
+        return None  # pragma: no cover
