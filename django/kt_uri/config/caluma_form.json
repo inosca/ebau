@@ -46416,7 +46416,7 @@
       "modified_by_group": null,
       "question": "oereb-thema",
       "option": "oereb-thema-gnp",
-      "sort": 10
+      "sort": 8
     }
   },
   {
@@ -46431,7 +46431,7 @@
       "modified_by_group": null,
       "question": "oereb-thema",
       "option": "oereb-thema-gpz",
-      "sort": 2
+      "sort": 10
     }
   },
   {
@@ -46446,7 +46446,7 @@
       "modified_by_group": null,
       "question": "oereb-thema",
       "option": "oereb-thema-grundwasserschutz",
-      "sort": 5
+      "sort": 3
     }
   },
   {
@@ -46461,7 +46461,7 @@
       "modified_by_group": null,
       "question": "oereb-thema",
       "option": "oereb-thema-kantonale-baulinien",
-      "sort": 8
+      "sort": 6
     }
   },
   {
@@ -46491,7 +46491,7 @@
       "modified_by_group": null,
       "question": "oereb-thema",
       "option": "oereb-thema-knp",
-      "sort": 11
+      "sort": 9
     }
   },
   {
@@ -46506,7 +46506,7 @@
       "modified_by_group": null,
       "question": "oereb-thema",
       "option": "oereb-thema-kpz",
-      "sort": 3
+      "sort": 11
     }
   },
   {
@@ -46521,7 +46521,7 @@
       "modified_by_group": null,
       "question": "oereb-thema",
       "option": "oereb-thema-snp-bl-gemeinde",
-      "sort": 7
+      "sort": 5
     }
   },
   {
@@ -46536,7 +46536,7 @@
       "modified_by_group": null,
       "question": "oereb-thema",
       "option": "oereb-thema-snp-qgp-qp",
-      "sort": 9
+      "sort": 7
     }
   },
   {
@@ -46551,7 +46551,7 @@
       "modified_by_group": null,
       "question": "oereb-thema",
       "option": "oereb-thema-waldgrenze",
-      "sort": 6
+      "sort": 2
     }
   },
   {
@@ -49491,7 +49491,7 @@
       "modified_by_group": null,
       "question": "typ-des-verfahrens",
       "option": "typ-des-verfahrens-oeffentliche-mitwirkung",
-      "sort": 8
+      "sort": 10
     }
   },
   {
@@ -49521,7 +49521,7 @@
       "modified_by_group": null,
       "question": "typ-des-verfahrens",
       "option": "typ-des-verfahrens-vorpruefung",
-      "sort": 10
+      "sort": 9
     }
   },
   {
