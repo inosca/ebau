@@ -121,15 +121,21 @@ export default class CustomCaseModel extends CaseModel {
   get form() {
     const oerebProcedure = getAnswer(this.raw.document, "typ-des-verfahrens");
     const oerebTopic = getAnswer(this.raw.document, "oereb-thema");
+    const oerebPartialState = getAnswer(this.raw.document, "teilstatus");
 
     if (oerebProcedure && oerebTopic) {
       const topics = oerebTopic?.node.selectedOptions.edges.map(
         (item) => item.node.label
       );
-      return oerebProcedure?.node.selectedOption.label.concat(
-        " ",
-        topics?.join(", ")
-      );
+      const oerebProcedureLabel = oerebProcedure?.node.selectedOption.label;
+      const oerebPartialStateLabel =
+        oerebPartialState?.node.selectedOption.label;
+
+      return oerebPartialStateLabel
+        ? `${oerebProcedureLabel} ${topics?.join(
+            ", "
+          )} (${oerebPartialStateLabel})`
+        : `${oerebProcedureLabel} ${topics?.join(", ")}`;
     }
 
     const answer = getAnswer(this.raw.document, "form-type");
@@ -245,6 +251,7 @@ export default class CustomCaseModel extends CaseModel {
         "ueberlagerte-nutzungen",
         "typ-des-verfahrens",
         "oereb-thema",
+        "teilstatus",
       ]) {
         edges {
           node {
