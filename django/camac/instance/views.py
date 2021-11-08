@@ -35,6 +35,7 @@ from camac.core.models import (
     CirculationState,
     DocxDecision,
     InstanceService,
+    PublicationEntry,
     WorkflowEntry,
 )
 from camac.core.views import SendfileHttpResponse
@@ -1288,12 +1289,10 @@ class IssueTemplateSetView(views.ModelViewSet):
 
 
 class PublicCalumaInstanceView(mixins.InstanceQuerysetMixin, ListAPIView):
-    """Public view for published instances (kt_uri).
+    """Public view for published instances.
 
     Visibility is toggled in urls.py via ENABLE_PUBLIC_ENDPOINTS application settings.
     """
-
-    swagger_schema = None
 
     permission_classes = [ReadOnly]
     serializer_class = serializers.PublicCalumaInstanceSerializer
@@ -1301,6 +1300,19 @@ class PublicCalumaInstanceView(mixins.InstanceQuerysetMixin, ListAPIView):
     queryset = workflow_models.Case.objects.all()
 
     instance_field = "instance"
+
+    if settings.APPLICATION_NAME == "kt_uri":  # pragma: no cover
+
+        @swagger_auto_schema(
+            tags=["Public caluma instances"],
+            operation_summary="Get list of public caluma instances",
+            operation_description="Public view for published instances",
+        )
+        def get(self, request, *args, **kwargs):
+            return super().list(request, *args, **kwargs)
+
+    else:
+        swagger_schema = None
 
     @permission_aware
     def get_queryset(self):
@@ -1344,4 +1356,9 @@ class PublicCalumaInstanceView(mixins.InstanceQuerysetMixin, ListAPIView):
 
         return queryset.annotate(
             dossier_nr=KeyTextTransform("dossier-number", "meta"),
-        ).order_by("dossier_nr")
+            publication_date=Subquery(
+                PublicationEntry.objects.filter(
+                    instance_id=OuterRef("instance_id")
+                ).values("publication_date")[:1]
+            ),
+        ).order_by("-publication_date", "dossier_nr")
