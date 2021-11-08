@@ -2063,6 +2063,7 @@ APPLICATIONS = {
             "phone",
         ],
         "PORTAL_GROUP": 685,
+        "OEREB_FORM": 296,
         "INSTANCE_IDENTIFIER_FORM_ABBR": {},
         "DUMP_CONFIG_GROUPS": {
             "dashboard_document": {
@@ -2133,6 +2134,18 @@ APPLICATIONS = {
             "veranstaltung_art": (
                 "answer",
                 "veranstaltung-art",
+            ),
+            "oereb_topic": (
+                "answer",
+                "oereb-thema",
+            ),
+            "legal_state": (
+                "answer",
+                "rechtsstatus",
+            ),
+            "form_type": (
+                "answer",
+                "form-type",
             ),
             "plot_data": (
                 "table",
