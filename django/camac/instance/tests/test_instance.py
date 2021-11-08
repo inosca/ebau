@@ -673,8 +673,19 @@ def test_instance_export_detail(
 
 
 @pytest.mark.freeze_time("2017-7-27")
-@pytest.mark.parametrize("short_dossier_number", [True, False])
-@pytest.mark.parametrize("use_caluma", [True, False])
+@pytest.mark.parametrize("separator", ["-"])
+@pytest.mark.parametrize(
+    "short_dossier_number,use_caluma,prefix,padding,form_abbreviation,expected",
+    (
+        [True, False, None, None, None, "11-17-011"],
+        [False, False, None, None, None, "1311-17-011"],
+        [False, True, None, None, None, "1311-17-011"],
+        [True, True, None, None, None, "11-17-011"],
+        [True, False, None, None, "abbr", "AB-17-001"],
+        [True, False, "IM", 4, "abbr", "AB-17-0001"],
+        [True, False, "IM", 4, None, "IM-11-17-0011"],
+    ),
+)
 @pytest.mark.parametrize("location__communal_federal_number", ["1311"])
 def test_instance_generate_identifier(
     db,
@@ -683,22 +694,52 @@ def test_instance_generate_identifier(
     case_factory,
     application_settings,
     short_dossier_number,
+    form_field_factory,
     use_caluma,
+    prefix,
+    padding,
+    separator,
+    form_abbreviation,
+    expected,
 ):
     application_settings["CALUMA"]["SAVE_DOSSIER_NUMBER_IN_CALUMA"] = use_caluma
     application_settings["SHORT_DOSSIER_NUMBER"] = short_dossier_number
 
-    prefix = "" if short_dossier_number else "13"
-    identifier = prefix + "11-17-010"
+    elements = []
+
+    if form_abbreviation:
+        application_settings["INSTANCE_IDENTIFIER_FORM_ABBR"] = {
+            form_abbreviation: form_abbreviation[:2].upper()
+        } or {}
+        form_field_factory(
+            name="meta",
+            value=json.dumps({"formType": form_abbreviation}),
+            instance=instance,
+        )
+
+    if prefix:
+        elements.append(prefix)
+
+    communal_id = short_dossier_number and "11" or "1311"
+
+    elements.append(separator.join([communal_id, "17", "010"]))
+
+    identifier = separator.join(elements)
+
     if use_caluma:
         instance.case = case_factory(meta={"dossier-number": identifier})
         instance.save()
     else:
         instance_factory(identifier=identifier)
 
-    new_identifier = domain_logic.CreateInstanceLogic.generate_identifier(instance)
+    new_identifier = (
+        padding
+        and domain_logic.CreateInstanceLogic.generate_identifier(
+            instance, prefix=prefix, seq_zero_padding=padding
+        )
+    ) or domain_logic.CreateInstanceLogic.generate_identifier(instance, prefix=prefix)
 
-    assert new_identifier == prefix + "11-17-011"
+    assert new_identifier == expected
 
 
 @pytest.mark.freeze_time("2017-7-27")
