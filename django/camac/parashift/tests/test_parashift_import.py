@@ -46,6 +46,9 @@ def test_import_validation_error(requests_mock, capsys):
     broken_data = {
         "data": {
             "id": "138866",
+            "attributes": {
+                "status": "done",
+            },
         },
         "included": [
             {
@@ -103,6 +106,9 @@ def test_command_validation_error(requests_mock, capsys):
     data = {
         "data": {
             "id": "138866",
+            "attributes": {
+                "status": "done",
+            },
         },
         "included": [
             {
