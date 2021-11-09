@@ -362,7 +362,10 @@ APPLICATIONS = {
                 "archive-instance": {
                     "cancel": [
                         "create-manual-workitems",
-                    ]
+                    ],
+                    "complete": [
+                        "building-authority",
+                    ],
                 },
             },
             "SAVE_DOSSIER_NUMBER_IN_CALUMA": False,
