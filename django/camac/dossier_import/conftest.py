@@ -21,8 +21,8 @@ def setup_fixtures_required_by_application_config(django_db_setup, django_db_blo
     def load_data(config):
         with django_db_blocker.unblock():
             call_command("loaddata", f"/app/{config}/config/instance.json")
-            call_command("loaddata", f"/app/{config}/config/caluma_workflow.json")
             call_command("loaddata", f"/app/{config}/config/caluma_form.json")
+            call_command("loaddata", f"/app/{config}/config/caluma_workflow.json")
             call_command("loaddata", f"/app/{config}/config/document.json")
 
     return load_data
