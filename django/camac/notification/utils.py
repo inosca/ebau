@@ -1,7 +1,5 @@
 from collections import namedtuple
 
-from django.shortcuts import get_object_or_404
-
 from camac.notification.models import NotificationTemplate
 from camac.notification.serializers import (
     NotificationTemplateSendmailSerializer,
@@ -36,7 +34,7 @@ def send_mail(
     **kwargs,
 ):
     """Call a SendmailSerializer based on a NotificationTemplate Slug."""
-    notification_template = get_object_or_404(NotificationTemplate, slug=slug)
+    notification_template = NotificationTemplate.objects.get(slug=slug)
 
     data = {
         "notification_template": {
