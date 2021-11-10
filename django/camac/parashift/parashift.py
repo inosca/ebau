@@ -86,7 +86,12 @@ class ParashiftImporter:
     def crop_pdf(self, record):
         pdf = PdfFileReader(record["document"])
 
-        record["barcodes"].pop(0)
+        try:
+            record["barcodes"].pop(0)
+        except IndexError:  # pragma: no cover
+            print(f"{record['external-id']}: no barcode in record")
+            pass
+
         documents = []
         for index, code in enumerate(record["barcodes"], start=1):
             section = uri_constants.PARASHIFT_ATTACHMENT_SECTION_MAPPING.get(
@@ -183,10 +188,26 @@ class ParashiftImporter:
     overrides = {
         "201726": {"gemeinde": "Hospental 1210"},
         "203966": {"baurecht-nr": 807},
+        "336690": {"gemeinde": "Unterschächen 1219"},
+        "336581": {"erfassungsjahr": 2001},
+        "336603": {"erfassungsjahr": 2000},
+        "336625": {"erfassungsjahr": 2001},
+        "336710": {"parzelle-nr": 60},
+        "336747": {"erfassungsjahr": 2008},
+        "336756": {"parzelle-nr": 600},
+        "336782": {"gemeinde": "Spiringen 1218"},
+        "336901": {"erfassungsjahr": 2005},
+        "336905": {"erfassungsjahr": 2007},
     }
 
     def fetch_data(self, para_id):
         json_doc = self._get(self.DATA_URI_FORMAT.format(document_id=para_id)).json()
+        if json_doc["data"]["attributes"]["status"] == "failed":  # pragma: no cover
+            print(
+                f"The record with id {para_id} could not be imported. The state of the record is {json_doc['data']['attributes']['status']}."
+            )
+            return None
+
         record = self._record_blueprint
 
         record["external-id"] = json_doc["data"]["id"]
@@ -198,7 +219,10 @@ class ParashiftImporter:
             if identifier == "barcodes":
                 record["barcodes"] = sorted(
                     [
-                        {"type": code["extraction_value"], "page": code["page_number"]}
+                        {
+                            "type": code["prediction_value"],
+                            "page": code["page_number"],
+                        }
                         for code in field["attributes"]["extraction_candidates"]
                     ],
                     key=lambda k: k["page"],
