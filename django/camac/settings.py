@@ -2144,7 +2144,7 @@ APPLICATIONS = {
             ),
             "legal_state": (
                 "answer",
-                "rechtsstatus",
+                "typ-des-verfahrens",
             ),
             "form_type": (
                 "answer",
