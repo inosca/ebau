@@ -25,49 +25,51 @@
           @value={{this.models.caseModel.authority}}
         />
       </tr>
-      <tr>
-        <CaseDashboard::Column @header={{t "cases.tableHeaders.linkedInstances"}} colspan="3">
-          {{#if this.linkedDossiers}}
-            <ul class="uk-list uk-list-collapse" {{did-insert (perform this.fetchLinkedDossiers)}}>
-              {{#each this.linkedDossiers as |linkedDossier|}}
-                <li class="uk-margin-small">
-                  <div class="uk-flex uk-flex-inline uk-flex-middle">
-                    <a href="{{t "cases.miscellaneous.instanceLink" linkedDossierId=linkedDossier.id }}">
-                      {{linkedDossier.form.name}} ({{linkedDossier.dossierNumber}})
-                    </a>
-                    <button
-                      class="uk-button-link uk-margin-small-left uk-flex uk-flex-middle"
-                      ratio="0.7"
-                      uk-icon="trash"
-                      type="button"
-                      title={{t "cases.miscellaneous.unLinkInstance"}}
-                      {{on "click" (perform this.unLinkDossier linkedDossier)}}>
-                    </button>
-                  </div>
-                </li>
-              {{/each}}
-            </ul>
-          {{/if}}
-          <div>
-            <Input
-              @type="text"
-              @value={{this.dossierNumber}}
-              class="uk-input uk-form-width-medium uk-form-small"
-              aria-label={{t "cases.miscellaneous.linkedInstances"}}
-              placeholder={{t "cases.miscellaneous.enterDossierNumber" }}
-            />
-            <button
-              id={{t "cases.miscellaneous.linkedInstances"}}
-              class="uk-button uk-button-small uk-button-primary"
-              type="button"
-              title={{t "cases.miscellaneous.linkInstance"}}
-              {{on "click" (perform this.linkDossier)}}
-            >
-              <UkIcon @icon="plus" />
-            </button>
-          </div>
-        </CaseDashboard::Column>
-      </tr>
+      {{#if (can "link dossiers to instance" this.models.caseModel.instance)}}
+        <tr>
+          <CaseDashboard::Column @header={{t "cases.tableHeaders.linkedInstances"}} colspan="3">
+            {{#if this.linkedDossiers}}
+              <ul class="uk-list uk-list-collapse" {{did-insert (perform this.fetchLinkedDossiers)}}>
+                {{#each this.linkedDossiers as |linkedDossier|}}
+                  <li class="uk-margin-small">
+                    <div class="uk-flex uk-flex-inline uk-flex-middle">
+                      <a href="{{t "cases.miscellaneous.instanceLink" linkedDossierId=linkedDossier.id }}">
+                        {{linkedDossier.form.name}} ({{linkedDossier.dossierNumber}})
+                      </a>
+                      <button
+                        class="uk-button-link uk-margin-small-left uk-flex uk-flex-middle"
+                        ratio="0.7"
+                        uk-icon="trash"
+                        type="button"
+                        title={{t "cases.miscellaneous.unLinkInstance"}}
+                        {{on "click" (perform this.unLinkDossier linkedDossier)}}>
+                      </button>
+                    </div>
+                  </li>
+                {{/each}}
+              </ul>
+            {{/if}}
+            <div>
+              <Input
+                @type="text"
+                @value={{this.dossierNumber}}
+                class="uk-input uk-form-width-medium uk-form-small"
+                aria-label={{t "cases.miscellaneous.linkedInstances"}}
+                placeholder={{t "cases.miscellaneous.enterDossierNumber" }}
+              />
+              <button
+                id={{t "cases.miscellaneous.linkedInstances"}}
+                class="uk-button uk-button-small uk-button-primary"
+                type="button"
+                title={{t "cases.miscellaneous.linkInstance"}}
+                {{on "click" (perform this.linkDossier)}}
+              >
+                <UkIcon @icon="plus" />
+              </button>
+            </div>
+          </CaseDashboard::Column>
+        </tr>
+      {{/if}}
     </CaseDashboard::Section>
     <hr />
 
