@@ -41,6 +41,7 @@ omit=
     camac/core/serializers.py
     # One off commands
     camac/dossier_import/management/commands/fix_identifiers_schuebelbach.py
+    camac/dossier_import/management/commands/fix_addresses_schuebelbach.py
     camac/instance/management/commands/fix_work_items.py
     camac/core/management/commands/fix_applicants.py
     camac/data_migration/*
