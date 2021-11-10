@@ -36088,7 +36088,7 @@
       "label": "{\"de\": \"Ist der Schiffsverkehr auf Urner Gew\\u00e4ssern betroffen?\", \"fr\": null}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "!(\n  [\n    \"15\",\n    \"4\",\n    \"14\",\n    \"7\",\n    \"17\",\n    \"11\"\n  ]\n  intersects \"municipality\"|answer\n)",
+      "is_hidden": "!(\n  [\n    \"15\",\n    \"4\",\n    \"14\",\n    \"7\",\n    \"17\",\n    \"11\"\n  ]\n  intersects (\"municipality\"|answer || [])\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
