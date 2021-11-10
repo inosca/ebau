@@ -29,6 +29,9 @@ def parashift_mock(request, requests_mock):
     parashift_dossier_data = {
         "data": {
             "id": "138866",
+            "attributes": {
+                "status": "done",
+            },
         },
         "included": [
             {"attributes": {"identifier": i, "value": v}} for i, v in values.items()
@@ -40,11 +43,11 @@ def parashift_mock(request, requests_mock):
                     "identifier": "barcodes",
                     "value": "Gurtnellen 1209",
                     "extraction_candidates": [
-                        {"extraction_value": "Gurtnellen 1209", "page_number": 0},
-                        {"extraction_value": "Fachstellen", "page_number": 1},
-                        {"extraction_value": "Fachstellen", "page_number": 3},
-                        {"extraction_value": "Fachstellen", "page_number": 4},
-                        {"extraction_value": "Gesuchsteller", "page_number": 6},
+                        {"prediction_value": "Gurtnellen 1209", "page_number": 0},
+                        {"prediction_value": "Fachstellen", "page_number": 1},
+                        {"prediction_value": "Fachstellen", "page_number": 3},
+                        {"prediction_value": "Fachstellen", "page_number": 4},
+                        {"prediction_value": "Gesuchsteller", "page_number": 6},
                     ],
                 },
             },
@@ -56,7 +59,7 @@ def parashift_mock(request, requests_mock):
         ParashiftImporter.LIST_URI_FORMAT.format(
             from_id=138866, to_id=138867, page_number=1
         ),
-        json={"data": [{"id": "138866"}]},
+        json={"data": [{"id": "138866", "attributes": {"status": "done"}}]},
     )
 
     requests_mock.register_uri(
@@ -64,7 +67,10 @@ def parashift_mock(request, requests_mock):
         ParashiftImporter.TOTAL_RECORDS_URI.format(
             from_id=138866, to_id=138867, page_number=1
         ),
-        json={"data": [{"id": "138866"}], "meta": {"stats": {"total": {"count": 1}}}},
+        json={
+            "data": [{"id": "138866", "attributes": {"status": "done"}}],
+            "meta": {"stats": {"total": {"count": 1}}},
+        },
     )
 
     requests_mock.register_uri(
@@ -80,6 +86,9 @@ def parashift_mock(request, requests_mock):
     parashift_source_files_data = {
         "data": {
             "id": "138866",
+            "attributes": {
+                "status": "done",
+            },
             "type": "documents",
         },
         "included": [
@@ -106,6 +115,9 @@ def parashift_mock(request, requests_mock):
     parashift_source_files_data = {
         "data": {
             "id": "138866",
+            "attributes": {
+                "status": "done",
+            },
             "type": "documents",
         },
         "included": [
