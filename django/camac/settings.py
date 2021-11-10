@@ -114,6 +114,7 @@ MIDDLEWARE = [
     "reversion.middleware.RevisionMiddleware",
     "django.middleware.locale.LocaleMiddleware",
     "simple_history.middleware.HistoryRequestMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 
