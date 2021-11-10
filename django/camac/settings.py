@@ -2011,14 +2011,6 @@ APPLICATIONS = {
                     "template_slug": "dossier-eingereicht-gemeinde",
                     "recipient_types": ["municipality_users"],
                 },
-                {
-                    "template_slug": "dossier-eingereicht-koor-bd",
-                    "recipient_types": ["koor_bd_users"],
-                },
-                {
-                    "template_slug": "dossier-eingereicht-koor-sd",
-                    "recipient_types": ["koor_sd_users"],
-                },
             ],
             "SUBMIT_CANTONAL_TERRITORY_USAGE_SD": [
                 {
