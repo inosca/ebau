@@ -70,6 +70,10 @@ module.exports = function (environment) {
           1, // RUN
           41, // NFD
         ],
+        allowedInstanceLinkingGroups: [
+          142, // KOOR BG
+          21, // KOOR NP
+        ],
       },
     },
 

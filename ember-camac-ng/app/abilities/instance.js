@@ -34,6 +34,15 @@ export default class InstanceAbility extends Ability {
     );
   }
 
+  get canLinkDossiers() {
+    return (
+      this.shoebox.role === "municipality" ||
+      config.APPLICATION.allowedInstanceLinkingGroups.includes(
+        this.shoebox.content.groupId
+      )
+    );
+  }
+
   get canWriteForm() {
     return (this.model.meta?.permissions.main || []).includes("write");
   }
