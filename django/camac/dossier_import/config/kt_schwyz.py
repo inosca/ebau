@@ -24,6 +24,7 @@ from camac.dossier_import.models import DossierImport
 from camac.dossier_import.writers import (
     CamacNgAnswerFieldWriter,
     CamacNgListAnswerWriter,
+    CamacNgPersonListAnswerWriter,
     DossierWriter,
     WorkflowEntryDateWriter,
 )
@@ -95,13 +96,13 @@ class KtSchwyzDossierWriter(DossierWriter):
         target="ortsbezeichnung-des-vorhabens",
     )
     address_city = CamacNgAnswerFieldWriter(target="standort-ort")
-    applicant = CamacNgListAnswerWriter(
+    applicant = CamacNgPersonListAnswerWriter(
         target="bauherrschaft", column_mapping=PERSON_MAPPING
     )
-    landowner = CamacNgListAnswerWriter(
+    landowner = CamacNgPersonListAnswerWriter(
         target="grundeigentumerschaft", column_mapping=PERSON_MAPPING
     )
-    project_author = CamacNgListAnswerWriter(
+    project_author = CamacNgPersonListAnswerWriter(
         target="projektverfasser-planer", column_mapping=PERSON_MAPPING
     )
 
