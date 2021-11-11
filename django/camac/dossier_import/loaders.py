@@ -1,7 +1,7 @@
 import zipfile
 from dataclasses import fields
 from enum import Enum
-from typing import Generator
+from typing import Generator, Iterable
 from typing.io import IO
 
 import openpyxl
@@ -16,6 +16,14 @@ def numbers(string):
 
 def transform_coordinates(n, e):
     return Transformer.from_crs("epsg:2056", "epsg:4326").transform(n, e)
+
+
+def safe_join(elements: Iterable, separator=" "):
+    """Concatenate elements separated by a given separator.
+
+    Avoid element `None` and allow all types that can be cast to `str`.
+    """
+    return separator.join(map(str, filter(None, elements))).strip()
 
 
 class DossierLoader:
@@ -113,19 +121,9 @@ class XlsxFileDossierLoader(DossierLoader):
             },
             plot_data=self.load_plot_data(dossier_row),
             coordinates=self.load_coordinates(dossier_row),
-            address_location=" ".join(
-                [
-                    str(
-                        dossier_row.get(
-                            XlsxFileDossierLoader.Column.address_street.value
-                        )
-                    ),
-                    str(
-                        dossier_row.get(
-                            XlsxFileDossierLoader.Column.address_street_nr.value
-                        )
-                    ).strip(),
-                ]
+            address_location=safe_join(
+                dossier_row.get(XlsxFileDossierLoader.Column.address_street.value),
+                dossier_row.get(XlsxFileDossierLoader.Column.address_street_nr.value),
             ),
             applicant=[
                 Person(
@@ -165,14 +163,6 @@ class XlsxFileDossierLoader(DossierLoader):
                 )
             ],
         )
-        # fixes
-        for addr in ["applicant", "landowner", "project_author"]:
-            addr_list = getattr(dossier, addr)
-            if addr_list[0].street:
-                addr_list[0].street = " ".join(
-                    [addr_list[0].street, str(addr_list[0].street_number)]
-                )
-                setattr(dossier, addr, addr_list)
         dossier._meta = Dossier.Meta(
             target_state=dossier_row.get(XlsxFileDossierLoader.Column.status.value),
             workflow=dossier_row.get(XlsxFileDossierLoader.Column.workflow.value),
