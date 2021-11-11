@@ -513,7 +513,7 @@ snapshots['test_master_data[kt_uri-de-ur_master_data_case-select_related2-prefet
         'form-type-oereb'
     ],
     'legal_state': [
-        'rechtsstatus-rechtskraeftig'
+        'typ-des-verfahrens-genehmigung'
     ],
     'municipality': {
         'label': 'Altdorf',
