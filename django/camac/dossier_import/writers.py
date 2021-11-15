@@ -6,6 +6,7 @@ from django.utils import timezone
 
 from camac.core.models import WorkflowEntry
 from camac.dossier_import.dossier_classes import Dossier
+from camac.dossier_import.loaders import safe_join
 from camac.instance.models import Instance
 
 
@@ -67,6 +68,15 @@ class CamacNgListAnswerWriter(FieldWriter):
         if not created:  # pragma: no cover
             field.value = mapped_values
             field.save()
+
+
+class CamacNgPersonListAnswerWriter(CamacNgListAnswerWriter):
+    """Person and location objects combine address and house number in 1 line."""
+
+    def write(self, instance, value):
+        for person in value:
+            person.street = safe_join((person.street, person.street_number))
+        super().write(instance, value)
 
 
 class WorkflowEntryDateWriter(FieldWriter):
