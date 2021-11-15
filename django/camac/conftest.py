@@ -34,6 +34,7 @@ from camac.caluma.utils import CalumaInfo
 from camac.core import factories as core_factories
 from camac.document import factories as document_factories
 from camac.document.tests.data import django_file
+from camac.dossier_import import factories as dossier_import_factories
 from camac.echbern import factories as ech_factories
 from camac.faker import FreezegunAwareDatetimeProvider
 from camac.instance import factories as instance_factories
@@ -68,6 +69,7 @@ register_module(user_factories)
 register_module(instance_factories)
 register_module(core_factories)
 register_module(document_factories)
+register_module(dossier_import_factories)
 register_module(notification_factories)
 register_module(applicant_factories)
 register_module(responsible_factories)
