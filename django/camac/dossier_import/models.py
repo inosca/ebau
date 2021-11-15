@@ -2,7 +2,9 @@ from caluma.caluma_core.models import UUIDModel
 from django.contrib.postgres.fields import JSONField
 from django.db import models
 
-from camac.user.models import Service
+
+def archive_path_directory_path(dossier_import, filename):
+    return "dossier_imports/files/{0}/{1}".format(str(dossier_import.id), filename)
 
 
 class DossierImport(UUIDModel):
@@ -20,23 +22,58 @@ class DossierImport(UUIDModel):
 
     IMPORT_STATUS_NEW = "new"
     IMPORT_STATUS_DONE = "done"
-    IMPORT_STATUS_TEST_SUCCESSFUL = "verified"
-    IMPORT_STATUS_INPROGRESS = "in-progres"
-    IMPORT_STATUS_TEST_FAILED = "failed"
+    IMPORT_STATUS_VALIDATION_SUCCESSFUL = "verified"
+    IMPORT_STATUS_VALIDATION_FAILED = "failed"
+    IMPORT_STATUS_IMPORT_INPROGRESS = "in-progres"
 
     IMPORT_STATUS_CHOICES = (
         (IMPORT_STATUS_DONE, IMPORT_STATUS_DONE),
         (IMPORT_STATUS_NEW, IMPORT_STATUS_NEW),
-        (IMPORT_STATUS_INPROGRESS, IMPORT_STATUS_INPROGRESS),
-        (IMPORT_STATUS_TEST_SUCCESSFUL, IMPORT_STATUS_TEST_SUCCESSFUL),
-        (IMPORT_STATUS_DONE, IMPORT_STATUS_DONE),
-        (IMPORT_STATUS_TEST_FAILED, IMPORT_STATUS_TEST_FAILED),
+        (IMPORT_STATUS_IMPORT_INPROGRESS, IMPORT_STATUS_IMPORT_INPROGRESS),
+        (IMPORT_STATUS_VALIDATION_SUCCESSFUL, IMPORT_STATUS_VALIDATION_SUCCESSFUL),
+        (IMPORT_STATUS_VALIDATION_FAILED, IMPORT_STATUS_VALIDATION_FAILED),
+    )
+
+    DOSSIER_LOADER_ZIP_ARCHIVE_XLSX = "zip-archive-xlsx"
+    DOSSIER_LOADER_CHOICES = (
+        (DOSSIER_LOADER_ZIP_ARCHIVE_XLSX, "XlsxFileDossierLoader"),
+    )
+
+    dossier_loader_type = models.CharField(
+        max_length=255,
+        choices=DOSSIER_LOADER_CHOICES,
+        default=DOSSIER_LOADER_ZIP_ARCHIVE_XLSX,
     )
 
     status = models.CharField(
         max_length=32, choices=IMPORT_STATUS_CHOICES, default=IMPORT_STATUS_NEW
     )
-    service = models.ForeignKey(
-        Service, models.SET_NULL, related_name="+", null=True, blank=True
+
+    user = models.ForeignKey(
+        "user.User",
+        models.DO_NOTHING,
+        related_name="dossier_imports",
+        null=True,
+        blank=True,
     )
+    group = models.ForeignKey(
+        "user.Group",
+        models.DO_NOTHING,
+        related_name="dossier_imports",
+        null=True,
+        blank=True,
+    )
+    service = models.ForeignKey(
+        "user.Service", models.DO_NOTHING, related_name="+", null=True, blank=True
+    )
+    location = models.ForeignKey(
+        "user.Location", models.DO_NOTHING, related_name="+", null=True, blank=True
+    )
+
     messages = JSONField(default=list)
+
+    source_file = models.FileField(
+        max_length=255, upload_to=archive_path_directory_path, null=True, blank=True
+    )
+
+    mime_type = models.CharField(max_length=255, null=True, blank=True)

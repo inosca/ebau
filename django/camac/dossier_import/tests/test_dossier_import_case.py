@@ -10,28 +10,28 @@ from camac.dossier_import.loaders import InvalidImportDataError
 from camac.instance.master_data import MasterData
 from camac.instance.models import Instance
 
-TEST_IMPORT_FILE = str(
-    Path(settings.ROOT_DIR) / "camac/dossier_import/tests/data/import-example.zip"
+TEST_IMPORT_FILE_PATH = str(
+    Path(settings.ROOT_DIR) / "camac/dossier_import/tests/data/"
 )
 
+TEST_IMPORT_FILE_NAME = "import-example.zip"
 
-@pytest.mark.parametrize("config", ["kt_schwyz"])
+
+@pytest.mark.parametrize("config,loader", [("kt_schwyz", "zip-archive-xlsx")])
 def test_bad_file_format_dossier_xlsx(
-    db, user, settings, config, make_dossier_writer, get_dossier_loader
+    db, user, settings, config, loader, make_dossier_writer, get_dossier_loader
 ):
     settings.APPLICATION = settings.APPLICATIONS[config]
-    writer = make_dossier_writer(
-        config,
-        user.pk,
-        11,
-        str(
-            Path(settings.ROOT_DIR)
-            / "camac/dossier_import/tests/data/import-bad-example.zip"
-        ),
-    )
-    loader = get_dossier_loader()
+    loader = get_dossier_loader(loader)
     with pytest.raises(InvalidImportDataError):
-        all(loader.load_dossiers(writer.dossiers_xlsx))
+        all(
+            loader.load_dossiers(
+                str(
+                    Path(settings.ROOT_DIR)
+                    / "camac/dossier_import/tests/data/import-bad-example.zip"
+                ),
+            )
+        )
 
 
 @pytest.mark.parametrize("config", ["kt_schwyz"])
@@ -55,8 +55,8 @@ def test_import_dossiers_manage_command(
         user.pk,
         group.pk,
         location.pk,
-        TEST_IMPORT_FILE,
-        config,
+        str(Path(TEST_IMPORT_FILE_PATH) / TEST_IMPORT_FILE_NAME),
+        f"--override_application={config}",
         "--verbosity=2",
         stdout=out,
         stderr=StringIO(),
@@ -65,25 +65,35 @@ def test_import_dossiers_manage_command(
     assert out
 
 
-@pytest.mark.parametrize("config,group_id", [("kt_schwyz", 42)])
+@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize("config", ["kt_schwyz"])
 def test_create_instance_dossier_import_case(
-    db, make_dossier_writer, get_dossier_loader, settings, config, user, group_id
+    db,
+    dossier_import,
+    make_dossier_writer,
+    get_dossier_loader,
+    archive_file,
+    settings,
+    config,
 ):
     # The test import file features faulty lines for cov
     # - 3 lines with good data (1 without documents directory)
     # - 1 line with missing data
     # - 1 line with duplicate data (gemeinde-id)
-
     settings.APPLICATION = settings.APPLICATIONS[config]
-
-    writer = make_dossier_writer(config, user_id=user.pk, group_id=group_id)
-    loader = get_dossier_loader()
-    for dossier in loader.load_dossiers(writer.dossiers_xlsx):
-        writer.import_dossier(dossier)
-    assert len([x for x in writer.import_session.messages if x["level"] == 1]) == 3
-    assert len([x for x in writer.import_session.messages if x["level"] == 2]) == 2
+    dossier_import.source_file = archive_file(TEST_IMPORT_FILE_NAME)
+    dossier_import.dossier_loader_type = dossier_import.DOSSIER_LOADER_ZIP_ARCHIVE_XLSX
+    dossier_import.save()
+    writer = make_dossier_writer(config)
+    loader = get_dossier_loader(dossier_import.dossier_loader_type)
+    for dossier in loader.load_dossiers(dossier_import.source_file.path):
+        message = writer.import_dossier(dossier, str(dossier_import.pk))
+        dossier_import.messages.append(message.to_dict())
+        dossier_import.save()
+    assert len([x for x in dossier_import.messages if x["level"] == 1]) == 3
+    assert len([x for x in dossier_import.messages if x["level"] == 2]) == 2
     deletion = Instance.objects.filter(
-        **{"case__meta__import-id": str(writer.import_session.pk)}
+        **{"case__meta__import-id": str(dossier_import.pk)}
     ).delete()
     assert deletion[1]["instance.Instance"] == 3
 
@@ -140,7 +150,6 @@ def test_create_instance_dossier_import_case(
 )
 def test_set_workflow_state_sz(
     db,
-    user,
     sz_instance,
     make_dossier_writer,
     target_state,
@@ -151,8 +160,6 @@ def test_set_workflow_state_sz(
     # state.
     writer = make_dossier_writer(
         "kt_schwyz",
-        user.pk,
-        group_id=1,
     )
     writer._set_workflow_state(sz_instance, target_state)
     for task_id, expected_status in expected_work_items_states:
@@ -173,7 +180,6 @@ def test_set_workflow_state_sz(
 )
 def test_set_workflow_state_exceptions(
     db,
-    user,
     sz_instance,
     make_dossier_writer,
     instance_status,
@@ -181,8 +187,6 @@ def test_set_workflow_state_exceptions(
 ):
     writer = make_dossier_writer(
         "kt_schwyz",
-        user.pk,
-        group_id=1,
     )
     sz_instance.case.work_items.get(task_id=expected_work_items_states[0]).delete()
     message = writer._set_workflow_state(sz_instance, instance_status)
@@ -347,8 +351,6 @@ def test_record_loading_sz(
     make_workflow_items_for_config,
     application_settings,
     settings,
-    user,
-    group,
     sz_instance,
     make_dossier_writer,
     get_dossier_loader,
@@ -360,8 +362,8 @@ def test_record_loading_sz(
 ):
     """Load data from import record, make persistant and verify with master_data API."""
     settings.APPLICATION = settings.APPLICATIONS[config]
-    writer = make_dossier_writer(config=config, user_id=user.pk, group_id=group.pk)
-    loader = get_dossier_loader()
+    writer = make_dossier_writer(config=config)
+    loader = get_dossier_loader("zip-archive-xlsx")
     dossier_row.update(dossier_row_patch)
     dossier = loader._load_dossier(dossier_row)
     writer.write_fields(sz_instance, dossier)

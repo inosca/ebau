@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 from typing import List, Optional
+from typing.io import IO
 
 from camac.instance.models import Instance
 
@@ -37,6 +38,12 @@ class Person:
 
 
 @dataclass
+class Attachment:
+    file_accessor: IO
+    name: str
+
+
+@dataclass
 class Dossier:
     id: str
     proposal: str
@@ -60,6 +67,7 @@ class Dossier:
     applicant: Optional[List[Person]] = None
     landowner: Optional[List[Person]] = None
     project_author: Optional[List[Person]] = None
+    attachments: Optional[List[Attachment]] = None
 
     @dataclass
     class Meta:
