@@ -85,6 +85,7 @@ class MessageCodes(str, Enum):
     WORKFLOW_SKIP_ITEM_FAILED = "skip-workitem-failed"
     SET_WORKFLOW_STATE = "workflow-state-set"
     FIELD_VALIDATION_ERROR = "field-validation-error"
+    MIME_TYPE_UNKNOWN = "mime-type-unknown"
 
 
 class MissingArchiveFileError(exceptions.ValidationError):

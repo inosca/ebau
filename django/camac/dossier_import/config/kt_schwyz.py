@@ -1,4 +1,3 @@
-import mimetypes
 import re
 import shutil
 from copy import deepcopy
@@ -40,6 +39,8 @@ from camac.dossier_import.writers import (
 from camac.instance.domain_logic import CreateInstanceLogic
 from camac.instance.models import Form, Instance, InstanceState
 from camac.user.models import Group, Location, User
+
+from .common import mimetypes
 
 PERSON_MAPPING = {
     "company": "firma",
@@ -237,7 +238,9 @@ class KtSchwyzDossierWriter(DossierWriter):
                 detail=workflow_message,
             )
         )
-        if get_message_max_level(dossier_summary.details) == LOG_LEVEL_ERROR:
+        if (
+            get_message_max_level(dossier_summary.details) == LOG_LEVEL_ERROR
+        ):  # pragma: no cover
             dossier_summary.status = DOSSIER_IMPORT_STATUS_ERROR
         if get_message_max_level(dossier_summary.details) == LOG_LEVEL_WARNING:
             dossier_summary.status = DOSSIER_IMPORT_STATUS_WARNING
@@ -285,7 +288,7 @@ class KtSchwyzDossierWriter(DossierWriter):
                 messages.append(
                     Message(
                         level=LOG_LEVEL_WARNING,
-                        code="attachment-mime-type-unkown",
+                        code=MessageCodes.MIME_TYPE_UNKNOWN,
                         detail=f"MIME-Type could not be determined for {file_path}",
                     )
                 )
