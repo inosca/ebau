@@ -2,12 +2,17 @@ import zipfile
 from dataclasses import fields
 from enum import Enum
 from typing import Generator, Iterable
-from typing.io import IO
 
 import openpyxl
 from pyproj import Transformer
 
-from camac.dossier_import.dossier_classes import Coordinates, Dossier, Person, PlotData
+from camac.dossier_import.dossier_classes import (
+    Attachment,
+    Coordinates,
+    Dossier,
+    Person,
+    PlotData,
+)
 
 
 def numbers(string):
@@ -27,15 +32,21 @@ def safe_join(elements: Iterable, separator=" "):
 
 
 class DossierLoader:
+    """Dossier loader base class.
+
+    In order to use DossierLoader classes add them to the settings.DOSSIER_IMPORT_LOADER_CLASSES.
+    """
+
     dossier_class = Dossier
 
 
 class XlsxFileDossierLoader(DossierLoader):
-    """Define the loader Excel file loader.
+    """Load dossiers from xlsx in a zip archive with attachment directories.
 
-    The expected file needs to comply  with the column names
-    and hold the data exactly as defined. This xlsx dossier loader
-    is not generic.
+    The expected zip file needs to comply with the following:
+     - dossiers.xlsx file with column names as defined in this classes.Meta.Columns
+     - every directory with a name equal to a dossier's ID will be searched for files
+       that then are appended as attachments to the dossier's instance
     """
 
     path_to_dossiers_file: str
@@ -206,7 +217,9 @@ class XlsxFileDossierLoader(DossierLoader):
             print(f"Failed to load parcels with numbers {numbers} and egrids {egrids}")
         return out
 
-    def load_dossiers(self, data_file: IO) -> Generator:
+    def load_dossiers(self, path_to_archive: str) -> Generator:
+        archive = zipfile.ZipFile(path_to_archive, "r")
+        data_file = archive.open("dossiers.xlsx")
         try:
             work_book = openpyxl.load_workbook(data_file)
         except zipfile.BadZipfile:
@@ -216,7 +229,7 @@ class XlsxFileDossierLoader(DossierLoader):
         worksheet = work_book.worksheets[0]
         headings = worksheet[1]
         for row in worksheet.iter_rows(min_row=2):
-            yield self._load_dossier(
+            dossier = self._load_dossier(
                 dict(
                     zip(
                         [heading.value for heading in headings],
@@ -224,6 +237,24 @@ class XlsxFileDossierLoader(DossierLoader):
                     )
                 )
             )
+            dossier = self._load_attachments(dossier, archive)
+            yield dossier
+
+    def _load_attachments(self, dossier, archive):
+        for document_name in filter(
+            lambda x: x.filename.startswith(f"{dossier.id}/"), archive.infolist()
+        ):
+            if document_name.filename.endswith("/"):
+                continue
+            if not dossier.attachments:
+                dossier.attachments = []
+            dossier.attachments.append(
+                Attachment(
+                    file_accessor=archive.open(document_name.filename, "r"),
+                    name=document_name.filename,
+                )
+            )
+        return dossier
 
 
 class InvalidImportDataError(Exception):

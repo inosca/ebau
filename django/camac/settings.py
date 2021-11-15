@@ -475,8 +475,7 @@ APPLICATIONS = {
             }
         ],
         "DOSSIER_IMPORT": {
-            "ZIP_ARCHIVE_IMPORT_DOSSIER_WRITER_CLASS": "camac.dossier_import.config.kt_schwyz.KtSchwyzDossierWriter",
-            "ZIP_ARCHIVE_IMPORT_DOSSIER_LOADER_CLASS": "camac.dossier_import.loaders.XlsxFileDossierLoader",
+            "WRITER_CLASS": "camac.dossier_import.config.kt_schwyz.KtSchwyzDossierWriter",
             "INSTANCE_STATE_MAPPING": {"SUBMITTED": 2, "APPROVED": 8, "DONE": 10},
             "USER": "service-account-camac-admin",
             "GROUP_ID": 3,  # Group with service_id and this role_id is created Instances' group
@@ -2966,3 +2965,8 @@ PARASHIFT_SOURCE_FILES_URI = env.str(
 
 PARASHIFT_TENANT_ID = env.int("PARASHIFT_TENANT_ID", default=1665)
 PARASHIFT_API_KEY = env.str("PARASHIFT_API_KEY", default="ey...")
+
+
+DOSSIER_IMPORT_LOADER_CLASSES = {
+    "zip-archive-xlsx": "camac.dossier_import.loaders.XlsxFileDossierLoader"
+}
