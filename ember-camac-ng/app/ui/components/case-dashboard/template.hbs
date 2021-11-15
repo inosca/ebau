@@ -1,4 +1,4 @@
-<div class="uk-width-1" {{did-insert (perform this.fetchCase)}}>
+<div class="uk-width-1" {{did-insert (perform this.fetchWrapper)}}>
   {{#if this.isLoading}}
     <div class="uk-flex uk-flex-center">
       <UkSpinner />
@@ -29,7 +29,7 @@
         <tr>
           <CaseDashboard::Column @header={{t "cases.tableHeaders.linkedInstances"}} colspan="3">
             {{#if this.linkedDossiers}}
-              <ul class="uk-list uk-list-collapse" {{did-insert (perform this.fetchLinkedDossiers)}}>
+              <ul class="uk-list uk-list-collapse">
                 {{#each this.linkedDossiers as |linkedDossier|}}
                   <li class="uk-margin-small">
                     <div class="uk-flex uk-flex-inline uk-flex-middle">

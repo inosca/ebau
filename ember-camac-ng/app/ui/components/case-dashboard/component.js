@@ -139,6 +139,12 @@ export default class CaseDashboardComponent extends Component {
   }
 
   @dropTask
+  *fetchWrapper() {
+    yield this.fetchCase.perform();
+    yield this.fetchLinkedDossiers.perform();
+  }
+
+  @dropTask
   *fetchCase() {
     yield this.store.query("instance", {
       instance_id: this.args.caseId,
