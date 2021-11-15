@@ -1,13 +1,12 @@
-from io import StringIO
 from pathlib import Path
 
 import pytest
 from django.conf import settings
-from django.core.management import call_command
 from django.utils import timezone
 
 from camac.dossier_import.loaders import InvalidImportDataError
 from camac.dossier_import.messages import MessageCodes, update_summary
+from camac.dossier_import.validation import validate_zip_archive_structure
 from camac.instance.master_data import MasterData
 from camac.instance.models import Instance
 
@@ -33,37 +32,6 @@ def test_bad_file_format_dossier_xlsx(
                 ),
             )
         )
-
-
-@pytest.mark.parametrize("config", ["kt_schwyz"])
-def test_import_dossiers_manage_command(
-    db,
-    settings,
-    config,
-    setup_fixtures_required_by_application_config,
-    make_workflow_items_for_config,
-    service,
-    user,
-    group,
-    location,
-):
-    settings.APPLICATION = settings.APPLICATIONS[config]
-    make_workflow_items_for_config(config)
-    setup_fixtures_required_by_application_config(config)
-    out = StringIO()
-    call_command(
-        "import_dossiers",
-        user.pk,
-        group.pk,
-        location.pk,
-        str(Path(TEST_IMPORT_FILE_PATH) / TEST_IMPORT_FILE_NAME),
-        f"--override_application={config}",
-        "--verbosity=2",
-        stdout=out,
-        stderr=StringIO(),
-    )
-    out = out.getvalue()
-    assert out
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
@@ -390,6 +358,7 @@ def test_record_loading_sz(
     assert getattr(md, expected_target) == expected_value
 
 
+@pytest.mark.parametrize("config", ["kt_schwyz"])
 @pytest.mark.parametrize("loader", ["zip-archive-xlsx"])
 @pytest.mark.parametrize(
     "dossier_row_patch,expected",
@@ -421,6 +390,7 @@ def test_record_loading_exceptions(
     get_dossier_loader,
     dossier_row,
     loader,
+    config,
     dossier_row_patch,
     expected,
 ):
@@ -430,3 +400,19 @@ def test_record_loading_exceptions(
     dossier = loader._load_dossier(dossier_row)
     for key, value in expected.items():
         assert getattr(dossier._meta, key) == value
+
+
+@pytest.mark.parametrize(
+    "loader,input_file,expected_exception",
+    [
+        ("zip-archive-xlsx", "no-zip.zap", InvalidImportDataError),
+        ("zip-archive-xlsx", "import-missing-column.zip", InvalidImportDataError),
+    ],
+)
+def test_validation(
+    db, dossier_import, archive_file, loader, input_file, expected_exception
+):
+    dossier_import.source_file = archive_file(input_file)
+    dossier_import.save()
+    with pytest.raises(expected_exception):
+        validate_zip_archive_structure(str(dossier_import.pk))
