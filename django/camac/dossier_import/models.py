@@ -1,4 +1,8 @@
+import shutil
+from pathlib import Path
+
 from caluma.caluma_core.models import UUIDModel
+from django.conf import settings
 from django.contrib.postgres.fields import JSONField
 from django.db import models
 
@@ -79,3 +83,16 @@ class DossierImport(UUIDModel):
     )
 
     mime_type = models.CharField(max_length=255, null=True, blank=True)
+
+    def delete(self, using=None, keep_parents=False, *args, **kwargs):
+        if self.source_file:
+            Path(self.source_file.path).exists() and Path(
+                self.source_file.path
+            ).unlink()
+            shutil.rmtree(
+                str(
+                    Path(settings.MEDIA_ROOT) / f"dossier_imports/files/{str(self.pk)}"
+                ),
+                ignore_errors=True,
+            )
+        return super().delete(*args, **kwargs)

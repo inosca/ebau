@@ -1,7 +1,7 @@
 import zipfile
 from dataclasses import fields
 from enum import Enum
-from typing import Generator, Iterable, List, Optional, Tuple
+from typing import Generator, Iterable, List, Optional, Tuple, Union
 
 import openpyxl
 from pyproj import Transformer
@@ -13,7 +13,13 @@ from camac.dossier_import.dossier_classes import (
     Person,
     PlotData,
 )
-from camac.dossier_import.messages import Message
+from camac.dossier_import.messages import (
+    LOG_LEVEL_ERROR,
+    LOG_LEVEL_WARNING,
+    FieldValidationMessage,
+    Message,
+    MessageCodes,
+)
 
 
 def numbers(string):
@@ -48,24 +54,38 @@ class XlsxFileDossierLoader(DossierLoader):
      - dossiers.xlsx file with column names as defined in this classes.Meta.Columns
      - every directory with a name equal to a dossier's ID will be searched for files
        that then are appended as attachments to the dossier's instance
+
+    Validation and messaging is performed on loading data to the Dossier class.
+
+    The dossier class has simple fields (mandatory and optional) and compound fields (usually
+    non-standard objects defined as Dataclass or list thereof).
+
+    Compound fields should provide their loading method that returns the loaded data object plus
+    a Message, if validation is required.
+
+    Simple fields should be validiated by the type definition of the Dossier dataclass and be added
+    to the Loaders.simple_fields list.
+
+    Any errors are added to the `dossiers._meta.errors` list.
+
     """
 
     path_to_dossiers_file: str
     simple_fields = [
         "address_city",
         "cantonal_id",
+        "id",
+        "link",
+        "procedure_type",
+        "proposal",
+        "usage",
         "completion_date",
         "construction_start_date",
         "decision_date",
         "final_approval_date",
-        "id",
-        "link",
-        "procedure_type",
         "profile_approval_date",
-        "proposal",
         "publication_date",
         "submit_date",
-        "usage",
     ]
 
     required_fields = ("id", "status", "proposal")
@@ -152,12 +172,14 @@ class XlsxFileDossierLoader(DossierLoader):
             )
 
         dossier.plot_data, load_plot_data_errors = self.load_plot_data(dossier_row)
-        dossier._meta.errors.append(load_plot_data_errors)
+        if load_plot_data_errors:  # pragma: no cover
+            dossier._meta.errors.append(load_plot_data_errors)
 
         dossier.coordinates, load_coordinates_errors = self.load_coordinates(
             dossier_row
         )
-        dossier._meta.errors.append(load_coordinates_errors)
+        if load_coordinates_errors:  # pragma: no cover
+            dossier._meta.errors.append(load_coordinates_errors)
 
         dossier.address_location = safe_join(
             (
@@ -203,6 +225,45 @@ class XlsxFileDossierLoader(DossierLoader):
                 }
             )
         ]
+        return self.validate_fields(dossier)
+
+    def validate_fields(self, dossier):
+        for field in fields(dossier):
+            if field.name not in self.simple_fields:
+                continue
+            field_name_snake = field.name.replace("_", "-")
+            value = getattr(dossier, field.name)
+            if hasattr(field.type, "__origin__") and field.type.__origin__ == Union:
+                if not isinstance(value, field.type.__args__):
+                    dossier._meta.errors.append(
+                        FieldValidationMessage(
+                            level=LOG_LEVEL_WARNING,
+                            field=field_name_snake,
+                            code=(
+                                field.name in self.required_fields
+                                and MessageCodes.REQUIRED_VALUES_MISSING.value
+                            )
+                            or MessageCodes.FIELD_VALIDATION_ERROR.value,
+                            detail=f"Failed to load valid data for field `{field_name_snake}`. Value: `{value}` of type: `{type(value).__name__}`. Allowed: {', '.join([f'`{typ.__name__}`' for typ in field.type.__args__])}.",
+                        )
+                    )
+                continue
+
+            if not isinstance(value, field.type):
+                dossier._meta.errors.append(
+                    FieldValidationMessage(
+                        level=(field.name in self.required_fields and LOG_LEVEL_ERROR)
+                        or LOG_LEVEL_WARNING,
+                        field=field_name_snake,
+                        code=(
+                            field.name in self.required_fields
+                            and MessageCodes.REQUIRED_VALUES_MISSING.value
+                        )
+                        or MessageCodes.FIELD_VALIDATION_ERROR.value,
+                        detail=f"Failed to load valid data for field `{field_name_snake}. Value: `{value}` of type: `{type(value).__name__}`. Allowed: `{field.type.__name__}`.",
+                    )
+                )
+
         return dossier
 
     def load_coordinates(
@@ -210,17 +271,18 @@ class XlsxFileDossierLoader(DossierLoader):
     ) -> Tuple[List[Coordinates], Optional[List[Message]]]:
         out = []
         messages = []
-        ee = dossier_row[XlsxFileDossierLoader.Column.coordinate_e.value]
-        nn = dossier_row[XlsxFileDossierLoader.Column.coordinate_n.value]
-        ee = ee.split(",") if type(ee) == str else [ee]
-        nn = nn.split(",") if type(nn) == str else [nn]
-        for e, n in zip(ee, nn):
+        epoints = dossier_row[XlsxFileDossierLoader.Column.coordinate_e.value]
+        npoints = dossier_row[XlsxFileDossierLoader.Column.coordinate_n.value]
+        epoints = epoints.split(",") if type(epoints) == str else [epoints]
+        npoints = npoints.split(",") if type(npoints) == str else [npoints]
+        for e, n in zip(epoints, npoints):
             try:
                 e, n = transform_coordinates(numbers(e), numbers(n))
-            except ValueError:
+            except ValueError:  # pragma: no cover
                 messages.append(
-                    Message(
-                        code="error-parsing-coordinates",
+                    FieldValidationMessage(
+                        code=MessageCodes.FIELD_VALIDATION_ERROR.value,
+                        field="coordinates",
                         detail=f"Failed to load and transform coordinates from E: {e} and N: {n}",
                     )
                 )
@@ -250,8 +312,9 @@ class XlsxFileDossierLoader(DossierLoader):
                 )
         except ValueError:  # pragma: no cover
             messages.append(
-                Message(
-                    code="error-parsing-plot-data",
+                FieldValidationMessage(
+                    code=MessageCodes.FIELD_VALIDATION_ERROR.value,
+                    field="plot-data",
                     detail=f"Failed to load parcels with numbers {numbers} and egrids {egrids}",
                 )
             )
@@ -277,6 +340,8 @@ class XlsxFileDossierLoader(DossierLoader):
                     )
                 )
             )
+            if dossier.id is None:  # pragma: no cover
+                continue
             dossier = self._load_attachments(dossier, archive)
             yield dossier
 
