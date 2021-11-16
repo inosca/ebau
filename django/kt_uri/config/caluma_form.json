@@ -40,7 +40,7 @@
     "pk": "brandschutz",
     "fields": {
       "created_at": "2021-10-28T16:53:47.213Z",
-      "modified_at": "2021-10-28T17:07:23.404Z",
+      "modified_at": "2021-11-08T19:36:51.003Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -2820,6 +2820,36 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "brandschutz.andere-gebaeude",
+    "fields": {
+      "created_at": "2021-11-08T20:00:32.252Z",
+      "modified_at": "2021-11-08T20:00:32.252Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz",
+      "question": "andere-gebaeude",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz.anfrage-gastwirtschaftspatent",
+    "fields": {
+      "created_at": "2021-11-08T19:56:09.252Z",
+      "modified_at": "2021-11-08T19:56:09.252Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz",
+      "question": "anfrage-gastwirtschaftspatent",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "brandschutz.auswahl-vorhaben-bs",
     "fields": {
       "created_at": "2021-11-04T17:29:39.347Z",
@@ -2830,7 +2860,7 @@
       "modified_by_group": null,
       "form": "brandschutz",
       "question": "auswahl-vorhaben-bs",
-      "sort": 5
+      "sort": 16
     }
   },
   {
@@ -2845,7 +2875,7 @@
       "modified_by_group": null,
       "form": "brandschutz",
       "question": "bemerkungen-brandschutz",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -2860,7 +2890,7 @@
       "modified_by_group": null,
       "form": "brandschutz",
       "question": "brandschutz",
-      "sort": 7
+      "sort": 18
     }
   },
   {
@@ -2875,7 +2905,7 @@
       "modified_by_group": null,
       "form": "brandschutz",
       "question": "brandschutzabstand-eingehalten",
-      "sort": 4
+      "sort": 14
     }
   },
   {
@@ -2890,7 +2920,52 @@
       "modified_by_group": null,
       "form": "brandschutz",
       "question": "brandschutzkonzept-inhalt",
-      "sort": 6
+      "sort": 17
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz.bs-nein",
+    "fields": {
+      "created_at": "2021-11-12T08:26:08.623Z",
+      "modified_at": "2021-11-12T08:26:08.623Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz",
+      "question": "bs-nein",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz.bsn-einreichen",
+    "fields": {
+      "created_at": "2021-11-08T19:39:25.390Z",
+      "modified_at": "2021-11-08T19:39:25.390Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz",
+      "question": "bsn-einreichen",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz.bsn-einreichen-neue-nutzung",
+    "fields": {
+      "created_at": "2021-11-09T10:26:25.376Z",
+      "modified_at": "2021-11-09T10:26:25.376Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz",
+      "question": "bsn-einreichen-neue-nutzung",
+      "sort": 9
     }
   },
   {
@@ -2905,6 +2980,21 @@
       "modified_by_group": null,
       "form": "brandschutz",
       "question": "feuerungsaggregate-vorhanden",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz.installationsanzeige-wta",
+    "fields": {
+      "created_at": "2021-11-09T09:16:27.019Z",
+      "modified_at": "2021-11-09T09:16:27.019Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz",
+      "question": "installationsanzeige-wta",
       "sort": 3
     }
   },
@@ -2920,7 +3010,67 @@
       "modified_by_group": null,
       "form": "brandschutz",
       "question": "links-thema-brandschutz",
-      "sort": 2
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz.neue-nutzung",
+    "fields": {
+      "created_at": "2021-11-09T10:04:17.953Z",
+      "modified_at": "2021-11-09T10:04:17.953Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz",
+      "question": "neue-nutzung",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz.nicht-brandschutzrelevant",
+    "fields": {
+      "created_at": "2021-11-08T19:13:49.884Z",
+      "modified_at": "2021-11-08T19:13:49.884Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz",
+      "question": "nicht-brandschutzrelevant",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz.nicht-brandschutzrelevant-wta",
+    "fields": {
+      "created_at": "2021-11-08T19:45:45.474Z",
+      "modified_at": "2021-11-08T19:45:45.474Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz",
+      "question": "nicht-brandschutzrelevant-wta",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz.nutzungsaenderung",
+    "fields": {
+      "created_at": "2021-11-09T08:43:42.243Z",
+      "modified_at": "2021-11-09T08:43:42.243Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz",
+      "question": "nutzungsaenderung",
+      "sort": 4
     }
   },
   {
@@ -2935,7 +3085,22 @@
       "modified_by_group": null,
       "form": "brandschutz",
       "question": "personen-und-gebaeudeschutz",
-      "sort": 8
+      "sort": 19
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz.prozess-wta",
+    "fields": {
+      "created_at": "2021-11-08T19:36:19.030Z",
+      "modified_at": "2021-11-08T19:36:19.030Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz",
+      "question": "prozess-wta",
+      "sort": 7
     }
   },
   {
@@ -6161,21 +6326,6 @@
       "form": "oereb-verfahren",
       "question": "oereb-titel",
       "sort": 13
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "oereb-verfahren.rechtsstatus",
-    "fields": {
-      "created_at": "2020-11-11T12:09:24.321Z",
-      "modified_at": "2020-11-11T12:09:24.322Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "oereb-verfahren",
-      "question": "rechtsstatus",
-      "sort": 2
     }
   },
   {
@@ -11395,12 +11545,12 @@
     "pk": "auswahl-vorhaben-bs-andere-gebaeude",
     "fields": {
       "created_at": "2021-11-04T17:29:38.901Z",
-      "modified_at": "2021-11-04T17:44:27.578Z",
+      "modified_at": "2021-11-12T08:42:25.879Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"andere Geb\\u00e4ude / Nutzungs\\u00e4nderung\", \"fr\": null}",
+      "label": "{\"de\": \"Andere Geb\\u00e4ude (MFH, Parking, Gewerbe, Industrie, Land- und Forstwirtschaft usw.)\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11411,12 +11561,12 @@
     "pk": "auswahl-vorhaben-bs-anfrage-gsp",
     "fields": {
       "created_at": "2021-11-04T17:29:38.983Z",
-      "modified_at": "2021-11-04T17:44:27.549Z",
+      "modified_at": "2021-11-12T08:42:25.913Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"eine Anfrage betreffend einem Gastwirtschaftspatent\", \"fr\": null}",
+      "label": "{\"de\": \"Anfrage f\\u00fcr ein Gastwirtschaftspatent\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11427,12 +11577,12 @@
     "pk": "auswahl-vorhaben-bs-anzeige-wta",
     "fields": {
       "created_at": "2021-11-04T17:29:39.071Z",
-      "modified_at": "2021-11-04T17:44:27.592Z",
+      "modified_at": "2021-11-12T08:42:25.880Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"eine Installationsanzeige f\\u00fcr w\\u00e4rmetechnische Anlagen (Neuinstallationen, \\u00c4nderungen, Ersatz)\", \"fr\": null}",
+      "label": "{\"de\": \"Installationsanzeige einer w\\u00e4rmetechnischen Anlage (Neuinstallationen, \\u00c4nderungen, Ersatz)\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11443,12 +11593,28 @@
     "pk": "auswahl-vorhaben-bs-efh",
     "fields": {
       "created_at": "2021-11-04T17:29:39.167Z",
-      "modified_at": "2021-11-04T17:44:27.583Z",
+      "modified_at": "2021-11-12T08:42:25.927Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"ein EFH, freistehend oder angebaut (Reihenhaus), allenfalls mit Einliegerwohnung\", \"fr\": null}",
+      "label": "{\"de\": \"EFH, freistehend, allenfalls mit Einliegerwohnung\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "auswahl-vorhaben-bs-efh-angebaut",
+    "fields": {
+      "created_at": "2021-11-12T07:52:38.271Z",
+      "modified_at": "2021-11-12T08:42:25.908Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"EFH angebaut (Reihenhaus, allenfalls mit Einliegerwohnung)\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11459,12 +11625,28 @@
     "pk": "auswahl-vorhaben-bs-nebengebaeude",
     "fields": {
       "created_at": "2021-11-04T17:29:39.214Z",
-      "modified_at": "2021-11-04T17:44:27.584Z",
+      "modified_at": "2021-11-12T08:42:25.894Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"ein Nebengeb\\u00e4ude\", \"fr\": null}",
+      "label": "{\"de\": \"Nebengeb\\u00e4ude (Garage, Gartenhaus, Kleintierstall usw.)\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "auswahl-vorhaben-bs-nutzungsaenderung",
+    "fields": {
+      "created_at": "2021-11-08T19:58:21.530Z",
+      "modified_at": "2021-11-12T08:42:25.870Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nutzungs\\u00e4nderung (z.B. \\u00d6konomie- / Lagerraum zu Wohnraum)\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12051,7 +12233,7 @@
     "pk": "brandschutzabstand-eingehalten-ja",
     "fields": {
       "created_at": "2021-11-04T17:52:31.828Z",
-      "modified_at": "2021-11-04T18:02:01.433Z",
+      "modified_at": "2021-11-12T08:03:17.126Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -12067,7 +12249,7 @@
     "pk": "brandschutzabstand-eingehalten-nein",
     "fields": {
       "created_at": "2021-11-04T17:52:31.827Z",
-      "modified_at": "2021-11-04T18:02:01.433Z",
+      "modified_at": "2021-11-12T08:03:17.129Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -12083,12 +12265,12 @@
     "pk": "brandschutzkonzept-ja",
     "fields": {
       "created_at": "2021-04-08T08:36:43.410Z",
-      "modified_at": "2021-04-27T07:08:40.442Z",
+      "modified_at": "2021-11-12T09:38:17.986Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
-      "label": "{\"de\": \"Brandschutzkonzept\", \"fr\": null}",
+      "label": "{\"de\": \"Brandschutznachweis\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12099,10 +12281,10 @@
     "pk": "brandschutzplan-ja",
     "fields": {
       "created_at": "2021-04-08T08:12:14.917Z",
-      "modified_at": "2021-04-27T07:08:05.895Z",
+      "modified_at": "2021-11-12T09:38:30.388Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "label": "{\"de\": \"Brandschutzplan\", \"fr\": null}",
       "is_archived": false,
@@ -13043,7 +13225,7 @@
     "pk": "feuerungsaggregate-vorhanden-ja",
     "fields": {
       "created_at": "2021-11-04T18:06:12.796Z",
-      "modified_at": "2021-11-04T18:10:13.080Z",
+      "modified_at": "2021-11-12T08:00:22.818Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -13059,7 +13241,7 @@
     "pk": "feuerungsaggregate-vorhanden-nein",
     "fields": {
       "created_at": "2021-11-04T18:06:12.201Z",
-      "modified_at": "2021-11-04T18:10:13.080Z",
+      "modified_at": "2021-11-12T08:00:22.820Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -15011,10 +15193,10 @@
     "pk": "haustechnische-anlagen-erstellt-ja",
     "fields": {
       "created_at": "2021-06-17T11:15:55.205Z",
-      "modified_at": "2021-06-17T13:28:27.772Z",
+      "modified_at": "2021-11-12T07:42:44.153Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null}",
       "is_archived": false,
@@ -15027,10 +15209,10 @@
     "pk": "haustechnische-anlagen-erstellt-nein",
     "fields": {
       "created_at": "2021-06-17T11:15:55.217Z",
-      "modified_at": "2021-06-17T13:28:27.790Z",
+      "modified_at": "2021-11-12T07:42:44.238Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null}",
       "is_archived": false,
@@ -16455,6 +16637,38 @@
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "neue-nutzung-ja",
+    "fields": {
+      "created_at": "2021-11-09T10:04:17.813Z",
+      "modified_at": "2021-11-12T09:25:59.395Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "neue-nutzung-nein",
+    "fields": {
+      "created_at": "2021-11-09T10:04:17.814Z",
+      "modified_at": "2021-11-12T09:25:59.395Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null}",
       "is_archived": false,
@@ -17923,10 +18137,10 @@
     "pk": "schiffsverkehr-ja",
     "fields": {
       "created_at": "2020-11-03T18:21:53.729Z",
-      "modified_at": "2021-05-25T07:20:07.454Z",
+      "modified_at": "2021-11-10T09:35:31.329Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null}",
       "is_archived": false,
@@ -17939,10 +18153,10 @@
     "pk": "schiffsverkehr-nein",
     "fields": {
       "created_at": "2020-11-03T18:21:53.716Z",
-      "modified_at": "2021-05-25T07:20:07.474Z",
+      "modified_at": "2021-11-10T09:35:30.984Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null}",
       "is_archived": false,
@@ -17971,12 +18185,12 @@
     "pk": "schutzraum-antrag",
     "fields": {
       "created_at": "2020-11-05T07:32:48.953Z",
-      "modified_at": "2021-10-28T17:40:29.253Z",
+      "modified_at": "2021-11-12T07:13:52.595Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Es wird ein Antrag auf Befreiung von der Schutzraumbaupflicht gestellt\", \"fr\": null}",
+      "label": "{\"de\": \"Es wird ein Antrag auf Leistung eines Ersatzbeitrages gestellt\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -18019,7 +18233,7 @@
     "pk": "schutzraum-neu",
     "fields": {
       "created_at": "2020-11-05T07:32:48.953Z",
-      "modified_at": "2021-10-28T17:40:29.249Z",
+      "modified_at": "2021-11-12T07:13:52.671Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -22536,6 +22750,66 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "andere-gebaeude",
+    "fields": {
+      "created_at": "2021-11-08T20:00:32.155Z",
+      "modified_at": "2021-11-09T09:02:07.250Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Auswahl andere Geb\\u00e4ude\", \"fr\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\n[\n\"auswahl-vorhaben-bs-anfrage-andere-gebaeude\"\n] intersects \"auswahl-vorhaben-bs\"|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"Gem\\u00e4ss Ihren Angaben handelt es sich beim Vorhaben weder um ein freistehendes oder angebautes EFH (allenfalls mit Einliegerwohnung) noch um ein Nebengeb\\u00e4ude. F\\u00fcr Neu- und Umbauten von Wohnh\\u00e4usern mit mehreren Wohnungen, f\\u00fcr jegliche Art von Gewerbe- und Industriebauten, f\\u00fcr Bauten und Anlagen die f\\u00fcr die Land- und Forstwirtschaft bestimmt sind, ist ein Brandschutznachweis notwendig. Im Zweifelsfall empfehlen wir  Ihnen, das Erfordernis eines Brandschutznachweises mit der zust\\u00e4ndigen Gemeindebaubeh\\u00f6rde zu kl\\u00e4ren.\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "anfrage-gastwirtschaftspatent",
+    "fields": {
+      "created_at": "2021-11-08T19:56:09.191Z",
+      "modified_at": "2021-11-09T12:38:34.898Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anfrage Gastwirtschaftspatent\", \"fr\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\n[\n\"auswahl-vorhaben-bs-anfrage-gsp\"\n] intersects \"auswahl-vorhaben-bs\"|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"**Bitte das Formular \\u201eGesuch um Erteilung eines Gastwirtschaftspatentes\\u201c ausf\\u00fcllen**\\n\\nSie finden den Link zu diesem Formular im Thema Gastgewerbe. Aktivieren Sie dieses Thema gegebenenfalls indem Sie unter \\u201eBAUPROJEKT\\\" bei der Frage Nutzungszwecke, Gastgewerbe ausw\\u00e4hlen.\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "angaben-zu-haustechnischen-anlagen",
     "fields": {
       "created_at": "2021-06-17T11:29:22.870Z",
@@ -24056,14 +24330,14 @@
     "pk": "auswahl-vorhaben-bs",
     "fields": {
       "created_at": "2021-11-04T17:29:39.267Z",
-      "modified_at": "2021-11-04T17:44:27.659Z",
+      "modified_at": "2021-11-12T08:42:26.055Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Beim Vorhaben handelt es sich um:\", \"fr\": null}",
+      "label": "{\"de\": \"Bitte w\\u00e4hlen Sie die Kategorie in welche das Vorhaben gem\\u00e4ss Brandschutzkriterien einzuordnen ist\", \"fr\": null}",
       "type": "choice",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
@@ -26210,10 +26484,10 @@
     "pk": "brandschutz",
     "fields": {
       "created_at": "2020-11-04T18:13:34.748Z",
-      "modified_at": "2020-11-13T12:56:31.407Z",
+      "modified_at": "2021-11-09T09:30:53.333Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Brandschutz Titel\", \"fr\": null}",
       "type": "static",
@@ -26222,7 +26496,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
-      "static_content": "{\"de\": \"---\\n####Brandschutz\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"---\\n####Brandschutz kein \\u201el\\u00e4stiges Muss\\u201c, sondern lebenssch\\u00fctzende Vorkehrungen!\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -26330,18 +26604,18 @@
     "pk": "brandschutzabstand-eingehalten",
     "fields": {
       "created_at": "2021-11-04T17:52:31.888Z",
-      "modified_at": "2021-11-04T18:02:01.513Z",
+      "modified_at": "2021-11-12T08:03:17.220Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Ist der Brandschutzabstand eingehalten?\", \"fr\": null}",
       "type": "choice",
-      "is_required": "false",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!(\n[\n\"auswahl-vorhaben-bs-efh\", \"auswahl-vorhaben-bs-efh-angebaut\", \"auswahl-vorhaben-bs-nebengebaeude\"\n] intersects \"auswahl-vorhaben-bs\"|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": \"**Definition Brandschutzabst\\u00e4nde**\\n\\nDie reduzierten Brandschutzabst\\u00e4nde betragen mindestens:\\n(RF1 = nicht brennbar)\\n\\n- 4 m, wenn die \\u00e4ussere Schicht beider Aussenwandkonstruktionen aus Baustoffen der RF1 besteht\\n- 5 m, wenn die \\u00e4ussere Schicht einer der beiden Aussenwandkonstruktionen aus brennbaren Baustoffen besteht\\n- 6 m, wenn die \\u00e4ussere Schicht beider Aussenwandkonstruktionen aus brennbaren Baustoffen besteht (BSR 15-15 / 2.2)\", \"fr\": null}",
+      "info_text": "{\"de\": \"**Definition Brandschutzabst\\u00e4nde**\\n\\nDie reduzierten Brandschutzabst\\u00e4nde gelten zwischen EFH und Geb\\u00e4uden geringerer H\\u00f6he (<11m) und betragen mindestens:\\n(RF1 = nicht brennbar)\\n\\n- 4 m, wenn die \\u00e4ussere Schicht beider Aussenwandkonstruktionen aus Baustoffen der RF1 besteht\\n- 5 m, wenn die \\u00e4ussere Schicht einer der beiden Aussenwandkonstruktionen aus brennbaren Baustoffen besteht\\n- 6 m, wenn die \\u00e4ussere Schicht beider Aussenwandkonstruktionen aus brennbaren Baustoffen besteht (BSR 15-15 / 2.2)\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -26360,15 +26634,15 @@
     "pk": "brandschutzkonzept",
     "fields": {
       "created_at": "2021-04-08T08:36:43.519Z",
-      "modified_at": "2021-04-27T07:08:40.576Z",
+      "modified_at": "2021-11-12T09:38:18.050Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
-      "label": "{\"de\": \"Brandschutzkonzept\", \"fr\": null}",
+      "label": "{\"de\": \"Brandschutznachweis\", \"fr\": null}",
       "type": "multiple_choice",
       "is_required": "true",
-      "is_hidden": "!([\n 'art-der-hochbaute-einfamilienhaus',\n 'art-der-hochbaute-doppeleinfamilienhaus',\n 'art-der-hochbaute-mehrfamilienhaus',\n 'art-der-hochbaute-geschaftshaus',\n 'art-der-hochbaute-wohn-und-geschaftshaus',\n 'art-der-hochbaute-industrie',\n 'art-der-hochbaute-garage-oder-carport',\n 'art-der-hochbaute-parkhaus',\n 'art-der-hochbaute-bauten-und-anlagen-gastgewerbe',\n 'art-der-hochbaute-heim-mit-unterkunft',\n 'art-der-hochbaute-wohnheim-ohne-pflege',\n 'art-der-hochbaute-spital',\n 'art-der-hochbaute-schulen',\n 'art-der-hochbaute-sporthallen',\n 'art-der-hochbaute-tourismusanlagen',\n 'art-der-hochbaute-kirchen',\n 'art-der-hochbaute-kulturbauten'\n] intersects \n'gebaeude'|answer|mapby('art-der-hochbaute'))",
+      "is_hidden": "!('brandschutzabstand-eingehalten-nein' == 'brandschutzabstand-eingehalten'|answer || 'neue-nutzung-ja' == 'neue-nutzung'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -26392,7 +26666,7 @@
     "pk": "brandschutzkonzept-inhalt",
     "fields": {
       "created_at": "2020-11-05T07:47:30.047Z",
-      "modified_at": "2021-11-04T17:24:35.636Z",
+      "modified_at": "2021-11-12T07:17:59.284Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -26404,7 +26678,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
-      "static_content": "{\"de\": \"Die neue Brandschutzrichtlinie [Qualit\\u00e4tssicherung im Brandschutz 11-15](https://services.vkg.ch/rest/public/georg/bs/publikation/documents/BSPUB-1394520214-2706.pdf/content) regelt im Grundsatz die Erfordernis des Brandschutznachweises, welcher sich im Kanton Uri im Rahmen des Baubewilligungsverfahrens bereits etabliert hat. Eine Vorbesprechung des Brandschutznachweises mit dem kommunalen Brandschutzverantwortlichen der Gemeinde ist insbesondere f\\u00fcr komplexe Bauvorhaben sinnvoll. Eine Vorbesprechung mit der kantonalen Brandschutzbeh\\u00f6rde ist nach R\\u00fccksprache mit der Gemeindebaubeh\\u00f6rde m\\u00f6glich.\\n\\n\\n**Erfordernis Brandschutzpl\\u00e4ne / Brandschutzkonzept**\\n\\nBei Neubauten, bei Um- und Anbauten oder bei Nutzungs\\u00e4nderungen bestehender Bauten muss gepr\\u00fcft werden, ob ein Bandschutznachweis erforderlich ist.\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"Brandschutz ist vielschichtig und findet sich in vielen Bereichen unseres t\\u00e4glichen Lebens wieder. Unter Brandschutz versteht man alle Ma\\u00dfnahmen, die der Entstehung eines Brandes vorbeugen bzw. die Ausbreitung eines Brandes verhindern. Zum vorbeugenden Brandschutz geh\\u00f6ren Ma\\u00dfnahmen, die im Vorfeld getroffen werden, um die Entstehung und Ausbreitung von Br\\u00e4nden zu verhindern. Das k\\u00f6nnen bauliche, anlagentechnische oder organisatorische Vorkehrungen sein \\u2013 denn idealerweise kommt es erst gar nicht zum Brand. Die Realit\\u00e4t sieht leider anders aus \\u2013 und dann kommt der Abwehrende Brandschutz zum Zug. Das bedeutet zun\\u00e4chst das Sicherstellen von Flucht und Rettung, aber auch eine gezielte und schnelle Brandbek\\u00e4mpfung durch Ma\\u00dfnahmen der Feuerwehr und das Minimieren von Brandfolgesch\\u00e4den.\\n\\n\\nDie Brandschutzrichtlinie [Qualit\\u00e4tssicherung im Brandschutz 11-15](https://services.vkg.ch/rest/public/georg/bs/publikation/documents/BSPUB-1394520214-2706.pdf/content) regelt im Grundsatz die Erfordernis des Brandschutznachweises, welcher sich im Kanton Uri im Rahmen des Baubewilligungsverfahrens bereits etabliert hat. Hilfsmittel zum Erstellen des Brandschutznachweises finden Sie unter [www.brandschutznachweis.ch](https://www.brandschutznachweis.ch/de/vorlagen-arbeitshilfen). Eine Vorbesprechung des Brandschutznachweises mit dem kommunalen Brandschutzverantwortlichen der Gemeinde ist insbesondere f\\u00fcr komplexe Bauvorhaben sinnvoll. Eine Vorbesprechung mit der kantonalen Brandschutzbeh\\u00f6rde ist nach R\\u00fccksprache mit der Gemeindebaubeh\\u00f6rde m\\u00f6glich.\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -26422,15 +26696,15 @@
     "pk": "brandschutzplan",
     "fields": {
       "created_at": "2021-04-08T08:12:15.042Z",
-      "modified_at": "2021-04-27T07:08:06.082Z",
+      "modified_at": "2021-11-12T09:38:30.483Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "label": "{\"de\": \"Brandschutzplan\", \"fr\": null}",
       "type": "multiple_choice",
       "is_required": "true",
-      "is_hidden": "!([\n 'art-der-hochbaute-einfamilienhaus',\n 'art-der-hochbaute-doppeleinfamilienhaus',\n 'art-der-hochbaute-mehrfamilienhaus',\n 'art-der-hochbaute-geschaftshaus',\n 'art-der-hochbaute-wohn-und-geschaftshaus',\n 'art-der-hochbaute-industrie',\n 'art-der-hochbaute-garage-oder-carport',\n 'art-der-hochbaute-parkhaus',\n 'art-der-hochbaute-bauten-und-anlagen-gastgewerbe',\n 'art-der-hochbaute-heim-mit-unterkunft',\n 'art-der-hochbaute-wohnheim-ohne-pflege',\n 'art-der-hochbaute-spital',\n 'art-der-hochbaute-schulen',\n 'art-der-hochbaute-sporthallen',\n 'art-der-hochbaute-tourismusanlagen',\n 'art-der-hochbaute-kirchen',\n 'art-der-hochbaute-kulturbauten'\n] intersects \n'gebaeude'|answer|mapby('art-der-hochbaute'))",
+      "is_hidden": "!('brandschutzabstand-eingehalten-nein' == 'brandschutzabstand-eingehalten'|answer || 'neue-nutzung-ja' == 'neue-nutzung'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -26534,6 +26808,96 @@
         "max_length": null,
         "min_length": null
       },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bs-nein",
+    "fields": {
+      "created_at": "2021-11-12T08:26:08.548Z",
+      "modified_at": "2021-11-12T08:27:46.014Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
+      "modified_by_group": null,
+      "label": "{\"de\": \"\", \"fr\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\"auswahl-vorhaben-bs-efh-angebaut\" == \"auswahl-vorhaben-bs\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"**Bei angebauten Einfamilienh\\u00e4usern (Reihenh\\u00e4usern) muss die Frage zum Brandschutzabstand immer mit \\\"Nein\\\" beantwortet werden.**\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bsn-einreichen",
+    "fields": {
+      "created_at": "2021-11-08T19:39:25.332Z",
+      "modified_at": "2021-11-12T08:19:36.695Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Brandschutznachweis einreichen\", \"fr\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\"brandschutzabstand-eingehalten-nein\" == \"brandschutzabstand-eingehalten\"|answer || \"auswahl-vorhaben-bs-andere-gebaeude\" == \"auswahl-vorhaben-bs\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"**Brandschutzrelevante Vorhaben**\\n\\nF\\u00fcr alle brandschutzrelevanten Vorhaben ist ein Brandschutznachweis einzureichen.  Ein Brandschutznachweis besteht grunds\\u00e4tzlich aus dem Nachweis (Textteil) und den Brandschutzpl\\u00e4nen. Eine entsprechende Anleitung ist auf [www.brandschutznachweis.ch]  (https://www.brandschutznachweis.ch/de/vorlagen-arbeitshilfen) zu finden .\\n\\nBei Vorhaben wo lediglich Schutzabst\\u00e4nde betroffen sind, kann allenfalls ein vereinfachter Brandschutznachweis (vermasster Situationsplan mit Darlegung der Massnahmen gem\\u00e4ss BSR 15-15 Ziffer 2.4) eingereicht werden.\", \"fr\": null}",
+      "static_content": "{\"de\": \"Das Vorhaben ist mit grosser Wahrscheinlichkeit brandschutzrelevant. Es ist ein **Brandschutznachweis erforderlich**. Bitte laden Sie die entsprechenden Dokumente (Brandschutznachweis und Brandschutzplan) unter \\\"DOKUMENTE\\\" hoch.\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bsn-einreichen-neue-nutzung",
+    "fields": {
+      "created_at": "2021-11-09T10:26:25.312Z",
+      "modified_at": "2021-11-09T10:27:39.940Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Brandschutznachweis neue Nutzung\", \"fr\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\"neue-nutzung-ja\" == \"neue-nutzung\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"Das Vorhaben ist mit grosser Wahrscheinlichkeit brandschutzrelevant. Es ist ein **Brandschutznachweis erforderlich**. Bitte laden Sie die entsprechenden Dokumente (Brandschutznachweis und Brandschutzplan) unter \\\"DOKUMENTE\\\" hoch.\", \"fr\": \"\"}",
+      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -28413,15 +28777,15 @@
     "pk": "feuerungsaggregate-vorhanden",
     "fields": {
       "created_at": "2021-11-04T18:06:12.841Z",
-      "modified_at": "2021-11-04T18:10:13.142Z",
+      "modified_at": "2021-11-12T08:00:22.896Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Sind Feuerungsaggregate vorhanden oder geplant?\", \"fr\": null}",
       "type": "choice",
-      "is_required": "false",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!(\n[\n\"auswahl-vorhaben-bs-efh\", \"auswahl-vorhaben-bs-efh-angebaut\", \"auswahl-vorhaben-bs-nebengebaeude\", \"auswahl-vorhaben-bs-nutzungsaenderung\", \"auswahl-vorhaben-bs-andere-gebaeude\"\n] intersects \"auswahl-vorhaben-bs\"|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"**Definition Feuerungsaggregate**\\n\\nFeuerungsaggregate sind W\\u00e4rmeerzeugungsaggregate, die mit festen, fl\\u00fcssigen oder gasf\\u00f6rmigen Brennstoffen betrieben werden (BSR 10-15)\", \"fr\": null}",
@@ -29100,10 +29464,10 @@
     "pk": "gastgewerbe-titel",
     "fields": {
       "created_at": "2020-11-17T06:40:40.909Z",
-      "modified_at": "2020-11-26T18:00:17.546Z",
+      "modified_at": "2021-11-10T13:59:57.943Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Gastgewerbe Titel\", \"fr\": null}",
       "type": "static",
@@ -29112,7 +29476,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
-      "static_content": "{\"de\": \"##Gastgewerbe\\n\\nBeim Bau oder bei der Einrichtung eines Gastgewerbebetriebes, auch wenn dies nur im kleinen Umfang geplant ist (z.B. der Betrieb einer Besenbeiz in einer \\u00d6konomiebaute) sind nebst den baurechtlichen Vorschriften insbesondere auch die Bestimmungen betreffend den Umgang mit Lebensmitteln und das Gastwirtschaftsgesetz zu beachten.\\n\\n**Definition Gastgewerbe**\\nWer gegen Entgelt G\\u00e4ste beherbergt, Getr\\u00e4nke ausschenkt oder Speisen zum Genuss vor Ort anbietet, wer gegen Entgelt R\\u00e4ume zur Verf\\u00fcgung stellt, in welchen mitgebrachte Lebensmittel konsumiert werden und, wer ein Dancing, einen Nachtclub oder eine vergleichbare Einrichtung betreibt, erbringt gastgewerbliche Dienstleistungen.\\n\\nF\\u00fcr den Betrieb eines Gastgewerbes ben\\u00f6tigen Sie also, nebst einer Baubewilligung, auch eine Gastgewerbe-Bewilligung oder ein sogenanntes Gastgewerbepatent. Dieses k\\u00f6nnen Sie hier, parallel zu den baurechtlichen Angaben beantragen.\\n\\n[Gesuch um Erteilung eines Gastgewerbepatentes](https://www.ur.ch/online-schalter/2315/download)\\n\\n\\n**Hinweis** \\nPatente und Bewilligungen nach dem Gastwirtschaftsgesetz m\\u00fcssen dem Laboratorium der Urkantone gemeldet werden. Die Meldung \\u00fcbernimmt die Beh\\u00f6rde, welche die Patente bzw. Bewilligungen ausstellt.\\n\\n\\n##Umgang mit Lebensmitteln\\n\\nIm Zusammenhang mit dem Gastgewerbe ist der Umgang mit Lebensmitteln ein wichtiges Thema. Die gesetzlichen Bestimmungen zum Lebensmittelrecht sind aber auch grunds\\u00e4tzlich, ausserhalb des eigentlichen Gastgewerbes zu beachten, z.B. wenn Lebensmittel produziert, verarbeitet, behandelt, gelagert, transportiert oder ausgegeben werden. Auf Bundesebene ist das schweizerische Lebensmittelgesetz massgebend und im Kanton Uri gest\\u00fctzt darauf die kantonale Lebensmittelverordnung. \\n\\nDer Vollzug der Lebensmittelgesetzgebung wird f\\u00fcr alle zentralschweizer Kantone durch das [Laboratorium der Urkantone](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiPlv71kontAhUBd98KHXyEA6EQFjAAegQIBBAE&url=https%3A%2F%2Fwww.laburk.ch%2F&usg=AOvVaw2BN-LwkfILI2fCa_FFv5Pq) wahrgenommen. Dementsprechend sind Bewilligungen f\\u00fcr Neu- und Umbauten von Betrieben, deren T\\u00e4tigkeit dem Lebensmittelrecht unterstehen, dem Laboratorium zu melden. Dies geschieht im Rahmen eines Bauprojekts automatisch.\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"##Gastgewerbe\\n\\nBeim Bau oder bei der Einrichtung eines Gastgewerbebetriebes, auch wenn dies nur im kleinen Umfang geplant ist (z.B. der Betrieb einer Besenbeiz in einer \\u00d6konomiebaute) sind nebst den baurechtlichen Vorschriften insbesondere auch die Bestimmungen betreffend den Umgang mit Lebensmitteln und das Gastwirtschaftsgesetz zu beachten.\\n\\n**Definition Gastgewerbe**\\nWer gegen Entgelt G\\u00e4ste beherbergt, Getr\\u00e4nke ausschenkt oder Speisen zum Genuss vor Ort anbietet, wer gegen Entgelt R\\u00e4ume zur Verf\\u00fcgung stellt, in welchen mitgebrachte Lebensmittel konsumiert werden und, wer ein Dancing, einen Nachtclub oder eine vergleichbare Einrichtung betreibt, erbringt gastgewerbliche Dienstleistungen.\\n\\nF\\u00fcr den Betrieb eines Gastgewerbes ben\\u00f6tigen Sie also, nebst einer Baubewilligung, auch eine Gastgewerbe-Bewilligung oder ein sogenanntes Gastgewerbepatent. Dieses k\\u00f6nnen Sie hier, parallel zu den baurechtlichen Angaben beantragen.\\n\\n[Gesuch um Erteilung eines Gastgewerbepatentes](https://www.ur.ch/online-schalter/2315/download)\\n\\n\\n**Hinweis Lebensmittelgesetz** \\nPatente und Bewilligungen nach dem Gastwirtschaftsgesetz m\\u00fcssen dem Laboratorium der Urkantone gemeldet werden. Die Meldung \\u00fcbernimmt die Beh\\u00f6rde, welche die Patente bzw. Bewilligungen ausstellt.\\n\\n**Hinweis Brandschutz** Nach Artikel 3 FSG sind die Einwohnergemeinden f\\u00fcr den Feuerschutz zust\\u00e4ndig. Die Gemeinde pr\\u00fcft die eingereichten Unterlagen auf Vollst\\u00e4ndigkeit und Bewilligungsf\\u00e4higkeit. Sie kann bei Bedarf zus\\u00e4tzliche Angaben, zum Beispiel einen Brandschutznachweis, nachfordern.\\n\\n##Umgang mit Lebensmitteln\\n\\nIm Zusammenhang mit dem Gastgewerbe ist der Umgang mit Lebensmitteln ein wichtiges Thema. Die gesetzlichen Bestimmungen zum Lebensmittelrecht sind aber auch grunds\\u00e4tzlich, ausserhalb des eigentlichen Gastgewerbes zu beachten, z.B. wenn Lebensmittel produziert, verarbeitet, behandelt, gelagert, transportiert oder ausgegeben werden. Auf Bundesebene ist das schweizerische Lebensmittelgesetz massgebend und im Kanton Uri gest\\u00fctzt darauf die kantonale Lebensmittelverordnung. \\n\\nDer Vollzug der Lebensmittelgesetzgebung wird f\\u00fcr alle zentralschweizer Kantone durch das [Laboratorium der Urkantone](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiPlv71kontAhUBd98KHXyEA6EQFjAAegQIBBAE&url=https%3A%2F%2Fwww.laburk.ch%2F&usg=AOvVaw2BN-LwkfILI2fCa_FFv5Pq) wahrgenommen. Dementsprechend sind Bewilligungen f\\u00fcr Neu- und Umbauten von Betrieben, deren T\\u00e4tigkeit dem Lebensmittelrecht unterstehen, dem Laboratorium zu melden. Dies geschieht im Rahmen eines Bauprojekts automatisch.\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -30149,10 +30513,10 @@
     "pk": "haustechnische-anlagen-erstellt",
     "fields": {
       "created_at": "2021-06-17T11:15:55.335Z",
-      "modified_at": "2021-06-17T13:28:27.922Z",
+      "modified_at": "2021-11-12T07:42:44.302Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Werden haustechnische Anlagen erstellt oder ver\\u00e4ndert?\", \"fr\": null}",
       "type": "choice",
@@ -30160,7 +30524,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "info_text": "{\"de\": \"Werden w\\u00e4rmetechnische Anlagen erst im Laufe des Baufortschritts bestimmt, sind diese mit einer separaten Eingabe via URec \\\"Installationsanzeige f\\u00fcr w\\u00e4rmetechnische Anlagen\\\"\\\" der zust\\u00e4ndigen kommunalen Brandschutzbeh\\u00f6rde zu melden.\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -31197,6 +31561,36 @@
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"---\\n\\n#### Innerbetriebliche Emissionen\\n\\n**L\\u00e4rm und Ersch\\u00fctterungen:** Geb\\u00e4ude und Geb\\u00e4udeteile m\\u00fcssen so gestaltet sein, dass die Sicherheit und die Gesundheit der Arbeitnehmer nicht durch L\\u00e4rm oder Vibrationen gef\\u00e4hrdet werden. Arbeitsmittel m\\u00fcssen so gestaltet sein, dass die Sicherheit und die Gesundheit der Arbeitnehmer nicht durch L\\u00e4rm oder Vibrationen gef\\u00e4hrdet werden. Arbeitsabl\\u00e4ufe und Produktionsverfahren m\\u00fcssen so gestaltet und durchgef\\u00fchrt werden, dass die Sicherheit und die Gesundheit der Arbeitnehmer nicht durch L\\u00e4rm oder Vibrationen gef\\u00e4hrdet werden. Zum Schutz der Arbeitnehmer sind insbesondere folgende Vorkehrungen zu treffen: \\n\\n- a. bauliche Massnahmen; \\n- b. Massnahmen an Betriebseinrichtungen; \\n- c. Isolation oder \\u00f6rtliche Abtrennung der L\\u00e4rmquelle; \\n- d. Massnahmen der Arbeitsorganisation.\\n\\n**Raumakustischer Nachweis:** F\\u00fcr s\\u00e4mtliche Arbeitsr\\u00e4ume mit Arbeitspl\\u00e4tzen sowie f\\u00fcr Ess- und Aufenthaltsr\\u00e4ume ist die Mindestanforderung an die Raumakustik zu erf\\u00fcllen. Dabei muss die Bedingung einer der drei folgenden Richtwertvarianten erf\\u00fcllt sein:\\n\\n- Schallabsorptionskoeffizient \\u03b1s > 0,25\\n- Nachhallzeit T in Funktion des Raumvolumens nach Tabelle 322-3 der SECO-Wegleitung zu Art. 22 ArGV3, SR 822.113\\n- Schalldruckpegelabnahme pro Distanzverdoppelung DL 2 \\u2265 4 dB Weitere Infos siehe [suva.ch/laerm](https://www.suva.ch/laerm).\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "installationsanzeige-wta",
+    "fields": {
+      "created_at": "2021-11-09T09:16:26.958Z",
+      "modified_at": "2021-11-12T08:14:16.934Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Installationsanzeige WTA\", \"fr\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\n[\n\"auswahl-vorhaben-bs-anzeige-wta\"\n] intersects \"auswahl-vorhaben-bs\"|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"Die Neuinstallation oder die \\u00c4nderung bzw- der Ersatz von w\\u00e4rmetechnischen Anlagen muss brandschutztechnisch gepr\\u00fcft werden. Bitte erfassen Sie die Anlagen im Thema \\\"BAUPROJEKT\\\" \\\"HOCHBAU\\\" (es k\\u00f6nnen mehrere Datens\\u00e4tze erfasst werden: zum Beispiel ein Datensatz f\\u00fcr die alte Anlage die abgebrochen wird und ein zweiter Datensatz f\\u00fcr die neue Anlage).\\n\\n**Wichtiger Hinweis** Die Konformit\\u00e4tserkl\\u00e4rungen f\\u00fcr w\\u00e4rmetechnische Anlagen sowie f\\u00fcr Abgasanlagen sind im Sinne der Qualit\\u00e4tssicherung der Gemeindebaubeh\\u00f6rde nach der Installation zur Ablage zuzustellen.\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -32661,7 +33055,7 @@
     "pk": "links-thema-brandschutz",
     "fields": {
       "created_at": "2021-11-04T17:23:22.329Z",
-      "modified_at": "2021-11-04T17:23:51.331Z",
+      "modified_at": "2021-11-12T07:35:45.059Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -32673,7 +33067,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
-      "static_content": "{\"de\": \"Nachfolgende Links f\\u00fchren Sie Themenbezogen direkt zur Internetseite der Vereinigung Kantonaler Feuerversicherungen VKF:\\n\\n- [Brandschutzrichtlinie Qualit\\u00e4tssicherung im Brandschutz](https://services.vkg.ch/rest/public/georg/bs/publikation/documents/BSPUB-1394520214-2706.pdf/content)\\n\\n- [Brandschutzmerkblatt](https://services.vkg.ch/rest/public/georg/bs/publikation/documents/BSPUB-1394520214-203.pdf/content)\\n\\n- [Musterpl\\u00e4ne](https://services.vkg.ch/rest/public/georg/bs/publikation/documents/BSPUB-1394520214-207.zip/content)\\n\\nNachfolgende Links f\\u00fchren Sie Themenbezogen direkt zur gemeinsamen Internetseite der Zentralschweizer Brandschutzfachstellen:\\n\\n- [Anleitung und Muster Brandschutznachweis](https://www.brandschutznachweis.ch/de/vorlagen-arbeitshilfen/brandschutznachweise)\\n\\n- [Symbole f\\u00fcr Brandschutzpl\\u00e4ne](https://www.brandschutznachweis.ch/de/vorlagen-arbeitshilfen/symbole-fuer-brandschutzplaene)\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"---\\n####Nachfolgende Links f\\u00fchren Sie Themenbezogen direkt zur Internetseite der Vereinigung Kantonaler Feuerversicherungen VKF:\\n\\n- [Brandschutzrichtlinie Qualit\\u00e4tssicherung im Brandschutz](https://services.vkg.ch/rest/public/georg/bs/publikation/documents/BSPUB-1394520214-2706.pdf/content)\\n\\n- [Brandschutzvorschriften 2015](https://www.bsvonline.ch/de/vorschriften/)\\n\\n\\nNachfolgende Links f\\u00fchren Sie Themenbezogen direkt zur gemeinsamen Internetseite der Zentralschweizer Brandschutzfachstellen:\\n\\n- [Anleitung und Muster Brandschutznachweis](https://www.brandschutznachweis.ch/de/vorlagen-arbeitshilfen/brandschutznachweise)\\n\\n- [Symbole f\\u00fcr Brandschutzpl\\u00e4ne](https://www.brandschutznachweis.ch/de/vorlagen-arbeitshilfen/symbole-fuer-brandschutzplaene)\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -33584,6 +33978,36 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "neue-nutzung",
+    "fields": {
+      "created_at": "2021-11-09T10:04:17.880Z",
+      "modified_at": "2021-11-12T09:25:59.464Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Werden bestehende Bauten und Anlagen durch die Nutzungs\\u00e4nderung neu f\\u00fcr den Aufenthalt von Personen (Wohnen / Arbeiten) oder f\\u00fcr die Unterbringung von Tieren genutzt?\", \"fr\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "!(\n[\n\"auswahl-vorhaben-bs-nutzungsaenderung\"\n] intersects \"auswahl-vorhaben-bs\"|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "neuer-pflichtschutzraum",
     "fields": {
       "created_at": "2020-09-21T08:54:03.893Z",
@@ -33600,6 +34024,66 @@
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"Zus\\u00e4tzliche Information\\n\\nF\\u00fcr die Berechnung der Anzahl Schutzpl\\u00e4tze gelten folgende Werte:\\nF\\u00fcr Bauten mit Wohnungen - pro drei Zimmer zwei Schutzpl\\u00e4tze.\\nF\\u00fcr Spit\\u00e4ler und Heime mit Unterkunft und Pflegedienste, je ein Schutzplatz pro Patientenbett. \\nF\\u00fcr detaillierte Angaben betreffend die Dimensionierung neuer Schutzr\\u00e4ume (Bodenfl\\u00e4che, Raumh\\u00f6he, Raumvolumen) wenden Sie sich bitte direkt an das Amt f\\u00fcr Bev\\u00f6lkerungsschutz und Milit\\u00e4r.\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "nicht-brandschutzrelevant",
+    "fields": {
+      "created_at": "2021-11-08T19:13:49.824Z",
+      "modified_at": "2021-11-10T13:51:50.378Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nicht Brandschutzrelevant\", \"fr\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\"brandschutzabstand-eingehalten-ja\" == \"brandschutzabstand-eingehalten\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"Das Vorhaben ist, vorausgesetzt dass auch keine Feuerungsaggregate vorhanden oder geplant sind (siehe Frage unten), mit grosser Wahrscheinlichkeit nicht brandschutzrelevant. Es ist **kein Brandschutznachweis erforderlich**. Die zust\\u00e4ndige Baubeh\\u00f6rde beh\\u00e4lt sich vor zus\\u00e4tzliche Angaben einzufordern.\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "nicht-brandschutzrelevant-wta",
+    "fields": {
+      "created_at": "2021-11-08T19:45:45.409Z",
+      "modified_at": "2021-11-12T08:53:51.637Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"nicht-brandschutzrelevant-wta\", \"fr\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\n[\n\"neue-nutzung-nein\"\n] intersects \"neue-nutzung\"|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"Die Umnutzung von Bauten und Anlagen ist mit grosser Wahrscheinlichkeit brandschutzrelevant. Es ist **ein Brandschutznachweis erforderlich**. Bitte laden Sie die entsprechenden Dokumente (Brandschutznachweis und Brandschutzplan) unter \\\"DOKUMENTE\\\" hoch.\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -33756,6 +34240,36 @@
         "max_length": null,
         "min_length": null
       },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "nutzungsaenderung",
+    "fields": {
+      "created_at": "2021-11-09T08:43:42.180Z",
+      "modified_at": "2021-11-09T09:02:35.293Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nutzungs\\u00e4nderung\", \"fr\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\n[\n\"auswahl-vorhaben-bs-anfrage-nutzungsaenderung\"\n] intersects \"auswahl-vorhaben-bs\"|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"Gem\\u00e4ss Ihren Angaben handelt es sich beim Vorhaben um eine Nutzungs\\u00e4nderung einer bestehenden Baute (z.B. den Umbau einer Wohnung in ein Restaurant, die Umnutzung eines Lagerraumes in Wohnraum, der Einbau einer Werkstatt in ein \\u00d6konomiegeb\\u00e4ude usw.). Dazu ist ein Brandschutznachweis notwendig. Im Zweifelsfall empfehlen wir Ihnen, das Erfordernis eines Brandschutznachweises mit der zust\\u00e4ndigen Gemeindebaubeh\\u00f6rde zu kl\\u00e4ren.\", \"fr\": \"\"}",
+      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -35033,6 +35547,36 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "prozess-wta",
+    "fields": {
+      "created_at": "2021-11-08T19:36:18.976Z",
+      "modified_at": "2021-11-12T07:32:17.793Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Prozess WTA\", \"fr\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\"feuerungsaggregate-vorhanden-ja\" == \"feuerungsaggregate-vorhanden\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"Die Neuinstallation oder die \\u00c4nderung bzw- der Ersatz von w\\u00e4rmetechnischen Anlagen muss brandschutztechnisch gepr\\u00fcft werden. Bitte erfassen Sie die Anlagen im Thema \\\"BAUPROJEKT\\\" \\\"HOCHBAU\\\" (es k\\u00f6nnen mehrere Datens\\u00e4tze erfasst werden: zum Beispiel ein Datensatz f\\u00fcr die alte Anlage die abgebrochen wird und ein zweiter Datensatz f\\u00fcr die neue Anlage).\\n\\n**Wichtiger Hinweis** Die Konformit\\u00e4tserkl\\u00e4rungen f\\u00fcr w\\u00e4rmetechnische Anlagen sowie f\\u00fcr Abgasanlagen sind im Sinne der Qualit\\u00e4tssicherung der Gemeindebaubeh\\u00f6rde nach der Installation zur Ablage zuzustellen.\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "pruefung-der-plangenehmigungspflicht",
     "fields": {
       "created_at": "2020-11-01T19:25:35.072Z",
@@ -36080,10 +36624,10 @@
     "pk": "schiffsverkehr",
     "fields": {
       "created_at": "2020-11-03T18:21:53.822Z",
-      "modified_at": "2021-05-25T07:20:07.658Z",
+      "modified_at": "2021-11-10T09:35:31.506Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "label": "{\"de\": \"Ist der Schiffsverkehr auf Urner Gew\\u00e4ssern betroffen?\", \"fr\": null}",
       "type": "choice",
@@ -36208,18 +36752,18 @@
     "pk": "schutzraum",
     "fields": {
       "created_at": "2020-11-05T07:32:49.038Z",
-      "modified_at": "2021-10-28T17:40:29.426Z",
+      "modified_at": "2021-11-12T07:13:53.380Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Wird ein neuer Schutzraum gebaut oder ein Antrag um Befreiung von der Schutzraumbaupflicht gestellt?\", \"fr\": null}",
+      "label": "{\"de\": \"Wird ein neuer Schutzraum gebaut oder ein Antrag auf Leistung eines Ersatzbeitrages gestellt?\", \"fr\": null}",
       "type": "choice",
       "is_required": "true",
       "is_hidden": "!(\"schutzraumrelevante-massnahmen-ja\" == \"schutzraumrelevante-massnahmen\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": \"Bitte beachten Sie, dass die zust\\u00e4ndige Beh\\u00f6rde (Amt f\\u00fcr Bev\\u00f6lkerungsschutz und Milit\\u00e4r) entscheidet, ob einem Antrag auf Befreiung von der Schutzraumbaupflicht stattgegeben werden kann.\", \"fr\": null}",
+      "info_text": "{\"de\": \"Bitte beachten Sie, dass die zust\\u00e4ndige Beh\\u00f6rde (Amt f\\u00fcr Bev\\u00f6lkerungsschutz und Milit\\u00e4r) entscheidet, ob einem Antrag auf Leistung eines Ersatzbeitrages zur Erf\\u00fcllung der Schutzraumbaupflicht stattgegeben werden kann, oder ob ein Schutzraum erstellt werden muss.\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -36298,10 +36842,10 @@
     "pk": "schutzraum-vorhanden",
     "fields": {
       "created_at": "2020-11-05T07:35:08.217Z",
-      "modified_at": "2021-10-29T09:46:23.742Z",
+      "modified_at": "2021-11-12T07:11:35.525Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Schutzraum  vorhanden?\", \"fr\": null}",
       "type": "static",
@@ -36310,7 +36854,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
-      "static_content": "{\"de\": \"Im Thema Lokalisierung wird angezeigt, ob sich auf der ausgew\\u00e4hlten Parzelle und / oder den benachbarten Parzellen ein Schutzraum befindet (falls die Anzeige via Schnittstelle nicht vollst\\u00e4ndig ist k\\u00f6nnen Sie die Abfrage auch direkt auf [www.geo.ur.ch](https://www.geo.ur.ch/?center=962589%2C5922132&zoom=12) machen. Dazu im Menu \\\"Geodatenkatalog die entsprechenden Layer, \\\"Liegenschaften\\\" und \\\"Schutzbautenkataster\\\" ausw\\u00e4hlen.\\n\\nWenn ein Schutzraum in irgend einer Art baulich betroffen ist, zum Beispiel infolge eines Teilabbruchs eines Geb\\u00e4udes oder durch Freilegung (Abgrabung) eines Teils der Schutzraumh\\u00fclle usw., m\\u00fcssen Sie die folgende Frage mit ja beantworten. Aus den Planunterlagen m\\u00fcssen die baulichen Massnahmen die einen Schutzraum betreffen, ersichtlich sein. Weitere Informationen k\\u00f6nnen Sie dem Fact-Sheet [\\\"Private Schutzr\\u00e4ume\\\"](/assets/downloads/Fact_Sheet_fuer_private_Schutzraeume.pdf) entnehmen.\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"Im Thema Lokalisierung wird angezeigt, ob sich auf der ausgew\\u00e4hlten Parzelle und / oder den benachbarten Parzellen ein Schutzraum befindet (falls die Anzeige via Schnittstelle nicht vollst\\u00e4ndig ist k\\u00f6nnen Sie die Abfrage auch direkt auf [www.geo.ur.ch](https://www.geo.ur.ch/?center=962589%2C5922132&zoom=12) machen. Dazu im Menu \\\"Geodatenkatalog die entsprechenden Layer, \\\"Liegenschaften\\\" und \\\"Schutzbautenkataster\\\" ausw\\u00e4hlen.\\n\\nWenn ein Schutzraum in irgendeiner Art baulich betroffen ist, zum Beispiel infolge eines Teilabbruchs eines Geb\\u00e4udes oder durch Freilegung (Abgrabung) eines Teils der Schutzraumh\\u00fclle usw., m\\u00fcssen Sie die folgende Frage mit ja beantworten. Aus den Planunterlagen m\\u00fcssen die baulichen Massnahmen die einen Schutzraum betreffen, ersichtlich sein. Weitere Informationen k\\u00f6nnen Sie dem Fact-Sheet [\\\"Private Schutzr\\u00e4ume\\\"](/assets/downloads/Fact_Sheet_fuer_private_Schutzraeume.pdf) entnehmen.\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -41995,75 +42539,105 @@
     "model": "caluma_form.questionoption",
     "pk": "auswahl-vorhaben-bs.auswahl-vorhaben-bs-andere-gebaeude",
     "fields": {
-      "created_at": "2021-11-04T17:44:27.664Z",
-      "modified_at": "2021-11-04T17:44:27.664Z",
+      "created_at": "2021-11-12T08:42:26.064Z",
+      "modified_at": "2021-11-12T08:42:26.064Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "auswahl-vorhaben-bs",
       "option": "auswahl-vorhaben-bs-andere-gebaeude",
-      "sort": 1
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "auswahl-vorhaben-bs.auswahl-vorhaben-bs-anfrage-gsp",
     "fields": {
-      "created_at": "2021-11-04T17:44:27.668Z",
-      "modified_at": "2021-11-04T17:44:27.668Z",
+      "created_at": "2021-11-12T08:42:26.068Z",
+      "modified_at": "2021-11-12T08:42:26.068Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "auswahl-vorhaben-bs",
       "option": "auswahl-vorhaben-bs-anfrage-gsp",
-      "sort": 3
+      "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "auswahl-vorhaben-bs.auswahl-vorhaben-bs-anzeige-wta",
     "fields": {
-      "created_at": "2021-11-04T17:44:27.666Z",
-      "modified_at": "2021-11-04T17:44:27.666Z",
+      "created_at": "2021-11-12T08:42:26.066Z",
+      "modified_at": "2021-11-12T08:42:26.066Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "auswahl-vorhaben-bs",
       "option": "auswahl-vorhaben-bs-anzeige-wta",
-      "sort": 2
+      "sort": 1
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "auswahl-vorhaben-bs.auswahl-vorhaben-bs-efh",
     "fields": {
-      "created_at": "2021-11-04T17:44:27.672Z",
-      "modified_at": "2021-11-04T17:44:27.672Z",
+      "created_at": "2021-11-12T08:42:26.072Z",
+      "modified_at": "2021-11-12T08:42:26.072Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "auswahl-vorhaben-bs",
       "option": "auswahl-vorhaben-bs-efh",
-      "sort": 5
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "auswahl-vorhaben-bs.auswahl-vorhaben-bs-efh-angebaut",
+    "fields": {
+      "created_at": "2021-11-12T08:42:26.060Z",
+      "modified_at": "2021-11-12T08:42:26.060Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "auswahl-vorhaben-bs",
+      "option": "auswahl-vorhaben-bs-efh-angebaut",
+      "sort": 6
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "auswahl-vorhaben-bs.auswahl-vorhaben-bs-nebengebaeude",
     "fields": {
-      "created_at": "2021-11-04T17:44:27.670Z",
-      "modified_at": "2021-11-04T17:44:27.670Z",
+      "created_at": "2021-11-12T08:42:26.070Z",
+      "modified_at": "2021-11-12T08:42:26.070Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "auswahl-vorhaben-bs",
       "option": "auswahl-vorhaben-bs-nebengebaeude",
-      "sort": 4
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "auswahl-vorhaben-bs.auswahl-vorhaben-bs-nutzungsaenderung",
+    "fields": {
+      "created_at": "2021-11-12T08:42:26.062Z",
+      "modified_at": "2021-11-12T08:42:26.062Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "auswahl-vorhaben-bs",
+      "option": "auswahl-vorhaben-bs-nutzungsaenderung",
+      "sort": 3
     }
   },
   {
@@ -42610,8 +43184,8 @@
     "model": "caluma_form.questionoption",
     "pk": "brandschutzabstand-eingehalten.brandschutzabstand-eingehalten-ja",
     "fields": {
-      "created_at": "2021-11-04T18:02:01.519Z",
-      "modified_at": "2021-11-04T18:02:01.519Z",
+      "created_at": "2021-11-12T08:03:17.227Z",
+      "modified_at": "2021-11-12T08:03:17.227Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -42625,8 +43199,8 @@
     "model": "caluma_form.questionoption",
     "pk": "brandschutzabstand-eingehalten.brandschutzabstand-eingehalten-nein",
     "fields": {
-      "created_at": "2021-11-04T18:02:01.517Z",
-      "modified_at": "2021-11-04T18:02:01.517Z",
+      "created_at": "2021-11-12T08:03:17.225Z",
+      "modified_at": "2021-11-12T08:03:17.225Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -42640,11 +43214,11 @@
     "model": "caluma_form.questionoption",
     "pk": "brandschutzkonzept.brandschutzkonzept-ja",
     "fields": {
-      "created_at": "2021-04-27T07:08:40.587Z",
-      "modified_at": "2021-04-27T07:08:40.587Z",
-      "created_by_user": "admin",
+      "created_at": "2021-11-12T09:38:18.054Z",
+      "modified_at": "2021-11-12T09:38:18.054Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "brandschutzkonzept",
       "option": "brandschutzkonzept-ja",
@@ -42655,11 +43229,11 @@
     "model": "caluma_form.questionoption",
     "pk": "brandschutzplan.brandschutzplan-ja",
     "fields": {
-      "created_at": "2021-04-27T07:08:06.091Z",
-      "modified_at": "2021-04-27T07:08:06.091Z",
-      "created_by_user": "admin",
+      "created_at": "2021-11-12T09:38:30.488Z",
+      "modified_at": "2021-11-12T09:38:30.488Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "brandschutzplan",
       "option": "brandschutzplan-ja",
@@ -43510,8 +44084,8 @@
     "model": "caluma_form.questionoption",
     "pk": "feuerungsaggregate-vorhanden.feuerungsaggregate-vorhanden-ja",
     "fields": {
-      "created_at": "2021-11-04T18:10:13.149Z",
-      "modified_at": "2021-11-04T18:10:13.149Z",
+      "created_at": "2021-11-12T08:00:22.902Z",
+      "modified_at": "2021-11-12T08:00:22.902Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -43525,8 +44099,8 @@
     "model": "caluma_form.questionoption",
     "pk": "feuerungsaggregate-vorhanden.feuerungsaggregate-vorhanden-nein",
     "fields": {
-      "created_at": "2021-11-04T18:10:13.146Z",
-      "modified_at": "2021-11-04T18:10:13.146Z",
+      "created_at": "2021-11-12T08:00:22.900Z",
+      "modified_at": "2021-11-12T08:00:22.900Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -45355,11 +45929,11 @@
     "model": "caluma_form.questionoption",
     "pk": "haustechnische-anlagen-erstellt.haustechnische-anlagen-erstellt-ja",
     "fields": {
-      "created_at": "2021-06-17T13:28:27.936Z",
-      "modified_at": "2021-06-17T13:28:27.937Z",
-      "created_by_user": "admin",
+      "created_at": "2021-11-12T07:42:44.309Z",
+      "modified_at": "2021-11-12T07:42:44.309Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "haustechnische-anlagen-erstellt",
       "option": "haustechnische-anlagen-erstellt-ja",
@@ -45370,11 +45944,11 @@
     "model": "caluma_form.questionoption",
     "pk": "haustechnische-anlagen-erstellt.haustechnische-anlagen-erstellt-nein",
     "fields": {
-      "created_at": "2021-06-17T13:28:27.932Z",
-      "modified_at": "2021-06-17T13:28:27.932Z",
-      "created_by_user": "admin",
+      "created_at": "2021-11-12T07:42:44.307Z",
+      "modified_at": "2021-11-12T07:42:44.307Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "haustechnische-anlagen-erstellt",
       "option": "haustechnische-anlagen-erstellt-nein",
@@ -46638,6 +47212,36 @@
       "modified_by_group": null,
       "question": "neben-kulturobjekt",
       "option": "neben-kulturobjekt-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "neue-nutzung.neue-nutzung-ja",
+    "fields": {
+      "created_at": "2021-11-12T09:25:59.471Z",
+      "modified_at": "2021-11-12T09:25:59.471Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "neue-nutzung",
+      "option": "neue-nutzung-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "neue-nutzung.neue-nutzung-nein",
+    "fields": {
+      "created_at": "2021-11-12T09:25:59.468Z",
+      "modified_at": "2021-11-12T09:25:59.468Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "neue-nutzung",
+      "option": "neue-nutzung-nein",
       "sort": 1
     }
   },
@@ -47965,11 +48569,11 @@
     "model": "caluma_form.questionoption",
     "pk": "schiffsverkehr.schiffsverkehr-ja",
     "fields": {
-      "created_at": "2021-05-25T07:20:07.675Z",
-      "modified_at": "2021-05-25T07:20:07.675Z",
-      "created_by_user": "admin",
+      "created_at": "2021-11-10T09:35:31.514Z",
+      "modified_at": "2021-11-10T09:35:31.514Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "schiffsverkehr",
       "option": "schiffsverkehr-ja",
@@ -47980,11 +48584,11 @@
     "model": "caluma_form.questionoption",
     "pk": "schiffsverkehr.schiffsverkehr-nein",
     "fields": {
-      "created_at": "2021-05-25T07:20:07.666Z",
-      "modified_at": "2021-05-25T07:20:07.666Z",
-      "created_by_user": "admin",
+      "created_at": "2021-11-10T09:35:31.512Z",
+      "modified_at": "2021-11-10T09:35:31.512Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "schiffsverkehr",
       "option": "schiffsverkehr-nein",
@@ -48070,8 +48674,8 @@
     "model": "caluma_form.questionoption",
     "pk": "schutzraum.schutzraum-antrag",
     "fields": {
-      "created_at": "2021-10-28T17:40:29.430Z",
-      "modified_at": "2021-10-28T17:40:29.430Z",
+      "created_at": "2021-11-12T07:13:53.388Z",
+      "modified_at": "2021-11-12T07:13:53.388Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -48085,8 +48689,8 @@
     "model": "caluma_form.questionoption",
     "pk": "schutzraum.schutzraum-neu",
     "fields": {
-      "created_at": "2021-10-28T17:40:29.433Z",
-      "modified_at": "2021-10-28T17:40:29.433Z",
+      "created_at": "2021-11-12T07:13:53.390Z",
+      "modified_at": "2021-11-12T07:13:53.390Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
