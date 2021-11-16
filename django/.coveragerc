@@ -59,6 +59,7 @@ omit=
     camac/core/management/commands/migrate_stockwerk_uri.py
     camac/core/management/commands/migrate_oereb_forms.py
     camac/core/management/commands/migrate_archive_instance_work_items.py
+    camac/core/management/commands/migrate_workflow_items_sz.py
     # Audit migration
     camac/core/management/commands/config/
     camac/core/management/commands/migrate_audit.py
