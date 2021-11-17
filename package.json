@@ -7,6 +7,8 @@
   ],
   "resolutions": {
     "ember-concurrency": "1.3.0",
-    "ember-element-helper": "0.5.5"
+    "ember-element-helper": "0.5.5",
+    "@projectcaluma/ember-core": "9.2.0",
+    "@apollo/client": "3.4.16"
   }
 }
