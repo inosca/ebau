@@ -6330,21 +6330,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "oereb-verfahren.teilstatus",
-    "fields": {
-      "created_at": "2021-11-05T09:33:00.408Z",
-      "modified_at": "2021-11-05T09:33:00.408Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "oereb-verfahren",
-      "question": "teilstatus",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "oereb-verfahren.typ-des-verfahrens",
     "fields": {
       "created_at": "2020-11-11T08:43:40.573Z",
@@ -22513,7 +22498,7 @@
     "pk": "allgemeine-informationen-oereb-verfahren",
     "fields": {
       "created_at": "2020-12-15T10:19:20.350Z",
-      "modified_at": "2021-05-03T10:07:50.428Z",
+      "modified_at": "2021-11-17T12:05:41.305Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -22525,7 +22510,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
-      "static_content": "{\"de\": \"##Willkommen bei URec.\\n\\nWir danken Ihnen, dass Sie diese Dienstleistung nutzen.\\n\\n**Hinweis** \\nAlle internen Verfahren, dazu geh\\u00f6ren auch die Nutzungsplanverfahren, werden k\\u00fcnftig, analog wie das zum Beispiel beim Baubewilligungsverfahren gemacht wird, mit dem benutzergef\\u00fchrten Formular erfasst. Die Themen \\\"Personalien\\\" und \\\"Lokalisierung\\\" sind dabei bei allen Verfahren identisch.\\n\\n**Auswahl des Verfahrens**\\nZur Vereinfachung der Datenstruktur werden alle Nutzungsplanverfahren im Verfahrenstyp \\\"\\u00d6REB-Verfahren\\\" zusammengef\\u00fchrt. Bis auf weiteres k\\u00f6nnen Sie, wenn Sie ein neues Dossier erstellen m\\u00f6chten,  wie gewohnt im CAMAC Menu \\\"Neues Dossier erstellen\\\" das Verfahren ausw\\u00e4hlen. Im Formular wird das dazugeh\\u00f6rige Thema \\\"\\u00d6REB\\\" angezeigt. In einem zweiten Schritt k\\u00f6nnen Sie dann die definitive Auswahl des Verfahrens t\\u00e4tigen (im Endausbau von URec wird die erste Auswahl wegfallen).\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"##Willkommen bei URec.\\n\\nWir danken Ihnen, dass Sie diese Dienstleistung nutzen.\\n\\n**Hinweis** \\nAlle Nutzungsplanverfahren werden ab sofort mit dem benutzergef\\u00fchrten Formular \\\"\\u00d6REB Verfahren\\\" erfasst.\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
