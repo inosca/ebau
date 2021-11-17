@@ -197,6 +197,7 @@ class KtSchwyzDossierWriter(DossierWriter):
         workflow_message = self._set_workflow_state(
             instance, dossier._meta.target_state
         )
+        instance.history.all().delete()
         message.level = workflow_message.level
         message.message["workflow_state"] = (
             workflow_message.to_dict() if workflow_message.message else None
@@ -303,7 +304,7 @@ class KtSchwyzDossierWriter(DossierWriter):
 
         path_to_state = {"SUBMITTED": SUBMITTED, "APPROVED": APPROVED, "DONE": DONE}
 
-        default_context = {"no-notification": True}
+        default_context = {"no-notification": True, "no-history": True}
 
         camac_user = self._user
 
