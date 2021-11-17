@@ -1868,22 +1868,22 @@ class PublicCalumaInstanceSerializer(serializers.Serializer):  # pragma: no cove
         )
 
     def get_oereb_topic(self, case):
-        if settings.APPLICATION_NAME == "kt_uri":
+        if settings.APPLICATION.get("USE_OEREB_FIELDS_FOR_PUBLIC_ENDPOINT"):
             return self.get_master_data(case).oereb_topic
         return ""
 
     def get_legal_state(self, case):
-        if settings.APPLICATION_NAME == "kt_uri":
+        if settings.APPLICATION.get("USE_OEREB_FIELDS_FOR_PUBLIC_ENDPOINT"):
             return self.get_master_data(case).legal_state
         return ""
 
     def get_instance_state(self, case):
-        if settings.APPLICATION_NAME == "kt_uri":
+        if settings.APPLICATION.get("USE_OEREB_FIELDS_FOR_PUBLIC_ENDPOINT"):
             return case.instance.instance_state.name
         return ""
 
     def get_form_type(self, case):
-        if settings.APPLICATION_NAME == "kt_uri":
+        if settings.APPLICATION.get("USE_OEREB_FIELDS_FOR_PUBLIC_ENDPOINT"):
             return self.get_master_data(case).form_type
         return ""
 
