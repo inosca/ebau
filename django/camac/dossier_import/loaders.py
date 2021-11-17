@@ -133,8 +133,12 @@ class XlsxFileDossierLoader(DossierLoader):
             plot_data=self.load_plot_data(dossier_row),
             coordinates=self.load_coordinates(dossier_row),
             address_location=safe_join(
-                dossier_row.get(XlsxFileDossierLoader.Column.address_street.value),
-                dossier_row.get(XlsxFileDossierLoader.Column.address_street_nr.value),
+                [
+                    dossier_row.get(XlsxFileDossierLoader.Column.address_street.value),
+                    dossier_row.get(
+                        XlsxFileDossierLoader.Column.address_street_nr.value
+                    ),
+                ],
             ),
             applicant=[
                 Person(
