@@ -33,7 +33,7 @@
     "@ember/test-helpers": "2.5.0",
     "@glimmer/component": "1.0.4",
     "@glimmer/tracking": "1.0.4",
-    "@projectcaluma/ember-core": "9.0.3",
+    "@projectcaluma/ember-core": "9.2.0",
     "@projectcaluma/ember-form": "9.1.1",
     "@projectcaluma/ember-form-builder": "9.0.5",
     "@projectcaluma/ember-testing": "9.0.0",
