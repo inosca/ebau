@@ -24,7 +24,7 @@
           {{#let (get this.forms category) as |forms|}}
             <div class="uk-text-center">
               <p class="uk-flex-inline uk-text-large uk-flex-middle">
-                {{t (concat "instances.new." category ".title")}}
+                {{t (concat "instances.new." category ".title-" (application-name))}}
                 {{#if (t (concat "instances.new." category ".info-" (application-name)))}}
                   <CfField::info @text={{t (concat "instances.new." category ".info-" (application-name))}} />
                 {{/if}}
