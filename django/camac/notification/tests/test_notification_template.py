@@ -222,6 +222,7 @@ def test_notification_template_sendmail_exception_handling(
             },
             "relationships": {
                 "instance": {"data": {"type": "instances", "id": be_instance.pk}},
+                "circulation": {"data": {"type": "circulations", "id": circulation.pk}},
             },
         }
     }
@@ -1442,3 +1443,55 @@ def test_recipient_unanswered_activation(
     assert serializer._get_recipients_unanswered_activation(be_instance) == [
         {"to": "test@example.com"}
     ]
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+def test_unnotified_services(
+    activation_factory,
+    admin_client,
+    be_instance,
+    circulation,
+    db,
+    mailoutbox,
+    notification_template,
+    service_factory,
+    service,
+):
+    activation_factory(
+        circulation=circulation,
+        email_sent=0,
+        service_parent=service,
+        service=service_factory(email="valid@example.com"),
+    )
+    activation_factory(
+        circulation=circulation,
+        email_sent=0,
+        service_parent=service,
+        service=service_factory(email="dontsend@example.com", notification=0),
+    )
+    be_instance.case.document.answers.create(
+        question_id="gemeinde", value=str(be_instance.responsible_service().pk)
+    )
+
+    data = {
+        "data": {
+            "type": "notification-template-sendmails",
+            "id": None,
+            "attributes": {
+                "template-slug": notification_template.slug,
+                "recipient-types": [
+                    "unnotified_service",
+                ],
+            },
+            "relationships": {
+                "instance": {"data": {"type": "instances", "id": be_instance.pk}},
+                "circulation": {"data": {"type": "circulations", "id": circulation.pk}},
+            },
+        }
+    }
+
+    url = reverse("notificationtemplate-sendmail")
+    admin_client.post(url, data=data)
+
+    assert len(mailoutbox) == 1
+    assert circulation.activations.filter(email_sent=1).count() == 2
