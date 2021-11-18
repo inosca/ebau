@@ -171,7 +171,12 @@ def test_message_retrieve_204(db, invalid_last, service, admin_client, message_f
 
 
 @pytest.mark.parametrize("support", [True, False])
-def test_event_post(support, admin_client, admin_user, ech_instance, role_factory):
+def test_event_post(support, admin_client, admin_user, ech_instance_case, role_factory):
+    ech_instance = ech_instance_case().instance
+
+    ech_instance.instance_state.name = "circulation_init"
+    ech_instance.instance_state.save()
+
     if support:
         group = admin_user.groups.first()
         group.role = role_factory(name="support")
