@@ -472,7 +472,8 @@ class TaskSendHandler(BaseSendHandler):
         )
 
         self.send_notification(
-            "ECH_TASK", activation={"id": activation.pk, "type": "activations"}
+            "ECH_TASK",
+            circulation={"id": activation.circulation.pk, "type": "circulations"},
         )
 
 
