@@ -381,20 +381,6 @@
   },
   {
     "model": "core.aphp",
-    "pk": 150039,
-    "fields": {
-      "php_class": "TriggerECH0211StatusNotification"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 150040,
-    "fields": {
-      "php_class": "TriggerECH0211StatusNotification"
-    }
-  },
-  {
-    "model": "core.aphp",
     "pk": 150048,
     "fields": {
       "php_class": "SyncCirculation"
@@ -1322,34 +1308,6 @@
       "error_message": null,
       "execute_always": 0,
       "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 150039,
-    "fields": {
-      "available_action": "php",
-      "button": 1200001,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 3
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 150040,
-    "fields": {
-      "available_action": "php",
-      "button": 1200000,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 3
     }
   },
   {
@@ -2469,30 +2427,6 @@
       "action": 150038,
       "language": "de",
       "name": "Aufgabe abschliessen: Selbstdeklaration 2 pr\u00fcfen",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 150045,
-    "fields": {
-      "action": 150039,
-      "language": "de",
-      "name": "ECH0211 - Status Notification",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 150046,
-    "fields": {
-      "action": 150040,
-      "language": "de",
-      "name": "ECH0211 - Status Notification",
       "description": null,
       "success_message": null,
       "error_message": null

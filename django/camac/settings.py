@@ -2867,6 +2867,7 @@ DOCUMENT_MERGE_SERVICE_URL = build_url(
     env.str("DOCUMENT_MERGE_SERVICE_URL", "http://document-merge-service:8000/api/v1/")
 )
 
+ECH_EXCLUDED_WORKFLOWS = ["internal"]
 ECH_EXCLUDED_FORMS = [
     "verlaengerung-geltungsdauer",
     "migriertes-dossier",
