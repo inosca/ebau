@@ -236,7 +236,7 @@ instances:
     convertFromInfo: "Sie erstellen ein neues Dossier aus den bereits bestehenden Daten der vollständigen Vorabklärung {dossierId}{ebauNr}."
 
     preliminary-clarification:
-      title: "Vorabklärung"
+      title-be: "Vorabklärung"
       info-be: "Bei unklaren Ausgangslagen (insbesondere bei komplizierten und
       komplexen Bauvorhaben oder bei unklarer Rechtslage) ist es
       empfehlenswert, vor Eingabe eines Baugesuchs die baurechtlichen
@@ -255,7 +255,8 @@ instances:
       info-ur: ""
 
     building-permit:
-      title: "Gesuch"
+      title-be: "Gesuch"
+      title-ur: "Baubewilligungsverfahren"
       info-be: "Der häufigste Fall ist die Eingabe eines **Baugesuchs**
       (Beispiel: Anbau Garage, Neubau Einfamilienhaus, Einbau
       Dachflächenfenster).\n\n Generelle Baugesuche oder Baugesuche mit einer
@@ -276,7 +277,8 @@ instances:
       info-ur: ""
 
     special-procedure:
-      title: "Spezialverfahren"
+      title-be: "Spezialverfahren"
+      title-ur: "Weitere Verfahren"
       info-be: ""
       info-ur: ""
 

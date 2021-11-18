@@ -241,7 +241,7 @@ instances:
     convertFromInfo: "Vous créez un nouveau dossier basé sur les données déjà existantes de la demande préalable complète {dossierId}{ebauNr}."
 
     preliminary-clarification:
-      title: "Demande préalable"
+      title-be: "Demande préalable"
       info-be: "Si la situation initiale n'est pas claire (notamment dans le cas
       de projets de construction complexes et compliqués ou si la situation
       juridique n'est pas clarifiée), il est conseillé de faire vérifier les
@@ -262,7 +262,7 @@ instances:
       info-ur: ""
 
     building-permit:
-      title: "Requête"
+      title-be: "Requête"
       info-be: "Le cas le plus courant est la présentation d'une **demande de
       permis de construire** (exemple : agrandissement d'un garage,
       construction d'une maison individuelle neuve, installation de fenêtres
@@ -287,7 +287,7 @@ instances:
       info-ur: ""
 
     special-procedure:
-      title: "Procédure spéciale"
+      title-be: "Procédure spéciale"
       info-be: ""
       info-ur: ""
 
