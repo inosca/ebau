@@ -567,6 +567,15 @@
     }
   },
   {
+    "model": "instance.form",
+    "pk": 297,
+    "fields": {
+      "form_state": 1,
+      "name": "Technische Bewilligung",
+      "description": null
+    }
+  },
+  {
     "model": "instance.formstate",
     "pk": 1,
     "fields": {
