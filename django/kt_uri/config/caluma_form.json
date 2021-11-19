@@ -865,7 +865,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"Meldung Vorhaben\", \"fr\": null}",
+      "name": "{\"de\": \"Baumeldung f\\u00fcr geringf\\u00fcgige Vorhaben\", \"fr\": null}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {
         "category": "building-permit",
@@ -1005,6 +1005,28 @@
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
       "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "technische-bewilligung",
+    "fields": {
+      "created_at": "2021-11-18T11:57:56.631Z",
+      "modified_at": "2021-11-18T12:44:33.425Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Technische Bewilligung\", \"fr\": null}",
+      "description": "{\"de\": \"\", \"fr\": null}",
+      "meta": {
+        "category": "building-permit",
+        "is-creatable": true,
+        "is-main-form": true
+      },
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -8515,6 +8537,21 @@
       "modified_by_group": null,
       "form": "tabelle-wohnungen",
       "question": "zwg",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "technische-bewilligung.personalien",
+    "fields": {
+      "created_at": "2021-11-18T12:39:03.427Z",
+      "modified_at": "2021-11-18T12:39:03.427Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "technische-bewilligung",
+      "question": "personalien",
       "sort": 1
     }
   },
