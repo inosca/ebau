@@ -59,5 +59,4 @@ cases:
     unLinkInstance: "Verknüpfung löschen"
     unLinkInstanceSuccess: "Die Verknüpfung der Dossiers wurde erfolgreich gelöscht"
     unLinkInstanceError: "Beim Löschen der Verknüpfung ist etwas schief gelaufen"
-    instanceLink: "/dashboard/dashboard/index/instance-id/{ linkedDossierId }/instance-resource-id/180000#/cases/{ linkedDossierId }/dashboard"
     enterDossierNumber: "Dossiernummer eingeben"
