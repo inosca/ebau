@@ -20,7 +20,7 @@ from .caluma_document_data import baugesuch_data
 
 @pytest.mark.parametrize("has_active_service", [True, False])
 def test_submit_event(
-    ech_instance,
+    ech_instance_case,
     role_factory,
     group_factory,
     mocker,
@@ -28,6 +28,7 @@ def test_submit_event(
     has_active_service,
     caplog,
 ):
+    ech_instance = ech_instance_case().instance
 
     if not has_active_service:
         InstanceService.objects.filter(instance_id=ech_instance).update(active=False)
@@ -67,7 +68,7 @@ def test_submit_event(
 def test_event_handlers(
     event_type,
     expected_receiver,
-    ech_instance,
+    ech_instance_case,
     role_factory,
     instance_service_factory,
     service_t_factory,
@@ -76,12 +77,14 @@ def test_event_handlers(
     mocker,
     multilang,
 ):
+    ech_instance = ech_instance_case().instance
+
     if event_type == "FileSubsequently":
         group_factory(role=role_factory(name="support"))
         mocker.patch.object(event_handlers, "get_document", return_value=baugesuch_data)
 
     if event_type == "StatusNotification":
-        ech_instance.previous_instance_state = instance_state_factory(pk=20000)
+        ech_instance.instance_state = instance_state_factory(name="circulation_init")
         ech_instance.save()
 
     if event_type == "ChangeResponsibility":
@@ -124,7 +127,7 @@ def test_accompanying_report_event_handler(
     user,
     service_factory,
     group_factory,
-    ech_instance,
+    ech_instance_case,
     attachment_factory,
     attachment_section_factory,
     activation_factory,
@@ -133,6 +136,8 @@ def test_accompanying_report_event_handler(
     circulation_answer_factory,
     multilang,
 ):
+    ech_instance = ech_instance_case().instance
+
     parent_service = service_factory()
     parent_group = group_factory(service=parent_service)
 
@@ -311,10 +316,10 @@ def test_task_event_handler_SBs(
     assert xml.eventRequest.document[0].titles.title[0].value() == expected_name
 
 
-def test_file_subsequently_signal(ech_instance, mocker, multilang):
+def test_file_subsequently_signal(ech_instance_case, mocker, multilang):
     mocker.patch.object(event_handlers, "get_document", return_value=baugesuch_data)
     file_subsequently.send(
-        sender=None, instance=ech_instance, user_pk=None, group_pk=None
+        sender=None, instance=ech_instance_case().instance, user_pk=None, group_pk=None
     )
     assert Message.objects.count() == 1
     message = Message.objects.first()
