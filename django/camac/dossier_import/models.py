@@ -1,9 +1,15 @@
+import shutil
+from pathlib import Path
+
 from caluma.caluma_core.models import UUIDModel
+from django.conf import settings
 from django.contrib.postgres.fields import JSONField
 from django.db import models
 
+from camac.dossier_import.messages import default_messages_object
 
-def archive_path_directory_path(dossier_import, filename):
+
+def source_file_directory_path(dossier_import, filename):
     return "dossier_imports/files/{0}/{1}".format(str(dossier_import.id), filename)
 
 
@@ -70,10 +76,23 @@ class DossierImport(UUIDModel):
         "user.Location", models.DO_NOTHING, related_name="+", null=True, blank=True
     )
 
-    messages = JSONField(default=list)
+    messages = JSONField(default=default_messages_object)
 
     source_file = models.FileField(
-        max_length=255, upload_to=archive_path_directory_path, null=True, blank=True
+        max_length=255, upload_to=source_file_directory_path, null=True, blank=True
     )
 
     mime_type = models.CharField(max_length=255, null=True, blank=True)
+
+    def delete(self, using=None, keep_parents=False, *args, **kwargs):
+        if self.source_file:
+            Path(self.source_file.path).exists() and Path(
+                self.source_file.path
+            ).unlink()
+            shutil.rmtree(
+                str(
+                    Path(settings.MEDIA_ROOT) / f"dossier_imports/files/{str(self.pk)}"
+                ),
+                ignore_errors=True,
+            )
+        return super().delete(*args, **kwargs)

@@ -1,3 +1,4 @@
+import datetime
 from dataclasses import dataclass
 from typing import List, Optional
 from typing.io import IO
@@ -54,13 +55,13 @@ class Dossier:
     address_city: Optional[str] = None
     usage: Optional[str] = None
     procedure_type: Optional[str] = None
-    submit_date: Optional[str] = None
-    publication_date: Optional[str] = None
-    decision_date: Optional[str] = None
-    construction_start_date: Optional[str] = None
-    profile_approval_date: Optional[str] = None
-    final_approval_date: Optional[str] = None
-    completion_date: Optional[str] = None
+    submit_date: Optional[datetime.datetime] = None
+    publication_date: Optional[datetime.datetime] = None
+    decision_date: Optional[datetime.datetime] = None
+    construction_start_date: Optional[datetime.datetime] = None
+    profile_approval_date: Optional[datetime.datetime] = None
+    final_approval_date: Optional[datetime.datetime] = None
+    completion_date: Optional[datetime.datetime] = None
     link: Optional[str] = None
     custom_1: Optional[str] = None
     custom_2: Optional[str] = None
