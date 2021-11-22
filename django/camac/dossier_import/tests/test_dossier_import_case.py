@@ -1,12 +1,12 @@
-from io import StringIO
 from pathlib import Path
 
 import pytest
 from django.conf import settings
-from django.core.management import call_command
 from django.utils import timezone
 
 from camac.dossier_import.loaders import InvalidImportDataError
+from camac.dossier_import.messages import MessageCodes, update_summary
+from camac.dossier_import.validation import validate_zip_archive_structure
 from camac.instance.master_data import MasterData
 from camac.instance.models import Instance
 
@@ -34,37 +34,6 @@ def test_bad_file_format_dossier_xlsx(
         )
 
 
-@pytest.mark.parametrize("config", ["kt_schwyz"])
-def test_import_dossiers_manage_command(
-    db,
-    settings,
-    config,
-    setup_fixtures_required_by_application_config,
-    make_workflow_items_for_config,
-    service,
-    user,
-    group,
-    location,
-):
-    settings.APPLICATION = settings.APPLICATIONS[config]
-    make_workflow_items_for_config(config)
-    setup_fixtures_required_by_application_config(config)
-    out = StringIO()
-    call_command(
-        "import_dossiers",
-        user.pk,
-        group.pk,
-        location.pk,
-        str(Path(TEST_IMPORT_FILE_PATH) / TEST_IMPORT_FILE_NAME),
-        f"--override_application={config}",
-        "--verbosity=2",
-        stdout=out,
-        stderr=StringIO(),
-    )
-    out = out.getvalue()
-    assert out
-
-
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize("config", ["kt_schwyz"])
 def test_create_instance_dossier_import_case(
@@ -88,10 +57,25 @@ def test_create_instance_dossier_import_case(
     loader = get_dossier_loader(dossier_import.dossier_loader_type)
     for dossier in loader.load_dossiers(dossier_import.source_file.path):
         message = writer.import_dossier(dossier, str(dossier_import.pk))
-        dossier_import.messages.append(message.to_dict())
-        dossier_import.save()
-    assert len([x for x in dossier_import.messages if x["level"] == 1]) == 3
-    assert len([x for x in dossier_import.messages if x["level"] == 2]) == 2
+        dossier_import.messages["import"]["details"].append(message.to_dict())
+    update_summary(dossier_import)
+    assert dossier_import.messages["import"]["summary"]["dossiers_written"] == 3
+    assert (
+        len(
+            dossier_import.messages["import"]["summary"]["dossiers_warning"][
+                "duplicate-dossier"
+            ]["data"]
+        )
+        == 1
+    )
+    assert (
+        len(
+            dossier_import.messages["import"]["summary"]["dossiers_error"][
+                "dossier-missing-required-values"
+            ]["data"]
+        )
+        == 1
+    )
     deletion = Instance.objects.filter(
         **{"case__meta__import-id": str(dossier_import.pk)}
     ).delete()
@@ -189,8 +173,11 @@ def test_set_workflow_state_exceptions(
         "kt_schwyz",
     )
     sz_instance.case.work_items.get(task_id=expected_work_items_states[0]).delete()
-    message = writer._set_workflow_state(sz_instance, instance_status)
-    assert message.message.startswith("Skip work item with task_id submit failed")
+    messages = writer._set_workflow_state(sz_instance, instance_status)
+    assert (
+        list((filter(lambda x: x.level == 2, messages)))[0].code
+        == MessageCodes.WORKFLOW_SKIP_ITEM_FAILED
+    )
 
 
 @pytest.mark.parametrize("config", ["kt_schwyz"])
@@ -369,3 +356,63 @@ def test_record_loading_sz(
     writer.write_fields(sz_instance, dossier)
     md = MasterData(sz_instance.case)
     assert getattr(md, expected_target) == expected_value
+
+
+@pytest.mark.parametrize("config", ["kt_schwyz"])
+@pytest.mark.parametrize("loader", ["zip-archive-xlsx"])
+@pytest.mark.parametrize(
+    "dossier_row_patch,expected",
+    [
+        (
+            {
+                "ID": None,
+                "STATUS": "PRONTO",
+                "SUBMIT-DATE": "not-a-date",
+                "PUBLICATION-DATE": "not-a-date",
+                "CONSTRUCTION-START-DATE": "not-a-date",
+                "PROFILE-APPROVAL-DATE": "not-a-date",
+                "DECISION-DATE": "not-a-date",
+            },
+            {
+                "missing": ["id"],
+            },
+        ),
+    ],
+)
+def test_record_loading_exceptions(
+    db,
+    setup_fixtures_required_by_application_config,
+    make_workflow_items_for_config,
+    application_settings,
+    settings,
+    sz_instance,
+    make_dossier_writer,
+    get_dossier_loader,
+    dossier_row,
+    loader,
+    config,
+    dossier_row_patch,
+    expected,
+):
+    """Load data from import record, make persistant and verify with master_data API."""
+    loader = get_dossier_loader(loader)
+    dossier_row.update(dossier_row_patch)
+    dossier = loader._load_dossier(dossier_row)
+    for key, value in expected.items():
+        assert getattr(dossier._meta, key) == value
+
+
+@pytest.mark.parametrize(
+    "loader,input_file,expected_exception",
+    [
+        ("zip-archive-xlsx", "no-zip.zap", InvalidImportDataError),
+        ("zip-archive-xlsx", "import-missing-column.zip", InvalidImportDataError),
+    ],
+)
+def test_validation(
+    db, dossier_import, archive_file, loader, input_file, expected_exception
+):
+    dossier_import.source_file = archive_file(input_file)
+    dossier_import.save()
+    with pytest.raises(expected_exception):
+        validate_zip_archive_structure(str(dossier_import.pk))
