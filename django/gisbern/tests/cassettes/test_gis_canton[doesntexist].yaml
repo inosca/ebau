@@ -1,49 +1,50 @@
 interactions:
-- request:
-    body: null
-    headers:
-      Accept:
-      - '*/*'
-      Accept-Encoding:
-      - gzip, deflate
-      Connection:
-      - keep-alive
-      User-Agent:
-      - python-requests/2.22.0
-    method: GET
-    uri: https://www.geoservice.apps.be.ch/geoservice2/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer?service=wfs&version=2.0.0&Request=GetFeature&typename=a42geo_a42geo_ortsangabenwfs_d_fk:DIPANU_DIPANUF&count=10&Filter=%3Cogc:Filter%3E%3Cogc:PropertyIsEqualTo%20matchCase=%22true%22%3E%3Cogc:PropertyName%3EEGRID%3C/ogc:PropertyName%3E%3Cogc:Literal%3Edoesntexist%3C/ogc:Literal%3E%3C/ogc:PropertyIsEqualTo%3E%3C/ogc:Filter%3E
-  response:
-    body:
-      string: <wfs:FeatureCollection previous='-1' next='-1' numberMatched='10' numberReturned='10'
-        xsi:schemaLocation='http://x3012app437.infra.be.ch:6080/arcgis/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer
-        https://www.geoservice.apps.be.ch/geoservice2/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer?request=DescribeFeatureType%26version=2.0.0%26typename=DIPANU_DIPANUF
-        http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd
-        http://www.opengis.net/gml/3.2 http://schemas.opengis.net/gml/3.2.1/gml.xsd'
-        xmlns:a42geo_a42geo_ebau_kt_wfs_d_fk='http://x3012app437.infra.be.ch:6080/arcgis/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer'
-        xmlns:gml='http://www.opengis.net/gml/3.2' xmlns:wfs='http://www.opengis.net/wfs/2.0'
-        xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'><gml:boundedBy><gml:Envelope
-        srsName='urn:ogc:def:crs:EPSG:6.9:2056'><gml:lowerCorner>2556241.5010000002
-        1131088.1669999999</gml:lowerCorner><gml:upperCorner>2677284.8110000002 1243834.1029999999</gml:upperCorner></gml:Envelope></gml:boundedBy></wfs:FeatureCollection>
-    headers:
-      Cache-Control:
-      - private
-      Connection:
-      - Keep-Alive
-      Content-Type:
-      - text/xml
-      Date:
-      - Mon, 01 Jul 2019 06:10:27 GMT
-      Keep-Alive:
-      - timeout=5, max=100
-      Server:
-      - Microsoft-IIS/8.5
-      X-AspNet-Version:
-      - 4.0.30319
-      X-Powered-By:
-      - ASP.NET
-      content-length:
-      - '1129'
-    status:
-      code: 200
-      message: OK
+  - request:
+      body: null
+      headers:
+        Accept:
+          - "*/*"
+        Accept-Encoding:
+          - gzip, deflate
+        Connection:
+          - keep-alive
+        User-Agent:
+          - python-requests/2.22.0
+      method: GET
+      uri: https://www.geoservice.apps.be.ch/geoservice2/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer?service=wfs&version=2.0.0&Request=GetFeature&typename=a42geo_ebau_kt_wfs_d_fk:DIPANU_DIPANUF&count=10&Filter=%3Cogc:Filter%3E%3Cogc:PropertyIsEqualTo%20matchCase=%22true%22%3E%3Cogc:PropertyName%3EEGRID%3C/ogc:PropertyName%3E%3Cogc:Literal%3Edoesntexist%3C/ogc:Literal%3E%3C/ogc:PropertyIsEqualTo%3E%3C/ogc:Filter%3E
+    response:
+      body:
+        string:
+          <wfs:FeatureCollection previous='-1' next='-1' numberMatched='10' numberReturned='10'
+          xsi:schemaLocation='http://x3012app437.infra.be.ch:6080/arcgis/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer
+          https://www.geoservice.apps.be.ch/geoservice2/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer?request=DescribeFeatureType%26version=2.0.0%26typename=DIPANU_DIPANUF
+          http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd
+          http://www.opengis.net/gml/3.2 http://schemas.opengis.net/gml/3.2.1/gml.xsd'
+          xmlns:a42geo_a42geo_ebau_kt_wfs_d_fk='http://x3012app437.infra.be.ch:6080/arcgis/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer'
+          xmlns:gml='http://www.opengis.net/gml/3.2' xmlns:wfs='http://www.opengis.net/wfs/2.0'
+          xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'><gml:boundedBy><gml:Envelope
+          srsName='urn:ogc:def:crs:EPSG:6.9:2056'><gml:lowerCorner>2556241.5010000002
+          1131088.1669999999</gml:lowerCorner><gml:upperCorner>2677284.8110000002 1243834.1029999999</gml:upperCorner></gml:Envelope></gml:boundedBy></wfs:FeatureCollection>
+      headers:
+        Cache-Control:
+          - private
+        Connection:
+          - Keep-Alive
+        Content-Type:
+          - text/xml
+        Date:
+          - Mon, 01 Jul 2019 06:10:27 GMT
+        Keep-Alive:
+          - timeout=5, max=100
+        Server:
+          - Microsoft-IIS/8.5
+        X-AspNet-Version:
+          - 4.0.30319
+        X-Powered-By:
+          - ASP.NET
+        content-length:
+          - "1129"
+      status:
+        code: 200
+        message: OK
 version: 1
