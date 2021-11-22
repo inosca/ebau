@@ -1,16 +1,14 @@
-import mimetypes
 import re
 import shutil
 from copy import deepcopy
-from dataclasses import dataclass
 from pathlib import Path
+from typing import List
 
 from caluma.caluma_form.models import Form as CalumaForm
 from caluma.caluma_user.models import BaseUser
 from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.api import cancel_work_item, skip_work_item
 from caluma.caluma_workflow.models import WorkItem
-from dataclasses_json import dataclass_json
 from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
 from django.db import transaction
@@ -19,6 +17,18 @@ from django.utils.timezone import now
 from camac.caluma.extensions.events.general import get_caluma_setting
 from camac.document.models import Attachment, AttachmentSection
 from camac.dossier_import.dossier_classes import Dossier
+from camac.dossier_import.messages import (
+    DOSSIER_IMPORT_STATUS_ERROR,
+    DOSSIER_IMPORT_STATUS_SUCCESS,
+    DOSSIER_IMPORT_STATUS_WARNING,
+    LOG_LEVEL_DEBUG,
+    LOG_LEVEL_ERROR,
+    LOG_LEVEL_WARNING,
+    DossierMessage,
+    Message,
+    MessageCodes,
+    get_message_max_level,
+)
 from camac.dossier_import.writers import (
     CamacNgAnswerFieldWriter,
     CamacNgListAnswerWriter,
@@ -29,6 +39,8 @@ from camac.dossier_import.writers import (
 from camac.instance.domain_logic import CreateInstanceLogic
 from camac.instance.models import Form, Instance, InstanceState
 from camac.user.models import Group, Location, User
+
+from .common import mimetypes
 
 PERSON_MAPPING = {
     "company": "firma",
@@ -46,18 +58,6 @@ ADDRESS_MAPPINIG = {"city": "ort", "street": "strasse", "street_nr": "nr"}
 PARCEL_MAPPING = {"egrid": "egrid", "number": "number", "municipality": "municipality"}
 
 COORDINATES_MAPPING = {"e": "lat", "n": "lng"}
-
-LOG_LEVEL_DEBUG = 0
-LOG_LEVEL_INFO = 1
-LOG_LEVEL_WARNING = 2
-LOG_LEVEL_ERROR = 3
-
-
-@dataclass_json
-@dataclass
-class Message:
-    level: int
-    message: dict
 
 
 class ConfigurationError(Exception):
@@ -168,46 +168,88 @@ class KtSchwyzDossierWriter(DossierWriter):
         return instance
 
     @transaction.atomic
-    def import_dossier(self, dossier: Dossier, import_session_id: str) -> Message:
-        message = Message(level=LOG_LEVEL_INFO, message={"dossier": dossier.id})
+    def import_dossier(
+        self, dossier: Dossier, import_session_id: str
+    ) -> DossierMessage:
+        dossier_summary = DossierMessage(
+            dossier_id=dossier.id, status=DOSSIER_IMPORT_STATUS_SUCCESS, details=[]
+        )
 
         if dossier._meta.missing:
-            message.level = LOG_LEVEL_WARNING
-            message.message["action"] = "dossier skipped"
-            message.message[
-                "reason"
-            ] = f"missing values in required fields: {dossier._meta.missing}"
-            return message
+            dossier_summary.details.append(
+                Message(
+                    level=LOG_LEVEL_ERROR,
+                    code=MessageCodes.REQUIRED_VALUES_MISSING.value,
+                    detail=f"missing values in required fields: {dossier._meta.missing}",
+                )
+            )
+            dossier_summary.status = DOSSIER_IMPORT_STATUS_ERROR
+            return dossier_summary
         if Instance.objects.filter(
             fields__name="kommunale-gesuchsnummer",
             fields__value=dossier.id,
             group_id=self._group.pk,
         ).first():
-            message.level = LOG_LEVEL_WARNING
-            message.message["action"] = "dossier skipped"
-            message.message["reason"] = f"Dossier with ID {dossier.id} already exists."
-            return message
+            dossier_summary.details.append(
+                Message(
+                    level=LOG_LEVEL_WARNING,
+                    code=MessageCodes.DUPLICATE_DOSSIER.value,
+                    detail=f"Dossier with ID {dossier.id} already exists.",
+                )
+            )
+            dossier_summary.status = DOSSIER_IMPORT_STATUS_ERROR
+            return dossier_summary
         instance = self.create_instance(dossier)
         instance.case.meta["import-id"] = import_session_id
         instance.case.save()
-        message.message["instance_id"] = instance.pk
+        dossier_summary.instance_id = instance.pk
+        dossier_summary.details.append(
+            Message(
+                level=LOG_LEVEL_DEBUG,
+                code=MessageCodes.INSTANCE_CREATED.value,
+                detail=f"Instance created with ID:  {instance.pk}",
+            )
+        )
         self.write_fields(instance, dossier)
-        message.message["import"] = "success"
+
+        dossier_summary.details.append(
+            Message(
+                level=LOG_LEVEL_DEBUG,
+                code=MessageCodes.FORM_DATA_WRITTEN.value,
+                detail="Form data written.",
+            )
+        )
         attachment_messages = self._create_dossier_attachments(dossier, instance)
+        dossier_summary.details.append(
+            Message(
+                level=get_message_max_level(attachment_messages),
+                code=MessageCodes.ATTACHMENTS.value,
+                detail=attachment_messages,
+            )
+        )
         workflow_message = self._set_workflow_state(
             instance, dossier._meta.target_state
         )
         instance.history.all().delete()
-        message.level = workflow_message.level
-        message.message["workflow_state"] = (
-            workflow_message.to_dict() if workflow_message.message else None
+        dossier_summary.details.append(
+            Message(
+                level=get_message_max_level(workflow_message),
+                code=MessageCodes.SET_WORKFLOW_STATE.value,
+                detail=workflow_message,
+            )
         )
-        message.message["attachments"] = (
-            attachment_messages if attachment_messages else None
-        )
-        return message
+        if (
+            get_message_max_level(dossier_summary.details) == LOG_LEVEL_ERROR
+        ):  # pragma: no cover
+            dossier_summary.status = DOSSIER_IMPORT_STATUS_ERROR
+        if get_message_max_level(dossier_summary.details) == LOG_LEVEL_WARNING:
+            dossier_summary.status = DOSSIER_IMPORT_STATUS_WARNING
 
-    def _create_dossier_attachments(self, dossier: Dossier, instance: Instance):
+        return dossier_summary
+
+    def _create_dossier_attachments(
+        self, dossier: Dossier, instance: Instance
+    ) -> List[Message]:
         """Create attachments for file pointers in dossier's attachments."""
         messages = []
         if not dossier.attachments:
@@ -246,8 +288,9 @@ class KtSchwyzDossierWriter(DossierWriter):
                 messages.append(
                     Message(
                         level=LOG_LEVEL_WARNING,
-                        message=f"MIME-Type could not be determined for {file_path}",
-                    ).to_dict()
+                        code=MessageCodes.MIME_TYPE_UNKNOWN,
+                        detail=f"MIME-Type could not be determined for {file_path}",
+                    )
                 )
                 continue
 
@@ -270,9 +313,18 @@ class KtSchwyzDossierWriter(DossierWriter):
                     attachment_section_id=self._import_settings["ATTACHMENT_SECTION_ID"]
                 )
                 attachment_section.attachments.add(attachment)
+
+                messages.append(
+                    Message(
+                        level=LOG_LEVEL_DEBUG,
+                        code="attachment-created",
+                        detail=f"Attachment created: {attachment.name} ({attachment.mime_type}).",
+                    )
+                )
+
         return messages
 
-    def _set_workflow_state(self, instance: Instance, target_state) -> Message:
+    def _set_workflow_state(self, instance: Instance, target_state) -> List[Message]:
         """Advance instance's case through defined workflow sequence to target state.
 
         In order to advance to a specified worklow state after every flow all tasks need to be
@@ -291,7 +343,7 @@ class KtSchwyzDossierWriter(DossierWriter):
         If required this could be extended with the option to handle sibling tasks differently on each stage, such
          as cancelling them instead of skipping.
         """
-        message = Message(level=LOG_LEVEL_INFO, message="")
+        messages = []
 
         # configure workflow state advance path and strategies
         SUBMITTED = ["submit"]
@@ -317,8 +369,13 @@ class KtSchwyzDossierWriter(DossierWriter):
             try:
                 work_item = instance.case.work_items.get(task_id=task_id)
             except ObjectDoesNotExist as e:
-                message.level = LOG_LEVEL_WARNING
-                message.message = f"Skip work item with task_id {task_id} failed with {ConfigurationError(e)}."
+                messages.append(
+                    Message(
+                        level=LOG_LEVEL_WARNING,
+                        code=MessageCodes.WORKFLOW_SKIP_ITEM_FAILED.value,
+                        detail=f"Skip work item with task_id {task_id} failed with {ConfigurationError(e)}.",
+                    )
+                )
                 continue
             # overwrite side effects for import
             config = deepcopy(get_caluma_setting("PRE_COMPLETE"))
@@ -344,8 +401,11 @@ class KtSchwyzDossierWriter(DossierWriter):
                 item and cancel_work_item(
                     item, user=caluma_user, context=default_context
                 )
-        final_msg = f"Set to {target_state}"
-        message.message = (
-            message.message and ". ".join([message.message, final_msg])
-        ) or final_msg
-        return message
+        messages.append(
+            Message(
+                level=LOG_LEVEL_DEBUG,
+                code=MessageCodes.SET_WORKFLOW_STATE.value,
+                detail=f"Workflow state set to {target_state}.",
+            )
+        )
+        return messages
