@@ -6,7 +6,7 @@ from caluma.caluma_workflow import api as workflow_api, models as workflow_model
 from django.conf import settings
 from django.contrib.postgres.fields.jsonb import KeyTextTransform
 from django.core.files.base import ContentFile
-from django.db.models import Max, Q
+from django.db.models import Q
 from django.utils import timezone
 from rest_framework.exceptions import ValidationError
 
@@ -81,23 +81,39 @@ class CreateInstanceLogic:
                 instance=instance, location_id=instance.location_id
             )
 
-    def generate_identifier(instance, year=None, prefix=None, seq_zero_padding=3):
+    def generate_identifier(
+        instance: Instance,
+        year: int = None,
+        prefix: str = None,
+        seq_zero_padding: int = 3,
+    ) -> str:
         """
         Build identifier for instance.
 
         Format for normal forms:
         two last digits of communal location number
         year in two digits
-        unique sequence
+        zero-padded sequence
         Example: 11-18-001
 
         Format for special forms:
         two letter abbreviation of form
         year in two digits
-        unique sequence
+        zero-padded sequence
         Example: AV-20-014
+
+        prefix: Sets first element to prefix
+        CAVEAT: if an instance uses form abbreviation the prefix param is ignored.
+
+        Uniqueness is not verified here in order to avoid coupling.
+
+
         """
+
+        separator = "-"
+
         identifier = instance.identifier
+
         if not identifier:
             year = (year or timezone.now().year) % 100
 
@@ -124,31 +140,35 @@ class CreateInstanceLogic:
                     prefix and f"{prefix}-{instance.location.communal_federal_number}"
                 ) or instance.location.communal_federal_number
 
-            start = "{0}-{1}-".format(identifier_start, str(year).zfill(2))
+            start = separator.join([identifier_start, str(year).zfill(2)])
 
             if settings.APPLICATION["CALUMA"].get("SAVE_DOSSIER_NUMBER_IN_CALUMA"):
-                max_identifier = (
+                last_identifier = (
                     workflow_models.Case.objects.filter(
                         **{"meta__dossier-number__startswith": start}
                     )
                     .annotate(dossier_nr=KeyTextTransform("dossier-number", "meta"))
-                    .aggregate(max_identifier=Max("dossier_nr"))["max_identifier"]
-                    or "00-00-000"
+                    .order_by("-dossier_nr")
+                    .values_list("dossier_nr", flat=True)
+                    .first()
                 )
             else:
-                max_identifier = (
-                    models.Instance.objects.filter(
-                        identifier__startswith=start
-                    ).aggregate(max_identifier=Max("identifier"))["max_identifier"]
-                    or "00-00-000"
+                last_identifier = (
+                    models.Instance.objects.filter(identifier__startswith=start)
+                    .order_by("-identifier")
+                    .values_list("identifier", flat=True)
+                    .first()
                 )
+            last_position = (
+                last_identifier and int(last_identifier.split(separator)[-1])
+            ) or 0
 
-            sequence = int(max_identifier[-3:])
-
-            identifier = "{0}-{1}-{2}".format(
-                identifier_start,
-                str(year).zfill(2),
-                str(sequence + 1).zfill(seq_zero_padding),
+            identifier = separator.join(
+                [
+                    identifier_start,
+                    str(year).zfill(2),
+                    str(last_position + 1).zfill(seq_zero_padding),
+                ]
             )
 
         return identifier
