@@ -598,7 +598,6 @@ def test_complete_decision(
     activation,
     service_factory,
     docx_decision_factory,
-    workflow_factory,
     work_item_factory,
     instance_state_factory,
     workflow,
@@ -630,8 +629,7 @@ def test_complete_decision(
         service_group__name="construction-control",
     )
 
-    work_item = work_item_factory()
-    case = work_item.case
+    work_item = work_item_factory(case=be_instance.case)
 
     application_settings["CALUMA"]["DECISION_TASK"] = work_item.task_id
     application_settings["NOTIFICATIONS"] = {
@@ -649,12 +647,11 @@ def test_complete_decision(
         ],
     }
 
-    case.workflow = caluma_workflow_models.Workflow.objects.get(slug=workflow)
-    be_instance.case = case
-    be_instance.save()
+    be_instance.case.workflow = caluma_workflow_models.Workflow.objects.get(pk=workflow)
+    be_instance.case.save()
 
     if workflow == "internal":
-        work_item_factory(case=case)
+        work_item_factory(case=be_instance.case)
         application_settings["CALUMA"]["EBAU_NUMBER_TASK"] = work_item.task_id
 
     send_event(
