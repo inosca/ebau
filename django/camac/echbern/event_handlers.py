@@ -2,7 +2,6 @@ import logging
 from functools import wraps
 from uuid import uuid4
 
-from caluma.caluma_workflow.models import Case
 from django.conf import settings
 from django.dispatch import receiver
 from django.utils import timezone
@@ -173,20 +172,28 @@ class StatusNotificationEventHandler(BaseEventHandler):
         return {"ech-subject": "status notification"}
 
     def get_message_type(self):
-        message_type = "unkown"  # this should never be used
+        message_type = "unknown"  # this should never be used
 
         if self.instance.instance_state.name == "circulation_init":
             message_type = ECH_STATUS_NOTIFICATION_EBAU_NR_VERGEBEN
-        elif self.instance.instance_state.name == "circulation":
+        elif (
+            self.instance.instance_state.name == "circulation"
+            or self.instance.previous_instance_state.name
+            == "rejected"  # cancel rejection must result in start circulation status notification
+        ):
             message_type = ECH_STATUS_NOTIFICATION_ZIRKULATION_GESTARTET
         elif self.instance.instance_state.name == "sb1":
             message_type = ECH_STATUS_NOTIFICATION_SB1_AUSSTEHEND
-        elif self.instance.instance_state.name == "evaluated":
+        elif self.instance.instance_state.name in ["evaluated", "finished"]:
             message_type = ECH_STATUS_NOTIFICATION_ABGESCHLOSSEN
         elif self.instance.instance_state.name == "rejected":  # pragma: no cover
             message_type = ECH_STATUS_NOTIFICATION_ZURUECKGEWIESEN
         elif self.instance.instance_state.name == "coordination":
             message_type = ECH_STATUS_NOTIFICATION_IN_KOORDINATION
+        else:  # pragma: no cover
+            raise RuntimeError(
+                f'Unknown `message_type` for instance {self.instance.pk} changing status from "{self.instance.previous_instance_state.name}" to "{self.instance.instance_state.name}"'
+            )
 
         return message_type
 
@@ -441,16 +448,12 @@ def if_ech_enabled(func):
     @wraps(func)
     def wrapper(*args, **kwargs):
         instance = kwargs.get("instance")
-        instance_ignored = (
-            Case.objects.filter(
-                instance__pk=instance.pk,
-                document__form__in=settings.ECH_EXCLUDED_FORMS,
-            ).exists()
-            if instance
-            else False
-        )
 
-        if settings.APPLICATION.get("ECH_API") and not instance_ignored:
+        if (
+            settings.APPLICATION.get("ECH_API")
+            and instance.case.workflow_id not in settings.ECH_EXCLUDED_WORKFLOWS
+            and instance.case.document.form_id not in settings.ECH_EXCLUDED_FORMS
+        ):
             return func(*args, **kwargs)
 
     return wrapper
