@@ -43,6 +43,8 @@ cases:
     createdAfter-placeholder: "23.04.1234"
     createdBefore: "Erstellung bis"
     createdBefore-placeholder: "23.04.1234"
+    instanceId: "ID"
+    instanceId-placeholder: "123456"
     dossierNumber: "Dossier Nummer"
     dossierNumber-placeholder: "0101-20-001"
     proposalDescription: "Vorhaben"
