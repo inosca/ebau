@@ -8,6 +8,12 @@
       </legend>
 
       <CaseFilter::Input
+        @filterName="instanceId"
+        @value={{@filter.instanceId}}
+        @updateFilter={{fn this.updateFilter "instanceId"}}
+      />
+
+      <CaseFilter::Input
         @filterName="dossierNumber"
         @value={{@filter.dossierNumber}}
         @updateFilter={{fn this.updateFilter "dossierNumber"}}
