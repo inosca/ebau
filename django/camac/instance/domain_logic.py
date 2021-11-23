@@ -115,7 +115,8 @@ class CreateInstanceLogic:
         identifier = instance.identifier
 
         if not identifier:
-            year = (year or timezone.now().year) % 100
+            full_year = timezone.now().year if year is None else year
+            year = full_year % 100
 
             name = instance.form.name
             abbreviations = settings.APPLICATION.get(
