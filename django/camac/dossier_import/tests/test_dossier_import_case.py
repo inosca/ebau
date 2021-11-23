@@ -4,6 +4,7 @@ import pytest
 from django.conf import settings
 from django.utils import timezone
 
+from camac.core.models import InstanceLocation
 from camac.dossier_import.loaders import InvalidImportDataError
 from camac.dossier_import.messages import MessageCodes, update_summary
 from camac.dossier_import.validation import validate_zip_archive_structure
@@ -76,6 +77,14 @@ def test_create_instance_dossier_import_case(
         )
         == 1
     )
+    instances = Instance.objects.filter(
+        **{"case__meta__import-id": str(dossier_import.pk)}
+    )
+    set(
+        InstanceLocation.objects.filter(instance__in=instances).values_list(
+            "instance", flat=True
+        )
+    ) == set(instances.values_list("pk", flat=True))
     deletion = Instance.objects.filter(
         **{"case__meta__import-id": str(dossier_import.pk)}
     ).delete()
