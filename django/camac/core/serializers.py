@@ -38,7 +38,14 @@ class PublicationEntrySerializer(serializers.ModelSerializer):
     def get_description(self, obj):
         # We include this form field to avoid creating a whitelist for fields
         try:
-            return obj.instance.fields.get(name="bezeichnung").value
+            description_overwrite = obj.instance.fields.get(
+                name="bezeichnung-override"
+            ).value
+
+            return (
+                description_overwrite
+                or obj.instance.fields.get(name="bezeichnung").value
+            )
         except ObjectDoesNotExist:
             return ""
 
