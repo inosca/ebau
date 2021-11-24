@@ -75,61 +75,6 @@ class Migration(migrations.Migration):
                 to=settings.AUTH_USER_MODEL,
             ),
         ),
-        migrations.AddField(
-            model_name="historicaldossierimport",
-            name="dossier_loader_type",
-            field=models.CharField(
-                choices=[("zip-archive-xlsx", "XlsxFileDossierLoader")],
-                default="zip-archive-xlsx",
-                max_length=255,
-            ),
-        ),
-        migrations.AddField(
-            model_name="historicaldossierimport",
-            name="group",
-            field=models.ForeignKey(
-                blank=True,
-                db_constraint=False,
-                null=True,
-                on_delete=django.db.models.deletion.DO_NOTHING,
-                related_name="+",
-                to="user.Group",
-            ),
-        ),
-        migrations.AddField(
-            model_name="historicaldossierimport",
-            name="location",
-            field=models.ForeignKey(
-                blank=True,
-                db_constraint=False,
-                null=True,
-                on_delete=django.db.models.deletion.DO_NOTHING,
-                related_name="+",
-                to="user.Location",
-            ),
-        ),
-        migrations.AddField(
-            model_name="historicaldossierimport",
-            name="mime_type",
-            field=models.CharField(blank=True, max_length=255, null=True),
-        ),
-        migrations.AddField(
-            model_name="historicaldossierimport",
-            name="source_file",
-            field=models.TextField(blank=True, max_length=255, null=True),
-        ),
-        migrations.AddField(
-            model_name="historicaldossierimport",
-            name="user",
-            field=models.ForeignKey(
-                blank=True,
-                db_constraint=False,
-                null=True,
-                on_delete=django.db.models.deletion.DO_NOTHING,
-                related_name="+",
-                to=settings.AUTH_USER_MODEL,
-            ),
-        ),
         migrations.AlterField(
             model_name="dossierimport",
             name="messages",
