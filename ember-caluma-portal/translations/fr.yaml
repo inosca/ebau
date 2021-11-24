@@ -99,10 +99,10 @@ documents:
 
   hint1: "Veuillez vous assurer que le"
   hintEarthquake: "formulaire SéS Sécurité Sismique"
-  linkEarthquake: "https://www.jgk.be.ch/jgk/fr/index/baubewilligungen/baubewilligungen/baugesuchsformulare/formularbaugesuchsteller.assetref/dam/documents/JGK/AGR/fr/Baubewilligungen/Baugesuche/Baugesuchssteller/AGR_BAUEN_EbS_Erdbebensicherheit_fr.pdf"
+  linkEarthquake: "https://www.bauen.dij.be.ch/content/dam/bauen_dij/dokumente/fr/formulare-und-vorlagen/formulare-f%C3%BCr-baugesuchsteller/ebs-erdbebensicherheit-fr.pdf"
   hint2: "et les"
   hintMunicipalityForms: "formulaires spécifiques aux communes (5.0, 5.1, 5.2, 5.3, 5.4, 5.5, 5.5, 5.8)"
-  linkMunicipalityForms: "https://www.jgk.be.ch/jgk/fr/index/baubewilligungen/baubewilligungen/baugesuchsformulare/formularbaugesuchsteller.html"
+  linkMunicipalityForms: "https://www.bauen.dij.be.ch/fr/start/formulare/formulare-fuer-baugesuchsteller.html"
   hint3: "sont remplis et téléchargés si nécessaire."
 
   tags:
