@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta
 
+from caluma.caluma_form import api as form_api
 from caluma.caluma_form.models import Answer, Document, Form, Question
 from caluma.caluma_user.models import BaseUser
 from caluma.caluma_workflow.models import Case, Task, WorkItem
@@ -11,23 +12,23 @@ from django.utils import timezone
 from camac.core.models import WorkflowEntry, WorkflowItem
 
 WORKFLOW_ITEM_QUESTION = {
-    55: "baukontrolle-realisierung-baubeginn",  # Baubegin erfolgt
-    56: "baukontrolle-realisierung-schnurgeruestabnahme",  # Schnergerustbanahme
-    57: "baukontrolle-realisierung-werke",  # Meldung an Werke
-    58: "baukontrolle-realisierung-rohbauabnahme",  # Rohbauabnahme
-    59: "baukontrolle-realisierung-schlussabnahme",  # Schlussabname
+    55: "baukontrolle-realisierung-baubeginn",  # Baubegin erfolgt (table)
+    56: "baukontrolle-realisierung-schnurgeruestabnahme",  # Schnergerustbanahme (table)
+    57: "baukontrolle-realisierung-werke",  # Meldung an Werk
+    58: "baukontrolle-realisierung-rohbauabnahme",  # Rohbauabnahme (table)
+    59: "baukontrolle-realisierung-schlussabnahme",  # Schlussabname (table)
     68: "baukontrolle-realisierung-geometer",  # Meldung an Geometer
     69: "baukontrolle-realisierung-liegenschaftsschaetzung",  # Meldung an Liegenschaftsschatzung
     82: "bewilligungsverfahren-rueckzug",  # Ruckzug
     84: "beschwerdeverfahren-sistierung",  # Sistierung
     85: "bewilligungsverfahren-datum-gesamtentscheid",  # Kant Gesamtentscheid
     86: "bewilligungsverfahren-gr-sitzung-beschwerdefrist",  # Beschwerdefrist
-    88: "baukontrolle-realisierung-kanalisationsabnahme",  # Kanalisationsabnahme
+    88: "baukontrolle-realisierung-kanalisationsabnahme",  # Kanalisationsabnahme (table)
 }
 
 WORKFLOW_ITEM_QUESTION_MAP = {
     72: "bewilligungsverfahren-gr-sitzung-versand",
-    61: "baukontrolle-realisierung-bauende",
+    61: "baukontrolle-realisierung-bauende",  # (table)
     71: "bewilligungsverfahren-bewilligung-bis",
 }
 
@@ -75,11 +76,34 @@ class Command(BaseCommand):
                         )
 
                     question = Question.objects.get(slug=question)
-                    Answer.objects.create(
-                        document=document,
-                        question=question,
-                        date=workflow_entry.first().workflow_date.date(),
-                    )
+
+                    # Check if question is on a table form
+                    if question.forms.filter(slug="realisierung-tabelle"):
+                        row_document = form_api.save_document(
+                            form=Form.objects.get(slug="realisierung-tabelle")
+                        )
+
+                        form_api.save_answer(
+                            document=row_document,
+                            question=question,
+                            date=workflow_entry.first().workflow_date.date(),
+                        )
+
+                        form_api.save_answer(
+                            document=document,
+                            question=Question.objects.get(
+                                slug="baukontrolle-realisierung-table"
+                            ),
+                            value=[row_document.pk],
+                        )
+
+                    else:
+                        form_api.save_answer(
+                            document=document,
+                            question=question,
+                            date=workflow_entry.first().workflow_date.date(),
+                        )
+
                     workflow_item_name = WorkflowItem.objects.get(
                         workflow_item_id=workflow_entry.first().workflow_item_id
                     ).name
