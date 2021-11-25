@@ -17,7 +17,7 @@
     </tr>
   </thead>
   <tbody>
-    {{#if this.fetchPublications.isRunning}}
+    {{#if (and this.fetchPublications.isRunning (not this.fetchPublications.lastSuccessful))}}
       <tr>
         <td class="uk-text-center" colspan="5">
           <UkSpinner />
@@ -52,17 +52,6 @@
             ></button>
           </td>
         </tr>
-        {{#if this.hasNextPage}}
-          <tr>
-            <td
-              colspan="4"
-              class="uk-text-center"
-              {{in-viewport onEnter=(perform this.fetchMore) viewportSpy=true}}
-            >
-              <UkSpinner />
-            </td>
-          </tr>
-        {{/if}}
       {{else}}
         <tr>
           <td class="uk-text-center" colspan="4">
@@ -70,6 +59,17 @@
           </td>
         </tr>
       {{/each}}
+      {{#if this.hasNextPage}}
+        <tr>
+          <td
+            colspan="4"
+            class="uk-text-center"
+            {{in-viewport onEnter=(perform this.fetchMore) viewportSpy=true}}
+          >
+            <UkSpinner />
+          </td>
+        </tr>
+      {{/if}}
     {{/if}}
   </tbody>
 </table>
