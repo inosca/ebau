@@ -274,13 +274,73 @@ instances:
       abschliessend festgelegt (Beispiel: Neubau eines Logistikzentrums mit
       einer Lagerfläche von mehr als 20'000 m² oder ein Bauvorhaben das mehr
       als 500 Autoabstellplätze beinhaltet)."
-      info-ur: ""
+      info-ur: "**Baugesuch-Vorabklärung:** Eine Baugesuch Vorabklärung ist dann sinnvoll,
+      wenn die Bewilligungsfähigkeit Ihres Vorhabens in Frage gestellt ist bzw. Sie
+      sich über die grundsätzliche Bewilligungsfähigkeit eines Vorhabens Klarheit
+      verschaffen wollen. Die Vorprüfung eines Vorhabens durch die kantonalen
+      Fachstellen kann dazu beitragen, allenfalls notwendige Projektanpassungen und
+      No Go's frühzeitig zu erkennen und zusätzliche Planungskosten zu vermeiden. Eine
+      Vorabklärung wird in der Regel mit einem unverbindlichen Antwortschreiben ohne
+      Rechtsmittel beantwortet.\n\n **Baugesuch:** Dieses Formular ist für alle Vorhaben zu
+      wählen, die gestützt auf die kommunalen und kantonalen Bauvorschriften und auch
+      gestützt auf die allgemeine Bewilligungspraxis der Gemeinden baubewilligungspflichtig
+      sind. Dies trifft insbesondere bei der Erstellung von neuen Bauten und Anlagen, bei
+      der baulichen Änderung bestehender Bauten und Anlagen sowie bei Nutzungsänderungen
+      bestehender Bauten zu. Die Gemeindebaubehörde entscheidet über die Baubewilligungspflicht.\n\n
+      Hinweis: Falls für ein Vorhaben, welches Sie mit dem Formular „Baugesuch“ einreichen,
+      wider Erwarten keine Baubewilligung erforderlich wäre, wird Ihnen das die 
+      Gemeindebaubehörde mitteilen. Es entstehen Ihnen dadurch keine Nachteile.\n\n **Baumeldung
+      für geringfügiges Bauvorhaben:** Baumeldungen sollen hauptsächlich für geringfügige
+      Vorhaben innerhalb der Bauzonen verwendet werden. Ein Vorhaben welches innerhalb der
+      Bauzone von der Gemeindebaubehörde allenfalls als geringfügig und damit als
+      baubewilligungsbefreit eingestuft wird, kann ausserhalb der Bauzone je nach Lage
+      durchaus baubewilligungspflichtig sein. Es gilt die kantonale Praxis bei der
+      Beurteilung von Bauten und Anlagen ausserhalb der Bauzone. In jedem Fall müssen
+      bauliche Veränderungen an Bauten und Anlagen sowie Änderungen der Nutzung der
+      Gemeindebaubehörde gemeldet werden. Die Gemeindebaubehörde entscheidet über die
+      Baubewilligungspflicht.\n\n **Meldung Gebäudetechnik (Anlagen und Nachweise):**  Dieses
+      Formular können Sie einerseits für die Nachlieferung zusätzlicher Angaben zu einem
+      bereits laufenden Baubewilligungsverfahren verwenden. Zum Beispiel für die
+      Nachlieferung von Nachweisen (Brandschutz-, Energie-, oder Lärmschutznachweis) 
+      oder für die Meldung von gebäudetechnischen Anlagen (zum Beispiel die definitiven
+      Angaben betreffend Heizung, Tankanlagen, Gasanlagen usw.).  Ebenfalls können Sie
+      hier auch eine Konformitätserklärung für eine wärmetechnische Anlage oder für eine
+      Abgasanlage melden.\n\n Andererseits können Sie mit dem Formular „Meldung Gebäudetechnik“,
+      unabhängig davon ob bereits ein Baubewilligungsverfahren läuft, auch die Installation
+      (Ersatz, Änderung, Neuinstallation) einer gebäudetechnischen Anlage wie zum Beispiel
+      den Ersatz einer Heizung, das Aufstellen einer Betankungsanlage oder die Installation
+      einer Lüftungsanlage usw. melden. Die Gemeindebaubehörde entscheidet in jedem Fall,
+      ob allenfalls ein Baubewilligungsverfahren erforderlich ist. Dies kann insbesondere
+      dann der Fall sein, wenn das äussere Erscheinungsbild einer Baute oder Anlage verändert
+      wird (zum Beispiel bei der Installation einer neuen Abgasanlage)."
 
     special-procedure:
       title-be: "Spezialverfahren"
       title-ur: "Weitere Verfahren"
       info-be: ""
-      info-ur: ""
+      info-ur: "**Benützung Kantonsgebiet:** Dieses Formular wählen Sie, wenn Sie eine Veranstaltung
+      planen, zum Beispiel einen Sportanlass oder einen Umzug, oder wenn Sie eine Einrichtung
+      (z.B. Baustellengerüst, temporärer Verkaufs- oder Informationsstand, temporäre
+      Zwischenlagerung von Baumaterial usw.) erstellen möchten und dadurch eine öffentliche
+      Strasse oder ein öffentlicher Platz betroffen ist bzw. benützt wird.\n\n Nutzungen von
+      öffentlichen Strassen und Plätzen, die über den Gemeingebrauch hinausgehen, sind 
+      bewilligungspflichtig. Gemäss Artikel 3 der Verordnung über den Strassenverkehr erteilt
+      die Baudirektion, bzw. je nach Art der Beanspruchung, die Sicherheitsdirektion, die
+      Zustimmung, wenn dem Vorhaben keine überwiegenden Interessen entgegenstehen.\n\n **Meldung
+      Solaranlage:** Mit diesem Formular können Sie der Gemeindebaubehörde die geplante
+      Installation einer voraussichtlich baubewilligungsbefreiten Solaranlage melden. Das
+      Formular ist so aufgebaut, dass je nach Art und Lage der Anlage und unter der
+      Voraussetzung, dass die Fragen korrekt beantwortet werden, bereits im Formular geklärt
+      wird, ob eine Baubewilligung notwendig ist. Wenn dies der Fall ist, werden Sie im Formular
+      darauf hingewiesen, für die Meldung der Solaranlage das Formular „Baugesuch“ zu verwenden.\n\n
+      **Reklamegesuch:** Dieses Formular wählen Sie, wenn Sie eine Reklametafel, eine Werbeschrift
+      oder ein Plakat oder Ähnliches anbringen wollen und dazu keine baulichen Massnahmen
+      erforderlich sind (z.B. politische Wahlplakate oder die Neubeschriftung eines Restaurants).
+      Für eigentliche Reklamebauten in deren Zusammenhang bauliche Massnahmen notwendig sind 
+      zum Beispiel die Erstellung von Fundamenten und Stahlkonstruktionen) ist in der Regel ein
+      Baugesuch erforderlich. Wenn Sie nicht sicher sind, welches Verfahren Sie wählen sollen,
+      empfehlen wir Ihnen, die Frage der Baubewilligungspflicht mit der Gemeindebaubehörde zu
+      klären."
 
     others:
       title: "Andere"
