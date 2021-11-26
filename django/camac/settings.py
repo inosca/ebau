@@ -1877,6 +1877,7 @@ APPLICATIONS = {
         "FORM_BACKEND": "caluma",
         "PUBLICATION_DURATION": timedelta(days=20),
         "PORTAL_USER_ID": 1209,
+        "LINK_INSTANCES_ON_COPY": True,
         "APPLICANT_GROUP_ID": 685,  # We reuse the Portal User group
         "SEQUENCE_NAMESPACE_APPS": ["core", "document", "responsible"],
         "CUSTOM_NOTIFICATION_TYPES": [
