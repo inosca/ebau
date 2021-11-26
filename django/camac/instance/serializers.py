@@ -117,6 +117,9 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         source="get_linked_instances", model=models.Instance, read_only=True, many=True
     )
 
+    def get_permissions(self, instance):
+        return {}
+
     @permission_aware
     def get_access_type(self, obj):
         access_type = None
@@ -276,10 +279,19 @@ class SchwyzInstanceSerializer(InstanceSerializer):
 
     @permission_aware
     def get_permissions(self, instance):
-        return {"bauverwaltung": {"read"}}
+        return {}
 
     def get_permissions_for_municipality(self, instance):
-        return {"bauverwaltung": {"read", "write"}}
+        if instance.instance_state.name in ["new", "subm", "arch"]:
+            return {"bauverwaltung": {"read"}}
+        else:
+            return {"bauverwaltung": {"read", "write"}}
+
+    def get_permissions_for_service(self, instance):
+        return {"bauverwaltung": {"read"}}
+
+    def get_permissions_for_public(self, instance):
+        return {}
 
 
 class CamacInstanceChangeFormSerializer(serializers.Serializer):
