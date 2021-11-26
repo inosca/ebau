@@ -5,6 +5,7 @@ import { tracked } from "@glimmer/tracking";
 import { objectFromQueryParams } from "camac-ng/decorators";
 
 const filterQueryParams = [
+  "instanceId",
   "dossierNumber",
   "municipality",
   "parcelNumber",

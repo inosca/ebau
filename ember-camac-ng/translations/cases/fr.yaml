@@ -44,6 +44,8 @@ cases:
     createdAfter-placeholder: ""
     createdBefore: ""
     createdBefore-placeholder: ""
+    instanceId: ""
+    instanceId-placeholder: ""
     dossierNumber: ""
     dossierNumber-placeholder: ""
     proposalDescription: ""
