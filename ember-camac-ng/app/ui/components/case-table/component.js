@@ -37,6 +37,14 @@ export default class CaseTableComponent extends Component {
           },
         ],
       },
+      instanceId: {
+        metaValue: [
+          {
+            key: "camac-instance-id",
+            value: filter.instanceId,
+          },
+        ],
+      },
       dossierNumber: {
         metaValue: [
           {
