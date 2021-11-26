@@ -20,7 +20,7 @@ from camac.core.models import (
     WorkflowEntry,
     WorkflowItem,
 )
-from camac.instance.models import Instance
+from camac.instance.models import Instance, InstanceGroup
 from camac.user.permissions import permission_aware
 
 from . import models
@@ -29,6 +29,28 @@ SUBMIT_DATE_FORMAT = "%Y-%m-%dT%H:%M:%S%z"
 WORKFLOW_ITEM_DOSSIER_ERFASST_UR = 12
 
 caluma_api = CalumaApi()
+
+
+def link_instances(first, second):
+    if not first.instance_group and not second.instance_group:
+        instance_group = InstanceGroup.objects.create()
+
+        first.instance_group = instance_group
+        first.save()
+
+        second.instance_group = instance_group
+        second.save()
+    elif first.instance_group and second.instance_group:
+        instances_with_same_group = Instance.objects.filter(
+            instance_group=second.instance_group
+        )
+        instances_with_same_group.update(instance_group=first.instance_group)
+    elif first.instance_group:
+        second.instance_group = first.instance_group
+        second.save()
+    elif second.instance_group:
+        first.instance_group = second.instance_group
+        first.save()
 
 
 class CreateInstanceLogic:
@@ -424,6 +446,8 @@ class CreateInstanceLogic:
             )
 
         if source_instance and not is_modification:
+            if settings.APPLICATION.get("LINK_INSTANCES_ON_COPY"):
+                link_instances(instance, source_instance)  # pragma: no cover
             CreateInstanceLogic.copy_applicants(source_instance, instance)
             CreateInstanceLogic.copy_attachments(source_instance, instance)
         elif extend_validity_for:
@@ -452,7 +476,6 @@ class CreateInstanceLogic:
         is_paper=False,
         caluma_form=None,
         source_instance=None,
-        copy_source=False,
         start_caluma=True,
     ):
         """Create an instance.

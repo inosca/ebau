@@ -40,7 +40,6 @@ from camac.core.models import (
 )
 from camac.core.views import SendfileHttpResponse
 from camac.document.models import Attachment, AttachmentSection
-from camac.instance.models import Instance, InstanceGroup
 from camac.notification.utils import send_mail
 from camac.swagger.utils import get_operation_description, group_param
 from camac.user.models import Service
@@ -57,6 +56,7 @@ from . import (
     serializers,
     validators,
 )
+from .domain_logic import link_instances
 from .placeholders.serializers import DMSPlaceholdersSerializer
 
 
@@ -680,25 +680,7 @@ class InstanceView(
         except models.Instance.DoesNotExist:  # pragma: no cover
             raise ValidationError("Instance to link to not found")
 
-        if not instance.instance_group and not instance_to_link.instance_group:
-            instance_group = InstanceGroup.objects.create()
-
-            instance.instance_group = instance_group
-            instance.save()
-
-            instance_to_link.instance_group = instance_group
-            instance_to_link.save()
-        elif instance.instance_group and instance_to_link.instance_group:
-            instances_with_same_group = Instance.objects.filter(
-                instance_group=instance_to_link.instance_group
-            )
-            instances_with_same_group.update(instance_group=instance.instance_group)
-        elif instance.instance_group:
-            instance_to_link.instance_group = instance.instance_group
-            instance_to_link.save()
-        elif instance_to_link.instance_group:
-            instance.instance_group = instance_to_link.instance_group
-            instance.save()
+        link_instances(instance, instance_to_link)
 
         return response.Response(status=status.HTTP_200_OK)
 
@@ -706,7 +688,7 @@ class InstanceView(
     @action(methods=["patch"], detail=True, url_path="unlink")
     def unlink(self, request, pk=None):
         instance = self.get_object()
-        instances_with_same_group = Instance.objects.filter(
+        instances_with_same_group = models.Instance.objects.filter(
             instance_group=instance.instance_group
         ).exclude(pk=instance.pk)
         # if only two dossiers were in group, unlink both
