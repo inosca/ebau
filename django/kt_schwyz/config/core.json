@@ -16350,7 +16350,7 @@
       "is_building_authority": 1,
       "workflow_section": 1,
       "caluma_task": "building-authority",
-      "caluma_question": "bewilligungsverfahren-datum-gesamtentscheid"
+      "caluma_question": "bewilligungsverfahren-gr-sitzung-bewilligungsdatum"
     }
   },
   {
@@ -16544,8 +16544,8 @@
       "is_workflow": 1,
       "is_building_authority": 0,
       "workflow_section": 1,
-      "caluma_task": null,
-      "caluma_question": null
+      "caluma_task": "building-authority",
+      "caluma_question": "bewilligungsverfahren-datum-gesamtentscheid"
     }
   },
   {
