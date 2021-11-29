@@ -184,15 +184,15 @@
     "pk": "realisierung-tabelle",
     "fields": {
       "created_at": "2021-11-24T09:35:47.629Z",
-      "modified_at": "2021-11-24T09:35:47.629Z",
+      "modified_at": "2021-11-29T08:41:08.288Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "name": "{\"de\": \"Realisierung Tabelle\", \"fr\": null}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -1159,6 +1159,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "realisierung-tabelle.baukontrolle-realisierung-beschreibung",
+    "fields": {
+      "created_at": "2021-11-29T08:43:22.504Z",
+      "modified_at": "2021-11-29T08:43:22.504Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "realisierung-tabelle",
+      "question": "baukontrolle-realisierung-beschreibung",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "realisierung-tabelle.baukontrolle-realisierung-bezugsbewilligung",
     "fields": {
       "created_at": "2021-11-24T09:42:22.055Z",
@@ -1685,6 +1700,39 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "baukontrolle-realisierung-beschreibung",
+    "fields": {
+      "created_at": "2021-11-29T08:43:22.421Z",
+      "modified_at": "2021-11-29T08:43:22.421Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung\", \"fr\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "baukontrolle-realisierung-bezugsbewilligung",
     "fields": {
       "created_at": "2021-10-29T09:12:57.379Z",
@@ -1991,7 +2039,7 @@
     "pk": "baukontrolle-realisierung-table",
     "fields": {
       "created_at": "2021-11-24T09:45:32.388Z",
-      "modified_at": "2021-11-24T10:13:19.736Z",
+      "modified_at": "2021-11-29T08:46:25.759Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -2008,8 +2056,8 @@
       "meta": {
         "columnsToDisplay": [
           "baukontrolle-realisierung-baubeginn",
-          "baukontrolle-realisierung-bezugsbewilligung",
-          "baukontrolle-realisierung-schlussabnahme"
+          "baukontrolle-realisierung-beschreibung",
+          "baukontrolle-realisierung-bauende"
         ]
       },
       "data_source": null,
