@@ -89,6 +89,11 @@ class FormSerializer(serializers.ModelSerializer):
 
 
 class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
+    # TODO once more than one Camac-NG project uses Caluma as a form
+    # this serializer needs to be split up into what is actually
+    # Caluma and what is project specific
+    permissions = serializers.SerializerMethodField()
+
     editable = serializers.SerializerMethodField()
     access_type = serializers.SerializerMethodField()
     user = CurrentUserResourceRelatedField()
@@ -111,6 +116,9 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
     linked_instances = relations.SerializerMethodResourceRelatedField(
         source="get_linked_instances", model=models.Instance, read_only=True, many=True
     )
+
+    def get_permissions(self, instance):
+        return {}
 
     @permission_aware
     def get_access_type(self, obj):
@@ -224,7 +232,7 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
 
     class Meta:
         model = models.Instance
-        meta_fields = ("editable", "access_type")
+        meta_fields = ("editable", "access_type", "permissions")
         fields = (
             "instance_id",
             "instance_state",
@@ -268,6 +276,22 @@ class SchwyzInstanceSerializer(InstanceSerializer):
         instance.save()
 
         return instance
+
+    @permission_aware
+    def get_permissions(self, instance):
+        return {}
+
+    def get_permissions_for_municipality(self, instance):
+        if instance.instance_state.name in ["new", "subm", "arch"]:
+            return {"bauverwaltung": {"read"}}
+        else:
+            return {"bauverwaltung": {"read", "write"}}
+
+    def get_permissions_for_service(self, instance):
+        return {"bauverwaltung": {"read"}}
+
+    def get_permissions_for_public(self, instance):
+        return {}
 
 
 class CamacInstanceChangeFormSerializer(serializers.Serializer):
@@ -342,11 +366,6 @@ class CamacInstanceChangeFormSerializer(serializers.Serializer):
 
 
 class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
-    # TODO once more than one Camac-NG project uses Caluma as a form
-    # this serializer needs to be split up into what is actually
-    # Caluma and what is project specific
-    permissions = serializers.SerializerMethodField()
-
     instance_state = serializers.ResourceRelatedField(
         queryset=models.InstanceState.objects.filter(name="new"),
         default=NewInstanceStateDefault(),
@@ -829,7 +848,6 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             "rejection_feedback",
             "name",
         )
-        meta_fields = InstanceSerializer.Meta.meta_fields + ("permissions",)
 
 
 class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
