@@ -1,12 +1,8 @@
-from datetime import datetime
-
 from caluma.caluma_core.validations import BaseValidation, validation_for
 from caluma.caluma_form.models import Answer
-from caluma.caluma_form.schema import SaveDocumentDateAnswer, SaveDocumentStringAnswer
-from django.conf import settings
+from caluma.caluma_form.schema import SaveDocumentStringAnswer
 
 from camac.caluma.utils import CamacRequest
-from camac.core.models import WorkflowEntry
 from camac.echbern.signals import file_subsequently
 from camac.notification.utils import send_mail
 
@@ -20,21 +16,6 @@ NOTIFICATION_CLAIM_IN_PROGRESS_MUNICIPALITY = (
     "03-zusaetzliche-unterlagen-notwendig-gemeinde"
 )
 NOTIFICATION_CLAIM_ANSWERED = "03-nachforderung-beantwortet-leitbehorde"
-
-WORKFLOW_ITEM_QUESTION_MAP = {
-    "baukontrolle-realisierung-baubeginn": 55,
-    "baukontrolle-realisierung-schnurgeruestabnahme": 56,
-    "baukontrolle-realisierung-werke": 57,
-    "baukontrolle-realisierung-rohbauabnahme": 58,
-    "baukontrolle-realisierung-schlussabnahme": 59,
-    "baukontrolle-realisierung-geometer": 68,
-    "baukontrolle-realisierung-liegenschaftsschaetzung": 69,
-    "bewilligungsverfahren-rueckzug": 82,
-    "beschwerdeverfahren-sistierung": 84,
-    "bewilligungsverfahren-datum-gesamtentscheid": 85,
-    "bewilligungsverfahren-gr-sitzung-beschwerdefrist": 86,
-    "baukontrolle-realisierung-kanalisationsabnahme": 88,
-}
 
 
 class CustomValidation(BaseValidation):
@@ -93,23 +74,5 @@ class CustomValidation(BaseValidation):
                     ["leitbehoerde", "inactive_municipality"],
                 )
                 self._send_claim_ech_event(info, instance)
-
-        return data
-
-    @validation_for(SaveDocumentDateAnswer)
-    def validate_save_document_date_answer(self, mutation, data, info):
-        if settings.APPLICATION_NAME != "kt_schwyz":
-            return data
-
-        slug = data["question"].slug
-
-        if slug in WORKFLOW_ITEM_QUESTION_MAP.keys():
-            instance = data["document"].family.work_item.case.instance
-            WorkflowEntry.objects.create(
-                group=instance.group.pk,
-                workflow_item_id=WORKFLOW_ITEM_QUESTION_MAP[slug],
-                instance_id=instance.pk,
-                workflow_date=datetime.combine(data["date"], datetime.min.time()),
-            )
 
         return data
