@@ -16288,7 +16288,9 @@
       "different_color": 0,
       "is_workflow": 1,
       "is_building_authority": 1,
-      "workflow_section": 1
+      "workflow_section": 1,
+      "caluma_task": null,
+      "caluma_question": null
     }
   },
   {
@@ -16301,7 +16303,9 @@
       "different_color": 0,
       "is_workflow": 1,
       "is_building_authority": 1,
-      "workflow_section": 1
+      "workflow_section": 1,
+      "caluma_task": null,
+      "caluma_question": null
     }
   },
   {
@@ -16314,7 +16318,9 @@
       "different_color": 0,
       "is_workflow": 1,
       "is_building_authority": 1,
-      "workflow_section": 1
+      "workflow_section": 1,
+      "caluma_task": null,
+      "caluma_question": null
     }
   },
   {
@@ -16327,7 +16333,9 @@
       "different_color": 0,
       "is_workflow": 1,
       "is_building_authority": 1,
-      "workflow_section": 1
+      "workflow_section": 1,
+      "caluma_task": null,
+      "caluma_question": null
     }
   },
   {
@@ -16340,7 +16348,9 @@
       "different_color": 0,
       "is_workflow": 1,
       "is_building_authority": 1,
-      "workflow_section": 1
+      "workflow_section": 1,
+      "caluma_task": "building-authority",
+      "caluma_question": "bewilligungsverfahren-datum-gesamtentscheid"
     }
   },
   {
@@ -16353,7 +16363,9 @@
       "different_color": 0,
       "is_workflow": 1,
       "is_building_authority": 1,
-      "workflow_section": 3
+      "workflow_section": 3,
+      "caluma_task": "building-authority",
+      "caluma_question": "baukontrolle-realisierung-baubeginn"
     }
   },
   {
@@ -16366,7 +16378,9 @@
       "different_color": 0,
       "is_workflow": 1,
       "is_building_authority": 1,
-      "workflow_section": 3
+      "workflow_section": 3,
+      "caluma_task": "building-authority",
+      "caluma_question": "baukontrolle-realisierung-schnurgeruestabnahme"
     }
   },
   {
@@ -16379,7 +16393,9 @@
       "different_color": 0,
       "is_workflow": 1,
       "is_building_authority": 0,
-      "workflow_section": 3
+      "workflow_section": 3,
+      "caluma_task": "building-authority",
+      "caluma_question": "baukontrolle-realisierung-werke"
     }
   },
   {
@@ -16392,7 +16408,9 @@
       "different_color": 0,
       "is_workflow": 1,
       "is_building_authority": 1,
-      "workflow_section": 3
+      "workflow_section": 3,
+      "caluma_task": "building-authority",
+      "caluma_question": "baukontrolle-realisierung-rohbauabnahme"
     }
   },
   {
@@ -16405,7 +16423,9 @@
       "different_color": 0,
       "is_workflow": 1,
       "is_building_authority": 1,
-      "workflow_section": 3
+      "workflow_section": 3,
+      "caluma_task": "building-authority",
+      "caluma_question": "baukontrolle-realisierung-schlussabnahme"
     }
   },
   {
@@ -16418,7 +16438,9 @@
       "different_color": 0,
       "is_workflow": 1,
       "is_building_authority": 1,
-      "workflow_section": 3
+      "workflow_section": 3,
+      "caluma_task": "building-authority",
+      "caluma_question": "baukontrolle-realisierung-bauende"
     }
   },
   {
@@ -16431,7 +16453,9 @@
       "different_color": 0,
       "is_workflow": 1,
       "is_building_authority": 1,
-      "workflow_section": 3
+      "workflow_section": 3,
+      "caluma_task": "building-authority",
+      "caluma_question": "baukontrolle-realisierung-geometer"
     }
   },
   {
@@ -16444,7 +16468,9 @@
       "different_color": 0,
       "is_workflow": 1,
       "is_building_authority": 1,
-      "workflow_section": 3
+      "workflow_section": 3,
+      "caluma_task": "building-authority",
+      "caluma_question": "baukontrolle-realisierung-liegenschaftsschaetzung"
     }
   },
   {
@@ -16457,7 +16483,9 @@
       "different_color": 0,
       "is_workflow": 1,
       "is_building_authority": 0,
-      "workflow_section": 1
+      "workflow_section": 1,
+      "caluma_task": null,
+      "caluma_question": null
     }
   },
   {
@@ -16470,7 +16498,9 @@
       "different_color": 0,
       "is_workflow": 1,
       "is_building_authority": 0,
-      "workflow_section": 1
+      "workflow_section": 1,
+      "caluma_task": "building-authority",
+      "caluma_question": "bewilligungsverfahren-rueckzug"
     }
   },
   {
@@ -16483,7 +16513,9 @@
       "different_color": 0,
       "is_workflow": 1,
       "is_building_authority": 0,
-      "workflow_section": 1
+      "workflow_section": 1,
+      "caluma_task": null,
+      "caluma_question": null
     }
   },
   {
@@ -16496,7 +16528,9 @@
       "different_color": 0,
       "is_workflow": 1,
       "is_building_authority": 0,
-      "workflow_section": 1
+      "workflow_section": 1,
+      "caluma_task": "building-authority",
+      "caluma_question": "bewilligungsverfahren-sistierung-von"
     }
   },
   {
@@ -16509,7 +16543,9 @@
       "different_color": 0,
       "is_workflow": 1,
       "is_building_authority": 0,
-      "workflow_section": 1
+      "workflow_section": 1,
+      "caluma_task": null,
+      "caluma_question": null
     }
   },
   {
@@ -16522,7 +16558,9 @@
       "different_color": 0,
       "is_workflow": 1,
       "is_building_authority": 0,
-      "workflow_section": 1
+      "workflow_section": 1,
+      "caluma_task": "building-authority",
+      "caluma_question": "bewilligungsverfahren-gr-sitzung-beschwerdefrist"
     }
   },
   {
@@ -16535,7 +16573,9 @@
       "different_color": 0,
       "is_workflow": 1,
       "is_building_authority": 0,
-      "workflow_section": 3
+      "workflow_section": 3,
+      "caluma_task": null,
+      "caluma_question": null
     }
   },
   {
@@ -16548,7 +16588,9 @@
       "different_color": 0,
       "is_workflow": 1,
       "is_building_authority": 0,
-      "workflow_section": 3
+      "workflow_section": 3,
+      "caluma_task": "building-authority",
+      "caluma_question": "baukontrolle-realisierung-kanalisationsabnahme"
     }
   },
   {

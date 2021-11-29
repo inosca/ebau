@@ -8,6 +8,8 @@ export default class TaskFormController extends Controller {
   @service apollo;
   @service shoebox;
 
+  queryParams = ["displayedForm"];
+
   get moduleName() {
     return this.shoebox.content?.moduleName;
   }
