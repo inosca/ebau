@@ -781,20 +781,20 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         return self._get_responsible(instance, instance.group.service)
 
     def _get_recipients_unnotified_service(self, instance):
-
-        service = self.context["request"].group.service
-
         # Circulation and subcirculation share the same circulation object.
         # They can only be distinguished by their SERVICE_PARENT_ID.
         activations = Activation.objects.filter(
-            circulation__instance_id=instance.pk,
+            circulation=self.validated_data.get("circulation"),
             email_sent=0,
-            service_parent=service,
+            service_parent=self.context["request"].group.service,
+            service__notification=1,
         )
-        services = {a.service for a in activations}
 
         return flatten(
-            [self._get_responsible(instance, service) for service in services]
+            [
+                self._get_responsible(instance, activation.service)
+                for activation in activations
+            ]
         )
 
     def _get_recipients_service(self, instance):
@@ -885,7 +885,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
 
     def _post_send_unnotified_service(self, instance):
         Activation.objects.filter(
-            circulation__instance_id=instance.pk,
+            circulation=self.validated_data.get("circulation"),
             email_sent=0,
             service_parent=self.context["request"].group.service,
         ).update(email_sent=1)
