@@ -4759,7 +4759,7 @@
       "description": null,
       "template": null,
       "class_field": null,
-      "hidden": 0,
+      "hidden": 1,
       "sort": 11,
       "form_group": 1
     }
