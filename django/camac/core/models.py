@@ -4154,6 +4154,20 @@ class WorkflowItem(models.Model):
         blank=True,
         null=True,
     )
+    caluma_task = models.ForeignKey(
+        "caluma_workflow.Task",
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="+",
+    )
+    caluma_question = models.ForeignKey(
+        "caluma_form.Question",
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="+",
+    )
 
     class Meta:
         managed = True
