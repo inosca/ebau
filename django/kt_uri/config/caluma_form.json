@@ -127,7 +127,7 @@
         "category": "building-permit",
         "is-creatable": true,
         "is-main-form": true,
-        "camac-form-id": 44
+        "camac-form-id": 47
       },
       "is_published": true,
       "is_archived": false,
