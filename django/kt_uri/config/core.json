@@ -17228,7 +17228,7 @@
       "instance_resource": 180000,
       "name": "Dossier kopieren",
       "description": null,
-      "class_field": null,
+      "class_field": "in_form_group:12000001",
       "hidden": 0,
       "sort": 8
     }
@@ -17240,7 +17240,7 @@
       "instance_resource": 180003,
       "name": "Dossier kopieren",
       "description": null,
-      "class_field": null,
+      "class_field": "in_form_group:12000001",
       "hidden": 0,
       "sort": 7
     }
@@ -18781,6 +18781,14 @@
     "fields": {
       "name": "Solargesuche, Meldung Vorhaben und Reklamegesuche von der Gemeinde",
       "description": "Wird f\u00fcr die Anzeige des Buttons \"Freigabe an Gemeindebaubeh\u00f6rde\" benutzt"
+    }
+  },
+  {
+    "model": "core.formgroup",
+    "pk": 12000001,
+    "fields": {
+      "name": "Dossier kopieren",
+      "description": "Forms die kopiert werden k\u00f6nnen"
     }
   },
   {
@@ -20940,6 +20948,14 @@
     "pk": 12000013,
     "fields": {
       "form_group": 257,
+      "form": 296
+    }
+  },
+  {
+    "model": "core.formgroupform",
+    "pk": 12000014,
+    "fields": {
+      "form_group": 12000001,
       "form": 296
     }
   },
