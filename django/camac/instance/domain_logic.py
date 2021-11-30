@@ -230,14 +230,16 @@ class CreateInstanceLogic:
             CalumaApi().set_submit_date(instance.pk, creation_date)
 
     @staticmethod
-    def change_instance_state_for_copy(instance, source_instance, is_modification):
+    def change_instance_state_for_copy(
+        instance, source_instance, is_modification, group
+    ):
         """In Kt. UR, municipalities and KOOR NP can copy ÖREB dossiers."""
         if settings.APPLICATION_NAME == "kt_uri" and source_instance:
             mapping = {
                 ur_constants.ROLE_MUNICIPALITY: "comm",
                 ur_constants.ROLE_KOOR_NP: "ext",
             }
-            new_state = mapping.get(source_instance.group.role.pk, None)
+            new_state = mapping.get(group.role.pk, None)
             if new_state:
                 instance.instance_state = models.InstanceState.objects.get(
                     name=new_state
@@ -450,6 +452,8 @@ class CreateInstanceLogic:
                 link_instances(instance, source_instance)  # pragma: no cover
             CreateInstanceLogic.copy_applicants(source_instance, instance)
             CreateInstanceLogic.copy_attachments(source_instance, instance)
+            instance.form = source_instance.form
+            instance.save()
         elif extend_validity_for:
             extend_validity_instance = models.Instance.objects.get(
                 pk=extend_validity_for
@@ -462,7 +466,7 @@ class CreateInstanceLogic:
             )
 
         CreateInstanceLogic.change_instance_state_for_copy(
-            instance, source_instance, is_modification
+            instance, source_instance, is_modification, group
         )
 
     @staticmethod
@@ -491,6 +495,11 @@ class CreateInstanceLogic:
             data["instance_state"] = models.InstanceState.objects.get(name="old")
 
         year = data.pop("year", None)
+
+        if (
+            settings.APPLICATION["CALUMA"].get("USE_LOCATION") and source_instance
+        ):  # pragma: no cover
+            data["location"] = source_instance.location
 
         instance = Instance.objects.create(**data)
 
