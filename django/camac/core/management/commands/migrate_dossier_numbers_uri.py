@@ -26,6 +26,7 @@ class Command(BaseCommand):
             and len(case.meta["dossier-number"]) == 10
         ]
 
+        counter = 0
         for case in cases_with_wrong_dossier_number:
             old_dossier_number = case.meta["dossier-number"]
 
@@ -41,6 +42,10 @@ class Command(BaseCommand):
             self.stdout.write(
                 f"Dossier number was migrated from {old_dossier_number} to {new_dossier_number}"
             )
+
+            counter += 1
+
+        self.stdout.write(f"{counter} dossier numbers were migrated")
 
         if options["dry"]:
             transaction.savepoint_rollback(sid)
