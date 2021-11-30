@@ -65,8 +65,12 @@
       "modified_by_group": null,
       "name": "{\"de\": \"Bauverwaltung\", \"fr\": null}",
       "description": "{\"de\": \"Bauverwaltermodul f\\u00fcr Gemeindebaubeh\\u00f6rden\", \"fr\": null}",
-      "meta": {},
-      "is_published": true,
+      "meta": {
+        "category": "building-permit",
+        "is-creatable": true,
+        "is-main-form": true
+      },
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
