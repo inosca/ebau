@@ -8,6 +8,7 @@ snapshots = Snapshot()
 
 snapshots['test_validation_errors[import-example-validation-errors.zip-Municipality] 1'] = {
     'import': {
+        'completed': None,
         'details': [
         ],
         'summary': {
@@ -25,6 +26,7 @@ snapshots['test_validation_errors[import-example-validation-errors.zip-Municipal
         }
     },
     'validation': {
+        'completed': '2021-12-01T16:30:48+0100',
         'details': [
             {
                 'details': [

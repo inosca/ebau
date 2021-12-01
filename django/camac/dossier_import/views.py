@@ -10,7 +10,7 @@ class DossierImportView(ModelViewSet):
 
     queryset = DossierImport.objects.all()
     serializer_class = DossierImportSerializer
-    queryset = DossierImport.objects.all()
+    queryset = DossierImport.objects.all().order_by("-created_at")
     instance_field = None
 
     @permission_aware
