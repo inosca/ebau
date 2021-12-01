@@ -102,6 +102,10 @@ class InvalidZipFileError(exceptions.ValidationError):
     default_code = "invalid_zip_file"
 
 
+class MissingRequiredLocationError(exceptions.ValidationError):
+    default_code = "required-location-missing"
+
+
 class BadMimeType(exceptions.ParseError):
     default_code = "bad_mimetype"
     default_code = _(
