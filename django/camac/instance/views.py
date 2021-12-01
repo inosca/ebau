@@ -1344,3 +1344,6 @@ class PublicCalumaInstanceView(mixins.InstanceQuerysetMixin, ListAPIView):
                 ).values("publication_date")[:1]
             ),
         ).order_by("-publication_date", "dossier_nr")
+
+    def get_queryset_for_oereb_api(self):
+        return super().get_queryset_for_oereb_api(self.request.group)
