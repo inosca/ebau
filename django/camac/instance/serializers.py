@@ -40,6 +40,7 @@ from camac.echbern.signals import (
     sb1_submitted,
     sb2_submitted,
 )
+from camac.instance.domain_logic import link_instances
 from camac.instance.master_data import MasterData
 from camac.instance.mixins import InstanceEditableMixin, InstanceQuerysetMixin
 from camac.notification.utils import send_mail
@@ -1008,6 +1009,15 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         ]:
             self._send_notification(**notification_config)
 
+    def _link_existing_instance(self, instance):
+        existing_instance_id = CalumaApi().get_answer_value(
+            "dossier-id-laufendes-verfahren", instance
+        )
+
+        if existing_instance_id:
+            existing_instance = models.Instance.objects.get(pk=existing_instance_id)
+            link_instances(instance, existing_instance)
+
     @transaction.atomic
     def update(self, instance, validated_data):
         request_logger.info(f"Submitting instance {instance.pk}")
@@ -1043,6 +1053,12 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             self._prepare_cantonal_territory_usage(instance)
 
         instance.save()
+
+        if (
+            settings.APPLICATION_NAME == "kt_uri"
+            and instance.case.document.form.slug == "technische-bewilligung"
+        ):
+            self._link_existing_instance(instance)
 
         if settings.APPLICATION.get(
             "USE_INSTANCE_SERVICE"
