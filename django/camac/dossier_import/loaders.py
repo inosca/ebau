@@ -281,6 +281,7 @@ class XlsxFileDossierLoader(DossierLoader):
             except ValueError:  # pragma: no cover
                 messages.append(
                     FieldValidationMessage(
+                        level=LOG_LEVEL_WARNING,
                         code=MessageCodes.FIELD_VALIDATION_ERROR.value,
                         field="coordinates",
                         detail=f"Failed to load and transform coordinates from E: {e} and N: {n}",
@@ -313,6 +314,7 @@ class XlsxFileDossierLoader(DossierLoader):
         except ValueError:  # pragma: no cover
             messages.append(
                 FieldValidationMessage(
+                    level=LOG_LEVEL_WARNING,
                     code=MessageCodes.FIELD_VALIDATION_ERROR.value,
                     field="plot-data",
                     detail=f"Failed to load parcels with numbers {numbers} and egrids {egrids}",
