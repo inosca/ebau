@@ -89,7 +89,10 @@ def test_validation_errors(
         format="multipart",
     )
     assert resp.status_code == expected_status
-    snapshot.assert_match(resp.json())
+    resp = resp.json()
+    snapshot.assert_match(
+        (resp.get("data", None) and resp["data"]["attributes"]) or resp
+    )
 
 
 @pytest.mark.parametrize("role__name", ["Support"])
