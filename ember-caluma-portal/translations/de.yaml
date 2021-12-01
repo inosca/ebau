@@ -229,6 +229,9 @@ instances:
   createBuildingPermitTitle: "Baugesuch erstellen"
   createBuildingPermitText: "Hier haben Sie die Möglichkeit die bereits ausgefüllten Daten der vollständigen Vorabklärung in ein neues Baugesuch zu übernehmen."
   createBuildingPermitButton: "Baugesuch erstellen"
+  messageBuildingServicesTitle: "Meldung für Gebäudetechnik (Anlagen und Nachweise)"
+  messageBuildingServicesText: "Bitte verwenden Sie für die Meldung von gebäudetechnischen Anlagen und für die Einreichung von Nachweisen im Zusammenhang mit einen laufenden Baubewilligungsverfahren (z.B. wärmetechnische Anlagen, Brandschutz-, Energie-, oder Lärmschutznachweis) das Formular „MELDUNG GEBÄUDETECHNIK“ in der Übersicht."
+  messageBuildingServicesButton: "Meldung für Gebäudetechnik einreichen"
 
   new:
     title: "Neues Dossier"
