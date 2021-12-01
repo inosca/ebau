@@ -203,14 +203,14 @@ def test_set_workflow_state_exceptions(
         ),
         (
             {
-                "PARCEL": "123,234",
+                "PARCEL": "123,2BA",
                 "EGRID": "HK207838123456,EGRIDDELLEY",
                 "ADDRESS-CITY": "Steinerberg",
             },
             "plot_data",
             [
                 {"plot_number": 123, "egrid_number": "HK207838123456"},
-                {"plot_number": 234, "egrid_number": "EGRIDDELLEY"},
+                {"plot_number": None, "egrid_number": "EGRIDDELLEY"},
             ],
         ),
         (
