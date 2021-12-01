@@ -143,6 +143,79 @@ def test_public_caluma_instance_ur(
         assert result[0]["attributes"]["municipality"] == "Altdorf"
 
 
+@pytest.mark.parametrize("role__name", ["Oereb Api"])
+@pytest.mark.parametrize(
+    "num_queries,num_instances",
+    [
+        (
+            12,
+            1,
+        )
+    ],
+)
+def test_public_caluma_instance_oereb_ur(
+    db,
+    application_settings,
+    admin_client,
+    ur_instance,
+    enable_public_urls,
+    publication_entry_factory,
+    django_assert_num_queries,
+    num_queries,
+    num_instances,
+    form_factory,
+    user_group_factory,
+    group_factory,
+    role,
+):
+    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_uri"]["MASTER_DATA"]
+    application_settings["USE_OEREB_FIELDS_FOR_PUBLIC_ENDPOINT"] = True
+    application_settings["OEREB_FORM"] = 296
+
+    oereb_form = form_factory(form_id=296)
+
+    ur_instance.form = oereb_form
+    ur_instance.save()
+
+    admin_client.user.groups.clear()
+
+    oereb_group = group_factory(role=role)
+    user_group_factory(user=admin_client.user, group=oereb_group)
+
+    AnswerFactory(
+        question=Question.objects.create(
+            slug="oereb-thema", type=Question.TYPE_MULTIPLE_CHOICE
+        ),
+        document=ur_instance.case.document,
+        value=["oereb-thema-kpz"],
+    )
+    AnswerFactory(
+        question=Question.objects.create(
+            slug="typ-des-verfahrens", type=Question.TYPE_MULTIPLE_CHOICE
+        ),
+        document=ur_instance.case.document,
+        value="typ-des-verfahrens-meldung",
+    )
+
+    url = reverse("public-caluma-instance")
+
+    with django_assert_num_queries(num_queries):
+        response = admin_client.get(
+            url, {"instance": ur_instance.pk}, HTTP_X_CAMAC_GROUP=oereb_group.pk
+        )
+
+    assert response.status_code == status.HTTP_200_OK
+
+    result = response.json()["data"]
+
+    assert len(result) == num_instances
+
+    if num_instances > 0:
+        assert result[0]["id"] == str(ur_instance.case.pk)
+        assert result[0]["attributes"]["oereb-topic"] == ["oereb-thema-kpz"]
+        assert result[0]["attributes"]["legal-state"] == "typ-des-verfahrens-meldung"
+
+
 @pytest.mark.parametrize("role__name", ["Applicant"])
 @pytest.mark.parametrize(
     "headers,is_applicant,num_documents",

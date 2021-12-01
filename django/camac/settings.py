@@ -159,6 +159,7 @@ APPLICATIONS = {
             "Support": "support",
             "Commission": "commission",
             "OrganizationReadonly": "organization_readonly",
+            "Oereb Api": "oereb_api",
         },
         "ROLE_INHERITANCE": {"trusted_service": "service"},
         "IS_MULTILINGUAL": False,
@@ -1877,6 +1878,7 @@ APPLICATIONS = {
         "FORM_BACKEND": "caluma",
         "PUBLICATION_DURATION": timedelta(days=20),
         "PORTAL_USER_ID": 1209,
+        "USE_OEREB_FIELDS_FOR_PUBLIC_ENDPOINT": True,
         "LINK_INSTANCES_ON_COPY": True,
         "APPLICANT_GROUP_ID": 685,  # We reuse the Portal User group
         "SEQUENCE_NAMESPACE_APPS": ["core", "document", "responsible"],
@@ -1993,6 +1995,7 @@ APPLICATIONS = {
             "Vernehmlassungsstelle mit Koordinationsaufgaben": "trusted_service",
             "Vernehmlassungsstelle ohne Koordinationsaufgaben": "trusted_service",
             "Support": "support",
+            "Oereb Api": "oereb_api",
             # "Portal User": None,  # Uses the fallback permissions
             # "Admin": None,
             # "Architect": None,
