@@ -339,6 +339,22 @@ def test_set_workflow_state_exceptions(
                 }
             ],
         ),
+        (
+            dict(
+                [
+                    ("PROJECTAUTHOR-FIRST-NAME", None),
+                    ("PROJECTAUTHOR-LAST-NAME", None),
+                    ("PROJECTAUTHOR-COMPANY", None),
+                    ("PROJECTAUTHOR-STREET", None),
+                    ("PROJECTAUTHOR-STREET-NUMBER", None),
+                    ("PROJECTAUTHOR-CITY", None),
+                    ("PROJECTAUTHOR-PHONE", None),
+                    ("PROJECTAUTHOR-EMAIL", None),
+                ]
+            ),
+            "project_authors",
+            [],
+        ),
     ],
 )
 def test_record_loading_sz(

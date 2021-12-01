@@ -56,12 +56,19 @@ class CamacNgListAnswerWriter(FieldWriter):
     column_mapping = None
 
     def write(self, instance, value):
+        rows = []
+        for obj in value:
+            if any(getattr(obj, field.name, None) for field in fields(obj)):
+                rows.append(obj)
+        if not rows:
+            return
+
         mapped_values = [
             {
                 column_name: getattr(row, key, None)
                 for key, column_name in self.column_mapping.items()
             }
-            for row in value
+            for row in rows
         ]
         field, created = instance.fields.get_or_create(
             name=self.target, defaults=dict(value=mapped_values)
