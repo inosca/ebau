@@ -234,6 +234,9 @@ instances:
   createBuildingPermitTitle: "Créer une demande de permis de construire"
   createBuildingPermitText: "Vous avez ici la possibilité de transférer les données de la demande préalable complète vers une nouvelle demande de permis de construire."
   createBuildingPermitButton: "Créer une demande de permis de construire"
+  messageBuildingServicesTitle: ""
+  messageBuildingServicesText: ""
+  messageBuildingServicesButton: ""
 
   new:
     title: "Nouveau dossier"
