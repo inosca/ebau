@@ -482,6 +482,7 @@ APPLICATIONS = {
             "FORM_ID": 29,  # "migriertes-dossier"
             "CALUMA_FORM": "baugesuch",  # "dummy"-Form
             "ATTACHMENT_SECTION_ID": 7,  # attachmentsection for imported documents
+            "LOCATION_REQUIRED": True,  # this is a workaround to account for differing validation requirements per config
         },
         "MASTER_DATA": {
             "canton": ("static", "SZ"),
