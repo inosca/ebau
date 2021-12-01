@@ -265,6 +265,10 @@ def update_messages_section_detail(message: DossierMessage, dossier_import, sect
 
 def default_messages_object():
     return {
-        "import": {"details": [], "summary": Summary().to_dict()},
-        "validation": {"details": [], "summary": Summary().to_dict()},
+        "import": {"details": [], "summary": Summary().to_dict(), "completed": None},
+        "validation": {
+            "details": [],
+            "summary": Summary().to_dict(),
+            "completed": None,
+        },
     }

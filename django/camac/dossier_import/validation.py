@@ -4,6 +4,7 @@ import zipfile
 from typing import List
 
 import openpyxl
+from django.utils import timezone
 from django.utils.translation import gettext as _
 
 from camac.dossier_import import messages
@@ -168,6 +169,9 @@ def validate_zip_archive_structure(
     dossier_import = messages.update_summary(dossier_import)
     attachment_summary = validate_attachments(archive, dossier_ids)
     dossier_import.messages["validation"]["summary"].update(attachment_summary)
+    dossier_import.messages["validation"]["completed"] = timezone.localtime().strftime(
+        "%Y-%m-%dT%H:%M:%S%z"
+    )
     dossier_import.save()
 
     dossier_import.status = dossier_import.IMPORT_STATUS_VALIDATION_SUCCESSFUL

@@ -18,6 +18,7 @@ class DossierImportSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.DossierImport
         fields = (
+            "created_at",
             "status",
             "service",
             "group",
