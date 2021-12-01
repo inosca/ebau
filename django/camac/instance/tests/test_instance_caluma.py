@@ -753,6 +753,83 @@ def test_instance_submit_cantonal_territory_usage_ur(
     assert ur_instance.group == koor_group
 
 
+@pytest.mark.parametrize("instance_state__name", ["new"])
+@pytest.mark.parametrize(
+    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
+)
+def test_instance_submit_message_building_services_ur(
+    mocker,
+    admin_client,
+    settings,
+    caluma_workflow_config_ur,
+    ur_instance,
+    notification_template,
+    application_settings,
+    mock_generate_and_store_pdf,
+    ech_mandatory_answers_einfache_vorabklaerung,
+    workflow_item_factory,
+    location_factory,
+    group_factory,
+    role_factory,
+    instance_state_factory,
+    service_factory,
+    instance_factory,
+):
+    settings.APPLICATION_NAME = "kt_uri"
+    application_settings["CALUMA"]["USE_LOCATION"] = True
+    application_settings["CALUMA"]["GENERATE_IDENTIFIER"] = False
+    application_settings["USE_INSTANCE_SERVICE"] = False
+    application_settings["NOTIFICATIONS"] = {"SUBMIT": []}
+
+    message_building_services_form = caluma_form_factories.FormFactory(
+        slug="technische-bewilligung"
+    )
+    caluma_form_factories.FormFactory(slug="form-gebaeudetechnik")
+    ur_instance.case.document.form = message_building_services_form
+    ur_instance.case.document.save()
+
+    ur_instance.case.document.form.questions.create(
+        slug="dossier-id-laufendes-verfahren",
+        type=caluma_form_models.Question.TYPE_INTEGER,
+    )
+
+    source_instance = instance_factory()
+
+    ur_instance.case.document.answers.create(
+        value=source_instance.pk, question_id="dossier-id-laufendes-verfahren"
+    )
+
+    application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = True
+    application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
+
+    workflow_item_factory(workflow_item_id=WORKFLOW_ITEM_DOSSIEREINGANG_UR)
+
+    location = location_factory(location_id="1")
+
+    ur_instance.case.document.answers.create(
+        value=str(location.pk), question_id="municipality"
+    )
+
+    mocker.patch.object(
+        DocumentParser,
+        "parse_answers",
+        return_value=ech_mandatory_answers_einfache_vorabklaerung,
+    )
+
+    instance_state_factory(name="subm")
+
+    response = admin_client.post(reverse("instance-submit", args=[ur_instance.pk]))
+
+    ur_instance.refresh_from_db()
+    source_instance.refresh_from_db()
+
+    assert response.status_code == status.HTTP_200_OK
+
+    assert ur_instance.instance_state.name == "subm"
+    assert ur_instance.location_id == 1
+    assert ur_instance.instance_group == source_instance.instance_group
+
+
 @pytest.mark.parametrize("service_group__name", ["municipality"])
 @pytest.mark.parametrize("instance_state__name", ["new"])
 @pytest.mark.parametrize(
