@@ -203,14 +203,14 @@ def test_set_workflow_state_exceptions(
         ),
         (
             {
-                "PARCEL": "123,234",
+                "PARCEL": "123,2BA",
                 "EGRID": "HK207838123456,EGRIDDELLEY",
                 "ADDRESS-CITY": "Steinerberg",
             },
             "plot_data",
             [
                 {"plot_number": 123, "egrid_number": "HK207838123456"},
-                {"plot_number": 234, "egrid_number": "EGRIDDELLEY"},
+                {"plot_number": None, "egrid_number": "EGRIDDELLEY"},
             ],
         ),
         (
@@ -338,6 +338,22 @@ def test_set_workflow_state_exceptions(
                     "zip": None,
                 }
             ],
+        ),
+        (
+            dict(
+                [
+                    ("PROJECTAUTHOR-FIRST-NAME", None),
+                    ("PROJECTAUTHOR-LAST-NAME", None),
+                    ("PROJECTAUTHOR-COMPANY", None),
+                    ("PROJECTAUTHOR-STREET", None),
+                    ("PROJECTAUTHOR-STREET-NUMBER", None),
+                    ("PROJECTAUTHOR-CITY", None),
+                    ("PROJECTAUTHOR-PHONE", None),
+                    ("PROJECTAUTHOR-EMAIL", None),
+                ]
+            ),
+            "project_authors",
+            [],
         ),
     ],
 )
