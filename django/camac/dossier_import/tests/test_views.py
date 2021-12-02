@@ -2,6 +2,7 @@ import mimetypes
 
 import pytest
 from django.urls import reverse
+from pytest_lazyfixture import lazy_fixture
 from rest_framework import status
 
 from .test_dossier_import_case import TEST_IMPORT_FILE_NAME
@@ -40,27 +41,58 @@ def test_api_get_views(
     assert len(resp.json()["data"]) == result_count
 
 
+@pytest.mark.freeze_time("2021-12-12")
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize(
-    "import_file",
-    ["import-example-validation-errors.zip"],
+    "import_file,config,location_id,expected_status",
+    [
+        (
+            "import-example-validation-errors.zip",
+            "kt_schwyz",
+            lazy_fixture("location"),
+            status.HTTP_201_CREATED,
+        ),
+        (
+            "import-example-validation-errors.zip",
+            "kt_schwyz",
+            None,
+            status.HTTP_400_BAD_REQUEST,
+        ),
+    ],
 )
 def test_validation_errors(
-    db, admin_client, group, role, location, archive_file, snapshot, import_file
+    db,
+    admin_client,
+    group,
+    role,
+    settings,
+    archive_file,
+    snapshot,
+    import_file,
+    config,
+    location_id,
+    expected_status,
 ):
     # create an import case with an uploaded file using the REST endpoint (POST)
+    settings.APPLICATION = settings.APPLICATIONS[config]
     the_file = import_file and archive_file(import_file)
+    data = {
+        "source_file": (the_file and the_file.file) or "",
+        "group": group.pk,
+    }
+    if location_id:
+        data.update({"location_id": location_id.pk})
+
     resp = admin_client.post(
         reverse("dossier-import-list"),
-        data={
-            "source_file": (the_file and the_file.file) or "",
-            "group": group.pk,
-            "location_id": location.pk,
-        },
+        data=data,
         format="multipart",
     )
-    assert resp.status_code == status.HTTP_201_CREATED
-    snapshot.assert_match(resp.json()["data"]["attributes"]["messages"])
+    assert resp.status_code == expected_status
+    resp = resp.json()
+    snapshot.assert_match(
+        (resp.get("data", None) and resp["data"]["attributes"]) or resp
+    )
 
 
 @pytest.mark.parametrize("role__name", ["Support"])

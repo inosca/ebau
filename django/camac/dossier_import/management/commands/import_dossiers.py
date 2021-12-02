@@ -3,6 +3,7 @@ import pprint
 from django.conf import settings
 from django.core.files import File
 from django.core.management.base import BaseCommand, CommandError
+from django.utils import timezone
 from django.utils.module_loading import import_string
 
 from camac.document.models import Attachment
@@ -143,7 +144,9 @@ class Command(BaseCommand):
                 **{"instance__case__meta__import-id": str(dossier_import.pk)}
             ).count(),
         ).to_dict()
-
+        dossier_import.messages["import"]["completed"] = timezone.localtime().strftime(
+            "%Y-%m-%dT%H:%M:%S%z"
+        )
         dossier_import.save()
         self.stdout.write("========= Dossier import =========")
         if options["verbosity"] > 1:
