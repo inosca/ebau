@@ -2930,6 +2930,8 @@ if ENABLE_SILK and not env.bool("TEST_SUITE_RUNNING", False):  # pragma: no cove
     SILKY_AUTHENTICATION = False
     SILKY_AUTHORISATION = False
     SILKY_META = True
+    SILKY_PYTHON_PROFILER = True
+    SILKY_PYTHON_PROFILER_BINARY = True
 
 # Whether to migrate Portal users on first login. See authentication.py for
 # detailed description of what the migrations does.
