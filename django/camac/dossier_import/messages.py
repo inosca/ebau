@@ -102,6 +102,10 @@ class InvalidZipFileError(exceptions.ValidationError):
     default_code = "invalid_zip_file"
 
 
+class MissingRequiredLocationError(exceptions.ValidationError):
+    default_code = "required-location-missing"
+
+
 class BadMimeType(exceptions.ParseError):
     default_code = "bad_mimetype"
     default_code = _(
@@ -265,6 +269,10 @@ def update_messages_section_detail(message: DossierMessage, dossier_import, sect
 
 def default_messages_object():
     return {
-        "import": {"details": [], "summary": Summary().to_dict()},
-        "validation": {"details": [], "summary": Summary().to_dict()},
+        "import": {"details": [], "summary": Summary().to_dict(), "completed": None},
+        "validation": {
+            "details": [],
+            "summary": Summary().to_dict(),
+            "completed": None,
+        },
     }

@@ -295,15 +295,19 @@ class XlsxFileDossierLoader(DossierLoader):
     ) -> Tuple[List[PlotData], Optional[List[Message]]]:
         out = []
         messages = []
-        numbers = dossier_row[XlsxFileDossierLoader.Column.parcel.value]
+        plot_numbers = dossier_row[XlsxFileDossierLoader.Column.parcel.value]
         egrids = dossier_row[XlsxFileDossierLoader.Column.egrid.value]
         try:
-            numbers = numbers.split(",") if type(numbers) == str else [numbers]
+            plot_numbers = (
+                plot_numbers.split(",") if type(plot_numbers) == str else [plot_numbers]
+            )
             egrids = egrids.split(",") if type(egrids) == str else [egrids]
             municipality = dossier_row[
                 getattr(XlsxFileDossierLoader.Column, "address_city").value
             ]
-            for number, egrid in zip(numbers, egrids):
+            for number, egrid in zip(plot_numbers, egrids):
+                if len(str(numbers(number))) != len(str(number)):
+                    number = None
                 out.append(
                     PlotData(
                         number=number and int(number),
@@ -317,7 +321,7 @@ class XlsxFileDossierLoader(DossierLoader):
                     level=LOG_LEVEL_WARNING,
                     code=MessageCodes.FIELD_VALIDATION_ERROR.value,
                     field="plot-data",
-                    detail=f"Failed to load parcels with numbers {numbers} and egrids {egrids}",
+                    detail=f"Failed to load parcels with numbers {plot_numbers} and egrids {egrids}",
                 )
             )
         return out, messages
