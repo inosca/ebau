@@ -3375,6 +3375,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "8-freigabequittung.ausnahmegesuche",
+    "fields": {
+      "created_at": "2021-12-03T15:25:41.801Z",
+      "modified_at": "2021-12-03T15:25:41.801Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "8-freigabequittung",
+      "question": "ausnahmegesuche",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "8-freigabequittung.einreichen-button",
     "fields": {
       "created_at": "2019-09-25T10:19:39.446Z",
@@ -28400,6 +28415,39 @@
         "widgetOverride": null,
         "documentCategory": "bauwerk-energie"
       },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "ausnahmegesuche",
+    "fields": {
+      "created_at": "2021-12-03T15:25:41.677Z",
+      "modified_at": "2021-12-03T15:26:00.251Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ausnahmegesuche\", \"fr\": \"Demande de d\\u00e9rogation\"}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": \"\"}",
+      "info_text": "{\"de\": null, \"fr\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
