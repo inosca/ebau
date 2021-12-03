@@ -2563,6 +2563,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "bab-form.bab-erstellung-des-gebaeudes",
+    "fields": {
+      "created_at": "2021-12-03T15:42:48.191Z",
+      "modified_at": "2021-12-03T15:42:48.191Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab-form",
+      "question": "bab-erstellung-des-gebaeudes",
+      "sort": 32
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "bab-form.bab-erwerbsmaessigen-landwirtschaft",
     "fields": {
       "created_at": "2020-10-14T07:12:11.687Z",
@@ -2828,7 +2843,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-streusiedlungsgebiet",
-      "sort": 32
+      "sort": 33
     }
   },
   {
@@ -8453,6 +8468,38 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\"}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-erstellung-des-gebaeudes-nach-dem-30-06-1972",
+    "fields": {
+      "created_at": "2021-12-03T15:42:47.959Z",
+      "modified_at": "2021-12-03T15:54:49.905Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"nach dem 30.06.1972\", \"fr\": \"Apr\\u00e8s le 30 juin 1972\"}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-erstellung-des-gebaeudes-vor-dem-01-07-1972",
+    "fields": {
+      "created_at": "2021-12-03T15:42:47.939Z",
+      "modified_at": "2021-12-03T15:54:49.898Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"vor dem 01.07.1972\", \"fr\": \"Avant le 1\\u1d49\\u02b3 juillet 1972\"}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -18622,6 +18669,36 @@
       "label": "{\"de\": \"Datum Baubewilligung\", \"fr\": \"Date du permis de construire\"}",
       "type": "date",
       "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bab-erstellung-des-gebaeudes",
+    "fields": {
+      "created_at": "2021-12-03T15:42:48.062Z",
+      "modified_at": "2021-12-03T15:54:50.416Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Erstellung des Geb\\u00e4udes / der Anlage:\", \"fr\": \"Edification du b\\u00e2timent/de l'installation:\"}",
+      "type": "choice",
+      "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
@@ -30801,6 +30878,36 @@
       "question": "bab-01-07-1972-um-und-ausgebaut",
       "option": "bab-01-07-1972-um-und-ausgebaut-nein",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-erstellung-des-gebaeudes.bab-erstellung-des-gebaeudes-nach-dem-30-06-1972",
+    "fields": {
+      "created_at": "2021-12-03T15:54:50.426Z",
+      "modified_at": "2021-12-03T15:54:50.426Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "bab-erstellung-des-gebaeudes",
+      "option": "bab-erstellung-des-gebaeudes-nach-dem-30-06-1972",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-erstellung-des-gebaeudes.bab-erstellung-des-gebaeudes-vor-dem-01-07-1972",
+    "fields": {
+      "created_at": "2021-12-03T15:54:50.432Z",
+      "modified_at": "2021-12-03T15:54:50.432Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "bab-erstellung-des-gebaeudes",
+      "option": "bab-erstellung-des-gebaeudes-vor-dem-01-07-1972",
+      "sort": 2
     }
   },
   {
