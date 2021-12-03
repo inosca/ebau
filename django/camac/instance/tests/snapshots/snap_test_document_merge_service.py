@@ -1598,6 +1598,12 @@ snapshots['test_document_merge_service_snapshot[baugesuch] 1'] = [
     {
         'children': [
             {
+                'label': 'Ausnahmegesuche',
+                'slug': 'ausnahmegesuche',
+                'type': 'TextareaQuestion',
+                'value': None
+            },
+            {
                 'label': 'Bemerkungen',
                 'slug': 'freigabequittung-bemerkungen',
                 'type': 'TextareaQuestion',
