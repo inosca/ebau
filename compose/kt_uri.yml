@@ -110,7 +110,7 @@ services:
     image: mailhog/mailhog
 
   clamav:
-    image: tiredofit/clamav:2.1.1
+    image: tiredofit/clamav:2.3.0
 
   keycloak:
     depends_on:
