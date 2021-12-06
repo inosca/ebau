@@ -5125,7 +5125,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "baubeschrieb",
-      "sort": 22
+      "sort": 25
     }
   },
   {
@@ -5140,6 +5140,36 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "baukosten-in-chf",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben.baukosten-total-chf",
+    "fields": {
+      "created_at": "2021-12-03T14:48:04.567Z",
+      "modified_at": "2021-12-03T14:48:04.567Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben",
+      "question": "baukosten-total-chf",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben.baukosten-total-pro-m3",
+    "fields": {
+      "created_at": "2021-12-03T14:56:39.604Z",
+      "modified_at": "2021-12-03T14:56:39.604Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben",
+      "question": "baukosten-total-pro-m3",
       "sort": 3
     }
   },
@@ -5155,7 +5185,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "bauvorhaben-separator",
-      "sort": 5
+      "sort": 8
     }
   },
   {
@@ -5170,7 +5200,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "beschreibung-bauvorhaben",
-      "sort": 21
+      "sort": 24
     }
   },
   {
@@ -5185,7 +5215,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "beschreibung-projektaenderung",
-      "sort": 20
+      "sort": 23
     }
   },
   {
@@ -5200,7 +5230,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "bisherige-nutzung",
-      "sort": 19
+      "sort": 22
     }
   },
   {
@@ -5215,7 +5245,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "dach",
-      "sort": 10
+      "sort": 13
     }
   },
   {
@@ -5230,7 +5260,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "dach-farbe",
-      "sort": 6
+      "sort": 9
     }
   },
   {
@@ -5245,7 +5275,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "dach-form",
-      "sort": 9
+      "sort": 12
     }
   },
   {
@@ -5260,7 +5290,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "dach-material",
-      "sort": 7
+      "sort": 10
     }
   },
   {
@@ -5275,7 +5305,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "dach-neigung",
-      "sort": 8
+      "sort": 11
     }
   },
   {
@@ -5305,7 +5335,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "fassaden",
-      "sort": 13
+      "sort": 16
     }
   },
   {
@@ -5320,7 +5350,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "fassaden-farbe",
-      "sort": 11
+      "sort": 14
     }
   },
   {
@@ -5335,7 +5365,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "fassaden-material",
-      "sort": 12
+      "sort": 15
     }
   },
   {
@@ -5350,7 +5380,22 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "fundation-system",
-      "sort": 17
+      "sort": 20
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben.gebaeudevolumen",
+    "fields": {
+      "created_at": "2021-12-03T14:48:44.263Z",
+      "modified_at": "2021-12-03T14:48:44.263Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben",
+      "question": "gebaeudevolumen",
+      "sort": 4
     }
   },
   {
@@ -5380,7 +5425,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "tragkonstruktion",
-      "sort": 18
+      "sort": 21
     }
   },
   {
@@ -5395,7 +5440,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "tragkonstruktion-decken",
-      "sort": 14
+      "sort": 17
     }
   },
   {
@@ -5410,7 +5455,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "tragkonstruktion-stuetzen",
-      "sort": 16
+      "sort": 19
     }
   },
   {
@@ -5425,7 +5470,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "tragkonstruktion-waende",
-      "sort": 15
+      "sort": 18
     }
   },
   {
@@ -5440,7 +5485,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "vorbereitende-massnahmen",
-      "sort": 4
+      "sort": 7
     }
   },
   {
@@ -28854,6 +28899,69 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "baukosten-total-chf",
+    "fields": {
+      "created_at": "2021-12-03T14:48:04.440Z",
+      "modified_at": "2021-12-03T15:04:30.581Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Baukosten total, inkl. Erschliessung, ohne Landerwerb in CHF\", \"fr\": \"Co\\u00fbts de construction totaux, \\u00e9quipement compris, sans l'acquisition du terrain en CHF\"}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": \"\"}",
+      "info_text": "{\"de\": null, \"fr\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[\"baukosten-total-pro-m3\"]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "baukosten-total-pro-m3",
+    "fields": {
+      "created_at": "2021-12-03T14:56:39.488Z",
+      "modified_at": "2021-12-03T15:11:51.571Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Baukosten total, inkl. Erschliessung, ohne Landerwerb pro m\\u00b3 in CHF\", \"fr\": \"Co\\u00fbts de construction totaux, \\u00e9quipement compris, sans l'acquisition du terrain par m\\u00b3 en CHF\"}",
+      "type": "calculated_float",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": "(\"baukosten-total-chf\"|answer / \"gebaeudevolumen\"|answer)|round(2)",
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "baumfaellbegruendung-dokument",
     "fields": {
       "created_at": "2020-10-05T10:45:16.327Z",
@@ -35218,6 +35326,39 @@
       "default_answer": null,
       "calc_expression": null,
       "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "gebaeudevolumen",
+    "fields": {
+      "created_at": "2021-12-03T14:48:44.127Z",
+      "modified_at": "2021-12-03T15:05:17.799Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Geb\\u00e4udevolumen GV nach SN 504 416 in m\\u00b3\", \"fr\": \"Volume b\\u00e2ti (VB) selon SN 504 416 en m\\u00b3\"}",
+      "type": "float",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": \"\"}",
+      "info_text": "{\"de\": null, \"fr\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[\"baukosten-total-pro-m3\"]"
     }
   },
   {

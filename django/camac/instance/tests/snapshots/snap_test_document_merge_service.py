@@ -390,6 +390,23 @@ snapshots['test_document_merge_service_snapshot[baugesuch] 1'] = [
                         'value': 10000
                     },
                     {
+                        'label': 'Baukosten total, inkl. Erschliessung, ohne Landerwerb in CHF',
+                        'slug': 'baukosten-total-chf',
+                        'type': 'IntegerQuestion',
+                        'value': None
+                    },
+                    {
+                        'label': 'Gebäudevolumen GV nach SN 504 416 in m³',
+                        'slug': 'gebaeudevolumen',
+                        'type': 'FloatQuestion',
+                        'value': None
+                    },
+                    {
+                        'label': 'Baukosten total, inkl. Erschliessung, ohne Landerwerb pro m³ in CHF',
+                        'slug': 'baukosten-total-pro-m3',
+                        'type': 'CalculatedFloatQuestion'
+                    },
+                    {
                         'label': 'Geplanter Baustart',
                         'slug': 'geplanter-baustart',
                         'type': 'DateQuestion',
