@@ -125,6 +125,7 @@ services:
     networks:
       - camac-ng.local
     # export is a bit tricky: We need to _start_ keycloak with specific arguments to perform an export
+    # you might need to remove the read only flag in the volume mount for test-config.json (few lines above)
     # command: ["-Dkeycloak.migration.action=export", "-Dkeycloak.migration.provider=singleFile", "-Dkeycloak.migration.file=/etc/keycloak/test-config.json", "-b", "0.0.0.0"]
     #
     # https://www.keycloak.org/docs/11.0/server_admin/#_export_import

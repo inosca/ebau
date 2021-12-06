@@ -301,6 +301,17 @@ class InstanceQuerysetMixin(object):
 
         return queryset.none()
 
+    def get_queryset_for_oereb_api(self, group):
+        queryset = self.get_base_queryset()
+
+        return queryset.filter(
+            **{
+                self._get_instance_filter_expr("form_id"): settings.APPLICATION.get(
+                    "OEREB_FORM", None
+                ),
+            }
+        )
+
     def _instances_with_activation(self, group):
         return Circulation.objects.filter(activations__service=group.service).values(
             "instance_id"
