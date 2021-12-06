@@ -39211,7 +39211,7 @@
     "pk": 10,
     "fields": {
       "key": "toEmail",
-      "value": "amtsblatt@ur.ch,oereb@lisag.ch",
+      "value": "amtsblatt@ur.ch,oereb@lisag.ch,koornp@ur.ch",
       "type": 2
     }
   },
@@ -39256,7 +39256,7 @@
     "pk": 15,
     "fields": {
       "key": "toEmail",
-      "value": "amtsblatt@ur.ch,oereb@lisag.ch",
+      "value": "amtsblatt@ur.ch,oereb@lisag.ch,koornp@ur.ch",
       "type": 3
     }
   },
