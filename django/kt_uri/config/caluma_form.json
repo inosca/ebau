@@ -58,10 +58,10 @@
     "pk": "bauverwaltung",
     "fields": {
       "created_at": "2021-11-26T12:01:57.701Z",
-      "modified_at": "2021-11-26T12:01:57.701Z",
+      "modified_at": "2021-11-30T17:19:37.446Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "name": "{\"de\": \"Bauverwaltung\", \"fr\": null}",
       "description": "{\"de\": \"Bauverwaltermodul f\\u00fcr Gemeindebaubeh\\u00f6rden\", \"fr\": null}",
@@ -841,7 +841,7 @@
     "pk": "ordentliches-bewilligungsverfahren",
     "fields": {
       "created_at": "2021-11-26T12:05:05.166Z",
-      "modified_at": "2021-11-28T16:23:14.051Z",
+      "modified_at": "2021-12-01T13:24:01.648Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -1013,10 +1013,10 @@
     "pk": "realisierungsphase",
     "fields": {
       "created_at": "2021-11-26T13:22:02.832Z",
-      "modified_at": "2021-11-26T13:22:02.832Z",
+      "modified_at": "2021-12-02T09:50:29.932Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "name": "{\"de\": \"Realisierungsphase\", \"fr\": null}",
       "description": "{\"de\": \"Tabelle Realisierungsphasen\", \"fr\": null}",
@@ -1216,7 +1216,7 @@
     "pk": "technische-bewilligung",
     "fields": {
       "created_at": "2021-11-18T11:57:56.631Z",
-      "modified_at": "2021-11-26T16:42:27.461Z",
+      "modified_at": "2021-11-30T17:19:54.126Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "jonas.lehmann@adfinis.com",
@@ -7825,7 +7825,7 @@
       "modified_by_group": null,
       "form": "oereb-verfahren",
       "question": "art-der-revision",
-      "sort": 9
+      "sort": 7
     }
   },
   {
@@ -7840,7 +7840,7 @@
       "modified_by_group": null,
       "form": "oereb-verfahren",
       "question": "art-snp",
-      "sort": 8
+      "sort": 6
     }
   },
   {
@@ -7855,7 +7855,7 @@
       "modified_by_group": null,
       "form": "oereb-verfahren",
       "question": "art-snpbl-gemeinde",
-      "sort": 7
+      "sort": 5
     }
   },
   {
@@ -7870,7 +7870,7 @@
       "modified_by_group": null,
       "form": "oereb-verfahren",
       "question": "bemerkungen-np",
-      "sort": 3
+      "sort": 1
     }
   },
   {
@@ -7885,7 +7885,7 @@
       "modified_by_group": null,
       "form": "oereb-verfahren",
       "question": "bezeichnung",
-      "sort": 12
+      "sort": 11
     }
   },
   {
@@ -7900,7 +7900,7 @@
       "modified_by_group": null,
       "form": "oereb-verfahren",
       "question": "grundwasserschutz-art",
-      "sort": 5
+      "sort": 3
     }
   },
   {
@@ -7915,7 +7915,7 @@
       "modified_by_group": null,
       "form": "oereb-verfahren",
       "question": "oereb-thema",
-      "sort": 10
+      "sort": 9
     }
   },
   {
@@ -7930,7 +7930,7 @@
       "modified_by_group": null,
       "form": "oereb-verfahren",
       "question": "oereb-titel",
-      "sort": 13
+      "sort": 12
     }
   },
   {
@@ -7945,7 +7945,7 @@
       "modified_by_group": null,
       "form": "oereb-verfahren",
       "question": "typ-des-verfahrens",
-      "sort": 11
+      "sort": 10
     }
   },
   {
@@ -7960,7 +7960,7 @@
       "modified_by_group": null,
       "form": "oereb-verfahren",
       "question": "verfahrensinhalt",
-      "sort": 6
+      "sort": 4
     }
   },
   {
@@ -7975,7 +7975,7 @@
       "modified_by_group": null,
       "form": "oereb-verfahren",
       "question": "weitere-baulinien",
-      "sort": 4
+      "sort": 2
     }
   },
   {
@@ -8050,7 +8050,7 @@
       "modified_by_group": null,
       "form": "ordentliches-bewilligungsverfahren",
       "question": "bau-und-einspracheentscheid",
-      "sort": 10
+      "sort": 12
     }
   },
   {
@@ -8065,7 +8065,7 @@
       "modified_by_group": null,
       "form": "ordentliches-bewilligungsverfahren",
       "question": "baubewilligung-gueltig-bis",
-      "sort": 6
+      "sort": 5
     }
   },
   {
@@ -8095,7 +8095,7 @@
       "modified_by_group": null,
       "form": "ordentliches-bewilligungsverfahren",
       "question": "bemerkungen-ordentliches-verfahren",
-      "sort": 8
+      "sort": 22
     }
   },
   {
@@ -8110,7 +8110,7 @@
       "modified_by_group": null,
       "form": "ordentliches-bewilligungsverfahren",
       "question": "bewilligungsverfahren-teil-1",
-      "sort": 20
+      "sort": 23
     }
   },
   {
@@ -8125,7 +8125,7 @@
       "modified_by_group": null,
       "form": "ordentliches-bewilligungsverfahren",
       "question": "bewilligungsverfahren-teil-2",
-      "sort": 7
+      "sort": 6
     }
   },
   {
@@ -8140,7 +8140,7 @@
       "modified_by_group": null,
       "form": "ordentliches-bewilligungsverfahren",
       "question": "dossier-erfasst-gbb",
-      "sort": 18
+      "sort": 20
     }
   },
   {
@@ -8155,7 +8155,7 @@
       "modified_by_group": null,
       "form": "ordentliches-bewilligungsverfahren",
       "question": "dossier-vollstaendig",
-      "sort": 16
+      "sort": 18
     }
   },
   {
@@ -8170,7 +8170,52 @@
       "modified_by_group": null,
       "form": "ordentliches-bewilligungsverfahren",
       "question": "dossiereningang-online",
-      "sort": 19
+      "sort": 21
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "ordentliches-bewilligungsverfahren.medlungen-bauentscheid",
+    "fields": {
+      "created_at": "2021-12-02T09:46:36.286Z",
+      "modified_at": "2021-12-02T09:46:36.286Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "ordentliches-bewilligungsverfahren",
+      "question": "medlungen-bauentscheid",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "ordentliches-bewilligungsverfahren.meldung-bauentscheid-an-geometer",
+    "fields": {
+      "created_at": "2021-12-02T09:51:12.062Z",
+      "modified_at": "2021-12-02T09:51:12.062Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "ordentliches-bewilligungsverfahren",
+      "question": "meldung-bauentscheid-an-geometer",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "ordentliches-bewilligungsverfahren.meldung-bauentscheid-gebaeudeschaetzung",
+    "fields": {
+      "created_at": "2021-12-02T09:52:53.985Z",
+      "modified_at": "2021-12-02T09:52:53.985Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "ordentliches-bewilligungsverfahren",
+      "question": "meldung-bauentscheid-gebaeudeschaetzung",
+      "sort": 8
     }
   },
   {
@@ -8185,7 +8230,7 @@
       "modified_by_group": null,
       "form": "ordentliches-bewilligungsverfahren",
       "question": "nachforderung-gbb",
-      "sort": 17
+      "sort": 19
     }
   },
   {
@@ -8200,7 +8245,7 @@
       "modified_by_group": null,
       "form": "ordentliches-bewilligungsverfahren",
       "question": "pruefung-durch-gemeinde",
-      "sort": 15
+      "sort": 17
     }
   },
   {
@@ -8215,7 +8260,7 @@
       "modified_by_group": null,
       "form": "ordentliches-bewilligungsverfahren",
       "question": "start-zirkulation",
-      "sort": 14
+      "sort": 16
     }
   },
   {
@@ -8230,7 +8275,7 @@
       "modified_by_group": null,
       "form": "ordentliches-bewilligungsverfahren",
       "question": "stellungnahme-vorentscheid",
-      "sort": 12
+      "sort": 14
     }
   },
   {
@@ -8265,6 +8310,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "ordentliches-bewilligungsverfahren.verlaengerung-der-baubewilligung",
+    "fields": {
+      "created_at": "2021-12-01T13:22:38.592Z",
+      "modified_at": "2021-12-01T13:22:38.592Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "ordentliches-bewilligungsverfahren",
+      "question": "verlaengerung-der-baubewilligung",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "ordentliches-bewilligungsverfahren.verlaengerungsantrag",
     "fields": {
       "created_at": "2021-11-28T16:20:17.441Z",
@@ -8290,7 +8350,7 @@
       "modified_by_group": null,
       "form": "ordentliches-bewilligungsverfahren",
       "question": "versand-bau-und-einspracheentscheid",
-      "sort": 9
+      "sort": 11
     }
   },
   {
@@ -8305,7 +8365,7 @@
       "modified_by_group": null,
       "form": "ordentliches-bewilligungsverfahren",
       "question": "versand-stellungnahme-vorentscheid",
-      "sort": 11
+      "sort": 13
     }
   },
   {
@@ -8320,7 +8380,7 @@
       "modified_by_group": null,
       "form": "ordentliches-bewilligungsverfahren",
       "question": "zirkulation-abgeschlossen",
-      "sort": 13
+      "sort": 15
     }
   },
   {
@@ -9760,7 +9820,7 @@
       "modified_by_group": null,
       "form": "realisierungsphase",
       "question": "abnahme-rohbau",
-      "sort": 8
+      "sort": 12
     }
   },
   {
@@ -9775,7 +9835,22 @@
       "modified_by_group": null,
       "form": "realisierungsphase",
       "question": "abnahme-schnurgeruest-realisierungsphase",
-      "sort": 9
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "realisierungsphase.abschluss",
+    "fields": {
+      "created_at": "2021-12-02T10:09:18.368Z",
+      "modified_at": "2021-12-02T10:09:18.368Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "realisierungsphase",
+      "question": "abschluss",
+      "sort": 4
     }
   },
   {
@@ -9790,7 +9865,7 @@
       "modified_by_group": null,
       "form": "realisierungsphase",
       "question": "bau-beendet",
-      "sort": 7
+      "sort": 11
     }
   },
   {
@@ -9805,7 +9880,7 @@
       "modified_by_group": null,
       "form": "realisierungsphase",
       "question": "baubeginn",
-      "sort": 11
+      "sort": 15
     }
   },
   {
@@ -9820,7 +9895,7 @@
       "modified_by_group": null,
       "form": "realisierungsphase",
       "question": "bemerkungen-realisierungsphase",
-      "sort": 3
+      "sort": 1
     }
   },
   {
@@ -9835,7 +9910,7 @@
       "modified_by_group": null,
       "form": "realisierungsphase",
       "question": "bezugsbewilligung",
-      "sort": 5
+      "sort": 3
     }
   },
   {
@@ -9850,7 +9925,7 @@
       "modified_by_group": null,
       "form": "realisierungsphase",
       "question": "endabnahme",
-      "sort": 6
+      "sort": 10
     }
   },
   {
@@ -9865,22 +9940,67 @@
       "modified_by_group": null,
       "form": "realisierungsphase",
       "question": "gebaeude-anlage",
-      "sort": 12
+      "sort": 16
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "realisierungsphase.meldung-bauentscheid-an-geometer",
+    "pk": "realisierungsphase.meldung-abnahme-schnurgeruest-an-abm",
     "fields": {
-      "created_at": "2021-11-29T07:49:01.317Z",
-      "modified_at": "2021-11-29T07:49:01.317Z",
+      "created_at": "2021-12-02T10:11:16.040Z",
+      "modified_at": "2021-12-02T10:11:16.040Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "realisierungsphase",
-      "question": "meldung-bauentscheid-an-geometer",
-      "sort": 1
+      "question": "meldung-abnahme-schnurgeruest-an-abm",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "realisierungsphase.meldung-bau-beendet-an-abwasser-uri",
+    "fields": {
+      "created_at": "2021-12-02T10:07:01.845Z",
+      "modified_at": "2021-12-02T10:07:01.845Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "realisierungsphase",
+      "question": "meldung-bau-beendet-an-abwasser-uri",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "realisierungsphase.meldung-bau-beendet-an-geometer",
+    "fields": {
+      "created_at": "2021-12-02T10:05:50.880Z",
+      "modified_at": "2021-12-02T10:05:50.880Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "realisierungsphase",
+      "question": "meldung-bau-beendet-an-geometer",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "realisierungsphase.meldung-bau-beendet-an-liegenschaftsschaetzung",
+    "fields": {
+      "created_at": "2021-12-02T10:06:43.324Z",
+      "modified_at": "2021-12-02T10:06:43.324Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "realisierungsphase",
+      "question": "meldung-bau-beendet-an-liegenschaftsschaetzung",
+      "sort": 6
     }
   },
   {
@@ -9895,7 +10015,7 @@
       "modified_by_group": null,
       "form": "realisierungsphase",
       "question": "meldungen-an-dritte",
-      "sort": 2
+      "sort": 9
     }
   },
   {
@@ -9910,7 +10030,7 @@
       "modified_by_group": null,
       "form": "realisierungsphase",
       "question": "realisierungsdaten",
-      "sort": 13
+      "sort": 17
     }
   },
   {
@@ -9925,7 +10045,7 @@
       "modified_by_group": null,
       "form": "realisierungsphase",
       "question": "verfahren-abgeschlossen",
-      "sort": 4
+      "sort": 2
     }
   },
   {
@@ -9940,7 +10060,22 @@
       "modified_by_group": null,
       "form": "realisierungsphase",
       "question": "voraussichtliche-baudauer",
-      "sort": 10
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "rechtsmittelverfahren.allgmeine-information-rechtsmittelverfahren",
+    "fields": {
+      "created_at": "2021-12-01T12:47:39.660Z",
+      "modified_at": "2021-12-01T12:47:39.660Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "rechtsmittelverfahren",
+      "question": "allgmeine-information-rechtsmittelverfahren",
+      "sort": 6
     }
   },
   {
@@ -10631,6 +10766,21 @@
       "form": "tabelle-rechtsmittelverfahren",
       "question": "einsprache",
       "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "tabelle-rechtsmittelverfahren.einsprache-beschwerde",
+    "fields": {
+      "created_at": "2021-12-02T10:16:25.199Z",
+      "modified_at": "2021-12-02T10:16:25.199Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "tabelle-rechtsmittelverfahren",
+      "question": "einsprache-beschwerde",
+      "sort": 16
     }
   },
   {
@@ -13298,12 +13448,28 @@
     "pk": "art-der-einsprache-beschwerde-bauentscheid",
     "fields": {
       "created_at": "2021-11-28T16:58:41.786Z",
-      "modified_at": "2021-11-28T16:58:41.786Z",
+      "modified_at": "2021-12-01T13:46:53.828Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschwerde gegen Bau- und Einspracheentscheid\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-der-einsprache-beschwerde-weiterzug",
+    "fields": {
+      "created_at": "2021-12-01T13:46:53.845Z",
+      "modified_at": "2021-12-01T13:46:53.845Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Beschwerde gegen Bau- und Einspracheentscheid\", \"fr\": null}",
+      "label": "{\"de\": \"Beschwerde (Weiterzug)\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13314,12 +13480,12 @@
     "pk": "art-der-einsprache-einsprache-publikation",
     "fields": {
       "created_at": "2021-11-28T16:58:41.670Z",
-      "modified_at": "2021-11-28T16:58:41.670Z",
+      "modified_at": "2021-12-01T13:46:53.843Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Einsprache im Rahmen der \\u00f6ffentlichen Publikation\", \"fr\": null}",
+      "label": "{\"de\": \"Einsprache (innert Publikationsfrist)\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16690,10 +16856,10 @@
     "pk": "form-type-afe-korporationsgewaesser",
     "fields": {
       "created_at": "2020-11-02T11:28:59.418Z",
-      "modified_at": "2020-11-24T13:09:22.356Z",
+      "modified_at": "2021-12-06T16:55:35.323Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Konzessionsverfahren Korporationsgew\\u00e4sser mit Genehmigung durch Regierungsrat (Artikel 15 GNG)\", \"fr\": null}",
       "is_archived": false,
@@ -16706,10 +16872,10 @@
     "pk": "form-type-archiv",
     "fields": {
       "created_at": "2020-10-30T13:24:54.836Z",
-      "modified_at": "2020-11-24T13:09:21.513Z",
+      "modified_at": "2021-12-06T16:55:34.004Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Archivdossier\", \"fr\": null}",
       "is_archived": false,
@@ -16722,10 +16888,10 @@
     "pk": "form-type-archiv-afj",
     "fields": {
       "created_at": "2020-11-02T09:52:43.003Z",
-      "modified_at": "2020-11-24T13:09:21.879Z",
+      "modified_at": "2021-12-06T16:55:34.533Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Archivdossier AFJ\", \"fr\": null}",
       "is_archived": false,
@@ -16738,10 +16904,10 @@
     "pk": "form-type-bd-kantonsgewaesser",
     "fields": {
       "created_at": "2020-10-30T14:09:54.990Z",
-      "modified_at": "2020-11-24T13:09:21.650Z",
+      "modified_at": "2021-12-06T16:55:34.187Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Konzessionsverfahren Baudirektion Beanspruchung Kantonsgew\\u00e4sser bis 500 m2 (Artikel 3 ORR)\", \"fr\": null}",
       "is_archived": false,
@@ -16754,10 +16920,10 @@
     "pk": "form-type-bgbb",
     "fields": {
       "created_at": "2020-10-30T13:23:29.217Z",
-      "modified_at": "2020-11-24T13:09:21.505Z",
+      "modified_at": "2021-12-06T16:55:33.918Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Verfahren nach BGBB / und Apparzellierungsverfahren\", \"fr\": null}",
       "is_archived": false,
@@ -16770,10 +16936,10 @@
     "pk": "form-type-building-permit-canton",
     "fields": {
       "created_at": "2020-09-01T14:52:15.138Z",
-      "modified_at": "2020-11-24T13:09:22.163Z",
+      "modified_at": "2021-12-06T16:55:34.900Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Baubewilligungsverfahren mit kantonaler Beteiligung\", \"fr\": null}",
       "is_archived": false,
@@ -16786,10 +16952,10 @@
     "pk": "form-type-building-permit-municipality",
     "fields": {
       "created_at": "2020-09-01T14:52:15.165Z",
-      "modified_at": "2020-11-24T13:09:22.171Z",
+      "modified_at": "2021-12-06T16:55:35.169Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Baubewilligungsverfahren ohne kantonale Beteiligung\", \"fr\": null}",
       "is_archived": false,
@@ -16802,10 +16968,10 @@
     "pk": "form-type-commercial-permit",
     "fields": {
       "created_at": "2020-09-01T14:52:15.256Z",
-      "modified_at": "2020-11-24T13:09:22.497Z",
+      "modified_at": "2021-12-06T16:55:35.464Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Reklame-Gesuch\", \"fr\": null}",
       "is_archived": false,
@@ -16818,10 +16984,10 @@
     "pk": "form-type-genehmigung",
     "fields": {
       "created_at": "2020-10-30T13:52:44.985Z",
-      "modified_at": "2020-11-24T13:09:21.531Z",
+      "modified_at": "2021-12-06T16:55:33.982Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Internes Genehmigungsverfahren\", \"fr\": null}",
       "is_archived": false,
@@ -16834,10 +17000,10 @@
     "pk": "form-type-genehmigung-qgp",
     "fields": {
       "created_at": "2020-10-30T07:23:54.669Z",
-      "modified_at": "2020-11-24T13:09:20.833Z",
+      "modified_at": "2021-12-06T16:55:33.104Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Genehmigung Quartiergestaltungsplan QGP\", \"fr\": null}",
       "is_archived": false,
@@ -16850,10 +17016,10 @@
     "pk": "form-type-genehmigung-qp",
     "fields": {
       "created_at": "2020-10-30T07:24:58.168Z",
-      "modified_at": "2020-11-24T13:09:20.979Z",
+      "modified_at": "2021-12-06T16:55:32.948Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Genehmigung Quartierplan QP\", \"fr\": null}",
       "is_archived": false,
@@ -16866,10 +17032,10 @@
     "pk": "form-type-genehmigung-teilrevision-np",
     "fields": {
       "created_at": "2020-10-30T07:24:58.164Z",
-      "modified_at": "2020-11-24T13:09:21.018Z",
+      "modified_at": "2021-12-06T16:55:32.962Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Genehmigung Teilrevision Nutzungsplanung\", \"fr\": null}",
       "is_archived": false,
@@ -16882,10 +17048,10 @@
     "pk": "form-type-gesamtrevision-np",
     "fields": {
       "created_at": "2020-10-30T07:23:17.798Z",
-      "modified_at": "2020-11-24T13:09:20.824Z",
+      "modified_at": "2021-12-06T16:55:33.066Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Genehmigung Gesamtrevision Nutzungsplanung\", \"fr\": null}",
       "is_archived": false,
@@ -16898,10 +17064,10 @@
     "pk": "form-type-kantonsgebiet",
     "fields": {
       "created_at": "2020-10-30T14:09:54.999Z",
-      "modified_at": "2020-11-24T13:09:21.671Z",
+      "modified_at": "2021-12-06T16:55:34.185Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Bewilligungsverfahren f\\u00fcr die Beanspruchung von Kantonsgebiet\", \"fr\": null}",
       "is_archived": false,
@@ -16914,10 +17080,10 @@
     "pk": "form-type-kantonsgebiet-sd",
     "fields": {
       "created_at": "2020-11-02T11:33:25.076Z",
-      "modified_at": "2020-11-24T13:09:22.470Z",
+      "modified_at": "2021-12-06T16:55:35.543Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Bewilligungsverfahren f\\u00fcr die Beanspruchung von Kantonsgebiet SD\", \"fr\": null}",
       "is_archived": false,
@@ -16930,10 +17096,10 @@
     "pk": "form-type-konzession-landrat",
     "fields": {
       "created_at": "2020-10-30T13:57:12.781Z",
-      "modified_at": "2020-11-24T13:09:21.615Z",
+      "modified_at": "2021-12-06T16:55:34.014Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Konzessionsverfahren Landrat f\\u00fcr Anlagen ab 1000 kW (Artikel 18 GNG) BD\", \"fr\": null}",
       "is_archived": false,
@@ -16946,10 +17112,10 @@
     "pk": "form-type-konzession-landrat-afe",
     "fields": {
       "created_at": "2020-11-02T11:25:31.967Z",
-      "modified_at": "2020-11-24T13:09:22.256Z",
+      "modified_at": "2021-12-06T16:55:35.153Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Konzessionsverfahren Landrat f\\u00fcr Anlagen ab 1000 kW (Artikel 18 GNG) AFE\", \"fr\": null}",
       "is_archived": false,
@@ -16962,10 +17128,10 @@
     "pk": "form-type-konzession-regierungsrat-afe",
     "fields": {
       "created_at": "2020-11-02T11:25:31.968Z",
-      "modified_at": "2020-11-24T13:09:22.198Z",
+      "modified_at": "2021-12-06T16:55:34.963Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Konzessionsverfahren Regierungsrat f\\u00fcr Anlagen bis 1000 kW (Artikel 18 GNG) AFE\", \"fr\": null}",
       "is_archived": false,
@@ -16978,10 +17144,10 @@
     "pk": "form-type-konzession-warme",
     "fields": {
       "created_at": "2020-10-30T13:57:12.793Z",
-      "modified_at": "2020-11-24T13:09:21.655Z",
+      "modified_at": "2021-12-06T16:55:34.183Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Konzessionsverfahren Baudirektion f\\u00fcr W\\u00e4rmeentnahmen (Artikel 40 GNG) BD\", \"fr\": null}",
       "is_archived": false,
@@ -16994,10 +17160,10 @@
     "pk": "form-type-konzession-warme-afe",
     "fields": {
       "created_at": "2020-11-02T11:25:31.975Z",
-      "modified_at": "2020-11-24T13:09:22.257Z",
+      "modified_at": "2021-12-06T16:55:35.098Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Konzessionsverfahren Baudirektion f\\u00fcr W\\u00e4rmeentnahmen (Artikel 40 GNG) AFE\", \"fr\": null}",
       "is_archived": false,
@@ -17010,10 +17176,10 @@
     "pk": "form-type-konzessions-regierungsrat",
     "fields": {
       "created_at": "2020-10-30T13:57:12.751Z",
-      "modified_at": "2020-11-24T13:09:21.551Z",
+      "modified_at": "2021-12-06T16:55:33.999Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Konzessionsverfahren Regierungsrat f\\u00fcr Anlagen bis 1000 kW (Artikel 18 GNG) BD\", \"fr\": null}",
       "is_archived": false,
@@ -17026,10 +17192,10 @@
     "pk": "form-type-landerwerb",
     "fields": {
       "created_at": "2020-10-30T14:12:20.573Z",
-      "modified_at": "2020-11-24T13:09:21.813Z",
+      "modified_at": "2021-12-06T16:55:34.283Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Land- und Rechtserwerb\", \"fr\": null}",
       "is_archived": false,
@@ -17042,10 +17208,10 @@
     "pk": "form-type-mbv-koor-bg",
     "fields": {
       "created_at": "2020-11-24T13:09:22.524Z",
-      "modified_at": "2020-11-24T13:09:22.524Z",
+      "modified_at": "2021-12-06T16:55:35.687Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Mitberichtsverfahren Koordinationsstelle Baueingaben\", \"fr\": null}",
       "is_archived": false,
@@ -17058,10 +17224,10 @@
     "pk": "form-type-mitbericht-afe",
     "fields": {
       "created_at": "2020-11-02T11:25:31.904Z",
-      "modified_at": "2020-11-24T13:09:22.156Z",
+      "modified_at": "2021-12-06T16:55:35.009Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Internes Mitberichtsverfahren AfE\", \"fr\": null}",
       "is_archived": false,
@@ -17074,10 +17240,10 @@
     "pk": "form-type-mitbericht-afj",
     "fields": {
       "created_at": "2020-11-02T08:52:51.361Z",
-      "modified_at": "2020-11-24T13:09:21.797Z",
+      "modified_at": "2021-12-06T16:55:34.442Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Internes Mitberichtsverfahren AFJ\", \"fr\": null}",
       "is_archived": false,
@@ -17090,10 +17256,10 @@
     "pk": "form-type-mitbericht-afu",
     "fields": {
       "created_at": "2020-11-02T11:15:07.244Z",
-      "modified_at": "2020-11-24T13:09:22.074Z",
+      "modified_at": "2021-12-06T16:55:34.801Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Internes Mitberichtsverfahren AfU\", \"fr\": null}",
       "is_archived": false,
@@ -17106,10 +17272,10 @@
     "pk": "form-type-mitbericht-ala",
     "fields": {
       "created_at": "2020-11-02T11:08:44.467Z",
-      "modified_at": "2020-11-24T13:09:21.946Z",
+      "modified_at": "2021-12-06T16:55:34.695Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Internes Mitberichtsverfahren ALA\", \"fr\": null}",
       "is_archived": false,
@@ -17122,10 +17288,10 @@
     "pk": "form-type-mitbericht-ala-korporation",
     "fields": {
       "created_at": "2020-11-02T11:08:44.482Z",
-      "modified_at": "2020-11-24T13:09:21.935Z",
+      "modified_at": "2021-12-06T16:55:34.704Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Internes Mitberichtsverfahren ALA (Korporationsstrassen mit Subventionierung)\", \"fr\": null}",
       "is_archived": false,
@@ -17138,10 +17304,10 @@
     "pk": "form-type-mitbericht-bd",
     "fields": {
       "created_at": "2020-10-30T14:09:54.977Z",
-      "modified_at": "2020-11-24T13:09:21.700Z",
+      "modified_at": "2021-12-06T16:55:34.218Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Internes Mitberichtsverfahren BD\", \"fr\": null}",
       "is_archived": false,
@@ -17154,10 +17320,10 @@
     "pk": "form-type-mitbericht-bg",
     "fields": {
       "created_at": "2020-11-02T09:58:56.325Z",
-      "modified_at": "2020-11-24T13:09:21.920Z",
+      "modified_at": "2021-12-06T16:55:34.588Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Internes Mitberichtsverfahren BG\", \"fr\": null}",
       "is_archived": false,
@@ -17170,10 +17336,10 @@
     "pk": "form-type-mitbericht-bundesstelle",
     "fields": {
       "created_at": "2020-11-02T11:37:39.194Z",
-      "modified_at": "2020-11-24T13:09:22.480Z",
+      "modified_at": "2021-12-06T16:55:35.629Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Mitberichtsverfahren Bundesstelle\", \"fr\": null}",
       "is_archived": false,
@@ -17186,10 +17352,10 @@
     "pk": "form-type-mitbericht-np",
     "fields": {
       "created_at": "2020-10-30T13:14:41.236Z",
-      "modified_at": "2020-11-24T13:09:21.397Z",
+      "modified_at": "2021-12-06T16:55:33.765Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Internes Mitberichtsverfahren NP\", \"fr\": null}",
       "is_archived": false,
@@ -17202,10 +17368,10 @@
     "pk": "form-type-mitbericht-sd",
     "fields": {
       "created_at": "2020-11-02T11:33:25.046Z",
-      "modified_at": "2020-11-24T13:09:22.357Z",
+      "modified_at": "2021-12-06T16:55:35.375Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Internes Mitberichtsverfahren SD\", \"fr\": null}",
       "is_archived": false,
@@ -17218,10 +17384,10 @@
     "pk": "form-type-mitbericht-sd-afkp",
     "fields": {
       "created_at": "2020-11-02T11:33:25.059Z",
-      "modified_at": "2020-11-24T13:09:22.398Z",
+      "modified_at": "2021-12-06T16:55:35.498Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Internes Mitberichtsverfahren SD AfKP\", \"fr\": null}",
       "is_archived": false,
@@ -17234,10 +17400,10 @@
     "pk": "form-type-mitbericht-umweltschutz",
     "fields": {
       "created_at": "2020-11-02T11:15:07.243Z",
-      "modified_at": "2020-11-24T13:09:22.072Z",
+      "modified_at": "2021-12-06T16:55:34.763Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Internes Mitberichtsverfahren nach Artikel 30 BG Umweltschutz\", \"fr\": null}",
       "is_archived": false,
@@ -17250,10 +17416,10 @@
     "pk": "form-type-mitbericht-uvp",
     "fields": {
       "created_at": "2020-11-02T11:15:07.268Z",
-      "modified_at": "2020-11-24T13:09:22.102Z",
+      "modified_at": "2021-12-06T16:55:34.852Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Internes Mitberichtsverfahren / Bewilligungsverfahren gem\\u00e4ss UVP\", \"fr\": null}",
       "is_archived": false,
@@ -17266,10 +17432,10 @@
     "pk": "form-type-oereb",
     "fields": {
       "created_at": "2020-11-11T07:35:48.407Z",
-      "modified_at": "2020-11-24T13:09:22.464Z",
+      "modified_at": "2021-12-06T16:55:35.606Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"\\u00d6REB Verfahren (Meldung, Vorpr\\u00fcfung, Anpassung)\", \"fr\": null}",
       "is_archived": false,
@@ -17282,10 +17448,10 @@
     "pk": "form-type-oereb-afj",
     "fields": {
       "created_at": "2020-11-02T08:52:51.386Z",
-      "modified_at": "2020-11-24T13:09:21.836Z",
+      "modified_at": "2021-12-06T16:55:34.376Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Meldung \\u00d6REB Anpassung AFJ\", \"fr\": null}",
       "is_archived": false,
@@ -17298,10 +17464,10 @@
     "pk": "form-type-oereb-afu",
     "fields": {
       "created_at": "2020-11-02T11:15:07.269Z",
-      "modified_at": "2020-11-24T13:09:22.109Z",
+      "modified_at": "2021-12-06T16:55:34.834Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Meldung \\u00d6REB Anpassung AFU\", \"fr\": null}",
       "is_archived": false,
@@ -17314,10 +17480,10 @@
     "pk": "form-type-oereb-bd",
     "fields": {
       "created_at": "2020-10-30T14:12:20.578Z",
-      "modified_at": "2020-11-24T13:09:21.760Z",
+      "modified_at": "2021-12-06T16:55:34.404Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Meldung \\u00d6REB Anpassung BD\", \"fr\": null}",
       "is_archived": false,
@@ -17330,10 +17496,10 @@
     "pk": "form-type-oereb-np",
     "fields": {
       "created_at": "2020-10-30T13:18:22.351Z",
-      "modified_at": "2020-11-24T13:09:21.476Z",
+      "modified_at": "2021-12-06T16:55:33.853Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Meldung \\u00d6REB Anpassung ARE NP\", \"fr\": null}",
       "is_archived": false,
@@ -17346,10 +17512,10 @@
     "pk": "form-type-pgv-eisenbahn",
     "fields": {
       "created_at": "2020-10-30T11:26:58.007Z",
-      "modified_at": "2020-11-24T13:09:21.120Z",
+      "modified_at": "2021-12-06T16:55:33.308Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Mitberichtsverfahren / PGV nach Eisenbahngesetz (EBG)\", \"fr\": null}",
       "is_archived": false,
@@ -17362,10 +17528,10 @@
     "pk": "form-type-pgv-gemeindestrasse",
     "fields": {
       "created_at": "2020-10-30T11:27:52.804Z",
-      "modified_at": "2020-11-24T13:09:21.226Z",
+      "modified_at": "2021-12-06T16:55:33.487Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"PGV Gemeindestrasse (Artikel 30 StrG)\", \"fr\": null}",
       "is_archived": false,
@@ -17378,10 +17544,10 @@
     "pk": "form-type-pgv-kantonsstrasse",
     "fields": {
       "created_at": "2020-10-30T11:27:52.802Z",
-      "modified_at": "2020-11-24T13:09:21.274Z",
+      "modified_at": "2021-12-06T16:55:33.622Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"PGV Kantonsstrasse (Artikel 30 StrG)\", \"fr\": null}",
       "is_archived": false,
@@ -17394,10 +17560,10 @@
     "pk": "form-type-pgv-korporationsstrasse",
     "fields": {
       "created_at": "2020-10-30T11:27:52.825Z",
-      "modified_at": "2020-11-24T13:09:21.329Z",
+      "modified_at": "2021-12-06T16:55:33.568Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"PGV Korporationsstrasse (Artikel 30 StrG)\", \"fr\": null}",
       "is_archived": false,
@@ -17410,10 +17576,10 @@
     "pk": "form-type-pgv-luftfahrt",
     "fields": {
       "created_at": "2020-10-30T11:26:57.996Z",
-      "modified_at": "2020-11-24T13:09:21.122Z",
+      "modified_at": "2021-12-06T16:55:33.382Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Mitberichtsverfahren / PGV nach Luftfahrtgesetz\", \"fr\": null}",
       "is_archived": false,
@@ -17426,10 +17592,10 @@
     "pk": "form-type-pgv-militaer",
     "fields": {
       "created_at": "2020-10-30T11:26:57.956Z",
-      "modified_at": "2020-11-24T13:09:21.119Z",
+      "modified_at": "2021-12-06T16:55:33.131Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Mitberichtsverfahren / PGV f\\u00fcr milit\\u00e4rische Bauten\", \"fr\": null}",
       "is_archived": false,
@@ -17442,10 +17608,10 @@
     "pk": "form-type-pgv-nationalstrassen",
     "fields": {
       "created_at": "2020-10-30T11:26:58.036Z",
-      "modified_at": "2020-11-24T13:09:21.136Z",
+      "modified_at": "2021-12-06T16:55:33.508Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Mitberichtsverfahren / PGV nach Nationalstrassengesetz (NSG)\", \"fr\": null}",
       "is_archived": false,
@@ -17458,10 +17624,10 @@
     "pk": "form-type-pgv-oeffentliche-gewaesser",
     "fields": {
       "created_at": "2020-10-30T11:28:29.932Z",
-      "modified_at": "2020-11-24T13:09:21.384Z",
+      "modified_at": "2021-12-06T16:55:33.824Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"PGV \\u00f6ffentliche Gew\\u00e4sser (Artikel 12 WBG)\", \"fr\": null}",
       "is_archived": false,
@@ -17474,10 +17640,10 @@
     "pk": "form-type-pgv-private-gewaesser",
     "fields": {
       "created_at": "2020-10-30T11:28:29.916Z",
-      "modified_at": "2020-11-24T13:09:21.381Z",
+      "modified_at": "2021-12-06T16:55:33.499Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"PGV private Gew\\u00e4sser (Artikel 19 WBG)\", \"fr\": null}",
       "is_archived": false,
@@ -17490,10 +17656,10 @@
     "pk": "form-type-pgv-seilbahn",
     "fields": {
       "created_at": "2020-10-30T11:26:58.034Z",
-      "modified_at": "2020-11-24T13:09:21.258Z",
+      "modified_at": "2021-12-06T16:55:33.428Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Mitberichtsverfahren / PGV nach Seilbahngesetz (SebG)\", \"fr\": null}",
       "is_archived": false,
@@ -17506,10 +17672,10 @@
     "pk": "form-type-pgv-starkstrom",
     "fields": {
       "created_at": "2020-10-30T11:26:58.041Z",
-      "modified_at": "2020-11-24T13:09:21.261Z",
+      "modified_at": "2021-12-06T16:55:33.368Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Mitberichtsverfahren / PGV nach Starkstromverordnung (EleG)\", \"fr\": null}",
       "is_archived": false,
@@ -17522,10 +17688,10 @@
     "pk": "form-type-pgv-vereinfachtes-verfahren",
     "fields": {
       "created_at": "2020-10-30T11:28:29.940Z",
-      "modified_at": "2020-11-24T13:09:21.353Z",
+      "modified_at": "2021-12-06T16:55:33.748Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"PGV vereinfachtes Verfahren (Artikel 31 StrG)\", \"fr\": null}",
       "is_archived": false,
@@ -17538,10 +17704,10 @@
     "pk": "form-type-preliminary-clarification-canton",
     "fields": {
       "created_at": "2020-09-01T14:52:15.211Z",
-      "modified_at": "2020-11-24T13:09:22.249Z",
+      "modified_at": "2021-12-06T16:55:35.072Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Baugesuch-Vorabkl\\u00e4rung mit kantonaler Beteiligung\", \"fr\": null}",
       "is_archived": false,
@@ -17554,10 +17720,10 @@
     "pk": "form-type-preliminary-clarification-municipality",
     "fields": {
       "created_at": "2020-09-01T14:52:15.244Z",
-      "modified_at": "2020-11-24T13:09:22.288Z",
+      "modified_at": "2021-12-06T16:55:35.235Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Baugesuch-Vorabkl\\u00e4rung ohne kantonale Beteiligung\", \"fr\": null}",
       "is_archived": false,
@@ -17570,10 +17736,10 @@
     "pk": "form-type-project-announcement",
     "fields": {
       "created_at": "2020-09-01T14:52:15.178Z",
-      "modified_at": "2020-11-24T13:09:22.333Z",
+      "modified_at": "2021-12-06T16:55:35.267Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Meldung Vorhaben\", \"fr\": null}",
       "is_archived": false,
@@ -17586,10 +17752,10 @@
     "pk": "form-type-project-announcement-afj",
     "fields": {
       "created_at": "2020-11-02T09:52:43.015Z",
-      "modified_at": "2020-11-24T13:09:21.920Z",
+      "modified_at": "2021-12-06T16:55:34.562Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Meldung Vorhaben AFJ\", \"fr\": null}",
       "is_archived": false,
@@ -17602,10 +17768,10 @@
     "pk": "form-type-reklame-bd",
     "fields": {
       "created_at": "2020-10-30T14:09:55.019Z",
-      "modified_at": "2020-11-24T13:09:21.754Z",
+      "modified_at": "2021-12-06T16:55:34.398Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Reklame-Gesuch (eingereicht via Baudirektion)\", \"fr\": null}",
       "is_archived": false,
@@ -17618,10 +17784,10 @@
     "pk": "form-type-solar-announcement",
     "fields": {
       "created_at": "2020-09-01T14:52:15.222Z",
-      "modified_at": "2020-11-24T13:09:22.398Z",
+      "modified_at": "2021-12-06T16:55:35.475Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Meldung Solaranlage\", \"fr\": null}",
       "is_archived": false,
@@ -17634,10 +17800,10 @@
     "pk": "form-type-technische-bewilligung",
     "fields": {
       "created_at": "2021-12-03T10:45:33.493Z",
-      "modified_at": "2021-12-03T10:45:33.493Z",
+      "modified_at": "2021-12-06T16:55:35.689Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Meldung Geb\\u00e4udetechnik\", \"fr\": null}",
       "is_archived": false,
@@ -17650,7 +17816,7 @@
     "pk": "form-type-veranstaltungsgesuch",
     "fields": {
       "created_at": "2020-10-21T13:00:18.680Z",
-      "modified_at": "2021-12-03T10:45:33.408Z",
+      "modified_at": "2021-12-06T16:55:35.489Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -17666,10 +17832,10 @@
     "pk": "form-type-vorpruefung-gesamtrevision-np",
     "fields": {
       "created_at": "2020-10-30T07:23:54.674Z",
-      "modified_at": "2020-11-24T13:09:20.834Z",
+      "modified_at": "2021-12-06T16:55:33.146Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Vorpr\\u00fcfung Gesamtrevision Nutzungsplanung\", \"fr\": null}",
       "is_archived": false,
@@ -17682,10 +17848,10 @@
     "pk": "form-type-vorpruefung-qgp",
     "fields": {
       "created_at": "2020-10-30T07:24:58.163Z",
-      "modified_at": "2020-11-24T13:09:21.028Z",
+      "modified_at": "2021-12-06T16:55:33.117Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Vorpr\\u00fcfung Quartiergestaltungsplan QGP\", \"fr\": null}",
       "is_archived": false,
@@ -17698,10 +17864,10 @@
     "pk": "form-type-vorpruefung-qp",
     "fields": {
       "created_at": "2020-10-30T07:24:58.187Z",
-      "modified_at": "2020-11-24T13:09:21.028Z",
+      "modified_at": "2021-12-06T16:55:32.982Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Vorpr\\u00fcfung Quartierplan QP\", \"fr\": null}",
       "is_archived": false,
@@ -17714,10 +17880,10 @@
     "pk": "form-type-vorpruefung-teilrevision-np",
     "fields": {
       "created_at": "2020-10-30T07:24:12.116Z",
-      "modified_at": "2020-11-24T13:09:20.812Z",
+      "modified_at": "2021-12-06T16:55:32.968Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Vorpr\\u00fcfung Teilrevision Nutzungsplanung\", \"fr\": null}",
       "is_archived": false,
@@ -21346,10 +21512,10 @@
     "pk": "projekt-energienachweis-heizungs-und-warmwasser",
     "fields": {
       "created_at": "2020-10-31T17:54:07.204Z",
-      "modified_at": "2021-11-24T13:11:55.643Z",
+      "modified_at": "2021-12-01T12:51:16.586Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "label": "{\"de\": \"Heizungs- und Warmwasseranlagen\", \"fr\": null}",
       "is_archived": false,
@@ -21362,10 +21528,10 @@
     "pk": "projekt-energienachweis-hoechstanteil",
     "fields": {
       "created_at": "2020-10-31T17:54:07.238Z",
-      "modified_at": "2021-11-24T13:11:55.626Z",
+      "modified_at": "2021-12-01T12:51:16.588Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "label": "{\"de\": \"H\\u00f6chstanteil nichterneuerbarer Energien\", \"fr\": null}",
       "is_archived": false,
@@ -21378,10 +21544,10 @@
     "pk": "projekt-energienachweis-huelle",
     "fields": {
       "created_at": "2020-10-31T17:54:07.226Z",
-      "modified_at": "2021-11-24T13:11:55.615Z",
+      "modified_at": "2021-12-01T12:51:16.635Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "label": "{\"de\": \"Geb\\u00e4udeh\\u00fclle\", \"fr\": null}",
       "is_archived": false,
@@ -21394,10 +21560,10 @@
     "pk": "projekt-energienachweis-keine-bereiche",
     "fields": {
       "created_at": "2020-11-02T12:34:06.554Z",
-      "modified_at": "2021-11-24T13:11:55.671Z",
+      "modified_at": "2021-12-01T12:51:16.621Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "label": "{\"de\": \"Es sind keine energetisch relevanten Themenbereiche betroffen\", \"fr\": null}",
       "is_archived": true,
@@ -21410,10 +21576,10 @@
     "pk": "projekt-energienachweis-keine-bereiche-betroffen",
     "fields": {
       "created_at": "2020-11-02T11:53:04.073Z",
-      "modified_at": "2021-11-24T13:11:55.633Z",
+      "modified_at": "2021-12-01T12:51:16.654Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "label": "{\"de\": \"Es sind keine energetisch relevanten Themenbereiche betroffen\", \"fr\": null}",
       "is_archived": true,
@@ -21426,10 +21592,10 @@
     "pk": "projekt-energienachweis-kuehlung",
     "fields": {
       "created_at": "2020-10-31T17:54:07.273Z",
-      "modified_at": "2021-11-24T13:11:55.642Z",
+      "modified_at": "2021-12-01T12:51:16.724Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "label": "{\"de\": \"K\\u00fchlung und Befeuchtung\", \"fr\": null}",
       "is_archived": false,
@@ -21442,10 +21608,10 @@
     "pk": "projekt-energienachweis-lueftung",
     "fields": {
       "created_at": "2020-10-31T17:54:07.262Z",
-      "modified_at": "2021-11-24T13:11:55.635Z",
+      "modified_at": "2021-12-01T12:51:16.582Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "label": "{\"de\": \"L\\u00fcftungstechnische Anlagen\", \"fr\": null}",
       "is_archived": false,
@@ -21458,10 +21624,10 @@
     "pk": "projekt-energienachweis-minergie",
     "fields": {
       "created_at": "2020-10-31T17:54:07.178Z",
-      "modified_at": "2021-11-24T13:11:55.648Z",
+      "modified_at": "2021-12-01T12:51:16.500Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "label": "{\"de\": \"MINERGIE Label\", \"fr\": null}",
       "is_archived": false,
@@ -21474,10 +21640,10 @@
     "pk": "projekt-energienachweis-spezielle-bauten",
     "fields": {
       "created_at": "2020-10-31T17:54:07.291Z",
-      "modified_at": "2021-11-24T13:11:55.621Z",
+      "modified_at": "2021-12-01T12:51:16.652Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "label": "{\"de\": \"Spezielle Bauten und Anlagen\", \"fr\": null}",
       "is_archived": false,
@@ -26527,6 +26693,36 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "abschluss",
+    "fields": {
+      "created_at": "2021-12-02T10:09:18.301Z",
+      "modified_at": "2021-12-02T10:09:18.301Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abschluss\", \"fr\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"###Bezugsbewilligung / Verfahrensabschluss\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "abstandsvorschriften",
     "fields": {
       "created_at": "2020-11-02T07:06:56.524Z",
@@ -27353,6 +27549,36 @@
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"#### Allgemeine Informationen zum Ausf\\u00fcllen der Formulare\\n\\nFunktionsweise:\\nDas Gesuchsformular ist mit einer logischen Nutzerf\\u00fchrung hinterlegt.\\nBegriffserl\\u00e4uterungen und Hilfestellungstexte k\\u00f6nnen Sie sich durch Klicken auf das Hilfeicon anzeigen lassen.\\n\\nEs gibt Pflichtfelder, die zwingend auszuf\\u00fcllen sind. Diese sind mit einem ? markiert.\\n\\nDOKUMENTE: Unter GESUCHSUNTERLAGEN gibt es verschiedene Unterlagenkategorien, in welche Sie Ihre Gesuchsunterlagen hochladen k\\u00f6nnen.\\nBitte beachten! Aus rechtlichen Gr\\u00fcnden (\\u00f6ffentliche Bauplanauflage und Visierung der bewilligten Pl\\u00e4ne) m\\u00fcssen, nebst der digitalen Eingabe, zwei physische Dossiers (Planunterlagen) bei der zust\\u00e4ndigen Gemeinde eingereicht werden. Die hier hochgeladenen Dokumente sind Bestandteil der \\u00f6ffentlichen Bauplanauflage und k\\u00f6nnen auch online eingesehen werden.\\n\\nSPEICHERN / DRUCKEN: Ihre Eingaben werden automatisch gespeichert, sobald Sie das Feld verlassen. So haben Sie die M\\u00f6glichkeit, jederzeit abzubrechen und zu einem beliebigen Zeitpunkt fortzufahren. Sie k\\u00f6nnen Ihr Gesuchsformular jederzeit als pdf-Dokument abspeichern und folglich auch ausdrucken (unter EINREICHEN mit Klick auf PDF GENERIEREN).\\n\\nGESUCH EINREICHEN: Das Gesuch kann erst eingereicht werden, wenn alle Pflichtangaben gemacht wurden. Nach dem Einreichen k\\u00f6nnen keine Anpassungen mehr vorgenommen werden. Im Falle nachtr\\u00e4glicher Erg\\u00e4nzungen oder Korrekturen bitten wir Sie sich mit der zust\\u00e4ndigen Bauverwaltung der Gemeinde in Verbindung zu setzen.\\n\\nL\\u00d6SCHEN: Begonnene, aber noch nicht eingereichte Gesuche, k\\u00f6nnen Sie l\\u00f6schen.\\n\\nVERFAHRENSABLAUF: Solange Sie ein Gesuch nicht eingereicht haben, bleibt der Status auf \\u201eNeu\\u201c. Nach Einreichung des Gesuchs wird sich der Status immer dem jeweiligen Verfahrensstand anpassen. Das Dossier durchl\\u00e4uft folgende Status: Neu / Eingereicht / Von Gemeinde angenommen / In Zirkulation / Bauentscheid ausstehend / Nachforderung / Bewilligt / (Abgelehnt) / Archiviert.\\n\\nHILFE: Im Falle von Problemen oder Fragen, welche durch die hinterlegten Hilfestellungen nicht gekl\\u00e4rt werden, k\\u00f6nnen Sie sich entweder an die zust\\u00e4ndige Bauverwaltung der entsprechenden Gemeinde oder an das Amt f\\u00fcr Raumentwicklung mailto:urec@ur.ch wenden.\", \"fr\": null}",
       "static_content": "{\"de\": \"#### Allgemeine Informationen zum Ausf\\u00fcllen der Formulare:\\n\\nDieses Benutzergef\\u00fchrte Formular ersetzt das bisherige Formular A und weitere teils fachthemenbezogene Einzelformulare. Die Funktionsweise zu Themen wie: Speichern, Drucken, Einreichen, L\\u00f6schen und zum Status finden Sie im Infotext. Solche Infotexte sind bei den meisten Feldern, die ausgef\\u00fcllt werden k\\u00f6nnen, hinterlegt.\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "allgmeine-information-rechtsmittelverfahren",
+    "fields": {
+      "created_at": "2021-12-01T12:47:39.575Z",
+      "modified_at": "2021-12-02T15:22:23.057Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Allgmeine Information zum Rechtsmittelverfahren\", \"fr\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"Das Rechtsmittelverfahren (f\\u00fcr Einsprachen) beginnt mit der Publikation eines Vorhabens im Amtsblatt und findet seine Fortsetzung in allf\\u00e4lligen Beschwerden gegen den Bau- und Einspracheentscheid. F\\u00fcr jedes ergriffene Rechtsmittel sollte in der Tabelle unten ein separater Datensatz erfasst werden.\", \"fr\": null}",
+      "static_content": "{\"de\": \"###Abschnitt 2 (Rechtsmittelverfahren)\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -28368,18 +28594,18 @@
     "pk": "art-der-einsprache",
     "fields": {
       "created_at": "2021-11-28T16:58:41.853Z",
-      "modified_at": "2021-11-28T16:58:41.853Z",
+      "modified_at": "2021-12-01T13:46:54.011Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Art der Einsprache\", \"fr\": null}",
+      "label": "{\"de\": \"Art des Rechtsmittels\", \"fr\": null}",
       "type": "choice",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -30786,12 +31012,12 @@
     "pk": "bemerkungen-ordentliches-verfahren",
     "fields": {
       "created_at": "2021-11-28T16:22:24.993Z",
-      "modified_at": "2021-11-28T16:40:33.829Z",
+      "modified_at": "2021-12-01T13:23:48.866Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Bemerkungen Teil 1\", \"fr\": null}",
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null}",
       "type": "textarea",
       "is_required": "false",
       "is_hidden": "false",
@@ -32133,19 +32359,19 @@
     "pk": "bewilligungsverfahren-teil-1",
     "fields": {
       "created_at": "2021-11-28T16:32:07.951Z",
-      "modified_at": "2021-11-28T16:32:07.951Z",
+      "modified_at": "2021-12-02T15:20:18.340Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"**Bewilligungsverfahren Teil 1** (Dossiereingang - Versand Entscheid Baubeh\\u00f6rde)\", \"fr\": null}",
+      "label": "{\"de\": \"Allgemeine Information ordentliches Bewilligungsverfahren\", \"fr\": null}",
       "type": "static",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "info_text": "{\"de\": \"Ein Bewilligungsverfahrens  startet mit der online Eingabe eines Dossiers und endet mit dem Bau- und Einspracheentscheid bzw. allenfalls mit einer Stellungnahme der Baubeh\\u00f6rde (ohne Rechtsmittel), wenn es sich zum Beispiel um Baugesuch-Vorabkl\\u00e4rungen handelt. Zum ordentlichen Teil z\\u00e4hlt auch eine allf\\u00e4llige Verl\\u00e4ngerung der Baubewilligung um ein Jahr, ein R\\u00fcckzug des Gesuchs durch den Gesuchsteller oder eine dauerhafte Sistierung des Verfahrens. Weiter werden in diesem Verfahrensabschnitt beteiligte Dritte wie zum Beispiel der Geometer oder die Geb\\u00e4udesch\\u00e4tzung miteinbezogen indem mit dem der Versand des Bauenentscheids eine entsorechende Meldung verschickt wird.\", \"fr\": null}",
+      "static_content": "{\"de\": \"###Abschnitt 1 (ordentliches Bewilligungsverfahren)\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -33823,6 +34049,36 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "einsprache-beschwerde",
+    "fields": {
+      "created_at": "2021-12-02T10:16:25.144Z",
+      "modified_at": "2021-12-02T10:16:32.500Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Einsprache / Beschwerde\", \"fr\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"###Einsprache / Beschwerde\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "einsprache-beschwerdeentscheid",
     "fields": {
       "created_at": "2021-11-29T07:04:11.560Z",
@@ -35446,7 +35702,7 @@
     "pk": "form-type",
     "fields": {
       "created_at": "2020-09-01T14:52:15.343Z",
-      "modified_at": "2021-04-15T12:30:25.759Z",
+      "modified_at": "2021-12-06T16:55:36.120Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -36042,12 +36298,12 @@
     "pk": "gebaeude-anlage",
     "fields": {
       "created_at": "2021-11-26T13:23:33.540Z",
-      "modified_at": "2021-11-29T07:39:55.840Z",
+      "modified_at": "2021-12-01T12:53:00.826Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Geb\\u00e4ude / Anlage (allenfalls Bauetetappe bezeichnen)\", \"fr\": null}",
+      "label": "{\"de\": \"Geb\\u00e4ude / Anlage / Bauetappe\", \"fr\": null}",
       "type": "text",
       "is_required": "false",
       "is_hidden": "false",
@@ -40691,6 +40947,36 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "medlungen-bauentscheid",
+    "fields": {
+      "created_at": "2021-12-02T09:46:36.228Z",
+      "modified_at": "2021-12-02T15:21:40.584Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Medlungen Bauentscheid an Dritte\", \"fr\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"Die Meldung \\u00fcber einen Bauentscheid an Dritte sollte erst ausgel\\u00f6st werden, wenn der Entscheid rechtskr\\u00e4ftig ist (bitte Abschnitt Rechtsmittelverfahren beachten).\", \"fr\": null}",
+      "static_content": "{\"de\": \"###Meldung \\\"Bauentscheid\\\" an Dritte\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "mehrgeschossige-wohnung",
     "fields": {
       "created_at": "2020-11-09T14:49:11.958Z",
@@ -40706,6 +40992,36 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"####INFO\\n\\nMehrgeschossige Wohnung\\n\\nGibt an, dass die Wohnung \\u00fcber mehrere Stockwerke gebaut ist (Maisonette)\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "meldung-abnahme-schnurgeruest-an-abm",
+    "fields": {
+      "created_at": "2021-12-02T10:11:15.981Z",
+      "modified_at": "2021-12-02T10:11:25.405Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Meldung \\\"Abnahme Schnurger\\u00fcst\\\" an ABM\", \"fr\": null}",
+      "type": "date",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -40751,15 +41067,135 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "meldung-bauentscheid-an-geometer",
+    "pk": "meldung-bau-beendet-an-abwasser-uri",
     "fields": {
-      "created_at": "2021-11-29T07:49:01.255Z",
-      "modified_at": "2021-11-29T07:49:01.255Z",
+      "created_at": "2021-12-02T10:07:01.789Z",
+      "modified_at": "2021-12-02T10:07:01.789Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
+      "label": "{\"de\": \"Meldung \\\"Bau beendet\\\" an Abwasser Uri\", \"fr\": null}",
+      "type": "date",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "meldung-bau-beendet-an-geometer",
+    "fields": {
+      "created_at": "2021-12-02T10:05:50.830Z",
+      "modified_at": "2021-12-02T10:05:50.830Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Meldung \\\"Bau beendet\\\" an Geometer\", \"fr\": null}",
+      "type": "date",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "meldung-bau-beendet-an-liegenschaftsschaetzung",
+    "fields": {
+      "created_at": "2021-12-02T10:06:43.274Z",
+      "modified_at": "2021-12-02T10:06:43.274Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Meldung \\\"Bau beendet\\\" an Liegenschaftssch\\u00e4tzung\", \"fr\": null}",
+      "type": "date",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "meldung-bauentscheid-an-geometer",
+    "fields": {
+      "created_at": "2021-11-29T07:49:01.255Z",
+      "modified_at": "2021-12-02T15:09:57.263Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
       "label": "{\"de\": \"Meldung Versand Bau- und Einspracheentscheid an Geometer\", \"fr\": null}",
+      "type": "date",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "meldung-bauentscheid-gebaeudeschaetzung",
+    "fields": {
+      "created_at": "2021-12-02T09:52:53.455Z",
+      "modified_at": "2021-12-02T09:52:53.455Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Meldung Bauentscheid an Geb\\u00e4udesch\\u00e4tzung\", \"fr\": null}",
       "type": "date",
       "is_required": "false",
       "is_hidden": "false",
@@ -40814,10 +41250,10 @@
     "pk": "meldungen-an-dritte",
     "fields": {
       "created_at": "2021-11-29T07:47:23.747Z",
-      "modified_at": "2021-11-29T07:47:23.747Z",
+      "modified_at": "2021-12-02T10:12:07.059Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Meldungen an Dritte\", \"fr\": null}",
       "type": "static",
@@ -40825,8 +41261,8 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
-      "static_content": "{\"de\": \"**Meldung an Dritte**\", \"fr\": \"\"}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"###Meldung an Dritte\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -42751,10 +43187,10 @@
     "pk": "projekt-energienachweis",
     "fields": {
       "created_at": "2020-10-31T17:54:07.381Z",
-      "modified_at": "2021-12-01T12:52:03.472Z",
+      "modified_at": "2021-12-01T12:51:17.443Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "label": "{\"de\": \"Welche Themenbereiche sind betroffen?\", \"fr\": null}",
       "type": "multiple_choice",
@@ -43305,10 +43741,10 @@
     "pk": "realisierungsdaten",
     "fields": {
       "created_at": "2021-11-29T07:46:16.562Z",
-      "modified_at": "2021-11-29T07:46:16.562Z",
+      "modified_at": "2021-12-02T10:17:54.542Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Realisierungsdaten\", \"fr\": null}",
       "type": "static",
@@ -43316,8 +43752,8 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
-      "static_content": "{\"de\": \"**Realisierungsdaten**\", \"fr\": \"\"}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"###Realisierung / Baukontrolle\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -43335,10 +43771,10 @@
     "pk": "realisierungsphase",
     "fields": {
       "created_at": "2021-11-29T07:30:13.836Z",
-      "modified_at": "2021-11-29T07:30:13.836Z",
+      "modified_at": "2021-12-01T13:07:17.687Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Realisierungsphase\", \"fr\": null}",
       "type": "table",
@@ -43346,10 +43782,18 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "columnsToDisplay": [
+          "gebaeude-anlage",
+          "baubeginn",
+          "voraussichtliche-baudauer",
+          "endabnahme",
+          "abnahme-schnurgeruest-realisierungsphase"
+        ]
+      },
       "data_source": null,
       "row_form": "realisierungsphase",
       "sub_form": null,
@@ -46316,7 +46760,7 @@
     "pk": "titel-baukontrolle",
     "fields": {
       "created_at": "2021-11-29T07:23:30.070Z",
-      "modified_at": "2021-11-29T07:38:00.189Z",
+      "modified_at": "2021-12-02T15:23:07.859Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -46327,8 +46771,8 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null}",
-      "static_content": "{\"de\": \"**Realisierung**\\n\\n(bitte pro Bauetappe, falls das Vorhaben in Etappen realisiert wird, jeweils eine separate Tabelle er\\u00f6ffnen)\", \"fr\": \"\"}",
+      "info_text": "{\"de\": \"In diesem Verfahrensabschnitt werden die \\\"Live Cycle\\\" Daten f\\u00fcr die Realisierung von bewilligten Vorhaben erfasst. Pro Geb\\u00e4ude oder Bauetappe ist ein separater Datensatz zu erfassen. Weiter werden in diesem Verfahrensabschnitt beteiligte Dritte wie zum Beispiel der Geometer, die Abwasser Uri usw. miteinbezogen indem nach der Abnahme des Schnurger\\u00fcsts oder nach Beendigung der Bauphase entsprechende Meldungen verschickt werden.\", \"fr\": null}",
+      "static_content": "{\"de\": \"###Abschnitt 3 (Realisierung / Baukontrolle)\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -47663,21 +48107,51 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "verlaengerung-der-baubewilligung",
+    "fields": {
+      "created_at": "2021-12-01T13:22:38.531Z",
+      "modified_at": "2021-12-02T15:21:29.308Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Verl\\u00e4ngerung der baubewilligung\", \"fr\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"Dieser Verfahrensabschnitt wird nur bei Baubewilligungsverfahren ben\\u00f6tigt. Eine Baubewilligung kann auf Antrag des Gesuchstellers maximal um ein weiteres Jahr verl\\u00e4ngert werden.\", \"fr\": null}",
+      "static_content": "{\"de\": \"###Bewilligungsdauer / Verl\\u00e4ngerung der Baubewilligung\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "verlaengerungsantrag",
     "fields": {
       "created_at": "2021-11-28T16:20:17.384Z",
-      "modified_at": "2021-11-28T16:20:17.384Z",
+      "modified_at": "2021-12-01T13:43:57.058Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Eingang eines Verl\\u00e4ngerungsantrages betreffend G\\u00fcltigkeit der Baubewilligung\", \"fr\": null}",
+      "label": "{\"de\": \"Eingang Verl\\u00e4ngerungsantrag Baubewilligung\", \"fr\": null}",
       "type": "date",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -47909,18 +48383,18 @@
     "pk": "voraussichtliche-baudauer",
     "fields": {
       "created_at": "2021-11-29T07:40:34.855Z",
-      "modified_at": "2021-11-29T07:40:34.855Z",
+      "modified_at": "2021-12-01T12:52:41.533Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Voraussichtliche Baudauer (in Monaten)\", \"fr\": null}",
+      "label": "{\"de\": \"Baudauer (in Monaten)\", \"fr\": null}",
       "type": "integer",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_value": null,
@@ -50137,14 +50611,29 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-einsprache.art-der-einsprache-beschwerde-bauentscheid",
     "fields": {
-      "created_at": "2021-11-28T16:58:41.858Z",
-      "modified_at": "2021-11-28T16:58:41.858Z",
+      "created_at": "2021-12-01T13:46:54.017Z",
+      "modified_at": "2021-12-01T13:46:54.017Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "art-der-einsprache",
       "option": "art-der-einsprache-beschwerde-bauentscheid",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-einsprache.art-der-einsprache-beschwerde-weiterzug",
+    "fields": {
+      "created_at": "2021-12-01T13:46:54.015Z",
+      "modified_at": "2021-12-01T13:46:54.015Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "art-der-einsprache",
+      "option": "art-der-einsprache-beschwerde-weiterzug",
       "sort": 1
     }
   },
@@ -50152,15 +50641,15 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-einsprache.art-der-einsprache-einsprache-publikation",
     "fields": {
-      "created_at": "2021-11-28T16:58:41.861Z",
-      "modified_at": "2021-11-28T16:58:41.861Z",
+      "created_at": "2021-12-01T13:46:54.019Z",
+      "modified_at": "2021-12-01T13:46:54.019Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "art-der-einsprache",
       "option": "art-der-einsprache-einsprache-publikation",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -53287,8 +53776,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-afe-korporationsgewaesser",
     "fields": {
-      "created_at": "2021-12-03T10:45:33.944Z",
-      "modified_at": "2021-12-03T10:45:33.944Z",
+      "created_at": "2021-12-06T16:55:36.174Z",
+      "modified_at": "2021-12-06T16:55:36.174Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -53302,8 +53791,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-archiv",
     "fields": {
-      "created_at": "2021-12-03T10:45:34.061Z",
-      "modified_at": "2021-12-03T10:45:34.061Z",
+      "created_at": "2021-12-06T16:55:36.302Z",
+      "modified_at": "2021-12-06T16:55:36.302Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -53317,8 +53806,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-archiv-afj",
     "fields": {
-      "created_at": "2021-12-03T10:45:34.010Z",
-      "modified_at": "2021-12-03T10:45:34.010Z",
+      "created_at": "2021-12-06T16:55:36.248Z",
+      "modified_at": "2021-12-06T16:55:36.248Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -53332,8 +53821,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-bd-kantonsgewaesser",
     "fields": {
-      "created_at": "2021-12-03T10:45:34.041Z",
-      "modified_at": "2021-12-03T10:45:34.041Z",
+      "created_at": "2021-12-06T16:55:36.281Z",
+      "modified_at": "2021-12-06T16:55:36.281Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -53347,8 +53836,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-bgbb",
     "fields": {
-      "created_at": "2021-12-03T10:45:34.064Z",
-      "modified_at": "2021-12-03T10:45:34.064Z",
+      "created_at": "2021-12-06T16:55:36.306Z",
+      "modified_at": "2021-12-06T16:55:36.306Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -53362,8 +53851,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-building-permit-canton",
     "fields": {
-      "created_at": "2021-12-03T10:45:33.977Z",
-      "modified_at": "2021-12-03T10:45:33.977Z",
+      "created_at": "2021-12-06T16:55:36.210Z",
+      "modified_at": "2021-12-06T16:55:36.210Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -53377,8 +53866,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-building-permit-municipality",
     "fields": {
-      "created_at": "2021-12-03T10:45:33.966Z",
-      "modified_at": "2021-12-03T10:45:33.966Z",
+      "created_at": "2021-12-06T16:55:36.198Z",
+      "modified_at": "2021-12-06T16:55:36.198Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -53392,8 +53881,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-commercial-permit",
     "fields": {
-      "created_at": "2021-12-03T10:45:33.929Z",
-      "modified_at": "2021-12-03T10:45:33.929Z",
+      "created_at": "2021-12-06T16:55:36.158Z",
+      "modified_at": "2021-12-06T16:55:36.158Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -53407,8 +53896,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-genehmigung",
     "fields": {
-      "created_at": "2021-12-03T10:45:34.057Z",
-      "modified_at": "2021-12-03T10:45:34.057Z",
+      "created_at": "2021-12-06T16:55:36.298Z",
+      "modified_at": "2021-12-06T16:55:36.298Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -53422,8 +53911,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-genehmigung-qgp",
     "fields": {
-      "created_at": "2021-12-03T10:45:34.146Z",
-      "modified_at": "2021-12-03T10:45:34.146Z",
+      "created_at": "2021-12-06T16:55:36.396Z",
+      "modified_at": "2021-12-06T16:55:36.396Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -53437,8 +53926,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-genehmigung-qp",
     "fields": {
-      "created_at": "2021-12-03T10:45:34.133Z",
-      "modified_at": "2021-12-03T10:45:34.133Z",
+      "created_at": "2021-12-06T16:55:36.383Z",
+      "modified_at": "2021-12-06T16:55:36.383Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -53452,8 +53941,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-genehmigung-teilrevision-np",
     "fields": {
-      "created_at": "2021-12-03T10:45:34.130Z",
-      "modified_at": "2021-12-03T10:45:34.130Z",
+      "created_at": "2021-12-06T16:55:36.379Z",
+      "modified_at": "2021-12-06T16:55:36.379Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -53467,8 +53956,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-gesamtrevision-np",
     "fields": {
-      "created_at": "2021-12-03T10:45:34.150Z",
-      "modified_at": "2021-12-03T10:45:34.150Z",
+      "created_at": "2021-12-06T16:55:36.400Z",
+      "modified_at": "2021-12-06T16:55:36.400Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -53482,8 +53971,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-kantonsgebiet",
     "fields": {
-      "created_at": "2021-12-03T10:45:34.037Z",
-      "modified_at": "2021-12-03T10:45:34.037Z",
+      "created_at": "2021-12-06T16:55:36.277Z",
+      "modified_at": "2021-12-06T16:55:36.277Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -53497,8 +53986,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-kantonsgebiet-sd",
     "fields": {
-      "created_at": "2021-12-03T10:45:33.921Z",
-      "modified_at": "2021-12-03T10:45:33.921Z",
+      "created_at": "2021-12-06T16:55:36.150Z",
+      "modified_at": "2021-12-06T16:55:36.150Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -53512,8 +54001,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-konzession-landrat",
     "fields": {
-      "created_at": "2021-12-03T10:45:34.049Z",
-      "modified_at": "2021-12-03T10:45:34.049Z",
+      "created_at": "2021-12-06T16:55:36.290Z",
+      "modified_at": "2021-12-06T16:55:36.290Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -53527,8 +54016,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-konzession-landrat-afe",
     "fields": {
-      "created_at": "2021-12-03T10:45:33.959Z",
-      "modified_at": "2021-12-03T10:45:33.959Z",
+      "created_at": "2021-12-06T16:55:36.191Z",
+      "modified_at": "2021-12-06T16:55:36.191Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -53542,8 +54031,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-konzession-regierungsrat-afe",
     "fields": {
-      "created_at": "2021-12-03T10:45:33.970Z",
-      "modified_at": "2021-12-03T10:45:33.970Z",
+      "created_at": "2021-12-06T16:55:36.203Z",
+      "modified_at": "2021-12-06T16:55:36.203Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -53557,8 +54046,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-konzession-warme",
     "fields": {
-      "created_at": "2021-12-03T10:45:34.045Z",
-      "modified_at": "2021-12-03T10:45:34.045Z",
+      "created_at": "2021-12-06T16:55:36.285Z",
+      "modified_at": "2021-12-06T16:55:36.285Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -53572,8 +54061,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-konzession-warme-afe",
     "fields": {
-      "created_at": "2021-12-03T10:45:33.955Z",
-      "modified_at": "2021-12-03T10:45:33.955Z",
+      "created_at": "2021-12-06T16:55:36.187Z",
+      "modified_at": "2021-12-06T16:55:36.187Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -53587,8 +54076,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-konzessions-regierungsrat",
     "fields": {
-      "created_at": "2021-12-03T10:45:34.053Z",
-      "modified_at": "2021-12-03T10:45:34.053Z",
+      "created_at": "2021-12-06T16:55:36.294Z",
+      "modified_at": "2021-12-06T16:55:36.294Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -53602,8 +54091,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-landerwerb",
     "fields": {
-      "created_at": "2021-12-03T10:45:34.022Z",
-      "modified_at": "2021-12-03T10:45:34.022Z",
+      "created_at": "2021-12-06T16:55:36.260Z",
+      "modified_at": "2021-12-06T16:55:36.260Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -53617,8 +54106,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-mbv-koor-bg",
     "fields": {
-      "created_at": "2021-12-03T10:45:33.910Z",
-      "modified_at": "2021-12-03T10:45:33.910Z",
+      "created_at": "2021-12-06T16:55:36.138Z",
+      "modified_at": "2021-12-06T16:55:36.138Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -53632,8 +54121,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-mitbericht-afe",
     "fields": {
-      "created_at": "2021-12-03T10:45:33.974Z",
-      "modified_at": "2021-12-03T10:45:33.974Z",
+      "created_at": "2021-12-06T16:55:36.206Z",
+      "modified_at": "2021-12-06T16:55:36.206Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -53647,8 +54136,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-mitbericht-afj",
     "fields": {
-      "created_at": "2021-12-03T10:45:34.018Z",
-      "modified_at": "2021-12-03T10:45:34.018Z",
+      "created_at": "2021-12-06T16:55:36.256Z",
+      "modified_at": "2021-12-06T16:55:36.256Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -53662,8 +54151,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-mitbericht-afu",
     "fields": {
-      "created_at": "2021-12-03T10:45:33.992Z",
-      "modified_at": "2021-12-03T10:45:33.992Z",
+      "created_at": "2021-12-06T16:55:36.226Z",
+      "modified_at": "2021-12-06T16:55:36.226Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -53677,8 +54166,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-mitbericht-ala",
     "fields": {
-      "created_at": "2021-12-03T10:45:33.999Z",
-      "modified_at": "2021-12-03T10:45:33.999Z",
+      "created_at": "2021-12-06T16:55:36.235Z",
+      "modified_at": "2021-12-06T16:55:36.235Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -53692,8 +54181,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-mitbericht-ala-korporation",
     "fields": {
-      "created_at": "2021-12-03T10:45:33.995Z",
-      "modified_at": "2021-12-03T10:45:33.995Z",
+      "created_at": "2021-12-06T16:55:36.230Z",
+      "modified_at": "2021-12-06T16:55:36.230Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -53707,8 +54196,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-mitbericht-bd",
     "fields": {
-      "created_at": "2021-12-03T10:45:34.033Z",
-      "modified_at": "2021-12-03T10:45:34.033Z",
+      "created_at": "2021-12-06T16:55:36.273Z",
+      "modified_at": "2021-12-06T16:55:36.273Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -53722,8 +54211,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-mitbericht-bg",
     "fields": {
-      "created_at": "2021-12-03T10:45:34.003Z",
-      "modified_at": "2021-12-03T10:45:34.003Z",
+      "created_at": "2021-12-06T16:55:36.239Z",
+      "modified_at": "2021-12-06T16:55:36.239Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -53737,8 +54226,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-mitbericht-bundesstelle",
     "fields": {
-      "created_at": "2021-12-03T10:45:33.918Z",
-      "modified_at": "2021-12-03T10:45:33.918Z",
+      "created_at": "2021-12-06T16:55:36.146Z",
+      "modified_at": "2021-12-06T16:55:36.146Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -53752,8 +54241,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-mitbericht-np",
     "fields": {
-      "created_at": "2021-12-03T10:45:34.073Z",
-      "modified_at": "2021-12-03T10:45:34.073Z",
+      "created_at": "2021-12-06T16:55:36.314Z",
+      "modified_at": "2021-12-06T16:55:36.314Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -53767,8 +54256,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-mitbericht-sd",
     "fields": {
-      "created_at": "2021-12-03T10:45:33.940Z",
-      "modified_at": "2021-12-03T10:45:33.940Z",
+      "created_at": "2021-12-06T16:55:36.170Z",
+      "modified_at": "2021-12-06T16:55:36.170Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -53782,8 +54271,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-mitbericht-sd-afkp",
     "fields": {
-      "created_at": "2021-12-03T10:45:33.932Z",
-      "modified_at": "2021-12-03T10:45:33.933Z",
+      "created_at": "2021-12-06T16:55:36.162Z",
+      "modified_at": "2021-12-06T16:55:36.162Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -53797,8 +54286,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-mitbericht-umweltschutz",
     "fields": {
-      "created_at": "2021-12-03T10:45:33.988Z",
-      "modified_at": "2021-12-03T10:45:33.988Z",
+      "created_at": "2021-12-06T16:55:36.222Z",
+      "modified_at": "2021-12-06T16:55:36.222Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -53812,8 +54301,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-mitbericht-uvp",
     "fields": {
-      "created_at": "2021-12-03T10:45:33.985Z",
-      "modified_at": "2021-12-03T10:45:33.985Z",
+      "created_at": "2021-12-06T16:55:36.218Z",
+      "modified_at": "2021-12-06T16:55:36.218Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -53827,8 +54316,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-oereb",
     "fields": {
-      "created_at": "2021-12-03T10:45:33.914Z",
-      "modified_at": "2021-12-03T10:45:33.914Z",
+      "created_at": "2021-12-06T16:55:36.142Z",
+      "modified_at": "2021-12-06T16:55:36.142Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -53842,8 +54331,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-oereb-afj",
     "fields": {
-      "created_at": "2021-12-03T10:45:34.014Z",
-      "modified_at": "2021-12-03T10:45:34.014Z",
+      "created_at": "2021-12-06T16:55:36.252Z",
+      "modified_at": "2021-12-06T16:55:36.252Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -53857,8 +54346,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-oereb-afu",
     "fields": {
-      "created_at": "2021-12-03T10:45:33.981Z",
-      "modified_at": "2021-12-03T10:45:33.981Z",
+      "created_at": "2021-12-06T16:55:36.214Z",
+      "modified_at": "2021-12-06T16:55:36.214Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -53872,8 +54361,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-oereb-bd",
     "fields": {
-      "created_at": "2021-12-03T10:45:34.026Z",
-      "modified_at": "2021-12-03T10:45:34.026Z",
+      "created_at": "2021-12-06T16:55:36.265Z",
+      "modified_at": "2021-12-06T16:55:36.265Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -53887,8 +54376,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-oereb-np",
     "fields": {
-      "created_at": "2021-12-03T10:45:34.069Z",
-      "modified_at": "2021-12-03T10:45:34.069Z",
+      "created_at": "2021-12-06T16:55:36.310Z",
+      "modified_at": "2021-12-06T16:55:36.310Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -53902,8 +54391,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-pgv-eisenbahn",
     "fields": {
-      "created_at": "2021-12-03T10:45:34.114Z",
-      "modified_at": "2021-12-03T10:45:34.114Z",
+      "created_at": "2021-12-06T16:55:36.361Z",
+      "modified_at": "2021-12-06T16:55:36.361Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -53917,8 +54406,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-pgv-gemeindestrasse",
     "fields": {
-      "created_at": "2021-12-03T10:45:34.095Z",
-      "modified_at": "2021-12-03T10:45:34.095Z",
+      "created_at": "2021-12-06T16:55:36.338Z",
+      "modified_at": "2021-12-06T16:55:36.338Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -53932,8 +54421,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-pgv-kantonsstrasse",
     "fields": {
-      "created_at": "2021-12-03T10:45:34.091Z",
-      "modified_at": "2021-12-03T10:45:34.091Z",
+      "created_at": "2021-12-06T16:55:36.334Z",
+      "modified_at": "2021-12-06T16:55:36.334Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -53947,8 +54436,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-pgv-korporationsstrasse",
     "fields": {
-      "created_at": "2021-12-03T10:45:34.088Z",
-      "modified_at": "2021-12-03T10:45:34.088Z",
+      "created_at": "2021-12-06T16:55:36.330Z",
+      "modified_at": "2021-12-06T16:55:36.330Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -53962,8 +54451,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-pgv-luftfahrt",
     "fields": {
-      "created_at": "2021-12-03T10:45:34.111Z",
-      "modified_at": "2021-12-03T10:45:34.111Z",
+      "created_at": "2021-12-06T16:55:36.356Z",
+      "modified_at": "2021-12-06T16:55:36.356Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -53977,8 +54466,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-pgv-militaer",
     "fields": {
-      "created_at": "2021-12-03T10:45:34.118Z",
-      "modified_at": "2021-12-03T10:45:34.118Z",
+      "created_at": "2021-12-06T16:55:36.365Z",
+      "modified_at": "2021-12-06T16:55:36.365Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -53992,8 +54481,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-pgv-nationalstrassen",
     "fields": {
-      "created_at": "2021-12-03T10:45:34.107Z",
-      "modified_at": "2021-12-03T10:45:34.107Z",
+      "created_at": "2021-12-06T16:55:36.351Z",
+      "modified_at": "2021-12-06T16:55:36.351Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -54007,8 +54496,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-pgv-oeffentliche-gewaesser",
     "fields": {
-      "created_at": "2021-12-03T10:45:34.076Z",
-      "modified_at": "2021-12-03T10:45:34.076Z",
+      "created_at": "2021-12-06T16:55:36.318Z",
+      "modified_at": "2021-12-06T16:55:36.318Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -54022,8 +54511,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-pgv-private-gewaesser",
     "fields": {
-      "created_at": "2021-12-03T10:45:34.084Z",
-      "modified_at": "2021-12-03T10:45:34.084Z",
+      "created_at": "2021-12-06T16:55:36.326Z",
+      "modified_at": "2021-12-06T16:55:36.326Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -54037,8 +54526,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-pgv-seilbahn",
     "fields": {
-      "created_at": "2021-12-03T10:45:34.103Z",
-      "modified_at": "2021-12-03T10:45:34.103Z",
+      "created_at": "2021-12-06T16:55:36.347Z",
+      "modified_at": "2021-12-06T16:55:36.347Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -54052,8 +54541,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-pgv-starkstrom",
     "fields": {
-      "created_at": "2021-12-03T10:45:34.099Z",
-      "modified_at": "2021-12-03T10:45:34.099Z",
+      "created_at": "2021-12-06T16:55:36.343Z",
+      "modified_at": "2021-12-06T16:55:36.343Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -54067,8 +54556,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-pgv-vereinfachtes-verfahren",
     "fields": {
-      "created_at": "2021-12-03T10:45:34.080Z",
-      "modified_at": "2021-12-03T10:45:34.080Z",
+      "created_at": "2021-12-06T16:55:36.322Z",
+      "modified_at": "2021-12-06T16:55:36.322Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -54082,8 +54571,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-preliminary-clarification-canton",
     "fields": {
-      "created_at": "2021-12-03T10:45:33.962Z",
-      "modified_at": "2021-12-03T10:45:33.962Z",
+      "created_at": "2021-12-06T16:55:36.195Z",
+      "modified_at": "2021-12-06T16:55:36.195Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -54097,8 +54586,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-preliminary-clarification-municipality",
     "fields": {
-      "created_at": "2021-12-03T10:45:33.951Z",
-      "modified_at": "2021-12-03T10:45:33.951Z",
+      "created_at": "2021-12-06T16:55:36.183Z",
+      "modified_at": "2021-12-06T16:55:36.183Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -54112,8 +54601,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-project-announcement",
     "fields": {
-      "created_at": "2021-12-03T10:45:33.947Z",
-      "modified_at": "2021-12-03T10:45:33.947Z",
+      "created_at": "2021-12-06T16:55:36.178Z",
+      "modified_at": "2021-12-06T16:55:36.178Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -54127,8 +54616,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-project-announcement-afj",
     "fields": {
-      "created_at": "2021-12-03T10:45:34.007Z",
-      "modified_at": "2021-12-03T10:45:34.007Z",
+      "created_at": "2021-12-06T16:55:36.243Z",
+      "modified_at": "2021-12-06T16:55:36.243Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -54142,8 +54631,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-reklame-bd",
     "fields": {
-      "created_at": "2021-12-03T10:45:34.030Z",
-      "modified_at": "2021-12-03T10:45:34.030Z",
+      "created_at": "2021-12-06T16:55:36.269Z",
+      "modified_at": "2021-12-06T16:55:36.269Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -54157,8 +54646,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-solar-announcement",
     "fields": {
-      "created_at": "2021-12-03T10:45:33.936Z",
-      "modified_at": "2021-12-03T10:45:33.936Z",
+      "created_at": "2021-12-06T16:55:36.166Z",
+      "modified_at": "2021-12-06T16:55:36.166Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -54172,8 +54661,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-technische-bewilligung",
     "fields": {
-      "created_at": "2021-12-03T10:45:33.906Z",
-      "modified_at": "2021-12-03T10:45:33.906Z",
+      "created_at": "2021-12-06T16:55:36.133Z",
+      "modified_at": "2021-12-06T16:55:36.133Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -54187,8 +54676,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-veranstaltungsgesuch",
     "fields": {
-      "created_at": "2021-12-03T10:45:33.925Z",
-      "modified_at": "2021-12-03T10:45:33.925Z",
+      "created_at": "2021-12-06T16:55:36.154Z",
+      "modified_at": "2021-12-06T16:55:36.154Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -54202,8 +54691,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-vorpruefung-gesamtrevision-np",
     "fields": {
-      "created_at": "2021-12-03T10:45:34.141Z",
-      "modified_at": "2021-12-03T10:45:34.142Z",
+      "created_at": "2021-12-06T16:55:36.391Z",
+      "modified_at": "2021-12-06T16:55:36.391Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -54217,8 +54706,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-vorpruefung-qgp",
     "fields": {
-      "created_at": "2021-12-03T10:45:34.126Z",
-      "modified_at": "2021-12-03T10:45:34.126Z",
+      "created_at": "2021-12-06T16:55:36.375Z",
+      "modified_at": "2021-12-06T16:55:36.375Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -54232,8 +54721,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-vorpruefung-qp",
     "fields": {
-      "created_at": "2021-12-03T10:45:34.122Z",
-      "modified_at": "2021-12-03T10:45:34.122Z",
+      "created_at": "2021-12-06T16:55:36.370Z",
+      "modified_at": "2021-12-06T16:55:36.370Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -54247,8 +54736,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-vorpruefung-teilrevision-np",
     "fields": {
-      "created_at": "2021-12-03T10:45:34.138Z",
-      "modified_at": "2021-12-03T10:45:34.138Z",
+      "created_at": "2021-12-06T16:55:36.387Z",
+      "modified_at": "2021-12-06T16:55:36.387Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -57457,11 +57946,11 @@
     "model": "caluma_form.questionoption",
     "pk": "projekt-energienachweis.projekt-energienachweis-heizungs-und-warmwasser",
     "fields": {
-      "created_at": "2021-11-24T13:11:55.768Z",
-      "modified_at": "2021-11-24T13:11:55.768Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-12-01T12:51:17.459Z",
+      "modified_at": "2021-12-01T12:51:17.459Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "projekt-energienachweis",
       "option": "projekt-energienachweis-heizungs-und-warmwasser",
@@ -57472,11 +57961,11 @@
     "model": "caluma_form.questionoption",
     "pk": "projekt-energienachweis.projekt-energienachweis-hoechstanteil",
     "fields": {
-      "created_at": "2021-11-24T13:11:55.773Z",
-      "modified_at": "2021-11-24T13:11:55.773Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-12-01T12:51:17.463Z",
+      "modified_at": "2021-12-01T12:51:17.463Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "projekt-energienachweis",
       "option": "projekt-energienachweis-hoechstanteil",
@@ -57487,11 +57976,11 @@
     "model": "caluma_form.questionoption",
     "pk": "projekt-energienachweis.projekt-energienachweis-huelle",
     "fields": {
-      "created_at": "2021-11-24T13:11:55.770Z",
-      "modified_at": "2021-11-24T13:11:55.770Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-12-01T12:51:17.461Z",
+      "modified_at": "2021-12-01T12:51:17.461Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "projekt-energienachweis",
       "option": "projekt-energienachweis-huelle",
@@ -57502,11 +57991,11 @@
     "model": "caluma_form.questionoption",
     "pk": "projekt-energienachweis.projekt-energienachweis-keine-bereiche",
     "fields": {
-      "created_at": "2021-11-24T13:11:55.758Z",
-      "modified_at": "2021-11-24T13:11:55.758Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-12-01T12:51:17.449Z",
+      "modified_at": "2021-12-01T12:51:17.449Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "projekt-energienachweis",
       "option": "projekt-energienachweis-keine-bereiche",
@@ -57517,11 +58006,11 @@
     "model": "caluma_form.questionoption",
     "pk": "projekt-energienachweis.projekt-energienachweis-keine-bereiche-betroffen",
     "fields": {
-      "created_at": "2021-11-24T13:11:55.761Z",
-      "modified_at": "2021-11-24T13:11:55.761Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-12-01T12:51:17.452Z",
+      "modified_at": "2021-12-01T12:51:17.452Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "projekt-energienachweis",
       "option": "projekt-energienachweis-keine-bereiche-betroffen",
@@ -57532,11 +58021,11 @@
     "model": "caluma_form.questionoption",
     "pk": "projekt-energienachweis.projekt-energienachweis-kuehlung",
     "fields": {
-      "created_at": "2021-11-24T13:11:55.765Z",
-      "modified_at": "2021-11-24T13:11:55.765Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-12-01T12:51:17.455Z",
+      "modified_at": "2021-12-01T12:51:17.455Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "projekt-energienachweis",
       "option": "projekt-energienachweis-kuehlung",
@@ -57547,11 +58036,11 @@
     "model": "caluma_form.questionoption",
     "pk": "projekt-energienachweis.projekt-energienachweis-lueftung",
     "fields": {
-      "created_at": "2021-11-24T13:11:55.767Z",
-      "modified_at": "2021-11-24T13:11:55.767Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-12-01T12:51:17.457Z",
+      "modified_at": "2021-12-01T12:51:17.457Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "projekt-energienachweis",
       "option": "projekt-energienachweis-lueftung",
@@ -57562,11 +58051,11 @@
     "model": "caluma_form.questionoption",
     "pk": "projekt-energienachweis.projekt-energienachweis-minergie",
     "fields": {
-      "created_at": "2021-11-24T13:11:55.775Z",
-      "modified_at": "2021-11-24T13:11:55.775Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-12-01T12:51:17.465Z",
+      "modified_at": "2021-12-01T12:51:17.465Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "projekt-energienachweis",
       "option": "projekt-energienachweis-minergie",
@@ -57577,11 +58066,11 @@
     "model": "caluma_form.questionoption",
     "pk": "projekt-energienachweis.projekt-energienachweis-spezielle-bauten",
     "fields": {
-      "created_at": "2021-11-24T13:11:55.763Z",
-      "modified_at": "2021-11-24T13:11:55.763Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2021-12-01T12:51:17.453Z",
+      "modified_at": "2021-12-01T12:51:17.453Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "projekt-energienachweis",
       "option": "projekt-energienachweis-spezielle-bauten",
