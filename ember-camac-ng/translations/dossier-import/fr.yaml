@@ -1,0 +1,91 @@
+dossierImport:
+  new:
+    title: Nouvel import
+    importsLink: Vers l'aperçu
+    uploadDrop: Faites glisser un fichier dans cette zone ou
+    uploadSelect: appuyez ici pour télécharger un fichier.
+    uploadedFileLabel: Fichier téléchargé
+    locationLabel: Commune
+    locationInfo: Veuillez sélectionner une commune pour pouvoir attribuer l'importation.
+    detailLink: Vers les détails de l'importation
+    uploadHintBold: "Remarque:"
+    uploadHint: Le téléchargement d'un fichier d'importation peut prendre quelques minutes, selon la taille du fichier.
+    uploadError:
+      "archive_file_missing": Pour lancer une importation, il faut d'abord télécharger un fichier.
+      "metadata_file_missing": Le fichier de métadonnées 'dossiers.xlsx' n'a pas été trouvé dans le fichier zip téléchargé.
+      "invalid_zip_file": Le fichier téléchargé n'est pas un fichier zip valide. 
+      "bad_mimetype": Type de fichier non autorisé, seuls les fichiers Zip peuvent être téléchargés.
+      "bad_xlsx_file": Le fichier de métadonnées 'dossiers.xlsx' n'est pas un fichier .xlsx valide.
+      invalidMetaFile: Le fichier de métadonnées dans le fichier zip téléchargé est soit corrompu, soit ce n'est pas un fichier .xlsx valide.
+      missingStatusColumn: Dans le fichier de métadonnées, la colonne 'STATUS' est manquante.
+      fileTooLarge: Le fichier zip téléchargé est trop volumineux. La taille maximale autorisée pour le fichier est de 1 GB.
+  imports:
+    title: Importation de données
+    info: Les dossiers peuvent être importés ici à partir d'autres systèmes.
+    fetchImportsError: Une erreur est survenue lors du chargement des importations. Veuillez réessayer.
+    listTitle: Historique des importations
+    tableHeader:
+      createDate: Créé le
+      author: Auteur
+      status: État
+      importDate: Importé le
+    tableBody:
+      noImports: Aucune importation n'a encore été saisie.
+    status:
+      in-progres: En attente de validation
+      verified: Conception (validation réussie)
+      failed: Conception (échec de la validation)
+      new: Nouveau
+      done: Terminé
+    newImportLink: Nouvelle importation
+  detail:
+    title: Détails de l'importation
+    subtitle: "Détails de l'importation du {creationDate} ({user})"
+    importsLink: Vers l'aperçu
+    noInformation:  Aucune information n'est actuellement disponible.
+    fetchImportError: Une erreur est survenue lors du chargement de l'importation. Veuillez réessayer.
+    analysis:
+      title: Analyse
+      status:
+        verified: La structure est correcte
+        failed: La structure est défectueuse
+        in-progres: L'importation a commencé
+      issuesInfo: "Les problèmes suivants sont encore présents dans le fichier d'importation:"
+    statistics:
+      title: Statistiques
+      infoSuccess: "Les données suivantes peuvent être importées à partir du fichier d'importation:"
+      infoFailure: Aucune donnée ne peut être importée à partir du fichier d'importation.
+      dossiers: "{count} Dossiers"
+      documents: "{count} Documents"
+    status:
+      title: État
+      draftTitle: Conception
+      draftDescription: 
+        verified: |-
+          Vous avez téléchargé un fichier d'importation valide. Si vous souhaitez 
+          que les données soient vous pouvez demander l'autorisation d'importation.
+        failed: |-
+          Vous avez téléchargé un fichier d'importation non valide. Pour corriger 
+          l'erreur vous devez télécharger un nouveau fichier d'importation.
+      draftHintBold: "Attention:"
+      draftHintDescription: |-
+        Les importations ayant le statut de "projet" sont 
+        automatiquement supprimées après 10 jours! 
+    actions:
+      title: Actions
+      noActions: Aucune action n'est possible dans cet état.
+      startImport:
+        title: Démarrer l'importation
+        description: |-
+          Une fois que vous avez corrigé tous les messages d'erreur pertinents 
+          et que vous avez vous souhaitez importer les données, vous pouvez 
+          commencer l'importation.
+        buttonLabel: Démarrer l'importation
+      deleteImport:
+        title: Supprimer l'importation
+        description: Si vous n'avez plus besoin de l'importation, vous pouvez la supprimer ici.
+        buttonLabel: Supprimer l'importation
+        error: Quelque chose s'est mal passé lors de la suppression de l'importation, veuillez réessayer.
+        success: L'importation a été supprimée avec succès.
+    
+  

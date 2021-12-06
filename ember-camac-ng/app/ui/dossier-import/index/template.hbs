@@ -1,0 +1,67 @@
+<h4 class="uk-margin-small-bottom">
+  {{t "dossierImport.imports.title"}}
+</h4>
+<div class="uk-margin-bottom">
+  {{t "dossierImport.imports.info"}}
+</div>
+<div class="uk-text-bold uk-margin-small-bottom">
+  {{t "dossierImport.imports.listTitle"}}
+</div>
+<table
+  class="uk-table uk-table-divider uk-table-small uk-table-middle uk-margin-remove-top"
+>
+  <thead>
+    <tr>
+      {{#let
+        (array "createDate" "author" "status" "importDate") as |tableHeaders|
+      }}
+        {{#each tableHeaders as |tableHeader|}}
+          <th class="uk-padding-remove-top">
+            {{t (concat "dossierImport.imports.tableHeader." tableHeader)}}
+          </th>
+        {{/each}}
+      {{/let}}
+    </tr>
+  </thead>
+  <tbody>
+    {{#if this.fetchImports.isRunning}}
+      <tr>
+        <td colspan="4" class="uk-text-center">
+          <div class="uk-table-expand" uk-spinner></div>
+        </td>
+      </tr>
+    {{else if (not this.imports.length)}}
+      <tr>
+        <td colspan="4" class="uk-text-center">
+          {{t "dossierImport.imports.tableBody.noImports"}}
+        </td>
+      </tr>
+    {{else}}
+      {{#each this.imports as |import|}}
+        <LinkTo @route="dossier-import.detail" @model={{import.id}} />
+        <tr data-test-imports-row={{import.id}}>
+          {{#each-in import.data as |key value|}}
+            <td class="uk-table-link">
+              <LinkTo
+                @route="dossier-import.detail"
+                @model={{import.id}}
+                class="uk-link uk-link-reset"
+              >
+                {{value}}
+              </LinkTo>
+            </td>
+          {{/each-in}}
+        </tr>
+      {{/each}}
+    {{/if}}
+  </tbody>
+</table>
+<LinkTo
+  data-test-new-import
+  class="dossier-import__button uk-margin-bottom"
+  @route="dossier-import.new"
+  {{on "click" this.clearNotifications}}
+>
+  {{t "dossierImport.imports.newImportLink"}}
+</LinkTo>
+<Notifications @style="uikit" />
