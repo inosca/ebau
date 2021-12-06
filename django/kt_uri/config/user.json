@@ -528,6 +528,15 @@
     }
   },
   {
+    "model": "user.role",
+    "pk": 1132,
+    "fields": {
+      "role_parent": null,
+      "name": "Oereb Api",
+      "group_prefix": null
+    }
+  },
+  {
     "model": "user.servicegroup",
     "pk": 1,
     "fields": {
