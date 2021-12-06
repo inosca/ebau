@@ -163,7 +163,7 @@ services:
       - camac-ng.local
 
   clamav:
-    image: tiredofit/clamav:2.1.1
+    image: tiredofit/clamav:2.3.0
     networks:
       - camac-ng.local
 
