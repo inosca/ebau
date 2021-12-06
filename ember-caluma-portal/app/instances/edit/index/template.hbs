@@ -208,6 +208,23 @@
         {{t "instances.createBuildingPermitButton"}}
       </LinkTo>
     {{/if}}
+
+    {{#if this.showSubmitTechnischeBewilligung}}
+      <h3 class="instance-overview__action-title">
+        {{t "instances.messageBuildingServicesTitle"}}
+      </h3>
+      <p>
+        {{t "instances.messageBuildingServicesText"}}
+      </p>
+      <UkButton
+        @on-click={{perform this.createNewFormMessageBuildingServices}}
+        @disabled={{this.createNewMessageFormBuildingServices.isRunning}}
+        @loading={{this.createNewMessageFormBuildingServices.isrunning}}
+      >
+        {{t "instances.messageBuildingServicesButton"}}
+      </UkButton>
+    {{/if}}
+
   </div>
 </div>
 

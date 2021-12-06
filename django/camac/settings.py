@@ -1933,6 +1933,7 @@ APPLICATIONS = {
                         "proposal-declaration",
                         "solar-declaration",
                         "cantonal-territory-usage",
+                        "technische-bewilligung",
                     ],
                     "people_sources": {
                         "applicant",
