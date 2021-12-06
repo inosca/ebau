@@ -9,6 +9,7 @@ module.exports = function (environment) {
     locationType: "hash",
     podModulePrefix: "camac-ng/ui",
     historySupportMiddleware: true,
+    maxDossierImportSize: 1000000000, // 1GB
     apollo: {
       apiURL: "/graphql/",
     },

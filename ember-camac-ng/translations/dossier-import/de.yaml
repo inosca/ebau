@@ -1,0 +1,90 @@
+dossierImport:
+  new:
+    title: Neuer Import
+    importsLink: Zur Übersicht
+    uploadDrop: Ziehen Sie eine Datei in diesen Bereich oder
+    uploadSelect: drücken Sie hier um eine Datei hochzuladen.
+    uploadedFileLabel: Hochgeladene Datei
+    locationLabel: Gemeinde
+    locationInfo: Bitte wählen Sie eine Gemeinde um den Import zuordnen zu können.
+    detailLink: Zu den Import Details
+    uploadHintBold: "Hinweis:"
+    uploadHint: Das Hochladen einer Import-Datei kann je nach Grösse der Datei einige Minuten dauern.
+    uploadError:
+      "archive_file_missing": Um einen Import zu starten, muss zuerst eine Datei hochgeladen werden.
+      "metadata_file_missing": Die Metadaten-Datei 'dossiers.xlsx' konnte in der hochgeladenen Zip-Datei nicht gefunden werden.
+      "invalid_zip_file": Die hochgeladene Datei ist keine valide Zip-Datei. 
+      "bad_mimetype": Nicht zugelassener Dateityp, nur Zip-Dateien dürfen hochgeladen werden.
+      "bad_xlsx_file": Die Metadaten-Datei 'dossiers.xlsx' ist keine valide .xlsx Datei.
+      invalidMetaFile: Die Metadaten-Datei in der hochgeladenen Zip-Datei ist entweder korrupt oder keine valide .xlsx Datei.
+      missingStatusColumn: In der Metadaten-Datei fehlt die Spalte 'STATUS'.
+      fileTooLarge: Die hochgeladene Zip-Datei ist zu gross. Die maximal erlaubte Dateigrösse beträgt 1GB.
+  imports:
+    title: Datenimport
+    info: Hier können Dossier aus anderen Systemen importiert werden.
+    fetchImportsError: Beim Laden der Imports ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.
+    listTitle: Importverlauf
+    tableHeader:
+      createDate: Erstellt am
+      author: Autor
+      status: Status
+      importDate: Importiert am
+    tableBody:
+      noImports: Es wurden noch keine Imports erfasst.
+    status:
+      in-progres: Wartet auf Freigabe
+      verified: Entwurf (Validierung erfolgreich)
+      failed: Entwurf (Validierung fehlgeschlagen)
+      new: Neu
+      done: Abgeschlossen
+    newImportLink: Neuer Import
+  detail:
+    title: Import Details
+    subtitle: "Details zum Import vom {creationDate} ({user})"
+    importsLink: Zur Übersicht
+    noInformation:  Es liegen zurzeit keine Informationen vor.
+    fetchImportError: Beim Laden des Imports ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.
+    analysis:
+      title: Analyse
+      status:
+        verified: Die Struktur ist korrekt
+        failed: Die Struktur ist fehlerhaft
+        in-progres: Der Import wurde gestartet
+      issuesInfo: "Die folgenden Probleme sind noch in der Import-Datei vorhanden:"
+    statistics:
+      title: Statistik
+      infoSuccess: "Aus der Import-Datei können folgenden Daten importiert werden:"
+      infoFailure: Aus der Import-Datei können keine Daten importiert werden.
+      dossiers: "{count} Dossiers"
+      documents: "{count} Dokumente"
+    status:
+      title: Status
+      draftTitle: Entwurf
+      draftDescription: 
+        verified: |-
+          Sie haben eine gültige Import-Datei hochgeladen. Falls Sie die Daten für den 
+          Import freigeben möchten, können Sie die Freigabe beantragen.
+        failed: |-
+          Sie haben eine ungültige Import-Datei hochgeladen. Um die Fehler zu beheben
+          müssen Sie eine neue Import-Datei hochladen.
+      draftHintBold: "Achtung:"
+      draftHintDescription: |-
+        Imports im Status "Entwurf" werden nach 10 Tagen 
+        automatisch gelöscht! 
+    actions:
+      title: Aktionen
+      noActions: In diesem Status sind keine Aktionen möglich.
+      startImport:
+        title: Import starten
+        description: |-
+          Wenn Sie alle relevanten Fehlermeldungen bereinigt haben und 
+          die Daten importieren möchten, können Sie den Import starten.
+        buttonLabel: Import starten
+      deleteImport:
+        title: Import löschen
+        description: Falls Sie den Import nicht mehr benötigen, können Sie ihn hier löschen.
+        buttonLabel: Import löschen
+        error: Beim Löschen des Imports ist etwas schiefgegangen, bitte versuchen Sie es erneut.
+        success: Der Import wurde erfolgreich gelöscht.
+    
+  

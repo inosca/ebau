@@ -1,0 +1,15 @@
+{{#unless @hide}}
+  <div class="uk-flex uk-flex-top" ...attributes>
+    {{#if this.iconOptions}}
+      <div class="dossier-import__icon-box uk-flex-none">
+        <div
+          uk-icon={{this.iconOptions}}
+          class="dossier-import__icon dossier-import__icon--{{@status}}"
+        ></div>
+      </div>
+    {{/if}}
+    <div>
+      {{this.content}}
+    </div>
+  </div>
+{{/unless}}
