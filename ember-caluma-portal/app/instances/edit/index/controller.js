@@ -12,6 +12,7 @@ export default class InstancesEditIndexController extends Controller {
   @service fetch;
   @service notification;
   @service intl;
+  @service router;
 
   @calumaQuery({ query: allCases }) cases;
 
@@ -27,6 +28,15 @@ export default class InstancesEditIndexController extends Controller {
     return (
       parseInt(this.get("instance.instanceState.id")) ===
       config.APPLICATION.instanceStates.rejected
+    );
+  }
+
+  get showSubmitTechnischeBewilligung() {
+    return (
+      config.APPLICATION.name === "ur" &&
+      parseInt(this.get("instance.instanceState.id")) ===
+        config.APPLICATION.instanceStates.finished &&
+      this.instance.mainForm.slug === "building-permit"
     );
   }
 
@@ -72,7 +82,7 @@ export default class InstancesEditIndexController extends Controller {
 
     const { data } = yield response.json();
 
-    yield this.transitionToRoute(
+    yield this.router.transitionTo(
       "instances.edit.form",
       data.id,
       this.instance.calumaForm
@@ -95,7 +105,7 @@ export default class InstancesEditIndexController extends Controller {
     try {
       yield this.instance.destroyRecord();
       this.notification.success(this.intl.t("instances.deleteInstanceSuccess"));
-      yield this.transitionToRoute("instances");
+      yield this.router.transitionTo("instances");
     } catch (error) {
       this.notification.danger(this.intl.t("instances.deleteInstanceError"));
     }
@@ -120,10 +130,35 @@ export default class InstancesEditIndexController extends Controller {
       data: { id: instanceId },
     } = yield response.json();
 
-    yield this.transitionToRoute(
+    yield this.router.transitionTo(
       "instances.edit.form",
       instanceId,
       "verlaengerung-geltungsdauer"
+    );
+  }
+
+  @dropTask
+  *createNewFormMessageBuildingServices() {
+    const response = yield this.fetch.fetch(`/api/v1/instances`, {
+      method: "POST",
+      body: JSON.stringify({
+        data: {
+          attributes: {
+            "caluma-form": "technische-bewilligung",
+          },
+          type: "instances",
+        },
+      }),
+    });
+
+    const {
+      data: { id: instanceId },
+    } = yield response.json();
+
+    yield this.router.transitionTo(
+      "instances.edit.form",
+      instanceId,
+      "technische-bewilligung"
     );
   }
 }
