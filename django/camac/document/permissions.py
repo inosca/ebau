@@ -214,6 +214,7 @@ PERMISSIONS = {
         },
         "fachstelle leitbehörde": {AdminPermission: [1, 4, 5, 6, 7, 8, 9, 10, 11]},
         "lesezugriff": {ReadPermission: [1, 8, 4, 5, 6, 10, 11]},
+        "support": {AdminPermission: [1, 4, 5, 6, 7, 8, 9, 10, 11]},
     },
     "kt_uri": {
         "municipality": {
