@@ -16,6 +16,7 @@ from camac.core import serializers as core_serializers
 from camac.instance.mixins import InstanceEditableMixin
 from camac.notification.serializers import NotificationTemplateSendmailSerializer
 from camac.relations import FormDataResourceRelatedField
+from camac.user.permissions import permission_aware
 from camac.user.relations import (
     CurrentUserFormDataResourceRelatedField,
     GroupFormDataResourceRelatedField,
@@ -173,8 +174,16 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
                     ),
                 }
             )
-        validate_file_infection(path)
+
         return path
+
+    @permission_aware
+    def _validate_file_infection(self, path):
+        return validate_file_infection(path)
+
+    def _validate_file_infection_for_support(self, path):
+        # support can upload without infection scan on their own risk
+        return None
 
     def validate_context(self, context):
         # don't validate if context is new or unchanged
@@ -213,6 +222,7 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
                 )
             )
 
+            self._validate_file_infection(path)
             self._validate_path_allowed_mime_types(path, attachment_sections)
 
             data["size"] = path.size
