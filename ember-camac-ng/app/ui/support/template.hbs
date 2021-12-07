@@ -74,7 +74,7 @@
     </div>
 
     {{on-key "ctrl+shift+Space" (fn (mut this.showAdvanced) (not this.showAdvanced))}}
-    {{#if this.showAdvanced}}
+    {{#if (and this.showAdvanced this.isSupport)}}
       <div>
         <p class="uk-text-large">{{t "support.fix-work-items.title"}}</p>
         <p>{{t "support.fix-work-items.description" htmlSafe=true}}</p>

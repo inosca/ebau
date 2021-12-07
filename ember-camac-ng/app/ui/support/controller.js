@@ -17,6 +17,7 @@ export default class SupportController extends Controller {
   @service fetch;
   @service intl;
   @service notifications;
+  @service shoebox;
 
   @tracked ebauNumber;
   @tracked _form;
@@ -25,6 +26,10 @@ export default class SupportController extends Controller {
   @tracked dryRunDone = false;
   @tracked syncCirculation = false;
   @tracked showAdvanced = false;
+
+  get isSupport() {
+    return this.shoebox.role === "support";
+  }
 
   get form() {
     return this.forms.find((form) => form.value === this._form);
@@ -51,7 +56,7 @@ export default class SupportController extends Controller {
   *fetchInstance() {
     const instance = yield this.store.findRecord("instance", this.model);
 
-    yield instance.fetchEbauNumber.perform();
+    yield instance.fetchCaseMeta.perform();
 
     this.ebauNumber = instance.ebauNumber || "";
     this._form = instance.calumaForm;
