@@ -1,7 +1,7 @@
 import zipfile
 from dataclasses import fields
 from enum import Enum
-from typing import Generator, Iterable, List, Optional, Tuple, Union
+from typing import Generator, Iterable, List, Optional, Tuple
 
 import openpyxl
 from pyproj import Transformer
@@ -14,7 +14,6 @@ from camac.dossier_import.dossier_classes import (
     PlotData,
 )
 from camac.dossier_import.messages import (
-    LOG_LEVEL_ERROR,
     LOG_LEVEL_WARNING,
     FieldValidationMessage,
     Message,
@@ -225,45 +224,6 @@ class XlsxFileDossierLoader(DossierLoader):
                 }
             )
         ]
-        return self.validate_fields(dossier)
-
-    def validate_fields(self, dossier):
-        for field in fields(dossier):
-            if field.name not in self.simple_fields:
-                continue
-            field_name_snake = field.name.replace("_", "-")
-            value = getattr(dossier, field.name)
-            if hasattr(field.type, "__origin__") and field.type.__origin__ == Union:
-                if not isinstance(value, field.type.__args__):
-                    dossier._meta.errors.append(
-                        FieldValidationMessage(
-                            level=LOG_LEVEL_WARNING,
-                            field=field_name_snake,
-                            code=(
-                                field.name in self.required_fields
-                                and MessageCodes.REQUIRED_VALUES_MISSING.value
-                            )
-                            or MessageCodes.FIELD_VALIDATION_ERROR.value,
-                            detail=f"Failed to load valid data for field `{field_name_snake}`. Value: `{value}` of type: `{type(value).__name__}`. Allowed: {', '.join([f'`{typ.__name__}`' for typ in field.type.__args__])}.",
-                        )
-                    )
-                continue
-
-            if not isinstance(value, field.type):
-                dossier._meta.errors.append(
-                    FieldValidationMessage(
-                        level=(field.name in self.required_fields and LOG_LEVEL_ERROR)
-                        or LOG_LEVEL_WARNING,
-                        field=field_name_snake,
-                        code=(
-                            field.name in self.required_fields
-                            and MessageCodes.REQUIRED_VALUES_MISSING.value
-                        )
-                        or MessageCodes.FIELD_VALIDATION_ERROR.value,
-                        detail=f"Failed to load valid data for field `{field_name_snake}. Value: `{value}` of type: `{type(value).__name__}`. Allowed: `{field.type.__name__}`.",
-                    )
-                )
-
         return dossier
 
     def load_coordinates(

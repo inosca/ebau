@@ -90,9 +90,12 @@ def test_validation_errors(
     )
     assert resp.status_code == expected_status
     resp = resp.json()
-    snapshot.assert_match(
-        (resp.get("data", None) and resp["data"]["attributes"]) or resp
-    )
+    data = resp.get("data", None)
+    if data:
+        del data["attributes"]["source-file"]
+        snapshot.assert_match(data["attributes"])
+    else:
+        snapshot.assert_match(resp)
 
 
 @pytest.mark.parametrize("role__name", ["Support"])
@@ -117,9 +120,24 @@ def test_validation_errors(
             "Uploaded file is not a valid .zip file",
         ),
         (
+            "import-example-validation-errors.zip",
+            status.HTTP_201_CREATED,
+            {
+                "error": [
+                    "1 dossiers have an invalid status. Affected dossiers:\n2017-86: 'DONKED' (status)",
+                    "2 dossiers miss a value in a required field. Affected dossiers:\n2017-87: status, 9: submit_date",
+                ]
+            },
+        ),
+        (
             "import-example-orphan-dirs.zip",
             status.HTTP_201_CREATED,
-            "Missing metadata for documents dirs: 2017-11, 2017-22",
+            {
+                "warning": [
+                    "2 document folders were not found in the metadata file and will not be imported:\n2017-11, 2017-22",
+                    "2 dossiers have no document folder.",
+                ],
+            },
         ),
         (None, status.HTTP_400_BAD_REQUEST, "To start an import please upload a file."),
     ],
@@ -150,4 +168,9 @@ def test_file_validation(
     if resp.status_code != status.HTTP_201_CREATED:
         assert str(resp.data[0]["detail"]) == expected_result
     else:
+        if expected_result is not None:
+            for key, value in expected_result.items():
+                assert sorted(value) == sorted(
+                    resp.data["messages"]["validation"]["summary"][key]
+                )
         admin_client.delete(reverse("dossier-import-detail", args=(resp.data["id"],)))
