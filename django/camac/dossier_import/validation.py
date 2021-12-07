@@ -15,6 +15,7 @@ from .config.common import mimetypes
 from .messages import (
     BadXlsxFileError,
     InvalidZipFileError,
+    MessageCodes,
     MissingArchiveFileError,
     MissingMetadataFileError,
 )
@@ -59,26 +60,40 @@ def validate_attachments(archive: zipfile.ZipFile, dossier_ids: List[str]):
         for zipinfo in archive.filelist
         if zipinfo.filename.endswith("/") and len(zipinfo.filename.split("/")) < 3
     }
+    orphan_dirs = sorted(list(dirs - set(dossier_ids)))
+    result = []
+    if orphan_dirs:
+        result.append(
+            _(
+                "{count} document folders were not found in the metadata file and will not be imported:\n{entries}"
+            ).format(count=len(orphan_dirs), entries=", ".join(orphan_dirs))
+        )
+    dossiers_without_documents = list(set(dossier_ids) - dirs)
+    if dossiers_without_documents:
+        result.append(
+            _("{count} dossiers have no document folder.").format(
+                count=len(dossiers_without_documents)
+            )
+        )
+    return result
 
-    return {
-        "missing_metadata": list(dirs - set(dossier_ids)),
-        "dossiers_without_attachments": len(list(set(dossier_ids) - dirs)),
-        "num_documents": sum(
-            [
-                1
-                for url in archive.filelist
-                if url.filename.split("/")[0] in dossier_ids
-                and not url.filename.endswith("/")
-                and mimetypes.guess_type(url.filename)
-            ]
-        ),
-    }
+
+def get_attachment_validation_stats(archive: zipfile.ZipFile, dossier_ids: List[str]):
+    return sum(
+        [
+            1
+            for url in archive.filelist
+            if url.filename.split("/")[0] in dossier_ids
+            and not url.filename.endswith("/")
+            and mimetypes.guess_type(url.filename)
+        ]
+    )
 
 
 # flake8: noqa: C901
 def validate_zip_archive_structure(
     instance_pk,
-) -> messages.FormattedListMessage:
+) -> DossierImport:
     """
     ZIP archive validation.
 
@@ -97,16 +112,19 @@ def validate_zip_archive_structure(
     worksheet = work_book.worksheets[0]
     headings = worksheet[1]
 
-    try:
-        status_column = next((col for col in headings if col.value == "STATUS"))
-    except StopIteration:
+    required_columns = ["ID", "STATUS", "PROPOSAL", "SUBMIT-DATE"]
+    heading_values = [col.value for col in headings]
+    missing = set(required_columns) - set(heading_values)
+    if missing:
         raise InvalidImportDataError(
-            "Meta data file in archive has no column 'STATUS'."
+            f"Meta data file in archive is missing required columns {missing}."
         )
 
-    dossier_msgs = []
+    status_column = next((col for col in headings if col.value == "STATUS"))
+    submit_date_column = next((col for col in headings if col.value == "SUBMIT-DATE"))
     id_column = next((col for col in headings if col.value == "ID"))
 
+    dossier_msgs = []
     deleted_rows = 0
     for cell in worksheet[id_column.column_letter]:
         if cell.value is not None:
@@ -120,10 +138,14 @@ def validate_zip_archive_structure(
 
     for dupe in dupes:
         messages.append_or_update_dossier_message(
-            dupe, "id", f"{dupe} is not unique.", dossier_msgs
+            dupe,
+            "id",
+            f"{dupe} is not unique.",
+            MessageCodes.DUPLICATE_IDENTFIER_ERROR.value,
+            dossier_msgs,
         )
 
-    dossiers_success = copy.deepcopy(list(set(dossier_ids)))
+    dossiers_success = list(set(dossier_ids))
 
     for date_column in [col for col in headings if col.value.endswith("-DATE")]:
         for cell in worksheet[date_column.column_letter][1:]:
@@ -135,7 +157,8 @@ def validate_zip_archive_structure(
                 messages.append_or_update_dossier_message(
                     dossier_id,
                     field_name,
-                    f"{cell.value} could not be parsed as date. Allowed format: dd.mm.YYYY",
+                    cell.value,
+                    MessageCodes.DATE_FIELD_VALIDATION_ERROR.value,
                     dossier_msgs,
                 )
                 try:
@@ -146,20 +169,54 @@ def validate_zip_archive_structure(
 
     status_choices = ["SUBMITTED", "APPROVED", "DONE"]
 
-    for cell in worksheet[status_column.column_letter][1:]:
-        dossier_id = worksheet[f"A{cell.row}"].value
-        if cell.value not in status_choices:
-            messages.append_or_update_dossier_message(
-                dossier_id,
-                "status",
-                f"{cell.value} is not one of {status_choices}",
-                dossier_msgs,
-            )
-            try:
-                dossiers_success.remove(dossier_id)
-            except ValueError:  # pragma: no cover
-                pass
-            continue
+    if status_column:
+        for cell in worksheet[status_column.column_letter][1:]:
+            dossier_id = worksheet[f"A{cell.row}"].value
+            if cell.value not in status_choices:
+                if cell.value is None:
+                    messages.append_or_update_dossier_message(
+                        dossier_id,
+                        "status",
+                        None,
+                        MessageCodes.MISSING_REQUIRED_VALUE_ERROR.value,
+                        dossier_msgs,
+                        level=messages.LOG_LEVEL_ERROR,
+                    )
+                    try:
+                        dossiers_success.remove(dossier_id)
+                    except ValueError:  # pragma: no cover
+                        pass
+                    continue
+
+                messages.append_or_update_dossier_message(
+                    dossier_id,
+                    "status",
+                    cell.value,
+                    MessageCodes.STATUS_CHOICE_VALIDATION_ERROR.value,
+                    dossier_msgs,
+                    level=messages.LOG_LEVEL_ERROR,
+                )
+                try:
+                    dossiers_success.remove(dossier_id)
+                except ValueError:  # pragma: no cover
+                    pass
+
+    if submit_date_column:
+        for cell in worksheet[submit_date_column.column_letter][1:]:
+            dossier_id = worksheet[f"A{cell.row}"].value
+            if not cell.value:
+                messages.append_or_update_dossier_message(
+                    dossier_id,
+                    "submit_date",
+                    None,
+                    MessageCodes.MISSING_REQUIRED_VALUE_ERROR.value,
+                    dossier_msgs,
+                    level=messages.LOG_LEVEL_ERROR,
+                )
+                try:
+                    dossiers_success.remove(dossier_id)
+                except ValueError:  # pragma: no cover
+                    pass
 
     for msg in dossier_msgs:
         messages.update_messages_section_detail(
@@ -167,23 +224,23 @@ def validate_zip_archive_structure(
         )
 
     dossier_import = messages.update_summary(dossier_import)
-    attachment_summary = validate_attachments(archive, dossier_ids)
-    dossier_import.messages["validation"]["summary"].update(attachment_summary)
+    dossier_import.messages["validation"]["summary"]["warning"] += validate_attachments(
+        archive, dossier_ids
+    )
+    dossier_import.messages["validation"]["summary"]["stats"] = {
+        "attachments": get_attachment_validation_stats(archive, dossier_ids),
+        "dossiers": len(dossiers_success),
+    }
+
     dossier_import.messages["validation"]["completed"] = timezone.localtime().strftime(
         "%Y-%m-%dT%H:%M:%S%z"
     )
     dossier_import.save()
 
     dossier_import.status = dossier_import.IMPORT_STATUS_VALIDATION_SUCCESSFUL
-    if (
-        dossier_import.messages["validation"]["summary"]["errors"]
-        or dossier_import.messages["validation"]["summary"]["dossiers_error"]
-        or dossier_import.messages["validation"]["summary"]["dossiers_warning"]
-    ):
+    if dossier_import.messages["validation"]["summary"]["error"]:
         dossier_import.status = dossier_import.IMPORT_STATUS_VALIDATION_FAILED
-    dossier_import.messages["validation"]["summary"]["dossiers_success"] = len(
-        set(dossiers_success)
-    )
+        dossier_import.source_file.delete()
     dossier_import.save()
 
     return dossier_import

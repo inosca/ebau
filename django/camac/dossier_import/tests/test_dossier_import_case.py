@@ -60,23 +60,10 @@ def test_create_instance_dossier_import_case(
         message = writer.import_dossier(dossier, str(dossier_import.pk))
         dossier_import.messages["import"]["details"].append(message.to_dict())
     update_summary(dossier_import)
-    assert dossier_import.messages["import"]["summary"]["dossiers_written"] == 3
-    assert (
-        len(
-            dossier_import.messages["import"]["summary"]["dossiers_warning"][
-                "duplicate-dossier"
-            ]["data"]
-        )
-        == 1
-    )
-    assert (
-        len(
-            dossier_import.messages["import"]["summary"]["dossiers_error"][
-                "dossier-missing-required-values"
-            ]["data"]
-        )
-        == 1
-    )
+    assert dossier_import.messages["import"]["summary"]["stats"]["dossiers"] == 3
+    assert len(dossier_import.messages["import"]["summary"]["warning"]) == 1
+    assert len(dossier_import.messages["import"]["summary"]["error"]) == 1
+
     instances = Instance.objects.filter(
         **{"case__meta__import-id": str(dossier_import.pk)}
     )
@@ -399,7 +386,7 @@ def test_record_loading_sz(
                 "DECISION-DATE": "not-a-date",
             },
             {
-                "missing": ["id"],
+                "missing": ["id", "status"],
             },
         ),
     ],
@@ -422,6 +409,7 @@ def test_record_loading_exceptions(
     """Load data from import record, make persistant and verify with master_data API."""
     loader = get_dossier_loader(loader)
     dossier_row.update(dossier_row_patch)
+    del dossier_row["STATUS"]
     dossier = loader._load_dossier(dossier_row)
     for key, value in expected.items():
         assert getattr(dossier._meta, key) == value
