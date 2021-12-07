@@ -22,7 +22,7 @@ def ebau_number_question(db, camac_question_factory, camac_chapter_factory):
 
 
 @pytest.mark.freeze_time("2020-12-03")
-@pytest.mark.parametrize("role__name,instance_state__name", [("Municipality", "subm")])
+@pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize(
     "ebau_number,expected_ebau_number,expected_error",
     [
@@ -43,7 +43,6 @@ def test_set_ebau_number(
     caluma_admin_user,
     be_instance,
     instance_with_case,
-    instance_state,
     role,
     ebau_number_question,
     camac_answer_factory,
@@ -159,11 +158,11 @@ def test_set_ebau_number(
         ),
         (
             "Municipality",
-            status.HTTP_403_FORBIDDEN,
+            status.HTTP_204_NO_CONTENT,
             "building-permit",
             "circulation_init",
-            None,
-            None,
+            "circulation_init",
+            True,
         ),
         (
             "Support",
@@ -257,7 +256,8 @@ def test_set_ebau_number_workflow(
     "role__name,expected_status",
     [
         ("Support", status.HTTP_204_NO_CONTENT),
-        ("Municipality", status.HTTP_403_FORBIDDEN),
+        ("Municipality", status.HTTP_204_NO_CONTENT),
+        ("Applicant", status.HTTP_403_FORBIDDEN),
     ],
 )
 def test_archive(
@@ -311,7 +311,7 @@ def test_archive(
         ("Support", "einfache-vorabklaerung", "baugesuch", status.HTTP_400_BAD_REQUEST),
         ("Support", "baugesuch", "einfache-vorabklaerung", status.HTTP_400_BAD_REQUEST),
         ("Support", "baugesuch", "baugesuch-v2", status.HTTP_400_BAD_REQUEST),
-        ("Municipality", "baugesuch", "baugesuch-generell", status.HTTP_403_FORBIDDEN),
+        ("Municipality", "baugesuch", "baugesuch-generell", status.HTTP_204_NO_CONTENT),
     ],
 )
 def test_change_form(
