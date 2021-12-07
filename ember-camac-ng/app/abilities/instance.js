@@ -17,20 +17,28 @@ export default class InstanceAbility extends Ability {
     return this.shoebox.role === "support";
   }
 
+  get isMunicipalityLead() {
+    return this.shoebox.content.roleId === 3;
+  }
+
   get canSetEbauNumber() {
-    return this.isSupport && this.model.ebauNumber;
+    return this.isSupport || (this.isMunicipalityLead && this.model.ebauNumber);
   }
 
   get canArchive() {
-    return this.isSupport && !hasInstanceState(this.model, "archived");
+    return (
+      this.isSupport ||
+      (this.isMunicipalityLead && !hasInstanceState(this.model, "archived"))
+    );
   }
 
   get canChangeForm() {
     return (
-      this.isSupport &&
-      config.APPLICATION.interchangeableForms
-        .flat()
-        .includes(this.model.calumaForm)
+      this.isSupport ||
+      (this.isMunicipalityLead &&
+        config.APPLICATION.interchangeableForms
+          .flat()
+          .includes(this.model.calumaForm))
     );
   }
 
