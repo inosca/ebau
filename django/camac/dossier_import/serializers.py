@@ -63,6 +63,4 @@ class DossierImportSerializer(serializers.ModelSerializer):
         )
         dossier_import.save()
         dossier_import = validate_zip_archive_structure(str(dossier_import.pk))
-        if dossier_import.status == dossier_import.IMPORT_STATUS_VALIDATION_FAILED:
-            dossier_import.source_file.delete()
         return dossier_import

@@ -1,7 +1,6 @@
-import copy
 from dataclasses import dataclass, field
 from enum import Enum
-from typing import List, Optional, Union
+from typing import List, Union
 
 from dataclasses_json import dataclass_json
 from django.utils.translation import gettext as _
@@ -27,29 +26,18 @@ class FieldValidationMessage(Message):
 
 @dataclass_json
 @dataclass
-class FormattedListMessage(Message):
-    data: list
-
-
-@dataclass_json
-@dataclass
 class DossierMessage:
     status: str  # one of success, warning, error
     dossier_id: str
     details: List[Message]
-    instance_id: Optional[int] = None
 
 
 @dataclass_json
 @dataclass
 class Summary:
-    dossiers_written: int = 0
-    dossiers_success: int = 0
-    num_documents: int = 0
-    dossiers_warning: dict = field(default_factory=dict)
-    dossiers_error: dict = field(default_factory=dict)
-    warnings: list = field(default_factory=list)
-    errors: list = field(default_factory=list)
+    stats: dict = field(default_factory=dict)
+    warning: dict = field(default_factory=list)
+    error: dict = field(default_factory=list)
 
 
 LOG_LEVEL_DEBUG = 0
@@ -76,16 +64,21 @@ class MessageCodes(str, Enum):
 
     """
 
+    # success
     INSTANCE_CREATED = "instance-created"
-    DUPLICATE_DOSSIER = "duplicate-dossier"
-    REQUIRED_VALUES_MISSING = "dossier-missing-required-values"
     FORM_DATA_WRITTEN = "form-data-written"
-    ATTACHMENTS = "attach-documents"
-    WORKFLOW = "set-workflow"
-    WORKFLOW_SKIP_ITEM_FAILED = "skip-workitem-failed"
+    ATTACHMENTS_WRITTEN = "attachments-written"
     SET_WORKFLOW_STATE = "workflow-state-set"
+
+    # warnings
+    DUPLICATE_DOSSIER = "duplicate-dossier"
+    DATE_FIELD_VALIDATION_ERROR = "date-field-validation-error"
+    STATUS_CHOICE_VALIDATION_ERROR = "status-choice-validation-error"
+    MISSING_REQUIRED_VALUE_ERROR = "missing-required-field-error"
+    DUPLICATE_IDENTFIER_ERROR = "duplicate-identifier-error"
     FIELD_VALIDATION_ERROR = "field-validation-error"
     MIME_TYPE_UNKNOWN = "mime-type-unknown"
+    WORKFLOW_SKIP_ITEM_FAILED = "skip-workitem-failed"  # not user-facing
 
 
 class MissingArchiveFileError(exceptions.ValidationError):
@@ -127,25 +120,32 @@ def get_message_max_level(message_list: List[Message], default=LOG_LEVEL_DEBUG):
     ) or default
 
 
-def categorize_messages_by_level(dossier_summary_list: list, level: str) -> dict:
+def aggregate_messages_by_level(message_object: dict, level: str) -> list:
     """Filter messages field section by message status.
 
-    available status values: 'success', 'warning', 'error'
-
-    step_summary is the a dictionary of the form
-        {
-            'summary': Summary,
-            'details': List[dossier-summary-dict]
-        }
-
+    Message object is a dict:
+    {
+        "details": [
+            {
+                "dossier_id": 123,
+                "status": "warning",
+                "details": [
+                    {
+                        "code": "date-field-validation-error",
+                        "detail": "not a date",
+                        "field": "SUBMIT-DATE",
+                        "level": 2,  # warning
+                    }
+                ]
+            }
+        ]
+    }
     """
-    categorized = {}
-    if dossier_summary_list:
+    result = []
+    if message_object:
         for code in MessageCodes:
-            messages_by_category = FormattedListMessage(
-                code=code.value, level=level, detail=[], data=[]
-            )
-            for dossier_detail in dossier_summary_list["details"]:
+            filtered_summaries = []
+            for dossier_detail in message_object["details"]:
                 messages = list(
                     filter(
                         lambda x: x["level"] == level and x["code"] == code.value,
@@ -153,68 +153,110 @@ def categorize_messages_by_level(dossier_summary_list: list, level: str) -> dict
                     )
                 )
                 if messages:
-                    filtered = copy.deepcopy(dossier_detail)
-                    filtered["details"] = messages
-                    messages_by_category.detail.append(filtered)
-                    messages_by_category.data.append(filtered["dossier_id"])
-            if messages_by_category.data:
-                categorized[code.value] = messages_by_category.to_dict()
-    return categorized
+                    filtered_summaries.append(
+                        {
+                            "dossier_id": dossier_detail["dossier_id"],
+                            "messages": messages,
+                        }
+                    )
+
+            if filtered_summaries:
+                result.append(compile_message_for_code(code, filtered_summaries))
+    return result
+
+
+def compile_message_for_code(code, filtered_summaries):
+    """Return a formatted message for a given error code.
+
+    Filtered messages is list of dictionaries:
+    [{
+      "dossier_id": 123,
+      "messages": [
+        "code": "date-field-validation-error",
+        "detail": "not a date",
+        "field": "SUBMIT-DATE",
+        "level": 2,  # warning
+      ]
+    }]
+    """
+    messages = {
+        MessageCodes.DUPLICATE_DOSSIER.value: "have the same ID",
+        MessageCodes.DATE_FIELD_VALIDATION_ERROR.value: 'have an invalid value in date field. Please use the format "DD.MM.YYYY" (e.g. "13.04.2021")',
+        MessageCodes.STATUS_CHOICE_VALIDATION_ERROR.value: "have an invalid status",
+        MessageCodes.MISSING_REQUIRED_VALUE_ERROR.value: "miss a value in a required field",
+        MessageCodes.DUPLICATE_IDENTFIER_ERROR.value: "have the same ID",
+        MessageCodes.FIELD_VALIDATION_ERROR.value: "have an invalid value",
+        MessageCodes.MIME_TYPE_UNKNOWN.value: "have at least one document with an unknown file type",
+    }
+
+    def format_summary(summary: dict) -> str:
+        return "{dossier_id}: {entries}".format(
+            dossier_id=summary["dossier_id"],
+            entries=", ".join(
+                [
+                    f"'{message['detail']}' ({message.get('field')})"
+                    if message["detail"]
+                    else message.get("field")
+                    for message in summary["messages"]
+                ]
+            ),
+        )
+
+    entries = [format_summary(summary) for summary in filtered_summaries]
+
+    return _("{count} dossiers {message}. Affected dossiers:{entries}").format(
+        count=len(filtered_summaries),
+        message=messages[code],
+        entries="\n" + ", ".join(entries),
+    )
 
 
 def update_summary(dossier_import):
-    validation_messages = dossier_import.messages.get("validation")
-    if validation_messages:
+    validation_message_object = dossier_import.messages.get("validation")
+    if validation_message_object:
         data = dict(
-            dossiers_warning=categorize_messages_by_level(
-                validation_messages, LOG_LEVEL_WARNING
+            warning=aggregate_messages_by_level(
+                validation_message_object, LOG_LEVEL_WARNING
             ),
-            dossiers_error=categorize_messages_by_level(
-                validation_messages, LOG_LEVEL_ERROR
+            error=aggregate_messages_by_level(
+                validation_message_object, LOG_LEVEL_ERROR
             ),
-            dossiers_written=Instance.objects.filter(
-                **{"case__meta__import-id": str(dossier_import.pk)}
-            ).count(),
         )
-        if not validation_messages.get("summary"):  # pragma: no cover
-            validation_messages["summary"] = Summary().to_dict()
-        validation_messages["summary"].update(data)
-        dossier_import.messages["validation"] = validation_messages
+        if not validation_message_object.get("summary"):  # pragma: no cover
+            validation_message_object["summary"] = Summary().to_dict()
+        validation_message_object["summary"].update(data)
+        dossier_import.messages["validation"] = validation_message_object
         dossier_import.save()
 
-    import_messages = dossier_import.messages.get("import")
-    if import_messages:
+    import_message_object = dossier_import.messages.get("import")
+    if import_message_object:
         data = dict(
-            dossiers_success=len(
-                list(
-                    filter(
-                        lambda i: i["status"] == DOSSIER_IMPORT_STATUS_SUCCESS,
-                        import_messages["details"],
-                    )
-                )
+            warning=aggregate_messages_by_level(
+                import_message_object, LOG_LEVEL_WARNING
             ),
-            dossiers_warning=categorize_messages_by_level(
-                import_messages, LOG_LEVEL_WARNING
-            ),
-            dossiers_error=categorize_messages_by_level(
-                import_messages, LOG_LEVEL_ERROR
-            ),
-            dossiers_written=Instance.objects.filter(
-                **{"case__meta__import-id": str(dossier_import.pk)}
-            ).count(),
-            num_documents=Attachment.objects.filter(
-                **{"instance__case__meta__import-id": str(dossier_import.pk)}
-            ).count(),
+            error=aggregate_messages_by_level(import_message_object, LOG_LEVEL_ERROR),
         )
-        if not import_messages.get("summary"):
-            import_messages["summary"] = Summary().to_dict()
-        import_messages["summary"].update(data)
-        dossier_import.messages["import"] = import_messages
+        if not import_message_object.get("summary"):
+            import_message_object["summary"] = Summary().to_dict()
+        import_message_object["summary"].update(data)
+        import_message_object["summary"]["stats"].update(
+            {
+                "dossiers": Instance.objects.filter(
+                    **{"case__meta__import-id": str(dossier_import.pk)}
+                ).count(),
+                "documents": Attachment.objects.filter(
+                    **{"instance__case__meta__import-id": str(dossier_import.pk)}
+                ).count(),
+            }
+        )
+        dossier_import.messages["import"] = import_message_object
         dossier_import.save()
     return dossier_import
 
 
-def append_or_update_dossier_message(dossier_id, field_name, detail, messages):
+def append_or_update_dossier_message(
+    dossier_id, field_name, detail, code, messages, level=LOG_LEVEL_WARNING
+):
     dossier_msg = next(
         (d for d in messages if d.dossier_id == dossier_id),
         None,
@@ -228,8 +270,8 @@ def append_or_update_dossier_message(dossier_id, field_name, detail, messages):
         messages.append(dossier_msg)
     dossier_msg.details.append(
         FieldValidationMessage(
-            code=MessageCodes.FIELD_VALIDATION_ERROR.value,
-            level=LOG_LEVEL_WARNING,
+            code=code,
+            level=level,
             field=field_name,
             detail=detail,
         )
