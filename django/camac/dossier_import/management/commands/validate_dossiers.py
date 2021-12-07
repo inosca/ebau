@@ -87,9 +87,3 @@ class Command(BaseCommand):
                 width=250,
             )
         )
-
-        if dossier_import.status != dossier_import.IMPORT_STATUS_VALIDATION_SUCCESSFUL:
-            self.stdout.write(
-                f"Validation terminated with status: '{dossier_import.status}'. Deleting source file {dossier_import.source_file.path}."
-            )
-            self.stdout.write(f"{dossier_import.source_file.delete()}")
