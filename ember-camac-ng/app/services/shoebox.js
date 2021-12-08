@@ -34,4 +34,12 @@ export default class ShoeboxService extends Service {
   get isAdminRole() {
     return this.role?.endsWith("-admin");
   }
+
+  get isSupportRole() {
+    return this.role === "support";
+  }
+
+  get isMunicipalityLeadRole() {
+    return this.role === "municipality-lead";
+  }
 }
