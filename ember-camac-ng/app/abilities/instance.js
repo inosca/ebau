@@ -13,35 +13,31 @@ const hasInstanceState = (instance, instanceState) => {
 export default class InstanceAbility extends Ability {
   @service shoebox;
 
-  get isSupport() {
-    return this.shoebox.role === "support";
-  }
-
-  get isMunicipalityLead() {
-    return this.shoebox.content.roleId === 3;
-  }
-
+  // BE
   get canSetEbauNumber() {
-    return this.isSupport || (this.isMunicipalityLead && this.model.ebauNumber);
+    return (
+      (this.shoebox.isSupportRole || this.shoebox.isMunicipalityLeadRole) &&
+      this.model.ebauNumber
+    );
   }
 
   get canArchive() {
     return (
-      this.isSupport ||
-      (this.isMunicipalityLead && !hasInstanceState(this.model, "archived"))
+      (this.shoebox.isSupportRole || this.shoebox.isMunicipalityLeadRole) &&
+      !hasInstanceState(this.model, "archived")
     );
   }
 
   get canChangeForm() {
     return (
-      this.isSupport ||
-      (this.isMunicipalityLead &&
-        config.APPLICATION.interchangeableForms
-          .flat()
-          .includes(this.model.calumaForm))
+      (this.shoebox.isSupportRole || this.shoebox.isMunicipalityLeadRole) &&
+      config.APPLICATION.interchangeableForms
+        .flat()
+        .includes(this.model.calumaForm)
     );
   }
 
+  // UR
   get canLinkDossiers() {
     return (
       this.shoebox.role === "municipality" ||

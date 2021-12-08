@@ -12,7 +12,7 @@ export default class StatisticAbility extends Ability {
 
   get canView() {
     return (
-      (this.shoebox.role === "support" || this.shoebox.isAdminRole) &&
+      (this.shoebox.isSupportRole || this.shoebox.isAdminRole) &&
       (REQUIRED_ROLES[this.model] || []).includes(this.shoebox.role)
     );
   }
