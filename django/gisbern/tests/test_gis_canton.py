@@ -20,7 +20,7 @@ def vcr_config():
         "CH673533354667",
         "CH851446093521",
         "doesntexist",
-        "emptymultisurface",
+        "emptypolygon",
         "emptygis",
     ],
 )

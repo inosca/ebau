@@ -11,6 +11,8 @@ import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency-decorators";
 import { all } from "rsvp";
 
+import environment from "caluma-portal/config/environment";
+
 const KEY_TABLE_FORM = "parzelle-tabelle";
 const KEY_TABLE_QUESTION = "parzelle";
 const KEY_TABLE_PARCEL = "parzellennummer";
@@ -213,9 +215,10 @@ export default class BeGisComponent extends Component {
       const table = this.field.document.findAnswer(KEY_TABLE_QUESTION);
       const selection = (table?.length && table[0][KEY_TABLE_EGRID]) || null;
       const egrid = selection || "EGRID";
+      const baseURL = environment.ebau.beGisUrl;
 
       const search = [
-        "baseURL=https://www.map.apps.be.ch/pub",
+        `baseURL=${baseURL}/pub`,
         "project=a42pub_ebau_cl",
         "map_adv=true",
         "useXD=true",
@@ -239,7 +242,7 @@ export default class BeGisComponent extends Component {
             ]),
       ].join("&");
 
-      return `https://www.map.apps.be.ch/pub/client_mapwidget/default.jsp?${search}`;
+      return `${baseURL}/pub/client_mapwidget/default.jsp?${search}`;
     } catch (error) {
       /* eslint-disable-next-line no-console */
       console.log(error);
