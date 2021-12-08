@@ -27,10 +27,6 @@ export default class SupportController extends Controller {
   @tracked syncCirculation = false;
   @tracked showAdvanced = false;
 
-  get isSupport() {
-    return this.shoebox.role === "support";
-  }
-
   get form() {
     return this.forms.find((form) => form.value === this._form);
   }
@@ -91,7 +87,9 @@ export default class SupportController extends Controller {
       });
 
       // sadly we need this to have current data on the whole page
-      location.reload();
+      location.assign(
+        `/index/redirect-to-instance-resource/instance-id/${this.model}`
+      );
     } catch (error) {
       this.notifications.error(this.intl.t("support.archive.error"));
     }
