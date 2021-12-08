@@ -50518,7 +50518,7 @@
       "name": null,
       "description": null,
       "template": "/ember-camac-ng/support.phtml",
-      "class_field": "menu-category-primary active_leitbehoerde_only leitung_only",
+      "class_field": "menu-category-primary active_leitung_leitbehoerde_only",
       "hidden": 0,
       "sort": 26,
       "form_group": 40000
