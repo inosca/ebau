@@ -1,4 +1,14 @@
 <?xml version="1.0"?>
-<GetFeature xmlns="http://www.opengis.net/wfs" xmlns:a42geo_ebau_kt_wfs_d_fk="http://www.geoservice.apps.be.ch/geoservice/services/a4p/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer" xmlns:ogc="http://www.opengis.net/ogc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gml="http://www.opengis.net/gml" service="WFS" version="2.0.0" outputFormat="GML2" count="100">
-    {0}
+<GetFeature
+	xmlns="http://www.opengis.net/wfs"
+	xmlns:a42geo_a42geo_ebau_kt_wfs_d_fk="{baseURL}/geoservice2/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer"
+	xmlns:ogc="http://www.opengis.net/ogc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:gml="http://www.opengis.net/gml"
+	service="WFS"
+	version="2.0.0"
+	outputFormat="GML2"
+	count="100"
+>
+    {query}
 </GetFeature>

@@ -1,0 +1,64 @@
+interactions:
+  - request:
+      body: null
+      headers:
+        Accept:
+          - "*/*"
+        Accept-Encoding:
+          - gzip, deflate
+        Connection:
+          - keep-alive
+        User-Agent:
+          - python-requests/2.26.0
+      method: GET
+      uri: https://www.geoservice2-test.apps.be.ch/geoservice2/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer?service=WFS&version=2.0.0&Request=GetFeature&typename=a42geo_a42geo_ebau_kt_wfs_d_fk:DIPANU_DIPANUF&count=10&Filter=%3Cogc:Filter%3E%3Cogc:PropertyIsEqualTo%20matchCase=%22true%22%3E%3Cogc:PropertyName%3EEGRID%3C/ogc:PropertyName%3E%3Cogc:Literal%3Eemptypolygon%3C/ogc:Literal%3E%3C/ogc:PropertyIsEqualTo%3E%3C/ogc:Filter%3E
+    response:
+      body:
+        string:
+      headers:
+        Cache-Control:
+          - no-cache
+        Connection:
+          - Keep-Alive
+        Content-Length:
+          - "993"
+        Content-Type:
+          - application/xml;charset=UTF-8
+        Date:
+          - Thu, 09 Dec 2021 10:29:31 GMT
+        Expires:
+          - "-1"
+        Keep-Alive:
+          - timeout=5, max=100
+        Pragma:
+          - no-cache
+        Server:
+          - Microsoft-IIS/8.5
+        X-AspNet-Version:
+          - 4.0.30319
+        X-Content-Type-Options:
+          - nosniff
+        X-Powered-By:
+          - ASP.NET
+        X-XSS-Protection:
+          - 1; mode=block
+        accept:
+          - text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+        host:
+          - x3012app433.infra.be.ch:6443
+        referer:
+          - b222bf2e-00fe-4b35-95ba-dfd4b7e27c1d
+        referrer:
+          - b222bf2e-00fe-4b35-95ba-dfd4b7e27c1d
+        response_buffer_size:
+          - "8192"
+        response_character_encoding:
+          - UTF-8
+        response_content_type:
+          - application/xml
+        user-agent:
+          - Java/11.0.6
+      status:
+        code: 200
+        message: OK
+version: 1
