@@ -2861,7 +2861,15 @@ def parse_admins(admins):
 ADMINS = parse_admins(env.list("DJANGO_ADMINS", default=[]))
 
 # GIS API (Kt. BE)
-GIS_BASE_URL = build_url(env.str("GIS_BASE_URL", "https://www.geoservice.apps.be.ch"))
+GIS_BASE_URL = build_url(
+    env.str(
+        "GIS_BASE_URL",
+        default(
+            "https://www.geoservice2-test.apps.be.ch",
+            "https://www.geoservice.apps.be.ch",
+        ),
+    )
+)
 GIS_API_USER = env.str("GIS_API_USER", "")
 GIS_API_PASSWORD = env.str("GIS_API_PASSWORD", "")
 
