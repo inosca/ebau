@@ -60,7 +60,7 @@ export default class InstancesNewController extends Controller {
     );
 
     return forms
-      .filter(({ node: { meta } }) => meta["is-creatable"])
+      .filter(({ node }) => node.meta["is-creatable"] && node.isPublished)
       .filter(
         (form) =>
           this.session.isInternal ||

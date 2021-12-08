@@ -2,7 +2,6 @@ query GetRootForms($slug: String) {
   allForms(
     filter: [
       { slug: $slug }
-      { isPublished: true }
       { metaValue: [{ key: "is-main-form", value: true }] }
     ]
     order: [{ attribute: NAME, direction: ASC }]
