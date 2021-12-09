@@ -223,6 +223,38 @@
       "fachthemen.fischerei",
       "gesuchsunterlagen"
     ],
+    "baugesuch-reklamegesuch-v5": [
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "grundinformationen.kategorisierung",
+      "grundinformationen.allgemeine-informationen-zum-vorhaben-v3",
+      "grundinformationen.ausnahmebewilligungen",
+      "grundinformationen.gwr-v2",
+      "personalien",
+      "personalien.grundeigentumerschaft",
+      "personalien.bauherrschaft-v2",
+      "personalien.projektverfasser-planer-v2",
+      "fachthemen",
+      "fachthemen.landwirtschaft",
+      "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
+      "fachthemen.umweltschutz",
+      "fachthemen.natur-und-landschaftsschutz",
+      "fachthemen.wald",
+      "fachthemen.naturgefahren",
+      "fachthemen.verkehr",
+      "fachthemen.energie",
+      "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
+      "fachthemen.zivilschutz",
+      "fachthemen.brandschutz",
+      "fachthemen.liegenschaftsentwasserung",
+      "fachthemen.gewasserschutz",
+      "fachthemen.grundwasser-und-altlasten",
+      "fachthemen.reklamen",
+      "fachthemen.denkmalschutz-und-archaeologie",
+      "fachthemen.lebensmittel-und-hygienesicherheit",
+      "fachthemen.fischerei",
+      "gesuchsunterlagen"
+    ],
     "projektanderung-v3": [
       "projektanderung",
       "grundinformationen",
@@ -249,6 +281,20 @@
       "personalien.grundeigentumerschaft",
       "personalien.bauherrschaft",
       "personalien.projektverfasser-planer",
+      "gesuchsunterlagen"
+    ],
+    "projektanderung-v5": [
+      "projektanderung",
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "grundinformationen.kategorisierung",
+      "grundinformationen.allgemeine-informationen-zum-vorhaben-v3",
+      "grundinformationen.ausnahmebewilligungen",
+      "grundinformationen.gwr-v2",
+      "personalien",
+      "personalien.grundeigentumerschaft",
+      "personalien.bauherrschaft-v2",
+      "personalien.projektverfasser-planer-v2",
       "gesuchsunterlagen"
     ],
     "vorentscheid-gemass-ss84-pbg-v3": [
@@ -315,6 +361,38 @@
       "fachthemen.fischerei",
       "gesuchsunterlagen"
     ],
+    "vorentscheid-gemass-ss84-pbg-v5": [
+      "vorentscheid",
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "grundinformationen.kategorisierung",
+      "grundinformationen.allgemeine-informationen-zum-vorhaben-v3",
+      "grundinformationen.gwr-v2",
+      "personalien",
+      "personalien.grundeigentumerschaft",
+      "personalien.bauherrschaft-v2",
+      "personalien.projektverfasser-planer-v2",
+      "fachthemen",
+      "fachthemen.landwirtschaft",
+      "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
+      "fachthemen.umweltschutz",
+      "fachthemen.natur-und-landschaftsschutz",
+      "fachthemen.wald",
+      "fachthemen.naturgefahren",
+      "fachthemen.verkehr",
+      "fachthemen.energie",
+      "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
+      "fachthemen.zivilschutz",
+      "fachthemen.brandschutz",
+      "fachthemen.liegenschaftsentwasserung",
+      "fachthemen.gewasserschutz",
+      "fachthemen.grundwasser-und-altlasten",
+      "fachthemen.reklamen",
+      "fachthemen.denkmalschutz-und-archaeologie",
+      "fachthemen.lebensmittel-und-hygienesicherheit",
+      "fachthemen.fischerei",
+      "gesuchsunterlagen"
+    ],
     "vorabklarung": [
       "grundinformationen",
       "grundinformationen.lokalisierung",
@@ -337,6 +415,16 @@
       "personalien.grundeigentumerschaft",
       "personalien.bauherrschaft",
       "personalien.projektverfasser-planer",
+      "gesuchsunterlagen"
+    ],
+    "vorabklarung-v4": [
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "grundinformationen.kategorisierung-vorabklarung",
+      "personalien",
+      "personalien.grundeigentumerschaft",
+      "personalien.bauherrschaft-v2",
+      "personalien.projektverfasser-planer-v2",
       "gesuchsunterlagen"
     ],
     "baumeldung-fur-geringfugiges-vorhaben": [
@@ -426,6 +514,36 @@
       "gesuchsunterlagen",
       "meta"
     ],
+    "baumeldung-fur-geringfugiges-vorhaben-v4": [
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "baumeldung-fur-geringfugige-vorhaben-v2",
+      "personalien",
+      "personalien.grundeigentumerschaft",
+      "personalien.bauherrschaft-v2",
+      "personalien.projektverfasser-planer-v2",
+      "fachthemen",
+      "fachthemen.landwirtschaft",
+      "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
+      "fachthemen.umweltschutz",
+      "fachthemen.natur-und-landschaftsschutz",
+      "fachthemen.wald",
+      "fachthemen.naturgefahren",
+      "fachthemen.verkehr",
+      "fachthemen.energie",
+      "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
+      "fachthemen.zivilschutz",
+      "fachthemen.brandschutz",
+      "fachthemen.liegenschaftsentwasserung",
+      "fachthemen.gewasserschutz",
+      "fachthemen.grundwasser-und-altlasten",
+      "fachthemen.reklamen",
+      "fachthemen.denkmalschutz-und-archaeologie",
+      "fachthemen.lebensmittel-und-hygienesicherheit",
+      "fachthemen.fischerei",
+      "gesuchsunterlagen",
+      "meta"
+    ],
     "technische-bewilligung": [
       "technische-bewilligung",
       "grundinformationen",
@@ -434,6 +552,36 @@
       "personalien.grundeigentumerschaft",
       "personalien.bauherrschaft",
       "personalien.projektverfasser-planer",
+      "fachthemen",
+      "fachthemen.landwirtschaft",
+      "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
+      "fachthemen.umweltschutz",
+      "fachthemen.natur-und-landschaftsschutz",
+      "fachthemen.wald",
+      "fachthemen.naturgefahren",
+      "fachthemen.verkehr",
+      "fachthemen.energie",
+      "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
+      "fachthemen.zivilschutz",
+      "fachthemen.brandschutz",
+      "fachthemen.liegenschaftsentwasserung",
+      "fachthemen.gewasserschutz",
+      "fachthemen.grundwasser-und-altlasten",
+      "fachthemen.reklamen",
+      "fachthemen.denkmalschutz-und-archaeologie",
+      "fachthemen.lebensmittel-und-hygienesicherheit",
+      "fachthemen.fischerei",
+      "gesuchsunterlagen",
+      "meta"
+    ],
+    "technische-bewilligung-v2": [
+      "technische-bewilligung",
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "personalien",
+      "personalien.grundeigentumerschaft",
+      "personalien.bauherrschaft-v2",
+      "personalien.projektverfasser-planer-v2",
       "fachthemen",
       "fachthemen.landwirtschaft",
       "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
@@ -474,6 +622,16 @@
       "personalien.projektverfasser-planer",
       "gesuchsunterlagen"
     ],
+    "konzession-fur-wasserentnahme-v3": [
+      "konzession-fur-wasserentnahme",
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "personalien",
+      "personalien.grundeigentumerschaft",
+      "personalien.bauherrschaft-v2",
+      "personalien.projektverfasser-planer-v2",
+      "gesuchsunterlagen"
+    ],
     "anlassbewilligungen-verkehrsbewilligungen": [
       "anlassbewilligungen-verkehrsbewilligungen",
       "grundinformationen",
@@ -492,6 +650,16 @@
       "gesuchsunterlagen",
       "meta"
     ],
+    "anlassbewilligungen-verkehrsbewilligungen-v3": [
+      "anlassbewilligungen-verkehrsbewilligungen",
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "personalien",
+      "personalien.bauherrschaft-v2",
+      "personalien.projektverfasser-planer-v2",
+      "gesuchsunterlagen",
+      "meta"
+    ],
     "plangenehmigungsgesuch": [
       "grundinformationen",
       "grundinformationen.lokalisierung",
@@ -507,6 +675,16 @@
       "personalien.grundeigentumerschaft",
       "personalien.bauherrschaft",
       "personalien.projektverfasser-planer",
+      "gesuchsunterlagen",
+      "meta"
+    ],
+    "plangenehmigungsgesuch-v3": [
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "personalien",
+      "personalien.grundeigentumerschaft",
+      "personalien.bauherrschaft-v2",
+      "personalien.projektverfasser-planer-v2",
       "gesuchsunterlagen",
       "meta"
     ],
@@ -543,6 +721,35 @@
       "personalien.grundeigentumerschaft",
       "personalien.bauherrschaft",
       "personalien.projektverfasser-planer",
+      "fachthemen",
+      "fachthemen.landwirtschaft",
+      "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
+      "fachthemen.umweltschutz",
+      "fachthemen.natur-und-landschaftsschutz",
+      "fachthemen.wald",
+      "fachthemen.naturgefahren",
+      "fachthemen.verkehr",
+      "fachthemen.energie",
+      "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
+      "fachthemen.zivilschutz",
+      "fachthemen.brandschutz",
+      "fachthemen.liegenschaftsentwasserung",
+      "fachthemen.gewasserschutz",
+      "fachthemen.grundwasser-und-altlasten",
+      "fachthemen.reklamen",
+      "fachthemen.denkmalschutz-und-archaeologie",
+      "fachthemen.lebensmittel-und-hygienesicherheit",
+      "fachthemen.fischerei",
+      "gesuchsunterlagen",
+      "meta"
+    ],
+    "projektgenehmigungsgesuch-gemass-ss15-strag-v3": [
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "personalien",
+      "personalien.grundeigentumerschaft",
+      "personalien.bauherrschaft-v2",
+      "personalien.projektverfasser-planer-v2",
       "fachthemen",
       "fachthemen.landwirtschaft",
       "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
@@ -743,10 +950,20 @@
       "parent": "personalien",
       "questions": ["bauherrschaft"]
     },
+    "personalien.bauherrschaft-v2": {
+      "title": "Bauherrschaft / Bewilligungsnehmer",
+      "parent": "personalien",
+      "questions": ["bauherrschaft-v2"]
+    },
     "personalien.projektverfasser-planer": {
       "title": "Projektverfasser / Planer",
       "parent": "personalien",
       "questions": ["projektverfasser-planer"]
+    },
+    "personalien.projektverfasser-planer-v2": {
+      "title": "Projektverfasser / Planer",
+      "parent": "personalien",
+      "questions": ["projektverfasser-planer-v2"]
     },
     "personalien.gesuchsteller": {
       "title": "Gesuchsteller",
@@ -2742,6 +2959,86 @@
         ]
       }
     },
+    "bauherrschaft-v2": {
+      "label": "Bauherrschaft / Bewilligungsnehmer:",
+      "hint": "Die Bauherrschaft (BH) bezeichnet eine oder mehrere natürliche oder juristische Person(en). Die BH ist für die Finanzierung und Umsetzung des Vorhabens verantwortlich. Die Bewilligung wird auf den Namen der BH ausgestellt. Die BH ist oft, aber nicht immer, identisch mit der Grundeigentümerschaft.\n**Hinweis:** Falls die Bauherrschaft aus mehreren natürlichen oder juristischen Personen besteht, sind diese einzeln zu erfassen.\nDer Bewilligungsnehmer ist die natürliche oder juristische Person, welcher die Bewilligung erteilt wird.",
+      "type": "table",
+      "required": true,
+      "config": {
+        "columns": [
+          {
+            "name": "anrede",
+            "label": "Anrede",
+            "type": "radio",
+            "required": true,
+            "config": {
+              "options": ["Herr", "Frau", "Firma"]
+            }
+          },
+          {
+            "name": "firma",
+            "label": "Firma/ Körperschaft",
+            "table-label": "Firma",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "name",
+            "label": "Name",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "vorname",
+            "label": "Vorname",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "strasse",
+            "label": "Strasse, Nr.",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "plz",
+            "label": "PLZ",
+            "type": "number",
+            "required": true,
+            "config": {
+              "min": 1000,
+              "max": 9999,
+              "step": 1
+            }
+          },
+          {
+            "name": "ort",
+            "label": "Ort",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "email",
+            "label": "E-Mail",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "tel",
+            "label": "Tel. Nr.",
+            "type": "text",
+            "required": true,
+            "config": {}
+          }
+        ]
+      }
+    },
     "projektverfasser-planer": {
       "label": "Projektverfasser / Planer:",
       "hint": "Der Projektverfasser / Planer erarbeitet im Auftrag der Bauherrschaft das Projekt, zu dem das Gesuch eingereicht wird. Allenfalls übernimmt der Projektverfasser / Planer auch die Einreichung des Gesuchs.",
@@ -2817,6 +3114,86 @@
             "label": "Tel. Nr.",
             "type": "text",
             "required": false,
+            "config": {}
+          }
+        ]
+      }
+    },
+    "projektverfasser-planer-v2": {
+      "label": "Projektverfasser / Planer:",
+      "hint": "Der Projektverfasser / Planer erarbeitet im Auftrag der Bauherrschaft das Projekt, zu dem das Gesuch eingereicht wird. Allenfalls übernimmt der Projektverfasser / Planer auch die Einreichung des Gesuchs.",
+      "type": "table",
+      "required": true,
+      "config": {
+        "columns": [
+          {
+            "name": "anrede",
+            "label": "Anrede",
+            "type": "radio",
+            "required": true,
+            "config": {
+              "options": ["Herr", "Frau", "Firma"]
+            }
+          },
+          {
+            "name": "firma",
+            "label": "Firma/ Körperschaft",
+            "table-label": "Firma",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "name",
+            "label": "Name",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "vorname",
+            "label": "Vorname",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "strasse",
+            "label": "Strasse, Nr.",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "plz",
+            "label": "PLZ",
+            "type": "number",
+            "required": true,
+            "config": {
+              "min": 1000,
+              "max": 9999,
+              "step": 1
+            }
+          },
+          {
+            "name": "ort",
+            "label": "Ort",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "email",
+            "label": "E-Mail",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "tel",
+            "label": "Tel. Nr.",
+            "type": "text",
+            "required": true,
             "config": {}
           }
         ]
