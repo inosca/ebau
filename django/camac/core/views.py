@@ -242,14 +242,21 @@ class PublicationEntryView(ModelViewSet):
             grundstuecknummern.append({"type": "KTN", "nummer": parcel["number"]})
         payload["grundstuecknummern"] = grundstuecknummern
 
-        standort_koordinaten = formFieldQuery.filter(
-            name="standort-koordinaten"
-        ).first()
-        if standort_koordinaten:
-            coordinates = standort_koordinaten.value.split()
-            coordinates_override = [
-                {"lat": coordinates[0], "lng": coordinates[1], "skip_transform": True}
-            ]
+        standort_koordinaten = formFieldQuery.filter(name="standort-koordinaten")
+        if standort_koordinaten.exists():
+            coordinates = standort_koordinaten.first().value.splitlines()
+            coordinates_override = []
+            for coordinate in coordinates:
+                coordinate = coordinate.split()
+                coordinates_override.append(
+                    [
+                        {
+                            "lat": coordinate[0],
+                            "lng": coordinate[1],
+                            "skip_transform": True,
+                        }
+                    ]
+                )
 
         koordinaten = []
         transformer = Transformer.from_crs(
