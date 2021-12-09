@@ -38,7 +38,9 @@ Router.map(function () {
         this.route("personalien", function () {
           this.route("grundeigentumerschaft");
           this.route("bauherrschaft");
+          this.route("bauherrschaft-v2");
           this.route("projektverfasser-planer");
+          this.route("projektverfasser-planer-v2");
           this.route("gesuchsteller");
           this.route("konzessionsnehmer");
           this.route("bewilligungsnehmer");

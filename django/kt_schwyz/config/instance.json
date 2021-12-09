@@ -261,6 +261,96 @@
     }
   },
   {
+    "model": "instance.form",
+    "pk": 30,
+    "fields": {
+      "form_state": 1,
+      "name": "baugesuch-reklamegesuch-v5",
+      "description": "Baugesuch"
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 31,
+    "fields": {
+      "form_state": 1,
+      "name": "projektanderung-v5",
+      "description": "Projekt\u00e4nderung zu bewilligtem Baugesuch"
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 32,
+    "fields": {
+      "form_state": 1,
+      "name": "vorentscheid-gemass-ss84-pbg-v5",
+      "description": "Vorentscheid gem\u00e4ss \u00a7 84 PBG"
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 33,
+    "fields": {
+      "form_state": 1,
+      "name": "vorabklarung-v4",
+      "description": "Vorabkl\u00e4rung"
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 34,
+    "fields": {
+      "form_state": 1,
+      "name": "baumeldung-fur-geringfugiges-vorhaben-v4",
+      "description": "Baumeldung f\u00fcr geringf\u00fcgiges Vorhaben"
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 35,
+    "fields": {
+      "form_state": 1,
+      "name": "technische-bewilligung-v2",
+      "description": "Gesuch um technische Bewilligung"
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 36,
+    "fields": {
+      "form_state": 1,
+      "name": "konzession-fur-wasserentnahme-v3",
+      "description": "Konzession f\u00fcr Wasserentnahme"
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 37,
+    "fields": {
+      "form_state": 1,
+      "name": "anlassbewilligungen-verkehrsbewilligungen-v3",
+      "description": "Anlassbewilligungen / Verkehrsbewilligungen"
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 38,
+    "fields": {
+      "form_state": 1,
+      "name": "plangenehmigungsgesuch-v3",
+      "description": "Plangenehmigungsgesuch"
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 39,
+    "fields": {
+      "form_state": 1,
+      "name": "projektgenehmigungsgesuch-gemass-ss15-strag-v3",
+      "description": "Projektgenehmigungsgesuch gem\u00e4ss \u00a7 15 StraG"
+    }
+  },
+  {
     "model": "instance.formstate",
     "pk": 1,
     "fields": {
