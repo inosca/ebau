@@ -3,7 +3,7 @@ from uuid import uuid4
 
 import requests
 from django.conf import settings
-from django.db.models import F, Q
+from django.db.models import F
 from django.http import HttpResponse
 from django.utils import timezone
 from django.utils.encoding import escape_uri_path, smart_bytes
@@ -103,22 +103,13 @@ class PublicationEntryView(ModelViewSet):
     ordering_fields = ["publication_date", "instance__location__name"]
     ordering = ["publication_date"]
 
-    def get_public_publication_entries(self):
-        return models.PublicationEntry.objects.filter(
-            (
-                Q(
-                    publication_date__gte=timezone.now()
-                    - settings.APPLICATION.get("PUBLICATION_DURATION")
-                )
-                | Q(publication_end_date__gte=timezone.now())
-            ),
-            publication_date__lt=timezone.now(),
-            is_published=True,
-        )
-
     @permission_aware
     def get_queryset(self):
-        return self.get_public_publication_entries()
+        return models.PublicationEntry.objects.filter(
+            publication_date__lte=timezone.now(),
+            publication_end_date__gte=timezone.now(),
+            is_published=True,
+        )
 
     def get_queryset_for_municipality(self):
         return models.PublicationEntry.objects.filter(
@@ -137,9 +128,6 @@ class PublicationEntryView(ModelViewSet):
         return models.PublicationEntry.objects.filter(
             instance__circulations__activations__service=self.request.group.service
         )
-
-    def get_queryset_for_public(self):
-        return self.get_public_publication_entries()
 
     @permission_aware
     def has_create_permission(self):

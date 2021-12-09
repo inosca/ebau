@@ -102,11 +102,11 @@ def test_public_caluma_instance_ur(
     num_instances,
 ):
     application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_uri"]["MASTER_DATA"]
-    application_settings["PUBLICATION_DURATION"] = timedelta(days=30)
     application_settings["PUBLICATION_BACKEND"] = "camac-ng"
 
     publication_entry_factory(
         publication_date=timezone.now() - timedelta(days=1),
+        publication_end_date=timezone.now() + timedelta(days=30),
         instance=ur_instance,
         is_published=True,
     )
@@ -249,11 +249,11 @@ def test_public_caluma_documents_ur(
     if is_applicant:
         applicant_factory(invitee=admin_user, instance=ur_instance)
 
-    application_settings["PUBLICATION_DURATION"] = timedelta(days=30)
     application_settings["PUBLICATION_BACKEND"] = "camac-ng"
 
     publication_entry_factory(
         publication_date=timezone.now() - timedelta(days=1),
+        publication_end_date=timezone.now() + timedelta(days=30),
         instance=ur_instance,
         is_published=True,
     )
@@ -300,11 +300,11 @@ def test_public_instance_sz(
     application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_schwyz"][
         "MASTER_DATA"
     ]
-    application_settings["PUBLICATION_DURATION"] = timedelta(days=30)
     application_settings["PUBLICATION_BACKEND"] = "camac-ng"
 
     publication_entry_factory(
         publication_date=timezone.now() - timedelta(days=1),
+        publication_end_date=timezone.now() + timedelta(days=30),
         instance=instance,
         is_published=True,
     )
@@ -355,11 +355,11 @@ def test_public_documents_sz(
     if is_applicant:
         applicant_factory(invitee=admin_user, instance=instance)
 
-    application_settings["PUBLICATION_DURATION"] = timedelta(days=30)
     application_settings["PUBLICATION_BACKEND"] = "camac-ng"
 
     publication_entry_factory(
         publication_date=timezone.now() - timedelta(days=1),
+        publication_end_date=timezone.now() + timedelta(days=30),
         instance=instance,
         is_published=True,
     )
