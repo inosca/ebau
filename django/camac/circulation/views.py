@@ -156,6 +156,10 @@ class ActivationView(InstanceQuerysetMixin, views.ReadOnlyModelViewSet):
     @action(methods=["get"], detail=False)
     def export(self, request):
         """Export filtered activations to given file format."""
+        resource_instance_state_ids = [
+            val.strip() for val in request.query_params["instance-state-ids"].split(",")
+        ]
+
         fields_queryset = FormField.objects.filter(
             instance=OuterRef("circulation__instance")
         )
@@ -179,7 +183,8 @@ class ActivationView(InstanceQuerysetMixin, views.ReadOnlyModelViewSet):
                     fields_queryset.filter(name="bezeichnung").values("value")[:1]
                 )
             )
-        )
+        ).filter(circulation__instance__instance_state__in=resource_instance_state_ids)
+
         queryset = self.filter_queryset(queryset)
 
         def applicant_names(activation):
