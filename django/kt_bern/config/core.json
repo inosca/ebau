@@ -50511,6 +50511,21 @@
   },
   {
     "model": "core.instanceresource",
+    "pk": 12000000,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 20006,
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/support.phtml",
+      "class_field": "menu-category-primary active_leitung_leitbehoerde_only",
+      "hidden": 0,
+      "sort": 26,
+      "form_group": 40000
+    }
+  },
+  {
+    "model": "core.instanceresource",
     "pk": 14000000,
     "fields": {
       "available_instance_resource": "page",
@@ -54062,6 +54077,26 @@
   },
   {
     "model": "core.instanceresourcet",
+    "pk": 12000000,
+    "fields": {
+      "instance_resource": 12000000,
+      "language": "de",
+      "name": "Korrekturhilfen",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 12000001,
+    "fields": {
+      "instance_resource": 12000000,
+      "language": "fr",
+      "name": "Aides de correction",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
     "pk": 14000000,
     "fields": {
       "instance_resource": 14000000,
@@ -54459,6 +54494,13 @@
   {
     "model": "core.irpage",
     "pk": 150011,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
+    "pk": 12000000,
     "fields": {
       "pdf_class": null
     }
@@ -59661,6 +59703,141 @@
       "instance_resource": 20076,
       "role": 20000,
       "instance_state": 120000
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000000,
+    "fields": {
+      "instance_resource": 12000000,
+      "role": 3,
+      "instance_state": 20000
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000001,
+    "fields": {
+      "instance_resource": 12000000,
+      "role": 3,
+      "instance_state": 20003
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000002,
+    "fields": {
+      "instance_resource": 12000000,
+      "role": 3,
+      "instance_state": 20004
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000003,
+    "fields": {
+      "instance_resource": 12000000,
+      "role": 3,
+      "instance_state": 20005
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000004,
+    "fields": {
+      "instance_resource": 12000000,
+      "role": 3,
+      "instance_state": 20010
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000005,
+    "fields": {
+      "instance_resource": 12000000,
+      "role": 3,
+      "instance_state": 20011
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000006,
+    "fields": {
+      "instance_resource": 12000000,
+      "role": 3,
+      "instance_state": 20013
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000007,
+    "fields": {
+      "instance_resource": 12000000,
+      "role": 3,
+      "instance_state": 20014
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000008,
+    "fields": {
+      "instance_resource": 12000000,
+      "role": 3,
+      "instance_state": 10000
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000009,
+    "fields": {
+      "instance_resource": 12000000,
+      "role": 3,
+      "instance_state": 20007
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000010,
+    "fields": {
+      "instance_resource": 12000000,
+      "role": 3,
+      "instance_state": 20008
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000011,
+    "fields": {
+      "instance_resource": 12000000,
+      "role": 3,
+      "instance_state": 120000
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000012,
+    "fields": {
+      "instance_resource": 12000000,
+      "role": 3,
+      "instance_state": 120001
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000013,
+    "fields": {
+      "instance_resource": 12000000,
+      "role": 3,
+      "instance_state": 120002
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000014,
+    "fields": {
+      "instance_resource": 12000000,
+      "role": 3,
+      "instance_state": 120003
     }
   },
   {

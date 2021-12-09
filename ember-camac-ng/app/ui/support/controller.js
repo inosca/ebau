@@ -17,6 +17,7 @@ export default class SupportController extends Controller {
   @service fetch;
   @service intl;
   @service notifications;
+  @service shoebox;
 
   @tracked ebauNumber;
   @tracked _form;
@@ -51,7 +52,7 @@ export default class SupportController extends Controller {
   *fetchInstance() {
     const instance = yield this.store.findRecord("instance", this.model);
 
-    yield instance.fetchEbauNumber.perform();
+    yield instance.fetchCaseMeta.perform();
 
     this.ebauNumber = instance.ebauNumber || "";
     this._form = instance.calumaForm;
@@ -86,7 +87,9 @@ export default class SupportController extends Controller {
       });
 
       // sadly we need this to have current data on the whole page
-      location.reload();
+      location.assign(
+        `/index/redirect-to-instance-resource/instance-id/${this.model}`
+      );
     } catch (error) {
       this.notifications.error(this.intl.t("support.archive.error"));
     }
