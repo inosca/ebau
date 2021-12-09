@@ -1,6 +1,15 @@
 <CamacForm @instance={{@model.instance}} @meta={{@model.meta}} as |form|>
   <form.input @identifier="geometer-v3"/>
   <form.input @identifier="geometer-name"/>
+  <h4>
+    Vermessungsangaben
+  </h4>
+  <form.input @identifier="plankote"/>
+  <form.input @identifier="fixpunkt"/>
+  <form.input @identifier="fixpunkt-nummer"/>
+  <form.input @identifier="fixpunkt-hoehe"/>
+  <form.input @identifier="fixpunkt-e-koordinate"/>
+  <form.input @identifier="fixpunkt-n-koordinate"/>
   <form.input @identifier="baugespann-errichtet"/>
   <form.input @identifier="baugespann-errichtet-wann"/>
   <form.input @identifier="kein-baugespann-begrundung"/>
