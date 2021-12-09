@@ -6,7 +6,7 @@ export default class PublicationAbility extends Ability {
 
   get canEdit() {
     return (
-      this.shoebox.role === "municipality" &&
+      this.shoebox.role?.startsWith("municipality") &&
       !this.shoebox.isReadOnlyRole &&
       this.model?.status === "READY"
     );
@@ -14,7 +14,7 @@ export default class PublicationAbility extends Ability {
 
   get canCreate() {
     return (
-      this.shoebox.role === "municipality" &&
+      this.shoebox.role?.startsWith("municipality") &&
       !this.shoebox.isReadOnlyRole &&
       this.model?.status !== "READY"
     );
