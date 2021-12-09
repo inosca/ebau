@@ -34,7 +34,7 @@
         {{#if (eq column.type "table")}}
           <CamacGwrBuildingTable
             @parentName={{concat parentName "/" column.name}}
-            @on-change={{action "change" column.name}}
+            @onChange={{action "change" column.name}}
             @config={{column.config}}
             @value={{get _value column.name}}
             @readonly={{readonly}}
