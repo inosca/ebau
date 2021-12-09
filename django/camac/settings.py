@@ -2,7 +2,6 @@ import json
 import logging
 import os
 import re
-from datetime import timedelta
 
 import environ
 from django.db.models.expressions import Q
@@ -181,7 +180,6 @@ APPLICATIONS = {
         "ROLE_INHERITANCE": {"trusted_service": "service"},
         "IS_MULTILINGUAL": False,
         "NOTIFICATIONS": {"SUBMIT": None, "APPLICANT": {"NEW": None, "EXISTING": None}},
-        "PUBLICATION_DURATION": timedelta(days=30),
         "PUBLICATION_BACKEND": "camac-ng",
         "FORM_BACKEND": "camac-ng",
         "WORKFLOW_ITEMS": {
@@ -280,7 +278,6 @@ APPLICATIONS = {
                 "EXISTING": "gesuchsbearbeitungs-einladung-bestehend",
             },
         },
-        "PUBLICATION_DURATION": timedelta(days=20),
         "PUBLICATION_BACKEND": "camac-ng",
         "PUBLICATION_ATTACHMENT_SECTION": [4],
         "IS_MULTILINGUAL": False,
@@ -1060,7 +1057,6 @@ APPLICATIONS = {
                 }
             ],
         },
-        "PUBLICATION_DURATION": timedelta(),
         "IS_MULTILINGUAL": True,
         "FORM_BACKEND": "caluma",
         "OIDC_SYNC_USER_ATTRIBUTES": [
@@ -2053,7 +2049,6 @@ APPLICATIONS = {
     "kt_uri": {
         "LOG_NOTIFICATIONS": False,
         "FORM_BACKEND": "caluma",
-        "PUBLICATION_DURATION": timedelta(days=20),
         "PORTAL_USER_ID": 1209,
         "USE_OEREB_FIELDS_FOR_PUBLIC_ENDPOINT": True,
         "LINK_INSTANCES_ON_COPY": True,
