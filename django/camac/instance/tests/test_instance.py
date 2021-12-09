@@ -1179,8 +1179,8 @@ def test_instance_list_organization_readonly(
         ),
         (
             "Municipality",
-            "anlassbewilligungen-verkehrsbewilligungen-v2",
-            "projektgenehmigungsgesuch-gemass-ss15-strag-v2",
+            "anlassbewilligungen-verkehrsbewilligungen-v3",
+            "projektgenehmigungsgesuch-gemass-ss15-strag-v3",
             "subm",
             status.HTTP_204_NO_CONTENT,
         ),
@@ -1253,10 +1253,14 @@ def test_instance_change_form(
         "baugesuch-reklamegesuch-v2",
         "projektanderung-v2",
         "technische-bewilligung",
+        "technische-bewilligung-v2",
         "baumeldung-fur-geringfugiges-vorhaben-v2",
         "baumeldung-fur-geringfugiges-vorhaben-v3",
+        "baumeldung-fur-geringfugiges-vorhaben-v4",
         "anlassbewilligungen-verkehrsbewilligungen-v2",
+        "anlassbewilligungen-verkehrsbewilligungen-v3",
         "projektgenehmigungsgesuch-gemass-ss15-strag-v2",
+        "projektgenehmigungsgesuch-gemass-ss15-strag-v3",
     ]
 
     caluma_form, _ = caluma_form_models.Form.objects.get_or_create(pk="baugesuch")
