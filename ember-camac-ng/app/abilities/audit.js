@@ -6,7 +6,7 @@ export default class AuditAbility extends Ability {
 
   get canEditWorkItem() {
     return (
-      this.shoebox.role === "municipality" &&
+      this.shoebox.role?.startsWith("municipality") &&
       !this.shoebox.isReadOnlyRole &&
       this.model?.status === "READY" &&
       this.model?.addressedGroups

@@ -242,7 +242,7 @@ class InstanceView(
         return (
             instance.responsible_service(filter_type="municipality")
             == self.request.group.service
-        ) and instance.instance_state.name in ["subm", "in_progress_internal"]
+        )
 
     def has_object_set_ebau_number_permission_for_support(self, instance):
         return True
@@ -250,6 +250,12 @@ class InstanceView(
     @permission_aware
     def has_object_archive_permission(self, instance):
         return False
+
+    def has_object_archive_permission_for_municipality(self, instance):
+        return (
+            instance.responsible_service(filter_type="municipality")
+            == self.request.group.service
+        )
 
     def has_object_archive_permission_for_support(self, instance):
         return True
@@ -259,13 +265,14 @@ class InstanceView(
         return False
 
     def has_object_change_form_permission_for_municipality(self, instance):
+        is_responsible_service = (
+            instance.responsible_service(filter_type="municipality")
+            == self.request.group.service
+        )
         if settings.APPLICATION["FORM_BACKEND"] == "camac-ng":
-            return (
-                instance.responsible_service(filter_type="municipality")
-                == self.request.group.service
-            ) and instance.instance_state.name == "subm"
+            return is_responsible_service and instance.instance_state.name == "subm"
 
-        return False
+        return is_responsible_service
 
     def has_object_change_form_permission_for_support(self, instance):
         return True
