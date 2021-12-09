@@ -51,12 +51,20 @@ def test_activation_export(
     activation_factory,
     django_assert_num_queries,
     form_field_factory,
+    instance_state_factory,
 ):
     url = reverse("activation-export")
     activations = activation_factory.create_batch(2)
-    instance = activations[0].circulation.instance
+    instance_1 = activations[0].circulation.instance
+    instance_2 = activations[1].circulation.instance
 
-    add_field = functools.partial(form_field_factory, instance=instance)
+    instance_1.instance_state = instance_state_factory(pk=1)
+    instance_1.save()
+
+    instance_2.instance_state = instance_state_factory(pk=2)
+    instance_2.save()
+
+    add_field = functools.partial(form_field_factory, instance=instance_1)
     add_field(
         name="projektverfasser-planer",
         value=[{"name": "Muster Hans"}, {"name": "Beispiel Jean"}],
@@ -64,7 +72,12 @@ def test_activation_export(
     add_field(name="bezeichnung", value="Bezeichnung")
 
     with django_assert_num_queries(4):
-        response = admin_client.get(url)
+        response = admin_client.get(
+            url,
+            data={
+                "instance-state-ids": f"{instance_1.instance_state_id}, {instance_2.instance_state_id}"
+            },
+        )
     assert response.status_code == status.HTTP_200_OK
     book = pyexcel.get_book(file_content=response.content, file_type="xlsx")
     # bookdict is a dict of tuples(name, content)
