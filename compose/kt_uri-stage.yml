@@ -37,7 +37,7 @@ services:
     volumes:
       - /etc/camac/django.env:/run/secrets/django.env:ro
       - /etc/camac/django/uwsgi-prod.ini:/app/uwsgi.ini
-    command: /bin/sh -c "./wait-for-it.sh db:5432 -- ./manage.py migrate && uwsgi"
+    command: /bin/sh -c "./wait-for-it.sh db:5432 -- ./manage.py migrate && ./manage.py collectstatic --noinput && uwsgi"
 
   document-merge-service:
     environment:
