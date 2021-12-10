@@ -427,6 +427,7 @@ APPLICATIONS = {
             },
         },
         "HAS_EBAU_NUMBER": False,
+        "HAS_GESUCHSNUMMER": True,
         "OIDC_SYNC_USER_ATTRIBUTES": [
             "language",
             "email",
@@ -1316,6 +1317,7 @@ APPLICATIONS = {
         # please also update django/Makefile command when changing apps here
         "SEQUENCE_NAMESPACE_APPS": ["core", "responsible", "document"],
         "HAS_EBAU_NUMBER": True,
+        "HAS_GESUCHSNUMMER": False,
         "INSTANCE_STATE_REJECTION_COMPLETE": "finished",
         "SET_SUBMIT_DATE_CAMAC_ANSWER": True,
         "REJECTION_FEEDBACK_QUESTION": {
@@ -2059,6 +2061,7 @@ APPLICATIONS = {
             90,  # ARE NP
         ],
         "HAS_EBAU_NUMBER": False,
+        "HAS_GESUCHSNUMMER": False,
         "OIDC_SYNC_USER_ATTRIBUTES": [
             "language",
             "email",

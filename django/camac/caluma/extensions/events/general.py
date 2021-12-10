@@ -220,6 +220,10 @@ def notify_completed_work_item(sender, work_item, user, **kwargs):
         )
         title = f"Aufgabe abgeschlossen (eBau-Nr. {dossier_identification}) / tâche complétée (n° eBau {dossier_identification})"
 
+    if settings.APPLICATION.get("HAS_GESUCHSNUMMER", False):
+        dossier_identification = Instance.objects.get(pk=instance_id).identifier
+        title = f"Aufgabe abgeschlossen (Gesuchs-Nummer {dossier_identification})"
+
     body = f"""Guten Tag
 
 Die Aufgabe "{work_item.name}" im Dossier {dossier_identification} wurde von {camac_user.get_full_name()}{service_info_de} abgeschlossen.
