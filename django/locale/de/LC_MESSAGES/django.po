@@ -133,12 +133,10 @@ msgid "No metadata file 'dossiers.xlsx' found in uploaded archive."
 msgstr "Metadatendatei `dossiers.xlsx` fehlt im hochgeladenen Archiv."
 
 #: camac/dossier_import/messages.py:105
-#, fuzzy
-#| msgid "Invalid mime type for template. Allowed types are: docx"
 msgid "Invalid mime type for dossier import archive. Allowed types are: zip"
 msgstr ""
 "Der aktuelle Dateityp kann nicht als Vorlage hochgeladen werden. Erlaubte "
-"Dateitypen sind: docx"
+"Dateitypen sind: zip"
 
 #: camac/dossier_import/messages.py:111
 msgid "Metadata file `dossiers.xlsx` is not a valid .xlsx file."
