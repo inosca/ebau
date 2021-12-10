@@ -2737,8 +2737,8 @@
       "config": {}
     },
     "baukosten": {
-      "label": "Baukosten in CHF (Summe der BKP-Positionen 1, 2 und 4):",
-      "hint": "Im Falle grosser Bauvorhaben sollen die Baukosten aus der Summe der BKP-Positionen 1, 2 und 4 berechnet werden (BKP-Pos. 1: Vorbereitung, BKP-Pos. 2: Gebäude, BKP-Pos. 4: Umgebung).\nBei kleinen Bauvorhaben genügt eine Kostenschätzung.",
+      "label": "Projektkosten in CHF:",
+      "hint": "Die Projektkosten beinhalten alle Vorbereitungsarbeiten, die reinen Baukosten (inkl. Honorare), alle fest eingebauten Einrichtungen, die der spezialisierten Nutzung eines Bauwerkes dienen, die Umgebungsarbeiten sowie alle Erschliessungsarbeiten innerhalb der Grundstücksgrenzen und alle Baunebenkosten.\nIn den Projektkosten nicht eingeschlossen sind Kosten für den Erwerb des Grundstücks, die Erschliessung ausserhalb der Grundstücksgrenzen sowie die Kosten für die Ausstattung mit mobilen Gegenständen.\n\n Gemäss Schweizer Norm SN 506 500 (Baukostenplan): \n* Gruppe 1: Vorbereitungsarbeiten \n* Gruppe 2: Gebäude \n* Gruppe 3: Betriebseinrichtungen \n* Gruppe 4: Umgebung \n* Gruppe 5: Baunebenkosten und Übergangskonten \n\nGemäss Schweizer Norm SN 506 511 (eBKP-H): \n* Sämtliche Kosten mit Ausnahme jener der Gruppen A und J \n\nGemäss Schweizer Norm SN 506 512 (eBKP-T): \n* Sämtliche Kosten mit Ausnahme jener der Gruppe A \n\nBei kleinen Bauvorhaben genügt eine Kostenschätzung.",
       "type": "number-separator",
       "required": true,
       "config": {
