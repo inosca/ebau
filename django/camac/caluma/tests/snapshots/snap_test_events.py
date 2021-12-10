@@ -90,10 +90,10 @@ Vous recevez cette notification parce que vous avez sélectionné le paramètre 
 
 snapshots['test_notify_completed_work_item[True-kt_schwyz] 1'] = [
     (
-        'Aufgabe abgeschlossen (Dossier-Nr. 1)',
+        'Aufgabe abgeschlossen (Gesuchs-Nummer 72-21-001)',
         '''Guten Tag
 
-Die Aufgabe "Karin Ehlert B.Eng." im Dossier 1 wurde von User Admin (Rebecca Gonzalez) abgeschlossen.
+Die Aufgabe "Karin Ehlert B.Eng." im Dossier 72-21-001 wurde von User Admin (Rebecca Gonzalez) abgeschlossen.
 
 http://camac-ng.local/index/redirect-to-instance-resource/instance-id/1
 
@@ -106,10 +106,10 @@ Sie erhalten diese Notifikation, weil Sie beim Erstellen der Aufgabe die Notifik
         ]
     ),
     (
-        'Aufgabe abgeschlossen (Dossier-Nr. 1)',
+        'Aufgabe abgeschlossen (Gesuchs-Nummer 72-21-001)',
         '''Guten Tag
 
-Die Aufgabe "Karin Ehlert B.Eng." im Dossier 1 wurde von User Admin (Rebecca Gonzalez) abgeschlossen.
+Die Aufgabe "Karin Ehlert B.Eng." im Dossier 72-21-001 wurde von User Admin (Rebecca Gonzalez) abgeschlossen.
 
 http://camac-ng.local/index/redirect-to-instance-resource/instance-id/1
 
@@ -122,10 +122,10 @@ Sie erhalten diese Notifikation, weil Sie beim Erstellen der Aufgabe die Notifik
         ]
     ),
     (
-        'Aufgabe abgeschlossen (Dossier-Nr. 1)',
+        'Aufgabe abgeschlossen (Gesuchs-Nummer 72-21-001)',
         '''Guten Tag
 
-Die Aufgabe "Karin Ehlert B.Eng." im Dossier 1 wurde von User Admin (Rebecca Gonzalez) abgeschlossen.
+Die Aufgabe "Karin Ehlert B.Eng." im Dossier 72-21-001 wurde von User Admin (Rebecca Gonzalez) abgeschlossen.
 
 http://camac-ng.local/index/redirect-to-instance-resource/instance-id/1
 
