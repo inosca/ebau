@@ -7,7 +7,7 @@ from django.utils import timezone
 from django.utils.module_loading import import_string
 
 from camac.document.models import Attachment
-from camac.dossier_import.messages import Summary, update_summary
+from camac.dossier_import.messages import update_summary
 from camac.dossier_import.models import DossierImport
 from camac.instance.models import Instance
 from camac.user.models import Group
@@ -136,14 +136,14 @@ class Command(BaseCommand):
             dossier_import.messages["import"]["details"].append(message.to_dict())
             dossier_import.save()
         update_summary(dossier_import)
-        dossier_import.messages["import"]["summary"] = Summary(
-            dossiers_written=Instance.objects.filter(
+        dossier_import.messages["import"]["summary"]["stats"] = {
+            "dossiers": Instance.objects.filter(
                 **{"case__meta__import-id": str(dossier_import.pk)}
             ).count(),
-            num_documents=Attachment.objects.filter(
+            "attachments": Attachment.objects.filter(
                 **{"instance__case__meta__import-id": str(dossier_import.pk)}
             ).count(),
-        ).to_dict()
+        }
         dossier_import.messages["import"]["completed"] = timezone.localtime().strftime(
             "%Y-%m-%dT%H:%M:%S%z"
         )
