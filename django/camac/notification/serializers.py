@@ -6,6 +6,7 @@ from logging import getLogger
 import inflection
 import jinja2
 from caluma.caluma_form import models as caluma_form_models
+from caluma.caluma_workflow import models as caluma_workflow_models
 from django.conf import settings
 from django.core.mail import EmailMessage, get_connection
 from django.db.models import Q, Sum
@@ -408,9 +409,12 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         )
 
     def get_date_start_zirkulation(self, instance):
-        return self._get_workflow_entry_date(
-            instance, settings.APPLICATION.get("WORKFLOW_ITEMS", {}).get("START_CIRC")
+        workitem = caluma_workflow_models.WorkItem.objects.filter(
+            case_id=instance.case.pk, task_id="start-circulation", status="completed"
         )
+        if workitem:
+            return self.format_date(workitem.first().closed_at)
+        return "---"
 
     def get_date_bau_einspracheentscheid(self, instance):
         return self._get_workflow_entry_date(
