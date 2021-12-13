@@ -23,6 +23,7 @@ from camac.dossier_import.messages import (
     DOSSIER_IMPORT_STATUS_WARNING,
     LOG_LEVEL_DEBUG,
     LOG_LEVEL_ERROR,
+    LOG_LEVEL_INFO,
     LOG_LEVEL_WARNING,
     DossierMessage,
     Message,
@@ -180,7 +181,7 @@ class KtSchwyzDossierWriter(DossierWriter):
             dossier_summary.details.append(
                 Message(
                     level=LOG_LEVEL_ERROR,
-                    code=MessageCodes.REQUIRED_VALUES_MISSING.value,
+                    code=MessageCodes.MISSING_REQUIRED_VALUE_ERROR.value,
                     detail=f"missing values in required fields: {dossier._meta.missing}",
                 )
             )
@@ -223,8 +224,8 @@ class KtSchwyzDossierWriter(DossierWriter):
         attachment_messages = self._create_dossier_attachments(dossier, instance)
         dossier_summary.details.append(
             Message(
-                level=get_message_max_level(attachment_messages),
-                code=MessageCodes.ATTACHMENTS.value,
+                level=LOG_LEVEL_INFO,
+                code=MessageCodes.ATTACHMENTS_WRITTEN.value,
                 detail=attachment_messages,
             )
         )
@@ -243,7 +244,9 @@ class KtSchwyzDossierWriter(DossierWriter):
             get_message_max_level(dossier_summary.details) == LOG_LEVEL_ERROR
         ):  # pragma: no cover
             dossier_summary.status = DOSSIER_IMPORT_STATUS_ERROR
-        if get_message_max_level(dossier_summary.details) == LOG_LEVEL_WARNING:
+        if (
+            get_message_max_level(dossier_summary.details) == LOG_LEVEL_WARNING
+        ):  # pragma: no cover
             dossier_summary.status = DOSSIER_IMPORT_STATUS_WARNING
 
         return dossier_summary
