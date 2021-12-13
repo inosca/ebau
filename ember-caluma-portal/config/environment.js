@@ -152,6 +152,7 @@ module.exports = function (environment) {
 
   const oidcHost =
     process.env.KEYCLOAK_HOST || "http://camac-ng-keycloak.local";
+  const beGisUrl = process.env.BE_GIS_URL || "https://www.map.apps.be.ch";
 
   const ENV = {
     modulePrefix: "caluma-portal",
@@ -201,6 +202,7 @@ module.exports = function (environment) {
     APPLICATION: appConfig,
 
     ebau: {
+      beGisUrl,
       internalURL: "http://camac-ng.local",
       attachments: {
         allowedMimetypes: ["image/png", "image/jpeg", "application/pdf"],
@@ -236,6 +238,7 @@ module.exports = function (environment) {
 
   if (environment === "development") {
     ENV["ember-ebau-core"].gisUrl = "http://camac-ng.local/lisag/ows";
+    ENV.ebau.beGisUrl = "https://www.map2-test.apps.be.ch";
   }
 
   if (environment === "test") {
