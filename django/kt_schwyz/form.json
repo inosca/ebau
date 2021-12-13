@@ -234,6 +234,7 @@
       "personalien.grundeigentumerschaft",
       "personalien.bauherrschaft-v2",
       "personalien.projektverfasser-planer-v2",
+      "personalien.vertreter-mit-vollmacht",
       "fachthemen",
       "fachthemen.landwirtschaft",
       "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
@@ -979,6 +980,11 @@
       "title": "Bewilligungsnehmer",
       "parent": "personalien",
       "questions": ["bewilligungsnehmer"]
+    },
+    "personalien.vertreter-mit-vollmacht": {
+      "title": "Vertreter/in mit Vollmacht",
+      "parent": "personalien",
+      "questions": ["vertreter-mit-vollmacht"]
     },
     "fachthemen": {
       "title": "Fachthemen",
@@ -3435,6 +3441,98 @@
             "type": "text",
             "required": false,
             "config": {}
+          }
+        ]
+      }
+    },
+    "vertreter-mit-vollmacht": {
+      "label": "Vertreter/in mit Vollmacht",
+      "hint": "",
+      "type": "table",
+      "required": false,
+      "config": {
+        "columns": [
+          {
+            "name": "anrede",
+            "label": "Anrede",
+            "type": "radio",
+            "required": true,
+            "config": {
+              "options": ["Herr", "Frau", "Firma"]
+            }
+          },
+          {
+            "name": "firma",
+            "label": "Firma/ Körperschaft",
+            "table-label": "Firma",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "name",
+            "label": "Name",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "vorname",
+            "label": "Vorname",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "strasse",
+            "label": "Strasse, Nr.",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "plz",
+            "label": "PLZ",
+            "type": "number",
+            "required": true,
+            "config": {
+              "min": 1000,
+              "max": 9999,
+              "step": 1
+            }
+          },
+          {
+            "name": "ort",
+            "label": "Ort",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "email",
+            "label": "E-Mail",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "tel",
+            "label": "Tel. Nr.",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "vollmacht",
+            "label": "Vollmacht",
+            "type": "radio",
+            "required": true,
+            "config": {
+              "options": [
+                "Der/die Gesuchsteller/in bestätigt mit Unterschrift, die Generalvollmacht an Bevollmächtigte",
+                "Beizulegende Vollmacht mit beschriebenen Handlungsspielraum an Bevollmächtigte"
+              ]
+            }
           }
         ]
       }
