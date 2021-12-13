@@ -145,13 +145,8 @@ def test_public_caluma_instance_ur(
 
 @pytest.mark.parametrize("role__name", ["Oereb Api"])
 @pytest.mark.parametrize(
-    "num_queries,num_instances",
-    [
-        (
-            12,
-            1,
-        )
-    ],
+    "num_queries",
+    [6],
 )
 def test_public_caluma_instance_oereb_ur(
     db,
@@ -162,7 +157,6 @@ def test_public_caluma_instance_oereb_ur(
     publication_entry_factory,
     django_assert_num_queries,
     num_queries,
-    num_instances,
     form_factory,
     user_group_factory,
     group_factory,
@@ -175,6 +169,8 @@ def test_public_caluma_instance_oereb_ur(
     oereb_form = form_factory(form_id=296)
 
     ur_instance.form = oereb_form
+    ur_instance.case.meta = {"dossier-number": "1201-20-001"}
+    ur_instance.case.save()
     ur_instance.save()
 
     admin_client.user.groups.clear()
@@ -205,15 +201,12 @@ def test_public_caluma_instance_oereb_ur(
         )
 
     assert response.status_code == status.HTTP_200_OK
-
     result = response.json()["data"]
-
-    assert len(result) == num_instances
-
-    if num_instances > 0:
-        assert result[0]["id"] == str(ur_instance.case.pk)
-        assert result[0]["attributes"]["oereb-topic"] == ["oereb-thema-kpz"]
-        assert result[0]["attributes"]["legal-state"] == "typ-des-verfahrens-meldung"
+    assert len(result) == 1
+    assert result[0]["id"] == str(ur_instance.case.pk)
+    assert result[0]["attributes"]["oereb-topic"] == ["oereb-thema-kpz"]
+    assert result[0]["attributes"]["legal-state"] == "typ-des-verfahrens-meldung"
+    assert result[0]["attributes"]["dossier-nr"] == "1201-20-001"
 
 
 @pytest.mark.parametrize("role__name", ["Applicant"])
