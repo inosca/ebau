@@ -1358,4 +1358,22 @@ class PublicCalumaInstanceView(mixins.InstanceQuerysetMixin, ListAPIView):
         ).order_by("-publication_date", "dossier_nr")
 
     def get_queryset_for_oereb_api(self):
-        return super().get_queryset_for_oereb_api(self.request.group)
+        queryset = (
+            super()
+            .get_queryset_for_oereb_api(self.request.group)
+            .prefetch_related(
+                "document__answers",
+                "document__answers__answerdocument_set",
+                "document__answers__answerdocument_set__document__answers",
+                "document__dynamicoption_set",
+            )
+            .annotate(instance_id=F("instance__pk"))
+        )
+        return queryset.annotate(
+            dossier_nr=KeyTextTransform("dossier-number", "meta"),
+            publication_date=Subquery(
+                PublicationEntry.objects.filter(
+                    instance_id=OuterRef("instance_id")
+                ).values("publication_date")[:1]
+            ),
+        ).order_by("-publication_date", "dossier_nr")
