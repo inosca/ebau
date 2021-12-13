@@ -19,49 +19,46 @@ _session = requests.session()
 def gis_data_view(request, egrid, format=None):
     # View to list all the data from the GIS service.
     try:
-        multisurface = get_multisurface(egrid)
-        return Response(get_gis_data(multisurface))
+        return Response(get_gis_data(get_polygon(egrid)))
     except ValueError as e:
         return Response(str(e), status=status.HTTP_404_NOT_FOUND)
 
 
-def get_multisurface(egrid):
-    """Get a multisurface with the coordinates of a parcel.
+def get_polygon(egrid):
+    """Get a polygon with the coordinates of a parcel.
 
     :param    egrid:    the number of a parcel
     :type     egrid:    str
-    :return:            a multisurface with the coordinates of a parcel
+    :return:            a polygon with the coordinates of a parcel
     :rtype:             str
     """
 
-    request = _session.get(
+    response = _session.get(
         build_url(
             settings.GIS_BASE_URL,
-            f"/geoservice2/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer?service=wfs&version=2.0.0&Request=GetFeature&typename=a42geo_ebau_kt_wfs_d_fk:DIPANU_DIPANUF&count=10&Filter=%3Cogc:Filter%3E%3Cogc:PropertyIsEqualTo%20matchCase=%22true%22%3E%3Cogc:PropertyName%3EEGRID%3C/ogc:PropertyName%3E%3Cogc:Literal%3E{egrid}%3C/ogc:Literal%3E%3C/ogc:PropertyIsEqualTo%3E%3C/ogc:Filter%3E",
+            f"/geoservice2/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer?service=WFS&version=2.0.0&Request=GetFeature&typename=a42geo_a42geo_ebau_kt_wfs_d_fk:DIPANU_DIPANUF&count=10&Filter=%3Cogc:Filter%3E%3Cogc:PropertyIsEqualTo%20matchCase=%22true%22%3E%3Cogc:PropertyName%3EEGRID%3C/ogc:PropertyName%3E%3Cogc:Literal%3E{egrid}%3C/ogc:Literal%3E%3C/ogc:PropertyIsEqualTo%3E%3C/ogc:Filter%3E",
         )
     )
 
     try:
-        root = etree.fromstring(request.text)
+        root = get_root(response)
     except etree.XMLSyntaxError:
         raise ValueError("Can't parse document")
 
     try:
-        multisurface = root.find(".//gml:MultiSurface", root.nsmap)
-        return etree.tostring(multisurface, encoding="unicode").replace(
-            ' xmlns:gml="http://www.opengis.net/gml/3.2"', ""
-        )
+        polygon = root.find(".//gml:Polygon", root.nsmap)
+        return etree.tostring(polygon, encoding="unicode")
     except (SyntaxError, TypeError):
-        raise ValueError("No multisurface found")
+        raise ValueError("No polygon found")
 
 
-def get_gis_data(multisurface):
+def get_gis_data(polygon):
     """Get the data from the GIS service.
 
-    :param    multisurface:     a multisurface with coordinates
-    :type     multisurface:     str
-    :return:                    the data from the GIS service
-    :rtype:                     dict
+    :param   polygon: a polygon with coordinates
+    :type    polygon: str
+    :return:          the data from the GIS service
+    :rtype:           dict
     """
 
     all_boolean_layers = [
@@ -94,12 +91,11 @@ def get_gis_data(multisurface):
             lambda x: """<Query typeName="a42geo_ebau_kt_wfs_d_fk:{0}" srsName="EPSG:2056">
         <ogc:Filter>
           <ogc:Intersects>
-            <ogc:PropertyName>Shape</ogc:PropertyName>
             {1}
           </ogc:Intersects>
         </ogc:Filter>
       </Query>""".format(
-                x, multisurface
+                x, polygon
             ),
             boolean_layers + special_layers,
         )
@@ -108,17 +104,16 @@ def get_gis_data(multisurface):
     get_feature_xml = open(
         path.join(path.dirname(__file__), "xml/get_feature.xml"), "r"
     ).read()
-    xml_kanton = get_feature_xml.format(query)
 
-    request_kanton = _session.post(
+    response_kanton = _session.post(
         "{0}/geoservice2/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer".format(
             settings.GIS_BASE_URL
         ),
-        data=xml_kanton,
+        data=get_feature_xml.format(baseURL=settings.GIS_BASE_URL, query=query),
     )
 
     try:
-        et = get_root(request_kanton)
+        et = get_root(response_kanton)
     except etree.XMLSyntaxError:
         raise ValueError("Can't parse document")
 
@@ -130,7 +125,7 @@ def get_gis_data(multisurface):
     water_protection_zones = set()
 
     # Find all layers beneath featureMember
-    for child in et.findall("./{http://www.opengis.net/gml/3.2}featureMember/"):
+    for child in et.findall("./gml:featureMember/", et.nsmap):
         tag_list.append(child.tag)
 
         # true/false values of kanton service
@@ -165,6 +160,5 @@ def get_gis_data(multisurface):
     }
 
 
-def get_root(request):
-    request.encoding = "UTF-8"
-    return etree.fromstring(request.text)
+def get_root(response):
+    return etree.fromstring(response.content)
