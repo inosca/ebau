@@ -20,7 +20,7 @@
       "sort": 4,
       "notification_template": null,
       "recipient_types": null,
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-outlook\", \"application/octet-stream\"]"
+      "allowed_mime_types": "[]"
     }
   },
   {
@@ -68,7 +68,7 @@
       "sort": 3,
       "notification_template": null,
       "recipient_types": "[]",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-outlook\", \"application/octet-stream\"]"
+      "allowed_mime_types": "[]"
     }
   },
   {
@@ -80,7 +80,7 @@
       "sort": 2,
       "notification_template": null,
       "recipient_types": "[]",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\"]"
     }
   },
   {
