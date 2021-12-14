@@ -275,3 +275,11 @@ def handle_pre_complete_work_item(sender, work_item, user, **kwargs):
                 task_id__in=tasks, status=WorkItem.STATUS_READY
             ):
                 action(item, user)
+
+
+@on(post_complete_work_item, raise_exception=True)
+@transaction.atomic
+def set_is_published(sender, work_item, user, **kwargs):
+    if work_item.task.slug == get_caluma_setting("FILL_PUBLICATION_TASK"):
+        work_item.meta["is-published"] = True
+        work_item.save()

@@ -7,6 +7,7 @@ query GetPublication($id: ID) {
         document {
           id
         }
+        meta
       }
     }
   }
