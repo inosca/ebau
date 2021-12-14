@@ -145,8 +145,13 @@ def test_public_caluma_instance_ur(
 
 @pytest.mark.parametrize("role__name", ["Oereb Api"])
 @pytest.mark.parametrize(
-    "num_queries",
-    [6],
+    "is_oereb_form,instance_state__name,num_queries,is_visible",
+    [
+        (True, "comm", 6, True),
+        (False, "comm", 2, False),
+        (True, "new", 2, False),
+        (True, "new_portal", 2, False),
+    ],
 )
 def test_public_caluma_instance_oereb_ur(
     db,
@@ -157,16 +162,19 @@ def test_public_caluma_instance_oereb_ur(
     publication_entry_factory,
     django_assert_num_queries,
     num_queries,
+    is_visible,
     form_factory,
     user_group_factory,
     group_factory,
     role,
+    is_oereb_form,
 ):
     application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_uri"]["MASTER_DATA"]
     application_settings["USE_OEREB_FIELDS_FOR_PUBLIC_ENDPOINT"] = True
-    application_settings["OEREB_FORM"] = 296
 
-    oereb_form = form_factory(form_id=296)
+    oereb_form = form_factory()
+    if is_oereb_form:
+        application_settings["OEREB_FORM"] = oereb_form.pk
 
     ur_instance.form = oereb_form
     ur_instance.case.meta = {"dossier-number": "1201-20-001"}
@@ -202,11 +210,12 @@ def test_public_caluma_instance_oereb_ur(
 
     assert response.status_code == status.HTTP_200_OK
     result = response.json()["data"]
-    assert len(result) == 1
-    assert result[0]["id"] == str(ur_instance.case.pk)
-    assert result[0]["attributes"]["oereb-topic"] == ["oereb-thema-kpz"]
-    assert result[0]["attributes"]["legal-state"] == "typ-des-verfahrens-meldung"
-    assert result[0]["attributes"]["dossier-nr"] == "1201-20-001"
+    assert len(result) == (1 if is_visible else 0)
+    if is_visible:
+        assert result[0]["id"] == str(ur_instance.case.pk)
+        assert result[0]["attributes"]["oereb-topic"] == ["oereb-thema-kpz"]
+        assert result[0]["attributes"]["legal-state"] == "typ-des-verfahrens-meldung"
+        assert result[0]["attributes"]["dossier-nr"] == "1201-20-001"
 
 
 @pytest.mark.parametrize("role__name", ["Applicant"])
