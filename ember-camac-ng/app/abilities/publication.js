@@ -19,4 +19,13 @@ export default class PublicationAbility extends Ability {
       this.model?.status !== "READY"
     );
   }
+
+  get canCancel() {
+    return (
+      this.shoebox.role?.startsWith("municipality") &&
+      !this.shoebox.isReadOnlyRole &&
+      this.model?.status === "COMPLETED" &&
+      this.model?.meta["is-published"]
+    );
+  }
 }

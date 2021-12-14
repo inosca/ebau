@@ -257,8 +257,8 @@ class InstanceQuerysetMixin(object):
                             "case__work_items__status"
                         ): WorkItem.STATUS_COMPLETED,
                         self._get_instance_filter_expr(
-                            "case__work_items__closed_by_user__isnull"
-                        ): False,  # make sure the work item was closed manually, not via cronjob
+                            "case__work_items__meta__is-published"
+                        ): True,
                     }
                 )
                 .filter(
