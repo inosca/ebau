@@ -4,32 +4,42 @@
     @disabled={{cannot "edit publication" this.publication}}
   as |content|>
     <content.form />
+    <div class="uk-flex">
+      {{#if (can "edit publication" this.publication)}}
+        <DocumentValidity
+          @document={{content.document}}
+          as |isValid validate|
+        >
+          <TaskButton
+            @task="fill-publication"
+            @mutation="complete"
+            @filters={{this.filters}}
+            @disabled={{and (not-eq isValid null) (not isValid)}}
+            @beforeMutate={{fn this.beforeComplete validate}}
+            @onSuccess={{this.afterComplete}}
+            @label={{t "publication.complete"}}
+          />
+        </DocumentValidity>
+      {{/if}}
 
-    {{#if (can "edit publication" this.publication)}}
-      <DocumentValidity
-        @document={{content.document}}
-        as |isValid validate|
-      >
+      {{#if (can "create publication" this.publication)}}
         <TaskButton
-          @task="fill-publication"
+          class="uk-button uk-button-primary uk-margin-right"
+          @task="create-publication"
           @mutation="complete"
           @filters={{this.filters}}
-          @disabled={{and (not-eq isValid null) (not isValid)}}
-          @beforeMutate={{fn this.beforeComplete validate}}
-          @onSuccess={{this.afterComplete}}
-          @label={{t "publication.complete"}}
+          @onSuccess={{this.afterCreate}}
+          @label={{t "publication.new"}}
         />
-      </DocumentValidity>
-    {{/if}}
+      {{/if}}
 
-    {{#if (can "create publication" this.publication)}}
-      <TaskButton
-        @task="create-publication"
-        @mutation="complete"
-        @filters={{this.filters}}
-        @onSuccess={{this.afterCreate}}
-        @label={{t "publication.new"}}
-      />
-    {{/if}}
+      {{#if (can "cancel publication" this.publication)}}
+        <UkButton
+          @on-click={{perform this.cancelPublication this.publication}}
+        >
+        {{t "publication.cancel"}}
+      </UkButton>
+      {{/if}}
+    </div>
   </CfContent>
 {{/if}}
