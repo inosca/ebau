@@ -15,10 +15,4 @@ export default class DossierImportIconTextComponent extends Component {
 
     return null;
   }
-
-  get content() {
-    let text = Ember.Handlebars.Utils.escapeExpression(this.args.content);
-    text = text.toString().replace(/(\r\n|\n|\r)/gm, "<br>");
-    return htmlSafe(text);
-  }
 }
