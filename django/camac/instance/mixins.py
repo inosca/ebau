@@ -303,13 +303,17 @@ class InstanceQuerysetMixin(object):
 
     def get_queryset_for_oereb_api(self, group):
         queryset = self.get_base_queryset()
+        state_field = self._get_instance_filter_expr("instance_state__name", "in")
 
         return queryset.filter(
-            **{
-                self._get_instance_filter_expr("form_id"): settings.APPLICATION.get(
-                    "OEREB_FORM", None
-                ),
-            }
+            Q(
+                **{
+                    self._get_instance_filter_expr("form_id"): settings.APPLICATION.get(
+                        "OEREB_FORM", None
+                    ),
+                }
+            )
+            & ~Q(**{state_field: uri_constants.INSTANCE_STATES_PRIVATE})
         )
 
     def _instances_with_activation(self, group):
