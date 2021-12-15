@@ -1,3 +1,4 @@
+import json
 import pprint
 
 from django.conf import settings
@@ -7,8 +8,9 @@ from django.utils import timezone
 from django.utils.module_loading import import_string
 
 from camac.document.models import Attachment
-from camac.dossier_import.messages import update_summary
+from camac.dossier_import.messages import get_message_max_level, update_summary
 from camac.dossier_import.models import DossierImport
+from camac.dossier_import.validation import validate_zip_archive_structure
 from camac.instance.models import Instance
 from camac.user.models import Group
 
@@ -20,6 +22,12 @@ class Command(BaseCommand):
     help = "Import instances and cases from zip package"
 
     def add_arguments(self, parser):
+        parser.add_argument(
+            "--no-input",
+            action="store_true",
+            default=False,
+            help="If set, do not ask to abort import on validation failure.",
+        )
         parser.add_argument(
             "--loader",
             type=str,
@@ -131,8 +139,30 @@ class Command(BaseCommand):
             ],
         )
         dossier_import.messages["import"] = {"details": []}
+
+        self.stdout.write(f"Starting import: {dossier_import.pk}")
+        dossier_import = validate_zip_archive_structure(
+            str(dossier_import.pk), clean_on_fail=False
+        )
+        self.stdout.write("Archive analysis result:")
+        self.stdout.write(
+            pprint.pformat(dossier_import.messages["validation"]["summary"])
+        )
+        if (
+            dossier_import.status != DossierImport.IMPORT_STATUS_VALIDATION_SUCCESSFUL
+            and not options.get("no_input")
+        ):  # pragma: no cover
+            if (
+                input(
+                    "The archive has errors. Do you still want to import (enter y) or abort and remove the file (enter n)"
+                )
+                != "y"
+            ):
+                return
         for dossier in loader.load_dossiers(dossier_import.source_file.path):
             message = writer.import_dossier(dossier, str(dossier_import.id))
+            if get_message_max_level(message.details) > 1:
+                self.stdout.write(json.dumps(message.to_dict()), self.style.WARNING)
             dossier_import.messages["import"]["details"].append(message.to_dict())
             dossier_import.save()
         update_summary(dossier_import)

@@ -1,10 +1,9 @@
-import copy
 import datetime
 import zipfile
 from typing import List
 
 import openpyxl
-from django.utils import timezone
+from django.utils import timezone, translation
 from django.utils.translation import gettext as _
 
 from camac.dossier_import import messages
@@ -21,7 +20,7 @@ from .messages import (
 )
 
 
-def verify_source_file(source_file: str) -> str:
+def verify_source_file(source_file: str, language: str = "en") -> str:
     """
     Verify source file is valid archive and has content.
 
@@ -36,21 +35,26 @@ def verify_source_file(source_file: str) -> str:
      - the archive must contain a dossiers.xlsx
      - the dossiers.xlsx must in fact be a XLSX file
     """
-    if source_file is None:
-        raise MissingArchiveFileError
+    with translation.override(language=language):
+        if source_file is None:
+            raise MissingArchiveFileError(_("To start an import please upload a file."))
 
-    try:
-        archive = zipfile.ZipFile(source_file)
-    except zipfile.BadZipfile:
-        raise InvalidZipFileError(detail=_("Uploaded file is not a valid .zip file"))
-    try:
-        metadata = archive.open("dossiers.xlsx")
-    except KeyError:
-        raise MissingMetadataFileError
-    try:
-        openpyxl.load_workbook(metadata)
-    except zipfile.BadZipfile:
-        raise BadXlsxFileError
+        try:
+            archive = zipfile.ZipFile(source_file)
+        except zipfile.BadZipfile:
+            raise InvalidZipFileError(_("Uploaded file is not a valid .zip file"))
+        try:
+            metadata = archive.open("dossiers.xlsx")
+        except KeyError:
+            raise MissingMetadataFileError(
+                _("No metadata file 'dossiers.xlsx' found in uploaded archive.")
+            )
+        try:
+            openpyxl.load_workbook(metadata)
+        except zipfile.BadZipfile:
+            raise BadXlsxFileError(
+                _("Metadata file `dossiers.xlsx` is not a valid .xlsx file.")
+            )
     return source_file
 
 
@@ -65,15 +69,15 @@ def validate_attachments(archive: zipfile.ZipFile, dossier_ids: List[str]):
     if orphan_dirs:
         result.append(
             _(
-                "{count} document folders were not found in the metadata file and will not be imported:\n{entries}"
-            ).format(count=len(orphan_dirs), entries=", ".join(orphan_dirs))
+                "%(count)i document folders were not found in the metadata file and will not be imported:\n%(entries)s"
+            )
+            % dict(count=len(orphan_dirs), entries=", ".join(orphan_dirs))
         )
     dossiers_without_documents = list(set(dossier_ids) - dirs)
     if dossiers_without_documents:
         result.append(
-            _("{count} dossiers have no document folder.").format(
-                count=len(dossiers_without_documents)
-            )
+            _("%(count)i dossiers have no document folder.")
+            % dict(count=len(dossiers_without_documents))
         )
     return result
 
@@ -91,9 +95,7 @@ def get_attachment_validation_stats(archive: zipfile.ZipFile, dossier_ids: List[
 
 
 # flake8: noqa: C901
-def validate_zip_archive_structure(
-    instance_pk,
-) -> DossierImport:
+def validate_zip_archive_structure(instance_pk, clean_on_fail=True) -> DossierImport:
     """
     ZIP archive validation.
 
@@ -107,7 +109,7 @@ def validate_zip_archive_structure(
         work_book = openpyxl.load_workbook(data_file)
     except zipfile.BadZipfile:
         raise InvalidImportDataError(
-            "Meta data file in archive is corrupt or not a valid .xlsx file."
+            _("Meta data file in archive is corrupt or not a valid .xlsx file.")
         )
     worksheet = work_book.worksheets[0]
     headings = worksheet[1]
@@ -117,7 +119,8 @@ def validate_zip_archive_structure(
     missing = set(required_columns) - set(heading_values)
     if missing:
         raise InvalidImportDataError(
-            f"Meta data file in archive is missing required columns {missing}."
+            _("Meta data file in archive is missing required columns %(missing)s.")
+            % dict(missing=missing)
         )
 
     status_column = next((col for col in headings if col.value == "STATUS"))
@@ -240,7 +243,8 @@ def validate_zip_archive_structure(
     dossier_import.status = dossier_import.IMPORT_STATUS_VALIDATION_SUCCESSFUL
     if dossier_import.messages["validation"]["summary"]["error"]:
         dossier_import.status = dossier_import.IMPORT_STATUS_VALIDATION_FAILED
-        dossier_import.source_file.delete()
+        if clean_on_fail:
+            dossier_import.source_file.delete()
     dossier_import.save()
 
     return dossier_import

@@ -42,6 +42,7 @@ def test_api_get_views(
 
 
 @pytest.mark.freeze_time("2021-12-12")
+@pytest.mark.parametrize("language", ["en"])
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize(
     "import_file,config,location_id,expected_status",
@@ -70,6 +71,7 @@ def test_validation_errors(
     snapshot,
     import_file,
     config,
+    language,
     location_id,
     expected_status,
 ):
@@ -83,6 +85,7 @@ def test_validation_errors(
     if location_id:
         data.update({"location_id": location_id.pk})
 
+    admin_client.user.language = language
     resp = admin_client.post(
         reverse("dossier-import-list"),
         data=data,
@@ -98,6 +101,7 @@ def test_validation_errors(
         snapshot.assert_match(resp)
 
 
+@pytest.mark.parametrize("language", ["en"])
 @pytest.mark.parametrize("role__name", ["Support"])
 @pytest.mark.parametrize(
     "import_file,expected_status,expected_result",
@@ -146,8 +150,10 @@ def test_file_validation(
     db,
     admin_client,
     group,
+    admin_user,
     role,
     location,
+    language,
     archive_file,
     import_file,
     expected_status,
@@ -155,6 +161,7 @@ def test_file_validation(
 ):
     # create an import case with an uploaded file using the REST endpoint (POST)
     the_file = import_file and archive_file(import_file)
+    admin_client.user.language = language
     resp = admin_client.post(
         reverse("dossier-import-list"),
         data={
@@ -163,6 +170,7 @@ def test_file_validation(
             "location_id": location.pk,
         },
         format="multipart",
+        headers={"Accept-Language": language},
     )
     assert resp.status_code == expected_status
     if resp.status_code != status.HTTP_201_CREATED:
