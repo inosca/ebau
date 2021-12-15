@@ -13,7 +13,7 @@ dossierImport:
     uploadError:
       "archive_file_missing": Pour lancer une importation, il faut d'abord télécharger un fichier.
       "metadata_file_missing": Le fichier de métadonnées 'dossiers.xlsx' n'a pas été trouvé dans le fichier zip téléchargé.
-      "invalid_zip_file": Le fichier téléchargé n'est pas un fichier zip valide. 
+      "invalid_zip_file": Le fichier téléchargé n'est pas un fichier zip valide.
       "bad_mimetype": Type de fichier non autorisé, seuls les fichiers Zip peuvent être téléchargés.
       "bad_xlsx_file": Le fichier de métadonnées 'dossiers.xlsx' n'est pas un fichier .xlsx valide.
       invalidMetaFile: Le fichier de métadonnées dans le fichier zip téléchargé est soit corrompu, soit ce n'est pas un fichier .xlsx valide.
@@ -39,8 +39,7 @@ dossierImport:
       done: Terminé
     newImportLink: Nouvelle importation
   detail:
-    title: Détails de l'importation
-    subtitle: "Détails de l'importation du {creationDate} ({user})"
+    title: "Détails de l'importation du {creationDate} ({user})"
     importsLink: Vers l'aperçu
     noInformation:  Aucune information n'est actuellement disponible.
     fetchImportError: Une erreur est survenue lors du chargement de l'importation. Veuillez réessayer.
@@ -60,25 +59,26 @@ dossierImport:
     status:
       title: État
       draftTitle: Conception
-      draftDescription: 
+      draftDescription:
         verified: |-
-          Vous avez téléchargé un fichier d'importation valide. Si vous souhaitez 
-          que les données soient vous pouvez demander l'autorisation d'importation.
+          Vous avez téléchargé un fichier d'importation valide. Pour effectuer l'importation, veuillez contacter le support.
+        # Vous avez téléchargé un fichier d'importation valide. Si vous souhaitez
+        # que les données soient vous pouvez demander l'autorisation d'importation.
         failed: |-
-          Vous avez téléchargé un fichier d'importation non valide. Pour corriger 
+          Vous avez téléchargé un fichier d'importation non valide. Pour corriger
           l'erreur vous devez télécharger un nouveau fichier d'importation.
       draftHintBold: "Attention:"
       draftHintDescription: |-
-        Les importations ayant le statut de "projet" sont 
-        automatiquement supprimées après 10 jours! 
+        Les importations ayant le statut de "projet" sont
+        automatiquement supprimées après 10 jours!
     actions:
       title: Actions
       noActions: Aucune action n'est possible dans cet état.
       startImport:
         title: Démarrer l'importation
         description: |-
-          Une fois que vous avez corrigé tous les messages d'erreur pertinents 
-          et que vous avez vous souhaitez importer les données, vous pouvez 
+          Une fois que vous avez corrigé tous les messages d'erreur pertinents
+          et que vous avez vous souhaitez importer les données, vous pouvez
           commencer l'importation.
         buttonLabel: Démarrer l'importation
       deleteImport:
@@ -87,5 +87,5 @@ dossierImport:
         buttonLabel: Supprimer l'importation
         error: Quelque chose s'est mal passé lors de la suppression de l'importation, veuillez réessayer.
         success: L'importation a été supprimée avec succès.
-    
-  
+
+
