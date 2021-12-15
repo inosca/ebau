@@ -11,7 +11,7 @@ from camac.user.authentication import JSONWebTokenKeycloakAuthentication
 
 
 @pytest.mark.parametrize(
-    "token_value, user__username, user__email",
+    "token_value, user__username, user__email, should_update",
     [
         # Ensure that username lookup is still first priority
         (
@@ -24,6 +24,7 @@ from camac.user.authentication import JSONWebTokenKeycloakAuthentication
             },
             "existing-guy",
             "other-email@example.com",
+            True,
         ),
         # Check that users get looked up by email as fallback
         (
@@ -36,11 +37,25 @@ from camac.user.authentication import JSONWebTokenKeycloakAuthentication
             },
             "existing-guy",
             "existing-guy@example.com",
+            True,
+        ),
+        # users without email should not be considered
+        (
+            {
+                "sub": "other-username",
+                "email": "",
+                "family_name": "Existing",
+                "given_name": "Guy",
+                settings.OIDC_USERNAME_CLAIM: "other-username",
+            },
+            "existing-guy",
+            "",
+            False,
         ),
     ],
 )
 def test_authenticate_bootstrap_by_mail(
-    rf, mocker, settings, clear_cache, user, token_value
+    rf, mocker, settings, clear_cache, user, token_value, should_update
 ):
     settings.OIDC_BOOTSTRAP_BY_EMAIL_FALLBACK = True
 
@@ -52,15 +67,20 @@ def test_authenticate_bootstrap_by_mail(
     userinfo.return_value = token_value
 
     request = rf.request(HTTP_AUTHORIZATION="Bearer some_token")
-    _, token = JSONWebTokenKeycloakAuthentication().authenticate(request)
+    returned_user, token = JSONWebTokenKeycloakAuthentication().authenticate(request)
 
     user.refresh_from_db()
 
-    assert user.username == token["sub"]
-    assert user.name == token["family_name"]
-    assert user.surname == token["given_name"]
-    assert user.groups.count() == 0
-    assert decode_token.return_value == token
+    if should_update:
+        assert returned_user.username == token["sub"]
+        assert user.username == token["sub"]
+        assert user.name == token["family_name"]
+        assert user.surname == token["given_name"]
+        assert user.groups.count() == 0
+        assert decode_token.return_value == token
+    else:
+        assert returned_user.username == token["sub"]
+        assert user.username == "existing-guy"
 
 
 def test_migrate_portal_user(
