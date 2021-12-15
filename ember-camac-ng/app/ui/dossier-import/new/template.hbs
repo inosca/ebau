@@ -1,6 +1,6 @@
-<h4 class="uk-margin-small-bottom">
+<h3 class="uk-margin-small-top uk-margin-small-bottom">
   {{t "dossierImport.new.title"}}
-</h4>
+</h3>
 {{#if this.fetchLocations.isRunning}}
   <div uk-spinner></div>
 {{else}}
@@ -80,22 +80,24 @@
       </div>
     </div>
   </div>
-  <LinkTo
-    class="dossier-import__button uk-margin-bottom uk-margin-small-right"
-    @route="dossier-import.index"
-    {{on "click" this.clearNotifications}}
-  >
-    {{t "dossierImport.new.importsLink"}}
-  </LinkTo>
-  {{#if this.fileUpload.id}}
+  <div class="uk-margin-bottom">
     <LinkTo
-      data-test-detail-link
-      @route="dossier-import.detail"
-      @model={{this.fileUpload.id}}
-      class="dossier-import__button uk-margin-bottom"
+      class="uk-button uk-button-default uk-margin-small-right"
+      @route="dossier-import.index"
+      {{on "click" this.clearNotifications}}
     >
-      {{t "dossierImport.new.detailLink"}}
+      {{t "dossierImport.new.importsLink"}}
     </LinkTo>
-  {{/if}}
+    {{#if this.fileUpload.id}}
+      <LinkTo
+        data-test-detail-link
+        @route="dossier-import.detail"
+        @model={{this.fileUpload.id}}
+        class="uk-button uk-button-primary uk-align-right"
+      >
+        {{t "dossierImport.new.detailLink"}}
+      </LinkTo>
+    {{/if}}
+  </div>
 {{/if}}
 <Notifications @style="uikit" />

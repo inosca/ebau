@@ -1,18 +1,13 @@
-<h4 class="uk-margin-small-bottom">
-  {{t "dossierImport.detail.title"}}
-</h4>
+<h3 class="uk-margin-small-top uk-margin-small-bottom">
+  {{t
+    "dossierImport.detail.title"
+    creationDate=this.creationDate
+    user=this.user
+  }}
+</h3>
 {{#if this.fetchImport.isRunning}}
   <div uk-spinner></div>
 {{else}}
-  <DossierImportDetailBlock>
-    <div class="uk-text-bold" data-test-import-detail>
-      {{t
-        "dossierImport.detail.subtitle"
-        creationDate=this.creationDate
-        user=this.user
-      }}
-    </div>
-  </DossierImportDetailBlock>
   <DossierImportDetailBlock @title={{t "dossierImport.detail.analysis.title"}}>
     <div>
       {{#if this.isValidated}}
@@ -91,7 +86,7 @@
   <DossierImportDetailBlock @title={{t "dossierImport.detail.status.title"}}>
     <div>
       {{#if this.isValidated}}
-        <div class="uk-text-bold">
+        <div class="uk-text-bold uk-margin-small">
           {{t "dossierImport.detail.status.draftTitle"}}
         </div>
         <div>
@@ -152,7 +147,7 @@
   </DossierImportDetailBlock>
   <LinkTo
     data-test-imports-link
-    class="dossier-import__button uk-margin-bottom"
+    class="uk-button uk-button-default uk-margin-bottom"
     @route="dossier-import.index"
   >
     {{t "dossierImport.detail.importsLink"}}
