@@ -3,6 +3,7 @@ from enum import Enum
 from typing import List, Union
 
 from dataclasses_json import dataclass_json
+from django.utils import translation
 from django.utils.translation import gettext as _
 from rest_framework import exceptions
 
@@ -83,16 +84,14 @@ class MessageCodes(str, Enum):
 
 class MissingArchiveFileError(exceptions.ValidationError):
     default_code = "archive_file_missing"
-    default_detail = _("To start an import please upload a file.")
 
 
 class MissingMetadataFileError(exceptions.ValidationError):
-    default_code = "metadata_file_missing"
-    default_detail = _("No metadata file 'dossiers.xlsx' found in uploaded archive.")
+    default_code = "metadata-file-missing"
 
 
 class InvalidZipFileError(exceptions.ValidationError):
-    default_code = "invalid_zip_file"
+    default_code = "invalid-zip-file"
 
 
 class MissingRequiredLocationError(exceptions.ValidationError):
@@ -100,15 +99,11 @@ class MissingRequiredLocationError(exceptions.ValidationError):
 
 
 class BadMimeType(exceptions.ParseError):
-    default_code = "bad_mimetype"
-    default_code = _(
-        "Invalid mime type for dossier import archive. Allowed types are: zip"
-    )
+    default_code = "bad-mimetype"
 
 
 class BadXlsxFileError(exceptions.ParseError):
-    default_code = "bad_xlsx_file"
-    default_detail = _("Metadata file `dossiers.xlsx` is not a valid .xlsx file.")
+    default_code = "bad-xlsx-file"
 
 
 def get_message_max_level(message_list: List[Message], default=LOG_LEVEL_DEBUG):
@@ -180,17 +175,23 @@ def compile_message_for_code(code, filtered_summaries):
     }]
     """
     messages = {
-        MessageCodes.DUPLICATE_DOSSIER.value: "have the same ID",
-        MessageCodes.DATE_FIELD_VALIDATION_ERROR.value: 'have an invalid value in date field. Please use the format "DD.MM.YYYY" (e.g. "13.04.2021")',
-        MessageCodes.STATUS_CHOICE_VALIDATION_ERROR.value: "have an invalid status",
-        MessageCodes.MISSING_REQUIRED_VALUE_ERROR.value: "miss a value in a required field",
-        MessageCodes.DUPLICATE_IDENTFIER_ERROR.value: "have the same ID",
-        MessageCodes.FIELD_VALIDATION_ERROR.value: "have an invalid value",
-        MessageCodes.MIME_TYPE_UNKNOWN.value: "have at least one document with an unknown file type",
+        MessageCodes.DUPLICATE_DOSSIER.value: _("have the same ID"),
+        MessageCodes.DATE_FIELD_VALIDATION_ERROR.value: _(
+            'have an invalid value in date field. Please use the format "DD.MM.YYYY" (e.g. "13.04.2021")'
+        ),
+        MessageCodes.STATUS_CHOICE_VALIDATION_ERROR.value: _("have an invalid status"),
+        MessageCodes.MISSING_REQUIRED_VALUE_ERROR.value: _(
+            "miss a value in a required field"
+        ),
+        MessageCodes.DUPLICATE_IDENTFIER_ERROR.value: _("have the same ID"),
+        MessageCodes.FIELD_VALIDATION_ERROR.value: _("have an invalid value"),
+        MessageCodes.MIME_TYPE_UNKNOWN.value: _(
+            "have at least one document with an unknown file type"
+        ),
     }
 
     def format_summary(summary: dict) -> str:
-        return "{dossier_id}: {entries}".format(
+        return "%(dossier_id)s: %(entries)s" % dict(
             dossier_id=summary["dossier_id"],
             entries=", ".join(
                 [
@@ -204,7 +205,7 @@ def compile_message_for_code(code, filtered_summaries):
 
     entries = [format_summary(summary) for summary in filtered_summaries]
 
-    return _("{count} dossiers {message}. Affected dossiers: {entries}").format(
+    return _("%(count)i dossiers %(message)s. Affected dossiers:%(entries)s") % dict(
         count=len(filtered_summaries),
         message=messages[code],
         entries="\n" + ",\n".join(entries),
@@ -213,44 +214,47 @@ def compile_message_for_code(code, filtered_summaries):
 
 def update_summary(dossier_import):
     validation_message_object = dossier_import.messages.get("validation")
-    if validation_message_object:
-        data = dict(
-            warning=aggregate_messages_by_level(
-                validation_message_object, LOG_LEVEL_WARNING
-            ),
-            error=aggregate_messages_by_level(
-                validation_message_object, LOG_LEVEL_ERROR
-            ),
-        )
-        if not validation_message_object.get("summary"):  # pragma: no cover
-            validation_message_object["summary"] = Summary().to_dict()
-        validation_message_object["summary"].update(data)
-        dossier_import.messages["validation"] = validation_message_object
-        dossier_import.save()
+    with translation.override(dossier_import.user.language):
+        if validation_message_object:
+            data = dict(
+                warning=aggregate_messages_by_level(
+                    validation_message_object, LOG_LEVEL_WARNING
+                ),
+                error=aggregate_messages_by_level(
+                    validation_message_object, LOG_LEVEL_ERROR
+                ),
+            )
+            if not validation_message_object.get("summary"):  # pragma: no cover
+                validation_message_object["summary"] = Summary().to_dict()
+            validation_message_object["summary"].update(data)
+            dossier_import.messages["validation"] = validation_message_object
+            dossier_import.save()
 
-    import_message_object = dossier_import.messages.get("import")
-    if import_message_object:
-        data = dict(
-            warning=aggregate_messages_by_level(
-                import_message_object, LOG_LEVEL_WARNING
-            ),
-            error=aggregate_messages_by_level(import_message_object, LOG_LEVEL_ERROR),
-        )
-        if not import_message_object.get("summary"):
-            import_message_object["summary"] = Summary().to_dict()
-        import_message_object["summary"].update(data)
-        import_message_object["summary"]["stats"].update(
-            {
-                "dossiers": Instance.objects.filter(
-                    **{"case__meta__import-id": str(dossier_import.pk)}
-                ).count(),
-                "documents": Attachment.objects.filter(
-                    **{"instance__case__meta__import-id": str(dossier_import.pk)}
-                ).count(),
-            }
-        )
-        dossier_import.messages["import"] = import_message_object
-        dossier_import.save()
+        import_message_object = dossier_import.messages.get("import")
+        if import_message_object:
+            data = dict(
+                warning=aggregate_messages_by_level(
+                    import_message_object, LOG_LEVEL_WARNING
+                ),
+                error=aggregate_messages_by_level(
+                    import_message_object, LOG_LEVEL_ERROR
+                ),
+            )
+            if not import_message_object.get("summary"):  # pragma: no cover
+                import_message_object["summary"] = Summary().to_dict()
+            import_message_object["summary"].update(data)
+            import_message_object["summary"]["stats"].update(
+                {
+                    "dossiers": Instance.objects.filter(
+                        **{"case__meta__import-id": str(dossier_import.pk)}
+                    ).count(),
+                    "documents": Attachment.objects.filter(
+                        **{"instance__case__meta__import-id": str(dossier_import.pk)}
+                    ).count(),
+                }
+            )
+            dossier_import.messages["import"] = import_message_object
+            dossier_import.save()
     return dossier_import
 
 

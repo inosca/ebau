@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-09 18:38+0100\n"
+"POT-Creation-Date: 2021-12-14 16:51+0100\n"
 "PO-Revision-Date: 2021-09-28 13:25+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -124,53 +124,91 @@ msgstr ""
 msgid "Specifying an \"attachments\" filter is mandatory!"
 msgstr "Der \"attachments\" Filter ist obligatorisch!"
 
-#: camac/dossier_import/messages.py:86
+#: camac/dossier_import/messages.py:87
 msgid "To start an import please upload a file."
 msgstr "Bitte eine Datei mitreichen, um einen Import zu starten."
 
-#: camac/dossier_import/messages.py:91
+#: camac/dossier_import/messages.py:92
 msgid "No metadata file 'dossiers.xlsx' found in uploaded archive."
 msgstr "Metadatendatei `dossiers.xlsx` fehlt im hochgeladenen Archiv."
 
-#: camac/dossier_import/messages.py:105
+#: camac/dossier_import/messages.py:106
 msgid "Invalid mime type for dossier import archive. Allowed types are: zip"
 msgstr ""
 "Der aktuelle Dateityp kann nicht als Vorlage hochgeladen werden. Erlaubte "
 "Dateitypen sind: zip"
 
-#: camac/dossier_import/messages.py:111
+#: camac/dossier_import/messages.py:112
 msgid "Metadata file `dossiers.xlsx` is not a valid .xlsx file."
 msgstr "Die Metadatendatei `dossiers.xlsx` ist kein gültiges Xlsx-Format."
 
-#: camac/dossier_import/messages.py:207
-#, python-brace-format
-msgid "{count} dossiers {message}. Affected dossiers:{entries}"
-msgstr  "{count} Dossiers {message}. Betroffene Dossiers:{entries}"
+#: camac/dossier_import/messages.py:184 camac/dossier_import/messages.py:188
+msgid "have the same ID"
+msgstr "haben die selbe ID"
 
-#: camac/dossier_import/validation.py:45
+#: camac/dossier_import/messages.py:185
+msgid ""
+"have an invalid value in date field. Please use the format \"DD.MM.YYYY\" (e."
+"g. \"13.04.2021\")"
+msgstr ""
+"haben ein ungültiges Datum. Datumsangaben bitte im Format \"DD.MM.YYYY\" (e."
+"g. \"13.04.2021\") machen"
+
+#: camac/dossier_import/messages.py:186
+msgid "have an invalid status"
+msgstr "haben einen ungültigen Status"
+
+#: camac/dossier_import/messages.py:187
+msgid "miss a value in a required field"
+msgstr "fehlt ein Wert in einem zwingenden Feld"
+
+#: camac/dossier_import/messages.py:189
+msgid "have an invalid value"
+msgstr "haben einen ungültigen Wert"
+
+#: camac/dossier_import/messages.py:190
+msgid "have at least one document with an unknown file type"
+msgstr "weisen ein Dokument mit unbekanntem Dateityp auf"
+
+#: camac/dossier_import/messages.py:208
+#, python-format
+msgid "%(count)i dossiers %(message)s. Affected dossiers:%(entries)s"
+msgstr "%(count)i Dossiers %(message)s. Betroffene Dossiers:%(entries)s"
+
+#: camac/dossier_import/validation.py:44
 msgid "Uploaded file is not a valid .zip file"
 msgstr "Die hochgeladene Datei ist kein gültiges Zip-Format."
 
-#: camac/dossier_import/validation.py:68
-#, python-brace-format
+#: camac/dossier_import/validation.py:67
+#, python-format
 msgid ""
-"{count} document folders were not found in the metadata file and will not be "
-"imported:\n"
-"{entries}"
+"%(count)i document folders were not found in the metadata file and will not "
+"be imported:\n"
+"%(entries)s"
 msgstr ""
-"{count} Dokumentenverzeichnisse haben keine Referenz in der Metadatendatei und werden nicht importiert:\n"
-"{entries}"
+"%(count)i Dokumentenverzeichnisse haben keine Referenz in der Metadatendatei "
+"und werden nicht importiert:\n"
+"%(entries)s"
 
-#: camac/dossier_import/validation.py:74
-#, python-brace-format
-msgid "{count} dossiers have no document folder."
-msgstr "{count} Dossiers ohne Dokumentenverzeichnis."
+#: camac/dossier_import/validation.py:73
+#, python-format
+msgid "%(count)i dossiers have no document folder."
+msgstr "%(count)i Dossiers ohne Dokumentenverzeichnis."
+
+#: camac/dossier_import/validation.py:109
+msgid "Meta data file in archive is corrupt or not a valid .xlsx file."
+msgstr "Die Metadatendatei `dossiers.xlsx` ist kein gültiges Xlsx-Format."
+
+#: camac/dossier_import/validation.py:119
+#, python-format
+msgid "Meta data file in archive is missing required columns %(missing)s."
+msgstr "Spalte %(missing)s fehlt in der Metadatendatei des Archivs."
 
 #: camac/echbern/send_handlers.py:525
 msgid "Circulation started"
 msgstr "Zirkulation gestartet"
 
-#: camac/instance/document_merge_service.py:65 camac/instance/views.py:555
+#: camac/instance/document_merge_service.py:65 camac/instance/views.py:567
 msgid "Address"
 msgstr "Adresse"
 
@@ -178,7 +216,7 @@ msgstr "Adresse"
 msgid "Plots"
 msgstr "Parzelle(n)"
 
-#: camac/instance/document_merge_service.py:67 camac/instance/views.py:559
+#: camac/instance/document_merge_service.py:67 camac/instance/views.py:571
 msgid "Applicant"
 msgstr "Gesuchsteller/in"
 
@@ -187,7 +225,7 @@ msgid "Keywords"
 msgstr "Stichworte"
 
 #: camac/instance/document_merge_service.py:69
-#: camac/instance/placeholders/fields.py:62 camac/instance/views.py:560
+#: camac/instance/placeholders/fields.py:62 camac/instance/views.py:572
 msgid "Municipality"
 msgstr "Gemeinde"
 
@@ -195,7 +233,7 @@ msgstr "Gemeinde"
 msgid "Authority"
 msgstr "Leitbehörde"
 
-#: camac/instance/document_merge_service.py:71 camac/instance/views.py:558
+#: camac/instance/document_merge_service.py:71 camac/instance/views.py:570
 msgid "Responsible"
 msgstr "Zuständig"
 
@@ -461,59 +499,59 @@ msgstr "Dokument für die Frage `%(field)s fehlt"
 msgid "Invalid form type %(form)s."
 msgstr "Ungültiger Formulartyp %(form)s."
 
-#: camac/instance/views.py:552
+#: camac/instance/views.py:564
 msgid "eBau No."
 msgstr "eBau-Nr."
 
-#: camac/instance/views.py:553
+#: camac/instance/views.py:565
 msgid "Instance No."
 msgstr "Dossier-Nr."
 
-#: camac/instance/views.py:554
+#: camac/instance/views.py:566
 msgid "Application Type"
 msgstr "Gesuchstyp"
 
-#: camac/instance/views.py:556
+#: camac/instance/views.py:568
 msgid "Submission Date"
 msgstr "Eingabedatum"
 
-#: camac/instance/views.py:557
+#: camac/instance/views.py:569
 msgid "Status"
 msgstr "Status"
 
-#: camac/instance/views.py:561
+#: camac/instance/views.py:573
 msgid "Administrative District"
 msgstr "Verwaltungskreis"
 
-#: camac/instance/views.py:562
+#: camac/instance/views.py:574
 msgid "Administrative Region"
 msgstr "Verwaltungsregion"
 
-#: camac/instance/views.py:563
+#: camac/instance/views.py:575
 msgid "Arrival RSTA"
 msgstr "Eingang RSTA"
 
-#: camac/instance/views.py:564
+#: camac/instance/views.py:576
 msgid "Arrival Department"
 msgstr "Eingang Fachstelle"
 
-#: camac/instance/views.py:565
+#: camac/instance/views.py:577
 msgid "Departure Department"
 msgstr "Ausgang Fachstelle"
 
-#: camac/instance/views.py:566
+#: camac/instance/views.py:578
 msgid "Decision"
 msgstr "Bauentscheid"
 
-#: camac/instance/views.py:567
+#: camac/instance/views.py:579
 msgid "Assessment"
 msgstr "Beurteilung"
 
-#: camac/instance/views.py:568
+#: camac/instance/views.py:580
 msgid "Involved Departments"
 msgstr "Involvierte Fachstellen"
 
-#: camac/instance/views.py:569
+#: camac/instance/views.py:581
 msgid "Tags"
 msgstr "Schlagworte"
 
@@ -534,19 +572,19 @@ msgstr ""
 msgid "Objection %(objection) already has a representative"
 msgstr ""
 
-#: camac/settings.py:996
+#: camac/settings.py:1003
 msgid "Circulation reopened"
 msgstr "Zirkulation wiedereröffnet"
 
-#: camac/settings.py:1001
+#: camac/settings.py:1008
 msgid "Circulation skipped"
 msgstr "Zirkulation übersprungen"
 
-#: camac/settings.py:1006
+#: camac/settings.py:1013
 msgid "Circulation completed"
 msgstr "Zirkulation abgeschlossen"
 
-#: camac/settings.py:1011
+#: camac/settings.py:1018
 msgid "Procedure completed"
 msgstr "Baugesuchsverfahren abgeschlossen"
 

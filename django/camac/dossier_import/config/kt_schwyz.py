@@ -141,11 +141,7 @@ class KtSchwyzDossierWriter(DossierWriter):
             pk=instance_state_id
         )
         creation_data = dict(
-            instance_state=InstanceState.objects.get(
-                pk=self._import_settings["INSTANCE_STATE_MAPPING"][
-                    dossier._meta.target_state
-                ]
-            ),
+            instance_state=instance_state,
             previous_instance_state=instance_state,
             user=self._user,
             group=self._group,
@@ -182,11 +178,21 @@ class KtSchwyzDossierWriter(DossierWriter):
                 Message(
                     level=LOG_LEVEL_ERROR,
                     code=MessageCodes.MISSING_REQUIRED_VALUE_ERROR.value,
-                    detail=f"missing values in required fields: {dossier._meta.missing}",
+                    detail=dossier._meta.missing,
                 )
             )
             dossier_summary.status = DOSSIER_IMPORT_STATUS_ERROR
             return dossier_summary
+        if not self._import_settings["INSTANCE_STATE_MAPPING"].get(
+            dossier._meta.target_state
+        ):  # pragma: no cover
+            dossier_summary.details.append(
+                Message(
+                    level=LOG_LEVEL_ERROR,
+                    code=MessageCodes.STATUS_CHOICE_VALIDATION_ERROR.value,
+                    detail=dossier._meta.target_state,
+                )
+            )
         if Instance.objects.filter(
             fields__name="kommunale-gesuchsnummer",
             fields__value=dossier.id,
