@@ -38,19 +38,19 @@
       </tr>
     {{else}}
       {{#each this.imports as |import|}}
-        <LinkTo @route="dossier-import.detail" @model={{import.id}} />
         <tr data-test-imports-row={{import.id}}>
-          {{#each-in import.data as |key value|}}
-            <td class="uk-table-link">
-              <LinkTo
-                @route="dossier-import.detail"
-                @model={{import.id}}
-                class="uk-link uk-link-reset"
-              >
-                {{or value "-"}}
-              </LinkTo>
-            </td>
-          {{/each-in}}
+          <td class="uk-table-link">
+            <LinkTo
+              @route="dossier-import.detail"
+              @model={{import.id}}
+              class="uk-link uk-link-reset"
+            >
+              {{moment-format import.createdAt "DD.MM.YYYY HH:mm"}}
+            </LinkTo>
+          </td>
+          <td>{{import.user.fullName}}</td>
+          <td>{{import.user.fullName}}</td>
+          <td>-</td>
         </tr>
       {{/each}}
     {{/if}}
