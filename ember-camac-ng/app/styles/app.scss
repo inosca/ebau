@@ -5,6 +5,7 @@
     @import "@projectcaluma/ember-form";
     @import "@projectcaluma/ember-form-builder";
     @import "ember-ebau-gwr";
+    @import "reset";
   }
 
   @import "modules/history";
@@ -23,6 +24,5 @@
   @import "misc";
   @import "power-select";
   @import "x-toggle";
-  @import "reset";
   @import "visibility";
 }

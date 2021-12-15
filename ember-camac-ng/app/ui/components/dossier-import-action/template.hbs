@@ -9,7 +9,6 @@
     data-test-action-button={{@actionName}}
     @loading={{@task.isRunning}}
     @disabled={{@task.isRunning}}
-    class="dossier-import__button"
     {{on "click" (perform @task)}}
   >
     {{@buttonLabel}}
