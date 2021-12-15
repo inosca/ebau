@@ -44,6 +44,7 @@ Router.map(function () {
           this.route("gesuchsteller");
           this.route("konzessionsnehmer");
           this.route("bewilligungsnehmer");
+          this.route("vertreter-mit-vollmacht");
         });
         this.route("fachthemen", function () {
           this.route("landwirtschaft");
