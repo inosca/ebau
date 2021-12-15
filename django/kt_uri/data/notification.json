@@ -17,7 +17,7 @@
     "fields": {
       "slug": "dossier-an-gemeinde-zuruck-geschickt1",
       "purpose": "1.3 Info an Gemeinde - Dossier von KOOR BG zur\u00fcck an Gemeinde - Bearbeitung abgeschlossen",
-      "subject": "URec Dossier Nr. {{DOSSIER_NR}} Dossier von KOOR BG zur\u00fcck an die Gemeinde - Bearbeitung abgeschlossen ",
+      "subject": "URec Dossier Nr. {{DOSSIER_NR}} Dossier von {{CURRENT_SERVICE}} zur\u00fcck an die Gemeinde - Bearbeitung abgeschlossen ",
       "body": "URec Info (das ist eine automatisch generierte E-Mail von URec, bitte nicht darauf antworten)\r\n\r\nR\u00fcckmeldung an Gemeinde, Dossier abgeschlossen\r\n\r\nDie Koordinationsstelle {{CURRENT_SERVICE}} hat das Dossier Nr. {{DOSSIER_NR}} im URec abgeschlossen.\r\n\r\nWir bitten Sie, das Dossier weiter zu bearbeiten.\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\n{{CURRENT_SERVICE_DESCRIPTION}}\r\n",
       "service": null,
       "type": "email"
