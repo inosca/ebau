@@ -29,6 +29,7 @@ def test_import_dossiers_exceptions(
     with pytest.raises(CommandError):
         call_command(
             "import_dossiers",
+            "--no-input",
             f"--override_application={config}",
             "--verbosity=2",
             "from_session",
@@ -39,6 +40,7 @@ def test_import_dossiers_exceptions(
 
 
 @pytest.mark.parametrize("config", ["kt_schwyz"])
+@pytest.mark.parametrize("user__language", ["de", "en", "fr"])
 def test_import_dossiers_manage_command(
     db,
     settings,
@@ -57,6 +59,7 @@ def test_import_dossiers_manage_command(
     out = StringIO()
     call_command(
         "import_dossiers",
+        "--no-input",
         f"--override_application={config}",
         "--verbosity=2",
         "from_archive",
@@ -72,6 +75,7 @@ def test_import_dossiers_manage_command(
 
     call_command(
         "import_dossiers",
+        "--no-input",
         f"--override_application={config}",
         "--verbosity=2",
         "from_session",

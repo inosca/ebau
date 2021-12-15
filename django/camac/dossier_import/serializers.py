@@ -1,4 +1,6 @@
 from django.conf import settings
+from django.utils import translation
+from django.utils.translation import gettext as _
 from rest_framework_json_api import serializers
 
 from camac.user.relations import (
@@ -46,13 +48,14 @@ class DossierImportSerializer(serializers.ModelSerializer):
         super().__init__(*args, **kwargs)
 
     def validate_source_file(self, source_file):
-        return verify_source_file(source_file)
+        return verify_source_file(source_file, self.context["request"].user.language)
 
     def validate(self, data):
-        if settings.APPLICATION["DOSSIER_IMPORT"].get(
-            "LOCATION_REQUIRED", False
-        ) and not data.get("location_id", None):
-            raise MissingRequiredLocationError
+        with translation.override(self.context["request"].user.language or "en"):
+            if settings.APPLICATION["DOSSIER_IMPORT"].get(
+                "LOCATION_REQUIRED", False
+            ) and not data.get("location_id"):
+                raise MissingRequiredLocationError(_("No location assigned."))
         return data
 
     def create(self, validated_data):
@@ -62,5 +65,6 @@ class DossierImportSerializer(serializers.ModelSerializer):
             validated_data.get("group") and validated_data["group"].service
         )
         dossier_import.save()
-        dossier_import = validate_zip_archive_structure(str(dossier_import.pk))
+        with translation.override(dossier_import.user.language or "en"):
+            dossier_import = validate_zip_archive_structure(str(dossier_import.pk))
         return dossier_import

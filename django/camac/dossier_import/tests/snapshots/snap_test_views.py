@@ -7,11 +7,11 @@ from snapshottest import Snapshot
 
 snapshots = Snapshot()
 
-snapshots['test_validation_errors[import-example-validation-errors.zip-kt_schwyz-None-400-Municipality] 1'] = {
+snapshots['test_validation_errors[import-example-validation-errors.zip-kt_schwyz-None-400-Municipality-en] 1'] = {
     'errors': [
         {
             'code': 'required-location-missing',
-            'detail': 'Invalid input.',
+            'detail': 'No location assigned.',
             'source': {
                 'pointer': '/data/attributes/non-field-errors'
             },
@@ -20,7 +20,7 @@ snapshots['test_validation_errors[import-example-validation-errors.zip-kt_schwyz
     ]
 }
 
-snapshots['test_validation_errors[import-example-validation-errors.zip-kt_schwyz-location-201-Municipality] 1'] = {
+snapshots['test_validation_errors[import-example-validation-errors.zip-kt_schwyz-location-201-Municipality-en] 1'] = {
     'created-at': '2021-12-12T01:00:00+01:00',
     'dossier-loader-type': 'zip-archive-xlsx',
     'messages': {
