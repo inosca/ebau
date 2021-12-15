@@ -510,6 +510,7 @@ def test_notification_placeholders(
     billing_v2_entry_factory,
     objection,
     objection_participant_factory,
+    work_item_factory,
 ):
     settings.APPLICATION["WORKFLOW_ITEMS"]["SUBMIT"] = workflow_entry_factory(
         instance=sz_instance,
@@ -529,6 +530,13 @@ def test_notification_placeholders(
         instance=sz_instance,
         workflow_date=timezone.make_aware(datetime(2019, 10, 24, 10)),
     ).workflow_item.pk
+
+    work_item_factory(
+        case=sz_instance.case,
+        status="completed",
+        task_id="start-circulation",
+        closed_at=timezone.make_aware(datetime(2019, 9, 24, 10)),
+    )
 
     kommunal_amount = billing_v2_entry_factory(
         instance=sz_instance, organization="municipal"
