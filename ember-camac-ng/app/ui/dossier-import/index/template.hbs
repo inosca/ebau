@@ -1,6 +1,6 @@
-<h4 class="uk-margin-small-bottom">
+<h3 class="uk-margin-small-top uk-margin-small-bottom">
   {{t "dossierImport.imports.title"}}
-</h4>
+</h3>
 <div class="uk-margin-bottom">
   {{t "dossierImport.imports.info"}}
 </div>
@@ -8,7 +8,7 @@
   {{t "dossierImport.imports.listTitle"}}
 </div>
 <table
-  class="uk-table uk-table-divider uk-table-small uk-table-middle uk-margin-remove-top"
+  class="uk-table uk-table-striped uk-table-small uk-table-middle uk-margin-remove-top"
 >
   <thead>
     <tr>
@@ -47,7 +47,7 @@
                 @model={{import.id}}
                 class="uk-link uk-link-reset"
               >
-                {{value}}
+                {{or value "-"}}
               </LinkTo>
             </td>
           {{/each-in}}
@@ -58,7 +58,7 @@
 </table>
 <LinkTo
   data-test-new-import
-  class="dossier-import__button uk-margin-bottom"
+  class="uk-button uk-button-primary uk-margin-bottom"
   @route="dossier-import.new"
   {{on "click" this.clearNotifications}}
 >
