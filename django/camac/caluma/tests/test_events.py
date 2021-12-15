@@ -264,7 +264,10 @@ def test_notify_completed_work_item(
             excluded.add(serv.email)
 
     if application_name == "kt_schwyz":
+        application_settings["HAS_GESUCHSNUMMER"] = True
         services = service_factory.create_batch(2)
+        instance.identifier = "72-21-001"
+        instance.save()
         fake = faker.Faker()
         for i, serv in enumerate(services):
             emails = [fake.email() for _ in range(3)]
