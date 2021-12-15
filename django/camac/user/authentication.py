@@ -91,7 +91,7 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
         filter_condition = Q(username=defaults["username"])
 
         # If enabled we also consider the email address
-        if settings.OIDC_BOOTSTRAP_BY_EMAIL_FALLBACK:
+        if settings.OIDC_BOOTSTRAP_BY_EMAIL_FALLBACK and defaults["email"]:
             filter_condition |= Q(email=defaults["email"])
 
         existing_users = user_model.objects.filter(filter_condition)
