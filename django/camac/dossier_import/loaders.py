@@ -4,6 +4,7 @@ from enum import Enum
 from typing import Generator, Iterable, List, Optional, Tuple
 
 import openpyxl
+from django.utils.translation import gettext as _
 from pyproj import Transformer
 
 from camac.dossier_import.dossier_classes import (
@@ -244,7 +245,10 @@ class XlsxFileDossierLoader(DossierLoader):
                         level=LOG_LEVEL_WARNING,
                         code=MessageCodes.FIELD_VALIDATION_ERROR.value,
                         field="coordinates",
-                        detail=f"Failed to load and transform coordinates from E: {e} and N: {n}",
+                        detail=_(
+                            "Failed to load and transform coordinates from E: %(e)i and N: %(n)i"
+                        )
+                        % dict(e=e, n=n),
                     )
                 )
             out.append(Coordinates(e=e, n=n))
@@ -281,7 +285,10 @@ class XlsxFileDossierLoader(DossierLoader):
                     level=LOG_LEVEL_WARNING,
                     code=MessageCodes.FIELD_VALIDATION_ERROR.value,
                     field="plot-data",
-                    detail=f"Failed to load parcels with numbers {plot_numbers} and egrids {egrids}",
+                    detail=_(
+                        "Failed to load parcels with numbers %(plot_numbers)s and egrids %(egrids)s"
+                    )
+                    % dict(plot_numbers=plot_numbers, egrids=egrids),
                 )
             )
         return out, messages
@@ -293,7 +300,7 @@ class XlsxFileDossierLoader(DossierLoader):
             work_book = openpyxl.load_workbook(data_file)
         except zipfile.BadZipfile:
             raise InvalidImportDataError(
-                "Meta data file in archive is corrupt or not a valid .xlsx file."
+                _("Meta data file in archive is corrupt or not a valid .xlsx file.")
             )
         worksheet = work_book.worksheets[0]
         headings = worksheet[1]
