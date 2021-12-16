@@ -48,7 +48,7 @@ class DossierImportSerializer(serializers.ModelSerializer):
         super().__init__(*args, **kwargs)
 
     def validate_source_file(self, source_file):
-        return verify_source_file(source_file, self.context["request"].user.language)
+        return verify_source_file(source_file)
 
     def validate(self, data):
         with translation.override(self.context["request"].user.language or "en"):
