@@ -18,9 +18,10 @@ from .messages import (
     MissingArchiveFileError,
     MissingMetadataFileError,
 )
+from rest_framework.exceptions import ValidationError
 
 
-def verify_source_file(source_file: str, language: str = "en") -> str:
+def verify_source_file(source_file: str) -> str:
     """
     Verify source file is valid archive and has content.
 
@@ -35,26 +36,25 @@ def verify_source_file(source_file: str, language: str = "en") -> str:
      - the archive must contain a dossiers.xlsx
      - the dossiers.xlsx must in fact be a XLSX file
     """
-    with translation.override(language=language):
-        if source_file is None:
-            raise MissingArchiveFileError(_("To start an import please upload a file."))
+    if source_file is None:
+        raise MissingArchiveFileError(_("To start an import please upload a file."))
 
-        try:
-            archive = zipfile.ZipFile(source_file)
-        except zipfile.BadZipfile:
-            raise InvalidZipFileError(_("Uploaded file is not a valid .zip file"))
-        try:
-            metadata = archive.open("dossiers.xlsx")
-        except KeyError:
-            raise MissingMetadataFileError(
-                _("No metadata file 'dossiers.xlsx' found in uploaded archive.")
-            )
-        try:
-            openpyxl.load_workbook(metadata)
-        except zipfile.BadZipfile:
-            raise BadXlsxFileError(
-                _("Metadata file `dossiers.xlsx` is not a valid .xlsx file.")
-            )
+    try:
+        archive = zipfile.ZipFile(source_file)
+    except zipfile.BadZipfile:
+        raise InvalidZipFileError(_("Uploaded file is not a valid .zip file"))
+    try:
+        metadata = archive.open("dossiers.xlsx")
+    except KeyError:
+        raise MissingMetadataFileError(
+            _("No metadata file 'dossiers.xlsx' found in uploaded archive.")
+        )
+    try:
+        openpyxl.load_workbook(metadata)
+    except zipfile.BadZipfile:
+        raise ValidationError(
+            _("Metadata file `dossiers.xlsx` is not a valid .xlsx file.")
+        )
     return source_file
 
 
@@ -160,7 +160,7 @@ def validate_zip_archive_structure(instance_pk, clean_on_fail=True) -> DossierIm
                 messages.append_or_update_dossier_message(
                     dossier_id,
                     field_name,
-                    cell.value,
+                    str(cell.value),
                     MessageCodes.DATE_FIELD_VALIDATION_ERROR.value,
                     dossier_msgs,
                 )
