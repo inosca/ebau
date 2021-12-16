@@ -80,11 +80,13 @@ export default class DossierImportIndexController extends Controller {
 
     if (!response.ok) {
       yield this.handleUploadError(response);
-      return (this.fileUpload = { id: null, file });
+      this.fileUpload = { id: null, file };
+      return this.fileUpload;
     }
 
     const id = (yield response.json()).data.id;
-    return (this.fileUpload = { id, file });
+    this.fileUpload = { id, file };
+    return this.fileUpload;
   }
 
   async handleUploadError(response) {
