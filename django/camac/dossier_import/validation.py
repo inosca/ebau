@@ -3,22 +3,16 @@ import zipfile
 from typing import List
 
 import openpyxl
-from django.utils import timezone, translation
+from django.utils import timezone
 from django.utils.translation import gettext as _
+from rest_framework.exceptions import ValidationError
 
 from camac.dossier_import import messages
 from camac.dossier_import.loaders import InvalidImportDataError
 from camac.dossier_import.models import DossierImport
 
 from .config.common import mimetypes
-from .messages import (
-    BadXlsxFileError,
-    InvalidZipFileError,
-    MessageCodes,
-    MissingArchiveFileError,
-    MissingMetadataFileError,
-)
-from rest_framework.exceptions import ValidationError
+from .messages import MessageCodes
 
 
 def verify_source_file(source_file: str) -> str:
@@ -37,16 +31,16 @@ def verify_source_file(source_file: str) -> str:
      - the dossiers.xlsx must in fact be a XLSX file
     """
     if source_file is None:
-        raise MissingArchiveFileError(_("To start an import please upload a file."))
+        raise ValidationError(_("To start an import please upload a file."))
 
     try:
         archive = zipfile.ZipFile(source_file)
     except zipfile.BadZipfile:
-        raise InvalidZipFileError(_("Uploaded file is not a valid .zip file"))
+        raise ValidationError(_("Uploaded file is not a valid .zip file"))
     try:
         metadata = archive.open("dossiers.xlsx")
     except KeyError:
-        raise MissingMetadataFileError(
+        raise ValidationError(
             _("No metadata file 'dossiers.xlsx' found in uploaded archive.")
         )
     try:
