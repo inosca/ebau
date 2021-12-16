@@ -11,13 +11,6 @@ dossierImport:
     uploadHintBold: "Remarque:"
     uploadHint: Le téléchargement d'un fichier d'importation peut prendre quelques minutes, selon la taille du fichier.
     uploadError:
-      "archive_file_missing": Pour lancer une importation, il faut d'abord télécharger un fichier.
-      "metadata_file_missing": Le fichier de métadonnées 'dossiers.xlsx' n'a pas été trouvé dans le fichier zip téléchargé.
-      "invalid_zip_file": Le fichier téléchargé n'est pas un fichier zip valide.
-      "bad_mimetype": Type de fichier non autorisé, seuls les fichiers Zip peuvent être téléchargés.
-      "bad_xlsx_file": Le fichier de métadonnées 'dossiers.xlsx' n'est pas un fichier .xlsx valide.
-      invalidMetaFile: Le fichier de métadonnées dans le fichier zip téléchargé est soit corrompu, soit ce n'est pas un fichier .xlsx valide.
-      missingStatusColumn: Dans le fichier de métadonnées, la colonne 'STATUS' est manquante.
       fileTooLarge: Le fichier zip téléchargé est trop volumineux. La taille maximale autorisée pour le fichier est de 1 GB.
   imports:
     title: Importation de données
