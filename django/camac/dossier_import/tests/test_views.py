@@ -42,7 +42,6 @@ def test_api_get_views(
 
 
 @pytest.mark.freeze_time("2021-12-12")
-@pytest.mark.parametrize("language", ["en"])
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize(
     "import_file,config,location_id,expected_status",
@@ -71,7 +70,6 @@ def test_validation_errors(
     snapshot,
     import_file,
     config,
-    language,
     location_id,
     expected_status,
 ):
@@ -85,10 +83,10 @@ def test_validation_errors(
     if location_id:
         data.update({"location_id": location_id.pk})
 
-    admin_client.user.language = language
     resp = admin_client.post(
         reverse("dossier-import-list"),
-        data=data,
+        data,
+        **{"HTTP_ACCEPT_LANGUAGE": "en"},
         format="multipart",
     )
     assert resp.status_code == expected_status
@@ -103,34 +101,48 @@ def test_validation_errors(
 
 @pytest.mark.parametrize("role__name", ["Support"])
 @pytest.mark.parametrize(
-    "import_file,expected_status",
+    "import_file,expected_status,expected_result",
     [
-        ("import-example-no-errors.zip", status.HTTP_201_CREATED),
-        ("import-example.zip", status.HTTP_201_CREATED),
+        ("import-example-no-errors.zip", status.HTTP_201_CREATED, None),
+        ("import-example.zip", status.HTTP_201_CREATED, None),
         (
             "import-dossiers-file-wrong-format.zip",
             status.HTTP_400_BAD_REQUEST,
+            "Metadata file `dossiers.xlsx` is not a valid .xlsx file.",
         ),
         (
             "import-no-dossiers-file.zip",
             status.HTTP_400_BAD_REQUEST,
+            "No metadata file 'dossiers.xlsx' found in uploaded archive.",
         ),
         (
             "garbage.zip",
             status.HTTP_400_BAD_REQUEST,
+            "Uploaded file is not a valid .zip file",
         ),
         (
             "import-example-validation-errors.zip",
             status.HTTP_201_CREATED,
+            {
+                "error": [
+                    "1 dossiers have an invalid status. Affected dossiers:\n2017-86: 'DONKED' (status)",
+                    "2 dossiers miss a value in a required field. Affected dossiers:\n2017-87: status, 9: submit_date",
+                ]
+            },
         ),
         (
             "import-example-orphan-dirs.zip",
             status.HTTP_201_CREATED,
+            {
+                "warning": [
+                    "2 document folders were not found in the metadata file and will not be imported:\n2017-11, 2017-22",
+                    "2 dossiers have no document folder.",
+                ],
+            },
         ),
-        (None, status.HTTP_400_BAD_REQUEST),
+        (None, status.HTTP_400_BAD_REQUEST, "To start an import please upload a file."),
     ],
 )
-@pytest.mark.freeze_time("2021-12-12")
 def test_file_validation(
     db,
     admin_client,
@@ -141,6 +153,7 @@ def test_file_validation(
     archive_file,
     import_file,
     expected_status,
+    expected_result,
     snapshot,
 ):
     # create an import case with an uploaded file using the REST endpoint (POST)
@@ -156,6 +169,12 @@ def test_file_validation(
         format="multipart",
     )
     assert resp.status_code == expected_status
-    snapshot.assert_match(str(resp.data))
-    if resp.status_code == status.HTTP_201_CREATED:
+    if resp.status_code != status.HTTP_201_CREATED:
+        assert str(resp.data[0]["detail"]) == expected_result
+    else:
+        if expected_result is not None:
+            for key, value in expected_result.items():
+                assert sorted(value) == sorted(
+                    resp.data["messages"]["validation"]["summary"][key]
+                )
         admin_client.delete(reverse("dossier-import-detail", args=(resp.data["id"],)))
