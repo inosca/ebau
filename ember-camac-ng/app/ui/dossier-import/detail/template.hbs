@@ -1,13 +1,16 @@
-<h3 class="uk-margin-small-top uk-margin-small-bottom">
-  {{t
-    "dossierImport.detail.title"
-    creationDate=this.creationDate
-    user=this.user
-  }}
-</h3>
 {{#if this.fetchImport.isRunning}}
   <div uk-spinner></div>
 {{else}}
+  <h3
+    data-test-import-detail
+    class="uk-margin-small-top uk-margin-small-bottom"
+  >
+    {{t
+      "dossierImport.detail.title"
+      creationDate=(moment-format this.import.createdAt "DD.MM.YYYY HH:mm")
+      user=this.import.user.fullName
+    }}
+  </h3>
   <DossierImportDetailBlock @title={{t "dossierImport.detail.analysis.title"}}>
     <div>
       {{#if this.isValidated}}

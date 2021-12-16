@@ -4,8 +4,6 @@ import { tracked } from "@glimmer/tracking";
 import { timeout } from "ember-concurrency";
 import { dropTask, lastValue } from "ember-concurrency-decorators";
 
-import dateTime from "camac-ng/utils/date-time";
-
 export default class DossierImportDetailController extends Controller {
   @service intl;
   @service notifications;
@@ -20,50 +18,35 @@ export default class DossierImportDetailController extends Controller {
   @lastValue("fetchImport") import;
   @dropTask
   *fetchImport() {
-    this.notifications.clear();
+    try {
+      this.notifications.clear();
 
-    const response = yield this.fetch.fetch(
-      `/api/v1/dossier-imports/${this.model}?${new URLSearchParams({
+      return yield this.store.findRecord("dossier-import", this.model, {
         include: "user",
-      })}`,
-      {
-        method: "GET",
-      }
-    );
-
-    if (!response.ok) {
+      });
+    } catch (e) {
       this.notifications.error(
         this.intl.t("dossierImport.detail.fetchImportError")
       );
       this.router.transitionTo("index");
-      return;
     }
-    const data = yield response.json();
-    const attrs = data.included[0].attributes;
-    this.user = `${attrs.name} ${attrs.surname}`;
-    return data.data.attributes;
   }
 
   @dropTask
   *deleteImport() {
-    this.notifications.clear();
+    try {
+      this.notifications.clear();
 
-    const response = yield this.fetch.fetch(
-      `/api/v1/dossier-imports/${this.model}`,
-      {
-        method: "DELETE",
-      }
-    );
+      yield this.import.destroyRecord();
 
-    if (!response.ok) {
-      this.notifications.error(
-        this.intl.t("dossierImport.detail.actions.deleteImport.error")
-      );
-    } else if (response.ok) {
       this.notifications.success(
         this.intl.t("dossierImport.detail.actions.deleteImport.success")
       );
       this.router.transitionTo("dossier-import.index");
+    } catch (e) {
+      this.notifications.error(
+        this.intl.t("dossierImport.detail.actions.deleteImport.error")
+      );
     }
   }
 
@@ -71,11 +54,6 @@ export default class DossierImportDetailController extends Controller {
   *startImport() {
     // TODO as soon as workflow is implemented in backend
     yield timeout(1000);
-  }
-
-  get creationDate() {
-    const creationDate = new Date(this.import?.["created-at"]);
-    return creationDate ? dateTime(creationDate) : null;
   }
 
   get summary() {
