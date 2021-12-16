@@ -1,0 +1,123 @@
+import Controller from "@ember/controller";
+import { action } from "@ember/object";
+import { inject as service } from "@ember/service";
+import { tracked } from "@glimmer/tracking";
+import { timeout } from "ember-concurrency";
+import {
+  dropTask,
+  lastValue,
+  restartableTask,
+} from "ember-concurrency-decorators";
+import fetch from "fetch";
+
+import ENV from "camac-ng/config/environment";
+
+export default class DossierImportIndexController extends Controller {
+  @service intl;
+  @service notifications;
+  @service store;
+  @service shoebox;
+  @service session;
+
+  ENV = ENV;
+  @tracked fileUpload;
+  @tracked selectedLocation = this.locations?.[0]?.id;
+
+  @lastValue("fetchLocations") locations;
+  @restartableTask
+  *fetchLocations() {
+    const group = yield this.store.findRecord(
+      "group",
+      this.shoebox.content.groupId
+    );
+    return group.locations?.toArray();
+  }
+
+  @dropTask
+  *upload(event) {
+    this.notifications.clear();
+
+    // Prevent uikit's uk-upload from removing files
+    // from underlying input field
+    event.stopPropagation();
+
+    const formData = new FormData();
+    formData.append("user", this.shoebox.content.userId);
+    formData.append("group", this.shoebox.content.groupId);
+
+    // Locations only available (and necessary) for Kt. SZ
+    if (this.selectedLocation) {
+      formData.append("location_id", this.selectedLocation);
+    }
+
+    // Only one zip file is allowed by dropzone and input link
+    const files = event.detail?.[0] ?? event.target.files;
+    const file = files?.[0];
+    if (file.size > this.ENV.maxDossierImportSize) {
+      // Force component template to reload
+      yield timeout(200);
+      this.notifications.error(
+        this.intl.t("dossierImport.new.uploadError.fileTooLarge")
+      );
+      return (this.fileUpload = {
+        id: null,
+        file,
+      });
+    }
+    formData.append("source_file", file);
+
+    // Don't use fetch service to preserve headers'
+    // content-type boundary value
+    const response = yield fetch(`/api/v1/dossier-imports`, {
+      method: "POST",
+      headers: {
+        authorization: yield this.session.getAuthorizationHeader(),
+        "accept-language": this.shoebox.content.language,
+        "x-camac-group": this.shoebox.content.groupId,
+      },
+      body: formData,
+    });
+
+    if (!response.ok) {
+      yield this.handleUploadError(response);
+      return (this.fileUpload = { id: null, file });
+    }
+
+    const id = (yield response.json()).data.id;
+    return (this.fileUpload = { id, file });
+  }
+
+  async handleUploadError(response) {
+    let errorCode = "general";
+    const contentType = response.headers.get("content-type");
+    if (contentType.includes("text/plain")) {
+      const text = await response.text();
+      const lines = text.split("\n");
+      if (lines[0].includes("InvalidImportDataError")) {
+        errorCode = lines[1].includes(".xlsx file")
+          ? "invalidMetaFile"
+          : lines[1].includes("'STATUS'")
+          ? "missingStatusColumn"
+          : "general";
+      }
+    } else if (response.status === 413) {
+      errorCode = "fileTooLarge";
+    } else if (contentType.includes("api+json")) {
+      errorCode = (await response.json()).errors[0].code;
+    }
+
+    this.notifications.error(
+      this.intl.t(`dossierImport.new.uploadError.${errorCode}`)
+    );
+  }
+
+  @action
+  updateLocation(location) {
+    this.selectedLocation = location.id;
+  }
+
+  @action
+  clearNotifications() {
+    this.notifications.clear();
+  }
+}

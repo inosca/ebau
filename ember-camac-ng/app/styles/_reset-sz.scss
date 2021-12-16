@@ -1,0 +1,11 @@
+// all buttons should be small for now
+.uk-button:not(.uk-button-link) {
+  @extend .uk-button-small;
+
+  font-weight: 400;
+  font-size: $global-font-size;
+}
+
+h3 {
+  font-weight: bold;
+}

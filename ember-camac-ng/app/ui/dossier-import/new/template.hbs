@@ -1,0 +1,103 @@
+<h3 class="uk-margin-small-top uk-margin-small-bottom">
+  {{t "dossierImport.new.title"}}
+</h3>
+{{#if this.fetchLocations.isRunning}}
+  <div uk-spinner></div>
+{{else}}
+  {{#if this.locations.length}}
+    <div class="uk-margin-small-bottom">
+      <div class="uk-text-bold">
+        {{t "dossierImport.new.locationLabel"}}
+      </div>
+      <div>
+        {{t "dossierImport.new.locationInfo"}}
+      </div>
+    </div>
+    <div class="uk-width-medium">
+      <PowerSelect
+        @options={{this.locations}}
+        @selected={{find-by "id" this.selectedLocation this.locations}}
+        @onChange={{this.updateLocation}} as |location|
+      >
+        <span>
+          {{location.communalFederalNumber}}
+        </span>
+        <span>
+          {{location.name}}
+        </span>
+      </PowerSelect>
+    </div>
+  {{/if}}
+  <div class="uk-margin-top">
+    <span class="uk-text-bold">
+      {{t "dossierImport.new.uploadHintBold"}}
+    </span>
+    <span>
+      <span>
+        {{t "dossierImport.new.uploadHint"}}
+      </span>
+    </span>
+  </div>
+  <div
+    data-test-dropzone
+    class="js-upload uk-margin-remove-top uk-placeholder uk-text-center"
+    uk-upload="method: HEAD"
+    {{on "upload" (perform this.upload)}}
+  >
+    <div class="uk-flex uk-flex-middle uk-flex-center uk-child-width-1-2">
+      <div class="uk-flex uk-flex-middle uk-flex-right uk-margin-right">
+        {{#if this.upload.isRunning}}
+          <div class="uk-flex-none" uk-spinner></div>
+        {{else if this.fileUpload.file}}
+          <div class="uk-flex uk-flex-column uk-flex-bottom">
+            <DossierImportIconText
+              @status={{if this.fileUpload.id "success" "error"}}
+              @content={{t "dossierImport.new.uploadedFileLabel"}}
+            />
+            <div data-test-file-upload-name class="uk-text-bold">
+              {{this.fileUpload.file.name}}
+            </div>
+          </div>
+        {{else}}
+          <div class="uk-flex-none" uk-icon="icon: plus"></div>
+        {{/if}}
+        <div
+          class="uk-divider-vertical uk-margin-remove-right uk-margin-remove-vertical uk-margin-left dossier-import__upload-divider"
+        ></div>
+      </div>
+      <div class="uk-text-left">
+        <div>
+          {{t "dossierImport.new.uploadDrop"}}
+        </div>
+        <div uk-form-custom>
+          <label>
+            <input type="file" {{on "change" (perform this.upload)}} />
+          </label>
+          <span class="uk-link">
+            {{t "dossierImport.new.uploadSelect"}}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="uk-margin-bottom">
+    <LinkTo
+      class="uk-button uk-button-default uk-margin-small-right"
+      @route="dossier-import.index"
+      {{on "click" this.clearNotifications}}
+    >
+      {{t "dossierImport.new.importsLink"}}
+    </LinkTo>
+    {{#if this.fileUpload.id}}
+      <LinkTo
+        data-test-detail-link
+        @route="dossier-import.detail"
+        @model={{this.fileUpload.id}}
+        class="uk-button uk-button-primary uk-align-right"
+      >
+        {{t "dossierImport.new.detailLink"}}
+      </LinkTo>
+    {{/if}}
+  </div>
+{{/if}}
+<Notifications @style="uikit" />
