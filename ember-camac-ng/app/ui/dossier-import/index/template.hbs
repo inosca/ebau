@@ -7,9 +7,7 @@
 <div class="uk-text-bold uk-margin-small-bottom">
   {{t "dossierImport.imports.listTitle"}}
 </div>
-<table
-  class="uk-table uk-table-striped uk-table-small uk-table-middle uk-margin-remove-top"
->
+<table class="uk-table uk-table-striped uk-table-middle uk-margin-remove-top">
   <thead>
     <tr>
       {{#let
@@ -48,9 +46,33 @@
               {{moment-format import.createdAt "DD.MM.YYYY HH:mm"}}
             </LinkTo>
           </td>
-          <td>{{import.user.fullName}}</td>
-          <td>{{import.user.fullName}}</td>
-          <td>-</td>
+          <td class="uk-table-link">
+            <LinkTo
+              @route="dossier-import.detail"
+              @model={{import.id}}
+              class="uk-link uk-link-reset"
+            >
+              {{import.user.fullName}}
+            </LinkTo>
+          </td>
+          <td class="uk-table-link">
+            <LinkTo
+              @route="dossier-import.detail"
+              @model={{import.id}}
+              class="uk-link uk-link-reset"
+            >
+              {{t (concat "dossierImport.imports.status." import.status)}}
+            </LinkTo>
+          </td>
+          <td class="uk-table-link">
+            <LinkTo
+              @route="dossier-import.detail"
+              @model={{import.id}}
+              class="uk-link uk-link-reset"
+            >
+              -
+            </LinkTo>
+          </td>
         </tr>
       {{/each}}
     {{/if}}
