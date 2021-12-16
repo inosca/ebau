@@ -124,8 +124,8 @@ def test_validation_errors(
             status.HTTP_201_CREATED,
             {
                 "error": [
-                    "1 dossiers have an invalid status. Affected dossiers:\n2017-86: 'DONKED' (status)",
-                    "2 dossiers miss a value in a required field. Affected dossiers:\n2017-87: status, 9: submit_date",
+                    "1 dossiers have an invalid status. Affected dossiers: \n2017-86: 'DONKED' (status)",
+                    "2 dossiers miss a value in a required field. Affected dossiers: \n2017-87: status,\n9: submit_date",
                 ]
             },
         ),

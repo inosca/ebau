@@ -56,4 +56,9 @@ Router.map(function () {
     this.route("process-time");
     this.route("processing-time");
   });
+
+  this.route("dossier-import", function () {
+    this.route("new");
+    this.route("detail", { path: "/:import_id" });
+  });
 });

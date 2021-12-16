@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 
 from snapshottest import Snapshot
 
+
 snapshots = Snapshot()
 
 snapshots['test_validation_errors[import-example-validation-errors.zip-kt_schwyz-None-400-Municipality] 1'] = {
@@ -296,18 +297,23 @@ snapshots['test_validation_errors[import-example-validation-errors.zip-kt_schwyz
             ],
             'summary': {
                 'error': [
-                    '''1 dossiers have an invalid status. Affected dossiers:
+                    '''1 dossiers have an invalid status. Affected dossiers: 
 2017-86: 'DONKED' (status)''',
-                    '''2 dossiers miss a value in a required field. Affected dossiers:
-2017-87: status, 9: submit_date'''
+                    '''2 dossiers miss a value in a required field. Affected dossiers: 
+2017-87: status,
+9: submit_date'''
                 ],
                 'stats': {
                     'attachments': 4,
                     'dossiers': 0
                 },
                 'warning': [
-                    '''5 dossiers have an invalid value in date field. Please use the format "DD.MM.YYYY" (e.g. "13.04.2021"). Affected dossiers:
-2017-84: 'not-a-date' (submit-date), 'not-a-date' (publication-date), 'not-a-date' (decision-date), 'not-a-date' (construction-start-date), 'not-a-date' (profile-approval-date), 'not-a-date' (final-approval-date), 'not-a-date' (completion-date), 2017-86: '22.01.1872' (submit-date), '22.01.1872' (publication-date), '22.01.1872' (decision-date), '22.01.1872' (construction-start-date), '22.01.1872' (profile-approval-date), '22.01.1872' (final-approval-date), '22.01.1872' (completion-date), 2017-87: '22.01.1873' (submit-date), '22.01.1873' (publication-date), '22.01.1873' (decision-date), '22.01.1873' (construction-start-date), '22.01.1873' (profile-approval-date), '22.01.1873' (final-approval-date), '22.01.1873' (completion-date), 2017-88: '22.01.1874' (submit-date), '22.01.1874' (publication-date), '22.01.1874' (decision-date), '22.01.1874' (construction-start-date), '22.01.1874' (profile-approval-date), '22.01.1874' (final-approval-date), '22.01.1874' (completion-date), 9: '22.01.1875' (publication-date), '22.01.1875' (decision-date), '22.01.1875' (construction-start-date), '22.01.1875' (profile-approval-date), '22.01.1875' (final-approval-date), '22.01.1875' (completion-date)''',
+                    '''5 dossiers have an invalid value in date field. Please use the format "DD.MM.YYYY" (e.g. "13.04.2021"). Affected dossiers: 
+2017-84: 'not-a-date' (submit-date), 'not-a-date' (publication-date), 'not-a-date' (decision-date), 'not-a-date' (construction-start-date), 'not-a-date' (profile-approval-date), 'not-a-date' (final-approval-date), 'not-a-date' (completion-date),
+2017-86: '22.01.1872' (submit-date), '22.01.1872' (publication-date), '22.01.1872' (decision-date), '22.01.1872' (construction-start-date), '22.01.1872' (profile-approval-date), '22.01.1872' (final-approval-date), '22.01.1872' (completion-date),
+2017-87: '22.01.1873' (submit-date), '22.01.1873' (publication-date), '22.01.1873' (decision-date), '22.01.1873' (construction-start-date), '22.01.1873' (profile-approval-date), '22.01.1873' (final-approval-date), '22.01.1873' (completion-date),
+2017-88: '22.01.1874' (submit-date), '22.01.1874' (publication-date), '22.01.1874' (decision-date), '22.01.1874' (construction-start-date), '22.01.1874' (profile-approval-date), '22.01.1874' (final-approval-date), '22.01.1874' (completion-date),
+9: '22.01.1875' (publication-date), '22.01.1875' (decision-date), '22.01.1875' (construction-start-date), '22.01.1875' (profile-approval-date), '22.01.1875' (final-approval-date), '22.01.1875' (completion-date)''',
                     '4 dossiers have no document folder.'
                 ]
             }
