@@ -101,51 +101,36 @@ def test_validation_errors(
         snapshot.assert_match(resp)
 
 
-@pytest.mark.parametrize("language", ["en"])
 @pytest.mark.parametrize("role__name", ["Support"])
 @pytest.mark.parametrize(
-    "import_file,expected_status,expected_result",
+    "import_file,expected_status",
     [
-        ("import-example-no-errors.zip", status.HTTP_201_CREATED, None),
-        ("import-example.zip", status.HTTP_201_CREATED, None),
+        ("import-example-no-errors.zip", status.HTTP_201_CREATED),
+        ("import-example.zip", status.HTTP_201_CREATED),
         (
             "import-dossiers-file-wrong-format.zip",
             status.HTTP_400_BAD_REQUEST,
-            "Metadata file `dossiers.xlsx` is not a valid .xlsx file.",
         ),
         (
             "import-no-dossiers-file.zip",
             status.HTTP_400_BAD_REQUEST,
-            "No metadata file 'dossiers.xlsx' found in uploaded archive.",
         ),
         (
             "garbage.zip",
             status.HTTP_400_BAD_REQUEST,
-            "Uploaded file is not a valid .zip file",
         ),
         (
             "import-example-validation-errors.zip",
             status.HTTP_201_CREATED,
-            {
-                "error": [
-                    "1 dossiers have an invalid status. Affected dossiers: \n2017-86: 'DONKED' (status)",
-                    "2 dossiers miss a value in a required field. Affected dossiers: \n2017-87: status,\n9: submit_date",
-                ]
-            },
         ),
         (
             "import-example-orphan-dirs.zip",
             status.HTTP_201_CREATED,
-            {
-                "warning": [
-                    "2 document folders were not found in the metadata file and will not be imported:\n2017-11, 2017-22",
-                    "2 dossiers have no document folder.",
-                ],
-            },
         ),
-        (None, status.HTTP_400_BAD_REQUEST, "To start an import please upload a file."),
+        (None, status.HTTP_400_BAD_REQUEST),
     ],
 )
+@pytest.mark.freeze_time("2021-12-12")
 def test_file_validation(
     db,
     admin_client,
@@ -153,32 +138,24 @@ def test_file_validation(
     admin_user,
     role,
     location,
-    language,
     archive_file,
     import_file,
     expected_status,
-    expected_result,
+    snapshot,
 ):
     # create an import case with an uploaded file using the REST endpoint (POST)
     the_file = import_file and archive_file(import_file)
-    admin_client.user.language = language
     resp = admin_client.post(
         reverse("dossier-import-list"),
-        data={
+        {
             "source_file": (the_file and the_file.file) or "",
             "group": group.pk,
             "location_id": location.pk,
         },
+        **{"HTTP_ACCEPT_LANGUAGE": "de"},
         format="multipart",
-        headers={"Accept-Language": language},
     )
     assert resp.status_code == expected_status
-    if resp.status_code != status.HTTP_201_CREATED:
-        assert str(resp.data[0]["detail"]) == expected_result
-    else:
-        if expected_result is not None:
-            for key, value in expected_result.items():
-                assert sorted(value) == sorted(
-                    resp.data["messages"]["validation"]["summary"][key]
-                )
+    snapshot.assert_match(str(resp.data))
+    if resp.status_code == status.HTTP_201_CREATED:
         admin_client.delete(reverse("dossier-import-detail", args=(resp.data["id"],)))
