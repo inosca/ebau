@@ -29,6 +29,16 @@ export default function () {
 
   this.get("/api/v1/notification-templates");
 
+  this.get("/api/v1/groups/:id");
+
+  this.get("/api/v1/dossier-imports");
+  this.get("/api/v1/dossier-imports/:id");
+  this.delete("/api/v1/dossier-imports/:id");
+  // Ignore uploaded zip file
+  this.post("/api/v1/dossier-imports", function ({ dossierImports, users }) {
+    return dossierImports.create({ user: users.first() });
+  });
+
   this.post(config.apollo.apiURL, graphqlHandler(this), 200);
 
   this.passthrough("/index/token");

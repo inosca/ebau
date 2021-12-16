@@ -204,10 +204,10 @@ def compile_message_for_code(code, filtered_summaries):
 
     entries = [format_summary(summary) for summary in filtered_summaries]
 
-    return _("{count} dossiers {message}. Affected dossiers:{entries}").format(
+    return _("{count} dossiers {message}. Affected dossiers: {entries}").format(
         count=len(filtered_summaries),
         message=messages[code],
-        entries="\n" + ", ".join(entries),
+        entries="\n" + ",\n".join(entries),
     )
 
 

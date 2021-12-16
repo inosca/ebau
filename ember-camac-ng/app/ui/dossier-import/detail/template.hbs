@@ -1,0 +1,159 @@
+{{#if this.fetchImport.isRunning}}
+  <div uk-spinner></div>
+{{else}}
+  <h3
+    data-test-import-detail
+    class="uk-margin-small-top uk-margin-small-bottom"
+  >
+    {{t
+      "dossierImport.detail.title"
+      creationDate=(moment-format this.import.createdAt "DD.MM.YYYY HH:mm")
+      user=this.import.user.fullName
+    }}
+  </h3>
+  <DossierImportDetailBlock @title={{t "dossierImport.detail.analysis.title"}}>
+    <div>
+      {{#if this.isValidated}}
+        <DossierImportIconText
+          @status={{if this.validationVerified "success" "error"}}
+          @content={{t
+            (concat "dossierImport.detail.analysis.status." this.import.status)
+          }}
+        />
+        {{#if (or this.summary.error.length this.summary.warning.length)}}
+          <div class="uk-margin-small-top">
+            <div class="uk-margin-small-bottom">
+              {{t "dossierImport.detail.analysis.issuesInfo"}}
+            </div>
+            <div class="uk-margin-small-left">
+              {{#each this.summary.error as |error|}}
+                <DossierImportIconText
+                  class="dossier-import__margin-small"
+                  @status="error"
+                  @content={{error}}
+                />
+              {{/each}}
+              {{#each this.summary.warning as |warning|}}
+                <DossierImportIconText
+                  class="dossier-import__margin-small"
+                  @status="warning"
+                  @content={{warning}}
+                />
+              {{/each}}
+            </div>
+          </div>
+        {{/if}}
+      {{else}}
+        {{t "dossierImport.detail.noInformation"}}
+      {{/if}}
+    </div>
+  </DossierImportDetailBlock>
+  <DossierImportDetailBlock
+    @title={{t "dossierImport.detail.statistics.title"}}
+  >
+    <div>
+      {{#if this.isValidated}}
+        {{#let this.summary.stats as |stats|}}
+          {{#if (or stats.dossiers stats.attachments)}}
+            <div class="uk-margin-small-bottom">
+              {{t "dossierImport.detail.statistics.infoSuccess"}}
+            </div>
+            <DossierImportIconText
+              class={{if stats.attachments "dossier-import__margin-small"}}
+              @hide={{not stats.dossiers}}
+              @status="success"
+              @content={{t
+                "dossierImport.detail.statistics.dossiers"
+                count=stats.dossiers
+              }}
+            />
+            <DossierImportIconText
+              @hide={{not stats.attachments}}
+              @status="success"
+              @content={{t
+                "dossierImport.detail.statistics.documents"
+                count=stats.attachments
+              }}
+            />
+          {{else}}
+            <div>
+              {{t "dossierImport.detail.statistics.infoFailure"}}
+            </div>
+          {{/if}}
+        {{/let}}
+      {{else}}
+        {{t "dossierImport.detail.noInformation"}}
+      {{/if}}
+    </div>
+  </DossierImportDetailBlock>
+  <DossierImportDetailBlock @title={{t "dossierImport.detail.status.title"}}>
+    <div>
+      {{#if this.isValidated}}
+        <div class="uk-text-bold uk-margin-small">
+          {{t "dossierImport.detail.status.draftTitle"}}
+        </div>
+        <div>
+          {{t
+            (concat
+              "dossierImport.detail.status.draftDescription." this.import.status
+            )
+          }}
+        </div>
+        <div>
+          <span class="uk-text-bold">
+            {{t "dossierImport.detail.status.draftHintBold"}}
+          </span>
+          <span>
+            {{t "dossierImport.detail.status.draftHintDescription"}}
+          </span>
+        </div>
+      {{else}}
+        {{t "dossierImport.detail.noInformation"}}
+      {{/if}}
+    </div>
+  </DossierImportDetailBlock>
+  <DossierImportDetailBlock @title={{t "dossierImport.detail.actions.title"}}>
+    <div>
+      {{!-- TODO: activate once starting import is possible
+      {{#if this.validationVerified}}
+        <DossierImportAction
+          @actionName="startImport"
+          @task={{this.startImport}}
+          @title={{t "dossierImport.detail.actions.startImport.title"}}
+          @description={{t
+            "dossierImport.detail.actions.startImport.description"
+          }}
+          @buttonLabel={{t
+            "dossierImport.detail.actions.startImport.buttonLabel"
+          }}
+        />
+      {{/if}} --}}
+      {{#if (or this.isValidated this.isImported)}}
+        <DossierImportAction
+          @actionName="deleteImport"
+          @task={{this.deleteImport}}
+          @title={{t "dossierImport.detail.actions.deleteImport.title"}}
+          @description={{t
+            "dossierImport.detail.actions.deleteImport.description"
+          }}
+          @buttonLabel={{t
+            "dossierImport.detail.actions.deleteImport.buttonLabel"
+          }}
+        />
+      {{/if}}
+      {{#if (and (not this.isValidated) (not this.isImported))}}
+        <div>
+          {{t "dossierImport.detail.actions.noActions"}}
+        </div>
+      {{/if}}
+    </div>
+  </DossierImportDetailBlock>
+  <LinkTo
+    data-test-imports-link
+    class="uk-button uk-button-default uk-margin-bottom"
+    @route="dossier-import.index"
+  >
+    {{t "dossierImport.detail.importsLink"}}
+  </LinkTo>
+  <Notifications @style="uikit" />
+{{/if}}
