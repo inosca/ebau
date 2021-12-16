@@ -51,11 +51,10 @@ class DossierImportSerializer(serializers.ModelSerializer):
         return verify_source_file(source_file)
 
     def validate(self, data):
-        with translation.override(self.context["request"].user.language or "en"):
-            if settings.APPLICATION["DOSSIER_IMPORT"].get(
-                "LOCATION_REQUIRED", False
-            ) and not data.get("location_id"):
-                raise MissingRequiredLocationError(_("No location assigned."))
+        if settings.APPLICATION["DOSSIER_IMPORT"].get(
+            "LOCATION_REQUIRED", False
+        ) and not data.get("location_id"):
+            raise MissingRequiredLocationError(_("No location assigned."))
         return data
 
     def create(self, validated_data):
@@ -65,6 +64,4 @@ class DossierImportSerializer(serializers.ModelSerializer):
             validated_data.get("group") and validated_data["group"].service
         )
         dossier_import.save()
-        with translation.override(dossier_import.user.language or "en"):
-            dossier_import = validate_zip_archive_structure(str(dossier_import.pk))
-        return dossier_import
+        return validate_zip_archive_structure(str(dossier_import.pk))

@@ -90,27 +90,14 @@ export default class DossierImportIndexController extends Controller {
   }
 
   async handleUploadError(response) {
-    let errorCode = "general";
-    const contentType = response.headers.get("content-type");
-    if (contentType.includes("text/plain")) {
-      const text = await response.text();
-      const lines = text.split("\n");
-      if (lines[0].includes("InvalidImportDataError")) {
-        errorCode = lines[1].includes(".xlsx file")
-          ? "invalidMetaFile"
-          : lines[1].includes("'STATUS'")
-          ? "missingStatusColumn"
-          : "general";
-      }
-    } else if (response.status === 413) {
-      errorCode = "fileTooLarge";
-    } else if (contentType.includes("api+json")) {
-      errorCode = (await response.json()).errors[0].code;
+    if (response.status === 413) {
+      this.notifications.error(
+        this.intl.t(`dossierImport.new.uploadError.fileTooLarge`)
+      );
+      return;
     }
-
-    this.notifications.error(
-      this.intl.t(`dossierImport.new.uploadError.${errorCode}`)
-    );
+    const message = (await response.json()).errors[0].detail;
+    this.notifications.error(message);
   }
 
   @action
