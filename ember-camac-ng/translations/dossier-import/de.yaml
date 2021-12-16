@@ -11,13 +11,6 @@ dossierImport:
     uploadHintBold: "Hinweis:"
     uploadHint: Das Hochladen einer Import-Datei kann je nach Grösse der Datei einige Minuten dauern.
     uploadError:
-      "archive_file_missing": Um einen Import zu starten, muss zuerst eine Datei hochgeladen werden.
-      "metadata_file_missing": Die Metadaten-Datei 'dossiers.xlsx' konnte in der hochgeladenen Zip-Datei nicht gefunden werden.
-      "invalid_zip_file": Die hochgeladene Datei ist keine valide Zip-Datei.
-      "bad_mimetype": Nicht zugelassener Dateityp, nur Zip-Dateien dürfen hochgeladen werden.
-      "bad_xlsx_file": Die Metadaten-Datei 'dossiers.xlsx' ist keine valide .xlsx Datei.
-      invalidMetaFile: Die Metadaten-Datei in der hochgeladenen Zip-Datei ist entweder korrupt oder keine valide .xlsx Datei.
-      missingStatusColumn: In der Metadaten-Datei fehlt die Spalte 'STATUS'.
       fileTooLarge: Die hochgeladene Zip-Datei ist zu gross. Die maximal erlaubte Dateigrösse beträgt 1GB.
   imports:
     title: Datenimport

@@ -214,47 +214,44 @@ def compile_message_for_code(code, filtered_summaries):
 
 def update_summary(dossier_import):
     validation_message_object = dossier_import.messages.get("validation")
-    with translation.override(dossier_import.user.language):
-        if validation_message_object:
-            data = dict(
-                warning=aggregate_messages_by_level(
-                    validation_message_object, LOG_LEVEL_WARNING
-                ),
-                error=aggregate_messages_by_level(
-                    validation_message_object, LOG_LEVEL_ERROR
-                ),
-            )
-            if not validation_message_object.get("summary"):  # pragma: no cover
-                validation_message_object["summary"] = Summary().to_dict()
-            validation_message_object["summary"].update(data)
-            dossier_import.messages["validation"] = validation_message_object
-            dossier_import.save()
+    if validation_message_object:
+        data = dict(
+            warning=aggregate_messages_by_level(
+                validation_message_object, LOG_LEVEL_WARNING
+            ),
+            error=aggregate_messages_by_level(
+                validation_message_object, LOG_LEVEL_ERROR
+            ),
+        )
+        if not validation_message_object.get("summary"):  # pragma: no cover
+            validation_message_object["summary"] = Summary().to_dict()
+        validation_message_object["summary"].update(data)
+        dossier_import.messages["validation"] = validation_message_object
+        dossier_import.save()
 
-        import_message_object = dossier_import.messages.get("import")
-        if import_message_object:
-            data = dict(
-                warning=aggregate_messages_by_level(
-                    import_message_object, LOG_LEVEL_WARNING
-                ),
-                error=aggregate_messages_by_level(
-                    import_message_object, LOG_LEVEL_ERROR
-                ),
-            )
-            if not import_message_object.get("summary"):  # pragma: no cover
-                import_message_object["summary"] = Summary().to_dict()
-            import_message_object["summary"].update(data)
-            import_message_object["summary"]["stats"].update(
-                {
-                    "dossiers": Instance.objects.filter(
-                        **{"case__meta__import-id": str(dossier_import.pk)}
-                    ).count(),
-                    "documents": Attachment.objects.filter(
-                        **{"instance__case__meta__import-id": str(dossier_import.pk)}
-                    ).count(),
-                }
-            )
-            dossier_import.messages["import"] = import_message_object
-            dossier_import.save()
+    import_message_object = dossier_import.messages.get("import")
+    if import_message_object:
+        data = dict(
+            warning=aggregate_messages_by_level(
+                import_message_object, LOG_LEVEL_WARNING
+            ),
+            error=aggregate_messages_by_level(import_message_object, LOG_LEVEL_ERROR),
+        )
+        if not import_message_object.get("summary"):  # pragma: no cover
+            import_message_object["summary"] = Summary().to_dict()
+        import_message_object["summary"].update(data)
+        import_message_object["summary"]["stats"].update(
+            {
+                "dossiers": Instance.objects.filter(
+                    **{"case__meta__import-id": str(dossier_import.pk)}
+                ).count(),
+                "documents": Attachment.objects.filter(
+                    **{"instance__case__meta__import-id": str(dossier_import.pk)}
+                ).count(),
+            }
+        )
+        dossier_import.messages["import"] = import_message_object
+        dossier_import.save()
     return dossier_import
 
 
