@@ -3,8 +3,6 @@ import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { dropTask, lastValue } from "ember-concurrency-decorators";
 
-import dateTime from "camac-ng/utils/date-time";
-
 export default class DossierImportIndexController extends Controller {
   @service intl;
   @service notifications;
@@ -17,7 +15,7 @@ export default class DossierImportIndexController extends Controller {
   @dropTask
   *fetchImports() {
     try {
-      return yield this.store.findAll("dossier-import", {
+      return yield this.store.query("dossier-import", {
         include: "user",
         page: {
           size: 10,

@@ -78,33 +78,37 @@ export default class DossierImportIndexController extends Controller {
       body: formData,
     });
 
-    let data = { errors: [{ code: "general" }] };
-    if (response.headers.map["content-type"].includes("text/plain")) {
-      const text = yield response.text();
+    if (!response.ok) {
+      yield this.handleUploadError(response);
+      return (this.fileUpload = { id: null, file });
+    }
+
+    const id = (yield response.json()).data.id;
+    return (this.fileUpload = { id, file });
+  }
+
+  async handleUploadError(response) {
+    let errorCode = "general";
+    const contentType = response.headers.get("content-type");
+    if (contentType.includes("text/plain")) {
+      const text = await response.text();
       const lines = text.split("\n");
       if (lines[0].includes("InvalidImportDataError")) {
-        data.errors[0].code = lines[1].includes(".xlsx file")
+        errorCode = lines[1].includes(".xlsx file")
           ? "invalidMetaFile"
           : lines[1].includes("'STATUS'")
           ? "missingStatusColumn"
           : "general";
       }
     } else if (response.status === 413) {
-      data.errors[0].code = "fileTooLarge";
-    } else {
-      data = yield response.json();
+      errorCode = "fileTooLarge";
+    } else if (contentType.includes("api+json")) {
+      errorCode = (await response.json()).errors[0].code;
     }
 
-    if (!response.ok) {
-      this.notifications.error(
-        this.intl.t(`dossierImport.new.uploadError.${data.errors[0].code}`)
-      );
-    }
-
-    return (this.fileUpload = {
-      id: response.ok ? data.data.id : null,
-      file,
-    });
+    this.notifications.error(
+      this.intl.t(`dossierImport.new.uploadError.${errorCode}`)
+    );
   }
 
   @action

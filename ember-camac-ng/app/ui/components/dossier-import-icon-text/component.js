@@ -1,6 +1,4 @@
-import { htmlSafe } from "@ember/template";
 import Component from "@glimmer/component";
-import Ember from "ember";
 
 export default class DossierImportIconTextComponent extends Component {
   get iconOptions() {
