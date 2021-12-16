@@ -1,6 +1,6 @@
 from django.conf import settings
-from django.utils import translation
 from django.utils.translation import gettext as _
+from rest_framework.exceptions import ValidationError
 from rest_framework_json_api import serializers
 
 from camac.user.relations import (
@@ -10,7 +10,7 @@ from camac.user.relations import (
 from camac.user.serializers import CurrentGroupDefault
 
 from . import models
-from .messages import MissingRequiredLocationError
+from .loaders import InvalidImportDataError
 from .validation import validate_zip_archive_structure, verify_source_file
 
 
@@ -54,7 +54,7 @@ class DossierImportSerializer(serializers.ModelSerializer):
         if settings.APPLICATION["DOSSIER_IMPORT"].get(
             "LOCATION_REQUIRED", False
         ) and not data.get("location_id"):
-            raise MissingRequiredLocationError(_("No location assigned."))
+            raise ValidationError(_("No location assigned."))
         return data
 
     def create(self, validated_data):
@@ -64,4 +64,7 @@ class DossierImportSerializer(serializers.ModelSerializer):
             validated_data.get("group") and validated_data["group"].service
         )
         dossier_import.save()
-        return validate_zip_archive_structure(str(dossier_import.pk))
+        try:
+            return validate_zip_archive_structure(str(dossier_import.pk))
+        except InvalidImportDataError as e:
+            raise ValidationError(e)

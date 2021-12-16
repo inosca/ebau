@@ -3,9 +3,7 @@ from enum import Enum
 from typing import List, Union
 
 from dataclasses_json import dataclass_json
-from django.utils import translation
 from django.utils.translation import gettext as _
-from rest_framework import exceptions
 
 from camac.document.models import Attachment
 from camac.instance.models import Instance
@@ -80,30 +78,6 @@ class MessageCodes(str, Enum):
     FIELD_VALIDATION_ERROR = "field-validation-error"
     MIME_TYPE_UNKNOWN = "mime-type-unknown"
     WORKFLOW_SKIP_ITEM_FAILED = "skip-workitem-failed"  # not user-facing
-
-
-class MissingArchiveFileError(exceptions.ValidationError):
-    default_code = "archive_file_missing"
-
-
-class MissingMetadataFileError(exceptions.ValidationError):
-    default_code = "metadata-file-missing"
-
-
-class InvalidZipFileError(exceptions.ValidationError):
-    default_code = "invalid-zip-file"
-
-
-class MissingRequiredLocationError(exceptions.ValidationError):
-    default_code = "required-location-missing"
-
-
-class BadMimeType(exceptions.ParseError):
-    default_code = "bad-mimetype"
-
-
-class BadXlsxFileError(exceptions.ParseError):
-    default_code = "bad-xlsx-file"
 
 
 def get_message_max_level(message_list: List[Message], default=LOG_LEVEL_DEBUG):
