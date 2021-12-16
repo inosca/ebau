@@ -103,7 +103,7 @@ def test_validation_errors(
 @pytest.mark.parametrize(
     "import_file,expected_status,expected_result",
     [
-        ("import-example-no-errors.zip", status.HTTP_201_CREATED, None),
+        ("import-missing-column.zip", status.HTTP_400_BAD_REQUEST, None),
         ("import-example.zip", status.HTTP_201_CREATED, None),
         (
             "import-dossiers-file-wrong-format.zip",
@@ -165,7 +165,7 @@ def test_file_validation(
             "group": group.pk,
             "location_id": location.pk,
         },
-        **{"HTTP_ACCEPT_LANGUAGE": "de"},
+        **{"HTTP_ACCEPT_LANGUAGE": "en"},
         format="multipart",
     )
     assert resp.status_code == expected_status
