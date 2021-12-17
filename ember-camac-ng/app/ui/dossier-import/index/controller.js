@@ -7,9 +7,6 @@ export default class DossierImportIndexController extends Controller {
   @service intl;
   @service notifications;
   @service store;
-  @service shoebox;
-  @service session;
-  @service fetch;
 
   @lastValue("fetchImports") imports;
   @dropTask
