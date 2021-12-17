@@ -86,7 +86,6 @@ def test_validation_errors(
     resp = admin_client.post(
         reverse("dossier-import-list"),
         data,
-        **{"HTTP_ACCEPT_LANGUAGE": "en"},
         format="multipart",
     )
     assert resp.status_code == expected_status
@@ -103,30 +102,34 @@ def test_validation_errors(
 @pytest.mark.parametrize(
     "import_file,expected_status,expected_result",
     [
-        ("import-missing-column.zip", status.HTTP_400_BAD_REQUEST, None),
+        (
+            "import-missing-column.zip",
+            status.HTTP_400_BAD_REQUEST,
+            "Spalte {'STATUS'} fehlt in der Metadatendatei des Archivs.",
+        ),
         ("import-example.zip", status.HTTP_201_CREATED, None),
         (
             "import-dossiers-file-wrong-format.zip",
             status.HTTP_400_BAD_REQUEST,
-            "Metadata file `dossiers.xlsx` is not a valid .xlsx file.",
+            "Die Metadatendatei `dossiers.xlsx` ist kein gültiges Xlsx-Format.",
         ),
         (
             "import-no-dossiers-file.zip",
             status.HTTP_400_BAD_REQUEST,
-            "No metadata file 'dossiers.xlsx' found in uploaded archive.",
+            "Metadatendatei `dossiers.xlsx` fehlt im hochgeladenen Archiv.",
         ),
         (
             "garbage.zip",
             status.HTTP_400_BAD_REQUEST,
-            "Uploaded file is not a valid .zip file",
+            "Die hochgeladene Datei ist kein gültiges Zip-Format.",
         ),
         (
             "import-example-validation-errors.zip",
             status.HTTP_201_CREATED,
             {
                 "error": [
-                    "1 dossiers have an invalid status. Affected dossiers:\n2017-86: 'DONKED' (status)",
-                    "2 dossiers miss a value in a required field. Affected dossiers:\n2017-87: status, 9: submit_date",
+                    "1 Dossiers haben einen ungültigen Status. Betroffene Dossiers:\n2017-86: 'DONKED' (status)",
+                    "2 Dossiers fehlt ein Wert in einem zwingenden Feld. Betroffene Dossiers:\n2017-87: status,\n9: submit_date",
                 ]
             },
         ),
@@ -135,12 +138,16 @@ def test_validation_errors(
             status.HTTP_201_CREATED,
             {
                 "warning": [
-                    "2 document folders were not found in the metadata file and will not be imported:\n2017-11, 2017-22",
-                    "2 dossiers have no document folder.",
-                ],
+                    "2 Dokumentenverzeichnisse haben keine Referenz in der Metadatendatei und werden nicht importiert:\n2017-11, 2017-22",
+                    "2 Dossiers ohne Dokumentenverzeichnis.",
+                ]
             },
         ),
-        (None, status.HTTP_400_BAD_REQUEST, "To start an import please upload a file."),
+        (
+            None,
+            status.HTTP_400_BAD_REQUEST,
+            "Bitte eine Datei mitreichen, um einen Import zu starten.",
+        ),
     ],
 )
 def test_file_validation(
@@ -165,7 +172,6 @@ def test_file_validation(
             "group": group.pk,
             "location_id": location.pk,
         },
-        **{"HTTP_ACCEPT_LANGUAGE": "en"},
         format="multipart",
     )
     assert resp.status_code == expected_status
