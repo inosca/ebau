@@ -101,7 +101,16 @@
         </div>
       </div>
     </div>
-    <div class="uk-width-1-1 uk-flex uk-flex-right uk-flex-bottom">
+    <div class="uk-button-group uk-width-1-2 uk-flex uk-flex-left uk-flex-bottom">
+      {{#each this.categories as |c|}}
+        <UkButton
+          @label={{t (concat "instances.categories." c)}}
+          @color={{if (eq c this.category) "primary" "default"}}
+          @on-click={{fn this.updateCategory c}}
+        />
+      {{/each}}
+    </div>
+    <div class="uk-width-1-2 uk-flex uk-flex-right uk-flex-bottom">
       <UkButton
         class="uk-margin-small-right"
         @color="default"
