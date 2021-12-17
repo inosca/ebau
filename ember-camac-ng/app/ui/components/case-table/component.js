@@ -71,12 +71,12 @@ export default class CaseTableComponent extends Component {
           },
         ],
       },
-      proposalDescription: {
-        hasAnswer: [
+      intent: {
+        searchAnswers: [
           {
-            question: "proposal-description",
-            lookup: "ICONTAINS",
-            value: filter.proposalDescription,
+            questions: config.APPLICATION.intentSlugs,
+            lookup: "CONTAINS",
+            value: filter.intent,
           },
         ],
       },
