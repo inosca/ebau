@@ -286,7 +286,7 @@ class XlsxFileDossierLoader(DossierLoader):
                     code=MessageCodes.FIELD_VALIDATION_ERROR.value,
                     field="plot-data",
                     detail=_(
-                        "Failed to load parcels with numbers %(plot_numbers)s and egrids %(egrids)s"
+                        "Failed to load plot with numbers `%(plot_numbers)s` and egrid values `%(egrids)s`"
                     )
                     % dict(plot_numbers=plot_numbers, egrids=egrids),
                 )
