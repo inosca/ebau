@@ -2,9 +2,12 @@ import { inject as service } from "@ember/service";
 import CaseModel from "@projectcaluma/ember-core/caluma-query/models/case";
 import moment from "moment";
 
-function getAnswer(document, slug) {
-  return document.answers.edges.find(
-    (edge) => edge.node.question.slug === slug
+import config from "camac-ng/config/environment";
+
+function getAnswer(document, slugOrSlugs) {
+  const slugs = Array.isArray(slugOrSlugs) ? slugOrSlugs : [slugOrSlugs];
+  return document.answers.edges.find((edge) =>
+    slugs.includes(edge.node.question.slug)
   );
 }
 
@@ -67,14 +70,8 @@ export default class CustomCaseModel extends CaseModel {
   }
 
   get intent() {
-    return (
-      getAnswer(this.raw.document, "proposal-description")?.node.stringValue ||
-      getAnswer(this.raw.document, "beschreibung-zu-mbv")?.node.stringValue ||
-      getAnswer(this.raw.document, "bezeichnung")?.node.stringValue ||
-      getAnswer(this.raw.document, "vorhaben-proposal-description")?.node
-        .stringValue ||
-      getAnswer(this.raw.document, "veranstaltung-beschrieb")?.node.stringValue
-    );
+    return getAnswer(this.raw.document, config.APPLICATION.intentSlugs)?.node
+      .stringValue;
   }
 
   get authority() {

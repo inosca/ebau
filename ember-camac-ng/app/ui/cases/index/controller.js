@@ -13,7 +13,7 @@ const filterQueryParams = [
   "buildingPermitType",
   "createdAfter",
   "createdBefore",
-  "proposalDescription",
+  "intent",
   "applicantName",
   "street",
   "service",
