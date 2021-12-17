@@ -29,6 +29,32 @@ module.exports = function (environment) {
       locales: ["de", "fr"],
       supportGroups: [10000],
       useConfidential: false,
+      defaultInstanceStateCategory: "pending",
+      instanceStateCategories: {
+        pending: [
+          1, // new
+          20000, // subm
+          20003, // circulation_init
+          20004, // circulation
+          20005, // coordination
+          10000, // rejected
+          120001, // in_progress
+          120002, // in_progress_internal
+          20007, // correction
+          20008, // corrected
+        ],
+        sb: [
+          20011, // sb1
+          20013, // sb2
+        ],
+        done: [
+          120000, // finished
+          120003, // finished_internal
+          20009, // archived
+          20010, // evaluated
+          20014, // conclusion
+        ],
+      },
       completePreliminaryClarificationSlugs: [
         "vorabklaerung-vollstaendig",
         "vorabklaerung-vollstaendig-v2",
@@ -109,6 +135,30 @@ module.exports = function (environment) {
         excludeFromDocuments: [],
       },
       instanceStates: instanceStatesUr,
+      defaultInstanceStateCategory: "new",
+      instanceStateCategories: {
+        new: [
+          1, // new_comm
+          28, // new
+        ],
+        submitted: [
+          21, // comm
+          22, // ext
+          23, // circ
+          24, // redac
+          29, // nfd
+          30, // subm
+          31, // rejected
+          32, // ext_gem
+          34, // control
+        ],
+        done: [
+          25, // done
+          26, // arch
+          27, // del
+          33, // old
+        ],
+      },
       modification: {
         allowForms: ["building-permit"],
         disallowStates: [
