@@ -8,10 +8,7 @@ export default class DossierImportDetailController extends Controller {
   @service intl;
   @service notifications;
   @service store;
-  @service shoebox;
-  @service session;
   @service router;
-  @service fetch;
 
   @tracked user;
 
