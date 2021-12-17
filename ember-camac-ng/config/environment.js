@@ -75,6 +75,13 @@ module.exports = function (environment) {
           142, // KOOR BG
           21, // KOOR NP
         ],
+        intentSlugs: [
+          "proposal-description",
+          "beschreibung-zu-mbv",
+          "bezeichnung",
+          "vorhaben-proposal-description",
+          "veranstaltung-beschrieb",
+        ],
       },
     },
 
