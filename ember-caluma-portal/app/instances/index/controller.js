@@ -42,6 +42,10 @@ export default class InstancesIndexController extends Controller.extend(Mixin) {
     };
   }
 
+  get categories() {
+    return Object.keys(config.APPLICATION.instanceStateCategories);
+  }
+
   get orderOptions() {
     return [
       {
@@ -111,7 +115,9 @@ export default class InstancesIndexController extends Controller.extend(Mixin) {
 
         return options.length
           ? {
-              groupName: this.intl.t(`instances.new.${category}.title`),
+              groupName: this.intl.t(
+                `instances.new.${category}.title-${config.APPLICATION.name}`
+              ),
               options,
             }
           : null;
@@ -207,7 +213,14 @@ export default class InstancesIndexController extends Controller.extend(Mixin) {
   }
 
   get serializedHeaders() {
-    const camacFilters = this.session.group ? {} : { is_applicant: true };
+    const camacFilters = {
+      instance_state: config.APPLICATION.instanceStateCategories[this.category],
+      ...(this.session.group
+        ? {}
+        : {
+            is_applicant: true,
+          }),
+    };
 
     return {
       "x-camac-filters": Object.entries(camacFilters)
@@ -285,6 +298,12 @@ export default class InstancesIndexController extends Controller.extend(Mixin) {
   @action
   updateOrder({ target: { value } }) {
     this.set("order", value);
+    this.getCases.perform();
+  }
+
+  @action
+  updateCategory(category) {
+    this.set("category", category);
     this.getCases.perform();
   }
 }
