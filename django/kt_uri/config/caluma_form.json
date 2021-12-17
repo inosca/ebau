@@ -17000,13 +17000,13 @@
     "pk": "form-type-genehmigung-qgp",
     "fields": {
       "created_at": "2020-10-30T07:23:54.669Z",
-      "modified_at": "2021-12-06T16:55:33.104Z",
+      "modified_at": "2021-12-17T12:13:17.064Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Genehmigung Quartiergestaltungsplan QGP\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -17016,13 +17016,13 @@
     "pk": "form-type-genehmigung-qp",
     "fields": {
       "created_at": "2020-10-30T07:24:58.168Z",
-      "modified_at": "2021-12-06T16:55:32.948Z",
+      "modified_at": "2021-12-17T12:13:17.009Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Genehmigung Quartierplan QP\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -17032,13 +17032,13 @@
     "pk": "form-type-genehmigung-teilrevision-np",
     "fields": {
       "created_at": "2020-10-30T07:24:58.164Z",
-      "modified_at": "2021-12-06T16:55:32.962Z",
+      "modified_at": "2021-12-17T12:13:17.008Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Genehmigung Teilrevision Nutzungsplanung\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -17048,13 +17048,13 @@
     "pk": "form-type-gesamtrevision-np",
     "fields": {
       "created_at": "2020-10-30T07:23:17.798Z",
-      "modified_at": "2021-12-06T16:55:33.066Z",
+      "modified_at": "2021-12-17T12:13:16.981Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Genehmigung Gesamtrevision Nutzungsplanung\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -17448,13 +17448,13 @@
     "pk": "form-type-oereb-afj",
     "fields": {
       "created_at": "2020-11-02T08:52:51.386Z",
-      "modified_at": "2021-12-06T16:55:34.376Z",
+      "modified_at": "2021-12-17T12:13:18.062Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Meldung \\u00d6REB Anpassung AFJ\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -17464,13 +17464,13 @@
     "pk": "form-type-oereb-afu",
     "fields": {
       "created_at": "2020-11-02T11:15:07.269Z",
-      "modified_at": "2021-12-06T16:55:34.834Z",
+      "modified_at": "2021-12-17T12:13:18.315Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Meldung \\u00d6REB Anpassung AFU\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -17480,13 +17480,13 @@
     "pk": "form-type-oereb-bd",
     "fields": {
       "created_at": "2020-10-30T14:12:20.578Z",
-      "modified_at": "2021-12-06T16:55:34.404Z",
+      "modified_at": "2021-12-17T12:13:17.950Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Meldung \\u00d6REB Anpassung BD\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -17496,13 +17496,13 @@
     "pk": "form-type-oereb-np",
     "fields": {
       "created_at": "2020-10-30T13:18:22.351Z",
-      "modified_at": "2021-12-06T16:55:33.853Z",
+      "modified_at": "2021-12-17T12:13:17.555Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Meldung \\u00d6REB Anpassung ARE NP\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -17832,13 +17832,13 @@
     "pk": "form-type-vorpruefung-gesamtrevision-np",
     "fields": {
       "created_at": "2020-10-30T07:23:54.674Z",
-      "modified_at": "2021-12-06T16:55:33.146Z",
+      "modified_at": "2021-12-17T12:13:17.056Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Vorpr\\u00fcfung Gesamtrevision Nutzungsplanung\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -17848,13 +17848,13 @@
     "pk": "form-type-vorpruefung-qgp",
     "fields": {
       "created_at": "2020-10-30T07:24:58.163Z",
-      "modified_at": "2021-12-06T16:55:33.117Z",
+      "modified_at": "2021-12-17T12:13:17.181Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Vorpr\\u00fcfung Quartiergestaltungsplan QGP\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -17864,13 +17864,13 @@
     "pk": "form-type-vorpruefung-qp",
     "fields": {
       "created_at": "2020-10-30T07:24:58.187Z",
-      "modified_at": "2021-12-06T16:55:32.982Z",
+      "modified_at": "2021-12-17T12:13:17.178Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Vorpr\\u00fcfung Quartierplan QP\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -17880,13 +17880,13 @@
     "pk": "form-type-vorpruefung-teilrevision-np",
     "fields": {
       "created_at": "2020-10-30T07:24:12.116Z",
-      "modified_at": "2021-12-06T16:55:32.968Z",
+      "modified_at": "2021-12-17T12:13:17.083Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Vorpr\\u00fcfung Teilrevision Nutzungsplanung\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
