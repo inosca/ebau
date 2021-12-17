@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-14 16:51+0100\n"
+"POT-Creation-Date: 2021-12-17 01:19+0100\n"
 "PO-Revision-Date: 2021-09-28 13:25+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -124,29 +124,34 @@ msgstr ""
 msgid "Specifying an \"attachments\" filter is mandatory!"
 msgstr "Der \"attachments\" Filter ist obligatorisch!"
 
-#: camac/dossier_import/messages.py:87
-msgid "To start an import please upload a file."
-msgstr "Bitte eine Datei mitreichen, um einen Import zu starten."
-
-#: camac/dossier_import/messages.py:92
-msgid "No metadata file 'dossiers.xlsx' found in uploaded archive."
-msgstr "Metadatendatei `dossiers.xlsx` fehlt im hochgeladenen Archiv."
-
-#: camac/dossier_import/messages.py:106
-msgid "Invalid mime type for dossier import archive. Allowed types are: zip"
+#: camac/dossier_import/loaders.py:249
+#, python-format
+msgid "Failed to load and transform coordinates from E: %(e)i and N: %(n)i"
 msgstr ""
-"Der aktuelle Dateityp kann nicht als Vorlage hochgeladen werden. Erlaubte "
-"Dateitypen sind: zip"
+"Laden und transformieren der Koordinaten E: %(e)i und N: %(n)i ist "
+"fehlgeschlagen."
 
-#: camac/dossier_import/messages.py:112
-msgid "Metadata file `dossiers.xlsx` is not a valid .xlsx file."
+#: camac/dossier_import/loaders.py:289
+#, fuzzy, python-format
+#| msgid ""
+#| "Failed to load plot with numbers `%(plot_numbers)s` and egrids `"
+#| "%(egrids)s`."
+msgid ""
+"Failed to load plot with numbers `%(plot_numbers)s` and egrid values `"
+"%(egrids)s`"
+msgstr ""
+"Parzellendaten konnten nicht geladen werden. Nummer(n): `%(plot_numbers)s`. "
+"Egrid: `%(egrids)s`."
+
+#: camac/dossier_import/loaders.py:303 camac/dossier_import/validation.py:106
+msgid "Meta data file in archive is corrupt or not a valid .xlsx file."
 msgstr "Die Metadatendatei `dossiers.xlsx` ist kein gültiges Xlsx-Format."
 
-#: camac/dossier_import/messages.py:184 camac/dossier_import/messages.py:188
+#: camac/dossier_import/messages.py:152 camac/dossier_import/messages.py:160
 msgid "have the same ID"
 msgstr "haben die selbe ID"
 
-#: camac/dossier_import/messages.py:185
+#: camac/dossier_import/messages.py:154
 msgid ""
 "have an invalid value in date field. Please use the format \"DD.MM.YYYY\" (e."
 "g. \"13.04.2021\")"
@@ -154,32 +159,48 @@ msgstr ""
 "haben ein ungültiges Datum. Datumsangaben bitte im Format \"DD.MM.YYYY\" (e."
 "g. \"13.04.2021\") machen"
 
-#: camac/dossier_import/messages.py:186
+#: camac/dossier_import/messages.py:156
 msgid "have an invalid status"
 msgstr "haben einen ungültigen Status"
 
-#: camac/dossier_import/messages.py:187
+#: camac/dossier_import/messages.py:158
 msgid "miss a value in a required field"
 msgstr "fehlt ein Wert in einem zwingenden Feld"
 
-#: camac/dossier_import/messages.py:189
+#: camac/dossier_import/messages.py:161
 msgid "have an invalid value"
 msgstr "haben einen ungültigen Wert"
 
-#: camac/dossier_import/messages.py:190
+#: camac/dossier_import/messages.py:163
 msgid "have at least one document with an unknown file type"
 msgstr "weisen ein Dokument mit unbekanntem Dateityp auf"
 
-#: camac/dossier_import/messages.py:208
+#: camac/dossier_import/messages.py:182
 #, python-format
 msgid "%(count)i dossiers %(message)s. Affected dossiers:%(entries)s"
 msgstr "%(count)i Dossiers %(message)s. Betroffene Dossiers:%(entries)s"
 
-#: camac/dossier_import/validation.py:44
+#: camac/dossier_import/serializers.py:57 camac/instance/serializers.py:1611
+msgid "No location assigned."
+msgstr "Kein Standort gesetzt."
+
+#: camac/dossier_import/validation.py:34
+msgid "To start an import please upload a file."
+msgstr "Bitte eine Datei mitreichen, um einen Import zu starten."
+
+#: camac/dossier_import/validation.py:39
 msgid "Uploaded file is not a valid .zip file"
 msgstr "Die hochgeladene Datei ist kein gültiges Zip-Format."
 
-#: camac/dossier_import/validation.py:67
+#: camac/dossier_import/validation.py:44
+msgid "No metadata file 'dossiers.xlsx' found in uploaded archive."
+msgstr "Metadatendatei `dossiers.xlsx` fehlt im hochgeladenen Archiv."
+
+#: camac/dossier_import/validation.py:50
+msgid "Metadata file `dossiers.xlsx` is not a valid .xlsx file."
+msgstr "Die Metadatendatei `dossiers.xlsx` ist kein gültiges Xlsx-Format."
+
+#: camac/dossier_import/validation.py:66
 #, python-format
 msgid ""
 "%(count)i document folders were not found in the metadata file and will not "
@@ -195,11 +216,7 @@ msgstr ""
 msgid "%(count)i dossiers have no document folder."
 msgstr "%(count)i Dossiers ohne Dokumentenverzeichnis."
 
-#: camac/dossier_import/validation.py:109
-msgid "Meta data file in archive is corrupt or not a valid .xlsx file."
-msgstr "Die Metadatendatei `dossiers.xlsx` ist kein gültiges Xlsx-Format."
-
-#: camac/dossier_import/validation.py:119
+#: camac/dossier_import/validation.py:116
 #, python-format
 msgid "Meta data file in archive is missing required columns %(missing)s."
 msgstr "Spalte %(missing)s fehlt in der Metadatendatei des Archivs."
@@ -273,12 +290,12 @@ msgstr ""
 msgid "No template specified for form '%(form_slug)s'."
 msgstr "Keine Druckvorlage für das Caluma Formular %(form_slug)s spezifiziert."
 
-#: camac/instance/mixins.py:416
+#: camac/instance/mixins.py:420
 #, python-format
 msgid "Not allowed to add data to instance %(instance)s"
 msgstr "Keine Berechtigung um Daten zum Dossier %(instance)s hinzuzufügen"
 
-#: camac/instance/mixins.py:449
+#: camac/instance/mixins.py:453
 #, fuzzy, python-format
 #| msgid "Not allowed to add data to instance %(instance)s"
 msgid "Not allowed to add data to instance %(instance)s as coordination"
@@ -441,10 +458,6 @@ msgstr "SB2 eingereicht"
 msgid "User %(user)s does not belong to service %(service)s."
 msgstr "Der Benutzer %(user)s gehört nicht zum Service %(service)s."
 
-#: camac/instance/serializers.py:1611
-msgid "No location assigned."
-msgstr "Kein Standort gesetzt."
-
 #: camac/instance/serializers.py:1633
 #, python-format
 msgid "No group found for location %(name)s."
@@ -555,7 +568,7 @@ msgstr "Involvierte Fachstellen"
 msgid "Tags"
 msgstr "Schlagworte"
 
-#: camac/notification/serializers.py:962
+#: camac/notification/serializers.py:966
 #, python-format
 msgid "Notification sent to %(receiver)s (%(subject)s)"
 msgstr "Notifikation gesendet an %(receiver)s (%(subject)s)"
@@ -572,19 +585,19 @@ msgstr ""
 msgid "Objection %(objection) already has a representative"
 msgstr ""
 
-#: camac/settings.py:1003
+#: camac/settings.py:1004
 msgid "Circulation reopened"
 msgstr "Zirkulation wiedereröffnet"
 
-#: camac/settings.py:1008
+#: camac/settings.py:1009
 msgid "Circulation skipped"
 msgstr "Zirkulation übersprungen"
 
-#: camac/settings.py:1013
+#: camac/settings.py:1014
 msgid "Circulation completed"
 msgstr "Zirkulation abgeschlossen"
 
-#: camac/settings.py:1018
+#: camac/settings.py:1019
 msgid "Procedure completed"
 msgstr "Baugesuchsverfahren abgeschlossen"
 
@@ -614,3 +627,8 @@ msgstr ""
 #: camac/user/authentication.py:167
 msgid "User is deactivated."
 msgstr "Benutzer ist deaktiviert."
+
+#~ msgid "Invalid mime type for dossier import archive. Allowed types are: zip"
+#~ msgstr ""
+#~ "Der aktuelle Dateityp kann nicht als Vorlage hochgeladen werden. Erlaubte "
+#~ "Dateitypen sind: zip"
