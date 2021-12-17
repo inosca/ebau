@@ -44,7 +44,7 @@ export default class CaseFilterComponent extends Component {
               edges {
                 node {
                   ... on ChoiceQuestion {
-                    options(orderBy: LABEL_ASC) {
+                    options(orderBy: LABEL_ASC, isArchived: false) {
                       edges {
                         node {
                           slug
