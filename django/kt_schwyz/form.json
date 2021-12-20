@@ -929,12 +929,7 @@
     "grundinformationen.migriertes-dossier": {
       "title": "Lokalisierung",
       "parent": "grundinformationen",
-      "questions": [
-        "bezeichnung",
-        "projektnummer",
-        "parzellen",
-        "punkte"
-      ]
+      "questions": ["bezeichnung", "projektnummer", "parzellen", "punkte"]
     },
     "personalien": {
       "title": "Personalien",
@@ -2106,10 +2101,7 @@
                   "type": "radio",
                   "required": false,
                   "config": {
-                    "options": [
-                      "Ja",
-                      "Nein"
-                    ]
+                    "options": ["Ja", "Nein"]
                   }
                 }
               ]
@@ -2160,7 +2152,6 @@
       "config": {
         "options": ["Ja", "Nein"]
       }
-
     },
     "vorabklaerung-hinweis-1": {
       "label": "Für die Bearbeitung Ihrer Vorabklärung ist es wichtig, dass Sie Ihr geplantes Vorhaben gut beschreiben (z. B. mit Projektbeschrieb, Situationsplan, Skizzen, Visualisierungen, Fotos oder dgl.).<br> Wichtig: Formulieren Sie zusätzlich konkrete Fragen, welche Sie beantwortet haben möchten, damit Sie wissen, wie Sie Ihr Vorhaben weiterplanen können",
@@ -2679,12 +2670,9 @@
       "label": "Fixpunkt",
       "hint": "Die Angaben zu Höhen- und Lagefixpunkten können z. B. dem WebGIS SZ (Geokategorie Grundstückskataster) entnommen werden. Dort wird das Fixpunktsystem der Amtlichen Vermessung darstellt.",
       "type": "radio",
-      "require": false,
+      "required": false,
       "config": {
-        "options": [
-          "Höhenfixpunkt",
-          "Lagefixpunkt"
-        ]
+        "options": ["Höhenfixpunkt", "Lagefixpunkt"]
       }
     },
     "fixpunkt-nummer": {
@@ -2696,7 +2684,7 @@
     "fixpunkt-hoehe": {
       "label": "Höhe (in m ü. M.)",
       "type": "number",
-      "require": false,
+      "required": false,
       "config": {
         "min": 0
       }
@@ -2704,7 +2692,7 @@
     "fixpunkt-e-koordinate": {
       "label": "E-Koordinate",
       "type": "number",
-      "require": false,
+      "required": false,
       "config": {
         "min": 0
       }
@@ -2712,7 +2700,7 @@
     "fixpunkt-n-koordinate": {
       "label": "N-Koordinate",
       "type": "number",
-      "require": false,
+      "required": false,
       "config": {
         "min": 0
       }
