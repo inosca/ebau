@@ -189,18 +189,26 @@ class PublicationEntryView(ModelViewSet):
             payload["bauzone"] = bauzone if bauzone != "beides" else "ausserhalb"
 
         bauherrschaften = formFieldQuery.filter(name="bauherrschaft").first()
+        bauherrschaften_v2 = formFieldQuery.filter(name="bauherrschaft-v2").first()
         bauherrschaften_override = formFieldQuery.filter(
             name="bauherrschaft-override"
         ).first()
-        bauherrschaften = bauherrschaften_override or bauherrschaften
+        bauherrschaften = (
+            bauherrschaften_override or bauherrschaften or bauherrschaften_v2
+        )
         if bauherrschaften:
             payload["bauherrschaften"] = self._clean_persons(bauherrschaften.value)
 
         projektverfasser = formFieldQuery.filter(name="projektverfasser-planer").first()
+        projektverfasser_v2 = formFieldQuery.filter(
+            name="projektverfasser-planer-v2"
+        ).first()
         projektverfasser_override = formFieldQuery.filter(
             name="projektverfasser-planer-override"
         ).first()
-        projektverfasser = projektverfasser_override or projektverfasser
+        projektverfasser = (
+            projektverfasser_override or projektverfasser or projektverfasser_v2
+        )
         if projektverfasser:
             payload["projektverfasser"] = self._clean_persons(projektverfasser.value)
 
