@@ -828,7 +828,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"\\u00d6REB Verfahren (Meldung, Vorpr\\u00fcfung, Anpassung)\", \"fr\": null}",
+      "name": "{\"de\": \"\\u00d6REB Verfahren\", \"fr\": null}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
       "is_published": true,
@@ -17437,7 +17437,7 @@
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
-      "label": "{\"de\": \"\\u00d6REB Verfahren (Meldung, Vorpr\\u00fcfung, Anpassung)\", \"fr\": null}",
+      "label": "{\"de\": \"\\u00d6REB Verfahren\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
