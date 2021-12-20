@@ -340,9 +340,12 @@ class InstanceView(
             .select_related("location", "user", "form", "instance_state")
             .annotate(
                 applicants=Subquery(
-                    fields_queryset.filter(name="projektverfasser-planer").values(
-                        "value"
-                    )
+                    fields_queryset.filter(
+                        name__in=[
+                            "projektverfasser-planer",
+                            "projektverfasser-planer-v2",
+                        ]
+                    ).values("value")
                 )
             )
             .annotate(

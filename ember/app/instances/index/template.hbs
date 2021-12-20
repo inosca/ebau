@@ -158,6 +158,18 @@
                     </span>
                   {{/if}}
                 {{/with}}
+                {{#with
+                  (find-by "name" "bauherrschaft-v2" instance.fields) as |field|
+                }}
+                  {{#each (slice 0 3 field.value) as |person|}}
+                    {{person.vorname}}&nbsp;{{person.name}}<br />
+                  {{/each}}
+                  {{#if (gt field.value.length 3)}}
+                    <span title="Weitere Bauherrschaften im Gesuch zu sehen">
+                      ...
+                    </span>
+                  {{/if}}
+                {{/with}}
               </td>
               <td>
                 <LinkTo

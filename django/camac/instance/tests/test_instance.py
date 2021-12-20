@@ -603,7 +603,7 @@ def test_instance_export_list(
 
     add_field = functools.partial(form_field_factory, instance=instance_1)
     add_field(
-        name="projektverfasser-planer",
+        name="projektverfasser-planer-v2",
         value=[{"name": "Muster Hans"}, {"name": "Beispiel Jean"}],
     )
     add_field(name="bezeichnung", value="Bezeichnung")
@@ -676,6 +676,10 @@ def test_instance_export_detail(
     )
     add_field(
         name="bauherrschaft",
+        value=[{"name": "Muster Hans"}, {"firma": "Firma AG", "name": "Beispiel Jean"}],
+    )
+    add_field(
+        name="bauherrschaft-v2",
         value=[{"name": "Muster Hans"}, {"firma": "Firma AG", "name": "Beispiel Jean"}],
     )
     add_field(name="bohrungsdaten", value="Bezeichnung")

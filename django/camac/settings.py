@@ -280,7 +280,9 @@ APPLICATIONS = {
         "QUESTIONS_WITH_OVERRIDE": [
             "bezeichnung",
             "bauherrschaft",
+            "bauherrschaft-v2",
             "projektverfasser-planer",
+            "projektverfasser-planer-v2",
             "grundeigentumerschaft",
         ],
         "INSTANCE_IDENTIFIER_FORM_ABBR": {
@@ -497,7 +499,7 @@ APPLICATIONS = {
             "canton": ("static", "SZ"),
             "applicants": (
                 "ng_table",
-                ["bauherrschaft", "bauherrschaft-override"],
+                ["bauherrschaft", "bauherrschaft-v2", "bauherrschaft-override"],
                 {
                     "column_mapping": {
                         "last_name": "name",
@@ -563,7 +565,11 @@ APPLICATIONS = {
             ),
             "project_authors": (
                 "ng_table",
-                ["projektverfasser-planer", "projektverfasser-planer-override"],
+                [
+                    "projektverfasser-planer",
+                    "projektverfasser-planer-v2",
+                    "projektverfasser-planer-override",
+                ],
                 {
                     "column_mapping": {
                         "last_name": "name",
