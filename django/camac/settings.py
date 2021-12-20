@@ -396,7 +396,7 @@ APPLICATIONS = {
                     "next_instance_state": "done",
                     "history_text": "Bewilligung erteilt",
                 },
-                "archive-form": {
+                "archive-instance": {
                     "next_instance_state": "arch",
                     "history_text": "Dossier archiviert",
                 },
