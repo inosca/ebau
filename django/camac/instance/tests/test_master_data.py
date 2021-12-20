@@ -640,6 +640,23 @@ def sz_master_data_case(db, sz_instance, form_field_factory, workflow_entry_fact
         ],
     )
 
+    # Applicant V2
+    form_field_factory(
+        instance=sz_instance,
+        name="bauherrschaft-v2",
+        value=[
+            {
+                "anrede": "Herr",
+                "vorname": "Max",
+                "name": "Mustermann",
+                "firma": "ACME AG",
+                "strasse": "Teststrasse 2",
+                "plz": 1233,
+                "ort": "Musterdorf",
+            }
+        ],
+    )
+
     # Applicant override (Vollständigkeitsprüfung)
     form_field_factory(
         instance=sz_instance,

@@ -7,7 +7,7 @@ export default class InstancesEditPersonalienProjektverfasserPlanerController ex
   setupController(controller, model) {
     super.setupController(controller, model);
     const question = this.questionStore.peek(
-      "bauherrschaft",
+      "bauherrschaft-v2",
       model.instance.get("id")
     );
     controller.set("bauherrschaftValue", question ? question.get("value") : []);
