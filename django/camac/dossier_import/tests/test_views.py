@@ -11,6 +11,7 @@ from .test_dossier_import_case import TEST_IMPORT_FILE_NAME
 @pytest.mark.parametrize(
     "config,role__name,result_count",
     [
+        ("kt_bern", "municipality-lead", 1),
         ("kt_schwyz", "Gemeinde", 1),
         ("kt_schwyz", "Support", 2),
         ("kt_schwyz", "Applicant", 0),
@@ -42,7 +43,7 @@ def test_api_get_views(
 
 
 @pytest.mark.freeze_time("2021-12-12")
-@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize("role__name", ["Gemeinde", "municipality-lead"])
 @pytest.mark.parametrize(
     "import_file,config,location_id,expected_status",
     [
@@ -57,6 +58,12 @@ def test_api_get_views(
             "kt_schwyz",
             None,
             status.HTTP_400_BAD_REQUEST,
+        ),
+        (
+            "import-example-validation-errors.zip",
+            "kt_bern",
+            None,
+            status.HTTP_201_CREATED,
         ),
     ],
 )

@@ -8,13 +8,12 @@ from django.utils import timezone
 from django.utils.module_loading import import_string
 
 from camac.document.models import Attachment
+from camac.dossier_import.loaders import XlsxFileDossierLoader
 from camac.dossier_import.messages import get_message_max_level, update_summary
 from camac.dossier_import.models import DossierImport
 from camac.dossier_import.validation import validate_zip_archive_structure
 from camac.instance.models import Instance
 from camac.user.models import Group
-
-DOSSIER_IMPORT_LOADER_DEFAULT = "zip-archive-xlsx"
 
 
 class Command(BaseCommand):
@@ -29,13 +28,6 @@ class Command(BaseCommand):
             help="If set, do not ask to abort import on validation failure.",
         )
         parser.add_argument(
-            "--loader",
-            type=str,
-            nargs="?",
-            default=DOSSIER_IMPORT_LOADER_DEFAULT,
-            help=f"Specifies a loader class that provides the writer with Dossier dataclass instances. Available choices: {','.join(settings.DOSSIER_IMPORT_LOADER_CLASSES.keys())}. Defaults to {DOSSIER_IMPORT_LOADER_DEFAULT}",
-        )
-        parser.add_argument(
             "--override_application",
             type=str,
             nargs="?",
@@ -48,19 +40,19 @@ class Command(BaseCommand):
             "from_archive", help="Specifiy an archive file that should be imported"
         )
         parser_from_archive.add_argument(
-            "user_id",
+            "--user_id",
             type=int,
             help="The ID of the user who should perform the import",
             nargs=1,
         )
         parser_from_archive.add_argument(
-            "group_id",
+            "--group_id",
             type=int,
             nargs=1,
             help="The Service ID is required to assign the import to the original entity.",
         )
         parser_from_archive.add_argument(
-            "location_id",
+            "--location_id",
             type=int,
             nargs=1,
             help="The location every imported instance is located to.",
@@ -121,14 +113,7 @@ class Command(BaseCommand):
             ]
         )
 
-        configured_loader_cls = import_string(
-            settings.DOSSIER_IMPORT_LOADER_CLASSES.get(
-                options["loader"][0],
-                settings.DOSSIER_IMPORT_LOADER_CLASSES[DOSSIER_IMPORT_LOADER_DEFAULT],
-            )
-        )
-
-        loader = configured_loader_cls()
+        loader = XlsxFileDossierLoader()
 
         writer = configured_writer_cls(
             user_id=dossier_import.user.pk,
