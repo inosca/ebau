@@ -2,6 +2,7 @@ from caluma.caluma_workflow.dynamic_tasks import BaseDynamicTasks, register_dyna
 from django.db.models import Q
 
 from camac.constants.kt_bern import (
+    DECISION_TYPE_BAUBEWILLIGUNGSFREI,
     DECISION_TYPE_CONSTRUCTION_TEE_WITH_RESTORATION,
     DECISIONS_ABGELEHNT,
     DECISIONS_BEWILLIGT,
@@ -22,6 +23,7 @@ class CustomDynamicTasks(BaseDynamicTasks):
                     decision_type=DECISION_TYPE_CONSTRUCTION_TEE_WITH_RESTORATION,
                 ),
             )
+            .exclude(decision_type=DECISION_TYPE_BAUBEWILLIGUNGSFREI)
             .exists()
         ):
             return ["sb1", "create-manual-workitems", "create-publication"]

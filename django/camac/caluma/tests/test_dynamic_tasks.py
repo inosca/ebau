@@ -4,8 +4,10 @@ from caluma.caluma_workflow.api import complete_work_item, skip_work_item, start
 from caluma.caluma_workflow.models import Case, Workflow, WorkItem
 
 from camac.constants.kt_bern import (
+    DECISION_TYPE_BAUBEWILLIGUNGSFREI,
     DECISION_TYPE_BUILDING_PERMIT,
     DECISION_TYPE_CONSTRUCTION_TEE_WITH_RESTORATION,
+    DECISION_TYPE_TEILWEISE_BAUBEWILLIGUNG,
     DECISIONS_ABGELEHNT,
     DECISIONS_ABGESCHRIEBEN,
     DECISIONS_BEWILLIGT,
@@ -58,6 +60,18 @@ from camac.constants.kt_bern import (
             "building-permit",
             DECISIONS_ABGELEHNT,
             DECISION_TYPE_CONSTRUCTION_TEE_WITH_RESTORATION,
+            Case.STATUS_RUNNING,
+        ),
+        (
+            "building-permit",
+            DECISIONS_BEWILLIGT,
+            DECISION_TYPE_BAUBEWILLIGUNGSFREI,
+            Case.STATUS_COMPLETED,
+        ),
+        (
+            "building-permit",
+            DECISIONS_BEWILLIGT,
+            DECISION_TYPE_TEILWEISE_BAUBEWILLIGUNG,
             Case.STATUS_RUNNING,
         ),
     ],
@@ -113,6 +127,7 @@ def test_dynamic_task_after_decision(
 
     if case.status == Case.STATUS_RUNNING:
         assert case.work_items.filter(task_id="sb1").exists()
+        assert case.instance.instance_state.name == "sb1"
 
 
 @pytest.mark.parametrize(
