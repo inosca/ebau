@@ -25,7 +25,7 @@ class FieldValidationMessage(Message):
 
 @dataclass_json
 @dataclass
-class DossierMessage:
+class DossierSummary:
     status: str  # one of success, warning, error
     dossier_id: str
     details: List[Message]
@@ -78,6 +78,7 @@ class MessageCodes(str, Enum):
     FIELD_VALIDATION_ERROR = "field-validation-error"
     MIME_TYPE_UNKNOWN = "mime-type-unknown"
     WORKFLOW_SKIP_ITEM_FAILED = "skip-workitem-failed"  # not user-facing
+    INCONSISTENT_WORKFLOW_STATE = "inconsistent-workflow-state"  # trying to write dates that should not exist at the current state of workflow
 
 
 def get_message_max_level(message_list: List[Message], default=LOG_LEVEL_DEBUG):
@@ -237,7 +238,7 @@ def append_or_update_dossier_message(
         None,
     )
     if not dossier_msg:
-        dossier_msg = DossierMessage(
+        dossier_msg = DossierSummary(
             status=DOSSIER_IMPORT_STATUS_ERROR,
             details=[],
             dossier_id=dossier_id,
@@ -253,7 +254,7 @@ def append_or_update_dossier_message(
     )
 
 
-def update_messages_section_detail(message: DossierMessage, dossier_import, section):
+def update_messages_section_detail(message: DossierSummary, dossier_import, section):
     """Update DossierImport.messages with dossier message detail.
 
     This is to avoid overwriting previous messages on the current dossier with new

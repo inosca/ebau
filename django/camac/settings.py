@@ -9,6 +9,11 @@ from django.db.models.expressions import Q
 from django.utils.translation import gettext_lazy
 
 from camac.constants import kt_bern as be_constants
+from camac.constants.kt_bern import (
+    INSTANCE_STATE_DONE,
+    INSTANCE_STATE_NEW,
+    INSTANCE_STATE_SB1,
+)
 from camac.utils import build_url
 
 env = environ.Env()
@@ -138,6 +143,17 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "camac.wsgi.application"
+
+COMMON_FORM_SLUGS_BE = [
+    "personalien",
+    "allgemeine-angaben-kurz",
+    "parzelle-tabelle",
+    "personalien-tabelle",
+    "projektverfasserin",
+    "grundeigentumerin",
+    "gebaudeeigentumerin",
+    "vertreterin-mit-vollmacht",
+]
 
 # Application specific settings
 # an application is defined by the customer e.g. uri, schwyz, etc.
@@ -477,6 +493,18 @@ APPLICATIONS = {
                 "notification.NotificationTemplate": Q(type="email"),
                 "notification.NotificationTemplateT": Q(template__type="email"),
             },
+            "buildingauthority": {
+                "caluma_form.Form": Q(pk="realisierung-tabelle"),
+                "caluma_form.FormQuestion": Q(form__pk="realisierung-tabelle"),
+                "caluma_form.Question": Q(pk__startswith="baukontrolle-realisierung")
+                | Q(pk="bewilligungsverfahren-gr-sitzung-bewilligungsdatum"),
+                "caluma_form.QuestionOption": Q(
+                    question__pk__startswith="baukontrolle-realisierung"
+                ),
+                "caluma_form.Option": Q(
+                    questions__pk__startswith="baukontrolle-realisierung"
+                ),
+            },
         },
         "REJECTION_FEEDBACK_QUESTION": {},
         "FORM_FIELD_HISTORY_ENTRY": [
@@ -600,16 +628,78 @@ APPLICATIONS = {
                     }
                 },
             ),
+            "street": ("ng_answer", "ortsbezeichnung-des-vorhabens"),
+            "city": ("ng_answer", "standort-ort"),
             "submit_date": ("first_workflow_entry", [10]),
             "publication_date": ("first_workflow_entry", [15]),
-            "construction_start_date": ("first_workflow_entry", [55]),
-            "profile_approval_date": ("first_workflow_entry", [56]),
-            "decision_date": ("first_workflow_entry", [47]),
-            "final_approval_date": ("first_workflow_entry", [59]),
-            "completion_date": ("first_workflow_entry", [67]),
+            "construction_start_date": (
+                "table",
+                "baukontrolle-realisierung-table",
+                {
+                    "document_from_work_item": "building-authority",
+                    "column_mapping": {
+                        "value": (
+                            "baukontrolle-realisierung-baubeginn",
+                            {"value_key": "date"},
+                        )
+                    },
+                },
+            ),
+            "profile_approval_date": (
+                "table",
+                "baukontrolle-realisierung-table",
+                {
+                    "document_from_work_item": "building-authority",
+                    "column_mapping": {
+                        "value": (
+                            "baukontrolle-realisierung-schnurgeruestabnahme",
+                            {"value_key": "date"},
+                        )
+                    },
+                },
+            ),
+            "decision_date": (
+                "table",
+                "baukontrolle-realisierung-table",
+                {
+                    "document_from_work_item": "building-authority",
+                    "column_mapping": {
+                        "value": (
+                            "bewilligungsverfahren-gr-sitzung-bewilligungsdatum",
+                            {"value_key": "date"},
+                        )
+                    },
+                },
+            ),
+            "final_approval_date": (
+                "table",
+                "baukontrolle-realisierung-table",
+                {
+                    "document_from_work_item": "building-authority",
+                    "column_mapping": {
+                        "value": (
+                            "baukontrolle-realisierung-schlussabnahme",
+                            {"value_key": "date"},
+                        )
+                    },
+                },
+            ),
+            "completion_date": (
+                "table",
+                "baukontrolle-realisierung-table",
+                {
+                    "document_from_work_item": "building-authority",
+                    "column_mapping": {
+                        "value": (
+                            "baukontrolle-realisierung-bauende",
+                            {"value_key": "date"},
+                        )
+                    },
+                },
+            ),
             "proposal": ("ng_answer", ["bezeichnung", "bezeichnung-override"]),
             "construction_costs": ("ng_answer", "baukosten"),
-            "procedure_type_migrated": (  # not the same as regular procedure_type that requires predefined choices
+            "application_type_migrated": (  # not the same as regular application_type that requires predefined choices
                 "ng_answer",
                 "verfahrensart-migriertes-dossier",
             ),
@@ -1601,6 +1691,30 @@ APPLICATIONS = {
                 "notification.NotificationTemplate": Q(type="email"),
                 "notification.NotificationTemplateT": Q(template__type="email"),
             },
+            # required by several form-questions
+            "caluma_form_common": {
+                "caluma_form.Form": Q(pk__in=COMMON_FORM_SLUGS_BE),
+                "caluma_form.FormQuestion": Q(form__pk__in=COMMON_FORM_SLUGS_BE),
+                "caluma_form.Question": Q(forms__pk__in=COMMON_FORM_SLUGS_BE),
+                "caluma_form.QuestionOption": Q(
+                    question__forms__pk__in=COMMON_FORM_SLUGS_BE
+                ),
+                "caluma_form.Option": Q(questions__forms__pk__in=COMMON_FORM_SLUGS_BE),
+            },
+            "caluma_dossier_import_form": {
+                "caluma_form.Form": Q(pk="migriertes-dossier")
+                | Q(pk="migriertes-dossier-daten"),
+                "caluma_form.FormQuestion": Q(form__pk="migriertes-dossier")
+                | Q(form__pk="migriertes-dossier-daten"),
+                "caluma_form.Question": Q(forms__pk="migriertes-dossier")
+                | Q(forms__pk="migriertes-dossier-daten"),
+                "caluma_form.QuestionOption": Q(
+                    question__forms__pk="migriertes-dossier"
+                )
+                | Q(question__forms__pk="migriertes-dossier-daten"),
+                "caluma_form.Option": Q(questions__forms__pk="migriertes-dossier")
+                | Q(questions__forms__pk="migriertes-dossier-daten"),
+            },
             "caluma_form_v2": {
                 "caluma_form.Form": Q(pk__endswith="-v2"),
                 "caluma_form.FormQuestion": Q(form__pk__endswith="-v2"),
@@ -1640,6 +1754,23 @@ APPLICATIONS = {
             "notification.NotificationTemplate",
             "notification.NotificationTemplateT",
         ],
+        "DOSSIER_IMPORT": {
+            "WRITER_CLASS": "camac.dossier_import.config.kt_bern.KtBernDossierWriter",
+            "INSTANCE_STATE_MAPPING": {
+                "SUBMITTED": INSTANCE_STATE_NEW,
+                "APPROVED": INSTANCE_STATE_SB1,
+                "DONE": INSTANCE_STATE_DONE,
+            },
+            "USER": "service-account-camac-admin",
+            "WORKFLOW_MAPPING": {
+                "BUILDINGPERMIT": "building-permit",
+                "PRELIMINARY": "preliminary-clarification",
+            },
+            "CALUMA_FORM": "migriertes-dossier",
+            "FORM_ID": 1,  # TODO: check is this correct?
+            "GROUP_ID": 3,  # Group with service_id and this role_id is created Instances' group
+            "ATTACHMENT_SECTION_ID": 7,  # attachmentsection for imported documents
+        },
         "MASTER_DATA": {
             "canton": ("static", "BE"),
             "applicants": (
@@ -1796,6 +1927,7 @@ APPLICATIONS = {
             ),
             "usage_type": ("answer", "nutzungsart", {"value_parser": "option"}),
             "usage_zone": ("answer", "nutzungszone"),
+            "application_type": ("answer", "verfahrenstyp"),
             "development_regulations": ("answer", "ueberbauungsordnung"),
             "situation": ("answer", "sachverhalt"),
             "monument_worth_protecting": (
@@ -1841,6 +1973,28 @@ APPLICATIONS = {
                 "paper-submit-date",
                 {"value_parser": "datetime"},
             ),
+            "decision_date": (
+                "caluma_decision_date",
+                "decision_date",
+                {"value_key": "date"},
+            ),
+            "publication_date": ("answer", "datum-publikation", {"value_key": "date"}),
+            "construction_start_date": (
+                "answer",
+                "datum-baubeginn",
+                {"value_key": "date"},
+            ),
+            "profile_approval_date": (
+                "answer",
+                "datum-schnurgeruestabnahme",
+                {"value_key": "date"},
+            ),
+            "final_approval_date": (
+                "answer",
+                "datum-schlussabnahme",
+                {"value_key": "date"},
+            ),
+            "completion_date": ("answer", "bauende", {"value_key": "date"}),
             "is_paper": (
                 "answer",
                 "is-paper",
@@ -2998,8 +3152,3 @@ PARASHIFT_SOURCE_FILES_URI = env.str(
 
 PARASHIFT_TENANT_ID = env.int("PARASHIFT_TENANT_ID", default=1665)
 PARASHIFT_API_KEY = env.str("PARASHIFT_API_KEY", default="ey...")
-
-
-DOSSIER_IMPORT_LOADER_CLASSES = {
-    "zip-archive-xlsx": "camac.dossier_import.loaders.XlsxFileDossierLoader"
-}
