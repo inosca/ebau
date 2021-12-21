@@ -24,7 +24,9 @@ def archive_file(settings):
 
 
 @pytest.fixture
-def setup_fixtures_required_by_application_config(django_db_setup, django_db_blocker):
+def setup_fixtures_required_by_application_config(
+    django_db_setup, django_db_blocker, settings
+):
     """Set up application configuration data.
 
     Use this when testing real life dependent procedures and not because you're to
@@ -35,9 +37,16 @@ def setup_fixtures_required_by_application_config(django_db_setup, django_db_blo
     def load_data(config):
         with django_db_blocker.unblock():
             call_command("loaddata", f"/app/{config}/config/instance.json")
-            call_command("loaddata", f"/app/{config}/config/caluma_form.json")
-            call_command("loaddata", f"/app/{config}/config/caluma_workflow.json")
             call_command("loaddata", f"/app/{config}/config/document.json")
+            if config == "kt_bern":
+                call_command(
+                    "loaddata", f"/app/{config}/config/caluma_form_common.json"
+                )
+                call_command(
+                    "loaddata", f"/app/{config}/config/caluma_dossier_import_form.json"
+                )
+            if config == "kt_schwyz":
+                call_command("loaddata", f"/app/{config}/config/buildingauthority.json")
 
     return load_data
 
@@ -45,7 +54,7 @@ def setup_fixtures_required_by_application_config(django_db_setup, django_db_blo
 @pytest.fixture
 def make_workflow_items_for_config(workflow_item_factory):
     def loop_workflow_item_factory(config):
-        for pk in {"kt_schwyz": [10, 15, 55, 56, 47, 59, 67]}.get(config, []):
+        for pk in {"kt_schwyz": [10, 15]}.get(config, []):
             workflow_item_factory(pk=pk)
 
     return loop_workflow_item_factory
@@ -121,8 +130,6 @@ def make_dossier_writer(
     location,
 ):
     def init_writer(config):
-        make_workflow_items_for_config(config)
-        settings.APPLICATION = settings.APPLICATIONS[config]
         setup_fixtures_required_by_application_config(config)
         Group.objects.get_or_create(pk=group.pk, defaults={"role": role})
         writer_cls = import_string(
@@ -136,11 +143,3 @@ def make_dossier_writer(
         )
 
     return init_writer
-
-
-@pytest.fixture
-def get_dossier_loader(db, settings, application_settings):
-    def get_loader(loader):
-        return import_string(settings.DOSSIER_IMPORT_LOADER_CLASSES[loader])()
-
-    return get_loader

@@ -696,7 +696,7 @@ def sz_master_data_case(db, sz_instance, form_field_factory, workflow_entry_fact
             "kt_bern",
             "de",
             pytest.lazy_fixture("be_master_data_case"),
-            ["document"],
+            ["document", "instance__decision"],
             [
                 "document__answers",
                 "document__answers__question__options",
@@ -721,7 +721,7 @@ def sz_master_data_case(db, sz_instance, form_field_factory, workflow_entry_fact
             "kt_bern",
             "fr",
             pytest.lazy_fixture("be_master_data_case"),
-            ["document"],
+            ["document", "instance__decision"],
             [
                 "document__answers",
                 "document__answers__question__options",
@@ -762,22 +762,24 @@ def sz_master_data_case(db, sz_instance, form_field_factory, workflow_entry_fact
             "de",
             pytest.lazy_fixture("sz_master_data_case_gwr"),
             ["instance"],
-            ["instance__fields", "instance__workflowentry_set"],
+            ["instance__fields", "instance__workflowentry_set", "work_items"],
             # 1. Query for fetching case
             # 2. Query for prefetching fields
             # 3. Query for prefetching workflow entries
-            3,
+            # 4. Query for prefetching work_items
+            4,
         ),
         (
             "kt_schwyz",
             "de",
             pytest.lazy_fixture("sz_master_data_case_gwr_v2"),
             ["instance"],
-            ["instance__fields", "instance__workflowentry_set"],
+            ["instance__fields", "instance__workflowentry_set", "work_items"],
             # 1. Query for fetching case
             # 2. Query for prefetching fields
             # 3. Query for prefetching workflow entries
-            3,
+            # 4. Query for prefetching work_items
+            4,
         ),
     ],
 )

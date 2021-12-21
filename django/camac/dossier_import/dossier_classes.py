@@ -1,5 +1,5 @@
 import datetime
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import List, Optional
 from typing.io import IO
 
@@ -20,9 +20,17 @@ class PlotData:
 
 
 @dataclass
+class CalumaPlotData:
+    plot_number: str
+    egrid_number: str
+    coord_east: float
+    coord_north: float
+
+
+@dataclass
 class SiteAddress:
     street: Optional[str]
-    street_nr: Optional[str]
+    street_number: Optional[str]
     city: Optional[str]
 
 
@@ -33,7 +41,8 @@ class Person:
     company: Optional[str]
     street: Optional[str]
     street_number: Optional[str]
-    city: Optional[str]
+    zip: Optional[str]
+    town: Optional[str]
     phone: Optional[str]
     email: Optional[str]
 
@@ -51,10 +60,11 @@ class Dossier:
     cantonal_id: Optional[str] = None
     plot_data: Optional[List[PlotData]] = None
     coordinates: Optional[List[Coordinates]] = None
-    address_location: Optional[str] = None
-    address_city: Optional[str] = None
+    street: Optional[str] = None
+    street_number: Optional[str] = None
+    city: Optional[str] = None
     usage: Optional[str] = None
-    procedure_type: Optional[str] = None
+    application_type: Optional[str] = None
     submit_date: Optional[datetime.datetime] = None
     publication_date: Optional[datetime.datetime] = None
     decision_date: Optional[datetime.datetime] = None
@@ -78,5 +88,6 @@ class Dossier:
         target_state: str
         workflow: Optional[str] = None
         instance: Optional[Instance] = None
-        missing: Optional[List] = list
-        errors: Optional[List] = list
+        missing: Optional[List] = field(default_factory=list)
+        errors: Optional[List] = field(default_factory=list)
+        warnings: Optional[List] = field(default_factory=list)
