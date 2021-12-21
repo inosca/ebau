@@ -38,16 +38,7 @@ def safe_join(elements: Iterable, separator=" "):
     return separator.join(map(str, filter(None, elements))).strip()
 
 
-class DossierLoader:
-    """Dossier loader base class.
-
-    In order to use DossierLoader classes add them to the settings.DOSSIER_IMPORT_LOADER_CLASSES.
-    """
-
-    dossier_class = Dossier
-
-
-class XlsxFileDossierLoader(DossierLoader):
+class XlsxFileDossierLoader:
     """Load dossiers from xlsx in a zip archive with attachment directories.
 
     The expected zip file needs to comply with the following:
@@ -70,17 +61,22 @@ class XlsxFileDossierLoader(DossierLoader):
 
     """
 
+    dossier_class = Dossier
     path_to_dossiers_file: str
     simple_fields = [
-        "address_city",
-        "cantonal_id",
         "id",
-        "link",
-        "procedure_type",
         "proposal",
+        "cantonal_id",
+        "street",
+        "street_number",
+        "city",
         "usage",
-        "completion_date",
+        "application_type",
+        "submit_date",
+        "publication_date",
+        "decision_date",
         "construction_start_date",
+        "completion_date",
         "decision_date",
         "final_approval_date",
         "profile_approval_date",
@@ -88,7 +84,7 @@ class XlsxFileDossierLoader(DossierLoader):
         "submit_date",
     ]
 
-    required_fields = ("id", "status", "proposal")
+    required_fields = ("id", "status", "proposal", "submit_date")
 
     class Column(Enum):
         id = "ID"
@@ -100,11 +96,11 @@ class XlsxFileDossierLoader(DossierLoader):
         coordinate_n = "COORDINATE-N"
         coordinate_e = "COORDINATE-E"
         proposal = "PROPOSAL"
-        address_street = "ADDRESS-STREET"
-        address_street_nr = "ADDRESS-STREET-NR"
-        address_city = "ADDRESS-CITY"
+        street = "ADDRESS-STREET"
+        street_number = "ADDRESS-STREET-NR"
+        city = "ADDRESS-CITY"
         usage = "USAGE"
-        procedure_type = "TYPE"
+        application_type = "TYPE"
         submit_date = "SUBMIT-DATE"
         publication_date = "PUBLICATION-DATE"
         decision_date = "DECISION-DATE"
@@ -120,7 +116,8 @@ class XlsxFileDossierLoader(DossierLoader):
         applicant_company = "APPLICANT-COMPANY"
         applicant_street = "APPLICANT-STREET"
         applicant_street_number = "APPLICANT-STREET-NUMBER"
-        applicant_city = "APPLICANT-CITY"
+        applicant_zip = "APPLICANT-ZIP"
+        applicant_town = "APPLICANT-CITY"
         applicant_phone = "APPLICANT-PHONE"
         applicant_email = "APPLICANT-EMAIL"
         landowner_first_name = "LANDOWNER-FIRST-NAME"
@@ -128,7 +125,8 @@ class XlsxFileDossierLoader(DossierLoader):
         landowner_company = "LANDOWNER-COMPANY"
         landowner_street = "LANDOWNER-STREET"
         landowner_street_number = "LANDOWNER-STREET-NUMBER"
-        landowner_city = "LANDOWNER-CITY"
+        landowner_zip = "LANDOWNER-ZIP"
+        landowner_town = "LANDOWNER-CITY"
         landowner_phone = "LANDOWNER-PHONE"
         landowner_email = "LANDOWNER-EMAIL"
         projectauthor_first_name = "PROJECTAUTHOR-FIRST-NAME"
@@ -136,7 +134,8 @@ class XlsxFileDossierLoader(DossierLoader):
         projectauthor_company = "PROJECTAUTHOR-COMPANY"
         projectauthor_street = "PROJECTAUTHOR-STREET"
         projectauthor_street_number = "PROJECTAUTHOR-STREET-NUMBER"
-        projectauthor_city = "PROJECTAUTHOR-CITY"
+        projectauthor_zip = "PROJECTAUTHOR-ZIP"
+        projectauthor_town = "PROJECTAUTHOR-CITY"
         projectauthor_phone = "PROJECTAUTHOR-PHONE"
         projectauthor_email = "PROJECTAUTHOR-EMAIL"
 
@@ -155,9 +154,8 @@ class XlsxFileDossierLoader(DossierLoader):
         )
         dossier._meta = Dossier.Meta(
             target_state=dossier_row.get(XlsxFileDossierLoader.Column.status.value),
-            workflow=dossier_row.get(XlsxFileDossierLoader.Column.workflow.value),
-            missing=[],
-            errors=[],
+            workflow=dossier_row.get(XlsxFileDossierLoader.Column.workflow.value)
+            or "BUILDINGPERMIT",
         )
 
         for field in self.required_fields:
@@ -180,13 +178,6 @@ class XlsxFileDossierLoader(DossierLoader):
         )
         if load_coordinates_errors:  # pragma: no cover
             dossier._meta.errors.append(load_coordinates_errors)
-
-        dossier.address_location = safe_join(
-            (
-                dossier_row.get(XlsxFileDossierLoader.Column.address_street.value),
-                dossier_row.get(XlsxFileDossierLoader.Column.address_street_nr.value),
-            )
-        )
 
         dossier.applicant = [
             Person(
@@ -267,7 +258,7 @@ class XlsxFileDossierLoader(DossierLoader):
             )
             egrids = egrids.split(",") if type(egrids) == str else [egrids]
             municipality = dossier_row[
-                getattr(XlsxFileDossierLoader.Column, "address_city").value
+                getattr(XlsxFileDossierLoader.Column, "city").value
             ]
             for number, egrid in zip(plot_numbers, egrids):
                 if len(str(numbers(number))) != len(str(number)):

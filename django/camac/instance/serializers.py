@@ -56,6 +56,7 @@ from camac.user.serializers import CurrentGroupDefault, CurrentServiceDefault
 
 from ..utils import get_paper_settings
 from . import document_merge_service, domain_logic, models, validators
+from .domain_logic import save_ebau_number
 
 SUBMIT_DATE_CHAPTER = 100001
 SUBMIT_DATE_QUESTION_ID = 20036
@@ -1275,18 +1276,6 @@ class CalumaInstanceSetEbauNumberSerializer(serializers.Serializer):
 
         return value
 
-    def _save_ebau_number(self, instance, case, ebau_number):
-        case.meta["ebau-number"] = ebau_number
-        case.save()
-
-        Answer.objects.update_or_create(
-            instance=instance,
-            question_id=be_constants.QUESTION_EBAU_NR,
-            chapter_id=be_constants.CHAPTER_EBAU_NR,
-            item=1,
-            defaults={"answer": ebau_number},
-        )
-
     @permission_aware
     def _update_workflow(self, instance, case):
         # The workflow should only be updated if the municipality sets the ebau number
@@ -1305,9 +1294,7 @@ class CalumaInstanceSetEbauNumberSerializer(serializers.Serializer):
 
     @transaction.atomic
     def update(self, instance, validated_data):
-        self._save_ebau_number(
-            instance, instance.case, validated_data.get("ebau_number")
-        )
+        save_ebau_number(instance, validated_data.get("ebau_number"))
         self._update_workflow(instance, instance.case)
 
         return instance

@@ -16,6 +16,8 @@ from .test_master_data import add_answer, add_table_answer
 def caluma_form_fixture(db):
     kt_bern_path = Path(settings.ROOT_DIR) / "kt_bern"
     paths = [
+        "caluma_form_common.json",
+        "caluma_dossier_import_form.json",
         "caluma_form.json",
         "caluma_form_v2.json",
         "caluma_form_sb2.json",
