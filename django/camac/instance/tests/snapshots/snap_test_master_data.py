@@ -4,7 +4,6 @@ from __future__ import unicode_literals
 
 from snapshottest import GenericRepr, Snapshot
 
-
 snapshots = Snapshot()
 
 snapshots['test_master_data[kt_bern-de-be_master_data_case-select_related0-prefetch_related0-14] 1'] = {
@@ -20,6 +19,7 @@ snapshots['test_master_data[kt_bern-de-be_master_data_case-select_related0-prefe
             'zip': 1234
         }
     ],
+    'application_type': None,
     'building_owners': [
         {
             'first_name': 'Peter',
@@ -34,9 +34,13 @@ snapshots['test_master_data[kt_bern-de-be_master_data_case-select_related0-prefe
     ],
     'canton': 'BE',
     'city': 'Musterhausen',
+    'completion_date': None,
     'construction_costs': 199000,
+    'construction_start_date': None,
+    'decision_date': None,
     'development_regulations': 'Überbauung XY',
     'dossier_number': '2021-1',
+    'final_approval_date': None,
     'is_paper': False,
     'landowners': [
         {
@@ -118,6 +122,7 @@ snapshots['test_master_data[kt_bern-de-be_master_data_case-select_related0-prefe
             'plot_number': 2592
         }
     ],
+    'profile_approval_date': None,
     'project': {
         'label': 'Neubau',
         'slug': 'baubeschrieb-neubau'
@@ -135,6 +140,7 @@ snapshots['test_master_data[kt_bern-de-be_master_data_case-select_related0-prefe
         }
     ],
     'proposal': 'Grosses Haus',
+    'publication_date': None,
     'situation': 'Sachverhalt Test',
     'street': 'Musterstrasse',
     'street_number': 4,
@@ -167,6 +173,7 @@ snapshots['test_master_data[kt_bern-fr-be_master_data_case-select_related1-prefe
             'zip': 1234
         }
     ],
+    'application_type': None,
     'building_owners': [
         {
             'first_name': 'Peter',
@@ -181,9 +188,13 @@ snapshots['test_master_data[kt_bern-fr-be_master_data_case-select_related1-prefe
     ],
     'canton': 'BE',
     'city': 'Musterhausen',
+    'completion_date': None,
     'construction_costs': 199000,
+    'construction_start_date': None,
+    'decision_date': None,
     'development_regulations': 'Überbauung XY',
     'dossier_number': '2021-1',
+    'final_approval_date': None,
     'is_paper': False,
     'landowners': [
         {
@@ -265,6 +276,7 @@ snapshots['test_master_data[kt_bern-fr-be_master_data_case-select_related1-prefe
             'plot_number': 2592
         }
     ],
+    'profile_approval_date': None,
     'project': {
         'label': 'Neubau',
         'slug': 'baubeschrieb-neubau'
@@ -282,6 +294,7 @@ snapshots['test_master_data[kt_bern-fr-be_master_data_case-select_related1-prefe
         }
     ],
     'proposal': 'Grosses Haus',
+    'publication_date': None,
     'situation': 'Sachverhalt Test',
     'street': 'Musterstrasse',
     'street_number': 4,
@@ -301,7 +314,7 @@ snapshots['test_master_data[kt_bern-fr-be_master_data_case-select_related1-prefe
     ]
 }
 
-snapshots['test_master_data[kt_schwyz-de-sz_master_data_case_gwr-select_related3-prefetch_related3-3] 1'] = {
+snapshots['test_master_data[kt_schwyz-de-sz_master_data_case_gwr-select_related3-prefetch_related3-4] 1'] = {
     'applicants': [
         {
             'company': 'ACME AG',
@@ -317,6 +330,7 @@ snapshots['test_master_data[kt_schwyz-de-sz_master_data_case_gwr-select_related3
             'zip': 5678
         }
     ],
+    'application_type_migrated': None,
     'buildings': [
         {
             'building_category': 1060,
@@ -341,13 +355,18 @@ snapshots['test_master_data[kt_schwyz-de-sz_master_data_case_gwr-select_related3
         }
     ],
     'canton': 'SZ',
-    'completion_date': None,
+    'city': None,
+    'completion_date': [
+    ],
     'construction_costs': 129000,
-    'construction_start_date': None,
+    'construction_start_date': [
+    ],
     'coordinates': [
     ],
-    'decision_date': None,
-    'final_approval_date': None,
+    'decision_date': [
+    ],
+    'final_approval_date': [
+    ],
     'landowners': [
     ],
     'plot_data': [
@@ -356,16 +375,17 @@ snapshots['test_master_data[kt_schwyz-de-sz_master_data_case_gwr-select_related3
             'plot_number': 1234
         }
     ],
-    'procedure_type_migrated': None,
-    'profile_approval_date': None,
+    'profile_approval_date': [
+    ],
     'project_authors': [
     ],
     'proposal': 'Grosses Haus',
     'publication_date': None,
+    'street': None,
     'submit_date': None
 }
 
-snapshots['test_master_data[kt_schwyz-de-sz_master_data_case_gwr_v2-select_related4-prefetch_related4-3] 1'] = {
+snapshots['test_master_data[kt_schwyz-de-sz_master_data_case_gwr_v2-select_related4-prefetch_related4-4] 1'] = {
     'applicants': [
         {
             'company': 'ACME AG',
@@ -381,6 +401,7 @@ snapshots['test_master_data[kt_schwyz-de-sz_master_data_case_gwr_v2-select_relat
             'zip': 5678
         }
     ],
+    'application_type_migrated': None,
     'buildings': [
         {
             'building_category': 1020,
@@ -413,13 +434,18 @@ snapshots['test_master_data[kt_schwyz-de-sz_master_data_case_gwr_v2-select_relat
         }
     ],
     'canton': 'SZ',
-    'completion_date': None,
+    'city': None,
+    'completion_date': [
+    ],
     'construction_costs': 129000,
-    'construction_start_date': None,
+    'construction_start_date': [
+    ],
     'coordinates': [
     ],
-    'decision_date': None,
-    'final_approval_date': None,
+    'decision_date': [
+    ],
+    'final_approval_date': [
+    ],
     'landowners': [
     ],
     'plot_data': [
@@ -428,12 +454,13 @@ snapshots['test_master_data[kt_schwyz-de-sz_master_data_case_gwr_v2-select_relat
             'plot_number': 1234
         }
     ],
-    'procedure_type_migrated': None,
-    'profile_approval_date': None,
+    'profile_approval_date': [
+    ],
     'project_authors': [
     ],
     'proposal': 'Grosses Haus',
     'publication_date': None,
+    'street': None,
     'submit_date': None
 }
 

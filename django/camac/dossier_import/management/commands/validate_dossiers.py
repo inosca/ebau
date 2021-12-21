@@ -12,8 +12,6 @@ from camac.dossier_import.validation import (
 )
 from camac.user.models import Group
 
-DOSSIER_IMPORT_LOADER_DEFAULT = "zip-archive-xlsx"
-
 
 class Command(BaseCommand):
 
@@ -21,32 +19,25 @@ class Command(BaseCommand):
 
     def add_arguments(self, parser):
         parser.add_argument(
-            "user_id",
+            "--user_id",
             type=int,
             help="The ID of the user who should perform the import",
             nargs=1,
         )
         parser.add_argument(
-            "group_id",
+            "--group_id",
             type=int,
             nargs=1,
             help="The Service ID is required to assign the import to the original entity.",
         )
         parser.add_argument(
-            "location_id",
+            "--location_id",
             type=int,
             nargs=1,
             help="The location every imported instance is located to.",
         )
         parser.add_argument(
             "path_to_source", type=str, nargs=1, help="Where to find th"
-        )
-        parser.add_argument(
-            "--loader",
-            type=str,
-            nargs="?",
-            default=DOSSIER_IMPORT_LOADER_DEFAULT,
-            help=f"Specifies a loader class that provides the writer with Dossier dataclass instances. Available choices: {','.join(settings.DOSSIER_IMPORT_LOADER_CLASSES.keys())}. Defaults to {DOSSIER_IMPORT_LOADER_DEFAULT}",
         )
         parser.add_argument(
             "--override_application",
