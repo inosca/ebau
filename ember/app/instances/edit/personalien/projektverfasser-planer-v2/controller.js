@@ -9,14 +9,14 @@ export default class InstancesEditPersonalienProjektverfasserPlanerController ex
   get questionActive() {
     return (
       this.model.meta.editable.includes("form") &&
-      this.model.instance.fields.findBy("name", "bauherrschaft")
+      this.model.instance.fields.findBy("name", "bauherrschaft-v2")
     );
   }
 
   @action
   async copyQuestionValue() {
     const question = await this.questionStore.peek(
-      "projektverfasser-planer",
+      "projektverfasser-planer-v2",
       this.model.instance.id
     );
     question.set(

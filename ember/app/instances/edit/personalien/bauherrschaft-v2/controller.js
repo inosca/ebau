@@ -16,7 +16,7 @@ export default class InstancesEditPersonalienBauherrschaftController extends Con
   @action
   async copyQuestionValue() {
     const question = await this.questionStore.peek(
-      "bauherrschaft",
+      "bauherrschaft-v2",
       this.model.instance.id
     );
     question.set(

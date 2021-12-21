@@ -158,7 +158,9 @@ def test_publication_publish(
         },
     ]
     add_field(name="bauherrschaft", value=persons)
+    add_field(name="bauherrschaft-v2", value=persons)
     add_field(name="projektverfasser-planer", value=persons)
+    add_field(name="projektverfasser-planer-v2", value=persons)
     add_field(name="grundeigentumerschaft", value=persons)
     add_field(name="grundeigentumerschaft-override", value=persons)
     add_field(name="bezeichnung", value="Ein Auto")
