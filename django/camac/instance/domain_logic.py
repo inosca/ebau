@@ -31,6 +31,19 @@ WORKFLOW_ITEM_DOSSIER_ERFASST_UR = 12
 caluma_api = CalumaApi()
 
 
+def save_ebau_number(instance, ebau_number):
+    instance.case.meta["ebau-number"] = ebau_number
+    instance.case.save()
+
+    Answer.objects.update_or_create(
+        instance=instance,
+        question_id=be_constants.QUESTION_EBAU_NR,
+        chapter_id=be_constants.CHAPTER_EBAU_NR,
+        item=1,
+        defaults={"answer": ebau_number},
+    )
+
+
 def link_instances(first, second):
     if not first.instance_group and not second.instance_group:
         instance_group = InstanceGroup.objects.create()

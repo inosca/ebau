@@ -430,6 +430,12 @@ class MasterData(object):
             for row in self.ng_answer_resolver(lookup, default=[])
         ]
 
+    def caluma_decision_date_resolver(self, *args, **kwargs):
+        return (
+            hasattr(self.case.instance, "decision")
+            and self.case.instance.decision.decision_date
+        ) or None
+
     def datetime_parser(self, value, default, **kwargs):
         try:
             return dateutil_parse(value)
