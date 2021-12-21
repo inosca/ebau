@@ -1,11 +1,14 @@
+import datetime
 from pathlib import Path
 
 import pytest
 from django.conf import settings
 from django.utils import timezone
+from pytest_lazyfixture import lazy_fixture
 
+from camac.constants.kt_bern import DECISION_TYPE_BUILDING_PERMIT
 from camac.core.models import InstanceLocation
-from camac.dossier_import.loaders import InvalidImportDataError
+from camac.dossier_import.loaders import InvalidImportDataError, XlsxFileDossierLoader
 from camac.dossier_import.messages import MessageCodes, update_summary
 from camac.dossier_import.validation import validate_zip_archive_structure
 from camac.instance.master_data import MasterData
@@ -18,12 +21,10 @@ TEST_IMPORT_FILE_PATH = str(
 TEST_IMPORT_FILE_NAME = "import-example.zip"
 
 
-@pytest.mark.parametrize("config,loader", [("kt_schwyz", "zip-archive-xlsx")])
-def test_bad_file_format_dossier_xlsx(
-    db, user, settings, config, loader, make_dossier_writer, get_dossier_loader
-):
+@pytest.mark.parametrize("config", ["kt_schwyz"])
+def test_bad_file_format_dossier_xlsx(db, user, settings, config, make_dossier_writer):
     settings.APPLICATION = settings.APPLICATIONS[config]
-    loader = get_dossier_loader(loader)
+    loader = XlsxFileDossierLoader()
     with pytest.raises(InvalidImportDataError):
         all(
             loader.load_dossiers(
@@ -36,15 +37,27 @@ def test_bad_file_format_dossier_xlsx(
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
-@pytest.mark.parametrize("config", ["kt_schwyz"])
+@pytest.mark.parametrize(
+    "config,camac_instance",
+    [
+        ("kt_schwyz", lazy_fixture("sz_instance")),
+        ("kt_bern", lazy_fixture("be_instance")),
+    ],
+)
 def test_create_instance_dossier_import_case(
     db,
     dossier_import,
     make_dossier_writer,
-    get_dossier_loader,
     archive_file,
     settings,
     config,
+    camac_instance,
+    instance_factory,
+    instance_with_case,
+    instance_service_factory,
+    admin_user,
+    case_factory,
+    work_item_factory,
 ):
     # The test import file features faulty lines for cov
     # - 3 lines with good data (1 without documents directory)
@@ -52,26 +65,29 @@ def test_create_instance_dossier_import_case(
     # - 1 line with duplicate data (gemeinde-id)
     settings.APPLICATION = settings.APPLICATIONS[config]
     dossier_import.source_file = archive_file(TEST_IMPORT_FILE_NAME)
-    dossier_import.dossier_loader_type = dossier_import.DOSSIER_LOADER_ZIP_ARCHIVE_XLSX
     dossier_import.save()
+
     writer = make_dossier_writer(config)
-    loader = get_dossier_loader(dossier_import.dossier_loader_type)
+    loader = XlsxFileDossierLoader()
+
     for dossier in loader.load_dossiers(dossier_import.source_file.path):
         message = writer.import_dossier(dossier, str(dossier_import.pk))
         dossier_import.messages["import"]["details"].append(message.to_dict())
     update_summary(dossier_import)
     assert dossier_import.messages["import"]["summary"]["stats"]["dossiers"] == 3
-    assert len(dossier_import.messages["import"]["summary"]["warning"]) == 1
+    assert len(dossier_import.messages["import"]["summary"]["warning"]) == 2
     assert len(dossier_import.messages["import"]["summary"]["error"]) == 1
 
     instances = Instance.objects.filter(
         **{"case__meta__import-id": str(dossier_import.pk)}
-    )
-    set(
-        InstanceLocation.objects.filter(instance__in=instances).values_list(
-            "instance", flat=True
-        )
-    ) == set(instances.values_list("pk", flat=True))
+    ).order_by("pk")
+
+    if config == "kt_schwyz":
+        assert set(
+            InstanceLocation.objects.filter(instance__in=instances).values_list(
+                "instance", flat=True
+            )
+        ) == set(instances.values_list("pk", flat=True))
     deletion = Instance.objects.filter(
         **{"case__meta__import-id": str(dossier_import.pk)}
     ).delete()
@@ -138,6 +154,7 @@ def test_set_workflow_state_sz(
 ):
     # This test skips instance creation where the instance's instance_state is set to the correct
     # state.
+    settings.APPLICATION = settings.APPLICATIONS["kt_schwyz"]
     writer = make_dossier_writer(
         "kt_schwyz",
     )
@@ -150,6 +167,9 @@ def test_set_workflow_state_sz(
 
 
 @pytest.mark.parametrize(
+    "config,camac_instance", [("kt_schwyz", lazy_fixture("sz_instance"))]
+)
+@pytest.mark.parametrize(
     "instance_status,expected_work_items_states",
     [
         (
@@ -160,82 +180,71 @@ def test_set_workflow_state_sz(
 )
 def test_set_workflow_state_exceptions(
     db,
-    sz_instance,
+    camac_instance,
     make_dossier_writer,
     instance_status,
     expected_work_items_states,
+    config,
+    settings,
 ):
+    settings.APPLICATION = settings.APPLICATIONS[config]
     writer = make_dossier_writer(
-        "kt_schwyz",
+        config,
     )
-    sz_instance.case.work_items.get(task_id=expected_work_items_states[0]).delete()
-    messages = writer._set_workflow_state(sz_instance, instance_status)
+    camac_instance.case.work_items.get(task_id=expected_work_items_states[0]).delete()
+    messages = writer._set_workflow_state(camac_instance, instance_status)
     assert (
         list((filter(lambda x: x.level == 2, messages)))[0].code
         == MessageCodes.WORKFLOW_SKIP_ITEM_FAILED
     )
 
 
-@pytest.mark.parametrize("config", ["kt_schwyz"])
+@pytest.mark.parametrize("config", ["kt_bern"])
 @pytest.mark.parametrize(
-    "dossier_row_patch,expected_target,expected_value",
+    "dossier_row_patch,expected_target",
     [
+        # based on existing ebau-number and service access resulting ebau-number differs
+        ({"CANTONAL-ID": None}, "dossier_number"),  # 2017-1
+        ({"CANTONAL-ID": "2020-1"}, "dossier_number"),  # 2020-1
+        ({"CANTONAL-ID": "2020-2"}, "dossier_number"),  # 2017-1
         (
             {
                 "COORDINATE-E": "2`710`662",
                 "COORDINATE-N": "1`225`997",
-            },
-            "coordinates",
-            [{"lat": 47.175669937318816, "lng": 8.8984885140077}],
-        ),
-        (
-            {
                 "PARCEL": "123,2BA",
                 "EGRID": "HK207838123456,EGRIDDELLEY",
-                "ADDRESS-CITY": "Steinerberg",
             },
             "plot_data",
-            [
-                {"plot_number": 123, "egrid_number": "HK207838123456"},
-                {"plot_number": None, "egrid_number": "EGRIDDELLEY"},
-            ],
         ),
         (
             {"SUBMIT-DATE": timezone.datetime(2021, 12, 12)},
             "submit_date",
-            timezone.make_aware(timezone.datetime(2021, 12, 12).replace(hour=12)),
         ),
         (
             {"PUBLICATION-DATE": timezone.datetime(2021, 12, 12)},
             "publication_date",
-            timezone.make_aware(timezone.datetime(2021, 12, 12).replace(hour=12)),
         ),
         (
             {"CONSTRUCTION-START-DATE": timezone.datetime(2021, 12, 12)},
             "construction_start_date",
-            timezone.make_aware(timezone.datetime(2021, 12, 12).replace(hour=12)),
         ),
         (
             {"PROFILE-APPROVAL-DATE": timezone.datetime(2021, 12, 12)},
             "profile_approval_date",
-            timezone.make_aware(timezone.datetime(2021, 12, 12).replace(hour=12)),
         ),
         (
             {"DECISION-DATE": timezone.datetime(2021, 12, 12)},
             "decision_date",
-            timezone.make_aware(timezone.datetime(2021, 12, 12).replace(hour=12)),
         ),
         (
             {"FINAL-APPROVAL-DATE": timezone.datetime(2021, 12, 12)},
             "final_approval_date",
-            timezone.make_aware(timezone.datetime(2021, 12, 12).replace(hour=12)),
         ),
         (
             {"COMPLETION-DATE": timezone.datetime(2021, 12, 12)},
             "completion_date",
-            timezone.make_aware(timezone.datetime(2021, 12, 12).replace(hour=12)),
         ),
-        ({"TYPE": "Baugesuch"}, "procedure_type_migrated", "Baugesuch"),
+        ({"TYPE": "Baugesuch"}, "application_type"),
         (
             dict(
                 [
@@ -244,27 +253,13 @@ def test_set_workflow_state_exceptions(
                     ("APPLICANT-COMPANY", "Chocolate Factory"),
                     ("APPLICANT-STREET", "Candy Lane"),
                     ("APPLICANT-STREET-NUMBER", "13"),
+                    ("APPLICANT-ZIP", "1234"),
                     ("APPLICANT-CITY", "Wonderland"),
                     ("APPLICANT-PHONE", "+1 101 10 01 101"),
                     ("APPLICANT-EMAIL", "candy@example.com"),
                 ]
             ),
             "applicants",
-            [
-                {
-                    "last_name": "Wonka",
-                    "first_name": "Willy",
-                    "street": "Candy Lane 13",
-                    "town": "Wonderland",
-                    "country": "Schweiz",
-                    "email": "candy@example.com",
-                    "phone": "+1 101 10 01 101",
-                    "is_juristic_person": None,
-                    "juristic_name": "Chocolate Factory",
-                    "company": "Chocolate Factory",
-                    "zip": None,
-                }
-            ],
         ),
         (
             dict(
@@ -273,28 +268,13 @@ def test_set_workflow_state_exceptions(
                     ("LANDOWNER-LAST-NAME", "Wonka"),
                     ("LANDOWNER-COMPANY", "Chocolate Factory"),
                     ("LANDOWNER-STREET", "Candy Lane"),
-                    ("LANDOWNER-STREET-NUMBER", 13),
+                    ("LANDOWNER-STREET-NUMBER", "13"),
                     ("LANDOWNER-CITY", "Wonderland"),
                     ("LANDOWNER-PHONE", "+1 101 10 01 101"),
                     ("LANDOWNER-EMAIL", "candy@example.com"),
                 ]
             ),
             "landowners",
-            [
-                {
-                    "last_name": "Wonka",
-                    "first_name": "Willy",
-                    "street": "Candy Lane 13",
-                    "town": "Wonderland",
-                    "country": "Schweiz",
-                    "email": "candy@example.com",
-                    "phone": "+1 101 10 01 101",
-                    "is_juristic_person": None,
-                    "juristic_name": "Chocolate Factory",
-                    "company": "Chocolate Factory",
-                    "zip": None,
-                }
-            ],
         ),
         (
             dict(
@@ -310,21 +290,160 @@ def test_set_workflow_state_exceptions(
                 ]
             ),
             "project_authors",
-            [
-                {
-                    "last_name": "Wonka",
-                    "first_name": "Willy",
-                    "street": "Candy Lane",
-                    "town": "Wonderland",
-                    "country": "Schweiz",
-                    "email": "candy@example.com",
-                    "phone": "+1 101 10 01 101",
-                    "is_juristic_person": None,
-                    "juristic_name": "Chocolate Factory",
-                    "company": "Chocolate Factory",
-                    "zip": None,
-                }
-            ],
+        ),
+    ],
+)
+def test_record_loading_be(
+    db,
+    setup_fixtures_required_by_application_config,
+    application_settings,
+    settings,
+    be_instance,
+    instance_service_factory,
+    instance_factory,
+    instance_with_case,
+    make_dossier_writer,
+    dossier_row,
+    config,
+    dossier_row_patch,
+    expected_target,
+    snapshot,
+):
+    """Load data from import record, make persistant and verify with master_data API."""
+
+    settings.APPLICATION = settings.APPLICATIONS[config]
+    writer = make_dossier_writer(config=config)
+
+    if expected_target == "dossier_number":
+        existing_instance = instance_factory()
+        instance_service_factory(
+            instance=existing_instance, service=writer._group.service
+        )
+        existing_instance = instance_with_case(existing_instance)
+        existing_instance.case.meta.update({"ebau-number": "2020-1"})
+        existing_instance.case.save()
+
+        foreign_instance = instance_factory()
+        instance_service_factory(instance=foreign_instance)
+        foreign_instance = instance_with_case(foreign_instance)
+        foreign_instance.case.meta.update({"ebau-number": "2020-2"})
+        foreign_instance.case.save()
+
+    loader = XlsxFileDossierLoader()
+    dossier_row.update(dossier_row_patch)
+    dossier = loader._load_dossier(dossier_row)
+    writer.write_fields(be_instance, dossier)
+    md = MasterData(be_instance.case)
+    snapshot.assert_match(getattr(md, expected_target))
+
+
+@pytest.mark.parametrize(
+    "config,camac_instance",
+    [
+        ("kt_schwyz", lazy_fixture("sz_instance")),
+    ],
+)
+@pytest.mark.parametrize(
+    "dossier_row_patch,target",
+    [
+        (
+            {
+                "COORDINATE-E": "2`710`662",
+                "COORDINATE-N": "1`225`997",
+            },
+            "coordinates",
+        ),
+        (
+            {
+                "ADDRESS-STREET": "Musterstrasse",
+                "ADDRESS-STREET-NR": "3a",
+            },
+            "street",
+        ),
+        (
+            {
+                "PARCEL": "123,2BA",
+                "EGRID": "HK207838123456,EGRIDDELLEY",
+                "ADDRESS-CITY": "Steinerberg",
+            },
+            "plot_data",
+        ),
+        (
+            {"SUBMIT-DATE": timezone.datetime(2021, 12, 12)},
+            "submit_date",
+        ),
+        (
+            {"PUBLICATION-DATE": timezone.datetime(2021, 12, 12)},
+            "publication_date",
+        ),
+        (
+            {"CONSTRUCTION-START-DATE": timezone.datetime(2021, 12, 12)},
+            "construction_start_date",
+        ),
+        (
+            {"PROFILE-APPROVAL-DATE": timezone.datetime(2021, 12, 12)},
+            "profile_approval_date",
+        ),
+        (
+            {"DECISION-DATE": timezone.datetime(2021, 12, 12)},
+            "decision_date",
+        ),
+        (
+            {"FINAL-APPROVAL-DATE": timezone.datetime(2021, 12, 12)},
+            "final_approval_date",
+        ),
+        (
+            {"COMPLETION-DATE": timezone.datetime(2021, 12, 12)},
+            "completion_date",
+        ),
+        ({"TYPE": "Baugesuch"}, "application_type_migrated"),
+        (
+            dict(
+                [
+                    ("APPLICANT-FIRST-NAME", "Willy"),
+                    ("APPLICANT-LAST-NAME", "Wonka"),
+                    ("APPLICANT-COMPANY", "Chocolate Factory"),
+                    ("APPLICANT-STREET", "Candy Lane"),
+                    ("APPLICANT-STREET-NUMBER", "13"),
+                    ("APPLICANT-ZIP", "1234"),
+                    ("APPLICANT-CITY", "Wonderland"),
+                    ("APPLICANT-PHONE", "+1 101 10 01 101"),
+                    ("APPLICANT-EMAIL", "candy@example.com"),
+                ]
+            ),
+            "applicants",
+        ),
+        (
+            dict(
+                [
+                    ("LANDOWNER-FIRST-NAME", "Willy"),
+                    ("LANDOWNER-LAST-NAME", "Wonka"),
+                    ("LANDOWNER-COMPANY", "Chocolate Factory"),
+                    ("LANDOWNER-STREET", "Candy Lane"),
+                    ("LANDOWNER-STREET-NUMBER", 13),
+                    ("LANDOWNER-ZIP", "2345"),
+                    ("LANDOWNER-CITY", "Wonderland"),
+                    ("LANDOWNER-PHONE", "+1 101 10 01 101"),
+                    ("LANDOWNER-EMAIL", "candy@example.com"),
+                ]
+            ),
+            "landowners",
+        ),
+        (
+            dict(
+                [
+                    ("PROJECTAUTHOR-FIRST-NAME", "Willy"),
+                    ("PROJECTAUTHOR-LAST-NAME", "Wonka"),
+                    ("PROJECTAUTHOR-COMPANY", "Chocolate Factory"),
+                    ("PROJECTAUTHOR-STREET", "Candy Lane"),
+                    ("PROJECTAUTHOR-STREET-NUMBER", None),
+                    ("PROJECTAUTHOR-ZIP", "3456"),
+                    ("PROJECTAUTHOR-CITY", "Wonderland"),
+                    ("PROJECTAUTHOR-PHONE", "+1 101 10 01 101"),
+                    ("PROJECTAUTHOR-EMAIL", "candy@example.com"),
+                ]
+            ),
+            "project_authors",
         ),
         (
             dict(
@@ -334,13 +453,13 @@ def test_set_workflow_state_exceptions(
                     ("PROJECTAUTHOR-COMPANY", None),
                     ("PROJECTAUTHOR-STREET", None),
                     ("PROJECTAUTHOR-STREET-NUMBER", None),
+                    ("PROJECTAUTHOR-ZIP", None),
                     ("PROJECTAUTHOR-CITY", None),
                     ("PROJECTAUTHOR-PHONE", None),
                     ("PROJECTAUTHOR-EMAIL", None),
                 ]
             ),
             "project_authors",
-            [],
         ),
     ],
 )
@@ -350,28 +469,58 @@ def test_record_loading_sz(
     make_workflow_items_for_config,
     application_settings,
     settings,
-    sz_instance,
+    camac_instance,
     make_dossier_writer,
-    get_dossier_loader,
     dossier_row,
     config,
+    snapshot,
     dossier_row_patch,
-    expected_target,
-    expected_value,
+    target,
+    work_item_factory,
+):
+    """Load data from import record, make persistent and verify with master_data API."""
+    settings.APPLICATION = settings.APPLICATIONS[config]
+    writer = make_dossier_writer(config=config)
+    loader = XlsxFileDossierLoader()
+    dossier_row.update(dossier_row_patch)
+    make_workflow_items_for_config(config)
+    work_item_factory(task_id="building-authority", case=camac_instance.case)
+    dossier = loader._load_dossier(dossier_row)
+    writer.write_fields(camac_instance, dossier)
+    md = MasterData(camac_instance.case)
+    snapshot.assert_match(getattr(md, target))
+
+
+@pytest.mark.parametrize(
+    "config,camac_instance",
+    [
+        ("kt_schwyz", lazy_fixture("sz_instance")),
+        ("kt_bern", lazy_fixture("be_instance")),
+    ],
+)
+def test_record_loading_all_empty(
+    db,
+    setup_fixtures_required_by_application_config,
+    make_workflow_items_for_config,
+    application_settings,
+    settings,
+    camac_instance,
+    make_dossier_writer,
+    dossier_row,
+    config,
+    snapshot,
 ):
     """Load data from import record, make persistant and verify with master_data API."""
     settings.APPLICATION = settings.APPLICATIONS[config]
     writer = make_dossier_writer(config=config)
-    loader = get_dossier_loader("zip-archive-xlsx")
-    dossier_row.update(dossier_row_patch)
+    loader = XlsxFileDossierLoader()
+    make_workflow_items_for_config(config)
+    dossier_row = {key: "" for key in dossier_row.keys()}
     dossier = loader._load_dossier(dossier_row)
-    writer.write_fields(sz_instance, dossier)
-    md = MasterData(sz_instance.case)
-    assert getattr(md, expected_target) == expected_value
+    writer.write_fields(camac_instance, dossier)
 
 
 @pytest.mark.parametrize("config", ["kt_schwyz"])
-@pytest.mark.parametrize("loader", ["zip-archive-xlsx"])
 @pytest.mark.parametrize(
     "dossier_row_patch,expected",
     [
@@ -399,16 +548,15 @@ def test_record_loading_exceptions(
     settings,
     sz_instance,
     make_dossier_writer,
-    get_dossier_loader,
     dossier_row,
-    loader,
     config,
     dossier_row_patch,
     expected,
 ):
     """Load data from import record, make persistant and verify with master_data API."""
-    loader = get_dossier_loader(loader)
+    loader = XlsxFileDossierLoader()
     dossier_row.update(dossier_row_patch)
+    make_workflow_items_for_config(config)
     del dossier_row["STATUS"]
     dossier = loader._load_dossier(dossier_row)
     for key, value in expected.items():
@@ -429,3 +577,131 @@ def test_validation(
     dossier_import.save()
     with pytest.raises(expected_exception):
         validate_zip_archive_structure(str(dossier_import.pk))
+
+
+@pytest.mark.parametrize(
+    "target_state,workflow_type,expected_work_items_states,expected_case_status",
+    [
+        (
+            "SUBMITTED",
+            "PRELIMINARY",
+            [
+                ("submit", "skipped"),  # "Gesuch ausfüllen"
+                ("ebau-number", "ready"),  # "eBau Nummer vergeben"
+                ("nfd", "ready"),  # Nachforderungen
+                ("create-manual-workitems", "ready"),  # "Manuelle aufgabe erfassen"
+            ],
+            "running",
+        ),  # "Gesuch einreichen"
+        (
+            "APPROVED",
+            "PRELIMINARY",
+            [
+                ("submit", "skipped"),  # "Gesuch ausfüllen"
+                ("ebau-number", "skipped"),  # "eBau Nummer vergeben"
+                ("nfd", "completed"),  # Nachforderungen
+                ("create-manual-workitems", "canceled"),  # "Manuelle aufgabe erfassen"
+                ("init-circulation", "canceled"),  # "Zirkulation initialisieren"
+                ("reopen-circulation", "canceled"),
+                ("audit", "skipped"),  # "Dossier prüfen"
+                ("publication", "skipped"),  # "Dossier publizieren"
+                ("skip-circulation", "skipped"),  # "Zirkulation überspringen"
+                ("fill-publication", "skipped"),  # "Publikation ausfüllen"
+                ("create-publication", "canceled"),  # "Neue Publikation"
+                ("decision", "skipped"),  # "Entscheid verfügen"
+                ("information-of-neighbors", "skipped"),  # not documented in miro
+            ],
+            "completed",
+        ),
+        (
+            "SUBMITTED",
+            DECISION_TYPE_BUILDING_PERMIT,
+            [
+                ("submit", "skipped"),  # "Gesuch ausfüllen"
+                ("ebau-number", "ready"),  # "eBau Nummer vergeben"
+                ("nfd", "ready"),  # Nachforderungen
+                ("create-manual-workitems", "ready"),  # "Manuelle aufgabe erfassen"
+            ],
+            "running",
+        ),  # "Gesuch einreichen"
+        (
+            "APPROVED",
+            DECISION_TYPE_BUILDING_PERMIT,
+            [
+                ("submit", "skipped"),  # "Gesuch ausfüllen"
+                ("ebau-number", "skipped"),  # "eBau Nummer vergeben"
+                ("nfd", "completed"),  # Nachforderungen
+                (
+                    "create-manual-workitems",
+                    "canceled",
+                ),  # "Manuelle aufgabe erfassen (Gesuch ausfüllen)"
+                (
+                    "create-manual-workitems",
+                    "ready",
+                ),  # "Manuelle aufgabe erfassen" (decision)
+                ("init-circulation", "canceled"),  # "Zirkulation initialisieren"
+                ("reopen-circulation", "canceled"),
+                ("audit", "skipped"),  # "Dossier prüfen"
+                ("publication", "skipped"),  # "Dossier publizieren"
+                ("skip-circulation", "skipped"),  # "Zirkulation überspringen"
+                ("fill-publication", "skipped"),  # "Publikation ausfüllen"
+                ("create-publication", "canceled"),  # "Neue Publikation"
+                ("decision", "skipped"),  # "Entscheid verfügen"
+                ("information-of-neighbors", "skipped"),  # not documented in miro
+            ],
+            "running",
+        ),  # "Entscheid verfügen"
+        (
+            "DONE",
+            DECISION_TYPE_BUILDING_PERMIT,
+            [
+                ("submit", "skipped"),  # "Gesuch ausfüllen"
+                ("ebau-number", "skipped"),  # "eBau Nummer vergeben"
+                ("nfd", "completed"),  # Nachforderungen
+                ("create-manual-workitems", "canceled"),  # "Manuelle aufgabe erfassen"
+                ("init-circulation", "canceled"),  # "Zirkulation initialisieren"
+                ("audit", "skipped"),  # "Dossier prüfen"
+                ("publication", "skipped"),  # "Dossier publizieren"
+                ("skip-circulation", "skipped"),  # "Zirkulation überspringen"
+                ("fill-publication", "skipped"),  # "Publikation ausfüllen"
+                ("create-publication", "canceled"),  # "Neue Publikation"
+                ("decision", "skipped"),  # "Entscheid verfügen"
+                ("sb1", "skipped"),  # "SB 1 ausfüllen"
+                ("sb2", "skipped"),  # "SB 2 ausfüllen"
+                ("complete", "skipped"),  # "Verfahren abschliessen"
+            ],
+            "completed",
+        ),
+    ],
+)
+def test_set_workflow_state_be(
+    db,
+    be_instance,
+    make_dossier_writer,
+    target_state,
+    workflow_type,
+    expected_work_items_states,
+    expected_case_status,
+):
+    # This test skips instance creation where the instance's instance_state is set to the correct
+    # state.
+    settings.APPLICATION = settings.APPLICATIONS["kt_bern"]
+    writer = make_dossier_writer(
+        "kt_bern",
+    )
+    writer.is_paper.write(be_instance, writer.is_paper.value)
+    if workflow_type == DECISION_TYPE_BUILDING_PERMIT:
+        writer.decision_date.write(be_instance, datetime.datetime.now())
+        be_instance.decision.decision_type = DECISION_TYPE_BUILDING_PERMIT
+        be_instance.decision.save()
+
+    writer._set_workflow_state(be_instance, target_state, workflow_type=workflow_type)
+    for task_id, expected_status in expected_work_items_states:
+        be_instance.case.refresh_from_db()
+        assert (
+            be_instance.case.work_items.filter(
+                task_id=task_id, status=expected_status
+            ).exists()
+            is True
+        )
+    assert be_instance.case.status == expected_case_status

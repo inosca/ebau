@@ -98,22 +98,23 @@ def post_complete_decision(sender, work_item, user, context, **kwargs):
             group_pk=user.camac_group,
         )
 
-        notification_config = settings.APPLICATION["NOTIFICATIONS"].get(
-            "DECISION_PRELIMINARY_CLARIFICATION"
-            if workflow == "preliminary-clarification"
-            else "DECISION",
-            [],
-        )
-
-        # send notifications to applicant, municipality and all involved services
-        for config in notification_config:
-            send_mail_without_request(
-                config["template_slug"],
-                user.username,
-                user.camac_group,
-                instance={"id": instance.pk, "type": "instances"},
-                recipient_types=config["recipient_types"],
+        if not context or not context.get("no-notification"):
+            notification_config = settings.APPLICATION["NOTIFICATIONS"].get(
+                "DECISION_PRELIMINARY_CLARIFICATION"
+                if workflow == "preliminary-clarification"
+                else "DECISION",
+                [],
             )
+
+            # send notifications to applicant, municipality and all involved services
+            for config in notification_config:
+                send_mail_without_request(
+                    config["template_slug"],
+                    user.username,
+                    user.camac_group,
+                    instance={"id": instance.pk, "type": "instances"},
+                    recipient_types=config["recipient_types"],
+                )
 
         # create history entry
         if not context or not context.get("no-history"):

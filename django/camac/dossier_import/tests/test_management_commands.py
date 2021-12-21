@@ -3,6 +3,7 @@ from pathlib import Path
 
 import pytest
 from django.core.management import CommandError, call_command
+from pytest_lazyfixture import lazy_fixture
 
 from camac.dossier_import.models import DossierImport
 from camac.dossier_import.tests.test_dossier_import_case import (
@@ -39,8 +40,10 @@ def test_import_dossiers_exceptions(
         )
 
 
-@pytest.mark.parametrize("config", ["kt_schwyz"])
-@pytest.mark.parametrize("user__language", ["de", "en", "fr"])
+@pytest.mark.freeze_time("2021-12-02")
+@pytest.mark.parametrize(
+    "config,camac_instance", [("kt_schwyz", lazy_fixture("sz_instance"))]
+)
 def test_import_dossiers_manage_command(
     db,
     settings,
@@ -52,6 +55,7 @@ def test_import_dossiers_manage_command(
     group,
     location,
     snapshot,
+    camac_instance,
 ):
     settings.APPLICATION = settings.APPLICATIONS[config]
     make_workflow_items_for_config(config)
@@ -63,9 +67,9 @@ def test_import_dossiers_manage_command(
         f"--override_application={config}",
         "--verbosity=2",
         "from_archive",
-        user.pk,
-        group.pk,
-        location.pk,
+        f"--user_id={user.pk}",
+        f"--group_id={group.pk}",
+        f"--location_id={location.pk}",
         str(Path(TEST_IMPORT_FILE_PATH) / TEST_IMPORT_FILE_NAME),
         stdout=out,
         stderr=StringIO(),
@@ -105,9 +109,9 @@ def test_validate_dossiers_manage_command(
     out = StringIO()
     call_command(
         "validate_dossiers",
-        user.pk,
-        group.pk,
-        location.pk,
+        f"--user_id={user.pk}",
+        f"--group_id={group.pk}",
+        f"--location_id={location.pk}",
         str(Path(TEST_IMPORT_FILE_PATH) / TEST_IMPORT_FILE_NAME),
         stdout=out,
         stderr=StringIO(),
