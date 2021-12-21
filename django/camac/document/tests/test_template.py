@@ -209,7 +209,9 @@ def test_template_merge(
     add_field(name="kategorie-des-vorhabens", value=["Anlage(n)", "Baute(n)"])
     add_address_field(name="grundeigentumerschaft")
     add_address_field(name="bauherrschaft")
+    add_address_field(name="bauherrschaft-v2")
     add_address_field(name="projektverfasser-planer")
+    add_address_field(name="projektverfasser-planer-v2")
 
     url = reverse("template-merge", args=[template.pk])
     response = admin_client.get(url, data={"instance": sz_instance.pk, "type": to_type})
