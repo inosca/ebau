@@ -2667,8 +2667,8 @@
       }
     },
     "fixpunkt": {
-      "label": "Fixpunkt",
-      "hint": "Die Angaben zu Höhen- und Lagefixpunkten können z. B. dem WebGIS SZ (Geokategorie Grundstückskataster) entnommen werden. Dort wird das Fixpunktsystem der Amtlichen Vermessung darstellt.",
+      "label": "Art des Fixpunktes",
+      "hint": "Die Angaben zu Höhen- und Lagefixpunkten können z. B. dem WebGIS SZ (Geokategorie Grundstückskataster) entnommen werden. Dort wird das Fixpunktsystem der Amtlichen Vermessung dargestellt.",
       "type": "radio",
       "required": false,
       "config": {
@@ -2676,13 +2676,13 @@
       }
     },
     "fixpunkt-nummer": {
-      "label": "Nummer",
+      "label": "Nummer des Fixpunktes",
       "type": "text",
       "required": false,
       "config": {}
     },
     "fixpunkt-hoehe": {
-      "label": "Höhe (in m ü. M.)",
+      "label": "Höhe des Fixpunktes (in m ü. M.)",
       "type": "number",
       "required": false,
       "config": {
@@ -2690,7 +2690,7 @@
       }
     },
     "fixpunkt-e-koordinate": {
-      "label": "E-Koordinate",
+      "label": "E-Koordinate des Fixpunktes",
       "type": "number",
       "required": false,
       "config": {
@@ -2698,7 +2698,7 @@
       }
     },
     "fixpunkt-n-koordinate": {
-      "label": "N-Koordinate",
+      "label": "N-Koordinate des Fixpunktes",
       "type": "number",
       "required": false,
       "config": {
