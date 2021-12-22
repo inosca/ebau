@@ -110,7 +110,7 @@ def test_validation_errors(
     "import_file,expected_status,expected_result",
     [
         (
-            "import-missing-column.zip",
+            "import-missing-status-column.zip",
             status.HTTP_400_BAD_REQUEST,
             "Spalte {'STATUS'} fehlt in der Metadatendatei des Archivs.",
         ),
@@ -129,6 +129,21 @@ def test_validation_errors(
             "garbage.zip",
             status.HTTP_400_BAD_REQUEST,
             "Die hochgeladene Datei ist kein gültiges Zip-Format.",
+        ),
+        (
+            "import-missing-optional-columns.zip",
+            status.HTTP_201_CREATED,
+            {"error": []},
+        ),
+        (
+            "import-example-sparse.zip",
+            status.HTTP_201_CREATED,
+            {"error": []},
+        ),
+        (
+            "import-empty-headings.zip",
+            status.HTTP_201_CREATED,
+            {"error": []},
         ),
         (
             "import-example-validation-errors.zip",
