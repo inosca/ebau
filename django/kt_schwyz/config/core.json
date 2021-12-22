@@ -16732,7 +16732,7 @@
       "description": "View and upload dossiers",
       "template": "/ember-camac-ng/dossierimport.phtml",
       "class_field": null,
-      "hidden": 0,
+      "hidden": 1,
       "sort": 13
     }
   },
