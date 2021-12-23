@@ -50,6 +50,7 @@ def running_caluma_publication(db, caluma_publication, application_settings):
             document=publication_document,
             case=instance.case,
             closed_by_user="admin",
+            meta={"is-published": True},
         )
 
         return publication_document
