@@ -42,7 +42,11 @@ def test_import_dossiers_exceptions(
 
 @pytest.mark.freeze_time("2021-12-02")
 @pytest.mark.parametrize(
-    "config,camac_instance", [("kt_schwyz", lazy_fixture("sz_instance"))]
+    "config,use_location,camac_instance",
+    [
+        ("kt_schwyz", True, lazy_fixture("sz_instance")),
+        ("kt_bern", False, lazy_fixture("be_instance")),
+    ],
 )
 def test_import_dossiers_manage_command(
     db,
@@ -56,12 +60,14 @@ def test_import_dossiers_manage_command(
     location,
     snapshot,
     camac_instance,
+    use_location,
 ):
     settings.APPLICATION = settings.APPLICATIONS[config]
     make_workflow_items_for_config(config)
     setup_fixtures_required_by_application_config(config)
     out = StringIO()
-    call_command(
+
+    args = [
         "import_dossiers",
         "--no-input",
         f"--override_application={config}",
@@ -69,7 +75,12 @@ def test_import_dossiers_manage_command(
         "from_archive",
         f"--user_id={user.pk}",
         f"--group_id={group.pk}",
-        f"--location_id={location.pk}",
+    ]
+    if use_location:
+        args.append(f"--location_id={location.pk}")
+
+    call_command(
+        *args,
         str(Path(TEST_IMPORT_FILE_PATH) / TEST_IMPORT_FILE_NAME),
         stdout=out,
         stderr=StringIO(),
@@ -84,7 +95,6 @@ def test_import_dossiers_manage_command(
         "--verbosity=2",
         "from_session",
         str(dossier_import.pk),
-        f"--location={str(location.pk)}",
         stdout=out,
         stderr=StringIO(),
     )

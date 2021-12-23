@@ -113947,6 +113947,13 @@
   },
   {
     "model": "core.rpage",
+    "pk": 2000000,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.rpage",
     "pk": 15000000,
     "fields": {
       "pdf_class": null
@@ -114346,6 +114353,14 @@
   },
   {
     "model": "core.rroleacl",
+    "pk": 2000000,
+    "fields": {
+      "resource": 2000000,
+      "role": 20007
+    }
+  },
+  {
+    "model": "core.rroleacl",
     "pk": 15000000,
     "fields": {
       "resource": 15000000,
@@ -114530,6 +114545,19 @@
       "class_field": null,
       "hidden": 0,
       "sort": 12
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 2000000,
+    "fields": {
+      "available_resource": "page",
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/dossierimport.phtml",
+      "class_field": null,
+      "hidden": 1,
+      "sort": 13
     }
   },
   {
@@ -114782,6 +114810,16 @@
       "resource": 140000,
       "language": "fr",
       "name": "T\u00e2ches",
+      "description": null
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 2000000,
+    "fields": {
+      "resource": 2000000,
+      "language": "de",
+      "name": "Dossierimport",
       "description": null
     }
   },

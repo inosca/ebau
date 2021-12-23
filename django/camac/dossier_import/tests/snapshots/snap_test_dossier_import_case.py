@@ -66,8 +66,8 @@ snapshots['test_record_loading_be[dossier_row_patch3-plot_data-kt_bern] 1'] = [
         'plot_number': None
     },
     {
-        'coord_east': 47.175669937318816,
-        'coord_north': 8.8984885140077,
+        'coord_east': 2710662,
+        'coord_north': 1225997,
         'egrid_number': 'HK207838123456',
         'plot_number': 123
     }

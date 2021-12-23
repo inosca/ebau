@@ -331,6 +331,8 @@ class DossierWriter:
     def __init__(
         self,
         import_settings: dict = settings.APPLICATION["DOSSIER_IMPORT"],
+        *args,
+        **kwargs,
     ):
         """Construct writer for importing dossier.
 
