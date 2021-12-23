@@ -7,7 +7,11 @@
         @route="publication.edit"
         @model={{decode-id publication.id}}
       >
-        {{t "publication.publicationOf"}} {{moment-format publication.createdAt "DD.MM.YYYY"}} ({{t (concat "publication." publication.status)}})
+        {{#if (and publication.closedByUser (not publication.meta.is-published))}}
+          {{t "publication.publicationOf"}} {{moment-format publication.createdAt "DD.MM.YYYY"}} ({{t "publication.cancelled"}})
+        {{else}}
+          {{t "publication.publicationOf"}} {{moment-format publication.createdAt "DD.MM.YYYY"}} ({{t (concat "publication." publication.status)}})
+        {{/if}}
       </LinkTo>
     </li>
   {{/each}}

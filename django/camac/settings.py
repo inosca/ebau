@@ -388,6 +388,7 @@ APPLICATIONS = {
                     ],
                 },
             },
+            "FILL_PUBLICATION_TASK": None,
             "SAVE_DOSSIER_NUMBER_IN_CALUMA": False,
             "PUBLICATION_TASK_SLUG": "publication",
             "SIMPLE_WORKFLOW": {
@@ -1188,6 +1189,7 @@ APPLICATIONS = {
                     ],
                 },
             },
+            "FILL_PUBLICATION_TASK": "fill-publication",
             "HAS_PROJECT_CHANGE": True,
             "CREATE_IN_PROCESS": False,
             "GENERATE_IDENTIFIER": False,
@@ -2061,6 +2063,7 @@ APPLICATIONS = {
         "DOCUMENTS_SKIP_CONTEXT_VALIDATION": True,
         "CALUMA": {
             "FORM_PERMISSIONS": ["main"],
+            "FILL_PUBLICATION_TASK": None,
             "HAS_PROJECT_CHANGE": True,
             "CREATE_IN_PROCESS": True,
             "GENERATE_IDENTIFIER": True,
