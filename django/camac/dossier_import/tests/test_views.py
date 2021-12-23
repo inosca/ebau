@@ -128,7 +128,7 @@ def test_validation_errors(
         (
             "garbage.zip",
             status.HTTP_400_BAD_REQUEST,
-            "Die hochgeladene Datei ist kein gültiges Zip-Format.",
+            "Die hochgeladene Datei ist kein gültiges Zip-Format",
         ),
         (
             "import-missing-optional-columns.zip",
