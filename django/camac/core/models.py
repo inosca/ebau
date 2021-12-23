@@ -4078,7 +4078,7 @@ class DocxDecision(models.Model):
     )
     decision = models.CharField(db_column="DECISION", max_length=30)
     decision_type = models.CharField(
-        db_column="DECISION_TYPE", max_length=30, blank=True, null=True
+        db_column="DECISION_TYPE", max_length=90, blank=True, null=True
     )
     decision_date = models.DateField(db_column="DECISION_DATE")
 
