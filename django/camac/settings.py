@@ -518,11 +518,11 @@ APPLICATIONS = {
             "WRITER_CLASS": "camac.dossier_import.config.kt_schwyz.KtSchwyzDossierWriter",
             "INSTANCE_STATE_MAPPING": {"SUBMITTED": 2, "APPROVED": 8, "DONE": 10},
             "USER": "service-account-camac-admin",
-            "GROUP_ID": 3,  # Group with service_id and this role_id is created Instances' group
             "FORM_ID": 29,  # "migriertes-dossier"
             "CALUMA_FORM": "baugesuch",  # "dummy"-Form
             "ATTACHMENT_SECTION_ID": 7,  # attachmentsection for imported documents
             "LOCATION_REQUIRED": True,  # this is a workaround to account for differing validation requirements per config
+            "TRANSFORM_COORDINATE_SYSTEM": "epsg:4326",  # use world wide coordinates instead of swiss ones
         },
         "MASTER_DATA": {
             "canton": ("static", "SZ"),
@@ -1764,9 +1764,8 @@ APPLICATIONS = {
                 "PRELIMINARY": "preliminary-clarification",
             },
             "CALUMA_FORM": "migriertes-dossier",
-            "FORM_ID": 1,  # TODO: check is this correct?
-            "GROUP_ID": 3,  # Group with service_id and this role_id is created Instances' group
-            "ATTACHMENT_SECTION_ID": 7,  # attachmentsection for imported documents
+            "FORM_ID": 1,
+            "ATTACHMENT_SECTION_ID": 4,  # Internal
         },
         "MASTER_DATA": {
             "canton": ("static", "BE"),

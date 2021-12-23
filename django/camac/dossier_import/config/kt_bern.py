@@ -12,6 +12,7 @@ from django.db import transaction
 
 from camac.caluma.extensions.events.general import get_caluma_setting
 from camac.constants.kt_bern import DECISION_TYPE_BUILDING_PERMIT
+from camac.core.models import InstanceService
 from camac.core.utils import generate_ebau_nr
 from camac.dossier_import.dossier_classes import Dossier
 from camac.dossier_import.messages import (
@@ -35,7 +36,7 @@ from camac.dossier_import.writers import (
 from camac.instance.domain_logic import SUBMIT_DATE_FORMAT, CreateInstanceLogic
 from camac.instance.models import Form, Instance, InstanceState
 from camac.tags.models import Tags
-from camac.user.models import Group, Location, User
+from camac.user.models import Group, User
 
 APPLICANT_MAPPING = {
     "company": "name-juristische-person-gesuchstellerin",
@@ -146,14 +147,12 @@ class KtBernDossierWriter(DossierWriter):
         self,
         user_id,
         group_id: int,
-        location_id: int,
         *args,
         **kwargs,
     ):
         super().__init__(*args, **kwargs)
         self._user = user_id and User.objects.get(pk=user_id)
         self._group = Group.objects.get(pk=group_id)
-        self._location = Location.objects.get(pk=location_id)
 
     def create_instance(self, dossier: Dossier) -> Instance:
         """Create a Camac NG Instance with a case.
@@ -184,6 +183,14 @@ class KtBernDossierWriter(DossierWriter):
                 pk=settings.APPLICATION["DOSSIER_IMPORT"]["CALUMA_FORM"]
             ),
             start_caluma=True,
+            workflow_slug="building-permit",
+        )
+
+        InstanceService.objects.create(
+            instance=instance,
+            service_id=self._group.service_id,
+            active=1,
+            activation_date=None,
         )
 
         meta = {
