@@ -494,6 +494,7 @@ class CreateInstanceLogic:
         caluma_form=None,
         source_instance=None,
         start_caluma=True,
+        workflow_slug=None,
     ):
         """Create an instance.
 
@@ -526,9 +527,19 @@ class CreateInstanceLogic:
         if settings.APPLICATION["CALUMA"].get("USE_LOCATION"):  # pragma: no cover
             CreateInstanceLogic.update_instance_location(instance)
 
-        workflow = workflow_models.Workflow.objects.filter(
+        allowed_workflows = workflow_models.Workflow.objects.filter(
             Q(allow_forms__in=[caluma_form]) | Q(allow_all_forms=True)
-        ).first()
+        )
+
+        workflow = (
+            allowed_workflows.filter(pk=workflow_slug).first()
+            if workflow_slug
+            else allowed_workflows.first()
+        )
+        if workflow is None:
+            raise ValidationError(
+                f"The workflow {workflow_slug} does not allow the form {caluma_form.slug}"
+            )
 
         case_meta = {"camac-instance-id": instance.pk}
 

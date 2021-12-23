@@ -84,9 +84,7 @@ class MessageCodes(str, Enum):
 def get_message_max_level(message_list: List[Message], default=LOG_LEVEL_DEBUG):
     return (
         message_list
-        and max(
-            list(sorted(message_list, key=lambda msg: msg.level, reverse=True))
-        ).level
+        and sorted(message_list, key=lambda msg: msg.level, reverse=True)[0].level
     ) or default
 
 
@@ -162,6 +160,9 @@ def compile_message_for_code(code, filtered_summaries):
         MessageCodes.FIELD_VALIDATION_ERROR.value: _("have an invalid value"),
         MessageCodes.MIME_TYPE_UNKNOWN.value: _(
             "have at least one document with an unknown file type"
+        ),
+        MessageCodes.INCONSISTENT_WORKFLOW_STATE.value: _(
+            "have an inconsistent workflow state"
         ),
     }
 

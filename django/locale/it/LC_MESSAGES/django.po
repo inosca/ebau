@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-22 17:49+0100\n"
+"POT-Creation-Date: 2021-12-23 15:43+0100\n"
 "PO-Revision-Date: 2020-02-28 14:55+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -44,11 +44,11 @@ msgstr ""
 msgid "Circulation of %(date)s completed"
 msgstr ""
 
-#: camac/caluma/extensions/events/decision.py:45
+#: camac/caluma/extensions/events/decision.py:46
 msgid "Evaluation completed"
 msgstr ""
 
-#: camac/caluma/extensions/events/decision.py:60
+#: camac/caluma/extensions/events/decision.py:63
 msgid "Decision decreed"
 msgstr ""
 
@@ -112,53 +112,64 @@ msgstr ""
 msgid "Specifying an \"attachments\" filter is mandatory!"
 msgstr ""
 
-#: camac/dossier_import/loaders.py:240
+#: camac/dossier_import/loaders.py:241
+#, python-format
+msgid ""
+"The given coordinates (E: %(e)i and N: %(n)i) are not in Switzerland or are "
+"not using the Swiss coordinate system (epsg:2056)."
+msgstr ""
+
+#: camac/dossier_import/loaders.py:261
 #, python-format
 msgid "Failed to load and transform coordinates from E: %(e)i and N: %(n)i"
 msgstr ""
 
-#: camac/dossier_import/loaders.py:280
+#: camac/dossier_import/loaders.py:302
 #, python-format
 msgid ""
 "Failed to load plot with numbers `%(plot_numbers)s` and egrid values `"
 "%(egrids)s`"
 msgstr ""
 
-#: camac/dossier_import/loaders.py:294 camac/dossier_import/validation.py:106
+#: camac/dossier_import/loaders.py:316 camac/dossier_import/validation.py:106
 msgid "Meta data file in archive is corrupt or not a valid .xlsx file."
 msgstr ""
 
-#: camac/dossier_import/messages.py:153
+#: camac/dossier_import/messages.py:151
 msgid "have the same ID"
 msgstr ""
 
-#: camac/dossier_import/messages.py:155
+#: camac/dossier_import/messages.py:153
 msgid ""
 "have an invalid value in date field. Please use the format \"DD.MM.YYYY\" (e."
 "g. \"13.04.2021\")"
 msgstr ""
 
-#: camac/dossier_import/messages.py:157
+#: camac/dossier_import/messages.py:155
 msgid "have an invalid status"
 msgstr ""
 
-#: camac/dossier_import/messages.py:159
+#: camac/dossier_import/messages.py:157
 msgid "miss a value in a required field"
 msgstr ""
 
-#: camac/dossier_import/messages.py:161
+#: camac/dossier_import/messages.py:159
 msgid "don't have a unique ID"
 msgstr ""
 
-#: camac/dossier_import/messages.py:162
+#: camac/dossier_import/messages.py:160
 msgid "have an invalid value"
 msgstr ""
 
-#: camac/dossier_import/messages.py:164
+#: camac/dossier_import/messages.py:162
 msgid "have at least one document with an unknown file type"
 msgstr ""
 
-#: camac/dossier_import/messages.py:183
+#: camac/dossier_import/messages.py:165
+msgid "have an inconsistent workflow state"
+msgstr ""
+
+#: camac/dossier_import/messages.py:184
 #, python-format
 msgid "%(count)i dossiers %(message)s. Affected dossiers:%(entries)s"
 msgstr ""
@@ -560,19 +571,19 @@ msgstr ""
 msgid "Objection %(objection) already has a representative"
 msgstr ""
 
-#: camac/settings.py:1100
+#: camac/settings.py:1095
 msgid "Circulation reopened"
 msgstr ""
 
-#: camac/settings.py:1105
+#: camac/settings.py:1100
 msgid "Circulation skipped"
 msgstr ""
 
-#: camac/settings.py:1110
+#: camac/settings.py:1105
 msgid "Circulation completed"
 msgstr ""
 
-#: camac/settings.py:1115
+#: camac/settings.py:1110
 msgid "Procedure completed"
 msgstr ""
 
