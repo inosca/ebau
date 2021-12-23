@@ -567,7 +567,11 @@ def test_record_loading_exceptions(
     "loader,input_file,expected_exception",
     [
         ("zip-archive-xlsx", "no-zip.zap", InvalidImportDataError),
-        ("zip-archive-xlsx", "import-missing-column.zip", InvalidImportDataError),
+        (
+            "zip-archive-xlsx",
+            "import-missing-status-column.zip",
+            InvalidImportDataError,
+        ),
     ],
 )
 def test_validation(

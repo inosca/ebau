@@ -106,7 +106,7 @@ def validate_zip_archive_structure(instance_pk, clean_on_fail=True) -> DossierIm
             _("Meta data file in archive is corrupt or not a valid .xlsx file.")
         )
     worksheet = work_book.worksheets[0]
-    headings = worksheet[1]
+    headings = [h for h in worksheet[1] if h.value is not None]
 
     required_columns = ["ID", "STATUS", "PROPOSAL", "SUBMIT-DATE"]
     heading_values = [col.value for col in headings]
