@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 
 from snapshottest import GenericRepr, Snapshot
 
+
 snapshots = Snapshot()
 
 snapshots['test_master_data[kt_bern-de-be_master_data_case-select_related0-prefetch_related0-14] 1'] = {
@@ -363,8 +364,7 @@ snapshots['test_master_data[kt_schwyz-de-sz_master_data_case_gwr-select_related3
     ],
     'coordinates': [
     ],
-    'decision_date': [
-    ],
+    'decision_date': None,
     'final_approval_date': [
     ],
     'landowners': [
@@ -442,8 +442,7 @@ snapshots['test_master_data[kt_schwyz-de-sz_master_data_case_gwr_v2-select_relat
     ],
     'coordinates': [
     ],
-    'decision_date': [
-    ],
+    'decision_date': None,
     'final_approval_date': [
     ],
     'landowners': [
