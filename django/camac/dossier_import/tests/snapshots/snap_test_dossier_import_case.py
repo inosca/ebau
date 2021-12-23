@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 
 from snapshottest import GenericRepr, Snapshot
 
+
 snapshots = Snapshot()
 
 snapshots['test_record_loading_be[dossier_row_patch0-dossier_number-kt_bern] 1'] = '2017-1'
@@ -171,11 +172,7 @@ snapshots['test_record_loading_sz[dossier_row_patch6-profile_approval_date-kt_sc
     }
 ]
 
-snapshots['test_record_loading_sz[dossier_row_patch7-decision_date-kt_schwyz-sz_instance] 1'] = [
-    {
-        'value': GenericRepr('datetime.date(2021, 12, 12)')
-    }
-]
+snapshots['test_record_loading_sz[dossier_row_patch7-decision_date-kt_schwyz-sz_instance] 1'] = GenericRepr('datetime.date(2021, 12, 12)')
 
 snapshots['test_record_loading_sz[dossier_row_patch8-final_approval_date-kt_schwyz-sz_instance] 1'] = [
     {

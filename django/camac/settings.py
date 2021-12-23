@@ -632,6 +632,14 @@ APPLICATIONS = {
             "city": ("ng_answer", "standort-ort"),
             "submit_date": ("first_workflow_entry", [10]),
             "publication_date": ("first_workflow_entry", [15]),
+            "decision_date": (
+                "answer",
+                "bewilligungsverfahren-gr-sitzung-bewilligungsdatum",
+                {
+                    "document_from_work_item": "building-authority",
+                    "value_key": "date",
+                },
+            ),
             "construction_start_date": (
                 "table",
                 "baukontrolle-realisierung-table",
@@ -653,19 +661,6 @@ APPLICATIONS = {
                     "column_mapping": {
                         "value": (
                             "baukontrolle-realisierung-schnurgeruestabnahme",
-                            {"value_key": "date"},
-                        )
-                    },
-                },
-            ),
-            "decision_date": (
-                "table",
-                "baukontrolle-realisierung-table",
-                {
-                    "document_from_work_item": "building-authority",
-                    "column_mapping": {
-                        "value": (
-                            "bewilligungsverfahren-gr-sitzung-bewilligungsdatum",
                             {"value_key": "date"},
                         )
                     },
