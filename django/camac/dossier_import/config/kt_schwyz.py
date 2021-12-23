@@ -26,6 +26,7 @@ from camac.dossier_import.messages import (
 )
 from camac.dossier_import.writers import (
     BuildingAuthorityRowWriter,
+    CalumaAnswerWriter,
     CamacNgAnswerWriter,
     CamacNgListAnswerWriter,
     CamacNgPersonListAnswerWriter,
@@ -92,10 +93,11 @@ class KtSchwyzDossierWriter(DossierWriter):
         target="baukontrolle-realisierung-schnurgeruestabnahme",
         value_key="date",
     )
-    decision_date = BuildingAuthorityRowWriter(
+    decision_date = CalumaAnswerWriter(
         name="tb-datum",
         target="bewilligungsverfahren-gr-sitzung-bewilligungsdatum",
         value_key="date",
+        task="building-authority",
     )
     final_approval_date = BuildingAuthorityRowWriter(
         name="datum-schlussabnahme",

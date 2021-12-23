@@ -158,7 +158,7 @@ def compile_message_for_code(code, filtered_summaries):
         MessageCodes.MISSING_REQUIRED_VALUE_ERROR.value: _(
             "miss a value in a required field"
         ),
-        MessageCodes.DUPLICATE_IDENTFIER_ERROR.value: _("have the same ID"),
+        MessageCodes.DUPLICATE_IDENTFIER_ERROR.value: _("don't have a unique ID"),
         MessageCodes.FIELD_VALIDATION_ERROR.value: _("have an invalid value"),
         MessageCodes.MIME_TYPE_UNKNOWN.value: _(
             "have at least one document with an unknown file type"

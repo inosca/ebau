@@ -159,17 +159,35 @@ class CalumaDecisionDateWriter(FieldWriter):
 
 
 class CalumaAnswerWriter(FieldWriter):
-    def __init__(self, value_key: str = "value", *args, **kwargs):
+    def __init__(self, value_key: str = "value", task: str = None, *args, **kwargs):
         self.value_key = value_key
+        self.task = task
         super().__init__(*args, **kwargs)
 
     def write(self, instance, value):
         if not value:
             return
         try:
+            if self.task:
+                work_item = instance.case.work_items.filter(task_id=self.task).first()
+
+                if not work_item:
+                    dossier = self.context.get("dossier")
+                    dossier._meta.errors.append(
+                        Message(
+                            level=LOG_LEVEL_WARNING,
+                            code=MessageCodes.INCONSISTENT_WORKFLOW_STATE.value,
+                            detail=f"Missing {self.task} work item, cannot write {self.target}",
+                        )
+                    )
+                    return
+
+                document = work_item.document
+            else:
+                document = instance.case.document
             answer, created = Answer.objects.update_or_create(
                 question_id=self.target,
-                document=instance.case.document,
+                document=document,
                 defaults=dict(
                     **{self.value_key: value},
                 ),
@@ -179,11 +197,13 @@ class CalumaAnswerWriter(FieldWriter):
                 f"Failed to write {value} to field {self.target} on {instance} because of : {e}"
             )
         if created:
-            instance.case.document.answers.add(answer)
+            document.answers.add(answer)
 
 
 class BuildingAuthorityRowWriter(CalumaAnswerWriter):
     def write(self, instance, value):
+        if not value:
+            return
         work_item = instance.case.work_items.filter(
             task_id="building-authority"
         ).first()
@@ -206,7 +226,7 @@ class BuildingAuthorityRowWriter(CalumaAnswerWriter):
             row_document = table_answer.documents.first()
         else:
             row_document = Document.objects.create(
-                form=table_answer.question.row_form,
+                form=table_answer.question.row_form, family=work_item.document
             )
             AnswerDocument.objects.create(answer=table_answer, document=row_document)
 
