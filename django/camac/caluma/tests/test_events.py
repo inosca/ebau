@@ -311,6 +311,28 @@ def test_notify_completed_work_item(
         )
 
 
+def test_set_is_published(
+    caluma_admin_user,
+    application_settings,
+    work_item_factory,
+    service_factory,
+    task_factory,
+):
+    application_settings["CALUMA"]["FILL_PUBLICATION_TASK"] = "fill-publication"
+
+    work_item = work_item_factory(
+        task=task_factory(slug="fill-publication"),
+        status="ready",
+        controlling_groups=[service_factory().pk],
+        child_case=None,
+        deadline=timezone.now(),
+    )
+
+    workflow_api.complete_work_item(work_item, user=caluma_admin_user)
+
+    assert work_item.meta["is-published"]
+
+
 @pytest.mark.parametrize(
     "role__name,instance__user", [("Municipality", LazyFixture("admin_user"))]
 )

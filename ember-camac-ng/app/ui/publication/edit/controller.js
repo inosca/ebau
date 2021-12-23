@@ -4,10 +4,13 @@ import { inject as service } from "@ember/service";
 import { queryManager } from "ember-apollo-client";
 import { dropTask, lastValue } from "ember-concurrency-decorators";
 
+import saveWorkItemMutation from "camac-ng/gql/mutations/save-workitem.graphql";
 import getPublication from "camac-ng/gql/queries/get-publication.graphql";
 import confirm from "camac-ng/utils/confirm";
 
 export default class PublicationEditController extends Controller {
+  @queryManager apollo;
+
   @service notifications;
   @service intl;
   @service shoebox;
@@ -52,6 +55,27 @@ export default class PublicationEditController extends Controller {
       (await validateFn()) &&
       (await confirm(this.intl.t("publication.confirm")))
     );
+  }
+
+  @dropTask
+  *cancelPublication(workItem) {
+    try {
+      yield this.apollo.mutate({
+        mutation: saveWorkItemMutation,
+        variables: {
+          input: {
+            workItem: workItem.id,
+            meta: JSON.stringify({
+              ...workItem.meta,
+              "is-published": false,
+            }),
+          },
+        },
+      });
+      window.location.reload();
+    } catch (e) {
+      console.error(e);
+    }
   }
 
   @action async afterComplete() {

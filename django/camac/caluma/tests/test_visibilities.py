@@ -311,6 +311,7 @@ def test_public_document_visibility(
         document=publication_document,
         case=be_instance.case,
         closed_by_user="admin",
+        meta={"is-published": True},
     )
 
     query = """
