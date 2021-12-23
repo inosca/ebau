@@ -169,9 +169,20 @@ class CalumaAnswerWriter(FieldWriter):
             return
         try:
             if self.task:
-                document = (
-                    instance.case.work_items.filter(task_id=self.task).first().document
-                )
+                work_item = instance.case.work_items.filter(task_id=self.task).first()
+
+                if not work_item:
+                    dossier = self.context.get("dossier")
+                    dossier._meta.errors.append(
+                        Message(
+                            level=LOG_LEVEL_WARNING,
+                            code=MessageCodes.INCONSISTENT_WORKFLOW_STATE.value,
+                            detail=f"Missing {self.task} work item, cannot write {self.target}",
+                        )
+                    )
+                    return
+
+                document = work_item.document
             else:
                 document = instance.case.document
             answer, created = Answer.objects.update_or_create(
