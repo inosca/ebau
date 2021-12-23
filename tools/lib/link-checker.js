@@ -5,18 +5,21 @@ import { readFileSync } from "fs";
 const md = MarkdownIt();
 
 const paths = [
+  "../django/kt_bern/config/caluma_form_common.json",
+  "../django/kt_bern/config/caluma_dossier_import_form.json",
+  "../django/kt_bern/config/caluma_form.json",
   "../django/kt_bern/config/caluma_form.json",
   "../django/kt_bern/config/caluma_form_v2.json",
   "../django/kt_bern/config/caluma_audit_form.json",
   "../django/kt_bern/config/caluma_publication_form.json",
 ];
 
-export function extract() {
-  const config = paths.reduce(
-    (all, path) => [...all, ...JSON.parse(readFileSync(path))],
-    []
-  );
+export const config = paths.reduce(
+  (all, path) => [...all, ...JSON.parse(readFileSync(path))],
+  []
+);
 
+export function extract() {
   return config
     .filter((obj) => obj.model === "caluma_form.question")
     .map((q) => [q.pk, q.fields.info_text])
