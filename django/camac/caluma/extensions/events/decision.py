@@ -9,6 +9,7 @@ from django.db.models import Q
 from django.utils.translation import gettext_noop
 
 from camac.constants.kt_bern import (
+    DECISION_TYPE_BAUBEWILLIGUNGSFREI,
     DECISION_TYPE_CONSTRUCTION_TEE_WITH_RESTORATION,
     DECISIONS_ABGELEHNT,
     DECISIONS_BEWILLIGT,
@@ -55,8 +56,10 @@ def post_complete_decision(sender, work_item, user, context, **kwargs):
                         decision_type=DECISION_TYPE_CONSTRUCTION_TEE_WITH_RESTORATION,
                     ),
                 )
+                .exclude(decision_type=DECISION_TYPE_BAUBEWILLIGUNGSFREI)
                 .exists()
             )
+
             history_text = gettext_noop("Decision decreed")
 
             if approved:
