@@ -119,6 +119,21 @@ def dossier_row():
 
 
 @pytest.fixture
+def dossier_row_sparse():
+    return OrderedDict(
+        [
+            ("ID", "2017-84"),
+            ("STATUS", "SUBMITTED"),
+            (
+                "PROPOSAL",
+                "Projektänderung zu Um- und Anbau am Wohnhaus und Solaranlage",
+            ),
+            ("SUBMIT-DATE", datetime.datetime(2017, 4, 12, 0, 0)),
+        ]
+    )
+
+
+@pytest.fixture
 def make_dossier_writer(
     db,
     setup_fixtures_required_by_application_config,
