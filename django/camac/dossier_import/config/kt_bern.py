@@ -10,6 +10,7 @@ from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
 from django.db import transaction
 
+from camac.caluma.api import CalumaApi
 from camac.caluma.extensions.events.general import get_caluma_setting
 from camac.constants.kt_bern import DECISION_TYPE_BUILDING_PERMIT
 from camac.core.models import InstanceService
@@ -35,6 +36,7 @@ from camac.dossier_import.writers import (
 )
 from camac.instance.domain_logic import SUBMIT_DATE_FORMAT, CreateInstanceLogic
 from camac.instance.models import Form, Instance, InstanceState
+from camac.instance.utils import set_construction_control
 from camac.tags.models import Tags
 from camac.user.models import Group, User
 
@@ -192,7 +194,6 @@ class KtBernDossierWriter(DossierWriter):
             active=1,
             activation_date=None,
         )
-
         meta = {
             "submit-date": dossier.submit_date.strftime(SUBMIT_DATE_FORMAT),
         }
@@ -246,6 +247,12 @@ class KtBernDossierWriter(DossierWriter):
                 code=MessageCodes.INSTANCE_CREATED.value,
                 detail=f"Instance created with ID:  {instance.pk}",
             )
+        )
+        CalumaApi().update_or_create_answer(
+            instance.case.document,
+            question_slug="gemeinde",
+            value=str(self._group.service_id),
+            user=BaseUser(),
         )
         self.write_fields(instance, dossier)
         dossier_summary.details.append(
@@ -335,7 +342,11 @@ class KtBernDossierWriter(DossierWriter):
                     )
                 )
                 continue
-
+            if (
+                target_state == "SUBMITTED"
+            ):  # TODO: setting instance-state here like this??
+                instance.instance_state = InstanceState.objects.get(name="subm")
+                instance.save()
             config = get_caluma_setting("PRE_COMPLETE") and get_caluma_setting(
                 "PRE_COMPLETE"
             ).get(work_item.task_id)
@@ -348,7 +359,8 @@ class KtBernDossierWriter(DossierWriter):
                     ):
                         action(item, caluma_user)
             skip_work_item(work_item, user=caluma_user, context=default_context)
-
+            if task_id == "decision":
+                set_construction_control(instance)
         messages.append(
             Message(
                 level=LOG_LEVEL_DEBUG,
