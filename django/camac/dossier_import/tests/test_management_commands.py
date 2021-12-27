@@ -54,10 +54,13 @@ def test_import_dossiers_manage_command(
     config,
     setup_fixtures_required_by_application_config,
     make_workflow_items_for_config,
-    service,
+    construction_control_for,
+    service_factory,
     user,
     group,
     location,
+    dynamic_option_factory,
+    document_factory,
     snapshot,
     camac_instance,
     use_location,
@@ -66,7 +69,13 @@ def test_import_dossiers_manage_command(
     make_workflow_items_for_config(config)
     setup_fixtures_required_by_application_config(config)
     out = StringIO()
-
+    service = service_factory(service_group__name="municipality")
+    construction_control_for(service)
+    dynamic_option_factory(
+        slug=str(service.pk), question_id="gemeinde", document=document_factory()
+    )
+    group.service = service
+    group.save()
     args = [
         "import_dossiers",
         "--no-input",
