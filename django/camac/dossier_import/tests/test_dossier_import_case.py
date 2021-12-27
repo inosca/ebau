@@ -2,10 +2,12 @@ import datetime
 from pathlib import Path
 
 import pytest
+from caluma.caluma_user.models import BaseUser
 from django.conf import settings
 from django.utils import timezone
 from pytest_lazyfixture import lazy_fixture
 
+from camac.caluma.api import CalumaApi
 from camac.constants.kt_bern import DECISION_TYPE_BUILDING_PERMIT
 from camac.core.models import InstanceLocation
 from camac.dossier_import.loaders import InvalidImportDataError, XlsxFileDossierLoader
@@ -36,7 +38,10 @@ def test_bad_file_format_dossier_xlsx(db, user, settings, config, make_dossier_w
         )
 
 
-@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize(
+    "role__name",
+    ["Municipality"],
+)
 @pytest.mark.parametrize(
     "config,camac_instance",
     [
@@ -46,35 +51,41 @@ def test_bad_file_format_dossier_xlsx(db, user, settings, config, make_dossier_w
 )
 def test_create_instance_dossier_import_case(
     db,
-    dossier_import,
+    dossier_import_factory,
     make_dossier_writer,
     archive_file,
     settings,
     config,
     camac_instance,
-    instance_factory,
+    document_factory,
     instance_with_case,
-    instance_service_factory,
+    dynamic_option_factory,
+    construction_control_for,
     admin_user,
-    case_factory,
-    work_item_factory,
 ):
     # The test import file features faulty lines for cov
     # - 3 lines with good data (1 without documents directory)
     # - 1 line with missing data
     # - 1 line with duplicate data (gemeinde-id)
     settings.APPLICATION = settings.APPLICATIONS[config]
-    dossier_import.source_file = archive_file(TEST_IMPORT_FILE_NAME)
-    dossier_import.save()
-
+    dossier_import = dossier_import_factory(
+        source_file=archive_file(TEST_IMPORT_FILE_NAME),
+    )
+    construction_control_for(dossier_import.service)
+    dynamic_option_factory(
+        slug=str(dossier_import.service.pk),
+        question_id="gemeinde",
+        document=document_factory(),
+    )
     writer = make_dossier_writer(config)
+    writer._group.service = dossier_import.service
     loader = XlsxFileDossierLoader()
 
     for dossier in loader.load_dossiers(dossier_import.source_file.path):
         message = writer.import_dossier(dossier, str(dossier_import.pk))
         dossier_import.messages["import"]["details"].append(message.to_dict())
     update_summary(dossier_import)
-    assert dossier_import.messages["import"]["summary"]["stats"]["dossiers"] == 3
+    assert dossier_import.messages["import"]["summary"]["stats"]["dossiers"] == 4
     assert len(dossier_import.messages["import"]["summary"]["warning"]) == 2
     assert len(dossier_import.messages["import"]["summary"]["error"]) == 1
 
@@ -91,7 +102,7 @@ def test_create_instance_dossier_import_case(
     deletion = Instance.objects.filter(
         **{"case__meta__import-id": str(dossier_import.pk)}
     ).delete()
-    assert deletion[1]["instance.Instance"] == 3
+    assert deletion[1]["instance.Instance"] == 4
 
 
 @pytest.mark.parametrize(
@@ -697,15 +708,43 @@ def test_validation(
 def test_set_workflow_state_be(
     db,
     be_instance,
+    service_factory,
+    instance_service_factory,
+    document_factory,
+    dynamic_option_factory,
     make_dossier_writer,
     target_state,
     workflow_type,
+    construction_control_for,
     expected_work_items_states,
     expected_case_status,
 ):
     # This test skips instance creation where the instance's instance_state is set to the correct
     # state.
     settings.APPLICATION = settings.APPLICATIONS["kt_bern"]
+
+    instance_municipality = instance_service_factory(
+        instance=be_instance,
+        service=service_factory(
+            trans__name="Leitbehörde Bern",
+            trans__language="de",
+            service_group__name="municipality",
+        ),
+        active=1,
+    )
+    construction_control_for(instance_municipality.service)
+    dynamic_option_factory(
+        slug=str(instance_municipality.service.pk),
+        question_id="gemeinde",
+        document=document_factory(),
+    )
+    CalumaApi().update_or_create_answer(
+        document=be_instance.case.document,
+        question_slug="gemeinde",
+        value=str(instance_municipality.service.pk),
+        user=BaseUser(),
+    )
+
     writer = make_dossier_writer(
         "kt_bern",
     )
@@ -721,6 +760,13 @@ def test_set_workflow_state_be(
         assert (
             be_instance.case.work_items.filter(
                 task_id=task_id, status=expected_status
+            ).exists()
+            is True
+        )
+    if target_state in ["APPROVED", "DONE"]:
+        assert (
+            be_instance.instance_services.filter(
+                active=1, service__service_group__name="construction-control"
             ).exists()
             is True
         )

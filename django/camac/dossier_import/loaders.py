@@ -4,8 +4,8 @@ from enum import Enum
 from typing import Generator, Iterable, List, Optional, Tuple
 
 import openpyxl
-from django.utils.translation import gettext as _
 from django.conf import settings
+from django.utils.translation import gettext as _
 from pyproj import Transformer
 
 from camac.dossier_import.dossier_classes import (
