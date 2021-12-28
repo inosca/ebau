@@ -42,7 +42,7 @@ services:
     networks:
       - camac-ng.local
 
-  django:
+  django: &django
     image: acr.run/camac-ng/camac-ng/django:master
     build:
       args:
@@ -71,6 +71,12 @@ services:
     networks:
       - camac-ng.local
     command: /bin/sh -c "./wait-for-it.sh db:5432 -- ./manage.py migrate && ./manage.py collectstatic --noinput && ./manage.py runserver 0.0.0.0:80 --pythonpath /app/$APPLICATION"
+
+  django-q:
+    <<: *django
+    image: acr.run/camac-ng/camac-ng/django:master
+    command: /bin/sh -c "./wait-for-it.sh db:5431 -- ./manage.py qcluster --pythonpath /app/$APPLICATION"
+    ports: []
 
   ember:
     image: acr.run/camac-ng/camac-ng/ember:master
