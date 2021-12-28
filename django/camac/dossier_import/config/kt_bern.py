@@ -237,7 +237,6 @@ class KtBernDossierWriter(DossierWriter):
             )
             dossier_summary.status = DOSSIER_IMPORT_STATUS_ERROR
             return dossier_summary
-
         instance = self.create_instance(dossier)
         Tags.objects.create(
             name=dossier.id, service=self._group.service, instance=instance
