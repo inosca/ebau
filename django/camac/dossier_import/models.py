@@ -1,19 +1,12 @@
 import shutil
-from dataclasses import asdict
 from pathlib import Path
-from typing import Generator
 
 from caluma.caluma_core.models import UUIDModel
 from django.conf import settings
 from django.contrib.postgres.fields import JSONField
 from django.db import models
-from django.utils import timezone
-from django.utils.module_loading import import_string
 
-from camac.document.models import Attachment
-from camac.dossier_import.loaders import XlsxFileDossierLoader
-from camac.dossier_import.messages import default_messages_object, update_summary
-from camac.instance.models import Instance
+from camac.dossier_import.messages import default_messages_object
 
 
 def source_file_directory_path(dossier_import, filename):
@@ -103,41 +96,3 @@ class DossierImport(UUIDModel):
                 ignore_errors=True,
             )
         return super().delete(*args, **kwargs)
-
-    def perform_import(self, override_config=None) -> Generator:
-        if override_config:
-            settings.APPLICATION = settings.APPLICATIONS[override_config]
-        configured_writer_cls = import_string(
-            settings.APPLICATION["DOSSIER_IMPORT"]["WRITER_CLASS"]
-        )
-
-        loader = XlsxFileDossierLoader()
-
-        writer = configured_writer_cls(
-            user_id=self.user.pk,
-            group_id=self.group.pk,
-            location_id=self.location.pk,
-            import_settings=settings.APPLICATION["DOSSIER_IMPORT"],
-        )
-        self.messages["import"] = {"details": []}
-        try:
-            for dossier in loader.load_dossiers(self.source_file.path):
-                message = writer.import_dossier(dossier, str(self.id))
-                self.messages["import"]["details"].append(asdict(message))
-                self.save()
-                yield message
-        finally:
-            update_summary(self)
-            self.messages["import"]["summary"]["stats"] = {
-                "dossiers": Instance.objects.filter(
-                    **{"case__meta__import-id": str(self.pk)}
-                ).count(),
-                "attachments": Attachment.objects.filter(
-                    **{"instance__case__meta__import-id": str(self.pk)}
-                ).count(),
-            }
-            self.messages["import"]["completed"] = timezone.localtime().strftime(
-                "%Y-%m-%dT%H:%M:%S%z"
-            )
-            self.status = DossierImport.IMPORT_STATUS_DONE
-            self.save()
