@@ -1,8 +1,10 @@
+from django_q.tasks import async_task
 from rest_framework.decorators import action
 from rest_framework.exceptions import ValidationError
 from rest_framework.response import Response
 from rest_framework_json_api.views import ModelViewSet
 
+from camac.dossier_import.importing import perform_import
 from camac.dossier_import.models import DossierImport
 from camac.dossier_import.serializers import DossierImportSerializer
 from camac.user.permissions import permission_aware
@@ -40,8 +42,9 @@ class DossierImportView(ModelViewSet):
             )
         dossier_import.status = DossierImport.IMPORT_STATUS_IMPORT_INPROGRESS
         dossier_import.save()
-        for _ in dossier_import.perform_import():
-            pass
-        serializer = self.get_serializer(dossier_import)
-        del serializer.data["messages"]["import"]["details"]
-        return Response(serializer.data)
+        task_id = async_task(
+            perform_import,
+            dossier_import,
+            # sync=settings.Q_CLUSTER.get("sync", False),
+        )
+        return Response({"task_id": task_id})
