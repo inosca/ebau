@@ -1,18 +1,14 @@
 import json
 import pprint
+from dataclasses import asdict
 
 from django.conf import settings
 from django.core.files import File
 from django.core.management.base import BaseCommand, CommandError
-from django.utils import timezone
-from django.utils.module_loading import import_string
 
-from camac.document.models import Attachment
-from camac.dossier_import.loaders import XlsxFileDossierLoader
-from camac.dossier_import.messages import get_message_max_level, update_summary
+from camac.dossier_import.messages import get_message_max_level
 from camac.dossier_import.models import DossierImport
 from camac.dossier_import.validation import validate_zip_archive_structure
-from camac.instance.models import Instance
 from camac.user.models import Group
 
 
@@ -107,24 +103,6 @@ class Command(BaseCommand):
                     "No file found. File cannot be imported if validation was unsuccessful."
                 )
 
-        configured_writer_cls = import_string(
-            settings.APPLICATIONS[options["override_application"]]["DOSSIER_IMPORT"][
-                "WRITER_CLASS"
-            ]
-        )
-
-        loader = XlsxFileDossierLoader()
-
-        writer = configured_writer_cls(
-            user_id=dossier_import.user.pk,
-            group_id=dossier_import.group.pk,
-            location_id=dossier_import.location_id,
-            import_settings=settings.APPLICATIONS[options["override_application"]][
-                "DOSSIER_IMPORT"
-            ],
-        )
-        dossier_import.messages["import"] = {"details": []}
-
         self.stdout.write(f"Starting import: {dossier_import.pk}")
         dossier_import = validate_zip_archive_structure(
             str(dossier_import.pk), clean_on_fail=False
@@ -144,30 +122,10 @@ class Command(BaseCommand):
                 != "y"
             ):
                 return
-        for dossier in loader.load_dossiers(dossier_import.source_file.path):
-            dossier_summary = writer.import_dossier(dossier, str(dossier_import.id))
-            dossier_summary.details += dossier._meta.errors
-            if get_message_max_level(dossier_summary.details) > 1:
-                self.stdout.write(
-                    json.dumps(dossier_summary.to_dict()), self.style.WARNING
-                )
-            dossier_import.messages["import"]["details"].append(
-                dossier_summary.to_dict()
-            )
-            dossier_import.save()
-        update_summary(dossier_import)
-        dossier_import.messages["import"]["summary"]["stats"] = {
-            "dossiers": Instance.objects.filter(
-                **{"case__meta__import-id": str(dossier_import.pk)}
-            ).count(),
-            "attachments": Attachment.objects.filter(
-                **{"instance__case__meta__import-id": str(dossier_import.pk)}
-            ).count(),
-        }
-        dossier_import.messages["import"]["completed"] = timezone.localtime().strftime(
-            "%Y-%m-%dT%H:%M:%S%z"
-        )
-        dossier_import.save()
+        for message in dossier_import.perform_import(options["override_application"]):
+            if get_message_max_level(message.details) > 1:
+                self.stdout.write(json.dumps(asdict(message)), self.style.WARNING)
+
         self.stdout.write("========= Dossier import =========")
         if options["verbosity"] > 1:
             self.stdout.write(

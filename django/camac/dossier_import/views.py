@@ -1,3 +1,6 @@
+from rest_framework.decorators import action
+from rest_framework.exceptions import ValidationError
+from rest_framework.response import Response
 from rest_framework_json_api.views import ModelViewSet
 
 from camac.dossier_import.models import DossierImport
@@ -24,3 +27,21 @@ class DossierImportView(ModelViewSet):
 
     def get_queryset_for_support(self):
         return self.queryset
+
+    @action(methods=["POST"], url_path="import-archive", detail=True)
+    def import_archive(self, request, pk=None):
+        dossier_import = self.get_object()
+        if (
+            not dossier_import.status
+            == DossierImport.IMPORT_STATUS_VALIDATION_SUCCESSFUL
+        ):
+            raise ValidationError(
+                "Make sure the uploaded archive validates successfully.",
+            )
+        dossier_import.status = DossierImport.IMPORT_STATUS_IMPORT_INPROGRESS
+        dossier_import.save()
+        for _ in dossier_import.perform_import():
+            pass
+        serializer = self.get_serializer(dossier_import)
+        del serializer.data["messages"]["import"]["details"]
+        return Response(serializer.data)

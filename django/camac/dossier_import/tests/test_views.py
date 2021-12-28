@@ -1,10 +1,13 @@
 import mimetypes
 
 import pytest
-from django.urls import reverse
 from pytest_lazyfixture import lazy_fixture
 from rest_framework import status
+from rest_framework.reverse import reverse
 
+from ...document.models import Attachment
+from ...instance.models import Instance
+from ..models import DossierImport
 from .test_dossier_import_case import TEST_IMPORT_FILE_NAME
 
 
@@ -206,3 +209,64 @@ def test_file_validation(
                     resp.data["messages"]["validation"]["summary"][key]
                 )
         admin_client.delete(reverse("dossier-import-detail", args=(resp.data["id"],)))
+
+
+@pytest.mark.freeze_time("2021-12-12")
+@pytest.mark.parametrize(
+    "config,role__name,camac_instance",
+    [
+        ("kt_bern", "support", lazy_fixture("be_instance")),
+        ("kt_schwyz", "Support", lazy_fixture("sz_instance")),
+    ],
+)
+@pytest.mark.parametrize(
+    "file_name,archive_is_valid,expected_status",
+    [
+        ("import-example.zip", True, status.HTTP_200_OK),
+        ("import-example.zip", False, status.HTTP_400_BAD_REQUEST),
+    ],
+)
+def test_importing(
+    db,
+    admin_client,
+    group,
+    admin_user,
+    location,
+    settings,
+    archive_file,
+    file_name,
+    dossier_import_factory,
+    setup_fixtures_required_by_application_config,
+    make_workflow_items_for_config,
+    config,
+    camac_instance,
+    archive_is_valid,
+    expected_status,
+):
+    make_workflow_items_for_config(config)
+    setup_fixtures_required_by_application_config(config)
+    settings.APPLICATION = settings.APPLICATIONS[config]
+    dossier_import = dossier_import_factory(
+        status=DossierImport.IMPORT_STATUS_VALIDATION_SUCCESSFUL
+        if archive_is_valid
+        else DossierImport.IMPORT_STATUS_VALIDATION_FAILED,
+        source_file=archive_file(file_name),
+    )
+
+    resp = admin_client.post(
+        reverse("dossier-import-import-archive", args=(dossier_import.pk,))
+    )
+    assert resp.status_code == expected_status
+    if archive_is_valid:
+        assert (
+            Instance.objects.filter(
+                **{"case__meta__import-id": resp.data["id"]}
+            ).count()
+            == resp.data["messages"]["import"]["summary"]["stats"]["dossiers"]
+        )
+        assert (
+            Attachment.objects.filter(
+                **{"instance__case__meta__import-id": resp.data["id"]}
+            ).count()
+            == resp.data["messages"]["import"]["summary"]["stats"]["attachments"]
+        )
