@@ -1,12 +1,10 @@
-import json
 import pprint
-from dataclasses import asdict
 
 from django.conf import settings
 from django.core.files import File
 from django.core.management.base import BaseCommand, CommandError
 
-from camac.dossier_import.messages import get_message_max_level
+from camac.dossier_import.importing import perform_import
 from camac.dossier_import.models import DossierImport
 from camac.dossier_import.validation import validate_zip_archive_structure
 from camac.user.models import Group
@@ -122,10 +120,7 @@ class Command(BaseCommand):
                 != "y"
             ):
                 return
-        for message in dossier_import.perform_import(options["override_application"]):
-            if get_message_max_level(message.details) > 1:
-                self.stdout.write(json.dumps(asdict(message)), self.style.WARNING)
-
+        perform_import(dossier_import, options["override_application"])
         self.stdout.write("========= Dossier import =========")
         if options["verbosity"] > 1:
             self.stdout.write(

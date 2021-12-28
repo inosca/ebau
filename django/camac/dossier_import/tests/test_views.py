@@ -5,8 +5,6 @@ from pytest_lazyfixture import lazy_fixture
 from rest_framework import status
 from rest_framework.reverse import reverse
 
-from ...document.models import Attachment
-from ...instance.models import Instance
 from ..models import DossierImport
 from .test_dossier_import_case import TEST_IMPORT_FILE_NAME
 
@@ -246,6 +244,7 @@ def test_importing(
     make_workflow_items_for_config(config)
     setup_fixtures_required_by_application_config(config)
     settings.APPLICATION = settings.APPLICATIONS[config]
+    settings.Q_CLUSTER["sync"] = True
     dossier_import = dossier_import_factory(
         status=DossierImport.IMPORT_STATUS_VALIDATION_SUCCESSFUL
         if archive_is_valid
@@ -257,16 +256,3 @@ def test_importing(
         reverse("dossier-import-import-archive", args=(dossier_import.pk,))
     )
     assert resp.status_code == expected_status
-    if archive_is_valid:
-        assert (
-            Instance.objects.filter(
-                **{"case__meta__import-id": resp.data["id"]}
-            ).count()
-            == resp.data["messages"]["import"]["summary"]["stats"]["dossiers"]
-        )
-        assert (
-            Attachment.objects.filter(
-                **{"instance__case__meta__import-id": resp.data["id"]}
-            ).count()
-            == resp.data["messages"]["import"]["summary"]["stats"]["attachments"]
-        )
