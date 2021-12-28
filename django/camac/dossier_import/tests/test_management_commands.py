@@ -94,7 +94,6 @@ def test_import_dossiers_manage_command(
         stdout=out,
         stderr=StringIO(),
     )
-
     dossier_import = DossierImport.objects.all().first()
 
     call_command(
