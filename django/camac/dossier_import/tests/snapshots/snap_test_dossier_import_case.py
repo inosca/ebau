@@ -4,7 +4,6 @@ from __future__ import unicode_literals
 
 from snapshottest import GenericRepr, Snapshot
 
-
 snapshots = Snapshot()
 
 snapshots['test_record_loading_be[dossier_row_patch0-dossier_number-kt_bern] 1'] = '2017-1'
@@ -52,6 +51,9 @@ snapshots['test_record_loading_be[dossier_row_patch14-project_authors-kt_bern] 1
         'town': 'Wonderland',
         'zip': None
     }
+]
+
+snapshots['test_record_loading_be[dossier_row_patch15-project_authors-kt_bern] 1'] = [
 ]
 
 snapshots['test_record_loading_be[dossier_row_patch2-dossier_number-kt_bern] 1'] = '2017-1'
