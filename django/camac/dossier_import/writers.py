@@ -1,7 +1,7 @@
 import mimetypes
 import re
 import shutil
-from dataclasses import fields
+from dataclasses import asdict, fields
 from datetime import datetime
 from pathlib import Path
 from typing import Any, List, Optional
@@ -75,26 +75,28 @@ class CamacNgAnswerWriter(FieldWriter):
 class CamacNgListAnswerWriter(FieldWriter):
     column_mapping = None
 
-    def write(self, instance, value):
-        rows = []
-        for obj in value:
-            if any(getattr(obj, field.name, None) for field in fields(obj)):
-                rows.append(obj)
-        if not rows:
+    def write(self, instance, values):
+        if not values:
             return
+        if not any(any(asdict(obj).values()) for obj in values):  # pragma: no cover
+            return
+        result = []
+        for obj in values:
+            # Ignore if a dataclass without any meaningful data makes it this far
+            if not any(asdict(obj).values()):  # pragma: no cover
+                continue
+            result.append(
+                {
+                    column_name: getattr(obj, key, None)
+                    for key, column_name in self.column_mapping.items()
+                }
+            )
 
-        mapped_values = [
-            {
-                column_name: getattr(row, key, None)
-                for key, column_name in self.column_mapping.items()
-            }
-            for row in rows
-        ]
         field, created = instance.fields.get_or_create(
-            name=self.target, defaults=dict(value=mapped_values)
+            name=self.target, defaults=dict(value=result)
         )
         if not created:  # pragma: no cover
-            field.value = mapped_values
+            field.value = result
             field.save()
 
 
@@ -102,6 +104,8 @@ class CamacNgPersonListAnswerWriter(CamacNgListAnswerWriter):
     """Person and location objects combine address and house number in 1 line."""
 
     def write(self, instance, value):
+        if not value:
+            return
         for person in value:
             person.street = safe_join((person.street, person.street_number))
         super().write(instance, value)
@@ -111,6 +115,8 @@ class CamacNgStreetWriter(CamacNgAnswerWriter):
     """Combing street and street-number into one field."""
 
     def write(self, instance, value):
+        if not value:
+            return
         dossier = self.context.get("dossier")
         super().write(instance, safe_join((dossier.street, dossier.street_number)))
 
@@ -239,13 +245,10 @@ class BuildingAuthorityRowWriter(CalumaAnswerWriter):
 
 class CalumaListAnswerWriter(FieldWriter):
     def write(self, instance, values):
-        rows = []
-        for obj in values:
-            if any(getattr(obj, field.name, None) for field in fields(obj)):
-                rows.append(obj)
-        if not rows:
+        if not values:
             return
-
+        if not any(any(asdict(obj).values()) for obj in values):  # pragma: no cover
+            return
         try:
             table_answer, _ = Answer.objects.update_or_create(
                 question_id=self.target, document=instance.case.document
@@ -254,7 +257,10 @@ class CalumaListAnswerWriter(FieldWriter):
             raise RuntimeError(
                 f"Prerequisites not met for writing `{values}` to field: {self.target} on {instance}: {e}"
             )
-        for obj in rows:
+
+        for obj in values:
+            if not any(asdict(obj).values()):  # pragma: no cover
+                continue
             try:
                 row_document = Document.objects.create(
                     form=table_answer.question.row_form
@@ -275,6 +281,8 @@ class CalumaListAnswerWriter(FieldWriter):
 
 class CalumaPlotDataWriter(CalumaListAnswerWriter):
     def write(self, instance, values):
+        if not values:
+            return
         compiled = []
         dossier = self.context.get("dossier")
         coordinates = dossier.coordinates if dossier else []
