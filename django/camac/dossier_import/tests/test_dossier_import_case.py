@@ -291,6 +291,22 @@ def test_set_workflow_state_exceptions(
             ),
             "project_authors",
         ),
+        (
+            dict(
+                [
+                    ("PROJECTAUTHOR-FIRST-NAME", None),
+                    ("PROJECTAUTHOR-LAST-NAME", None),
+                    ("PROJECTAUTHOR-COMPANY", None),
+                    ("PROJECTAUTHOR-STREET", None),
+                    ("PROJECTAUTHOR-STREET-NUMBER", None),
+                    ("PROJECTAUTHOR-ZIP", None),
+                    ("PROJECTAUTHOR-CITY", None),
+                    ("PROJECTAUTHOR-PHONE", None),
+                    ("PROJECTAUTHOR-EMAIL", None),
+                ]
+            ),
+            "project_authors",
+        ),
     ],
 )
 def test_record_loading_be(
@@ -471,7 +487,7 @@ def test_record_loading_sz(
     settings,
     camac_instance,
     make_dossier_writer,
-    dossier_row,
+    dossier_row_sparse,
     config,
     snapshot,
     dossier_row_patch,
@@ -482,10 +498,10 @@ def test_record_loading_sz(
     settings.APPLICATION = settings.APPLICATIONS[config]
     writer = make_dossier_writer(config=config)
     loader = XlsxFileDossierLoader()
-    dossier_row.update(dossier_row_patch)
+    dossier_row_sparse.update(dossier_row_patch)
     make_workflow_items_for_config(config)
     work_item_factory(task_id="building-authority", case=camac_instance.case)
-    dossier = loader._load_dossier(dossier_row)
+    dossier = loader._load_dossier(dossier_row_sparse)
     writer.write_fields(camac_instance, dossier)
     md = MasterData(camac_instance.case)
     snapshot.assert_match(getattr(md, target))
