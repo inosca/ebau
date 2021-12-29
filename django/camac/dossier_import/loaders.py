@@ -139,6 +139,25 @@ class XlsxFileDossierLoader:
         projectauthor_phone = "PROJECTAUTHOR-PHONE"
         projectauthor_email = "PROJECTAUTHOR-EMAIL"
 
+    def load_person(self, dossier_row, prefix):
+        """Construct a Person object for a type if any value is given.
+
+        prefix selects respective person properties, e. g. applicant
+          `applicant_first_name`
+          `applicant_town`
+          ...
+
+        """
+
+        person = {
+            field.name: dossier_row.get(
+                getattr(XlsxFileDossierLoader.Column, f"{prefix}_{field.name}").value
+            )
+            for field in fields(Person)
+        }
+        if any(person.values()):
+            return [Person(**person)]
+
     def _load_dossier(self, dossier_row: dict) -> Dossier:
         """Read one line and handle each column.
 
@@ -179,43 +198,10 @@ class XlsxFileDossierLoader:
         if load_coordinates_errors:  # pragma: no cover
             dossier._meta.errors.append(load_coordinates_errors)
 
-        dossier.applicant = [
-            Person(
-                **{
-                    field.name: dossier_row.get(
-                        getattr(
-                            XlsxFileDossierLoader.Column, f"applicant_{field.name}"
-                        ).value
-                    )
-                    for field in fields(Person)
-                }
-            )
-        ]
-        dossier.landowner = [
-            Person(
-                **{
-                    field.name: dossier_row.get(
-                        getattr(
-                            XlsxFileDossierLoader.Column, f"landowner_{field.name}"
-                        ).value
-                    )
-                    for field in fields(Person)
-                }
-            )
-        ]
-        dossier.project_author = [
-            Person(
-                **{
-                    field.name: dossier_row.get(
-                        getattr(
-                            XlsxFileDossierLoader.Column,
-                            f"projectauthor_{field.name}",
-                        ).value
-                    )
-                    for field in fields(Person)
-                }
-            )
-        ]
+        dossier.applicant = self.load_person(dossier_row, prefix="applicant")
+        dossier.landowner = self.load_person(dossier_row, prefix="landowner")
+        dossier.project_author = self.load_person(dossier_row, prefix="projectauthor")
+
         return dossier
 
     def load_coordinates(
@@ -223,8 +209,10 @@ class XlsxFileDossierLoader:
     ) -> Tuple[List[Coordinates], Optional[List[Message]]]:
         out = []
         messages = []
-        epoints = dossier_row[XlsxFileDossierLoader.Column.coordinate_e.value]
-        npoints = dossier_row[XlsxFileDossierLoader.Column.coordinate_n.value]
+        epoints = dossier_row.get(XlsxFileDossierLoader.Column.coordinate_e.value)
+        npoints = dossier_row.get(XlsxFileDossierLoader.Column.coordinate_n.value)
+        if not (epoints and npoints):
+            return None, messages
         epoints = epoints.split(",") if type(epoints) == str else [epoints]
         npoints = npoints.split(",") if type(npoints) == str else [npoints]
         for e, n in zip(epoints, npoints):
@@ -250,16 +238,18 @@ class XlsxFileDossierLoader:
     ) -> Tuple[List[PlotData], Optional[List[Message]]]:
         out = []
         messages = []
-        plot_numbers = dossier_row[XlsxFileDossierLoader.Column.parcel.value]
-        egrids = dossier_row[XlsxFileDossierLoader.Column.egrid.value]
+        plot_numbers = dossier_row.get(XlsxFileDossierLoader.Column.parcel.value)
+        egrids = dossier_row.get(XlsxFileDossierLoader.Column.egrid.value)
+        if not (plot_numbers or egrids):
+            return None, messages
         try:
             plot_numbers = (
                 plot_numbers.split(",") if type(plot_numbers) == str else [plot_numbers]
             )
             egrids = egrids.split(",") if type(egrids) == str else [egrids]
-            municipality = dossier_row[
+            municipality = dossier_row.get(
                 getattr(XlsxFileDossierLoader.Column, "city").value
-            ]
+            )
             for number, egrid in zip(plot_numbers, egrids):
                 if len(str(numbers(number))) != len(str(number)):
                     number = None
