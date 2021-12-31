@@ -6,7 +6,10 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any, List, Optional
 
-from caluma.caluma_form.models import Answer, AnswerDocument, Document
+from caluma.caluma_form import api as form_api
+from caluma.caluma_form.models import Answer, AnswerDocument, Document, Question
+from caluma.caluma_form.validators import CustomValidationError
+from caluma.caluma_user.models import BaseUser
 from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
 from django.db import IntegrityError
@@ -17,7 +20,7 @@ from camac.constants.kt_bern import DECISIONS_BEWILLIGT
 from camac.core.models import DocxDecision, WorkflowEntry
 from camac.document.models import Attachment, AttachmentSection
 from camac.dossier_import.dossier_classes import CalumaPlotData, Dossier
-from camac.dossier_import.loaders import numbers, safe_join
+from camac.dossier_import.loaders import safe_join
 from camac.dossier_import.messages import LOG_LEVEL_WARNING, Message, MessageCodes
 from camac.instance.domain_logic import SUBMIT_DATE_FORMAT, save_ebau_number
 from camac.instance.models import Instance
@@ -36,27 +39,15 @@ class FieldWriter:
         owner=None,
         context=None,
         column_mapping: Optional[dict] = None,
-        renderer: Optional[str] = None,
     ):
         # The field writer allows for static values: set value in the field definition
         # in the writer class (e. g. for required answers)
         self.target = target
         self.value = value
         self.column_mapping = column_mapping
-        self.renderer = renderer
         self.owner = owner
         self.context = context
         self.name = name or target
-
-
-class RenderError:
-    pass
-
-    def write(self, instance: Instance, value):
-        raise NotImplementedError  # pragma: no cover
-
-    def render(self, value):
-        raise NotImplementedError  # pragma: no cover
 
 
 class CamacNgAnswerWriter(FieldWriter):
@@ -162,6 +153,25 @@ class CalumaDecisionDateWriter(FieldWriter):
             decision_date=value,
             instance=instance,
         )
+        question = Question.objects.get(slug=self.target)
+        try:
+            form_api.save_answer(
+                question=question,
+                document=instance.case.document,
+                value=value,
+                user=BaseUser(
+                    username=self.owner._user.username, group=self.owner._group.pk
+                ),
+            )
+
+        except CustomValidationError:  # pragma: no cover
+            self.context.get("dossier")._meta.errors.append(
+                Message(
+                    level=LOG_LEVEL_WARNING,
+                    code=MessageCodes.FIELD_VALIDATION_ERROR.value,
+                    detail=f"Failed to write {value} to {self.target} for dossier {instance}",
+                )
+            )
 
 
 class CalumaAnswerWriter(FieldWriter):
@@ -174,11 +184,11 @@ class CalumaAnswerWriter(FieldWriter):
         if not value:
             return
         try:
+            dossier = self.context.get("dossier")
             if self.task:
                 work_item = instance.case.work_items.filter(task_id=self.task).first()
 
                 if not work_item:
-                    dossier = self.context.get("dossier")
                     dossier._meta.errors.append(
                         Message(
                             level=LOG_LEVEL_WARNING,
@@ -191,22 +201,34 @@ class CalumaAnswerWriter(FieldWriter):
                 document = work_item.document
             else:
                 document = instance.case.document
-            answer, created = Answer.objects.update_or_create(
-                question_id=self.target,
-                document=document,
-                defaults=dict(
-                    **{self.value_key: value},
-                ),
-            )
+            question = Question.objects.get(slug=self.target)
+            try:
+                form_api.save_answer(
+                    question=question,
+                    document=document,
+                    value=value,
+                    user=BaseUser(
+                        username=self.owner._user.username, group=self.owner._group.pk
+                    ),
+                )
+            except CustomValidationError:
+                dossier._meta.errors.append(
+                    Message(
+                        level=LOG_LEVEL_WARNING,
+                        code=MessageCodes.FIELD_VALIDATION_ERROR.value,
+                        detail=f"Failed to write {value} to {self.target} for dossier {instance}",
+                    )
+                )
+                return
+
         except ObjectDoesNotExist as e:  # pragma: no cover
             raise RuntimeError(
                 f"Failed to write {value} to field {self.target} on {instance} because of : {e}"
             )
-        if created:
-            document.answers.add(answer)
 
 
 class BuildingAuthorityRowWriter(CalumaAnswerWriter):
+    # TODO: rewrite this to make due use of `caluma_form.api`
     def write(self, instance, value):
         if not value:
             return
@@ -244,39 +266,57 @@ class BuildingAuthorityRowWriter(CalumaAnswerWriter):
 
 
 class CalumaListAnswerWriter(FieldWriter):
-    def write(self, instance, values):
+    def write(self, instance, values):  # noqa: C901
         if not values:
             return
         if not any(any(asdict(obj).values()) for obj in values):  # pragma: no cover
             return
-        try:
-            table_answer, _ = Answer.objects.update_or_create(
-                question_id=self.target, document=instance.case.document
-            )
-        except (ObjectDoesNotExist, IntegrityError) as e:  # pragma: no cover
-            raise RuntimeError(
-                f"Prerequisites not met for writing `{values}` to field: {self.target} on {instance}: {e}"
-            )
-
+        table_question = Question.objects.get(slug=self.target)
+        row_documents = []
         for obj in values:
             if not any(asdict(obj).values()):  # pragma: no cover
                 continue
             try:
-                row_document = Document.objects.create(
-                    form=table_answer.question.row_form
-                )
+                row_document = form_api.save_document(form=table_question.row_form)
+                row_documents.append(row_document)
+                for field in fields(obj):
+                    value = getattr(obj, field.name)
+                    if not value:
+                        continue
+                    try:
+                        form_api.save_answer(
+                            question=Question.objects.get(
+                                slug=self.column_mapping[field.name]
+                            ),
+                            value=value,
+                            document=row_document,
+                            user=BaseUser(
+                                username=self.owner._user.username,
+                                group=self.owner._group.pk,
+                            ),
+                        )
+                    except CustomValidationError as e:  # pragma: no cover
+                        self.context.get("dossier")._meta.errors.append(
+                            Message(
+                                level=LOG_LEVEL_WARNING,
+                                code=MessageCodes.FIELD_VALIDATION_ERROR.value,
+                                detail=f"Failed to write {value} for field {field.name} to {self.target} for dossier {instance}: {e}",
+                            )
+                        )
+                        continue
+
             except (ObjectDoesNotExist, IntegrityError):  # pragma: no cover
                 raise RuntimeError(
                     f"Failed to create row_document for table answer {self.target} on {instance}"
                 )
-            AnswerDocument.objects.create(answer=table_answer, document=row_document)
-            for field in fields(obj):
-                question_id = self.column_mapping[field.name]
-                Answer.objects.create(
-                    question_id=question_id,
-                    value=getattr(obj, field.name),
-                    document=row_document,
-                )
+        form_api.save_answer(
+            document=instance.case.document,
+            question=table_question,
+            value=[doc.pk for doc in row_documents],
+            user=BaseUser(
+                username=self.owner._user.username, group=self.owner._group.pk
+            ),
+        )
 
 
 class CalumaPlotDataWriter(CalumaListAnswerWriter):
@@ -287,16 +327,12 @@ class CalumaPlotDataWriter(CalumaListAnswerWriter):
         dossier = self.context.get("dossier")
         coordinates = dossier.coordinates if dossier else []
         for plot_data, coordinate in itertools.zip_longest(values, coordinates):
-            if plot_data and len(str(numbers(plot_data.number))) != len(
-                str(plot_data.number)
-            ):
-                plot_data.number = None
             compiled.append(
                 CalumaPlotData(
-                    coord_east=coordinate and coordinate.e,
-                    coord_north=coordinate and coordinate.n,
-                    egrid_number=plot_data and plot_data.egrid,
-                    plot_number=plot_data and plot_data.number,
+                    coord_east=coordinate and float(coordinate.e),
+                    coord_north=coordinate and float(coordinate.n),
+                    egrid_number=plot_data and str(plot_data.egrid),
+                    plot_number=plot_data and str(plot_data.number),
                 )
             )
         super().write(instance, compiled)
@@ -319,12 +355,30 @@ class CaseMetaWriter(FieldWriter):
 
 class EbauNumberWriter(FieldWriter):
     def write(self, instance, value=None):
-        if not self.owner.get_or_create_ebau_nr(self.context.get("dossier")):
-            # in case dossier.submit_date is not present
+        dossier = self.context.get("dossier")
+        if dossier._meta.target_state == "SUBMITTED" and not dossier.cantonal_id:
             return
-        save_ebau_number(
-            instance, self.owner.get_or_create_ebau_nr(self.context.get("dossier"))
-        )
+
+        ebau_number = self.owner.get_or_create_ebau_nr(dossier)
+        if dossier.cantonal_id and ebau_number != dossier.cantonal_id:
+            self.context.get("dossier")._meta.errors.append(
+                Message(
+                    level=LOG_LEVEL_WARNING,
+                    code=MessageCodes.FIELD_VALIDATION_ERROR.value,
+                    detail=f"Dossier number provided with data set {dossier.id} already existed. changed from {dossier.cantonal_id} to {ebau_number}",
+                )
+            )
+        if not ebau_number:
+            # in case dossier.submit_date is not present
+            self.context.get("dossier")._meta.errors.append(
+                Message(
+                    level=LOG_LEVEL_WARNING,
+                    code=MessageCodes.FIELD_VALIDATION_ERROR.value,
+                    detail=f"Failed to generate dossier-number for Dossier {dossier.id}",
+                )
+            )
+            return
+        save_ebau_number(instance, ebau_number)
 
 
 class DossierWriter:
