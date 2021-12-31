@@ -113953,6 +113953,13 @@
     }
   },
   {
+    "model": "core.rpage",
+    "pk": 15000001,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
     "model": "core.rroleacl",
     "pk": 10000,
     "fields": {
@@ -114377,6 +114384,94 @@
     }
   },
   {
+    "model": "core.rroleacl",
+    "pk": 15000008,
+    "fields": {
+      "resource": 15000001,
+      "role": 20006
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 15000009,
+    "fields": {
+      "resource": 15000001,
+      "role": 20002
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 15000010,
+    "fields": {
+      "resource": 15000001,
+      "role": 20003
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 15000011,
+    "fields": {
+      "resource": 15000001,
+      "role": 5
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 15000012,
+    "fields": {
+      "resource": 15000001,
+      "role": 4
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 15000013,
+    "fields": {
+      "resource": 15000001,
+      "role": 3
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 15000014,
+    "fields": {
+      "resource": 15000001,
+      "role": 20005
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 15000015,
+    "fields": {
+      "resource": 15000001,
+      "role": 20001
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 15000016,
+    "fields": {
+      "resource": 15000001,
+      "role": 20004
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 15000017,
+    "fields": {
+      "resource": 15000001,
+      "role": 10000
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 15000018,
+    "fields": {
+      "resource": 15000001,
+      "role": 20000
+    }
+  },
+  {
     "model": "core.resource",
     "pk": 10000,
     "fields": {
@@ -114386,7 +114481,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -114529,7 +114624,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -114543,6 +114638,19 @@
       "class_field": null,
       "hidden": 1,
       "sort": 6
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 15000001,
+    "fields": {
+      "available_resource": "page",
+      "name": null,
+      "description": null,
+      "template": "/dashboard/faq.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 11
     }
   },
   {
@@ -114802,6 +114910,26 @@
       "resource": 15000000,
       "language": "fr",
       "name": "Statistiques",
+      "description": null
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 15000002,
+    "fields": {
+      "resource": 15000001,
+      "language": "de",
+      "name": "FAQ",
+      "description": null
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 15000003,
+    "fields": {
+      "resource": 15000001,
+      "language": "fr",
+      "name": "FAQ",
       "description": null
     }
   },
