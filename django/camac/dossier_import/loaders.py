@@ -273,11 +273,9 @@ class XlsxFileDossierLoader:
                 getattr(XlsxFileDossierLoader.Column, "city").value
             )
             for number, egrid in zip(plot_numbers, egrids):
-                if len(str(numbers(number))) != len(str(number)):
-                    number = None
                 out.append(
                     PlotData(
-                        number=number and int(number),
+                        number=str(number),
                         egrid=egrid,
                         municipality=municipality,
                     )

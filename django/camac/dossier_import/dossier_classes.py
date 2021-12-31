@@ -41,7 +41,7 @@ class Person:
     company: Optional[str]
     street: Optional[str]
     street_number: Optional[str]
-    zip: Optional[str]
+    zip: Optional[int]
     town: Optional[str]
     phone: Optional[str]
     email: Optional[str]

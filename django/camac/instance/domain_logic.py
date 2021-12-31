@@ -42,6 +42,13 @@ def save_ebau_number(instance, ebau_number):
         item=1,
         defaults={"answer": ebau_number},
     )
+    Answer.objects.update_or_create(
+        instance=instance,
+        question_id=be_constants.QUESTION_EBAU_NR_EXISTS,
+        chapter_id=be_constants.QUESTION_EBAU_NR_EXISTS,
+        item=1,
+        defaults={"answer": "yes"},
+    )
 
 
 def link_instances(first, second):
@@ -536,7 +543,7 @@ class CreateInstanceLogic:
             if workflow_slug
             else allowed_workflows.first()
         )
-        if workflow is None:
+        if workflow is None:  # pragma: no cover  TODO: cover
             raise ValidationError(
                 f"The workflow {workflow_slug} does not allow the form {caluma_form.slug}"
             )
