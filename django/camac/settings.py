@@ -1923,7 +1923,7 @@ APPLICATIONS = {
             ),
             "usage_type": ("answer", "nutzungsart", {"value_parser": "option"}),
             "usage_zone": ("answer", "nutzungszone"),
-            "application_type": ("answer", "verfahrenstyp"),
+            "application_type": ("answer", "geschaeftstyp"),
             "development_regulations": ("answer", "ueberbauungsordnung"),
             "situation": ("answer", "sachverhalt"),
             "monument_worth_protecting": (

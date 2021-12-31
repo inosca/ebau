@@ -1,4 +1,3 @@
-import datetime
 from pathlib import Path
 
 import pytest
@@ -215,14 +214,16 @@ def test_set_workflow_state_exceptions(
     "dossier_row_patch,expected_target",
     [
         # based on existing ebau-number and service access resulting ebau-number differs
-        ({"CANTONAL-ID": None}, "dossier_number"),  # 2017-1
+        ({"STATUS": "SUBMITTED", "CANTONAL-ID": None}, "dossier_number"),  # None
+        ({"STATUS": "APPROVED", "CANTONAL-ID": None}, "dossier_number"),  # 2017-1
+        ({"STATUS": "DONE", "CANTONAL-ID": None}, "dossier_number"),  # 2017-1
         ({"CANTONAL-ID": "2020-1"}, "dossier_number"),  # 2020-1
         ({"CANTONAL-ID": "2020-2"}, "dossier_number"),  # 2017-1
         (
             {
                 "COORDINATE-E": "2`710`662",
                 "COORDINATE-N": "1`225`997",
-                "PARCEL": "123,2BA",
+                "PARCEL": "`123`,2BA",
                 "EGRID": "HK207838123456,EGRIDDELLEY",
             },
             "plot_data",
@@ -255,7 +256,7 @@ def test_set_workflow_state_exceptions(
             {"COMPLETION-DATE": timezone.datetime(2021, 12, 12)},
             "completion_date",
         ),
-        ({"TYPE": "Baugesuch"}, "application_type"),
+        ({"TYPE": "geschaeftstyp-baubewilligungsverfahren"}, "application_type"),
         (
             dict(
                 [
@@ -264,7 +265,7 @@ def test_set_workflow_state_exceptions(
                     ("APPLICANT-COMPANY", "Chocolate Factory"),
                     ("APPLICANT-STREET", "Candy Lane"),
                     ("APPLICANT-STREET-NUMBER", "13"),
-                    ("APPLICANT-ZIP", "1234"),
+                    ("APPLICANT-ZIP", 1234),
                     ("APPLICANT-CITY", "Wonderland"),
                     ("APPLICANT-PHONE", "+1 101 10 01 101"),
                     ("APPLICANT-EMAIL", "candy@example.com"),
@@ -330,7 +331,7 @@ def test_record_loading_be(
     instance_factory,
     instance_with_case,
     make_dossier_writer,
-    dossier_row,
+    dossier_row_sparse,
     config,
     dossier_row_patch,
     expected_target,
@@ -355,10 +356,9 @@ def test_record_loading_be(
         foreign_instance = instance_with_case(foreign_instance)
         foreign_instance.case.meta.update({"ebau-number": "2020-2"})
         foreign_instance.case.save()
-
     loader = XlsxFileDossierLoader()
-    dossier_row.update(dossier_row_patch)
-    dossier = loader._load_dossier(dossier_row)
+    dossier_row_sparse.update(dossier_row_patch)
+    dossier = loader._load_dossier(dossier_row_sparse)
     writer.write_fields(be_instance, dossier)
     md = MasterData(be_instance.case)
     snapshot.assert_match(getattr(md, expected_target))
@@ -419,6 +419,13 @@ def test_record_loading_be(
             {"FINAL-APPROVAL-DATE": timezone.datetime(2021, 12, 12)},
             "final_approval_date",
         ),
+        (  # make sure the building authority table line is set correcto
+            {
+                "FINAL-APPROVAL-DATE": timezone.datetime(2021, 12, 12),
+                "COMPLETION-DATE": timezone.datetime(2021, 12, 12),
+            },
+            "completion_date",
+        ),
         (
             {"COMPLETION-DATE": timezone.datetime(2021, 12, 12)},
             "completion_date",
@@ -432,7 +439,7 @@ def test_record_loading_be(
                     ("APPLICANT-COMPANY", "Chocolate Factory"),
                     ("APPLICANT-STREET", "Candy Lane"),
                     ("APPLICANT-STREET-NUMBER", "13"),
-                    ("APPLICANT-ZIP", "1234"),
+                    ("APPLICANT-ZIP", 1234),
                     ("APPLICANT-CITY", "Wonderland"),
                     ("APPLICANT-PHONE", "+1 101 10 01 101"),
                     ("APPLICANT-EMAIL", "candy@example.com"),
@@ -533,7 +540,7 @@ def test_record_loading_all_empty(
     settings,
     camac_instance,
     make_dossier_writer,
-    dossier_row,
+    dossier_row_sparse,
     config,
     snapshot,
 ):
@@ -542,8 +549,8 @@ def test_record_loading_all_empty(
     writer = make_dossier_writer(config=config)
     loader = XlsxFileDossierLoader()
     make_workflow_items_for_config(config)
-    dossier_row = {key: "" for key in dossier_row.keys()}
-    dossier = loader._load_dossier(dossier_row)
+    dossier_row_sparse = {key: "" for key in dossier_row_sparse.keys()}
+    dossier = loader._load_dossier(dossier_row_sparse)
     writer.write_fields(camac_instance, dossier)
 
 
@@ -575,17 +582,17 @@ def test_record_loading_exceptions(
     settings,
     sz_instance,
     make_dossier_writer,
-    dossier_row,
+    dossier_row_sparse,
     config,
     dossier_row_patch,
     expected,
 ):
     """Load data from import record, make persistant and verify with master_data API."""
     loader = XlsxFileDossierLoader()
-    dossier_row.update(dossier_row_patch)
+    dossier_row_sparse.update(dossier_row_patch)
     make_workflow_items_for_config(config)
-    del dossier_row["STATUS"]
-    dossier = loader._load_dossier(dossier_row)
+    del dossier_row_sparse["STATUS"]
+    dossier = loader._load_dossier(dossier_row_sparse)
     for key, value in expected.items():
         assert getattr(dossier._meta, key) == value
 
@@ -666,10 +673,6 @@ def test_validation(
                     "create-manual-workitems",
                     "canceled",
                 ),  # "Manuelle aufgabe erfassen (Gesuch ausfüllen)"
-                (
-                    "create-manual-workitems",
-                    "ready",
-                ),  # "Manuelle aufgabe erfassen" (decision)
                 ("init-circulation", "canceled"),  # "Zirkulation initialisieren"
                 ("reopen-circulation", "canceled"),
                 ("audit", "skipped"),  # "Dossier prüfen"
@@ -680,7 +683,7 @@ def test_validation(
                 ("decision", "skipped"),  # "Entscheid verfügen"
                 ("information-of-neighbors", "skipped"),  # not documented in miro
             ],
-            "running",
+            "completed",
         ),  # "Entscheid verfügen"
         (
             "DONE",
@@ -697,9 +700,8 @@ def test_validation(
                 ("fill-publication", "skipped"),  # "Publikation ausfüllen"
                 ("create-publication", "canceled"),  # "Neue Publikation"
                 ("decision", "skipped"),  # "Entscheid verfügen"
-                ("sb1", "skipped"),  # "SB 1 ausfüllen"
-                ("sb2", "skipped"),  # "SB 2 ausfüllen"
-                ("complete", "skipped"),  # "Verfahren abschliessen"
+                ("information-of-neighbors", "skipped"),  # not documented in miro
+                ("reopen-circulation", "canceled"),
             ],
             "completed",
         ),
@@ -748,11 +750,9 @@ def test_set_workflow_state_be(
     writer = make_dossier_writer(
         "kt_bern",
     )
+    writer.is_paper.context = {}
+    writer.is_paper.owner = writer
     writer.is_paper.write(be_instance, writer.is_paper.value)
-    if workflow_type == DECISION_TYPE_BUILDING_PERMIT:
-        writer.decision_date.write(be_instance, datetime.datetime.now())
-        be_instance.decision.decision_type = DECISION_TYPE_BUILDING_PERMIT
-        be_instance.decision.save()
 
     writer._set_workflow_state(be_instance, target_state, workflow_type=workflow_type)
     for task_id, expected_status in expected_work_items_states:

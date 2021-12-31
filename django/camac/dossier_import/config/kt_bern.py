@@ -1,7 +1,8 @@
 import re
 from typing import List
 
-from caluma.caluma_form.models import Form as CalumaForm
+from caluma.caluma_form.api import save_answer
+from caluma.caluma_form.models import Form as CalumaForm, Question
 from caluma.caluma_user.models import BaseUser
 from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.api import skip_work_item
@@ -10,9 +11,7 @@ from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
 from django.db import transaction
 
-from camac.caluma.api import CalumaApi
 from camac.caluma.extensions.events.general import get_caluma_setting
-from camac.constants.kt_bern import DECISION_TYPE_BUILDING_PERMIT
 from camac.core.models import InstanceService
 from camac.core.utils import generate_ebau_nr
 from camac.dossier_import.dossier_classes import Dossier
@@ -114,7 +113,7 @@ class KtBernDossierWriter(DossierWriter):
     usage = CalumaAnswerWriter(target="nutzungszone")
     application_type = CalumaAnswerWriter(target="geschaeftstyp")
     submit_date = CaseMetaWriter(target="submit-date", formatter="datetime-to-string")
-    decision_date = CalumaDecisionDateWriter(target="decision-date")
+    decision_date = CalumaDecisionDateWriter(target="datum-baubewilligung")
     publication_date = CalumaAnswerWriter(target="datum-publikation", value_key="date")
     construction_start_date = CalumaAnswerWriter(
         target="datum-baubeginn", value_key="date"
@@ -178,7 +177,7 @@ class KtBernDossierWriter(DossierWriter):
 
         instance = CreateInstanceLogic.create(
             creation_data,
-            caluma_user=BaseUser(),
+            caluma_user=BaseUser(username=self._user.username, group=self._group.pk),
             camac_user=self._user,
             group=self._group,
             caluma_form=CalumaForm.objects.get(
@@ -248,11 +247,12 @@ class KtBernDossierWriter(DossierWriter):
                 detail=f"Instance created with ID:  {instance.pk}",
             )
         )
-        CalumaApi().update_or_create_answer(
-            instance.case.document,
-            question_slug="gemeinde",
+        q_municipality = Question.objects.get(slug="gemeinde")
+        save_answer(
+            document=instance.case.document,
+            question=q_municipality,
             value=str(self._group.service_id),
-            user=BaseUser(),
+            user=BaseUser(username=self._user.username, group=self._group.pk),
         )
         self.write_fields(instance, dossier)
         dossier_summary.details.append(
@@ -266,7 +266,7 @@ class KtBernDossierWriter(DossierWriter):
         dossier_summary.details += self._create_dossier_attachments(dossier, instance)
 
         if dossier._meta.workflow == "BUILDINGPERMIT" and dossier.decision_date:
-            instance.decision.decision_type = DECISION_TYPE_BUILDING_PERMIT
+            instance.decision.decision_type = "UNKNOWN_IMPORT"
             instance.decision.save()
 
         workflow_message = self._set_workflow_state(
@@ -290,7 +290,7 @@ class KtBernDossierWriter(DossierWriter):
 
         return dossier_summary
 
-    def _set_workflow_state(
+    def _set_workflow_state(  # noqa: C901
         self, instance: Instance, target_state, workflow_type: str = "BUILDINGPERMIT"
     ) -> List[Message]:
         """Advance instance's case through defined workflow sequence to target state.
@@ -342,11 +342,7 @@ class KtBernDossierWriter(DossierWriter):
                     )
                 )
                 continue
-            if (
-                target_state == "SUBMITTED"
-            ):  # TODO: setting instance-state here like this??
-                instance.instance_state = InstanceState.objects.get(name="subm")
-                instance.save()
+
             config = get_caluma_setting("PRE_COMPLETE") and get_caluma_setting(
                 "PRE_COMPLETE"
             ).get(work_item.task_id)
@@ -361,7 +357,13 @@ class KtBernDossierWriter(DossierWriter):
             skip_work_item(work_item, user=caluma_user, context=default_context)
             if task_id == "decision":
                 set_construction_control(instance)
-        messages.append(
+            if target_state == "SUBMITTED":
+                instance.instance_state = InstanceState.objects.get(name="subm")
+                instance.save()
+                if instance.case.meta.get("ebau-number"):
+                    work_item = instance.case.work_items.get(task_id="ebau-number")
+                    skip_work_item(work_item, user=caluma_user, context=default_context)
+        messages.append(  # pragma: no cover
             Message(
                 level=LOG_LEVEL_DEBUG,
                 code=MessageCodes.SET_WORKFLOW_STATE.value,
@@ -373,7 +375,6 @@ class KtBernDossierWriter(DossierWriter):
     def get_or_create_ebau_nr(self, dossier):
         pattern = re.compile("([0-9]{4}-[1-9][0-9]*)")
         result = pattern.search(str(dossier.cantonal_id))
-
         if result:
             try:
                 match = result.groups()[0]
