@@ -10091,6 +10091,24 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "8a430cd3-0ff5-433a-a260-09394ace61bb",
+    "fields": {
+      "created_at": "2021-12-31T08:17:27.826Z",
+      "modified_at": "2021-12-31T08:17:58.767Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "faq-inhalt-fr",
+      "value": "",
+      "meta": {},
+      "document": "f619bddb-8345-4e6f-89a8-f2305538ad5c",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "8aa855cc-7bce-477d-b2dc-7aed0fe2e584",
     "fields": {
       "created_at": "2021-03-31T12:35:14.782Z",
@@ -10121,6 +10139,24 @@
       "value": "juristische-person-gesuchstellerin-nein",
       "meta": {},
       "document": "6f2e85fe-cb99-4cd1-a0ec-53c5dccc888f",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "8b87b683-0f69-4bf8-ab63-cb108143633d",
+    "fields": {
+      "created_at": "2021-12-31T08:17:07.163Z",
+      "modified_at": "2021-12-31T08:17:53.219Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "faq-inhalt-de",
+      "value": "",
+      "meta": {},
+      "document": "f619bddb-8345-4e6f-89a8-f2305538ad5c",
       "date": null,
       "file": null
     }
