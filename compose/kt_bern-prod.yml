@@ -19,19 +19,3 @@ services:
 
   php:
     image: acr.run/camac-ng/camac-ng/php:${CI_COMMIT_REF_SLUG}
-
-  keycloak:
-    volumes:
-      - ./keycloak:/etc/keycloak:ro
-    environment:
-      - POSTGRES_PASSWORD=camac
-      - KEYCLOAK_PASSWORD=camac
-    # http://www.keycloak.org/docs/3.3/server_admin/topics/export-import.html
-    command:
-      [
-        "-Dkeycloak.migration.action=import",
-        "-Dkeycloak.migration.provider=singleFile",
-        "-Dkeycloak.migration.file=/etc/keycloak/test-config.json",
-        "-b",
-        "0.0.0.0",
-      ]
