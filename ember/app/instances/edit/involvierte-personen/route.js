@@ -9,8 +9,10 @@ export default class InstancesEditInvolviertePersonenRoute extends Route {
 
   setupController(controller, model) {
     super.setupController(controller, model);
+
     const applicants = this.store.query("applicant", {
       instance: model.instance.get("id"),
+      group: this.paramsFor("instances.edit").group,
     });
     controller.set("applicants", applicants);
   }
