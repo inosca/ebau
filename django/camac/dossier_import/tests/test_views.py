@@ -256,3 +256,6 @@ def test_importing(
         reverse("dossier-import-import-archive", args=(dossier_import.pk,))
     )
     assert resp.status_code == expected_status
+    dossier_import.refresh_from_db()
+    if archive_is_valid:
+        assert dossier_import.task_id == resp.data["task_id"]
