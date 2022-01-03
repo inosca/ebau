@@ -84,6 +84,8 @@ class DossierImport(UUIDModel):
 
     mime_type = models.CharField(max_length=255, null=True, blank=True)
 
+    task_id = models.CharField(max_length=64, null=True, blank=True)
+
     def delete(self, using=None, keep_parents=False, *args, **kwargs):
         if self.source_file:
             Path(self.source_file.path).exists() and Path(

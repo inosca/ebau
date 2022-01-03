@@ -45,6 +45,9 @@ class DossierImportView(ModelViewSet):
         task_id = async_task(
             perform_import,
             dossier_import,
-            # sync=settings.Q_CLUSTER.get("sync", False),
+            # sync=settings.Q_CLUSTER.get("sync", False),  # TODO: running tasks sync does not work at
+            #  the moment: django-q task loses db connection. maybe related to testing fixtures
         )
+        dossier_import.task_id = task_id
+        dossier_import.save()
         return Response({"task_id": task_id})
