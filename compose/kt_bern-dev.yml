@@ -109,19 +109,20 @@ services:
     volumes:
       - ../keycloak/${APPLICATION}-test-config.json:/etc/keycloak/test-config.json:ro
     environment:
-      - POSTGRES_PASSWORD=camac
+      - DB_PASSWORD=camac
       - KEYCLOAK_PASSWORD=camac
     networks:
       - camac-ng.local
     # export is a bit tricky: We need to _start_ keycloak with specific arguments to perform an export
     # command: ["-Dkeycloak.migration.action=export", "-Dkeycloak.migration.provider=singleFile", "-Dkeycloak.migration.file=/etc/keycloak/test-config.json", "-b", "0.0.0.0"]
     #
-    # http://www.keycloak.org/docs/3.3/server_admin/topics/export-import.html
+    # https://www.keycloak.org/docs/latest/server_admin/#assembly-exporting-importing_server_administration_guide
     command:
       [
         "-Dkeycloak.migration.action=import",
         "-Dkeycloak.migration.provider=singleFile",
         "-Dkeycloak.migration.file=/etc/keycloak/test-config.json",
+        "-Dkeycloak.migration.strategy=OVERWRITE_EXISTING",
         "-b",
         "0.0.0.0",
       ]
