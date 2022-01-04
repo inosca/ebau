@@ -175,6 +175,11 @@ class KtBernDossierWriter(DossierWriter):
             form=Form.objects.get(pk=self._import_settings["FORM_ID"]),
         )
 
+        workflow_slug = {
+            "BUILDINGPERMIT": "building-permit",
+            "PRELIMINARY": "preliminary-clarification",
+        }
+
         instance = CreateInstanceLogic.create(
             creation_data,
             caluma_user=BaseUser(username=self._user.username, group=self._group.pk),
@@ -184,7 +189,7 @@ class KtBernDossierWriter(DossierWriter):
                 pk=settings.APPLICATION["DOSSIER_IMPORT"]["CALUMA_FORM"]
             ),
             start_caluma=True,
-            workflow_slug="building-permit",
+            workflow_slug=workflow_slug[dossier._meta.workflow],
         )
 
         InstanceService.objects.create(
