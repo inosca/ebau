@@ -107,12 +107,15 @@ services:
   keycloak:
     depends_on:
       - db
-    image: acr.run/camac-ng/keycloak:3.4.3.Final_theme-v0.2.0-SNAPSHOT
+    image: jboss/keycloak:16.1.0
     environment:
-      - POSTGRES_PORT_5432_TCP_ADDR=db
-      - POSTGRES_USER=camac
-      - POSTGRES_DATABASE=${APPLICATION}
+      - DB_VENDOR=postgres
+      - DB_ADDR=db
+      - DB_USER=camac
+      - DB_DATABASE=${APPLICATION}
+      - DB_SCHEMA=keycloak
       - KEYCLOAK_USER=admin
+      - PROXY_ADDRESS_FORWARDING=true
 
   document-merge-service:
     image: adfinissygroup/document-merge-service:v4.6.1
