@@ -765,9 +765,7 @@ def test_set_workflow_state_be(
         )
     if target_state in ["APPROVED", "DONE"]:
         assert (
-            be_instance.instance_services.filter(
-                active=1, service__service_group__name="construction-control"
-            ).exists()
-            is True
+            be_instance.responsible_service(filter_type="construction_control")
+            is not None
         )
     assert be_instance.case.status == expected_case_status
