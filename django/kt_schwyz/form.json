@@ -3517,8 +3517,8 @@
             "required": true,
             "config": {
               "options": [
-                "Der/die Gesuchsteller/in bestätigt mit Unterschrift, die Generalvollmacht an Bevollmächtigte",
-                "Beizulegende Vollmacht mit beschriebenen Handlungsspielraum an Bevollmächtigte"
+                "Die Bauherrschaft bestätigt mit beigelegtem, unterschriebenem Dokument, obgenannter Person die Generalvollmacht zu erteilen.",
+                "Die Bauherrschaft bestätigt mit beigelegtem, unterschriebenem Dokument, obgenannter Person die Vollmacht mit beschriebenem Handlungsspielraum zu erteilen."
               ]
             }
           }
