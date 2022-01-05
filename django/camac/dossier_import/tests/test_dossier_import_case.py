@@ -83,6 +83,7 @@ def test_create_instance_dossier_import_case(
     ).order_by("pk")
 
     if config == "kt_schwyz":
+        assert instances.first().identifier == "IM-12-17-0001"
         assert set(
             InstanceLocation.objects.filter(instance__in=instances).values_list(
                 "instance", flat=True
