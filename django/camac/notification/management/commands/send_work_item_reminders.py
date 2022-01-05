@@ -41,6 +41,8 @@ Ihre Organisation ({name}) hat folgende Aufgaben in eBau, welche Aufmerksamkeit 
 - {controlling_overdue} überfällige {get_task_trans(controlling_overdue, "de", True)}
 
 {settings.INTERNAL_BASE_URL}
+
+Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
 """
 
     if settings.APPLICATION.get("IS_MULTILINGUAL", False):
@@ -59,6 +61,8 @@ Votre organisation ({name_fr}) a les tâches suivantes dans eBau qui requièrent
 - {controlling_overdue} {get_task_trans(controlling_overdue, "fr", True)} en retard
 
 {settings.INTERNAL_BASE_URL}
+
+Cet e-mail a été généré automatiquement, merci de ne pas y répondre.
 """
         )
 
@@ -76,6 +80,8 @@ Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
 - {addressed_not_viewed} ungelesene {get_task_trans(addressed_not_viewed, "de")}
 
 {settings.INTERNAL_BASE_URL}
+
+Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
 """
     if settings.APPLICATION.get("IS_MULTILINGUAL", False):
         text = (
@@ -91,6 +97,8 @@ Vous avez les tâches suivantes dans eBau qui requièrent votre attention :
 - {addressed_not_viewed} {get_task_trans(addressed_not_viewed, "fr")} non lue{"s" if addressed_not_viewed != 1 else ""}
 
 {settings.INTERNAL_BASE_URL}
+
+Cet e-mail a été généré automatiquement, merci de ne pas y répondre.
 """
         )
 
