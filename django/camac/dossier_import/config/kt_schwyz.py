@@ -171,7 +171,7 @@ class KtSchwyzDossierWriter(DossierWriter):
         instance.location = self._location
         CreateInstanceLogic.update_instance_location(instance)
         instance.identifier = CreateInstanceLogic.generate_identifier(
-            instance, prefix="IM", seq_zero_padding=4
+            instance, prefix="IM", seq_zero_padding=4, year=dossier.submit_date.year
         )
         instance.save()
         return instance
