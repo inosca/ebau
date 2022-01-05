@@ -967,6 +967,7 @@ APPLICATIONS = {
         "CUSTOM_NOTIFICATION_TYPES": [
             "inactive_municipality",
         ],
+        "CIRCULATION_ANSWER_UNINVOLVED": "not_concerned",
         "NOTIFICATIONS": {
             "SUBMIT": [
                 {
