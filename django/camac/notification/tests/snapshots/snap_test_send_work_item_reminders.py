@@ -25,6 +25,8 @@ Ihre Organisation (Jeffrey Zhang) hat folgende Aufgaben in eBau, welche Aufmerks
 - 0 überfällige Controlling-Aufgaben
 
 http://camac-ng.local
+
+Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
 ''',
         [
             'nicolefields@example.com'
@@ -47,6 +49,8 @@ Ihre Organisation (Jason Dickerson) hat folgende Aufgaben in eBau, welche Aufmer
 
 http://camac-ng.local
 
+Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
+
 *** version française ***
 
 Bonjour,
@@ -58,6 +62,8 @@ Votre organisation (Derek Wagner) a les tâches suivantes dans eBau qui requièr
 - 0 tâches en retard
 
 http://camac-ng.local
+
+Cet e-mail a été généré automatiquement, merci de ne pas y répondre.
 ''',
         [
             'nicolefields@example.com'
@@ -78,6 +84,8 @@ Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
 - 1 ungelesene Aufgabe
 
 http://camac-ng.local
+
+Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
 ''',
         [
             'fmalone@example.org'
@@ -96,6 +104,8 @@ Ihre Organisation (Jeffrey Zhang) hat folgende Aufgaben in eBau, welche Aufmerks
 - 0 überfällige Controlling-Aufgaben
 
 http://camac-ng.local
+
+Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
 ''',
         [
             'nicolefields@example.com'
@@ -117,6 +127,8 @@ Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
 
 http://camac-ng.local
 
+Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
+
 *** version française ***
 
 Bonjour  Rebecca Gonzalez,
@@ -127,6 +139,8 @@ Vous avez les tâches suivantes dans eBau qui requièrent votre attention :
 - 1 tâche de contrôle non lue
 
 http://camac-ng.local
+
+Cet e-mail a été généré automatiquement, merci de ne pas y répondre.
 ''',
         [
             'fmalone@example.org'
@@ -146,6 +160,8 @@ Ihre Organisation (Jason Dickerson) hat folgende Aufgaben in eBau, welche Aufmer
 
 http://camac-ng.local
 
+Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
+
 *** version française ***
 
 Bonjour,
@@ -157,6 +173,8 @@ Votre organisation (Derek Wagner) a les tâches suivantes dans eBau qui requièr
 - 0 tâches en retard
 
 http://camac-ng.local
+
+Cet e-mail a été généré automatiquement, merci de ne pas y répondre.
 ''',
         [
             'nicolefields@example.com'
@@ -177,6 +195,8 @@ Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
 - 0 ungelesene Aufgaben
 
 http://camac-ng.local
+
+Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
 ''',
         [
             'fmalone@example.org'
@@ -195,6 +215,8 @@ Ihre Organisation (Jeffrey Zhang) hat folgende Aufgaben in eBau, welche Aufmerks
 - 0 überfällige Controlling-Aufgaben
 
 http://camac-ng.local
+
+Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
 ''',
         [
             'nicolefields@example.com'
@@ -216,6 +238,8 @@ Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
 
 http://camac-ng.local
 
+Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
+
 *** version française ***
 
 Bonjour  Rebecca Gonzalez,
@@ -226,6 +250,8 @@ Vous avez les tâches suivantes dans eBau qui requièrent votre attention :
 - 0 tâches de contrôle non lues
 
 http://camac-ng.local
+
+Cet e-mail a été généré automatiquement, merci de ne pas y répondre.
 ''',
         [
             'fmalone@example.org'
@@ -245,6 +271,8 @@ Ihre Organisation (Jason Dickerson) hat folgende Aufgaben in eBau, welche Aufmer
 
 http://camac-ng.local
 
+Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
+
 *** version française ***
 
 Bonjour,
@@ -256,6 +284,8 @@ Votre organisation (Derek Wagner) a les tâches suivantes dans eBau qui requièr
 - 0 tâches en retard
 
 http://camac-ng.local
+
+Cet e-mail a été généré automatiquement, merci de ne pas y répondre.
 ''',
         [
             'nicolefields@example.com'
@@ -276,6 +306,8 @@ Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
 - 1 ungelesene Aufgabe
 
 http://camac-ng.local
+
+Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
 ''',
         [
             'fmalone@example.org'
@@ -294,6 +326,8 @@ Ihre Organisation (Jeffrey Zhang) hat folgende Aufgaben in eBau, welche Aufmerks
 - 0 überfällige Controlling-Aufgaben
 
 http://camac-ng.local
+
+Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
 ''',
         [
             'nicolefields@example.com'
@@ -315,6 +349,8 @@ Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
 
 http://camac-ng.local
 
+Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
+
 *** version française ***
 
 Bonjour  Rebecca Gonzalez,
@@ -325,6 +361,8 @@ Vous avez les tâches suivantes dans eBau qui requièrent votre attention :
 - 1 tâche de contrôle non lue
 
 http://camac-ng.local
+
+Cet e-mail a été généré automatiquement, merci de ne pas y répondre.
 ''',
         [
             'fmalone@example.org'
@@ -344,6 +382,8 @@ Ihre Organisation (Jason Dickerson) hat folgende Aufgaben in eBau, welche Aufmer
 
 http://camac-ng.local
 
+Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
+
 *** version française ***
 
 Bonjour,
@@ -355,6 +395,8 @@ Votre organisation (Derek Wagner) a les tâches suivantes dans eBau qui requièr
 - 0 tâches en retard
 
 http://camac-ng.local
+
+Cet e-mail a été généré automatiquement, merci de ne pas y répondre.
 ''',
         [
             'nicolefields@example.com'
@@ -375,6 +417,8 @@ Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
 - 1 ungelesene Aufgabe
 
 http://camac-ng.local
+
+Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
 ''',
         [
             'fmalone@example.org'
@@ -393,6 +437,8 @@ Ihre Organisation (Jeffrey Zhang) hat folgende Aufgaben in eBau, welche Aufmerks
 - 0 überfällige Controlling-Aufgaben
 
 http://camac-ng.local
+
+Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
 ''',
         [
             'nicolefields@example.com'
@@ -411,6 +457,8 @@ Ihre Organisation (Maria Fuentes) hat folgende Aufgaben in eBau, welche Aufmerks
 - 1 überfällige Controlling-Aufgabe
 
 http://camac-ng.local
+
+Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
 ''',
         [
             'calebsoto@example.net'
@@ -432,6 +480,8 @@ Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
 
 http://camac-ng.local
 
+Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
+
 *** version française ***
 
 Bonjour  Rebecca Gonzalez,
@@ -442,6 +492,8 @@ Vous avez les tâches suivantes dans eBau qui requièrent votre attention :
 - 1 tâche de contrôle non lue
 
 http://camac-ng.local
+
+Cet e-mail a été généré automatiquement, merci de ne pas y répondre.
 ''',
         [
             'fmalone@example.org'
@@ -461,6 +513,8 @@ Ihre Organisation (Jason Dickerson) hat folgende Aufgaben in eBau, welche Aufmer
 
 http://camac-ng.local
 
+Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
+
 *** version française ***
 
 Bonjour,
@@ -472,6 +526,8 @@ Votre organisation (Derek Wagner) a les tâches suivantes dans eBau qui requièr
 - 0 tâches en retard
 
 http://camac-ng.local
+
+Cet e-mail a été généré automatiquement, merci de ne pas y répondre.
 ''',
         [
             'nicolefields@example.com'
@@ -491,6 +547,8 @@ Ihre Organisation (Kayla Ruiz) hat folgende Aufgaben in eBau, welche Aufmerksamk
 
 http://camac-ng.local
 
+Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
+
 *** version française ***
 
 Bonjour,
@@ -502,6 +560,8 @@ Votre organisation (Brandi Vargas) a les tâches suivantes dans eBau qui requiè
 - 1 tâche en retard
 
 http://camac-ng.local
+
+Cet e-mail a été généré automatiquement, merci de ne pas y répondre.
 ''',
         [
             'calebsoto@example.net'
