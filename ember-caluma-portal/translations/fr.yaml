@@ -46,6 +46,12 @@ documents:
     dokument-gutachten-nachweise-begrundungen: "Expertises, preuves, justifications, demande de dérogation"
     dokument-projektplane-projektbeschrieb: "Plans du projet"
     dokument-weitere-gesuchsunterlagen: "Autres documents de la demande"
+    dokument-amts-fachstellen: ""
+    dokument-merkblaetter: ""
+    dokument-rechtsbegehren: ""
+    dokument-stellungnahmen-verfahrensbeteiligte: ""
+    dokument-leitbehoerde: ""
+    dokument-entscheid: ""
 
     descriptions:
       prefix: "## Informations complémentaires\n Les documents doivent être
@@ -76,6 +82,13 @@ documents:
       raccordement au réseau de gaz, raccordement au réseau d'eau,
       installations d'eau et d'eaux usées et des autres pièces de la
       demande."
+      dokument-amts-fachstellen: ""
+      dokument-merkblaetter: ""
+      dokument-rechtsbegehren: ""
+      dokument-stellungnahmen-verfahrensbeteiligte: ""
+      dokument-leitbehoerde: ""
+      dokument-entscheid: ""
+
 
   download: "Télécharger le fichier"
   confidential: ""
