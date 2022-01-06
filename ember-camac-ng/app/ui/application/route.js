@@ -66,6 +66,18 @@ export default class ApplicationRoute extends ApplicationRouteBase {
       component: "task-form-button",
       type: "StaticQuestion",
     });
+
+    this.calumaOptions.registerComponentOverride({
+      label: "eBau Nummer Vorschlagen",
+      component: "suggest-ebau-number",
+      type: "StaticQuestion",
+    });
+
+    this.calumaOptions.registerComponentOverride({
+      label: "eBau Nummer Weiter Button",
+      component: "assign-ebau-number-button",
+      type: "StaticQuestion",
+    });
   }
 
   sessionInvalidated() {
