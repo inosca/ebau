@@ -1118,6 +1118,42 @@ def test_recipient_type_circulation_service(
             serializer._get_recipients_circulation_service(be_instance)
 
 
+def test_recipient_exclude_uninvolved_service(
+    db,
+    be_instance,
+    activation,
+    group,
+    user,
+    notification_template,
+    service,
+    application_settings,
+):
+    application_settings["CIRCULATION_ANSWER_UNINVOLVED"] = "not_concerned"
+
+    activation.circulation_answer.name = "not_concerned"
+    activation.circulation_answer.save()
+
+    data = {
+        "recipient_types": ["service"],
+        "notification_template": {
+            "type": "notification-templates",
+            "id": notification_template.pk,
+        },
+        "instance": {"id": be_instance.pk, "type": "instances"},
+    }
+    context = {"request": FakeRequest(group=group, user=user)}
+
+    serializer = PermissionlessNotificationTemplateSendmailSerializer(
+        data=data, context=context
+    )
+    serializer.is_valid(raise_exception=True)
+    serializer.save()
+
+    res = serializer._get_recipients_service(be_instance)
+
+    assert res == []
+
+
 @pytest.mark.parametrize(
     "service_group__name,expected",
     [("district", [{"to": "bauen@example.ch"}]), ("municipality", [])],
