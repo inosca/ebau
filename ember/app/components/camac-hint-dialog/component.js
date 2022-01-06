@@ -7,6 +7,10 @@ const CamacHintDialogComponent = Component.extend({
 
   classNames: ["uk-margin-small-left"],
 
+  classNameBindings: ["highlight:uk-text-danger"],
+
+  highlight: false,
+
   modalId: computed("elementId", function () {
     return `${this.elementId}-hint-modal`;
   }),
