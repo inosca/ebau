@@ -802,9 +802,12 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         )
 
     def _get_recipients_service(self, instance):
-        services = Service.objects.filter(
-            pk__in=instance.circulations.values("activations__service")
+        activations = Activation.objects.filter(circulation__instance=instance).exclude(
+            circulation_answer__name=settings.APPLICATION.get(
+                "CIRCULATION_ANSWER_UNINVOLVED", None
+            )
         )
+        services = Service.objects.filter(pk__in=activations.values("service"))
 
         return flatten(
             [self._get_responsible(instance, service) for service in services]
