@@ -75,5 +75,15 @@ export default class ApplicationRoute extends Route.extend(
       label: "Deaktiviert",
       component: "be-disabled-input",
     });
+    this.calumaOptions.registerComponentOverride({
+      label: "eBau Nummer Vorschlagen",
+      component: "suggest-ebau-number",
+      type: "StaticQuestion",
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "eBau Nummer Weiter Button",
+      component: "assign-ebau-number-button",
+      type: "StaticQuestion",
+    });
   }
 }
