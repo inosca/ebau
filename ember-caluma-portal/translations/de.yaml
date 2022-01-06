@@ -46,6 +46,12 @@ documents:
     dokument-gutachten-nachweise-begrundungen: "Gutachten, Nachweise, Begründungen, Ausnahmebegehren"
     dokument-projektplane-projektbeschrieb: "Projektpläne"
     dokument-weitere-gesuchsunterlagen: "Weitere Gesuchsunterlagen"
+    dokument-amts-fachstellen: "Dokumente von Amts- und Fachstellen"
+    dokument-merkblaetter: "Merkblätter"
+    dokument-rechtsbegehren: "Rechtsbegehren (Einsprachen, Rechtsverwahrung, Lastenausgleich, usw.)"
+    dokument-stellungnahmen-verfahrensbeteiligte: "Stellungnahmen Verfahrensbeteiligte"
+    dokument-leitbehoerde: "Dokumente der Leitbehörde"
+    dokument-entscheid: "Entscheid"
 
     descriptions:
       prefix: "## Zusätzliche Informationen\n Die Unterlagen sind als
@@ -71,6 +77,12 @@ documents:
       Anschluss Elektrizität, Anschluss Gemeinschaftsantenne, Anschluss Gas,
       Anschluss Wasser, Wasser- / Abwasserinstallationen und andere
       Gesuchsunterlagen."
+      dokument-amts-fachstellen: ""
+      dokument-merkblaetter: ""
+      dokument-rechtsbegehren: ""
+      dokument-stellungnahmen-verfahrensbeteiligte: ""
+      dokument-leitbehoerde: ""
+      dokument-entscheid: ""
 
   download: "Datei herunterladen"
   confidential: "(vertraulich)"
