@@ -13,6 +13,9 @@ snapshots['test_instance_permissions_be[applicant-None-circulation-instance__use
     ],
     'dossierpruefung': [
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
     ],
     'main': [
@@ -34,6 +37,9 @@ snapshots['test_instance_permissions_be[applicant-None-circulation_init-instance
     ],
     'dossierpruefung': [
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
     ],
     'main': [
@@ -54,6 +60,9 @@ snapshots['test_instance_permissions_be[applicant-None-conclusion-instance__user
         'read'
     ],
     'dossierpruefung': [
+    ],
+    'ebau-number': [
+        'read'
     ],
     'information-of-neighbors': [
     ],
@@ -78,6 +87,9 @@ snapshots['test_instance_permissions_be[applicant-None-coordination-instance__us
     ],
     'dossierpruefung': [
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
     ],
     'main': [
@@ -98,6 +110,9 @@ snapshots['test_instance_permissions_be[applicant-None-correction-instance__user
         'read'
     ],
     'dossierpruefung': [
+    ],
+    'ebau-number': [
+        'read'
     ],
     'information-of-neighbors': [
     ],
@@ -120,6 +135,9 @@ snapshots['test_instance_permissions_be[applicant-None-evaluated-instance__user0
     ],
     'dossierpruefung': [
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
     ],
     'main': [
@@ -140,6 +158,9 @@ snapshots['test_instance_permissions_be[applicant-None-finished-instance__user0]
         'read'
     ],
     'dossierpruefung': [
+    ],
+    'ebau-number': [
+        'read'
     ],
     'information-of-neighbors': [
     ],
@@ -162,6 +183,9 @@ snapshots['test_instance_permissions_be[applicant-None-finished_internal-instanc
     ],
     'dossierpruefung': [
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
     ],
     'main': [
@@ -182,6 +206,9 @@ snapshots['test_instance_permissions_be[applicant-None-in_progress-instance__use
         'read'
     ],
     'dossierpruefung': [
+    ],
+    'ebau-number': [
+        'read'
     ],
     'information-of-neighbors': [
     ],
@@ -204,6 +231,9 @@ snapshots['test_instance_permissions_be[applicant-None-in_progress_internal-inst
     ],
     'dossierpruefung': [
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
     ],
     'main': [
@@ -224,6 +254,9 @@ snapshots['test_instance_permissions_be[applicant-None-new-instance__user0] 1'] 
         'read'
     ],
     'dossierpruefung': [
+    ],
+    'ebau-number': [
+        'read'
     ],
     'information-of-neighbors': [
     ],
@@ -247,6 +280,9 @@ snapshots['test_instance_permissions_be[applicant-None-rejected-instance__user0]
     ],
     'dossierpruefung': [
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
     ],
     'main': [
@@ -267,6 +303,9 @@ snapshots['test_instance_permissions_be[applicant-None-sb1-instance__user0] 1'] 
         'read'
     ],
     'dossierpruefung': [
+    ],
+    'ebau-number': [
+        'read'
     ],
     'information-of-neighbors': [
     ],
@@ -290,6 +329,9 @@ snapshots['test_instance_permissions_be[applicant-None-sb2-instance__user0] 1'] 
         'read'
     ],
     'dossierpruefung': [
+    ],
+    'ebau-number': [
+        'read'
     ],
     'information-of-neighbors': [
     ],
@@ -315,6 +357,9 @@ snapshots['test_instance_permissions_be[applicant-None-subm-instance__user0] 1']
     ],
     'dossierpruefung': [
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
     ],
     'main': [
@@ -335,6 +380,9 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
         'read'
     ],
     'dossierpruefung': [
+    ],
+    'ebau-number': [
+        'read'
     ],
     'information-of-neighbors': [
     ],
@@ -357,6 +405,9 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     ],
     'dossierpruefung': [
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
     ],
     'main': [
@@ -377,6 +428,9 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
         'read'
     ],
     'dossierpruefung': [
+    ],
+    'ebau-number': [
+        'read'
     ],
     'information-of-neighbors': [
     ],
@@ -401,6 +455,9 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     ],
     'dossierpruefung': [
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
     ],
     'main': [
@@ -421,6 +478,9 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
         'read'
     ],
     'dossierpruefung': [
+    ],
+    'ebau-number': [
+        'read'
     ],
     'information-of-neighbors': [
     ],
@@ -443,6 +503,9 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     ],
     'dossierpruefung': [
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
     ],
     'main': [
@@ -463,6 +526,9 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
         'read'
     ],
     'dossierpruefung': [
+    ],
+    'ebau-number': [
+        'read'
     ],
     'information-of-neighbors': [
     ],
@@ -485,6 +551,9 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     ],
     'dossierpruefung': [
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
     ],
     'main': [
@@ -505,6 +574,9 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
         'read'
     ],
     'dossierpruefung': [
+    ],
+    'ebau-number': [
+        'read'
     ],
     'information-of-neighbors': [
     ],
@@ -527,6 +599,9 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     ],
     'dossierpruefung': [
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
     ],
     'main': [
@@ -547,6 +622,9 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
         'read'
     ],
     'dossierpruefung': [
+    ],
+    'ebau-number': [
+        'read'
     ],
     'information-of-neighbors': [
     ],
@@ -570,6 +648,9 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     ],
     'dossierpruefung': [
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
     ],
     'main': [
@@ -590,6 +671,9 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
         'read'
     ],
     'dossierpruefung': [
+    ],
+    'ebau-number': [
+        'read'
     ],
     'information-of-neighbors': [
     ],
@@ -613,6 +697,9 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
         'read'
     ],
     'dossierpruefung': [
+    ],
+    'ebau-number': [
+        'read'
     ],
     'information-of-neighbors': [
     ],
@@ -638,6 +725,9 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     ],
     'dossierpruefung': [
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
     ],
     'main': [
@@ -658,6 +748,9 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
         'read'
     ],
     'dossierpruefung': [
+        'read'
+    ],
+    'ebau-number': [
         'read'
     ],
     'information-of-neighbors': [
@@ -685,6 +778,9 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
     'dossierpruefung': [
         'read'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -708,6 +804,9 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
         'read'
     ],
     'dossierpruefung': [
+        'read'
+    ],
+    'ebau-number': [
         'read'
     ],
     'information-of-neighbors': [
@@ -737,6 +836,9 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
     'dossierpruefung': [
         'read'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -762,6 +864,9 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
     'dossierpruefung': [
         'read'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
     ],
     'main': [
@@ -783,6 +888,9 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
         'read'
     ],
     'dossierpruefung': [
+        'read'
+    ],
+    'ebau-number': [
         'read'
     ],
     'information-of-neighbors': [
@@ -810,6 +918,9 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
     'dossierpruefung': [
         'read'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -833,6 +944,9 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
         'read'
     ],
     'dossierpruefung': [
+        'read'
+    ],
+    'ebau-number': [
         'read'
     ],
     'information-of-neighbors': [
@@ -860,6 +974,9 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
     'dossierpruefung': [
         'read'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -883,6 +1000,9 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
         'read'
     ],
     'dossierpruefung': [
+        'read'
+    ],
+    'ebau-number': [
         'read'
     ],
     'information-of-neighbors': [
@@ -910,6 +1030,9 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
     'dossierpruefung': [
         'read'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
     ],
     'main': [
@@ -930,6 +1053,9 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
         'read'
     ],
     'dossierpruefung': [
+        'read'
+    ],
+    'ebau-number': [
         'read'
     ],
     'information-of-neighbors': [
@@ -957,6 +1083,9 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
     'dossierpruefung': [
         'read'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -980,6 +1109,9 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
         'read'
     ],
     'dossierpruefung': [
+        'read'
+    ],
+    'ebau-number': [
         'read'
     ],
     'information-of-neighbors': [
@@ -1008,6 +1140,10 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
     'dossierpruefung': [
         'read'
     ],
+    'ebau-number': [
+        'read',
+        'write'
+    ],
     'information-of-neighbors': [
     ],
     'main': [
@@ -1032,6 +1168,9 @@ snapshots['test_instance_permissions_be[municipality-lead-district-circulation-i
     'dossierpruefung': [
         'read',
         'write'
+    ],
+    'ebau-number': [
+        'read'
     ],
     'information-of-neighbors': [
         'read',
@@ -1063,6 +1202,9 @@ snapshots['test_instance_permissions_be[municipality-lead-district-circulation_i
         'read',
         'write'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read',
         'write'
@@ -1090,6 +1232,9 @@ snapshots['test_instance_permissions_be[municipality-lead-district-conclusion-in
         'write'
     ],
     'dossierpruefung': [
+        'read'
+    ],
+    'ebau-number': [
         'read'
     ],
     'information-of-neighbors': [
@@ -1121,6 +1266,9 @@ snapshots['test_instance_permissions_be[municipality-lead-district-coordination-
         'read',
         'write'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read',
         'write'
@@ -1150,6 +1298,9 @@ snapshots['test_instance_permissions_be[municipality-lead-district-correction-in
     'dossierpruefung': [
         'read'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
     ],
     'main': [
@@ -1173,6 +1324,9 @@ snapshots['test_instance_permissions_be[municipality-lead-district-evaluated-ins
         'write'
     ],
     'dossierpruefung': [
+        'read'
+    ],
+    'ebau-number': [
         'read'
     ],
     'information-of-neighbors': [
@@ -1201,6 +1355,9 @@ snapshots['test_instance_permissions_be[municipality-lead-district-finished-inst
     'dossierpruefung': [
         'read'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -1227,6 +1384,9 @@ snapshots['test_instance_permissions_be[municipality-lead-district-finished_inte
     'dossierpruefung': [
         'read'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -1251,6 +1411,9 @@ snapshots['test_instance_permissions_be[municipality-lead-district-in_progress-i
         'write'
     ],
     'dossierpruefung': [
+        'read'
+    ],
+    'ebau-number': [
         'read'
     ],
     'information-of-neighbors': [
@@ -1282,6 +1445,9 @@ snapshots['test_instance_permissions_be[municipality-lead-district-in_progress_i
         'read',
         'write'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read',
         'write'
@@ -1310,6 +1476,9 @@ snapshots['test_instance_permissions_be[municipality-lead-district-new-instance_
     'dossierpruefung': [
         'read'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
     ],
     'main': [
@@ -1331,6 +1500,9 @@ snapshots['test_instance_permissions_be[municipality-lead-district-rejected-inst
         'write'
     ],
     'dossierpruefung': [
+        'read'
+    ],
+    'ebau-number': [
         'read'
     ],
     'information-of-neighbors': [
@@ -1361,6 +1533,9 @@ snapshots['test_instance_permissions_be[municipality-lead-district-sb1-instance_
     'dossierpruefung': [
         'read'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read',
         'write'
@@ -1387,6 +1562,9 @@ snapshots['test_instance_permissions_be[municipality-lead-district-sb2-instance_
         'write'
     ],
     'dossierpruefung': [
+        'read'
+    ],
+    'ebau-number': [
         'read'
     ],
     'information-of-neighbors': [
@@ -1417,6 +1595,10 @@ snapshots['test_instance_permissions_be[municipality-lead-district-subm-instance
     'dossierpruefung': [
         'read'
     ],
+    'ebau-number': [
+        'read',
+        'write'
+    ],
     'information-of-neighbors': [
     ],
     'main': [
@@ -1441,6 +1623,9 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-circulati
     'dossierpruefung': [
         'read',
         'write'
+    ],
+    'ebau-number': [
+        'read'
     ],
     'information-of-neighbors': [
         'read',
@@ -1472,6 +1657,9 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-circulati
         'read',
         'write'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read',
         'write'
@@ -1499,6 +1687,9 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-conclusio
         'write'
     ],
     'dossierpruefung': [
+        'read'
+    ],
+    'ebau-number': [
         'read'
     ],
     'information-of-neighbors': [
@@ -1530,6 +1721,9 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-coordinat
         'read',
         'write'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read',
         'write'
@@ -1559,6 +1753,9 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-correctio
     'dossierpruefung': [
         'read'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
     ],
     'main': [
@@ -1582,6 +1779,9 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-evaluated
         'write'
     ],
     'dossierpruefung': [
+        'read'
+    ],
+    'ebau-number': [
         'read'
     ],
     'information-of-neighbors': [
@@ -1610,6 +1810,9 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-finished-
     'dossierpruefung': [
         'read'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -1636,6 +1839,9 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-finished_
     'dossierpruefung': [
         'read'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -1660,6 +1866,9 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-in_progre
         'write'
     ],
     'dossierpruefung': [
+        'read'
+    ],
+    'ebau-number': [
         'read'
     ],
     'information-of-neighbors': [
@@ -1691,6 +1900,9 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-in_progre
         'read',
         'write'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read',
         'write'
@@ -1719,6 +1931,9 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-new-insta
     'dossierpruefung': [
         'read'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
     ],
     'main': [
@@ -1740,6 +1955,9 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-rejected-
         'write'
     ],
     'dossierpruefung': [
+        'read'
+    ],
+    'ebau-number': [
         'read'
     ],
     'information-of-neighbors': [
@@ -1770,6 +1988,9 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-sb1-insta
     'dossierpruefung': [
         'read'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read',
         'write'
@@ -1796,6 +2017,9 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-sb2-insta
         'write'
     ],
     'dossierpruefung': [
+        'read'
+    ],
+    'ebau-number': [
         'read'
     ],
     'information-of-neighbors': [
@@ -1826,6 +2050,10 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-subm-inst
     'dossierpruefung': [
         'read'
     ],
+    'ebau-number': [
+        'read',
+        'write'
+    ],
     'information-of-neighbors': [
     ],
     'main': [
@@ -1847,6 +2075,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-circulati
         'read'
     ],
     'dossierpruefung': [
+        'read'
+    ],
+    'ebau-number': [
         'read'
     ],
     'information-of-neighbors': [
@@ -1874,6 +2105,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-circulati
     'dossierpruefung': [
         'read'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -1897,6 +2131,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-conclusio
         'read'
     ],
     'dossierpruefung': [
+        'read'
+    ],
+    'ebau-number': [
         'read'
     ],
     'information-of-neighbors': [
@@ -1924,6 +2161,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-coordinat
     'dossierpruefung': [
         'read'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -1949,6 +2189,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-correctio
     'dossierpruefung': [
         'read'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
     ],
     'main': [
@@ -1970,6 +2213,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-evaluated
         'read'
     ],
     'dossierpruefung': [
+        'read'
+    ],
+    'ebau-number': [
         'read'
     ],
     'information-of-neighbors': [
@@ -1997,6 +2243,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-finished-
     'dossierpruefung': [
         'read'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -2020,6 +2269,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-finished_
         'read'
     ],
     'dossierpruefung': [
+        'read'
+    ],
+    'ebau-number': [
         'read'
     ],
     'information-of-neighbors': [
@@ -2047,6 +2299,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-in_progre
     'dossierpruefung': [
         'read'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -2070,6 +2325,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-in_progre
         'read'
     ],
     'dossierpruefung': [
+        'read'
+    ],
+    'ebau-number': [
         'read'
     ],
     'information-of-neighbors': [
@@ -2097,6 +2355,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-new-insta
     'dossierpruefung': [
         'read'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
     ],
     'main': [
@@ -2117,6 +2378,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-rejected-
         'read'
     ],
     'dossierpruefung': [
+        'read'
+    ],
+    'ebau-number': [
         'read'
     ],
     'information-of-neighbors': [
@@ -2144,6 +2408,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-sb1-insta
     'dossierpruefung': [
         'read'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -2167,6 +2434,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-sb2-insta
         'read'
     ],
     'dossierpruefung': [
+        'read'
+    ],
+    'ebau-number': [
         'read'
     ],
     'information-of-neighbors': [
@@ -2194,6 +2464,10 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-subm-inst
     'dossierpruefung': [
         'read'
     ],
+    'ebau-number': [
+        'read',
+        'write'
+    ],
     'information-of-neighbors': [
     ],
     'main': [
@@ -2215,6 +2489,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-circu
         'read'
     ],
     'dossierpruefung': [
+        'read'
+    ],
+    'ebau-number': [
         'read'
     ],
     'information-of-neighbors': [
@@ -2242,6 +2519,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-circu
     'dossierpruefung': [
         'read'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -2265,6 +2545,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-concl
         'read'
     ],
     'dossierpruefung': [
+        'read'
+    ],
+    'ebau-number': [
         'read'
     ],
     'information-of-neighbors': [
@@ -2292,6 +2575,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-coord
     'dossierpruefung': [
         'read'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -2317,6 +2603,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-corre
     'dossierpruefung': [
         'read'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
     ],
     'main': [
@@ -2338,6 +2627,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-evalu
         'read'
     ],
     'dossierpruefung': [
+        'read'
+    ],
+    'ebau-number': [
         'read'
     ],
     'information-of-neighbors': [
@@ -2365,6 +2657,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-finis
     'dossierpruefung': [
         'read'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -2388,6 +2683,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-finis
         'read'
     ],
     'dossierpruefung': [
+        'read'
+    ],
+    'ebau-number': [
         'read'
     ],
     'information-of-neighbors': [
@@ -2415,6 +2713,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-in_pr
     'dossierpruefung': [
         'read'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -2438,6 +2739,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-in_pr
         'read'
     ],
     'dossierpruefung': [
+        'read'
+    ],
+    'ebau-number': [
         'read'
     ],
     'information-of-neighbors': [
@@ -2465,6 +2769,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-new-i
     'dossierpruefung': [
         'read'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
     ],
     'main': [
@@ -2485,6 +2792,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-rejec
         'read'
     ],
     'dossierpruefung': [
+        'read'
+    ],
+    'ebau-number': [
         'read'
     ],
     'information-of-neighbors': [
@@ -2512,6 +2822,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-sb1-i
     'dossierpruefung': [
         'read'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -2535,6 +2848,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-sb2-i
         'read'
     ],
     'dossierpruefung': [
+        'read'
+    ],
+    'ebau-number': [
         'read'
     ],
     'information-of-neighbors': [
@@ -2562,6 +2878,10 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-subm-
     'dossierpruefung': [
         'read'
     ],
+    'ebau-number': [
+        'read',
+        'write'
+    ],
     'information-of-neighbors': [
     ],
     'main': [
@@ -2583,6 +2903,9 @@ snapshots['test_instance_permissions_be[service-lead-service-circulation-instanc
         'read'
     ],
     'dossierpruefung': [
+        'read'
+    ],
+    'ebau-number': [
         'read'
     ],
     'information-of-neighbors': [
@@ -2609,6 +2932,9 @@ snapshots['test_instance_permissions_be[service-lead-service-circulation_init-in
     'dossierpruefung': [
         'read'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -2631,6 +2957,9 @@ snapshots['test_instance_permissions_be[service-lead-service-conclusion-instance
         'read'
     ],
     'dossierpruefung': [
+        'read'
+    ],
+    'ebau-number': [
         'read'
     ],
     'information-of-neighbors': [
@@ -2659,6 +2988,9 @@ snapshots['test_instance_permissions_be[service-lead-service-coordination-instan
     'dossierpruefung': [
         'read'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -2682,6 +3014,9 @@ snapshots['test_instance_permissions_be[service-lead-service-correction-instance
     ],
     'dossierpruefung': [
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -2704,6 +3039,9 @@ snapshots['test_instance_permissions_be[service-lead-service-evaluated-instance_
         'read'
     ],
     'dossierpruefung': [
+        'read'
+    ],
+    'ebau-number': [
         'read'
     ],
     'information-of-neighbors': [
@@ -2730,6 +3068,9 @@ snapshots['test_instance_permissions_be[service-lead-service-finished-instance__
     'dossierpruefung': [
         'read'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -2752,6 +3093,9 @@ snapshots['test_instance_permissions_be[service-lead-service-finished_internal-i
         'read'
     ],
     'dossierpruefung': [
+        'read'
+    ],
+    'ebau-number': [
         'read'
     ],
     'information-of-neighbors': [
@@ -2778,6 +3122,9 @@ snapshots['test_instance_permissions_be[service-lead-service-in_progress-instanc
     'dossierpruefung': [
         'read'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -2800,6 +3147,9 @@ snapshots['test_instance_permissions_be[service-lead-service-in_progress_interna
         'read'
     ],
     'dossierpruefung': [
+        'read'
+    ],
+    'ebau-number': [
         'read'
     ],
     'information-of-neighbors': [
@@ -2825,6 +3175,9 @@ snapshots['test_instance_permissions_be[service-lead-service-new-instance__user0
     ],
     'dossierpruefung': [
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -2846,6 +3199,9 @@ snapshots['test_instance_permissions_be[service-lead-service-rejected-instance__
         'read'
     ],
     'dossierpruefung': [
+        'read'
+    ],
+    'ebau-number': [
         'read'
     ],
     'information-of-neighbors': [
@@ -2872,6 +3228,9 @@ snapshots['test_instance_permissions_be[service-lead-service-sb1-instance__user0
     'dossierpruefung': [
         'read'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -2894,6 +3253,9 @@ snapshots['test_instance_permissions_be[service-lead-service-sb2-instance__user0
         'read'
     ],
     'dossierpruefung': [
+        'read'
+    ],
+    'ebau-number': [
         'read'
     ],
     'information-of-neighbors': [
@@ -2920,6 +3282,9 @@ snapshots['test_instance_permissions_be[service-lead-service-subm-instance__user
     ],
     'dossierpruefung': [
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -2942,6 +3307,9 @@ snapshots['test_instance_permissions_be[service-readonly-service-circulation-ins
         'read'
     ],
     'dossierpruefung': [
+        'read'
+    ],
+    'ebau-number': [
         'read'
     ],
     'information-of-neighbors': [
@@ -2968,6 +3336,9 @@ snapshots['test_instance_permissions_be[service-readonly-service-circulation_ini
     'dossierpruefung': [
         'read'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -2990,6 +3361,9 @@ snapshots['test_instance_permissions_be[service-readonly-service-conclusion-inst
         'read'
     ],
     'dossierpruefung': [
+        'read'
+    ],
+    'ebau-number': [
         'read'
     ],
     'information-of-neighbors': [
@@ -3018,6 +3392,9 @@ snapshots['test_instance_permissions_be[service-readonly-service-coordination-in
     'dossierpruefung': [
         'read'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -3041,6 +3418,9 @@ snapshots['test_instance_permissions_be[service-readonly-service-correction-inst
     ],
     'dossierpruefung': [
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -3063,6 +3443,9 @@ snapshots['test_instance_permissions_be[service-readonly-service-evaluated-insta
         'read'
     ],
     'dossierpruefung': [
+        'read'
+    ],
+    'ebau-number': [
         'read'
     ],
     'information-of-neighbors': [
@@ -3089,6 +3472,9 @@ snapshots['test_instance_permissions_be[service-readonly-service-finished-instan
     'dossierpruefung': [
         'read'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -3111,6 +3497,9 @@ snapshots['test_instance_permissions_be[service-readonly-service-finished_intern
         'read'
     ],
     'dossierpruefung': [
+        'read'
+    ],
+    'ebau-number': [
         'read'
     ],
     'information-of-neighbors': [
@@ -3137,6 +3526,9 @@ snapshots['test_instance_permissions_be[service-readonly-service-in_progress-ins
     'dossierpruefung': [
         'read'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -3159,6 +3551,9 @@ snapshots['test_instance_permissions_be[service-readonly-service-in_progress_int
         'read'
     ],
     'dossierpruefung': [
+        'read'
+    ],
+    'ebau-number': [
         'read'
     ],
     'information-of-neighbors': [
@@ -3184,6 +3579,9 @@ snapshots['test_instance_permissions_be[service-readonly-service-new-instance__u
     ],
     'dossierpruefung': [
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -3205,6 +3603,9 @@ snapshots['test_instance_permissions_be[service-readonly-service-rejected-instan
         'read'
     ],
     'dossierpruefung': [
+        'read'
+    ],
+    'ebau-number': [
         'read'
     ],
     'information-of-neighbors': [
@@ -3231,6 +3632,9 @@ snapshots['test_instance_permissions_be[service-readonly-service-sb1-instance__u
     'dossierpruefung': [
         'read'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -3253,6 +3657,9 @@ snapshots['test_instance_permissions_be[service-readonly-service-sb2-instance__u
         'read'
     ],
     'dossierpruefung': [
+        'read'
+    ],
+    'ebau-number': [
         'read'
     ],
     'information-of-neighbors': [
@@ -3279,6 +3686,9 @@ snapshots['test_instance_permissions_be[service-readonly-service-subm-instance__
     ],
     'dossierpruefung': [
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -3304,6 +3714,9 @@ snapshots['test_instance_permissions_be[support-None-circulation-instance__user0
     'dossierpruefung': [
         'read',
         'write'
+    ],
+    'ebau-number': [
+        'read'
     ],
     'information-of-neighbors': [
         'read',
@@ -3340,6 +3753,9 @@ snapshots['test_instance_permissions_be[support-None-circulation_init-instance__
         'read',
         'write'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read',
         'write'
@@ -3374,6 +3790,9 @@ snapshots['test_instance_permissions_be[support-None-conclusion-instance__user0]
     'dossierpruefung': [
         'read',
         'write'
+    ],
+    'ebau-number': [
+        'read'
     ],
     'information-of-neighbors': [
         'read',
@@ -3410,6 +3829,9 @@ snapshots['test_instance_permissions_be[support-None-coordination-instance__user
         'read',
         'write'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read',
         'write'
@@ -3444,6 +3866,9 @@ snapshots['test_instance_permissions_be[support-None-correction-instance__user0]
     'dossierpruefung': [
         'read',
         'write'
+    ],
+    'ebau-number': [
+        'read'
     ],
     'information-of-neighbors': [
         'read',
@@ -3480,6 +3905,9 @@ snapshots['test_instance_permissions_be[support-None-evaluated-instance__user0] 
         'read',
         'write'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read',
         'write'
@@ -3514,6 +3942,9 @@ snapshots['test_instance_permissions_be[support-None-finished-instance__user0] 1
     'dossierpruefung': [
         'read',
         'write'
+    ],
+    'ebau-number': [
+        'read'
     ],
     'information-of-neighbors': [
         'read',
@@ -3550,6 +3981,9 @@ snapshots['test_instance_permissions_be[support-None-finished_internal-instance_
         'read',
         'write'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read',
         'write'
@@ -3584,6 +4018,9 @@ snapshots['test_instance_permissions_be[support-None-in_progress-instance__user0
     'dossierpruefung': [
         'read',
         'write'
+    ],
+    'ebau-number': [
+        'read'
     ],
     'information-of-neighbors': [
         'read',
@@ -3620,6 +4057,9 @@ snapshots['test_instance_permissions_be[support-None-in_progress_internal-instan
         'read',
         'write'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read',
         'write'
@@ -3654,6 +4094,9 @@ snapshots['test_instance_permissions_be[support-None-new-instance__user0] 1'] = 
     'dossierpruefung': [
         'read',
         'write'
+    ],
+    'ebau-number': [
+        'read'
     ],
     'information-of-neighbors': [
         'read',
@@ -3690,6 +4133,9 @@ snapshots['test_instance_permissions_be[support-None-rejected-instance__user0] 1
         'read',
         'write'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read',
         'write'
@@ -3724,6 +4170,9 @@ snapshots['test_instance_permissions_be[support-None-sb1-instance__user0] 1'] = 
     'dossierpruefung': [
         'read',
         'write'
+    ],
+    'ebau-number': [
+        'read'
     ],
     'information-of-neighbors': [
         'read',
@@ -3760,6 +4209,9 @@ snapshots['test_instance_permissions_be[support-None-sb2-instance__user0] 1'] = 
         'read',
         'write'
     ],
+    'ebau-number': [
+        'read'
+    ],
     'information-of-neighbors': [
         'read',
         'write'
@@ -3794,6 +4246,9 @@ snapshots['test_instance_permissions_be[support-None-subm-instance__user0] 1'] =
     'dossierpruefung': [
         'read',
         'write'
+    ],
+    'ebau-number': [
+        'read'
     ],
     'information-of-neighbors': [
         'read',

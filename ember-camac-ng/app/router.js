@@ -40,6 +40,9 @@ Router.map(function () {
   this.route("audit", { path: "instances/:instance_id/audit" }, function () {
     this.route("edit", { path: "/edit/:document_uuid" });
   });
+  this.route("assign-ebau-number", {
+    path: "instances/:instance_id/assign-ebau-number",
+  });
   this.route("support", { path: "instances/:instance_id/support" });
   this.route("responsible", { path: "instances/:instance_id/responsible" });
   this.route(

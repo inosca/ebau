@@ -1077,6 +1077,7 @@ APPLICATIONS = {
                 "dossierpruefung",
                 "publikation",
                 "information-of-neighbors",
+                "ebau-number",
             ],
             "CIRCULATION_WORKFLOW": "circulation",
             "CIRCULATION_TASK": "circulation",
