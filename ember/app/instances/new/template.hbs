@@ -23,7 +23,7 @@
     <div uk-grid class="uk-grid-small">
       <div uk-margin class="uk-width-1-1 uk-width-1-3@s uk-flex-column">
         <h4 class="uk-text-center">
-          Beratung und Vorentscheid {{camac-hint-dialog this.infoCol1}}
+          Beratung und Vorentscheid {{camac-hint-dialog this.infoCol1 highlight=true}}
         </h4>
         <NewFormGridEntry
           @form={{find-by "name" "vorabklarung-v4" this.forms.lastSuccessful.value}}
@@ -42,7 +42,7 @@
       </div>
       <div uk-margin class="uk-width-1-1 uk-width-1-3@s uk-flex-column">
         <h4 class="uk-text-center">
-          Baubewilligung {{camac-hint-dialog this.infoCol2}}
+          Baubewilligung {{camac-hint-dialog this.infoCol2 highlight=true}}
         </h4>
         <NewFormGridEntry
           @form={{find-by
@@ -79,7 +79,7 @@
       </div>
       <div uk-margin class="uk-width-1-1 uk-width-1-3@s uk-flex-column">
         <h4 class="uk-text-center">
-          Spezielle Gesuche {{camac-hint-dialog this.infoCol3}}
+          Spezielle Gesuche {{camac-hint-dialog this.infoCol3 highlight=true}}
         </h4>
         <NewFormGridEntry
           @form={{find-by
