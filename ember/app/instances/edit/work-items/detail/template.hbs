@@ -22,9 +22,10 @@
 </dl>
 
 {{#if @model.meta.is-manually-completable}}
-  <button
-    {{on "click" (perform @model.completeWorkItem)}}
-    class="uk-button uk-button-primary"
-    type="button"
-  >Aufgabe abschliessen</button>
+  <UkButton
+    @on-click={{fn this.completeWorkItem}}
+    @color="primary"
+  >
+    Aufgabe abschliessen
+  </UkButton>
 {{/if}}
