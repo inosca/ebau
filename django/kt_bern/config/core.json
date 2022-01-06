@@ -181,15 +181,6 @@
   },
   {
     "model": "core.apageredirect",
-    "pk": 10053,
-    "fields": {
-      "resource": 20006,
-      "instance_resource": 20079,
-      "air_action_name": null
-    }
-  },
-  {
-    "model": "core.apageredirect",
     "pk": 20014,
     "fields": {
       "resource": 20006,
@@ -304,13 +295,6 @@
   },
   {
     "model": "core.aphp",
-    "pk": 20017,
-    "fields": {
-      "php_class": "SetEbauNumber"
-    }
-  },
-  {
-    "model": "core.aphp",
     "pk": 20105,
     "fields": {
       "php_class": "CreateCirculation"
@@ -321,20 +305,6 @@
     "pk": 20115,
     "fields": {
       "php_class": "EndCirculation"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 110003,
-    "fields": {
-      "php_class": "CheckEbauNumber"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 110004,
-    "fields": {
-      "php_class": "CheckEbauNumber"
     }
   },
   {
@@ -482,20 +452,6 @@
       "error_message": null,
       "execute_always": 0,
       "sort": 6
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 10053,
-    "fields": {
-      "available_action": "pageredirect",
-      "button": 20002,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 8
     }
   },
   {
@@ -664,48 +620,6 @@
       "error_message": null,
       "execute_always": 0,
       "sort": 9
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 20015,
-    "fields": {
-      "available_action": "save",
-      "button": 20010,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 20016,
-    "fields": {
-      "available_action": "save",
-      "button": 20002,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 20017,
-    "fields": {
-      "available_action": "php",
-      "button": 20002,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 2
     }
   },
   {
@@ -938,34 +852,6 @@
     "fields": {
       "available_action": "save",
       "button": 20051,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 110003,
-    "fields": {
-      "available_action": "php",
-      "button": 20010,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 110004,
-    "fields": {
-      "available_action": "php",
-      "button": 20002,
       "name": null,
       "description": null,
       "success_message": null,
@@ -1690,18 +1576,6 @@
   },
   {
     "model": "core.actiont",
-    "pk": 10053,
-    "fields": {
-      "action": 10053,
-      "language": "de",
-      "name": "Redirect",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
     "pk": 10054,
     "fields": {
       "action": 10054,
@@ -1842,42 +1716,6 @@
       "description": null,
       "success_message": null,
       "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 20015,
-    "fields": {
-      "action": 20015,
-      "language": "de",
-      "name": "Speichern",
-      "description": null,
-      "success_message": "Speichern erfolgreich",
-      "error_message": "Beim Speichern ist ein Fehler aufgetreten"
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 20016,
-    "fields": {
-      "action": 20016,
-      "language": "de",
-      "name": "Speichern",
-      "description": null,
-      "success_message": null,
-      "error_message": "Beim Speichern ist ein Fehler aufgetreten"
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 20017,
-    "fields": {
-      "action": 20017,
-      "language": "de",
-      "name": "Set eBau-Nr.",
-      "description": null,
-      "success_message": null,
-      "error_message": "Bei der Vergabe der eBau-Nummer ist ein Fehler aufgetreten"
     }
   },
   {
@@ -2086,30 +1924,6 @@
   },
   {
     "model": "core.actiont",
-    "pk": 110003,
-    "fields": {
-      "action": 110003,
-      "language": "de",
-      "name": "Check eBau-Nr exists",
-      "description": null,
-      "success_message": null,
-      "error_message": "Die angegebene eBau-Nummer existiert nicht oder wurde durch eine andere Leitbeh\u00f6rde bereits vergeben"
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 110004,
-    "fields": {
-      "action": 110004,
-      "language": "de",
-      "name": "Check eBau-Nr exists",
-      "description": null,
-      "success_message": null,
-      "error_message": "Die angegebene eBau-Nummer existiert nicht oder wurde durch eine andere Leitbeh\u00f6rde bereits vergeben"
-    }
-  },
-  {
-    "model": "core.actiont",
     "pk": 130001,
     "fields": {
       "action": 130001,
@@ -2190,30 +2004,6 @@
       "description": null,
       "success_message": null,
       "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 150009,
-    "fields": {
-      "action": 110003,
-      "language": "fr",
-      "name": "Check eBau-Nr exists",
-      "description": null,
-      "success_message": null,
-      "error_message": "Le num\u00e9ro eBau sp\u00e9cifi\u00e9 n'existe pas ou a d\u00e9j\u00e0 \u00e9t\u00e9 attribu\u00e9 par une autre autorit\u00e9 directrice"
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 150010,
-    "fields": {
-      "action": 110004,
-      "language": "fr",
-      "name": "Check eBau-Nr exists",
-      "description": null,
-      "success_message": null,
-      "error_message": "Le num\u00e9ro eBau sp\u00e9cifi\u00e9 n'existe pas ou a d\u00e9j\u00e0 \u00e9t\u00e9 attribu\u00e9 par une autre autorit\u00e9 directrice"
     }
   },
   {
@@ -40971,15 +40761,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 20002,
-    "fields": {
-      "button": 20002,
-      "role": 3,
-      "instance_state": 20000
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 20006,
     "fields": {
       "button": 20005,
@@ -41048,15 +40829,6 @@
       "button": 20007,
       "role": 20000,
       "instance_state": 20004
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 20015,
-    "fields": {
-      "button": 20010,
-      "role": 3,
-      "instance_state": 20000
     }
   },
   {
@@ -41205,15 +40977,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 120002,
-    "fields": {
-      "button": 20010,
-      "role": 3,
-      "instance_state": 120002
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 130000,
     "fields": {
       "button": 130000,
@@ -41277,15 +41040,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 150031,
-    "fields": {
-      "button": 20002,
-      "role": 3,
-      "instance_state": 120002
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 150032,
     "fields": {
       "button": 20046,
@@ -41327,18 +41081,6 @@
       "button": 1200001,
       "role": 5,
       "instance_state": 20013
-    }
-  },
-  {
-    "model": "core.button",
-    "pk": 20002,
-    "fields": {
-      "instance_resource": 20014,
-      "name": null,
-      "description": null,
-      "class_field": "next-arrows active_leitbehoerde_only",
-      "hidden": 0,
-      "sort": 1
     }
   },
   {
@@ -41397,18 +41139,6 @@
       "name": null,
       "description": null,
       "class_field": "leitung_only",
-      "hidden": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.button",
-    "pk": 20010,
-    "fields": {
-      "instance_resource": 20014,
-      "name": null,
-      "description": null,
-      "class_field": "success active_leitbehoerde_only",
       "hidden": 0,
       "sort": 0
     }
@@ -41691,16 +41421,6 @@
   },
   {
     "model": "core.buttont",
-    "pk": 20002,
-    "fields": {
-      "button": 20002,
-      "language": "de",
-      "name": "Weiter",
-      "description": null
-    }
-  },
-  {
-    "model": "core.buttont",
     "pk": 20005,
     "fields": {
       "button": 20005,
@@ -41747,16 +41467,6 @@
       "language": "de",
       "name": "Speichern",
       "description": null
-    }
-  },
-  {
-    "model": "core.buttont",
-    "pk": 20010,
-    "fields": {
-      "button": 20010,
-      "language": "de",
-      "name": "Speichern",
-      "description": "Save"
     }
   },
   {
@@ -41971,16 +41681,6 @@
   },
   {
     "model": "core.buttont",
-    "pk": 120007,
-    "fields": {
-      "button": 20002,
-      "language": "fr",
-      "name": "Suivante",
-      "description": null
-    }
-  },
-  {
-    "model": "core.buttont",
     "pk": 120008,
     "fields": {
       "button": 20005,
@@ -42024,16 +41724,6 @@
     "pk": 120012,
     "fields": {
       "button": 20009,
-      "language": "fr",
-      "name": "Enregistrer",
-      "description": null
-    }
-  },
-  {
-    "model": "core.buttont",
-    "pk": 120013,
-    "fields": {
-      "button": 20010,
       "language": "fr",
       "name": "Enregistrer",
       "description": null
@@ -49725,7 +49415,7 @@
       "template": null,
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 16,
+      "sort": 17,
       "form_group": 40000
     }
   },
@@ -49740,7 +49430,7 @@
       "template": "/circulation/edit-circulation.phtml",
       "class_field": "menu-category-process menu-group-circulation",
       "hidden": 0,
-      "sort": 7,
+      "sort": 8,
       "form_group": 40000
     }
   },
@@ -49755,7 +49445,7 @@
       "template": "/circulation/index.phtml",
       "class_field": "menu-category-process menu-group-circulation",
       "hidden": 0,
-      "sort": 8,
+      "sort": 9,
       "form_group": 40000
     }
   },
@@ -49815,7 +49505,7 @@
       "template": null,
       "class_field": "menu-category-extraordinary",
       "hidden": 0,
-      "sort": 21,
+      "sort": 22,
       "form_group": 40000
     }
   },
@@ -49830,22 +49520,7 @@
       "template": "/ember-camac-ng/publication.phtml",
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 14,
-      "form_group": 40000
-    }
-  },
-  {
-    "model": "core.instanceresource",
-    "pk": 20014,
-    "fields": {
-      "available_instance_resource": "editformpage",
-      "resource": 20006,
-      "name": null,
-      "description": null,
-      "template": "/form/ebau-number.phtml",
-      "class_field": "menu-category-process",
-      "hidden": 0,
-      "sort": 5,
+      "sort": 15,
       "form_group": 40000
     }
   },
@@ -49905,7 +49580,7 @@
       "template": null,
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 13,
+      "sort": 14,
       "form_group": 40000
     }
   },
@@ -49920,7 +49595,7 @@
       "template": "/form/rueckmeldungen.phtml",
       "class_field": "menu-category-extraordinary",
       "hidden": 0,
-      "sort": 20,
+      "sort": 21,
       "form_group": 40000
     }
   },
@@ -49950,7 +49625,7 @@
       "template": "/circulation/list-notice.phtml",
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 12,
+      "sort": 13,
       "form_group": 40000
     }
   },
@@ -49965,7 +49640,7 @@
       "template": "/circulation/edit-circulation.phtml",
       "class_field": "menu-category-process menu-group-subcirculation",
       "hidden": 0,
-      "sort": 9,
+      "sort": 10,
       "form_group": 40000
     }
   },
@@ -49980,7 +49655,7 @@
       "template": "/circulation/index.phtml",
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 11,
+      "sort": 12,
       "form_group": 40000
     }
   },
@@ -49995,7 +49670,7 @@
       "template": "/circulation/index.phtml",
       "class_field": "menu-category-process menu-group-subcirculation",
       "hidden": 0,
-      "sort": 10,
+      "sort": 11,
       "form_group": 40000
     }
   },
@@ -50010,7 +49685,7 @@
       "template": null,
       "class_field": "menu-category-extraordinary",
       "hidden": 0,
-      "sort": 22,
+      "sort": 23,
       "form_group": 40000
     }
   },
@@ -50235,7 +49910,7 @@
       "template": null,
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 18,
+      "sort": 19,
       "form_group": 40000
     }
   },
@@ -50250,7 +49925,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 25,
+      "sort": 26,
       "form_group": 40000
     }
   },
@@ -50265,7 +49940,7 @@
       "template": "/ember-camac-ng/journal.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 23,
+      "sort": 24,
       "form_group": 40000
     }
   },
@@ -50340,7 +50015,7 @@
       "template": null,
       "class_field": "menu-category-extraordinary",
       "hidden": 0,
-      "sort": 19,
+      "sort": 20,
       "form_group": 40000
     }
   },
@@ -50400,7 +50075,7 @@
       "template": null,
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 24,
+      "sort": 25,
       "form_group": 40000
     }
   },
@@ -50475,7 +50150,7 @@
       "template": "/ember-camac-ng/audit.phtml",
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 6,
+      "sort": 7,
       "form_group": 40000
     }
   },
@@ -50520,7 +50195,22 @@
       "template": "/ember-camac-ng/support.phtml",
       "class_field": "menu-category-primary active_leitung_leitbehoerde_only",
       "hidden": 0,
-      "sort": 26,
+      "sort": 27,
+      "form_group": 40000
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 12000002,
+    "fields": {
+      "available_instance_resource": "taskform",
+      "resource": 20006,
+      "name": null,
+      "description": null,
+      "template": null,
+      "class_field": "menu-category-process",
+      "hidden": 0,
+      "sort": 6,
       "form_group": 40000
     }
   },
@@ -50535,7 +50225,7 @@
       "template": "/ember-camac-ng/gwr.phtml",
       "class_field": "menu-category-process",
       "hidden": 1,
-      "sort": 17,
+      "sort": 18,
       "form_group": 40000
     }
   },
@@ -50565,7 +50255,7 @@
       "template": null,
       "class_field": "menu-category-process",
       "hidden": 1,
-      "sort": 15,
+      "sort": 16,
       "form_group": 40000
     }
   },
@@ -53107,16 +52797,6 @@
   },
   {
     "model": "core.instanceresourcet",
-    "pk": 20014,
-    "fields": {
-      "instance_resource": 20014,
-      "language": "de",
-      "name": "eBau-Nummer vergeben",
-      "description": null
-    }
-  },
-  {
-    "model": "core.instanceresourcet",
     "pk": 20016,
     "fields": {
       "instance_resource": 20016,
@@ -53452,16 +53132,6 @@
       "instance_resource": 20012,
       "language": "fr",
       "name": "Publication",
-      "description": null
-    }
-  },
-  {
-    "model": "core.instanceresourcet",
-    "pk": 120021,
-    "fields": {
-      "instance_resource": 20014,
-      "language": "fr",
-      "name": "Attribution d'un num\u00e9ro eBau",
       "description": null
     }
   },
@@ -54097,6 +53767,16 @@
   },
   {
     "model": "core.instanceresourcet",
+    "pk": 12000003,
+    "fields": {
+      "instance_resource": 12000002,
+      "language": "de",
+      "name": "eBau-Nummer vergeben",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
     "pk": 14000000,
     "fields": {
       "instance_resource": 14000000,
@@ -54336,14 +54016,6 @@
       "instance_resource": 20040,
       "language": "de",
       "default_circulation_name": "Subzirkulation"
-    }
-  },
-  {
-    "model": "core.ireditformpage",
-    "pk": 20014,
-    "fields": {
-      "page": 20000,
-      "pdf_class": null
     }
   },
   {
@@ -54636,15 +54308,6 @@
       "instance_resource": 20010,
       "role": 4,
       "instance_state": 20005
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 20040,
-    "fields": {
-      "instance_resource": 20014,
-      "role": 3,
-      "instance_state": 20000
     }
   },
   {
@@ -56940,15 +56603,6 @@
       "instance_resource": 140002,
       "role": 3,
       "instance_state": 120000
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 120065,
-    "fields": {
-      "instance_resource": 20014,
-      "role": 3,
-      "instance_state": 120002
     }
   },
   {
@@ -59838,6 +59492,24 @@
       "instance_resource": 12000000,
       "role": 3,
       "instance_state": 120003
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000017,
+    "fields": {
+      "instance_resource": 12000002,
+      "role": 3,
+      "instance_state": 20000
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000018,
+    "fields": {
+      "instance_resource": 12000002,
+      "role": 3,
+      "instance_state": 120002
     }
   },
   {
@@ -62961,6 +62633,13 @@
       "instance_resource": 15000001,
       "role": 20003,
       "instance_state": 120000
+    }
+  },
+  {
+    "model": "core.irtaskform",
+    "pk": 12000002,
+    "fields": {
+      "task": "ebau-number"
     }
   },
   {
