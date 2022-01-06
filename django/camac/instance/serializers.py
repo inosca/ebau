@@ -652,6 +652,16 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         return set(["read", "write"])
 
     @permission_aware
+    def _get_ebau_number_form_permissions(self, instance):
+        return set(["read"])
+
+    def _get_ebau_number_form_permissions_for_municipality(self, instance):
+        if instance.instance_state.name == "subm":
+            return set(["read", "write"])
+
+        return set(["read"])
+
+    @permission_aware
     def _get_publikation_form_permissions(self, instance):
         return set()
 

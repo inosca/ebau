@@ -1,0 +1,5 @@
+ebauNumber:
+  continue: "Weiter"
+  apply: "Übernehmen"
+  suggestion: "Dieses Dossier basiert auf einem existierenden Dossier mit der eBau-Nummer"
+  completeInvalid: "Die Vergabe der eBau Nummer wurde nicht korrekt ausgefüllt. Bitte prüfen Sie Ihre Daten und versuchen Sie es nochmals"
