@@ -801,7 +801,7 @@
       "modified_by_group": null,
       "form": "beschwerdeverfahren-tabelle",
       "question": "beschwerdeverfahren-beschwerdefuehrer",
-      "sort": 18
+      "sort": 19
     }
   },
   {
@@ -816,7 +816,7 @@
       "modified_by_group": null,
       "form": "beschwerdeverfahren-tabelle",
       "question": "beschwerdeverfahren-betreff",
-      "sort": 19
+      "sort": 20
     }
   },
   {
@@ -831,7 +831,22 @@
       "modified_by_group": null,
       "form": "beschwerdeverfahren-tabelle",
       "question": "beschwerdeverfahren-duplik-eingereicht",
-      "sort": 11
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "beschwerdeverfahren-tabelle.beschwerdeverfahren-ende-sistierung",
+    "fields": {
+      "created_at": "2022-01-06T10:25:47.256Z",
+      "modified_at": "2022-01-06T10:25:47.256Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "beschwerdeverfahren-tabelle",
+      "question": "beschwerdeverfahren-ende-sistierung",
+      "sort": 10
     }
   },
   {
@@ -906,7 +921,7 @@
       "modified_by_group": null,
       "form": "beschwerdeverfahren-tabelle",
       "question": "beschwerdeverfahren-entscheidbehoerde",
-      "sort": 21
+      "sort": 22
     }
   },
   {
@@ -921,7 +936,7 @@
       "modified_by_group": null,
       "form": "beschwerdeverfahren-tabelle",
       "question": "beschwerdeverfahren-frist-duplik",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -936,7 +951,7 @@
       "modified_by_group": null,
       "form": "beschwerdeverfahren-tabelle",
       "question": "beschwerdeverfahren-frist-replik",
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -951,7 +966,7 @@
       "modified_by_group": null,
       "form": "beschwerdeverfahren-tabelle",
       "question": "beschwerdeverfahren-frist-vernehmlassung",
-      "sort": 16
+      "sort": 17
     }
   },
   {
@@ -966,7 +981,7 @@
       "modified_by_group": null,
       "form": "beschwerdeverfahren-tabelle",
       "question": "beschwerdeverfahren-geschaeft-nr",
-      "sort": 20
+      "sort": 21
     }
   },
   {
@@ -996,7 +1011,7 @@
       "modified_by_group": null,
       "form": "beschwerdeverfahren-tabelle",
       "question": "beschwerdeverfahren-replik-eingereicht",
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -1011,7 +1026,7 @@
       "modified_by_group": null,
       "form": "beschwerdeverfahren-tabelle",
       "question": "beschwerdeverfahren-sistierung",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -1026,7 +1041,7 @@
       "modified_by_group": null,
       "form": "beschwerdeverfahren-tabelle",
       "question": "beschwerdeverfahren-teiler",
-      "sort": 17
+      "sort": 18
     }
   },
   {
@@ -1041,7 +1056,7 @@
       "modified_by_group": null,
       "form": "beschwerdeverfahren-tabelle",
       "question": "beschwerdeverfahren-vernehmlassung-erledigt",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -2064,6 +2079,36 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "beschwerdeverfahren-ende-sistierung",
+    "fields": {
+      "created_at": "2022-01-06T10:24:25.190Z",
+      "modified_at": "2022-01-06T10:25:47.204Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "6",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": "6",
+      "label": "{\"de\": \"Ende Sistierung\", \"fr\": null}",
+      "type": "date",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "beschwerdeverfahren-entscheid-art",
     "fields": {
       "created_at": "2021-10-29T08:47:23.526Z",
@@ -2403,18 +2448,18 @@
     "pk": "beschwerdeverfahren-sistierung",
     "fields": {
       "created_at": "2021-10-29T08:45:21.672Z",
-      "modified_at": "2021-10-29T08:45:21.672Z",
+      "modified_at": "2022-01-06T10:25:59.191Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Sistierung\", \"fr\": null}",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": "6",
+      "label": "{\"de\": \"Start Sistierung\", \"fr\": null}",
       "type": "date",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
