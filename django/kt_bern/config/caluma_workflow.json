@@ -579,12 +579,12 @@
       "modified_by_group": null,
       "name": "{\"de\": \"eBau-Nummer vergeben\", \"fr\": \"Attribution d'un num\\u00e9ro eBau\"}",
       "description": "{\"de\": null, \"fr\": null}",
-      "type": "simple",
+      "type": "complete_task_form",
       "meta": {},
       "address_groups": "['municipality']|groups",
       "control_groups": "['municipality']|groups",
       "is_archived": false,
-      "form": null,
+      "form": "ebau-number",
       "lead_time": 432000,
       "is_multiple_instance": false
     }

@@ -1,0 +1,21 @@
+query GetSourceCaseMeta($instanceId: GenericScalar!) {
+  allCases(
+    filter: [{ metaValue: [{ key: "camac-instance-id", value: $instanceId }] }]
+  ) {
+    edges {
+      node {
+        id
+        document {
+          id
+          source {
+            id
+            case {
+              id
+              meta
+            }
+          }
+        }
+      }
+    }
+  }
+}
