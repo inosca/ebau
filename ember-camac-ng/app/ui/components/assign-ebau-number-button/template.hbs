@@ -1,0 +1,8 @@
+<DocumentValidity @document={{@field.document}} as |isValid validate|>
+  <UkButton
+    @color="primary"
+    @disabled={{not isValid}}
+    @label={{t "ebauNumber.continue"}}
+    @on-click={{fn (perform this.completeAssignEbauNumber) validate}}
+  />
+</DocumentValidity>
