@@ -4,6 +4,7 @@ from enum import Enum
 from typing import Generator, Iterable, List, Optional, Tuple
 
 import openpyxl
+from django.conf import settings
 from django.utils.translation import gettext as _
 from pyproj import Transformer
 
@@ -26,8 +27,9 @@ def numbers(string):
     return int("".join(char for char in str(string) if char.isdigit()) or 0)
 
 
-def transform_coordinates(n, e):
-    return Transformer.from_crs("epsg:2056", "epsg:4326").transform(n, e)
+def transform_coordinates(n, e, target="epsg:4326"):
+    """Transform coordinates from the swiss format to something else."""
+    return Transformer.from_crs("epsg:2056", target).transform(n, e)
 
 
 def safe_join(elements: Iterable, separator=" "):
@@ -190,13 +192,13 @@ class XlsxFileDossierLoader:
 
         dossier.plot_data, load_plot_data_errors = self.load_plot_data(dossier_row)
         if load_plot_data_errors:  # pragma: no cover
-            dossier._meta.errors.append(load_plot_data_errors)
+            dossier._meta.errors += load_plot_data_errors
 
         dossier.coordinates, load_coordinates_errors = self.load_coordinates(
             dossier_row
         )
         if load_coordinates_errors:  # pragma: no cover
-            dossier._meta.errors.append(load_coordinates_errors)
+            dossier._meta.errors += load_coordinates_errors
 
         dossier.applicant = self.load_person(dossier_row, prefix="applicant")
         dossier.landowner = self.load_person(dossier_row, prefix="landowner")
@@ -216,20 +218,40 @@ class XlsxFileDossierLoader:
         epoints = epoints.split(",") if type(epoints) == str else [epoints]
         npoints = npoints.split(",") if type(npoints) == str else [npoints]
         for e, n in zip(epoints, npoints):
-            try:
-                e, n = transform_coordinates(numbers(e), numbers(n))
-            except ValueError:  # pragma: no cover
+            e, n = numbers(e), numbers(n)
+            if not (2480000 < e < 2840000.999) or not (1070000 < n < 1300000.999):
                 messages.append(
                     FieldValidationMessage(
                         level=LOG_LEVEL_WARNING,
                         code=MessageCodes.FIELD_VALIDATION_ERROR.value,
                         field="coordinates",
                         detail=_(
-                            "Failed to load and transform coordinates from E: %(e)i and N: %(n)i"
+                            "The given coordinates (E: %(e)i and N: %(n)i) are not in Switzerland or are not using the Swiss coordinate system (epsg:2056)."
                         )
                         % dict(e=e, n=n),
                     )
                 )
+                continue
+
+            target_coords = settings.APPLICATION["DOSSIER_IMPORT"].get(
+                "TRANSFORM_COORDINATE_SYSTEM"
+            )
+            if target_coords:
+                try:
+                    e, n = transform_coordinates(e, n, target_coords)
+                except ValueError:  # pragma: no cover
+                    messages.append(
+                        FieldValidationMessage(
+                            level=LOG_LEVEL_WARNING,
+                            code=MessageCodes.FIELD_VALIDATION_ERROR.value,
+                            field="coordinates",
+                            detail=_(
+                                "Failed to load and transform coordinates from E: %(e)i and N: %(n)i"
+                            )
+                            % dict(e=e, n=n),
+                        )
+                    )
+                    continue
             out.append(Coordinates(e=e, n=n))
         return out, messages
 
@@ -251,11 +273,9 @@ class XlsxFileDossierLoader:
                 getattr(XlsxFileDossierLoader.Column, "city").value
             )
             for number, egrid in zip(plot_numbers, egrids):
-                if len(str(numbers(number))) != len(str(number)):
-                    number = None
                 out.append(
                     PlotData(
-                        number=number and int(number),
+                        number=str(number),
                         egrid=egrid,
                         municipality=municipality,
                     )

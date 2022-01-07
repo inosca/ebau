@@ -52,18 +52,6 @@ def mock_public_status(mocker):
 
 
 @pytest.fixture
-def construction_control_for(service_factory):
-    def wrapper(service):
-        service.trans.update(name="Leitbehörde XY")
-
-        return service_factory(
-            trans__name="Baukontrolle XY", service_group__name="construction-control"
-        )
-
-    return wrapper
-
-
-@pytest.fixture
 def mock_nfd_permissions(mocker):
     mocker.patch(
         "camac.instance.serializers.CalumaInstanceSerializer._get_nfd_form_permissions",
