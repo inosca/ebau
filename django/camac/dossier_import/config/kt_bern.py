@@ -1,7 +1,8 @@
 import re
 from typing import List
 
-from caluma.caluma_form.models import Form as CalumaForm
+from caluma.caluma_form.api import save_answer
+from caluma.caluma_form.models import Form as CalumaForm, Question
 from caluma.caluma_user.models import BaseUser
 from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.api import skip_work_item
@@ -11,7 +12,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.db import transaction
 
 from camac.caluma.extensions.events.general import get_caluma_setting
-from camac.constants.kt_bern import DECISION_TYPE_BUILDING_PERMIT
+from camac.core.models import InstanceService
 from camac.core.utils import generate_ebau_nr
 from camac.dossier_import.dossier_classes import Dossier
 from camac.dossier_import.messages import (
@@ -34,8 +35,9 @@ from camac.dossier_import.writers import (
 )
 from camac.instance.domain_logic import SUBMIT_DATE_FORMAT, CreateInstanceLogic
 from camac.instance.models import Form, Instance, InstanceState
+from camac.instance.utils import set_construction_control
 from camac.tags.models import Tags
-from camac.user.models import Group, Location, User
+from camac.user.models import Group, User
 
 APPLICANT_MAPPING = {
     "company": "name-juristische-person-gesuchstellerin",
@@ -111,7 +113,7 @@ class KtBernDossierWriter(DossierWriter):
     usage = CalumaAnswerWriter(target="nutzungszone")
     application_type = CalumaAnswerWriter(target="geschaeftstyp")
     submit_date = CaseMetaWriter(target="submit-date", formatter="datetime-to-string")
-    decision_date = CalumaDecisionDateWriter(target="decision-date")
+    decision_date = CalumaDecisionDateWriter(target="datum-baubewilligung")
     publication_date = CalumaAnswerWriter(target="datum-publikation", value_key="date")
     construction_start_date = CalumaAnswerWriter(
         target="datum-baubeginn", value_key="date"
@@ -146,14 +148,12 @@ class KtBernDossierWriter(DossierWriter):
         self,
         user_id,
         group_id: int,
-        location_id: int,
         *args,
         **kwargs,
     ):
         super().__init__(*args, **kwargs)
         self._user = user_id and User.objects.get(pk=user_id)
         self._group = Group.objects.get(pk=group_id)
-        self._location = Location.objects.get(pk=location_id)
 
     def create_instance(self, dossier: Dossier) -> Instance:
         """Create a Camac NG Instance with a case.
@@ -175,17 +175,29 @@ class KtBernDossierWriter(DossierWriter):
             form=Form.objects.get(pk=self._import_settings["FORM_ID"]),
         )
 
+        workflow_slug = {
+            "BUILDINGPERMIT": "building-permit",
+            "PRELIMINARY": "preliminary-clarification",
+        }
+
         instance = CreateInstanceLogic.create(
             creation_data,
-            caluma_user=BaseUser(),
+            caluma_user=BaseUser(username=self._user.username, group=self._group.pk),
             camac_user=self._user,
             group=self._group,
             caluma_form=CalumaForm.objects.get(
                 pk=settings.APPLICATION["DOSSIER_IMPORT"]["CALUMA_FORM"]
             ),
             start_caluma=True,
+            workflow_slug=workflow_slug[dossier._meta.workflow],
         )
 
+        InstanceService.objects.create(
+            instance=instance,
+            service_id=self._group.service_id,
+            active=1,
+            activation_date=None,
+        )
         meta = {
             "submit-date": dossier.submit_date.strftime(SUBMIT_DATE_FORMAT),
         }
@@ -240,6 +252,13 @@ class KtBernDossierWriter(DossierWriter):
                 detail=f"Instance created with ID:  {instance.pk}",
             )
         )
+        q_municipality = Question.objects.get(slug="gemeinde")
+        save_answer(
+            document=instance.case.document,
+            question=q_municipality,
+            value=str(self._group.service_id),
+            user=BaseUser(username=self._user.username, group=self._group.pk),
+        )
         self.write_fields(instance, dossier)
         dossier_summary.details.append(
             Message(
@@ -252,7 +271,7 @@ class KtBernDossierWriter(DossierWriter):
         dossier_summary.details += self._create_dossier_attachments(dossier, instance)
 
         if dossier._meta.workflow == "BUILDINGPERMIT" and dossier.decision_date:
-            instance.decision.decision_type = DECISION_TYPE_BUILDING_PERMIT
+            instance.decision.decision_type = "UNKNOWN_IMPORT"
             instance.decision.save()
 
         workflow_message = self._set_workflow_state(
@@ -276,7 +295,7 @@ class KtBernDossierWriter(DossierWriter):
 
         return dossier_summary
 
-    def _set_workflow_state(
+    def _set_workflow_state(  # noqa: C901
         self, instance: Instance, target_state, workflow_type: str = "BUILDINGPERMIT"
     ) -> List[Message]:
         """Advance instance's case through defined workflow sequence to target state.
@@ -341,8 +360,15 @@ class KtBernDossierWriter(DossierWriter):
                     ):
                         action(item, caluma_user)
             skip_work_item(work_item, user=caluma_user, context=default_context)
-
-        messages.append(
+            if task_id == "decision":
+                set_construction_control(instance)
+            if target_state == "SUBMITTED":
+                instance.instance_state = InstanceState.objects.get(name="subm")
+                instance.save()
+                if instance.case.meta.get("ebau-number"):
+                    work_item = instance.case.work_items.get(task_id="ebau-number")
+                    skip_work_item(work_item, user=caluma_user, context=default_context)
+        messages.append(  # pragma: no cover
             Message(
                 level=LOG_LEVEL_DEBUG,
                 code=MessageCodes.SET_WORKFLOW_STATE.value,
@@ -354,7 +380,6 @@ class KtBernDossierWriter(DossierWriter):
     def get_or_create_ebau_nr(self, dossier):
         pattern = re.compile("([0-9]{4}-[1-9][0-9]*)")
         result = pattern.search(str(dossier.cantonal_id))
-
         if result:
             try:
                 match = result.groups()[0]

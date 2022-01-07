@@ -81,12 +81,15 @@ class Command(BaseCommand):
         )
 
     def handle(self, *args, **options):
+        location_id = None
+        if options.get("location_id"):
+            location_id = options["location_id"][0]
+
         if options.get("path_to_source"):
             f = open(options["path_to_source"][0], "rb")
             file_content = File(f)
             group = Group.objects.get(pk=options["group_id"][0])
             user_id = options["user_id"][0]
-            location_id = options["location_id"][0]
             dossier_import = DossierImport.objects.create(
                 user_id=user_id,
                 location_id=location_id,
@@ -99,9 +102,6 @@ class Command(BaseCommand):
             dossier_import = DossierImport.objects.get(
                 pk=options["dosser_import_id"][0]
             )
-            if options.get("location_id"):
-                dossier_import.location_id = options["location_id"][0]
-                dossier_import.save()
             if not dossier_import.source_file or not dossier_import.source_file.file:
                 raise CommandError(
                     "No file found. File cannot be imported if validation was unsuccessful."
@@ -118,7 +118,7 @@ class Command(BaseCommand):
         writer = configured_writer_cls(
             user_id=dossier_import.user.pk,
             group_id=dossier_import.group.pk,
-            location_id=dossier_import.location.pk,
+            location_id=dossier_import.location_id,
             import_settings=settings.APPLICATIONS[options["override_application"]][
                 "DOSSIER_IMPORT"
             ],
@@ -145,10 +145,15 @@ class Command(BaseCommand):
             ):
                 return
         for dossier in loader.load_dossiers(dossier_import.source_file.path):
-            message = writer.import_dossier(dossier, str(dossier_import.id))
-            if get_message_max_level(message.details) > 1:
-                self.stdout.write(json.dumps(message.to_dict()), self.style.WARNING)
-            dossier_import.messages["import"]["details"].append(message.to_dict())
+            dossier_summary = writer.import_dossier(dossier, str(dossier_import.id))
+            dossier_summary.details += dossier._meta.errors
+            if get_message_max_level(dossier_summary.details) > 1:
+                self.stdout.write(
+                    json.dumps(dossier_summary.to_dict()), self.style.WARNING
+                )
+            dossier_import.messages["import"]["details"].append(
+                dossier_summary.to_dict()
+            )
             dossier_import.save()
         update_summary(dossier_import)
         dossier_import.messages["import"]["summary"]["stats"] = {
