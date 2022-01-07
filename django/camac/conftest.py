@@ -753,3 +753,15 @@ def sz_instance(instance, caluma_workflow_config_sz, instance_with_case):
 @pytest.fixture
 def ur_instance(instance, caluma_workflow_config_ur, instance_with_case):
     return instance_with_case(instance)
+
+
+@pytest.fixture
+def construction_control_for(service_factory):
+    def wrapper(service):
+        service.trans.update(name="Leitbehörde XY")
+
+        return service_factory(
+            trans__name="Baukontrolle XY", service_group__name="construction-control"
+        )
+
+    return wrapper

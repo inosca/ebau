@@ -19,7 +19,12 @@ class DossierImportFactory(DjangoModelFactory):
     group = SubFactory(GroupFactory)
     location = SubFactory(LocationFactory)
     status = fuzzy.FuzzyChoice(dict(models.DossierImport.IMPORT_STATUS_CHOICES).keys())
-    service = SubFactory(ServiceFactory)
+    service = SubFactory(
+        ServiceFactory,
+        trans__name="Leitbehörde XY",
+        trans__language="de",
+        service_group__name="municipality",
+    )
     source_file = FileField()
     mime_type = Faker("mime_type")
 

@@ -1,11 +1,12 @@
-import datetime
 from pathlib import Path
 
 import pytest
+from caluma.caluma_user.models import BaseUser
 from django.conf import settings
 from django.utils import timezone
 from pytest_lazyfixture import lazy_fixture
 
+from camac.caluma.api import CalumaApi
 from camac.constants.kt_bern import DECISION_TYPE_BUILDING_PERMIT
 from camac.core.models import InstanceLocation
 from camac.dossier_import.loaders import InvalidImportDataError, XlsxFileDossierLoader
@@ -36,7 +37,10 @@ def test_bad_file_format_dossier_xlsx(db, user, settings, config, make_dossier_w
         )
 
 
-@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize(
+    "role__name",
+    ["Municipality"],
+)
 @pytest.mark.parametrize(
     "config,camac_instance",
     [
@@ -46,35 +50,41 @@ def test_bad_file_format_dossier_xlsx(db, user, settings, config, make_dossier_w
 )
 def test_create_instance_dossier_import_case(
     db,
-    dossier_import,
+    dossier_import_factory,
     make_dossier_writer,
     archive_file,
     settings,
     config,
     camac_instance,
-    instance_factory,
+    document_factory,
     instance_with_case,
-    instance_service_factory,
+    dynamic_option_factory,
+    construction_control_for,
     admin_user,
-    case_factory,
-    work_item_factory,
 ):
     # The test import file features faulty lines for cov
     # - 3 lines with good data (1 without documents directory)
     # - 1 line with missing data
     # - 1 line with duplicate data (gemeinde-id)
     settings.APPLICATION = settings.APPLICATIONS[config]
-    dossier_import.source_file = archive_file(TEST_IMPORT_FILE_NAME)
-    dossier_import.save()
-
+    dossier_import = dossier_import_factory(
+        source_file=archive_file(TEST_IMPORT_FILE_NAME),
+    )
+    construction_control_for(dossier_import.service)
+    dynamic_option_factory(
+        slug=str(dossier_import.service.pk),
+        question_id="gemeinde",
+        document=document_factory(),
+    )
     writer = make_dossier_writer(config)
+    writer._group.service = dossier_import.service
     loader = XlsxFileDossierLoader()
 
     for dossier in loader.load_dossiers(dossier_import.source_file.path):
         message = writer.import_dossier(dossier, str(dossier_import.pk))
         dossier_import.messages["import"]["details"].append(message.to_dict())
     update_summary(dossier_import)
-    assert dossier_import.messages["import"]["summary"]["stats"]["dossiers"] == 3
+    assert dossier_import.messages["import"]["summary"]["stats"]["dossiers"] == 4
     assert len(dossier_import.messages["import"]["summary"]["warning"]) == 2
     assert len(dossier_import.messages["import"]["summary"]["error"]) == 1
 
@@ -92,7 +102,7 @@ def test_create_instance_dossier_import_case(
     deletion = Instance.objects.filter(
         **{"case__meta__import-id": str(dossier_import.pk)}
     ).delete()
-    assert deletion[1]["instance.Instance"] == 3
+    assert deletion[1]["instance.Instance"] == 4
 
 
 @pytest.mark.parametrize(
@@ -205,14 +215,16 @@ def test_set_workflow_state_exceptions(
     "dossier_row_patch,expected_target",
     [
         # based on existing ebau-number and service access resulting ebau-number differs
-        ({"CANTONAL-ID": None}, "dossier_number"),  # 2017-1
+        ({"STATUS": "SUBMITTED", "CANTONAL-ID": None}, "dossier_number"),  # None
+        ({"STATUS": "APPROVED", "CANTONAL-ID": None}, "dossier_number"),  # 2017-1
+        ({"STATUS": "DONE", "CANTONAL-ID": None}, "dossier_number"),  # 2017-1
         ({"CANTONAL-ID": "2020-1"}, "dossier_number"),  # 2020-1
         ({"CANTONAL-ID": "2020-2"}, "dossier_number"),  # 2017-1
         (
             {
                 "COORDINATE-E": "2`710`662",
                 "COORDINATE-N": "1`225`997",
-                "PARCEL": "123,2BA",
+                "PARCEL": "`123`,2BA",
                 "EGRID": "HK207838123456,EGRIDDELLEY",
             },
             "plot_data",
@@ -245,7 +257,7 @@ def test_set_workflow_state_exceptions(
             {"COMPLETION-DATE": timezone.datetime(2021, 12, 12)},
             "completion_date",
         ),
-        ({"TYPE": "Baugesuch"}, "application_type"),
+        ({"TYPE": "geschaeftstyp-baubewilligungsverfahren"}, "application_type"),
         (
             dict(
                 [
@@ -254,7 +266,7 @@ def test_set_workflow_state_exceptions(
                     ("APPLICANT-COMPANY", "Chocolate Factory"),
                     ("APPLICANT-STREET", "Candy Lane"),
                     ("APPLICANT-STREET-NUMBER", "13"),
-                    ("APPLICANT-ZIP", "1234"),
+                    ("APPLICANT-ZIP", 1234),
                     ("APPLICANT-CITY", "Wonderland"),
                     ("APPLICANT-PHONE", "+1 101 10 01 101"),
                     ("APPLICANT-EMAIL", "candy@example.com"),
@@ -320,7 +332,7 @@ def test_record_loading_be(
     instance_factory,
     instance_with_case,
     make_dossier_writer,
-    dossier_row,
+    dossier_row_sparse,
     config,
     dossier_row_patch,
     expected_target,
@@ -345,10 +357,9 @@ def test_record_loading_be(
         foreign_instance = instance_with_case(foreign_instance)
         foreign_instance.case.meta.update({"ebau-number": "2020-2"})
         foreign_instance.case.save()
-
     loader = XlsxFileDossierLoader()
-    dossier_row.update(dossier_row_patch)
-    dossier = loader._load_dossier(dossier_row)
+    dossier_row_sparse.update(dossier_row_patch)
+    dossier = loader._load_dossier(dossier_row_sparse)
     writer.write_fields(be_instance, dossier)
     md = MasterData(be_instance.case)
     snapshot.assert_match(getattr(md, expected_target))
@@ -409,6 +420,13 @@ def test_record_loading_be(
             {"FINAL-APPROVAL-DATE": timezone.datetime(2021, 12, 12)},
             "final_approval_date",
         ),
+        (  # make sure the building authority table line is set correcto
+            {
+                "FINAL-APPROVAL-DATE": timezone.datetime(2021, 12, 12),
+                "COMPLETION-DATE": timezone.datetime(2021, 12, 12),
+            },
+            "completion_date",
+        ),
         (
             {"COMPLETION-DATE": timezone.datetime(2021, 12, 12)},
             "completion_date",
@@ -422,7 +440,7 @@ def test_record_loading_be(
                     ("APPLICANT-COMPANY", "Chocolate Factory"),
                     ("APPLICANT-STREET", "Candy Lane"),
                     ("APPLICANT-STREET-NUMBER", "13"),
-                    ("APPLICANT-ZIP", "1234"),
+                    ("APPLICANT-ZIP", 1234),
                     ("APPLICANT-CITY", "Wonderland"),
                     ("APPLICANT-PHONE", "+1 101 10 01 101"),
                     ("APPLICANT-EMAIL", "candy@example.com"),
@@ -523,7 +541,7 @@ def test_record_loading_all_empty(
     settings,
     camac_instance,
     make_dossier_writer,
-    dossier_row,
+    dossier_row_sparse,
     config,
     snapshot,
 ):
@@ -532,8 +550,8 @@ def test_record_loading_all_empty(
     writer = make_dossier_writer(config=config)
     loader = XlsxFileDossierLoader()
     make_workflow_items_for_config(config)
-    dossier_row = {key: "" for key in dossier_row.keys()}
-    dossier = loader._load_dossier(dossier_row)
+    dossier_row_sparse = {key: "" for key in dossier_row_sparse.keys()}
+    dossier = loader._load_dossier(dossier_row_sparse)
     writer.write_fields(camac_instance, dossier)
 
 
@@ -565,17 +583,17 @@ def test_record_loading_exceptions(
     settings,
     sz_instance,
     make_dossier_writer,
-    dossier_row,
+    dossier_row_sparse,
     config,
     dossier_row_patch,
     expected,
 ):
     """Load data from import record, make persistant and verify with master_data API."""
     loader = XlsxFileDossierLoader()
-    dossier_row.update(dossier_row_patch)
+    dossier_row_sparse.update(dossier_row_patch)
     make_workflow_items_for_config(config)
-    del dossier_row["STATUS"]
-    dossier = loader._load_dossier(dossier_row)
+    del dossier_row_sparse["STATUS"]
+    dossier = loader._load_dossier(dossier_row_sparse)
     for key, value in expected.items():
         assert getattr(dossier._meta, key) == value
 
@@ -656,10 +674,6 @@ def test_validation(
                     "create-manual-workitems",
                     "canceled",
                 ),  # "Manuelle aufgabe erfassen (Gesuch ausfüllen)"
-                (
-                    "create-manual-workitems",
-                    "ready",
-                ),  # "Manuelle aufgabe erfassen" (decision)
                 ("init-circulation", "canceled"),  # "Zirkulation initialisieren"
                 ("reopen-circulation", "canceled"),
                 ("audit", "skipped"),  # "Dossier prüfen"
@@ -670,7 +684,7 @@ def test_validation(
                 ("decision", "skipped"),  # "Entscheid verfügen"
                 ("information-of-neighbors", "skipped"),  # not documented in miro
             ],
-            "running",
+            "completed",
         ),  # "Entscheid verfügen"
         (
             "DONE",
@@ -687,9 +701,8 @@ def test_validation(
                 ("fill-publication", "skipped"),  # "Publikation ausfüllen"
                 ("create-publication", "canceled"),  # "Neue Publikation"
                 ("decision", "skipped"),  # "Entscheid verfügen"
-                ("sb1", "skipped"),  # "SB 1 ausfüllen"
-                ("sb2", "skipped"),  # "SB 2 ausfüllen"
-                ("complete", "skipped"),  # "Verfahren abschliessen"
+                ("information-of-neighbors", "skipped"),  # not documented in miro
+                ("reopen-circulation", "canceled"),
             ],
             "completed",
         ),
@@ -698,23 +711,49 @@ def test_validation(
 def test_set_workflow_state_be(
     db,
     be_instance,
+    service_factory,
+    instance_service_factory,
+    document_factory,
+    dynamic_option_factory,
     make_dossier_writer,
     target_state,
     workflow_type,
+    construction_control_for,
     expected_work_items_states,
     expected_case_status,
 ):
     # This test skips instance creation where the instance's instance_state is set to the correct
     # state.
     settings.APPLICATION = settings.APPLICATIONS["kt_bern"]
+
+    instance_municipality = instance_service_factory(
+        instance=be_instance,
+        service=service_factory(
+            trans__name="Leitbehörde Bern",
+            trans__language="de",
+            service_group__name="municipality",
+        ),
+        active=1,
+    )
+    construction_control_for(instance_municipality.service)
+    dynamic_option_factory(
+        slug=str(instance_municipality.service.pk),
+        question_id="gemeinde",
+        document=document_factory(),
+    )
+    CalumaApi().update_or_create_answer(
+        document=be_instance.case.document,
+        question_slug="gemeinde",
+        value=str(instance_municipality.service.pk),
+        user=BaseUser(),
+    )
+
     writer = make_dossier_writer(
         "kt_bern",
     )
+    writer.is_paper.context = {}
+    writer.is_paper.owner = writer
     writer.is_paper.write(be_instance, writer.is_paper.value)
-    if workflow_type == DECISION_TYPE_BUILDING_PERMIT:
-        writer.decision_date.write(be_instance, datetime.datetime.now())
-        be_instance.decision.decision_type = DECISION_TYPE_BUILDING_PERMIT
-        be_instance.decision.save()
 
     writer._set_workflow_state(be_instance, target_state, workflow_type=workflow_type)
     for task_id, expected_status in expected_work_items_states:
@@ -724,5 +763,10 @@ def test_set_workflow_state_be(
                 task_id=task_id, status=expected_status
             ).exists()
             is True
+        )
+    if target_state in ["APPROVED", "DONE"]:
+        assert (
+            be_instance.responsible_service(filter_type="construction_control")
+            is not None
         )
     assert be_instance.case.status == expected_case_status
