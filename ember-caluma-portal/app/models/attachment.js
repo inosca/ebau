@@ -37,7 +37,11 @@ export default class Attachment extends Model {
 
       const file = yield response.blob();
 
-      saveAs(file, this.name, { type: file.type });
+      const name = this.context.displayName
+        ? `${this.context.displayName}.${this.name.split(".").at(-1)}`
+        : this.name;
+
+      saveAs(file, name, { type: file.type });
 
       this.notification.success(this.intl.t("documents.downloadSuccess"));
     } catch (e) {
