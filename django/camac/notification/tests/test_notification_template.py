@@ -6,6 +6,7 @@ import pytest
 from caluma.caluma_form import models as caluma_form_models
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.mail import EmailMessage
+from django.core.management import call_command
 from django.urls import reverse
 from django.utils import timezone
 from pytest_factoryboy import LazyFixture
@@ -131,11 +132,56 @@ def test_notification_template_merge(
     form_field_factory,
     notice_factory,
     publication_entry,
+    task_factory,
+    work_item_factory,
+    answer_factory,
+    document_factory,
+    settings,
 ):
+    call_command(
+        "loaddata", settings.ROOT_DIR("kt_schwyz/config/buildingauthority.json")
+    )
+    call_command("loaddata", settings.ROOT_DIR("kt_schwyz/config/caluma_form.json"))
+
     notice_factory.create_batch(size=3, activation=activation)
     application_settings["COORDINATE_QUESTION"] = "punkte"
     application_settings["QUESTIONS_WITH_OVERRIDE"] = ["bezeichnung"]
     application_settings["LOCATION_NAME_QUESTION"] = "durchmesser-der-bohrung"
+    application_settings["INSTANCE_MERGE_CONFIG"] = {
+        "BAUVERWALTUNG": {
+            "TASK_SLUG": "building-authority",
+            "CATEGORIES": {
+                "Bewilligungsverfahren": [],
+                "Beschwerdeverfahren": [],
+            },
+            "TABLE_MAPPING": {"Beschwerdeverfahren": "realisierung-tabelle"},
+        }
+    }
+
+    work_item = work_item_factory(task_id="building-authority", case=sz_instance.case)
+    mapping_document = document_factory(
+        family=work_item.document.family, form_id="beschwerdeverfahren-tabelle"
+    )
+    answer_factory(
+        question_id="bewilligungsverfahren-gr-sitzung-beschluss",
+        value="foo",
+        document_id=work_item.document.pk,
+    )
+    answer_factory(
+        question_id="baukontrolle-realisierung-bemerkungen",
+        value="foo",
+        document_id=mapping_document.pk,
+    )
+    answer_factory(
+        question_id="beschwerdeverfahren-weiterzug-durch",
+        value="beschwerdeverfahren-weiterzug-durch-beschwerdegegner",
+        document_id=work_item.document.pk,
+    )
+    answer_factory(
+        question_id="bewilligungsverfahren-gr-sitzung-datum",
+        date=datetime.now(),
+        document_id=work_item.document.pk,
+    )
 
     add_field = functools.partial(form_field_factory, instance=sz_instance)
     add_field(

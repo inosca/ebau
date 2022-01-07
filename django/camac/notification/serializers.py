@@ -120,6 +120,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     billing_total = serializers.SerializerMethodField()
     my_activations = serializers.SerializerMethodField()
     objections = serializers.SerializerMethodField()
+    bauverwaltung = serializers.SerializerMethodField()
 
     vorhaben = serializers.SerializerMethodField()
     parzelle = serializers.SerializerMethodField()
@@ -511,6 +512,77 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         return instance.activations.filter(
             circulation_state_id=be_constants.CIRCULATION_STATE_WORKING
         ).count()
+
+    def _get_caluma_answer_value(self, answer):
+        if answer.question.type in [
+            caluma_form_models.Question.TYPE_MULTIPLE_CHOICE,
+            caluma_form_models.Question.TYPE_CHOICE,
+        ]:
+            return "\n".join(
+                [
+                    str(label)
+                    for label in answer.selected_options.values_list("label", flat=True)
+                ]
+            )
+        elif answer.question.type == caluma_form_models.Question.TYPE_DATE:
+            return answer.date.strftime(settings.MERGE_DATE_FORMAT)
+        return answer.value
+
+    def get_bauverwaltung(self, instance):  # noqa: C901
+        if not settings.APPLICATION.get("INSTANCE_MERGE_CONFIG"):
+            return {}
+
+        categories = settings.APPLICATION["INSTANCE_MERGE_CONFIG"]["BAUVERWALTUNG"][
+            "CATEGORIES"
+        ]
+        document = instance.case.work_items.get(
+            task_id=settings.APPLICATION["INSTANCE_MERGE_CONFIG"]["BAUVERWALTUNG"][
+                "TASK_SLUG"
+            ]
+        ).document
+
+        for answer in document.answers.all():
+            for category, answers in categories.items():
+                if category.lower() in answer.question_id and (
+                    (answer.value or answer.date)
+                ):
+                    answers.append(
+                        {
+                            "name": str(answer.question.label),
+                            "value": self._get_caluma_answer_value(answer),
+                        }
+                    )
+
+        for table in caluma_form_models.Document.objects.filter(family=document):
+            category_answers = []
+            for category, answers in categories.items():
+                if (
+                    category.lower() in table.form_id
+                    or category.lower()
+                    in settings.APPLICATION["INSTANCE_MERGE_CONFIG"]["BAUVERWALTUNG"][
+                        "TABLE_MAPPING"
+                    ].get(category, [])
+                ):
+                    category_answers = answers
+
+            table_answers = []
+            for answer in table.answers.all():
+                for category, answers in categories.items():
+                    if category.lower() in answer.question_id and (
+                        (answer.value or answer.date)
+                    ):
+                        table_answers.append(
+                            {
+                                "name": str(answer.question.label),
+                                "value": self._get_caluma_answer_value(answer),
+                            }
+                        )
+
+            category_answers.append(
+                {"name": str(table.form.name), "value": table_answers}
+            )
+
+        return categories
 
     def to_representation(self, instance):
         ret = super().to_representation(instance)
