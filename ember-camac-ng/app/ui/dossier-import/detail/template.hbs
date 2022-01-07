@@ -88,17 +88,21 @@
   </DossierImportDetailBlock>
   <DossierImportDetailBlock @title={{t "dossierImport.detail.status.title"}}>
     <div>
+      <div class="uk-text-bold uk-margin-small">
+        {{t
+          (concat
+            "dossierImport.imports.status." this.import.status
+          )
+        }}
+      </div>
+      <div>
+        {{t
+          (concat
+            "dossierImport.detail.status.description." this.import.status
+          )
+        }}
+      </div>
       {{#if this.isValidated}}
-        <div class="uk-text-bold uk-margin-small">
-          {{t "dossierImport.detail.status.draftTitle"}}
-        </div>
-        <div>
-          {{t
-            (concat
-              "dossierImport.detail.status.draftDescription." this.import.status
-            )
-          }}
-        </div>
         <div>
           <span class="uk-text-bold">
             {{t "dossierImport.detail.status.draftHintBold"}}
@@ -107,14 +111,11 @@
             {{t "dossierImport.detail.status.draftHintDescription"}}
           </span>
         </div>
-      {{else}}
-        {{t "dossierImport.detail.noInformation"}}
       {{/if}}
     </div>
   </DossierImportDetailBlock>
   <DossierImportDetailBlock @title={{t "dossierImport.detail.actions.title"}}>
     <div>
-      {{!-- TODO: activate once starting import is possible
       {{#if this.validationVerified}}
         <DossierImportAction
           @actionName="startImport"
@@ -127,8 +128,7 @@
             "dossierImport.detail.actions.startImport.buttonLabel"
           }}
         />
-      {{/if}} --}}
-      {{#if (or this.isValidated this.isImported)}}
+      {{else if this.isValidated}}
         <DossierImportAction
           @actionName="deleteImport"
           @task={{this.deleteImport}}
@@ -140,8 +140,7 @@
             "dossierImport.detail.actions.deleteImport.buttonLabel"
           }}
         />
-      {{/if}}
-      {{#if (and (not this.isValidated) (not this.isImported))}}
+      {{else}}
         <div>
           {{t "dossierImport.detail.actions.noActions"}}
         </div>

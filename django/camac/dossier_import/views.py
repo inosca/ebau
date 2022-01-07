@@ -30,8 +30,8 @@ class DossierImportView(ModelViewSet):
     def get_queryset_for_support(self):
         return self.queryset
 
-    @action(methods=["POST"], url_path="import-archive", detail=True)
-    def import_archive(self, request, pk=None):
+    @action(methods=["POST"], url_path="start", detail=True)
+    def start(self, request, pk=None):
         dossier_import = self.get_object()
         if (
             not dossier_import.status
