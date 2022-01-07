@@ -77,16 +77,4 @@ export default class DossierImportDetailController extends Controller {
       this.import?.status === "verified" || this.import?.status === "failed"
     );
   }
-
-  get isImported() {
-    return this.import?.status === "done";
-  }
-
-  get validationVerified() {
-    return this.import?.status === "verified";
-  }
-
-  get validationFailed() {
-    return this.import?.status === "failed";
-  }
 }

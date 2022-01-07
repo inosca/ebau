@@ -34,7 +34,6 @@ dossierImport:
   detail:
     title: "Détails de l'importation du {creationDate} ({user})"
     importsLink: Vers l'aperçu
-    noInformation:  Aucune information n'est actuellement disponible.
     fetchImportError: Une erreur est survenue lors du chargement de l'importation. Veuillez réessayer.
     analysis:
       title: Analyse
@@ -66,7 +65,6 @@ dossierImport:
         automatiquement supprimées après 10 jours!
     actions:
       title: Actions
-      noActions: Aucune action n'est possible dans cet état.
       startImport:
         title: Démarrer l'importation
         description: |-
