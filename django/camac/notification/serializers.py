@@ -100,12 +100,15 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     registration_link = serializers.SerializerMethodField()
     dossier_nr = serializers.SerializerMethodField()
     portal_submission = serializers.SerializerMethodField()
-    leitbehoerde_name = serializers.SerializerMethodField()
+    leitbehoerde_name_de = serializers.SerializerMethodField()
+    leitbehoerde_name_fr = serializers.SerializerMethodField()
     form_name = serializers.SerializerMethodField()
     ebau_number = serializers.SerializerMethodField()
     base_url = serializers.SerializerMethodField()
     rejection_feedback = serializers.SerializerMethodField()
     current_service = serializers.SerializerMethodField()
+    current_service_de = serializers.SerializerMethodField()
+    current_service_fr = serializers.SerializerMethodField()
     current_service_description = serializers.SerializerMethodField()
     date_dossiervollstandig = serializers.SerializerMethodField()
     date_dossiereingang = serializers.SerializerMethodField()
@@ -269,9 +272,19 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
         return publications
 
-    def get_leitbehoerde_name(self, instance):
-        """Return current active service of the instance."""
-        return instance.responsible_service(filter_type="municipality") or "-"
+    def get_leitbehoerde_name_de(self, instance):
+        """Return current active service of the instance in german."""
+        return (
+            instance.responsible_service(filter_type="municipality").get_name("de")
+            or "-"
+        )
+
+    def get_leitbehoerde_name_fr(self, instance):
+        """Return current active service of the instance in french."""
+        return (
+            instance.responsible_service(filter_type="municipality").get_name("fr")
+            or "-"
+        )
 
     def get_current_service(self, instance):
         """Return current service of the active user."""
@@ -279,6 +292,24 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             service = self.context["request"].group.service
 
             return service.get_name() if service else "-"
+        except KeyError:
+            return "-"
+
+    def get_current_service_de(self, instance):
+        """Return current service of the active user in german."""
+        try:
+            service = self.context["request"].group.service
+
+            return service.get_name("de") if service else "-"
+        except KeyError:
+            return "-"
+
+    def get_current_service_fr(self, instance):
+        """Return current service of the active user in french."""
+        try:
+            service = self.context["request"].group.service
+
+            return service.get_name("fr") if service else "-"
         except KeyError:
             return "-"
 
