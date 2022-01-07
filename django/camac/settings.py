@@ -315,6 +315,17 @@ APPLICATIONS = {
             "vbs": "PV",
             "uebrige": "PU",
         },
+        "INSTANCE_MERGE_CONFIG": {
+            "BAUVERWALTUNG": {
+                "TASK_SLUG": "building-authority",
+                "CATEGORIES": {
+                    "Bewilligungsverfahren": [],
+                    "Beschwerdeverfahren": [],
+                    "Baukontrolle": [],
+                },
+                "TABLE_MAPPING": {"Baukontrolle": "realisierung-tabelle"},
+            }
+        },
         # please also update django/Makefile command when changing apps here
         "SEQUENCE_NAMESPACE_APPS": [],
         "NOTIFICATIONS_EXCLUDED_TASKS": [],
