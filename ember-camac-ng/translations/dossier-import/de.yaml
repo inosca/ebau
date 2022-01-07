@@ -34,7 +34,6 @@ dossierImport:
   detail:
     title: "Details zum Import vom {creationDate} ({user})"
     importsLink: Zur Übersicht
-    noInformation:  Es liegen zurzeit keine Informationen vor.
     fetchImportError: Beim Laden des Imports ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.
     analysis:
       title: Analyse
@@ -67,13 +66,13 @@ dossierImport:
         automatisch gelöscht!
     actions:
       title: Aktionen
-      noActions: In diesem Status sind keine Aktionen möglich.
       startImport:
         title: Import starten
         description: |-
           Wenn Sie alle relevanten Fehlermeldungen bereinigt haben und
           die Daten importieren möchten, können Sie den Import starten.
         buttonLabel: Import starten
+        success: Der Import wurde erfolgreich gestartet.
       deleteImport:
         title: Import löschen
         description: Falls Sie den Import nicht mehr benötigen, können Sie ihn hier löschen.
