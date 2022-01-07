@@ -252,9 +252,7 @@ def test_importing(
         source_file=archive_file(file_name),
     )
 
-    resp = admin_client.post(
-        reverse("dossier-import-import-archive", args=(dossier_import.pk,))
-    )
+    resp = admin_client.post(reverse("dossier-import-start", args=(dossier_import.pk,)))
     assert resp.status_code == expected_status
     dossier_import.refresh_from_db()
     if archive_is_valid:

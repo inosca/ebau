@@ -1,7 +1,6 @@
 import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
-import { timeout } from "ember-concurrency";
 import { dropTask, lastValue } from "ember-concurrency-decorators";
 
 export default class DossierImportDetailController extends Controller {
@@ -49,8 +48,19 @@ export default class DossierImportDetailController extends Controller {
 
   @dropTask
   *startImport() {
-    // TODO as soon as workflow is implemented in backend
-    yield timeout(1000);
+    try {
+      this.notifications.clear();
+
+      yield this.import.start();
+
+      this.notifications.success(
+        this.intl.t("dossierImport.detail.actions.startImport.success")
+      );
+    } catch (e) {
+      this.notifications.error(
+        this.intl.t("dossierImport.detail.actions.startImport.error")
+      );
+    }
   }
 
   get summary() {
