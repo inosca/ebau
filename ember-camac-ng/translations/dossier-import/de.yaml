@@ -25,7 +25,7 @@ dossierImport:
     tableBody:
       noImports: Es wurden noch keine Imports erfasst.
     status:
-      in-progres: Wartet auf Freigabe
+      in-progress: In Bearbeitung
       verified: Entwurf (Validierung erfolgreich)
       failed: Entwurf (Validierung fehlgeschlagen)
       new: Neu
@@ -51,8 +51,7 @@ dossierImport:
       documents: "{count} Dokumente"
     status:
       title: Status
-      draftTitle: Entwurf
-      draftDescription:
+      description:
         verified: |-
           Sie haben eine gültige Import-Datei hochgeladen. Um den Import auszuführen, melden Sie sich bitte beim Support.
         # Sie haben eine gültige Import-Datei hochgeladen. Falls Sie die Daten für den
@@ -60,6 +59,8 @@ dossierImport:
         failed: |-
           Sie haben eine ungültige Import-Datei hochgeladen. Um die Fehler zu beheben
           müssen Sie eine neue Import-Datei hochladen.
+        in-progress: Der Import wird gerade ausgeführt. Je nach Umfang kann dies mehrere Minuten dauern.
+        done: Der Import wurde erfolgreich ausgeführt.
       draftHintBold: "Achtung:"
       draftHintDescription: |-
         Imports im Status "Entwurf" werden nach 10 Tagen
