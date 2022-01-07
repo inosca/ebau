@@ -602,7 +602,8 @@ def test_notification_placeholders(
                 EBAU_NUMBER: {{EBAU_NUMBER}}
                 FORM_NAME: {{FORM_NAME}}
                 INSTANCE_ID: {{INSTANCE_ID}}
-                LEITBEHOERDE_NAME: {{LEITBEHOERDE_NAME}}
+                LEITBEHOERDE_NAME_DE: {{LEITBEHOERDE_NAME_DE}}
+                LEITBEHOERDE_NAME_FR: {{LEITBEHOERDE_NAME_FR}}
                 INTERNAL_DOSSIER_LINK: {{INTERNAL_DOSSIER_LINK}}
                 PUBLIC_DOSSIER_LINK: {{PUBLIC_DOSSIER_LINK}}
                 COMPLETED_ACTIVATIONS: {{COMPLETED_ACTIVATIONS}}
@@ -613,6 +614,8 @@ def test_notification_placeholders(
                 ACTIVATION_ANSWER_DE: {{ACTIVATION_ANSWER_DE}}
                 ACTIVATION_ANSWER_FR: {{ACTIVATION_ANSWER_FR}}
                 CURRENT_SERVICE: {{CURRENT_SERVICE}}
+                CURRENT_SERVICE_DE: {{CURRENT_SERVICE_DE}}
+                CURRENT_SERVICE_FR: {{CURRENT_SERVICE_FR}}
             """,
         )
     ],
@@ -731,7 +734,7 @@ def test_notification_caluma_placeholders(
 
     assert len(mailoutbox) == 1
 
-    service_name = admin_user.groups.first().service.get_name()
+    service = admin_user.groups.first().service
 
     mail = mailoutbox[0]
     assert [
@@ -746,7 +749,8 @@ def test_notification_caluma_placeholders(
             "EBAU_NUMBER: 2019-01",
             "FORM_NAME: Baugesuch",
             f"INSTANCE_ID: {be_instance.pk}",
-            f"LEITBEHOERDE_NAME: {be_instance.responsible_service().get_name()}",
+            f"LEITBEHOERDE_NAME_DE: {be_instance.responsible_service().get_name('de')}",
+            f"LEITBEHOERDE_NAME_FR: {be_instance.responsible_service().get_name('fr')}",
             f"INTERNAL_DOSSIER_LINK: http://camac-ng.local/index/redirect-to-instance-resource/instance-id/{be_instance.pk}",
             f"PUBLIC_DOSSIER_LINK: http://caluma-portal.local/instances/{be_instance.pk}",
             f"COMPLETED_ACTIVATIONS: {done_activations}",
@@ -756,7 +760,9 @@ def test_notification_caluma_placeholders(
             f"ACTIVATION_STATEMENT_FR: {activation_statement_fr}",
             f"ACTIVATION_ANSWER_DE: {activation_answer_de}",
             f"ACTIVATION_ANSWER_FR: {activation_answer_fr}",
-            f"CURRENT_SERVICE: {service_name}",
+            f"CURRENT_SERVICE: {service.get_name()}",
+            f"CURRENT_SERVICE_DE: {service.get_name('de')}",
+            f"CURRENT_SERVICE_FR: {service.get_name('fr')}",
         ]
     ]
 
