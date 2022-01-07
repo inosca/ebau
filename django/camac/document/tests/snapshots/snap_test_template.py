@@ -1734,8 +1734,8 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
     </w:tblPr>
     <w:tblGrid>
       <w:gridCol w:w="2422"/>
-      <w:gridCol w:w="2698"/>
-      <w:gridCol w:w="1720"/>
+      <w:gridCol w:w="2697"/>
+      <w:gridCol w:w="1721"/>
       <w:gridCol w:w="1351"/>
       <w:gridCol w:w="1447"/>
     </w:tblGrid>
@@ -1767,7 +1767,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="2698" w:type="dxa"/>
+          <w:tcW w:w="2697" w:type="dxa"/>
           <w:tcBorders>
             <w:top w:val="single" w:sz="2" w:space="0" w:color="000001"/>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000001"/>
@@ -1791,7 +1791,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="1720" w:type="dxa"/>
+          <w:tcW w:w="1721" w:type="dxa"/>
           <w:tcBorders>
             <w:top w:val="single" w:sz="2" w:space="0" w:color="000001"/>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000001"/>
@@ -1956,7 +1956,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="2698" w:type="dxa"/>
+          <w:tcW w:w="2697" w:type="dxa"/>
           <w:tcBorders>
             <w:top w:val="single" w:sz="2" w:space="0" w:color="000001"/>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000001"/>
@@ -1994,7 +1994,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="1720" w:type="dxa"/>
+          <w:tcW w:w="1721" w:type="dxa"/>
           <w:tcBorders>
             <w:top w:val="single" w:sz="2" w:space="0" w:color="000001"/>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000001"/>
@@ -3130,18 +3130,18 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       </w:tblCellMar>
     </w:tblPr>
     <w:tblGrid>
-      <w:gridCol w:w="1606"/>
-      <w:gridCol w:w="1606"/>
+      <w:gridCol w:w="1605"/>
       <w:gridCol w:w="1607"/>
       <w:gridCol w:w="1606"/>
+      <w:gridCol w:w="1607"/>
       <w:gridCol w:w="1675"/>
-      <w:gridCol w:w="1543"/>
+      <w:gridCol w:w="1542"/>
     </w:tblGrid>
     <w:tr>
       <w:trPr/>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="9643" w:type="dxa"/>
+          <w:tcW w:w="9642" w:type="dxa"/>
           <w:gridSpan w:val="6"/>
           <w:tcBorders>
             <w:top w:val="single" w:sz="2" w:space="0" w:color="000000"/>
@@ -3154,6 +3154,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
           <w:pPr>
             <w:pStyle w:val="TableContents"/>
             <w:keepNext w:val="true"/>
+            <w:widowControl w:val="false"/>
             <w:rPr/>
           </w:pPr>
           <w:r>
@@ -3167,7 +3168,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       <w:trPr/>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="1606" w:type="dxa"/>
+          <w:tcW w:w="1605" w:type="dxa"/>
           <w:tcBorders>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
             <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
@@ -3177,6 +3178,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
           <w:pPr>
             <w:pStyle w:val="TableContents"/>
             <w:keepNext w:val="true"/>
+            <w:widowControl w:val="false"/>
             <w:rPr>
               <w:b/>
               <w:b/>
@@ -3204,24 +3206,18 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
         <w:p>
           <w:pPr>
             <w:pStyle w:val="TableContents"/>
+            <w:widowControl w:val="false"/>
             <w:rPr/>
           </w:pPr>
           <w:r>
             <w:rPr/>
-            <w:t>{{ o</w:t>
-          </w:r>
-          <w:r>
-            <w:rPr/>
-            <w:t xml:space="preserve">bjection.creation_date </w:t>
-          </w:r>
-          <w:r>
-            <w:rPr/>
-            <w:t>}}</w:t>
+            <w:t>{{ objection.creation_date }}</w:t>
           </w:r>
         </w:p>
         <w:p>
           <w:pPr>
             <w:pStyle w:val="TableContents"/>
+            <w:widowControl w:val="false"/>
             <w:rPr/>
           </w:pPr>
           <w:r>
@@ -3231,7 +3227,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="1606" w:type="dxa"/>
+          <w:tcW w:w="1607" w:type="dxa"/>
           <w:tcBorders>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
             <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
@@ -3240,6 +3236,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
         <w:p>
           <w:pPr>
             <w:pStyle w:val="TableContents"/>
+            <w:widowControl w:val="false"/>
             <w:rPr>
               <w:b/>
               <w:b/>
@@ -3257,7 +3254,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="3218" w:type="dxa"/>
+          <w:tcW w:w="3217" w:type="dxa"/>
           <w:gridSpan w:val="2"/>
           <w:tcBorders>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
@@ -3268,24 +3265,18 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
         <w:p>
           <w:pPr>
             <w:pStyle w:val="TableContents"/>
+            <w:widowControl w:val="false"/>
             <w:rPr/>
           </w:pPr>
           <w:r>
             <w:rPr/>
-            <w:t>{{ o</w:t>
-          </w:r>
-          <w:r>
-            <w:rPr/>
-            <w:t>bjection.</w:t>
-          </w:r>
-          <w:r>
-            <w:rPr/>
-            <w:t>title }}</w:t>
+            <w:t>{{ objection.title }}</w:t>
           </w:r>
         </w:p>
         <w:p>
           <w:pPr>
             <w:pStyle w:val="TableContents"/>
+            <w:widowControl w:val="false"/>
             <w:rPr/>
           </w:pPr>
           <w:r>
@@ -3298,7 +3289,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       <w:trPr/>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="1606" w:type="dxa"/>
+          <w:tcW w:w="1605" w:type="dxa"/>
           <w:tcBorders>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
             <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
@@ -3308,6 +3299,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
           <w:pPr>
             <w:pStyle w:val="TableContents"/>
             <w:keepNext w:val="true"/>
+            <w:widowControl w:val="false"/>
             <w:rPr>
               <w:b/>
               <w:b/>
@@ -3325,7 +3317,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="1606" w:type="dxa"/>
+          <w:tcW w:w="1607" w:type="dxa"/>
           <w:tcBorders>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
             <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
@@ -3334,6 +3326,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
         <w:p>
           <w:pPr>
             <w:pStyle w:val="TableContents"/>
+            <w:widowControl w:val="false"/>
             <w:rPr>
               <w:b/>
               <w:b/>
@@ -3351,7 +3344,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="1607" w:type="dxa"/>
+          <w:tcW w:w="1606" w:type="dxa"/>
           <w:tcBorders>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
             <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
@@ -3360,6 +3353,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
         <w:p>
           <w:pPr>
             <w:pStyle w:val="TableContents"/>
+            <w:widowControl w:val="false"/>
             <w:rPr>
               <w:rFonts w:ascii="Liberation Serif" w:hAnsi="Liberation Serif" w:eastAsia="Noto Sans CJK SC Regular" w:cs="FreeSans"/>
               <w:b/>
@@ -3389,7 +3383,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="1606" w:type="dxa"/>
+          <w:tcW w:w="1607" w:type="dxa"/>
           <w:tcBorders>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
             <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
@@ -3398,6 +3392,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
         <w:p>
           <w:pPr>
             <w:pStyle w:val="TableContents"/>
+            <w:widowControl w:val="false"/>
             <w:rPr>
               <w:rFonts w:ascii="Liberation Serif" w:hAnsi="Liberation Serif" w:eastAsia="Noto Sans CJK SC Regular" w:cs="FreeSans"/>
               <w:b/>
@@ -3436,6 +3431,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
         <w:p>
           <w:pPr>
             <w:pStyle w:val="TableContents"/>
+            <w:widowControl w:val="false"/>
             <w:rPr>
               <w:b/>
               <w:b/>
@@ -3453,7 +3449,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="1543" w:type="dxa"/>
+          <w:tcW w:w="1542" w:type="dxa"/>
           <w:tcBorders>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
             <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
@@ -3463,6 +3459,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
         <w:p>
           <w:pPr>
             <w:pStyle w:val="TableContents"/>
+            <w:widowControl w:val="false"/>
             <w:rPr>
               <w:b/>
               <w:b/>
@@ -3483,7 +3480,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       <w:trPr/>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="9643" w:type="dxa"/>
+          <w:tcW w:w="9642" w:type="dxa"/>
           <w:gridSpan w:val="6"/>
           <w:tcBorders>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
@@ -3495,6 +3492,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
           <w:pPr>
             <w:pStyle w:val="TableContents"/>
             <w:keepNext w:val="true"/>
+            <w:widowControl w:val="false"/>
             <w:rPr/>
           </w:pPr>
           <w:r>
@@ -3514,15 +3512,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
           </w:r>
           <w:r>
             <w:rPr/>
-            <w:t xml:space="preserve"> in objection.</w:t>
-          </w:r>
-          <w:r>
-            <w:rPr/>
-            <w:t>participants</w:t>
-          </w:r>
-          <w:r>
-            <w:rPr/>
-            <w:t xml:space="preserve"> %}</w:t>
+            <w:t xml:space="preserve"> in objection.participants %}</w:t>
           </w:r>
         </w:p>
       </w:tc>
@@ -3531,7 +3521,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       <w:trPr/>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="1606" w:type="dxa"/>
+          <w:tcW w:w="1605" w:type="dxa"/>
           <w:tcBorders>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
             <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
@@ -3541,6 +3531,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
           <w:pPr>
             <w:pStyle w:val="TableContents"/>
             <w:keepNext w:val="true"/>
+            <w:widowControl w:val="false"/>
             <w:rPr/>
           </w:pPr>
           <w:r>
@@ -3566,7 +3557,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="1606" w:type="dxa"/>
+          <w:tcW w:w="1607" w:type="dxa"/>
           <w:tcBorders>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
             <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
@@ -3575,6 +3566,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
         <w:p>
           <w:pPr>
             <w:pStyle w:val="TableContents"/>
+            <w:widowControl w:val="false"/>
             <w:rPr/>
           </w:pPr>
           <w:r>
@@ -3600,7 +3592,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="1607" w:type="dxa"/>
+          <w:tcW w:w="1606" w:type="dxa"/>
           <w:tcBorders>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
             <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
@@ -3609,6 +3601,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
         <w:p>
           <w:pPr>
             <w:pStyle w:val="TableContents"/>
+            <w:widowControl w:val="false"/>
             <w:rPr/>
           </w:pPr>
           <w:r>
@@ -3634,7 +3627,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="1606" w:type="dxa"/>
+          <w:tcW w:w="1607" w:type="dxa"/>
           <w:tcBorders>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
             <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
@@ -3643,6 +3636,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
         <w:p>
           <w:pPr>
             <w:pStyle w:val="TableContents"/>
+            <w:widowControl w:val="false"/>
             <w:rPr/>
           </w:pPr>
           <w:r>
@@ -3677,6 +3671,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
         <w:p>
           <w:pPr>
             <w:pStyle w:val="TableContents"/>
+            <w:widowControl w:val="false"/>
             <w:rPr/>
           </w:pPr>
           <w:r>
@@ -3702,7 +3697,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="1543" w:type="dxa"/>
+          <w:tcW w:w="1542" w:type="dxa"/>
           <w:tcBorders>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
             <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
@@ -3712,6 +3707,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
         <w:p>
           <w:pPr>
             <w:pStyle w:val="TableContents"/>
+            <w:widowControl w:val="false"/>
             <w:rPr/>
           </w:pPr>
           <w:r>
@@ -3740,7 +3736,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       <w:trPr/>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="9643" w:type="dxa"/>
+          <w:tcW w:w="9642" w:type="dxa"/>
           <w:gridSpan w:val="6"/>
           <w:tcBorders>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
@@ -3768,7 +3764,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       <w:trPr/>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="9643" w:type="dxa"/>
+          <w:tcW w:w="9642" w:type="dxa"/>
           <w:gridSpan w:val="6"/>
           <w:tcBorders>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
@@ -3939,10 +3935,290 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       <w:t>{%p endfor %}</w:t>
     </w:r>
   </w:p>
+  <w:p>
+    <w:pPr>
+      <w:pStyle w:val="Normal"/>
+      <w:rPr>
+        <w:b/>
+        <w:b/>
+        <w:bCs/>
+      </w:rPr>
+    </w:pPr>
+    <w:r>
+      <w:rPr/>
+    </w:r>
+  </w:p>
+  <w:p>
+    <w:pPr>
+      <w:pStyle w:val="Heading3"/>
+      <w:rPr>
+        <w:b/>
+        <w:b/>
+        <w:bCs/>
+      </w:rPr>
+    </w:pPr>
+    <w:r>
+      <w:rPr/>
+      <w:t>Bauverwaltung</w:t>
+    </w:r>
+  </w:p>
+  <w:p>
+    <w:pPr>
+      <w:pStyle w:val="TextBody"/>
+      <w:rPr>
+        <w:b/>
+        <w:b/>
+        <w:bCs/>
+      </w:rPr>
+    </w:pPr>
+    <w:r>
+      <w:rPr/>
+      <w:t xml:space="preserve">{%p for </w:t>
+    </w:r>
+    <w:r>
+      <w:rPr/>
+      <w:t>kategorie, antworten</w:t>
+    </w:r>
+    <w:r>
+      <w:rPr/>
+      <w:t xml:space="preserve"> in bauverwaltung.</w:t>
+    </w:r>
+    <w:r>
+      <w:rPr/>
+      <w:t>items()</w:t>
+    </w:r>
+    <w:r>
+      <w:rPr/>
+      <w:t xml:space="preserve"> %}</w:t>
+    </w:r>
+  </w:p>
+  <w:p>
+    <w:pPr>
+      <w:pStyle w:val="TextBody"/>
+      <w:rPr>
+        <w:b/>
+        <w:b/>
+        <w:bCs/>
+      </w:rPr>
+    </w:pPr>
+    <w:r>
+      <w:rPr/>
+      <w:t>{{</w:t>
+    </w:r>
+    <w:r>
+      <w:rPr/>
+      <w:t>kategorie</w:t>
+    </w:r>
+    <w:r>
+      <w:rPr/>
+      <w:t>}}</w:t>
+    </w:r>
+  </w:p>
+  <w:p>
+    <w:pPr>
+      <w:pStyle w:val="TextBody"/>
+      <w:rPr>
+        <w:b/>
+        <w:b/>
+        <w:bCs/>
+      </w:rPr>
+    </w:pPr>
+    <w:r>
+      <w:rPr/>
+      <w:t xml:space="preserve">{%p for </w:t>
+    </w:r>
+    <w:r>
+      <w:rPr/>
+      <w:t>antwort</w:t>
+    </w:r>
+    <w:r>
+      <w:rPr/>
+      <w:t xml:space="preserve"> in </w:t>
+    </w:r>
+    <w:r>
+      <w:rPr/>
+      <w:t>antworten</w:t>
+    </w:r>
+    <w:r>
+      <w:rPr/>
+      <w:t xml:space="preserve"> %}</w:t>
+    </w:r>
+  </w:p>
+  <w:p>
+    <w:pPr>
+      <w:pStyle w:val="TextBody"/>
+      <w:rPr>
+        <w:b/>
+        <w:b/>
+        <w:bCs/>
+      </w:rPr>
+    </w:pPr>
+    <w:r>
+      <w:rPr/>
+      <w:t>{{antwort.name}}</w:t>
+    </w:r>
+  </w:p>
+  <w:p>
+    <w:pPr>
+      <w:pStyle w:val="TextBody"/>
+      <w:rPr>
+        <w:b/>
+        <w:b/>
+        <w:bCs/>
+      </w:rPr>
+    </w:pPr>
+    <w:r>
+      <w:rPr/>
+      <w:t>{%p if antwort.value is string %}</w:t>
+    </w:r>
+  </w:p>
+  <w:p>
+    <w:pPr>
+      <w:pStyle w:val="TextBody"/>
+      <w:rPr>
+        <w:b/>
+        <w:b/>
+        <w:bCs/>
+      </w:rPr>
+    </w:pPr>
+    <w:r>
+      <w:rPr/>
+      <w:t>{{antwort.value}}</w:t>
+    </w:r>
+  </w:p>
+  <w:p>
+    <w:pPr>
+      <w:pStyle w:val="TextBody"/>
+      <w:rPr>
+        <w:b/>
+        <w:b/>
+        <w:bCs/>
+      </w:rPr>
+    </w:pPr>
+    <w:r>
+      <w:rPr/>
+      <w:t>{%p else %}</w:t>
+    </w:r>
+  </w:p>
+  <w:p>
+    <w:pPr>
+      <w:pStyle w:val="TextBody"/>
+      <w:rPr>
+        <w:b/>
+        <w:b/>
+        <w:bCs/>
+      </w:rPr>
+    </w:pPr>
+    <w:r>
+      <w:rPr/>
+      <w:t xml:space="preserve">{%p for </w:t>
+    </w:r>
+    <w:r>
+      <w:rPr/>
+      <w:t>tabellenantwort</w:t>
+    </w:r>
+    <w:r>
+      <w:rPr/>
+      <w:t xml:space="preserve"> in </w:t>
+    </w:r>
+    <w:r>
+      <w:rPr/>
+      <w:t>antwort.value</w:t>
+    </w:r>
+    <w:r>
+      <w:rPr/>
+      <w:t xml:space="preserve"> %}</w:t>
+    </w:r>
+  </w:p>
+  <w:p>
+    <w:pPr>
+      <w:pStyle w:val="TextBody"/>
+      <w:rPr>
+        <w:b/>
+        <w:b/>
+        <w:bCs/>
+      </w:rPr>
+    </w:pPr>
+    <w:r>
+      <w:rPr/>
+      <w:t>{{ tabellenantwort.name }}</w:t>
+    </w:r>
+  </w:p>
+  <w:p>
+    <w:pPr>
+      <w:pStyle w:val="TextBody"/>
+      <w:rPr>
+        <w:b/>
+        <w:b/>
+        <w:bCs/>
+      </w:rPr>
+    </w:pPr>
+    <w:r>
+      <w:rPr/>
+      <w:t>{{ tabellenantwort.value }}</w:t>
+    </w:r>
+  </w:p>
+  <w:p>
+    <w:pPr>
+      <w:pStyle w:val="TextBody"/>
+      <w:rPr>
+        <w:b/>
+        <w:b/>
+        <w:bCs/>
+      </w:rPr>
+    </w:pPr>
+    <w:r>
+      <w:rPr/>
+      <w:t>{%p endfor %}</w:t>
+    </w:r>
+  </w:p>
+  <w:p>
+    <w:pPr>
+      <w:pStyle w:val="TextBody"/>
+      <w:rPr>
+        <w:b/>
+        <w:b/>
+        <w:bCs/>
+      </w:rPr>
+    </w:pPr>
+    <w:r>
+      <w:rPr/>
+      <w:t>{%p endif %}</w:t>
+    </w:r>
+  </w:p>
+  <w:p>
+    <w:pPr>
+      <w:pStyle w:val="TextBody"/>
+      <w:rPr>
+        <w:b/>
+        <w:b/>
+        <w:bCs/>
+      </w:rPr>
+    </w:pPr>
+    <w:r>
+      <w:rPr/>
+      <w:t>{%p endfor %}</w:t>
+    </w:r>
+  </w:p>
+  <w:p>
+    <w:pPr>
+      <w:pStyle w:val="TextBody"/>
+      <w:spacing w:before="0" w:after="140"/>
+      <w:rPr>
+        <w:b/>
+        <w:b/>
+        <w:bCs/>
+      </w:rPr>
+    </w:pPr>
+    <w:r>
+      <w:rPr/>
+      <w:t>{%p endfor %}</w:t>
+    </w:r>
+  </w:p>
   <w:sectPr>
     <w:type w:val="nextPage"/>
     <w:pgSz w:w="11906" w:h="16838"/>
-    <w:pgMar w:left="1134" w:right="1134" w:header="0" w:top="1134" w:footer="0" w:bottom="1134" w:gutter="0"/>
+    <w:pgMar w:left="1134" w:right="1134" w:gutter="0" w:header="0" w:top="1134" w:footer="0" w:bottom="1134"/>
     <w:pgNumType w:fmt="decimal"/>
     <w:formProt w:val="false"/>
     <w:textDirection w:val="lrTb"/>
@@ -5838,8 +6114,8 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Gr
     </w:tblPr>
     <w:tblGrid>
       <w:gridCol w:w="2422"/>
-      <w:gridCol w:w="2698"/>
-      <w:gridCol w:w="1720"/>
+      <w:gridCol w:w="2697"/>
+      <w:gridCol w:w="1721"/>
       <w:gridCol w:w="1351"/>
       <w:gridCol w:w="1447"/>
     </w:tblGrid>
@@ -5871,7 +6147,7 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Gr
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="2698" w:type="dxa"/>
+          <w:tcW w:w="2697" w:type="dxa"/>
           <w:tcBorders>
             <w:top w:val="single" w:sz="2" w:space="0" w:color="000001"/>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000001"/>
@@ -5895,7 +6171,7 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Gr
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="1720" w:type="dxa"/>
+          <w:tcW w:w="1721" w:type="dxa"/>
           <w:tcBorders>
             <w:top w:val="single" w:sz="2" w:space="0" w:color="000001"/>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000001"/>
@@ -5995,7 +6271,7 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Gr
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="2698" w:type="dxa"/>
+          <w:tcW w:w="2697" w:type="dxa"/>
           <w:tcBorders>
             <w:top w:val="single" w:sz="2" w:space="0" w:color="000001"/>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000001"/>
@@ -6019,7 +6295,7 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Gr
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="1720" w:type="dxa"/>
+          <w:tcW w:w="1721" w:type="dxa"/>
           <w:tcBorders>
             <w:top w:val="single" w:sz="2" w:space="0" w:color="000001"/>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000001"/>
@@ -6823,10 +7099,37 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Gr
       <w:t>Stellungsnahmen der Aktuellen Fachstelle</w:t>
     </w:r>
   </w:p>
+  <w:p>
+    <w:pPr>
+      <w:pStyle w:val="Normal"/>
+      <w:rPr>
+        <w:b/>
+        <w:b/>
+        <w:bCs/>
+      </w:rPr>
+    </w:pPr>
+    <w:r>
+      <w:rPr/>
+    </w:r>
+  </w:p>
+  <w:p>
+    <w:pPr>
+      <w:pStyle w:val="Heading3"/>
+      <w:rPr>
+        <w:b/>
+        <w:b/>
+        <w:bCs/>
+      </w:rPr>
+    </w:pPr>
+    <w:r>
+      <w:rPr/>
+      <w:t xml:space="preserve">Bauverwaltung</w:t>
+    </w:r>
+  </w:p>
   <w:sectPr>
     <w:type w:val="nextPage"/>
     <w:pgSz w:w="11906" w:h="16838"/>
-    <w:pgMar w:left="1134" w:right="1134" w:header="0" w:top="1134" w:footer="0" w:bottom="1134" w:gutter="0"/>
+    <w:pgMar w:left="1134" w:right="1134" w:gutter="0" w:header="0" w:top="1134" w:footer="0" w:bottom="1134"/>
     <w:pgNumType w:fmt="decimal"/>
     <w:formProt w:val="false"/>
     <w:textDirection w:val="lrTb"/>
