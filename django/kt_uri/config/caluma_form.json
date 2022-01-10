@@ -77,6 +77,46 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "bohrbewilligung",
+    "fields": {
+      "created_at": "2022-01-10T15:52:23.050Z",
+      "modified_at": "2022-01-10T15:52:23.050Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Bohrbewilligung\", \"fr\": null}",
+      "description": "{\"de\": \"\", \"fr\": null}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "bohrbewilligung-waermeentnahme",
+    "fields": {
+      "created_at": "2022-01-10T15:50:30.663Z",
+      "modified_at": "2022-01-10T16:01:59.742Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Gesuch um Bohrbewilligung zur Wasser- oder W\\u00e4rmeentnahme\", \"fr\": null}",
+      "description": "{\"de\": \"\", \"fr\": null}",
+      "meta": {
+        "category": "building-permit",
+        "is-creatable": true,
+        "is-main-form": true
+      },
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "brandschutz",
     "fields": {
       "created_at": "2021-10-28T16:53:47.213Z",
@@ -628,6 +668,28 @@
       "description": "{\"de\": \"Meldung Solaranlage\", \"fr\": null}",
       "meta": {},
       "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "konzession-waermeentnahme",
+    "fields": {
+      "created_at": "2022-01-10T16:04:28.222Z",
+      "modified_at": "2022-01-10T16:04:28.222Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Gesuch um Konzession zur Wasser-oder W\\u00e4rmeentnahme\", \"fr\": null}",
+      "description": "{\"de\": \"\", \"fr\": null}",
+      "meta": {
+        "category": "building-permit",
+        "is-creatable": true,
+        "is-main-form": true
+      },
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -3011,6 +3073,36 @@
       "form": "bauverwaltung",
       "question": "rechtsmittelverfahren",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bohrbewilligung-waermeentnahme.bohrbewilligung",
+    "fields": {
+      "created_at": "2022-01-10T15:55:13.203Z",
+      "modified_at": "2022-01-10T15:55:13.203Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bohrbewilligung-waermeentnahme",
+      "question": "bohrbewilligung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bohrbewilligung.gebaeudetyp",
+    "fields": {
+      "created_at": "2022-01-10T15:54:12.256Z",
+      "modified_at": "2022-01-10T15:54:12.256Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bohrbewilligung",
+      "question": "gebaeudetyp",
+      "sort": 1
     }
   },
   {
@@ -6880,6 +6972,21 @@
       "modified_by_group": null,
       "form": "info-solar-declaration",
       "question": "allgemeine-informationen-solaranlage",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "konzession-waermeentnahme.first-name",
+    "fields": {
+      "created_at": "2022-01-10T16:09:44.235Z",
+      "modified_at": "2022-01-10T16:09:44.235Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "konzession-waermeentnahme",
+      "question": "first-name",
       "sort": 1
     }
   },
@@ -18142,6 +18249,54 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Geb\\u00e4ude mit teilweiser Wohnnutzung\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "gebaeudetyp-bestehendes-gebaeude",
+    "fields": {
+      "created_at": "2022-01-10T15:53:53.569Z",
+      "modified_at": "2022-01-10T15:53:53.569Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bestehendes Geb\\u00e4ude\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "gebaeudetyp-ersatzneubau",
+    "fields": {
+      "created_at": "2022-01-10T15:53:53.612Z",
+      "modified_at": "2022-01-10T15:53:53.612Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ersatzneubau\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "gebaeudetyp-neubau",
+    "fields": {
+      "created_at": "2022-01-10T15:53:53.574Z",
+      "modified_at": "2022-01-10T15:53:53.574Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Neubau\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -32602,6 +32757,36 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "bohrbewilligung",
+    "fields": {
+      "created_at": "2022-01-10T15:55:13.091Z",
+      "modified_at": "2022-01-10T15:55:13.091Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bohrbewilligung\", \"fr\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "bohrbewilligung",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "brandschutz",
     "fields": {
       "created_at": "2020-11-04T18:13:34.748Z",
@@ -36452,6 +36637,36 @@
       },
       "data_source": null,
       "row_form": "gebaeudetechnik-tabelle",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "gebaeudetyp",
+    "fields": {
+      "created_at": "2022-01-10T15:53:53.778Z",
+      "modified_at": "2022-01-10T15:53:53.778Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Geb\\u00e4udetyp\", \"fr\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
@@ -54985,6 +55200,51 @@
       "question": "gebaeudekategorie",
       "option": "gebaeudekategorie-teilweise-wohnnutzung",
       "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "gebaeudetyp.gebaeudetyp-bestehendes-gebaeude",
+    "fields": {
+      "created_at": "2022-01-10T15:53:53.793Z",
+      "modified_at": "2022-01-10T15:53:53.793Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "gebaeudetyp",
+      "option": "gebaeudetyp-bestehendes-gebaeude",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "gebaeudetyp.gebaeudetyp-ersatzneubau",
+    "fields": {
+      "created_at": "2022-01-10T15:53:53.801Z",
+      "modified_at": "2022-01-10T15:53:53.801Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "gebaeudetyp",
+      "option": "gebaeudetyp-ersatzneubau",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "gebaeudetyp.gebaeudetyp-neubau",
+    "fields": {
+      "created_at": "2022-01-10T15:53:53.807Z",
+      "modified_at": "2022-01-10T15:53:53.807Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "gebaeudetyp",
+      "option": "gebaeudetyp-neubau",
+      "sort": 3
     }
   },
   {
