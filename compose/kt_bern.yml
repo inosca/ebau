@@ -67,8 +67,6 @@ services:
     image: acr.run/camac-ng/camac-ng/django:master
     command: /bin/sh -c "./wait-for-it.sh db:5431 -- ./manage.py qcluster --pythonpath /app/$APPLICATION"
     ports: []
-    profiles:
-      - task_q
 
   ember-camac-ng:
     build:
