@@ -46,7 +46,7 @@ services:
       - keycloak
       - mailhog
       - unoconv
-    environment: &django-env
+    environment:
       - KEYCLOAK_URL=http://keycloak:8080/auth/
       - OAUTHLIB_INSECURE_TRANSPORT=1
       - DATABASE_HOST=db
