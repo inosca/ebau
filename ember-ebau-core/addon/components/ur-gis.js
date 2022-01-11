@@ -229,6 +229,7 @@ export default class UrGisComponent extends Component {
           "coordinates-east": LatLngToEPSG2056(latlng).x,
           "coordinates-north": LatLngToEPSG2056(latlng).y,
           "ueberlagerte-nutzungen": ueberlagerteNutzungen,
+          "parcel-city": liegenschaftFeature.properties.grundbuchkreis,
         };
 
         if (gebaeudeAdressenFeature) {
@@ -238,7 +239,6 @@ export default class UrGisComponent extends Component {
             gebaeudeAdressenFeature.properties.hausnummer;
           parcel["parcel-street-number"] =
             gebaeudeAdressenFeature.properties.hausnummer;
-          parcel["parcel-city"] = gebaeudeAdressenFeature.properties.ortschaft;
           parcel["parcel-zip"] = gebaeudeAdressenFeature.properties.plz;
         }
 
