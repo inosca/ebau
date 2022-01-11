@@ -203,7 +203,18 @@ def test_instance_group_link(
     instance_group_factory,
     main_instance_has_group,
     other_instance_has_group,
+    user_group_factory,
+    role_factory,
+    group_factory,
 ):
+    role = role_factory(pk=6)
+    group = group_factory(role=role)
+    user_group_factory(
+        group=group,
+        user=admin_client.user,
+        default_group=1,
+    )
+
     main_instance = instance
     main_instance_2 = instance_factory()
     other_instance = instance_factory(location=main_instance.location)
@@ -268,7 +279,18 @@ def test_instance_group_unlink(
     instance_factory,
     instance_group_factory,
     more_than_one_other_group,
+    role_factory,
+    group_factory,
+    user_group_factory,
 ):
+    role = role_factory(pk=6)
+    group = group_factory(role=role)
+    user_group_factory(
+        group=group,
+        user=admin_client.user,
+        default_group=1,
+    )
+
     main_instance = instance
     main_instance.instance_group = instance_group_factory()
     main_instance.save()
