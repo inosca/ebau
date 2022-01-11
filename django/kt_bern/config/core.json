@@ -114336,19 +114336,6 @@
   },
   {
     "model": "core.resource",
-    "pk": 2000000,
-    "fields": {
-      "available_resource": "page",
-      "name": null,
-      "description": null,
-      "template": "/ember-camac-ng/dossierimport.phtml",
-      "class_field": null,
-      "hidden": 1,
-      "sort": 13
-    }
-  },
-  {
-    "model": "core.resource",
     "pk": 15000000,
     "fields": {
       "available_resource": "page",
