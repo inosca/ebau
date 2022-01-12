@@ -4,21 +4,24 @@ from __future__ import unicode_literals
 
 from snapshottest import GenericRepr, Snapshot
 
+
 snapshots = Snapshot()
 
 snapshots['test_record_loading_be[dossier_row_patch0-dossier_number-kt_bern] 1'] = None
 
 snapshots['test_record_loading_be[dossier_row_patch1-dossier_number-kt_bern] 1'] = '2017-1'
 
-snapshots['test_record_loading_be[dossier_row_patch10-decision_date-kt_bern] 1'] = GenericRepr('datetime.datetime(2021, 12, 12, 0, 0)')
+snapshots['test_record_loading_be[dossier_row_patch10-profile_approval_date-kt_bern] 1'] = GenericRepr('datetime.date(2021, 12, 12)')
 
-snapshots['test_record_loading_be[dossier_row_patch11-final_approval_date-kt_bern] 1'] = GenericRepr('datetime.date(2021, 12, 12)')
+snapshots['test_record_loading_be[dossier_row_patch11-decision_date-kt_bern] 1'] = GenericRepr('datetime.datetime(2021, 12, 12, 0, 0)')
 
-snapshots['test_record_loading_be[dossier_row_patch12-completion_date-kt_bern] 1'] = GenericRepr('datetime.date(2021, 12, 12)')
+snapshots['test_record_loading_be[dossier_row_patch12-final_approval_date-kt_bern] 1'] = GenericRepr('datetime.date(2021, 12, 12)')
 
-snapshots['test_record_loading_be[dossier_row_patch13-application_type-kt_bern] 1'] = 'geschaeftstyp-baubewilligungsverfahren'
+snapshots['test_record_loading_be[dossier_row_patch13-completion_date-kt_bern] 1'] = GenericRepr('datetime.date(2021, 12, 12)')
 
-snapshots['test_record_loading_be[dossier_row_patch14-applicants-kt_bern] 1'] = [
+snapshots['test_record_loading_be[dossier_row_patch14-application_type-kt_bern] 1'] = 'geschaeftstyp-baubewilligungsverfahren'
+
+snapshots['test_record_loading_be[dossier_row_patch15-applicants-kt_bern] 1'] = [
     {
         'first_name': 'Willy',
         'is_juristic_person': None,
@@ -31,7 +34,7 @@ snapshots['test_record_loading_be[dossier_row_patch14-applicants-kt_bern] 1'] = 
     }
 ]
 
-snapshots['test_record_loading_be[dossier_row_patch15-landowners-kt_bern] 1'] = [
+snapshots['test_record_loading_be[dossier_row_patch16-landowners-kt_bern] 1'] = [
     {
         'first_name': 'Willy',
         'is_juristic_person': None,
@@ -44,7 +47,7 @@ snapshots['test_record_loading_be[dossier_row_patch15-landowners-kt_bern] 1'] = 
     }
 ]
 
-snapshots['test_record_loading_be[dossier_row_patch16-project_authors-kt_bern] 1'] = [
+snapshots['test_record_loading_be[dossier_row_patch17-project_authors-kt_bern] 1'] = [
     {
         'first_name': 'Willy',
         'is_juristic_person': None,
@@ -57,7 +60,7 @@ snapshots['test_record_loading_be[dossier_row_patch16-project_authors-kt_bern] 1
     }
 ]
 
-snapshots['test_record_loading_be[dossier_row_patch17-project_authors-kt_bern] 1'] = [
+snapshots['test_record_loading_be[dossier_row_patch18-project_authors-kt_bern] 1'] = [
 ]
 
 snapshots['test_record_loading_be[dossier_row_patch2-dossier_number-kt_bern] 1'] = '2017-1'
@@ -81,13 +84,26 @@ snapshots['test_record_loading_be[dossier_row_patch5-plot_data-kt_bern] 1'] = [
     }
 ]
 
-snapshots['test_record_loading_be[dossier_row_patch6-submit_date-kt_bern] 1'] = GenericRepr('datetime.datetime(2021, 12, 12, 0, 0)')
+snapshots['test_record_loading_be[dossier_row_patch6-plot_data-kt_bern] 1'] = [
+    {
+        'coord_east': None,
+        'coord_north': None,
+        'egrid_number': 'HK207838123456',
+        'plot_number': '`123`'
+    },
+    {
+        'coord_east': None,
+        'coord_north': None,
+        'egrid_number': 'EGRIDDELLEY',
+        'plot_number': '2BA'
+    }
+]
 
-snapshots['test_record_loading_be[dossier_row_patch7-publication_date-kt_bern] 1'] = GenericRepr('datetime.date(2021, 12, 12)')
+snapshots['test_record_loading_be[dossier_row_patch7-submit_date-kt_bern] 1'] = GenericRepr('datetime.datetime(2021, 12, 12, 0, 0)')
 
-snapshots['test_record_loading_be[dossier_row_patch8-construction_start_date-kt_bern] 1'] = GenericRepr('datetime.date(2021, 12, 12)')
+snapshots['test_record_loading_be[dossier_row_patch8-publication_date-kt_bern] 1'] = GenericRepr('datetime.date(2021, 12, 12)')
 
-snapshots['test_record_loading_be[dossier_row_patch9-profile_approval_date-kt_bern] 1'] = GenericRepr('datetime.date(2021, 12, 12)')
+snapshots['test_record_loading_be[dossier_row_patch9-construction_start_date-kt_bern] 1'] = GenericRepr('datetime.date(2021, 12, 12)')
 
 snapshots['test_record_loading_sz[dossier_row_patch0-coordinates-kt_schwyz-sz_instance] 1'] = [
     {

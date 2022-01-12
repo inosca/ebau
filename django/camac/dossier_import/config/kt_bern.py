@@ -37,7 +37,7 @@ from camac.instance.domain_logic import SUBMIT_DATE_FORMAT, CreateInstanceLogic
 from camac.instance.models import Form, Instance, InstanceState
 from camac.instance.utils import set_construction_control
 from camac.tags.models import Tags
-from camac.user.models import Group, User
+from camac.user.models import Group, Location, User
 
 APPLICANT_MAPPING = {
     "company": "name-juristische-person-gesuchstellerin",
@@ -148,12 +148,14 @@ class KtBernDossierWriter(DossierWriter):
         self,
         user_id,
         group_id: int,
+        location_id: int,
         *args,
         **kwargs,
     ):
         super().__init__(*args, **kwargs)
         self._user = user_id and User.objects.get(pk=user_id)
         self._group = Group.objects.get(pk=group_id)
+        self._location = location_id and Location.objects.get(pk=location_id)
 
     def create_instance(self, dossier: Dossier) -> Instance:
         """Create a Camac NG Instance with a case.
@@ -237,7 +239,6 @@ class KtBernDossierWriter(DossierWriter):
             )
             dossier_summary.status = DOSSIER_IMPORT_STATUS_ERROR
             return dossier_summary
-
         instance = self.create_instance(dossier)
         Tags.objects.create(
             name=dossier.id, service=self._group.service, instance=instance

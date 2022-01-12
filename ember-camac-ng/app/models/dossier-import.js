@@ -12,4 +12,9 @@ export default class DossierImportModel extends Model {
   @belongsTo group;
   @belongsTo location;
   @belongsTo service;
+
+  start() {
+    const adapter = this.store.adapterFor("dossier-import");
+    return adapter.start(this);
+  }
 }
