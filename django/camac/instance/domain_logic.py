@@ -45,7 +45,7 @@ def save_ebau_number(instance, ebau_number):
     Answer.objects.update_or_create(
         instance=instance,
         question_id=be_constants.QUESTION_EBAU_NR_EXISTS,
-        chapter_id=be_constants.QUESTION_EBAU_NR_EXISTS,
+        chapter_id=be_constants.CHAPTER_EBAU_NR,
         item=1,
         defaults={"answer": "yes"},
     )

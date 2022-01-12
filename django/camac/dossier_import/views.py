@@ -1,5 +1,10 @@
+from django_q.tasks import async_task
+from rest_framework.decorators import action
+from rest_framework.exceptions import ValidationError
+from rest_framework.response import Response
 from rest_framework_json_api.views import ModelViewSet
 
+from camac.dossier_import.importing import perform_import
 from camac.dossier_import.models import DossierImport
 from camac.dossier_import.serializers import DossierImportSerializer
 from camac.user.permissions import permission_aware
@@ -24,3 +29,25 @@ class DossierImportView(ModelViewSet):
 
     def get_queryset_for_support(self):
         return self.queryset
+
+    @action(methods=["POST"], url_path="start", detail=True)
+    def start(self, request, pk=None):
+        dossier_import = self.get_object()
+        if (
+            not dossier_import.status
+            == DossierImport.IMPORT_STATUS_VALIDATION_SUCCESSFUL
+        ):
+            raise ValidationError(
+                "Make sure the uploaded archive validates successfully.",
+            )
+        dossier_import.status = DossierImport.IMPORT_STATUS_IMPORT_INPROGRESS
+        dossier_import.save()
+        task_id = async_task(
+            perform_import,
+            dossier_import,
+            # sync=settings.Q_CLUSTER.get("sync", False),  # TODO: running tasks sync does not work at
+            #  the moment: django-q task loses db connection. maybe related to testing fixtures
+        )
+        dossier_import.task_id = task_id
+        dossier_import.save()
+        return Response({"task_id": task_id})
