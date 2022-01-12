@@ -61,8 +61,7 @@ from .domain_logic import save_ebau_number
 SUBMIT_DATE_CHAPTER = 100001
 SUBMIT_DATE_QUESTION_ID = 20036
 SUBMIT_DATE_FORMAT = "%Y-%m-%dT%H:%M:%S%z"
-WORKFLOW_ITEM_DOSSIEREINGANG_UR = 10
-WORKFLOW_ITEM_DOSSIER_ERFASST_UR = 12
+WORKFLOW_ITEM_EINGANG_ONLINE_UR = 12000000
 COMPLETE_PRELIMINARY_CLARIFICATION_SLUGS_BE = [
     "vorabklaerung-vollstaendig",
     "vorabklaerung-vollstaendig-v2",
@@ -951,7 +950,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                 defaults={"answer": submit_date},
             )
         elif settings.APPLICATION.get("SET_SUBMIT_DATE_CAMAC_WORKFLOW"):
-            workflow_item = WorkflowItem.objects.get(pk=WORKFLOW_ITEM_DOSSIEREINGANG_UR)
+            workflow_item = WorkflowItem.objects.get(pk=WORKFLOW_ITEM_EINGANG_ONLINE_UR)
 
             WorkflowEntry.objects.create(
                 workflow_date=submit_date,
