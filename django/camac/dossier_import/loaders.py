@@ -266,9 +266,16 @@ class XlsxFileDossierLoader:
             return None, messages
         try:
             plot_numbers = (
-                plot_numbers.split(",") if type(plot_numbers) == str else [plot_numbers]
+                [p.strip() for p in plot_numbers.split(",")]
+                if type(plot_numbers) == str
+                else [plot_numbers]
             )
-            egrids = egrids.split(",") if type(egrids) == str else [egrids]
+
+            egrids = (
+                [e.strip() for e in egrids.split(",")]
+                if type(egrids) == str
+                else [egrids]
+            )
             municipality = dossier_row.get(
                 getattr(XlsxFileDossierLoader.Column, "city").value
             )
