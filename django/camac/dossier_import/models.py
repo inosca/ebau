@@ -30,7 +30,7 @@ class DossierImport(UUIDModel):
     IMPORT_STATUS_DONE = "done"
     IMPORT_STATUS_VALIDATION_SUCCESSFUL = "verified"
     IMPORT_STATUS_VALIDATION_FAILED = "failed"
-    IMPORT_STATUS_IMPORT_INPROGRESS = "in-progres"
+    IMPORT_STATUS_IMPORT_INPROGRESS = "in-progress"
 
     IMPORT_STATUS_CHOICES = (
         (IMPORT_STATUS_DONE, IMPORT_STATUS_DONE),
@@ -83,6 +83,8 @@ class DossierImport(UUIDModel):
     )
 
     mime_type = models.CharField(max_length=255, null=True, blank=True)
+
+    task_id = models.CharField(max_length=64, null=True, blank=True)
 
     def delete(self, using=None, keep_parents=False, *args, **kwargs):
         if self.source_file:

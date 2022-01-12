@@ -99,6 +99,7 @@ INSTALLED_APPS = [
     "camac.dossier_import.apps.DossierImportConfig",
     "sorl.thumbnail",
     "django_clamd",
+    "django_q",
     "reversion",
     "rest_framework_xml",
     "gisbern",
@@ -3151,3 +3152,13 @@ PARASHIFT_SOURCE_FILES_URI = env.str(
 
 PARASHIFT_TENANT_ID = env.int("PARASHIFT_TENANT_ID", default=1665)
 PARASHIFT_API_KEY = env.str("PARASHIFT_API_KEY", default="ey...")
+
+Q_CLUSTER = {
+    "name": "DjangORM",
+    "workers": 2,
+    "timeout": 90,
+    "retry": 120,
+    "queue_limit": 50,
+    "bulk": 10,
+    "orm": "default",
+}

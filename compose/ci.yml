@@ -33,7 +33,7 @@ services:
     networks:
       - camac-ng.local
 
-  django:
+  django: &django
     image: acr.run/camac-ng/camac-ng/django:${CI_COMMIT_REF_SLUG:-master}
     build:
       context: ../django
@@ -74,6 +74,15 @@ services:
     volumes:
       - djangomedia:/var/lib/camac/media
       - djangotmpmedia:/tmp/camac/tmpfiles
+    networks:
+      - camac-ng.local
+
+  django-q:
+    <<: *django
+    command: /bin/sh -c "./wait-for-it.sh db:5431 -- ./manage.py qcluster"
+    ports: []
+    depends_on:
+      - db
     networks:
       - camac-ng.local
 

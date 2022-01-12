@@ -26,7 +26,7 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
 
-  django:
+  django: &django
     build:
       context: ../django
       cache_from:
@@ -62,6 +62,10 @@ services:
     volumes:
       - djangomedia:/var/lib/camac/media
       - djangotmpmedia:/tmp/camac/tmpfiles
+
+  django-q:
+    <<: *django
+    command: /bin/sh -c "./wait-for-it.sh db:5431 -- ./manage.py qcluster --pythonpath /app/$APPLICATION"
 
   ember-camac-ng:
     build:
