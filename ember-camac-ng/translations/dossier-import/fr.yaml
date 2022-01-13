@@ -1,13 +1,13 @@
 dossierImport:
   new:
     title: Nouvel import
-    importsLink: Vers l'aperçu
+    importsLink: Retour
     uploadDrop: Faites glisser un fichier dans cette zone ou
     uploadSelect: appuyez ici pour télécharger un fichier.
     uploadedFileLabel: Fichier téléchargé
     locationLabel: Commune
     locationInfo: Veuillez sélectionner une commune pour pouvoir attribuer l'importation.
-    detailLink: Vers les détails de l'importation
+    detailLink: Continuer
     uploadHintBold: "Remarque:"
     uploadHint: Le téléchargement d'un fichier d'importation peut prendre quelques minutes, selon la taille du fichier.
     uploadError:
@@ -25,7 +25,7 @@ dossierImport:
     tableBody:
       noImports: Aucune importation n'a encore été saisie.
     status:
-      in-progres: En attente de validation
+      in-progress: En cours de traitement
       verified: Conception (validation réussie)
       failed: Conception (échec de la validation)
       new: Nouveau
@@ -41,17 +41,26 @@ dossierImport:
         verified: La structure est correcte
         failed: La structure est défectueuse
         in-progres: L'importation a commencé
-      issuesInfo: "Les problèmes suivants sont encore présents dans le fichier d'importation:"
+        done: L'importation est terminée
+      issuesInfo: 
+        verified: "Les problèmes suivants sont encore présents dans le fichier d'importation:"
+        failed: "Les problèmes suivants sont encore présents dans le fichier d'importation:"
+        done: "Les problèmes suivants sont survenus pendant l'importation:"
     statistics:
       title: Statistiques
-      infoSuccess: "Les données suivantes peuvent être importées à partir du fichier d'importation:"
-      infoFailure: Aucune donnée ne peut être importée à partir du fichier d'importation.
+      infoSuccess:
+        verified: "Les données suivantes peuvent être importées à partir du fichier d'importation:"
+        failed: "Les données suivantes peuvent être importées à partir du fichier d'importation:"
+        done: "Les données suivantes ont pu être importées:"
+      infoFailure:
+        verified: Aucune donnée ne peut être importée à partir du fichier d'importation.
+        failed: Aucune donnée ne peut être importée à partir du fichier d'importation.
+        done: Aucune donnée n'a pu être importée.
       dossiers: "{count} Dossiers"
       documents: "{count} Documents"
     status:
       title: État
-      draftTitle: Conception
-      draftDescription:
+      description:
         verified: |-
           Vous avez téléchargé un fichier d'importation valide. Pour effectuer l'importation, veuillez contacter le support.
         # Vous avez téléchargé un fichier d'importation valide. Si vous souhaitez
@@ -59,6 +68,8 @@ dossierImport:
         failed: |-
           Vous avez téléchargé un fichier d'importation non valide. Pour corriger
           l'erreur vous devez télécharger un nouveau fichier d'importation.
+        in-progress: L'importation est en cours. Selon le volume, cela peut prendre plusieurs minutes. 
+        done: L'importation a été effectuée avec succès.
       draftHintBold: "Attention:"
       draftHintDescription: |-
         Les importations ayant le statut de "projet" sont
@@ -72,6 +83,8 @@ dossierImport:
           et que vous avez vous souhaitez importer les données, vous pouvez
           commencer l'importation.
         buttonLabel: Démarrer l'importation
+        success: L'importation a été lancée avec succès.
+        error: Quelque chose s'est mal passé lors du lancement de l'importation, veuillez réessayer.
       deleteImport:
         title: Supprimer l'importation
         description: Si vous n'avez plus besoin de l'importation, vous pouvez la supprimer ici.
