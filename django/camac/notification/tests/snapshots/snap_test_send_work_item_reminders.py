@@ -63,7 +63,7 @@ Votre organisation (Derek Wagner) a les tâches suivantes dans eBau qui requièr
 
 http://camac-ng.local
 
-Cet e-mail a été généré automatiquement, merci de ne pas y répondre.
+Ce message a été généré automatiquement, veuillez ne pas y répondre.
 ''',
         [
             'nicolefields@example.com'
@@ -140,7 +140,7 @@ Vous avez les tâches suivantes dans eBau qui requièrent votre attention :
 
 http://camac-ng.local
 
-Cet e-mail a été généré automatiquement, merci de ne pas y répondre.
+Ce message a été généré automatiquement, veuillez ne pas y répondre.
 ''',
         [
             'fmalone@example.org'
@@ -174,7 +174,7 @@ Votre organisation (Derek Wagner) a les tâches suivantes dans eBau qui requièr
 
 http://camac-ng.local
 
-Cet e-mail a été généré automatiquement, merci de ne pas y répondre.
+Ce message a été généré automatiquement, veuillez ne pas y répondre.
 ''',
         [
             'nicolefields@example.com'
@@ -251,7 +251,7 @@ Vous avez les tâches suivantes dans eBau qui requièrent votre attention :
 
 http://camac-ng.local
 
-Cet e-mail a été généré automatiquement, merci de ne pas y répondre.
+Ce message a été généré automatiquement, veuillez ne pas y répondre.
 ''',
         [
             'fmalone@example.org'
@@ -285,7 +285,7 @@ Votre organisation (Derek Wagner) a les tâches suivantes dans eBau qui requièr
 
 http://camac-ng.local
 
-Cet e-mail a été généré automatiquement, merci de ne pas y répondre.
+Ce message a été généré automatiquement, veuillez ne pas y répondre.
 ''',
         [
             'nicolefields@example.com'
@@ -362,7 +362,7 @@ Vous avez les tâches suivantes dans eBau qui requièrent votre attention :
 
 http://camac-ng.local
 
-Cet e-mail a été généré automatiquement, merci de ne pas y répondre.
+Ce message a été généré automatiquement, veuillez ne pas y répondre.
 ''',
         [
             'fmalone@example.org'
@@ -396,7 +396,7 @@ Votre organisation (Derek Wagner) a les tâches suivantes dans eBau qui requièr
 
 http://camac-ng.local
 
-Cet e-mail a été généré automatiquement, merci de ne pas y répondre.
+Ce message a été généré automatiquement, veuillez ne pas y répondre.
 ''',
         [
             'nicolefields@example.com'
@@ -493,7 +493,7 @@ Vous avez les tâches suivantes dans eBau qui requièrent votre attention :
 
 http://camac-ng.local
 
-Cet e-mail a été généré automatiquement, merci de ne pas y répondre.
+Ce message a été généré automatiquement, veuillez ne pas y répondre.
 ''',
         [
             'fmalone@example.org'
@@ -527,7 +527,7 @@ Votre organisation (Derek Wagner) a les tâches suivantes dans eBau qui requièr
 
 http://camac-ng.local
 
-Cet e-mail a été généré automatiquement, merci de ne pas y répondre.
+Ce message a été généré automatiquement, veuillez ne pas y répondre.
 ''',
         [
             'nicolefields@example.com'
@@ -561,7 +561,7 @@ Votre organisation (Brandi Vargas) a les tâches suivantes dans eBau qui requiè
 
 http://camac-ng.local
 
-Cet e-mail a été généré automatiquement, merci de ne pas y répondre.
+Ce message a été généré automatiquement, veuillez ne pas y répondre.
 ''',
         [
             'calebsoto@example.net'
