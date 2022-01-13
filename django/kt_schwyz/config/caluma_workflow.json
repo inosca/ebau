@@ -431,6 +431,28 @@
   },
   {
     "model": "caluma_workflow.task",
+    "pk": "finish-document",
+    "fields": {
+      "created_at": "2021-09-29T06:42:38.668Z",
+      "modified_at": "2021-09-29T06:42:38.668Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Abschliessen\", \"fr\": null}",
+      "description": "{\"de\": null, \"fr\": null}",
+      "type": "simple",
+      "meta": {},
+      "address_groups": null,
+      "control_groups": null,
+      "is_archived": false,
+      "form": null,
+      "lead_time": 864000,
+      "is_multiple_instance": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
     "pk": "formal-addition",
     "fields": {
       "created_at": "2020-10-30T14:52:21.081Z",
@@ -1007,6 +1029,26 @@
       "is_archived": false,
       "allow_all_forms": true,
       "start_tasks": ["write-statement"],
+      "allow_forms": []
+    }
+  },
+  {
+    "model": "caluma_workflow.workflow",
+    "pk": "internal-document",
+    "fields": {
+      "created_at": "2021-09-22T07:29:27.363Z",
+      "modified_at": "2021-09-22T07:29:27.363Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Gesch\\u00e4ftskontrolle\", \"fr\": null}",
+      "description": "{\"de\": null, \"fr\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "allow_all_forms": true,
+      "start_tasks": ["create-manual-workitems", "finish-document"],
       "allow_forms": []
     }
   }

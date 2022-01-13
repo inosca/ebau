@@ -30,7 +30,7 @@ class CalumaApi:
     """
 
     def _get_main_form(self, instance):
-        return instance.case.document.form
+        return instance.case.document.form if instance.case else None
 
     def get_form_name(self, instance):
         form = self._get_main_form(instance)
@@ -39,6 +39,13 @@ class CalumaApi:
     def get_form_slug(self, instance):
         form = self._get_main_form(instance)
         return form.slug if form else None
+
+    def _get_main_workflow(self, instance):
+        return instance.case.workflow if instance.case else None
+
+    def get_workflow_slug(self, instance):
+        workflow = self._get_main_workflow(instance)
+        return workflow.slug if workflow else None
 
     def _get_main_document(self, instance):
         return instance.case.document
