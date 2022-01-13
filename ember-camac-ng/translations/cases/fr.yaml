@@ -63,3 +63,13 @@ cases:
     unLinkInstanceSuccess: ""
     unLinkInstanceError: ""
     enterDossierNumber: ""
+
+  new:
+    title: ""
+    type: ""
+
+  status:
+    RUNNING: ""
+    COMPLETED: ""
+    CANCELED: ""
+    SUSPENDED: ""

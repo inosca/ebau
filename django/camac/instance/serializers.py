@@ -263,19 +263,39 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
 
 
 class SchwyzInstanceSerializer(InstanceSerializer):
+    caluma_form = serializers.SerializerMethodField()
+    caluma_workflow = serializers.SerializerMethodField()
+
     @transaction.atomic
     def create(self, validated_data):
         instance = super().create(validated_data)
 
+        caluma_form = self.initial_data.get("caluma_form", "baugesuch")
+        caluma_workflow = self.initial_data.get("caluma_workflow", "building-permit")
+
         case = workflow_api.start_case(
-            workflow=workflow_models.Workflow.objects.get(pk="building-permit"),
-            form=form_models.Form.objects.get(pk="baugesuch"),
+            workflow=workflow_models.Workflow.objects.get(pk=caluma_workflow),
+            form=form_models.Form.objects.get(pk=caluma_form),
             user=self.context["request"].caluma_info.context.user,
             meta={"camac-instance-id": instance.pk},
         )
 
         instance.case = case
         instance.save()
+
+        # Creation logic for caluma based forms
+        if caluma_workflow != "building-permit":
+            InstanceService.objects.create(
+                instance=instance,
+                service=self.context["request"].group.service,
+                active=1,
+                activation_date=None,
+            )
+
+            instance.case.meta[
+                "dossier-number"
+            ] = domain_logic.CreateInstanceLogic.generate_identifier(instance)
+            instance.case.save()
 
         return instance
 
@@ -294,6 +314,20 @@ class SchwyzInstanceSerializer(InstanceSerializer):
 
     def get_permissions_for_public(self, instance):
         return {}
+
+    def get_caluma_form(self, instance):
+        return CalumaApi().get_form_slug(instance)
+
+    def get_caluma_workflow(self, instance):
+        return CalumaApi().get_workflow_slug(instance)
+
+    class Meta(InstanceSerializer.Meta):
+        fields = InstanceSerializer.Meta.fields + ("caluma_form", "caluma_workflow")
+        read_only_fields = InstanceSerializer.Meta.read_only_fields + (
+            "caluma_form",
+            "caluma-workflow",
+        )
+        meta_fields = InstanceSerializer.Meta.meta_fields
 
 
 class CamacInstanceChangeFormSerializer(serializers.Serializer):
