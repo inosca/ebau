@@ -1,25 +1,22 @@
 import Route from "@ember/routing/route";
 import { inject as service } from "@ember/service";
-import ApplicationRouteMixin from "ember-simple-auth/mixins/application-route-mixin";
-import AuthenticatedRouteMixin from "ember-simple-auth/mixins/authenticated-route-mixin";
-import moment from "moment";
 
-const ApplicationRouteBase = Route.extend(
-  ApplicationRouteMixin,
-  AuthenticatedRouteMixin
-);
-
-export default class ApplicationRoute extends ApplicationRouteBase {
+export default class ApplicationRoute extends Route {
   @service intl;
   @service session;
   @service shoebox;
+  @service moment;
   @service calumaOptions;
 
-  async beforeModel(...args) {
-    super.beforeModel(...args);
+  async beforeModel(transition) {
+    await this.session.setup();
+
+    this.session.requireAuthentication(transition, () => {
+      this.session.authenticate("authenticator:camac");
+    });
 
     this.intl.setLocale(this.shoebox.content.language);
-    moment.locale(this.shoebox.content.language);
+    this.moment.setLocale(this.shoebox.content.language);
 
     this.calumaOptions.registerComponentOverride({
       label: "Karte",
@@ -62,12 +59,6 @@ export default class ApplicationRoute extends ApplicationRouteBase {
     });
 
     this.calumaOptions.registerComponentOverride({
-      label: "Task form button",
-      component: "task-form-button",
-      type: "StaticQuestion",
-    });
-
-    this.calumaOptions.registerComponentOverride({
       label: "eBau Nummer Vorschlagen",
       component: "suggest-ebau-number",
       type: "StaticQuestion",
@@ -78,13 +69,5 @@ export default class ApplicationRoute extends ApplicationRouteBase {
       component: "assign-ebau-number-button",
       type: "StaticQuestion",
     });
-  }
-
-  sessionInvalidated() {
-    this.session.authenticate("authenticator:camac");
-  }
-
-  triggerAuthentication() {
-    return this.session.authenticate("authenticator:camac");
   }
 }

@@ -18,7 +18,7 @@
           @color={{
             if (eq form.slug this.selectedForm) "secondary" "default"
           }}
-          @on-click={{fn (mut this.selectedForm) form.slug}}
+          @onClick={{fn (mut this.selectedForm) form.slug}}
           class=""
         />
       </div>
@@ -36,6 +36,6 @@
     @label={{t "global.continue"}}
     @disabled={{or (not this.selectedForm) this.createCase.isRunning}}
     @loading={{this.createCase.isRunning}}
-    @on-click={{perform this.createCase}}
+    @onClick={{perform this.createCase}}
   />
 </div>

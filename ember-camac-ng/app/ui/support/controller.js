@@ -3,7 +3,7 @@ import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
-import { dropTask, lastValue } from "ember-concurrency-decorators";
+import { dropTask, lastValue } from "ember-concurrency";
 
 import config from "camac-ng/config/environment";
 import { confirmTask } from "camac-ng/decorators";

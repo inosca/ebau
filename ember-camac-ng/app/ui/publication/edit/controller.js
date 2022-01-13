@@ -2,7 +2,7 @@ import Controller, { inject as controller } from "@ember/controller";
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { queryManager } from "ember-apollo-client";
-import { dropTask, lastValue } from "ember-concurrency-decorators";
+import { dropTask, lastValue } from "ember-concurrency";
 
 import saveWorkItemMutation from "camac-ng/gql/mutations/save-workitem.graphql";
 import getPublication from "camac-ng/gql/queries/get-publication.graphql";

@@ -12,7 +12,7 @@ module("Integration | Component | work-item-list", function (hooks) {
     this.set("query", { value: [] });
 
     await render(
-      hbs`<WorkItemList @query={{this.query}} @columns={{array}} />`
+      hbs`<WorkItemList @query={{this.query}} @columns={{(array)}} />`
     );
 
     assert.dom("table").exists();

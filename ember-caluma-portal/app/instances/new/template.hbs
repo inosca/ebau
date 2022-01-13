@@ -34,7 +34,7 @@
                   @width="1-1"
                   @label={{concat form.name " " (if isPaper (concat "(" (t "paper.type") ")"))}}
                   @color={{if (eq form.slug this.selectedForm.slug) "secondary" "default"}}
-                  @on-click={{fn (mut this.selectedForm) form}}
+                  @onClick={{fn (mut this.selectedForm) form}}
                   class="uk-margin-small-bottom"
                   disabled={{and this.convertFrom (not-eq form.meta.category "building-permit")}}
                 />
@@ -51,7 +51,7 @@
         @label={{t "global.continue"}}
         @disabled={{or (not this.selectedForm) this.save.isRunning}}
         @loading={{or this.save.isRunning this.convertToBuildingPermit.isRunning}}
-        @on-click={{perform this.save}}
+        @onClick={{perform this.save}}
       />
     </div>
   {{/let}}

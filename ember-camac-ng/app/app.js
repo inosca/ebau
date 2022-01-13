@@ -31,7 +31,6 @@ export default class App extends Application {
           { config: "gwr-config" }, // service to configure ember-ebau-gwr
           { dataImport: "gwrDataImport" }, // for data import API call
           "store", // ember-data store for link API
-          "router",
           "session",
         ],
       },

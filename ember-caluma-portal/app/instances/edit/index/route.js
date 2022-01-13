@@ -6,17 +6,11 @@ export default class InstancesEditIndexRoute extends Route {
     return this.modelFor("instances.edit");
   }
 
-  setupController(controller, model) {
-    super.setupController(controller, model);
-
-    controller.fetchCase.perform();
-  }
-
   redirect() {
     next(async () => {
       // eslint-disable-next-line ember/no-controller-access-in-routes
       const controller = this.controllerFor("instances.edit");
-      const instance = await controller.instanceTask.last;
+      const instance = await controller.instance;
 
       // redirect directly to the main form if the app is embedded
       if (instance && instance.mainForm && controller.embedded) {

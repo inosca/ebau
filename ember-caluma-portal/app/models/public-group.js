@@ -9,7 +9,9 @@ export default class PublicGroup extends Model {
   @belongsTo("public-service") service;
 
   get canCreatePaper() {
+    // eslint-disable-next-line ember/no-get
     const roleId = parseInt(get(this, "role.id"));
+    // eslint-disable-next-line ember/no-get
     const serviceGroupId = parseInt(get(this, "service.serviceGroup.id"));
 
     return (

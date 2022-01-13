@@ -1,4 +1,4 @@
-{{#unless this.embedded}}
+{{#if (not (is-embedded))}}
   <nav class="be-navbar">
     <div class="uk-container uk-flex uk-flex-column">
       <div class="uk-width-1-1 uk-position-relative">
@@ -6,7 +6,7 @@
           {{#if (is-application "be")}}
             <img
               class="uk-height-1-1"
-              src="/assets/images/logo-ebau-bern-1-{{this.language}}.svg"
+              src="/assets/images/logo-ebau-bern-1-{{this.session.language}}.svg"
               alt={{t "global.title-be"}}
             />
           {{else if (is-application "ur")}}
@@ -55,33 +55,17 @@
           <ul class="uk-navbar-nav">
             {{! template-lint-disable no-unknown-arguments-for-builtin-components }}
             {{#if this.session.isAuthenticated}}
-              <LinkTo @route="index" @tagName="li" @activeClass="uk-active">
-                <a href="#">
-                  {{t "nav.index"}}
-                </a>
-              </LinkTo>
-              <LinkTo @route="instances" @tagName="li" @activeClass="uk-active">
-                <a href="#">
-                  {{t "nav.instances"}}
-                </a>
-              </LinkTo>
-              <LinkTo @route="support" @tagName="li" @activeClass="uk-active">
-                <a href="#">
-                  {{t "nav.support"}}
-                </a>
-              </LinkTo>
+              <UkSubnav::Item @href="/">{{t "nav.index"}}</UkSubnav::Item>
+              <UkSubnav::Item @href="/instances">{{t "nav.instances"}}</UkSubnav::Item>
+              <UkSubnav::Item @href="/support">{{t "nav.support"}}</UkSubnav::Item>
             {{/if}}
             {{#if (has-feature "publication.list")}}
-              <LinkTo @route="public-instances" @tagName="li" @activeClass="uk-active">
-                <a href="#">
-                  {{t (concat "nav.public-instance-" (application-name))}}
-                </a>
-              </LinkTo>
+              <UkSubnav::Item @href="/public-instances">
+                {{t (concat "nav.public-instance-" (application-name))}}
+              </UkSubnav::Item>
             {{/if}}
             {{#if (and this.session.isAuthenticated (has-feature "faq"))}}
-              <LinkTo @route="faq" @tagName="li" @activeClass="uk-active">
-                <a href="#">{{t "nav.faq"}}</a>
-              </LinkTo>
+              <UkSubnav::Item @href="/faq">{{t "nav.faq"}}</UkSubnav::Item>
             {{/if}}
           </ul>
         </div>
@@ -91,7 +75,7 @@
             {{#if this.session.isAuthenticated}}
               <li {{did-insert (perform this.fetchGroups)}}>
                 <a href="#">
-                  {{this.user.fullName}}
+                  {{this.session.user.value.fullName}}
                   {{#if this.group}}
                     ({{this.group.name}})
                   {{/if}}
@@ -132,7 +116,7 @@
               </li>
             {{/if}}
             {{#each this.languages as |lang|}}
-              <li class={{if (eq lang this.language) "uk-active"}}>
+              <li class={{if (eq lang this.session.language) "uk-active"}}>
                 <a href="#" {{on "click" (fn this.setLanguage lang)}}>
                   {{lang}}
                 </a>
@@ -162,4 +146,4 @@
       </div>
     </div>
   </nav>
-{{/unless}}
+{{/if}}

@@ -62,7 +62,7 @@ module("Acceptance | navigation", function (hooks) {
       });
 
       const { id: groupId } = this.server.create("public-group");
-      this.owner.lookup("service:session").set("data.group", groupId);
+      this.owner.lookup("service:session").group = groupId;
 
       await visit("/");
 

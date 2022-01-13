@@ -1,6 +1,6 @@
 <LoadingOrNotfound
-  @loading={{this.editController.instanceTask.isRunning}}
-  @hasPermission={{can "manage applicants of instance" this.editController.instance}}
+  @loading={{this.editController.instance.isRunning}}
+  @hasPermission={{can "manage applicants of instance" this.editController.instance.value}}
 >
   <table class="uk-table uk-table-striped">
     <thead>
@@ -44,7 +44,7 @@
     <div class="uk-width-expand">
       <div class="uk-inline uk-width-1-1">
         <PersonalSuggestions
-          @instanceId={{this.editController.instance.id}}
+          @instanceId={{this.editController.instance.value.id}}
           @usedEmails={{this.usedEmails}}
           @onSelect={{fn (mut this.email)}}
         >

@@ -1,7 +1,6 @@
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
-import { timeout } from "ember-concurrency";
-import { restartableTask } from "ember-concurrency-decorators";
+import { restartableTask, timeout } from "ember-concurrency";
 
 import config from "caluma-portal/config/environment";
 

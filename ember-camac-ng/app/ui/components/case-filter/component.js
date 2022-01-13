@@ -3,8 +3,8 @@ import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
-import { restartableTask, lastValue } from "ember-concurrency-decorators";
-import gql from "graphql-tag";
+import { restartableTask, lastValue } from "ember-concurrency";
+import { gql } from "graphql-tag";
 
 export default class CaseFilterComponent extends Component {
   @queryManager apollo;

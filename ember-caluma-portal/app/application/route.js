@@ -1,12 +1,8 @@
 import { getOwner } from "@ember/application";
-import { get } from "@ember/object";
 import Route from "@ember/routing/route";
 import { inject as service } from "@ember/service";
-import OIDCApplicationRouteMixin from "ember-simple-auth-oidc/mixins/oidc-application-route-mixin";
 
-export default class ApplicationRoute extends Route.extend(
-  OIDCApplicationRouteMixin
-) {
+export default class ApplicationRoute extends Route {
   @service session;
   @service router;
   @service calumaOptions;
@@ -16,13 +12,15 @@ export default class ApplicationRoute extends Route.extend(
     group: { refreshModel: true },
   };
 
-  beforeModel(transition) {
+  async beforeModel(transition) {
     super.beforeModel(transition);
 
-    const { language, group } = get(transition, "to.queryParams") || {};
+    await this.session.setup();
 
-    this.session.set("language", language || this.session.language);
-    this.session.set("data.group", group || this.session.group);
+    const { language, group } = transition.to?.queryParams ?? {};
+
+    this.session.language = language ?? this.session.language;
+    this.session.group = group ?? this.session.group;
 
     if (language || group) {
       // after the transition remove the query params so we don't persist the

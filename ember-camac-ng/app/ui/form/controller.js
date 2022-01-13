@@ -2,16 +2,19 @@ import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
-import { dropTask, lastValue } from "ember-concurrency-decorators";
+import { dropTask, lastValue } from "ember-concurrency";
 
 import getInstanceCaseQuery from "camac-ng/gql/queries/get-instance-case.graphql";
 
 export default class FormController extends Controller {
-  queryParams = ["displayedForm"];
-  @tracked displayedForm;
-
   @service calumaStore;
+  @service store;
+
   @queryManager apollo;
+
+  queryParams = ["displayedForm"];
+
+  @tracked displayedForm;
 
   @lastValue("getData") data;
 

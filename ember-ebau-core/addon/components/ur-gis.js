@@ -6,11 +6,7 @@ import { tracked } from "@glimmer/tracking";
 import saveDocumentMutation from "@projectcaluma/ember-form/gql/mutations/save-document.graphql";
 import { parseDocument } from "@projectcaluma/ember-form/lib/parsers";
 import { queryManager } from "ember-apollo-client";
-import {
-  dropTask,
-  enqueueTask,
-  restartableTask,
-} from "ember-concurrency-decorators";
+import { dropTask, enqueueTask, restartableTask } from "ember-concurrency";
 import fetch from "fetch";
 import html2canvas from "html2canvas";
 import { all } from "rsvp";
@@ -357,12 +353,14 @@ export default class UrGisComponent extends Component {
           "saveDocument.document"
         );
 
+        const owner = getOwner(this);
+        const Document = owner.factoryFor("caluma-model:document").class;
+
         const newDocument = this.calumaStore.push(
-          getOwner(this)
-            .factoryFor("caluma-model:document")
-            .create({
-              raw: parseDocument(newDocumentRaw),
-            })
+          new Document({
+            raw: parseDocument(newDocumentRaw),
+            owner,
+          })
         );
 
         const fields = newDocument.fields.filter((field) =>

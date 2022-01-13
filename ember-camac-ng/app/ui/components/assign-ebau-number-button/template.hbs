@@ -4,6 +4,6 @@
     @disabled={{or (not isValid) this.completeAssignEbauNumber.isRunning}}
     @label={{@field.question.raw.label}}
     @loading={{this.completeAssignEbauNumber.isRunning}}
-    @on-click={{fn (perform this.completeAssignEbauNumber) validate}}
+    @onClick={{fn (perform this.completeAssignEbauNumber) validate}}
   />
 </DocumentValidity>

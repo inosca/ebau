@@ -17,7 +17,9 @@ module.exports = function (defaults) {
     sourcemaps: { enabled: true },
     SRI: { enabled: false },
     fingerprint: { enabled: false },
-    "ember-cli-babel": { includePolyfill: true },
+    "ember-simple-auth": {
+      useSessionSetupMethod: true,
+    },
   });
 
   app.import("node_modules/proj4/dist/proj4.js");

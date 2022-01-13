@@ -5,7 +5,7 @@
     name={{@field.pk}}
     id={{@field.pk}}
     value={{@field.answer.value}}
-    placeholder={{@field.question.placeholder}}
+    placeholder={{@field.question.raw.placeholder}}
     class="
       uk-input
       {{if @field.isInvalid "uk-form-danger"}}

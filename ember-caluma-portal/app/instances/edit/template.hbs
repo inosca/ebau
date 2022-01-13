@@ -1,47 +1,49 @@
 <LoadingOrNotfound
-  @loading={{this.instanceTask.isRunning}}
-  @hasPermission={{can "read instance" this.instance}}
+  @loading={{this.instance.isRunning}}
+  @hasPermission={{can "read instance" this.instance.value}}
 >
-  {{#unless this.embedded}}
+  {{#if (not (is-embedded))}}
     <h2>
-      {{this.instance.mainForm.name}} {{this.instance.typeDetail}}
+      {{this.instance.value.mainForm.name}} {{this.instance.value.typeDetail}}
       <span class="uk-text-light">
         ({{t (concat "instances.instance-id-" (application-name))}} {{this.model}})
       </span>
     </h2>
-  {{/unless}}
+  {{/if}}
 
-  {{#if (can "read instance" this.instance)}}
-    <ul class="uk-tab">
-      {{#unless this.embedded}}
-        <BeSubnavLink @route="instances.edit.index">
-          {{t "nav.overview"}}
-        </BeSubnavLink>
-      {{/unless}}
-
-      {{#if this.instance.mainForm}}
-        <BeSubnavLink
-          @route="instances.edit.form"
-          @model={{this.instance.mainForm.slug}}
-        >
-          {{this.instance.mainForm.name}}
-        </BeSubnavLink>
+  {{#if (can "read instance" this.instance.value)}}
+    <UkTab as |Tab|>
+      {{#if (not (is-embedded))}}
+        <Tab.item @href={{concat "/instances/" @model}} as |active|>
+          <AriaHeading @enabled={{active}}>
+            {{t "nav.overview"}}
+          </AriaHeading>
+        </Tab.item>
       {{/if}}
-
+      {{#if this.instance.value.mainForm}}
+        <Tab.item @href={{concat "/instances/" @model "/" this.instance.value.mainForm.slug}} as |active|>
+          <AriaHeading @enabled={{active}}>
+            {{this.instance.value.mainForm.name}}
+          </AriaHeading>
+        </Tab.item>
+      {{/if}}
       {{#each (array "nfd" "sb1" "sb2") as |form|}}
-        {{#if (can "read form of instance" this.instance form=(hash slug=form))}}
-          <BeSubnavLink @route="instances.edit.form" @model={{form}}>
-            {{t (concat "instances.forms." form)}}
-          </BeSubnavLink>
+        {{#if (can "read form of instance" this.instance.value form=(hash slug=form))}}
+          <Tab.item @href={{concat "/instances/" @model "/" form}} as |active|>
+            <AriaHeading @enabled={{active}}>
+              {{t (concat "instances.forms." form)}}
+            </AriaHeading>
+          </Tab.item>
         {{/if}}
       {{/each}}
-
-      {{#if (can "manage applicants of instance" this.instance)}}
-        <BeSubnavLink @route="instances.edit.applicants">
-          {{t "nav.applicants"}}
-        </BeSubnavLink>
+      {{#if (can "manage applicants of instance" this.instance.value)}}
+        <Tab.item @href={{concat "/instances/" @model "/applicants"}} as |active|>
+          <AriaHeading @enabled={{active}}>
+            {{t "nav.applicants"}}
+          </AriaHeading>
+        </Tab.item>
       {{/if}}
-    </ul>
+    </UkTab>
   {{/if}}
 
   {{outlet}}

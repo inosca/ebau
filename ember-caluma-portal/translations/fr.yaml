@@ -271,10 +271,10 @@ instances:
       d'autres organismes extérieurs sont également concernés (par exemple :
       projets de construction dans la zone agricole, projets de construction
       avec un nouveau raccordement à une route cantonale)."
-      info-ur: ""
 
     building-permit:
       title-be: "Requête"
+      title-ur: ""
       info-be: "Le cas le plus courant est la présentation d'une **demande de
       permis de construire** (exemple : agrandissement d'un garage,
       construction d'une maison individuelle neuve, installation de fenêtres
@@ -300,6 +300,7 @@ instances:
 
     special-procedure:
       title-be: "Procédure spéciale"
+      title-ur: ""
       info-be: ""
       info-ur: ""
 

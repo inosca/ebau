@@ -1,6 +1,6 @@
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
-import { dropTask } from "ember-concurrency-decorators";
+import { dropTask } from "ember-concurrency";
 import { performHelper } from "ember-concurrency/helpers/perform";
 import moment from "moment";
 

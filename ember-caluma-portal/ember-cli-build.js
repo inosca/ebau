@@ -18,10 +18,10 @@ module.exports = function (defaults) {
     sourcemaps: { enabled: true },
     SRI: { enabled: false },
     fingerprint: { enabled: false },
-    "ember-cli-babel": { includePolyfill: true },
+    "ember-simple-auth": {
+      useSessionSetupMethod: true,
+    },
   });
-
-  app.import("node_modules/intersection-observer/intersection-observer.js");
 
   app.trees.styles = stew.rm(
     stew.rename(app.trees.styles, `-${ENV}.scss`, ".scss"),

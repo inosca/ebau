@@ -1,12 +1,12 @@
-import { computed } from "@ember/object";
-import { alias, notEmpty } from "@ember/object/computed";
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
-import { lastValue, restartableTask } from "ember-concurrency-decorators";
+import { dropTask } from "ember-concurrency";
+import { useTask } from "ember-resources";
 import { handleUnauthorized } from "ember-simple-auth-oidc";
 import oidcConfig from "ember-simple-auth-oidc/config";
 import Session from "ember-simple-auth-oidc/services/session";
 import { getUserLocales } from "get-user-locale";
+import { localCopy, cached } from "tracked-toolbox";
 
 import config from "../config/environment";
 
@@ -21,14 +21,22 @@ export default class CustomSession extends Session {
   @service store;
   @service intl;
   @service moment;
-  @service session;
   @service router;
 
   @tracked groups = [];
   @tracked enforcePublicAccess = false;
 
-  @restartableTask
+  @localCopy("data.language") _language;
+  @localCopy("data.group") _group;
+
+  user = useTask(this, this.fetchUser, () => [this.isAuthenticated]);
+
+  @dropTask
   *fetchUser() {
+    yield Promise.resolve();
+
+    if (!this.isAuthenticated) return null;
+
     const response = yield this.fetch
       .fetch("/api/v1/me")
       .then((res) => res.json());
@@ -38,61 +46,50 @@ export default class CustomSession extends Session {
     return this.store.peekRecord("user", response.data.id);
   }
 
-  @lastValue("_user") user;
-  @computed(
-    "data.authenticated.access_token",
-    "fetchUser",
-    "session.isAuthenticated"
-  )
-  get _user() {
-    if (this.session.isAuthenticated) {
-      this.fetchUser.perform();
-
-      return this.fetchUser;
-    }
-    return null;
+  @cached
+  get group() {
+    return this._group;
   }
 
-  @alias("data.group") group;
-  @notEmpty("group") isInternal;
+  set group(value) {
+    // eslint-disable-next-line ember/classic-decorator-no-classic-methods
+    this.set("data.group", value);
+    this._group = value;
+  }
 
-  @computed("group")
+  get isInternal() {
+    return Boolean(this.group);
+  }
+
   get isSupport() {
     return config.ebau.supportGroups.includes(parseInt(this.group));
   }
 
-  @computed("data.language")
+  @cached
   get language() {
-    const sessionLanguage = validateLanguage(this.get("data.language"));
+    return this._language;
+  }
 
+  set language(value) {
     const browserLanguage = getUserLocales()
       .map((locale) => locale.split("-")[0])
       .find((lang) => validateLanguage(lang));
 
-    return sessionLanguage || browserLanguage || fallbackLanguage;
-  }
-
-  set language(value) {
     // make sure language is supported - if not use the fallback
-    value = validateLanguage(value) || fallbackLanguage;
+    value = validateLanguage(value) || browserLanguage || fallbackLanguage;
 
+    // eslint-disable-next-line ember/classic-decorator-no-classic-methods
     this.set("data.language", value);
+    this._language = value;
 
     this.intl.setLocale([value, fallbackLanguage]);
     this.moment.setLocale(value);
   }
 
-  @computed(
-    "data.authenticated",
-    "enforcePublicAccess",
-    "group",
-    "isAuthenticated",
-    "router.currentRoute.queryParams.key"
-  )
   get authHeaders() {
     if (!this.isAuthenticated) return {};
 
-    const token = this.get(`data.authenticated.${tokenPropertyName}`);
+    const token = this.data.authenticated[tokenPropertyName];
     const tokenKey = authHeaderName.toLowerCase();
     const publicAccessKey = this.router.currentRoute?.queryParams?.key;
 
@@ -106,7 +103,6 @@ export default class CustomSession extends Session {
     };
   }
 
-  @computed("language")
   get languageHeaders() {
     if (!this.language) return {};
 
@@ -116,7 +112,6 @@ export default class CustomSession extends Session {
     };
   }
 
-  @computed("authHeaders", "languageHeaders")
   get headers() {
     return { ...this.authHeaders, ...this.languageHeaders };
   }

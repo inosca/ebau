@@ -3,8 +3,8 @@ import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
-import { dropTask, lastValue } from "ember-concurrency-decorators";
-import gql from "graphql-tag";
+import { dropTask, lastValue } from "ember-concurrency";
+import { gql } from "graphql-tag";
 import { all } from "rsvp";
 
 import CustomCaseModel from "camac-ng/caluma-query/models/case";

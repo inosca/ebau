@@ -1,8 +1,7 @@
-import Component from "@ember/component";
-import { computed, action, get } from "@ember/object";
-import { alias } from "@ember/object/computed";
+import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
-import { dropTask, lastValue } from "ember-concurrency-decorators";
+import Component from "@glimmer/component";
+import { dropTask, lastValue } from "ember-concurrency";
 
 import config from "caluma-portal/config/environment";
 
@@ -13,7 +12,7 @@ const {
 } = config;
 
 const getInstanceParam = (route) => {
-  const instance = get(route, "params.instance");
+  const instance = route?.params?.instance;
   const parent = route.parent;
 
   if (!instance) {
@@ -32,15 +31,11 @@ export default class BeNavbarComponent extends Component {
   @service notification;
   @service store;
 
-  // in preparation of glimmer components (outer HTML)
-  tagName = "";
-
   languages = languages;
   environment = environment;
 
-  @computed("router.currentRoute.{name,parent,params}")
   get internalLink() {
-    const currentRoute = this.get("router.currentRoute");
+    const currentRoute = this.router.currentRoute;
 
     if (/^instances\.edit/.test(currentRoute.name)) {
       const instanceId = getInstanceParam(currentRoute);
@@ -53,20 +48,8 @@ export default class BeNavbarComponent extends Component {
     return internalURL;
   }
 
-  @computed
-  get embedded() {
-    return window !== window.top;
-  }
-
-  @alias("session.user") user;
-  @alias("session.language") language;
-
-  @computed("groups.[]", "session.group")
   get group() {
-    return (
-      this.session.group &&
-      this.store.peekRecord("public-group", this.session.group)
-    );
+    return this.session.groups.find((g) => g.id === this.session.group);
   }
 
   @lastValue("fetchGroups") groups;
@@ -102,14 +85,14 @@ export default class BeNavbarComponent extends Component {
   }
 
   @action
-  async setGroup(group) {
-    if (this.get("router.currentRoute.queryParams.group")) {
+  async setGroup(group, event) {
+    event?.preventDefault();
+
+    if (this.router.currentRoute?.queryParams.group) {
       await this.router.replaceWith({ queryParams: { group: null } });
     }
 
-    // This needs to be set directly on session.data since ember simple auths
-    // session storage does not support setting on an alias
-    this.session.set("data.group", group);
+    this.session.group = group;
 
     // Hard reload the whole page so the data is refetched
     if (environment !== "test") {
@@ -118,12 +101,14 @@ export default class BeNavbarComponent extends Component {
   }
 
   @action
-  async setLanguage(language) {
-    if (this.get("router.currentRoute.queryParams.language")) {
+  async setLanguage(language, event) {
+    event?.preventDefault();
+
+    if (this.router.currentRoute?.queryParams.language) {
       await this.router.replaceWith({ queryParams: { language: null } });
     }
 
-    this.set("language", language);
+    this.session.language = language;
 
     // Hard reload the whole page so the data is refetched
     if (environment !== "test") {

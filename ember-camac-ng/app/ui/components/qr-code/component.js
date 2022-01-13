@@ -2,7 +2,7 @@ import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import slugify from "@projectcaluma/ember-core/utils/slugify";
-import { dropTask } from "ember-concurrency-decorators";
+import { dropTask } from "ember-concurrency";
 import saveAs from "file-saver";
 import QRCode from "qrcode";
 

@@ -1,6 +1,6 @@
 import Model, { attr, belongsTo, hasMany } from "@ember-data/model";
 import { inject as service } from "@ember/service";
-import { dropTask } from "ember-concurrency-decorators";
+import { dropTask } from "ember-concurrency";
 import { saveAs } from "file-saver";
 import filesize from "filesize";
 

@@ -1,6 +1,6 @@
 import Service from "@ember/service";
 import { visit, click, fillIn } from "@ember/test-helpers";
-import setupMirage from "ember-cli-mirage/test-support/setup-mirage";
+import { setupMirage } from "ember-cli-mirage/test-support";
 import { setupIntl } from "ember-intl/test-support";
 import { setupApplicationTest } from "ember-qunit";
 import { authenticateSession } from "ember-simple-auth/test-support";

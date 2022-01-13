@@ -1,14 +1,14 @@
 <BasicDropdown as |dd|>
-  <dd.Trigger {{did-insert (perform this.fetchSuggestions)}}>
+  <dd.Trigger>
     {{yield}}
   </dd.Trigger>
   <dd.Content class="uk-box-shadow-medium uk-padding-small">
-    {{#if this.fetchSuggestions.isRunning}}
+    {{#if this.suggestions.isRunning}}
       <div class="uk-padding">
         <UkSpinner />
       </div>
-    {{else if this.suggestions}}
-      {{#each this.suggestions as |category|}}
+    {{else if this.suggestions.value}}
+      {{#each this.suggestions.value as |category|}}
         {{#if category.suggestions}}
           <strong>{{category.label}}</strong>
           <ul>
