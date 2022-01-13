@@ -239,6 +239,13 @@ instances:
   messageBuildingServicesText: ""
   messageBuildingServicesButton: ""
 
+  categories:
+    notSubmitted: ""
+    submitted: ""
+    pending: "Pendante"
+    sb: "Déclaration spontanée"
+    done: "Finalisé"
+
   new:
     title: "Nouveau dossier"
     kind: "De quel type de dossier s'agit-il?"
@@ -296,7 +303,8 @@ instances:
       info-ur: ""
 
     others:
-      title: "Autres"
+      title-be: "Autres"
+      title-ur: ""
 
   status:
     title: "État"

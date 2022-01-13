@@ -233,6 +233,13 @@ instances:
   messageBuildingServicesText: "Bitte verwenden Sie für die Meldung von gebäudetechnischen Anlagen und für die Einreichung von Nachweisen im Zusammenhang mit einen laufenden Baubewilligungsverfahren (z.B. wärmetechnische Anlagen, Brandschutz-, Energie-, oder Lärmschutznachweis) das Formular „MELDUNG GEBÄUDETECHNIK“ in der Übersicht."
   messageBuildingServicesButton: "Meldung für Gebäudetechnik einreichen"
 
+  categories:
+    notSubmitted: "Neu"
+    submitted: "Eingereicht"
+    pending: "Offen"
+    sb: "Selbstdeklaration"
+    done: "Abgeschlossen"
+
   new:
     title: "Neues Dossier"
     kind: "Um welche Art von Dossier handelt es sich?"
@@ -291,7 +298,7 @@ instances:
       der baulichen Änderung bestehender Bauten und Anlagen sowie bei Nutzungsänderungen
       bestehender Bauten zu. Die Gemeindebaubehörde entscheidet über die Baubewilligungspflicht.\n\n
       Hinweis: Falls für ein Vorhaben, welches Sie mit dem Formular „Baugesuch“ einreichen,
-      wider Erwarten keine Baubewilligung erforderlich wäre, wird Ihnen das die 
+      wider Erwarten keine Baubewilligung erforderlich wäre, wird Ihnen das die
       Gemeindebaubehörde mitteilen. Es entstehen Ihnen dadurch keine Nachteile.\n\n **Baumeldung
       für geringfügiges Bauvorhaben:** Baumeldungen sollen hauptsächlich für geringfügige
       Vorhaben innerhalb der Bauzonen verwendet werden. Ein Vorhaben welches innerhalb der
@@ -325,7 +332,7 @@ instances:
       (z.B. Baustellengerüst, temporärer Verkaufs- oder Informationsstand, temporäre
       Zwischenlagerung von Baumaterial usw.) erstellen möchten und dadurch eine öffentliche
       Strasse oder ein öffentlicher Platz betroffen ist bzw. benützt wird.\n\n Nutzungen von
-      öffentlichen Strassen und Plätzen, die über den Gemeingebrauch hinausgehen, sind 
+      öffentlichen Strassen und Plätzen, die über den Gemeingebrauch hinausgehen, sind
       bewilligungspflichtig. Gemäss Artikel 3 der Verordnung über den Strassenverkehr erteilt
       die Baudirektion, bzw. je nach Art der Beanspruchung, die Sicherheitsdirektion, die
       Zustimmung, wenn dem Vorhaben keine überwiegenden Interessen entgegenstehen.\n\n **Meldung
@@ -338,14 +345,15 @@ instances:
       **Reklamegesuch:** Dieses Formular wählen Sie, wenn Sie eine Reklametafel, eine Werbeschrift
       oder ein Plakat oder Ähnliches anbringen wollen und dazu keine baulichen Massnahmen
       erforderlich sind (z.B. politische Wahlplakate oder die Neubeschriftung eines Restaurants).
-      Für eigentliche Reklamebauten in deren Zusammenhang bauliche Massnahmen notwendig sind 
+      Für eigentliche Reklamebauten in deren Zusammenhang bauliche Massnahmen notwendig sind
       zum Beispiel die Erstellung von Fundamenten und Stahlkonstruktionen) ist in der Regel ein
       Baugesuch erforderlich. Wenn Sie nicht sicher sind, welches Verfahren Sie wählen sollen,
       empfehlen wir Ihnen, die Frage der Baubewilligungspflicht mit der Gemeindebaubehörde zu
       klären."
 
     others:
-      title: "Andere"
+      title-be: "Andere"
+      title-ur: "Andere"
 
   status:
     title: "Status"
