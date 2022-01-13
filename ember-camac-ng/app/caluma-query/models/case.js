@@ -53,10 +53,7 @@ export default class CustomCaseModel extends CaseModel {
   }
 
   get instance() {
-    if (this.instanceId) {
-      return this.store.peekRecord("instance", this.instanceId);
-    }
-    return null;
+    return this.store.peekRecord("instance", this.instanceId);
   }
 
   get user() {
@@ -168,7 +165,7 @@ export default class CustomCaseModel extends CaseModel {
     return this.intl.t(`cases.status.${this.raw.status}`);
   }
 
-  get caseType() {
+  get caseWorkflowName() {
     return this.raw.workflow.name;
   }
 
@@ -229,14 +226,6 @@ export default class CustomCaseModel extends CaseModel {
     }
 
     return null;
-  }
-
-  get internalDocumentNumber() {
-    return getAnswer(this.raw.document, "");
-  }
-
-  get internalDocumentDescription() {
-    return getAnswer(this.raw.document, "");
   }
 
   static fragment = `{
