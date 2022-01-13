@@ -12,11 +12,11 @@
       user=this.import.user.fullName
     }}
   </h3>
-  {{#if this.isValidated}}
+  {{#if (or this.isValidated this.isImported)}}
     <DossierImportDetailBlock @title={{t "dossierImport.detail.analysis.title"}}>
       <div>
         <DossierImportIconText
-          @status={{if (eq this.import.status "verified") "success" "error"}}
+          @status={{if (eq this.import.status "failed") "error" "success"}}
           @content={{t
             (concat "dossierImport.detail.analysis.status." this.import.status)
           }}
@@ -24,7 +24,7 @@
         {{#if (or this.summary.error.length this.summary.warning.length)}}
           <div class="uk-margin-small-top">
             <div class="uk-margin-small-bottom">
-              {{t "dossierImport.detail.analysis.issuesInfo"}}
+              {{t (concat "dossierImport.detail.analysis.issuesInfo." this.import.status)}}
             </div>
             <div class="uk-margin-small-left">
               {{#each this.summary.error as |error|}}
@@ -53,7 +53,7 @@
         {{#let this.summary.stats as |stats|}}
           {{#if (or stats.dossiers stats.attachments)}}
             <div class="uk-margin-small-bottom">
-              {{t "dossierImport.detail.statistics.infoSuccess"}}
+              {{t (concat "dossierImport.detail.statistics.infoSuccess." this.import.status)}}
             </div>
             <DossierImportIconText
               class={{if stats.attachments "dossier-import__margin-small"}}
@@ -74,7 +74,7 @@
             />
           {{else}}
             <div>
-              {{t "dossierImport.detail.statistics.infoFailure"}}
+              {{t (concat "dossierImport.detail.statistics.infoFailure." this.import.status)}}
             </div>
           {{/if}}
         {{/let}}
