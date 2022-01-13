@@ -315,7 +315,7 @@ instances:
     control: ""
 
     # Bern states
-    creation: "Noveau"
+    creation: "Nouveau"
     receiving: "Communauté d'accueil"
     communal: "Traitement communautaire"
     in-progress: "Programme de procédure"
