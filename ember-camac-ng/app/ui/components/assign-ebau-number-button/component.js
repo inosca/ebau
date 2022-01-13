@@ -16,7 +16,7 @@ export default class TaskFormButtonComponent extends Component {
 
     try {
       const ebauNumber = this.args.field.document.findAnswer(
-        "bestehende-ebau-nummer"
+        "ebau-number-existing"
       );
 
       yield this.fetch.fetch(
