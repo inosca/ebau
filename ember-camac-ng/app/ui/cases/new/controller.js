@@ -43,11 +43,11 @@ export default class CasesNewController extends Controller {
       },
     };
 
-    if (ENV.APPLICATION.newCase.calumaWorkflow) {
+    if (ENV.APPLICATION?.newCase.calumaWorkflow) {
       body.data.attributes["caluma-workflow"] =
         ENV.APPLICATION.newCase.calumaWorkflow;
     }
-    if (ENV.APPLICATION.newCase.camacForm) {
+    if (ENV.APPLICATION?.newCase.camacForm) {
       body.data.relationships = {
         form: {
           data: {

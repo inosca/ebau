@@ -49,12 +49,10 @@ export default class InstanceAbility extends Ability {
 
   get canWriteForm() {
     switch (this.shoebox.content.application) {
-      case "kt_uri":
-        return (this.model.meta?.permissions?.main || []).includes("write");
       case "kt_schwyz":
         return (this.model.meta?.editable || []).includes("form");
       default:
-        return false;
+        return (this.model.meta?.permissions?.main || []).includes("write");
     }
   }
 }
