@@ -11,8 +11,8 @@ from camac.core.models import Answer as CamacAnswer
 
 # item, chapter, question
 ANSWER_MAPPING = {
-    "besteht-bereits-eine-ebau-nummer": (1, 20000, 20034),
-    "bestehende-ebau-nummer": (1, 20000, 20035),
+    "ebau-number-has-existing": (1, 20000, 20034),
+    "ebau-number-existing": (1, 20000, 20035),
 }
 
 
