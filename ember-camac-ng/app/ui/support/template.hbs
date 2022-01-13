@@ -12,7 +12,7 @@
       <UkButton
         @color="primary"
         @label={{t "support.archive.button"}}
-        @on-click={{perform this.archive}}
+        @onClick={{perform this.archive}}
         @disabled={{or this.archive.isRunning (cannot "archive instance" this.instance)}}
       />
     </div>

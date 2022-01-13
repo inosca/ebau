@@ -2,7 +2,7 @@ import { assert } from "@ember/debug";
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
-import { dropTask, task } from "ember-concurrency-decorators";
+import { dropTask, task } from "ember-concurrency";
 import UIkit from "uikit";
 
 import config from "caluma-portal/config/environment";

@@ -1,9 +1,8 @@
 import Controller, { inject as controller } from "@ember/controller";
-import { reads } from "@ember/object/computed";
 import { inject as service } from "@ember/service";
-import calumaQuery from "@projectcaluma/ember-core/caluma-query";
+import { useCalumaQuery } from "@projectcaluma/ember-core/caluma-query";
 import { allCases } from "@projectcaluma/ember-core/caluma-query/queries";
-import { dropTask } from "ember-concurrency-decorators";
+import { dropTask } from "ember-concurrency";
 import UIkit from "uikit";
 
 import config from "../../../config/environment";
@@ -14,19 +13,35 @@ export default class InstancesEditIndexController extends Controller {
   @service intl;
   @service router;
 
-  @calumaQuery({ query: allCases }) cases;
+  cases = useCalumaQuery(this, allCases, () => ({
+    filter: [
+      {
+        metaValue: [{ key: "camac-instance-id", value: this.model }],
+      },
+    ],
+  }));
 
   @controller("instances.edit") editController;
-  @reads("editController.hasFeedbackSection") hasFeedbackSection;
-  @reads("editController.feedbackTask.isRunning") feedbackLoading;
-  @reads("editController.decisionTask.isRunning") decisionLoading;
-  @reads("editController.feedback") feedback;
-  @reads("editController.decision") decision;
-  @reads("editController.instance") instance;
+
+  get hasFeedbackSection() {
+    return Boolean(config.APPLICATION.documents.feedbackSection);
+  }
+
+  get feedback() {
+    return this.editController.feedback;
+  }
+
+  get decision() {
+    return this.editController.decision;
+  }
+
+  get instance() {
+    return this.editController.instance;
+  }
 
   get isRejection() {
     return (
-      parseInt(this.get("instance.instanceState.id")) ===
+      parseInt(this.instance.value?.get("instanceState.id")) ===
       config.APPLICATION.instanceStates.rejected
     );
   }
@@ -34,7 +49,7 @@ export default class InstancesEditIndexController extends Controller {
   get showSubmitTechnischeBewilligung() {
     return (
       config.APPLICATION.name === "ur" &&
-      parseInt(this.get("instance.instanceState.id")) ===
+      parseInt(this.instance.value?.get("instanceState.id")) ===
         config.APPLICATION.instanceStates.finished &&
       this.instance.mainForm.slug === "building-permit"
     );
@@ -42,17 +57,6 @@ export default class InstancesEditIndexController extends Controller {
 
   get case() {
     return this.cases.value?.[0];
-  }
-
-  @dropTask
-  *fetchCase() {
-    yield this.cases.fetch({
-      filter: [
-        {
-          metaValue: [{ key: "camac-instance-id", value: this.model }],
-        },
-      ],
-    });
   }
 
   @dropTask

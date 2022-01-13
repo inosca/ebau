@@ -1,4 +1,4 @@
-FROM danlynn/ember-cli:3.24.0 as build
+FROM danlynn/ember-cli:3.28.5 as build
 
 ARG APPLICATION
 

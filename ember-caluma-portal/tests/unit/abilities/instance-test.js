@@ -1,3 +1,4 @@
+import { get } from "@ember/object";
 import { setupTest } from "ember-qunit";
 import { module, test } from "qunit";
 
@@ -140,6 +141,9 @@ module("Unit | Ability | instance", function (hooks) {
     const ability = this.owner.lookup("ability:instance");
 
     ability.set("model", {
+      get(path) {
+        return get(this, path);
+      },
       instanceState: {
         id: 1,
       },
@@ -148,6 +152,9 @@ module("Unit | Ability | instance", function (hooks) {
     assert.ok(ability.canDelete);
 
     ability.set("model", {
+      get(path) {
+        return get(this, path);
+      },
       instanceState: {
         id: 10000,
       },

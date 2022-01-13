@@ -1,6 +1,6 @@
 import Model, { attr, belongsTo, hasMany } from "@ember-data/model";
 import { queryManager } from "ember-apollo-client";
-import { dropTask, lastValue } from "ember-concurrency-decorators";
+import { dropTask, lastValue } from "ember-concurrency";
 
 import getCaseMetaQuery from "camac-ng/gql/queries/get-case-meta.graphql";
 

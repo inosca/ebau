@@ -1,4 +1,4 @@
-import setupMirage from "ember-cli-mirage/test-support/setup-mirage";
+import { setupMirage } from "ember-cli-mirage/test-support";
 import { setupTest } from "ember-qunit";
 import { authenticateSession } from "ember-simple-auth/test-support";
 import { module, test } from "qunit";
@@ -12,8 +12,8 @@ module("Unit | Service | fetch", function (hooks) {
 
     const session = this.owner.lookup("service:session");
 
-    session.set("data.language", "de");
-    session.set("data.group", 5);
+    session.language = "de";
+    session.group = 5;
   });
 
   test("it can fetch", function (assert) {

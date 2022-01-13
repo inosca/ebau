@@ -4,7 +4,7 @@ import { inject as service } from "@ember/service";
 import calumaQuery from "@projectcaluma/ember-core/caluma-query";
 import { allWorkItems } from "@projectcaluma/ember-core/caluma-query/queries";
 import { queryManager } from "ember-apollo-client";
-import { dropTask, lastValue } from "ember-concurrency-decorators";
+import { dropTask, lastValue } from "ember-concurrency";
 import moment from "moment";
 
 import completeWorkItem from "camac-ng/gql/mutations/complete-work-item.graphql";

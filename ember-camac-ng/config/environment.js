@@ -1,11 +1,13 @@
 "use strict";
 
+const locales = require("./locales");
+
 module.exports = function (environment) {
   const ENV = {
     modulePrefix: "camac-ng",
     environment,
     appEnv: process.env.APP_ENV || "development",
-    rootURL: "/ember/",
+    rootURL: "/",
     locationType: "hash",
     podModulePrefix: "camac-ng/ui",
     historySupportMiddleware: true,
@@ -14,7 +16,7 @@ module.exports = function (environment) {
       apiURL: "/graphql/",
     },
     moment: {
-      includeLocales: require("./locales"),
+      includeLocales: locales,
       allowEmpty: true,
     },
     EmberENV: {

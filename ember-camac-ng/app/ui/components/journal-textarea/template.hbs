@@ -17,17 +17,17 @@
       title={{t "journal.visibility"}}
       class="x-small"
     />
-    <div> 
+    <div>
       <UkButton
         @type="button"
-        @on-click={{fn this.cancelEditEntry @journalEntry}}
+        @onClick={{fn this.cancelEditEntry @journalEntry}}
       >
         {{t "global.cancel"}}
       </UkButton>
       <UkButton
         @type="button"
         @color="primary"
-        @on-click={{perform this.saveEntry @journalEntry}}
+        @onClick={{perform this.saveEntry @journalEntry}}
         data-test-save
       >
         {{t "global.save"}}

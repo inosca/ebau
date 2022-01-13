@@ -1,16 +1,13 @@
 import { assert } from "@ember/debug";
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
-import { queryManager } from "ember-apollo-client";
-import { dropTask } from "ember-concurrency-decorators";
+import { dropTask } from "ember-concurrency";
 
 export default class BeSubmitInstanceComponent extends Component {
   @service intl;
   @service notification;
   @service router;
   @service fetch;
-
-  @queryManager apollo;
 
   get invalidFields() {
     return this.args.field.document.fields.filter(

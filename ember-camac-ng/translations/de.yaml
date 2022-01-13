@@ -17,3 +17,4 @@ global:
   reset: "Zurücksetzen"
   ok: "Ok"
   continue: "Weiter"
+  close: "Schliessen"

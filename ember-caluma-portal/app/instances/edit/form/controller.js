@@ -1,42 +1,39 @@
 import Controller, { inject as controller } from "@ember/controller";
-import { reads } from "@ember/object/computed";
 import { inject as service } from "@ember/service";
+import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
-import { dropTask, lastValue } from "ember-concurrency-decorators";
-import QueryParams from "ember-parachute";
+import { dropTask } from "ember-concurrency";
+import { useTask } from "ember-resources";
 
 import getInstanceCaseQuery from "caluma-portal/gql/queries/get-instance-case.graphql";
 
-const queryParams = new QueryParams({
-  displayedForm: {
-    defaultValue: "",
-    refresh: true,
-  },
-});
-
-export default class InstancesEditFormController extends Controller.extend(
-  queryParams.Mixin
-) {
+export default class InstancesEditFormController extends Controller {
   @service calumaStore;
+
   @queryManager apollo;
 
   @controller("instances.edit") editController;
-  @reads("editController.embedded") embedded;
-  @reads("editController.model") instanceId;
-  @reads("editController.instance") instance;
-  @lastValue("getDocument") document;
 
-  setup() {
-    this.getDocument.perform();
+  queryParams = ["displayedForm"];
+
+  @tracked displayedForm = "";
+
+  get instanceId() {
+    return this.editController.model;
   }
 
-  reset() {
-    this.resetQueryParams();
+  get instance() {
+    return this.editController.instance;
   }
+
+  document = useTask(this, this.fetchDocument, () => [
+    this.model,
+    this.instanceId,
+  ]);
 
   @dropTask()
-  *getDocument() {
-    yield this.editController.instanceTask.last;
+  *fetchDocument() {
+    yield this.instance;
 
     const raw = yield this.apollo.query(
       {
@@ -47,7 +44,7 @@ export default class InstancesEditFormController extends Controller.extend(
       "allCases.edges.firstObject.node"
     );
 
-    if (this.instance.mainForm.slug === this.model) {
+    if (this.instance.value.mainForm.slug === this.model) {
       return raw.document;
     }
 
@@ -55,6 +52,6 @@ export default class InstancesEditFormController extends Controller.extend(
       ({ node }) => node.document && node.document.form.slug === this.model
     );
 
-    return workItemEdge && workItemEdge.node.document;
+    return workItemEdge?.node.document;
   }
 }

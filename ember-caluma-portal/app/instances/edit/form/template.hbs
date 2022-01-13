@@ -1,16 +1,16 @@
 <LoadingOrNotfound
-  @loading={{this.getDocument.isRunning}}
-  @hasPermission={{can "read form of instance" this.instance form=this.document.form}}
+  @loading={{this.document.isRunning}}
+  @hasPermission={{can "read form of instance" this.instance.value form=this.document.value.form}}
 >
-  {{#if this.embedded}}
+  {{#if (is-embedded)}}
     <CfContent
-      @documentId={{decode-id this.document.id}}
-      @disabled={{cannot "write form of instance" this.instance form=this.document.form}}
+      @documentId={{decode-id this.document.value.id}}
+      @disabled={{cannot "write form of instance" this.instance.value form=this.document.value.form}}
       @useAsHeading={{true}}
       @headingBaseLevel={{2}}
       @context={{hash
-        instance=this.instance
-        instanceId=this.instance.id
+        instance=this.instance.value
+        instanceId=this.instance.value.id
       }}
     as |content|>
       {{#if (gt content.document.fieldsets.length 1)}}
@@ -28,13 +28,13 @@
     </CfContent>
   {{else}}
     <CfContent
-      @documentId={{decode-id this.document.id}}
-      @disabled={{cannot "write form of instance" this.instance form=this.document.form}}
+      @documentId={{decode-id this.document.value.id}}
+      @disabled={{cannot "write form of instance" this.instance.value form=this.document.value.form}}
       @useAsHeading={{true}}
       @headingBaseLevel={{2}}
       @context={{hash
-        instance=this.instance
-        instanceId=this.instance.id
+        instance=this.instance.value
+        instanceId=this.instance.value.id
       }}
     />
   {{/if}}
