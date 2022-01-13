@@ -7,7 +7,7 @@
     {{on "click" (set this "menuOpen" true)}}
   >
     <span hidden>{{t "global.openMenu"}}</span>
-    <FaIcon @icon="ellipsis-v" />
+    <FaIcon @icon="ellipsis-v" @fixedWidth={{true}} />
   </button>
   {{#if this.menuOpen}}
     <div class="context-menu">

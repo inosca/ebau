@@ -1,7 +1,7 @@
 import Model, { attr, belongsTo, hasMany } from "@ember-data/model";
 import { inject as service } from "@ember/service";
 import { queryManager } from "ember-apollo-client";
-import { lastValue, dropTask } from "ember-concurrency-decorators";
+import { lastValue, dropTask } from "ember-concurrency";
 
 import getEbauNumberQuery from "caluma-portal/gql/queries/get-ebau-number.graphql";
 import getFormQuery from "caluma-portal/gql/queries/get-form.graphql";

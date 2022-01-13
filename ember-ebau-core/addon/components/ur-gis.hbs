@@ -1,7 +1,7 @@
 {{#unless @disabled}}
   <div>
     <UkButton
-      @on-click={{perform this.search}}
+      @onClick={{perform this.search}}
       @loading={{this.search.isRunning}}
     >
       {{t "gis.findParcel"}}
@@ -60,7 +60,7 @@
       class="uk-margin-small-top"
       @disabled={{not this.parcels}}
       @loading={{or this.getFeatures.isRunning this.applySelection.isRunning}}
-      @on-click={{perform this.applySelection}}
+      @onClick={{perform this.applySelection}}
     >
       {{t "gis.submitParcel"}}
     </UkButton>

@@ -4,7 +4,7 @@ import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
 import { decodeId } from "@projectcaluma/ember-core/helpers/decode-id";
 import { queryManager } from "ember-apollo-client";
-import { dropTask, lastValue } from "ember-concurrency-decorators";
+import { dropTask, lastValue } from "ember-concurrency";
 
 import getAudit from "camac-ng/gql/queries/get-audit.graphql";
 import getCaseMeta from "camac-ng/gql/queries/get-case-meta.graphql";

@@ -1,6 +1,6 @@
 import Component from "@glimmer/component";
 import { queryManager } from "ember-apollo-client";
-import { dropTask } from "ember-concurrency-decorators";
+import { dropTask } from "ember-concurrency";
 import { useTask } from "ember-resources";
 
 import getSourceCaseMeta from "camac-ng/gql/queries/get-source-case-meta.graphql";

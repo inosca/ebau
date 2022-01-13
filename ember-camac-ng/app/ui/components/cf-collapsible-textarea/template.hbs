@@ -7,7 +7,7 @@
   >
     <span>
       <span class="uk-text-bold">
-        {{@field.question.label}}
+        {{@field.question.raw.label}}
       </span>
 
       {{#if @field.optional}}
@@ -25,7 +25,7 @@
     name={{@field.pk}}
     id={{@field.pk}}
     value={{@field.answer.value}}
-    maxlength={{@field.question.textareaMaxLength}}
+    maxlength={{@field.question.raw.textareaMaxLength}}
     rows="4"
     class="
       uk-textarea

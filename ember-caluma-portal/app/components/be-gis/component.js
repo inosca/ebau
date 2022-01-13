@@ -1,15 +1,13 @@
 import { getOwner } from "@ember/application";
-import { A } from "@ember/array";
-import Component from "@ember/component";
-import { computed, action } from "@ember/object";
+import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { isEmpty } from "@ember/utils";
+import Component from "@glimmer/component";
+import { tracked } from "@glimmer/tracking";
 import saveDocumentMutation from "@projectcaluma/ember-form/gql/mutations/save-document.graphql";
-import Document from "@projectcaluma/ember-form/lib/document";
 import { parseDocument } from "@projectcaluma/ember-form/lib/parsers";
 import { queryManager } from "ember-apollo-client";
-import { dropTask } from "ember-concurrency-decorators";
-import { all } from "rsvp";
+import { dropTask } from "ember-concurrency";
 
 import environment from "caluma-portal/config/environment";
 
@@ -163,20 +161,6 @@ function reduceArrayValues(data) {
   });
 }
 
-// ?
-// use Cross Domain Communication
-// Activate view linking
-// View
-// Basemap
-// Send active tool callback
-// Key name for the search
-// Value we are searching for
-// Returning E-Grid number, Parcel number (GSTBEZ) and project status (PROJSTAT)
-// Base Info
-// Map Content
-// Tools
-// Tools- Add/Remove
-
 export default class BeGisComponent extends Component {
   @service notification;
   @service fetch;
@@ -185,34 +169,27 @@ export default class BeGisComponent extends Component {
 
   @queryManager apollo;
 
-  classNames = ["gis-map"];
+  @tracked parcels = [];
+  @tracked gisData = [];
+  @tracked showInstructions = false;
+  @tracked showConfirmation = false;
 
-  disabled = false;
-  parcels = null;
-  gisData = null;
-  showInstructions = false;
-  showConfirmation = false;
-
-  @computed("field.document")
   get confirmField() {
-    return this.field.document.findField("bestaetigung-gis");
+    return this.args.field.document.findField("bestaetigung-gis");
   }
 
-  @computed("confirmField.{hidden,value.[]}")
   get confirmFieldUnchecked() {
     return (
-      !this.get("confirmField.hidden") &&
-      this.get("confirmField.value.length") !== 1
+      this.args.field.document.findAnswer("bestaetigung-gis")?.length !== 1
     );
   }
 
-  @computed("disabled", "field.document.fields")
   get link() {
     // This try/catch block is necessary as long as we don't have a mock
     // backend for the integration tests.
     try {
       // Get the egrid number for the first of the currently selected parcels
-      const table = this.field.document.findAnswer(KEY_TABLE_QUESTION);
+      const table = this.args.field.document.findAnswer(KEY_TABLE_QUESTION);
       const selection = (table?.length && table[0][KEY_TABLE_EGRID]) || null;
       const egrid = selection || "EGRID";
       const baseURL = environment.ebau.beGisUrl;
@@ -232,7 +209,7 @@ export default class BeGisComponent extends Component {
         "returnkey=EGRID;GSTBEZ;PROJSTAT",
         "callback_addremove_mw=addremoveResult",
         "retainSelection=true",
-        ...(this.disabled
+        ...(this.args.disabled
           ? ["activetools=NAVIGATION VIEW"]
           : [
               "activetools=NAVIGATION VIEW ADDREMOVE FTS",
@@ -251,14 +228,14 @@ export default class BeGisComponent extends Component {
   }
 
   get oerebLinkData() {
-    const tables = this.field.document.findAnswer(KEY_TABLE_QUESTION) || [];
+    const tables =
+      this.args.field.document.findAnswer(KEY_TABLE_QUESTION) || [];
     return tables.map((table) => ({
       egrid: table[KEY_TABLE_EGRID],
       parcel: table[KEY_TABLE_PARCEL],
     }));
   }
 
-  @computed("link")
   get origin() {
     // The regular expression extracts the scheme and hostname from the link.
     // We need this to check if the "message" events were sent by the iframe.
@@ -390,7 +367,7 @@ export default class BeGisComponent extends Component {
       }
     });
 
-    this.set("parcels", Object.values(parcels));
+    this.parcels = Object.values(parcels);
   }
 
   /**
@@ -404,9 +381,7 @@ export default class BeGisComponent extends Component {
   @dropTask
   *populateTable(parcels) {
     // Locate the target table for the parcel data.
-    const table = this.field.document.fields.find(
-      (field) => field.question.slug === KEY_TABLE_QUESTION
-    );
+    const table = this.args.field.document.findField(KEY_TABLE_QUESTION);
 
     // Prepare the mutation to create a new row.
     const mutation = {
@@ -418,16 +393,20 @@ export default class BeGisComponent extends Component {
     const rows = [];
 
     // Create, populate, and add a new row for each parcel.
-    yield all(
+    yield Promise.all(
       parcels.map(async (parcel) => {
         const newDocumentRaw = await this.apollo.mutate(
           mutation,
           "saveDocument.document"
         );
 
+        const owner = getOwner(this);
+        const Document = owner.factoryFor("caluma-model:document").class;
+
         const newDocument = this.calumaStore.push(
-          Document.create(getOwner(this).ownerInjection(), {
+          new Document({
             raw: parseDocument(newDocumentRaw),
+            owner,
           })
         );
 
@@ -435,13 +414,13 @@ export default class BeGisComponent extends Component {
           KEYS_TABLE.includes(field.question.slug)
         );
 
-        await all(
+        await Promise.all(
           fields.map(async (field) => {
             const { slug } = field.question;
             const value = String(parcel[slug]);
 
             if (value !== null && value.length > 0) {
-              field.answer.set("value", value);
+              field.answer.value = value;
 
               await field.save.perform();
               await field.validate.perform();
@@ -453,7 +432,7 @@ export default class BeGisComponent extends Component {
       })
     );
 
-    table.answer.set("value", rows);
+    table.answer.value = rows;
 
     yield table.save.perform();
     yield table.validate.perform();
@@ -461,13 +440,11 @@ export default class BeGisComponent extends Component {
 
   @dropTask
   *fetchAdditionalData(parcels) {
-    if (/^vorabklaerung-einfach/.test(this.field.document.rootForm.slug)) {
+    if (/^vorabklaerung-einfach/.test(this.args.field.document.rootForm.slug)) {
       return;
     }
 
-    this.set("gisData", A());
-
-    const responses = yield all(
+    const responses = yield Promise.all(
       parcels.map(
         async (parcel) =>
           await this.fetch.fetch(`/api/v1/egrid/${parcel[KEY_TABLE_EGRID]}`)
@@ -477,48 +454,50 @@ export default class BeGisComponent extends Component {
     const success = responses.every((response) => response.ok);
 
     if (success) {
-      const raw = yield all(
+      const raw = yield Promise.all(
         responses.map((res) => res.json().then(({ data }) => data))
       );
 
-      Object.entries(FIELD_MAP).forEach(([key, fields]) => {
-        fields.forEach(({ path, values }) => {
-          const field = this.field.document.findField(path);
+      this.gisData = Object.entries(FIELD_MAP)
+        .flatMap(([key, fields]) => {
+          return fields.map(({ path, values }) => {
+            const field = this.args.field.document.findField(path);
 
-          if (!field) {
-            return;
-          }
+            if (!field) {
+              return null;
+            }
 
-          const type = field.question.__typename;
-          let value = reduceArrayValues(raw)[key];
-          let valuePretty = value;
+            const type = field.question.raw.__typename;
+            let value = reduceArrayValues(raw)[key];
+            let valuePretty = value;
 
-          if (value === undefined) {
-            return;
-          }
+            if (value === undefined) {
+              return null;
+            }
 
-          if (type === "ChoiceQuestion") {
-            value = values[value];
-            valuePretty = field.options.find(
-              ({ slug }) => slug === value
-            )?.label;
-          } else if (type === "MultipleChoiceQuestion") {
-            value = Array.isArray(value) ? value : [value];
-            value = value.map((val) => values[val]).filter(Boolean);
-            valuePretty = field.options
-              .filter(({ slug }) => value.includes(slug))
-              .map(({ label }) => label)
-              .join(", ");
-          } else if (Array.isArray(value)) {
-            value = value.join(", ");
-            valuePretty = value;
-          }
+            if (type === "ChoiceQuestion") {
+              value = values[value];
+              valuePretty = field.options.find(
+                ({ slug }) => slug === value
+              )?.label;
+            } else if (type === "MultipleChoiceQuestion") {
+              value = Array.isArray(value) ? value : [value];
+              value = value.map((val) => values[val]).filter(Boolean);
+              valuePretty = field.options
+                .filter(({ slug }) => value.includes(slug))
+                .map(({ label }) => label)
+                .join(", ");
+            } else if (Array.isArray(value)) {
+              value = value.join(", ");
+              valuePretty = value;
+            }
 
-          this.gisData.pushObject({ field, value, valuePretty });
-        });
-      });
+            return { field, value, valuePretty };
+          });
+        })
+        .filter(Boolean);
 
-      this.set("showConfirmation", true);
+      this.showConfirmation = true;
     } else {
       this.notification.danger(
         this.intl.t("gis.notifications.error-additional")
@@ -526,35 +505,30 @@ export default class BeGisComponent extends Component {
     }
   }
 
-  constructor(...args) {
-    super(...args);
-    this.receiveMessage = this.receiveMessage.bind(this);
-  }
-
   @action
   addMessageListener() {
-    window.addEventListener("message", this.receiveMessage);
+    window.addEventListener("message", (e) => this.receiveMessage(e));
   }
 
   @action
   removeMessageListener() {
-    window.removeEventListener("message", this.receiveMessage);
+    window.removeEventListener("message", (e) => this.receiveMessage(e));
   }
 
   @dropTask
   *saveAdditionalData() {
-    yield all(
+    yield Promise.all(
       this.gisData
         .filter(({ value }) => !isEmpty(value))
         .map(async ({ field, value }) => {
-          field.answer.set("value", value);
+          field.answer.value = value;
 
           await field.save.perform();
           await field.validate.perform();
         })
     );
 
-    this.set("showConfirmation", false);
+    this.showConfirmation = false;
   }
 
   @action

@@ -1,0 +1,5 @@
+{{#if @enabled}}
+  <span role="heading" aria-level={{or @level 1}}>{{yield}}</span>
+{{else}}
+  {{yield}}
+{{/if}}

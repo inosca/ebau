@@ -35,7 +35,7 @@
 
       {{#if (can "cancel publication" this.publication)}}
         <UkButton
-          @on-click={{perform this.cancelPublication this.publication}}
+          @onClick={{perform this.cancelPublication this.publication}}
         >
         {{t "publication.cancel"}}
       </UkButton>

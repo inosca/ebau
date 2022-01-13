@@ -16,7 +16,7 @@
     @disabled={{or @disabled (not isValid) this.submit.isRunning}}
     @label={{@field.question.raw.label}}
     @loading={{this.submit.isRunning}}
-    @on-click={{perform this.submit}}
+    @onClick={{perform this.submit}}
   />
 
   {{#if this.submit.isRunning}}

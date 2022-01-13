@@ -24,7 +24,7 @@
 
 <WorkItemList
   @query={{this.readyWorkItemsQuery}}
-  @columns={{array "task" "deadline" "responsible"}}
+  @columns={{(array "task" "deadline" "responsible")}}
 />
 
 {{#if this.canCreateManualWorkItem}}
@@ -43,6 +43,6 @@
 
 <WorkItemList
   @query={{this.completedWorkItemsQuery}}
-  @columns={{array "task" "closedAt" "closedBy"}}
+  @columns={{(array "task" "closedAt" "closedBy")}}
   @highlight={{false}}
 />

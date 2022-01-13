@@ -1,5 +1,7 @@
 "use strict";
 
+const locales = require("./locales");
+
 module.exports = function (environment) {
   // eslint-disable-next-line no-console
   console.log(
@@ -26,7 +28,6 @@ module.exports = function (environment) {
     kt_bern: {
       name: "be",
       realm: "ebau",
-      locales: ["de", "fr"],
       supportGroups: [10000],
       useConfidential: false,
       defaultInstanceStateCategory: "pending",
@@ -123,7 +124,6 @@ module.exports = function (environment) {
     kt_uri: {
       name: "ur",
       realm: "urec",
-      locales: ["de"],
       supportGroups: [1070],
       useConfidential: true,
       completePreliminaryClarificationSlugs: [],
@@ -229,6 +229,10 @@ module.exports = function (environment) {
     apollo: {
       apiURL: "/graphql/",
     },
+    moment: {
+      includeLocales: locales,
+      allowEmpty: true,
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -244,11 +248,8 @@ module.exports = function (environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     },
-    moment: {
-      includeLocales: appConfig.locales,
-    },
 
-    languages: appConfig.locales,
+    languages: locales,
     fallbackLanguage: "de",
 
     APPLICATION: appConfig,

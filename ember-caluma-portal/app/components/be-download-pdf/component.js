@@ -1,6 +1,6 @@
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
-import { dropTask } from "ember-concurrency-decorators";
+import { dropTask } from "ember-concurrency";
 import { saveAs } from "file-saver";
 
 export default class BeDownloadPdfComponent extends Component {
@@ -11,7 +11,7 @@ export default class BeDownloadPdfComponent extends Component {
   @dropTask
   *export() {
     try {
-      const query = this.args.field.document.rootForm.meta["is-main-form"]
+      const query = this.args.field.document.rootForm.raw.meta["is-main-form"]
         ? ""
         : `?form-slug=${this.args.field.document.rootForm.slug}`;
 
