@@ -1744,6 +1744,13 @@ APPLICATIONS = {
                     questions__forms__pk="information-of-neighbors"
                 ),
             },
+            "caluma_ebau_number_form": {
+                "caluma_form.Form": Q(pk="ebau-number"),
+                "caluma_form.FormQuestion": Q(form__pk="ebau-number"),
+                "caluma_form.Question": Q(forms__pk="ebau-number"),
+                "caluma_form.QuestionOption": Q(question__forms__pk="ebau-number"),
+                "caluma_form.Option": Q(questions__forms__pk="ebau-number"),
+            },
         },
         "DUMP_CONFIG_EXCLUDED_MODELS": [
             "user.Group",

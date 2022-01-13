@@ -1,5 +1,4 @@
 ebauNumber:
-  continue: "Suivante"
   apply: "Reprendre"
   suggestion: "Ce dossier est basé sur un dossier existant avec le numéro eBau"
   completeInvalid: "L'attribution du numéro eBau n'a pas été saisie correctement. Veuillez vérifier vos données et essayer à nouveau."
