@@ -2,6 +2,7 @@ import { render, settled, click } from "@ember/test-helpers";
 import { setupMirage } from "ember-cli-mirage/test-support";
 import { setupIntl } from "ember-intl/test-support";
 import { setupRenderingTest } from "ember-qunit";
+import { authenticateSession } from "ember-simple-auth/test-support";
 import hbs from "htmlbars-inline-precompile";
 import { module, test } from "qunit";
 
@@ -51,7 +52,8 @@ module("Integration | Component | be-navbar", function (hooks) {
 
   test("it renders the static navigation", async function (assert) {
     assert.expect(3);
-    this.owner.lookup("service:session").set("isAuthenticated", true);
+
+    await authenticateSession();
 
     await render(hbs`<BeNavbar />`);
 

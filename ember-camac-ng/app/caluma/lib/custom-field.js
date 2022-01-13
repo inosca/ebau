@@ -1,5 +1,3 @@
-// eslint-disable-next-line ember/no-computed-properties-in-native-classes
-import { computed } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { isEmpty } from "@ember/utils";
 import Field from "@projectcaluma/ember-form/lib/field";
@@ -25,24 +23,13 @@ export default class CustomField extends Field {
     return slug === baseSlug ? this : this.document.findField(baseSlug);
   }
 
-  @computed(
-    "document.jexl",
-    "fieldset.field.hidden",
-    "hiddenDependencies.@each.{hidden,value}",
-    "jexlContext",
-    "question.{slug,isHidden,__typename}",
-    "value.length",
-    "baseField.value",
-    "isInMaterialExam",
-    "materialExamSwitcher.hideIrrelevantFields"
-  )
   get hidden() {
     const hidden = super.hidden;
 
     if (
       !hidden &&
       !EXCLUDED_SLUGS.includes(this.question.slug) &&
-      this.question.__typename !== "FormQuestion" &&
+      this.question.raw.__typename !== "FormQuestion" &&
       this.isInMaterialExam &&
       this.materialExamSwitcher.hideIrrelevantFields
     ) {

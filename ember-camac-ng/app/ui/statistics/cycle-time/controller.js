@@ -1,12 +1,12 @@
 import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
-import { timeout } from "ember-concurrency";
 import {
   dropTask,
   lastValue,
   restartableTask,
-} from "ember-concurrency-decorators";
+  timeout,
+} from "ember-concurrency";
 
 import getCaseMetaQuery from "camac-ng/gql/queries/get-case-meta.graphql";
 

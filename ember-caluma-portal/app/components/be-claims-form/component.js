@@ -1,10 +1,9 @@
-import { getOwner } from "@ember/application";
-import EmberObject, { action } from "@ember/object";
-import { reads } from "@ember/object/computed";
+import { getOwner, setOwner } from "@ember/application";
+import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
-import { dropTask } from "ember-concurrency-decorators";
+import { dropTask } from "ember-concurrency";
 import moment from "moment";
 
 function field(fieldName) {
@@ -17,11 +16,12 @@ function field(fieldName) {
   };
 }
 
-class Claim extends EmberObject {
+class Claim {
   @service store;
 
-  @reads("document.uuid") id;
-  @reads("status.answer.value") statusSlug;
+  constructor(document) {
+    this.document = document;
+  }
 
   @field("nfd-tabelle-status") status;
   @field("nfd-tabelle-beschreibung") description;
@@ -29,6 +29,14 @@ class Claim extends EmberObject {
   @field("nfd-tabelle-frist") deadline;
   @field("nfd-tabelle-datum-antwort") answered;
   @field("nfd-tabelle-behoerde") authority;
+
+  get id() {
+    return this.document.id;
+  }
+
+  get statusSlug() {
+    return this.status.answer.value;
+  }
 
   get isAnswered() {
     return [
@@ -69,7 +77,9 @@ export default class BeClaimsFormComponent extends Component {
     const table = this.args.fieldset.document.findField("nfd-tabelle-table");
 
     return table.answer.value.map((document) => {
-      return Claim.create(getOwner(this).ownerInjection(), { document });
+      const claim = new Claim(document);
+      setOwner(claim, getOwner(this));
+      return claim;
     });
   }
 

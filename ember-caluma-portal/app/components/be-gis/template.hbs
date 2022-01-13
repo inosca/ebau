@@ -1,4 +1,4 @@
-<iframe title={{t "gis.title"}} name="map" src={{this.link}}></iframe>
+<iframe class="gis-map" title={{t "gis.title"}} name="map" src={{this.link}}></iframe>
 
 <div
   {{did-insert this.addMessageListener}}
@@ -8,7 +8,7 @@
   <div>
     <UkButton
       @label={{t "gis.apply-button"}}
-      @on-click={{this.applySelection}}
+      @onClick={{this.applySelection}}
       @loading={{or
         this.populateTable.isRunning
         this.fetchAdditionalData.isRunning
@@ -34,6 +34,7 @@
     </small>
   </div>
 </div>
+
 {{#if this.oerebLinkData.length}}
   <div class="uk-margin-top uk-padding-small uk-box-shadow-small uk-border">
     {{t "gis.oereb"}}
@@ -47,7 +48,7 @@
   </div>
 {{/if}}
 
-<UkModal @visible={{this.showInstructions}} @on-hide={{fn (mut this.showInstructions) false}} as |Modal|>
+<UkModal @visible={{this.showInstructions}} @onHide={{fn (mut this.showInstructions) false}} as |Modal|>
   <Modal.body>{{t "gis.info-override"}}</Modal.body>
 </UkModal>
 
@@ -55,7 +56,7 @@
   @visible={{this.showConfirmation}}
   @escClose={{false}}
   @bgClose={{false}}
-  @on-hide={{fn (mut this.showConfirmation) false}}
+  @onHide={{fn (mut this.showConfirmation) false}}
 as |Modal|>
   <Modal.body>
     <h1 class="uk-modal-title">{{t "gis.additional.title"}}</h1>
@@ -63,7 +64,7 @@ as |Modal|>
     <ul class="uk-list uk-list-divider">
       {{#each this.gisData as |data|}}
         <li>
-          <strong>{{data.field.question.label}}</strong><br>
+          <strong>{{data.field.question.raw.label}}</strong><br>
           {{or data.valuePretty "-"}}
         </li>
       {{/each}}
@@ -75,14 +76,14 @@ as |Modal|>
   <Modal.footer class="uk-text-right">
     <UkButton
       @label={{t "gis.additional.no"}}
-      @on-click={{fn (mut this.showConfirmation) false}}
+      @onClick={{fn (mut this.showConfirmation) false}}
     />
     <UkButton
       @color="primary"
       @label={{t "gis.additional.yes"}}
       @disabled={{this.confirmFieldUnchecked}}
       @loading={{this.saveAdditionalData.isRunning}}
-      @on-click={{perform this.saveAdditionalData}}
+      @onClick={{perform this.saveAdditionalData}}
     />
   </Modal.footer>
 </UkModal>

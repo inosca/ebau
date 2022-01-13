@@ -2,11 +2,7 @@ import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
-import {
-  restartableTask,
-  dropTask,
-  lastValue,
-} from "ember-concurrency-decorators";
+import { restartableTask, dropTask, lastValue } from "ember-concurrency";
 
 import config from "caluma-portal/config/environment";
 import getRootFormsQuery from "caluma-portal/gql/queries/get-root-forms.graphql";
@@ -14,6 +10,8 @@ import getRootFormsQuery from "caluma-portal/gql/queries/get-root-forms.graphql"
 export default class InstancesNewController extends Controller {
   @service fetch;
   @service session;
+  @service store;
+
   @queryManager apollo;
 
   queryParams = ["convertFrom"];

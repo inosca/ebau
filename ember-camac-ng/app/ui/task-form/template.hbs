@@ -1,15 +1,19 @@
 <Notifications @style="uikit" />
 
-{{#if this.fetchWorkItem.isRunning}}
-  <div class="uk-text-center">
-    <UkSpinner @ratio={{2}} />
-  </div>
-{{else if this.workItem.document.id}}
+{{#if this.workItem.document.id}}
   <CfContent
     @documentId={{decode-id this.workItem.document.id}}
     @disabled={{cannot "edit task-form" this.workItem}}
-    @context={{this.context}}
+    @context={{hash
+      instanceId=@model.instance_id
+      task=@model.task
+      actionButtonOnSuccess=(perform this.fetchWorkItem)
+    }}
   />
+{{else if this.fetchWorkItem.isRunning}}
+  <div class="uk-text-center">
+    <UkSpinner @ratio={{2}} />
+  </div>
 {{else}}
   <div class="uk-text-center uk-text-italic">
     {{t "task-form.empty" moduleName=this.moduleName}}

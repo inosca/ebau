@@ -1,17 +1,21 @@
 import Controller, { inject as controller } from "@ember/controller";
 import { inject as service } from "@ember/service";
-import { dropTask } from "ember-concurrency-decorators";
+import { tracked } from "@glimmer/tracking";
+import { dropTask } from "ember-concurrency";
 
 import parseError from "caluma-portal/utils/parse-error";
 
 export default class InstancesEditApplicantsController extends Controller {
   @service intl;
   @service notification;
+  @service store;
 
   @controller("instances.edit") editController;
 
+  @tracked email = "";
+
   get applicants() {
-    return this.editController.instance?.involvedApplicants;
+    return this.editController.instance.value?.involvedApplicants;
   }
 
   get usedEmails() {
@@ -23,17 +27,17 @@ export default class InstancesEditApplicantsController extends Controller {
     event.preventDefault();
 
     const user = this.store.createRecord("applicant", {
-      email: event.srcElement.querySelector("input[name=email]").value,
+      email: this.email,
       instance: this.store.peekRecord(
         "instance",
-        this.get("editController.instance.id")
+        this.editController.instance.value.id
       ),
     });
 
     try {
       yield user.save({ adapterOptions: { include: "invitee,user" } });
 
-      event.srcElement.querySelector("input[name=email]").value = "";
+      this.email = "";
 
       this.notification.success(this.intl.t("instances.applicants.addSuccess"));
     } catch (error) {

@@ -1,6 +1,6 @@
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
-import { task, dropTask, restartableTask } from "ember-concurrency-decorators";
+import { task, dropTask, restartableTask } from "ember-concurrency";
 
 import config from "caluma-portal/config/environment";
 
@@ -22,7 +22,7 @@ export default class BeDocumentsFormComponent extends Component {
 
   get section() {
     return this.args.document.jexl.evalSync(
-      this.args.fieldset.field.question.meta["attachment-section"],
+      this.args.fieldset.field.question.raw.meta["attachment-section"],
       this.args.document.jexlContext
     );
   }
@@ -59,7 +59,8 @@ export default class BeDocumentsFormComponent extends Component {
 
   get requiredTags() {
     return this.allRequiredTags.reduce((tree, tag) => {
-      const category = tag.question.meta.documentCategory || DEFAULT_CATEGORY;
+      const category =
+        tag.question.raw.meta.documentCategory || DEFAULT_CATEGORY;
 
       return Object.assign(tree, {
         [category]: [...(tree[category] || []), tag],

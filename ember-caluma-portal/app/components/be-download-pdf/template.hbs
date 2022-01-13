@@ -1,6 +1,6 @@
 <UkButton
   @size={{or @size ""}}
   @loading={{this.export.isRunning}}
-  @label={{@field.question.label}}
-  @on-click={{perform this.export}}
+  @label={{@field.question.raw.label}}
+  @onClick={{perform this.export}}
 />

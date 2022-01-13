@@ -4,4 +4,8 @@ export default class InstancesEditFormRoute extends Route {
   model({ form }) {
     return form;
   }
+
+  resetController(controller) {
+    controller.displayedForm = "";
+  }
 }

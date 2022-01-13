@@ -1,7 +1,7 @@
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
-import { dropTask, lastValue } from "ember-concurrency-decorators";
+import { dropTask, lastValue } from "ember-concurrency";
 
 export default class TextcomponentComponent extends Component {
   @service store;

@@ -1,5 +1,5 @@
-import { Factory, association } from "ember-cli-mirage";
-import faker from "faker";
+import { faker } from "@faker-js/faker";
+import { Factory, association } from "miragejs";
 
 export default Factory.extend({
   text: () => faker.lorem.paragraph(),

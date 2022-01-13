@@ -8,7 +8,7 @@ module("Integration | Component | be-download-pdf", function (hooks) {
 
   test("it renders", async function (assert) {
     await render(
-      hbs`{{be-download-pdf field=(hash question=(hash label="Test"))}}`
+      hbs`<BeDownloadPdf @field={{hash question=(hash raw=(hash label="Test"))}} />`
     );
 
     assert.dom("button").hasText("Test");

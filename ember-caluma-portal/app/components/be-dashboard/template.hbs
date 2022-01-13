@@ -3,8 +3,8 @@
     {{#if this.edit}}
       <Textarea @value={{this.content}} rows="10" class="uk-textarea" aria-label={{t "dashboard.content"}} />
       <div class="uk-text-right uk-margin">
-        <UkButton data-test-dashboard-cancel @on-click={{this.cancelEdit}}>{{t "global.cancel"}}</UkButton>
-        <UkButton data-test-dashboard-save @color="primary" @loading={{this.save.isRunning}} @on-click={{perform this.save}}>{{t "global.save"}}</UkButton>
+        <UkButton data-test-dashboard-cancel @onClick={{this.cancelEdit}}>{{t "global.cancel"}}</UkButton>
+        <UkButton data-test-dashboard-save @color="primary" @loading={{this.save.isRunning}} @onClick={{perform this.save}}>{{t "global.save"}}</UkButton>
       </div>
       <hr>
     {{else if (can "edit dashboard")}}
@@ -12,7 +12,7 @@
         data-test-dashboard-edit
         class="uk-position-top-right uk-margin-right uk-margin-top"
         @color="link"
-        @on-click={{this.startEdit}}
+        @onClick={{this.startEdit}}
       >
         {{t "dashboard.edit"}}
       </UkButton>

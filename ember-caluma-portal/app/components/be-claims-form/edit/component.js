@@ -1,7 +1,7 @@
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
-import { dropTask, restartableTask } from "ember-concurrency-decorators";
+import { dropTask, restartableTask } from "ember-concurrency";
 import moment from "moment";
 import { all } from "rsvp";
 

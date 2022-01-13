@@ -1,14 +1,10 @@
-import JSONAPIAdapter from "@ember-data/adapter/json-api";
 import { inject as service } from "@ember/service";
+import OIDCJSONAPIAdapter from "ember-simple-auth-oidc/adapters/oidc-json-api-adapter";
 
-export default class ApplicationAdapter extends JSONAPIAdapter {
-  namespace = "api/v1";
-
+export default class ApplicationAdapter extends OIDCJSONAPIAdapter {
   @service session;
 
-  get headers() {
-    return this.session.headers;
-  }
+  namespace = "api/v1";
 
   _appendInclude(url, adapterOptions) {
     if (adapterOptions?.include) {
@@ -34,13 +30,5 @@ export default class ApplicationAdapter extends JSONAPIAdapter {
       super.urlForCreateRecord(...args),
       adapterOptions
     );
-  }
-
-  handleResponse(status, ...args) {
-    if (status === 401 && this.session.isAuthenticated) {
-      this.session.invalidate();
-    }
-
-    return super.handleResponse(status, ...args);
   }
 }

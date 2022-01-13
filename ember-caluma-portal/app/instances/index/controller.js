@@ -2,45 +2,160 @@ import Controller from "@ember/controller";
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { isEmpty } from "@ember/utils";
-import calumaQuery from "@projectcaluma/ember-core/caluma-query";
+import { useCalumaQuery } from "@projectcaluma/ember-core/caluma-query";
 import { allCases } from "@projectcaluma/ember-core/caluma-query/queries";
 import { queryManager } from "ember-apollo-client";
-import { dropTask } from "ember-concurrency-decorators";
+import { dropTask } from "ember-concurrency";
+import { useTask } from "ember-resources";
 import moment from "moment";
-
-import { Mixin } from "./query-params";
+import { TrackedObject } from "tracked-built-ins";
+import { dedupeTracked, cached } from "tracked-toolbox";
 
 import config from "caluma-portal/config/environment";
 import getRootFormsQuery from "caluma-portal/gql/queries/get-root-forms.graphql";
 
 const { answerSlugs } = config.APPLICATION;
+const DATE_URL_FORMAT = "YYYY-MM-DD";
 
 const getRecursiveSources = (form, forms) => {
   if (!form.source?.slug) {
     return [];
   }
 
-  const source = forms.find(({ slug }) => slug === form.source.slug);
+  const source = forms.find((edge) => edge.node.slug === form.source.slug);
 
-  return [source.slug, ...getRecursiveSources(source, forms)];
+  return [source.node.slug, ...getRecursiveSources(source.node, forms)];
 };
 
 const toDateTime = (date) => (date.isValid() ? date.utc().format() : null);
 
-export default class InstancesIndexController extends Controller.extend(Mixin) {
+const dateFilter = {
+  serialize(value) {
+    const date = moment.utc(value);
+
+    return date.isValid() ? date.utc().format(DATE_URL_FORMAT) : null;
+  },
+  deserialize(value) {
+    const date = moment.utc(value, DATE_URL_FORMAT);
+
+    return date.isValid() ? date.toDate() : null;
+  },
+};
+
+function trackedFilter({
+  serialize = (value) => value,
+  deserialize = (value) => value,
+  defaultValue,
+}) {
+  return function decorator(target, property) {
+    if (!Object.prototype.hasOwnProperty.call(target, "_filters")) {
+      target._filters = new TrackedObject();
+      target._applyFilters = function () {
+        this._filtersConfig.forEach(({ privateKey, publicKey, serialize }) => {
+          this[privateKey] = serialize.call(this, this[publicKey]);
+        });
+      };
+      target._resetFilters = function () {
+        this._filtersConfig.forEach(
+          ({ publicKey, privateKey, defaultValue }) => {
+            this._filters[publicKey] = defaultValue;
+            this[privateKey] = defaultValue;
+          }
+        );
+      };
+    }
+
+    const privateKey = `_${property}`;
+
+    Object.defineProperty(
+      target,
+      privateKey,
+      dedupeTracked(target, privateKey, { initializer: () => defaultValue })
+    );
+
+    target._filters[property] = defaultValue;
+    target._filtersConfig = [
+      ...(target._filtersConfig ?? []),
+      { privateKey, publicKey: property, serialize, deserialize, defaultValue },
+    ];
+
+    return cached(target, property, {
+      enumerable: true,
+      configurable: false,
+      get() {
+        const filtersValue = this._filters[property];
+        const targetValue = this[privateKey];
+
+        const value =
+          filtersValue === defaultValue && targetValue !== defaultValue
+            ? targetValue
+            : filtersValue;
+
+        return deserialize.call(this, value);
+      },
+      set(value) {
+        this._filters[property] = serialize.call(this, value);
+      },
+    });
+  };
+}
+
+export default class InstancesIndexController extends Controller {
   @queryManager apollo;
 
   @service intl;
   @service session;
+  @service store;
 
-  @calumaQuery({ query: allCases, options: "options" }) cases;
+  @cached
+  get queryParams() {
+    return [
+      "order",
+      "category",
+      ...this._filtersConfig.map(({ privateKey, publicKey }) => ({
+        [privateKey]: publicKey,
+      })),
+    ];
+  }
 
-  get options() {
-    return {
+  @dedupeTracked order = "camac-instance-id:desc";
+  @dedupeTracked category = config.APPLICATION.defaultInstanceStateCategory;
+
+  @trackedFilter({
+    serialize(value) {
+      return String(value.flatMap((form) => form.value));
+    },
+    deserialize(value) {
+      return this.forms.filter((form) =>
+        form.value.some((v) => value.split(",").includes(v))
+      );
+    },
+    defaultValue: "",
+  })
+  types;
+
+  @trackedFilter({ defaultValue: "" }) instanceId;
+  @trackedFilter({ defaultValue: "" }) specialId;
+  @trackedFilter({ defaultValue: "" }) parcel;
+  @trackedFilter({ defaultValue: "" }) address;
+  @trackedFilter({ ...dateFilter, defaultValue: null }) submitFrom;
+  @trackedFilter({ ...dateFilter, defaultValue: null }) submitTo;
+
+  cases = useCalumaQuery(this, allCases, () => ({
+    options: {
       pageSize: 15,
       processNew: (cases) => this.processNew(cases),
-    };
-  }
+    },
+    order: this.serializedOrder,
+    filter: this.serializedFilter,
+    queryOptions: {
+      context: {
+        headers: this.serializedHeaders,
+      },
+    },
+  }));
+
+  rootForms = useTask(this, this.fetchRootForms, () => {});
 
   get categories() {
     return Object.keys(config.APPLICATION.instanceStateCategories);
@@ -81,22 +196,8 @@ export default class InstancesIndexController extends Controller.extend(Mixin) {
     ];
   }
 
-  setup() {
-    this.getRootForms.perform();
-    this.getCases.perform();
-  }
-
-  reset() {
-    this.resetQueryParams();
-
-    this.getRootForms.cancelAll({ reset: true });
-    this.getCases.cancelAll({ reset: true });
-  }
-
   get allForms() {
-    return (this.getRootForms.lastSuccessful?.value || []).map(
-      (form) => form.slug
-    );
+    return (this.rootForms.value ?? []).map((edge) => edge.node.slug);
   }
 
   get formFilterOptions() {
@@ -126,54 +227,42 @@ export default class InstancesIndexController extends Controller.extend(Mixin) {
   }
 
   get forms() {
-    const raw = (this.getRootForms.lastSuccessful?.value || []).filter(
-      (form) =>
-        this.isInternal || !config.ebau.internalForms.includes(form.slug)
+    const raw = (this.rootForms.value ?? []).filter(
+      (edge) =>
+        this.isInternal || !config.ebau.internalForms.includes(edge.node.slug)
     );
 
     return raw
-      .filter((form) => form.isPublished)
-      .map((form) => ({
-        name: form.name,
-        value: [form.slug, ...getRecursiveSources(form, raw)],
-        category: form.meta.category || "others",
-        order: form.meta.order,
+      .filter((edge) => edge.node.isPublished)
+      .map((edge) => ({
+        name: edge.node.name,
+        value: [edge.node.slug, ...getRecursiveSources(edge.node, raw)],
+        category: edge.node.meta.category || "others",
+        order: edge.node.meta.order,
         isEqual(other) {
           return this.value.join(",") === other.value.join(",");
         },
       }));
   }
 
-  get selectedTypes() {
-    return this.forms.filter((form) =>
-      form.value.some((value) => this.types.includes(value))
-    );
-  }
-
-  set selectedTypes(value) {
-    this.set(
-      "types",
-      value.flatMap((form) => form.value)
-    );
-  }
-
+  @cached
   get serializedFilter() {
     return [
-      ...(this.types.length
-        ? [{ documentForms: this.types }]
+      ...(this._types
+        ? [{ documentForms: this._types.split(",") }]
         : [{ documentForms: this.allForms }]),
       {
         metaValue: [
-          { key: "camac-instance-id", value: this.instanceId },
-          { key: answerSlugs.specialId, value: this.specialId },
+          { key: "camac-instance-id", value: this._instanceId },
+          { key: answerSlugs.specialId, value: this._specialId },
           {
             key: "submit-date",
-            value: toDateTime(moment(this.submitFrom).startOf("day")),
+            value: toDateTime(moment(this._submitFrom).startOf("day")),
             lookup: "GTE",
           },
           {
             key: "submit-date",
-            value: toDateTime(moment(this.submitTo).endOf("day")),
+            value: toDateTime(moment(this._submitTo).endOf("day")),
             lookup: "LTE",
           },
         ].filter(({ value }) => !isEmpty(value)),
@@ -186,7 +275,7 @@ export default class InstancesIndexController extends Controller.extend(Mixin) {
               answerSlugs.objectNumber,
               answerSlugs.objectLocation,
             ],
-            value: this.address,
+            value: this._address,
           },
         ].filter(({ value }) => !isEmpty(value)),
       },
@@ -195,13 +284,14 @@ export default class InstancesIndexController extends Controller.extend(Mixin) {
           {
             question: answerSlugs.parcelNumber,
             lookup: "CONTAINS",
-            value: this.parcel,
+            value: this._parcel,
           },
         ].filter(({ value }) => !isEmpty(value)),
       },
     ];
   }
 
+  @cached
   get serializedOrder() {
     const [key, direction] = this.order.split(":");
     return [
@@ -212,6 +302,7 @@ export default class InstancesIndexController extends Controller.extend(Mixin) {
     ];
   }
 
+  @cached
   get serializedHeaders() {
     const camacFilters = {
       instance_state: config.APPLICATION.instanceStateCategories[this.category],
@@ -231,31 +322,11 @@ export default class InstancesIndexController extends Controller.extend(Mixin) {
   }
 
   @dropTask
-  *getRootForms() {
-    return (yield this.apollo.query(
+  *fetchRootForms() {
+    return yield this.apollo.watchQuery(
       { query: getRootFormsQuery },
       "allForms.edges"
-    )).map(({ node }) => node);
-  }
-
-  @dropTask
-  *getCases() {
-    yield this.getRootForms.last;
-
-    yield this.cases.fetch({
-      order: this.serializedOrder,
-      filter: this.serializedFilter,
-      queryOptions: {
-        context: {
-          headers: this.serializedHeaders,
-        },
-      },
-    });
-  }
-
-  @dropTask
-  *getMoreCases() {
-    yield this.cases.fetchMore();
+    );
   }
 
   async processNew(cases) {
@@ -270,40 +341,32 @@ export default class InstancesIndexController extends Controller.extend(Mixin) {
     return cases;
   }
 
-  @dropTask
-  *applyFilters(event) {
+  @action
+  applyFilters(event) {
     event.preventDefault();
 
-    yield this.getCases.perform();
+    this._applyFilters();
   }
 
-  @dropTask
-  *resetFilters(event) {
+  @action
+  resetFilters(event) {
     event.preventDefault();
 
-    yield this.resetQueryParams();
-    yield this.getCases.perform();
+    this._resetFilters();
   }
 
   @action
   updateFilter(event) {
-    this.set(event.target.name, event.target.value);
+    this[event.target.name] = event.target.value;
   }
 
   @action
   updateDate(prop, value) {
-    this.set(prop, moment(value));
+    this[prop] = moment(value);
   }
 
   @action
   updateOrder({ target: { value } }) {
-    this.set("order", value);
-    this.getCases.perform();
-  }
-
-  @action
-  updateCategory(category) {
-    this.set("category", category);
-    this.getCases.perform();
+    this.order = value;
   }
 }

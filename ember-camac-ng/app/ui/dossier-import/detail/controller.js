@@ -1,12 +1,13 @@
 import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
-import { timeout, waitForProperty } from "ember-concurrency";
 import {
   dropTask,
   restartableTask,
   lastValue,
-} from "ember-concurrency-decorators";
+  timeout,
+  waitForProperty,
+} from "ember-concurrency";
 
 import isProd from "camac-ng/utils/is-prod";
 

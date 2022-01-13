@@ -1,6 +1,6 @@
 import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
-import { dropTask, lastValue } from "ember-concurrency-decorators";
+import { dropTask, lastValue } from "ember-concurrency";
 
 export default class StatisticsProcessTimeController extends Controller {
   @service fetch;

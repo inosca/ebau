@@ -1,11 +1,11 @@
-<UkTab as |tab|>
-  {{#tab.link-item "statistics.index"}}{{t "statistics.general"}}{{/tab.link-item}}
+<UkTab as |Tab|>
+  <Tab.item @href="/statistics/index">{{t "statistics.general"}}</Tab.item>
   {{#if (can "view statistic" "process-time")}}
-    {{#tab.link-item "statistics.process-time"}}{{t "statistics.process-time"}}{{/tab.link-item}}
+    <Tab.item @href="/statistics/process-time">{{t "statistics.process-time"}}</Tab.item>
   {{/if}}
   {{#if (can "view statistic" "cycle-time")}}
-    {{#tab.link-item "statistics.cycle-time"}}{{t "statistics.cycle-time"}}{{/tab.link-item}}
-    {{#tab.link-item "statistics.avg-cycle-time"}}{{t "statistics.avg-cycle-time"}}{{/tab.link-item}}
+    <Tab.item @href="/statistics/cycle-time">{{t "statistics.cycle-time"}}</Tab.item>
+    <Tab.item @href="/statistics/avg-cycle-time">{{t "statistics.avg-cycle-time"}}</Tab.item>
   {{/if}}
 </UkTab>
 
