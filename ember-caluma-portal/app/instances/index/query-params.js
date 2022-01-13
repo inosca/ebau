@@ -1,6 +1,8 @@
 import QueryParams from "ember-parachute";
 import moment from "moment";
 
+import config from "caluma-portal/config/environment";
+
 const DATE_URL_FORMAT = "YYYY-MM-DD";
 
 const dateQueryParam = {
@@ -70,6 +72,10 @@ export const queryParams = new QueryParams({
   },
   order: {
     defaultValue: "camac-instance-id:desc",
+    replace: true,
+  },
+  category: {
+    defaultValue: config.APPLICATION.defaultInstanceStateCategory,
     replace: true,
   },
 });
