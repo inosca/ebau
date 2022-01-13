@@ -41,11 +41,21 @@ dossierImport:
         verified: Die Struktur ist korrekt
         failed: Die Struktur ist fehlerhaft
         in-progres: Der Import wurde gestartet
-      issuesInfo: "Die folgenden Probleme sind noch in der Import-Datei vorhanden:"
+        done: Der Import wurde abgeschlossen
+      issuesInfo: 
+        verified: "Die folgenden Probleme sind noch in der Import-Datei vorhanden:"
+        failed: "Die folgenden Probleme sind noch in der Import-Datei vorhanden:"
+        done: "Die folgenden Probleme sind während dem Import aufgetreten:" 
     statistics:
       title: Statistik
-      infoSuccess: "Aus der Import-Datei können folgende Daten importiert werden:"
-      infoFailure: Aus der Import-Datei können keine Daten importiert werden.
+      infoSuccess:
+        verified: "Aus der Import-Datei können folgende Daten importiert werden:" 
+        failed: "Aus der Import-Datei können folgende Daten importiert werden:"
+        done: "Es konnten folgende Daten importiert werden:"
+      infoFailure:
+        verified: Aus der Import-Datei können keine Daten importiert werden. 
+        failed: Aus der Import-Datei können keine Daten importiert werden.
+        done: Es konnten keine Daten importiert werden.
       dossiers: "{count} Dossiers"
       documents: "{count} Dokumente"
     status:
@@ -73,6 +83,7 @@ dossierImport:
           die Daten importieren möchten, können Sie den Import starten.
         buttonLabel: Import starten
         success: Der Import wurde erfolgreich gestartet.
+        error: Beim Starten des Imports ist etwas schiefgegangen, bitte versuchen Sie es erneut.
       deleteImport:
         title: Import löschen
         description: Falls Sie den Import nicht mehr benötigen, können Sie ihn hier löschen.
