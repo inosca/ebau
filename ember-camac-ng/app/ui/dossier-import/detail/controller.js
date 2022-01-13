@@ -1,7 +1,12 @@
 import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
-import { dropTask, lastValue } from "ember-concurrency-decorators";
+import { timeout, waitForProperty } from "ember-concurrency";
+import {
+  dropTask,
+  restartableTask,
+  lastValue,
+} from "ember-concurrency-decorators";
 
 export default class DossierImportDetailController extends Controller {
   @service intl;
@@ -19,6 +24,7 @@ export default class DossierImportDetailController extends Controller {
 
       return yield this.store.findRecord("dossier-import", this.model, {
         include: "user",
+        reload: true,
       });
     } catch (e) {
       this.notifications.error(
@@ -53,13 +59,30 @@ export default class DossierImportDetailController extends Controller {
 
       yield this.import.start();
 
+      yield this.fetchImport.perform();
+
+      // success notification only shown until next refresh
       this.notifications.success(
         this.intl.t("dossierImport.detail.actions.startImport.success")
       );
+
+      this.refresh.perform();
     } catch (e) {
       this.notifications.error(
         this.intl.t("dossierImport.detail.actions.startImport.error")
       );
+    }
+  }
+
+  @restartableTask
+  *refresh() {
+    // needed after page reloads because import fetching
+    // isn't awaited in setupController
+    yield waitForProperty(this.fetchImport, "isRunning", false);
+
+    while (this.import?.status === "in-progress") {
+      yield timeout(5000);
+      yield this.fetchImport.perform();
     }
   }
 
@@ -76,5 +99,9 @@ export default class DossierImportDetailController extends Controller {
     return (
       this.import?.status === "verified" || this.import?.status === "failed"
     );
+  }
+
+  get isImported() {
+    return this.import?.status === "done";
   }
 }
