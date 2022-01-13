@@ -71,7 +71,7 @@
               @model={{import.id}}
               class="uk-link uk-link-reset"
             >
-              -
+              {{or (moment-format import.messages.import.completed "DD.MM.YYYY HH:mm") "-"}}
             </LinkTo>
           </td>
         </tr>
