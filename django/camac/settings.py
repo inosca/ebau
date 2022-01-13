@@ -388,6 +388,7 @@ APPLICATIONS = {
                         "building-authority",
                     ],
                 },
+                "finish-document": {"cancel": ["create-manual-workitems"]},
             },
             "FILL_PUBLICATION_TASK": None,
             "SAVE_DOSSIER_NUMBER_IN_CALUMA": False,

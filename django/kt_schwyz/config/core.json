@@ -5296,21 +5296,6 @@
   },
   {
     "model": "core.instanceresource",
-    "pk": 46,
-    "fields": {
-      "available_instance_resource": "editformpage",
-      "resource": 22,
-      "name": "Formular",
-      "description": "Formular der Gesch\u00e4ftskontrollen",
-      "template": "/ember/instance.phtml",
-      "class_field": null,
-      "hidden": 0,
-      "sort": 0,
-      "form_group": 1
-    }
-  },
-  {
-    "model": "core.instanceresource",
     "pk": 47,
     "fields": {
       "available_instance_resource": "editcirculation",
@@ -5411,6 +5396,36 @@
       "class_field": null,
       "hidden": 0,
       "sort": 13,
+      "form_group": 1
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 55,
+    "fields": {
+      "available_instance_resource": "workitemlistinstance",
+      "resource": 22,
+      "name": "Aufgaben",
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 0,
+      "form_group": 1
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 56,
+    "fields": {
+      "available_instance_resource": "editformpage",
+      "resource": 22,
+      "name": "Formular",
+      "description": null,
+      "template": "/ember-camac-ng/form.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 1,
       "form_group": 1
     }
   },
@@ -7475,7 +7490,15 @@
   },
   {
     "model": "core.ireditformpage",
-    "pk": 46,
+    "pk": 55,
+    "fields": {
+      "page": 1,
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.ireditformpage",
+    "pk": 56,
     "fields": {
       "page": 1,
       "pdf_class": null
@@ -7574,9 +7597,9 @@
     "model": "core.irroleacl",
     "pk": 1,
     "fields": {
-      "instance_resource": 1,
-      "role": 3,
-      "instance_state": 2
+      "instance_resource": 54,
+      "role": 11,
+      "instance_state": 5
     }
   },
   {
@@ -11541,24 +11564,6 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 649,
-    "fields": {
-      "instance_resource": 46,
-      "role": 3,
-      "instance_state": 1
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 650,
-    "fields": {
-      "instance_resource": 46,
-      "role": 8,
-      "instance_state": 1
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 651,
     "fields": {
       "instance_resource": 3,
@@ -13890,15 +13895,6 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 956,
-    "fields": {
-      "instance_resource": 54,
-      "role": 3,
-      "instance_state": 4
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 957,
     "fields": {
       "instance_resource": 54,
@@ -13976,15 +13972,6 @@
       "instance_resource": 54,
       "role": 8,
       "instance_state": 3
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 966,
-    "fields": {
-      "instance_resource": 54,
-      "role": 8,
-      "instance_state": 4
     }
   },
   {
@@ -14070,20 +14057,11 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 976,
-    "fields": {
-      "instance_resource": 54,
-      "role": 11,
-      "instance_state": 4
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 977,
     "fields": {
-      "instance_resource": 54,
-      "role": 11,
-      "instance_state": 5
+      "instance_resource": 55,
+      "role": 5,
+      "instance_state": 1
     }
   },
   {
@@ -14300,6 +14278,51 @@
       "instance_resource": 1,
       "role": 12,
       "instance_state": 10
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1007,
+    "fields": {
+      "instance_resource": 55,
+      "role": 3,
+      "instance_state": 1
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1008,
+    "fields": {
+      "instance_resource": 55,
+      "role": 11,
+      "instance_state": 1
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1009,
+    "fields": {
+      "instance_resource": 56,
+      "role": 3,
+      "instance_state": 1
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1010,
+    "fields": {
+      "instance_resource": 56,
+      "role": 5,
+      "instance_state": 1
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1011,
+    "fields": {
+      "instance_resource": 56,
+      "role": 11,
+      "instance_state": 1
     }
   },
   {
@@ -15653,17 +15676,17 @@
   },
   {
     "model": "core.rapilistcirculationtype",
-    "pk": 16,
+    "pk": 18,
     "fields": {
-      "resource": 22,
+      "resource": 8,
       "circulation_type": 1
     }
   },
   {
     "model": "core.rapilistcirculationtype",
-    "pk": 18,
+    "pk": 20,
     "fields": {
-      "resource": 8,
+      "resource": 22,
       "circulation_type": 1
     }
   },
@@ -15949,14 +15972,6 @@
   },
   {
     "model": "core.rapilistinstancestate",
-    "pk": 79,
-    "fields": {
-      "resource": 22,
-      "instance_state": 1
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
     "pk": 89,
     "fields": {
       "resource": 8,
@@ -16033,6 +16048,14 @@
     "fields": {
       "resource": 8,
       "instance_state": 10
+    }
+  },
+  {
+    "model": "core.rapilistinstancestate",
+    "pk": 100,
+    "fields": {
+      "resource": 22,
+      "instance_state": 1
     }
   },
   {
@@ -16490,6 +16513,46 @@
     }
   },
   {
+    "model": "core.rroleacl",
+    "pk": 66,
+    "fields": {
+      "resource": 22,
+      "role": 7
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 67,
+    "fields": {
+      "resource": 17,
+      "role": 11
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 68,
+    "fields": {
+      "resource": 17,
+      "role": 5
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 70,
+    "fields": {
+      "resource": 17,
+      "role": 7
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 71,
+    "fields": {
+      "resource": 22,
+      "role": 5
+    }
+  },
+  {
     "model": "core.resource",
     "pk": 1,
     "fields": {
@@ -16680,7 +16743,7 @@
       "description": null,
       "template": null,
       "class_field": null,
-      "hidden": 1,
+      "hidden": 0,
       "sort": 16
     }
   },
@@ -16693,7 +16756,7 @@
       "description": null,
       "template": null,
       "class_field": null,
-      "hidden": 1,
+      "hidden": 0,
       "sort": 17
     }
   },
