@@ -2,6 +2,7 @@ import json
 import logging
 import os
 import re
+from datetime import timedelta
 
 import environ
 from django.db.models.expressions import Q
@@ -278,6 +279,7 @@ APPLICATIONS = {
                 "EXISTING": "gesuchsbearbeitungs-einladung-bestehend",
             },
         },
+        "PUBLICATION_DURATION": timedelta(days=20),
         "PUBLICATION_BACKEND": "camac-ng",
         "PUBLICATION_ATTACHMENT_SECTION": [4],
         "IS_MULTILINGUAL": False,
@@ -2049,6 +2051,7 @@ APPLICATIONS = {
     "kt_uri": {
         "LOG_NOTIFICATIONS": False,
         "FORM_BACKEND": "caluma",
+        "PUBLICATION_DURATION": timedelta(days=20),
         "PORTAL_USER_ID": 1209,
         "USE_OEREB_FIELDS_FOR_PUBLIC_ENDPOINT": True,
         "LINK_INSTANCES_ON_COPY": True,
