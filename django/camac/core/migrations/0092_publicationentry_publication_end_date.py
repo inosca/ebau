@@ -2,34 +2,37 @@
 
 from django.db import migrations, models
 from django.conf import settings
-
+from datetime import timedelta
 
 
 def set_publication_end_date(apps, schema_editor):
     PublicationEntry = apps.get_model("core", "PublicationEntry")
     for publication in PublicationEntry.objects.all():
-        publication.publication_end_date = publication.publication_date + settings.Application.get("PUBLICATION_DURATION")
+        publication.publication_end_date = (
+            publication.publication_date
+            + settings.Application.get("PUBLICATION_DURATION", timedelta())
+        )
         publication.save()
 
 
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('core', '0089_auto_20211126_1436'),
+        ("core", "0091_fix_exclusive_billing_final_rates"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='publicationentry',
-            name='publication_end_date',
+            model_name="publicationentry",
+            name="publication_end_date",
             field=models.DateTimeField(blank=True, null=True),
         ),
         migrations.RunPython(
             set_publication_end_date, reverse_code=migrations.RunPython.noop
         ),
         migrations.AlterField(
-            model_name='publicationentry',
-            name='publication_end_date',
+            model_name="publicationentry",
+            name="publication_end_date",
             field=models.DateTimeField(),
         ),
     ]
