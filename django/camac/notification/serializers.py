@@ -274,17 +274,15 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
     def get_leitbehoerde_name_de(self, instance):
         """Return current active service of the instance in german."""
-        return (
-            instance.responsible_service(filter_type="municipality").get_name("de")
-            or "-"
-        )
+        service = instance.responsible_service(filter_type="municipality")
+
+        return service.get_name("de") if service else "-"
 
     def get_leitbehoerde_name_fr(self, instance):
         """Return current active service of the instance in french."""
-        return (
-            instance.responsible_service(filter_type="municipality").get_name("fr")
-            or "-"
-        )
+        service = instance.responsible_service(filter_type="municipality")
+
+        return service.get_name("fr") if service else "-"
 
     def get_current_service(self, instance):
         """Return current service of the active user."""
