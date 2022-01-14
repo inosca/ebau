@@ -106,9 +106,8 @@ class PublicationEntryView(ModelViewSet):
     @permission_aware
     def get_queryset(self):
         return models.PublicationEntry.objects.filter(
-            publication_date__gte=timezone.now()
-            - settings.APPLICATION.get("PUBLICATION_DURATION"),
-            publication_date__lt=timezone.now(),
+            publication_date__lte=timezone.now(),
+            publication_end_date__gte=timezone.now(),
             is_published=True,
         )
 
