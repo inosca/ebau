@@ -765,12 +765,13 @@ def test_instance_generate_identifier(
 
 @pytest.mark.freeze_time("2017-7-27")
 @pytest.mark.parametrize(
-    "role__name,instance__user,publication_entry__publication_date,publication_entry__is_published,status_code",
+    "role__name,instance__user,publication_entry__publication_date,publication_entry__publication_end_date,publication_entry__is_published,status_code",
     [
         (
             "Municipality",
             LazyFixture("admin_user"),
             datetime.datetime(2016, 6, 28, tzinfo=pytz.UTC),
+            datetime.datetime(2016, 7, 10, tzinfo=pytz.UTC),
             True,
             status.HTTP_200_OK,
         ),
@@ -778,6 +779,7 @@ def test_instance_generate_identifier(
             "PublicReader",
             LazyFixture("admin_user"),
             datetime.datetime(2017, 6, 28, tzinfo=pytz.UTC),
+            datetime.datetime(2017, 8, 1, tzinfo=pytz.UTC),
             True,
             status.HTTP_200_OK,
         ),
@@ -785,6 +787,7 @@ def test_instance_generate_identifier(
             "Public",
             LazyFixture("admin_user"),
             datetime.datetime(2017, 6, 28, tzinfo=pytz.UTC),
+            datetime.datetime(2017, 7, 10, tzinfo=pytz.UTC),
             True,
             status.HTTP_200_OK,
         ),
@@ -792,6 +795,7 @@ def test_instance_generate_identifier(
             "Public",
             LazyFixture("user"),
             datetime.datetime(2016, 6, 28, tzinfo=pytz.UTC),
+            datetime.datetime(2017, 7, 10, tzinfo=pytz.UTC),
             True,
             status.HTTP_404_NOT_FOUND,
         ),
@@ -799,6 +803,7 @@ def test_instance_generate_identifier(
             "PublicReader",
             LazyFixture("admin_user"),
             datetime.datetime(2017, 6, 26, tzinfo=pytz.UTC),
+            datetime.datetime(2017, 7, 10, tzinfo=pytz.UTC),
             True,
             status.HTTP_404_NOT_FOUND,
         ),
@@ -806,6 +811,7 @@ def test_instance_generate_identifier(
             "PublicReader",
             LazyFixture("admin_user"),
             datetime.datetime(2017, 6, 28, tzinfo=pytz.UTC),
+            datetime.datetime(2017, 7, 10, tzinfo=pytz.UTC),
             False,
             status.HTTP_404_NOT_FOUND,
         ),
