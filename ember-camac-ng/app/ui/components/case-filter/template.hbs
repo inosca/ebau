@@ -1,6 +1,6 @@
 <div {{did-insert (perform this.fetchFilterData)}}>
-  <form class="uk-form-horizontal" {{on "submit" this.applyFilter}}>
-    <fieldset class="uk-flex uk-flex-column">
+  <form {{on "submit" this.applyFilter}}>
+    <fieldset class="uk-grid uk-margin-small-bottom">
       <legend>
         <b>
           {{t "cases.filter"}}
