@@ -81,7 +81,13 @@ class PublicationEntrySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.PublicationEntry
-        fields = ("instance", "publication_date", "is_published", "description")
+        fields = (
+            "instance",
+            "publication_date",
+            "publication_end_date",
+            "is_published",
+            "description",
+        )
         read_only_fields = ("description",)
 
 
