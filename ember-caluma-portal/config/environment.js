@@ -135,9 +135,9 @@ module.exports = function (environment) {
         excludeFromDocuments: [],
       },
       instanceStates: instanceStatesUr,
-      defaultInstanceStateCategory: "new",
+      defaultInstanceStateCategory: "",
       instanceStateCategories: {
-        new: [
+        notSubmitted: [
           1, // new_comm
           28, // new
         ],
