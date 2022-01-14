@@ -1,5 +1,5 @@
 import functools
-from datetime import datetime
+from datetime import datetime, timedelta
 
 import pytest
 from django.urls import reverse
@@ -88,7 +88,11 @@ def test_publication_create(
         "data": {
             "type": "publication-entries",
             "id": None,
-            "attributes": {"publication-date": datetime.now(), "is-published": 0},
+            "attributes": {
+                "publication-date": datetime.now(),
+                "publication-end-date": datetime.now() + timedelta(20),
+                "is-published": 0,
+            },
             "relationships": {
                 "instance": {"data": {"type": "instances", "id": instance.pk}}
             },

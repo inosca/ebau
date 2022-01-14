@@ -181,7 +181,6 @@ APPLICATIONS = {
         "ROLE_INHERITANCE": {"trusted_service": "service"},
         "IS_MULTILINGUAL": False,
         "NOTIFICATIONS": {"SUBMIT": None, "APPLICANT": {"NEW": None, "EXISTING": None}},
-        "PUBLICATION_DURATION": timedelta(days=30),
         "PUBLICATION_BACKEND": "camac-ng",
         "FORM_BACKEND": "camac-ng",
         "WORKFLOW_ITEMS": {
@@ -1060,7 +1059,6 @@ APPLICATIONS = {
                 }
             ],
         },
-        "PUBLICATION_DURATION": timedelta(),
         "IS_MULTILINGUAL": True,
         "FORM_BACKEND": "caluma",
         "OIDC_SYNC_USER_ATTRIBUTES": [

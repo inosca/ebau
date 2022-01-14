@@ -1040,7 +1040,9 @@ def test_attachment_public_access(
 ):
     """Test unauthenticated, public access to publicated attachments."""
     pub_instance = publication_entry_factory(
-        publication_date=timezone.now() - timedelta(days=1), is_published=True
+        publication_date=timezone.now() - timedelta(days=1),
+        publication_end_date=timezone.now() + timedelta(days=10),
+        is_published=True,
     ).instance
 
     aas, aas2, aas3, *_ = attachment_attachment_section_factory.create_batch(
@@ -1059,7 +1061,6 @@ def test_attachment_public_access(
     assert len(res.json()["data"]) == 0
 
     application_settings["PUBLICATION_BACKEND"] = "camac-ng"
-    application_settings["PUBLICATION_DURATION"] = timedelta(days=30)
 
     # published attachments are visible
     res = client.get(url)
