@@ -24,6 +24,7 @@ def caluma_form_fixture(db):
         "caluma_audit_form.json",
         "caluma_publication_form.json",
         "caluma_information_of_neighbors_form.json",
+        "caluma_ebau_number_form.json",
         "caluma_workflow.json",
     ]
 

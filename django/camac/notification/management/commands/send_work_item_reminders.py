@@ -62,7 +62,7 @@ Votre organisation ({name_fr}) a les tâches suivantes dans eBau qui requièrent
 
 {settings.INTERNAL_BASE_URL}
 
-Cet e-mail a été généré automatiquement, merci de ne pas y répondre.
+Ce message a été généré automatiquement, veuillez ne pas y répondre.
 """
         )
 
@@ -98,7 +98,7 @@ Vous avez les tâches suivantes dans eBau qui requièrent votre attention :
 
 {settings.INTERNAL_BASE_URL}
 
-Cet e-mail a été généré automatiquement, merci de ne pas y répondre.
+Ce message a été généré automatiquement, veuillez ne pas y répondre.
 """
         )
 

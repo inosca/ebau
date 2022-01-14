@@ -594,24 +594,6 @@
   },
   {
     "model": "caluma_form.form",
-    "pk": "ebau-number",
-    "fields": {
-      "created_at": "2021-12-21T08:55:26.398Z",
-      "modified_at": "2021-12-21T08:55:26.398Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "name": "{\"de\": \"eBau-Nummer vergeben\", \"fr\": \"Attribution d'un num\\u00e9ro eBau\"}",
-      "description": "{\"de\": \"\", \"fr\": null}",
-      "meta": {},
-      "is_published": true,
-      "is_archived": false,
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.form",
     "pk": "eigentuemer-tabelle",
     "fields": {
       "created_at": "2019-04-08T13:30:04.290Z",
@@ -6281,66 +6263,6 @@
       "form": "durchgefuehrte-vorabklaerungen",
       "question": "wurden-vorabklaerungen-durchgefuehrt",
       "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "ebau-number.bestehende-ebau-nummer",
-    "fields": {
-      "created_at": "2021-12-21T09:01:00.665Z",
-      "modified_at": "2021-12-21T09:01:00.665Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "ebau-number",
-      "question": "bestehende-ebau-nummer",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "ebau-number.besteht-bereits-eine-ebau-nummer",
-    "fields": {
-      "created_at": "2021-12-21T08:57:50.269Z",
-      "modified_at": "2021-12-21T08:57:50.269Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "ebau-number",
-      "question": "besteht-bereits-eine-ebau-nummer",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "ebau-number.ebau-number",
-    "fields": {
-      "created_at": "2022-01-04T11:55:09.681Z",
-      "modified_at": "2022-01-04T11:55:09.681Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "ebau-number",
-      "question": "ebau-number",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "ebau-number.ebau-nummer-vorschlagen",
-    "fields": {
-      "created_at": "2022-01-04T09:08:24.586Z",
-      "modified_at": "2022-01-04T09:08:24.586Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "ebau-number",
-      "question": "ebau-nummer-vorschlagen",
-      "sort": 4
     }
   },
   {
@@ -14921,38 +14843,6 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Wald - Haftungsverzichtserkl\\u00e4rung nach Art. 27 KWaG zur Unterschreitung des Waldabstandes (Ausnahmebewilligung):\", \"fr\": \"For\\u00eat - D\\u00e9claration de suppression de la responsabilit\\u00e9 selon art. 27 LCFo en lien avec une r\\u00e9duction de la distance par rapport \\u00e0 la for\\u00eat (d\\u00e9rogation):\"}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "besteht-bereits-eine-ebau-nummer-ja",
-    "fields": {
-      "created_at": "2021-12-21T08:56:35.106Z",
-      "modified_at": "2021-12-22T10:20:46.840Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ja\", \"fr\": \"Oui\"}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "besteht-bereits-eine-ebau-nummer-nein",
-    "fields": {
-      "created_at": "2021-12-21T08:56:35.119Z",
-      "modified_at": "2021-12-22T10:20:46.851Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Nein\", \"fr\": \"Non\"}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -28754,69 +28644,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "bestehende-ebau-nummer",
-    "fields": {
-      "created_at": "2021-12-21T09:01:00.532Z",
-      "modified_at": "2021-12-22T09:59:40.620Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"eBau-Nummer\", \"fr\": \"Num\\u00e9ro eBau\"}",
-      "type": "text",
-      "is_required": "true",
-      "is_hidden": "!(\"besteht-bereits-eine-ebau-nummer-ja\" == \"besteht-bereits-eine-ebau-nummer\"|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "besteht-bereits-eine-ebau-nummer",
-    "fields": {
-      "created_at": "2021-12-21T08:56:35.281Z",
-      "modified_at": "2021-12-22T10:20:47.330Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Besteht bereits eine eBau-Nummer?\", \"fr\": \"Un num\\u00e9ro eBau existe-t-il d\\u00e9j\\u00e0?\"}",
-      "type": "choice",
-      "is_required": "true",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "betriebskonzept",
     "fields": {
       "created_at": "2019-04-05T11:06:15.319Z",
@@ -30574,38 +30401,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "ebau-number",
-    "fields": {
-      "created_at": "2022-01-04T11:55:09.546Z",
-      "modified_at": "2022-01-04T11:55:09.546Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"ebau Nummer vergeben\", \"fr\": null}",
-      "type": "static",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "configuration": {},
-      "meta": {
-        "widgetOverride": "assign-ebau-number-button"
-      },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "ebau-nummer",
     "fields": {
       "created_at": "2019-03-08T16:38:41.117Z",
@@ -30626,38 +30421,6 @@
         "max_length": 20
       },
       "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "ebau-nummer-vorschlagen",
-    "fields": {
-      "created_at": "2022-01-04T08:05:33.876Z",
-      "modified_at": "2022-01-04T08:48:25.506Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"eBau Nummer vorschlagen\", \"fr\": null}",
-      "type": "static",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null}",
-      "static_content": "{\"de\": \"test\", \"fr\": \"\"}",
-      "configuration": {},
-      "meta": {
-        "widgetOverride": "suggest-ebau-number"
-      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -48373,36 +48136,6 @@
       "modified_by_group": null,
       "question": "bestaetigung-wald",
       "option": "bestaetigung-wald-ja",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "besteht-bereits-eine-ebau-nummer.besteht-bereits-eine-ebau-nummer-ja",
-    "fields": {
-      "created_at": "2021-12-22T10:20:47.013Z",
-      "modified_at": "2021-12-22T10:20:47.013Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "question": "besteht-bereits-eine-ebau-nummer",
-      "option": "besteht-bereits-eine-ebau-nummer-ja",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "besteht-bereits-eine-ebau-nummer.besteht-bereits-eine-ebau-nummer-nein",
-    "fields": {
-      "created_at": "2021-12-22T10:20:47.008Z",
-      "modified_at": "2021-12-22T10:20:47.008Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "question": "besteht-bereits-eine-ebau-nummer",
-      "option": "besteht-bereits-eine-ebau-nummer-nein",
       "sort": 1
     }
   },
