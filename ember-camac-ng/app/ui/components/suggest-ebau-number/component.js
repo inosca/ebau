@@ -28,13 +28,13 @@ export default class SuggestEbauNumberComponent extends Component {
   @dropTask
   *applyEbauNumber() {
     const existingEbauNrField = this.args.field.document.findField(
-      "besteht-bereits-eine-ebau-nummer"
+      "ebau-number-has-existing"
     );
-    existingEbauNrField.answer.value = "besteht-bereits-eine-ebau-nummer-ja";
+    existingEbauNrField.answer.value = "ebau-number-has-existing-yes";
     yield existingEbauNrField.save.perform();
 
     const ebauNumberField = this.args.field.document.findField(
-      "bestehende-ebau-nummer"
+      "ebau-number-existing"
     );
     ebauNumberField.answer.value = this.sourceMeta.value["ebau-number"];
     yield ebauNumberField.save.perform();
