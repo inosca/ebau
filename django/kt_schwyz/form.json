@@ -7056,6 +7056,13 @@
       "required": false,
       "config": {}
     },
+    "standort-koordinaten": {
+      "restrict": ["municipality", "service", "reader"],
+      "label": "Koordinaten",
+      "type": "text",
+      "required": false,
+      "config": {}
+    },
     "lage": {
       "restrict": ["municipality", "service", "reader"],
       "label": "Lage der Bauzone:",
