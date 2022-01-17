@@ -182,15 +182,27 @@ class PublicationField(serializers.ReadOnlyField):
 
 
 class MasterDataField(serializers.ReadOnlyField):
-    def __init__(self, join_by=None, parser=lambda value: value, **kwargs):
+    def __init__(self, join_by=None, sum_by=None, parser=lambda value: value, **kwargs):
         super().__init__(**kwargs)
 
         self.join_by = join_by
+        self.sum_by = sum_by
         self.parser = parser
 
     def to_representation(self, value):
         if self.join_by and isinstance(value, list):
             return clean_join(*[self.parser(v) for v in value], separator=self.join_by)
+        if self.sum_by and isinstance(value, list):
+
+            def parse(v):
+                try:
+                    return int(v.get(self.sum_by))
+                except ValueError:  # pragma: no cover
+                    return None
+
+            parsed_values = list(filter(None, [parse(v) for v in value]))
+
+            return sum(parsed_values) if len(parsed_values) else ""
 
         return self.parser(super().to_representation(value))
 
