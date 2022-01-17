@@ -1,6 +1,7 @@
 import Controller, { inject as controller } from "@ember/controller";
-import { computed } from "@ember/object";
+import { computed, action } from "@ember/object";
 import { inject as service } from "@ember/service";
+import { tracked } from "@glimmer/tracking";
 import ENV from "citizen-portal/config/environment";
 import computedTask from "citizen-portal/lib/computed-task";
 import Ember from "ember";
@@ -11,8 +12,11 @@ export default class InstancesEditSubmitController extends Controller {
   @service ajax;
   @service questionStore;
   @service notification;
+  @service router;
 
   @controller("instances.edit") editController;
+
+  @tracked errors = [];
 
   @computedTask(
     "_canSubmit",
@@ -64,7 +68,8 @@ export default class InstancesEditSubmitController extends Controller {
   @task
   *submit() {
     try {
-      yield this.ajax.request(
+      this.errors = [];
+      yield this.ajax.raw(
         `/api/v1/instances/${this.model.instance.id}/submit`,
         { method: "POST" }
       );
@@ -73,10 +78,28 @@ export default class InstancesEditSubmitController extends Controller {
 
       yield this.transitionToRoute("instances");
     } catch (e) {
+      if (e.response.status === 400) {
+        this.errors = e.payload.map((error) => {
+          if (error.code.module) {
+            const url = error.code.module.replace(".", "/");
+            return { ...error, url };
+          }
+
+          return error;
+        });
+      }
+
       this.notification.danger(
         "Hoppla, etwas ist schief gelaufen. Bitte überprüfen Sie Ihre Eingabedaten nochmals."
       );
     }
+  }
+
+  @action
+  linkToErrorLocation(url, event) {
+    event.preventDefault();
+    const location = this.router.currentURL.replace("submit", url);
+    this.router.replaceWith(location);
   }
 
   get isWasserentnahmeForm() {
