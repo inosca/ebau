@@ -85,12 +85,7 @@ class Command(BaseCommand):
                 pk=get_question_slug(ANSWER_MAPPING, answer.question_id)
             )
             if answer.answer in ["yes", "no"]:
-                suffix = {
-                    "yes": "-ja",
-                    "no": "-nein",
-                }
-                option = question.pk + suffix[answer.answer]
-                value = question.options.get(pk=option).pk
+                value = question.options.get(pk=f"{question.pk}-{answer.answer}").pk
             else:
                 value = answer.answer
 
