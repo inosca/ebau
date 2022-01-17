@@ -249,6 +249,23 @@ def be_master_data_case(
     )
     add_answer(document, "rrb", "rrb-ja", label="Ja")
     add_answer(document, "vertrag", "vertrag-ja", label="Ja")
+    add_answer(
+        document,
+        "grundwasserschutzzonen",
+        ["grundwasserschutzzonen-s1"],
+        label=[{"de": "S1", "fr": "S1"}],
+    )
+    add_answer(
+        document,
+        "grundwasserschutzzonen-v2",
+        ["grundwasserschutzzonen-v2-s1"],
+        label=[{"de": "S1", "fr": "S1"}],
+    )
+    add_answer(
+        document, "oeffentlichkeit", "oeffentlichkeit-oeffentlich", label="Öffentlich"
+    )
+    add_answer(document, "alkoholausschank", "alkoholausschank-ja", label="Ja")
+    add_answer(document, "sitzplaetze-garten", 20)
 
     # Municipality
     add_answer(document, "gemeinde", "1")
@@ -349,6 +366,9 @@ def be_master_data_case(
                 "ort-vertreterin": "Bern",
             },
         ],
+    )
+    add_table_answer(
+        document, "ausschankraeume", [{"sitzplaetze": 20}, {"sitzplaetze": 15}]
     )
 
     # Neighbors

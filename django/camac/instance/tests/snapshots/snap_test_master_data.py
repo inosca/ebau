@@ -8,6 +8,7 @@ from snapshottest import GenericRepr, Snapshot
 snapshots = Snapshot()
 
 snapshots['test_master_data[kt_bern-de-be_master_data_case-select_related0-prefetch_related0-14] 1'] = {
+    'alcohol_serving': 'mit',
     'applicants': [
         {
             'first_name': 'Max',
@@ -42,6 +43,14 @@ snapshots['test_master_data[kt_bern-de-be_master_data_case-select_related0-prefe
     'development_regulations': 'Überbauung XY',
     'dossier_number': '2021-1',
     'final_approval_date': None,
+    'interior_seating': [
+        {
+            'total_seats': 20
+        },
+        {
+            'total_seats': 15
+        }
+    ],
     'is_paper': False,
     'landowners': [
         {
@@ -108,6 +117,7 @@ snapshots['test_master_data[kt_bern-de-be_master_data_case-select_related0-prefe
             'zip': 1234
         }
     ],
+    'outside_seating': 20,
     'paper_submit_date': GenericRepr('datetime.datetime(2021, 3, 20, 13, 17, 8, tzinfo=tzutc())'),
     'plot_data': [
         {
@@ -141,6 +151,16 @@ snapshots['test_master_data[kt_bern-de-be_master_data_case-select_related0-prefe
         }
     ],
     'proposal': 'Grosses Haus',
+    'protection_area': [
+        {
+            'label': 'S1',
+            'slug': 'grundwasserschutzzonen-s1'
+        }
+    ],
+    'public': {
+        'label': 'Öffentlich',
+        'slug': 'oeffentlichkeit-oeffentlich'
+    },
     'publication_date': None,
     'situation': 'Sachverhalt Test',
     'street': 'Musterstrasse',
@@ -162,6 +182,7 @@ snapshots['test_master_data[kt_bern-de-be_master_data_case-select_related0-prefe
 }
 
 snapshots['test_master_data[kt_bern-fr-be_master_data_case-select_related1-prefetch_related1-14] 1'] = {
+    'alcohol_serving': 'mit',
     'applicants': [
         {
             'first_name': 'Max',
@@ -196,6 +217,14 @@ snapshots['test_master_data[kt_bern-fr-be_master_data_case-select_related1-prefe
     'development_regulations': 'Überbauung XY',
     'dossier_number': '2021-1',
     'final_approval_date': None,
+    'interior_seating': [
+        {
+            'total_seats': 20
+        },
+        {
+            'total_seats': 15
+        }
+    ],
     'is_paper': False,
     'landowners': [
         {
@@ -262,6 +291,7 @@ snapshots['test_master_data[kt_bern-fr-be_master_data_case-select_related1-prefe
             'zip': 1234
         }
     ],
+    'outside_seating': 20,
     'paper_submit_date': GenericRepr('datetime.datetime(2021, 3, 20, 13, 17, 8, tzinfo=tzutc())'),
     'plot_data': [
         {
@@ -295,6 +325,16 @@ snapshots['test_master_data[kt_bern-fr-be_master_data_case-select_related1-prefe
         }
     ],
     'proposal': 'Grosses Haus',
+    'protection_area': [
+        {
+            'label': 'S1',
+            'slug': 'grundwasserschutzzonen-s1'
+        }
+    ],
+    'public': {
+        'label': 'Öffentlich',
+        'slug': 'oeffentlichkeit-oeffentlich'
+    },
     'publication_date': None,
     'situation': 'Sachverhalt Test',
     'street': 'Musterstrasse',
