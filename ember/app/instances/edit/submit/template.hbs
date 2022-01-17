@@ -86,4 +86,26 @@
       es nochmals.
     </div>
   {{/unless}}
+
+  <div class="uk-margin-top">
+    {{#each this.errors as |error|}}
+      <div class="uk-margin-small-bottom">
+        {{#if error.url}}
+          <a 
+            href="#" 
+            class="uk-link-toggle" 
+            {{on "click" (fn this.linkToErrorLocation error.url)}}
+          >
+            <div class="uk-alert uk-alert-danger uk-link-heading">
+              {{error.detail}}
+            </div>
+          </a>
+        {{else}}
+          <div class="uk-alert uk-alert-danger">
+            {{error.detail}}
+          </div>
+        {{/if}}
+      </div>
+    {{/each}}
+  </div>
 </div>
