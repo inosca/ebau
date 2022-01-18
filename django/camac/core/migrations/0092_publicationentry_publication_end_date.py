@@ -10,16 +10,14 @@ def set_publication_end_date(apps, schema_editor):
     for publication in PublicationEntry.objects.all():
         publication.publication_end_date = (
             publication.publication_date
-            + settings.Application.get("PUBLICATION_DURATION", timedelta())
+            + settings.APPLICATION.get("PUBLICATION_DURATION", timedelta())
         )
         publication.save()
 
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ("core", "0091_fix_exclusive_billing_final_rates"),
-    ]
+    dependencies = [("core", "0091_fix_exclusive_billing_final_rates")]
 
     operations = [
         migrations.AddField(
