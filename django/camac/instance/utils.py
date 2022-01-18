@@ -1,6 +1,14 @@
+from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
 
 from camac.caluma.api import CalumaApi
+from camac.constants.kt_bern import (
+    DECISION_TYPE_BAUBEWILLIGUNGSFREI,
+    DECISION_TYPE_CONSTRUCTION_TEE_WITH_RESTORATION,
+    DECISION_TYPE_PARTIAL_PERMIT_WITH_PARTIAL_CONSTRUCTION_TEE_AND_PARTIAL_RESTORATION,
+    DECISIONS_BEWILLIGT,
+)
+from camac.core.models import DocxDecision
 from camac.instance.models import Instance
 from camac.user.models import Service
 
@@ -40,3 +48,20 @@ def set_construction_control(instance: Instance) -> Service:
     instance.instance_services.create(service=construction_control, active=1)
 
     return construction_control
+
+
+def should_continue_after_decision(instance: Instance) -> bool:
+    return (
+        DocxDecision.objects.filter(instance=instance)
+        .filter(
+            Q(decision=DECISIONS_BEWILLIGT)
+            | Q(
+                decision_type__in=[
+                    DECISION_TYPE_CONSTRUCTION_TEE_WITH_RESTORATION,
+                    DECISION_TYPE_PARTIAL_PERMIT_WITH_PARTIAL_CONSTRUCTION_TEE_AND_PARTIAL_RESTORATION,
+                ],
+            ),
+        )
+        .exclude(decision_type=DECISION_TYPE_BAUBEWILLIGUNGSFREI)
+        .exists()
+    )
