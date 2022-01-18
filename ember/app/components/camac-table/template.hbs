@@ -85,6 +85,16 @@
       </table>
 
       {{camac-input-error error}}
+      
+      {{#if this.questionActive}}
+        <UkButton
+          class="uk-align-center"
+          @disabled={{unless this.copySourceValue "true"}}
+          {{on "click" this.copyQuestionValue}}
+        >
+          {{@copyButtonLabel}}
+        </UkButton>
+      {{/if}}
 
       {{#unless readonly}}
         <CamacTableModal
