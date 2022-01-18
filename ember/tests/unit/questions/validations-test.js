@@ -9,6 +9,7 @@ const {
   validateNumberSeparator,
   validateRadio,
   validateCheckbox,
+  validateTable,
 } = validations;
 
 module("Unit | Validations | questions", function (hooks) {
@@ -105,5 +106,157 @@ module("Unit | Validations | questions", function (hooks) {
       validateCheckbox({ options }, ["test 1", "test 2"]),
       "Die Werte müssen in den vorgegebenen Optionen vorhanden sein"
     );
+  });
+
+  test("it validates table fields correctly", function (assert) {
+    assert.expect(4);
+
+    // incorrect value
+    let columns = [
+      { name: "f1", label: "field 1", type: "text", config: {} },
+      {
+        name: "f2",
+        label: "field 2",
+        required: true,
+        type: "number",
+        config: {},
+      },
+      {
+        name: "f3",
+        label: "field 3",
+        type: "radio",
+        config: { options: ["1", "2", "3"] },
+      },
+      {
+        name: "f4",
+        label: "field 4",
+        required: true,
+        type: "checkbox",
+        config: { options: ["1", "2", "3"] },
+      },
+    ];
+
+    let value = [
+      {
+        f1: "test",
+        f2: "test",
+        f3: "1",
+        f4: ["1", "2"],
+      },
+    ];
+
+    assert.deepEqual(validateTable({ columns }, value), [
+      "field 2: Der Wert muss eine Zahl sein",
+    ]);
+
+    // missing required values
+    columns = [
+      {
+        name: "f1",
+        label: "field 1",
+        required: true,
+        type: "text",
+        config: {},
+      },
+      {
+        name: "f2",
+        label: "field 2",
+        required: true,
+        type: "number",
+        config: {},
+      },
+      {
+        name: "f3",
+        label: "field 3",
+        required: true,
+        type: "radio",
+        config: { options: ["1", "2", "3"] },
+      },
+      {
+        name: "f4",
+        label: "field 4",
+        required: true,
+        type: "checkbox",
+        config: { options: ["1", "2", "3"] },
+      },
+    ];
+
+    value = [
+      {
+        f2: "test",
+        f3: "1",
+      },
+      {
+        f4: [],
+      },
+    ];
+
+    assert.deepEqual(validateTable({ columns }, value), [
+      "field 1: Diese Frage darf nicht leer gelassen werden",
+      "field 2: Der Wert muss eine Zahl sein",
+      "field 2: Diese Frage darf nicht leer gelassen werden",
+      "field 3: Diese Frage darf nicht leer gelassen werden",
+      "field 4: Diese Frage darf nicht leer gelassen werden",
+    ]);
+
+    // correct
+    columns = [
+      { name: "f1", label: "field 1", type: "text", config: {} },
+      {
+        name: "f2",
+        label: "field 2",
+        required: true,
+        type: "number",
+        config: {},
+      },
+      {
+        name: "f3",
+        label: "field 3",
+        type: "radio",
+        config: { options: ["1", "2", "3"] },
+      },
+      {
+        name: "f4",
+        label: "field 4",
+        required: true,
+        type: "checkbox",
+        config: { options: ["1", "2", "3"] },
+      },
+    ];
+
+    value = [
+      {
+        f1: "test",
+        f2: "3",
+        f4: ["1", "2"],
+      },
+      {
+        f2: "4",
+        f4: ["1"],
+      },
+    ];
+
+    assert.deepEqual(validateTable({ columns }, value), true);
+
+    // nested arrays
+    columns = [
+      {
+        name: "f1",
+        label: "field 1",
+        required: true,
+        type: "number",
+        config: {},
+      },
+    ];
+
+    value = [
+      [
+        {
+          f1: "1",
+        },
+      ],
+    ];
+
+    assert.deepEqual(validateTable({ columns }, value), true);
   });
 });

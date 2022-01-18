@@ -135,7 +135,7 @@ const Question = EmberObject.extend({
 
     return (
       isValid.every((v) => v === true) ||
-      isValid.filter((v) => typeof v === "string")
+      isValid.flat().filter((v) => typeof v === "string")
     );
   },
 
