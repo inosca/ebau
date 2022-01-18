@@ -7,7 +7,9 @@
  * invalid value.
  */
 
+import { classify } from "@ember/string";
 import { isBlank } from "@ember/utils";
+import _validations from "citizen-portal/questions/validations";
 
 const validateRequired = (_, value) => {
   return !isBlank(value) || "Diese Frage darf nicht leer gelassen werden";
@@ -80,6 +82,45 @@ const validateRadio = ({ options }, value) => {
   return true;
 };
 
+const validateTable = ({ columns }, value) => {
+  // check validity for all defined table columns
+  const result = columns.flatMap((column) => {
+    const { name, type, required = false, config = {} } = column;
+
+    const validations = [
+      required ? validateRequired ?? (() => true) : () => true,
+      _validations[`validate${classify(type)}`] ?? (() => true),
+      _validations[`${name}`] ?? (() => true),
+    ];
+
+    // collect and agreggate validation results
+    // for all table answers
+    const validationResults = value.flatMap((v) =>
+      validations.flatMap((fn) =>
+        Array.isArray(v)
+          ? // e.g. coordinate points are returned as array
+            v.map((w) => fn(config, w[name]))
+          : fn(config, v[name])
+      )
+    );
+
+    return (
+      validationResults.every((v) => v === true) || [
+        ...new Set(
+          validationResults
+            .filter((v) => typeof v === "string")
+            .map((v) => `${column.label}: ${v}`)
+        ),
+      ]
+    );
+  });
+
+  return (
+    result.every((v) => v === true) ||
+    result.filter((v) => typeof v === "string")
+  );
+};
+
 const checkActiveConditionContainsAny = (value, conditionValues) => {
   return value.some((v) => conditionValues.includes(v));
 };
@@ -111,6 +152,7 @@ export default {
   validateNumberSeparator: validateNumber,
   validateCheckbox,
   validateRadio,
+  validateTable,
 
   checkActiveConditionContainsAny,
   checkActiveConditionContainsNotAny,

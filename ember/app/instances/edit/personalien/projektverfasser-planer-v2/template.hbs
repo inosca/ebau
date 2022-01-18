@@ -1,12 +1,8 @@
 <CamacForm @instance={{@model.instance}} @meta={{@model.meta}} as |form|>
-  <form.table @identifier="projektverfasser-planer-v2"/>
-  {{#if this.questionActive}}
-    <UkButton
-      @on-click={{fn this.copyQuestionValue}}
-      class="uk-align-center uk-margin-remove-vertical"
-      @disabled={{unless this.bauherrschaftValue "true"}}
-    >
-      Bauherrschafts Personalien Übernehmen
-    </UkButton>
-  {{/if}}
+   <form.table
+    @identifier="projektverfasser-planer-v2"
+    @model={{this.model}}
+    @copySource="bauherrschaft-v2"
+    @copyButtonLabel="Bauherrschafts-Personalien Übernehmen"
+  />
 </CamacForm>
