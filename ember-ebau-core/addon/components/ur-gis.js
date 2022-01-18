@@ -213,7 +213,7 @@ export default class UrGisComponent extends Component {
         const coordinates =
           liegenschaftFeature.geometry.coordinates[0][0].map(EPSG3857toLatLng);
         const egrid = liegenschaftFeature.properties.egris_egrid;
-        const municipality = liegenschaftFeature.properties.gemeinde;
+        const municipality = liegenschaftFeature.properties.grundbuchkreis;
 
         const parcel = {
           coordinates,
@@ -229,6 +229,7 @@ export default class UrGisComponent extends Component {
           "coordinates-east": LatLngToEPSG2056(latlng).x,
           "coordinates-north": LatLngToEPSG2056(latlng).y,
           "ueberlagerte-nutzungen": ueberlagerteNutzungen,
+          "parcel-city": municipality,
         };
 
         if (gebaeudeAdressenFeature) {
@@ -238,7 +239,6 @@ export default class UrGisComponent extends Component {
             gebaeudeAdressenFeature.properties.hausnummer;
           parcel["parcel-street-number"] =
             gebaeudeAdressenFeature.properties.hausnummer;
-          parcel["parcel-city"] = gebaeudeAdressenFeature.properties.ortschaft;
           parcel["parcel-zip"] = gebaeudeAdressenFeature.properties.plz;
         }
 
