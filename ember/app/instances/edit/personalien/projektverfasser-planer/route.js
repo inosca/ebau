@@ -1,3 +1,3 @@
 import Route from "@ember/routing/route";
 
-export default class InstancesEditPersonalienProjektverfasserPlanerController extends Route {}
+export default class InstancesEditPersonalienProjektverfasserPlanerRoute extends Route {}
