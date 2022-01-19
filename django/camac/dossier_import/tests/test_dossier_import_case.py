@@ -42,6 +42,10 @@ def test_bad_file_format_dossier_xlsx(db, user, settings, config, make_dossier_w
     ["Municipality"],
 )
 @pytest.mark.parametrize(
+    "service_group__name",
+    ["municipality"],
+)
+@pytest.mark.parametrize(
     "config,camac_instance",
     [
         ("kt_schwyz", lazy_fixture("sz_instance")),
@@ -61,6 +65,7 @@ def test_create_instance_dossier_import_case(
     dynamic_option_factory,
     construction_control_for,
     admin_user,
+    group,
 ):
     # The test import file features faulty lines for cov
     # - 3 lines with good data (1 without documents directory)
@@ -70,14 +75,14 @@ def test_create_instance_dossier_import_case(
     dossier_import = dossier_import_factory(
         source_file=archive_file(TEST_IMPORT_FILE_NAME),
     )
-    construction_control_for(dossier_import.service)
+    construction_control_for(dossier_import.group.service)
     dynamic_option_factory(
-        slug=str(dossier_import.service.pk),
+        slug=str(dossier_import.group.service.pk),
         question_id="gemeinde",
         document=document_factory(),
     )
     writer = make_dossier_writer(config)
-    writer._group.service = dossier_import.service
+    writer._group.service = dossier_import.group.service
     loader = XlsxFileDossierLoader()
 
     for dossier in loader.load_dossiers(dossier_import.source_file.path):

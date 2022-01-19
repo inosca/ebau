@@ -28,8 +28,12 @@ dossierImport:
       in-progress: En cours de traitement
       verified: Conception (validation réussie)
       failed: Conception (échec de la validation)
+      import-failed: Échec de l'importation
       new: Nouveau
-      done: Terminé
+      imported: Importé sur le système de test
+      confirmed: Confirmé
+      transmitting: Transfert au système de production en cours
+      transmitted: Transférée au système de production
     newImportLink: Nouvelle importation
   detail:
     title: "Détails de l'importation du {creationDate} ({user})"
@@ -40,40 +44,45 @@ dossierImport:
       status:
         verified: La structure est correcte
         failed: La structure est défectueuse
-        in-progres: L'importation a commencé
-        done: L'importation est terminée
-      issuesInfo: 
+        in-progress: L'importation a commencé
+        imported: L'importation sur le système de test est terminée
+      issuesInfo:
         verified: "Les problèmes suivants sont encore présents dans le fichier d'importation:"
         failed: "Les problèmes suivants sont encore présents dans le fichier d'importation:"
-        done: "Les problèmes suivants sont survenus pendant l'importation:"
+        imported: "Les problèmes suivants sont survenus pendant l'importation:"
     statistics:
       title: Statistiques
       infoSuccess:
         verified: "Les données suivantes peuvent être importées à partir du fichier d'importation:"
         failed: "Les données suivantes peuvent être importées à partir du fichier d'importation:"
-        done: "Les données suivantes ont pu être importées:"
+        imported: "Les données suivantes ont pu être importées:"
       infoFailure:
         verified: Aucune donnée ne peut être importée à partir du fichier d'importation.
         failed: Aucune donnée ne peut être importée à partir du fichier d'importation.
-        done: Aucune donnée n'a pu être importée.
+        imported: Aucune donnée n'a pu être importée.
       dossiers: "{count} Dossiers"
       documents: "{count} Documents"
     status:
       title: État
       description:
         verified: |-
-          Vous avez téléchargé un fichier d'importation valide. Pour effectuer l'importation, veuillez contacter le support.
-        # Vous avez téléchargé un fichier d'importation valide. Si vous souhaitez
-        # que les données soient vous pouvez demander l'autorisation d'importation.
+          Vous avez téléchargé un fichier d'importation valide. Veuillez vérifier les informations
+          sous "Analyse" et "Statistiques". Si vous avez nettoyé toutes les confirmations pertinentes,
+          vous pouvez démarrer l'importation.
         failed: |-
           Vous avez téléchargé un fichier d'importation non valide. Pour corriger
           l'erreur vous devez télécharger un nouveau fichier d'importation.
-        in-progress: L'importation est en cours. Selon le volume, cela peut prendre plusieurs minutes. 
-        done: L'importation a été effectuée avec succès.
+        import-failed: Une erreur est survenue lors de l'importation. Veuillez prendre contact avec le support.
+        in-progress: L'importation est en cours. Selon le volume, cela peut prendre plusieurs minutes.
+        imported: L'importation sur le système de test a été effectuée avec succès.
+        confirmed: L'importation a été validée pour une exécution sur le système de production.
+        transmitting: L'importation est en cours de transfert vers le système de production. Selon le volume, cela peut prendre quelques minutes.
+        transmitted: L'importation a été transférée au système de production.
       draftHintBold: "Attention:"
       draftHintDescription: |-
         Les importations ayant le statut de "projet" sont
         automatiquement supprimées après 10 jours!
+      technicalDetails: Détails techniques
     actions:
       title: Actions
       startImport:
@@ -85,6 +94,21 @@ dossierImport:
         buttonLabel: Démarrer l'importation
         success: L'importation a été lancée avec succès.
         error: Quelque chose s'est mal passé lors du lancement de l'importation, veuillez réessayer.
+      confirmImport:
+        title: Confirmer l'importation
+        description: |-
+          Si vous êtes satisfait du résultat de l'importation, vous pouvez la valider pour qu'elle soit
+          exécutée sur le système de production.
+        buttonLabel: Confirmer l'importation
+        success: L'importation a été confirmée avec succès.
+        error: Quelque chose s'est mal passé lors de la confirmation de l'importation, veuillez réessayer.
+      transmitImport:
+        title: Transférer l'importation vers le système de production
+        description: |-
+          Cela permet de transférer l'importation vers le système de production.
+        buttonLabel: Transférer l'importation
+        success: L'importation a été transférée avec succès.
+        error: Quelque chose s'est mal passé lors du transfert de l'importation.
       deleteImport:
         title: Supprimer l'importation
         description: Si vous n'avez plus besoin de l'importation, vous pouvez la supprimer ici.
