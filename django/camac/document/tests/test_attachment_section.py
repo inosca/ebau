@@ -67,6 +67,27 @@ def test_attachment_section_detail(admin_client, attachment_section, role, mocke
     [
         (
             "trusted_service",
+            42,  # Sachbearbeitung und Koordination AFJ
+            12000008,
+            permissions.AdminServicePermission,
+            {12000008: permissions.AdminServicePermission},
+        ),
+        (
+            "trusted_service",
+            102,  # Sachbearbeitung AFJ
+            12000008,
+            permissions.AdminServicePermission,
+            {12000008: permissions.AdminServicePermission},
+        ),
+        (
+            "trusted_service",
+            836,  # KOOR AFJ
+            12000008,
+            permissions.AdminServicePermission,
+            {12000008: permissions.AdminServicePermission},
+        ),
+        (
+            "trusted_service",
             283,  # Lisag
             12000007,
             permissions.AdminServicePermission,
@@ -113,14 +134,14 @@ def test_attachment_section_special_permissions_ur(
     settings,
 ):
     settings.APPLICATION_NAME = "kt_uri"
-    lisag_group = group_factory(pk=group_id, role=role)
+    group = group_factory(pk=group_id, role=role)
 
     mocker.patch(
         "camac.document.permissions.PERMISSIONS",
         {"kt_uri": {role.name.lower(): {permission: [section_id]}}},
     )
 
-    assert permissions.section_permissions(lisag_group) == expected
+    assert permissions.section_permissions(group) == expected
 
 
 @pytest.mark.parametrize(
