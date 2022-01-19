@@ -37,6 +37,7 @@ module.exports = function (environment) {
 
     APPLICATIONS: {
       kt_bern: {
+        prodUrl: "ebau.apps.be.ch",
         gwr: {
           cantonAbbreviation: "BE",
           importModels: ["project"],
@@ -52,6 +53,7 @@ module.exports = function (environment) {
         ],
       },
       kt_schwyz: {
+        prodUrl: "behoerden.ebau-sz.ch",
         gwr: {
           cantonAbbreviation: "SZ",
           importModels: ["project", "building", "dwelling"],
@@ -65,6 +67,7 @@ module.exports = function (environment) {
         },
       },
       kt_uri: {
+        prodUrl: "camac.ur.ch",
         gwr: {
           cantonAbbreviation: "UR",
           importModels: ["project", "building", "dwelling"],
