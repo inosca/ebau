@@ -757,8 +757,12 @@ def ur_instance(instance, caluma_workflow_config_ur, instance_with_case):
 
 @pytest.fixture
 def construction_control_for(service_factory):
+    """Return a function that turns a service into a "Leitbehörde" and create a "Baukontrolle" along with it."""
+
     def wrapper(service):
         service.trans.update(name="Leitbehörde XY")
+        service.service_group.name = "municipality"
+        service.service_group.save()
 
         return service_factory(
             trans__name="Baukontrolle XY", service_group__name="construction-control"
