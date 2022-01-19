@@ -24,7 +24,6 @@ class DossierImportSerializer(serializers.ModelSerializer):
         fields = (
             "created_at",
             "status",
-            "service",
             "group",
             "user",
             "location",
@@ -35,11 +34,11 @@ class DossierImportSerializer(serializers.ModelSerializer):
             "mime_type",
             "dossier_loader_type",
         )
-        read_only_fields = ("id", "created_at", "messages", "service", "status")
+        read_only_fields = ("id", "created_at", "messages", "status")
 
     included_serializers = {
         "user": "camac.user.serializers.UserSerializer",
-        "service": "camac.user.serializers.ServiceSerializer",
+        "group": "camac.user.serializers.GroupSerializer",
         "location": "camac.user.serializers.LocationSerializer",
     }
 
@@ -60,9 +59,6 @@ class DossierImportSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         dossier_import = super().create(validated_data)
         dossier_import.status = dossier_import.IMPORT_STATUS_IMPORT_INPROGRESS
-        dossier_import.service = (
-            validated_data.get("group") and validated_data["group"].service
-        )
         dossier_import.save()
         try:
             return validate_zip_archive_structure(str(dossier_import.pk))

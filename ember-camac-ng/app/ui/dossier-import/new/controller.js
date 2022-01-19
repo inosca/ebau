@@ -42,7 +42,6 @@ export default class DossierImportIndexController extends Controller {
     event.stopPropagation();
 
     const formData = new FormData();
-    formData.append("user", this.shoebox.content.userId);
     formData.append("group", this.shoebox.content.groupId);
 
     // Locations only available (and necessary) for Kt. SZ

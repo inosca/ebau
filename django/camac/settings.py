@@ -3168,3 +3168,11 @@ Q_CLUSTER = {
     "bulk": 10,
     "orm": "default",
 }
+
+DOSSIER_IMPORT_CLIENT_ID = env.str(
+    "DJANGO_DOSSIER_IMPORT_CLIENT_ID", default="dossier-import"
+)
+DOSSIER_IMPORT_CLIENT_SECRET = env.str(
+    "DJANGO_DOSSIER_IMPORT_CLIENT_SECRET",
+    default=default("KlYAayhG99lMGIUGKXhm9ha7lUNqQuD4"),
+)
