@@ -24,7 +24,10 @@ export default class InstancesEditWorkItemsIndexController extends Controller {
 
     yield this.workItemsQuery.fetch({
       filter: [...filter],
-      order: [{ attribute: "DEADLINE", direction: "ASC" }],
+      order: [
+        { attribute: "STATUS", direction: "DESC" },
+        { attribute: "DEADLINE", direction: "DESC" },
+      ],
     });
   }
 }
