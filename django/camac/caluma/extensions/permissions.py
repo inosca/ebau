@@ -47,6 +47,8 @@ def is_created_by_service(work_item, service_id):
 
 
 def is_addressed_to_applicant(work_item):
+    if settings.APPLICATION_NAME == "kt_schwyz":
+        return "applicant" in work_item.addressed_groups
     return len(work_item.addressed_groups) == 0
 
 
