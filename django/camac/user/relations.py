@@ -1,11 +1,11 @@
 from django.contrib.auth import get_user_model
-from django.contrib.auth.models import AnonymousUser
 from django.db.models import Q
 from rest_framework_json_api.relations import ResourceRelatedField
 from rest_framework_json_api.serializers import CurrentUserDefault
 
 from camac.relations import FormDataResourceRelatedField
 from camac.user.models import Group, Service
+from camac.user.permissions import permission_aware
 
 
 class CurrentUserDefault(CurrentUserDefault):
@@ -42,13 +42,18 @@ class CurrentUserFormDataResourceRelatedField(
 class GroupResourceRelatedField(ResourceRelatedField):
     """Group resource related field restricting groups to user groups."""
 
+    @permission_aware
     def get_queryset(self):
         request = self.context.get("request")
-        if isinstance(request.user, AnonymousUser):
-            return Group.objects.none()
         return Group.objects.filter(
             Q(pk__in=request.user.groups.values("pk")) | Q(pk=request.group.pk)
         )
+
+    def get_queryset_for_public(self):
+        return Group.objects.none()
+
+    def get_queryset_for_support(self):
+        return Group.objects.all()
 
 
 class ServiceResourceRelatedField(GroupResourceRelatedField):

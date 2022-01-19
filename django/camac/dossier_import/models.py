@@ -27,17 +27,25 @@ class DossierImport(UUIDModel):
     """
 
     IMPORT_STATUS_NEW = "new"
-    IMPORT_STATUS_DONE = "done"
     IMPORT_STATUS_VALIDATION_SUCCESSFUL = "verified"
     IMPORT_STATUS_VALIDATION_FAILED = "failed"
     IMPORT_STATUS_IMPORT_INPROGRESS = "in-progress"
+    IMPORT_STATUS_IMPORTED = "imported"
+    IMPORT_STATUS_IMPORT_FAILED = "import-failed"
+    IMPORT_STATUS_CONFIRMED = "confirmed"
+    IMPORT_STATUS_TRANSMITTING = "transmitting"
+    IMPORT_STATUS_TRANSMITTED = "transmitted"
+    IMPORT_STATUS_TRANSMISSION_FAILED = "transmission-failed"
 
     IMPORT_STATUS_CHOICES = (
-        (IMPORT_STATUS_DONE, IMPORT_STATUS_DONE),
         (IMPORT_STATUS_NEW, IMPORT_STATUS_NEW),
         (IMPORT_STATUS_IMPORT_INPROGRESS, IMPORT_STATUS_IMPORT_INPROGRESS),
         (IMPORT_STATUS_VALIDATION_SUCCESSFUL, IMPORT_STATUS_VALIDATION_SUCCESSFUL),
         (IMPORT_STATUS_VALIDATION_FAILED, IMPORT_STATUS_VALIDATION_FAILED),
+        (IMPORT_STATUS_IMPORTED, IMPORT_STATUS_IMPORTED),
+        (IMPORT_STATUS_CONFIRMED, IMPORT_STATUS_CONFIRMED),
+        (IMPORT_STATUS_TRANSMITTING, IMPORT_STATUS_TRANSMITTING),
+        (IMPORT_STATUS_TRANSMITTED, IMPORT_STATUS_TRANSMITTED),
     )
 
     DOSSIER_LOADER_ZIP_ARCHIVE_XLSX = "zip-archive-xlsx"
@@ -68,9 +76,6 @@ class DossierImport(UUIDModel):
         related_name="dossier_imports",
         null=True,
         blank=True,
-    )
-    service = models.ForeignKey(
-        "user.Service", models.DO_NOTHING, related_name="+", null=True, blank=True
     )
     location = models.ForeignKey(
         "user.Location", models.DO_NOTHING, related_name="+", null=True, blank=True

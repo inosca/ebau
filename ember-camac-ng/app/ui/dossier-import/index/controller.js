@@ -3,17 +3,23 @@ import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { dropTask, lastValue } from "ember-concurrency-decorators";
 
+import isProd from "camac-ng/utils/is-prod";
+
 export default class DossierImportIndexController extends Controller {
   @service intl;
   @service notifications;
   @service store;
+
+  get isProd() {
+    return isProd();
+  }
 
   @lastValue("fetchImports") imports;
   @dropTask
   *fetchImports() {
     try {
       return yield this.store.query("dossier-import", {
-        include: "user",
+        include: "user,group",
         page: {
           size: 10,
         },

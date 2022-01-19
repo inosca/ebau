@@ -114047,6 +114047,14 @@
   },
   {
     "model": "core.rroleacl",
+    "pk": 2000001,
+    "fields": {
+      "resource": 2000000,
+      "role": 10000
+    }
+  },
+  {
+    "model": "core.rroleacl",
     "pk": 15000000,
     "fields": {
       "resource": 15000000,
@@ -114607,6 +114615,16 @@
       "resource": 2000000,
       "language": "de",
       "name": "Dossierimport",
+      "description": null
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 2000001,
+    "fields": {
+      "resource": 2000000,
+      "language": "fr",
+      "name": "Importation de dossiers",
       "description": null
     }
   },

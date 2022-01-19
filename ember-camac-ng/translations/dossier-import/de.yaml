@@ -28,8 +28,12 @@ dossierImport:
       in-progress: In Bearbeitung
       verified: Entwurf (Validierung erfolgreich)
       failed: Entwurf (Validierung fehlgeschlagen)
+      import-failed: Import fehlgeschlagen
       new: Neu
-      done: Abgeschlossen
+      imported: Auf Testsystem importiert
+      confirmed: Bestätigt
+      transmitting: Wird an Produktionssystem übertragen
+      transmitted: An Produktionssystem übertragen
     newImportLink: Neuer Import
   detail:
     title: "Details zum Import vom {creationDate} ({user})"
@@ -40,40 +44,43 @@ dossierImport:
       status:
         verified: Die Struktur ist korrekt
         failed: Die Struktur ist fehlerhaft
-        in-progres: Der Import wurde gestartet
-        done: Der Import wurde abgeschlossen
-      issuesInfo: 
+        in-progress: Der Import wurde gestartet
+        imported: Der Import auf dem Testsystem wurde abgeschlossen
+      issuesInfo:
         verified: "Die folgenden Probleme sind noch in der Import-Datei vorhanden:"
         failed: "Die folgenden Probleme sind noch in der Import-Datei vorhanden:"
-        done: "Die folgenden Probleme sind während dem Import aufgetreten:" 
+        imported: "Die folgenden Probleme sind während dem Import aufgetreten:"
     statistics:
       title: Statistik
       infoSuccess:
-        verified: "Aus der Import-Datei können folgende Daten importiert werden:" 
+        verified: "Aus der Import-Datei können folgende Daten importiert werden:"
         failed: "Aus der Import-Datei können folgende Daten importiert werden:"
-        done: "Es konnten folgende Daten importiert werden:"
+        imported: "Es konnten folgende Daten importiert werden:"
       infoFailure:
-        verified: Aus der Import-Datei können keine Daten importiert werden. 
+        verified: Aus der Import-Datei können keine Daten importiert werden.
         failed: Aus der Import-Datei können keine Daten importiert werden.
-        done: Es konnten keine Daten importiert werden.
+        imported: Es konnten keine Daten importiert werden.
       dossiers: "{count} Dossiers"
       documents: "{count} Dokumente"
     status:
       title: Status
       description:
         verified: |-
-          Sie haben eine gültige Import-Datei hochgeladen. Um den Import auszuführen, melden Sie sich bitte beim Support.
-        # Sie haben eine gültige Import-Datei hochgeladen. Falls Sie die Daten für den
-        # Import freigeben möchten, können Sie die Freigabe beantragen.
+          Sie haben eine gültige Import-Datei hochgeladen. Bitte prüfen Sie die Informationen unter "Analyse" und "Statistik". Falls Sie alle relevanten Rückmeldungen bereinigt haben, können Sie den Import starten.
         failed: |-
           Sie haben eine ungültige Import-Datei hochgeladen. Um die Fehler zu beheben
           müssen Sie eine neue Import-Datei hochladen.
+        import-failed: Beim Import ist ein Fehler aufgetreten. Bitte nehmen sie mit dem Support Kontakt auf.
         in-progress: Der Import wird gerade ausgeführt. Je nach Umfang kann dies mehrere Minuten dauern.
-        done: Der Import wurde erfolgreich ausgeführt.
+        imported: Der Import auf dem Testsystem wurde erfolgreich ausgeführt.
+        confirmed: Der Import wurde für die Ausführung auf dem Produktionssystem freigegeben.
+        transmitting: Der Import wird gerade an das Produktionssystem übermittelt. Je nach Umfang kann dies wenige Minuten dauern.
+        transmitted: Der Import wurde auf das Produktionssystem übermittelt.
       draftHintBold: "Achtung:"
       draftHintDescription: |-
         Imports im Status "Entwurf" werden nach 10 Tagen
         automatisch gelöscht!
+      technicalDetails: Technische Details
     actions:
       title: Aktionen
       startImport:
@@ -84,6 +91,21 @@ dossierImport:
         buttonLabel: Import starten
         success: Der Import wurde erfolgreich gestartet.
         error: Beim Starten des Imports ist etwas schiefgegangen, bitte versuchen Sie es erneut.
+      confirmImport:
+        title: Import bestätigen
+        description: |-
+          Wenn Sie mit dem Ergebnis des Imports zufrieden sind, können sie ihn hiermit
+          zur Ausführung auf dem Produktionssystem freigeben.
+        buttonLabel: Import bestätigen
+        success: Der Import wurde erfolgreich bestätigt.
+        error: Beim Bestätigen des Imports ist etwas schiefgegangen, bitte versuchen Sie es erneut.
+      transmitImport:
+        title: Import auf Produktionssystem übertragen
+        description: |-
+          Hiermit kann der Import auf das Produktionssystem übertragen werden.
+        buttonLabel: Import übertragen
+        success: Der Import wurde erfolgreich übertragen.
+        error: Beim Übertragen des Imports ist etwas schiefgegangen.
       deleteImport:
         title: Import löschen
         description: Falls Sie den Import nicht mehr benötigen, können Sie ihn hier löschen.
