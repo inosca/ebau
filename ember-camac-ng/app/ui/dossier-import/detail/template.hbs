@@ -9,7 +9,7 @@
     {{t
       "dossierImport.detail.title"
       creationDate=(moment-format this.import.createdAt "DD.MM.YYYY HH:mm")
-      user=this.import.user.fullName
+      user=(if this.isProd this.import.group.name this.import.user.fullName)
     }}
   </h3>
   {{#if (or this.isValidated this.isImported)}}
@@ -107,9 +107,15 @@
           </span>
         </div>
       {{/if}}
+      {{#if (eq this.import.status "import-failed")}}
+        <details class="uk-margin-small-top">
+          <summary>{{t "dossierImport.detail.status.technicalDetails"}}</summary>
+          <pre class="uk-margin-remove-top">{{this.import.messages.import.exception}}</pre>
+        </details>
+      {{/if}}
     </div>
   </DossierImportDetailBlock>
-  {{#if (or (can "start dossier-import" this.import) (can "delete dossier-import" this.import))}}
+  {{#if (can "do something to dossier-import" this.import)}}
     <DossierImportDetailBlock @title={{t "dossierImport.detail.actions.title"}}>
       <div>
         {{#if (can "start dossier-import" this.import)}}
@@ -122,6 +128,32 @@
             }}
             @buttonLabel={{t
               "dossierImport.detail.actions.startImport.buttonLabel"
+            }}
+          />
+        {{/if}}
+        {{#if (can "confirm dossier-import" this.import)}}
+          <DossierImportAction
+            @actionName="confirmImport"
+            @task={{this.confirmImport}}
+            @title={{t "dossierImport.detail.actions.confirmImport.title"}}
+            @description={{t
+              "dossierImport.detail.actions.confirmImport.description"
+            }}
+            @buttonLabel={{t
+              "dossierImport.detail.actions.confirmImport.buttonLabel"
+            }}
+          />
+        {{/if}}
+        {{#if (can "transmit dossier-import" this.import)}}
+          <DossierImportAction
+            @actionName="transmitImport"
+            @task={{this.transmitImport}}
+            @title={{t "dossierImport.detail.actions.transmitImport.title"}}
+            @description={{t
+              "dossierImport.detail.actions.transmitImport.description"
+            }}
+            @buttonLabel={{t
+              "dossierImport.detail.actions.transmitImport.buttonLabel"
             }}
           />
         {{/if}}
