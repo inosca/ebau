@@ -4,7 +4,7 @@ from django.conf import settings
 from django.core.files import File
 from django.core.management.base import BaseCommand, CommandError
 
-from camac.dossier_import.importing import perform_import
+from camac.dossier_import.domain_logic import perform_import
 from camac.dossier_import.models import DossierImport
 from camac.dossier_import.validation import validate_zip_archive_structure
 from camac.user.models import Group
@@ -43,7 +43,7 @@ class Command(BaseCommand):
             "--group_id",
             type=int,
             nargs=1,
-            help="The Service ID is required to assign the import to the original entity.",
+            help="The group ID is required to assign the import to the original entity.",
         )
         parser_from_archive.add_argument(
             "--location_id",
@@ -88,7 +88,6 @@ class Command(BaseCommand):
                 user_id=user_id,
                 location_id=location_id,
                 group=group,
-                service=group.service,
                 source_file=file_content,
             )
 

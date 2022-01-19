@@ -5,17 +5,22 @@ from pytest_lazyfixture import lazy_fixture
 from rest_framework import status
 from rest_framework.reverse import reverse
 
+from camac.utils import build_url
+
+from ..domain_logic import transmit_import
 from ..models import DossierImport
 from .test_dossier_import_case import TEST_IMPORT_FILE_NAME
 
 
 @pytest.mark.parametrize(
-    "config,role__name,result_count",
+    "config,host,role__name,result_count",
     [
-        ("kt_bern", "municipality-lead", 1),
-        ("kt_schwyz", "Gemeinde", 1),
-        ("kt_schwyz", "Support", 2),
-        ("kt_schwyz", "Applicant", 0),
+        ("kt_bern", "ebau-test.sycloud.ch", "municipality-lead", 1),
+        ("kt_bern", "ebau.apps.be.ch", "municipality-lead", 0),
+        ("kt_schwyz", "camac-schwyz.sycloud.ch", "Gemeinde", 1),
+        ("kt_schwyz", "ebau-sz.ch", "Gemeinde", 0),
+        ("kt_schwyz", "camac-schwyz.sycloud.ch", "Support", 2),
+        ("kt_schwyz", "camac-schwyz.sycloud.ch", "Applicant", 0),
     ],
 )
 def test_api_get_views(
@@ -25,16 +30,17 @@ def test_api_get_views(
     admin_client,
     service,
     config,
+    host,
     group_factory,
     role,
     archive_file,
     result_count,
 ):
     settings.APPLICATION = settings.APPLICATIONS[config]
+    settings.INTERNAL_BASE_URL = host
     group = group_factory(role=role, service=service)
     dossier_import_factory(
         group=group,
-        service=group.service,
         source_file=archive_file(TEST_IMPORT_FILE_NAME),
         mime_type=mimetypes.types_map[".zip"],
     )
@@ -211,49 +217,136 @@ def test_file_validation(
 
 @pytest.mark.freeze_time("2021-12-12")
 @pytest.mark.parametrize(
-    "config,role__name,camac_instance",
+    "config,camac_instance",
     [
-        ("kt_bern", "support", lazy_fixture("be_instance")),
-        ("kt_schwyz", "Support", lazy_fixture("sz_instance")),
+        ("kt_bern", lazy_fixture("be_instance")),
+        # ("kt_schwyz", "Support", lazy_fixture("sz_instance")),
     ],
 )
 @pytest.mark.parametrize(
-    "file_name,archive_is_valid,expected_status",
+    "action,role__name,status_before,expected_response_code,status_after",
     [
-        ("import-example.zip", True, status.HTTP_200_OK),
-        ("import-example.zip", False, status.HTTP_400_BAD_REQUEST),
+        (
+            "start",
+            "municipality-lead",
+            DossierImport.IMPORT_STATUS_VALIDATION_SUCCESSFUL,
+            status.HTTP_200_OK,
+            DossierImport.IMPORT_STATUS_IMPORT_INPROGRESS,
+        ),
+        (
+            "start",
+            "municipality-lead",
+            DossierImport.IMPORT_STATUS_VALIDATION_FAILED,
+            status.HTTP_400_BAD_REQUEST,
+            None,
+        ),
+        (
+            "confirm",
+            "municipality-lead",
+            DossierImport.IMPORT_STATUS_IMPORTED,
+            status.HTTP_200_OK,
+            DossierImport.IMPORT_STATUS_CONFIRMED,
+        ),
+        (
+            "confirm",
+            "municipality-lead",
+            DossierImport.IMPORT_STATUS_VALIDATION_SUCCESSFUL,
+            status.HTTP_400_BAD_REQUEST,
+            None,
+        ),
+        (
+            "transmit",
+            "support",
+            DossierImport.IMPORT_STATUS_CONFIRMED,
+            status.HTTP_200_OK,
+            DossierImport.IMPORT_STATUS_TRANSMITTING,
+        ),
+        (
+            "transmit",
+            "municipality-lead",
+            DossierImport.IMPORT_STATUS_CONFIRMED,
+            status.HTTP_403_FORBIDDEN,
+            None,
+        ),
+        (
+            "transmit",
+            "support",
+            DossierImport.IMPORT_STATUS_IMPORTED,
+            status.HTTP_400_BAD_REQUEST,
+            None,
+        ),
     ],
 )
-def test_importing(
+def test_state_transitions(
     db,
     admin_client,
-    group,
     admin_user,
     location,
     settings,
     archive_file,
-    file_name,
     dossier_import_factory,
     setup_fixtures_required_by_application_config,
     make_workflow_items_for_config,
     config,
     camac_instance,
-    archive_is_valid,
-    expected_status,
+    action,
+    status_before,
+    expected_response_code,
+    status_after,
 ):
     make_workflow_items_for_config(config)
     setup_fixtures_required_by_application_config(config)
     settings.APPLICATION = settings.APPLICATIONS[config]
-    settings.Q_CLUSTER["sync"] = True
+    # settings.Q_CLUSTER["sync"] = True  # doesn't work, unfortunately
+
     dossier_import = dossier_import_factory(
-        status=DossierImport.IMPORT_STATUS_VALIDATION_SUCCESSFUL
-        if archive_is_valid
-        else DossierImport.IMPORT_STATUS_VALIDATION_FAILED,
-        source_file=archive_file(file_name),
+        status=status_before,
+        source_file=archive_file("import-example.zip"),
+        group=admin_client.user.groups.first(),
     )
 
-    resp = admin_client.post(reverse("dossier-import-start", args=(dossier_import.pk,)))
-    assert resp.status_code == expected_status
-    dossier_import.refresh_from_db()
-    if archive_is_valid:
-        assert dossier_import.task_id == resp.data["task_id"]
+    resp = admin_client.post(
+        reverse(f"dossier-import-{action}", args=(dossier_import.pk,))
+    )
+    assert resp.status_code == expected_response_code
+    if expected_response_code == status.HTTP_200_OK:
+        dossier_import.refresh_from_db()
+        assert dossier_import.status == status_after
+
+
+def test_transmitting_logic(
+    db, dossier_import_factory, archive_file, group, settings, requests_mock
+):
+    settings.APPLICATION = settings.APPLICATIONS["kt_bern"]
+    settings.KEYCLOAK_OIDC_TOKEN_URL = (
+        "http://camac-ng-keycloak.local/auth/realms/ebau/protocol/openid-connect/token"
+    )
+
+    # set a real group ID - useful for testing without the mock
+    group.pk = 22507  # Administration Leitbehörde Burgdorf
+    group.save()
+
+    # disabling the mocks will upload the file to the local dev env - useful for more realistic resting!
+    requests_mock.register_uri(
+        "POST", settings.KEYCLOAK_OIDC_TOKEN_URL, json={"access_token": "hello123"}
+    )
+    requests_mock.register_uri(
+        "POST",
+        build_url(settings.INTERNAL_BASE_URL, "/api/v1/dossier-imports"),
+        json={
+            "data": {
+                "type": "dossier-imports",
+                "id": "031562b0-aec8-4372-b1e6-c7ac909a6287",
+                "attributes": {},
+                "relationships": {},
+            }
+        },
+    )
+
+    # Call domain logic directly, this can be removed once sync calls in Q cluster work
+    dossier_import = dossier_import_factory(
+        status=DossierImport.IMPORT_STATUS_CONFIRMED,
+        source_file=archive_file("import-example-no-errors.zip"),
+        group=group,
+    )
+    transmit_import(dossier_import)

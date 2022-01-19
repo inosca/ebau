@@ -8,6 +8,8 @@ import {
   lastValue,
 } from "ember-concurrency-decorators";
 
+import isProd from "camac-ng/utils/is-prod";
+
 export default class DossierImportDetailController extends Controller {
   @service intl;
   @service notifications;
@@ -27,6 +29,7 @@ export default class DossierImportDetailController extends Controller {
         reload: true,
       });
     } catch (e) {
+      console.error(e);
       this.notifications.error(
         this.intl.t("dossierImport.detail.fetchImportError")
       );
@@ -46,6 +49,7 @@ export default class DossierImportDetailController extends Controller {
       );
       this.router.transitionTo("dossier-import.index");
     } catch (e) {
+      console.error(e);
       this.notifications.error(
         this.intl.t("dossierImport.detail.actions.deleteImport.error")
       );
@@ -68,8 +72,51 @@ export default class DossierImportDetailController extends Controller {
 
       this.refresh.perform();
     } catch (e) {
+      console.error(e);
       this.notifications.error(
         this.intl.t("dossierImport.detail.actions.startImport.error")
+      );
+    }
+  }
+
+  @dropTask
+  *confirmImport() {
+    try {
+      this.notifications.clear();
+
+      yield this.import.confirm();
+
+      yield this.fetchImport.perform();
+
+      this.notifications.success(
+        this.intl.t("dossierImport.detail.actions.confirmImport.success")
+      );
+    } catch (e) {
+      console.error(e);
+      this.notifications.error(
+        this.intl.t("dossierImport.detail.actions.confirmImport.error")
+      );
+    }
+  }
+
+  @dropTask
+  *transmitImport() {
+    try {
+      this.notifications.clear();
+
+      yield this.import.transmit();
+
+      yield this.fetchImport.perform();
+
+      this.notifications.success(
+        this.intl.t("dossierImport.detail.actions.transmitImport.success")
+      );
+
+      this.refresh.perform();
+    } catch (e) {
+      console.error(e);
+      this.notifications.error(
+        this.intl.t("dossierImport.detail.actions.transmitImport.error")
       );
     }
   }
@@ -80,7 +127,7 @@ export default class DossierImportDetailController extends Controller {
     // isn't awaited in setupController
     yield waitForProperty(this.fetchImport, "isRunning", false);
 
-    while (this.import?.status === "in-progress") {
+    while (["in-progress", "transmitting"].includes(this.import?.status)) {
       yield timeout(5000);
       yield this.fetchImport.perform();
     }
@@ -102,6 +149,10 @@ export default class DossierImportDetailController extends Controller {
   }
 
   get isImported() {
-    return this.import?.status === "done";
+    return this.import?.status === "imported";
+  }
+
+  get isProd() {
+    return isProd();
   }
 }
