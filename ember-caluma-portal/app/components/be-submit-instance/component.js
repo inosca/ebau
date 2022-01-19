@@ -1,10 +1,8 @@
 import { assert } from "@ember/debug";
-import { computed } from "@ember/object";
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { queryManager } from "ember-apollo-client";
-import { dropTask, restartableTask } from "ember-concurrency-decorators";
-import { all } from "rsvp";
+import { dropTask } from "ember-concurrency-decorators";
 
 export default class BeSubmitInstanceComponent extends Component {
   @service intl;
@@ -14,34 +12,9 @@ export default class BeSubmitInstanceComponent extends Component {
 
   @queryManager apollo;
 
-  @computed(
-    "args.field.document.fields",
-    "args.field.document.fields.@each.{hidden,isInvalid,optional}"
-  )
   get invalidFields() {
     return this.args.field.document.fields.filter(
       (field) => !field.hidden && !field.optional && field.isInvalid
-    );
-  }
-
-  @restartableTask
-  *validate() {
-    yield all(
-      this.args.field.document.fields.map((field) => field.validate.perform())
-    );
-  }
-
-  @computed(
-    "disabled",
-    "validate.{performCount,isRunning}",
-    "invalidFields.length"
-  )
-  get buttonDisabled() {
-    return (
-      this.disabled ||
-      this.validate.performCount === 0 ||
-      this.validate.isRunning ||
-      this.invalidFields.length > 0
     );
   }
 
@@ -49,12 +22,12 @@ export default class BeSubmitInstanceComponent extends Component {
   *submit() {
     // mark instance as submitted (optimistic) because after submitting, answer cannot be saved anymore
     this.args.field.answer.value =
-      this.args.field.question.multipleChoiceOptions.edges[0].node.slug;
+      this.args.field.question.raw.multipleChoiceOptions.edges[0].node.slug;
     yield this.args.field.save.perform();
 
     try {
       const instanceId = this.args.context.instanceId;
-      const action = this.args.field.question.meta.action;
+      const action = this.args.field.question.raw.meta.action;
 
       assert("Field must have a meta property `action`", action);
 

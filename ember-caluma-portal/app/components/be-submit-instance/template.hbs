@@ -4,21 +4,22 @@
   <ul class="uk-list uk-list-bullet">
     {{#each this.invalidFields as |invalidField|}}
       <li>
-        <LinkTo @query={{hash displayedForm=invalidField.fieldset.form.slug}}>{{invalidField.question.label}}</LinkTo>
+        <LinkTo @query={{hash displayedForm=invalidField.fieldset.form.slug}}>{{invalidField.question.raw.label}}</LinkTo>
       </li>
     {{/each}}
   </ul>
 {{/if}}
 
-<UkButton
-  @color="primary"
-  @disabled={{this.buttonDisabled}}
-  @label={{@field.question.label}}
-  @loading={{this.submit.isRunning}}
-  @on-click={{perform this.submit}}
-  {{in-viewport onEnter=(perform this.validate)}}
-/>
+<DocumentValidity @document={{@field.document}} @validateOnEnter={{true}} as |isValid|>
+  <UkButton
+    @color="primary"
+    @disabled={{or @disabled (not isValid) this.submit.isRunning}}
+    @label={{@field.question.raw.label}}
+    @loading={{this.submit.isRunning}}
+    @on-click={{perform this.submit}}
+  />
 
-{{#if this.submit.isRunning}}
-  <span class="uk-text-muted uk-margin-small-left uk-animation-fade">{{t "be-submit-instance.loading"}}</span>
-{{/if}}
+  {{#if this.submit.isRunning}}
+    <span class="uk-text-muted uk-margin-small-left uk-animation-fade">{{t "be-submit-instance.loading"}}</span>
+  {{/if}}
+</DocumentValidity>
