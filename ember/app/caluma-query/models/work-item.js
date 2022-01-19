@@ -8,7 +8,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
   @queryManager apollo;
   @service notification;
 
-  @dropTask()
+  @dropTask
   *completeWorkItem() {
     try {
       yield this.apollo.mutate({
