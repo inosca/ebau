@@ -17,4 +17,14 @@ export default class DossierImportModel extends Model {
     const adapter = this.store.adapterFor("dossier-import");
     return adapter.start(this);
   }
+
+  confirm() {
+    const adapter = this.store.adapterFor("dossier-import");
+    return adapter.confirm(this);
+  }
+
+  transmit() {
+    const adapter = this.store.adapterFor("dossier-import");
+    return adapter.transmit(this);
+  }
 }

@@ -28,7 +28,7 @@ class Command(BaseCommand):
             "--group_id",
             type=int,
             nargs=1,
-            help="The Service ID is required to assign the import to the original entity.",
+            help="The group ID is required to assign the import to the original entity.",
         )
         parser.add_argument(
             "--location_id",
@@ -60,7 +60,6 @@ class Command(BaseCommand):
             user_id=options["user_id"][0],
             location_id=options["location_id"][0],
             group=group,
-            service=group.service,
             source_file=file_content,
         )
         if verbosity > 2:  # pragma: no cover

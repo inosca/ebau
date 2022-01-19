@@ -53,7 +53,11 @@
               @model={{import.id}}
               class="uk-link uk-link-reset"
             >
-              {{import.user.fullName}}
+              {{#if this.isProd}}
+                {{import.group.name}}
+              {{else}}
+                {{import.user.fullName}}
+              {{/if}}
             </LinkTo>
           </td>
           <td class="uk-table-link">
