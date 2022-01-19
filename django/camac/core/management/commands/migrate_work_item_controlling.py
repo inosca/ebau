@@ -21,7 +21,10 @@ class Command(BaseCommand):
         sid = transaction.savepoint()
 
         work_items = WorkItem.objects.filter(
-            controlling_groups=[], status=WorkItem.STATUS_READY, deadline__isnull=False
+            controlling_groups=[],
+            status=WorkItem.STATUS_READY,
+            deadline__isnull=False,
+            task__control_groups__isnull=False,
         )
 
         for i, work_item in enumerate(work_items, start=1):
