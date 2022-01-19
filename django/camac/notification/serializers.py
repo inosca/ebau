@@ -1,3 +1,4 @@
+import re
 from collections import namedtuple
 from datetime import date, timedelta
 from html import escape
@@ -515,7 +516,8 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         ret = super().to_representation(instance)
 
         for field in instance.fields.all():
-            name = inflection.underscore("field-" + field.name)
+            # remove versioning (-v3) from question names so the placeholders are backwards compatible
+            name = inflection.underscore("field-" + re.sub("(-v\d+$)", "", field.name))
             value = field.value
 
             if (
