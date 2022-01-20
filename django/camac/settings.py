@@ -524,6 +524,13 @@ APPLICATIONS = {
             "ATTACHMENT_SECTION_ID": 7,  # attachmentsection for imported documents
             "LOCATION_REQUIRED": True,  # this is a workaround to account for differing validation requirements per config
             "TRANSFORM_COORDINATE_SYSTEM": "epsg:4326",  # use world wide coordinates instead of swiss ones
+            "PROD_URL": env.str(
+                "DJANGO_DOSSIER_IMPORT_PROD_URL", "https://ebau-sz.ch/"
+            ),
+            "PROD_AUTH_URL": env.str(
+                "DJANGO_DOSSIER_IMPORT_PROD_AUTH_URL",
+                "https://ebau-sz.ch/auth/realms/ebau/protocol/openid-connect/token",
+            ),
         },
         "MASTER_DATA": {
             "canton": ("static", "SZ"),
@@ -1775,6 +1782,14 @@ APPLICATIONS = {
             "CALUMA_FORM": "migriertes-dossier",
             "FORM_ID": 1,
             "ATTACHMENT_SECTION_ID": 4,  # Internal
+            "PROD_URL": env.str(
+                "DJANGO_DOSSIER_IMPORT_PROD_URL",
+                "https://ebau.apps.be.ch/",
+            ),
+            "PROD_AUTH_URL": env.str(
+                "DJANGO_DOSSIER_IMPORT_PROD_AUTH_URL",
+                "https://sso.be.ch/auth/realms/ebau/protocol/openid-connect/token",
+            ),
         },
         "MASTER_DATA": {
             "canton": ("static", "BE"),
@@ -3174,5 +3189,5 @@ DOSSIER_IMPORT_CLIENT_ID = env.str(
 )
 DOSSIER_IMPORT_CLIENT_SECRET = env.str(
     "DJANGO_DOSSIER_IMPORT_CLIENT_SECRET",
-    default=default("KlYAayhG99lMGIUGKXhm9ha7lUNqQuD4"),
+    default="KlYAayhG99lMGIUGKXhm9ha7lUNqQuD4",
 )
