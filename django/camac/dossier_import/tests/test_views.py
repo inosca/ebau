@@ -318,9 +318,10 @@ def test_transmitting_logic(
     db, dossier_import_factory, archive_file, group, settings, requests_mock
 ):
     settings.APPLICATION = settings.APPLICATIONS["kt_bern"]
-    settings.KEYCLOAK_OIDC_TOKEN_URL = (
-        "http://camac-ng-keycloak.local/auth/realms/ebau/protocol/openid-connect/token"
-    )
+    settings.APPLICATION["DOSSIER_IMPORT"]["PROD_URL"] = "http://camac-ng.local"
+    settings.APPLICATION["DOSSIER_IMPORT"][
+        "PROD_AUTH_URL"
+    ] = "http://camac-ng-keycloak.local/auth/realms/ebau/protocol/openid-connect/token"
 
     # set a real group ID - useful for testing without the mock
     group.pk = 22507  # Administration Leitbehörde Burgdorf

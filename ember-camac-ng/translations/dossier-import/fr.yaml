@@ -34,6 +34,7 @@ dossierImport:
       confirmed: Confirmé
       transmitting: Transfert au système de production en cours
       transmitted: Transférée au système de production
+      transmission-failed: Échec de la transmission au système de production
     newImportLink: Nouvelle importation
   detail:
     title: "Détails de l'importation du {creationDate} ({user})"
@@ -78,6 +79,7 @@ dossierImport:
         confirmed: L'importation a été validée pour une exécution sur le système de production.
         transmitting: L'importation est en cours de transfert vers le système de production. Selon le volume, cela peut prendre quelques minutes.
         transmitted: L'importation a été transférée au système de production.
+        transmission-failed: Une erreur est survenue lors de la transmission vers le système de production.
       draftHintBold: "Attention:"
       draftHintDescription: |-
         Les importations ayant le statut de "projet" sont
