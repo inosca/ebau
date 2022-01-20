@@ -109,7 +109,7 @@ module("Unit | Validations | questions", function (hooks) {
   });
 
   test("it validates table fields correctly", function (assert) {
-    assert.expect(4);
+    assert.expect(5);
 
     // incorrect value
     let columns = [
@@ -258,5 +258,18 @@ module("Unit | Validations | questions", function (hooks) {
     ];
 
     assert.deepEqual(validateTable({ columns }, value), true);
+
+    // no table answer
+    columns = [
+      {
+        name: "f1",
+        label: "field 1",
+        required: true,
+        type: "number",
+        config: {},
+      },
+    ];
+
+    assert.deepEqual(validateTable({ columns }, undefined), true);
   });
 });

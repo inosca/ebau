@@ -83,6 +83,10 @@ const validateRadio = ({ options }, value) => {
 };
 
 const validateTable = ({ columns }, value) => {
+  if (isBlank(value)) {
+    return true;
+  }
+
   // check validity for all defined table columns
   const result = columns.flatMap((column) => {
     const { name, type, required = false, config = {} } = column;
