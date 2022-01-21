@@ -221,10 +221,30 @@ def test_set_workflow_state_exceptions(
     [
         # based on existing ebau-number and service access resulting ebau-number differs
         ({"STATUS": "SUBMITTED", "CANTONAL-ID": None}, "dossier_number"),  # None
-        ({"STATUS": "APPROVED", "CANTONAL-ID": None}, "dossier_number"),  # 2017-1
-        ({"STATUS": "DONE", "CANTONAL-ID": None}, "dossier_number"),  # 2017-1
-        ({"CANTONAL-ID": "2020-1"}, "dossier_number"),  # 2020-1
-        ({"CANTONAL-ID": "2020-2"}, "dossier_number"),  # 2017-1
+        (
+            {
+                "STATUS": "APPROVED",
+                "CANTONAL-ID": None,
+            },
+            "dossier_number",
+        ),  # 2017-1
+        (
+            {
+                "STATUS": "DONE",
+                "CANTONAL-ID": None,
+            },
+            "dossier_number",
+        ),  # 2017-1
+        (
+            {"CANTONAL-ID": "2020-1"},
+            "dossier_number",
+        ),  # 2020-1
+        (
+            {
+                "CANTONAL-ID": "2020-2",
+            },
+            "dossier_number",
+        ),  # 2017-1
         (
             {
                 "COORDINATE-E": "2`710`662",
