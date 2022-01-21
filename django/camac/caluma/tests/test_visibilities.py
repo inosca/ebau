@@ -6,7 +6,7 @@ from caluma.caluma_form import (
     factories as caluma_form_factories,
     models as caluma_form_models,
 )
-from caluma.caluma_user.models import AnonymousUser
+from caluma.caluma_user.models import AnonymousUser, OIDCUser
 from caluma.caluma_workflow import (
     api as workflow_api,
     factories as caluma_workflow_factories,
@@ -14,6 +14,8 @@ from caluma.caluma_workflow import (
 )
 from caluma.schema import schema
 from django.utils import timezone
+
+from camac.caluma.extensions.visibilities import CustomVisibility, CustomVisibilitySZ
 
 
 @pytest.mark.parametrize(
@@ -338,3 +340,116 @@ def test_public_document_visibility(
 
     assert len(result.data["allDocuments"]["edges"]) == 2
     assert len(result.data["allDocuments"]["edges"][1]["node"]["answers"]["edges"]) == 2
+
+
+@pytest.mark.parametrize(
+    "role_id,role_name,service_id,expected_form_count_public,expected_form_count_sz",
+    [
+        # Kt. SZ specific roles
+        (1, "Admin", 1, 6, 4),
+        (2, "Guest", 2, 6, 2),
+        (3, "Gemeinde", 3, 6, 4),
+        (4, "Portal", 4, 6, 1),
+        (5, "Fachstelle", 5, 6, 2),
+        (6, "Kanton", 6, 6, 3),
+        (7, "Fachstelle Sachbearbeiter", 7, 6, 3),
+        (8, "Gemeinde Sachbearbeiter", 8, 6, 3),
+        (9, "Publikation", 9, 6, 1),
+        (10, "Lesezugriff", 10, 6, 2),
+        (11, "Fachstelle Leitbehörde", 11, 6, 3),
+        (12, "Support", 12, 6, 3),
+    ],
+)
+def test_form_visibility_sz(
+    db,
+    rf,
+    role_id,
+    role_name,
+    service_id,
+    expected_form_count_public,
+    expected_form_count_sz,
+    role,
+    group,
+    token,
+    user,
+    settings,
+    application_settings,
+    role_factory,
+    user_group_factory,
+    group_factory,
+    service_factory,
+    mocker,
+):
+    # Kt. SZ specific public roles configuration
+    application_settings["PUBLIC_ROLES"] = settings.APPLICATIONS["kt_schwyz"][
+        "PUBLIC_ROLES"
+    ]
+    public_roles = {
+        "Publikation": role_factory(name="Publikation", pk=9),
+        "Portal": role_factory(name="Portal", pk=4),
+    }
+    role = (
+        public_roles[role_name]
+        if role_name in application_settings["PUBLIC_ROLES"]
+        else role_factory(name=role_name, pk=role_id)
+    )
+
+    service_factory(pk=service_id)
+    group = group_factory(role=role, service_id=service_id)
+    group.service_id = service_id
+    group.save()
+    user_group_factory(group=group, user=user, default_group=1)
+
+    oidc_user = OIDCUser(
+        token=token,
+        userinfo={
+            settings.OIDC_USERNAME_CLAIM: user.username,
+            settings.OIDC_GROUPS_CLAIM: [group.service_id],
+            "sub": user.username,
+        },
+    )
+
+    caluma_form_factories.FormFactory()
+    caluma_form_factories.FormFactory(meta={"visibility": {"type": "public"}})
+    caluma_form_factories.FormFactory(meta={"visibility": {"type": "internal"}})
+    caluma_form_factories.FormFactory(
+        meta={
+            "visibility": {
+                "type": "specific",
+                "visibleFor": {"roles": [1, 3], "services": [6, 7, 8]},
+            }
+        }
+    )
+    caluma_form_factories.FormFactory(
+        meta={"visibility": {"type": "specific", "visibleFor": {"roles": [1, 3, 11]}}}
+    )
+    caluma_form_factories.FormFactory(
+        meta={"visibility": {"type": "specific", "visibleFor": {"services": [12]}}}
+    ),
+
+    query = """
+        query {
+            allForms {
+                edges {
+                    node {
+                        slug
+                    }
+                }
+            }
+        }
+    """
+
+    request = rf.get("/graphql")
+    request.user = oidc_user
+
+    # public form visibility used in Kt. BE and Kt. UR
+    mocker.patch("caluma.caluma_core.types.Node.visibility_classes", [CustomVisibility])
+    result = schema.execute(query, context_value=request, middleware=[])
+    assert len(result.data["allForms"]["edges"]) == expected_form_count_public
+
+    # configurable form visibility used in Kt. SZ
+    mocker.patch(
+        "caluma.caluma_core.types.Node.visibility_classes", [CustomVisibilitySZ]
+    )
+    result = schema.execute(query, context_value=request, middleware=[])
+    assert len(result.data["allForms"]["edges"]) == expected_form_count_sz

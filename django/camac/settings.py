@@ -271,6 +271,7 @@ APPLICATIONS = {
             "Fachstelle Leitbehörde": "municipality",
             "Support": "support",
         },
+        "PUBLIC_ROLES": ["Publikation", "Portal"],
         "PORTAL_GROUP": 4,
         "NOTIFICATIONS": {
             "SUBMIT": "gesuchseingang",

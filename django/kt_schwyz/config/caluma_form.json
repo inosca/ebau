@@ -11,7 +11,11 @@
       "modified_by_group": null,
       "name": "{\"de\": \"Baugesuch\", \"fr\": null}",
       "description": "{\"de\": null, \"fr\": null}",
-      "meta": {},
+      "meta": {
+        "visibility": {
+          "type": "public"
+        }
+      },
       "is_published": false,
       "is_archived": false,
       "source": null
@@ -29,7 +33,12 @@
       "modified_by_group": null,
       "name": "{\"de\": \"Bauverwaltung\", \"fr\": null}",
       "description": "{\"de\": \"\", \"fr\": null}",
-      "meta": {},
+      "meta": {
+        "visibility": {
+          "type": "internal",
+          "is_system_form": true
+        }
+      },
       "is_published": true,
       "is_archived": false,
       "source": null
@@ -47,7 +56,11 @@
       "modified_by_group": null,
       "name": "{\"de\": \"Baukontrolle\", \"fr\": null}",
       "description": "{\"de\": \"\", \"fr\": null}",
-      "meta": {},
+      "meta": {
+        "visibility": {
+          "type": "public"
+        }
+      },
       "is_published": false,
       "is_archived": false,
       "source": null
@@ -65,7 +78,11 @@
       "modified_by_group": null,
       "name": "{\"de\": \"Beschwerdeverfahren\", \"fr\": null}",
       "description": "{\"de\": \"\", \"fr\": null}",
-      "meta": {},
+      "meta": {
+        "visibility": {
+          "type": "public"
+        }
+      },
       "is_published": false,
       "is_archived": false,
       "source": null
@@ -83,7 +100,11 @@
       "modified_by_group": null,
       "name": "{\"de\": \"Bewilligungsverfahren\", \"fr\": null}",
       "description": "{\"de\": \"\", \"fr\": null}",
-      "meta": {},
+      "meta": {
+        "visibility": {
+          "type": "public"
+        }
+      },
       "is_published": false,
       "is_archived": false,
       "source": null
@@ -101,7 +122,11 @@
       "modified_by_group": null,
       "name": "{\"de\": \"Rechtsmittelverfahren\", \"fr\": null}",
       "description": "{\"de\": \"\", \"fr\": null}",
-      "meta": {},
+      "meta": {
+        "visibility": {
+          "type": "public"
+        }
+      },
       "is_published": false,
       "is_archived": false,
       "source": null
@@ -119,7 +144,11 @@
       "modified_by_group": null,
       "name": "{\"de\": \"Beschwerdeverfahren Tabelle\", \"fr\": null}",
       "description": "{\"de\": \"\", \"fr\": null}",
-      "meta": {},
+      "meta": {
+        "visibility": {
+          "type": "public"
+        }
+      },
       "is_published": false,
       "is_archived": false,
       "source": null
@@ -137,7 +166,11 @@
       "modified_by_group": null,
       "name": "{\"de\": \"Bewilligungsverfahren Sistierung\", \"fr\": null}",
       "description": "{\"de\": \"\", \"fr\": null}",
-      "meta": {},
+      "meta": {
+        "visibility": {
+          "type": "public"
+        }
+      },
       "is_published": false,
       "is_archived": false,
       "source": null
@@ -155,7 +188,11 @@
       "modified_by_group": null,
       "name": "{\"de\": \"Bewilligungsverfahren Sitzung Baukommission\", \"fr\": null}",
       "description": "{\"de\": \"\", \"fr\": null}",
-      "meta": {},
+      "meta": {
+        "visibility": {
+          "type": "public"
+        }
+      },
       "is_published": false,
       "is_archived": false,
       "source": null
@@ -173,8 +210,34 @@
       "modified_by_group": null,
       "name": "{\"de\": \"Zirkulation\", \"fr\": null}",
       "description": "{\"de\": null, \"fr\": null}",
-      "meta": {},
+      "meta": {
+        "visibility": {
+          "type": "public"
+        }
+      },
       "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "internes-geschaeft",
+    "fields": {
+      "created_at": "2022-01-20T18:19:46.226Z",
+      "modified_at": "2022-01-20T18:19:46.226Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Internes Gesch\\u00e4ft\", \"fr\": null}",
+      "description": "{\"de\": \"\", \"fr\": null}",
+      "meta": {
+        "visibility": {
+          "type": "internal"
+        }
+      },
+      "is_published": true,
       "is_archived": false,
       "source": null
     }
@@ -1076,6 +1139,36 @@
       "modified_by_group": null,
       "form": "bewilligungsverfahren-sitzung-baukommission",
       "question": "bewilligungsverfahren-sitzung-baukommission-nr",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "internes-geschaeft.internes-geschaeft-beschreibung",
+    "fields": {
+      "created_at": "2022-01-20T18:20:21.853Z",
+      "modified_at": "2022-01-20T18:20:21.853Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "internes-geschaeft",
+      "question": "internes-geschaeft-beschreibung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "internes-geschaeft.internes-geschaeft-titel",
+    "fields": {
+      "created_at": "2022-01-20T18:19:46.226Z",
+      "modified_at": "2022-01-20T18:19:46.226Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "internes-geschaeft",
+      "question": "internes-geschaeft-titel",
       "sort": 2
     }
   },
@@ -2839,6 +2932,69 @@
         "max_value": null,
         "min_value": null
       },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "internes-geschaeft-beschreibung",
+    "fields": {
+      "created_at": "2022-01-20T18:19:46.226Z",
+      "modified_at": "2022-01-20T18:19:46.226Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung\", \"fr\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": \"\"}",
+      "info_text": "{\"de\": null, \"fr\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "internes-geschaeft-titel",
+    "fields": {
+      "created_at": "2022-01-20T18:19:46.226Z",
+      "modified_at": "2022-01-20T18:28:31.352Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"\", \"fr\": \"\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"<h1>Internes Gesch\\u00e4ft</h1>\", \"fr\": \"\"}",
+      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
