@@ -112,6 +112,7 @@ module.exports = function (environment) {
         emailRegexp: "^e-mail-.*$",
       },
       features: {
+        faq: true,
         publication: {
           list: false,
           form: true,
@@ -191,6 +192,7 @@ module.exports = function (environment) {
         emailRegexp: "^e-mail$",
       },
       features: {
+        faq: false,
         publication: {
           list: true,
           form: false,

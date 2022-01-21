@@ -5872,7 +5872,7 @@
       "modified_by_group": null,
       "form": "dashboard",
       "question": "dashboard-inhalt-de",
-      "sort": 8
+      "sort": 10
     }
   },
   {
@@ -5887,7 +5887,7 @@
       "modified_by_group": null,
       "form": "dashboard",
       "question": "dashboard-inhalt-fr",
-      "sort": 7
+      "sort": 9
     }
   },
   {
@@ -5902,7 +5902,7 @@
       "modified_by_group": null,
       "form": "dashboard",
       "question": "faq-inhalt-de",
-      "sort": 2
+      "sort": 4
     }
   },
   {
@@ -5917,7 +5917,7 @@
       "modified_by_group": null,
       "form": "dashboard",
       "question": "faq-inhalt-fr",
-      "sort": 1
+      "sort": 3
     }
   },
   {
@@ -5932,7 +5932,7 @@
       "modified_by_group": null,
       "form": "dashboard",
       "question": "hilfe-inhalt-de",
-      "sort": 6
+      "sort": 8
     }
   },
   {
@@ -5947,7 +5947,37 @@
       "modified_by_group": null,
       "form": "dashboard",
       "question": "hilfe-inhalt-fr",
-      "sort": 5
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dashboard.portal-faq-inhalt-de",
+    "fields": {
+      "created_at": "2022-01-21T13:55:23.546Z",
+      "modified_at": "2022-01-21T13:55:23.546Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dashboard",
+      "question": "portal-faq-inhalt-de",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dashboard.portal-faq-inhalt-fr",
+    "fields": {
+      "created_at": "2022-01-21T13:55:36.773Z",
+      "modified_at": "2022-01-21T13:55:36.773Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dashboard",
+      "question": "portal-faq-inhalt-fr",
+      "sort": 1
     }
   },
   {
@@ -5962,7 +5992,7 @@
       "modified_by_group": null,
       "form": "dashboard",
       "question": "portal-inhalt-de",
-      "sort": 4
+      "sort": 6
     }
   },
   {
@@ -5977,7 +6007,7 @@
       "modified_by_group": null,
       "form": "dashboard",
       "question": "portal-inhalt-fr",
-      "sort": 3
+      "sort": 5
     }
   },
   {
@@ -39712,6 +39742,72 @@
       "configuration": {
         "max_value": null,
         "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "portal-faq-inhalt-de",
+    "fields": {
+      "created_at": "2022-01-21T13:55:23.390Z",
+      "modified_at": "2022-01-21T13:55:23.390Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Portal FAQ Inhalt DE\", \"fr\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "portal-faq-inhalt-fr",
+    "fields": {
+      "created_at": "2022-01-21T13:55:36.527Z",
+      "modified_at": "2022-01-21T13:55:36.527Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Portal FAQ Inhalt FR\", \"fr\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
       },
       "meta": {},
       "data_source": null,
