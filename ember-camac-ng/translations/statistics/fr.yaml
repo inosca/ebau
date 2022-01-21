@@ -29,3 +29,5 @@ statistics:
     BAUABSCHLAG_OHNE_WHST: "Refus du permis de construire sans rétablissement"
     BAUABSCHLAG_MIT_WHST: "Refus du permis de construire avec rétablissement"
     ABSCHREIBUNGSVERFUEGUNG: "Radiation du rôle"
+    BAUBEWILLIGUNGSFREI: "Non soumis à l'octroi d'un permis de construire"
+    TEILWEISE_BAUBEWILLIGUNG_MIT_TEILWEISEM_BAUABSCHLAG_UND_TEILWEISER_WIEDERHERSTELLUNG: "Permis de construire partiel avec refus partiel du permis de construire et rétablissement partiel"
