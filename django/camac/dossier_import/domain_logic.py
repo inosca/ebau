@@ -1,4 +1,5 @@
 import os
+import re
 from dataclasses import asdict
 from logging import getLogger
 
@@ -9,6 +10,7 @@ from django.utils import timezone
 from django.utils.module_loading import import_string
 from requests_toolbelt.multipart.encoder import MultipartEncoder
 
+from camac.core.utils import generate_ebau_nr
 from camac.document.models import Attachment
 from camac.dossier_import.loaders import XlsxFileDossierLoader
 from camac.dossier_import.messages import update_summary
@@ -116,3 +118,19 @@ def transmit_import(dossier_import):
 def undo_import(dossier_import):
     Case.objects.filter(**{"meta__import-id": str(dossier_import.pk)}).delete()
     dossier_import.delete()
+
+
+def get_or_create_ebau_nr(ebau_number, service, submit_date=None):
+    """Validate a proposed ebau-number to match its service domain or get a new one."""
+    pattern = re.compile("([0-9]{4}-[1-9][0-9]*)")
+    result = pattern.search(str(ebau_number))
+    if result:
+        try:
+            match = result.groups()[0]
+            case = Case.objects.filter(**{"meta__ebau-number": match}).first()
+            if case.instance.services.filter(service_id=service.pk).exists():
+                return match
+        except AttributeError:
+            pass
+
+    return generate_ebau_nr(submit_date.year) if submit_date else None
