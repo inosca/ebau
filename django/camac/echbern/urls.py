@@ -7,7 +7,7 @@ from .views import ApplicationsView, ApplicationView, EventView, MessageView, Se
 
 redirects = {
     "instance/<int:instance_id>/": "/page/index/instance-resource-id/20074/instance-id/%(instance_id)i",
-    "ebau-number/<int:instance_id>/": "/form/edit-page/instance-resource-id/12000002/instance-id/%(instance_id)i",
+    "ebau-number/<int:instance_id>/": "/taskform/taskform/index/instance-resource-id/12000002/instance-id/%(instance_id)i",
     "claim/<int:instance_id>/": "/claim/claim/index/instance-resource-id/150000/instance-id/%(instance_id)i",
     "dossier-check/<int:instance_id>/": "/page/index/instance-resource-id/150009/instance-id/%(instance_id)i",
     "revision-history/<int:instance_id>/": "/revisionhistory/revisionhistory/index/instance-resource-id/150004/instance-id/%(instance_id)i",
