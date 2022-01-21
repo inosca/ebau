@@ -122,7 +122,7 @@ services:
       - PROXY_ADDRESS_FORWARDING=true
 
   document-merge-service:
-    image: adfinissygroup/document-merge-service:v4.6.1
+    image: adfinissygroup/document-merge-service:v4.6.2
     depends_on:
       - db
     volumes:
