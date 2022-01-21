@@ -29,3 +29,5 @@ statistics:
     BAUABSCHLAG_OHNE_WHST: "Bauabschlag ohne Wiederherstellung"
     BAUABSCHLAG_MIT_WHST: "Bauabschlag mit Wiederherstellung"
     ABSCHREIBUNGSVERFUEGUNG: "Abschreibungsverfügung (Rückzug)"
+    BAUBEWILLIGUNGSFREI: "Baubewilligungsfrei"
+    TEILWEISE_BAUBEWILLIGUNG_MIT_TEILWEISEM_BAUABSCHLAG_UND_TEILWEISER_WIEDERHERSTELLUNG: "Teilweise Baubewilligung mit teilweisem Bauabschlag und teilweiser Wiederherstellung"
