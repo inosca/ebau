@@ -1067,6 +1067,7 @@ APPLICATIONS = {
             "username",
             "name",
             "surname",
+            "phone",
         ],
         "CALUMA": {
             "FORM_PERMISSIONS": [
