@@ -3,7 +3,10 @@ from math import trunc
 
 import pytz
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
+from caluma.caluma_workflow.events import send_event_with_deprecations
+from caluma.caluma_workflow.utils import create_work_items
 from django.conf import settings
+from django.db.models import Count, Q
 from django.utils import timezone
 from django.utils.translation import gettext_noop
 
@@ -388,30 +391,60 @@ class TaskSendHandler(BaseSendHandler):
         return True, None
 
     def _get_circulation(self):
-        # Get the most recent circulation
-        circulation = (
-            Circulation.objects.filter(instance=self.instance)
-            .prefetch_related("activations__circulation_state")
-            .order_by("-pk")
-            .first()
+        circulation = self.instance.circulations.order_by("-pk").first()
+
+        has_circulations = self.instance.circulations.exists()
+        running_circulations = self.instance.circulations.annotate(
+            activation_count=Count("activations")
+        ).filter(
+            # Either at least one activation is still running or there are no
+            # activations yet
+            Q(activations__circulation_state__name="RUN")
+            | Q(activation_count=0)
         )
 
-        # If there is no existing circulation or the circulation is done (all
-        # activations are done) we create a new one and add the new activation
-        # to that. Otherwise we add it to the running circulation
-        if not circulation or (
-            circulation.activations.exclude(circulation_state__name="DONE")
-            and circulation.activations.count()
-        ):
+        if not has_circulations or circulation not in running_circulations:
+            has_running_circulations = running_circulations.exists()
+
+            # If the latest circulation is not running or no circulation exists
+            # we need to create a new one
             circulation = Circulation.objects.create(
                 service=self.instance.responsible_service(filter_type="municipality"),
                 instance=self.instance,
                 instance_resource_id=INSTANCE_RESOURCE_ZIRKULATION,
                 name=trunc(timezone.now().timestamp()),
             )
+
             context = {"circulation-id": circulation.pk}
-            self.complete_work_item("init-circulation", {}, context)
-            self.complete_work_item("start-circulation", {}, context)
+            if not has_circulations:
+                # If there are no circulations yet, we complete the
+                # init-circulation work item which will create a new circulation
+                # work item
+                self.complete_work_item("init-circulation", {}, context)
+            elif not has_running_circulations:
+                # If there are no running circulations anymore, we complete the
+                # start-circulation work item which will create a new
+                # circulation work item
+                self.complete_work_item("start-circulation", {}, context)
+            else:
+                # If there are running circulations but the latest circulation
+                # is not one of them, we create a new circulation work item
+                # manually like the `createWorkItem` mutation would.
+                # TODO: This should probably be a public caluma API
+                for work_item in create_work_items(
+                    caluma_workflow_models.Task.objects.filter(pk="circulation"),
+                    self.instance.case,
+                    self.caluma_user,
+                    None,
+                    context,
+                ):
+                    send_event_with_deprecations(
+                        "post_create_work_item",
+                        sender="case_post_create",
+                        work_item=work_item,
+                        user=self.caluma_user,
+                        context=context,
+                    )
 
         return circulation
 
