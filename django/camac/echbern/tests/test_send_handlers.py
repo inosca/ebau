@@ -1,6 +1,10 @@
 import pytest
 from caluma.caluma_workflow import api as workflow_api
+from caluma.caluma_workflow.events import send_event_with_deprecations
+from caluma.caluma_workflow.models import Task, WorkItem
+from caluma.caluma_workflow.utils import create_work_items
 
+from camac.caluma.api import CalumaApi
 from camac.constants.kt_bern import (
     ATTACHMENT_SECTION_ALLE_BETEILIGTEN,
     ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN,
@@ -404,19 +408,20 @@ def test_close_dossier_send_handler(
         assert Message.objects.first().receiver == ech_instance.responsible_service()
 
 
-@pytest.mark.parametrize(
-    "has_circulation,has_done_circulation,has_service,valid_service_id,success",
+@pytest.mark.parametrize(  # noqa: C901
+    "circulation_status,has_service,valid_service_id,success",
     [
-        (True, False, True, True, True),
-        (False, True, True, True, True),
-        (False, False, True, True, True),
-        (True, False, False, True, False),
-        (True, False, True, False, False),
+        ("no_existing", True, True, True),
+        ("latest_empty", True, True, True),
+        ("latest_running", True, True, True),
+        ("latest_not_running", True, True, True),
+        ("none_running", True, True, True),
+        ("no_existing", False, True, False),
+        ("no_existing", True, False, False),
     ],
 )
 def test_task_send_handler(
-    has_circulation,
-    has_done_circulation,
+    circulation_status,
     has_service,
     valid_service_id,
     success,
@@ -444,7 +449,7 @@ def test_task_send_handler(
     }
 
     instance_resource_factory(pk=INSTANCE_RESOURCE_ZIRKULATION)
-    circulation_state_factory(name="RUN")
+    state_run = circulation_state_factory(name="RUN")
     state_done = circulation_state_factory(name="DONE")
     state = instance_state_factory(name="circulation")
     ech_instance.instance_state = state
@@ -463,27 +468,62 @@ def test_task_send_handler(
     if has_service:
         service = service_factory(pk=23, email="s1@example.com")
 
-    if has_circulation or has_done_circulation:
-        circulation_factory(instance=ech_instance)  # dummy
-        circulation = circulation_factory(instance=ech_instance)
+    if circulation_status in [
+        "latest_empty",
+        "latest_running",
+        "latest_not_running",
+        "none_running",
+    ]:
+        dummy_circulation = circulation_factory(instance=ech_instance)
+        latest_circulation = circulation_factory(instance=ech_instance)
 
+        # create work item for dummy circulation
         workflow_api.skip_work_item(
             work_item=case.work_items.get(task_id="init-circulation"),
             user=caluma_admin_user,
-            context={"circulation-id": circulation.pk},
+            context={"circulation-id": dummy_circulation.pk},
         )
 
-        if has_done_circulation:
+        # create work item for latest circulation
+        context = {"circulation-id": latest_circulation.pk}
+        for work_item in create_work_items(
+            Task.objects.filter(pk="circulation"),
+            ech_instance.case,
+            caluma_admin_user,
+            None,
+            context,
+        ):
+            send_event_with_deprecations(
+                "post_create_work_item",
+                sender="case_post_create",
+                work_item=work_item,
+                user=caluma_admin_user,
+                context=context,
+            )
+
+        if circulation_status == "latest_running":
             activation_factory(
-                circulation=circulation,
+                circulation=latest_circulation,
+                circulation_state=state_run,
+                ech_msg_created=True,
+            )
+
+        if circulation_status in ["latest_not_running", "none_running"]:
+            activation_factory(
+                circulation=latest_circulation,
                 circulation_state=state_done,
                 ech_msg_created=True,
             )
-            workflow_api.skip_work_item(
-                work_item=case.work_items.get(task_id="circulation"),
-                user=caluma_admin_user,
-                context={"circulation-id": circulation.pk},
+
+        if circulation_status == "none_running":
+            activation_factory(
+                circulation=dummy_circulation,
+                circulation_state=state_done,
+                ech_msg_created=True,
             )
+
+        CalumaApi().sync_circulation(dummy_circulation, caluma_admin_user)
+        CalumaApi().sync_circulation(latest_circulation, caluma_admin_user)
 
     xml = xml_data("task")
     if not valid_service_id:
@@ -507,15 +547,32 @@ def test_task_send_handler(
         message = Message.objects.first()
         assert message.receiver == service
 
-        activations = Activation.objects.exclude(circulation_state__name="DONE")
-        activation = activations.first()
+        activations = Activation.objects.exclude(
+            circulation_state__name="DONE"
+        ).order_by("-pk")
 
-        assert activations.count() == 1
+        if circulation_status == "latest_running":
+            assert activations.count() == 2
+        else:
+            assert activations.count() == 1
+
+        activation = activations.first()
         assert activation.service == service
         assert activation.deadline_date.strftime("%Y-%m-%d") == "2020-03-23"
+        assert (
+            WorkItem.objects.filter(
+                **{
+                    "case__family": ech_instance.case,
+                    "status": WorkItem.STATUS_READY,
+                    "task_id": "activation",
+                    "meta__activation-id": activation.pk,
+                }
+            ).count()
+            == 1
+        )
 
-        if has_circulation and not has_done_circulation:
-            assert activation.circulation == circulation
+        if circulation_status in ["latest_empty", "latest_running"]:
+            assert activation.circulation == latest_circulation
 
         assert len(mailoutbox) == 1
 
