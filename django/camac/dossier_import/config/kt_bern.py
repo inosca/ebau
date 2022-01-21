@@ -1,4 +1,3 @@
-import re
 from typing import List
 
 from caluma.caluma_form.api import save_answer
@@ -6,14 +5,13 @@ from caluma.caluma_form.models import Form as CalumaForm, Question
 from caluma.caluma_user.models import BaseUser
 from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.api import skip_work_item
-from caluma.caluma_workflow.models import Case, WorkItem
+from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
 from django.db import transaction
 
 from camac.caluma.extensions.events.general import get_caluma_setting
 from camac.core.models import InstanceService
-from camac.core.utils import generate_ebau_nr
 from camac.dossier_import.dossier_classes import Dossier
 from camac.dossier_import.messages import (
     DOSSIER_IMPORT_STATUS_ERROR,
@@ -380,21 +378,3 @@ class KtBernDossierWriter(DossierWriter):
             )
         )
         return messages
-
-    def get_or_create_ebau_nr(self, dossier):
-        pattern = re.compile("([0-9]{4}-[1-9][0-9]*)")
-        result = pattern.search(str(dossier.cantonal_id))
-        if result:
-            try:
-                match = result.groups()[0]
-                case = Case.objects.filter(**{"meta__ebau-number": match}).first()
-                if case.instance.services.filter(
-                    service_id=self._group.service.pk
-                ).exists():
-                    return match
-            except AttributeError:
-                pass
-
-        return (
-            generate_ebau_nr(dossier.submit_date.year) if dossier.submit_date else None
-        )

@@ -19,10 +19,11 @@ from future.moves import itertools
 from camac.constants.kt_bern import DECISIONS_BEWILLIGT
 from camac.core.models import DocxDecision, WorkflowEntry
 from camac.document.models import Attachment, AttachmentSection
+from camac.dossier_import.domain_logic import get_or_create_ebau_nr
 from camac.dossier_import.dossier_classes import CalumaPlotData, Dossier
 from camac.dossier_import.loaders import safe_join
 from camac.dossier_import.messages import LOG_LEVEL_WARNING, Message, MessageCodes
-from camac.instance.domain_logic import SUBMIT_DATE_FORMAT, save_ebau_number
+from camac.instance.domain_logic import SUBMIT_DATE_FORMAT
 from camac.instance.models import Instance
 
 
@@ -353,32 +354,76 @@ class CaseMetaWriter(FieldWriter):
         instance.case.save()
 
 
-class EbauNumberWriter(FieldWriter):
-    def write(self, instance, value=None):
+class EbauNumberWriter(CalumaAnswerWriter):
+    def write(self, instance, value):  # noqa: C901
         dossier = self.context.get("dossier")
-        if dossier._meta.target_state == "SUBMITTED" and not dossier.cantonal_id:
+        if not dossier.submit_date:
+            detail = (
+                f"Failed to write {value} to {self.target} for dossier {instance}",
+            )
+            dossier._meta.errors.append(
+                Message(
+                    level=LOG_LEVEL_WARNING,
+                    code=MessageCodes.FIELD_VALIDATION_ERROR.value,
+                    detail=detail,
+                )
+            )
             return
+        if not value and dossier._meta.target_state == "SUBMITTED":
+            # Do not write/create an ebau-number
+            return
+        value = get_or_create_ebau_nr(
+            value, self.owner._group.service, dossier.submit_date
+        )
+        instance.case.meta["ebau-number"] = value
+        instance.case.save()
+        try:
+            document = instance.case.document
+            ebau_number_slug = "ebau-number-existing"
+            question = Question.objects.get(slug=ebau_number_slug)
+            try:
+                form_api.save_answer(
+                    question=question,
+                    document=document,
+                    value=value,
+                    user=BaseUser(
+                        username=self.owner._user.username, group=self.owner._group.pk
+                    ),
+                )
+            except CustomValidationError:  # pragma: no cover
+                dossier._meta.errors.append(
+                    Message(
+                        level=LOG_LEVEL_WARNING,
+                        code=MessageCodes.FIELD_VALIDATION_ERROR.value,
+                        detail=f"Failed to write {value} to {ebau_number_slug} for dossier {instance}",
+                    )
+                )
+                return
+            exists_slug = "ebau-number-has-existing"
+            question_exists = Question.objects.get(slug=exists_slug)
+            try:
+                form_api.save_answer(
+                    question=question_exists,
+                    document=document,
+                    value=f"{exists_slug}-yes",
+                    user=BaseUser(
+                        username=self.owner._user.username, group=self.owner._group.pk
+                    ),
+                )
+            except CustomValidationError:  # pragma: no cover
+                dossier._meta.errors.append(
+                    Message(
+                        level=LOG_LEVEL_WARNING,
+                        code=MessageCodes.FIELD_VALIDATION_ERROR.value,
+                        detail=f"Failed to write '{exists_slug}-yes' to {exists_slug} for dossier {instance}",
+                    )
+                )
+                return
 
-        ebau_number = self.owner.get_or_create_ebau_nr(dossier)
-        if dossier.cantonal_id and ebau_number != dossier.cantonal_id:
-            self.context.get("dossier")._meta.errors.append(
-                Message(
-                    level=LOG_LEVEL_WARNING,
-                    code=MessageCodes.FIELD_VALIDATION_ERROR.value,
-                    detail=f"Dossier number provided with data set {dossier.id} already existed. changed from {dossier.cantonal_id} to {ebau_number}",
-                )
+        except ObjectDoesNotExist as e:  # pragma: no cover
+            raise RuntimeError(
+                f"Failed to write {value} to field {self.target} on {instance} because of : {e}"
             )
-        if not ebau_number:
-            # in case dossier.submit_date is not present
-            self.context.get("dossier")._meta.errors.append(
-                Message(
-                    level=LOG_LEVEL_WARNING,
-                    code=MessageCodes.FIELD_VALIDATION_ERROR.value,
-                    detail=f"Failed to generate dossier-number for Dossier {dossier.id}",
-                )
-            )
-            return
-        save_ebau_number(instance, ebau_number)
 
 
 class DossierWriter:
