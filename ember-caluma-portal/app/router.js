@@ -31,6 +31,7 @@ Router.map(function () {
     });
 
     this.route("support", { resetNamespace });
+    this.route("faq", { resetNamespace });
   });
 
   this.route("notfound", { path: "/*path" });

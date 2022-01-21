@@ -1,26 +1,25 @@
-<div class="uk-position-relative" {{did-insert (perform this.fetch)}}>
-  {{#if this.edit}}
-    <Textarea @value={{this.content}} rows="10" class="uk-textarea" aria-label={{t "dashboard.content"}} />
-    <div class="uk-text-right uk-margin">
-      <UkButton data-test-dashboard-cancel @on-click={{this.cancelEdit}}>{{t "global.cancel"}}</UkButton>
-      <UkButton data-test-dashboard-save @color="primary" @loading={{this.save.isRunning}} @on-click={{perform this.save}}>{{t "global.save"}}</UkButton>
-    </div>
-  {{/if}}
+{{#if (and (not this.data.isRunning) (or this.content (can "edit dashboard")))}}
+  <div class="uk-position-relative dashboard" ...attributes>
+    {{#if this.edit}}
+      <Textarea @value={{this.content}} rows="10" class="uk-textarea" aria-label={{t "dashboard.content"}} />
+      <div class="uk-text-right uk-margin">
+        <UkButton data-test-dashboard-cancel @on-click={{this.cancelEdit}}>{{t "global.cancel"}}</UkButton>
+        <UkButton data-test-dashboard-save @color="primary" @loading={{this.save.isRunning}} @on-click={{perform this.save}}>{{t "global.save"}}</UkButton>
+      </div>
+      <hr>
+    {{else if (can "edit dashboard")}}
+      <UkButton
+        data-test-dashboard-edit
+        class="uk-position-top-right uk-margin-right uk-margin-top"
+        @color="link"
+        @on-click={{this.startEdit}}
+      >
+        {{t "dashboard.edit"}}
+      </UkButton>
+    {{/if}}
 
-  {{#if (and (not this.edit) (can "edit dashboard"))}}
-    <UkButton
-      data-test-dashboard-edit
-      class="uk-position-top-right uk-margin-top uk-margin-right"
-      @color="link"
-      @on-click={{this.startEdit}}
-    >
-      {{t "dashboard.edit"}}
-    </UkButton>
-  {{/if}}
-
-  {{#if this.content}}
-    <MarkdownToHtml ...attributes @markdown={{this.content}} />
-  {{else if (can "edit dashboard")}}
-    <div ...attributes>{{t "dashboard.no-content"}}</div>
-  {{/if}}
-</div>
+    {{#if this.content}}
+      <MarkdownToHtml class="markdown-content" @markdown={{this.content}} />
+    {{/if}}
+  </div>
+{{/if}}
