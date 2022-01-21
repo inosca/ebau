@@ -5,6 +5,7 @@ from caluma.caluma_form import (
 )
 from caluma.caluma_user.visibilities import Authenticated
 from caluma.caluma_workflow import schema as workflow_schema
+from django.conf import settings
 from django.db.models import F, Q
 
 from camac.caluma.utils import CamacRequest
@@ -12,6 +13,7 @@ from camac.constants.kt_bern import DASHBOARD_FORM_SLUG
 from camac.instance.filters import CalumaInstanceFilterSet
 from camac.instance.mixins import InstanceQuerysetMixin
 from camac.instance.models import Instance
+from camac.user.models import Role
 from camac.utils import filters
 
 
@@ -118,3 +120,104 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
 
         setattr(info.context, "_visibility_instances_cache", instance_ids)
         return instance_ids
+
+
+class CustomVisibilitySZ(CustomVisibility):
+    """Custom visibility for Kanton Schwyz.
+
+    Form visibility rules are defined in the form meta.
+    Possible configurations are shown below.
+    Note: If no visibility is configured for a form,
+    the form is by default NOT returned.
+
+    Visible for internal roles:
+    "meta": {
+        "visibility": {
+            "type": "internal"
+        }
+    },
+
+    Publicly visible:
+    "meta": {
+        "visibility": {
+            "type": "public"
+        }
+    },
+
+    Visible for certain roles and services:
+    * Request user needs to belong to one of the
+    specified roles OR services:
+    "meta": {
+        "visibility": {
+            "type": "specific",
+            "visibleFor": {
+                "roles": [3],
+                "services": [6]
+            }
+        }
+    },
+
+    * Request user needs to belong to one of the specified
+    roles, service is not relevant:
+    "meta": {
+        "visibility": {
+            "type": "specific",
+            "visibleFor": {
+                "roles": [3, 4]
+            }
+        }
+    },
+
+    * Request user needs to belong to one of the specified
+    services, role is not relevant:
+    "meta": {
+        "visibility": {
+            "type": "specific",
+            "visibleFor": {
+                "services": [6, 7]
+            }
+        }
+    },
+    """
+
+    @filter_queryset_for(form_schema.Form)
+    def filter_queryset_for_form(self, node, queryset, info):
+
+        camac_request = CamacRequest(info).request
+        camac_role = camac_request.group.role.role_id
+        camac_service = camac_request.group.service_id
+
+        # public filter: visible to all
+        public_filter = Q(meta__visibility__type="public")
+
+        # internal filter: excludes configured public roles
+        public_roles = [
+            role.role_id
+            for role in Role.objects.filter(
+                name__in=settings.APPLICATION.get("PUBLIC_ROLES", [])
+            )
+        ]
+        internal_forms = [
+            form.slug
+            for form in queryset.filter(meta__visibility__type="internal")
+            if camac_role not in public_roles
+        ]
+        internal_filter = Q(slug__in=internal_forms)
+
+        # specific filter: visible to specific roles or services
+        specific_filter = Q(
+            meta__visibility__type="specific",
+            meta__visibility__visibleFor__roles__contains=[camac_role],
+        ) | Q(
+            meta__visibility__type="specific",
+            meta__visibility__visibleFor__services__contains=[camac_service],
+        )
+
+        return queryset.filter(public_filter | internal_filter | specific_filter)
+
+    @filter_queryset_for(form_schema.Question)
+    @filter_queryset_for(form_schema.Option)
+    @filter_queryset_for(form_schema.DynamicOption)
+    def filter_queryset_public(self, node, queryset, info):
+        # this is blueprint data which is uncritical and can be exposed publicly
+        return queryset
