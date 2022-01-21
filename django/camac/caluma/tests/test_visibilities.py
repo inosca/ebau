@@ -246,6 +246,7 @@ def test_work_item_visibility(
 def test_public_visibility(
     db,
     rf,
+    mocker,
 ):
     caluma_form_factories.QuestionFactory.create_batch(3)
     caluma_workflow_factories.CaseFactory.create_batch(3)
@@ -261,6 +262,18 @@ def test_public_visibility(
             }
         }
     """
+    # public visibility used in Kt. SZ
+    mocker.patch(
+        "caluma.caluma_core.types.Node.visibility_classes", [CustomVisibilitySZ]
+    )
+    questions_result = schema.execute(
+        questions_query, context_value=rf.get("/graphql"), middleware=[]
+    )
+
+    assert len(questions_result.data["allQuestions"]["edges"]) == 3
+
+    # public visibility used in Kt. BE and Kt. UR
+    mocker.patch("caluma.caluma_core.types.Node.visibility_classes", [CustomVisibility])
     questions_result = schema.execute(
         questions_query, context_value=rf.get("/graphql"), middleware=[]
     )
