@@ -78,6 +78,11 @@
                 </a>
               </LinkTo>
             {{/if}}
+            {{#if (has-feature "faq")}}
+              <LinkTo @route="faq" @tagName="li" @activeClass="uk-active">
+                <a href="#">{{t "nav.faq"}}</a>
+              </LinkTo>
+            {{/if}}
           </ul>
         </div>
 
