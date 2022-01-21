@@ -78,6 +78,7 @@
     "ember-power-select": "4.1.6",
     "ember-qunit": "5.1.5",
     "ember-resolver": "8.0.3",
+    "ember-resources": "4.1.3",
     "ember-router-scroll": "4.1.1",
     "ember-simple-auth-oidc": "3.0.1",
     "ember-source": "3.24.5",
