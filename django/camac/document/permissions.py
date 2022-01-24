@@ -25,6 +25,12 @@ class ReadPermission(Permission):
     pass
 
 
+class ReadInternalPermission(Permission):
+    """Read permission on attachments owned by the current service."""
+
+    pass
+
+
 class WritePermission(ReadPermission):
     """Read and write permission."""
 
@@ -154,7 +160,8 @@ PERMISSIONS = {
             ReadPermission: [1, 7, 8],
         },
         "municipality-readonly": {
-            ReadPermission: [1, 2, 3, 4, 7, 8, 12, 13],
+            ReadPermission: [1, 2, 3, 7, 8, 12, 13],
+            ReadInternalPermission: [4],
         },
         # service
         "service-lead": {
@@ -168,7 +175,8 @@ PERMISSIONS = {
             ReadPermission: [1, 3, 7, 8, 13, 12],
         },
         "service-readonly": {
-            ReadPermission: [1, 2, 3, 4, 7, 8, 13, 12],
+            ReadPermission: [1, 2, 3, 7, 8, 13, 12],
+            ReadInternalPermission: [4],
         },
         "subservice": {
             AdminServiceRunningActivationPermission: [2],
@@ -189,7 +197,8 @@ PERMISSIONS = {
             ReadPermission: [1, 5, 6, 7, 8, 12, 13],
         },
         "construction-control-readonly": {
-            ReadPermission: [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13]
+            ReadPermission: [1, 2, 3, 5, 6, 7, 8, 10, 11, 12, 13],
+            ReadInternalPermission: [4],
         },
         "support": {
             AdminPermission: [1, 2, 3, 4, 5, 6, 7, 10, 11, 12, 13],

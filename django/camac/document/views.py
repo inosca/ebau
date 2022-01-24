@@ -91,17 +91,24 @@ class AttachmentQuerysetMixin:
         readable_sections = [
             sec
             for sec, perm in permission_info.items()
-            if perm not in (permissions.AdminInternalPermission, "applicant")
+            if perm
+            not in (
+                permissions.AdminInternalPermission,
+                permissions.ReadInternalPermission,
+                "applicant",
+            )
         ]
 
         if not readable_sections:
             readable_sections = []
-        # adminint must be special-cased to also include the section in the filter
-        # so it cannot be used with the other sections
-        adminint_sections = {
+
+        # internal sections must be special-cased to also include the section in
+        # the filter so it cannot be used with the other sections
+        internal_sections = {
             section_id: permission
             for (section_id, permission) in permission_info.items()
-            if permission == permissions.AdminInternalPermission
+            if permission
+            in [permissions.AdminInternalPermission, permissions.ReadInternalPermission]
         }
 
         # applicant is a role relative to the instance, so must be specialcased
@@ -124,7 +131,7 @@ class AttachmentQuerysetMixin:
             Q(attachment_sections__in=readable_sections)
             # second: sections where only documents from my own service are readable
             | Q(
-                attachment_sections__in=adminint_sections,
+                attachment_sections__in=internal_sections,
                 service=self.request.group.service,
             )
             # third: documents where i'm invitee
