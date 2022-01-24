@@ -36,6 +36,7 @@ from .data import django_file
     [
         permissions.AdminPermission,
         permissions.ReadPermission,
+        permissions.ReadInternalPermission,
         permissions.AdminInternalPermission,
     ],
 )
