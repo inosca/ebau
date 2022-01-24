@@ -50,6 +50,7 @@ export default class InstancesEditController extends Controller.extend(
         "involved_applicants.invitee",
         "active_service",
       ].join(","),
+      reload: true,
     });
 
     yield instance.getMainForm.perform();
