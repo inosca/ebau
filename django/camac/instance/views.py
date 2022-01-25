@@ -291,12 +291,17 @@ class InstanceView(
             == self.request.group.service
         )
 
+    @permission_aware
     def has_object_link_permission(self, instance):
+        return False
+
+    def has_object_link_permission_for_municipality(self, instance):
+        return True
+
+    def has_object_link_permission_for_coordination(self, instance):
         user = self.request.user
 
         return user.groups.filter(
-            role__pk=ur_constants.ROLE_MUNICIPALITY
-        ) or user.groups.filter(
             pk__in=[ur_constants.KOOR_NP_GROUP_ID, ur_constants.KOOR_BG_GROUP_ID]
         )
 
