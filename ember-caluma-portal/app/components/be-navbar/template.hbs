@@ -78,7 +78,7 @@
                 </a>
               </LinkTo>
             {{/if}}
-            {{#if (has-feature "faq")}}
+            {{#if (and this.session.isAuthenticated (has-feature "faq"))}}
               <LinkTo @route="faq" @tagName="li" @activeClass="uk-active">
                 <a href="#">{{t "nav.faq"}}</a>
               </LinkTo>
