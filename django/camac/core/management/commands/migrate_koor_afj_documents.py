@@ -23,7 +23,8 @@ class Command(BaseCommand):
         for attachment in internal_attachments_koor_afj:
             attachment_attachment_section = (
                 attachment.attachment_sections.through.objects.filter(
-                    attachment=attachment
+                    attachment=attachment,
+                    attachmentsection=INTERNAL_DOCUMENTS_ATTACHMENT_SECTION_ID,
                 )
             )
             attachment_attachment_section.update(
