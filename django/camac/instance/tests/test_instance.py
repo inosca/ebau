@@ -195,7 +195,7 @@ def test_linked_instances(
 
 @pytest.mark.parametrize("main_instance_has_group", [False, True])
 @pytest.mark.parametrize("other_instance_has_group", [False, True])
-@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize("role__name", ["Municipality", "Coordination"])
 def test_instance_group_link(
     admin_client,
     instance,
@@ -203,21 +203,20 @@ def test_instance_group_link(
     instance_group_factory,
     main_instance_has_group,
     other_instance_has_group,
-    user_group_factory,
-    role_factory,
-    group_factory,
+    mocker,
 ):
-    role = role_factory(pk=6)
-    group = group_factory(role=role)
-    user_group_factory(
-        group=group,
-        user=admin_client.user,
-        default_group=1,
+    mocker.patch(
+        "camac.constants.kt_uri.KOOR_BG_GROUP_ID", admin_client.user.groups.first().pk
     )
 
     main_instance = instance
+    main_instance.group = admin_client.user.groups.first()
+    main_instance.save()
+
     main_instance_2 = instance_factory()
-    other_instance = instance_factory(location=main_instance.location)
+    other_instance = instance_factory(
+        location=main_instance.location, group=admin_client.user.groups.first()
+    )
     other_instance_2 = instance_factory()
     if main_instance_has_group:
         main_instance.instance_group = instance_group_factory()
@@ -279,18 +278,7 @@ def test_instance_group_unlink(
     instance_factory,
     instance_group_factory,
     more_than_one_other_group,
-    role_factory,
-    group_factory,
-    user_group_factory,
 ):
-    role = role_factory(pk=6)
-    group = group_factory(role=role)
-    user_group_factory(
-        group=group,
-        user=admin_client.user,
-        default_group=1,
-    )
-
     main_instance = instance
     main_instance.instance_group = instance_group_factory()
     main_instance.save()
