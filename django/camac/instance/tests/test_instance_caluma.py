@@ -597,6 +597,8 @@ def test_instance_submit_ur(
     caluma_admin_user,
     location_factory,
     workflow_item_factory,
+    authority_factory,
+    authority_location_factory,
 ):
     application_settings["NOTIFICATIONS"]["SUBMIT"] = [
         {"template_slug": notification_template.slug, "recipient_types": ["applicant"]}
@@ -611,6 +613,8 @@ def test_instance_submit_ur(
     ur_instance.case.document.answers.create(
         value=str(location.pk), question_id="municipality"
     )
+
+    authority_location_factory(location=location, authority=authority_factory())
 
     group_factory(role=role_factory(name="support"))
     mocker.patch.object(
