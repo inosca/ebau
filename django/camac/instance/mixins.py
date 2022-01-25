@@ -143,11 +143,16 @@ class InstanceQuerysetMixin(object):
 
         instances_for_activation = self._instances_with_activation(group)
 
-        return queryset.filter(
+        filtered_queryset = queryset.filter(
             Q(**{instance_field: instances_for_location})
             | Q(**{instance_field: instances_for_service})
             | Q(**{instance_field: instances_for_activation})
         )
+
+        if settings.APPLICATION_NAME == "kt_uri":
+            return filtered_queryset.exclude(instance_state__name="del")
+
+        return filtered_queryset
 
     def get_queryset_for_service(self, group=None):
         group = self._get_group(group)
