@@ -230,7 +230,7 @@ PERMISSIONS = {
             ReadPermission: [12000002, 12000003, 12000006],
             WritePermission: [12000005],
             AdminInternalPermission: [12000001],
-            AdminServicePermission: [12000000, 12000004, 12000007, 12000008],
+            AdminServicePermission: [12000000, 12000004, 12000007],
         },
         "service": {
             ReadPermission: [12000004],
