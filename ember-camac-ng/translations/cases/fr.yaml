@@ -16,6 +16,7 @@ cases:
     coordinationShort: ""
     reason: ""
     caseStatus: ""
+    caseWorkflowName: ""
     parcelNumbers: ""
     createdAt: ""
     modifiedAt: ""
