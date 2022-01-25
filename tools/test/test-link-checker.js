@@ -32,7 +32,7 @@ t.test("extraction test", (t) => {
 t.test("checks links", async (t) => {
   t.equal(
     await checkLink(
-      "https://www.bve.be.ch/bve/de/index/direktion/organisation/awa/formulare_bewilligungen/Grundwasser.assetref/dam/documents/BVE/AWA/de/WASSER/Grundwasser/Bauten%20im%20Grundwasser/BA_GA_Merkblatt_Bauten_Grundwasser.pdf"
+      "https://www.bvd.be.ch/content/dam/bvd/dokumente/de/awa/wasser/gew%C3%A4sserschutz/grundwasserschutz/merkblatt-bauten-im-grundwasser-und-grundwasserabsenkungen-de.pdf"
     ),
     true
   );
