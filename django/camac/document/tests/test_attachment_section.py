@@ -134,7 +134,15 @@ def test_attachment_section_special_permissions_ur(
     settings,
 ):
     settings.APPLICATION_NAME = "kt_uri"
-    group = group_factory(pk=group_id, role=role)
+
+    group = group_factory(role=role)
+
+    if group_id in [42, 102, 836]:
+        mocker.patch("camac.constants.kt_uri.KOOR_AFJ_GROUP_ID", group.pk)
+    elif group_id == 283:
+        mocker.patch("camac.constants.kt_uri.LISAG_GROUP_ID", group.pk)
+    elif group_id == 21:
+        mocker.patch("camac.constants.kt_uri.KOOR_NP_GROUP_ID", group.pk)
 
     mocker.patch(
         "camac.document.permissions.PERMISSIONS",
