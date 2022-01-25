@@ -13,7 +13,7 @@
       "is_hidden": "!(\n  'nutzungsart-landwirtschaft' in 'nutzungsart'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
-      "info_text": "{\"de\": \"[Merkblatt Erstellung von Silanlagen und Lagerung von Silagen](http://www.bve.be.ch/bve/de/index/direktion/organisation/awa/formulare_bewilligungen/liegenschaftsentwaesserung.assetref/dam/documents/BVE/AWA/de/SWW_GE/Landwirtschaft/Merkblatt_Erstellung%20von%20Siloanlagen%20und%20Lagerung%20von%20Siloanlagen_d_2013_ae036.pdf)\"}",
+      "info_text": "{\"de\": \"[Merkblatt Erstellung von Silanlagen und Lagerung von Silagen](https://www.bvd.be.ch/content/dam/bvd/dokumente/de/awa/wasser/abwasserentsorgung/abwasserentsorgung-im-l%C3%A4ndlichen-raum/entw%C3%A4sserung-landwirtschaftlicher-liegenschaften/merkblatt-erstellen-siloanlagen.pdf)\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
       "meta": {
@@ -40,7 +40,7 @@
       "is_hidden": "!(\n  'nutzungsart-landwirtschaft' in 'nutzungsart'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
-      "info_text": "{\"de\": \"[Merkblatt Erstellung von Silanlagen und Lagerung von Silagen](http://www.bve.be.ch/bve/de/index/direktion/organisation/awa/formulare_bewilligungen/liegenschaftsentwaesserung.assetref/dam/documents/BVE/AWA/de/SWW_GE/Landwirtschaft/Merkblatt_Erstellung%20von%20Siloanlagen%20und%20Lagerung%20von%20Siloanlagen_d_2013_ae036.pdf)\"}",
+      "info_text": "{\"de\": \"[Merkblatt Erstellung von Silanlagen und Lagerung von Silagen](https://www.bvd.be.ch/content/dam/bvd/dokumente/de/awa/wasser/abwasserentsorgung/abwasserentsorgung-im-l%C3%A4ndlichen-raum/entw%C3%A4sserung-landwirtschaftlicher-liegenschaften/merkblatt-erstellen-siloanlagen.pdf)\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
       "meta": {
