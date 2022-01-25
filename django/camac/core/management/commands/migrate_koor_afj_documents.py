@@ -1,10 +1,8 @@
 from django.core.management.base import BaseCommand
 from django.db import transaction
 
+from camac.constants import kt_uri as uri_constants
 from camac.document.models import Attachment
-
-INTERNAL_DOCUMENTS_ATTACHMENT_SECTION_ID = 12000001
-KOOR_AFJ_ATTACHMENT_SECTION_ID = 12000008
 
 
 class Command(BaseCommand):
@@ -18,21 +16,20 @@ class Command(BaseCommand):
         sid = transaction.savepoint()
 
         internal_attachments_koor_afj = Attachment.objects.filter(
-            group_id=836, attachment_sections=INTERNAL_DOCUMENTS_ATTACHMENT_SECTION_ID
+            group_id=uri_constants.KOOR_AFJ_GROUP_ID,
+            attachment_sections=uri_constants.INTERNAL_DOCUMENTS_ATTACHMENT_SECTION_ID,
         )
         for attachment in internal_attachments_koor_afj:
-            attachment_attachment_section = (
-                attachment.attachment_sections.through.objects.filter(
-                    attachment=attachment,
-                    attachmentsection=INTERNAL_DOCUMENTS_ATTACHMENT_SECTION_ID,
-                )
+            attachment_attachment_section = attachment.attachment_sections.through.objects.filter(
+                attachment=attachment,
+                attachmentsection=uri_constants.INTERNAL_DOCUMENTS_ATTACHMENT_SECTION_ID,
             )
             attachment_attachment_section.update(
-                attachmentsection_id=KOOR_AFJ_ATTACHMENT_SECTION_ID
+                attachmentsection_id=uri_constants.KOOR_AFJ_ATTACHMENT_SECTION_ID
             )
 
             self.stdout.write(
-                f"The attachment section of the attachment {attachment.pk} changed from {INTERNAL_DOCUMENTS_ATTACHMENT_SECTION_ID} to {KOOR_AFJ_ATTACHMENT_SECTION_ID}"
+                f"The attachment section of the attachment {attachment.pk} changed from {uri_constants.INTERNAL_DOCUMENTS_ATTACHMENT_SECTION_ID} to {uri_constants.KOOR_AFJ_ATTACHMENT_SECTION_ID}"
             )
 
         if options["dry"]:
