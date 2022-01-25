@@ -31,7 +31,7 @@
       <label class="uk-form-label" for="responsible-user-select">
         {{t "responsible.responsible"}}
       </label>
-      <div uk-grid>
+      <div class="uk-grid-small" uk-grid>
         <div class="uk-width-expand">
           <PowerSelect
             @searchEnabled={{true}}
@@ -51,15 +51,15 @@
         </div>
         <div>
           <div class="uk-text-right uk-margin">
-            <button
-              disabled={{not this.selectedUser}}
-              title={{if this.selectedUser "" (t "responsible.noResponsibleChosen")}}
-              class="uk-button uk-button-primary"
-              type="submit"
+            <UkButton
+              @disabled={{or (not this.selectedUser) this.saveResponsibility.isRunning}}
+              @color="primary"
+              @type="submit"
+              @loading={{this.saveResponsibility.isRunning}}
               data-test-save-responsible
             >
               {{t "global.save"}}
-            </button>
+            </UkButton>
           </div>
         </div>
       </div>
