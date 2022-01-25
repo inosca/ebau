@@ -75,7 +75,7 @@ def mock_generate_and_store_pdf(mocker):
     [(False, False, True), (True, False, False), (True, True, False)],
 )
 @pytest.mark.parametrize("convert_to_building_permit", [False, True])
-@pytest.mark.parametrize("role__name", ["Municipality", "Coordination"])
+@pytest.mark.parametrize("role__name", ["Municipality"])
 def test_create_instance_caluma_be(
     db,
     admin_client,
@@ -307,7 +307,9 @@ def test_create_instance_caluma_ur(
             instance=instance, service=admin_client.user.groups.first().service
         )
 
-        if not modification:
+        if not modification and not admin_client.user.groups.filter(
+            role__name="Coordination"
+        ):
             old_instance = instance
             old_instance.instance_state = instance_state_factory(name="rejected")
             old_instance.save()
