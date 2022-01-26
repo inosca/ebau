@@ -1,5 +1,6 @@
 import pathlib
 from datetime import date
+from itertools import chain
 
 import pytest
 from caluma.caluma_form.factories import DocumentFactory
@@ -7,6 +8,8 @@ from caluma.caluma_workflow.factories import WorkItemFactory
 from django.conf import settings
 from django.urls import reverse
 from rest_framework import status
+
+from camac.instance.placeholders.aliases import ALIASES
 
 from .test_master_data import add_answer, be_master_data_case  # noqa
 
@@ -153,3 +156,14 @@ def test_dms_placeholders(
     response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
     snapshot.assert_match(response.json())
+
+
+def test_dms_placeholder_alias_integrity():
+    assert list(ALIASES.keys()) == list(
+        sorted(ALIASES.keys())
+    ), "Aliases are not properly sorted"
+
+    aliases = list(chain(*ALIASES.values()))
+    for alias in aliases:
+        keys = ", ".join([f'"{k}"' for k, v in ALIASES.items() if alias in v])
+        assert aliases.count(alias) == 1, f'Duplicate alias "{alias}" in {keys}'
