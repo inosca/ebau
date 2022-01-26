@@ -89,16 +89,16 @@ snapshots['test_dms_placeholders[False-Municipality] 1'] = {
     ],
     'CIRCULATION_PREAVIS': [
         {
-            'ANTWORT': 'Marco Russell',
-            'NEBENBESTIMMUNGEN': 'Bank eye feeling.',
-            'STELLUNGNAHME': 'Policy phone one determine red out agreement window.',
-            'VON': 'David Brown'
-        },
-        {
             'ANTWORT': 'Brian Kelley',
             'NEBENBESTIMMUNGEN': 'Store a true choice.',
             'STELLUNGNAHME': 'However teach party fact ability anyone.',
             'VON': 'Melissa Lane'
+        },
+        {
+            'ANTWORT': 'Marco Russell',
+            'NEBENBESTIMMUNGEN': 'Bank eye feeling.',
+            'STELLUNGNAHME': 'Policy phone one determine red out agreement window.',
+            'VON': 'David Brown'
         }
     ],
     'CIRCULATION_PREF': [
@@ -460,16 +460,16 @@ snapshots['test_dms_placeholders[False-Municipality] 1'] = {
     ],
     'ZIRKULATION_RUECKMELDUNGEN': [
         {
-            'ANTWORT': 'Marco Russell',
-            'NEBENBESTIMMUNGEN': 'Bank eye feeling.',
-            'STELLUNGNAHME': 'Policy phone one determine red out agreement window.',
-            'VON': 'David Brown'
-        },
-        {
             'ANTWORT': 'Brian Kelley',
             'NEBENBESTIMMUNGEN': 'Store a true choice.',
             'STELLUNGNAHME': 'However teach party fact ability anyone.',
             'VON': 'Melissa Lane'
+        },
+        {
+            'ANTWORT': 'Marco Russell',
+            'NEBENBESTIMMUNGEN': 'Bank eye feeling.',
+            'STELLUNGNAHME': 'Policy phone one determine red out agreement window.',
+            'VON': 'David Brown'
         }
     ],
     'ZONE_PROTEGEE': 'S1',
@@ -561,26 +561,26 @@ snapshots['test_dms_placeholders[True-Municipality] 1'] = {
     ],
     'CIRCULATION_PREAVIS': [
         {
-            'ANTWORT': 'Marco Russell',
-            'NEBENBESTIMMUNGEN': 'Bank eye feeling.',
-            'STELLUNGNAHME': 'Policy phone one determine red out agreement window.',
-            'VON': 'David Brown'
-        },
-        {
             'ANTWORT': 'Brian Kelley',
             'NEBENBESTIMMUNGEN': 'Store a true choice.',
             'STELLUNGNAHME': 'However teach party fact ability anyone.',
             'VON': 'Melissa Lane'
+        },
+        {
+            'ANTWORT': 'Marco Russell',
+            'NEBENBESTIMMUNGEN': 'Bank eye feeling.',
+            'STELLUNGNAHME': 'Policy phone one determine red out agreement window.',
+            'VON': 'David Brown'
         }
     ],
     'CIRCULATION_PREF': [
         {
-            'FRIST': '16.09.2021',
-            'NAME': 'Todd Brown'
-        },
-        {
             'FRIST': '21.09.2021',
             'NAME': 'Daniel Moody'
+        },
+        {
+            'FRIST': '16.09.2021',
+            'NAME': 'Todd Brown'
         }
     ],
     'CIRCULATION_SERVICES': [
@@ -661,10 +661,6 @@ snapshots['test_dms_placeholders[True-Municipality] 1'] = {
     'ETAT': 'David Rangel',
     'FACHSTELLEN_KANTONAL': [
         {
-            'FRIST': '16.09.2021',
-            'NAME': 'Todd Brown'
-        },
-        {
             'FRIST': '21.09.2021',
             'NAME': 'Daniel Moody'
         },
@@ -677,26 +673,30 @@ snapshots['test_dms_placeholders[True-Municipality] 1'] = {
             'NAME': 'Susan Rivers'
         },
         {
+            'FRIST': '13.09.2021',
+            'NAME': 'Melissa Lane'
+        },
+        {
             'FRIST': '18.09.2021',
             'NAME': 'David Brown'
         },
         {
-            'FRIST': '13.09.2021',
-            'NAME': 'Melissa Lane'
+            'FRIST': '16.09.2021',
+            'NAME': 'Todd Brown'
         }
     ],
-    'FACHSTELLEN_KANTONAL_LIST': '''- Todd Brown
-- Daniel Moody
+    'FACHSTELLEN_KANTONAL_LIST': '''- Daniel Moody
 - Shelly Reese
 - Susan Rivers
+- Melissa Lane
 - David Brown
-- Melissa Lane''',
-    'FACHSTELLEN_KANTONAL_LISTE': '''- Todd Brown
-- Daniel Moody
+- Todd Brown''',
+    'FACHSTELLEN_KANTONAL_LISTE': '''- Daniel Moody
 - Shelly Reese
 - Susan Rivers
+- Melissa Lane
 - David Brown
-- Melissa Lane''',
+- Todd Brown''',
     'FORM_NAME': 'Baugesuch',
     'GEBAEUDEEIGENTUEMER': 'Peter Meier',
     'GEBAEUDEEIGENTUEMER_ADDRESS_1': 'Thunstrasse 88',
@@ -828,10 +828,6 @@ snapshots['test_dms_placeholders[True-Municipality] 1'] = {
     'OEFFENTLICHKEIT': 'Öffentlich',
     'OFFICES_CANTONAUX': [
         {
-            'FRIST': '16.09.2021',
-            'NAME': 'Todd Brown'
-        },
-        {
             'FRIST': '21.09.2021',
             'NAME': 'Daniel Moody'
         },
@@ -844,20 +840,24 @@ snapshots['test_dms_placeholders[True-Municipality] 1'] = {
             'NAME': 'Susan Rivers'
         },
         {
+            'FRIST': '13.09.2021',
+            'NAME': 'Melissa Lane'
+        },
+        {
             'FRIST': '18.09.2021',
             'NAME': 'David Brown'
         },
         {
-            'FRIST': '13.09.2021',
-            'NAME': 'Melissa Lane'
+            'FRIST': '16.09.2021',
+            'NAME': 'Todd Brown'
         }
     ],
-    'OFFICES_CANTONAUX_LISTE': '''- Todd Brown
-- Daniel Moody
+    'OFFICES_CANTONAUX_LISTE': '''- Daniel Moody
 - Shelly Reese
 - Susan Rivers
+- Melissa Lane
 - David Brown
-- Melissa Lane''',
+- Todd Brown''',
     'OPPOSANTS': 'Test AG, Müller Hans, Teststrasse 1, 1234 Testdorf, Beispiel AG, Muster Max, Bahnhofstrasse 32, 9874 Testingen',
     'OPPOSING': 'Test AG, Müller Hans, Teststrasse 1, 1234 Testdorf, Beispiel AG, Muster Max, Bahnhofstrasse 32, 9874 Testingen',
     'OUTSIDE_SEATING': 20,
@@ -955,10 +955,6 @@ snapshots['test_dms_placeholders[True-Municipality] 1'] = {
     ],
     'ZIRKULATION_ALLE': [
         {
-            'FRIST': '16.09.2021',
-            'NAME': 'Todd Brown'
-        },
-        {
             'FRIST': '21.09.2021',
             'NAME': 'Daniel Moody'
         },
@@ -971,12 +967,16 @@ snapshots['test_dms_placeholders[True-Municipality] 1'] = {
             'NAME': 'Susan Rivers'
         },
         {
+            'FRIST': '13.09.2021',
+            'NAME': 'Melissa Lane'
+        },
+        {
             'FRIST': '18.09.2021',
             'NAME': 'David Brown'
         },
         {
-            'FRIST': '13.09.2021',
-            'NAME': 'Melissa Lane'
+            'FRIST': '16.09.2021',
+            'NAME': 'Todd Brown'
         }
     ],
     'ZIRKULATION_FACHSTELLEN': [
@@ -997,26 +997,26 @@ snapshots['test_dms_placeholders[True-Municipality] 1'] = {
     ],
     'ZIRKULATION_RSTA': [
         {
-            'FRIST': '16.09.2021',
-            'NAME': 'Todd Brown'
-        },
-        {
             'FRIST': '21.09.2021',
             'NAME': 'Daniel Moody'
+        },
+        {
+            'FRIST': '16.09.2021',
+            'NAME': 'Todd Brown'
         }
     ],
     'ZIRKULATION_RUECKMELDUNGEN': [
-        {
-            'ANTWORT': 'Marco Russell',
-            'NEBENBESTIMMUNGEN': 'Bank eye feeling.',
-            'STELLUNGNAHME': 'Policy phone one determine red out agreement window.',
-            'VON': 'David Brown'
-        },
         {
             'ANTWORT': 'Brian Kelley',
             'NEBENBESTIMMUNGEN': 'Store a true choice.',
             'STELLUNGNAHME': 'However teach party fact ability anyone.',
             'VON': 'Melissa Lane'
+        },
+        {
+            'ANTWORT': 'Marco Russell',
+            'NEBENBESTIMMUNGEN': 'Bank eye feeling.',
+            'STELLUNGNAHME': 'Policy phone one determine red out agreement window.',
+            'VON': 'David Brown'
         }
     ],
     'ZONE_PROTEGEE': 'S1',
