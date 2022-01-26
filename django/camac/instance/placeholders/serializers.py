@@ -1,3 +1,4 @@
+import csv
 import itertools
 from collections import OrderedDict
 
@@ -6,6 +7,10 @@ from django.utils.timezone import now
 from django.utils.translation import get_language, gettext_lazy as _
 from rest_framework import serializers
 from rest_framework.fields import ReadOnlyField
+
+from camac.caluma.api import CalumaApi
+from camac.objection.models import Objection
+from camac.user.models import Service
 
 from ..master_data import MasterData
 from . import fields
@@ -57,6 +62,8 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         ],
         separator=", ",
     )
+    administrative_district = serializers.SerializerMethodField()
+    alcohol_serving = fields.MasterDataField()
     alle_gebaeudeeigentuemer_name_address = fields.MasterDataPersonField(
         source="building_owners", fields="__all__"
     )
@@ -214,6 +221,7 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         source="landowners", only_first=True
     )
     instance_id = serializers.IntegerField(source="pk")
+    interior_seating = fields.MasterDataField(sum_by="total_seats")
     inventar = fields.JointField(
         fields=[
             fields.MasterDataField(
@@ -312,6 +320,8 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         only_own=True, props=["collateral"], join_by="\n\n"
     )
     neighbors = fields.MasterDataDictPersonField()
+    opposing = serializers.SerializerMethodField()
+    outside_seating = fields.MasterDataField()
     information_of_neighbors_link = fields.InformationOfNeighborsLinkField()
     information_of_neighbors_qr_code = fields.InformationOfNeighborsLinkField(
         as_qrcode=True
@@ -333,6 +343,8 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
     projektverfasser = fields.MasterDataPersonField(
         source="project_authors", only_first=True
     )
+    protection_area = fields.MasterDataField(parser=get_option_label, join_by=", ")
+    public = fields.MasterDataField(parser=get_option_label)
     publikation_1_anzeiger = fields.PublicationField(
         source="publikation-1-publikation-anzeiger",
         value_key="date",
@@ -402,6 +414,22 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
     zustaendig_name = fields.ResponsibleUserField(source="full_name")
     zustaendig_phone = fields.ResponsibleUserField(source="phone")
 
+    def get_administrative_district(self, instance):
+        sheet = settings.APPLICATION.get("MUNICIPALITY_DATA_SHEET")
+        reader = csv.DictReader(open(sheet))
+        municipalities = {row["Gemeinde"]: row["Verwaltungskreis"] for row in reader}
+
+        caluma_api = CalumaApi()
+        municipality_id = caluma_api.get_gemeinde(instance.case.document)
+        municipality = (
+            Service.objects.get(pk=municipality_id)
+            .get_name("de")
+            .replace("Leitbehörde ", "")
+            if municipality_id
+            else ""
+        )
+        return municipalities.get(municipality, "")
+
     def get_base_url(self, instance):
         return settings.INTERNAL_BASE_URL
 
@@ -450,6 +478,21 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
 
     def get_language(self, instance):
         return get_language()
+
+    def get_opposing(self, instance):
+        objections = Objection.objects.filter(instance=instance)
+
+        data = []
+        for objection in objections:
+            participants = [
+                [opponent.company, opponent.name, opponent.address, opponent.city]
+                for opponent in objection.objection_participants.all()
+            ]
+            data.append([item for sublist in participants for item in sublist])
+
+        if data:
+            return ", ".join([item for sublist in data for item in sublist])
+        return ""
 
     def get_parzelle(self, instance):
         return clean_join(

@@ -1931,6 +1931,36 @@ APPLICATIONS = {
                 ["gewaesserschutzbereich", "gewaesserschutzbereich-v2"],
                 {"value_parser": "option"},
             ),
+            "protection_area": (
+                "answer",
+                ["grundwasserschutzzonen", "grundwasserschutzzonen-v2"],
+                {"value_parser": "option"},
+            ),
+            "public": ("answer", "oeffentlichkeit", {"value_parser": "option"}),
+            "alcohol_serving": (
+                "answer",
+                "alkoholausschank",
+                {
+                    "value_parser": (
+                        "value_mapping",
+                        {
+                            "mapping": {
+                                "alkoholausschank-ja": "mit",
+                                "alkoholausschank-nein": "ohne",
+                            }
+                        },
+                    )
+                },
+            ),
+            "interior_seating": (
+                "table",
+                "ausschankraeume",
+                {"column_mapping": {"total_seats": "sitzplaetze"}},
+            ),
+            "outside_seating": (
+                "answer",
+                "sitzplaetze-garten",
+            ),
             "usage_type": ("answer", "nutzungsart", {"value_parser": "option"}),
             "usage_zone": ("answer", "nutzungszone"),
             "application_type": ("answer", "geschaeftstyp"),
