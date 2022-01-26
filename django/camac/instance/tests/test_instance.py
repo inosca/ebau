@@ -195,7 +195,14 @@ def test_linked_instances(
 
 @pytest.mark.parametrize("main_instance_has_group", [False, True])
 @pytest.mark.parametrize("other_instance_has_group", [False, True])
-@pytest.mark.parametrize("role__name", ["Municipality", "Coordination"])
+@pytest.mark.parametrize(
+    "role__name,expected_status",
+    [
+        ("Municipality", status.HTTP_200_OK),
+        ("Coordination", status.HTTP_200_OK),
+        ("TrustedService", status.HTTP_403_FORBIDDEN),
+    ],
+)
 def test_instance_group_link(
     admin_client,
     instance,
@@ -203,6 +210,7 @@ def test_instance_group_link(
     instance_group_factory,
     main_instance_has_group,
     other_instance_has_group,
+    expected_status,
     mocker,
 ):
     mocker.patch(
@@ -249,7 +257,10 @@ def test_instance_group_link(
     other_instance.refresh_from_db()
     other_instance_2.refresh_from_db()
 
-    assert response.status_code == status.HTTP_200_OK
+    assert response.status_code == expected_status
+
+    if expected_status != status.HTTP_200_OK:
+        return
 
     if main_instance_has_group:
         assert main_instance.instance_group == main_group_before
@@ -271,13 +282,14 @@ def test_instance_group_link(
 
 
 @pytest.mark.parametrize("more_than_one_other_group", [False, True])
-@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize("role__name", ["Municipality", "Coordination"])
 def test_instance_group_unlink(
     admin_client,
     instance,
     instance_factory,
     instance_group_factory,
     more_than_one_other_group,
+    mocker,
 ):
     main_instance = instance
     main_instance.instance_group = instance_group_factory()
@@ -286,6 +298,10 @@ def test_instance_group_unlink(
     other_instance = instance_factory(location=main_instance.location)
     other_instance.instance_group = main_instance.instance_group
     other_instance.save()
+
+    mocker.patch(
+        "camac.constants.kt_uri.KOOR_BG_GROUP_ID", admin_client.user.groups.first().pk
+    )
 
     if more_than_one_other_group:
         main_group_before = main_instance.instance_group
