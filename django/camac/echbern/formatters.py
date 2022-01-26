@@ -2,6 +2,7 @@
 
 
 import logging
+import re
 
 import pyxb
 from django.conf import settings
@@ -30,6 +31,17 @@ from .schema import (
 from .utils import decision_to_judgement, strip_whitespace
 
 logger = logging.getLogger(__name__)
+
+
+def clean_version(full_version: str) -> str:
+    """Remove prerelease info from version.
+
+    This is needed because the eCH standard only allows a maximum of 10
+    characters in the version field.
+    """
+    match = re.search(r"^\d+.\d+.\d+", full_version)
+
+    return match.group(0) if match else full_version
 
 
 def list_to_string(data, key, delimiter=", "):
@@ -736,7 +748,7 @@ def delivery(
                 sendingApplication=pyxb.BIND(
                     manufacturer=camac_metadata.__author__,
                     product=camac_metadata.__title__,
-                    productVersion=camac_metadata.__version__,
+                    productVersion=clean_version(camac_metadata.__version__),
                 ),
                 subject=answers["ech-subject"],
                 messageDate=message_date or timezone.now(),
