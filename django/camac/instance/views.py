@@ -30,6 +30,7 @@ from rest_framework_json_api import views
 from rest_framework_json_api.views import ReadOnlyModelViewSet
 
 from camac.caluma.api import CalumaApi
+from camac.constants import kt_uri as ur_constants
 from camac.core.models import (
     Activation,
     CirculationState,
@@ -289,6 +290,23 @@ class InstanceView(
             instance.responsible_service(filter_type="municipality")
             == self.request.group.service
         )
+
+    @permission_aware
+    def has_object_link_permission(self, instance):
+        return False
+
+    def has_object_link_permission_for_municipality(self, instance):
+        return True
+
+    def has_object_link_permission_for_coordination(self, instance):
+        user = self.request.user
+
+        return user.groups.filter(
+            pk__in=[ur_constants.KOOR_NP_GROUP_ID, ur_constants.KOOR_BG_GROUP_ID]
+        )
+
+    def has_object_unlink_permission(self, instance):
+        return self.has_object_link_permission(instance)
 
     @swagger_auto_schema(auto_schema=None)
     def retrieve(self, request, *args, **kwargs):  # pragma: no cover
