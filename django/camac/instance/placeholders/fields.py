@@ -305,7 +305,7 @@ class ActivationsField(serializers.ReadOnlyField):
 
         return Activation.objects.filter(
             circulation__instance=instance, **self.filters
-        ).order_by("pk")
+        ).order_by("start_date")
 
 
 class MasterDataPersonField(MasterDataField):
