@@ -1,4 +1,6 @@
+import pathlib
 from datetime import date
+from itertools import chain
 
 import pytest
 from caluma.caluma_form.factories import DocumentFactory
@@ -7,11 +9,14 @@ from django.conf import settings
 from django.urls import reverse
 from rest_framework import status
 
+from camac.instance.placeholders.aliases import ALIASES
+
 from .test_master_data import add_answer, be_master_data_case  # noqa
 
 
 @pytest.mark.freeze_time("2021-08-30")
 @pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize("with_objection", [True, False])
 @pytest.mark.django_db(transaction=True, reset_sequences=True)
 def test_dms_placeholders(
     db,
@@ -30,7 +35,15 @@ def test_dms_placeholders(
     service_factory,
     snapshot,
     tag_factory,
+    objection,
+    objection_participant_factory,
+    with_objection,
 ):
+
+    application_settings["MUNICIPALITY_DATA_SHEET"] = settings.ROOT_DIR(
+        "kt_bern",
+        pathlib.Path(settings.APPLICATIONS["kt_bern"]["MUNICIPALITY_DATA_SHEET"]).name,
+    )
     application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_bern"][
         "MASTER_DATA"
     ]
@@ -77,7 +90,29 @@ def test_dms_placeholders(
         document=document,
     )
 
-    municipality = service_factory()
+    if with_objection:
+        objection_participant_factory(
+            objection=objection,
+            representative=0,
+            company="Test AG",
+            name="Müller Hans",
+            address="Teststrasse 1",
+            city="1234 Testdorf",
+        )
+        objection_participant_factory(
+            objection=objection,
+            representative=0,
+            company="Beispiel AG",
+            name="Muster Max",
+            address="Bahnhofstrasse 32",
+            city="9874 Testingen",
+        )
+    else:
+        objection.delete()
+
+    municipality = service_factory(
+        trans__name="Burgdorf",
+    )
     be_master_data_case.document.answers.filter(question_id="gemeinde").update(
         value=str(municipality.pk)
     )
@@ -121,3 +156,14 @@ def test_dms_placeholders(
     response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
     snapshot.assert_match(response.json())
+
+
+def test_dms_placeholder_alias_integrity():
+    assert list(ALIASES.keys()) == list(
+        sorted(ALIASES.keys())
+    ), "Aliases are not properly sorted"
+
+    aliases = list(chain(*ALIASES.values()))
+    for alias in aliases:
+        keys = ", ".join([f'"{k}"' for k, v in ALIASES.items() if alias in v])
+        assert aliases.count(alias) == 1, f'Duplicate alias "{alias}" in {keys}'
