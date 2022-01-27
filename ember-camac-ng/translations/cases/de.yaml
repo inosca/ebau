@@ -9,6 +9,7 @@ cases:
     applicant: "Gesuchsteller"
     intent: "Vorhaben"
     linkedInstances: "Verknüpfte Dossiers"
+    instancesOnSamePlot: "Dossiers auf gleicher Parzelle"
     street: "Strasse/Flurname"
     instanceState: "Status"
     coordination: "Koordinationsstelle"
@@ -67,6 +68,8 @@ cases:
     unLinkInstanceSuccess: "Die Verknüpfung der Dossiers wurde erfolgreich gelöscht"
     unLinkInstanceError: "Beim Löschen der Verknüpfung ist etwas schief gelaufen"
     enterDossierNumber: "Dossiernummer eingeben"
+    showAll: "Alle anzeigen"
+    modalTitle: "Alle Dossiers auf Parzelle"
 
   new:
     title: "Neues Gesuch erstellen"
