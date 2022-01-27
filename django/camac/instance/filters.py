@@ -128,6 +128,9 @@ class InstanceFilterSet(FilterSet):
     pending_sanctions_control_instance = NumberFilter(
         method="filter_pending_sanctions_control_instance"
     )
+    case_document_form_name = CharFilter(
+        field_name="case__document__form__name", lookup_expr="contains"
+    )
 
     def filter_is_applicant(self, queryset, name, value):
         if value:
@@ -180,6 +183,7 @@ class InstanceFilterSet(FilterSet):
             "has_pending_billing_entry",
             "has_pending_sanction",
             "pending_sanctions_control_instance",
+            "case_document_form_name",
         )
 
 

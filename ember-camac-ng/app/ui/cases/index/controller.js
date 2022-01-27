@@ -18,7 +18,8 @@ const filterQueryParams = [
   "street",
   "service",
   "pendingSanctionsControlInstance",
-  "workflow",
+  "caseStatus",
+  "caseDocumentFormName",
 ];
 
 export default class CasesIndexController extends Controller {
@@ -27,6 +28,7 @@ export default class CasesIndexController extends Controller {
     "hasActivation",
     "hasPendingBillingEntry",
     "hasPendingSanction",
+    "workflow",
     ...filterQueryParams,
   ];
 
@@ -34,6 +36,7 @@ export default class CasesIndexController extends Controller {
   @tracked hasActivation = false;
   @tracked hasPendingBillingEntry = false;
   @tracked hasPendingSanction = false;
+  @tracked workflow = null;
 
   @objectFromQueryParams(...filterQueryParams)
   caseFilter;

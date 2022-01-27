@@ -49,6 +49,7 @@ export default class CaseTableComponent extends Component {
         metaValue: [
           {
             key: "dossier-number",
+            lookup: "CONTAINS",
             value: filter.dossierNumber,
           },
         ],
@@ -107,16 +108,19 @@ export default class CaseTableComponent extends Component {
           },
         ],
       },
-      workflow: {
-        workflow: filter.workflow,
+      caseStatus: {
+        status: filter.caseStatus,
       },
     };
 
-    return Object.entries(filter)
+    const searchFilters = Object.entries(filter)
       .filter(
         ([key, value]) => Boolean(value) && Boolean(availableFilterSet[key])
       )
       .map(([key]) => availableFilterSet[key]);
+
+    const workflow = this.args.workflow;
+    return [...searchFilters, ...(workflow ? [{ workflow }] : [])];
   }
 
   get paginationInfo() {
@@ -149,60 +153,16 @@ export default class CaseTableComponent extends Component {
     return cases;
   }
 
-  get tableHeaders() {
-    if (this.shoebox.content.customTableHeaders) {
-      return this.shoebox.content.customTableHeaders;
+  get tableColumns() {
+    const tableColumns = config.APPLICATION.caseTableColumns;
+
+    if (Array.isArray(tableColumns)) {
+      return tableColumns;
     }
+
+    const role = this.shoebox.role;
     // TODO camac_legacy: Remove this in the future
-    switch (this.shoebox.role) {
-      case "municipality":
-        return [
-          "instanceId",
-          "dossierNr",
-          "form",
-          "municipality",
-          "user",
-          "applicant",
-          "intent",
-          "street",
-          "instanceState",
-        ];
-      case "coordination":
-        return [
-          "instanceId",
-          "dossierNr",
-          "coordination",
-          "form",
-          "municipality",
-          "user",
-          "applicant",
-          "intent",
-          "street",
-          "instanceState",
-        ];
-      case "service":
-        return [
-          "deadlineColor",
-          "instanceId",
-          "dossierNr",
-          "coordination",
-          "form",
-          "municipality",
-          "applicant",
-          "intent",
-          "street",
-          "processingDeadline",
-        ];
-      default:
-        return [
-          "dossierNr",
-          "municipality",
-          "applicant",
-          "intent",
-          "street",
-          "parcelNumbers",
-        ];
-    }
+    return tableColumns[role] ?? tableColumns.default ?? [];
   }
 
   @action
@@ -218,6 +178,7 @@ export default class CaseTableComponent extends Component {
       has_pending_sanction: this.args.hasPendingSanction,
       pending_sanctions_control_instance:
         this.args.filter.pendingSanctionsControlInstance,
+      case_document_form_name: this.args.filter.caseDocumentFormName,
     };
     this.casesQuery.fetch({
       order: [{ meta: "dossier-number" }],
