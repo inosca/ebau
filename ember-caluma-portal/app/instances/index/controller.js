@@ -8,10 +8,10 @@ import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
 import { useTask } from "ember-resources";
 import { DateTime } from "luxon";
-import { TrackedObject } from "tracked-built-ins";
 import { dedupeTracked, cached } from "tracked-toolbox";
 
 import config from "caluma-portal/config/environment";
+import trackedFilter from "caluma-portal/decorators/tracked-filter";
 import getRootFormsQuery from "caluma-portal/gql/queries/get-root-forms.graphql";
 
 const { answerSlugs } = config.APPLICATION;
@@ -38,64 +38,6 @@ const dateFilter = {
     return date.isValid ? date.toJSDate() : null;
   },
 };
-
-function trackedFilter({
-  serialize = (value) => value,
-  deserialize = (value) => value,
-  defaultValue,
-}) {
-  return function decorator(target, property) {
-    if (!Object.prototype.hasOwnProperty.call(target, "_filters")) {
-      target._filters = new TrackedObject();
-      target._applyFilters = function () {
-        this._filtersConfig.forEach(({ privateKey, publicKey, serialize }) => {
-          this[privateKey] = serialize.call(this, this[publicKey]);
-        });
-      };
-      target._resetFilters = function () {
-        this._filtersConfig.forEach(
-          ({ publicKey, privateKey, defaultValue }) => {
-            this._filters[publicKey] = defaultValue;
-            this[privateKey] = defaultValue;
-          }
-        );
-      };
-    }
-
-    const privateKey = `_${property}`;
-
-    Object.defineProperty(
-      target,
-      privateKey,
-      dedupeTracked(target, privateKey, { initializer: () => defaultValue })
-    );
-
-    target._filters[property] = defaultValue;
-    target._filtersConfig = [
-      ...(target._filtersConfig ?? []),
-      { privateKey, publicKey: property, serialize, deserialize, defaultValue },
-    ];
-
-    return cached(target, property, {
-      enumerable: true,
-      configurable: false,
-      get() {
-        const filtersValue = this._filters[property];
-        const targetValue = this[privateKey];
-
-        const value =
-          filtersValue === defaultValue && targetValue !== defaultValue
-            ? targetValue
-            : filtersValue;
-
-        return deserialize.call(this, value);
-      },
-      set(value) {
-        this._filters[property] = serialize.call(this, value);
-      },
-    });
-  };
-}
 
 export default class InstancesIndexController extends Controller {
   @queryManager apollo;
