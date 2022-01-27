@@ -16,7 +16,6 @@ from .test_master_data import add_answer, be_master_data_case  # noqa
 
 @pytest.mark.freeze_time("2021-08-30")
 @pytest.mark.parametrize("role__name", ["Municipality"])
-@pytest.mark.parametrize("with_objection", [True, False])
 @pytest.mark.django_db(transaction=True, reset_sequences=True)
 def test_dms_placeholders(
     db,
@@ -37,7 +36,6 @@ def test_dms_placeholders(
     tag_factory,
     objection,
     objection_participant_factory,
-    with_objection,
 ):
 
     application_settings["MUNICIPALITY_DATA_SHEET"] = settings.ROOT_DIR(
@@ -90,25 +88,22 @@ def test_dms_placeholders(
         document=document,
     )
 
-    if with_objection:
-        objection_participant_factory(
-            objection=objection,
-            representative=0,
-            company="Test AG",
-            name="Müller Hans",
-            address="Teststrasse 1",
-            city="1234 Testdorf",
-        )
-        objection_participant_factory(
-            objection=objection,
-            representative=0,
-            company="Beispiel AG",
-            name="Muster Max",
-            address="Bahnhofstrasse 32",
-            city="9874 Testingen",
-        )
-    else:
-        objection.delete()
+    objection_participant_factory(
+        objection=objection,
+        representative=0,
+        company="Test AG",
+        name="Müller Hans",
+        address="Teststrasse 1",
+        city="1234 Testdorf",
+    )
+    objection_participant_factory(
+        objection=objection,
+        representative=0,
+        company="",
+        name="Muster Max",
+        address="Bahnhofstrasse 32",
+        city="9874 Testingen",
+    )
 
     municipality = service_factory(
         trans__name="Burgdorf",
@@ -163,7 +158,25 @@ def test_dms_placeholder_alias_integrity():
         sorted(ALIASES.keys())
     ), "Aliases are not properly sorted"
 
-    aliases = list(chain(*ALIASES.values()))
-    for alias in aliases:
+    simple_aliases = list(chain(*[v for k, v in ALIASES.items() if "." not in k]))
+
+    for alias in simple_aliases:
         keys = ", ".join([f'"{k}"' for k, v in ALIASES.items() if alias in v])
-        assert aliases.count(alias) == 1, f'Duplicate alias "{alias}" in {keys}'
+        assert (
+            simple_aliases.count(alias) == 1
+        ), f'Duplicate alias "{alias}" in "{keys}"'
+
+    complex_aliases = {}
+    for key, aliases in ALIASES.items():
+        if "." in key:
+            k = key.split(".")[0]
+            if k not in complex_aliases:
+                complex_aliases[k] = []
+
+            complex_aliases[k].append(*aliases)
+
+    for key, aliases in complex_aliases.items():
+        for alias in aliases:
+            assert (
+                complex_aliases[key].count(alias) == 1
+            ), f'Duplicate complex alias "{alias}" in "{key}"'
