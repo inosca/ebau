@@ -6,10 +6,13 @@ import { queryManager } from "ember-apollo-client";
 import { restartableTask, lastValue } from "ember-concurrency";
 import { gql } from "graphql-tag";
 
+import config from "camac-ng/config/environment";
+
 export default class CaseFilterComponent extends Component {
   @queryManager apollo;
 
   @service store;
+  @service intl;
 
   @tracked _filter = {};
 
@@ -64,11 +67,19 @@ export default class CaseFilterComponent extends Component {
       .map((edge) => edge.node.options.edges)[0]
       ?.map((edge) => edge.node);
 
+    const caseStatusOptions = config.caseFilters.caseStatus.optionValues.map(
+      (option) => ({
+        status: option,
+        label: this.intl.t(`cases.status.${option}`),
+      })
+    );
+
     return {
       municipalities,
       buildingPermitTypes,
       instanceStates,
       services,
+      caseStatusOptions,
     };
   }
 
@@ -89,5 +100,13 @@ export default class CaseFilterComponent extends Component {
   @action resetFilter() {
     this._filter = {};
     this.args.onChange(this._filter);
+  }
+
+  get caseFilters() {
+    return config.caseFilters;
+  }
+
+  get activeCaseFilters() {
+    return config.APPLICATION.activeCaseFilters ?? [];
   }
 }
