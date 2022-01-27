@@ -2408,6 +2408,15 @@
     }
   },
   {
+    "model": "core.araction",
+    "pk": 22,
+    "fields": {
+      "available_resource": "emberlist",
+      "action_name": "index",
+      "hidden": 0
+    }
+  },
+  {
     "model": "core.availableaction",
     "pk": "addhistory",
     "fields": {
@@ -2843,6 +2852,15 @@
       "module_name": "businesscontrol",
       "controller_name": "businesscontrol",
       "description": "Page to list business control forms"
+    }
+  },
+  {
+    "model": "core.availableresource",
+    "pk": "emberlist",
+    "fields": {
+      "module_name": "emberlist",
+      "controller_name": "emberlist",
+      "description": "Page with a list of instances (from caluma)"
     }
   },
   {
@@ -5401,10 +5419,10 @@
   },
   {
     "model": "core.instanceresource",
-    "pk": 55,
+    "pk": 57,
     "fields": {
       "available_instance_resource": "workitemlistinstance",
-      "resource": 22,
+      "resource": 27,
       "name": "Aufgaben",
       "description": null,
       "template": null,
@@ -5416,10 +5434,10 @@
   },
   {
     "model": "core.instanceresource",
-    "pk": 56,
+    "pk": 58,
     "fields": {
       "available_instance_resource": "editformpage",
-      "resource": 22,
+      "resource": 27,
       "name": "Formular",
       "description": null,
       "template": "/ember-camac-ng/form.phtml",
@@ -7490,15 +7508,7 @@
   },
   {
     "model": "core.ireditformpage",
-    "pk": 55,
-    "fields": {
-      "page": 1,
-      "pdf_class": null
-    }
-  },
-  {
-    "model": "core.ireditformpage",
-    "pk": 56,
+    "pk": 58,
     "fields": {
       "page": 1,
       "pdf_class": null
@@ -14302,7 +14312,7 @@
     "model": "core.irroleacl",
     "pk": 1019,
     "fields": {
-      "instance_resource": 56,
+      "instance_resource": 58,
       "role": 5,
       "instance_state": 16
     }
@@ -14311,7 +14321,7 @@
     "model": "core.irroleacl",
     "pk": 1020,
     "fields": {
-      "instance_resource": 56,
+      "instance_resource": 58,
       "role": 11,
       "instance_state": 16
     }
@@ -14323,6 +14333,15 @@
       "instance_resource": 56,
       "role": 3,
       "instance_state": 16
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1017,
+    "fields": {
+      "instance_resource": 58,
+      "role": 3,
+      "instance_state": 1
     }
   },
   {
@@ -16073,6 +16092,13 @@
     }
   },
   {
+    "model": "core.rpage",
+    "pk": 26,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
     "model": "core.rroleacl",
     "pk": 1,
     "fields": {
@@ -16330,38 +16356,6 @@
   },
   {
     "model": "core.rroleacl",
-    "pk": 41,
-    "fields": {
-      "resource": 17,
-      "role": 3
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 42,
-    "fields": {
-      "resource": 17,
-      "role": 8
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 45,
-    "fields": {
-      "resource": 22,
-      "role": 3
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 46,
-    "fields": {
-      "resource": 22,
-      "role": 8
-    }
-  },
-  {
-    "model": "core.rroleacl",
     "pk": 47,
     "fields": {
       "resource": 1,
@@ -16514,42 +16508,74 @@
   },
   {
     "model": "core.rroleacl",
-    "pk": 66,
+    "pk": 72,
     "fields": {
-      "resource": 22,
-      "role": 7
+      "resource": 26,
+      "role": 5
     }
   },
   {
     "model": "core.rroleacl",
-    "pk": 67,
+    "pk": 73,
     "fields": {
-      "resource": 17,
+      "resource": 26,
       "role": 11
     }
   },
   {
     "model": "core.rroleacl",
-    "pk": 68,
+    "pk": 74,
     "fields": {
-      "resource": 17,
-      "role": 5
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 70,
-    "fields": {
-      "resource": 17,
+      "resource": 26,
       "role": 7
     }
   },
   {
     "model": "core.rroleacl",
-    "pk": 71,
+    "pk": 75,
     "fields": {
-      "resource": 22,
+      "resource": 26,
+      "role": 3
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 76,
+    "fields": {
+      "resource": 26,
+      "role": 8
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 77,
+    "fields": {
+      "resource": 27,
       "role": 5
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 78,
+    "fields": {
+      "resource": 27,
+      "role": 7
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 79,
+    "fields": {
+      "resource": 27,
+      "role": 3
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 80,
+    "fields": {
+      "resource": 27,
+      "role": 8
     }
   },
   {
@@ -16736,32 +16762,6 @@
   },
   {
     "model": "core.resource",
-    "pk": 17,
-    "fields": {
-      "available_resource": "businesscontrolcreate",
-      "name": "Gesch\u00e4ftskontrolle erstellen",
-      "description": null,
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 16
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 22,
-    "fields": {
-      "available_resource": "businesscontrollist",
-      "name": "Gesch\u00e4ftskontrollen",
-      "description": null,
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 17
-    }
-  },
-  {
-    "model": "core.resource",
     "pk": 23,
     "fields": {
       "available_resource": "workitemlistall",
@@ -16783,7 +16783,7 @@
       "template": "/ember-camac-ng/formbuilder.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 18
+      "sort": 20
     }
   },
   {
@@ -16797,6 +16797,32 @@
       "class_field": null,
       "hidden": 1,
       "sort": 13
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 26,
+    "fields": {
+      "available_resource": "page",
+      "name": "Internes Gesch\u00e4ft erstellen",
+      "description": null,
+      "template": "/ember-camac-ng/bussinesscontrol-create.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 17
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 27,
+    "fields": {
+      "available_resource": "emberlist",
+      "name": "Interne Gesch\u00e4fte",
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 19
     }
   },
   {

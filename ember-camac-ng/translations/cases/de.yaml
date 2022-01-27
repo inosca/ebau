@@ -15,7 +15,7 @@ cases:
     coordinationShort: "Kurzname Koordinationsstelle"
     reason: "Grund"
     caseStatus: "Status"
-    caseWorkflowName: "Typ"
+    caseDocumentFormName: "Typ"
     parcelNumbers: "Parzellen"
     createdAt: "Erstellt am"
     modifiedAt: "Geändert am"
@@ -54,6 +54,10 @@ cases:
     applicantName-placeholder: "Marc Muster"
     street: "Strasse / Flurname / Ort"
     street-placeholder: "Musterstrasse 1"
+    caseStatus: "Status"
+    caseStatus-placeholder: "Alle Status"
+    caseDocumentFormName: "Typ"
+    caseDocumentFormName-placeholder: "Internes Geschäft"
 
   miscellaneous:
     linkInstance: "Dossier verknüpfen"

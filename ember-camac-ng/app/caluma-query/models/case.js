@@ -165,8 +165,8 @@ export default class CustomCaseModel extends CaseModel {
     return this.intl.t(`cases.status.${this.raw.status}`);
   }
 
-  get caseWorkflowName() {
-    return this.raw.workflow.name;
+  get caseDocumentFormName() {
+    return this.raw.document.form.name;
   }
 
   get buildingProjectStatus() {
@@ -236,6 +236,10 @@ export default class CustomCaseModel extends CaseModel {
       name
     }
     document {
+      form {
+        slug
+        name
+      }
       answers(questions: [
         "applicant",
         "landowner",
@@ -249,6 +253,7 @@ export default class CustomCaseModel extends CaseModel {
         "bezeichnung",
         "vorhaben-proposal-description",
         "veranstaltung-beschrieb",
+        "internes-geschaeft-vorhaben",
         "municipality",
         "parcels",
         "status-bauprojekt",

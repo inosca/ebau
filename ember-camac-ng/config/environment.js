@@ -37,6 +37,73 @@ module.exports = function (environment) {
       rootElement: "#ember-camac-ng",
     },
 
+    caseFilters: {
+      instanceId: {
+        type: "input",
+      },
+      dossierNumber: {
+        type: "input",
+      },
+      applicantName: {
+        type: "input",
+      },
+      street: {
+        type: "input",
+      },
+      municipality: {
+        type: "select",
+        options: "municipalities",
+        valueField: "id",
+        labelField: "name",
+      },
+      parcelNumber: {
+        type: "input",
+      },
+      instanceState: {
+        type: "select",
+        options: "instanceStates",
+        valueField: "id",
+        labelField: "uppercaseName",
+      },
+      service: {
+        type: "select",
+        options: "services",
+        valueField: "id",
+        labelField: "name",
+      },
+      pendingSanctionsControlInstance: {
+        type: "select",
+        options: "services",
+        valueField: "id",
+        labelField: "name",
+      },
+      buildingPermitType: {
+        type: "select",
+        options: "buildingPermitTypes",
+      },
+      createdAfter: {
+        type: "date",
+        maxDate: "createdBefore",
+      },
+      createdBefore: {
+        type: "date",
+        minDate: "createdAfter",
+      },
+      intent: {
+        type: "input",
+      },
+      caseStatus: {
+        type: "select",
+        options: "caseStatusOptions",
+        optionValues: ["RUNNING", "COMPLETED", "CANCELED", "SUSPENDED"],
+        valueField: "status",
+        labelField: "label",
+      },
+      caseDocumentFormName: {
+        type: "input",
+      },
+    },
+
     APPLICATIONS: {
       kt_bern: {
         prodUrl: "ebau.apps.be.ch",
@@ -69,6 +136,19 @@ module.exports = function (environment) {
           calumaWorkflow: "internal-document",
           camacForm: 11,
         },
+        caseTableColumns: [
+          "dossierNr",
+          "caseDocumentFormName",
+          "intent",
+          "caseStatus",
+        ],
+        activeCaseFilters: [
+          "dossierNumber",
+          "intent",
+          "caseStatus",
+          "caseDocumentFormName",
+        ],
+        intentSlugs: ["internes-geschaeft-vorhaben"],
       },
       kt_uri: {
         prodUrl: "camac.ur.ch",
@@ -86,6 +166,66 @@ module.exports = function (environment) {
         allowedInstanceLinkingGroups: [
           142, // KOOR BG
           21, // KOOR NP
+        ],
+        caseTableColumns: {
+          municipality: [
+            "instanceId",
+            "dossierNr",
+            "form",
+            "municipality",
+            "user",
+            "applicant",
+            "intent",
+            "street",
+            "instanceState",
+          ],
+          coordination: [
+            "instanceId",
+            "dossierNr",
+            "coordination",
+            "form",
+            "municipality",
+            "user",
+            "applicant",
+            "intent",
+            "street",
+            "instanceState",
+          ],
+          service: [
+            "deadlineColor",
+            "instanceId",
+            "dossierNr",
+            "coordination",
+            "form",
+            "municipality",
+            "applicant",
+            "intent",
+            "street",
+            "processingDeadline",
+          ],
+          default: [
+            "dossierNr",
+            "municipality",
+            "applicant",
+            "intent",
+            "street",
+            "parcelNumbers",
+          ],
+        },
+        activeCaseFilters: [
+          "instanceId",
+          "dossierNumber",
+          "applicantName",
+          "street",
+          "municipality",
+          "parcelNumber",
+          "instanceState",
+          "service",
+          "pendingSanctionsControlInstance",
+          "buildingPermitType",
+          "createdAfter",
+          "createdBefore",
+          "intent",
         ],
         intentSlugs: [
           "proposal-description",
