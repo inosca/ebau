@@ -4,14 +4,19 @@ import { htmlSafe } from "@ember/template";
 import Component from "@glimmer/component";
 import calumaQuery from "@projectcaluma/ember-core/caluma-query";
 import { allCases } from "@projectcaluma/ember-core/caluma-query/queries";
-import { DateTime } from "luxon";
+import { queryManager } from "ember-apollo-client";
+import { dropTask, lastValue } from "ember-concurrency";
 
 import config from "camac-ng/config/environment";
 
-export default class CaseTableComponent extends Component {
+export default class LinkedInstancesTableComponent extends Component {
+  @queryManager apollo;
+
   @service store;
   @service intl;
   @service shoebox;
+  @service notification;
+  @service fetch;
 
   @calumaQuery({ query: allCases, options: "options" }) casesQuery;
 
@@ -20,10 +25,6 @@ export default class CaseTableComponent extends Component {
       pageSize: 15,
       processNew: (cases) => this.processNew(cases),
     };
-  }
-
-  get isService() {
-    return this.shoebox.role === "service";
   }
 
   get gqlFilter() {
@@ -54,57 +55,12 @@ export default class CaseTableComponent extends Component {
           },
         ],
       },
-      createdBefore: {
-        metaValue: [
-          {
-            key: "submit-date",
-            lookup: "LTE",
-            value: DateTime.fromISO(filter.createdBefore).endOf("day").toISO(),
-          },
-        ],
-      },
-      createdAfter: {
-        metaValue: [
-          {
-            key: "submit-date",
-            lookup: "GTE",
-            value: DateTime.fromISO(filter.createdAfter).startOf("day").toISO(),
-          },
-        ],
-      },
       intent: {
         searchAnswers: [
           {
             questions: config.APPLICATION.intentSlugs,
             lookup: "CONTAINS",
             value: filter.intent,
-          },
-        ],
-      },
-      applicantName: {
-        searchAnswers: [
-          {
-            questions: ["first-name", "last-name", "juristic-person-name"],
-            lookup: "CONTAINS",
-            value: filter.applicantName,
-          },
-        ],
-      },
-      street: {
-        searchAnswers: [
-          {
-            questions: ["parcel-street", "street-number", "parcel-city"],
-            lookup: "CONTAINS",
-            value: filter.street,
-          },
-        ],
-      },
-      parcelNumber: {
-        hasAnswer: [
-          {
-            question: "parcel-number",
-            lookup: "CONTAINS",
-            value: filter.parcelNumber,
           },
         ],
       },
@@ -141,14 +97,6 @@ export default class CaseTableComponent extends Component {
     }
     const instanceIds = cases.map((_case) => _case.meta["camac-instance-id"]);
 
-    if (this.isService) {
-      await this.store.query("activation", {
-        instance: instanceIds.join(","),
-        service: this.shoebox.content.serviceId,
-        include: "circulation",
-      });
-    }
-
     await this.store.query("instance", {
       instance_id: instanceIds.join(","),
       include: "instance_state,user,form",
@@ -157,14 +105,16 @@ export default class CaseTableComponent extends Component {
   }
 
   get tableColumns() {
-    const tableColumns = config.APPLICATION.caseTableColumns;
+    return config.APPLICATION.caseTableColumns.linkedInstances;
+  }
 
-    if (Array.isArray(tableColumns)) {
-      return tableColumns;
-    }
-
-    const role = this.shoebox.role;
-    return tableColumns[role] ?? tableColumns.default ?? [];
+  get linkedAndOnSamePlot() {
+    const dossierNumbers = this.args.instancesOnSamePlot.map(
+      (instance) => instance.dossierNumber
+    );
+    return this.args.linkedDossiers
+      .filter((value) => dossierNumbers.includes(value.dossierNumber))
+      .map((instance) => instance.dossierNumber);
   }
 
   @action
@@ -172,14 +122,6 @@ export default class CaseTableComponent extends Component {
     const camacFilters = {
       instance_state: this.args.filter.instanceState || "",
       location: this.args.filter.municipality,
-      service: this.args.filter.service,
-      circulation_state: this.args.hasActivation
-        ? config.APPLICATION.activeCirculationStates
-        : null,
-      has_pending_billing_entry: this.args.hasPendingBillingEntry,
-      has_pending_sanction: this.args.hasPendingSanction,
-      pending_sanctions_control_instance:
-        this.args.filter.pendingSanctionsControlInstance,
     };
     this.casesQuery.fetch({
       order: config.APPLICATION.casesQueryOrder,
@@ -207,5 +149,71 @@ export default class CaseTableComponent extends Component {
     location.assign(
       `/index/redirect-to-instance-resource/instance-id/${caseRecord.instanceId}/`
     );
+  }
+
+  @dropTask
+  *linkDossier(caseRecord) {
+    try {
+      yield this.fetch.fetch(
+        `/api/v1/instances/${caseRecord.instanceId}/link`,
+        {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({
+            data: {
+              attributes: {
+                "link-to": caseRecord.instanceId,
+              },
+            },
+          }),
+        }
+      );
+
+      this.fetchLinkedDossiers.perform(caseRecord);
+      this.notification.success(
+        this.intl.t("cases.miscellaneous.linkInstanceSuccess")
+      );
+    } catch (e) {
+      this.notification.danger(
+        this.intl.t("cases.miscellaneous.linkInstanceError")
+      );
+    }
+  }
+
+  @dropTask
+  *unLinkDossier(caseRecord) {
+    try {
+      yield this.fetch.fetch(
+        `/api/v1/instances/${caseRecord.instanceId}/unlink`,
+        {
+          method: "PATCH",
+          headers: { "content-type": "application/json" },
+        }
+      );
+      this.fetchLinkedDossiers.perform(caseRecord);
+      this.notification.success(
+        this.intl.t("cases.miscellaneous.unLinkInstanceSuccess")
+      );
+    } catch (e) {
+      this.notification.danger(
+        this.intl.t("cases.miscellaneous.unLinkInstanceError")
+      );
+    }
+  }
+
+  @lastValue("fetchLinkedDossiers") linkedDossiers;
+  @dropTask
+  *fetchLinkedDossiers(caseRecord) {
+    if (!caseRecord.instance.linkedInstances) {
+      return null;
+    }
+
+    const instances = caseRecord.instance.linkedInstances.filter((instance) => {
+      return instance.id !== caseRecord.instanceId;
+    });
+
+    instances.forEach((element) => element.fetchCaseMeta.perform());
+
+    return yield instances;
   }
 }
