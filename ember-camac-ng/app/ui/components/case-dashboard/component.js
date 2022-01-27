@@ -1,4 +1,5 @@
 import { getOwner, setOwner } from "@ember/application";
+import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
@@ -8,6 +9,25 @@ import { gql } from "graphql-tag";
 import { all } from "rsvp";
 
 import CustomCaseModel from "camac-ng/caluma-query/models/case";
+import { objectFromQueryParams } from "camac-ng/decorators";
+import getCaseFromParcelsQuery from "camac-ng/gql/queries/get-case-from-parcels.graphql";
+
+const filterQueryParams = [
+  "instanceId",
+  "dossierNumber",
+  "municipality",
+  "parcelNumber",
+  "instanceState",
+  "buildingPermitType",
+  "createdAfter",
+  "createdBefore",
+  "intent",
+  "applicantName",
+  "street",
+  "service",
+  "pendingSanctionsControlInstance",
+  "workflow",
+];
 
 const WORKFLOW_ITEM_IDS = [
   12, // Dossier erfasst
@@ -34,6 +54,8 @@ export default class CaseDashboardComponent extends Component {
   @service notification;
 
   @tracked dossierNumber;
+  @tracked showModal = false;
+  @tracked totalInstanceOnSamePlot;
 
   get isLoading() {
     return this.fetchCase.isRunning;
@@ -43,30 +65,111 @@ export default class CaseDashboardComponent extends Component {
     return this.shoebox.role === "service";
   }
 
+  get linkedAndOnSamePlot() {
+    return this.linkedDossiers.filter((value) =>
+      this.instancesOnSamePlot.includes(value)
+    );
+  }
+
+  @objectFromQueryParams(...filterQueryParams)
+  caseFilter;
+
+  @action
+  toggleModal() {
+    this.showModal = !this.showModal;
+  }
+
+  @lastValue("fetchCurrentInstance") currentInstance;
+  @dropTask
+  *fetchCurrentInstance() {
+    return yield this.store.findRecord("instance", this.args.caseId, {
+      reload: true,
+    });
+  }
+
   @lastValue("fetchCase") models;
 
   @lastValue("fetchLinkedDossiers") linkedDossiers;
   @dropTask
-  *fetchLinkedDossiers(reload = false) {
-    const currentInstance = yield this.store.findRecord(
-      "instance",
-      this.args.caseId,
-      { reload }
-    );
-
-    if (!currentInstance.linkedInstances) {
+  *fetchLinkedDossiers() {
+    if (!this.currentInstance.linkedInstances) {
       return null;
     }
-    const instances = currentInstance.linkedInstances.filter(
-      (instance) => instance.id !== currentInstance.id
+    console.log(this.currentInstance);
+
+    const instances = yield this.currentInstance.linkedInstances.filter(
+      (instance) => {
+        return instance.id !== this.currentInstance.id;
+      }
     );
+    console.log(instances);
 
     instances.forEach((element) => element.fetchCaseMeta.perform());
-    return instances;
+
+    return yield instances;
+  }
+
+  @lastValue("fetchInstancesOnSamePlot") instancesOnSamePlot;
+  @dropTask
+  *fetchInstancesOnSamePlot(showAll = false) {
+    try {
+      const plotNumbers = this.models.caseModel.parcelNumbers;
+      const municipality = this.models.caseModel.municipality;
+
+      if (plotNumbers.length === 0) {
+        return;
+      }
+
+      const caseEdges = yield this.apollo.query(
+        {
+          query: getCaseFromParcelsQuery,
+          filter: {
+            hasAnswerFilter: [
+              {
+                question: "parcel-number",
+                lookup: "CONTAINS",
+                value: plotNumbers,
+              },
+              {
+                question: "municipality",
+                lookup: "CONTAINS",
+                value: municipality,
+              },
+            ],
+          },
+        },
+        "allCases.edges"
+      );
+
+      const filteredCaseEdges = caseEdges.filter(({ node }) => {
+        return (
+          node.meta["camac-instance-id"] !== parseInt(this.currentInstance.id)
+        );
+      });
+
+      const instanceIds = filteredCaseEdges.map(
+        (caseEdge) => caseEdge.node.meta["camac-instance-id"]
+      );
+
+      const instances = yield this.store.query("instance", {
+        instance_id: instanceIds.join(","),
+      });
+
+      instances.forEach((element) => element.fetchCaseMeta.perform());
+      this.totalInstancesOnSamePlot = instances.length;
+
+      if (showAll) {
+        return instances;
+      }
+
+      return instances.slice(0, 5);
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   @dropTask
-  *linkDossier() {
+  *linkDossier(number) {
     try {
       const caseRecord = yield this.apollo.query(
         {
@@ -87,7 +190,7 @@ export default class CaseDashboardComponent extends Component {
             metaFilter: [
               {
                 key: "dossier-number",
-                value: this.dossierNumber.trim(),
+                value: number ? number : this.dossierNumber.trim(),
               },
             ],
           },
@@ -108,7 +211,7 @@ export default class CaseDashboardComponent extends Component {
         }),
       });
 
-      this.fetchLinkedDossiers.perform(true);
+      this.fetchLinkedDossiers.perform();
       this.dossierNumber = null;
       this.notification.success(
         this.intl.t("cases.miscellaneous.linkInstanceSuccess")
@@ -127,7 +230,7 @@ export default class CaseDashboardComponent extends Component {
         method: "PATCH",
         headers: { "content-type": "application/json" },
       });
-      this.fetchLinkedDossiers.perform(true);
+      this.fetchLinkedDossiers.perform();
       this.notification.success(
         this.intl.t("cases.miscellaneous.unLinkInstanceSuccess")
       );
@@ -140,17 +243,14 @@ export default class CaseDashboardComponent extends Component {
 
   @dropTask
   *fetchWrapper() {
+    yield this.fetchCurrentInstance.perform();
     yield this.fetchCase.perform();
     yield this.fetchLinkedDossiers.perform();
+    yield this.fetchInstancesOnSamePlot.perform();
   }
 
   @dropTask
   *fetchCase() {
-    yield this.store.query("instance", {
-      instance_id: this.args.caseId,
-      include: "instance_state,user,form,location",
-    });
-
     const journalEntries = yield this.store.query("journal-entry", {
       instance: this.args.caseId,
       "page[size]": 3,
