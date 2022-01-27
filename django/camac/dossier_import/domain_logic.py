@@ -6,7 +6,6 @@ import requests
 from django.conf import settings
 from django.utils import timezone
 from django.utils.module_loading import import_string
-from requests import HTTPError
 from requests_toolbelt.multipart.encoder import MultipartEncoder
 
 from camac.document.models import Attachment
@@ -54,6 +53,7 @@ def perform_import(dossier_import, override_config=None):
         )
         dossier_import.status = DossierImport.IMPORT_STATUS_IMPORTED
         dossier_import.save()
+
     except Exception as e:  # pragma: no cover # noqa: B902
         logger.exception(e)
         dossier_import.messages["import"]["exception"] = str(e)
@@ -78,43 +78,35 @@ def get_token():
 def transmit_import(dossier_import):
     try:
         token = f"Bearer {get_token()}"
-    except HTTPError as e:
-        logger.exception(e)
-        dossier_import.messages["import"]["exception"] = str(e)
-        dossier_import.status = DossierImport.IMPORT_STATUS_TRANSMISSION_FAILED
-        dossier_import.save()
-        return
 
-    DOSSIER_IMPORT = settings.APPLICATION.get("DOSSIER_IMPORT", {})
-    dossier_import.source_file.seek(0)
-    m = MultipartEncoder(
-        fields={
-            "group": str(dossier_import.group.pk),
-            "source_file": (
-                os.path.basename(dossier_import.source_file.name),
-                dossier_import.source_file,
-                "application/zip",
-            ),
-        }
-    )
+        DOSSIER_IMPORT = settings.APPLICATION.get("DOSSIER_IMPORT", {})
+        dossier_import.source_file.seek(0)
+        m = MultipartEncoder(
+            fields={
+                "group": str(dossier_import.group.pk),
+                "source_file": (
+                    os.path.basename(dossier_import.source_file.name),
+                    dossier_import.source_file,
+                    "application/zip",
+                ),
+            }
+        )
 
-    r = requests.post(
-        build_url(DOSSIER_IMPORT.get("PROD_URL"), "/api/v1/dossier-imports"),
-        data=m,
-        headers={
-            "Content-Type": m.content_type,
-            "Authorization": token,
-            "x-camac-group": "10000",
-        },
-    )
-    try:
+        r = requests.post(
+            build_url(DOSSIER_IMPORT.get("PROD_URL"), "/api/v1/dossier-imports"),
+            data=m,
+            headers={
+                "Content-Type": m.content_type,
+                "Authorization": token,
+                "x-camac-group": "10000",
+            },
+        )
         r.raise_for_status()
-    except HTTPError as e:  # pragma: no cover
+        dossier_import.status = DossierImport.IMPORT_STATUS_TRANSMITTED
+        dossier_import.save()
+
+    except Exception as e:  # pragma: no cover # noqa: B902
         logger.exception(e)
         dossier_import.messages["import"]["exception"] = str(e)
         dossier_import.status = DossierImport.IMPORT_STATUS_TRANSMISSION_FAILED
         dossier_import.save()
-        return
-
-    dossier_import.status = DossierImport.IMPORT_STATUS_TRANSMITTED
-    dossier_import.save()
