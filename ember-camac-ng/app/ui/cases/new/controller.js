@@ -28,15 +28,13 @@ export default class CasesNewController extends Controller {
         { isPublished: true },
         { isArchived: false },
         { orderBy: "NAME_ASC" },
-        // exclude public forms AND exclude forms of documents that
-        // should be exclusively created by the system
+        // exclude public forms, only include creatable forms
         {
           metaValue: [{ key: "visibility", value: { type: "public" } }],
           invert: true,
         },
         {
-          metaValue: [{ key: "visibility__is_system_form", value: true }],
-          invert: true,
+          metaValue: [{ key: "is_creatable", value: true }],
         },
       ],
     });
