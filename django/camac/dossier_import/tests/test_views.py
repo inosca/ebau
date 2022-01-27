@@ -357,19 +357,14 @@ def test_transmitting_logic(
 
 
 def test_failing_transmission(db, settings, requests_mock, dossier_import):
+    PROD_URL = "http://this-could-be-your-production-url.example.com"
+    PROD_AUTH_URL = PROD_URL + "/auth/token"
     settings.APPLICATION = settings.APPLICATIONS["kt_bern"]
-    settings.APPLICATION["DOSSIER_IMPORT"]["PROD_URL"] = "http://camac-ng.local"
-    settings.APPLICATION["DOSSIER_IMPORT"][
-        "PROD_AUTH_URL"
-    ] = settings.KEYCLOAK_OIDC_TOKEN_URL
+    settings.APPLICATION["DOSSIER_IMPORT"]["PROD_URL"] = PROD_URL
+    settings.APPLICATION["DOSSIER_IMPORT"]["PROD_AUTH_URL"] = PROD_AUTH_URL
+    requests_mock.register_uri("POST", PROD_AUTH_URL, status_code=401)
     requests_mock.register_uri(
-        "POST",
-        "/auth/realms/ebau/protocol/openid-connect/token",
-        status_code=401,
-        complete_qs=True,
-    )
-    requests_mock.register_uri(
-        "POST", "/api/v1/dossier-imports", status_code=401, complete_qs=True
+        "POST", PROD_URL + "/api/v1/dossier-imports", status_code=401
     )
     transmit_import(dossier_import)
     assert dossier_import.status == DossierImport.IMPORT_STATUS_TRANSMISSION_FAILED
