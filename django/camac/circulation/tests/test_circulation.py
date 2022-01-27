@@ -328,6 +328,7 @@ def test_end_circulation(
     }
 
     new_state = circulation_state_factory(name="DONE")
+    application_settings["CIRCULATION_STATE_DONE_ID"] = new_state.pk
 
     case = start_case(
         workflow=Workflow.objects.get(pk="building-permit"),
@@ -382,6 +383,8 @@ def test_prematurely_end_circulation(
         ]
     }
     state_done = circulation_state_factory(name="DONE")
+    application_settings["CIRCULATION_STATE_DONE_ID"] = state_done.pk
+
     state_inprogress = circulation_state_factory(name="WORKING")
     circulation_to_end = init_circulation_with_activations(
         be_instance, instance_service.service, (state_done, state_inprogress)
