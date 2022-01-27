@@ -484,15 +484,19 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
 
         data = []
         for objection in objections:
-            participants = [
-                [opponent.company, opponent.name, opponent.address, opponent.city]
-                for opponent in objection.objection_participants.all()
-            ]
-            data.append([item for sublist in participants for item in sublist])
+            for opponent in objection.objection_participants.all():
+                data.append(
+                    {
+                        "NAME": ", ".join(
+                            filter(None, [opponent.company, opponent.name])
+                        ),
+                        "ADDRESS": ", ".join(
+                            filter(None, [opponent.address, opponent.city])
+                        ),
+                    }
+                )
 
-        if data:
-            return ", ".join([item for sublist in data for item in sublist])
-        return ""
+        return data
 
     def get_parzelle(self, instance):
         return clean_join(
