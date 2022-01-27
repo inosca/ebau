@@ -10,6 +10,7 @@ cases:
     applicant: ""
     intent: ""
     linkedInstances: ""
+    instancesOnSamePlot: ""
     street: ""
     instanceState: ""
     coordination: ""
@@ -68,6 +69,8 @@ cases:
     unLinkInstanceSuccess: ""
     unLinkInstanceError: ""
     enterDossierNumber: ""
+    showAll: ""
+    modalTitle: ""
 
   new:
     title: ""
