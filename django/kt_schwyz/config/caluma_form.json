@@ -35,8 +35,7 @@
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {
         "visibility": {
-          "type": "internal",
-          "is_system_form": true
+          "type": "internal"
         }
       },
       "is_published": true,
@@ -231,6 +230,29 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "name": "{\"de\": \"Internes Gesch\\u00e4ft\", \"fr\": null}",
+      "description": "{\"de\": \"\", \"fr\": null}",
+      "meta": {
+        "visibility": {
+          "type": "internal"
+        },
+        "is_creatable": true
+      },
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "internes-geschaeft-personalien",
+    "fields": {
+      "created_at": "2022-01-26T13:07:50.585Z",
+      "modified_at": "2022-01-26T13:07:50.585Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Personalien\", \"fr\": null}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {
         "visibility": {
@@ -1144,17 +1166,257 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "internes-geschaeft.internes-geschaeft-beschreibung",
+    "pk": "internes-geschaeft-personalien.internes-geschaeft-personalien-anrede",
     "fields": {
-      "created_at": "2022-01-20T18:20:21.853Z",
-      "modified_at": "2022-01-20T18:20:21.853Z",
+      "created_at": "2022-01-26T13:49:02.280Z",
+      "modified_at": "2022-01-26T13:49:02.280Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "internes-geschaeft-personalien",
+      "question": "internes-geschaeft-personalien-anrede",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "internes-geschaeft-personalien.internes-geschaeft-personalien-e-mail",
+    "fields": {
+      "created_at": "2022-01-26T13:57:37.480Z",
+      "modified_at": "2022-01-26T13:57:37.480Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "internes-geschaeft-personalien",
+      "question": "internes-geschaeft-personalien-e-mail",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "internes-geschaeft-personalien.internes-geschaeft-personalien-firma-koerperschaft",
+    "fields": {
+      "created_at": "2022-01-26T13:52:19.584Z",
+      "modified_at": "2022-01-26T13:52:19.584Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "internes-geschaeft-personalien",
+      "question": "internes-geschaeft-personalien-firma-koerperschaft",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "internes-geschaeft-personalien.internes-geschaeft-personalien-name",
+    "fields": {
+      "created_at": "2022-01-26T13:53:18.335Z",
+      "modified_at": "2022-01-26T13:53:18.335Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "internes-geschaeft-personalien",
+      "question": "internes-geschaeft-personalien-name",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "internes-geschaeft-personalien.internes-geschaeft-personalien-ort",
+    "fields": {
+      "created_at": "2022-01-26T13:57:10.672Z",
+      "modified_at": "2022-01-26T13:57:10.672Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "internes-geschaeft-personalien",
+      "question": "internes-geschaeft-personalien-ort",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "internes-geschaeft-personalien.internes-geschaeft-personalien-plz",
+    "fields": {
+      "created_at": "2022-01-26T13:56:49.343Z",
+      "modified_at": "2022-01-26T13:56:49.343Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "internes-geschaeft-personalien",
+      "question": "internes-geschaeft-personalien-plz",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "internes-geschaeft-personalien.internes-geschaeft-personalien-strasse-nr",
+    "fields": {
+      "created_at": "2022-01-26T13:54:01.853Z",
+      "modified_at": "2022-01-26T13:54:01.853Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "internes-geschaeft-personalien",
+      "question": "internes-geschaeft-personalien-strasse-nr",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "internes-geschaeft-personalien.internes-geschaeft-personalien-tel-nr",
+    "fields": {
+      "created_at": "2022-01-26T14:00:15.810Z",
+      "modified_at": "2022-01-26T14:00:15.811Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "internes-geschaeft-personalien",
+      "question": "internes-geschaeft-personalien-tel-nr",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "internes-geschaeft-personalien.internes-geschaeft-personalien-titel",
+    "fields": {
+      "created_at": "2022-01-26T13:45:53.180Z",
+      "modified_at": "2022-01-26T13:45:53.180Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "internes-geschaeft-personalien",
+      "question": "internes-geschaeft-personalien-titel",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "internes-geschaeft-personalien.internes-geschaeft-personalien-vorname",
+    "fields": {
+      "created_at": "2022-01-26T13:53:33.673Z",
+      "modified_at": "2022-01-26T13:53:33.673Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "internes-geschaeft-personalien",
+      "question": "internes-geschaeft-personalien-vorname",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "internes-geschaeft.internes-geschaeft-generelle-informationen",
+    "fields": {
+      "created_at": "2022-01-26T14:20:44.358Z",
+      "modified_at": "2022-01-26T14:20:44.358Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "internes-geschaeft",
-      "question": "internes-geschaeft-beschreibung",
+      "question": "internes-geschaeft-generelle-informationen",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "internes-geschaeft.internes-geschaeft-lokalisierung",
+    "fields": {
+      "created_at": "2022-01-26T14:12:41.058Z",
+      "modified_at": "2022-01-26T14:12:41.058Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "internes-geschaeft",
+      "question": "internes-geschaeft-lokalisierung",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "internes-geschaeft.internes-geschaeft-lokalisierung-ort",
+    "fields": {
+      "created_at": "2022-01-26T14:17:11.175Z",
+      "modified_at": "2022-01-26T14:17:11.175Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "internes-geschaeft",
+      "question": "internes-geschaeft-lokalisierung-ort",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "internes-geschaeft.internes-geschaeft-lokalisierung-parzellennummer",
+    "fields": {
+      "created_at": "2022-01-26T14:18:17.180Z",
+      "modified_at": "2022-01-26T14:18:17.180Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "internes-geschaeft",
+      "question": "internes-geschaeft-lokalisierung-parzellennummer",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "internes-geschaeft.internes-geschaeft-lokalisierung-plz",
+    "fields": {
+      "created_at": "2022-01-26T14:15:21.344Z",
+      "modified_at": "2022-01-26T14:15:21.344Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "internes-geschaeft",
+      "question": "internes-geschaeft-lokalisierung-plz",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "internes-geschaeft.internes-geschaeft-lokalisierung-strasse-nr",
+    "fields": {
+      "created_at": "2022-01-26T14:14:37.798Z",
+      "modified_at": "2022-01-26T14:14:37.798Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "internes-geschaeft",
+      "question": "internes-geschaeft-lokalisierung-strasse-nr",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "internes-geschaeft.internes-geschaeft-personalien",
+    "fields": {
+      "created_at": "2022-01-26T12:56:03.313Z",
+      "modified_at": "2022-01-26T12:56:03.313Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "internes-geschaeft",
+      "question": "internes-geschaeft-personalien",
+      "sort": 7
     }
   },
   {
@@ -1169,7 +1431,22 @@
       "modified_by_group": null,
       "form": "internes-geschaeft",
       "question": "internes-geschaeft-titel",
-      "sort": 2
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "internes-geschaeft.internes-geschaeft-vorhaben",
+    "fields": {
+      "created_at": "2022-01-25T11:19:43.936Z",
+      "modified_at": "2022-01-25T11:19:43.936Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "internes-geschaeft",
+      "question": "internes-geschaeft-vorhaben",
+      "sort": 6
     }
   },
   {
@@ -1327,6 +1604,54 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Beschwerdegegner\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "internes-geschaeft-personalien-anrede-firma",
+    "fields": {
+      "created_at": "2022-01-26T13:49:02.139Z",
+      "modified_at": "2022-01-26T14:08:36.939Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Firma\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "internes-geschaeft-personalien-anrede-frau",
+    "fields": {
+      "created_at": "2022-01-26T13:49:02.072Z",
+      "modified_at": "2022-01-26T14:08:36.938Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Frau\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "internes-geschaeft-personalien-anrede-herr",
+    "fields": {
+      "created_at": "2022-01-26T13:49:01.979Z",
+      "modified_at": "2022-01-26T14:08:36.912Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Herr\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2978,6 +3303,573 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "internes-geschaeft-generelle-informationen",
+    "fields": {
+      "created_at": "2022-01-26T14:20:44.285Z",
+      "modified_at": "2022-01-26T14:20:44.286Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Generelle Informationen\", \"fr\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"## Generelle Informationen\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "internes-geschaeft-lokalisierung",
+    "fields": {
+      "created_at": "2022-01-26T14:12:40.973Z",
+      "modified_at": "2022-01-26T14:20:09.554Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Lokalisierung\", \"fr\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"## Lokalisierung\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "internes-geschaeft-lokalisierung-ort",
+    "fields": {
+      "created_at": "2022-01-26T14:17:11.099Z",
+      "modified_at": "2022-01-26T14:17:11.099Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ort\", \"fr\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "internes-geschaeft-lokalisierung-parzellennummer",
+    "fields": {
+      "created_at": "2022-01-26T14:18:17.104Z",
+      "modified_at": "2022-01-26T14:18:17.104Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Parzellennummer\", \"fr\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "internes-geschaeft-lokalisierung-plz",
+    "fields": {
+      "created_at": "2022-01-26T14:15:21.266Z",
+      "modified_at": "2022-01-26T14:15:21.266Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"PLZ\", \"fr\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_value": 9999,
+        "min_value": 1000
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "internes-geschaeft-lokalisierung-strasse-nr",
+    "fields": {
+      "created_at": "2022-01-26T14:14:37.716Z",
+      "modified_at": "2022-01-26T14:14:37.716Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Strasse, Nr.\", \"fr\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "internes-geschaeft-personalien",
+    "fields": {
+      "created_at": "2022-01-26T12:56:03.242Z",
+      "modified_at": "2022-01-27T12:57:47.528Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Personalien\", \"fr\": null}",
+      "type": "table",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {
+        "columnsToDisplay": [
+          "internes-geschaeft-personalien-name",
+          "internes-geschaeft-personalien-vorname",
+          "internes-geschaeft-personalien-strasse-nr",
+          "internes-geschaeft-personalien-firma-koerperschaft",
+          "internes-geschaeft-personalien-anrede",
+          "internes-geschaeft-personalien-plz",
+          "internes-geschaeft-personalien-ort",
+          "internes-geschaeft-personalien-e-mail",
+          "internes-geschaeft-personalien-tel-nr"
+        ]
+      },
+      "data_source": null,
+      "row_form": "internes-geschaeft-personalien",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "internes-geschaeft-personalien-anrede",
+    "fields": {
+      "created_at": "2022-01-26T13:49:02.196Z",
+      "modified_at": "2022-01-26T14:08:37.019Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anrede\", \"fr\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "internes-geschaeft-personalien-e-mail",
+    "fields": {
+      "created_at": "2022-01-26T13:57:37.408Z",
+      "modified_at": "2022-01-26T13:57:37.408Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"E-Mail\", \"fr\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "internes-geschaeft-personalien-firma-koerperschaft",
+    "fields": {
+      "created_at": "2022-01-26T13:52:19.521Z",
+      "modified_at": "2022-01-26T13:52:19.521Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Firma / K\\u00f6rperschaft\", \"fr\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "internes-geschaeft-personalien-name",
+    "fields": {
+      "created_at": "2022-01-26T13:53:18.261Z",
+      "modified_at": "2022-01-26T13:53:18.261Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Name\", \"fr\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "internes-geschaeft-personalien-ort",
+    "fields": {
+      "created_at": "2022-01-26T13:57:10.594Z",
+      "modified_at": "2022-01-26T13:57:10.594Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ort\", \"fr\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "internes-geschaeft-personalien-plz",
+    "fields": {
+      "created_at": "2022-01-26T13:56:49.261Z",
+      "modified_at": "2022-01-26T13:56:49.261Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"PLZ\", \"fr\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_value": 9999,
+        "min_value": 1000
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "internes-geschaeft-personalien-strasse-nr",
+    "fields": {
+      "created_at": "2022-01-26T13:54:01.770Z",
+      "modified_at": "2022-01-26T13:54:01.770Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Strasse, Nr.\", \"fr\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "internes-geschaeft-personalien-tel-nr",
+    "fields": {
+      "created_at": "2022-01-26T14:00:15.733Z",
+      "modified_at": "2022-01-26T14:00:15.733Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Tel. Nr.\", \"fr\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "internes-geschaeft-personalien-titel",
+    "fields": {
+      "created_at": "2022-01-26T13:45:53.112Z",
+      "modified_at": "2022-01-26T14:08:46.345Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Titel\", \"fr\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"# Eintrag hinzuf\\u00fcgen\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "internes-geschaeft-personalien-vorname",
+    "fields": {
+      "created_at": "2022-01-26T13:53:33.594Z",
+      "modified_at": "2022-01-26T13:53:33.594Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vorname\", \"fr\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "internes-geschaeft-titel",
     "fields": {
       "created_at": "2022-01-20T18:19:46.226Z",
@@ -2995,6 +3887,39 @@
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
       "static_content": "{\"de\": \"<h1>Internes Gesch\\u00e4ft</h1>\", \"fr\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "internes-geschaeft-vorhaben",
+    "fields": {
+      "created_at": "2022-01-25T11:19:43.862Z",
+      "modified_at": "2022-01-25T11:19:43.862Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vorhaben\", \"fr\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -3244,6 +4169,51 @@
       "question": "beschwerdeverfahren-weiterzug-durch",
       "option": "beschwerdeverfahren-weiterzug-durch-beschwerdegegner",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "internes-geschaeft-personalien-anrede.internes-geschaeft-personalien-anrede-firma",
+    "fields": {
+      "created_at": "2022-01-26T14:08:37.026Z",
+      "modified_at": "2022-01-26T14:08:37.026Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "internes-geschaeft-personalien-anrede",
+      "option": "internes-geschaeft-personalien-anrede-firma",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "internes-geschaeft-personalien-anrede.internes-geschaeft-personalien-anrede-frau",
+    "fields": {
+      "created_at": "2022-01-26T14:08:37.030Z",
+      "modified_at": "2022-01-26T14:08:37.030Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "internes-geschaeft-personalien-anrede",
+      "option": "internes-geschaeft-personalien-anrede-frau",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "internes-geschaeft-personalien-anrede.internes-geschaeft-personalien-anrede-herr",
+    "fields": {
+      "created_at": "2022-01-26T14:08:37.034Z",
+      "modified_at": "2022-01-26T14:08:37.034Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "internes-geschaeft-personalien-anrede",
+      "option": "internes-geschaeft-personalien-anrede-herr",
+      "sort": 3
     }
   }
 ]
