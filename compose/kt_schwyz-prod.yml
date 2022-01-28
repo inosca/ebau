@@ -1,7 +1,7 @@
 version: "3.4"
 services:
   proxy:
-    image: nginx:1.13-alpine
+    image: nginx:1.21-alpine
     depends_on:
       - ember
       - ember-camac-ng
@@ -88,7 +88,7 @@ services:
       - phpresources:/var/www/camac/kt_uri/resources
 
   cache:
-    image: memcached:1.5-alpine
+    image: memcached:1.6-alpine
     restart: always
 
   unoconv:
