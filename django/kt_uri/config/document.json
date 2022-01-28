@@ -96,6 +96,18 @@
     }
   },
   {
+    "model": "document.attachmentsection",
+    "pk": 12000008,
+    "fields": {
+      "name": "Dokumente AFJ",
+      "description": "Dokumente der KOOR AFJ",
+      "sort": 8,
+      "notification_template": null,
+      "recipient_types": null,
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"text/plain\", \"application/octet-stream\"]"
+    }
+  },
+  {
     "model": "document.attachmentsectiont",
     "pk": 1,
     "fields": {
@@ -173,6 +185,16 @@
       "language": "de",
       "name": "Lisag",
       "description": "Nutzungsplandokumente, ITF Dateien"
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 9,
+    "fields": {
+      "attachment_section": 12000008,
+      "language": "de",
+      "name": "Dokumente AFJ",
+      "description": "Dokumente der KOOR AFJ"
     }
   }
 ]
