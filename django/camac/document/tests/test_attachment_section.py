@@ -63,41 +63,36 @@ def test_attachment_section_detail(admin_client, attachment_section, role, mocke
 
 
 @pytest.mark.parametrize(
-    "role__name,group_id,section_id,permission,expected",
+    "role__name,group_key,section_id,expected",
     [
         (
             "trusted_service",
-            42,  # Sachbearbeitung und Koordination AFJ
+            "SACHBEARBEITUNG_AFJ",
             12000008,
-            permissions.AdminServicePermission,
             {12000008: permissions.AdminServicePermission},
         ),
         (
             "trusted_service",
-            102,  # Sachbearbeitung AFJ
+            "SACHBEARBEITUNG_UND_KOORDINATION_AFJ",
             12000008,
-            permissions.AdminServicePermission,
+            {12000008: permissions.AdminServicePermission},
+        ),
+        (
+            "coordination",
+            "KOOR_AFJ",
+            12000008,
             {12000008: permissions.AdminServicePermission},
         ),
         (
             "trusted_service",
-            836,  # KOOR AFJ
-            12000008,
-            permissions.AdminServicePermission,
-            {12000008: permissions.AdminServicePermission},
-        ),
-        (
-            "trusted_service",
-            283,  # Lisag
+            "LISAG",
             12000007,
-            permissions.AdminServicePermission,
             {12000007: permissions.AdminServicePermission},
         ),
         (
             "trusted_service",
-            283,  # Lisag
+            "LISAG",
             123,
-            permissions.AdminServicePermission,
             {
                 123: permissions.AdminServicePermission,
                 12000007: permissions.AdminServicePermission,
@@ -105,9 +100,8 @@ def test_attachment_section_detail(admin_client, attachment_section, role, mocke
         ),
         (
             "coordination",
-            21,  # KOOR NP
+            "KOOR_NP",
             123,
-            permissions.AdminServicePermission,
             {
                 123: permissions.AdminServicePermission,
                 12000007: permissions.AdminServicePermission,
@@ -115,9 +109,8 @@ def test_attachment_section_detail(admin_client, attachment_section, role, mocke
         ),
         (
             "trusted_service",
-            123,  # Non-existent
+            None,
             123,
-            permissions.AdminServicePermission,
             {123: permissions.AdminServicePermission},
         ),
     ],
@@ -128,25 +121,24 @@ def test_attachment_section_special_permissions_ur(
     role,
     group_factory,
     section_id,
-    permission,
     expected,
-    group_id,
+    group_key,
     settings,
 ):
     settings.APPLICATION_NAME = "kt_uri"
 
     group = group_factory(role=role)
 
-    if group_id in [42, 102, 836]:
-        mocker.patch("camac.constants.kt_uri.KOOR_AFJ_GROUP_ID", group.pk)
-    elif group_id == 283:
-        mocker.patch("camac.constants.kt_uri.LISAG_GROUP_ID", group.pk)
-    elif group_id == 21:
-        mocker.patch("camac.constants.kt_uri.KOOR_NP_GROUP_ID", group.pk)
+    if group_key:
+        mocker.patch(f"camac.constants.kt_uri.{group_key}_GROUP_ID", group.pk)
 
     mocker.patch(
         "camac.document.permissions.PERMISSIONS",
-        {"kt_uri": {role.name.lower(): {permission: [section_id]}}},
+        {
+            "kt_uri": {
+                role.name.lower(): {permissions.AdminServicePermission: [section_id]}
+            }
+        },
     )
 
     assert permissions.section_permissions(group) == expected
