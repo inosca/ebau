@@ -5,6 +5,7 @@ from itertools import chain
 import pytest
 from caluma.caluma_form.factories import DocumentFactory
 from caluma.caluma_workflow.factories import WorkItemFactory
+from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.urls import reverse
 from rest_framework import status
@@ -85,6 +86,8 @@ def test_dms_placeholders(
     WorkItemFactory(
         case=be_instance.case,
         task_id="fill-publication",
+        status=WorkItem.STATUS_COMPLETED,
+        addressed_groups=[str(group.service_id)],
         document=document,
     )
 
