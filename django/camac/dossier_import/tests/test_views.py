@@ -318,9 +318,10 @@ def test_transmitting_logic(
     db, dossier_import_factory, archive_file, group, settings, requests_mock
 ):
     settings.APPLICATION = settings.APPLICATIONS["kt_bern"]
-    settings.KEYCLOAK_OIDC_TOKEN_URL = (
-        "http://camac-ng-keycloak.local/auth/realms/ebau/protocol/openid-connect/token"
-    )
+    settings.APPLICATION["DOSSIER_IMPORT"]["PROD_URL"] = "http://camac-ng.local"
+    settings.APPLICATION["DOSSIER_IMPORT"][
+        "PROD_AUTH_URL"
+    ] = settings.KEYCLOAK_OIDC_TOKEN_URL
 
     # set a real group ID - useful for testing without the mock
     group.pk = 22507  # Administration Leitbehörde Burgdorf
@@ -328,7 +329,10 @@ def test_transmitting_logic(
 
     # disabling the mocks will upload the file to the local dev env - useful for more realistic resting!
     requests_mock.register_uri(
-        "POST", settings.KEYCLOAK_OIDC_TOKEN_URL, json={"access_token": "hello123"}
+        "POST",
+        "/auth/realms/ebau/protocol/openid-connect/token",
+        json={"access_token": "hello123"},
+        complete_qs=True,
     )
     requests_mock.register_uri(
         "POST",
@@ -350,3 +354,17 @@ def test_transmitting_logic(
         group=group,
     )
     transmit_import(dossier_import)
+
+
+def test_failing_transmission(db, settings, requests_mock, dossier_import):
+    PROD_URL = "http://this-could-be-your-production-url.example.com"
+    PROD_AUTH_URL = PROD_URL + "/auth/token"
+    settings.APPLICATION = settings.APPLICATIONS["kt_bern"]
+    settings.APPLICATION["DOSSIER_IMPORT"]["PROD_URL"] = PROD_URL
+    settings.APPLICATION["DOSSIER_IMPORT"]["PROD_AUTH_URL"] = PROD_AUTH_URL
+    requests_mock.register_uri("POST", PROD_AUTH_URL, status_code=401)
+    requests_mock.register_uri(
+        "POST", PROD_URL + "/api/v1/dossier-imports", status_code=401
+    )
+    transmit_import(dossier_import)
+    assert dossier_import.status == DossierImport.IMPORT_STATUS_TRANSMISSION_FAILED
