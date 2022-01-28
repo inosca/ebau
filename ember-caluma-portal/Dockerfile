@@ -14,7 +14,7 @@ COPY ember-caluma-portal /myapp/ember-caluma-portal
 WORKDIR /myapp/ember-caluma-portal
 RUN yarn deploy production
 
-FROM nginx:alpine
+FROM nginx:1.21-alpine
 
 COPY --from=build /myapp/ember-caluma-portal/build /usr/share/nginx/html
 COPY ./ember-caluma-portal/nginx.conf /etc/nginx/conf.d/default.conf
