@@ -256,6 +256,7 @@ PERMISSIONS = {
                 12000005,
                 12000006,
                 12000007,
+                12000008,
             ],
         },
         "organization_readonly": {ReadPermission: [12000000]},
@@ -286,6 +287,12 @@ LOOSEN_FILTERS = {
 def special_permissions_uri(group):
     if group.group_id in [uri_constants.LISAG_GROUP_ID, uri_constants.KOOR_NP_GROUP_ID]:
         return {uri_constants.LISAG_ATTACHMENT_SECTION_ID: AdminServicePermission}
+    elif group.group_id in [
+        uri_constants.KOOR_AFJ_GROUP_ID,
+        uri_constants.SACHBEARBEITUNG_AFJ_GROUP_ID,
+        uri_constants.SACHBEARBEITUNG_UND_KOORDINATION_AFJ_GROUP_ID,
+    ]:
+        return {uri_constants.KOOR_AFJ_ATTACHMENT_SECTION_ID: AdminServicePermission}
     return {}
 
 
