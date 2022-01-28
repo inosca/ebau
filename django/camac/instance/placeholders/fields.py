@@ -2,11 +2,11 @@ import base64
 from io import BytesIO
 
 import qrcode
+from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.db.models import Sum
 from django.utils.translation import gettext_lazy as _
 from rest_framework import serializers
-from rest_framework.fields import ReadOnlyField
 
 from camac.core.models import Activation, BillingV2Entry
 from camac.user.models import Service
@@ -168,7 +168,11 @@ class PublicationField(serializers.ReadOnlyField):
 
     def get_attribute(self, instance):
         work_item = (
-            instance.case.work_items.filter(task_id="fill-publication")
+            instance.case.work_items.filter(
+                task_id="fill-publication",
+                status=WorkItem.STATUS_COMPLETED,
+                addressed_groups=[str(self.context["request"].group.service_id)],
+            )
             .order_by("-created_at")
             .first()
         )
@@ -369,7 +373,7 @@ class MasterDataDictPersonField(MasterDataField):
         ]
 
 
-class InformationOfNeighborsLinkField(ReadOnlyField):
+class InformationOfNeighborsLinkField(serializers.ReadOnlyField):
     def __init__(
         self,
         as_qrcode=False,
@@ -380,9 +384,15 @@ class InformationOfNeighborsLinkField(ReadOnlyField):
         self.as_qrcode = as_qrcode
 
     def get_attribute(self, instance):
-        work_item = instance.case.work_items.filter(
-            task_id="information-of-neighbors"
-        ).first()
+        work_item = (
+            instance.case.work_items.filter(
+                task_id="information-of-neighbors",
+                status=WorkItem.STATUS_COMPLETED,
+                addressed_groups=[str(self.context["request"].group.service_id)],
+            )
+            .order_by("-created_at")
+            .first()
+        )
 
         return (
             build_url(
