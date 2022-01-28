@@ -34,6 +34,7 @@ dossierImport:
       confirmed: Bestätigt
       transmitting: Wird an Produktionssystem übertragen
       transmitted: An Produktionssystem übertragen
+      transmission-failed: Übertragung an Produktionssystem fehlgeschlagen
     newImportLink: Neuer Import
   detail:
     title: "Details zum Import vom {creationDate} ({user})"
@@ -76,6 +77,7 @@ dossierImport:
         confirmed: Der Import wurde für die Ausführung auf dem Produktionssystem freigegeben.
         transmitting: Der Import wird gerade an das Produktionssystem übermittelt. Je nach Umfang kann dies wenige Minuten dauern.
         transmitted: Der Import wurde auf das Produktionssystem übermittelt.
+        transmission-failed: Bei der Übermittlung auf das Produktionssystem ist ein Fehler aufgetreten.
       draftHintBold: "Achtung:"
       draftHintDescription: |-
         Imports im Status "Entwurf" werden nach 10 Tagen

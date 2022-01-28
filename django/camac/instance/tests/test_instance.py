@@ -11,7 +11,6 @@ from django.urls import reverse
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
-from camac.constants import kt_uri as uri_constants
 from camac.core.models import InstanceLocation, WorkflowEntry
 from camac.instance import domain_logic, serializers
 from camac.instance.models import HistoryEntryT
@@ -1165,12 +1164,16 @@ def test_instance_list_commission(db, admin_client, has_assignment, request, ins
 
 @pytest.mark.parametrize("role__name", ["OrganizationReadonly"])
 def test_instance_list_organization_readonly(
-    db, admin_client, request, instance_factory, location_factory, form_factory
+    db, admin_client, request, instance_factory, location_factory, form_factory, mocker
 ):
     """Ensure that a readonly organization only sees their own dossiers."""
 
-    visible_form = form_factory(pk=uri_constants.FORM_VORABKLAERUNG_MIT_KANTON)
-    hidden_form = form_factory(pk=uri_constants.FORM_REKLAME)
+    visible_form = form_factory()
+    hidden_form = form_factory()
+    mocker.patch(
+        "camac.constants.kt_uri.FORM_VORABKLAERUNG_MIT_KANTON", visible_form.pk
+    )
+
     instance = instance_factory(
         instance_state__name="new",
         form_id=visible_form.pk,
