@@ -23,6 +23,7 @@ from rest_framework import response, status
 from rest_framework.decorators import action
 from rest_framework.exceptions import ValidationError
 from rest_framework.generics import ListAPIView, RetrieveAPIView
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.renderers import JSONRenderer
 from rest_framework.response import Response
 from rest_framework.settings import api_settings
@@ -44,7 +45,7 @@ from camac.document.models import Attachment, AttachmentSection
 from camac.notification.utils import send_mail
 from camac.swagger.utils import get_operation_description, group_param
 from camac.user.models import Service
-from camac.user.permissions import ReadOnly, permission_aware
+from camac.user.permissions import IsApplication, ReadOnly, permission_aware
 from camac.utils import DocxRenderer
 
 from ..utils import get_paper_settings
@@ -1309,7 +1310,7 @@ class PublicCalumaInstanceView(mixins.InstanceQuerysetMixin, ListAPIView):
     Visibility is toggled in urls.py via ENABLE_PUBLIC_ENDPOINTS application settings.
     """
 
-    permission_classes = [ReadOnly]
+    permission_classes = [(~IsApplication("kt_bern") | IsAuthenticated) & ReadOnly]
     serializer_class = serializers.PublicCalumaInstanceSerializer
     filterset_class = filters.PublicCalumaInstanceFilterSet
     queryset = workflow_models.Case.objects.all()
