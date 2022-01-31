@@ -1356,10 +1356,10 @@
   dependencies:
     tslib "^2.1.0"
 
-"@fortawesome/ember-fontawesome@0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@fortawesome/ember-fontawesome/-/ember-fontawesome-0.3.0.tgz#2cde1f130a10aa5e284c243eca7c3658a1a3e6f7"
-  integrity sha512-EtQRuX7Z6rsWG8W7JmJg0qOq9ooYnlVUn3kMgQ+54oegFrAtralpNnZ7S7U5LhQZohrlo8UIlIdcfpNWKvbR2g==
+"@fortawesome/ember-fontawesome@0.3.1":
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/@fortawesome/ember-fontawesome/-/ember-fontawesome-0.3.1.tgz#8e19f7a08e85e4293869965c9b914c796ea315d0"
+  integrity sha512-sW0W/t4diQAAswfq3qAKZxfrSUVHlD2BapYxsUJ5MlFOaCNX5U7j6ou0cVFy6aHiRb267DHj13y2XD68PbcrfQ==
   dependencies:
     "@fortawesome/fontawesome-svg-core" "^1.2.0"
     broccoli-file-creator "^2.1.1"
