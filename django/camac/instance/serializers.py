@@ -1724,13 +1724,11 @@ class DurationField(serializers.DurationField):
         if not value:
             return None
 
-        pendulum_duration = duration(seconds=value.total_seconds())
-        hours = math.floor(pendulum_duration.total_hours())
-        hour_zero_padding = "0" if hours < 10 else ""
-        minutes = pendulum_duration.minutes
-        minute_zero_padding = "0" if minutes < 10 else ""
+        total_seconds = value.total_seconds()
+        total_hours = int(total_seconds // 3600)
+        minutes = int((total_seconds // 60) % 60)
 
-        return f"{hour_zero_padding}{hours}:{minute_zero_padding}{minutes}"
+        return f"{total_hours:0>2}:{minutes:0>2}"
 
 
 class JournalEntrySerializer(InstanceEditableMixin, serializers.ModelSerializer):
