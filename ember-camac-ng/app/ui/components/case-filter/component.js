@@ -2,19 +2,26 @@ import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
+import calumaQuery from "@projectcaluma/ember-core/caluma-query";
+import { allForms } from "@projectcaluma/ember-core/caluma-query/queries";
 import { queryManager } from "ember-apollo-client";
 import { restartableTask, lastValue } from "ember-concurrency";
 import { gql } from "graphql-tag";
+
+import caseFilters from "./filter-config";
 
 import config from "camac-ng/config/environment";
 
 export default class CaseFilterComponent extends Component {
   @queryManager apollo;
 
+  caseFilters = caseFilters;
+
   @service store;
   @service intl;
 
   @tracked _filter = {};
+  @calumaQuery({ query: allForms }) formsQuery;
 
   @lastValue("fetchFilterData") filterData;
   @restartableTask
@@ -67,12 +74,24 @@ export default class CaseFilterComponent extends Component {
       .map((edge) => edge.node.options.edges)[0]
       ?.map((edge) => edge.node);
 
-    const caseStatusOptions = config.caseFilters.caseStatus.optionValues.map(
+    const caseStatusOptions = this.caseFilters.caseStatus.optionValues.map(
       (option) => ({
         status: option,
         label: this.intl.t(`cases.status.${option}`),
       })
     );
+
+    const forms = yield this.formsQuery.fetch({
+      filter: [
+        { isPublished: true },
+        { isArchived: false },
+        { orderBy: "NAME_ASC" },
+        {
+          metaValue: [{ key: "is_creatable", value: true }],
+        },
+      ],
+    });
+    const formOptions = forms.allForms.edges.map((form) => form.node);
 
     return {
       municipalities,
@@ -80,6 +99,7 @@ export default class CaseFilterComponent extends Component {
       instanceStates,
       services,
       caseStatusOptions,
+      formOptions,
     };
   }
 
@@ -100,10 +120,6 @@ export default class CaseFilterComponent extends Component {
   @action resetFilter() {
     this._filter = {};
     this.args.onChange(this._filter);
-  }
-
-  get caseFilters() {
-    return config.caseFilters;
   }
 
   get activeCaseFilters() {
