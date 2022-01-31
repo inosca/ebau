@@ -91,6 +91,7 @@ def test_dms_placeholders(
         status=WorkItem.STATUS_COMPLETED,
         addressed_groups=[str(group.service_id)],
         document=document,
+        meta={"is-published": True},
     )
 
     # Neighbors

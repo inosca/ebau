@@ -1,22 +1,65 @@
 <Notifications @style="uikit" />
 
-<ul class="uk-nav" {{did-insert (perform this.fetchPublications)}}>
-  {{#each this.publications as |publication|}}
-    <li>
-      <LinkTo
-        @route="publication.edit"
-        @model={{decode-id publication.id}}
+{{#if this.publications.isRunning}}
+  <div class="uk-text-center"><UkSpinner @ratio={{2}} /></div>
+{{else if this.publications.value.length}}
+  <UkTab @right={{true}} as |Tab|>
+    {{#each this.publications.value as |publication index|}}
+      <Tab.item
+        @href={{concat
+          "/instances/"
+          @model.instanceId
+          "/publication/"
+          @model.type
+          "/"
+          (decode-id publication.node.id)
+        }}
       >
-        {{#if (and publication.closedByUser (not publication.meta.is-published))}}
-          {{t "publication.publicationOf"}} {{moment-format publication.createdAt "DD.MM.YYYY"}} ({{t "publication.cancelled"}})
-        {{else}}
-          {{t "publication.publicationOf"}} {{moment-format publication.createdAt "DD.MM.YYYY"}} ({{t (concat "publication." publication.status)}})
+        {{t
+          "publication.title"
+          name=publication.node.document.form.name
+          index=(add index 1)
+        }}
+        {{#if
+          (and
+            publication.node.document.start.edges.length
+            publication.node.document.end.edges.length
+          )
+        }}
+          {{format-date
+            publication.node.document.start.edges.0.node.value
+            day="2-digit"
+            month="2-digit"
+            year="numeric"
+          }}
+          -
+          {{format-date
+            publication.node.document.end.edges.0.node.value
+            day="2-digit"
+            month="2-digit"
+            year="numeric"
+          }}
         {{/if}}
-      </LinkTo>
-    </li>
-  {{/each}}
-</ul>
+        {{#if
+          (and
+            (eq publication.node.status "COMPLETED")
+            publication.node.closedByUser
+            (not publication.node.meta.is-published)
+          )
+        }}
+          ({{t "publication.canceled"}})
+        {{else if (eq publication.node.status "COMPLETED")}}
+          ({{t "publication.published"}})
+        {{else}}
+          ({{t "publication.draft"}})
+        {{/if}}
+      </Tab.item>
+    {{/each}}
+  </UkTab>
 
-<hr>
-
-{{outlet}}
+  {{outlet}}
+{{else}}
+  <p class="uk-text-italic uk-text-center">
+    {{t (concat "publication.empty." @model.type)}}
+  </p>
+{{/if}}
