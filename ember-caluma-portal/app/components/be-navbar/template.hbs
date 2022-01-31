@@ -39,7 +39,7 @@
           {{/if}}
         </LinkTo>
 
-        {{#if (and this.session.isInternal (is-application "be"))}}
+        {{#if (and this.session.isAuthenticated this.session.isInternal (is-application "be"))}}
           <a
             href="{{this.internalLink}}"
             class="be-navbar-internal-link uk-position-center-right"
@@ -59,7 +59,7 @@
               <UkSubnav::Item @href="/instances">{{t "nav.instances"}}</UkSubnav::Item>
               <UkSubnav::Item @href="/support">{{t "nav.support"}}</UkSubnav::Item>
             {{/if}}
-            {{#if (has-feature "publication.list")}}
+            {{#if (or this.session.isAuthenticated (is-application "ur"))}}
               <UkSubnav::Item @href="/public-instances">
                 {{t (concat "nav.public-instance-" (application-name))}}
               </UkSubnav::Item>

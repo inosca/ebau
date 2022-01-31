@@ -1056,6 +1056,7 @@ def test_attachment_public_access(
     url = reverse("attachment-list")
 
     # nothing is visible without publication backend
+    settings.APPLICATION_NAME = "kt_uri"
     application_settings["PUBLICATION_BACKEND"] = None
     res = client.get(url)
     assert res.status_code == status.HTTP_200_OK
@@ -1075,7 +1076,7 @@ def test_attachment_public_access(
     res = client.get(url)
     assert res.status_code == status.HTTP_401_UNAUTHORIZED
 
-    settings.APPLICATION_NAME = "demo"
+    settings.APPLICATION_NAME = "kt_uri"
 
     url = reverse("attachment-detail", args=[aasa.pk])
     res = client.get(url)
