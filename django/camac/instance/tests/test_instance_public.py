@@ -588,6 +588,7 @@ def test_information_of_neighbors_instance_be(
         status="completed",
         document=document,
         case=be_instance.case,
+        meta={"is-published": True},
     )
 
     url = reverse("public-caluma-instance")

@@ -50248,13 +50248,13 @@
     "model": "core.instanceresource",
     "pk": 15000001,
     "fields": {
-      "available_instance_resource": "taskform",
+      "available_instance_resource": "page",
       "resource": 20006,
       "name": null,
       "description": null,
-      "template": null,
+      "template": "/ember-camac-ng/information-of-neighbors.phtml",
       "class_field": "menu-category-process",
-      "hidden": 1,
+      "hidden": 0,
       "sort": 16,
       "form_group": 40000
     }
@@ -54180,6 +54180,13 @@
   {
     "model": "core.irpage",
     "pk": 14000000,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
+    "pk": 15000001,
     "fields": {
       "pdf_class": null
     }
@@ -62640,13 +62647,6 @@
     "pk": 12000002,
     "fields": {
       "task": "ebau-number"
-    }
-  },
-  {
-    "model": "core.irtaskform",
-    "pk": 15000001,
-    "fields": {
-      "task": "information-of-neighbors"
     }
   },
   {

@@ -662,7 +662,7 @@ def test_validation(
                 ("fill-publication", "skipped"),  # "Publikation ausfüllen"
                 ("create-publication", "canceled"),  # "Neue Publikation"
                 ("decision", "skipped"),  # "Entscheid verfügen"
-                ("information-of-neighbors", "skipped"),  # not documented in miro
+                ("information-of-neighbors", "canceled"),  # Nachbarschaftsorientierung
             ],
             "completed",
         ),
@@ -696,7 +696,7 @@ def test_validation(
                 ("fill-publication", "skipped"),  # "Publikation ausfüllen"
                 ("create-publication", "canceled"),  # "Neue Publikation"
                 ("decision", "skipped"),  # "Entscheid verfügen"
-                ("information-of-neighbors", "skipped"),  # not documented in miro
+                ("information-of-neighbors", "canceled"),  # Nachbarschaftsorientierung
             ],
             "completed",
         ),  # "Entscheid verfügen"
@@ -715,7 +715,7 @@ def test_validation(
                 ("fill-publication", "skipped"),  # "Publikation ausfüllen"
                 ("create-publication", "canceled"),  # "Neue Publikation"
                 ("decision", "skipped"),  # "Entscheid verfügen"
-                ("information-of-neighbors", "skipped"),  # not documented in miro
+                ("information-of-neighbors", "canceled"),  # Nachbarschaftsorientierung
                 ("reopen-circulation", "canceled"),
             ],
             "completed",

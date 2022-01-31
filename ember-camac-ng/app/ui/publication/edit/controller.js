@@ -1,91 +1,78 @@
 import Controller, { inject as controller } from "@ember/controller";
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
+import { decodeId } from "@projectcaluma/ember-core/helpers/decode-id";
 import { queryManager } from "ember-apollo-client";
-import { dropTask, lastValue } from "ember-concurrency";
+import { dropTask } from "ember-concurrency";
 
 import saveWorkItemMutation from "camac-ng/gql/mutations/save-workitem.graphql";
-import getPublication from "camac-ng/gql/queries/get-publication.graphql";
+import getPublications from "camac-ng/gql/queries/get-publications.graphql";
 import confirm from "camac-ng/utils/confirm";
 
 export default class PublicationEditController extends Controller {
-  @queryManager apollo;
-
   @service notifications;
   @service intl;
   @service shoebox;
-
-  @queryManager apollo;
+  @service router;
 
   @controller("publication") publicationController;
+
+  @queryManager apollo;
 
   get filters() {
     return [
       { addressedGroups: [this.shoebox.content.serviceId] },
       {
         caseMetaValue: [
-          {
-            key: "camac-instance-id",
-            value: this.publicationController.model,
-          },
+          { key: "camac-instance-id", value: this.model.instanceId },
         ],
       },
     ];
   }
 
-  @lastValue("fetchPublication") publication;
-  @dropTask
-  *fetchPublication() {
-    try {
-      return yield this.apollo.query(
-        {
-          query: getPublication,
-          variables: { id: this.model },
-        },
-        "allWorkItems.edges.firstObject.node"
-      );
-    } catch (error) {
-      this.notifications.error(this.intl.t("publication.loadingError"));
-    }
-  }
-
-  @action
-  async beforeComplete(validateFn) {
-    return (
-      (await validateFn()) &&
-      (await confirm(this.intl.t("publication.confirm")))
-    );
+  get publication() {
+    return this.publicationController.publications.value?.find(
+      (publication) => decodeId(publication.node.id) === this.model.workItemId
+    )?.node;
   }
 
   @dropTask
-  *cancelPublication(workItem) {
+  *cancel() {
     try {
+      if (
+        !(yield confirm(
+          this.intl.t(`publication.cancelConfirm.${this.model.type}`)
+        ))
+      ) {
+        return;
+      }
+
       yield this.apollo.mutate({
         mutation: saveWorkItemMutation,
         variables: {
           input: {
-            workItem: workItem.id,
+            workItem: this.publication.id,
             meta: JSON.stringify({
-              ...workItem.meta,
+              ...this.publication.meta,
               "is-published": false,
             }),
           },
         },
       });
-      window.location.reload();
     } catch (e) {
-      console.error(e);
+      this.notifications.error(this.intl.t("publication.cancelError"));
     }
   }
 
-  @action async afterComplete() {
-    await this.publicationController.fetchPublications.perform();
-    await this.fetchPublication.perform();
-  }
+  @action async refreshNavigation(transitionToIndex = false) {
+    await this.apollo.query({
+      query: getPublications,
+      fetchPolicy: "network-only",
+      variables: this.publicationController.variables,
+    });
 
-  @action async afterCreate() {
-    await this.publicationController.fetchPublications.perform();
-
-    this.transitionToRoute("index");
+    if (transitionToIndex) {
+      this.router.transitionTo("publication.index");
+    }
   }
 }
