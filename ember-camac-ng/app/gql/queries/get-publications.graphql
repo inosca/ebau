@@ -1,21 +1,49 @@
-query GetPublications($instanceId: GenericScalar!) {
-  allCases(
-    filter: [{ metaValue: { key: "camac-instance-id", value: $instanceId } }]
+query GetPublications(
+  $instanceId: GenericScalar!
+  $task: ID!
+  $startQuestion: ID!
+  $endQuestion: ID!
+) {
+  allWorkItems(
+    filter: [
+      { task: $task }
+      { status: SKIPPED, invert: true }
+      { status: CANCELED, invert: true }
+      { caseMetaValue: { key: "camac-instance-id", value: $instanceId } }
+    ]
+    order: [{ attribute: CREATED_AT }]
   ) {
     edges {
       node {
         id
-        workItems(
-          filter: [{ task: "fill-publication" }]
-          order: [{ attribute: CREATED_AT }]
-        ) {
-          edges {
-            node {
-              id
-              status
-              createdAt
-              closedByUser
-              meta
+        status
+        createdAt
+        closedByUser
+        meta
+        document {
+          id
+          form {
+            id
+            name
+          }
+          start: answers(question: $startQuestion) {
+            edges {
+              node {
+                id
+                ... on DateAnswer {
+                  value
+                }
+              }
+            }
+          }
+          end: answers(question: $endQuestion) {
+            edges {
+              node {
+                id
+                ... on DateAnswer {
+                  value
+                }
+              }
             }
           }
         }

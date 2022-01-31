@@ -1,8 +1,10 @@
-<div>
-  {{#each this.notifications.all as |notification|}}
-    {{component (concat "notifications/" this.style)
-      notification=notification
-      onClick=(fn this.remove notification)
-    }}
-  {{/each}}
-</div>
+{{#if this.notifications.all.length}}
+  <div>
+    {{#each this.notifications.all as |notification|}}
+      {{component (concat "notifications/" this.style)
+        notification=notification
+        onClick=(fn this.remove notification)
+      }}
+    {{/each}}
+  </div>
+{{/if}}

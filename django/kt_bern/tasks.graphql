@@ -117,6 +117,18 @@ mutation CreateInformationOfNeighborsTask {
   }
 }
 
+mutation CreateNewInformationOfNeighborsTask {
+  saveSimpleTask(
+    input: {
+      slug: "create-information-of-neighbors"
+      name: "Neue Nachbarschaftsorientierung erstellen"
+      addressGroups: "['municipality']|groups"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
 mutation CreateFillPublicationTask {
   saveCompleteTaskFormTask(
     input: {
