@@ -226,7 +226,7 @@ build-kt_schwyz-stage:
     APP_ENV: staging
     APPLICATION: kt_schwyz
     COMPOSE: docker-compose -f compose/kt_schwyz.yml -f compose/kt_schwyz-stage.yml
-    CONTAINERS: ember ember-camac-ng django php db
+    CONTAINERS: ember ember-camac-ng django django-q php db
   only:
     - stage-sz
 
