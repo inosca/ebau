@@ -8,3 +8,5 @@ journal:
   visibility: "Visibilité de l'entrée"
   visibleForAuthorities: "Visible pour tous les participants"
   visibleForOwnOrganization: "Visible pour sa propre organisation"
+
+  duration: Durée du travail (HH:MM)

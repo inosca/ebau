@@ -5,6 +5,7 @@ export default class JournalEntryModel extends Model {
   @attr("date") creationDate;
   @attr("journalVisibility") visibility;
   @attr("boolean") edit;
+  @attr("string") duration;
 
   @belongsTo instance;
   @belongsTo user;

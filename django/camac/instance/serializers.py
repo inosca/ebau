@@ -1,4 +1,5 @@
 import json
+import math
 import re
 from collections import namedtuple
 from datetime import timedelta
@@ -17,6 +18,7 @@ from django.db import transaction
 from django.db.models import Q
 from django.utils import timezone
 from django.utils.translation import gettext as _, gettext_noop
+from pendulum import duration
 from rest_framework import exceptions
 from rest_framework_json_api import relations, serializers
 
@@ -1717,6 +1719,20 @@ class FormFieldSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         fields = ("name", "value", "instance")
 
 
+class DurationField(serializers.DurationField):
+    def to_representation(self, value):
+        if not value:
+            return None
+
+        pendulum_duration = duration(seconds=value.total_seconds())
+        hours = math.floor(pendulum_duration.total_hours())
+        hour_zero_padding = "0" if hours < 10 else ""
+        minutes = pendulum_duration.minutes
+        minute_zero_padding = "0" if minutes < 10 else ""
+
+        return f"{hour_zero_padding}{hours}:{minute_zero_padding}{minutes}"
+
+
 class JournalEntrySerializer(InstanceEditableMixin, serializers.ModelSerializer):
     included_serializers = {
         "instance": InstanceSerializer,
@@ -1724,6 +1740,7 @@ class JournalEntrySerializer(InstanceEditableMixin, serializers.ModelSerializer)
     }
 
     visibility = serializers.ChoiceField(choices=models.JournalEntry.VISIBILITIES)
+    duration = DurationField(allow_null=True)
 
     def create(self, validated_data):
         validated_data["modification_date"] = timezone.now()
@@ -1743,6 +1760,7 @@ class JournalEntrySerializer(InstanceEditableMixin, serializers.ModelSerializer)
             "service",
             "user",
             "text",
+            "duration",
             "creation_date",
             "modification_date",
             "visibility",

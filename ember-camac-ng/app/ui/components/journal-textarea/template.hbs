@@ -7,16 +7,38 @@
     {{autoresize-textarea}}
     data-test-textarea
   />
-  <form class="uk-flex uk-flex-between uk-form-stacked uk-margin-top">
-    <UkToggleSwitch
-      @value={{@journalEntry.visibility}}
-      @offLabel=""
-      @onLabel={{t "journal.visibleForAuthorities"}}
-      @showLabels={{true}}
-      @size="small"
-      title={{t "journal.visibility"}}
-      class="x-small"
-    />
+  <form class="uk-flex uk-flex-between uk-form-horizontal uk-margin-top">
+    <div class="uk-flex uk-flex-middle">
+      <UkToggleSwitch
+        @value={{@journalEntry.visibility}}
+        @offLabel=""
+        @onLabel={{t "journal.visibleForAuthorities"}}
+        @showLabels={{true}}
+        @size="small"
+        title={{t "journal.visibility"}}
+        class="x-small"
+      />
+      {{#if @showJournalEntryDuration}}
+        <div class="uk-flex uk-flex-middle uk-margin-medium-left">
+          <input
+            id="journal-duration"
+            autocomplete="off"
+            value={{or @journalEntry.duration "00:00"}}
+            maxlength="5"
+            name="duration"
+            class="form-control
+              {{unless this.isValidDuration "uk-form-danger"}}"
+            type="text"
+            {{on "input" this.validateDuration}}
+          />
+          <div class="uk-margin-small-left uk-text-uppercase">
+            <label for="journal-duration">
+              {{t "journal.duration"}}
+            </label>
+          </div>
+        </div>
+      {{/if}}
+    </div>
     <div>
       <UkButton
         @type="button"
@@ -27,6 +49,7 @@
       <UkButton
         @type="button"
         @color="primary"
+        @disabled={{and @showJournalEntryDuration (not this.isValidDuration)}}
         @onClick={{perform this.saveEntry @journalEntry}}
         data-test-save
       >
