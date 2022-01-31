@@ -111,6 +111,9 @@ export default class CaseTableComponent extends Component {
       caseStatus: {
         status: filter.caseStatus,
       },
+      caseDocumentFormName: {
+        documentForm: filter.caseDocumentFormName,
+      },
     };
 
     const searchFilters = Object.entries(filter)
@@ -178,7 +181,6 @@ export default class CaseTableComponent extends Component {
       has_pending_sanction: this.args.hasPendingSanction,
       pending_sanctions_control_instance:
         this.args.filter.pendingSanctionsControlInstance,
-      case_document_form_name: this.args.filter.caseDocumentFormName,
     };
     this.casesQuery.fetch({
       order: [{ meta: "dossier-number" }],
