@@ -267,6 +267,7 @@ class JournalEntry(models.Model):
     visibility = models.CharField(
         max_length=16, choices=VISIBILITIES, default="own_organization"
     )
+    duration = models.DurationField(blank=True, null=True)
 
 
 class HistoryEntry(core_models.MultilingualModel, models.Model):
