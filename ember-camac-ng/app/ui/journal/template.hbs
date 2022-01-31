@@ -3,6 +3,7 @@
     <JournalTextarea
       @journalEntry={{this.newEntry}}
       @onSaveNewJournalEntry={{this.refetchEntries}}
+      @showJournalEntryDuration={{this.showJournalEntryDuration}}
     />
   {{else}}
     <UkButton
@@ -24,7 +25,11 @@
   {{else if this.entries.length}}
     <ul class="uk-comment-list">
       {{#each this.entries as |entry|}}
-        <JournalEntry @journalEntry={{entry}} @onSaveNewJournalEntry={{this.refetchEntries}}/>
+        <JournalEntry 
+          @journalEntry={{entry}} 
+          @onSaveNewJournalEntry={{this.refetchEntries}}
+          @showJournalEntryDuration={{this.showJournalEntryDuration}}
+        />
       {{/each}}
     </ul>
   {{else}}
