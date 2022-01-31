@@ -1043,53 +1043,6 @@ def test_responsible_service_filters(
 
 
 @pytest.mark.parametrize(
-    "role__name,instance__user", [("Municipality", LazyFixture("user"))]
-)
-def test_responsible_instance_user(
-    admin_client, instance, user, service, service_factory
-):
-
-    instance.responsible_services.create(responsible_user=user, service=service)
-
-    # First make sure we can find instances with given responsible user
-    resp = admin_client.get(
-        reverse("instance-list"), {"responsible_instance_user": str(user.pk)}
-    )
-    assert resp.status_code == status.HTTP_200_OK and resp.content
-    assert len(resp.json()["data"]) == 1
-
-    # "nobody" filter should return nothing if all instances have a responsible user
-    resp = admin_client.get(
-        reverse("instance-list"), {"responsible_instance_user": "NOBODY"}
-    )
-    assert resp.status_code == status.HTTP_200_OK and resp.content
-    assert len(resp.json()["data"]) == 0
-
-    # "nobody" filter should return instance where there is no responsible user
-    instance.responsible_services.all().delete()
-    resp = admin_client.get(
-        reverse("instance-list"), {"responsible_instance_user": "NOBODY"}
-    )
-    assert resp.status_code == status.HTTP_200_OK and resp.content
-    assert len(resp.json()["data"]) == 1
-
-    # not set shouldn't do anything
-    resp = admin_client.get(reverse("instance-list"), {"responsible_instance_user": ""})
-    assert resp.status_code == status.HTTP_200_OK and resp.content
-    assert len(resp.json()["data"]) == 1
-
-    # different service shouldnt return anything
-    instance.responsible_services.create(
-        responsible_user=user, service=service_factory()
-    )
-    resp = admin_client.get(
-        reverse("instance-list"), {"responsible_instance_user": str(user.pk)}
-    )
-    assert resp.status_code == status.HTTP_200_OK and resp.content
-    assert len(resp.json()["data"]) == 0
-
-
-@pytest.mark.parametrize(
     "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
 )
 def test_instance_filter_is_applicant(admin_client, instance):
