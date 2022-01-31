@@ -5,7 +5,7 @@
 >
   {{#if (has-feature "publication.form")}}
     <UkTab as |Tab|>
-      <Tab.item @href={{concat "/public-instances/" @model}} as |active|>
+      <Tab.item @href={{concat "/public-instances/" @model "/form"}} as |active|>
         <AriaHeading @enabled={{active}}>
           {{t "publicInstancesDetail.form"}}
         </AriaHeading>

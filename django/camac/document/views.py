@@ -15,6 +15,7 @@ from drf_yasg.utils import param_list_to_odict, swagger_auto_schema
 from rest_framework import exceptions, generics
 from rest_framework.decorators import action
 from rest_framework.exceptions import NotFound, ValidationError
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.serializers import Serializer
 from rest_framework_json_api.views import ModelViewSet, ReadOnlyModelViewSet
 from sorl.thumbnail import get_thumbnail
@@ -165,7 +166,11 @@ class AttachmentView(
     ModelViewSet,
 ):
     queryset = models.Attachment.objects.all()
-    permission_classes = [DefaultPermission | (~IsApplication("kt_schwyz") & ReadOnly)]
+    permission_classes = [
+        DefaultPermission
+        | (IsApplication("kt_uri") & ReadOnly)
+        | (IsApplication("kt_bern") & IsAuthenticated & ReadOnly)
+    ]
     serializer_class = serializers.AttachmentSerializer
     filterset_class = filters.AttachmentFilterSet
     instance_editable_permission = "document"
