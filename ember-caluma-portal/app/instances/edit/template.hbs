@@ -14,7 +14,7 @@
   {{#if (can "read instance" this.instance.value)}}
     <UkTab as |Tab|>
       {{#if (not (is-embedded))}}
-        <Tab.item @href={{concat "/instances/" @model}} as |active|>
+        <Tab.item @href={{concat "/instances/" @model}} @linkToIndex={{true}} as |active|>
           <AriaHeading @enabled={{active}}>
             {{t "nav.overview"}}
           </AriaHeading>

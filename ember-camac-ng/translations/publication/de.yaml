@@ -1,12 +1,32 @@
 publication:
-  new: "Neue Publikation erstellen"
-  complete: "Publikation freigeben"
-  confirm: "<strong>Achtung:</strong> Während der Publikationsdauer ist das Dossier öffentlich aufgelegt und kann eingesehen werden. Dieser Schritt kann nicht mehr rückgängig gemacht werden."
-  cancel: "Publikation abbrechen"
-  loadingError: "Fehler beim Laden der Publikation"
-  createError: "Fehler beim Erstellen der Publikation"
-  publicationOf: "Publikation vom "
-  COMPLETED: "Abgeschlossen"
-  SKIPPED: "Abgeschlossen"
-  READY: "In Bearbeitung"
-  cancelled: "Abgebrochen"
+  title: "{index}. {name}"
+  new: "Erstellen"
+  published: "Freigegeben"
+  draft: "Entwurf"
+  canceled: "Abgebrochen"
+  loadingError: "Fehler beim Laden"
+  cancelError: "Fehler beim Abbrechen"
+
+  cancelConfirm:
+    public: "Wollen Sie die Publikation wirklich abbrechen?"
+    neighbors: "Wollen Sie die Nachbarschaftsorientierung wirklich abbrechen?"
+
+  empty:
+    public: "Es wurden keine Publikationen durchgeführt."
+    neighbors: "Es wurden keine Nachbarschaftsorientierungen durchgeführt."
+
+  info:
+    attention: "Achtung:"
+    note: "Hinweis:"
+    documents: "Bitte markieren Sie die Dokumente welche aufgelegt werden sollen im Menu «Dokumente» als Auflagedokument."
+    unpublished:
+      public: "Die Publikation muss freigegeben werden, damit das Dossier in der definierten Zeitspanne in der öffentlichen Auflage des Portals erscheint."
+      neighbors: "Die Nachbarschaftsorientierung muss freigegeben werden, damit der QR-Code sowie der Direktlink funktioniert und versendet werden kann."
+    canceled:
+      public: "Die Publikation wurde abgebrochen. Das Dossier erscheint nicht mehr in der öffentliche Auflage des Portals, sofern keine anderen freigegebenen Publikationen laufen."
+      neighbors: "Die Nachbarschaftsorientierung wurde abgebrochen. QR-Code und Direktlink funktionieren nicht mehr."
+
+  qr-code:
+    link: "Direktlink"
+    download: "Herunterladen"
+    downloadError: "Fehler beim Herunterladen"
