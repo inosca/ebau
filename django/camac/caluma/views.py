@@ -1,8 +1,7 @@
 from collections import namedtuple
 
-from caluma.caluma_user.models import AnonymousUser, OIDCUser
+from caluma.caluma_user.models import OIDCUser
 from caluma.caluma_user.views import AuthenticationGraphQLView, HttpResponseUnauthorized
-from django.conf import settings
 from graphene_django.views import HttpError
 
 from camac.caluma.utils import CamacRequest, extend_user
@@ -14,12 +13,9 @@ class CamacAuthenticatedGraphQLView(AuthenticationGraphQLView):
         oidc_user = super().get_user(request, *args, **kwargs)
 
         if not isinstance(oidc_user, OIDCUser):
-            if settings.APPLICATION.get("ENABLE_PUBLIC_CALUMA"):
-                return AnonymousUser()
-            else:
-                # Raise a 401 error if the user is anything else than an OIDCUser
-                # (e.g None, AnonymousUser)
-                raise HttpError(HttpResponseUnauthorized())
+            # Raise a 401 error if the user is anything else than an OIDCUser
+            # (e.g None, AnonymousUser)
+            raise HttpError(HttpResponseUnauthorized())
 
         try:
             # Get the camac request containing the camac user and group
