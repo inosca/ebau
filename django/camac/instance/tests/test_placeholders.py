@@ -12,12 +12,14 @@ from rest_framework import status
 
 from camac.instance.placeholders.aliases import ALIASES
 
-from .test_master_data import add_answer, be_master_data_case  # noqa
+from .test_master_data import add_answer, add_table_answer, be_master_data_case  # noqa
 
 
 @pytest.mark.freeze_time("2021-08-30")
 @pytest.mark.parametrize("role__name", ["Municipality"])
-@pytest.mark.django_db(transaction=True, reset_sequences=True)
+@pytest.mark.django_db(
+    transaction=True, reset_sequences=True
+)  # always reset instance id
 def test_dms_placeholders(
     db,
     activation_factory,
@@ -91,6 +93,33 @@ def test_dms_placeholders(
         document=document,
     )
 
+    # Neighbors
+    information_of_neighbors_document = DocumentFactory(
+        pk="5a498238-6af4-472b-bc3c-83a4848ed6cc"
+    )
+    WorkItemFactory(
+        task_id="information-of-neighbors",
+        document=information_of_neighbors_document,
+        status=WorkItem.STATUS_COMPLETED,
+        addressed_groups=[str(group.service_id)],
+        case=be_instance.case,
+        meta={"is-published": True},
+    )
+    add_table_answer(
+        information_of_neighbors_document,
+        "information-of-neighbors-neighbors",
+        [
+            {
+                "vorname-gesuchstellerin": "Karl",
+                "name-gesuchstellerin": "Nachbarsson",
+                "strasse-gesuchstellerin": "Teststrasse",
+                "nummer-gesuchstellerin": 124,
+                "ort-gesuchstellerin": "Testhausen",
+                "plz-gesuchstellerin": 1234,
+            },
+        ],
+    )
+
     objection_participant_factory(
         objection=objection,
         representative=0,
@@ -152,6 +181,33 @@ def test_dms_placeholders(
     url = reverse("instance-dms-placeholders", args=[be_instance.pk])
 
     response = admin_client.get(url)
+    assert response.status_code == status.HTTP_200_OK
+    snapshot.assert_match(response.json())
+
+
+@pytest.mark.freeze_time("2021-08-30")
+@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.django_db(
+    transaction=True, reset_sequences=True
+)  # always reset instance id
+def test_dms_placeholders_empty(
+    db,
+    admin_client,
+    application_settings,
+    be_instance,
+    snapshot,
+):
+    application_settings["MUNICIPALITY_DATA_SHEET"] = settings.ROOT_DIR(
+        "kt_bern",
+        pathlib.Path(settings.APPLICATIONS["kt_bern"]["MUNICIPALITY_DATA_SHEET"]).name,
+    )
+    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_bern"][
+        "MASTER_DATA"
+    ]
+
+    response = admin_client.get(
+        reverse("instance-dms-placeholders", args=[be_instance.pk])
+    )
     assert response.status_code == status.HTTP_200_OK
     snapshot.assert_match(response.json())
 
