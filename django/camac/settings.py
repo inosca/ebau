@@ -3206,8 +3206,8 @@ PARASHIFT_API_KEY = env.str("PARASHIFT_API_KEY", default="ey...")
 Q_CLUSTER = {
     "name": "DjangORM",
     "workers": 2,
-    "timeout": 90,
-    "retry": 120,
+    "timeout": 2 * 3600,  # 2 hours
+    "retry": 24 * 3600,  # retry tomorrow
     "queue_limit": 50,
     "bulk": 10,
     "orm": "default",
