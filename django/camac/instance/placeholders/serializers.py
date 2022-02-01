@@ -319,12 +319,12 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
     nebenbestimmungen = fields.ActivationsField(
         only_own=True, props=["collateral"], join_by="\n\n"
     )
-    neighbors = fields.MasterDataDictPersonField()
+    neighbors = fields.InformationOfNeighborsField(type="neighbors")
     opposing = serializers.SerializerMethodField()
     outside_seating = fields.MasterDataField()
-    information_of_neighbors_link = fields.InformationOfNeighborsLinkField()
-    information_of_neighbors_qr_code = fields.InformationOfNeighborsLinkField(
-        as_qrcode=True
+    information_of_neighbors_link = fields.InformationOfNeighborsField(type="link")
+    information_of_neighbors_qr_code = fields.InformationOfNeighborsField(
+        type="qr_code"
     )
     nutzung = fields.MasterDataField(
         source="usage_type", parser=get_option_label, join_by=", "
