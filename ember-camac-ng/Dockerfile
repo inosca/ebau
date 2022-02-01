@@ -13,7 +13,7 @@ COPY ember-camac-ng /myapp/ember-camac-ng
 WORKDIR /myapp/ember-camac-ng
 RUN yarn deploy production
 
-FROM nginx:alpine
+FROM nginx:1.21-alpine
 
 COPY --from=build /myapp/ember-camac-ng/build /usr/share/nginx/html
 COPY ./ember-camac-ng/nginx.conf /etc/nginx/conf.d/default.conf
