@@ -207,6 +207,7 @@ def test_master_data_parsers(
 def be_master_data_case(
     db,
     be_instance,
+    group,
 ):
     be_instance.case.meta = {
         "ebau-number": "2021-1",
@@ -378,6 +379,8 @@ def be_master_data_case(
     caluma_workflow_factories.WorkItemFactory(
         task_id="information-of-neighbors",
         document=information_of_neighbors_document,
+        status=caluma_workflow_models.WorkItem.STATUS_COMPLETED,
+        addressed_groups=[str(group.service_id)],
         case=be_instance.case,
     )
     add_table_answer(
