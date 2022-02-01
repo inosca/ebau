@@ -5,7 +5,7 @@
 {{#if this.fetchLocations.isRunning}}
   <div uk-spinner></div>
 {{else}}
-  {{#if this.locations.length}}
+  {{#if (gt this.locations.length 1)}}
     <div class="uk-margin-small-bottom">
       <div class="uk-text-bold">
         {{t "dossierImport.new.locationLabel"}}
@@ -17,7 +17,7 @@
     <div class="uk-width-medium">
       <PowerSelect
         @options={{this.locations}}
-        @selected={{find-by "id" this.selectedLocation this.locations}}
+        @selected={{(or this.selectedLocation this.locations.firstObject)}}
         @onChange={{this.updateLocation}} as |location|
       >
         <span>
