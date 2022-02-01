@@ -34,8 +34,6 @@ services:
       - postfix
     environment:
       - DJANGO_ENV_FILE=/run/secrets/django.env
-      - GWR_WSK_ID=351388
-      - GWR_HOUSING_STAT_BASE_URI=https://www-r.housing-stat.ch/regbl/api/ech0216/2
     volumes:
       - /etc/camac/django.env:/run/secrets/django.env:ro
 

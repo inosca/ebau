@@ -21,7 +21,7 @@ export default class DossierImportIndexController extends Controller {
 
   ENV = ENV;
   @tracked fileUpload;
-  @tracked selectedLocation = this.locations?.[0]?.id;
+  @tracked selectedLocation;
 
   @lastValue("fetchLocations") locations;
   @restartableTask
@@ -30,7 +30,7 @@ export default class DossierImportIndexController extends Controller {
       "group",
       this.shoebox.content.groupId
     );
-    return group.locations?.toArray();
+    return group.locations;
   }
 
   @dropTask
@@ -45,8 +45,11 @@ export default class DossierImportIndexController extends Controller {
     formData.append("group", this.shoebox.content.groupId);
 
     // Locations only available (and necessary) for Kt. SZ
-    if (this.selectedLocation) {
-      formData.append("location_id", this.selectedLocation);
+    if (this.locations) {
+      formData.append(
+        "location_id",
+        this.selectedLocation?.id || this.locations.firstObject?.id
+      );
     }
 
     // Only one zip file is allowed by dropzone and input link
@@ -101,7 +104,7 @@ export default class DossierImportIndexController extends Controller {
 
   @action
   updateLocation(location) {
-    this.selectedLocation = location.id;
+    this.selectedLocation = location;
   }
 
   @action
