@@ -1,7 +1,7 @@
 import Route from "@ember/routing/route";
 import { inject as service } from "@ember/service";
 
-import { hasFeature } from "caluma-portal/helpers/has-feature";
+import config from "caluma-portal/config/environment";
 
 export default class PublicInstancesRoute extends Route {
   @service session;
@@ -14,9 +14,9 @@ export default class PublicInstancesRoute extends Route {
     this.session.enforcePublicAccess = false;
   }
 
-  redirect() {
-    if (!hasFeature("publication.list")) {
-      this.replaceWith("index");
+  beforeModel(transition) {
+    if (config.APPLICATION.name === "be") {
+      this.session.requireAuthentication(transition, "login");
     }
   }
 }
