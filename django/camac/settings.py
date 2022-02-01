@@ -2090,8 +2090,7 @@ APPLICATIONS = {
         "MUNICIPALITY_DATA_SHEET": APPLICATION_DIR(
             "Verwaltungskreise und -regionen der Gemeinden.csv"
         ),
-        "ENABLE_PUBLIC_ENDPOINTS": False,
-        "ENABLE_PUBLIC_CALUMA": False,
+        "ENABLE_PUBLIC_ENDPOINTS": True,
         "PUBLICATION_BACKEND": "caluma",
     },
     "kt_uri": {
@@ -2303,7 +2302,6 @@ APPLICATIONS = {
             "notification.NotificationTemplateT",
         ],
         "ENABLE_PUBLIC_ENDPOINTS": True,
-        "ENABLE_PUBLIC_CALUMA": False,
         "PUBLICATION_BACKEND": "camac-ng",
         "INSTANCE_STATE_REJECTION_COMPLETE": "arch",
         "SET_SUBMIT_DATE_CAMAC_WORKFLOW": True,
