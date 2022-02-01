@@ -5311,7 +5311,7 @@ ember-auto-import@^1.10.1, ember-auto-import@^1.11.3, ember-auto-import@^1.12.0,
     walk-sync "^0.3.3"
     webpack "^4.43.0"
 
-ember-autoresize-modifier@^0.5.0:
+ember-autoresize-modifier@0.5.0, ember-autoresize-modifier@^0.5.0:
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/ember-autoresize-modifier/-/ember-autoresize-modifier-0.5.0.tgz#205384b6530bf3c896a6fd75bbfd941f632a585f"
   integrity sha512-uRPxTo9Dyz21myE9FCqJFy8T8IsT5DwiNg+n9prhuLGMRG3y3KtzemKSTjQliPSZkBGON19uek6h/Olrc6wLug==
@@ -6290,7 +6290,7 @@ ember-modifier-manager-polyfill@^1.2.0:
     ember-cli-version-checker "^2.1.2"
     ember-compatibility-helpers "^1.2.0"
 
-ember-modifier@3.1.0, "ember-modifier@^2.1.2 || ^3.0.0", ember-modifier@^3.0.0, ember-modifier@^3.1.0:
+"ember-modifier@^2.1.2 || ^3.0.0", ember-modifier@^3.0.0, ember-modifier@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/ember-modifier/-/ember-modifier-3.1.0.tgz#ba5b0941302accd787ed3dcfc8d20400b77ffc41"
   integrity sha512-G5Lj9jVFsD2sVJcRNQfaGKG1p81wT4LGfClBhCuB4TgwP1NGJKdqI+Q8BW2MptONxQt/71UjjUH0YK7Gm9eahg==
