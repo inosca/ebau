@@ -372,32 +372,6 @@ def be_master_data_case(
         document, "ausschankraeume", [{"sitzplaetze": 20}, {"sitzplaetze": 15}]
     )
 
-    # Neighbors
-    information_of_neighbors_document = caluma_form_factories.DocumentFactory(
-        pk="5a498238-6af4-472b-bc3c-83a4848ed6cc"
-    )
-    caluma_workflow_factories.WorkItemFactory(
-        task_id="information-of-neighbors",
-        document=information_of_neighbors_document,
-        status=caluma_workflow_models.WorkItem.STATUS_COMPLETED,
-        addressed_groups=[str(group.service_id)],
-        case=be_instance.case,
-    )
-    add_table_answer(
-        information_of_neighbors_document,
-        "information-of-neighbors-neighbors",
-        [
-            {
-                "vorname-gesuchstellerin": "Karl",
-                "name-gesuchstellerin": "Nachbarsson",
-                "strasse-gesuchstellerin": "Teststrasse",
-                "nummer-gesuchstellerin": 124,
-                "ort-gesuchstellerin": "Testhausen",
-                "plz-gesuchstellerin": 1234,
-            },
-        ],
-    )
-
     return be_instance.case
 
 
@@ -738,7 +712,7 @@ def sz_master_data_case(db, sz_instance, form_field_factory, workflow_entry_fact
             # 6. Query for prefetching row documents
             # 7. Query for prefetching answer on previously prefetched row documents
             # 8. Query for prefetching dynamic options
-            14,
+            10,
         ),
         (
             "kt_bern",
@@ -755,7 +729,7 @@ def sz_master_data_case(db, sz_instance, form_field_factory, workflow_entry_fact
                 "work_items__document__answers__answerdocument_set",
                 "work_items__document__answers__answerdocument_set__document__answers",
             ],
-            14,
+            10,
         ),
         (
             "kt_uri",
