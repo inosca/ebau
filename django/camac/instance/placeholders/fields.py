@@ -361,30 +361,18 @@ class MasterDataPersonField(MasterDataField):
         return value[:1] if self.only_first and value else value
 
 
-class MasterDataDictPersonField(MasterDataField):
-    def to_representation(self, value):
-        return [
-            {
-                "NAME": get_person_name(person),
-                "ADDRESS_1": get_person_address_1(person),
-                "ADDRESS_2": get_person_address_2(person),
-            }
-            for person in (value if value else [])
-        ]
-
-
-class InformationOfNeighborsLinkField(serializers.ReadOnlyField):
+class InformationOfNeighborsField(serializers.ReadOnlyField):
     def __init__(
         self,
-        as_qrcode=False,
+        type,
         **kwargs,
     ):
         super().__init__(**kwargs)
 
-        self.as_qrcode = as_qrcode
+        self.type = type
 
-    def get_attribute(self, instance):
-        work_item = (
+    def get_work_item(self, instance):
+        return (
             instance.case.work_items.filter(
                 task_id="information-of-neighbors",
                 status=WorkItem.STATUS_COMPLETED,
@@ -394,22 +382,64 @@ class InformationOfNeighborsLinkField(serializers.ReadOnlyField):
             .first()
         )
 
-        return (
-            build_url(
+    def get_attribute(self, instance):
+        work_item = self.get_work_item(instance)
+
+        if work_item and self.type in ["link", "qr_code"]:
+            return build_url(
                 settings.PUBLIC_BASE_URL,
-                f"/public-instances/{instance.pk}?key={str(work_item.document.pk)[:7]}",
+                f"/public-instances/{instance.pk}/form?key={str(work_item.document.pk)[:7]}",
             )
-            if work_item
-            else None
-        )
+
+        elif work_item and self.type == "neighbors":
+            table = work_item.document.answers.filter(
+                question_id="information-of-neighbors-neighbors"
+            ).first()
+
+            def get_value(row, question):
+                answer = row.answers.filter(question_id=question).first()
+                return answer.value if answer else None
+
+            return [
+                {
+                    "last_name": get_value(row, "name-gesuchstellerin"),
+                    "first_name": get_value(row, "vorname-gesuchstellerin"),
+                    "street": get_value(row, "strasse-gesuchstellerin"),
+                    "street_number": get_value(row, "nummer-gesuchstellerin"),
+                    "zip": get_value(row, "plz-gesuchstellerin"),
+                    "town": get_value(row, "ort-gesuchstellerin"),
+                    "is_juristic_person": (
+                        get_value(
+                            row,
+                            "juristische-person-gesuchstellerin",
+                        )
+                        == "juristische-person-gesuchstellerin-ja"
+                    ),
+                    "juristic_name": get_value(
+                        row, "name-juristische-person-gesuchstellerin"
+                    ),
+                }
+                for row in (table.documents.all() if table else [])
+            ]
+
+        return None
 
     def to_representation(self, value):
-        if not self.as_qrcode:
-            return value
+        if value and self.type == "qr_code":
+            data = BytesIO()
+            img = qrcode.make(value)
+            img.save(data, "PNG")
+            data_b64 = base64.b64encode(data.getvalue())
+            return f"data:image/png;base64,{data_b64.decode('utf-8')}"
 
-        data = BytesIO()
-        img = qrcode.make(value)
-        img.save(data, "PNG")
-        data_b64 = base64.b64encode(data.getvalue())
+        elif self.type == "neighbors":
+            return [
+                {
+                    "NAME": get_person_name(person),
+                    "ADDRESS_1": get_person_address_1(person),
+                    "ADDRESS_2": get_person_address_2(person),
+                }
+                for person in value
+            ]
 
-        return f"data:image/png;base64,{data_b64.decode('utf-8')}"
+        return value

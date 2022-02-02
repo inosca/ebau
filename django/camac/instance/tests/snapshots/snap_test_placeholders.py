@@ -79,54 +79,54 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'BOISSONS_ALCOOLIQUES': 'mit',
     'CIRCULATION_COMMUNES': [
         {
-            'FRIST': '19.09.2021',
-            'NAME': 'Shelly Reese'
+            'FRIST': '13.09.2021',
+            'NAME': 'Tiffany Brown MD'
         },
         {
-            'FRIST': '16.09.2021',
-            'NAME': 'Susan Rivers'
+            'FRIST': '10.09.2021',
+            'NAME': 'Melissa Coleman'
         }
     ],
     'CIRCULATION_PREAVIS': [
         {
-            'ANTWORT': 'Brian Kelley',
-            'NEBENBESTIMMUNGEN': 'Store a true choice.',
-            'STELLUNGNAHME': 'However teach party fact ability anyone.',
-            'VON': 'Melissa Lane'
+            'ANTWORT': 'Austin Snyder',
+            'NEBENBESTIMMUNGEN': 'Indicate whether especially design.',
+            'STELLUNGNAHME': 'Reveal analysis candidate unit knowledge American statement.',
+            'VON': 'David Brown'
         },
         {
-            'ANTWORT': 'Marco Russell',
-            'NEBENBESTIMMUNGEN': 'Bank eye feeling.',
-            'STELLUNGNAHME': 'Policy phone one determine red out agreement window.',
-            'VON': 'David Brown'
+            'ANTWORT': 'Sydney Colon',
+            'NEBENBESTIMMUNGEN': 'Father pick throughout region prevent important positive husband.',
+            'STELLUNGNAHME': 'Surface system gas evening game understand.',
+            'VON': 'Mr. Thomas Schroeder DDS'
         }
     ],
     'CIRCULATION_PREF': [
         {
-            'FRIST': '21.09.2021',
-            'NAME': 'Daniel Moody'
+            'FRIST': '02.09.2021',
+            'NAME': 'James Mathis'
         },
         {
-            'FRIST': '16.09.2021',
-            'NAME': 'Todd Brown'
+            'FRIST': '28.09.2021',
+            'NAME': 'Christine Bean'
         }
     ],
     'CIRCULATION_SERVICES': [
         {
-            'FRIST': '13.09.2021',
-            'NAME': 'Melissa Lane'
+            'FRIST': '08.09.2021',
+            'NAME': 'Mr. Thomas Schroeder DDS'
         }
     ],
     'COMMUNE': 'Burgdorf',
-    'COMMUNE_ADRESSE': 'East Andrew',
+    'COMMUNE_ADRESSE': 'New Jill',
     'COMMUNE_ADRESSE_1': '',
-    'COMMUNE_ADRESSE_2': 'East Andrew',
-    'COMMUNE_EMAIL': 'campbellandrew@example.org',
-    'COMMUNE_LIEU': 'East Andrew',
-    'COMMUNE_NOM_ADRESSE': 'Gemeinde Burgdorf, East Andrew',
+    'COMMUNE_ADRESSE_2': 'New Jill',
+    'COMMUNE_EMAIL': 'michael98@example.org',
+    'COMMUNE_LIEU': 'New Jill',
+    'COMMUNE_NOM_ADRESSE': 'Gemeinde Burgdorf, New Jill',
     'COMMUNE_TELEPHONE': '',
-    'COMMUNICATION_AUX_VOISINS_CODE_QR': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZoAAAGaAQAAAAAefbjOAAADAElEQVR4nO2cTW6jQBCFvxqQsgTJB8hR2jeYM82R5gZwlBxgJFhGavRm0T/gZJWxBzu4vEAB8wlaqbx+9aBj4suf8cfXGXDIIYcccsghh44JWf60wGxmZ8DOs5lZv1j+yfIX32RMDl0FBUnSBNBFgMWgkzTQ5I0kXUL73Z5D+0OrMqTdqhZzm45lBbnT7Tm0G9R+PDD2k4DYauyBMICYb3Alh74pFKalKEMX0TBX93DrKzn0kFDRiE6QpGDuYXxNlkEGTYQZtknWg4/JoRtAo5mZ9QA0Iry12HluIUxgZ5bUatzr9hzaWyO2AtC9myCmHY09pssTHn5MDl0DkbrKMAHQSJpyu5m6T02w/VaShgcfk0M3giRFGF8jdu4iMOdpooQStTf9PmNy6Ouf/GdPk4RiDaKSWqRNkhHXiGeAckVoqtOEItDFWhuNNHQlrgxeEUeHNj4iC8XGVsA22e7kGvEEUJGCTiq/+KIRQ90NU6O06xpxeKim2Esr5hcBCxp/gtE1MmgEvJuY29KEPviYHLoBFKZGuc2YcziVJ4wUTr0kR3Gv23PoDs6yeIYwre5htZx5wvBZ4/hQqQhtvWOSDACCYiqQ1Xd6RRwaqnkEaEhHqoucaglcpBVeEYeGNhWxNp6bSGooyfb25Acfk0PXQJ9DStUmMylDTag69xHPABU9KHaiKAPFQiQfUaNsr4ijQ9uKGEp/qaG70IiNjHhFHB26eBq+JpU1z65GM5lPr4jDQzWzbKLlzLIRzCc09n9aMZ8waLEgsDDse3sO7Q7VPKL4iPVBRs4sqU2I5xHPA61rukoosRhjXzxmWr7BYnn3W4zJoatmjTQbzCcsvLVofI2thelEftc2e4u4++05tDu0dZZpXpgAytq+TZ5dH274rPFkUOorFiPo3fSrz8f+w5UcekTo0yo/5h4LU4+F3ydZ0LK+GuFPw58A+rimS3nTRCCitAy0i625j3gOaPNcA6pxSK9dpj60nlnexnUfcWjI/D+TOeSQQw455JBD/wj9BfLKhenNnOo8AAAAAElFTkSuQmCC',
-    'COMMUNICATION_AUX_VOISINS_LIEN': 'http://caluma-portal.local/public-instances/1?key=5a49823',
+    'COMMUNICATION_AUX_VOISINS_CODE_QR': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZoAAAGaAQAAAAAefbjOAAADG0lEQVR4nO2bQa6jMAyGPw9Ib5lK7wA9SrjBHGk0R5obwFF6gErJslKQZ5EEaDWbN62AV8wCQcsnEsUy9m9HlC8fw4+vM2CQQQYZZJBBBr0nJOVokS62iEgLQz1JF+sD3SbDM2h9yKuqagDtXcon+RUArwmgUVVVvYfWG55B60OxOIDsI7ooor/PCYbTKADFb2w1PINWg9qHeyUCuICAoNCovORNBn1TaDincuVVFX95tJmXvcmgXUJ1vZ0CkewZAFDiZxL/h3q7xfAM2goaRETkBPjQZM8g3eKxMacaWw3PoLV9xOwAFBLgEgo3UeIoxYNsMTyDNoKkiy0Q5T6IbFQ6pwqMAnHyG99iTgb9H0TRGVw5ZT1CtTqKHsAH0N6pZt2i3/mcDHoGqhZBo3X1G8WH+rfXhPbzv2YR7w5NuUYA3LUtegRNgviZhPipgrsKuGt9eOdzMugZqPgIH5opeCxXqqHRIkoEypfEfMRRoOEEOZjwYZRczSgC9ij5gzGYin0IKPuIOZgAl5idgvbAMsAwH/Hu0CKyLHVONxU7A1NkWXKNfJhFHATS3/Kh+MtHTkFLRgqlLp5Fie2GZ9A60EKzFNxVFG4CbmyXyQVNAhoV3687PINWh8qaDx0osUVwVxRGdPhZTKUo27GtVdGdz8mgZ6ASWfbMoWRVqHyonVNZsMpipsURbw6xWPNJqcwipYZqJZptwyziCNCUfaZqG7Wdcm67LMmoZZ+HgKbsEyjFjbnCsfySmEUcBKo+Itz7g0nZzvJ2Lopa7fMIUM41BJda8ZcWHc6phXiiaFXuJhAFcFNnzc7nZNAz0ELFrnFEbY3ITRJQe3DVfMRxoHlPF5OAXdouVRVia5Wug0F+DiZyf13Rs0unnUuLCsd3mZNBT0F1TxfD+ZavtHe3YgyD3DdgfpM5GfQSyF/axd4+iB8lzRhsJ/AhIemoeegicGCUWiZ/2ZsM2if0uKdLh7NCbpcIp1zkEh9Qmdrtdj8ng56BHjXLKknVUHLKSGeN27LPt4b+uadLy0+1B3d5te7wDDLIIIMMMsigHUN/AYOiOcBhfa4tAAAAAElFTkSuQmCC',
+    'COMMUNICATION_AUX_VOISINS_LIEN': 'http://caluma-portal.local/public-instances/1/form?key=5a49823',
     'COORDONEE': '2’599’941 / 1’198’923; 2’601’995 / 1’201’340',
     'DECISION': 'positive',
     'DECISION_CATEGORIE': 'GESAMT',
@@ -142,7 +142,7 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'DECISION_REFUS_SANS_RET': False,
     'DECISION_TYPE': 'GESAMT',
     'DEPOT_DEMANDE_DATE': '31. März 2021',
-    'DISPOSITIONS_ANNEXES': 'Bank eye feeling.',
+    'DISPOSITIONS_ANNEXES': 'Indicate whether especially design.',
     'DOSSIER_LINK': 'http://camac-ng.local/index/redirect-to-instance-resource/instance-id/1',
     'DOSSIER_NR': 1,
     'DOSSIER_NUMERO': 1,
@@ -154,17 +154,17 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'EBAU_URL': 'http://camac-ng.local',
     'EIGENE_GEBUEHREN': [
         {
-            'BETRAG': '129.56',
+            'BETRAG': '152.25',
             'POSITION': ''
         },
         {
-            'BETRAG': '846.16',
+            'BETRAG': '111.84',
             'POSITION': ''
         }
     ],
-    'EIGENE_GEBUEHREN_TOTAL': '975.72',
-    'EIGENE_NEBENBESTIMMUNGEN': 'Bank eye feeling.',
-    'EIGENE_STELLUNGNAHMEN': 'Policy phone one determine red out agreement window.',
+    'EIGENE_GEBUEHREN_TOTAL': '264.09',
+    'EIGENE_NEBENBESTIMMUNGEN': 'Indicate whether especially design.',
+    'EIGENE_STELLUNGNAHMEN': 'Reveal analysis candidate unit knowledge American statement.',
     'EINSPRECHENDE': [
         {
             'ADDRESS': 'Teststrasse 1, 1234 Testdorf',
@@ -182,62 +182,62 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'EMAIL': '',
     'EMOLUMENTS': [
         {
-            'BETRAG': '766.79',
+            'BETRAG': '680.18',
             'POSITION': ''
         },
         {
-            'BETRAG': '402.79',
+            'BETRAG': '473.13',
             'POSITION': ''
         },
         {
-            'BETRAG': '129.56',
+            'BETRAG': '152.25',
             'POSITION': ''
         },
         {
-            'BETRAG': '846.16',
+            'BETRAG': '111.84',
             'POSITION': ''
         }
     ],
-    'EMOLUMENTS_TOTAL': '2’145.30',
+    'EMOLUMENTS_TOTAL': '1’417.40',
     'ETAT': 'David Rangel',
     'FACHSTELLEN_KANTONAL': [
         {
-            'FRIST': '21.09.2021',
-            'NAME': 'Daniel Moody'
-        },
-        {
-            'FRIST': '19.09.2021',
-            'NAME': 'Shelly Reese'
+            'FRIST': '02.09.2021',
+            'NAME': 'James Mathis'
         },
         {
             'FRIST': '16.09.2021',
-            'NAME': 'Susan Rivers'
-        },
-        {
-            'FRIST': '13.09.2021',
-            'NAME': 'Melissa Lane'
-        },
-        {
-            'FRIST': '18.09.2021',
             'NAME': 'David Brown'
         },
         {
-            'FRIST': '16.09.2021',
-            'NAME': 'Todd Brown'
+            'FRIST': '08.09.2021',
+            'NAME': 'Mr. Thomas Schroeder DDS'
+        },
+        {
+            'FRIST': '28.09.2021',
+            'NAME': 'Christine Bean'
+        },
+        {
+            'FRIST': '13.09.2021',
+            'NAME': 'Tiffany Brown MD'
+        },
+        {
+            'FRIST': '10.09.2021',
+            'NAME': 'Melissa Coleman'
         }
     ],
-    'FACHSTELLEN_KANTONAL_LIST': '''- Daniel Moody
-- Shelly Reese
-- Susan Rivers
-- Melissa Lane
+    'FACHSTELLEN_KANTONAL_LIST': '''- James Mathis
 - David Brown
-- Todd Brown''',
-    'FACHSTELLEN_KANTONAL_LISTE': '''- Daniel Moody
-- Shelly Reese
-- Susan Rivers
-- Melissa Lane
+- Mr. Thomas Schroeder DDS
+- Christine Bean
+- Tiffany Brown MD
+- Melissa Coleman''',
+    'FACHSTELLEN_KANTONAL_LISTE': '''- James Mathis
 - David Brown
-- Todd Brown''',
+- Mr. Thomas Schroeder DDS
+- Christine Bean
+- Tiffany Brown MD
+- Melissa Coleman''',
     'FORM_NAME': 'Baugesuch',
     'GEBAEUDEEIGENTUEMER': 'Peter Meier',
     'GEBAEUDEEIGENTUEMER_ADDRESS_1': 'Thunstrasse 88',
@@ -248,30 +248,30 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'GEBAEUDEEIGENTUEMER_NAME_ADRESSE': 'Peter Meier, Thunstrasse 88, 3002 Bern',
     'GEBUEHREN': [
         {
-            'BETRAG': '766.79',
+            'BETRAG': '680.18',
             'POSITION': ''
         },
         {
-            'BETRAG': '402.79',
+            'BETRAG': '473.13',
             'POSITION': ''
         },
         {
-            'BETRAG': '129.56',
+            'BETRAG': '152.25',
             'POSITION': ''
         },
         {
-            'BETRAG': '846.16',
+            'BETRAG': '111.84',
             'POSITION': ''
         }
     ],
-    'GEBUEHREN_TOTAL': '2’145.30',
+    'GEBUEHREN_TOTAL': '1’417.40',
     'GEMEINDE': 'Burgdorf',
-    'GEMEINDE_ADRESSE': 'East Andrew',
+    'GEMEINDE_ADRESSE': 'New Jill',
     'GEMEINDE_ADRESSE_1': '',
-    'GEMEINDE_ADRESSE_2': 'East Andrew',
-    'GEMEINDE_EMAIL': 'campbellandrew@example.org',
-    'GEMEINDE_NAME_ADRESSE': 'Gemeinde Burgdorf, East Andrew',
-    'GEMEINDE_ORT': 'East Andrew',
+    'GEMEINDE_ADRESSE_2': 'New Jill',
+    'GEMEINDE_EMAIL': 'michael98@example.org',
+    'GEMEINDE_NAME_ADRESSE': 'Gemeinde Burgdorf, New Jill',
+    'GEMEINDE_ORT': 'New Jill',
     'GEMEINDE_TELEFON': '',
     'GESUCHSTELLER': 'ACME AG, Max Mustermann',
     'GESUCHSTELLER_ADDRESS_1': 'Teststrasse 123',
@@ -289,8 +289,8 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'GRUNDEIGENTUEMER_NAME_ADDRESS': 'Sandra Holzer, Bernweg 12, 3002 Bern',
     'GRUNDEIGENTUEMER_NAME_ADRESSE': 'Sandra Holzer, Bernweg 12, 3002 Bern',
     'HEUTE': '30. August 2021',
-    'INFORMATION_OF_NEIGHBORS_LINK': 'http://caluma-portal.local/public-instances/1?key=5a49823',
-    'INFORMATION_OF_NEIGHBORS_QR_CODE': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZoAAAGaAQAAAAAefbjOAAADAElEQVR4nO2cTW6jQBCFvxqQsgTJB8hR2jeYM82R5gZwlBxgJFhGavRm0T/gZJWxBzu4vEAB8wlaqbx+9aBj4suf8cfXGXDIIYcccsghh44JWf60wGxmZ8DOs5lZv1j+yfIX32RMDl0FBUnSBNBFgMWgkzTQ5I0kXUL73Z5D+0OrMqTdqhZzm45lBbnT7Tm0G9R+PDD2k4DYauyBMICYb3Alh74pFKalKEMX0TBX93DrKzn0kFDRiE6QpGDuYXxNlkEGTYQZtknWg4/JoRtAo5mZ9QA0Iry12HluIUxgZ5bUatzr9hzaWyO2AtC9myCmHY09pssTHn5MDl0DkbrKMAHQSJpyu5m6T02w/VaShgcfk0M3giRFGF8jdu4iMOdpooQStTf9PmNy6Ouf/GdPk4RiDaKSWqRNkhHXiGeAckVoqtOEItDFWhuNNHQlrgxeEUeHNj4iC8XGVsA22e7kGvEEUJGCTiq/+KIRQ90NU6O06xpxeKim2Esr5hcBCxp/gtE1MmgEvJuY29KEPviYHLoBFKZGuc2YcziVJ4wUTr0kR3Gv23PoDs6yeIYwre5htZx5wvBZ4/hQqQhtvWOSDACCYiqQ1Xd6RRwaqnkEaEhHqoucaglcpBVeEYeGNhWxNp6bSGooyfb25Acfk0PXQJ9DStUmMylDTag69xHPABU9KHaiKAPFQiQfUaNsr4ijQ9uKGEp/qaG70IiNjHhFHB26eBq+JpU1z65GM5lPr4jDQzWzbKLlzLIRzCc09n9aMZ8waLEgsDDse3sO7Q7VPKL4iPVBRs4sqU2I5xHPA61rukoosRhjXzxmWr7BYnn3W4zJoatmjTQbzCcsvLVofI2thelEftc2e4u4++05tDu0dZZpXpgAytq+TZ5dH274rPFkUOorFiPo3fSrz8f+w5UcekTo0yo/5h4LU4+F3ydZ0LK+GuFPw58A+rimS3nTRCCitAy0i625j3gOaPNcA6pxSK9dpj60nlnexnUfcWjI/D+TOeSQQw455JBD/wj9BfLKhenNnOo8AAAAAElFTkSuQmCC',
+    'INFORMATION_OF_NEIGHBORS_LINK': 'http://caluma-portal.local/public-instances/1/form?key=5a49823',
+    'INFORMATION_OF_NEIGHBORS_QR_CODE': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZoAAAGaAQAAAAAefbjOAAADG0lEQVR4nO2bQa6jMAyGPw9Ib5lK7wA9SrjBHGk0R5obwFF6gErJslKQZ5EEaDWbN62AV8wCQcsnEsUy9m9HlC8fw4+vM2CQQQYZZJBBBr0nJOVokS62iEgLQz1JF+sD3SbDM2h9yKuqagDtXcon+RUArwmgUVVVvYfWG55B60OxOIDsI7ooor/PCYbTKADFb2w1PINWg9qHeyUCuICAoNCovORNBn1TaDincuVVFX95tJmXvcmgXUJ1vZ0CkewZAFDiZxL/h3q7xfAM2goaRETkBPjQZM8g3eKxMacaWw3PoLV9xOwAFBLgEgo3UeIoxYNsMTyDNoKkiy0Q5T6IbFQ6pwqMAnHyG99iTgb9H0TRGVw5ZT1CtTqKHsAH0N6pZt2i3/mcDHoGqhZBo3X1G8WH+rfXhPbzv2YR7w5NuUYA3LUtegRNgviZhPipgrsKuGt9eOdzMugZqPgIH5opeCxXqqHRIkoEypfEfMRRoOEEOZjwYZRczSgC9ij5gzGYin0IKPuIOZgAl5idgvbAMsAwH/Hu0CKyLHVONxU7A1NkWXKNfJhFHATS3/Kh+MtHTkFLRgqlLp5Fie2GZ9A60EKzFNxVFG4CbmyXyQVNAhoV3687PINWh8qaDx0osUVwVxRGdPhZTKUo27GtVdGdz8mgZ6ASWfbMoWRVqHyonVNZsMpipsURbw6xWPNJqcwipYZqJZptwyziCNCUfaZqG7Wdcm67LMmoZZ+HgKbsEyjFjbnCsfySmEUcBKo+Itz7g0nZzvJ2Lopa7fMIUM41BJda8ZcWHc6phXiiaFXuJhAFcFNnzc7nZNAz0ELFrnFEbY3ITRJQe3DVfMRxoHlPF5OAXdouVRVia5Wug0F+DiZyf13Rs0unnUuLCsd3mZNBT0F1TxfD+ZavtHe3YgyD3DdgfpM5GfQSyF/axd4+iB8lzRhsJ/AhIemoeegicGCUWiZ/2ZsM2if0uKdLh7NCbpcIp1zkEh9Qmdrtdj8ng56BHjXLKknVUHLKSGeN27LPt4b+uadLy0+1B3d5te7wDDLIIIMMMsigHUN/AYOiOcBhfa4tAAAAAElFTkSuQmCC',
     'INSTANCE_ID': 1,
     'INTERIOR_SEATING': 35,
     'INVENTAR': 'Ja, Nein, Nein, Nein, Ja, Ja',
@@ -310,7 +310,7 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'LEITBEHOERDE_PHONE': '',
     'LEITBEHOERDE_STADT': 'Johnsburgh',
     'LEITBEHOERDE_TELEFON': '',
-    'LEITPERSON': 'Evelyn Bowman',
+    'LEITPERSON': 'Nicole Rodriguez',
     'MEINE_ORGANISATION_ADRESSE_1': '',
     'MEINE_ORGANISATION_ADRESSE_2': 'Johnsburgh',
     'MEINE_ORGANISATION_EMAIL': 'michelleboone@example.org',
@@ -321,15 +321,15 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'MEINE_ORGANISATION_TELEFON': '',
     'MES_EMOLUMENTS': [
         {
-            'BETRAG': '129.56',
+            'BETRAG': '152.25',
             'POSITION': ''
         },
         {
-            'BETRAG': '846.16',
+            'BETRAG': '111.84',
             'POSITION': ''
         }
     ],
-    'MES_EMOLUMENTS_TOTAL': '975.72',
+    'MES_EMOLUMENTS_TOTAL': '264.09',
     'MODIFICATION_DATE': '',
     'MODIFICATION_TIME': '',
     'MON_ORGANISATION_ADRESSE_1': '',
@@ -340,17 +340,17 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'MON_ORGANISATION_NOM_ABR': 'David Brown',
     'MON_ORGANISATION_NOM_ADRESSE': 'David Brown, Johnsburgh',
     'MON_ORGANISATION_TELEPHONE': '',
-    'MOTS_CLES': 'Carrie Stanley, Tom Barrett, Mark Nelson, Christopher Buck, Darrell Daniels',
+    'MOTS_CLES': 'Kevin Flores, Jack Moore, Thomas Johnson, Mario Mann, Antonio Thornton',
     'MUNICIPALITY': 'Burgdorf',
-    'MUNICIPALITY_ADDRESS': 'East Andrew',
-    'NACHBARSCHAFTSORIENTIERUNG_LINK': 'http://caluma-portal.local/public-instances/1?key=5a49823',
-    'NACHBARSCHAFTSORIENTIERUNG_QR_CODE': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZoAAAGaAQAAAAAefbjOAAADAElEQVR4nO2cTW6jQBCFvxqQsgTJB8hR2jeYM82R5gZwlBxgJFhGavRm0T/gZJWxBzu4vEAB8wlaqbx+9aBj4suf8cfXGXDIIYcccsghh44JWf60wGxmZ8DOs5lZv1j+yfIX32RMDl0FBUnSBNBFgMWgkzTQ5I0kXUL73Z5D+0OrMqTdqhZzm45lBbnT7Tm0G9R+PDD2k4DYauyBMICYb3Alh74pFKalKEMX0TBX93DrKzn0kFDRiE6QpGDuYXxNlkEGTYQZtknWg4/JoRtAo5mZ9QA0Iry12HluIUxgZ5bUatzr9hzaWyO2AtC9myCmHY09pssTHn5MDl0DkbrKMAHQSJpyu5m6T02w/VaShgcfk0M3giRFGF8jdu4iMOdpooQStTf9PmNy6Ouf/GdPk4RiDaKSWqRNkhHXiGeAckVoqtOEItDFWhuNNHQlrgxeEUeHNj4iC8XGVsA22e7kGvEEUJGCTiq/+KIRQ90NU6O06xpxeKim2Esr5hcBCxp/gtE1MmgEvJuY29KEPviYHLoBFKZGuc2YcziVJ4wUTr0kR3Gv23PoDs6yeIYwre5htZx5wvBZ4/hQqQhtvWOSDACCYiqQ1Xd6RRwaqnkEaEhHqoucaglcpBVeEYeGNhWxNp6bSGooyfb25Acfk0PXQJ9DStUmMylDTag69xHPABU9KHaiKAPFQiQfUaNsr4ijQ9uKGEp/qaG70IiNjHhFHB26eBq+JpU1z65GM5lPr4jDQzWzbKLlzLIRzCc09n9aMZ8waLEgsDDse3sO7Q7VPKL4iPVBRs4sqU2I5xHPA61rukoosRhjXzxmWr7BYnn3W4zJoatmjTQbzCcsvLVofI2thelEftc2e4u4++05tDu0dZZpXpgAytq+TZ5dH274rPFkUOorFiPo3fSrz8f+w5UcekTo0yo/5h4LU4+F3ydZ0LK+GuFPw58A+rimS3nTRCCitAy0i625j3gOaPNcA6pxSK9dpj60nlnexnUfcWjI/D+TOeSQQw455JBD/wj9BfLKhenNnOo8AAAAAElFTkSuQmCC',
+    'MUNICIPALITY_ADDRESS': 'New Jill',
+    'NACHBARSCHAFTSORIENTIERUNG_LINK': 'http://caluma-portal.local/public-instances/1/form?key=5a49823',
+    'NACHBARSCHAFTSORIENTIERUNG_QR_CODE': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZoAAAGaAQAAAAAefbjOAAADG0lEQVR4nO2bQa6jMAyGPw9Ib5lK7wA9SrjBHGk0R5obwFF6gErJslKQZ5EEaDWbN62AV8wCQcsnEsUy9m9HlC8fw4+vM2CQQQYZZJBBBr0nJOVokS62iEgLQz1JF+sD3SbDM2h9yKuqagDtXcon+RUArwmgUVVVvYfWG55B60OxOIDsI7ooor/PCYbTKADFb2w1PINWg9qHeyUCuICAoNCovORNBn1TaDincuVVFX95tJmXvcmgXUJ1vZ0CkewZAFDiZxL/h3q7xfAM2goaRETkBPjQZM8g3eKxMacaWw3PoLV9xOwAFBLgEgo3UeIoxYNsMTyDNoKkiy0Q5T6IbFQ6pwqMAnHyG99iTgb9H0TRGVw5ZT1CtTqKHsAH0N6pZt2i3/mcDHoGqhZBo3X1G8WH+rfXhPbzv2YR7w5NuUYA3LUtegRNgviZhPipgrsKuGt9eOdzMugZqPgIH5opeCxXqqHRIkoEypfEfMRRoOEEOZjwYZRczSgC9ij5gzGYin0IKPuIOZgAl5idgvbAMsAwH/Hu0CKyLHVONxU7A1NkWXKNfJhFHATS3/Kh+MtHTkFLRgqlLp5Fie2GZ9A60EKzFNxVFG4CbmyXyQVNAhoV3687PINWh8qaDx0osUVwVxRGdPhZTKUo27GtVdGdz8mgZ6ASWfbMoWRVqHyonVNZsMpipsURbw6xWPNJqcwipYZqJZptwyziCNCUfaZqG7Wdcm67LMmoZZ+HgKbsEyjFjbnCsfySmEUcBKo+Itz7g0nZzvJ2Lopa7fMIUM41BJda8ZcWHc6phXiiaFXuJhAFcFNnzc7nZNAz0ELFrnFEbY3ITRJQe3DVfMRxoHlPF5OAXdouVRVia5Wug0F+DiZyf13Rs0unnUuLCsd3mZNBT0F1TxfD+ZavtHe3YgyD3DdgfpM5GfQSyF/axd4+iB8lzRhsJ/AhIemoeegicGCUWiZ/2ZsM2if0uKdLh7NCbpcIp1zkEh9Qmdrtdj8ng56BHjXLKknVUHLKSGeN27LPt4b+uadLy0+1B3d5te7wDDLIIIMMMsigHUN/AYOiOcBhfa4tAAAAAElFTkSuQmCC',
     'NAME': '',
-    'NEBENBESTIMMUNGEN': 'Bank eye feeling.',
+    'NEBENBESTIMMUNGEN': 'Indicate whether especially design.',
     'NEBENBESTIMMUNGEN_MAPPED': [
         {
             'FACHSTELLE': 'David Brown',
-            'TEXT': 'Bank eye feeling.'
+            'TEXT': 'Indicate whether especially design.'
         }
     ],
     'NEIGHBORS': [
@@ -369,36 +369,36 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'OEFFENTLICHKEIT': 'Öffentlich',
     'OFFICES_CANTONAUX': [
         {
-            'FRIST': '21.09.2021',
-            'NAME': 'Daniel Moody'
-        },
-        {
-            'FRIST': '19.09.2021',
-            'NAME': 'Shelly Reese'
+            'FRIST': '02.09.2021',
+            'NAME': 'James Mathis'
         },
         {
             'FRIST': '16.09.2021',
-            'NAME': 'Susan Rivers'
-        },
-        {
-            'FRIST': '13.09.2021',
-            'NAME': 'Melissa Lane'
-        },
-        {
-            'FRIST': '18.09.2021',
             'NAME': 'David Brown'
         },
         {
-            'FRIST': '16.09.2021',
-            'NAME': 'Todd Brown'
+            'FRIST': '08.09.2021',
+            'NAME': 'Mr. Thomas Schroeder DDS'
+        },
+        {
+            'FRIST': '28.09.2021',
+            'NAME': 'Christine Bean'
+        },
+        {
+            'FRIST': '13.09.2021',
+            'NAME': 'Tiffany Brown MD'
+        },
+        {
+            'FRIST': '10.09.2021',
+            'NAME': 'Melissa Coleman'
         }
     ],
-    'OFFICES_CANTONAUX_LISTE': '''- Daniel Moody
-- Shelly Reese
-- Susan Rivers
-- Melissa Lane
+    'OFFICES_CANTONAUX_LISTE': '''- James Mathis
 - David Brown
-- Todd Brown''',
+- Mr. Thomas Schroeder DDS
+- Christine Bean
+- Tiffany Brown MD
+- Melissa Coleman''',
     'OPPOSANTS': [
         {
             'ADDRESS': 'Teststrasse 1, 1234 Testdorf',
@@ -434,7 +434,7 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'PLACES_ASSISES_EXT': 20,
     'PLACES_ASSISES_INT': 35,
     'PLAN_QUARTIER': 'Überbauung XY',
-    'PRISE_DE_POSITION': 'Policy phone one determine red out agreement window.',
+    'PRISE_DE_POSITION': 'Reveal analysis candidate unit knowledge American statement.',
     'PROJEKTVERFASSER': 'Hans Müller',
     'PROJEKTVERFASSER_ADDRESS_1': 'Einweg 9',
     'PROJEKTVERFASSER_ADDRESS_2': '3000 Bern',
@@ -485,9 +485,9 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'REQUERANT_NOM_ADRESSE': 'ACME AG, Max Mustermann, Teststrasse 123, 1234 Testhausen',
     'REQUERANT_TOUS': 'ACME AG, Max Mustermann',
     'REQUERANT_TOUS_NOM_ADRESSE': 'ACME AG, Max Mustermann, Teststrasse 123, 1234 Testhausen',
-    'RESPONSABLE_AUTORITE_DIRECTRICE': 'Evelyn Bowman',
-    'RESPONSABLE_EMAIL': 'danielcruz@example.com',
-    'RESPONSABLE_NOM': 'Evelyn Bowman',
+    'RESPONSABLE_AUTORITE_DIRECTRICE': 'Nicole Rodriguez',
+    'RESPONSABLE_EMAIL': 'cody51@example.com',
+    'RESPONSABLE_NOM': 'Nicole Rodriguez',
     'RESPONSABLE_TELEPHONE': '',
     'SACHVERHALT': 'Sachverhalt Test',
     'SCHUTZZONE': 'S1',
@@ -497,8 +497,8 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'SITZPLAETZE_INNEN': 35,
     'SPRACHE': 'de',
     'STATUS': 'David Rangel',
-    'STELLUNGNAHME': 'Policy phone one determine red out agreement window.',
-    'STICHWORTE': 'Carrie Stanley, Tom Barrett, Mark Nelson, Christopher Buck, Darrell Daniels',
+    'STELLUNGNAHME': 'Reveal analysis candidate unit knowledge American statement.',
+    'STICHWORTE': 'Kevin Flores, Jack Moore, Thomas Johnson, Mario Mann, Antonio Thornton',
     'TODAY': '30. August 2021',
     'UEBERBAUUNGSORDNUNG': 'Überbauung XY',
     'UVP_JA_NEIN': False,
@@ -522,73 +522,393 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     ],
     'ZIRKULATION_ALLE': [
         {
-            'FRIST': '21.09.2021',
-            'NAME': 'Daniel Moody'
-        },
-        {
-            'FRIST': '19.09.2021',
-            'NAME': 'Shelly Reese'
+            'FRIST': '02.09.2021',
+            'NAME': 'James Mathis'
         },
         {
             'FRIST': '16.09.2021',
-            'NAME': 'Susan Rivers'
-        },
-        {
-            'FRIST': '13.09.2021',
-            'NAME': 'Melissa Lane'
-        },
-        {
-            'FRIST': '18.09.2021',
             'NAME': 'David Brown'
         },
         {
-            'FRIST': '16.09.2021',
-            'NAME': 'Todd Brown'
+            'FRIST': '08.09.2021',
+            'NAME': 'Mr. Thomas Schroeder DDS'
+        },
+        {
+            'FRIST': '28.09.2021',
+            'NAME': 'Christine Bean'
+        },
+        {
+            'FRIST': '13.09.2021',
+            'NAME': 'Tiffany Brown MD'
+        },
+        {
+            'FRIST': '10.09.2021',
+            'NAME': 'Melissa Coleman'
         }
     ],
     'ZIRKULATION_FACHSTELLEN': [
         {
-            'FRIST': '13.09.2021',
-            'NAME': 'Melissa Lane'
+            'FRIST': '08.09.2021',
+            'NAME': 'Mr. Thomas Schroeder DDS'
         }
     ],
     'ZIRKULATION_GEMEINDEN': [
         {
-            'FRIST': '19.09.2021',
-            'NAME': 'Shelly Reese'
+            'FRIST': '13.09.2021',
+            'NAME': 'Tiffany Brown MD'
         },
         {
-            'FRIST': '16.09.2021',
-            'NAME': 'Susan Rivers'
+            'FRIST': '10.09.2021',
+            'NAME': 'Melissa Coleman'
         }
     ],
     'ZIRKULATION_RSTA': [
         {
-            'FRIST': '21.09.2021',
-            'NAME': 'Daniel Moody'
+            'FRIST': '02.09.2021',
+            'NAME': 'James Mathis'
         },
         {
-            'FRIST': '16.09.2021',
-            'NAME': 'Todd Brown'
+            'FRIST': '28.09.2021',
+            'NAME': 'Christine Bean'
         }
     ],
     'ZIRKULATION_RUECKMELDUNGEN': [
         {
-            'ANTWORT': 'Brian Kelley',
-            'NEBENBESTIMMUNGEN': 'Store a true choice.',
-            'STELLUNGNAHME': 'However teach party fact ability anyone.',
-            'VON': 'Melissa Lane'
+            'ANTWORT': 'Austin Snyder',
+            'NEBENBESTIMMUNGEN': 'Indicate whether especially design.',
+            'STELLUNGNAHME': 'Reveal analysis candidate unit knowledge American statement.',
+            'VON': 'David Brown'
         },
         {
-            'ANTWORT': 'Marco Russell',
-            'NEBENBESTIMMUNGEN': 'Bank eye feeling.',
-            'STELLUNGNAHME': 'Policy phone one determine red out agreement window.',
-            'VON': 'David Brown'
+            'ANTWORT': 'Sydney Colon',
+            'NEBENBESTIMMUNGEN': 'Father pick throughout region prevent important positive husband.',
+            'STELLUNGNAHME': 'Surface system gas evening game understand.',
+            'VON': 'Mr. Thomas Schroeder DDS'
         }
     ],
     'ZONE_PROTEGEE': 'S1',
-    'ZUSTAENDIG_EMAIL': 'danielcruz@example.com',
-    'ZUSTAENDIG_NAME': 'Evelyn Bowman',
+    'ZUSTAENDIG_EMAIL': 'cody51@example.com',
+    'ZUSTAENDIG_NAME': 'Nicole Rodriguez',
+    'ZUSTAENDIG_PHONE': '',
+    'ZUSTAENDIG_TELEFON': ''
+}
+
+snapshots['test_dms_placeholders_empty[Municipality] 1'] = {
+    'ADDRESS': '',
+    'ADMINISTRATIVE_DISTRICT': '',
+    'ADRESSE': '',
+    'AFFECTATION': '',
+    'AFFECTATION_ZONE': '',
+    'ALCOHOL_SERVING': '',
+    'ALKOHOLAUSSCHANK': '',
+    'ALLE_GEBAEUDEEIGENTUEMER': '',
+    'ALLE_GEBAEUDEEIGENTUEMER_NAME_ADDRESS': '',
+    'ALLE_GEBAEUDEEIGENTUEMER_NAME_ADRESSE': '',
+    'ALLE_GESUCHSTELLER': '',
+    'ALLE_GESUCHSTELLER_NAME_ADDRESS': '',
+    'ALLE_GESUCHSTELLER_NAME_ADRESSE': '',
+    'ALLE_GRUNDEIGENTUEMER': '',
+    'ALLE_GRUNDEIGENTUEMER_NAME_ADDRESS': '',
+    'ALLE_GRUNDEIGENTUEMER_NAME_ADRESSE': '',
+    'ALLE_NACHBARN': '',
+    'ALLE_PROJEKTVERFASSER': '',
+    'ALLE_PROJEKTVERFASSER_NAME_ADDRESS': '',
+    'ALLE_PROJEKTVERFASSER_NAME_ADRESSE': '',
+    'ALLE_VERTRETER': '',
+    'ALLE_VERTRETER_NAME_ADDRESS': '',
+    'ALLE_VERTRETER_NAME_ADRESSE': '',
+    'ARRONDISSEMENT_ADMINISTRATIF': '',
+    'AUJOURD_HUI': '30. August 2021',
+    'AUTEUR_PROJET': '',
+    'AUTEUR_PROJET_ADRESSE_1': '',
+    'AUTEUR_PROJET_ADRESSE_2': '',
+    'AUTEUR_PROJET_NOM_ADRESSE': '',
+    'AUTEUR_PROJET_TOUS': '',
+    'AUTEUR_PROJET_TOUS_NOM_ADRESSE': '',
+    'AUTORITE_DIRECTRICE_ADRESSE_1': '',
+    'AUTORITE_DIRECTRICE_ADRESSE_2': '',
+    'AUTORITE_DIRECTRICE_EMAIL': 'michelleboone@example.org',
+    'AUTORITE_DIRECTRICE_LIEU': '',
+    'AUTORITE_DIRECTRICE_NOM': 'Alex Smith',
+    'AUTORITE_DIRECTRICE_NOM_ABR': 'Alex Smith',
+    'AUTORITE_DIRECTRICE_TELEPHONE': '',
+    'BASE_URL': 'http://camac-ng.local',
+    'BAUEINGABE_DATUM': '30. August 2021',
+    'BAUENTSCHEID': '',
+    'BAUENTSCHEID_ABSCHREIBUNGSVERFUEGUNG': False,
+    'BAUENTSCHEID_BAUABSCHLAG': False,
+    'BAUENTSCHEID_BAUABSCHLAG_MIT_WHST': False,
+    'BAUENTSCHEID_BAUABSCHLAG_OHNE_WHST': False,
+    'BAUENTSCHEID_BAUBEWILLIGUNG': False,
+    'BAUENTSCHEID_BAUBEWILLIGUNGSFREI': False,
+    'BAUENTSCHEID_DATUM': '',
+    'BAUENTSCHEID_GENERELL': False,
+    'BAUENTSCHEID_GESAMT': False,
+    'BAUENTSCHEID_KLEIN': False,
+    'BAUENTSCHEID_POSITIV': False,
+    'BAUENTSCHEID_POSITIV_TEILWEISE': False,
+    'BAUENTSCHEID_PROJEKTAENDERUNG': False,
+    'BAUENTSCHEID_TEILBAUBEWILLIGUNG': False,
+    'BAUENTSCHEID_TYP': '',
+    'BAUENTSCHEID_TYPE': '',
+    'BAUVORHABEN': '',
+    'BESCHREIBUNG_BAUVORHABEN': '',
+    'BOISSONS_ALCOOLIQUES': '',
+    'CIRCULATION_COMMUNES': [
+    ],
+    'CIRCULATION_PREAVIS': [
+    ],
+    'CIRCULATION_PREF': [
+    ],
+    'CIRCULATION_SERVICES': [
+    ],
+    'COMMUNE': '',
+    'COMMUNE_ADRESSE': '',
+    'COMMUNE_ADRESSE_1': '',
+    'COMMUNE_ADRESSE_2': '',
+    'COMMUNE_EMAIL': '',
+    'COMMUNE_LIEU': '',
+    'COMMUNE_NOM_ADRESSE': '',
+    'COMMUNE_TELEPHONE': '',
+    'COMMUNICATION_AUX_VOISINS_CODE_QR': '',
+    'COMMUNICATION_AUX_VOISINS_LIEN': '',
+    'COORDONEE': '',
+    'DECISION': '',
+    'DECISION_CATEGORIE': '',
+    'DECISION_DATE': '',
+    'DECISION_GENERAL': False,
+    'DECISION_GLOBALE': False,
+    'DECISION_MODIF': False,
+    'DECISION_PARTIEL': False,
+    'DECISION_PERMIS': False,
+    'DECISION_PETIT': False,
+    'DECISION_REFUS': False,
+    'DECISION_REFUS_AVEC_RET': False,
+    'DECISION_REFUS_SANS_RET': False,
+    'DECISION_TYPE': '',
+    'DEPOT_DEMANDE_DATE': '30. August 2021',
+    'DISPOSITIONS_ANNEXES': '',
+    'DOSSIER_LINK': 'http://camac-ng.local/index/redirect-to-instance-resource/instance-id/1',
+    'DOSSIER_NR': 1,
+    'DOSSIER_NUMERO': 1,
+    'DOSSIER_TYP': 'Baugesuch',
+    'DOSSIER_TYPE': 'Baugesuch',
+    'EBAU_NR': '',
+    'EBAU_NUMBER': '',
+    'EBAU_NUMERO': '',
+    'EBAU_URL': 'http://camac-ng.local',
+    'EIGENE_GEBUEHREN': [
+    ],
+    'EIGENE_GEBUEHREN_TOTAL': '0.00',
+    'EIGENE_NEBENBESTIMMUNGEN': '',
+    'EIGENE_STELLUNGNAHMEN': '',
+    'EINSPRECHENDE': [
+    ],
+    'EMAIL': '',
+    'EMOLUMENTS': [
+    ],
+    'EMOLUMENTS_TOTAL': '0.00',
+    'ETAT': 'David Rangel',
+    'FACHSTELLEN_KANTONAL': [
+    ],
+    'FACHSTELLEN_KANTONAL_LIST': '',
+    'FACHSTELLEN_KANTONAL_LISTE': '',
+    'FORM_NAME': 'Baugesuch',
+    'GEBAEUDEEIGENTUEMER': '',
+    'GEBAEUDEEIGENTUEMER_ADDRESS_1': '',
+    'GEBAEUDEEIGENTUEMER_ADDRESS_2': '',
+    'GEBAEUDEEIGENTUEMER_ADRESSE_1': '',
+    'GEBAEUDEEIGENTUEMER_ADRESSE_2': '',
+    'GEBAEUDEEIGENTUEMER_NAME_ADDRESS': '',
+    'GEBAEUDEEIGENTUEMER_NAME_ADRESSE': '',
+    'GEBUEHREN': [
+    ],
+    'GEBUEHREN_TOTAL': '0.00',
+    'GEMEINDE': '',
+    'GEMEINDE_ADRESSE': '',
+    'GEMEINDE_ADRESSE_1': '',
+    'GEMEINDE_ADRESSE_2': '',
+    'GEMEINDE_EMAIL': '',
+    'GEMEINDE_NAME_ADRESSE': '',
+    'GEMEINDE_ORT': '',
+    'GEMEINDE_TELEFON': '',
+    'GESUCHSTELLER': '',
+    'GESUCHSTELLER_ADDRESS_1': '',
+    'GESUCHSTELLER_ADDRESS_2': '',
+    'GESUCHSTELLER_ADRESSE_1': '',
+    'GESUCHSTELLER_ADRESSE_2': '',
+    'GESUCHSTELLER_NAME_ADDRESS': '',
+    'GESUCHSTELLER_NAME_ADRESSE': '',
+    'GEWAESSERSCHUTZBEREICH': '',
+    'GRUNDEIGENTUEMER': '',
+    'GRUNDEIGENTUEMER_ADDRESS_1': '',
+    'GRUNDEIGENTUEMER_ADDRESS_2': '',
+    'GRUNDEIGENTUEMER_ADRESSE_1': '',
+    'GRUNDEIGENTUEMER_ADRESSE_2': '',
+    'GRUNDEIGENTUEMER_NAME_ADDRESS': '',
+    'GRUNDEIGENTUEMER_NAME_ADRESSE': '',
+    'HEUTE': '30. August 2021',
+    'INFORMATION_OF_NEIGHBORS_LINK': '',
+    'INFORMATION_OF_NEIGHBORS_QR_CODE': '',
+    'INSTANCE_ID': 1,
+    'INTERIOR_SEATING': '',
+    'INVENTAR': '',
+    'JURISTIC_NAME': '',
+    'JURISTISCHER_NAME': '',
+    'KOORDINATEN': '',
+    'LANGUAGE': 'de',
+    'LANGUE': 'de',
+    'LEITBEHOERDE_ADDRESS_1': '',
+    'LEITBEHOERDE_ADDRESS_2': '',
+    'LEITBEHOERDE_ADRESSE_1': '',
+    'LEITBEHOERDE_ADRESSE_2': '',
+    'LEITBEHOERDE_CITY': '',
+    'LEITBEHOERDE_EMAIL': 'michelleboone@example.org',
+    'LEITBEHOERDE_NAME': 'Alex Smith',
+    'LEITBEHOERDE_NAME_KURZ': 'Alex Smith',
+    'LEITBEHOERDE_PHONE': '',
+    'LEITBEHOERDE_STADT': '',
+    'LEITBEHOERDE_TELEFON': '',
+    'LEITPERSON': '',
+    'MEINE_ORGANISATION_ADRESSE_1': '',
+    'MEINE_ORGANISATION_ADRESSE_2': '',
+    'MEINE_ORGANISATION_EMAIL': 'michelleboone@example.org',
+    'MEINE_ORGANISATION_NAME': 'Alex Smith',
+    'MEINE_ORGANISATION_NAME_ADRESSE': 'Alex Smith',
+    'MEINE_ORGANISATION_NAME_KURZ': 'Alex Smith',
+    'MEINE_ORGANISATION_ORT': '',
+    'MEINE_ORGANISATION_TELEFON': '',
+    'MES_EMOLUMENTS': [
+    ],
+    'MES_EMOLUMENTS_TOTAL': '0.00',
+    'MODIFICATION_DATE': '',
+    'MODIFICATION_TIME': '',
+    'MON_ORGANISATION_ADRESSE_1': '',
+    'MON_ORGANISATION_ADRESSE_2': '',
+    'MON_ORGANISATION_EMAIL': 'michelleboone@example.org',
+    'MON_ORGANISATION_LIEU': '',
+    'MON_ORGANISATION_NOM': 'Alex Smith',
+    'MON_ORGANISATION_NOM_ABR': 'Alex Smith',
+    'MON_ORGANISATION_NOM_ADRESSE': 'Alex Smith',
+    'MON_ORGANISATION_TELEPHONE': '',
+    'MOTS_CLES': '',
+    'MUNICIPALITY': '',
+    'MUNICIPALITY_ADDRESS': '',
+    'NACHBARSCHAFTSORIENTIERUNG_LINK': '',
+    'NACHBARSCHAFTSORIENTIERUNG_QR_CODE': '',
+    'NAME': '',
+    'NEBENBESTIMMUNGEN': '',
+    'NEBENBESTIMMUNGEN_MAPPED': [
+    ],
+    'NEIGHBORS': '',
+    'NOM_LEGAL': '',
+    'NUTZUNG': '',
+    'NUTZUNGSZONE': '',
+    'OEFFENTLICHKEIT': '',
+    'OFFICES_CANTONAUX': [
+    ],
+    'OFFICES_CANTONAUX_LISTE': '',
+    'OPPOSANTS': [
+    ],
+    'OPPOSING': [
+    ],
+    'OUTSIDE_SEATING': '',
+    'OUVERTURE_PUBLIC': '',
+    'PARCELLE': '',
+    'PARZELLE': '',
+    'PLACES_ASSISES_EXT': '',
+    'PLACES_ASSISES_INT': '',
+    'PLAN_QUARTIER': '',
+    'PRISE_DE_POSITION': '',
+    'PROJEKTVERFASSER': '',
+    'PROJEKTVERFASSER_ADDRESS_1': '',
+    'PROJEKTVERFASSER_ADDRESS_2': '',
+    'PROJEKTVERFASSER_ADRESSE_1': '',
+    'PROJEKTVERFASSER_ADRESSE_2': '',
+    'PROJEKTVERFASSER_NAME_ADDRESS': '',
+    'PROJEKTVERFASSER_NAME_ADRESSE': '',
+    'PROJET_CONSTR': '',
+    'PROJET_CONSTR_DESCR': '',
+    'PROPRIETAIRE_FONC': '',
+    'PROPRIETAIRE_FONC_ADRESSE_1': '',
+    'PROPRIETAIRE_FONC_ADRESSE_2': '',
+    'PROPRIETAIRE_FONC_NOM_ADRESSE': '',
+    'PROPRIETAIRE_FONC_TOUS': '',
+    'PROPRIETAIRE_FONC_TOUS_NOM_ADRESSE': '',
+    'PROPRIETAIRE_IMMOB': '',
+    'PROPRIETAIRE_IMMOB_ADRESSE_1': '',
+    'PROPRIETAIRE_IMMOB_ADRESSE_2': '',
+    'PROPRIETAIRE_IMMOB_NOM_ADRESSE': '',
+    'PROPRIETAIRE_IMMOB_TOUS': '',
+    'PROPRIETAIRE_IMMOB_TOUS_NOM_ADRESSE': '',
+    'PROTECTION_AREA': '',
+    'PUBLIC': '',
+    'PUBLICATION_1_FEUILLE_AVIS': '',
+    'PUBLICATION_2_FEUILLE_AVIS': '',
+    'PUBLICATION_DEBUT': '',
+    'PUBLICATION_EXPIRATION': '',
+    'PUBLICATION_FEUILLE_AVIS_NOM': '',
+    'PUBLICATION_FEUILLE_OFFICIELLE': '',
+    'PUBLICATION_TEXTE': '',
+    'PUBLIKATION_1_ANZEIGER': '',
+    'PUBLIKATION_2_ANZEIGER': '',
+    'PUBLIKATION_AMTSBLATT': '',
+    'PUBLIKATION_ANZEIGER_NAME': '',
+    'PUBLIKATION_ENDE': '',
+    'PUBLIKATION_START': '',
+    'PUBLIKATION_TEXT': '',
+    'RECENSEMENT': '',
+    'REPRESENTANT': '',
+    'REPRESENTANT_ADRESSE_1': '',
+    'REPRESENTANT_ADRESSE_2': '',
+    'REPRESENTANT_NOM_ADRESSE': '',
+    'REPRESENTANT_TOUS': '',
+    'REPRESENTANT_TOUS_NOM_ADRESSE': '',
+    'REQUERANT': '',
+    'REQUERANT_ADRESSE_1': '',
+    'REQUERANT_ADRESSE_2': '',
+    'REQUERANT_NOM_ADRESSE': '',
+    'REQUERANT_TOUS': '',
+    'REQUERANT_TOUS_NOM_ADRESSE': '',
+    'RESPONSABLE_AUTORITE_DIRECTRICE': '',
+    'RESPONSABLE_EMAIL': '',
+    'RESPONSABLE_NOM': '',
+    'RESPONSABLE_TELEPHONE': '',
+    'SACHVERHALT': '',
+    'SCHUTZZONE': '',
+    'SECTEUR_PROTECTION_EAUX': '',
+    'SITUATION': '',
+    'SITZPLAETZE_AUSSEN': '',
+    'SITZPLAETZE_INNEN': '',
+    'SPRACHE': 'de',
+    'STATUS': 'David Rangel',
+    'STELLUNGNAHME': '',
+    'STICHWORTE': '',
+    'TODAY': '30. August 2021',
+    'UEBERBAUUNGSORDNUNG': '',
+    'UVP_JA_NEIN': False,
+    'VERTRETER': '',
+    'VERTRETER_ADDRESS_1': '',
+    'VERTRETER_ADDRESS_2': '',
+    'VERTRETER_ADRESSE_1': '',
+    'VERTRETER_ADRESSE_2': '',
+    'VERTRETER_NAME_ADDRESS': '',
+    'VERTRETER_NAME_ADRESSE': '',
+    'VERWALTUNGSKREIS': '',
+    'VOISINS_TOUS': '',
+    'ZIRKULATION_ALLE': [
+    ],
+    'ZIRKULATION_FACHSTELLEN': [
+    ],
+    'ZIRKULATION_GEMEINDEN': [
+    ],
+    'ZIRKULATION_RSTA': [
+    ],
+    'ZIRKULATION_RUECKMELDUNGEN': [
+    ],
+    'ZONE_PROTEGEE': '',
+    'ZUSTAENDIG_EMAIL': '',
+    'ZUSTAENDIG_NAME': '',
     'ZUSTAENDIG_PHONE': '',
     'ZUSTAENDIG_TELEFON': ''
 }
