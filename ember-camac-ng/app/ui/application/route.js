@@ -15,8 +15,14 @@ export default class ApplicationRoute extends Route {
       this.session.authenticate("authenticator:camac");
     });
 
-    this.intl.setLocale(this.shoebox.content.language);
-    this.moment.setLocale(this.shoebox.content.language);
+    const language = this.shoebox.content.language;
+
+    if (language) {
+      const locale = `${language}-ch`;
+
+      this.intl.setLocale([locale, language]);
+      this.moment.setLocale(locale);
+    }
 
     this.calumaOptions.registerComponentOverride({
       label: "Karte",
