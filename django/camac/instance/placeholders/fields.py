@@ -172,6 +172,7 @@ class PublicationField(serializers.ReadOnlyField):
                 task_id="fill-publication",
                 status=WorkItem.STATUS_COMPLETED,
                 addressed_groups=[str(self.context["request"].group.service_id)],
+                **{"meta__is-published": True},
             )
             .order_by("-created_at")
             .first()
@@ -377,6 +378,7 @@ class InformationOfNeighborsField(serializers.ReadOnlyField):
                 task_id="information-of-neighbors",
                 status=WorkItem.STATUS_COMPLETED,
                 addressed_groups=[str(self.context["request"].group.service_id)],
+                **{"meta__is-published": True},
             )
             .order_by("-created_at")
             .first()

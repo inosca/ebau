@@ -23,6 +23,13 @@ export default class QrCodeComponent extends Component {
     this.data = await QRCode.toDataURL(this.url, { quality: 1 });
   }
 
+  get hidden() {
+    return (
+      this.args.context.workItemStatus === "COMPLETED" &&
+      !this.args.context.workItemIsPublished
+    );
+  }
+
   get key() {
     return this.args.field.document.uuid.substr(0, 7);
   }
@@ -40,14 +47,16 @@ export default class QrCodeComponent extends Component {
 
     try {
       const blob = yield (yield fetch(this.data)).blob();
-      const form = this.args.field.document.rootForm.name;
+      const form = this.args.field.document.rootForm.raw.name;
 
       yield saveAs(
         blob,
         `${this.args.context.instanceId}-${slugify(form)}-qr-code.png`
       );
     } catch (error) {
-      this.notifications.error(this.intl.t("qr-code.downloadError"));
+      this.notifications.error(
+        this.intl.t("publication.qr-code.downloadError")
+      );
     }
   }
 }

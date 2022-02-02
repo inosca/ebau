@@ -1,45 +1,62 @@
-{{#if (and this.publication (not this.fetchPublication.isRunning))}}
-  <CfContent
-    @documentId={{decode-id this.publication.document.id}}
-    @disabled={{cannot "edit publication" this.publication}}
-  as |content|>
-    <content.form />
-    <div class="uk-flex">
-      {{#if (can "edit publication" this.publication)}}
-        <DocumentValidity
-          @document={{content.document}}
-          as |isValid validate|
-        >
-          <TaskButton
-            @task="fill-publication"
-            @mutation="complete"
-            @filters={{this.filters}}
-            @disabled={{and (not-eq isValid null) (not isValid)}}
-            @beforeMutate={{fn this.beforeComplete validate}}
-            @onSuccess={{this.afterComplete}}
-            @label={{t "publication.complete"}}
-          />
-        </DocumentValidity>
-      {{/if}}
+<CfContent
+  @documentId={{decode-id this.publication.document.id}}
+  @disabled={{cannot "edit publication" this.publication}}
+  @context={{hash
+    instanceId=@model.instanceId
+    workItemStatus=this.publication.status
+    workItemIsPublished=this.publication.meta.is-published
+    actionButtonOnSuccess=this.refreshNavigation
+  }}
+  as |content|
+>
+  {{#if (not (eq this.publication.status "COMPLETED"))}}
+    <div class="uk-background-muted uk-padding-small uk-margin">
+      <p>
+        <span class="uk-text-bold">{{t "publication.info.attention"}}</span>
+        {{t (concat "publication.info.unpublished." @model.type)}}
+      </p>
+      <p class="uk-text-italic uk-margin-remove-bottom">
+        {{t "publication.info.documents"}}
+      </p>
+    </div>
+  {{else if (not this.publication.meta.is-published)}}
+    <div
+      class="uk-background-muted uk-padding-small
+        {{if (eq @model.type "public") "uk-margin"}}"
+    >
+      <span class="uk-text-bold">{{t "publication.info.note"}}</span>
+      {{t (concat "publication.info.canceled." @model.type)}}
+    </div>
+  {{/if}}
 
+  <content.form />
+
+  {{#if (or (can "create publication" this.publication) (can "cancel publication" this.publication))}}
+    <div class="uk-flex">
       {{#if (can "create publication" this.publication)}}
         <TaskButton
-          class="uk-button uk-button-primary uk-margin-right"
-          @task="create-publication"
+          class="uk-margin-right"
+          @color="primary"
+          @task={{if
+            (eq @model.type "neighbors")
+            "create-information-of-neighbors"
+            "create-publication"
+          }}
           @mutation="complete"
           @filters={{this.filters}}
-          @onSuccess={{this.afterCreate}}
+          @onSuccess={{fn this.refreshNavigation true}}
           @label={{t "publication.new"}}
         />
       {{/if}}
 
       {{#if (can "cancel publication" this.publication)}}
         <UkButton
-          @onClick={{perform this.cancelPublication this.publication}}
-        >
-        {{t "publication.cancel"}}
-      </UkButton>
+          @label={{t "global.cancel"}}
+          @loading={{this.cancel.isRunning}}
+          @disabled={{this.cancel.isRunning}}
+          @onClick={{perform this.cancel}}
+        />
       {{/if}}
     </div>
-  </CfContent>
-{{/if}}
+  {{/if}}
+</CfContent>

@@ -174,3 +174,27 @@ mutation CreateFlow13 {
     clientMutationId
   }
 }
+
+mutation CreateFlow14 {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["information-of-neighbors"]
+      next: "'create-information-of-neighbors'|task"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFlow15 {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["create-information-of-neighbors"]
+      next: "'information-of-neighbors'|task"
+    }
+  ) {
+    clientMutationId
+  }
+}

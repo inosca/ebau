@@ -1,4 +1,18 @@
-<div class="uk-flex uk-flex-column uk-flex-middle">
-  <img src={{this.data}} alt={{this.url}} class="uk-box-shadow-medium">
-  <a class="uk-margin-top" href="" {{on "click" (perform this.download)}}>{{t "qr-code.download"}}</a>
-</div>
+{{#unless this.hidden}}
+  <div class="uk-flex uk-flex-column uk-flex-middle">
+    <img src={{this.data}} alt={{this.url}} class="uk-box-shadow-medium" />
+    <div class="uk-margin-top">
+      <UkButton
+        @color="text"
+        @onClick={{perform this.download}}
+        @label={{t "publication.qr-code.download"}}
+      />
+      <a
+        class="uk-button uk-button-text uk-margin-left"
+        href={{this.url}}
+        target="_blank"
+        rel="noopener noreferrer"
+      >{{t "publication.qr-code.link"}}</a>
+    </div>
+  </div>
+{{/unless}}
