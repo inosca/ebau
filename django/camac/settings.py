@@ -2056,36 +2056,6 @@ APPLICATIONS = {
                     )
                 },
             ),
-            "neighbors": (
-                "table",
-                "information-of-neighbors-neighbors",
-                {
-                    "document_from_work_item": "information-of-neighbors",
-                    "column_mapping": {
-                        "last_name": "name-gesuchstellerin",
-                        "first_name": "vorname-gesuchstellerin",
-                        "street": "strasse-gesuchstellerin",
-                        "street_number": "nummer-gesuchstellerin",
-                        "zip": "plz-gesuchstellerin",
-                        "town": "ort-gesuchstellerin",
-                        "is_juristic_person": (
-                            "juristische-person-gesuchstellerin",
-                            {
-                                "value_parser": (
-                                    "value_mapping",
-                                    {
-                                        "mapping": {
-                                            "juristische-person-gesuchstellerin-ja": True,
-                                            "juristische-person-gesuchstellerin-nein": False,
-                                        }
-                                    },
-                                )
-                            },
-                        ),
-                        "juristic_name": "name-juristische-person-gesuchstellerin",
-                    },
-                },
-            ),
         },
         "MUNICIPALITY_DATA_SHEET": APPLICATION_DIR(
             "Verwaltungskreise und -regionen der Gemeinden.csv"
