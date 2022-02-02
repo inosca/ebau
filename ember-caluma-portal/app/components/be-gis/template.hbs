@@ -70,7 +70,9 @@ as |Modal|>
       {{/each}}
     </ul>
 
-    <CfField @field={{this.confirmField}} />
+    {{#if this.confirmField}}
+      <CfField @field={{this.confirmField}} />
+    {{/if}}
   </Modal.body>
 
   <Modal.footer class="uk-text-right">
