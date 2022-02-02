@@ -113,10 +113,12 @@ services:
       - db
     image: acr.run/camac-ng/keycloak:16.1.0_theme-v1.0.1
     environment:
-      - POSTGRES_PORT_5432_TCP_ADDR=db
-      - POSTGRES_USER=camac
-      - POSTGRES_DATABASE=${APPLICATION}
+      - DB_VENDOR=postgres
+      - DB_ADDR=db
+      - DB_USER=camac
+      - DB_DATABASE=${APPLICATION}
       - KEYCLOAK_USER=admin
+      - PROXY_ADDRESS_FORWARDING=true
 
   metabase:
     image: metabase/metabase:v0.35.4
