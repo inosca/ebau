@@ -10,20 +10,20 @@ class Command(BaseCommand):
 
     def add_arguments(self, parser):
         parser.add_argument("-d", "--dry-run", action="store_true", dest="dry")
-
-    def handle(self, *args, **options):
-        tid = transaction.savepoint()
-
-        self.initialize_work_items()
-
-        if options.get("dry"):
-            transaction.savepoint_rollback(tid)
-        else:
-            transaction.savepoint_commit(tid)
+        parser.add_argument("-c", "--clean", action="store_true", dest="dry")
 
     @transaction.atomic
-    def initialize_work_items(self):
+    def handle(self, *args, **options):
+        tid = transaction.savepoint()
         form = Form.objects.get(pk="information-of-neighbors")
+
+        if options.get("clean"):
+            WorkItem.objects.filter(
+                task_id__in=[
+                    "information-of-neighbors",
+                    "create-information-of-neighbors",
+                ]
+            ).delete()
 
         cases = Case.objects.filter(
             instance__instance_state__name__in=[
@@ -61,3 +61,8 @@ class Command(BaseCommand):
 
             if i % 100 == 0:
                 self.stdout.write(f"[{i} / {cases.count()}]")
+
+        if options.get("dry"):
+            transaction.savepoint_rollback(tid)
+        else:
+            transaction.savepoint_commit(tid)

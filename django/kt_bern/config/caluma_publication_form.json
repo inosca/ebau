@@ -4,13 +4,13 @@
     "pk": "publikation",
     "fields": {
       "created_at": "2020-11-20T13:06:10.808Z",
-      "modified_at": "2020-11-20T13:06:10.808Z",
+      "modified_at": "2022-01-31T09:46:37.472Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "name": "{\"de\": \"Publikation\", \"fr\": null}",
-      "description": "{\"de\": \"\", \"fr\": null}",
+      "name": "{\"de\": \"Publikation\", \"fr\": \"Publication\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\"}",
       "meta": {},
       "is_published": true,
       "is_archived": false,
@@ -29,7 +29,7 @@
       "modified_by_group": null,
       "form": "publikation",
       "question": "publikation-1-publikation-anzeiger",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -44,7 +44,7 @@
       "modified_by_group": null,
       "form": "publikation",
       "question": "publikation-2-publikation-anzeiger",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -59,7 +59,7 @@
       "modified_by_group": null,
       "form": "publikation",
       "question": "publikation-ablaufdatum",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -74,7 +74,7 @@
       "modified_by_group": null,
       "form": "publikation",
       "question": "publikation-amtsblatt",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -89,7 +89,22 @@
       "modified_by_group": null,
       "form": "publikation",
       "question": "publikation-anzeiger-von",
-      "sort": 3
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "publikation.publikation-freigeben",
+    "fields": {
+      "created_at": "2022-01-31T08:26:19.113Z",
+      "modified_at": "2022-01-31T08:26:19.113Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "publikation",
+      "question": "publikation-freigeben",
+      "sort": 1
     }
   },
   {
@@ -104,7 +119,7 @@
       "modified_by_group": null,
       "form": "publikation",
       "question": "publikation-startdatum",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -119,7 +134,7 @@
       "modified_by_group": null,
       "form": "publikation",
       "question": "publikation-text",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -263,6 +278,40 @@
       "configuration": {
         "max_length": null,
         "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "publikation-freigeben",
+    "fields": {
+      "created_at": "2022-01-31T08:26:18.857Z",
+      "modified_at": "2022-02-02T08:43:43.465Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Freigeben\", \"fr\": \"Autoriser\"}",
+      "type": "action_button",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"<strong>Achtung:</strong> W\\u00e4hrend der Publikationsdauer ist das Dossier \\u00f6ffentlich aufgelegt und kann eingesehen werden.<br><br>Wollen Sie die Publikation wirklich freigeben?\", \"fr\": \"<strong>Attention:</strong> Pendant la publication, le dossier est accessible au public et peut \\u00eatre consult\\u00e9.<br><br>Voulez-vous vraiment autoriser la publication ?\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "color": "primary",
+        "action": "complete",
+        "validate_on_enter": false
       },
       "meta": {},
       "data_source": null,

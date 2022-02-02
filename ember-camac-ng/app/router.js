@@ -48,9 +48,9 @@ Router.map(function () {
   this.route("responsible", { path: "instances/:instance_id/responsible" });
   this.route(
     "publication",
-    { path: "instances/:instance_id/publication" },
+    { path: "instances/:instance_id/publication/:type" },
     function () {
-      this.route("edit", { path: "/edit/:workitem_uuid" });
+      this.route("edit", { path: "/:work_item_id" });
     }
   );
   this.route("task-form", { path: "instances/:instance_id/task-form/:task" });
