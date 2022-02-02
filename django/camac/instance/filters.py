@@ -343,6 +343,8 @@ class PublicCalumaInstanceFilterSet(FilterSet):
     instance = NumberFilter(field_name="instance__pk")
     municipality = NumberFilter(method="filter_municipality")
     form_type = CharFilter(method="filter_form_type")
+    dossier_nr = CharFilter()
+    exclude_instance = NumberFilter(field_name="instance__pk", exclude=True)
 
     def filter_municipality(self, queryset, name, value):
         municipality_question = settings.APPLICATION["MASTER_DATA"]["municipality"][1]

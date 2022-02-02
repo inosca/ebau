@@ -19,3 +19,5 @@ publicInstancesDetail:
   downloadError: "Fehler beim Herunterladen des Dokuments"
   copyrightText: "Die hier angezeigten Dokumente entsprechen der öffentlichen Auflage. Wir machen Sie darauf aufmerksam, dass alle hier hinterlegten Dokumente urheberrechtlich geschützt sein können. Das Ausdrucken, Speichern, Fotografieren und Weiterverwenden der Dokumente ist nur mit ausdrücklicher Zustimmung des Planerstellers bzw. des geistigen Eigentümers gestattet."
   privacyText: "Aus Gründen des Datenschutzes werden hier nur die für das Baubewilligungsverfahren relevanten Dokumente publiziert, die vom Gesuchsteller nicht explizit als vertrauenswürdig und nicht öffentlich zugänglich eingestuft wurden. Weitere Dokumente können im Rahmen der Auflagefrist bei der zuständigen Gemeindekanzlei eingesehen werden."
+  empty: "Keine Auflagedokumente gefunden"
+  related: "{count} {count, plural, =1 {aufgelegtes Dossier} other {aufgelegte Dossiers}} mit gleicher eBau-Nummer"
