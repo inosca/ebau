@@ -24,7 +24,7 @@ test: ## Test the project
 	@touch .env
 	@black --check .
 	@flake8
-	@pytest -vv --cov --no-cov-on-fail --vcr-record=none -n auto
+	@pytest -vv --cov --no-cov-on-fail --vcr-record=none -n auto --dist loadscope
 
 .PHONY: sqlsequencereset
 sqlsequencereset:
