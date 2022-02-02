@@ -1,5 +1,4 @@
 import json
-import math
 import re
 from collections import namedtuple
 from datetime import timedelta
@@ -18,7 +17,6 @@ from django.db import transaction
 from django.db.models import Q
 from django.utils import timezone
 from django.utils.translation import gettext as _, gettext_noop
-from pendulum import duration
 from rest_framework import exceptions
 from rest_framework_json_api import relations, serializers
 
