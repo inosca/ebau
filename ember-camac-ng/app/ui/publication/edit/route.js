@@ -1,13 +1,7 @@
 import Route from "@ember/routing/route";
 
 export default class PublicationEditRoute extends Route {
-  model({ workitem_uuid }) {
-    return workitem_uuid;
-  }
-
-  setupController(controller, model) {
-    super.setupController(controller, model);
-
-    controller.fetchPublication.perform();
+  model({ work_item_id: workItemId }) {
+    return { workItemId, ...this.modelFor("publication") };
   }
 }

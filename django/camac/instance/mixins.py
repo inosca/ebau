@@ -221,6 +221,9 @@ class InstanceQuerysetMixin(object):
                             self._get_instance_filter_expr(
                                 "case__work_items__status"
                             ): WorkItem.STATUS_COMPLETED,
+                            self._get_instance_filter_expr(
+                                "case__work_items__meta__is-published"
+                            ): True,
                         }
                     )
                     .filter(

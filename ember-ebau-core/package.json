@@ -32,7 +32,7 @@
     "@glimmer/component": "1.0.4",
     "@glimmer/tracking": "1.0.4",
     "@projectcaluma/ember-core": "11.0.0-beta.2",
-    "@projectcaluma/ember-form": "11.0.0-beta.3",
+    "@projectcaluma/ember-form": "11.0.0-beta.5",
     "ember-apollo-client": "3.2.0",
     "ember-auto-import": "2.4.0",
     "ember-cli-babel": "7.26.11",
@@ -42,7 +42,7 @@
     "ember-intl": "5.7.2",
     "ember-leaflet": "5.0.0",
     "ember-load-initializers": "2.1.2",
-    "ember-uikit": "5.0.0-beta.7",
+    "ember-uikit": "5.0.0-beta.11",
     "graphql": "15.7.2",
     "html2canvas": "1.0.0-rc.6",
     "leaflet": "1.7.1",
@@ -83,8 +83,8 @@
     "prettier": "2.5.1",
     "qunit": "2.17.2",
     "qunit-dom": "2.0.0",
-    "sass": "1.49.0",
-    "webpack": "5.67.0"
+    "sass": "1.49.4",
+    "webpack": "5.68.0"
   },
   "engines": {
     "node": "12.* || 14.* || >= 16"

@@ -144,6 +144,19 @@
   },
   {
     "model": "caluma_workflow.flow",
+    "pk": "434a4895-d5e9-4845-aaab-f6b0eb084f0f",
+    "fields": {
+      "created_at": "2022-01-28T15:37:43.139Z",
+      "modified_at": "2022-01-28T15:37:43.139Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "'create-information-of-neighbors'|task"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
     "pk": "46846c68-6d6d-4eb5-b2dd-296d62d31393",
     "fields": {
       "created_at": "2020-08-25T11:13:51.882Z",
@@ -196,6 +209,19 @@
   },
   {
     "model": "caluma_workflow.flow",
+    "pk": "60e9a775-7e64-4f2d-beea-e8c5677521bd",
+    "fields": {
+      "created_at": "2022-01-28T15:41:16.245Z",
+      "modified_at": "2022-01-28T15:41:16.245Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "'information-of-neighbors'|task"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
     "pk": "68438cb7-3635-4586-a3f6-a5032b5fbc4e",
     "fields": {
       "created_at": "2020-08-10T14:29:34.744Z",
@@ -222,6 +248,19 @@
   },
   {
     "model": "caluma_workflow.flow",
+    "pk": "71e4db71-f7ad-42ce-b94e-0471ddff8d42",
+    "fields": {
+      "created_at": "2022-01-28T15:41:08.519Z",
+      "modified_at": "2022-01-28T15:41:08.519Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "'information-of-neighbors'|task"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
     "pk": "7885afc9-3322-4572-b81b-d177136e5d62",
     "fields": {
       "created_at": "2020-08-10T14:29:39.487Z",
@@ -235,6 +274,19 @@
   },
   {
     "model": "caluma_workflow.flow",
+    "pk": "8a5c5a85-4d01-413c-8a29-ffd8cfb0de90",
+    "fields": {
+      "created_at": "2022-01-28T15:38:53.525Z",
+      "modified_at": "2022-01-28T15:38:53.525Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "'create-information-of-neighbors'|task"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
     "pk": "944dc36e-68c6-498f-9fc3-fa47b1afa843",
     "fields": {
       "created_at": "2020-08-10T14:30:20.015Z",
@@ -244,6 +296,19 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "next": "['decision', 'reopen-circulation']|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
+    "pk": "96b54a5b-2b3e-4d5e-bf21-b54175ab10dd",
+    "fields": {
+      "created_at": "2022-01-28T15:37:14.867Z",
+      "modified_at": "2022-01-28T15:37:14.867Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "'create-information-of-neighbors'|task"
     }
   },
   {
@@ -309,6 +374,19 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "next": "'circulation'|task"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
+    "pk": "d2ceacda-7648-4c46-b1f1-ee35573414c7",
+    "fields": {
+      "created_at": "2022-01-28T15:41:31.189Z",
+      "modified_at": "2022-01-28T15:41:31.189Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "'information-of-neighbors'|task"
     }
   },
   {
@@ -496,6 +574,28 @@
       "is_archived": false,
       "form": null,
       "lead_time": 864000,
+      "is_multiple_instance": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "create-information-of-neighbors",
+    "fields": {
+      "created_at": "2022-01-28T15:36:34.002Z",
+      "modified_at": "2022-01-28T15:36:34.003Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "20032",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Neue Nachbarschaftsorientierung erstellen\", \"fr\": null}",
+      "description": "{\"de\": null, \"fr\": null}",
+      "type": "simple",
+      "meta": {},
+      "address_groups": "['municipality']|groups",
+      "control_groups": null,
+      "is_archived": false,
+      "form": null,
+      "lead_time": null,
       "is_multiple_instance": false
     }
   },
@@ -917,6 +1017,36 @@
   },
   {
     "model": "caluma_workflow.taskflow",
+    "pk": "20317562-c47f-49d0-9ef5-158175798d78",
+    "fields": {
+      "created_at": "2022-01-28T15:41:08.527Z",
+      "modified_at": "2022-01-28T15:41:08.527Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "migrated",
+      "task": "create-information-of-neighbors",
+      "flow": "71e4db71-f7ad-42ce-b94e-0471ddff8d42"
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "25e00154-cf0d-4b79-b0dc-06af982c7540",
+    "fields": {
+      "created_at": "2022-01-28T15:37:43.147Z",
+      "modified_at": "2022-01-28T15:37:43.147Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "preliminary-clarification",
+      "task": "information-of-neighbors",
+      "flow": "434a4895-d5e9-4845-aaab-f6b0eb084f0f"
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
     "pk": "28e8fef2-3ddb-499d-9419-2c679c0979fd",
     "fields": {
       "created_at": "2020-08-10T14:30:17.336Z",
@@ -992,6 +1122,21 @@
   },
   {
     "model": "caluma_workflow.taskflow",
+    "pk": "3f05e398-2dcb-427a-af20-de9fe5cf4599",
+    "fields": {
+      "created_at": "2022-01-28T15:38:53.533Z",
+      "modified_at": "2022-01-28T15:38:53.534Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "migrated",
+      "task": "information-of-neighbors",
+      "flow": "8a5c5a85-4d01-413c-8a29-ffd8cfb0de90"
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
     "pk": "404f80c2-9fa4-48d1-be07-14d4d80b63a3",
     "fields": {
       "created_at": "2020-08-10T14:29:45.508Z",
@@ -1003,6 +1148,36 @@
       "workflow": "building-permit",
       "task": "sb2",
       "flow": "53187fd7-57bc-4d3a-83b7-7021e9acf52d"
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "4f063c82-e12e-48c9-aa52-ece8883900ec",
+    "fields": {
+      "created_at": "2022-01-28T15:41:16.253Z",
+      "modified_at": "2022-01-28T15:41:16.253Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "preliminary-clarification",
+      "task": "create-information-of-neighbors",
+      "flow": "60e9a775-7e64-4f2d-beea-e8c5677521bd"
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "6a1b35c2-96cc-475f-b3cc-ae5e2fcae3a8",
+    "fields": {
+      "created_at": "2022-01-28T15:37:14.878Z",
+      "modified_at": "2022-01-28T15:37:14.878Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "building-permit",
+      "task": "information-of-neighbors",
+      "flow": "96b54a5b-2b3e-4d5e-bf21-b54175ab10dd"
     }
   },
   {
@@ -1063,6 +1238,21 @@
       "workflow": "building-permit",
       "task": "circulation",
       "flow": "363f0977-a68b-4d3c-990b-39f2e747b19d"
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "8642bda0-55d6-4445-ae3a-19273ecf8f08",
+    "fields": {
+      "created_at": "2022-01-28T15:41:31.197Z",
+      "modified_at": "2022-01-28T15:41:31.197Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "building-permit",
+      "task": "create-information-of-neighbors",
+      "flow": "d2ceacda-7648-4c46-b1f1-ee35573414c7"
     }
   },
   {
@@ -1318,7 +1508,8 @@
       "start_tasks": [
         "create-manual-workitems",
         "decision",
-        "fill-publication"
+        "fill-publication",
+        "information-of-neighbors"
       ],
       "allow_forms": ["migriertes-dossier"]
     }
