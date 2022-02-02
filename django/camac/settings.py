@@ -318,12 +318,6 @@ APPLICATIONS = {
         "INSTANCE_MERGE_CONFIG": {
             "BAUVERWALTUNG": {
                 "TASK_SLUG": "building-authority",
-                "CATEGORIES": {
-                    "Bewilligungsverfahren": [],
-                    "Beschwerdeverfahren": [],
-                    "Baukontrolle": [],
-                },
-                "TABLE_MAPPING": {"Baukontrolle": "realisierung-tabelle"},
             }
         },
         # please also update django/Makefile command when changing apps here
