@@ -70,20 +70,23 @@ export default class CustomSession extends Session {
     return this._language;
   }
 
-  set language(value) {
+  set language(language) {
     const browserLanguage = getUserLocales()
       .map((locale) => locale.split("-")[0])
       .find((lang) => validateLanguage(lang));
 
     // make sure language is supported - if not use the fallback
-    value = validateLanguage(value) || browserLanguage || fallbackLanguage;
+    language =
+      validateLanguage(language) || browserLanguage || fallbackLanguage;
 
     // eslint-disable-next-line ember/classic-decorator-no-classic-methods
-    this.set("data.language", value);
-    this._language = value;
+    this.set("data.language", language);
+    this._language = language;
 
-    this.intl.setLocale([value, fallbackLanguage]);
-    this.moment.setLocale(value);
+    const locale = `${language}-ch`;
+
+    this.intl.setLocale([locale, language]);
+    this.moment.setLocale(locale);
   }
 
   get authHeaders() {
