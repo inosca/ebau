@@ -528,61 +528,34 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             return answer.date.strftime(settings.MERGE_DATE_FORMAT)
         return answer.value
 
-    def get_bauverwaltung(self, instance):  # noqa: C901
+    def get_bauverwaltung(self, instance):
         if not settings.APPLICATION.get("INSTANCE_MERGE_CONFIG"):
             return {}
 
-        categories = settings.APPLICATION["INSTANCE_MERGE_CONFIG"]["BAUVERWALTUNG"][
-            "CATEGORIES"
-        ]
-        document = instance.case.work_items.get(
+        work_item_qs = instance.case.work_items.filter(
             task_id=settings.APPLICATION["INSTANCE_MERGE_CONFIG"]["BAUVERWALTUNG"][
                 "TASK_SLUG"
             ]
-        ).document
+        )
 
-        for answer in document.answers.all():
-            for category, answers in categories.items():
-                if category.lower() in answer.question_id and (
-                    (answer.value or answer.date)
-                ):
-                    answers.append(
-                        {
-                            "name": str(answer.question.label),
-                            "value": self._get_caluma_answer_value(answer),
-                        }
-                    )
+        if not work_item_qs.exists():  # pragma: no cover
+            return {}
+
+        document = work_item_qs.first().document
+        answers = {
+            answer.question.slug: self._get_caluma_answer_value(answer)
+            for answer in document.answers.all()
+            if answer.value or answer.date
+        }
 
         for table in caluma_form_models.Document.objects.filter(family=document):
-            category_answers = []
-            for category, answers in categories.items():
-                if (
-                    category.lower() in table.form_id
-                    or category.lower()
-                    in settings.APPLICATION["INSTANCE_MERGE_CONFIG"]["BAUVERWALTUNG"][
-                        "TABLE_MAPPING"
-                    ].get(category, [])
-                ):
-                    category_answers = answers
-
-            table_answers = []
             for answer in table.answers.all():
-                for category, answers in categories.items():
-                    if category.lower() in answer.question_id and (
-                        (answer.value or answer.date)
-                    ):
-                        table_answers.append(
-                            {
-                                "name": str(answer.question.label),
-                                "value": self._get_caluma_answer_value(answer),
-                            }
-                        )
+                if answer.value or answer.date:
+                    answers[answer.question.slug] = self._get_caluma_answer_value(
+                        answer
+                    )
 
-            category_answers.append(
-                {"name": str(table.form.name), "value": table_answers}
-            )
-
-        return categories
+        return answers
 
     def to_representation(self, instance):
         ret = super().to_representation(instance)

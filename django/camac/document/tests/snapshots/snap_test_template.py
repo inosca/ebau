@@ -1734,8 +1734,8 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
     </w:tblPr>
     <w:tblGrid>
       <w:gridCol w:w="2422"/>
-      <w:gridCol w:w="2697"/>
-      <w:gridCol w:w="1721"/>
+      <w:gridCol w:w="2696"/>
+      <w:gridCol w:w="1722"/>
       <w:gridCol w:w="1351"/>
       <w:gridCol w:w="1447"/>
     </w:tblGrid>
@@ -1767,7 +1767,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="2697" w:type="dxa"/>
+          <w:tcW w:w="2696" w:type="dxa"/>
           <w:tcBorders>
             <w:top w:val="single" w:sz="2" w:space="0" w:color="000001"/>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000001"/>
@@ -1791,7 +1791,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="1721" w:type="dxa"/>
+          <w:tcW w:w="1722" w:type="dxa"/>
           <w:tcBorders>
             <w:top w:val="single" w:sz="2" w:space="0" w:color="000001"/>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000001"/>
@@ -1956,7 +1956,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="2697" w:type="dxa"/>
+          <w:tcW w:w="2696" w:type="dxa"/>
           <w:tcBorders>
             <w:top w:val="single" w:sz="2" w:space="0" w:color="000001"/>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000001"/>
@@ -1994,7 +1994,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="1721" w:type="dxa"/>
+          <w:tcW w:w="1722" w:type="dxa"/>
           <w:tcBorders>
             <w:top w:val="single" w:sz="2" w:space="0" w:color="000001"/>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000001"/>
@@ -3133,9 +3133,9 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       <w:gridCol w:w="1605"/>
       <w:gridCol w:w="1607"/>
       <w:gridCol w:w="1606"/>
-      <w:gridCol w:w="1607"/>
+      <w:gridCol w:w="1608"/>
       <w:gridCol w:w="1675"/>
-      <w:gridCol w:w="1542"/>
+      <w:gridCol w:w="1541"/>
     </w:tblGrid>
     <w:tr>
       <w:trPr/>
@@ -3227,7 +3227,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="1607" w:type="dxa"/>
+          <w:tcW w:w="1608" w:type="dxa"/>
           <w:tcBorders>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
             <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
@@ -3254,7 +3254,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="3217" w:type="dxa"/>
+          <w:tcW w:w="3216" w:type="dxa"/>
           <w:gridSpan w:val="2"/>
           <w:tcBorders>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
@@ -3383,7 +3383,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="1607" w:type="dxa"/>
+          <w:tcW w:w="1608" w:type="dxa"/>
           <w:tcBorders>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
             <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
@@ -3449,7 +3449,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="1542" w:type="dxa"/>
+          <w:tcW w:w="1541" w:type="dxa"/>
           <w:tcBorders>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
             <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
@@ -3627,7 +3627,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="1607" w:type="dxa"/>
+          <w:tcW w:w="1608" w:type="dxa"/>
           <w:tcBorders>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
             <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
@@ -3697,7 +3697,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="1542" w:type="dxa"/>
+          <w:tcW w:w="1541" w:type="dxa"/>
           <w:tcBorders>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
             <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
@@ -3945,7 +3945,10 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       </w:rPr>
     </w:pPr>
     <w:r>
-      <w:rPr/>
+      <w:rPr>
+        <w:b/>
+        <w:bCs/>
+      </w:rPr>
     </w:r>
   </w:p>
   <w:p>
@@ -3965,244 +3968,6 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
   <w:p>
     <w:pPr>
       <w:pStyle w:val="TextBody"/>
-      <w:rPr>
-        <w:b/>
-        <w:b/>
-        <w:bCs/>
-      </w:rPr>
-    </w:pPr>
-    <w:r>
-      <w:rPr/>
-      <w:t xml:space="preserve">{%p for </w:t>
-    </w:r>
-    <w:r>
-      <w:rPr/>
-      <w:t>kategorie, antworten</w:t>
-    </w:r>
-    <w:r>
-      <w:rPr/>
-      <w:t xml:space="preserve"> in bauverwaltung.</w:t>
-    </w:r>
-    <w:r>
-      <w:rPr/>
-      <w:t>items()</w:t>
-    </w:r>
-    <w:r>
-      <w:rPr/>
-      <w:t xml:space="preserve"> %}</w:t>
-    </w:r>
-  </w:p>
-  <w:p>
-    <w:pPr>
-      <w:pStyle w:val="TextBody"/>
-      <w:rPr>
-        <w:b/>
-        <w:b/>
-        <w:bCs/>
-      </w:rPr>
-    </w:pPr>
-    <w:r>
-      <w:rPr/>
-      <w:t>{{</w:t>
-    </w:r>
-    <w:r>
-      <w:rPr/>
-      <w:t>kategorie</w:t>
-    </w:r>
-    <w:r>
-      <w:rPr/>
-      <w:t>}}</w:t>
-    </w:r>
-  </w:p>
-  <w:p>
-    <w:pPr>
-      <w:pStyle w:val="TextBody"/>
-      <w:rPr>
-        <w:b/>
-        <w:b/>
-        <w:bCs/>
-      </w:rPr>
-    </w:pPr>
-    <w:r>
-      <w:rPr/>
-      <w:t xml:space="preserve">{%p for </w:t>
-    </w:r>
-    <w:r>
-      <w:rPr/>
-      <w:t>antwort</w:t>
-    </w:r>
-    <w:r>
-      <w:rPr/>
-      <w:t xml:space="preserve"> in </w:t>
-    </w:r>
-    <w:r>
-      <w:rPr/>
-      <w:t>antworten</w:t>
-    </w:r>
-    <w:r>
-      <w:rPr/>
-      <w:t xml:space="preserve"> %}</w:t>
-    </w:r>
-  </w:p>
-  <w:p>
-    <w:pPr>
-      <w:pStyle w:val="TextBody"/>
-      <w:rPr>
-        <w:b/>
-        <w:b/>
-        <w:bCs/>
-      </w:rPr>
-    </w:pPr>
-    <w:r>
-      <w:rPr/>
-      <w:t>{{antwort.name}}</w:t>
-    </w:r>
-  </w:p>
-  <w:p>
-    <w:pPr>
-      <w:pStyle w:val="TextBody"/>
-      <w:rPr>
-        <w:b/>
-        <w:b/>
-        <w:bCs/>
-      </w:rPr>
-    </w:pPr>
-    <w:r>
-      <w:rPr/>
-      <w:t>{%p if antwort.value is string %}</w:t>
-    </w:r>
-  </w:p>
-  <w:p>
-    <w:pPr>
-      <w:pStyle w:val="TextBody"/>
-      <w:rPr>
-        <w:b/>
-        <w:b/>
-        <w:bCs/>
-      </w:rPr>
-    </w:pPr>
-    <w:r>
-      <w:rPr/>
-      <w:t>{{antwort.value}}</w:t>
-    </w:r>
-  </w:p>
-  <w:p>
-    <w:pPr>
-      <w:pStyle w:val="TextBody"/>
-      <w:rPr>
-        <w:b/>
-        <w:b/>
-        <w:bCs/>
-      </w:rPr>
-    </w:pPr>
-    <w:r>
-      <w:rPr/>
-      <w:t>{%p else %}</w:t>
-    </w:r>
-  </w:p>
-  <w:p>
-    <w:pPr>
-      <w:pStyle w:val="TextBody"/>
-      <w:rPr>
-        <w:b/>
-        <w:b/>
-        <w:bCs/>
-      </w:rPr>
-    </w:pPr>
-    <w:r>
-      <w:rPr/>
-      <w:t xml:space="preserve">{%p for </w:t>
-    </w:r>
-    <w:r>
-      <w:rPr/>
-      <w:t>tabellenantwort</w:t>
-    </w:r>
-    <w:r>
-      <w:rPr/>
-      <w:t xml:space="preserve"> in </w:t>
-    </w:r>
-    <w:r>
-      <w:rPr/>
-      <w:t>antwort.value</w:t>
-    </w:r>
-    <w:r>
-      <w:rPr/>
-      <w:t xml:space="preserve"> %}</w:t>
-    </w:r>
-  </w:p>
-  <w:p>
-    <w:pPr>
-      <w:pStyle w:val="TextBody"/>
-      <w:rPr>
-        <w:b/>
-        <w:b/>
-        <w:bCs/>
-      </w:rPr>
-    </w:pPr>
-    <w:r>
-      <w:rPr/>
-      <w:t>{{ tabellenantwort.name }}</w:t>
-    </w:r>
-  </w:p>
-  <w:p>
-    <w:pPr>
-      <w:pStyle w:val="TextBody"/>
-      <w:rPr>
-        <w:b/>
-        <w:b/>
-        <w:bCs/>
-      </w:rPr>
-    </w:pPr>
-    <w:r>
-      <w:rPr/>
-      <w:t>{{ tabellenantwort.value }}</w:t>
-    </w:r>
-  </w:p>
-  <w:p>
-    <w:pPr>
-      <w:pStyle w:val="TextBody"/>
-      <w:rPr>
-        <w:b/>
-        <w:b/>
-        <w:bCs/>
-      </w:rPr>
-    </w:pPr>
-    <w:r>
-      <w:rPr/>
-      <w:t>{%p endfor %}</w:t>
-    </w:r>
-  </w:p>
-  <w:p>
-    <w:pPr>
-      <w:pStyle w:val="TextBody"/>
-      <w:rPr>
-        <w:b/>
-        <w:b/>
-        <w:bCs/>
-      </w:rPr>
-    </w:pPr>
-    <w:r>
-      <w:rPr/>
-      <w:t>{%p endif %}</w:t>
-    </w:r>
-  </w:p>
-  <w:p>
-    <w:pPr>
-      <w:pStyle w:val="TextBody"/>
-      <w:rPr>
-        <w:b/>
-        <w:b/>
-        <w:bCs/>
-      </w:rPr>
-    </w:pPr>
-    <w:r>
-      <w:rPr/>
-      <w:t>{%p endfor %}</w:t>
-    </w:r>
-  </w:p>
-  <w:p>
-    <w:pPr>
-      <w:pStyle w:val="TextBody"/>
       <w:spacing w:before="0" w:after="140"/>
       <w:rPr>
         <w:b/>
@@ -4212,7 +3977,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
     </w:pPr>
     <w:r>
       <w:rPr/>
-      <w:t>{%p endfor %}</w:t>
+      <w:t>{{ bauverwaltung }}</w:t>
     </w:r>
   </w:p>
   <w:sectPr>
@@ -6114,8 +5879,8 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Gr
     </w:tblPr>
     <w:tblGrid>
       <w:gridCol w:w="2422"/>
-      <w:gridCol w:w="2697"/>
-      <w:gridCol w:w="1721"/>
+      <w:gridCol w:w="2696"/>
+      <w:gridCol w:w="1722"/>
       <w:gridCol w:w="1351"/>
       <w:gridCol w:w="1447"/>
     </w:tblGrid>
@@ -6147,7 +5912,7 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Gr
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="2697" w:type="dxa"/>
+          <w:tcW w:w="2696" w:type="dxa"/>
           <w:tcBorders>
             <w:top w:val="single" w:sz="2" w:space="0" w:color="000001"/>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000001"/>
@@ -6171,7 +5936,7 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Gr
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="1721" w:type="dxa"/>
+          <w:tcW w:w="1722" w:type="dxa"/>
           <w:tcBorders>
             <w:top w:val="single" w:sz="2" w:space="0" w:color="000001"/>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000001"/>
@@ -6271,7 +6036,7 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Gr
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="2697" w:type="dxa"/>
+          <w:tcW w:w="2696" w:type="dxa"/>
           <w:tcBorders>
             <w:top w:val="single" w:sz="2" w:space="0" w:color="000001"/>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000001"/>
@@ -6295,7 +6060,7 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Gr
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="1721" w:type="dxa"/>
+          <w:tcW w:w="1722" w:type="dxa"/>
           <w:tcBorders>
             <w:top w:val="single" w:sz="2" w:space="0" w:color="000001"/>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000001"/>
@@ -7109,7 +6874,10 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Gr
       </w:rPr>
     </w:pPr>
     <w:r>
-      <w:rPr/>
+      <w:rPr>
+        <w:b/>
+        <w:bCs/>
+      </w:rPr>
     </w:r>
   </w:p>
   <w:p>
@@ -7123,7 +6891,22 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Gr
     </w:pPr>
     <w:r>
       <w:rPr/>
-      <w:t xml:space="preserve">Bauverwaltung</w:t>
+      <w:t>Bauverwaltung</w:t>
+    </w:r>
+  </w:p>
+  <w:p>
+    <w:pPr>
+      <w:pStyle w:val="TextBody"/>
+      <w:spacing w:before="0" w:after="140"/>
+      <w:rPr>
+        <w:b/>
+        <w:b/>
+        <w:bCs/>
+      </w:rPr>
+    </w:pPr>
+    <w:r>
+      <w:rPr/>
+      <w:t xml:space="preserve">{}</w:t>
     </w:r>
   </w:p>
   <w:sectPr>
