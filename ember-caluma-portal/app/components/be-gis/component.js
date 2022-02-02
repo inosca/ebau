@@ -8,6 +8,7 @@ import saveDocumentMutation from "@projectcaluma/ember-form/gql/mutations/save-d
 import { parseDocument } from "@projectcaluma/ember-form/lib/parsers";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
+import { cached } from "tracked-toolbox";
 
 import environment from "caluma-portal/config/environment";
 
@@ -174,16 +175,25 @@ export default class BeGisComponent extends Component {
   @tracked showInstructions = false;
   @tracked showConfirmation = false;
 
-  get confirmField() {
-    return this.args.field.document.findField("bestaetigung-gis");
-  }
-
-  get confirmFieldUnchecked() {
-    return (
-      this.args.field.document.findAnswer("bestaetigung-gis")?.length !== 1
+  get isBuildingPermitForm() {
+    return /^(baugesuch|vorabklaerung-vollstaendig)/.test(
+      this.args.field.document.rootForm.slug
     );
   }
 
+  get confirmField() {
+    return this.isBuildingPermitForm
+      ? this.args.field.document.findField("bestaetigung-gis")
+      : null;
+  }
+
+  get confirmFieldUnchecked() {
+    return this.isBuildingPermitForm
+      ? this.args.field.document.findAnswer("bestaetigung-gis")?.length !== 1
+      : false;
+  }
+
+  @cached
   get link() {
     // This try/catch block is necessary as long as we don't have a mock
     // backend for the integration tests.
@@ -440,7 +450,7 @@ export default class BeGisComponent extends Component {
 
   @dropTask
   *fetchAdditionalData(parcels) {
-    if (/^vorabklaerung-einfach/.test(this.args.field.document.rootForm.slug)) {
+    if (!this.isBuildingPermitForm) {
       return;
     }
 
@@ -523,8 +533,8 @@ export default class BeGisComponent extends Component {
         .map(async ({ field, value }) => {
           field.answer.value = value;
 
-          await field.save.perform();
           await field.validate.perform();
+          await field.save.perform();
         })
     );
 
