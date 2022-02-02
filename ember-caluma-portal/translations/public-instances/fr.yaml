@@ -19,3 +19,5 @@ publicInstancesDetail:
   downloadError: "Une erreur s'est produite lors du téléchargement."
   copyrightText: "Les documents affichés ici correspondent au dépôt public. Nous attirons votre attention sur le fait que tous les documents déposés ici peuvent être protégés par le droit d'auteur. L'impression, la sauvegarde, la photographie et l'utilisation ultérieure des documents ne sont autorisées qu'avec le consentement exprès de l'auteur des plans ou du propriétaire intellectuel."
   privacyText: "Pour des raisons de protection des données, seuls les documents relatifs à la procédure de demande de permis de construire qui n'ont pas été explicitement classés par la personne requérante comme dignes de confiance et non accessibles au public sont publiés ici. D'autres documents peuvent être consultés auprès de l'administration communale compétente pendant la durée du dépôt."
+  empty: ""
+  related: ""
