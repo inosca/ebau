@@ -97,7 +97,7 @@ def test_journal_entry_create(admin_client, instance, service, activation, statu
         "data": {
             "type": "journal-entries",
             "id": None,
-            "attributes": {"text": "Test", "visibility": "all"},
+            "attributes": {"text": "Test", "visibility": "all", "duration": "12:34:00"},
             "relationships": {
                 "instance": {"data": {"type": "instances", "id": instance.pk}}
             },
@@ -128,3 +128,49 @@ def test_journal_entry_destroy(admin_client, journal_entry, activation, status_c
 
     response = admin_client.delete(url)
     assert response.status_code == status_code
+
+
+@pytest.mark.parametrize("role__name", [("Municipality")])
+@pytest.mark.parametrize(
+    "journal_entry_duration,response_duration",
+    [
+        (None, None),
+        ("00:00:00", None),
+        ("05:15:00", "05:15"),
+        ("3:42:00", "03:42"),
+        ("0:01:00", "00:01"),
+        ("60:33:00", "60:33"),
+        ("40:00", "00:40"),
+        ("1234", "00:20"),
+        ("asdf", status.HTTP_400_BAD_REQUEST),
+    ],
+)
+def test_journal_entry_duration(
+    admin_client, instance, journal_entry_duration, response_duration
+):
+    url = reverse("journal-entry-list")
+
+    data = {
+        "data": {
+            "type": "journal-entries",
+            "id": None,
+            "attributes": {
+                "text": "Test",
+                "visibility": "all",
+                "duration": journal_entry_duration,
+            },
+            "relationships": {
+                "instance": {"data": {"type": "instances", "id": instance.pk}}
+            },
+        }
+    }
+
+    response = admin_client.post(url, data=data)
+    response_status = response.status_code
+    if response_duration == status.HTTP_400_BAD_REQUEST:
+        assert response_status == status.HTTP_400_BAD_REQUEST
+    else:
+        assert response_status == status.HTTP_201_CREATED
+
+        json = response.json()
+        assert json["data"]["attributes"]["duration"] == response_duration
