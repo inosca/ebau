@@ -441,7 +441,7 @@
     "pk": 9,
     "fields": {
       "name": "denied",
-      "sort": 11,
+      "sort": 10,
       "description": "Abgelehnt"
     }
   },
@@ -450,7 +450,7 @@
     "pk": 10,
     "fields": {
       "name": "arch",
-      "sort": 12,
+      "sort": 11,
       "description": "Archiviert"
     }
   },
@@ -459,7 +459,7 @@
     "pk": 11,
     "fields": {
       "name": "del",
-      "sort": 13,
+      "sort": 12,
       "description": "Gel\u00f6scht"
     }
   },
@@ -479,6 +479,15 @@
       "name": "stopped",
       "sort": 8,
       "description": "Abgeschrieben"
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 16,
+    "fields": {
+      "name": "internal",
+      "sort": 13,
+      "description": "In Bearbeitung (intern)"
     }
   }
 ]
