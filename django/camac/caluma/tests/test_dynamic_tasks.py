@@ -119,11 +119,14 @@ def test_dynamic_task_after_decision(
     instance_state_factory(name="sb1")
     instance_state_factory(name="evaluated")
 
+    service = service_factory(service_group__name="construction-control")
     dynamic_option = DynamicOption.objects.create(
-        document=case.document, question_id="gemeinde", slug="1", label="Musterdorf"
+        document=case.document,
+        question_id="gemeinde",
+        slug=str(service.pk),
+        label="Musterdorf",
     )
     case.document.answers.create(question_id="gemeinde", value=dynamic_option.slug)
-    service_factory(pk=1, service_group__name="construction-control")
 
     for task_id in [
         "submit",
