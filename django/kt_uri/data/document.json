@@ -1,1 +1,25 @@
-[]
+[
+  {
+    "model": "document.attachment",
+    "pk": 12000000,
+    "fields": {
+      "uuid": "79932397-ea28-49e1-a2db-1fbda396b224",
+      "name": "Parzellenbild.png",
+      "instance": 1,
+      "path": "attachments/files/1/Parzellenbild_f4st3vD.png",
+      "size": 419937,
+      "date": "2022-02-03T08:30:51.722Z",
+      "user": 1,
+      "mime_type": "image/png",
+      "is_parcel_picture": 0,
+      "digital_signature": 0,
+      "is_confidential": 0,
+      "identifier": null,
+      "group": 685,
+      "question": null,
+      "service": null,
+      "context": {},
+      "attachment_sections": [12000000]
+    }
+  }
+]
