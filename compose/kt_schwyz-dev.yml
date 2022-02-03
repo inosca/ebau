@@ -133,7 +133,7 @@ services:
     volumes:
       - ../keycloak/${APPLICATION}-test-config.json:/etc/keycloak/test-config.json:ro
     environment:
-      - POSTGRES_PASSWORD=camac
+      - DB_PASSWORD=camac
       - KEYCLOAK_PASSWORD=camac
     networks:
       - camac-ng.local
