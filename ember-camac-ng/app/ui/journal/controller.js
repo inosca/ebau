@@ -41,4 +41,8 @@ export default class JournalController extends Controller {
     this.fetchEntries.perform();
     this.newEntry = null;
   }
+
+  get showJournalEntryDuration() {
+    return ENV.APPLICATION.journalEntryDuration;
+  }
 }
