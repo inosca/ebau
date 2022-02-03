@@ -19,6 +19,8 @@ publication:
     attention: "Achtung:"
     note: "Hinweis:"
     documents: "Bitte markieren Sie die Dokumente welche aufgelegt werden sollen im Menu «Dokumente» als Auflagedokument."
+    published:
+      public: "Die Publikation ist freigeben. Aufgelegte Dossiers dieser Gemeinde können öffentlich unter diesem Link während der definierten Zeitspanne eingesehen werden:"
     unpublished:
       public: "Die Publikation muss freigegeben werden, damit das Dossier in der definierten Zeitspanne in der öffentlichen Auflage des Portals erscheint."
       neighbors: "Die Nachbarschaftsorientierung muss freigegeben werden, damit der QR-Code sowie der Direktlink funktioniert und versendet werden kann."

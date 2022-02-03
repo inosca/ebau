@@ -1,0 +1,30 @@
+{{#if (eq @status "COMPLETED")}}
+  {{#if (and @isPublished (eq @type "public") this.publicInstancesLink.value)}}
+    <div class="uk-background-muted uk-padding-small uk-margin">
+      <span class="uk-text-bold">{{t "publication.info.note"}}</span>
+      {{t "publication.info.published.public"}}
+      <a
+        href={{this.publicInstancesLink.value}}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {{this.publicInstancesLink.value}}
+      </a>
+    </div>
+  {{else if (not @isPublished)}}
+    <div class="uk-background-muted uk-padding-small {{if (eq @type "public") "uk-margin"}}">
+      <span class="uk-text-bold">{{t "publication.info.note"}}</span>
+      {{t (concat "publication.info.canceled." @type)}}
+    </div>
+  {{/if}}
+{{else}}
+  <div class="uk-background-muted uk-padding-small uk-margin">
+    <p>
+      <span class="uk-text-bold">{{t "publication.info.attention"}}</span>
+      {{t (concat "publication.info.unpublished." @type)}}
+    </p>
+    <p class="uk-text-italic uk-margin-remove-bottom">
+      {{t "publication.info.documents"}}
+    </p>
+  </div>
+{{/if}}
