@@ -14,10 +14,30 @@ module("Integration | Component | journal-textarea", function (hooks) {
     const journal = this.server.create("journal-entry");
     this.set("journal", journal);
 
-    await render(hbs`<JournalTextarea @journalEntry={{this.journal}}/>`);
+    await render(
+      hbs`<JournalTextarea @journalEntry={{this.journal}} @showJournalEntryDuration={{false}}/>`
+    );
 
     await fillIn("[data-test-textarea]", "Lorem ipsum");
+    assert.dom("input[id='journal-duration']").doesNotExist();
+
     await click("[data-test-save]");
     assert.dom("textarea").hasValue("Lorem ipsum");
+  });
+
+  test("it renders duration", async function (assert) {
+    const journal = this.server.create("journal-entry");
+    this.set("journal", journal);
+
+    await render(
+      hbs`<JournalTextarea @journalEntry={{this.journal}} @showJournalEntryDuration={{true}}/>`
+    );
+
+    await fillIn("[data-test-textarea]", "Lorem ipsum");
+    await fillIn("input[id='journal-duration']", "10:15");
+
+    await click("[data-test-save]");
+    assert.dom("textarea").hasValue("Lorem ipsum");
+    assert.dom("input[id='journal-duration']").hasValue("10:15");
   });
 });
