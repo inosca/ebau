@@ -469,8 +469,10 @@ class DMSVisitor:
         ]:
             return
 
-        slugs = get_form_config().get("_base", {})
-        slugs.update(get_form_config().get(self.template_type, {}))
+        slugs = {
+            **get_form_config().get("_base", {}),
+            **get_form_config().get(self.template_type, {}),
+        }
 
         personalien_form = Form.objects.get(slug=slugs["personalien"])
 
