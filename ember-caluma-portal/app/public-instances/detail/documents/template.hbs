@@ -12,25 +12,35 @@
     </tr>
   </thead>
   <tbody>
-    {{#each this.attachments as |attachment|}}
+    {{#if this.attachments.isRunning}}
       <tr>
-        <td>
-          {{this.dossierNr}}
-        </td>
-        <td>
-          <button
-            class="uk-button uk-button-link"
-            title="{{t "publicInstancesDetail.download"}}"
-            type="button"
-            {{on "click" (perform attachment.download)}}
-          >
-            {{attachment.name}}
-          </button>
-        </td>
-        <td>{{attachment.filesize}}</td>
-        <td>{{moment-format attachment.date "DD.MM.YYYY"}}</td>
+        <td class="uk-text-center" colspan="4"><UkSpinner /></td>
       </tr>
-    {{/each}}
+    {{else if this.attachments.value.length}}
+      {{#each this.attachments.value as |attachment|}}
+        <tr>
+          <td>
+            {{this.dossierNr}}
+          </td>
+          <td>
+            <button
+              class="uk-button uk-button-link"
+              title="{{t "publicInstancesDetail.download"}}"
+              type="button"
+              {{on "click" (perform attachment.download)}}
+            >
+              {{attachment.name}}
+            </button>
+          </td>
+          <td>{{attachment.filesize}}</td>
+          <td>{{moment-format attachment.date "DD.MM.YYYY"}}</td>
+        </tr>
+      {{/each}}
+    {{else}}
+      <tr>
+        <td class="uk-text-center uk-text-italic" colspan="4">{{t "publicInstancesDetail.empty"}}</td>
+      </tr>
+    {{/if}}
   </tbody>
 </table>
 <p>{{t "publicInstancesDetail.copyrightText"}}</p>

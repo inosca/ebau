@@ -6,6 +6,6 @@ export default class PublicInstancesDetailFormController extends Controller {
   @controller("public-instances.detail") detailController;
 
   get documentId() {
-    return this.detailController.publicInstance?.documentId;
+    return this.detailController.publicInstance.value?.documentId;
   }
 }
