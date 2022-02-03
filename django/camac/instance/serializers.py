@@ -272,7 +272,7 @@ class SchwyzInstanceSerializer(InstanceSerializer):
 
     def _validate_internal(self, data):
         if settings.APPLICATION["CALUMA"].get("CREATE_IN_PROCESS"):
-            data["instance_state"] = models.InstanceState.objects.get(name="comm")
+            data["instance_state"] = models.InstanceState.objects.get(name="internal")
         return data
 
     def validate_for_municipality(self, data):
