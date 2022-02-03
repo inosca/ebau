@@ -8,3 +8,5 @@ journal:
   visibility: "Sichtbarkeit des Eintrags"
   visibleForAuthorities: "Sichtbar für beteiligte Behörden"
   visibleForOwnOrganization: "Sichtbar für eigene Organisation"
+
+  duration: Arbeitsdauer (HH:MM)
