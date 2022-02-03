@@ -3,7 +3,8 @@ import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
-import { dropTask, lastValue } from "ember-concurrency";
+import { dropTask } from "ember-concurrency";
+import { useTask } from "ember-resources";
 
 import config from "caluma-portal/config/environment";
 import getMunicipalities from "caluma-portal/gql/queries/get-municipalities.graphql";
@@ -18,42 +19,51 @@ export default class PublicInstancesIndexController extends Controller {
   @service notification;
   @service intl;
 
-  @tracked page = 1;
-  @tracked instances = [];
-  @tracked municipality = null;
+  @tracked _instances = [];
+  @tracked pagination = {};
 
-  queryParams = ["municipality"];
+  @tracked page = 1;
+  @tracked municipality = null;
+  @tracked excludeInstance = null;
+  @tracked dossierNr = null;
+
+  queryParams = ["municipality", "dossierNr", "excludeInstance"];
+
+  municipalities = useTask(this, this.fetchMunicipalities, () => []);
+  instances = useTask(this, this.fetchInstances, () => [
+    this.page,
+    this.municipality,
+    this.excludeInstance,
+    this.dossierNr,
+  ]);
 
   get hasNextPage() {
-    const pagination =
-      this.fetchInstances.lastSuccessful?.value?.meta.pagination;
-
-    return pagination && pagination.page < pagination.pages;
+    return this.pagination.page < this.pagination.pages;
   }
 
   get selectedMunicipality() {
-    return this.municipalities?.find(
+    return this.municipalities.value?.find(
       ({ value }) => value === this.municipality
     );
   }
 
-  reset() {
-    this.page = 1;
-    this.instances = [];
-    this.municipality = null;
-  }
-
   @dropTask
   *fetchInstances() {
+    yield Promise.resolve();
+
     try {
       const instances = yield this.store.query("public-caluma-instance", {
         municipality: this.municipality,
+        dossier_nr: this.dossierNr,
+        exclude_instance: this.excludeInstance,
         page: { number: this.page, size: 20 },
       });
 
-      this.instances = [...this.instances, ...instances.toArray()];
+      this.pagination = instances.meta.pagination;
 
-      return instances;
+      this._instances = [...this._instances, ...instances.toArray()];
+
+      return this._instances;
     } catch (e) {
       this.notification.danger(
         this.intl.t(`publicInstances.load-error-${config.APPLICATION.name}`)
@@ -61,7 +71,6 @@ export default class PublicInstancesIndexController extends Controller {
     }
   }
 
-  @lastValue("fetchMunicipalities") municipalities;
   @dropTask
   *fetchMunicipalities() {
     if (!hasFeature("publication.municipalityFilter")) {
@@ -89,17 +98,15 @@ export default class PublicInstancesIndexController extends Controller {
     }
   }
 
-  @dropTask
-  *fetchMore() {
+  @action
+  fetchMore() {
     this.page++;
-
-    yield this.fetchInstances.perform();
   }
 
   @action
-  updateMunicipality({ value }) {
-    this.reset();
-    this.municipality = value;
-    this.fetchInstances.perform();
+  updateMunicipality(municipality) {
+    this._instances = [];
+    this.page = 1;
+    this.municipality = municipality?.value;
   }
 }
