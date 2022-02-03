@@ -274,6 +274,27 @@
   },
   {
     "model": "caluma_form.historicaldocument",
+    "pk": "ce29ffe5-c20a-48f7-b184-7baf095e33e8",
+    "fields": {
+      "history_user_id": "admin",
+      "created_at": "2022-02-03T08:30:46.984Z",
+      "modified_at": "2022-02-03T08:30:49.863Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "id": "4f999dd7-9145-4847-8d7e-508ed2cd79b2",
+      "meta": {},
+      "family": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
+      "form": "parcel-table",
+      "source": null,
+      "history_date": "2022-02-03T08:30:49.864Z",
+      "history_change_reason": null,
+      "history_type": "~"
+    }
+  },
+  {
+    "model": "caluma_form.historicaldocument",
     "pk": "d21f573e-ca49-44a9-b065-a25362690f4d",
     "fields": {
       "history_user_id": "admin",
@@ -312,6 +333,48 @@
       "history_date": "2021-04-16T12:45:30.176Z",
       "history_change_reason": null,
       "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicaldocument",
+    "pk": "d7828550-21cf-40d5-8f6d-04451e83fdcd",
+    "fields": {
+      "history_user_id": "admin",
+      "created_at": "2022-02-03T08:30:46.984Z",
+      "modified_at": "2022-02-03T08:30:46.984Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "id": "4f999dd7-9145-4847-8d7e-508ed2cd79b2",
+      "meta": {},
+      "family": "4f999dd7-9145-4847-8d7e-508ed2cd79b2",
+      "form": "parcel-table",
+      "source": null,
+      "history_date": "2022-02-03T08:30:46.986Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicaldocument",
+    "pk": "dd8a18e9-156a-4ec3-8332-8e7cd619219d",
+    "fields": {
+      "history_user_id": "admin",
+      "created_at": "2021-04-16T12:45:19.343Z",
+      "modified_at": "2022-02-03T08:30:49.815Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "id": "87223761-ac43-4d36-986c-30692b858d56",
+      "meta": {},
+      "family": "87223761-ac43-4d36-986c-30692b858d56",
+      "form": "parcel-table",
+      "source": null,
+      "history_date": "2022-02-03T08:30:49.817Z",
+      "history_change_reason": null,
+      "history_type": "~"
     }
   },
   {
@@ -369,6 +432,22 @@
   },
   {
     "model": "caluma_form.document",
+    "pk": "4f999dd7-9145-4847-8d7e-508ed2cd79b2",
+    "fields": {
+      "created_at": "2022-02-03T08:30:46.984Z",
+      "modified_at": "2022-02-03T08:30:49.863Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "family": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
+      "form": "parcel-table",
+      "source": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "caluma_form.document",
     "pk": "6f7e2a73-f992-4202-8fe6-fbb90bdf926a",
     "fields": {
       "created_at": "2021-04-19T05:43:57.046Z",
@@ -404,12 +483,12 @@
     "pk": "87223761-ac43-4d36-986c-30692b858d56",
     "fields": {
       "created_at": "2021-04-16T12:45:19.343Z",
-      "modified_at": "2021-04-16T12:45:24.710Z",
+      "modified_at": "2022-02-03T08:30:49.815Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
-      "family": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
+      "family": "87223761-ac43-4d36-986c-30692b858d56",
       "form": "parcel-table",
       "source": null,
       "meta": {}
@@ -539,6 +618,30 @@
       "document": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
       "file": null,
       "history_date": "2021-04-16T12:47:37.632Z",
+      "history_change_reason": null,
+      "history_type": "~"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
+    "pk": "0263cc0f-1be8-4050-997b-91f06a75106a",
+    "fields": {
+      "created_at": "2021-04-16T12:45:12.286Z",
+      "modified_at": "2022-02-03T08:30:46.408Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "history_question_type": "text",
+      "id": "2a5ff3c2-10ef-4511-b601-7b2ad9509488",
+      "value": "Altdorf",
+      "meta": {},
+      "date": null,
+      "history_user_id": "admin",
+      "question": "parcel-city",
+      "document": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
+      "file": null,
+      "history_date": "2022-02-03T08:30:46.431Z",
       "history_change_reason": null,
       "history_type": "~"
     }
@@ -1265,6 +1368,30 @@
   },
   {
     "model": "caluma_form.historicalanswer",
+    "pk": "427e4f43-03f4-4d78-b01d-9751de7e5594",
+    "fields": {
+      "created_at": "2022-02-03T08:30:48.537Z",
+      "modified_at": "2022-02-03T08:30:48.537Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "history_question_type": "float",
+      "id": "086973c7-ead2-4478-8a1f-90a7deeaacec",
+      "value": 1192295.4535676348,
+      "meta": {},
+      "date": null,
+      "history_user_id": "admin",
+      "question": "coordinates-north",
+      "document": "4f999dd7-9145-4847-8d7e-508ed2cd79b2",
+      "file": null,
+      "history_date": "2022-02-03T08:30:48.540Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
     "pk": "42cabd3e-732b-424b-8541-0ea4250cfae1",
     "fields": {
       "created_at": "2021-04-19T05:44:55.965Z",
@@ -1477,6 +1604,30 @@
       "history_date": "2021-09-15T12:26:08.712Z",
       "history_change_reason": null,
       "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
+    "pk": "53aa307f-6344-4221-9ff9-67c8bbfa76ae",
+    "fields": {
+      "created_at": "2021-04-16T12:45:09.466Z",
+      "modified_at": "2022-02-03T08:30:46.546Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "history_question_type": "text",
+      "id": "a325b81d-a88d-481a-ad65-3e097ad66120",
+      "value": "22",
+      "meta": {},
+      "date": null,
+      "history_user_id": "admin",
+      "question": "street-number",
+      "document": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
+      "file": null,
+      "history_date": "2022-02-03T08:30:46.550Z",
+      "history_change_reason": null,
+      "history_type": "~"
     }
   },
   {
@@ -1769,6 +1920,30 @@
   },
   {
     "model": "caluma_form.historicalanswer",
+    "pk": "67e3f3df-d6db-42b4-b037-28bcbd603210",
+    "fields": {
+      "created_at": "2021-04-16T12:45:00.642Z",
+      "modified_at": "2022-02-03T08:30:37.835Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "history_question_type": "integer",
+      "id": "c03e369a-e7a9-4637-97b3-d81ad8ffa89a",
+      "value": 230,
+      "meta": {},
+      "date": null,
+      "history_user_id": "admin",
+      "question": "parzellen-oder-baurechtsnummer",
+      "document": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
+      "file": null,
+      "history_date": "2022-02-03T08:30:37.837Z",
+      "history_change_reason": null,
+      "history_type": "~"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
     "pk": "6a86a71b-aff1-4741-9d57-0a4c05c1e83b",
     "fields": {
       "created_at": "2021-04-16T12:45:12.286Z",
@@ -1883,6 +2058,30 @@
       "document": "29863250-9219-4a14-be23-742522283f96",
       "file": null,
       "history_date": "2021-04-16T12:45:56.755Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
+    "pk": "7875a1b1-8ca8-4e7f-b985-df82f16017db",
+    "fields": {
+      "created_at": "2022-02-03T08:30:48.544Z",
+      "modified_at": "2022-02-03T08:30:48.545Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "history_question_type": "float",
+      "id": "efdee208-bb09-4427-a4a8-8b2c9bde49f5",
+      "value": 2691579.901977332,
+      "meta": {},
+      "date": null,
+      "history_user_id": "admin",
+      "question": "coordinates-east",
+      "document": "4f999dd7-9145-4847-8d7e-508ed2cd79b2",
+      "file": null,
+      "history_date": "2022-02-03T08:30:48.548Z",
       "history_change_reason": null,
       "history_type": "+"
     }
@@ -2033,6 +2232,54 @@
   },
   {
     "model": "caluma_form.historicalanswer",
+    "pk": "8afcf648-5461-427b-97d4-73b98ccf2013",
+    "fields": {
+      "created_at": "2022-02-03T08:30:49.167Z",
+      "modified_at": "2022-02-03T08:30:49.167Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "history_question_type": "text",
+      "id": "0b625a71-cb17-4360-8437-0da5b47fe57e",
+      "value": "6460",
+      "meta": {},
+      "date": null,
+      "history_user_id": "admin",
+      "question": "parcel-zip",
+      "document": "4f999dd7-9145-4847-8d7e-508ed2cd79b2",
+      "file": null,
+      "history_date": "2022-02-03T08:30:49.173Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
+    "pk": "8b6a1db0-674a-4928-a6ca-99629c49b6ef",
+    "fields": {
+      "created_at": "2022-02-03T08:30:59.668Z",
+      "modified_at": "2022-02-03T08:30:59.668Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "history_question_type": "choice",
+      "id": "4dca7483-f590-4491-a098-cfc5a179a3f4",
+      "value": "auswahl-vorhaben-bs-anzeige-wta",
+      "meta": {},
+      "date": null,
+      "history_user_id": "admin",
+      "question": "auswahl-vorhaben-bs",
+      "document": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
+      "file": null,
+      "history_date": "2022-02-03T08:30:59.670Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
     "pk": "8c967c0f-1936-4230-ab2d-62fe755a8943",
     "fields": {
       "created_at": "2021-04-16T12:46:51.343Z",
@@ -2129,6 +2376,78 @@
   },
   {
     "model": "caluma_form.historicalanswer",
+    "pk": "99361dcb-6114-416a-98a6-cc86b3b6f06c",
+    "fields": {
+      "created_at": "2022-02-03T08:30:49.282Z",
+      "modified_at": "2022-02-03T08:30:49.282Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "history_question_type": "text",
+      "id": "8bce7ad8-a608-4422-be01-a0e127433882",
+      "value": "Altdorf",
+      "meta": {},
+      "date": null,
+      "history_user_id": "admin",
+      "question": "parcel-city",
+      "document": "4f999dd7-9145-4847-8d7e-508ed2cd79b2",
+      "file": null,
+      "history_date": "2022-02-03T08:30:49.283Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
+    "pk": "9a930442-9a87-4bb0-8769-31e40e45e1e5",
+    "fields": {
+      "created_at": "2022-02-03T08:30:48.371Z",
+      "modified_at": "2022-02-03T08:30:48.371Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "history_question_type": "text",
+      "id": "04738b22-0b11-4958-8d25-1839d008641f",
+      "value": "230",
+      "meta": {},
+      "date": null,
+      "history_user_id": "admin",
+      "question": "parcel-number",
+      "document": "4f999dd7-9145-4847-8d7e-508ed2cd79b2",
+      "file": null,
+      "history_date": "2022-02-03T08:30:48.436Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
+    "pk": "9af27fdc-beb6-4f8b-8f00-aadd6fc016b5",
+    "fields": {
+      "created_at": "2021-04-16T12:45:24.683Z",
+      "modified_at": "2022-02-03T08:30:49.832Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "history_question_type": "table",
+      "id": "c6f8df9c-58de-4d42-aaaa-b5f037bf3ef8",
+      "value": null,
+      "meta": {},
+      "date": null,
+      "history_user_id": "admin",
+      "question": "parcels",
+      "document": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
+      "file": null,
+      "history_date": "2022-02-03T08:30:49.833Z",
+      "history_change_reason": null,
+      "history_type": "~"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
     "pk": "9c3c58fd-560d-47ea-9314-8eb8c2a99a24",
     "fields": {
       "created_at": "2021-04-16T12:46:28.258Z",
@@ -2173,6 +2492,30 @@
       "history_date": "2021-04-16T12:44:43.112Z",
       "history_change_reason": null,
       "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
+    "pk": "9fe6493d-2adb-4f1f-92e2-76c551253cd3",
+    "fields": {
+      "created_at": "2021-04-16T12:45:00.642Z",
+      "modified_at": "2022-02-03T08:30:46.430Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "history_question_type": "integer",
+      "id": "c03e369a-e7a9-4637-97b3-d81ad8ffa89a",
+      "value": 230,
+      "meta": {},
+      "date": null,
+      "history_user_id": "admin",
+      "question": "parzellen-oder-baurechtsnummer",
+      "document": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
+      "file": null,
+      "history_date": "2022-02-03T08:30:46.437Z",
+      "history_change_reason": null,
+      "history_type": "~"
     }
   },
   {
@@ -2291,6 +2634,30 @@
       "document": "29863250-9219-4a14-be23-742522283f96",
       "file": null,
       "history_date": "2021-04-16T12:45:37.292Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
+    "pk": "ab072e6c-e89f-4d12-9c77-e086a576720e",
+    "fields": {
+      "created_at": "2022-02-03T08:30:45.458Z",
+      "modified_at": "2022-02-03T08:30:45.458Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "history_question_type": "text",
+      "id": "54039628-be3c-417e-8e85-d2f37da0de6b",
+      "value": "Kulturobjekt lokal, linear",
+      "meta": {},
+      "date": null,
+      "history_user_id": "admin",
+      "question": "ueberlagerte-nutzungen",
+      "document": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
+      "file": null,
+      "history_date": "2022-02-03T08:30:45.485Z",
       "history_change_reason": null,
       "history_type": "+"
     }
@@ -2417,6 +2784,30 @@
   },
   {
     "model": "caluma_form.historicalanswer",
+    "pk": "b4c54d79-6582-401b-a183-47bd141981ca",
+    "fields": {
+      "created_at": "2022-02-03T08:30:46.092Z",
+      "modified_at": "2022-02-03T08:30:46.092Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "history_question_type": "text",
+      "id": "d4ec24fb-5d5c-46b3-bafa-7712e6e2b361",
+      "value": "Wohnzone 2",
+      "meta": {},
+      "date": null,
+      "history_user_id": "admin",
+      "question": "grundnutzung",
+      "document": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
+      "file": null,
+      "history_date": "2022-02-03T08:30:46.100Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
     "pk": "b51a036d-8fc9-485f-9eed-a7208105cb01",
     "fields": {
       "created_at": "2021-04-16T12:45:04.395Z",
@@ -2437,6 +2828,30 @@
       "history_date": "2021-04-16T12:45:06.153Z",
       "history_change_reason": null,
       "history_type": "~"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
+    "pk": "b5c6b90a-d4bc-4b2d-8d67-76ce6440b9ee",
+    "fields": {
+      "created_at": "2022-02-03T08:30:48.509Z",
+      "modified_at": "2022-02-03T08:30:48.509Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "history_question_type": "text",
+      "id": "ecfbd366-d09c-471f-9278-8da5ad12e94e",
+      "value": "CH474677600785",
+      "meta": {},
+      "date": null,
+      "history_user_id": "admin",
+      "question": "e-grid",
+      "document": "4f999dd7-9145-4847-8d7e-508ed2cd79b2",
+      "file": null,
+      "history_date": "2022-02-03T08:30:48.520Z",
+      "history_change_reason": null,
+      "history_type": "+"
     }
   },
   {
@@ -2657,6 +3072,30 @@
   },
   {
     "model": "caluma_form.historicalanswer",
+    "pk": "c5dd2cd5-c3ee-46b7-b252-ce14c4f823c5",
+    "fields": {
+      "created_at": "2021-04-16T12:44:54.717Z",
+      "modified_at": "2022-02-03T08:30:46.465Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "history_question_type": "dynamic_choice",
+      "id": "8db235a4-efd9-4ce3-92ac-6e09826c773b",
+      "value": "1",
+      "meta": {},
+      "date": null,
+      "history_user_id": "admin",
+      "question": "municipality",
+      "document": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
+      "file": null,
+      "history_date": "2022-02-03T08:30:46.480Z",
+      "history_change_reason": null,
+      "history_type": "~"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
     "pk": "c6746c9c-3583-4727-8206-6332c1f4c642",
     "fields": {
       "created_at": "2021-04-16T12:45:53.330Z",
@@ -2797,6 +3236,30 @@
       "history_date": "2021-04-19T05:44:40.973Z",
       "history_change_reason": null,
       "history_type": "~"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
+    "pk": "ce85dc68-88cd-4634-81c2-28caa8c1d77e",
+    "fields": {
+      "created_at": "2022-02-03T08:30:47.931Z",
+      "modified_at": "2022-02-03T08:30:47.931Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "history_question_type": "text",
+      "id": "ba9479db-8a98-48e4-ab1d-4415df445c5f",
+      "value": null,
+      "meta": {},
+      "date": null,
+      "history_user_id": "admin",
+      "question": "building-law-number",
+      "document": "4f999dd7-9145-4847-8d7e-508ed2cd79b2",
+      "file": null,
+      "history_date": "2022-02-03T08:30:47.942Z",
+      "history_change_reason": null,
+      "history_type": "+"
     }
   },
   {
@@ -3041,6 +3504,30 @@
   },
   {
     "model": "caluma_form.historicalanswer",
+    "pk": "e97e3493-8b70-42dc-a752-e9d5269668c3",
+    "fields": {
+      "created_at": "2021-04-16T12:45:04.395Z",
+      "modified_at": "2022-02-03T08:30:46.483Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "history_question_type": "text",
+      "id": "489d20ec-46c3-45bc-a90a-6775aea12666",
+      "value": "Tr\u00f6gligasse",
+      "meta": {},
+      "date": null,
+      "history_user_id": "admin",
+      "question": "parcel-street",
+      "document": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
+      "file": null,
+      "history_date": "2022-02-03T08:30:46.490Z",
+      "history_change_reason": null,
+      "history_type": "~"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
     "pk": "e9d6a13b-75ed-46ab-b7f8-55d99f3194a1",
     "fields": {
       "created_at": "2021-04-16T12:48:41.088Z",
@@ -3113,6 +3600,30 @@
   },
   {
     "model": "caluma_form.historicalanswer",
+    "pk": "ec0cee0c-8054-434b-9929-37e47f549518",
+    "fields": {
+      "created_at": "2022-02-03T08:30:48.947Z",
+      "modified_at": "2022-02-03T08:30:48.947Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "history_question_type": "text",
+      "id": "86ae788c-df06-48bb-b3e5-b1336cfdf255",
+      "value": "22",
+      "meta": {},
+      "date": null,
+      "history_user_id": "admin",
+      "question": "parcel-street-number",
+      "document": "4f999dd7-9145-4847-8d7e-508ed2cd79b2",
+      "file": null,
+      "history_date": "2022-02-03T08:30:48.959Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
     "pk": "ef015d4e-28e1-4333-8a6b-e3a78513c3d6",
     "fields": {
       "created_at": "2021-09-15T12:26:28.564Z",
@@ -3179,6 +3690,30 @@
       "document": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
       "file": null,
       "history_date": "2021-09-15T12:26:34.234Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
+    "pk": "f2341532-86b0-4969-90d2-d0efc3b97cf8",
+    "fields": {
+      "created_at": "2022-02-03T08:30:48.506Z",
+      "modified_at": "2022-02-03T08:30:48.506Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "history_question_type": "text",
+      "id": "e6f031d4-248f-492e-a91d-cce84e50f169",
+      "value": "Tr\u00f6gligasse",
+      "meta": {},
+      "date": null,
+      "history_user_id": "admin",
+      "question": "parcel-street",
+      "document": "4f999dd7-9145-4847-8d7e-508ed2cd79b2",
+      "file": null,
+      "history_date": "2022-02-03T08:30:48.511Z",
       "history_change_reason": null,
       "history_type": "+"
     }
@@ -3407,6 +3942,24 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "04738b22-0b11-4958-8d25-1839d008641f",
+    "fields": {
+      "created_at": "2022-02-03T08:30:48.371Z",
+      "modified_at": "2022-02-03T08:30:48.371Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "parcel-number",
+      "value": "230",
+      "meta": {},
+      "document": "4f999dd7-9145-4847-8d7e-508ed2cd79b2",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "057c297c-c50f-4ec4-94b3-b045e8490542",
     "fields": {
       "created_at": "2021-09-15T12:26:31.283Z",
@@ -3419,6 +3972,42 @@
       "value": ["grundrissplaene-ja"],
       "meta": {},
       "document": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "086973c7-ead2-4478-8a1f-90a7deeaacec",
+    "fields": {
+      "created_at": "2022-02-03T08:30:48.537Z",
+      "modified_at": "2022-02-03T08:30:48.537Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "coordinates-north",
+      "value": 1192295.4535676348,
+      "meta": {},
+      "document": "4f999dd7-9145-4847-8d7e-508ed2cd79b2",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "0b625a71-cb17-4360-8437-0da5b47fe57e",
+    "fields": {
+      "created_at": "2022-02-03T08:30:49.167Z",
+      "modified_at": "2022-02-03T08:30:49.167Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "parcel-zip",
+      "value": "6460",
+      "meta": {},
+      "document": "4f999dd7-9145-4847-8d7e-508ed2cd79b2",
       "date": null,
       "file": null
     }
@@ -3608,13 +4197,13 @@
     "pk": "2a5ff3c2-10ef-4511-b601-7b2ad9509488",
     "fields": {
       "created_at": "2021-04-16T12:45:12.286Z",
-      "modified_at": "2021-04-16T12:45:13.714Z",
+      "modified_at": "2022-02-03T08:30:46.408Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "parcel-city",
-      "value": "Testhausen",
+      "value": "Altdorf",
       "meta": {},
       "document": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
       "date": null,
@@ -3842,13 +4431,13 @@
     "pk": "489d20ec-46c3-45bc-a90a-6775aea12666",
     "fields": {
       "created_at": "2021-04-16T12:45:04.395Z",
-      "modified_at": "2021-04-16T12:45:08.160Z",
+      "modified_at": "2022-02-03T08:30:46.483Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "parcel-street",
-      "value": "Teststrasse",
+      "value": "Tr\u00f6gligasse",
       "meta": {},
       "document": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
       "date": null,
@@ -3887,6 +4476,24 @@
       "value": "03169798989",
       "meta": {},
       "document": "29863250-9219-4a14-be23-742522283f96",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "4dca7483-f590-4491-a098-cfc5a179a3f4",
+    "fields": {
+      "created_at": "2022-02-03T08:30:59.668Z",
+      "modified_at": "2022-02-03T08:30:59.668Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "auswahl-vorhaben-bs",
+      "value": "auswahl-vorhaben-bs-anzeige-wta",
+      "meta": {},
+      "document": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
       "date": null,
       "file": null
     }
@@ -3975,6 +4582,24 @@
       "modified_by_group": null,
       "question": "status-bauprojekt",
       "value": "status-bauprojekt-regulaer",
+      "meta": {},
+      "document": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "54039628-be3c-417e-8e85-d2f37da0de6b",
+    "fields": {
+      "created_at": "2022-02-03T08:30:45.458Z",
+      "modified_at": "2022-02-03T08:30:45.458Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "ueberlagerte-nutzungen",
+      "value": "Kulturobjekt lokal, linear",
       "meta": {},
       "document": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
       "date": null,
@@ -4271,6 +4896,24 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "86ae788c-df06-48bb-b3e5-b1336cfdf255",
+    "fields": {
+      "created_at": "2022-02-03T08:30:48.947Z",
+      "modified_at": "2022-02-03T08:30:48.947Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "parcel-street-number",
+      "value": "22",
+      "meta": {},
+      "document": "4f999dd7-9145-4847-8d7e-508ed2cd79b2",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "89beb92d-e185-4a3b-921e-01871b0b7a74",
     "fields": {
       "created_at": "2021-04-16T12:44:43.111Z",
@@ -4307,10 +4950,28 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "8bce7ad8-a608-4422-be01-a0e127433882",
+    "fields": {
+      "created_at": "2022-02-03T08:30:49.282Z",
+      "modified_at": "2022-02-03T08:30:49.282Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "parcel-city",
+      "value": "Altdorf",
+      "meta": {},
+      "document": "4f999dd7-9145-4847-8d7e-508ed2cd79b2",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "8db235a4-efd9-4ce3-92ac-6e09826c773b",
     "fields": {
       "created_at": "2021-04-16T12:44:54.717Z",
-      "modified_at": "2021-04-16T12:44:54.717Z",
+      "modified_at": "2022-02-03T08:30:46.465Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -4454,13 +5115,13 @@
     "pk": "a325b81d-a88d-481a-ad65-3e097ad66120",
     "fields": {
       "created_at": "2021-04-16T12:45:09.466Z",
-      "modified_at": "2021-04-16T12:45:09.466Z",
+      "modified_at": "2022-02-03T08:30:46.546Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "street-number",
-      "value": "1",
+      "value": "22",
       "meta": {},
       "document": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
       "date": null,
@@ -4613,6 +5274,24 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "ba9479db-8a98-48e4-ab1d-4415df445c5f",
+    "fields": {
+      "created_at": "2022-02-03T08:30:47.931Z",
+      "modified_at": "2022-02-03T08:30:47.931Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "building-law-number",
+      "value": null,
+      "meta": {},
+      "document": "4f999dd7-9145-4847-8d7e-508ed2cd79b2",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "baa70b80-4493-4c27-8987-49c5ab88c81a",
     "fields": {
       "created_at": "2021-09-15T12:26:29.286Z",
@@ -4652,13 +5331,13 @@
     "pk": "c03e369a-e7a9-4637-97b3-d81ad8ffa89a",
     "fields": {
       "created_at": "2021-04-16T12:45:00.642Z",
-      "modified_at": "2021-04-16T12:45:00.642Z",
+      "modified_at": "2022-02-03T08:30:46.430Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "parzellen-oder-baurechtsnummer",
-      "value": 123456,
+      "value": 230,
       "meta": {},
       "document": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
       "date": null,
@@ -4742,7 +5421,7 @@
     "pk": "c6f8df9c-58de-4d42-aaaa-b5f037bf3ef8",
     "fields": {
       "created_at": "2021-04-16T12:45:24.683Z",
-      "modified_at": "2021-04-16T12:45:24.683Z",
+      "modified_at": "2022-02-03T08:30:49.832Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -4883,6 +5562,24 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "d4ec24fb-5d5c-46b3-bafa-7712e6e2b361",
+    "fields": {
+      "created_at": "2022-02-03T08:30:46.092Z",
+      "modified_at": "2022-02-03T08:30:46.092Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "grundnutzung",
+      "value": "Wohnzone 2",
+      "meta": {},
+      "document": "4a2092e7-b85b-47df-9938-e33d3c2745c0",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "d5aedbee-6ca0-42b5-a9d1-d6519d525cf2",
     "fields": {
       "created_at": "2021-04-19T05:48:46.393Z",
@@ -4991,6 +5688,42 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "e6f031d4-248f-492e-a91d-cce84e50f169",
+    "fields": {
+      "created_at": "2022-02-03T08:30:48.506Z",
+      "modified_at": "2022-02-03T08:30:48.506Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "parcel-street",
+      "value": "Tr\u00f6gligasse",
+      "meta": {},
+      "document": "4f999dd7-9145-4847-8d7e-508ed2cd79b2",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "ecfbd366-d09c-471f-9278-8da5ad12e94e",
+    "fields": {
+      "created_at": "2022-02-03T08:30:48.509Z",
+      "modified_at": "2022-02-03T08:30:48.509Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "e-grid",
+      "value": "CH474677600785",
+      "meta": {},
+      "document": "4f999dd7-9145-4847-8d7e-508ed2cd79b2",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "ef2dfac3-e8b2-44d9-8499-1d18302574b8",
     "fields": {
       "created_at": "2021-04-19T05:44:11.457Z",
@@ -5003,6 +5736,24 @@
       "value": "12312",
       "meta": {},
       "document": "6f7e2a73-f992-4202-8fe6-fbb90bdf926a",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "efdee208-bb09-4427-a4a8-8b2c9bde49f5",
+    "fields": {
+      "created_at": "2022-02-03T08:30:48.544Z",
+      "modified_at": "2022-02-03T08:30:48.545Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "coordinates-east",
+      "value": 2691579.901977332,
+      "meta": {},
+      "document": "4f999dd7-9145-4847-8d7e-508ed2cd79b2",
       "date": null,
       "file": null
     }
@@ -5121,6 +5872,46 @@
   },
   {
     "model": "caluma_form.historicalanswerdocument",
+    "pk": "57078f4e-7d9c-4a58-a6fe-dff512fe8315",
+    "fields": {
+      "history_user_id": "admin",
+      "created_at": "2021-04-16T12:45:24.698Z",
+      "modified_at": "2021-04-16T12:45:24.698Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "id": "c0880fb9-eea6-4444-a899-5e69c539aefa",
+      "sort": 1,
+      "answer": "c6f8df9c-58de-4d42-aaaa-b5f037bf3ef8",
+      "document": "87223761-ac43-4d36-986c-30692b858d56",
+      "history_date": "2022-02-03T08:30:49.827Z",
+      "history_change_reason": null,
+      "history_type": "-"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswerdocument",
+    "pk": "6aab4c8e-050b-476f-a3fa-bf866ba43b6a",
+    "fields": {
+      "history_user_id": "admin",
+      "created_at": "2022-02-03T08:30:49.853Z",
+      "modified_at": "2022-02-03T08:30:49.853Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "id": "5fea7c5f-c66a-440e-a2e3-647ca31b6a1f",
+      "sort": 1,
+      "answer": "c6f8df9c-58de-4d42-aaaa-b5f037bf3ef8",
+      "document": "4f999dd7-9145-4847-8d7e-508ed2cd79b2",
+      "history_date": "2022-02-03T08:30:49.854Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswerdocument",
     "pk": "922cdd2d-0d28-40b2-9ba1-25c0d8c803ea",
     "fields": {
       "history_user_id": "admin",
@@ -5216,6 +6007,21 @@
   },
   {
     "model": "caluma_form.answerdocument",
+    "pk": "5fea7c5f-c66a-440e-a2e3-647ca31b6a1f",
+    "fields": {
+      "created_at": "2022-02-03T08:30:49.853Z",
+      "modified_at": "2022-02-03T08:30:49.853Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "answer": "c6f8df9c-58de-4d42-aaaa-b5f037bf3ef8",
+      "document": "4f999dd7-9145-4847-8d7e-508ed2cd79b2",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.answerdocument",
     "pk": "74bae391-764a-4469-b3a6-0bef5d22839a",
     "fields": {
       "created_at": "2021-09-15T12:26:02.195Z",
@@ -5256,21 +6062,6 @@
       "modified_by_group": null,
       "answer": "a5ff344d-0887-4223-8bb5-9b291bf77a32",
       "document": "8a486756-6a61-4646-b04b-a8f7597fb3e1",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.answerdocument",
-    "pk": "c0880fb9-eea6-4444-a899-5e69c539aefa",
-    "fields": {
-      "created_at": "2021-04-16T12:45:24.698Z",
-      "modified_at": "2021-04-16T12:45:24.698Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "answer": "c6f8df9c-58de-4d42-aaaa-b5f037bf3ef8",
-      "document": "87223761-ac43-4d36-986c-30692b858d56",
       "sort": 1
     }
   },
