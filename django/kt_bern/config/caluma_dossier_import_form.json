@@ -798,9 +798,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
