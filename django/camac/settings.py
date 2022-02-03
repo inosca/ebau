@@ -177,6 +177,7 @@ APPLICATIONS = {
             "Commission": "commission",
             "OrganizationReadonly": "organization_readonly",
             "Oereb Api": "oereb_api",
+            "SystemOperation": "system_operation",
         },
         "ROLE_INHERITANCE": {"trusted_service": "service"},
         "IS_MULTILINGUAL": False,
@@ -2192,6 +2193,7 @@ APPLICATIONS = {
             "Vernehmlassungsstelle ohne Koordinationsaufgaben": "trusted_service",
             "Support": "support",
             "Oereb Api": "oereb_api",
+            "System-Betrieb": "system_operation",
             # "Portal User": None,  # Uses the fallback permissions
             # "Admin": None,
             # "Architect": None,
