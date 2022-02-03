@@ -24400,9 +24400,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -24432,9 +24430,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"***\\n**Ableitung des nicht verschmutzten Grundwassers**\", \"fr\": \"***\\n**Evacuation des eaux souterraines non pollu\\u00e9es**\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -24720,9 +24716,7 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -24880,9 +24874,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -24912,9 +24904,7 @@
       "info_text": "{\"de\": \"Als Aus\\u00fcbung des Gastgewerbes gelten das Beherbergen von G\\u00e4sten, die Abgabe von Speisen oder Getr\\u00e4nken zum Konsum an Ort und Stelle sowie das \\u00dcberlassen von R\\u00e4umen f\\u00fcr den Konsum von Speisen und Getr\\u00e4nken. Die baurechtlich zugelassene Nutzung dient als Voraussetzung der Betriebsbewilligung gem\\u00e4ss Art. 6 Abs. 2 GGG. Sie bezieht sich auf das Grundst\\u00fcck und legt die Betriebsart sowie den Umfang des bewilligten Betriebs fest.\\n  \\nEs wird zwischen folgenden Betriebsbewilligungen unterschieden:\\n  \\n- A: \\u00d6ffentlicher Gastgewerbebetrieb mit Alkoholausschank\\n  \\n- B: \\u00d6ffentlicher Gastgewerbebetrieb ohne Alkoholausschank\\n  \\n- C: Nicht \\u00f6ffentlicher Gastgewerbebetrieb mit Alkoholausschank\\n  \\n- D: Nicht \\u00f6ffentlicher Gastgewerbebetrieb ohne Alkoholausschank\\n  \\n- E: Lokal f\\u00fcr nicht \\u00f6ffentliche Veranstaltungen\\n  \\n**F\\u00e4higkeitsausweis**\\nF\\u00fcr das F\\u00fchren eines Gastgewerbebetriebes ben\\u00f6tigen Sie grunds\\u00e4tzlich einen gastgewerblichen F\\u00e4higkeitsausweis oder eine anerkannte Ausbildung. Im Kanton Bern werden zahlreiche Ausbildungen und T\\u00e4tigkeiten dem F\\u00e4higkeitsausweis gleichgestellt. Keinen F\\u00e4higkeitsausweis ben\\u00f6tigen Sie f\\u00fcr einen Kleinbetrieb (maximal 30 Sitzpl\\u00e4tze innen und maximal 30 Sitzpl\\u00e4tze auf der Terrasse).\\n  \\n**\\u00d6ffnungszeiten Gastgewerbebetriebe**\\nGastgewerbebetriebe d\\u00fcrfen von 05.00 bis 00.30 Uhr ge\\u00f6ffnet sein. F\\u00fcr l\\u00e4ngere \\u00d6ffnungszeiten ist eine \\u00dcberzeitbewilligung erforderlich. Betriebe, die regelm\\u00e4ssig l\\u00e4nger ge\\u00f6ffnet sind, ben\\u00f6tigen eine generelle \\u00dcberzeitbewilligung. Bei einer Kombination \\\"Laden mit einem Gastrobetrieb\\\" gehen die Laden\\u00f6ffnungszeiten vor, d.h. ein Verkaufsgesch\\u00e4ft darf nicht l\\u00e4nger ge\\u00f6ffnet sein, wenn noch ein Gastrobetrieb vorhanden ist.\\n  \\n**Laden\\u00f6ffnungszeiten**\\nDie Laden\\u00f6ffnungszeiten sind f\\u00fcr den ganzen Kanton einheitlich. Die Verkaufsgesch\\u00e4fte d\\u00fcrfen von Montag bis Freitag von 6.00 bis 20.00 Uhr und am Samstag von 6.00 bis 17.00 Uhr ge\\u00f6ffnet sein (gilt auch f\\u00fcr Tage vor Feiertagen). Einmal pro Woche (Montag bis Freitag) ist ein Abendverkauf bis 22.00 Uhr erlaubt. Die Gesch\\u00e4fte in den Tourismusorten des Berner Oberlands k\\u00f6nnen an allen Tagen bis 22.30 Uhr ge\\u00f6ffnet sein. Die Tourismusorte sind in der Verordnung \\u00fcber Handel und Gewerbe (HGV) aufgez\\u00e4hlt.\\n  \\n[Gastgewerbegesetz (GGG)](https://www.belex.sites.be.ch/frontend/versions/610)\", \"fr\": \"L'h\\u00e9bergement de clients, le service de mets et de boissons \\u00e0 consommer sur place ainsi que la mise \\u00e0 disposition de locaux pour la consommation de mets et de boissons sont consid\\u00e9r\\u00e9s comme des activit\\u00e9s relevant de l\\u2019h\\u00f4tellerie et de la restauration. Afin qu\\u2019une autorisation d\\u2019exploiter au sens de l\\u2019article 6, alin\\u00e9a 2 LHR soit d\\u00e9livr\\u00e9e, l\\u2019affectation doit \\u00eatre autoris\\u00e9e du point de vue du droit des constructions. Elle se rapporte \\u00e0 un bien-fonds et d\\u00e9termine le type d\\u2019exploitation et l\\u2019\\u00e9tendue de l\\u2019activit\\u00e9 autoris\\u00e9e.\\n\\nIl convient de distinguer entre les autorisations d'exploiter suivantes:\\n\\n- A: \\u00e9tablissement public d'h\\u00f4tellerie et de restauration avec d\\u00e9bit d'alcool, \\n\\n- B: \\u00e9tablissement public d'h\\u00f4tellerie et de restauration sans d\\u00e9bit d'alcool,\\n\\n- C: \\u00e9tablissement d'h\\u00f4tellerie et de restauration avec d\\u00e9bit d'alcool non ouvert au public,\\n\\n- D: \\u00e9tablissement d'h\\u00f4tellerie et de restauration sans d\\u00e9bit d'alcool non ouvert au public, ou\\n\\n- E: local pour manifestations priv\\u00e9es.\\n\\n**Certificat de capacit\\u00e9**\\nPour tenir un \\u00e9tablissement d'h\\u00f4tellerie ou de restauration, vous devez en principe poss\\u00e9der un certificat de capacit\\u00e9 d'h\\u00f4tellerie et de restauration ou \\u00eatre au b\\u00e9n\\u00e9fice d\\u2019une formation reconnue. Dans le canton de Berne, de nombreuses formations et activit\\u00e9s sont r\\u00e9put\\u00e9es \\u00e9quivalentes \\u00e0 ce certificat. Un certificat de capacit\\u00e9 n\\u2019est pas n\\u00e9cessaire pour les petits \\u00e9tablissements (au maximum 30 places assises \\u00e0 l\\u2019int\\u00e9rieur et 30 places assises en terrasse).\\n\\n**Horaires d'ouverture des \\u00e9tablissements d\\u2019h\\u00f4tellerie et de restauration**\\nLes \\u00e9tablissements d'h\\u00f4tellerie et de restauration peuvent rester ouverts de 5 heures \\u00e0 minuit trente. Les horaires d\\u2019ouverture plus \\u00e9tendus requi\\u00e8rent une autorisation de d\\u00e9passement d\\u2019horaire (une autorisation g\\u00e9n\\u00e9rale, lorsque l\\u2019\\u00e9tablissement ouvre plus longtemps de mani\\u00e8re r\\u00e9guli\\u00e8re). S\\u2019il s\\u2019agit d\\u2019un magasin avec un service de restauration, les dispositions relatives aux horaires d\\u2019ouverture des magasins sont applicables. Il n\\u2019est donc pas possible de prolonger les horaires d\\u2019ouverture d'un magasin du fait de la pr\\u00e9sence d'un service de restauration.\\n\\n**Horaires d'ouverture des magasins**\\nLes horaires d\\u2019ouverture des magasins sont harmonis\\u00e9s dans l\\u2019ensemble du canton. Les magasins peuvent rester ouverts de 6 heures \\u00e0 20 heures du lundi au vendredi et de 6 heures \\u00e0 17 heures le samedi et les veilles de jours f\\u00e9ri\\u00e9s. La vente du soir est autoris\\u00e9e une fois par semaine (entre lundi et vendredi) jusqu\\u2019\\u00e0 22 heures. Les magasins situ\\u00e9s dans les lieux \\u00e0 vocation touristique de l\\u2019Oberland bernois peuvent ouvrir tous les jours jusqu\\u2019\\u00e0 22 heures 30. Les communes concern\\u00e9es sont \\u00e9num\\u00e9r\\u00e9es dans l\\u2019ordonnance sur le commerce et l\\u2019industrie (OCI).\\n\\n[Loi sur l'h\\u00f4tellerie et la restauration (LHR)](https://www.belex.sites.be.ch/frontend/versions/610)\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -25004,9 +24994,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": "allgemeine-angaben-zum-betrieb",
@@ -25130,9 +25118,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -25163,8 +25149,7 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {
-        "hideLabel": true,
-        "widgetOverride": null
+        "hideLabel": true
       },
       "data_source": null,
       "row_form": null,
@@ -25197,7 +25182,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "zustimmungen"
       },
       "data_source": null,
@@ -25232,9 +25217,7 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -25333,9 +25316,7 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -25368,9 +25349,7 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -25436,9 +25415,7 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -25471,9 +25448,7 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -25572,9 +25547,7 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -25640,9 +25613,7 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -25708,9 +25679,7 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -25773,9 +25742,7 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -25808,9 +25775,7 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -25840,9 +25805,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"***\\n**Apparative Vorrichtungen**\", \"fr\": \"***\\n**Appareillages**\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -25995,9 +25958,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -26027,9 +25988,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": "art-der-emmission-tabelle",
       "sub_form": null,
@@ -26119,9 +26078,7 @@
       "info_text": "{\"de\": \"T\\u00fcren und Tore in Fluchtwegen m\\u00fcssen jederzeit als solche erkannt, in Fluchtrichtung ohne Hilfsmittel rasch ge\\u00f6ffnet und sicher begangen werden k\\u00f6nnen (Art. 20 Abs. 3 VUV/Art. 10 ArGV 4). Jeder Punkt des Raumes darf maximal 35 m von jedem Notausgang entfernt sein (Art. 20 Abs. 3 VUV/Art. 8 , 10 ArGV 4).\\n  \\n[Wegleitung zur Verordnung 4 zum Arbeitsgesetz](https://www.seco.admin.ch/seco/de/home/Arbeit/Arbeitsbedingungen/Arbeitsgesetz-und-Verordnungen/Wegleitungen/Wegleitung-zur-ArGV-4.html)\", \"fr\": \"Les portes des voies d\\u2019\\u00e9vacuation doivent pouvoir, en tout temps, \\u00eatre reconnues en tant que telles, ouvertes rapidement dans le sens de la sortie sans recourir \\u00e0 des moyens auxiliaires et utilis\\u00e9es en toute s\\u00e9curit\\u00e9 (art. 20, al. 3 OPA et 10 OLT4). La distance pour rejoindre la sortie la plus proche ne doit pas d\\u00e9passer 35 m en tout point d\\u2019un local (art. 20, al. 3 OPA et art. 8 et 10 OLT4).\\n\\n[Commentaire de l'OLT 4 et annexes: article par article](https://www.seco.admin.ch/seco/de/home/Arbeit/Arbeitsbedingungen/Arbeitsgesetz-und-Verordnungen/Wegleitungen/Wegleitung-zur-ArGV-4.html)\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -26151,9 +26108,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -26183,9 +26138,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -26245,9 +26198,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -26277,9 +26228,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -26341,7 +26290,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "bauwerk-energie"
       },
       "data_source": null,
@@ -26408,9 +26357,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -26442,7 +26389,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "informationen-ueber-grundstueck"
       },
       "data_source": null,
@@ -26474,9 +26421,7 @@
       "info_text": "{\"de\": \"Bei Umbauten sind der Zustand nach Umbau (alle R\\u00e4ume) sowie die Zu- beziehungsweise Abnahme der Ausschankfl\\u00e4che/Pl\\u00e4tze gegen\\u00fcber dem heutigen Zustand anzugeben.\\n  \\n[Gastgewerbeverordnung (GGV)](https://www.belex.sites.be.ch/frontend/versions/611)\", \"fr\": \"Lors de transformations, l'\\u00e9tat apr\\u00e8s transformation (tous les locaux) de m\\u00eame que la preuve de l'augmentation ou de la diminution de la surface et des places de d\\u00e9bit doivent \\u00eatre indiqu\\u00e9s.\\n\\n[Ordonnance sur l'h\\u00f4tellerie et la restauration (OHR)](https://www.belex.sites.be.ch/frontend/versions/611)\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": "ausschankraeume-tabelle",
       "sub_form": null,
@@ -26506,9 +26451,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -26720,7 +26663,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "bauwerk-gewaesserschutz"
       },
       "data_source": null,
@@ -26752,9 +26695,7 @@
       "info_text": "{\"de\": \"Baugruppen sind Ensembles von H\\u00e4usern, welche sich durch einen r\\u00e4umlichen oder historischen Zusammenhang auszeichnen.\", \"fr\": \"Les ensembles b\\u00e2tis sont des groupes de maisons caract\\u00e9ris\\u00e9s par les liens spatiaux et historiques qu\\u2019ils entretiennent entre eux.\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -26786,9 +26727,7 @@
       "configuration": {
         "min_value": 1000
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -26976,8 +26915,7 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {
-        "hideLabel": true,
-        "widgetOverride": null
+        "hideLabel": true
       },
       "data_source": null,
       "row_form": null,
@@ -27008,9 +26946,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -27040,9 +26976,7 @@
       "info_text": "{\"de\": \"- Freilegen des Grundwassers\\n- Grundwasserabsenkung\\n- Bauten (inkl. Pf\\u00e4hle) im Grundwasser\\n- Spezialtiefbauarbeiten im Grundwasserbereich\\n\\n[Merkblatt - Bauten im Grundwasser und Grundwasserabsenkungen](https://www.bvd.be.ch/content/dam/bvd/dokumente/de/awa/wasser/gew%C3%A4sserschutz/grundwasserschutz/merkblatt-bauten-im-grundwasser-und-grundwasserabsenkungen-de.pdf)\", \"fr\": \"- la mise \\u00e0 d\\u00e9couvert de la nappe phr\\u00e9atique\\n- le rabattement de la nappe phr\\u00e9atique\\n- les constructions situ\\u00e9es en dessous de la nappe phr\\u00e9atique\\n- les ouvrages sp\\u00e9ciaux du g\\u00e9nie civil sis dans une zone d'eaux souterraines\\n\\n[Notice - Constructions dans les eaux souterraines et abaissement de la nappe phr\\u00e9atique](https://www.bvd.be.ch/content/dam/bvd/dokumente/fr/awa/wasser/gew%C3%A4sserschutz/grundwasserschutz/merkblatt-bauten-im-grundwasser-und-grundwasserabsenkungen-fr.pdf)\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -27162,9 +27096,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -27194,9 +27126,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -27286,9 +27216,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"***\\n**Befreiungsgesuch**\", \"fr\": \"***\\n**Demande d'exemption**\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -27380,9 +27308,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -27448,9 +27374,7 @@
         "max_length": null,
         "min_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -27570,9 +27494,7 @@
       "info_text": "{\"de\": \"Belastete Standorte sind Orte, deren Untergrund sicher oder mit grosser Wahrscheinlichkeit durch abgelagerte Abf\\u00e4lle oder versickerte Schadstoffe verunreinigt sind.\\n\\n[Merkblatt f\\u00fcr das Bauen auf belasteten Standorten](https://www.bvd.be.ch/content/dam/bvd/dokumente/de/awa/umwelt/belastete-standorte-altlasten/merkblatt-fuer-das-bauen-auf-belasteten-standorten-de.pdf)\", \"fr\": \"Les sites pollu\\u00e9s sont des endroits dont le sous-sol est s\\u00fbr ou tr\\u00e8s susceptible d'\\u00eatre contamin\\u00e9 par des d\\u00e9chets d\\u00e9pos\\u00e9s ou des polluants percol\\u00e9s.\\n\\n[Feuille d'instructions pour la construction sur des sites pollu\\u00e9s](https://www.bvd.be.ch/content/dam/bvd/dokumente/fr/awa/umwelt/belastete-standorte-altlasten/merkblatt-fuer-das-bauen-auf-belasteten-standorten-fr.pdf)\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -27796,7 +27718,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "bauwerk-allgemein"
       },
       "data_source": null,
@@ -27830,9 +27752,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -27864,9 +27784,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -27898,9 +27816,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -27965,9 +27881,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -27997,9 +27911,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": "beschreibung-der-prozessart-tabelle",
       "sub_form": null,
@@ -28031,9 +27943,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -28097,9 +28007,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -28131,9 +28039,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -28165,9 +28071,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -28199,9 +28103,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -28266,9 +28168,7 @@
         "max_length": null,
         "min_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -28300,9 +28200,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -28334,9 +28232,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -28368,7 +28264,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "spezialformulare-gastgewerbe"
       },
       "data_source": null,
@@ -28400,9 +28296,7 @@
       "info_text": "{\"de\": \"**Besondere Brandrisiken sind:**\\n  \\n- Aussenwand mit Bekleidung u/o W\\u00e4rmed\\u00e4mmung mit brennbaren Bauprodukten\\n  \\n- Tragwerk brennbar oder mit d\\u00e4mmschichtbildenden Systemen\\n  \\n- Lagerung brennbarer Gase u/o.-leichtbrennbarer Fl\\u00fcssigkeiten\\n  \\n- Lagerung brennbarer Fl\\u00fcssigkeiten (\\u00d6le, usw.) \\u00fcber 2000 kg\\n  \\n- Lager f\\u00fcr Pneus oder Feuerwerksk\\u00f6rper\\n  \\n- \\u00dcbrige Mensch und Tier gef\\u00e4hrdende Stoffe \\u00fcber der St\\u00f6rfallgrenze\\n  \\n- Explosionsgef\\u00e4hrdete R\\u00e4ume oder Zonen\\n  \\n- Bauten mit Atrien oder Doppelfassaden\\n  \\n- Brandabschnittsfl\\u00e4che \\u00fcber 7200 m\\u00b2\\n  \\n- Bruttogeschossfl\\u00e4che \\u00fcber 12000 m\\u00b2\\n  \\n- Anwendung von Nachweisverfahren\\n  \\n- hoher Anteil an technischen u/o betrieblichen Brandschutzmassnahmen\\n  \\n[Brandschutzvorschriften](https://www.bsvonline.ch/de/vorschriften/)\", \"fr\": \"**Par risques d'incendie particuliers, on entend:**\\n\\n- murs ext\\u00e9rieurs avec rev\\u00eatements et / ou isolations thermiques contenant des mat\\u00e9riaux combustibles\\n\\n- syst\\u00e8mes porteurs contenant des mat\\u00e9riaux combustibles ou avec syst\\u00e8mes de peintures intumescentes\\n\\n- entreposage de gaz inflammables ou de liquides facilement inflammables\\n\\n- entreposage de plus de 2000 kg de liquides inflammables (huiles, etc.)\\n\\n- entreposage de pneumatiques ou feux d'artifice\\n\\n- autres mati\\u00e8res pr\\u00e9sentant un danger pour l\\u2019\\u00eatre humain et les animaux au-del\\u00e0 de la limite pr\\u00e9vue par l'ordonnance sur les accidents majeurs\\n\\n- locaux ou zones o\\u00f9 existe un danger d\\u2019explosion\\n\\n- b\\u00e2timents \\u00e0 cours int\\u00e9rieures couvertes ou \\u00e0 fa\\u00e7ade double peau\\n\\n- compartiments coupe-feu d\\u2019une surface sup\\u00e9rieure \\u00e0 7200 m\\u00b2\\n\\n- surface brute de plancher sup\\u00e9rieure \\u00e0 12 000 m\\u00b2\\n\\n- Application de proc\\u00e9dures de justification\\n\\n- Part importante de mesures de protection incendie sur les plans technique ou de l\\u2019exploitation\\n\\n[Prescriptions de protection incendie](https://www.bsvonline.ch/de/vorschriften/)\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -28465,8 +28359,7 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {
-        "hideLabel": true,
-        "widgetOverride": null
+        "hideLabel": true
       },
       "data_source": null,
       "row_form": null,
@@ -28531,7 +28424,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "bauwerk-gewaesserschutz"
       },
       "data_source": null,
@@ -28564,8 +28457,7 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {
-        "hideLabel": true,
-        "widgetOverride": null
+        "hideLabel": true
       },
       "data_source": null,
       "row_form": null,
@@ -28597,8 +28489,7 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {
-        "hideLabel": true,
-        "widgetOverride": null
+        "hideLabel": true
       },
       "data_source": null,
       "row_form": null,
@@ -28693,9 +28584,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -28727,7 +28616,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "spezialformulare-gastgewerbe"
       },
       "data_source": null,
@@ -28789,9 +28678,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -28823,9 +28710,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -28858,9 +28743,7 @@
         "max_length": null,
         "min_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -28952,9 +28835,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": "biologische-sicherheit-und-stoerfallvorsorge",
@@ -29016,9 +28897,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": "bodenschutz",
@@ -29080,9 +28959,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -29144,7 +29021,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "spezialformulare-entsorgung-bodenschutz"
       },
       "data_source": null,
@@ -29179,9 +29056,7 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -29211,9 +29086,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -29275,7 +29148,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "bauwerk-brandschutz"
       },
       "data_source": null,
@@ -29309,7 +29182,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "bauwerk-brandschutz"
       },
       "data_source": null,
@@ -29341,9 +29214,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -29466,9 +29337,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -29786,9 +29655,7 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -29854,9 +29721,7 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -29916,9 +29781,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -30115,9 +29978,7 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -30150,9 +30011,7 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -30244,15 +30103,12 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null,
-        "formatValidators": ["email"]
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
       "source": null,
-      "format_validators": "[]",
+      "format_validators": "[\"email\"]",
       "default_answer": null,
       "calc_expression": null,
       "calc_dependents": "[]"
@@ -30279,14 +30135,12 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "formatValidators": ["email"]
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
       "source": null,
-      "format_validators": "[]",
+      "format_validators": "[\"email\"]",
       "default_answer": null,
       "calc_expression": null,
       "calc_dependents": "[]"
@@ -30313,14 +30167,12 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "formatValidators": ["email"]
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
       "source": null,
-      "format_validators": "[]",
+      "format_validators": "[\"email\"]",
       "default_answer": null,
       "calc_expression": null,
       "calc_dependents": "[]"
@@ -30347,14 +30199,12 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "formatValidators": ["email"]
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
       "source": null,
-      "format_validators": "[]",
+      "format_validators": "[\"email\"]",
       "default_answer": null,
       "calc_expression": null,
       "calc_dependents": "[]"
@@ -30381,15 +30231,12 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null,
-        "formatValidators": ["email"]
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
       "source": null,
-      "format_validators": "[]",
+      "format_validators": "[\"email\"]",
       "default_answer": null,
       "calc_expression": null,
       "calc_dependents": "[]"
@@ -30416,14 +30263,12 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "formatValidators": ["email"]
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
       "source": null,
-      "format_validators": "[]",
+      "format_validators": "[\"email\"]",
       "default_answer": null,
       "calc_expression": null,
       "calc_dependents": "[]"
@@ -30513,9 +30358,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -30575,9 +30418,7 @@
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
       "static_content": "{\"de\": \"***\\n**Aufz\\u00e4hlung der Eigent\\u00fcmer/innen, welche im Umkreis von 30 m von der Baute Wald besitzen**\", \"fr\": \"***\\n**Liste des propri\\u00e9taires de for\\u00eat dans un rayon de 30 m autour du b\\u00e2timent**\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -30608,8 +30449,7 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {
-        "hideLabel": true,
-        "widgetOverride": null
+        "hideLabel": true
       },
       "data_source": null,
       "row_form": null,
@@ -30641,8 +30481,7 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {
-        "hideLabel": true,
-        "widgetOverride": null
+        "hideLabel": true
       },
       "data_source": null,
       "row_form": null,
@@ -30777,9 +30616,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -30809,9 +30646,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": "energie",
@@ -30873,7 +30708,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "bauwerk-energie"
       },
       "data_source": null,
@@ -30937,9 +30772,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": "entsorgung",
@@ -30971,7 +30804,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "spezialformulare-entsorgung-bodenschutz"
       },
       "data_source": null,
@@ -31004,8 +30837,7 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {
-        "hideLabel": true,
-        "widgetOverride": null
+        "hideLabel": true
       },
       "data_source": null,
       "row_form": null,
@@ -31038,7 +30870,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "bauwerk-gewaesserschutz"
       },
       "data_source": null,
@@ -31072,7 +30904,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "bauwerk-gewaesserschutz"
       },
       "data_source": null,
@@ -31106,7 +30938,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "bauwerk-gewaesserschutz"
       },
       "data_source": null,
@@ -31138,9 +30970,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"***\\n**Entw\\u00e4sserung der Dachfl\\u00e4chen**\", \"fr\": \"***\\n**Evacuation des eaux des toitures**\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -31170,9 +31000,7 @@
       "info_text": "{\"de\": \"**Nein**\\n  \\nBeispielsweise Erdregister, Energiepf\\u00e4hle, W\\u00e4rmek\\u00f6rbe\", \"fr\": \"**Non**\\n\\nL'utilisation de la chaleur du sol ou du sous-sol n\\u00e9cessite un permis de protection des eaux.\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -31204,7 +31032,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "spezialformulare-waermepumpen"
       },
       "data_source": null,
@@ -31236,9 +31064,7 @@
       "info_text": "{\"de\": \"Dies sind Geb\\u00e4ude, welche bei Umbauten aufgrund ihrer ansprechenden architektonischen Qualit\\u00e4t geschont werden m\\u00fcssen.\", \"fr\": \"Les b\\u00e2timents devant, en cas de transformation, \\u00eatre pr\\u00e9serv\\u00e9s en raison de leurs qualit\\u00e9s architectoniques attrayantes.\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -31301,9 +31127,7 @@
         "max_length": null,
         "min_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -31335,9 +31159,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -31369,9 +31191,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -31403,9 +31223,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -31437,9 +31255,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -31627,7 +31443,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "plaene"
       },
       "data_source": null,
@@ -31725,7 +31541,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "spezialformulare-reklame"
       },
       "data_source": null,
@@ -31853,9 +31669,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -31888,9 +31702,7 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -32016,9 +31828,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -32048,9 +31858,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -32114,7 +31922,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "spezialformulare-waermepumpen"
       },
       "data_source": null,
@@ -32178,9 +31986,7 @@
       "info_text": "{\"de\": \"Dient das Bauvorhaben einem forstlichen Zweck (Waldstrasse, Holzlagerplatz, Energieholzlager, Forstwerkhof) so stellt es eine forstliche Baute nach Art. 13a WaV dar. \\u00dcbrige Bauten sind als nichtforstliche Kleinbauten oder Rodungen zu beurteilen. Im Zweifelsfall kann die zust\\u00e4ndige Waldabteilung beigezogen werden. Diese Beratung ist kostenlos.\", \"fr\": \"Si l\\u2019ouvrage poursuit un but forestier (route foresti\\u00e8re, place de stockage de bois, stockage de bois-\\u00e9nergie, hangar forestier), l\\u2019ouvrage repr\\u00e9sente une construction foresti\\u00e8re au sens de l\\u2019art. 13a OFo. Tout autre ouvrage est \\u00e0 consid\\u00e9rer comme une petite construction non foresti\\u00e8re ou un d\\u00e9frichement. En cas de doute, pri\\u00e8re de s\\u2019adresser \\u00e0 la division foresti\\u00e8re comp\\u00e9tente. Ce conseil est gratuit.\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -32363,9 +32169,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -32398,9 +32202,7 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -32433,9 +32235,7 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -32465,9 +32265,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -32499,9 +32297,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -32689,9 +32485,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": "gastgewerbe-allgemein",
@@ -32721,9 +32515,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": "gastgewerbe-fumoir",
@@ -32819,9 +32611,7 @@
       "info_text": "{\"de\": \"Arch\\u00e4ologisches Inventar: Gebiet mit nachgewiesenen und vermuteten arch\\u00e4ologischen Fundstellen oder Objekten.\", \"fr\": \"Recensement arch\\u00e9ologique: emplacements d'objets ou de sites arch\\u00e9ologiques connus ou pr\\u00e9sum\\u00e9s.\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -32851,9 +32641,7 @@
       "info_text": "{\"de\": \"Als besonders sensible Bauten gelten:\\n  \\n- Geb\\u00e4ude und Anlagen, in denen sich besonders viele Personen aufhalten, die schwer zu evakuieren sind (wie Spit\\u00e4ler, Heime, Schulen) oder die besonderen Risiken ausgesetzt sind (z.B. Campingpl\\u00e4tze);\\n  \\n- Geb\\u00e4ude und Anlagen, an denen bereits geringe Einwirkungen grosse Sch\\u00e4den zur Folge haben (wie Schalt- und Telefonzentralen, Steuerungs- und Computeranlagen, Trink-wasserversorgungen, Kl\\u00e4ranlagen);\\n  \\n- Geb\\u00e4ude und Anlagen, an denen grosse Folgesch\\u00e4den auftreten k\\u00f6nnen (wie Deponien, Lagereinrichtungen oder Produktionsst\\u00e4tten mit Best\\u00e4nden an gef\\u00e4hrlichen Stoffen).\", \"fr\": \"Sont consid\\u00e9r\\u00e9s comme des b\\u00e2timents sensibles:\\n\\n- les b\\u00e2timents et installations dans lesquels se trouvent de nombreuses personnes dont certaines peuvent \\u00eatre difficiles \\u00e0 \\u00e9vacuer (p. ex. h\\u00f4pitaux, foyers, \\u00e9coles), ou qui sont soumis \\u00e0 des risques particuliers (p. ex. terrains de camping);\\n\\n- les b\\u00e2timents et installations auxquels des atteintes minimes peuvent causer de grands d\\u00e9g\\u00e2ts (p. ex. centres de commutation, postes centraux, centraux t\\u00e9l\\u00e9phoniques, installations de commande, serveurs centraux, installations d'alimentation en eau potable, stations d'\\u00e9puration);\\n\\n- les b\\u00e2timents et installations qui pourraient \\u00eatre \\u00e0 l'origine de tr\\u00e8s grands d\\u00e9g\\u00e2ts s'ils devaient subir un dommage (p. ex. d\\u00e9charges, installations de stockage, centres de production disposant de stocks de mati\\u00e8res dangereuses).\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -32883,9 +32671,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -32915,9 +32701,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -32977,9 +32761,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -33011,7 +32793,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "spezialformulare-naturgefahren"
       },
       "data_source": null,
@@ -33076,9 +32858,7 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -33138,9 +32918,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -33170,9 +32948,7 @@
       "info_text": "{\"de\": \"[Merkblatt - Reinigung und Entw\\u00e4sserung von Fl\\u00e4chen mit Photovoltaikanlagen und Sonnenkollektoren sowie Glasd\\u00e4chern](https://www.bvd.be.ch/content/dam/bvd/dokumente/de/awa/wasser/abwasserentsorgung/grundst%C3%BCcksentw%C3%A4sserung/photovoltaikanlagen,-sonnenkollektoren-und-glasd%C3%A4cher/merkblatt-reinigung-und-entwaesserung-von-photovoltaikanlagen.pdf)\", \"fr\": \"[Evacuation des eaux de nettoyage des installations photovolta\\u00efques et des panneaux solaires](https://www.bvd.be.ch/content/dam/bvd/dokumente/fr/awa/wasser/abwasserentsorgung/grundst%C3%BCcksentw%C3%A4sserung/photovoltaikanlagen,-sonnenkollektoren-und-glasd%C3%A4cher/merkblatt-reinigung-und-entwaesserung-von-photovoltaikanlagen-fr.pdf)\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -33267,9 +33043,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -33301,7 +33075,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "informationen-ueber-grundstueck"
       },
       "data_source": null,
@@ -33335,7 +33109,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "bauwerk-gewaesserschutz"
       },
       "data_source": null,
@@ -33369,7 +33143,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "bauwerk-energie"
       },
       "data_source": null,
@@ -33403,7 +33177,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "spezialformulare-immissionsschutz"
       },
       "data_source": null,
@@ -33495,9 +33269,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": "gewaesserschutz-bauten-im-grundwasser",
@@ -33527,9 +33299,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": "gewaesserschutz-gewerbe-industrie",
@@ -33559,9 +33329,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": "gewaesserschutz-grundstueckentwaesserung",
@@ -33593,7 +33361,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "bauwerk-gewaesserschutz"
       },
       "data_source": null,
@@ -33625,9 +33393,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": "gewaesserschutz-wassergefaehrdende-fluessigkeiten",
@@ -33657,9 +33423,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -33719,9 +33483,7 @@
       "info_text": "{\"de\": \"Bei Bauvorhaben auf l\\u00e4rmvorbelasteten Standorten m\\u00fcssen im Baugesuch\\n\\n- Die L\\u00e4rmbelastung im offenen Fenster l\\u00e4rmempfindlicher R\\u00e4ume;\\n- Allf\\u00e4llige L\\u00e4rmschutzmassnahmen\\n- Die Schalld\\u00e4mmmasse der Aussenbauteile;\\nausgewiesen werden (Art. 34 LSV).\\n\\nFalls die Parzelle bereits erschlossen ist, m\\u00fcssen nach Art. 22 USG und Art. 31 LSV die Immissionsgrenzwerte bei allen Fenstern der l\\u00e4rmempfindlichen R\\u00e4ume eingehalten sein.\\n\\n[Bauen auf l\\u00e4rmvorbelasteten Standorten im Kanton Bern (L\\u00e4rmschutznachweis, Massnahmen, Anforderungen an die Schalld\\u00e4mmung)](https://www.vol.be.ch/vol/de/index/umwelt/laerm/laermschutz/belastetes_gebiet.html)\", \"fr\": \"Pour les secteurs expos\\u00e9s au bruit, le ma\\u00eetre de l\\u2019ouvrage doit indiquer dans la demande de permis de construire (art. 34 OPB)\\u00a0:\\n\\n- les immissions de bruit au milieu des fen\\u00eatres ouvertes des locaux \\u00e0 usage sensible au bruit;\\n- les \\u00e9ventuelles mesures de protection contre le bruit;\\n- l\\u2019indice d\\u2019affaiblissement acoustique des \\u00e9l\\u00e9ments de construction ext\\u00e9rieurs.\\n\\nSi la parcelle est d\\u00e9j\\u00e0 \\u00e9quip\\u00e9e, les valeurs limites d'immission doivent \\u00eatre respect\\u00e9es pour toutes les fen\\u00eatres des locaux \\u00e0 usage sensible au bruit en vertu des articles 22 LPE et 31 OPB.\\n\\n[Construire dans des secteurs p\\u00e9nalis\\u00e9s par le bruit dans le canton de Berne (preuves de protection contre le bruit, mesures et exigences en mati\\u00e8re d\\u2019insonorisation)](https://www.vol.be.ch/vol/fr/index/umwelt/laerm/laermschutz/belastetes_gebiet.html)\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -33751,9 +33513,7 @@
       "info_text": "{\"de\": \"Bei Parzellen im Emissionsbereich von Strassen, Bahnlinien, Sportanlagen, Betrieben, Schiessanlagen, Flugh\\u00e4fen muss \\u00fcberpr\\u00fcft werden, ob die Aussenl\\u00e4rmbelastung unter den massgebenden Belastungsgrenzwerte liegt (falls Parzelle bereits erschlossen ist, gelten die Immissionsgrenzwerte, ansonsten die Planungswerte). Wenn diese massgebenden Grenzwerte auf der bebaubaren Fl\\u00e4che \\u00fcberschritten sind, handelt es sich um einen l\\u00e4rmvorbelasteten Standort.\\n  \\n[Informationen zur L\\u00e4rmbelastung Kanton Bern/L\\u00e4rmbelastungskataster](https://www.vol.be.ch/vol/de/index/umwelt/laerm/laermschutz/belastetes_gebiet.html)\", \"fr\": \"S\\u2019agissant de parcelles situ\\u00e9es dans la zone d\\u2019immission de routes, de lignes de chemin de fer, d\\u2019installations sportives, d\\u2019industries, d\\u2019installations de tir ou d\\u2019a\\u00e9roports, il convient de v\\u00e9rifier si l\\u2019exposition au bruit ext\\u00e9rieur est inf\\u00e9rieure aux valeurs limites d\\u2019exposition d\\u00e9terminantes (si la parcelle est d\\u00e9j\\u00e0 \\u00e9quip\\u00e9e, les valeurs limites d\\u2019immission sont applicables, autrement ce sont les valeurs de planification). Si ces valeurs limites d\\u2019exposition sont d\\u00e9pass\\u00e9es, le site concern\\u00e9 est consid\\u00e9r\\u00e9 comme un secteur expos\\u00e9 au bruit.\\n\\n[Informations concernant les probl\\u00e8mes de bruit dans le canton de Berne / cadastre de bruit](https://www.vol.be.ch/vol/fr/index/umwelt/laerm/laermschutz/belastetes_gebiet.html)\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -33785,9 +33545,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -33819,7 +33577,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "informationen-ueber-grundstueck"
       },
       "data_source": null,
@@ -33918,7 +33676,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "plaene"
       },
       "data_source": null,
@@ -33952,7 +33710,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "plaene"
       },
       "data_source": null,
@@ -33986,7 +33744,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "beilagen-vorabklaerung"
       },
       "data_source": null,
@@ -34018,9 +33776,7 @@
       "info_text": "{\"de\": \"Innerhalb der Grundwasserschutzzonen S1 und S2 besteht u.a. ein generelles Bau- und Grabungsverbot (Anh. 4 Ziff. 222 Abs. 1 [GSchV])\\n  \\n**Sh**\\n  \\nDie Zone Sh umfasst die Gebiete von hoher Vulnerabilit\\u00e4t im Einzugsgebiet von Grundwasserfassungen in Karst- und Kluftsystemen, Einschr\\u00e4nkungen siehe Gew\\u00e4sserschutzverordnung (GSchV) Anhang 4 Ziff. 221ter\\n  \\n**Sm**\\n  \\nDie Zone Sm umfasst die Gebiete von mittlerer Vulnerabilit\\u00e4t im Einzugsgebiet von Grundwasserfassungen in Karst- und Kluftsystemen, Einschr\\u00e4nkungen siehe Gew\\u00e4sserschutzverordnung (GSchV) Anhang 4 Ziff. 221bis\\n  \\n[Allgemeine Auflagen f\\u00fcr Bauvorhaben innerhalb Grundwasserschutzzonen S](https://www.bvd.be.ch/content/dam/bvd/dokumente/de/awa/wasser/gew%C3%A4sserschutz/grundwasserschutz/merkblatt-allgemeine-auflagen-zone-s.pdf)\", \"fr\": \"Dans les zones de protection des eaux S1 et S2, les travaux de construction et d\\u2019excavation sont interdits de mani\\u00e8re g\\u00e9n\\u00e9rale (annexe 4, ch. 222, al. 1 Oeaux).\\n\\n**Sh**\\n\\nLa zone Sh comprend les zones de grande vuln\\u00e9rabilit\\u00e9 dans le bassin versant des puits d'eau souterraine dans les syst\\u00e8mes karstiques et \\u00e0 fissures, pour les restrictions, voir l'ordonnance sur la protection des eaux (OEaux) annexe 4 n\\u00b0 221ter.\\n\\n**Sm**\\n\\nLa zone Sm comprend les zones de vuln\\u00e9rabilit\\u00e9 mod\\u00e9r\\u00e9e dans le bassin versant des puits d'eau souterraine dans les syst\\u00e8mes karstiques et \\u00e0 fissures, pour les restrictions, voir l'ordonnance sur la protection des eaux (OEaux) annexe 4, par. 221Bis.\\n\\n[Conditions g\\u00e9n\\u00e9rales pos\\u00e9es aux projets de construction dans les zones S de protection des eaux souterraines](https://www.bvd.be.ch/content/dam/bvd/dokumente/fr/awa/wasser/gew%C3%A4sserschutz/grundwasserschutz/merkblatt-allgemeine-auflagen-zone-s-f.pdf)\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -34080,9 +33836,7 @@
       "info_text": "{\"de\": \"Handelt es sich beim zu beurteilenden Bauvorhaben um ein Objekt welches im Bauinventar aufgenommen ist oder befindet sich das Bauvorhaben in unmittelbarer N\\u00e4he von erhaltens- und / oder sch\\u00fctzenswerten Objekten.\", \"fr\": \"Le projet de construction devant \\u00eatre examin\\u00e9 concerne-t-il un objet inventori\\u00e9 dans le recensement architectural ou se trouve-t-il \\u00e0 proximit\\u00e9 imm\\u00e9diate d'objets dignes de conservation ou de protection?\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -34112,9 +33866,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -34144,9 +33896,7 @@
       "info_text": "{\"de\": \"Ob sich die Baute oder Anlage im Wald, in einer Wytweide oder in der N\\u00e4he befindet l\\u00e4sst sich mit einem Blick in den Grundbuchplan (Amtliche Vermessung) beantworten. In Zweifelsf\\u00e4llen kann die zust\\u00e4ndige Waldabteilung f\\u00fcr eine Feststellung beigezogen werden. Diese informelle Waldfeststellung (ohne schriftliche Verf\\u00fcgung mit Rechtsmitteln) ist kostenlos.\\n\\nDer Waldabstand stellt den vorgeschriebenen Mindestabstand zum Wald / Wytweiden f\\u00fcr Bauten und Anlagen dar. Grunds\\u00e4tzlich gilt der gesetzliche Waldabstand von 30 m (Art. 25 KWaG). Davon ausgenommen sind Bauten und Anlagen nach Art. 34 KWaV oder solche, die Wald-Baulinien / Waldabstandslinien aus der kommunalen Nutzungsplanung einhalten. In begr\\u00fcndeten F\\u00e4llen kann die zust\\u00e4ndige Stelle der Wirtschafts-, Energie- und Umweltdirektion weitere Ausnahmen bewilligen (Art. 26 KWaG). Die zust\\u00e4ndige Waldabteilung kann im Zweifelsfall f\\u00fcr eine kostenlose Beratung beigezogen werden.\", \"fr\": \"Pour savoir si un ouvrage ou une installation est situ\\u00e9 en for\\u00eat, en p\\u00e2turage bois\\u00e9 ou en proximit\\u00e9, il suffit de consulter le plan cadastral (mensuration officielle). En cas de doute, la division foresti\\u00e8re comp\\u00e9tente peut \\u00eatre consult\\u00e9e pour proc\\u00e9der \\u00e0 une constatation de la nature foresti\\u00e8re. Cette constatation \\u00e0 titre informel (sans ordonnance \\u00e9crite contenant des voies de droit) est gratuite.\\n\\nLa distance \\u00e0 la for\\u00eat repr\\u00e9sente la distance minimale l\\u00e9gale \\u00e0 respecter entre la for\\u00eat / le p\\u00e2turage bois\\u00e9 et un ouvrage ou installation. En principe, la distance l\\u00e9gale \\u00e0 la for\\u00eat de 30 m s\\u2019applique (art. 25 OCFo). Les ouvrages / installations selon art. 34 OCFo, ainsi que ceux qui respectent les alignements forestiers des plans d\\u2019affectation communaux, font exception. Dans certains cas, le service comp\\u00e9tent de la Direction de l\\u2019\\u00e9conomie, de l\\u2019\\u00e9nergie et de l\\u2019environnement peut autoriser d\\u2019autres exceptions (art. 26 LCFo). En cas de doute, pri\\u00e8re de s\\u2019adresser \\u00e0 la division foresti\\u00e8re comp\\u00e9tente. Ce conseil est gratuit.\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -34241,9 +33991,7 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -34276,9 +34024,7 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -34311,9 +34057,7 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -34467,9 +34211,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": "hindernisfreies-bauen",
@@ -34654,9 +34396,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -34688,7 +34428,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "spezialformulare-waermepumpen"
       },
       "data_source": null,
@@ -34722,7 +34462,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "spezialformulare-waermepumpen"
       },
       "data_source": null,
@@ -34787,9 +34527,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": "immissionsschutz",
@@ -34849,9 +34587,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"***\\n**Immissionsschutz - Blendung von Solaranlagen**\", \"fr\": \"***\\n**Protection contre les immissions - Eblouissement provoqu\\u00e9 par les installations solaires**\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -34911,9 +34647,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": "immissionsschutz-laermschutz",
@@ -35008,7 +34742,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "zustimmungen"
       },
       "data_source": null,
@@ -35040,9 +34774,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -35072,9 +34804,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -35104,9 +34834,7 @@
       "info_text": "{\"de\": \"Sofern die definitiv \\u00fcberbaute und/oder die tempor\\u00e4r beanspruchte Bodenfl\\u00e4che 2000 m\\u00b2 \\u00fcbersteigt, ist das Bauvorhaben bodenrelevant.\\n  \\n[Bodenschutz](https://www.jgk.be.ch/jgk/de/index/baubewilligungen/baubewilligungen/baugesuchsformulare/formularbaugesuchsteller.assetref/dam/documents/JGK/AGR/de/Baubewilligungen/baugesuche/Baugesuchssteller/agr_baubewilligungsverfahren_formular_boden_de.pdf)\", \"fr\": \"D\\u00e8s lors que la surface qui sera d\\u00e9finitivement construite ou temporairement requise est sup\\u00e9rieure \\u00e0 2000 m\\u00b2, le projet de construction est consid\\u00e9r\\u00e9 comme ayant des r\\u00e9percussions sur le sol. Protection du sol\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -35136,9 +34864,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -35228,9 +34954,7 @@
       "info_text": "{\"de\": \"Beansprucht das Bauvorhaben mehr als 70m2 Waldboden oder Wytweide und stellt es weder eine nichtforstliche Kleinbaute nach Art. 35 KWaV, noch eine forstliche Baute nach Art. 13a WaV dar, so ist ein Rodungsgesuch einzureichen. Dies gilt sowohl f\\u00fcr die tempor\\u00e4re, wie auch f\\u00fcr die definitive Beanspruchung des Bodens. Im Zweifelsfall kann die zust\\u00e4ndige Waldabteilung beigezogen werden. Diese Beratung ist kostenlos.\", \"fr\": \"Si le projet de construction impacte plus de 70 m2 de sol forestier / de p\\u00e2turage bois\\u00e9 et qu\\u2019il ne s\\u2019agit ni d\\u2019une petite construction non foresti\\u00e8re selon art. 35 OCFo, ni d\\u2019une construction foresti\\u00e8re au sens de l\\u2019art. 13a OFo, une demande de d\\u00e9frichement est alors requise. Ceci est valable autant pour un impact temporaire que d\\u00e9finitif. En cas de doute, pri\\u00e8re de s\\u2019adresser \\u00e0 la division foresti\\u00e8re comp\\u00e9tente. Ce conseil est gratuit.\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -35290,9 +35014,7 @@
       "info_text": "{\"de\": \"K-Objekte sind alle als \\u00absch\\u00fctzenswert\\u00bb sowie als \\u00aberhaltenswert\\u00bb bezeichnete Baudenkm\\u00e4ler, wenn sie zu einer Baugruppe des Bauinventars geh\\u00f6ren oder innerhalb eines Ortsbildschutzperimeters liegen.\", \"fr\": \"Les objets C sont tous les monuments consid\\u00e9r\\u00e9s comme \\u00e9tant \\\"dignes de protection\\\" ou \\\"dignes de conservation\\\" et faisant partie d\\u2019un ensemble b\\u00e2ti inventori\\u00e9 dans le recensement architectural ou se trouvant dans le p\\u00e9rim\\u00e8tre de protection d\\u2019un site.\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -35325,9 +35047,7 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -35360,9 +35080,7 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -35395,9 +35113,7 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -35429,9 +35145,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -35528,7 +35242,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "bauwerk-gewaesserschutz"
       },
       "data_source": null,
@@ -35591,8 +35305,7 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {
-        "hideLabel": true,
-        "widgetOverride": null
+        "hideLabel": true
       },
       "data_source": null,
       "row_form": null,
@@ -35685,9 +35398,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": "kleintank-tabelle",
       "sub_form": null,
@@ -35749,9 +35460,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -35813,9 +35522,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"**Kontaktperson**\", \"fr\": \"***\\n**Interlocuteur/interlocutrice**\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -35879,9 +35586,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -36005,7 +35710,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "spezialformulare-stoerfallvorsorge"
       },
       "data_source": null,
@@ -36037,9 +35742,7 @@
       "info_text": "{\"de\": \"**Laden\\u00f6ffnungszeiten**\\n  \\nDie Laden\\u00f6ffnungszeiten sind f\\u00fcr den ganzen Kanton einheitlich. Die Verkaufsgesch\\u00e4fte d\\u00fcrfen von Montag bis Freitag von 6.00 bis 20.00 Uhr und am Samstag von 6.00 bis 17.00 Uhr ge\\u00f6ffnet sein (gilt auch f\\u00fcr Tage vor Feiertagen). Einmal pro Woche (Montag bis Freitag) ist ein Abendverkauf bis 22.00 Uhr erlaubt. Folgende Gesch\\u00e4fte d\\u00fcrfen t\\u00e4glich von 6.00 bis 22.00 Uhr ge\\u00f6ffnet sein: Tankstellen und ihre Shops bis zu 120 m\\u00b2 Verkaufsfl\\u00e4che; Kioske, die vor allem Tabakwaren, S\\u00fcssigkeiten und Zeitungen/Zeitschriften verkaufen; Milchannahmestellen mit angegliedertem Verkaufsgesch\\u00e4ft und Videotheken, die Bild- und Tontr\\u00e4ger verleihen oder verkaufen. Nicht g\\u00fcltig sind die Laden\\u00f6ffnungsbestimmungen f\\u00fcr Apotheken, Ausstellungen, Galerien und Veranstaltungen. F\\u00fcr Imbissst\\u00e4nde und den Verkauf von Speisen und Getr\\u00e4nken durch Hauslieferdienste gelten die \\u00d6ffnungszeiten f\\u00fcr Gastgewerbebetriebe.\\n  \\n**Laden\\u00f6ffnung im Tourismus**\\n  \\nDie Gesch\\u00e4fte in den Tourismusorten des Berner Oberlands k\\u00f6nnen an allen Tagen bis 22.30 Uhr ge\\u00f6ffnet sein. Die Tourismusorte sind in der Verordnung \\u00fcber Handel und Gewerbe (HGV) aufgez\\u00e4hlt.\\n  \\n[Gastgewerbegesetz (GGG)](https://www.belex.sites.be.ch/frontend/versions/610)\", \"fr\": \"**Horaires d'ouverture des magasins**\\n\\nLes horaires d\\u2019ouverture des magasins sont harmonis\\u00e9s dans l\\u2019ensemble du canton. Les magasins peuvent rester ouverts de 6 heures \\u00e0 20 heures du lundi au vendredi et de 6 heures \\u00e0 17 heures le samedi et les veilles de jours f\\u00e9ri\\u00e9s. La vente du soir est autoris\\u00e9e une fois par semaine (entre lundi et vendredi) jusqu\\u2019\\u00e0 22 heures. Les magasins suivants peuvent ouvrir tous les jours de 6 heures \\u00e0 22 heures: les magasins de d\\u00e9tail annex\\u00e9s aux stations-service, ayant une surface de vente allant jusqu'\\u00e0 120 m2; les kiosques vendant principalement des articles pour fumeurs, des sucreries, des journaux et des p\\u00e9riodiques; les magasins de d\\u00e9tail annex\\u00e9s aux points de d\\u00e9p\\u00f4t de lait et les vid\\u00e9oth\\u00e8ques louant ou vendant des supports audiovisuels. Les prescriptions relatives aux horaires ne s'appliquent pas aux pharmacies, aux expositions, aux galeries ni aux manifestations. Pour les points de vente servant des boissons et des en-cas et la vente en livraison \\u00e0 domicile de mets et de boissons, les heures d'ouverture des \\u00e9tablissements d'h\\u00f4tellerie et de restauration s'appliquent.\\n\\n**Horaires d'ouverture des magasins dans les lieux \\u00e0 vocation touristique**\\n\\nLes magasins situ\\u00e9s dans les lieux \\u00e0 vocation touristique de l\\u2019Oberland bernois peuvent ouvrir tous les jours jusqu\\u2019\\u00e0 22 heures 30. Les communes concern\\u00e9es sont \\u00e9num\\u00e9r\\u00e9es dans l\\u2019ordonnance sur le commerce et l\\u2019industrie (OCI).\\n\\n[Loi sur l'h\\u00f4tellerie et la restauration (LHR)](https://www.belex.sites.be.ch/frontend/versions/610)\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": "laden-tabelle",
       "sub_form": null,
@@ -36099,9 +35802,7 @@
       "info_text": "{\"de\": \"z.B. Geb\\u00e4udeabbruch, Setzen von Spundw\\u00e4nden, Aushub-, Betonierarbeiten etc.\", \"fr\": \"Par exemple: d\\u00e9molition, pose d\\u2019un mur de palplanches, excavation, b\\u00e9tonnage, etc.\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -36131,9 +35832,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -36287,9 +35986,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"***\\n**Lagerung wassergef\\u00e4hrdender Fl\\u00fcssigkeiten**\", \"fr\": \"***\\n**Entreposage de liquides pouvant polluer les eaux**\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -36319,9 +36016,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -36351,9 +36046,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"***\\n**Leitungen**\", \"fr\": \"***\\n**Conduites**\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -36383,9 +36076,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -36505,9 +36196,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -36537,9 +36226,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"***\\n**Maschinen & Anlagen (Sendeanlage)**\", \"fr\": \"***\\n**Machines et installations (station \\u00e9mettrice)**\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -36569,9 +36256,7 @@
       "info_text": "{\"de\": \"**F\\u00fcr die Reinigung-, Aufbereitung- und Beschichtung**\\n  \\n- Abluftreinigungsanlagen\\n  \\n- Abwasserreinigungsanlagen\\n  \\n- Anlagen zur Reinigung oder Beschichtung von Material\\n  \\n- Anlagen zur Vorbereitung von Oberfl\\u00e4chen mit fl\\u00fcchtigen Kohlenwasserstoffen, Laugen und S\\u00e4uren\\n  \\n- Beschichtung oder Bedruckungsanlagen f\\u00fcr Oberfl\\u00e4chen mit organischen Stoffen wie Farben, Lacken und Kunststoffen\\n  \\n- Galvanotechnische Anlagen\\n  \\n**F\\u00fcr den Transport und das Verpacken von Materialien**\\n  \\n- Automatisch oder zentral gesteuert Produktions- und Fertigungsgsanlagen sowie Verpackungs- und Abf\\u00fcllstrassen\\n  \\n- R\\u00fcst-, Wasch- und Verpackungsanlagen von Nahrungs- oder Genussmitteln\\n  \\n**F\\u00fcr die industrielle / gewerbliche Erzeugung von Lebens- oder Futtermittel**\\n  \\n- Trocknungsanlagen f\\u00fcr Gr\\u00fcnfutter oder andere landwirtschaftliche Erzeugnisse\\n  \\n- Produktionsanlagen z.B. in B\\u00e4ckereien, Metzgereien, M\\u00fchlen, Kaffeer\\u00f6stereien\\n  \\n**F\\u00fcr die Erzegung, Speicherung oder Lagerung von Strom, W\\u00e4rme oder Brennstoffen**\\n  \\n- Windkraft-, Biogas-, Notstrom-, W\\u00e4rme-Kraft-Kopplungsanlagen, Blockheizkraftwerke\\n  \\n- Pump- und Speicherwerke\\n  \\n- Benzin-, Diesel-, Elektro, Gas und Biogastankanlagen\\n  \\n**F\\u00fcr Deponien, Werkh\\u00f6fe, Betriebsgeb\\u00e4ude oder auf Betriebsarealen**\\n  \\n- Steinbrecher, Schredder oder H\\u00e4cksler\\n  \\n- Maschinen wie Stapler, Pneulader oder Bagger mit einer Leistung > 18 kW\", \"fr\": \"**Pour le nettoyage, le pr\\u00e9traitement et le rev\\u00eatement**\\n\\n- Installations d\\u2019\\u00e9puration des effluents gazeux\\n\\n- Stations d'\\u00e9puration des eaux us\\u00e9es\\n\\n- Installations de nettoyage et de rev\\u00eatement de mat\\u00e9riaux\\n\\n- Installations pour pr\\u00e9traitement de surface avec des hydrocarbures volatils, des caustiques et des acides\\n\\n- Rev\\u00eatement et impression de surfaces au moyen de mati\\u00e8res organiques comme peintures, vernis et mati\\u00e8res plastiques\\n\\n- Installations galvanotechniques\\n\\n**Pour le transport et le conditionnement de mat\\u00e9riaux** \\n\\n- Installations de production et de fabrication automatiques ou \\u00e0 commande centrale ainsi que cha\\u00eenes d\\u2019emballage ou de conditionnement\\n\\n- Pr\\u00e9paration, nettoyage et conditionnement de denr\\u00e9es alimentaires, de boissons et de stimulants.\\n\\n**Pour la production industrielle / artisanale de denr\\u00e9es alimentaires et d'aliments pour animaux**\\n\\n- S\\u00e9choirs pour fourrage vert ou autres produits agricoles\\n\\n- Installations de production, p. ex. dans des boulangeries, boucheries, moulins, sites de torr\\u00e9faction de caf\\u00e9\\n\\n**Pour la production ou le stockage de courant, de chaleur ou de combustible**\\n\\n- Installations \\u00e9oliennes, de m\\u00e9thanisation, de couplage chaleur-force, groupes \\u00e9lectrog\\u00e8nes, centrales \\u00e0 \\u00e9nergie totale \\u00e9quip\\u00e9e\\n\\n- Usines de pompage et d\\u2019emmagasinage\\n\\n- Citerne \\u00e0 carburant, \\u00e0 diesel, Elektro, \\u00e0 gaz et \\u00e0 biogaz.\\n\\n**Pour les d\\u00e9charges, centres d'entretien, b\\u00e2timents d'exploitation ou aires d\\u2019entreprise**\\n\\n- Broyeurs\\n\\n- Machines telles que chariots \\u00e9l\\u00e9vateurs, chargeuses sur pneumatiques ou excavatrices d'une puissance > 18 kW\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -36601,9 +36286,7 @@
       "info_text": "{\"de\": \"z.B. Prozessanlagen, CNC-, Fr\\u00e4s- oder Hobelmaschinen, Schweissanlagen, mobile Sp\\u00e4neabsauganlagen etc.\", \"fr\": \"Par exemple: installation de production, machine-outil \\u00e0 commande num\\u00e9rique, fraiseuse, raboteuse, installation de soudage, aspirateur mobile \\u00e0 copeaux, etc.\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -36633,9 +36316,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": "maschinen-und-anlagen",
@@ -36666,7 +36347,6 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {
-        "widgetOverride": null,
         "columnsToDisplay": []
       },
       "data_source": null,
@@ -36793,9 +36473,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -36825,9 +36503,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -36857,9 +36533,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": "mehrkammertanks-tabelle",
       "sub_form": null,
@@ -36891,7 +36565,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "spezialformulare-entsorgung-bodenschutz"
       },
       "data_source": null,
@@ -36925,7 +36599,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "spezialformulare-entsorgung-bodenschutz"
       },
       "data_source": null,
@@ -36993,9 +36667,7 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -37115,9 +36787,7 @@
       "info_text": "{\"de\": \"Invasive gebietsfremde Pflanzen k\\u00f6nnen sich sehr schnell ausbreiten. Die Ausbreitung von Pflanzen auf der Schwarzen Liste muss verhindert werden ([www.infoflora.ch](https://www.infoflora.ch)). Besondere Gefahr besteht beim Japanischen Staudenkn\\u00f6terich und Erdmandelgras.\", \"fr\": \"Les plantes exotiques envahissantes peuvent se r\\u00e9pandre tr\\u00e8s rapidement. Il faut emp\\u00eacher la propagation des plantes inscrites sur la liste noire ([www.infoflora.ch/fr/](https://infoflora.ch/fr/)). Un danger particulier provient de la renou\\u00e9e du Japon et du souchet comestible.\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -37336,7 +37006,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "spezialformulare-immissionsschutz"
       },
       "data_source": null,
@@ -37370,9 +37040,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -37468,9 +37136,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -37534,9 +37200,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -37568,9 +37232,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -37698,9 +37360,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -37762,9 +37422,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": "naturgefahren",
@@ -37794,9 +37452,7 @@
       "info_text": "{\"de\": \"Die Anforderungen zum Natur- und Wildtierschutz sind in folgender Wegleitung zu finden: \\u201eAnforderungen des Natur-, Wild- und Vogelschutzes an Baugesuchsunterlagen, Checkliste mit Erl\\u00e4uterungen\\u201c.\\n  \\n[ANF/JI. Weblink: http://www.be.ch/natur -> Publikationen](https://www.vol.be.ch/vol/de/index/natur/naturfoerderung.html#originRequestUrl=www.be.ch/natur)\", \"fr\": \"Les exigences relatives \\u00e0 la protection de la nature et de la faune sauvage figurent dans le guide intitul\\u00e9 \\u00abExigences en mati\\u00e8re de protection de la nature, de la faune sauvage et des oiseaux pos\\u00e9es aux dossiers de demande de permis de construire \\u2013 liste de contr\\u00f4le accompagn\\u00e9e de commentaires\\u00bb.\\n\\n[ANF/JI. Weblink: http://www.be.ch/natur -> Publikationen](https://www.weu.be.ch/fr/start/themen/umwelt/naturschutz.html)\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -37856,9 +37512,7 @@
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -37891,9 +37545,7 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -38203,9 +37855,7 @@
       "info_text": "{\"de\": \"Handelt es sich um eine nichtforstliche Kleinbaute nach Art. 35 KWaV oder beansprucht die Baute eine Wald- oder Wytweidenfl\\u00e4che von weniger als 70m2, dann stellt das Vorhaben eine nachteilige Nutzung von Wald (Art. 16 WaG) dar. Im Zweifelsfall kann die zust\\u00e4ndige Waldabteilung beigezogen werden. Diese Beratung ist kostenlos.\", \"fr\": \"S\\u2019il s\\u2019agit d\\u2019une petite construction non foresti\\u00e8re au sens de l\\u2019art. 35 OCFo ou que la construction impacte une surface foresti\\u00e8re / surface de p\\u00e2turage bois\\u00e9 inf\\u00e9rieure \\u00e0 70 m2, l\\u2019ouvrage repr\\u00e9sente alors une exploitation pr\\u00e9judiciable de la for\\u00eat (art. 16 LFo). En cas de doute, pri\\u00e8re de s\\u2019adresser \\u00e0 la division foresti\\u00e8re comp\\u00e9tente. Ce conseil est gratuit.\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -38235,9 +37885,7 @@
       "info_text": "{\"de\": \"\\u00abNotbeleuchtung\\u00bb ist ein Oberbegriff und umfasst die Sicherheits- und die Ersatzbeleuchtung. Das umfassende Ziel der Sicherheitsbeleuchtung ist es, beim Ausfall der allgemeinen Stromversorgung ein gefahrloses Verlassen eines Ortes zu erm\\u00f6glichen (Art. 35 Abs. 2 VUV/Art. 15 und 17 ArGV 3).\\n  \\n[Wegleitung zur Verordnung 3 zum Arbeitsgesetz](https://www.seco.admin.ch/seco/de/home/Arbeit/Arbeitsbedingungen/Arbeitsgesetz-und-Verordnungen/Wegleitungen/wegleitung-zur-argv-3.html)\", \"fr\": \"L\\u2019\\u00e9clairage de secours est un terme g\\u00e9n\\u00e9rique qui englobe l\\u2019\\u00e9clairage de s\\u00e9curit\\u00e9 et l\\u2019\\u00e9clairage de remplacement. Son but est de permettre, en cas de panne de l\\u2019alimentation, l\\u2019\\u00e9vacuation des lieux en toute s\\u00e9curit\\u00e9 (art. 35, al. 2 OPA et art. 15 et 17 OLT3). \\n\\n[Commentaire de l'OLT 3 et annexes: article par article](https://www.seco.admin.ch/seco/de/home/Arbeit/Arbeitsbedingungen/Arbeitsgesetz-und-Verordnungen/Wegleitungen/wegleitung-zur-argv-3.html)\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -38301,9 +37949,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -38399,9 +38045,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -38463,9 +38107,7 @@
       "info_text": "{\"de\": \"Bauvorhaben bedeutet, eine bauliche Anlage (Bauwerk) zu errichten oder zu \\u00e4ndern. Die Nutzung definiert f\\u00fcr welchen Zweck das Bauvorhaben genutzt werden soll.\\n  \\n**Wohnen**\\n  \\nDies sind Bauten und Anlagen, welche zum Wohnen geeignet sind und die Anforderungen nach Art. 63 1 BauV erf\\u00fcllen. Als Wohnr\\u00e4ume gelten alle dauernd zum Aufenthalt von Menschen bestimmten Zimmer, wie Wohn- und Esszimmer, Schlafzimmer, Kinderzimmer, Zimmer f\\u00fcr h\\u00e4usliche Arbeiten. [Bauverordnung (BauV)](https://www.belex.sites.be.ch/frontend/versions/1333)\\n  \\n**Industrie**\\n  \\nDies sind grosse Produktions- und Reparaturnutzungen, bei welchen in grossem Umfang Maschinen zum Einsatz kommen. Die Abgrenzung zu Gewerbenutzung kann schwierig sein. Generell gilt, je lauter und gr\\u00f6sser ein Betrieb ist und je mehr Maschinen zum Einsatz kommen, desto eher ist er der Industrienutzung zuzuordnen.\\n  \\n**Gewerbe**\\n  \\nDies sind kleine bis mittlere Produktions- und Reparaturnutzungen, welche gr\\u00f6sstenteils Handarbeit anwenden. Die Abgrenzung zur Industrienutzung kann schwierig sein. Eine B\\u00e4ckerei, welche in Handarbeit Waren herstellt, ist ein Gewerbebetrieb, w\\u00e4hrend die automatisierte Fertigung mit Maschinen eine industrielle Produktion darstellt. \\n  \\n**Dienstleistung**\\n  \\nDies sind Nutzungen, bei welchen nicht G\\u00fcter, sondern in erster Linie Leistungen erbracht und angeboten werden. B\\u00fcros, Praxen, Versicherungen, Banken, etc.\\n  \\n**Verkauf**\\n  \\nDies sind Verkaufsnutzungen, unabh\\u00e4ngig davon, ob es sich um G\\u00fcter des t\\u00e4glichen Bedarfs oder andere Produkte handelt. Die Waren sind gr\\u00f6sstenteils vor Ort vorhanden und das Lokal ist f\\u00fcr Kundschaft zug\\u00e4nglich.\\n  \\n**Lager**\\n  \\nDamit sind unabh\\u00e4ngige Lagerr\\u00e4ume und -fl\\u00e4chen gemeint, welche nicht im Zusammenhang mit einer anderen Nutzung (z.B. Gewerbe) stehen.\\n  \\n**Landwirtschaft**\\n  \\nAls Landwirtschaft werden wirtschaftliche Aktivit\\u00e4ten, bei denen Boden und Nutztiere neben Arbeit, Kapital und Wissen als Produktionsfaktoren beteiligt sind und landwirtschaftliche Proudukte zentral sind.\\n  \\n**Gastgewerbe**\\n  \\nDas sind Restaurants, Hotels, Aussenbewirtungsfl\\u00e4chen, Take-Aways, Imbissst\\u00e4nde, Showk\\u00fcchen etc. Nicht jede dieser Nutzungen ben\\u00f6tigt auch eine gastgewerbliche Betriebsbewilligung. Betriebsbewilligungen sind n\\u00f6tig, wenn mehr als 6 Sitzpl\\u00e4tze vorhanden sind und/oder Alkohol angeboten wird.\\n  \\n**Andere**\\n  \\nW\\u00e4hlen Sie diese Option, wenn Ihre geplante Nutzung keiner der oben erw\\u00e4hnten Nutzungen zugeordnet werden kann.\", \"fr\": \"Par projet de construction on entend la construction ou la modification d'un b\\u00e2timent ou d'une installation (ouvrage).  L'affectation permet de d\\u00e9finir dans quel but l'ouvrage doit \\u00eatre utilis\\u00e9.\\n\\n**Logement**\\n\\nConstructions et installations habitables qui r\\u00e9pondent aux exigences de l'article 63, alin\\u00e9a 1 OC. Sont r\\u00e9put\\u00e9s locaux d'habitation toutes les pi\\u00e8ces destin\\u00e9es en permanence au s\\u00e9jour des personnes, tels que les salons et les salles \\u00e0 manger, les chambres \\u00e0 coucher, les salles de jeu pour les enfants, les pi\\u00e8ces destin\\u00e9es aux travaux m\\u00e9nagers. [Ordonnance sur les constructions (OC)](https://www.belex.sites.be.ch/frontend/versions/1333?locale=fr)\\n\\n**Industrie**\\n\\nGrandes installations de production ou de r\\u00e9paration destin\\u00e9es \\u00e0 des utilisations faisant un large usage de machines. La d\\u00e9limitation par rapport \\u00e0 l'artisanat n'est pas toujours ais\\u00e9e. D'une mani\\u00e8re g\\u00e9n\\u00e9rale, plus l'exploitation est grande et bruyante, plus elle recourt \\u00e0 des machines, et plus l'affectation doit \\u00eatre consid\\u00e9r\\u00e9e comme industrielle.\\n\\n**Artisanat**\\n\\nPetites et moyennes installations de production ou de r\\u00e9paration dans lesquelles pr\\u00e9domine le travail manuel. La d\\u00e9limitation par rapport \\u00e0 l'industrie n'est pas toujours ais\\u00e9e. Une boulangerie est une entreprise artisanale si sa production est manuelle, et une entreprise industrielle si sa production est automatis\\u00e9e.\\n\\n**Services**\\n\\nConstructions et installations affect\\u00e9es non pas \\u00e0 la production de biens, mais en premier lieu \\u00e0 la fourniture de prestations. Bureaux (de compagnies d'assurance p. ex.), cabinets, \\u00e9tudes, banques, etc.\\n\\n**Vente**\\n\\nLocaux destin\\u00e9s \\u00e0 la vente, qu'il s'agisse de produits satisfaisant des besoins quotidiens ou d'autres produits. Les marchandises sont en grande partie disponibles sur place et les locaux sont accessibles \\u00e0 la client\\u00e8le.\\n\\n**Entreposage**\\n\\nLocaux et surfaces d'entreposage en rapport avec une autre affectation (p. ex. artisanat).\\n\\n**Agriculture**\\n\\nActivit\\u00e9 \\u00e9conomique pour laquelle le sol et les animaux de rente interviennent en sus des autres facteurs de production que sont le travail, le capital et le savoir et qui g\\u00e9n\\u00e8re essentiellement des produits agricoles.\\n\\n**Industrie h\\u00f4teli\\u00e8re**\\n\\nH\\u00f4tellerie et restauration Restaurants, h\\u00f4tels, terrasses, magasins de vente \\u00e0 l\\u2019emporter, points de vente servant des boissons et des en-cas, cuisines de d\\u00e9monstration, etc. Ces affectations ne requi\\u00e8rent pas toutes une patente d'h\\u00f4tellerie et de restauration. Une telle patente n'est n\\u00e9cessaire que si le nombre de places exc\\u00e8de six ou que des boissons alcoolis\\u00e9es soient servies.\\n\\n**Autre**\\n\\nChoisissez cette option si votre projet ne correspond \\u00e0 aucune des autres options propos\\u00e9es.\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -38495,9 +38137,7 @@
       "info_text": "{\"de\": \"**Info zu Einleitung in Regenwasserkanal**\\n  \\nNur in 2. Priorit\\u00e4t zul\\u00e4ssig, wenn der Nachweis erbracht wird, dass das Regenwasser nicht versickert werden kann. Der Gesuchssteller/Projektverfasser hat einen entsprechenden Nachweis durch eine Fachperson zu erbringen, dass nicht versickert werden kann.\", \"fr\": \"**Informations sur l'\\u00e9vacuation de l'eau de pluie dans le canal d'\\u00e9vacuation des eaux pluviales**\\n  \\nSeulement admissible en 2\\u00e8me priorit\\u00e9 si la preuve est apport\\u00e9e que l'eau de pluie ne peut pas s'\\u00e9couler. Le demandeur ou l'auteur du projet doit fournir la preuve appropri\\u00e9e d'un sp\\u00e9cialiste que l'eau de pluie ne peut pas s'\\u00e9couler.\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -38527,9 +38167,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -38559,9 +38197,7 @@
       "info_text": "{\"de\": \"Gem\\u00e4ss Art. 11 Abs. 2 BewD muss im Baugesuch angegeben werden, ob beim Bauvorhaben Objekte des besonderen Landschaftsschutzes nach Baugesetz betroffen sind. Falls dem so ist, wird empfohlen, das Baugesuchsdossier mit den Unterlagen zum Thema Landschaft gem\\u00e4ss Merkblatt des AGR (siehe Link) zu erg\\u00e4nzen.\", \"fr\": \"Conform\\u00e9ment \\u00e0 l'article 11, alin\\u00e9a 2 DPC, la demande doit indiquer si le projet concerne un objet relevant de la protection particuli\\u00e8re du paysage en vertu de la loi sur les constructions. Si tel est le cas, il est recommand\\u00e9 d'ajouter au dossier de demande de permis de construire les documents relatifs au paysage selon le m\\u00e9mento de l'OACOT (cf. lien).\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -38627,9 +38263,7 @@
         "max_length": null,
         "min_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -38659,9 +38293,7 @@
       "info_text": "{\"de\": \"Ein Betrieb gilt als \\u00f6ffentlich, wenn er durch Anschriften, Werbung oder \\u00e4hnliches nach aussen als Gastgewerbebetrieb in Erscheinung tritt (Art. 6 GGG, Art. 4 GGV)\\n  \\n[Gastgewerbegesetz (GGG)](https://www.belex.sites.be.ch/frontend/versions/610)\\n  \\n[Gastgewerbeverordnung (GGV)](https://www.belex.sites.be.ch/frontend/versions/611)\", \"fr\": \"Un \\u00e9tablissement est r\\u00e9put\\u00e9 public si, \\u00e0 l'ext\\u00e9rieur, des inscriptions, de la publicit\\u00e9 ou autres moyens lui donnent l'apparence d'un \\u00e9tablissement d'h\\u00f4tellerie et de restauration (art. 6 LHR et 4 OHR).\\n\\n[Loi sur l'h\\u00f4tellerie et la restauration (LHR)](https://www.belex.sites.be.ch/frontend/versions/610)\\n\\n[Ordonnance sur l'h\\u00f4tellerie et la restauration (OHR)](https://www.belex.sites.be.ch/frontend/versions/611)\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -38723,9 +38355,7 @@
       "info_text": "{\"de\": \"Die \\u00d6ffnungszeiten m\\u00fcssen nur angegeben werden, wenn gegen\\u00fcber der ordentlichen Polizeistunde (00.30 Uhr) eine Verl\\u00e4ngerung gew\\u00fcnscht wird (Art. 11 GGG, Art. 16 GGV).\\n  \\n[Gastgewerbegesetz (GGG)](https://www.belex.sites.be.ch/frontend/versions/610)\\n  \\n[Gastgewerbeverordnung (GGV)](https://www.belex.sites.be.ch/frontend/versions/611)\", \"fr\": \"Les heures d'ouverture ne doivent \\u00eatre indiqu\\u00e9es que si un d\\u00e9passement de l'heure de police ordinaire (00.30 heure) est d\\u00e9sir\\u00e9 (art. 11 LHR et 16 OHR).\\n\\n[Loi sur l'h\\u00f4tellerie et la restauration (LHR)](https://www.belex.sites.be.ch/frontend/versions/610)\\n\\n[Ordonnance sur l'h\\u00f4tellerie et la restauration (OHR)](https://www.belex.sites.be.ch/frontend/versions/611)\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -38755,9 +38385,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": "oeffnungszeiten-tabelle",
       "sub_form": null,
@@ -38820,9 +38448,7 @@
         "max_length": null,
         "min_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -38854,9 +38480,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -38952,9 +38576,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -39143,9 +38765,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": "personalien-betreiberin-der-anlage",
@@ -39175,9 +38795,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"***\\n**Betreiber/in der Anlage (Sendeanlage)**\", \"fr\": \"***\\n**Exploitant/e de l'installation (station \\u00e9mettrice)**\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -39207,9 +38825,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": "personalien-gastgewerbe",
@@ -39338,7 +38954,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "plaene"
       },
       "data_source": null,
@@ -39372,7 +38988,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "bauwerk-gewaesserschutz"
       },
       "data_source": null,
@@ -39406,7 +39022,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "spezialformulare-biologische-sicherheit"
       },
       "data_source": null,
@@ -39440,7 +39056,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "spezialformulare-biologische-sicherheit"
       },
       "data_source": null,
@@ -39474,7 +39090,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "plaene"
       },
       "data_source": null,
@@ -39506,9 +39122,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"***\\n**Entw\\u00e4sserung der Platz und Verkehrsfl\\u00e4chen**\", \"fr\": \"***\\n**Places et aires de circulation**\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -39539,8 +39153,7 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {
-        "hideLabel": true,
-        "widgetOverride": null
+        "hideLabel": true
       },
       "data_source": null,
       "row_form": null,
@@ -39574,9 +39187,7 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -39675,9 +39286,7 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -39903,9 +39512,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -40092,7 +39699,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "bauwerk-brandschutz"
       },
       "data_source": null,
@@ -40158,7 +39765,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "bauwerk-brandschutz"
       },
       "data_source": null,
@@ -40220,9 +39827,7 @@
       "info_text": "{\"de\": \"Befindet sich Ihr Bauvorhaben ganz oder teilweise auf fremdem Grund oder wird f\\u00fcr die Erschliessung der Parzelle fremder Grund ben\\u00f6tigt, muss dies rechtlich sichergestellt werden. Laden Sie die entsprechende Vereinbarung (Vertrag, Dienstbarkeitsvertrag, Grundbucheintrag) bei den Dokumenten hoch.\", \"fr\": \"Si votre projet de construction est enti\\u00e8rement ou partiellement sur un terrain \\u00e9tranger ou si un terrain \\u00e9tranger est n\\u00e9cessaire pour le d\\u00e9veloppement de la parcelle, ceci doit \\u00eatre l\\u00e9galement garanti. T\\u00e9l\\u00e9chargez l'accord correspondant (contrat, contrat de servitude, inscription au registre foncier) avec les documents.\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -40252,9 +39857,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -40286,7 +39889,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "informationen-ueber-grundstueck"
       },
       "data_source": null,
@@ -40318,9 +39921,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": "reklame",
@@ -40442,7 +40043,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "spezialformulare-stoerfallvorsorge"
       },
       "data_source": null,
@@ -40476,7 +40077,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "spezialformulare-wald"
       },
       "data_source": null,
@@ -40510,7 +40111,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "spezialformulare-wald"
       },
       "data_source": null,
@@ -40542,9 +40143,7 @@
       "info_text": "{\"de\": \"W\\u00e4hlen Sie diese Option, wenn ein Unterschutzstellungsvertrag mit Regierungsratsbeschluss zum Schutz Ihrer Liegenschaft vorliegt.\", \"fr\": \"Veuillez s\\u00e9lectionner cette option si un contrat de protection, accompagn\\u00e9 d'un arr\\u00eat\\u00e9 du Conseil-ex\\u00e9cutif, a \\u00e9t\\u00e9 conclu en vue de la protection de votre bien-fonds.\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -40574,9 +40173,7 @@
       "info_text": "{\"de\": \"W\\u00e4hlen Sie diese Option, wenn ein Unterschutzstellungsvertrag mit Regierungsratsbeschluss zum Schutz Ihrer Liegenschaft vorliegt.\", \"fr\": \"Veuillez s\\u00e9lectionner cette option si un contrat de protection, accompagn\\u00e9 d'un arr\\u00eat\\u00e9 du Conseil-ex\\u00e9cutif, a \\u00e9t\\u00e9 conclu en vue de la protection de votre bien-fonds.\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -40608,7 +40205,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "spezialformulare-entsorgung-bodenschutz"
       },
       "data_source": null,
@@ -40643,9 +40240,7 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -40678,9 +40273,7 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -40710,9 +40303,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -40775,9 +40366,7 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -40840,9 +40429,7 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -40872,9 +40459,7 @@
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
       "static_content": "{\"de\": \"**Schallpegelangaben**\", \"fr\": \"**Indication du niveau sonore**\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -40968,9 +40553,7 @@
       "info_text": "{\"de\": \"**Info zu Einleitung in Mischwasserkanal**\\n  \\nNur in 3. Priorit\\u00e4t zul\\u00e4ssig, wenn der Nachweis erbracht wird, dass das Regenwasser nicht versickert werden kann und auch keine Einleitung in ein Oberfl\\u00e4chengew\\u00e4sser bzw. in die Regenwasserkanalisation m\\u00f6glich ist. Der Gesuchssteller/Projektverfasser hat einen entsprechenden Nachweis durch eine Fachperson zu erbringen, dass nicht versickert werden kann.\", \"fr\": \"**Renseignements sur le rejet dans les \\u00e9gouts unitaires**\\n  \\nN'est admissible en priorit\\u00e9 3 que s'il est prouv\\u00e9 que l'eau de pluie ne peut pas s'\\u00e9couler et qu'aucun rejet dans les eaux de surface ou dans le syst\\u00e8me d'\\u00e9vacuation des eaux pluviales n'est possible. Le demandeur ou l'auteur du projet doit fournir la preuve appropri\\u00e9e d'un sp\\u00e9cialiste que l'eau de pluie ne peut pas s'\\u00e9couler.\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -41002,7 +40585,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "plaene"
       },
       "data_source": null,
@@ -41036,7 +40619,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "bauwerk-gewaesserschutz"
       },
       "data_source": null,
@@ -41162,9 +40745,7 @@
       "info_text": "{\"de\": \"Geb\\u00e4ude, die aufgrund ihrer bedeutenden architektonischen Qualit\\u00e4t ungeschm\\u00e4lert bewahrt werden m\\u00fcssen. Das Bauinventar der Gemeinde gibt Aufschluss dar\\u00fcber, wie die Einstufung Ihres Geb\\u00e4udes ist.\", \"fr\": \"Les b\\u00e2timents devant \\u00eatre conserv\\u00e9s dans leur int\\u00e9grit\\u00e9 en raison de leurs qualit\\u00e9s architectoniques importantes. Le recensement architectural de la commune indique l'\\u00e9valuation du b\\u00e2timent.\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -41194,9 +40775,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -41226,9 +40805,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"***\\n**Schutzbauwerk**\", \"fr\": \"***\\n**Ouvrage de protection**\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -41260,7 +40837,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "spezialformulare-zivilschutz"
       },
       "data_source": null,
@@ -41322,9 +40899,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -41419,7 +40994,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "spezialformulare-stoerfallvorsorge"
       },
       "data_source": null,
@@ -41543,7 +41118,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "spezialformulare-zivilschutz"
       },
       "data_source": null,
@@ -41577,7 +41152,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "bauwerk-allgemein"
       },
       "data_source": null,
@@ -41609,9 +41184,7 @@
       "info_text": "{\"de\": \"Zu den h\\u00e4ufigsten heute bekannten Bauschadstoffen z\\u00e4hlen beispielsweise:\\n  \\n- Asbest in fest und schwach gebundener Form\\n  \\n- Polychlorierte Biphenyle (PCB) und Chlorparaffine (CP)\\n  \\n- Polyzyklische aromatische Kohlenwasserstoffe (PAK) in Beschichtungen, Teer\\u00f6len und Korkd\\u00e4mmungen\\n    \\n- Elemente (vorab Schwermetalle) in Korrosionsschutz und Farben\\n  \\n- K\\u00fcnstliche Mineralfasern\\n  \\n- Holz- und Flammschutzmittel\", \"fr\": \"Parmi les substances polluantes connues les plus fr\\u00e9quentes dans la construction \\u00e0 l\\u2019heure actuelle, on compte notamment:\\n\\n- l\\u2019amiante, qu\\u2019elle soit fortement ou faiblement li\\u00e9e\\n\\n- les biph\\u00e9nyles polychlor\\u00e9s (PCB) et les paraffines chlor\\u00e9es (CP)\\n\\n- les hydrocarbures aromatiques polycycliques (HAP) contenus dans des rev\\u00eatements, huiles de goudron et isolations en li\\u00e8ge\\n\\n- composants (en particulier m\\u00e9taux lourds) utilis\\u00e9s pour la protection contre la corrosion et dans les teintures\\n\\n- les fibres min\\u00e9rales artificielles\\n\\n- les produits de protection du bois et de protection contre les flammes.\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -41641,9 +41214,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -41735,7 +41306,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "plaene"
       },
       "data_source": null,
@@ -41899,7 +41470,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "spezialformulare-reklame"
       },
       "data_source": null,
@@ -41931,9 +41502,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": "solar-und-sendeanlagen",
@@ -41966,9 +41535,7 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -41998,9 +41565,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -42032,7 +41597,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "spezialformulare-waermepumpen"
       },
       "data_source": null,
@@ -42064,9 +41629,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": "sondenmodelle-tabelle",
       "sub_form": null,
@@ -42098,9 +41661,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -42132,9 +41693,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -42198,7 +41757,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "spezialformulare-biologische-sicherheit"
       },
       "data_source": null,
@@ -42262,9 +41821,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -42294,9 +41851,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -42356,9 +41911,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"***\\n**Stofflagerung**\", \"fr\": \"***\\n**Stockage de substances**\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -42390,7 +41943,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "spezialformulare-stoerfallvorsorge"
       },
       "data_source": null,
@@ -42424,9 +41977,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -42648,9 +42199,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -42682,9 +42231,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -42778,9 +42325,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -42874,9 +42419,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -42936,9 +42479,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"**Technische Angaben zur Erdw\\u00e4rmesonde**\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -42968,9 +42509,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"**Technische Angaben zur W\\u00e4rmepumpe**\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -43000,9 +42539,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"**Technische Angaben zur W\\u00e4rmepumpe**\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -43034,15 +42571,12 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null,
-        "formatValidators": ["phone-number"]
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
       "source": null,
-      "format_validators": "[]",
+      "format_validators": "[\"phone-number\"]",
       "default_answer": null,
       "calc_expression": null,
       "calc_dependents": "[]"
@@ -43069,14 +42603,12 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "formatValidators": ["phone-number"]
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
       "source": null,
-      "format_validators": "[]",
+      "format_validators": "[\"phone-number\"]",
       "default_answer": null,
       "calc_expression": null,
       "calc_dependents": "[]"
@@ -43103,14 +42635,12 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "formatValidators": ["phone-number"]
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
       "source": null,
-      "format_validators": "[]",
+      "format_validators": "[\"phone-number\"]",
       "default_answer": null,
       "calc_expression": null,
       "calc_dependents": "[]"
@@ -43137,14 +42667,12 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "formatValidators": ["phone-number"]
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
       "source": null,
-      "format_validators": "[]",
+      "format_validators": "[\"phone-number\"]",
       "default_answer": null,
       "calc_expression": null,
       "calc_dependents": "[]"
@@ -43171,15 +42699,12 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null,
-        "formatValidators": ["phone-number"]
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
       "source": null,
-      "format_validators": "[]",
+      "format_validators": "[\"phone-number\"]",
       "default_answer": null,
       "calc_expression": null,
       "calc_dependents": "[]"
@@ -43206,14 +42731,12 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "formatValidators": ["phone-number"]
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
       "source": null,
-      "format_validators": "[]",
+      "format_validators": "[\"phone-number\"]",
       "default_answer": null,
       "calc_expression": null,
       "calc_dependents": "[]"
@@ -43240,14 +42763,12 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "formatValidators": ["phone-number"]
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
       "source": null,
-      "format_validators": "[]",
+      "format_validators": "[\"phone-number\"]",
       "default_answer": null,
       "calc_expression": null,
       "calc_dependents": "[]"
@@ -43305,9 +42826,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -43404,9 +42923,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -43624,9 +43141,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -43656,9 +43171,7 @@
       "info_text": "{\"de\": \"**Typ A:**\\n  \\nDie Versickerung erfolgt \\u00fcber eine biologisch aktive Bodenschicht (begr\\u00fcnte Versickerungsmulde, begr\\u00fcntes Versickerungsbecken, Gr\\u00fcnfl\\u00e4che)\\n  \\n**Typ B:**\\n  \\nDie Versickerung erfolgt unterirdisch (Versickerungsgalerie, -strang, Sickerschacht)\", \"fr\": \"**Type A:**\\n\\nL'infiltration se fait par une couche de sol biologiquement active (bac d'infiltration verdoyant, bassin d'infiltration verdoyant, zone verte).\\n\\n**Type B:**\\n\\n L'infiltration se fait sous terre (galerie d'infiltration, toron, puits d'infiltration).\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -43690,9 +43203,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -43754,9 +43265,7 @@
       "info_text": "{\"de\": \"**Typ A:**\\n  \\nDie Versickerung erfolgt \\u00fcber eine biologisch aktive Bodenschicht (begr\\u00fcnte Versickerungsmulde, begr\\u00fcntes Versickerungsbecken, Gr\\u00fcnfl\\u00e4che)\\n  \\n**\\u00dcber Schulter:**\\n  \\nRandliche Versickerung in einen Gr\\u00fcnstreifen.\", \"fr\": \"**Type A:**\\n\\nL'infiltration se fait par une couche de sol biologiquement active (bac d'infiltration verdoyant, bassin d'infiltration verdoyant, zone verte).\\n  \\n**Par-dessus l'\\u00e9paule:**\\n  \\nInfiltration au bord dans une bande verte.\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"Type A: L'infiltration se fait par une couche de sol biologiquement active (bac d'infiltration verdoyant, bassin d'infiltration verdoyant, zone verte). Type B: L'infiltration se fait sous terre (galerie d'infiltration, toron, puits d'infiltration). Par-dessus l'\\u00e9paule : Infiltration au bord dans une bande verte.\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -43788,9 +43297,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -43822,7 +43329,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "informationen-ueber-grundstueck"
       },
       "data_source": null,
@@ -43856,9 +43363,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -43890,9 +43395,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -43924,7 +43427,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "spezialformulare-wald"
       },
       "data_source": null,
@@ -43956,9 +43459,7 @@
       "info_text": "{\"de\": \"Dies ist eine generelle Umschreibung des Geb\\u00e4udes, welches erstellt oder umgebaut werden soll (z.B. bei Mehrfamilienhaus (MFH), Wohn- und Gewerbegeb\\u00e4ude, Produktionshalle, B\\u00fcrogeb\\u00e4ude etc.). Umschreibung was ist ein EFH und was ein MFH [(Art. 43 Abs. 3 BauV)](https://www.belex.sites.be.ch/frontend/versions/1522/art43?locale=de)\", \"fr\": \"Il s'agit l\\u00e0 d'une description g\\u00e9n\\u00e9rale du b\\u00e2timent qui doit \\u00eatre construit ou transform\\u00e9 (p. ex. immeuble \\u00e0 plusieurs logements, b\\u00e2timent d'habitation ou commercial, halle de production, bureaux, etc.). La description peut porter sur plusieurs b\\u00e2timents, par exemple: nouvelles constructions, ensemble r\\u00e9sidentiel de six immeubles \\u00e0 plusieurs logements et une surface commerciale. Distinction entre maison individuelle et immeuble \\u00e0 plusieurs logements [(art. 43, al. 3 OC)](https://www.belex.sites.be.ch/frontend/versions/1522/art43?locale=fr).\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -44020,7 +43521,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "plaene"
       },
       "data_source": null,
@@ -44117,9 +43618,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -44149,9 +43648,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -44181,9 +43678,7 @@
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -44213,9 +43708,7 @@
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -44247,7 +43740,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "bauwerk-gewaesserschutz"
       },
       "data_source": null,
@@ -44279,9 +43772,7 @@
       "info_text": "{\"de\": \"W\\u00e4hlen Sie diese Option, wenn ein Unterschutzstellungsvertrag zwischen Grundeigent\\u00fcmer/in und dem Amt f\\u00fcr Kultur des Kantons Bern besteht der den Schutz Ihrer Liegenschaft regelt.\", \"fr\": \"Veuillez s\\u00e9lectionner cette option si un contrat de protection a \\u00e9t\\u00e9 conclu entre le propri\\u00e9taire foncier et l\\u2019Office de la culture du canton de Berne en vue de la protection de votre bien-fonds.\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -44311,9 +43802,7 @@
       "info_text": "{\"de\": \"W\\u00e4hlen Sie diese Option, wenn ein Unterschutzstellungsvertrag zwischen Grundeigent\\u00fcmer/in und dem Amt f\\u00fcr Kultur des Kantons Bern besteht der den Schutz Ihrer Liegenschaft regelt.\", \"fr\": \"Veuillez s\\u00e9lectionner cette option si un contrat de protection a \\u00e9t\\u00e9 conclu entre le propri\\u00e9taire foncier et l\\u2019Office de la culture du canton de Berne en vue de la protection de votre bien-fonds.\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -44345,7 +43834,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "informationen-ueber-grundstueck"
       },
       "data_source": null,
@@ -44377,9 +43866,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -44411,9 +43898,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -44475,9 +43960,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -44537,9 +44020,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -44569,9 +44050,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -44603,7 +44082,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "spezialformulare-entsorgung-bodenschutz"
       },
       "data_source": null,
@@ -44637,7 +44116,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "allgemeine-informationen"
       },
       "data_source": null,
@@ -44671,7 +44150,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "allgemeine-informationen"
       },
       "data_source": null,
@@ -44703,9 +44182,7 @@
       "info_text": "{\"de\": \"Die geplanten Baugrubensicherungsmassnahmen sind vollst\\u00e4ndig auszuweisen.\", \"fr\": \"Les mesures de s\\u00e9curisation de la fouille du chantier pr\\u00e9vues doivent \\u00eatre d\\u00e9crites int\\u00e9gralement.\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -44833,9 +44310,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -44897,9 +44372,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": "waermepumpen",
@@ -44929,9 +44402,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -44961,9 +44432,7 @@
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": "wald",
@@ -45026,9 +44495,7 @@
       "info_text": "{\"de\": \"- Die Nutzung von W\\u00e4rme aus Boden/Untergrund erfordert eine Gew\\u00e4sserschutzbewilligung.\\n  \\n- Die Anlagen sind in einem Plan darzustellen und zu vermessen.\", \"fr\": \"- Le pr\\u00e9l\\u00e8vement de la chaleur du sol et du sous-sol requiert une autorisation en mati\\u00e8re de protection des eaux\\n\\n- Les installations doivent \\u00eatre mesur\\u00e9es et report\\u00e9es sur un plan.\"}",
       "static_content": "{\"de\": \"***\\n**W\\u00e4rmepumpen - Boden/Untergrund**\", \"fr\": \"***\\n**Pompes \\u00e0 chaleur - Sol / sous-sol**\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -45058,9 +44525,7 @@
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
       "static_content": "{\"de\": \"***\\n**W\\u00e4rmepumpen - Luft**\", \"fr\": \"***\\n**Pompes \\u00e0 chaleur - Air**\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -45090,9 +44555,7 @@
       "info_text": "{\"de\": \"- Die Nutzung von Wasser (Grundwasser, Wasser aus B\\u00e4chen, Fl\\u00fcssen, Seen und gr\\u00f6sseren Quellen) ben\\u00f6tigt eine kantonale Konzession.\\n  \\n- Die Anlagen sind in einem Plan darzustellen und zu vermessen.\", \"fr\": \"- L\\u2019utilisation d\\u2019eau (eaux souterraines, eau pr\\u00e9lev\\u00e9e dans un ruisseau, une rivi\\u00e8re, un lac ou sources d\\u2019une certaine importance) requiert une concession cantonale.\\n  \\n- Les installations doivent \\u00eatre mesur\\u00e9es et report\\u00e9es sur un plan.\"}",
       "static_content": "{\"de\": \"***\\n**W\\u00e4rmepumpen - Wasser**\", \"fr\": \"***\\n**Pompes \\u00e0 chaleur - Eau**\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -45122,9 +44585,7 @@
       "info_text": "{\"de\": \"Verkehrsintensive Vorhaben sind:\\n  \\n- Nutzungen mit einem Verkaufsanteil > 2\\u2018500 m2 Grundfl\\u00e4che (bestehend und neu zusammen);\\n  \\n- Grosse Vorhaben nach Art. 53 Abs. 4 BauV, welche zus\\u00e4tzliche Abstellpl\\u00e4tze zum Grundbedarf ausl\\u00f6sen.\", \"fr\": \"Sont consid\\u00e9r\\u00e9s comme des b\\u00e2timents particuli\\u00e8rement sensibles: \\n\\n- Affectations comprenant une activit\\u00e9 commerciale sur une surface au sol >2&lsquo;500 m\\u00b2 (total des surfaces existante et nouvelle)\\n- Projets de grande envergure au sens de l'article 53, alin\\u00e9a 4 OC n\\u00e9cessitant des places suppl\\u00e9mentaires par rapport aux besoins de base.\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -45184,9 +44645,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -45284,7 +44743,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "spezialformulare-waermepumpen"
       },
       "data_source": null,
@@ -45317,7 +44776,6 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {
-        "widgetOverride": null,
         "columnsToDisplay": [
           "amts-fachstelle",
           "kontaktperson-vorabklaerungen",
@@ -45356,9 +44814,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -45388,9 +44844,7 @@
       "info_text": "{\"de\": \"**Geb\\u00e4ude geringer Abmessungen**\\n  \\n- Geb\\u00e4ude geringer H\\u00f6he\\n  \\n- Maximal 2 Geschosse \\u00fcber Terrain\\n  \\n- Maximal 1 Geschoss unter Terrain\\n  \\n- Summe aller Geschossfl\\u00e4chen bis 600 m\\u00b2\\n  \\n- Keine Nutzung f\\u00fcr schlafende Personen mit Ausnahme einer Wohnung\\n  \\n- Keine Nutzung als Kinderkrippe\\n  \\n- R\\u00e4ume mit grosser Personenbelegung nur im Erdgeschoss\\n  \\n**Geb\\u00e4ude geringer Abmessungen**\\n  \\n- Bauten bei welchen zum Beurteilungszeitpunkt die Nutzung durch den Gesuchsteller ganz oder teilweise nicht festgelegt ist.\\n  \\n**Fischhaltung / Aquakulturanlage**\\n  \\n[Merkblatt Bewilligungsverfahren zum Erstellen und Betreiben einer Fischhaltung, Fischzuchtresp. Aquakulturanlage](https://www.vol.be.ch/vol/de/index/natur/fischerei/formulare_merkblaetter.assetref/dam/documents/VOL/LANAT/de/Natur/Fischerei/Merkblatt_Bewilligungsverfahren_zum_Betreiben_einer_Fischzuchtanlage.pdf)\", \"fr\": \"**B\\u00e2timent/s de dimensions r\\u00e9duites**\\n\\n- B\\u00e2timent/s de faible hauteur\\n\\n- Au maximum deux \\u00e9tages au-dessus du sol\\n\\n- Au maximum un \\u00e9tage au-dessous du sol\\n\\n- Total de toutes les surfaces de plancher jusqu'\\u00e0 600 m\\u00b2\\n\\n- Aucune affectation d\\u2019h\\u00e9bergement (logement except\\u00e9)\\n\\n- Aucune affectation en tant que cr\\u00e8che ou garderie\\n\\n- Locaux pouvant accueillir un grand nombre de personnes seulement au rez-de-chauss\\u00e9e\\n\\n**B\\u00e2timent/s de dimensions r\\u00e9duites**\\n\\n- Constructions dont l'affectation n'avait, au moment de l'\\u00e9valuation, pas \\u00e9t\\u00e9 ou pas \\u00e9t\\u00e9 enti\\u00e8rement d\\u00e9termin\\u00e9e par la personne requ\\u00e9rante.\\n\\n**Installation de pisciculture ou d\\u2019aquaculture**\\n\\n[Notice concernant la proc\\u00e9dure d\\u2019autorisation relative \\u00e0 l\\u2019\\u00e9tablissement et \\u00e0 l\\u2019exploitation d\\u2019installations de pisciculture ou d\\u2019aquaculture](https://www.vol.be.ch/vol/de/index/natur/fischerei/formulare_merkblaetter.assetref/dam/documents/VOL/LANAT/de/Natur/Fischerei/Merkblatt_Bewilligungsverfahren_zum_Betreiben_einer_Fischzuchtanlage.pdf)\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -45420,9 +44874,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -45482,9 +44934,7 @@
       "info_text": "{\"de\": \"1\\\\. Der Brandschutzabstand ist so festzulegen, dass Bauten und Anlagen nicht durch gegenseitige Brand\\u00fcbertragung gef\\u00e4hrdet sind. Bauart, Lage, Ausdehnung und Nutzung sind zu ber\\u00fccksichtigen.\\n  \\n2\\\\. Es sind folgende Brandschutzabst\\u00e4nde zwischen benachbarten Bauten und Anlagen einzuhalten:\\n  \\n- 5 m, wenn die \\u00e4usserste Schicht beider Aussenwandkonstruktionen aus Baustoffen der RF1 besteht;\\n  \\n- 7.5 m, wenn die \\u00e4usserste Schicht einer der beiden Aussenwandkonstruktionen aus brennbaren Baustoffen besteht;\\n  \\n- 10 m, wenn die \\u00e4usserste Schicht beider Aussenwandkonstruktionen aus brennbaren Baustoffen besteht.\\n  \\n3\\\\. Die Brandschutzabst\\u00e4nde d\\u00fcrfen reduziert werden:\\n  \\n- zwischen Einfamilienh\\u00e4usern;\\n  \\n- zwischen Geb\\u00e4uden geringer H\\u00f6he;\\n  \\n- zwischen Geb\\u00e4uden mittlerer H\\u00f6he, wenn die Aussenw\\u00e4nde, mit Ausnahme von zu \\u00f6ffnenden Fenstern und T\\u00fcren, einen Feuerwiderstand von mindestens 30 Minuten aufweisen.\\n  \\nDie reduzierten Brandschutzabst\\u00e4nde betragen mindestens:\\n  \\n- 4 m, wenn die \\u00e4usserste Schicht beider Aussenwandkonstruktionen aus Baustoffen der RF1 besteht;\\n   \\n- 5 m, wenn die \\u00e4usserste Schicht einer der beiden Aussenwandkonstruktionen aus brennbaren Baustoffen besteht;\\n  \\n- 6 m, wenn die \\u00e4usserste Schicht beider Aussenwandkonstruktionen aus brennbaren Baustoffen besteht. \\n  \\n4\\\\. Brennbare Anteile der Aussenwandfl\\u00e4chen oder vorspringende Teile von Bauten und Anlagen wie Balkone, Dachvorspr\\u00fcnge und Winterg\\u00e4rten sind entsprechend zu ber\\u00fccksichtigen. Dachuntersichten sind davon ausgenommen.\", \"fr\": \"1. Les distances de s\\u00e9curit\\u00e9 doivent \\u00eatre fix\\u00e9es de mani\\u00e8re \\u00e0 \\u00e9viter la mise en danger r\\u00e9ciproque des b\\u00e2timents et autres ouvrages par propagation d'un incendie. Le type de construction, la situation, l'\\u00e9tendue et l'affectation doivent \\u00eatre pris en compte. \\n\\n2. Les distances de s\\u00e9curit\\u00e9 incendie suivantes doivent \\u00eatre respect\\u00e9es:\\n\\n- 5 m lorsque les deux parois ext\\u00e9rieures pr\\u00e9sentent une surface compos\\u00e9e de mat\\u00e9riaux RF1;\\n\\n- 7,5 m lorsque l'une des parois ext\\u00e9rieures pr\\u00e9sente une surface combustible;\\n\\n- 10 m lorsque les deux parois ext\\u00e9rieures pr\\u00e9sentent une surface combustible.\\n\\n3. Les distances de s\\u00e9curit\\u00e9 incendie peuvent \\u00eatre r\\u00e9duites:\\n\\n- entre deux maisons individuelles;\\n\\n- entre deux b\\u00e2timents de faible hauteur;\\n\\n- entre deux b\\u00e2timents de hauteur moyenne dont les parois ext\\u00e9rieures (\\u00e0 l'exception des fen\\u00eatres et des portes qui s\\u2019ouvrent) pr\\u00e9sentent une r\\u00e9sistance au feu d'au moins 30 minutes.\\n\\nLes distances de s\\u00e9curit\\u00e9 incendie r\\u00e9duites doivent \\u00eatre d'au moins:\\n\\n- 4 m lorsque les deux parois ext\\u00e9rieures pr\\u00e9sentent une surface compos\\u00e9e de mat\\u00e9riaux RF1;\\n\\n- 5 m lorsque l'une des parois ext\\u00e9rieures pr\\u00e9sente une surface combustible;\\n\\n- 6 m lorsque les deux parois ext\\u00e9rieures pr\\u00e9sentent une surface combustible.\\n\\n4. Il faut tenir compte d'une mani\\u00e8re appropri\\u00e9e des parties combustibles des parois ext\\u00e9rieures, ainsi que des parties saillantes des b\\u00e2timents et autres ouvrages, telles que les balcons, les avant-toits et les v\\u00e9randas. Cette exigence ne concerne pas le dessous des avant-toits.\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -45544,9 +44994,7 @@
       "info_text": "{\"de\": \"[Ingenieurbest\\u00e4tigung f\\u00fcr G\\u00fcllegruben](https://www.bvd.be.ch/content/dam/bvd/dokumente/de/awa/wasser/abwasserentsorgung/abwasserentsorgung-im-l%C3%A4ndlichen-raum/hofd%C3%BCngeranlagen/ingenieurbestaetigung.pdf)\", \"fr\": \"[Attestation de l'ing\\u00e9nieur](https://www.bvd.be.ch/content/dam/bvd/dokumente/fr/awa/wasser/abwasserentsorgung/abwasserentsorgung-im-l%C3%A4ndlichen-raum/hofd%C3%BCngeranlagen/ingenieurbestaetigung-fr.pdf)\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -45576,9 +45024,7 @@
       "info_text": "{\"de\": \"[Merkblatt Erstellung von Silanlagen und Lagerung von Silagen](https://www.bvd.be.ch/content/dam/bvd/dokumente/de/awa/wasser/abwasserentsorgung/abwasserentsorgung-im-l%C3%A4ndlichen-raum/entw%C3%A4sserung-landwirtschaftlicher-liegenschaften/merkblatt-erstellen-siloanlagen.pdf)\", \"fr\": \"[Brochure pour la construction de silos et le stockage d'ensilages](https://www.bvd.be.ch/content/dam/bvd/dokumente/fr/awa/wasser/abwasserentsorgung/abwasserentsorgung-im-l%C3%A4ndlichen-raum/entw%C3%A4sserung-landwirtschaftlicher-liegenschaften/merkblatt-erstellen-siloanlagen-fr.pdf)\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -45611,9 +45057,7 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -45646,9 +45090,7 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -45681,9 +45123,7 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -45713,9 +45153,7 @@
       "info_text": "{\"de\": \"Die Anforderungen zum Natur- und Wildtierschutz sind in folgender Wegleitung zu finden: \\u201eAnforderungen des Natur-, Wild- und Vogelschutzes an Baugesuchsunterlagen, Checkliste mit Erl\\u00e4uterungen\\u201c.\\n  \\n[ANF/JI. Weblink: http://www.be.ch/natur -> Publikationen](https://www.vol.be.ch/vol/de/index/natur/naturfoerderung.html#originRequestUrl=www.be.ch/natur)\", \"fr\": \"Les exigences relatives \\u00e0 la protection de la nature et de la faune sauvage figurent dans le guide intitul\\u00e9 \\u00abExigences en mati\\u00e8re de protection de la nature, de la faune sauvage et des oiseaux pos\\u00e9es aux dossiers de demande de permis de construire \\u2013 liste de contr\\u00f4le accompagn\\u00e9e de commentaires\\u00bb.\\n\\n[ANF/JI. Weblink: http://www.be.ch/natur -> Publikationen](https://www.weu.be.ch/fr/start/themen/umwelt/naturschutz.html)\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -45869,9 +45307,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": "wohnen",
@@ -45901,9 +45337,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": "wohnen-tabelle",
       "sub_form": null,
@@ -45995,9 +45429,7 @@
       "info_text": "{\"de\": \"Bei komplexen Ausgangslagen empfiehlt es sich, die baurechtlichen Rahmenbedingungen mit einer Vorabkl\\u00e4rung zu pr\\u00fcfen, bevor hohe Planungskosten entstehen.  \\n  \\nF\\u00fcr komplizierte und komplexe Bauvorhaben oder bei unklarer Rechtslage ist es empfehlenswert, vor Eingabe eines Baugesuchs bei der zust\\u00e4ndigen Gemeinde eine schriftliche Vorabkl\\u00e4rung mit konkreten Fragen einzureichen. Aufgrund der Auskunft k\\u00f6nnen Sie die Chancen und Risiken eines Bauvorhabens besser einsch\\u00e4tzen und unn\\u00f6tige Verz\\u00f6gerungen und Mehrkosten im Baubewilligungsverfahren vermeiden. Eine Vorabkl\\u00e4rung ist in der Regel kostenpflichtig.  \\n  \\nEs besteht die M\\u00f6glichkeit einzelne Fragen durch eine \\\"Einfache Vorabkl\\u00e4rung\\\" zu beantworten oder eine umfassende Beurteilung des Bauvorhabens durch eine \\\"Vollst\\u00e4ndige Vorabkl\\u00e4rung\\\" durchzuf\\u00fchren. Die bereits ausgef\\u00fcllten Angaben k\\u00f6nnen bei einer \\\"Vollst\\u00e4ndigen Vorabkl\\u00e4rung\\\" in das Baugesuch \\u00fcberf\\u00fchrt werden.\", \"fr\": \"En cas de situation complexe, une demande pr\\u00e9alable (portant en particulier sur les conditions en mati\\u00e8re de droit des constructions) est recommand\\u00e9e afin que des frais importants puissent \\u00eatre \\u00e9vit\\u00e9s.\\n\\nPour les projets de construction complexes ou lorsque la situation juridique n'est pas claire, il est recommand\\u00e9 de requ\\u00e9rir une demande pr\\u00e9alable, en posant des questions concr\\u00e8tes, \\u00e0 la commune comp\\u00e9tente avant le d\\u00e9p\\u00f4t de la demande de permis de construire. Cette d\\u00e9marche permet que les chances et les risques du projet de construction en question soient mieux \\u00e9valu\\u00e9s et que des retards et des frais suppl\\u00e9mentaires dans le cadre de la proc\\u00e9dure d'octroi du permis de construire soient \\u00e9vit\\u00e9s. La r\\u00e9alisation d'une demande pr\\u00e9alable est en r\\u00e8gle g\\u00e9n\\u00e9rale payante.\\n\\nIl est possible de solliciter une demande pr\\u00e9alable simple pour r\\u00e9pondre \\u00e0 certaines questions pr\\u00e9cises ou de proc\\u00e9der \\u00e0 une \\u00e9valuation globale du projet de construction dans le cadre d'une demande pr\\u00e9alable compl\\u00e8te. Dans le second cas, les informations fournies peuvent \\u00eatre r\\u00e9utilis\\u00e9es dans la demande de permis de construire.\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -46120,9 +45552,7 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": "zivilschutz",
@@ -46215,9 +45645,7 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -46279,9 +45707,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -46313,9 +45739,7 @@
       "configuration": {
         "max_length": null
       },
-      "meta": {
-        "widgetOverride": null
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -46377,7 +45801,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": null,
+
         "documentCategory": "zustimmungen"
       },
       "data_source": null,
