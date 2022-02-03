@@ -32,7 +32,7 @@
     "@glimmer/component": "1.0.4",
     "@glimmer/tracking": "1.0.4",
     "@projectcaluma/ember-core": "11.0.0-beta.2",
-    "@projectcaluma/ember-form": "11.0.0-beta.5",
+    "@projectcaluma/ember-form": "11.0.0-beta.6",
     "ember-apollo-client": "3.2.0",
     "ember-auto-import": "2.4.0",
     "ember-cli-babel": "7.26.11",
@@ -83,7 +83,7 @@
     "prettier": "2.5.1",
     "qunit": "2.17.2",
     "qunit-dom": "2.0.0",
-    "sass": "1.49.4",
+    "sass": "1.49.7",
     "webpack": "5.68.0"
   },
   "engines": {
