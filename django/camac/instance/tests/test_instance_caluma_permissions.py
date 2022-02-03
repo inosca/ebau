@@ -95,7 +95,7 @@ def test_instance_permissions_be(
 
 
 @pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
-@pytest.mark.parametrize("role__name", ["Coordination"])
+@pytest.mark.parametrize("role__name", ["Coordination", "SystemOperation"])
 @pytest.mark.parametrize("instance_state__name", ["ext", "circ", "redac"])
 def test_instance_permissions_ur(
     admin_client,

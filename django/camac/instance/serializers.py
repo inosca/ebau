@@ -515,7 +515,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             permissions.add("read")
 
         # COMM is needed for "Bundesstelle"
-        if state in ["comm", "ext", "circ", "redac", "old"]:
+        if state in ["comm", "ext", "circ", "redac"]:
             permissions.add("write")
         return permissions
 
@@ -555,6 +555,9 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         return permissions
 
     def _get_main_form_permissions_for_support(self, instance):
+        return set(["read", "write"])
+
+    def _get_main_form_permissions_for_system_operation(self, instance):
         return set(["read", "write"])
 
     @permission_aware
