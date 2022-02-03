@@ -17,7 +17,12 @@
               hour12=false
             }}
           </span>
-
+          {{#if this.displayJournalEntryDuration}}
+              <span uk-icon="icon: future; ratio: 0.7" />
+              <span class="uk-margin-small-right journal-entry__space">
+                {{@journalEntry.duration}}
+              </span>
+          {{/if}}
           <i
             class="uk-flex"
             title={{if @journalEntry.visibility (t "journal.visibleForAuthorities") (t "journal.visibleForOwnOrganization")}}
@@ -49,6 +54,7 @@
       {{#if @journalEntry.edit}}
         <JournalTextarea
           @journalEntry={{@journalEntry}}
+          @showJournalEntryDuration={{@showJournalEntryDuration}}
         />
       {{else}}
         <span class="journal-entry-text">{{@journalEntry.text}}</span>

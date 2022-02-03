@@ -1717,6 +1717,18 @@ class FormFieldSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         fields = ("name", "value", "instance")
 
 
+class DurationField(serializers.DurationField):
+    def to_representation(self, value):
+        if not value:
+            return None
+
+        total_seconds = value.total_seconds()
+        total_hours = int(total_seconds // 3600)
+        minutes = int((total_seconds // 60) % 60)
+
+        return f"{total_hours:0>2}:{minutes:0>2}"
+
+
 class JournalEntrySerializer(InstanceEditableMixin, serializers.ModelSerializer):
     included_serializers = {
         "instance": InstanceSerializer,
@@ -1724,6 +1736,7 @@ class JournalEntrySerializer(InstanceEditableMixin, serializers.ModelSerializer)
     }
 
     visibility = serializers.ChoiceField(choices=models.JournalEntry.VISIBILITIES)
+    duration = DurationField(allow_null=True)
 
     def create(self, validated_data):
         validated_data["modification_date"] = timezone.now()
@@ -1743,6 +1756,7 @@ class JournalEntrySerializer(InstanceEditableMixin, serializers.ModelSerializer)
             "service",
             "user",
             "text",
+            "duration",
             "creation_date",
             "modification_date",
             "visibility",
