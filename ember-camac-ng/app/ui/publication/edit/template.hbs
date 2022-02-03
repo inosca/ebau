@@ -9,25 +9,12 @@
   }}
   as |content|
 >
-  {{#if (not (eq this.publication.status "COMPLETED"))}}
-    <div class="uk-background-muted uk-padding-small uk-margin">
-      <p>
-        <span class="uk-text-bold">{{t "publication.info.attention"}}</span>
-        {{t (concat "publication.info.unpublished." @model.type)}}
-      </p>
-      <p class="uk-text-italic uk-margin-remove-bottom">
-        {{t "publication.info.documents"}}
-      </p>
-    </div>
-  {{else if (not this.publication.meta.is-published)}}
-    <div
-      class="uk-background-muted uk-padding-small
-        {{if (eq @model.type "public") "uk-margin"}}"
-    >
-      <span class="uk-text-bold">{{t "publication.info.note"}}</span>
-      {{t (concat "publication.info.canceled." @model.type)}}
-    </div>
-  {{/if}}
+  <PublicationInfo
+    @instanceId={{@model.instanceId}}
+    @status={{this.publication.status}}
+    @isPublished={{this.publication.meta.is-published}}
+    @type={{@model.type}}
+  />
 
   <content.form />
 

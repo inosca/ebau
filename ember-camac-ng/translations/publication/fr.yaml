@@ -19,6 +19,8 @@ publication:
     attention: "Attention :"
     note: "Note :"
     documents: ""
+    published:
+      public: ""
     unpublished:
       public: ""
       neighbors: ""
