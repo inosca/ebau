@@ -46,6 +46,7 @@ module.exports = function (environment) {
         },
         allowApplicantManualWorkItem: false,
         journalDefaultVisibility: false,
+        journalEntryDuration: false,
         instanceStates: {
           archived: 20009,
         },
@@ -63,6 +64,7 @@ module.exports = function (environment) {
 
         allowApplicantManualWorkItem: true,
         journalDefaultVisibility: false,
+        journalEntryDuration: true,
         newCase: {
           calumaWorkflow: "internal-document",
           camacForm: 11,
@@ -76,6 +78,7 @@ module.exports = function (environment) {
         },
         allowApplicantManualWorkItem: false,
         journalDefaultVisibility: true,
+        journalEntryDuration: false,
         activeCirculationStates: [
           1, // RUN
           41, // NFD
