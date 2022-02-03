@@ -9,6 +9,7 @@
         @options={{this.municipalities}}
         @searchEnabled={{true}}
         @searchField="label"
+        @allowClear={{true}}
         @onChange={{this.updateMunicipality}}
       as |option|>
         {{option.label}}
@@ -17,11 +18,11 @@
   </div>
 {{/if}}
 
-{{#if (and this.fetchInstances.isRunning (eq this.instances.length 0))}}
+{{#if (and this.instances.isRunning (not this.instances.value))}}
   <div class="uk-text-center uk-padding">
     <UkSpinner @ratio={{2}} />
   </div>
-{{else if this.instances.length}}
+{{else if this.instances.value.length}}
   <table class="uk-table uk-table-striped uk-table-hover uk-table-responsive">
     <thead>
       <tr>
@@ -34,7 +35,7 @@
       </tr>
     </thead>
     <tbody>
-      {{#each this.instances as |publicInstance|}}
+      {{#each this.instances.value as |publicInstance|}}
         <tr>
           <td>
             <LinkTo
@@ -57,7 +58,7 @@
           <td
             colspan="6"
             class="uk-text-center"
-            {{in-viewport onEnter=(perform this.fetchMore) viewportSpy=true}}
+            {{in-viewport onEnter=this.fetchMore viewportSpy=true}}
           >
             <UkSpinner />
           </td>

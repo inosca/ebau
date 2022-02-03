@@ -1,6 +1,7 @@
 import Controller, { inject as controller } from "@ember/controller";
 import { inject as service } from "@ember/service";
-import { dropTask, lastValue } from "ember-concurrency";
+import { dropTask } from "ember-concurrency";
+import { useTask } from "ember-resources";
 
 export default class PublicInstancesDetailDocumentsController extends Controller {
   @service store;
@@ -10,12 +11,15 @@ export default class PublicInstancesDetailDocumentsController extends Controller
   @controller("public-instances.detail") detailController;
 
   get dossierNr() {
-    return this.detailController.publicInstance?.dossierNr;
+    return this.detailController.publicInstance.value?.dossierNr;
   }
 
-  @lastValue("fetchPublicAttachments") attachments;
+  attachments = useTask(this, this.fetchAttachments, () => [this.model]);
+
   @dropTask
-  *fetchPublicAttachments() {
+  *fetchAttachments() {
+    yield Promise.resolve();
+
     try {
       return yield this.store.query("attachment", {
         instance: this.model,
