@@ -2295,5 +2295,26 @@ snapshots['test_document_merge_service_snapshot[sb2] 1'] = [
         'label': 'Freigabequittung',
         'slug': 'freigabequittung-sb2',
         'type': 'FormQuestion'
+    },
+    {
+        'children': [
+            {
+                'label': 'Verantwortliche Person Selbstdeklaration Baukontrolle',
+                'people': [
+                    {
+                        'familyName': 'Egger',
+                        'givenName': 'Ernst'
+                    },
+                    {
+                        'familyName': 'Muster',
+                        'givenName': 'Max'
+                    }
+                ],
+                'type': 'SignatureQuestion'
+            }
+        ],
+        'label': 'Unterschriften',
+        'slug': '8-unterschriften',
+        'type': 'FormQuestion'
     }
 ]
