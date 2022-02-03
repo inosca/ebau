@@ -34062,14 +34062,12 @@
         "max_length": null,
         "min_length": null
       },
-      "meta": {
-        "formatValidators": ["email"]
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
       "source": null,
-      "format_validators": "[]",
+      "format_validators": "[\"email\"]",
       "default_answer": null,
       "calc_expression": null,
       "calc_dependents": "[]"
