@@ -1,7 +1,7 @@
 
 <LoadingOrNotfound
-  @loading={{this.fetchPublicInstance.isRunning}}
-  @hasPermission={{this.publicInstance}}
+  @loading={{this.publicInstance.isRunning}}
+  @hasPermission={{this.publicInstance.value}}
 >
   {{#if (has-feature "publication.form")}}
     <UkTab as |Tab|>
@@ -15,6 +15,7 @@
           {{t "publicInstancesDetail.documents"}}
         </AriaHeading>
       </Tab.item>
+      <RelatedPublications @dossierNr={{this.publicInstance.value.dossierNr}} @instanceId={{this.publicInstance.value.instanceId}} />
     </UkTab>
   {{/if}}
 
