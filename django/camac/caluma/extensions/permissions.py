@@ -254,8 +254,6 @@ class CustomPermission(IsAuthenticated):
                 raise RuntimeError("Error from NG API: %s" % jsondata["error"])
 
             permissions = jsondata["data"]["meta"]["permissions"]
-            print("permissions:", permissions, flush=True)
-            print("required_permission", required_permission, permission_key, flush=True)
 
             return required_permission in permissions.get(permission_key, [])
 
