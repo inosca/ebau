@@ -4,7 +4,7 @@ import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { dropTask } from "ember-concurrency";
-import moment from "moment";
+import { DateTime } from "luxon";
 
 function field(fieldName) {
   return function () {
@@ -18,6 +18,7 @@ function field(fieldName) {
 
 class Claim {
   @service store;
+  @service intl;
 
   constructor(document) {
     this.document = document;
@@ -45,16 +46,8 @@ class Claim {
     ].includes(this.statusSlug);
   }
 
-  get deadlineDate() {
-    return moment(this.deadline.answer.value);
-  }
-
-  get answeredDate() {
-    return moment(this.answered.answer.value);
-  }
-
   get isOverdue() {
-    return moment(this.deadlineDate) < moment();
+    return DateTime.fromISO(this.deadline.answer.value) < DateTime.now();
   }
 
   get service() {
