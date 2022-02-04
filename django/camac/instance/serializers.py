@@ -266,6 +266,24 @@ class SchwyzInstanceSerializer(InstanceSerializer):
     caluma_form = serializers.SerializerMethodField()
     caluma_workflow = serializers.SerializerMethodField()
 
+    @permission_aware
+    def validate(self, data):
+        return data
+
+    def _validate_internal(self, data):
+        if settings.APPLICATION["CALUMA"].get("CREATE_IN_PROCESS"):
+            data["instance_state"] = models.InstanceState.objects.get(name="internal")
+        return data
+
+    def validate_for_municipality(self, data):
+        return self._validate_internal(data)
+
+    def validate_for_service(self, data):
+        return self._validate_internal(data)
+
+    def validate_for_canton(self, data):
+        return self._validate_internal(data)
+
     @transaction.atomic
     def create(self, validated_data):
         instance = super().create(validated_data)
@@ -305,9 +323,9 @@ class SchwyzInstanceSerializer(InstanceSerializer):
 
     def get_permissions_for_municipality(self, instance):
         if instance.instance_state.name in ["new", "subm", "arch"]:
-            return {"bauverwaltung": {"read"}}
+            return {"bauverwaltung": {"read"}, "main": {"read"}}
         else:
-            return {"bauverwaltung": {"read", "write"}}
+            return {"bauverwaltung": {"read", "write"}, "main": {"read", "write"}}
 
     def get_permissions_for_service(self, instance):
         return {"bauverwaltung": {"read"}}
