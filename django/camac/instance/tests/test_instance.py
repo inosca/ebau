@@ -13,7 +13,7 @@ from rest_framework import status
 
 from camac.core.models import InstanceLocation, WorkflowEntry
 from camac.instance import domain_logic, serializers
-from camac.instance.models import HistoryEntryT
+from camac.instance.models import HistoryEntryT, Instance, InstanceState
 
 
 @pytest.mark.freeze_time("2018-04-17")
@@ -472,6 +472,60 @@ def test_instance_create(
         assert InstanceLocation.objects.filter(
             instance_id=json["data"]["id"], location=instance.location
         ).exists()
+
+
+@pytest.mark.parametrize(
+    "role__name",
+    [
+        ("Municipality"),
+        ("Service"),
+        ("Canton"),
+    ],
+)
+def test_instance_create_internal_sz(
+    db,
+    role,
+    admin_client,
+    application_settings,
+    form,
+    location,
+    instance_state_factory,
+    caluma_workflow_config_sz,
+):
+    application_settings["CALUMA"]["CREATE_IN_PROCESS"] = True
+
+    caluma_form = caluma_form_models.Form.objects.create(
+        slug="internal-form",
+        meta={"visibility": {"type": "internal"}, "is_creatable": True},
+        name="Test",
+    )
+    internal_instance_state = instance_state_factory(name="internal")
+    instance_state_factory(name="new")
+
+    url = reverse("instance-list")
+    data = {
+        "data": {
+            "type": "instances",
+            "id": "test",
+            "attributes": {
+                "caluma-form": caluma_form.slug,
+                "caluma-workflow": "internal-document",
+            },
+            "relationships": {
+                "form": {"data": {"type": "forms", "id": form.pk}},
+                "location": {"data": {"type": "locations", "id": location.pk}},
+            },
+        }
+    }
+
+    response = admin_client.post(url, data=data)
+    assert response.status_code == status.HTTP_201_CREATED
+
+    json = response.json()
+    assert (
+        int(json["data"]["relationships"]["instance-state"]["data"]["id"])
+        == internal_instance_state.instance_state_id
+    )
 
 
 @pytest.mark.freeze_time("2017-7-27")
