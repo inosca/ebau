@@ -142,13 +142,11 @@ class InstanceQuerysetMixin(object):
         ).values("instance_id")
 
         instances_for_activation = self._instances_with_activation(group)
-        instances_created_by_group = self._instances_created_by(group)
 
         return queryset.filter(
             Q(**{instance_field: instances_for_location})
             | Q(**{instance_field: instances_for_service})
             | Q(**{instance_field: instances_for_activation})
-            | Q(**{instance_field: instances_created_by_group})
         )
 
     def get_queryset_for_service(self, group=None):
