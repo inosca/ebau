@@ -8,6 +8,10 @@ export default class CustomWorkItemModel extends WorkItemModel {
   @queryManager apollo;
   @service notification;
 
+  get isReady() {
+    return this.raw.status === "READY";
+  }
+
   @dropTask
   *completeWorkItem() {
     try {

@@ -21,7 +21,7 @@
   <dd>{{@model.status}}</dd>
 </dl>
 
-{{#if @model.meta.is-manually-completable}}
+{{#if (and @model.meta.is-manually-completable @model.isReady)}}
   <UkButton
     @on-click={{fn this.completeWorkItem}}
     @color="primary"
