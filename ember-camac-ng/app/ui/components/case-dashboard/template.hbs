@@ -121,7 +121,7 @@
       <tr>
           <CaseDashboard::Column
             @header={{t "cases.tableHeaders.dossierCreated"}}
-            @value={{moment-format this.models.acceptDate "DD.MM.YYYY"}}
+            @value={{format-date this.models.acceptDate format="date"}}
           />
         <CaseDashboard::Column @header={{t "cases.tableHeaders.involvedServices"}}>
           <ul>
@@ -135,7 +135,7 @@
       <tr>
         {{#if (and this.isService this.models.ownActivation)}}
           <CaseDashboard::Column @header={{t "cases.tableHeaders.processingDeadline"}}
-            @value={{moment-format this.models.ownActivation.deadlineDate "DD.MM.YYYY"}} />
+            @value={{format-date this.models.ownActivation.deadlineDate format="date"}} />
         {{/if}}
       </tr>
     </CaseDashboard::Section>

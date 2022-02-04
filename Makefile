@@ -268,3 +268,6 @@ create-be-dump:
 	@docker cp compose_db_1:/tmp/latest.dmp .
 	@docker-compose exec db rm /tmp/latest.dmp
 	@echo "Please upload latest.dmp here: https://cloud.adfinis.com/apps/files/?dir=/partner/KantonBE/db_dumps/ebau.apps.be.ch"
+
+update-lockfile:
+	@yarn upgrade && rm -rf node_modules ember-*/node-modules && yarn

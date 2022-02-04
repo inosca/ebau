@@ -97,11 +97,12 @@
         </label>
       </div>
       <div class="column-2">
-        <PikadayInput
-          required={{true}}
-          @value={{this.workItem.deadline}}
-          @useUTC={{true}}
-          @onSelection={{this.setDeadline}}
+        <input
+          id="deadline"
+          type="text"
+          class="uk-input"
+          {{pikaday value=this.workItem.deadline onSelect=this.setDeadline}}
+          required
         />
       </div>
     </div>

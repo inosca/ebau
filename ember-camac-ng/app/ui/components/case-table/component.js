@@ -4,7 +4,7 @@ import { htmlSafe } from "@ember/template";
 import Component from "@glimmer/component";
 import calumaQuery from "@projectcaluma/ember-core/caluma-query";
 import { allCases } from "@projectcaluma/ember-core/caluma-query/queries";
-import moment from "moment";
+import { DateTime } from "luxon";
 
 import config from "camac-ng/config/environment";
 
@@ -59,7 +59,7 @@ export default class CaseTableComponent extends Component {
           {
             key: "submit-date",
             lookup: "LTE",
-            value: moment.utc(filter.createdBefore).endOf("day"),
+            value: DateTime.fromISO(filter.createdBefore).endOf("day").toISO(),
           },
         ],
       },
@@ -68,7 +68,7 @@ export default class CaseTableComponent extends Component {
           {
             key: "submit-date",
             lookup: "GTE",
-            value: moment.utc(filter.createdAfter).startOf("day"),
+            value: DateTime.fromISO(filter.createdAfter).startOf("day").toISO(),
           },
         ],
       },
