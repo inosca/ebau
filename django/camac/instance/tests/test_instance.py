@@ -13,7 +13,7 @@ from rest_framework import status
 
 from camac.core.models import InstanceLocation, WorkflowEntry
 from camac.instance import domain_logic, serializers
-from camac.instance.models import HistoryEntryT, Instance, InstanceState
+from camac.instance.models import HistoryEntryT
 
 
 @pytest.mark.freeze_time("2018-04-17")
