@@ -12,20 +12,6 @@ import caseFilters from "./filter-config";
 import config from "camac-ng/config/environment";
 import getBuildingPermitQuestion from "camac-ng/gql/queries/get-building-permit-question.graphql";
 
-const externalServiceGroupIds = [
-  "21",
-  "70",
-  "2",
-  "65",
-  "66",
-  "62",
-  "61",
-  "63",
-  "64",
-  "41",
-  "71",
-];
-
 export default class CaseFilterComponent extends Component {
   @queryManager apollo;
 
@@ -37,6 +23,41 @@ export default class CaseFilterComponent extends Component {
   @tracked _filter = {};
   @calumaQuery({ query: allForms }) formsQuery;
 
+  async buildingPermitTypes() {
+    return (
+      await this.apollo.query(
+        {
+          query: getBuildingPermitQuestion,
+        },
+        "allQuestions.edges"
+      )
+    )
+      .map((edge) => edge.node.options.edges)[0]
+      ?.map((edge) => edge.node);
+  }
+
+  async caseStatusOptions() {
+    return this.caseFilters.caseStatus.optionValues.map((option) => ({
+      status: option,
+      label: this.intl.t(`cases.status.${option}`),
+    }));
+  }
+
+  async formOptions() {
+    return (
+      await this.formsQuery.fetch({
+        filter: [
+          { isPublished: true },
+          { isArchived: false },
+          { orderBy: "NAME_ASC" },
+          {
+            metaValue: [{ key: "is_creatable", value: true }],
+          },
+        ],
+      })
+    ).allForms.edges.map((form) => form.node);
+  }
+
   @lastValue("fetchFilterData") filterData;
   @restartableTask
   *fetchFilterData() {
@@ -45,37 +66,12 @@ export default class CaseFilterComponent extends Component {
       instanceStates: async () => await this.store.findAll("instance-state"),
       services: async () =>
         await this.store.query("service", {
-          service_group_id: externalServiceGroupIds.join(","),
+          service_group_id:
+            config.APPLICATION.externalServiceGroupIds.join(","),
         }),
-      buildingPermitTypes: async () =>
-        (
-          await this.apollo.query(
-            {
-              query: getBuildingPermitQuestion,
-            },
-            "allQuestions.edges"
-          )
-        )
-          .map((edge) => edge.node.options.edges)[0]
-          ?.map((edge) => edge.node),
-      caseStatusOptions: () =>
-        this.caseFilters.caseStatus.optionValues.map((option) => ({
-          status: option,
-          label: this.intl.t(`cases.status.${option}`),
-        })),
-      formOptions: async () =>
-        (
-          await this.formsQuery.fetch({
-            filter: [
-              { isPublished: true },
-              { isArchived: false },
-              { orderBy: "NAME_ASC" },
-              {
-                metaValue: [{ key: "is_creatable", value: true }],
-              },
-            ],
-          })
-        ).allForms.edges.map((form) => form.node),
+      buildingPermitTypes: this.buildingPermitTypes.bind(this),
+      caseStatusOptions: this.caseStatusOptions.bind(this),
+      formOptions: this.formOptions.bind(this),
     };
 
     const options = yield Promise.all(
