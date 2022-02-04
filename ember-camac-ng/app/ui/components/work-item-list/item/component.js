@@ -2,7 +2,7 @@ import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { dropTask } from "ember-concurrency";
 import { performHelper } from "ember-concurrency/helpers/perform";
-import moment from "moment";
+import { DateTime } from "luxon";
 
 export default class WorkItemListItemComponent extends Component {
   @service router;
@@ -58,7 +58,9 @@ export default class WorkItemListItemComponent extends Component {
     if (!this.args.highlight) return "";
 
     const notViewed = this.args.workItem.notViewed;
-    const diff = this.args.workItem.deadline.diff(moment(), "days", true);
+    const { days: diff } = DateTime.fromJSDate(this.args.workItem.deadline)
+      .diffNow("days")
+      .toObject();
 
     return [
       "highlight",

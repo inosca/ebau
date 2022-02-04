@@ -44,7 +44,7 @@
               @model={{import.id}}
               class="uk-link uk-link-reset"
             >
-              {{moment-format import.createdAt "DD.MM.YYYY HH:mm"}}
+              {{format-date import.createdAt format="datetime"}}
             </LinkTo>
           </td>
           <td class="uk-table-link">
@@ -75,7 +75,7 @@
               @model={{import.id}}
               class="uk-link uk-link-reset"
             >
-              {{or (moment-format import.messages.import.completed "DD.MM.YYYY HH:mm") "-"}}
+              {{or (format-date import.messages.import.completed format="datetime") "-"}}
             </LinkTo>
           </td>
         </tr>

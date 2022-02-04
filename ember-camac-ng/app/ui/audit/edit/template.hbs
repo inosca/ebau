@@ -10,7 +10,7 @@
           {{t "audit.titleMeta"
             user=this.audit.modifiedByUser.fullName
             service=this.audit.modifiedByService.name
-            date=(moment-format this.audit.modifiedAt "DD.MM.YYYY HH:mm")
+            date=(format-date this.audit.modifiedAt format="datetime")
             htmlSafe=true
           }}
         </span>
