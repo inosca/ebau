@@ -391,6 +391,23 @@ def test_form_visibility_sz(
     service_factory,
     mocker,
 ):
+    """Visibility test configuration.
+
+    The 6 test forms are configured with the following visibilites:
+
+        Form 1: No visibility configured.
+        Form 2: Public visibility.
+        Form 3: Internal visibility.
+        Form 4: Specific visibility for roles 'Admin' and 'Gemeinde' or
+                for services 'Service 1', 'Service 2' and 'Service 3'.
+        Form 5: Specific visibility for roles 'Admin', 'Gemeinde' and
+                'Fachstelle Leitbehörde'.
+        Form 6: Specific visibility for service 'Service 4'.
+
+    In the CustomVisibility class all the forms are visible (expected_form_count_public).
+    In the CustomVisibilitySZ class, the number of forms that are visible to
+    the request user depends on their role and service (expected_form_count_sz).
+    """
     # Kt. SZ specific public roles configuration
     application_settings["PUBLIC_ROLES"] = settings.APPLICATIONS["kt_schwyz"][
         "PUBLIC_ROLES"
