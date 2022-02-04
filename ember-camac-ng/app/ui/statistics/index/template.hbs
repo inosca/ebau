@@ -1,19 +1,21 @@
 <form class="uk-margin">
   <div class="uk-grid-small uk-width-1-2 uk-child-width-1-2" uk-grid>
     <div>
-      <label class="uk-text-bold">{{t "statistics.from"}}</label>
-      <PikadayInput
+      <label class="uk-text-bold" for="from">{{t "statistics.from"}}</label>
+      <input
+        type="text"
         class="uk-input"
-        @value={{this.from}}
-        @onSelection={{fn this.setFilter "from"}}
+        id="from"
+        {{pikaday value=this.from onSelect=(fn this.setFilter "from")}}
       />
     </div>
     <div>
-      <label class="uk-text-bold">{{t "statistics.to"}}</label>
-      <PikadayInput
+      <label class="uk-text-bold" for="to">{{t "statistics.to"}}</label>
+      <input
+        type="text"
         class="uk-input"
-        @value={{this.to}}
-        @onSelection={{fn this.setFilter "to"}}
+        id="to"
+        {{pikaday value=this.to onSelect=(fn this.setFilter "to")}}
       />
     </div>
   </div>

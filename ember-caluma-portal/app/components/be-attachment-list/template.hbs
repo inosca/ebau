@@ -21,8 +21,8 @@
             <br>
             <span class="uk-text-meta">
               {{t "documents.date"
-                date=(moment-format attachment.date "DD.MM.YYYY")
-                time=(moment-format attachment.date "HH:mm")
+                date=(format-date attachment.date format="date")
+                time=(format-time attachment.date hour="2-digit" minute="2-digit")
               }}
             </span>
           </div>
