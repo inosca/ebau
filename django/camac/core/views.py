@@ -254,7 +254,7 @@ class PublicationEntryView(ModelViewSet):
             coordinates = standort_koordinaten.first().value.splitlines()
             coordinates_override = []
             for coordinate in coordinates:
-                coordinate = coordinate.split()
+                coordinate = [c.strip() for c in coordinate.split(";")]
                 coordinates_override.append(
                     [
                         {
