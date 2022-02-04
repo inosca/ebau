@@ -271,6 +271,7 @@ APPLICATIONS = {
             "Fachstelle Leitbehörde": "municipality",
             "Support": "support",
         },
+        "PUBLIC_ROLES": ["Publikation", "Portal"],
         "PORTAL_GROUP": 4,
         "NOTIFICATIONS": {
             "SUBMIT": "gesuchseingang",
@@ -392,6 +393,7 @@ APPLICATIONS = {
             "FILL_PUBLICATION_TASK": None,
             "SAVE_DOSSIER_NUMBER_IN_CALUMA": False,
             "PUBLICATION_TASK_SLUG": "publication",
+            "CREATE_IN_PROCESS": True,
             "SIMPLE_WORKFLOW": {
                 "formal-addition": {
                     "next_instance_state": "subm",
