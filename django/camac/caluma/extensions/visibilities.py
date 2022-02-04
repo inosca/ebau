@@ -178,6 +178,23 @@ class CustomVisibilitySZ(CustomVisibility):
             }
         }
     },
+
+    TODO: More generic future design
+    To make the configurable visibility / permission feature
+    usable for the other cantons, a few things need to be adapted:
+
+    * Use "permissions" instead of "visibility" on form meta:
+
+        "meta": {
+            "createPermission": {
+                "type": "public"
+            }
+        },
+
+    * Read from and check permission config in instance serializer
+        (create method), throw exception if permission is missing
+
+    * Filter forms based on create permission in frontend
     """
 
     @filter_queryset_for(form_schema.Form)
@@ -197,11 +214,11 @@ class CustomVisibilitySZ(CustomVisibility):
                 name__in=settings.APPLICATION.get("PUBLIC_ROLES", [])
             )
         ]
-        internal_forms = [
-            form.slug
-            for form in queryset.filter(meta__visibility__type="internal")
+        internal_forms = (
+            [form.slug for form in queryset.filter(meta__visibility__type="internal")]
             if camac_role not in public_roles
-        ]
+            else []
+        )
         internal_filter = Q(slug__in=internal_forms)
 
         # specific filter: visible to specific roles or services

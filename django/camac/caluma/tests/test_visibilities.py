@@ -356,32 +356,30 @@ def test_public_document_visibility(
 
 
 @pytest.mark.parametrize(
-    "role_id,role_name,service_id,expected_form_count_public,expected_form_count_sz",
+    "role__name,service__name,expected_form_count_public,expected_form_count_sz",
     [
         # Kt. SZ specific roles
-        (1, "Admin", 1, 6, 4),
-        (2, "Guest", 2, 6, 2),
-        (3, "Gemeinde", 3, 6, 4),
-        (4, "Portal", 4, 6, 1),
-        (5, "Fachstelle", 5, 6, 2),
-        (6, "Kanton", 6, 6, 3),
-        (7, "Fachstelle Sachbearbeiter", 7, 6, 3),
-        (8, "Gemeinde Sachbearbeiter", 8, 6, 3),
-        (9, "Publikation", 9, 6, 1),
-        (10, "Lesezugriff", 10, 6, 2),
-        (11, "Fachstelle Leitbehörde", 11, 6, 3),
-        (12, "Support", 12, 6, 3),
+        ("Admin", "Service 0", 6, 4),
+        ("Guest", "Service 0", 6, 2),
+        ("Gemeinde", "Service 0", 6, 4),
+        ("Portal", "Service 0", 6, 1),
+        ("Fachstelle", "Service 0", 6, 2),
+        ("Kanton", "Service 1", 6, 3),
+        ("Fachstelle Sachbearbeiter", "Service 2", 6, 3),
+        ("Gemeinde Sachbearbeiter", "Service 3", 6, 3),
+        ("Publikation", "Service 0", 6, 1),
+        ("Lesezugriff", "Service 0", 6, 2),
+        ("Fachstelle Leitbehörde", "Service 0", 6, 3),
+        ("Support", "Service 4", 6, 3),
     ],
 )
 def test_form_visibility_sz(
     db,
     rf,
-    role_id,
-    role_name,
-    service_id,
+    role,
+    service,
     expected_form_count_public,
     expected_form_count_sz,
-    role,
     group,
     token,
     user,
@@ -397,20 +395,36 @@ def test_form_visibility_sz(
     application_settings["PUBLIC_ROLES"] = settings.APPLICATIONS["kt_schwyz"][
         "PUBLIC_ROLES"
     ]
-    public_roles = {
-        "Publikation": role_factory(name="Publikation", pk=9),
-        "Portal": role_factory(name="Portal", pk=4),
-    }
-    role = (
-        public_roles[role_name]
-        if role_name in application_settings["PUBLIC_ROLES"]
-        else role_factory(name=role_name, pk=role_id)
-    )
 
-    service_factory(pk=service_id)
-    group = group_factory(role=role, service_id=service_id)
-    group.service_id = service_id
-    group.save()
+    role_names = [
+        "Publikation",
+        "Portal",
+        "Admin",
+        "Gemeinde",
+        "Fachstelle Leitbehörde",
+    ]
+    roles = {
+        role_name: role_factory(name=role_name)
+        for role_name in role_names
+        if role_name != role.name
+    }
+    roles[role.name] = role
+
+    service_names = [
+        "Service 0",
+        "Service 1",
+        "Service 2",
+        "Service 3",
+        "Service 4",
+    ]
+    services = {
+        service_name: service_factory(name=service_name)
+        for service_name in service_names
+        if service_name != service.name
+    }
+    services[service.name] = service
+
+    group = group_factory(role=role, service=service)
     user_group_factory(group=group, user=user, default_group=1)
 
     oidc_user = OIDCUser(
@@ -429,15 +443,38 @@ def test_form_visibility_sz(
         meta={
             "visibility": {
                 "type": "specific",
-                "visibleFor": {"roles": [1, 3], "services": [6, 7, 8]},
+                "visibleFor": {
+                    "roles": [roles["Admin"].pk, roles["Gemeinde"].pk],
+                    "services": [
+                        services["Service 1"].pk,
+                        services["Service 2"].pk,
+                        services["Service 3"].pk,
+                    ],
+                },
             }
         }
     )
     caluma_form_factories.FormFactory(
-        meta={"visibility": {"type": "specific", "visibleFor": {"roles": [1, 3, 11]}}}
+        meta={
+            "visibility": {
+                "type": "specific",
+                "visibleFor": {
+                    "roles": [
+                        roles["Admin"].pk,
+                        roles["Gemeinde"].pk,
+                        roles["Fachstelle Leitbehörde"].pk,
+                    ]
+                },
+            }
+        }
     )
     caluma_form_factories.FormFactory(
-        meta={"visibility": {"type": "specific", "visibleFor": {"services": [12]}}}
+        meta={
+            "visibility": {
+                "type": "specific",
+                "visibleFor": {"services": [services["Service 4"].pk]},
+            }
+        }
     ),
 
     query = """
