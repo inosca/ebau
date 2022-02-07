@@ -5,9 +5,9 @@
 <table {{did-insert this.setup}} {{did-update this.setup @filter}}>
   <thead>
     <tr>
-      {{#each this.tableHeaders as |tHeader|}}
+      {{#each this.tableColumns as |tColumn|}}
         <th>
-          {{t (concat "cases.tableHeaders." tHeader)}}
+          {{t (concat "cases.tableHeaders." tColumn)}}
         </th>
       {{/each}}
     </tr>
@@ -23,25 +23,25 @@
         }}
         {{on "click" (fn this.redirectToCase node)}}
       >
-        {{#each this.tableHeaders as |tHeader|}}
+        {{#each this.tableColumns as |tColumn|}}
           <td
             class={{
-              if (eq tHeader "intent") "uk-text-truncate uk-table-expand"
+              if (eq tColumn "intent") "uk-text-truncate uk-table-expand"
             }}
           >
-            {{#if (eq tHeader "applicant")}}
-              {{get node (concat tHeader ".name")}}
-            {{else if (eq tHeader "processingDeadline")}}
-              {{moment-from (get node tHeader)}}
+            {{#if (eq tColumn "applicant")}}
+              {{get node (concat tColumn ".name")}}
+            {{else if (eq tColumn "processingDeadline")}}
+              {{moment-from (get node tColumn)}}
             {{else}}
-              {{get node tHeader}}
+              {{get node tColumn}}
             {{/if}}
           </td>
         {{/each}}
       </tr>
     {{else}}
       <tr>
-        <td colspan={{this.tableHeaders.length}} class="uk-text-center">
+        <td colspan={{this.tableColumns.length}} class="uk-text-center">
           {{#if this.casesQuery.isLoading}}
             {{t "global.loading"}}
           {{else}}
@@ -53,7 +53,7 @@
 
     <tr>
       {{#if (and this.casesQuery.hasNextPage (not this.casesQuery.isLoading))}}
-        <td colspan={{this.tableHeaders.length}} class="uk-text-center">
+        <td colspan={{this.tableColumns.length}} class="uk-text-center">
           <button type="button" {{on "click" this.loadNextPage}}>
             {{t "global.loadMore"}}
           </button>

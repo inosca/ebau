@@ -6,100 +6,26 @@
           {{t "cases.filter"}}
         </b>
       </legend>
-
-      <CaseFilter::Input
-        @filterName="instanceId"
-        @value={{@filter.instanceId}}
-        @updateFilter={{fn this.updateFilter "instanceId"}}
-      />
-
-      <CaseFilter::Input
-        @filterName="dossierNumber"
-        @value={{@filter.dossierNumber}}
-        @updateFilter={{fn this.updateFilter "dossierNumber"}}
-      />
-
-      <CaseFilter::Input
-        @filterName="applicantName"
-        @value={{@filter.applicantName}}
-        @updateFilter={{fn this.updateFilter "applicantName"}}
-      />
-
-      <CaseFilter::Input
-        @filterName="street"
-        @value={{@filter.street}}
-        @updateFilter={{fn this.updateFilter "street"}}
-      />
-
-      <CaseFilter::Select
-        @filterName="municipality"
-        @updateFilter={{fn this.updateFilter "municipality"}}
-        @filterOptions={{this.filterData.municipalities}}
-        @valueField="id"
-        @labelField="name"
-        @value={{@filter.municipality}}
-      />
-
-      <CaseFilter::Input
-        @filterName="parcelNumber"
-        @type="number"
-        @value={{@filter.parcelNumber}}
-        @updateFilter={{fn this.updateFilter "parcelNumber"}}
-      />
-
-      <CaseFilter::Select
-        @filterName="instanceState"
-        @updateFilter={{fn this.updateFilter "instanceState"}}
-        @filterOptions={{this.filterData.instanceStates}}
-        @valueField="id"
-        @labelField="uppercaseName"
-        @value={{@filter.instanceState}}
-      />
-
-      <CaseFilter::Select
-        @filterName="service"
-        @updateFilter={{fn this.updateFilter "service"}}
-        @filterOptions={{this.filterData.services}}
-        @valueField="id"
-        @labelField="name"
-        @value={{@filter.service}}
-      />
-
-      <CaseFilter::Select
-        @filterName="pendingSanctionsControlInstance"
-        @updateFilter={{fn this.updateFilter "pendingSanctionsControlInstance"}}
-        @filterOptions={{this.filterData.services}}
-        @valueField="id"
-        @labelField="name"
-        @value={{@filter.pendingSanctionsControlInstance}}
-      />
-
-      <CaseFilter::Select
-        @filterName="buildingPermitType"
-        @updateFilter={{fn this.updateFilter "buildingPermitType"}}
-        @filterOptions={{this.filterData.buildingPermitTypes}}
-        @value={{@filter.buildingPermitType}}
-      />
-
-      <CaseFilter::Date
-        @filterName="createdAfter"
-        @updateFilter={{fn this.updateFilter "createdAfter"}}
-        @value={{@filter.createdAfter}}
-        @maxDate={{@filter.createdBefore}}
-      />
-
-      <CaseFilter::Date
-        @filterName="createdBefore"
-        @updateFilter={{fn this.updateFilter "createdBefore"}}
-        @value={{@filter.createdBefore}}
-        @minDate={{@filter.createdAfter}}
-      />
-
-      <CaseFilter::Input
-        @filterName="intent"
-        @value={{@filter.intent}}
-        @updateFilter={{fn this.updateFilter "intent"}}
-      />
+      {{#each this.activeCaseFilters as |filterName|}}
+        {{#let (get this.caseFilters filterName) as |filterConfig|}}
+          {{#let
+            (component
+              (concat "case-filter/" filterConfig.type)
+            ) as |CaseFilterComponent|
+          }}
+            <CaseFilterComponent
+              @filterName={{filterName}}
+              @value={{get @filter filterName}}
+              @updateFilter={{fn this.updateFilter filterName}}
+              @filterOptions={{get this.filterData filterConfig.options}}
+              @valueField={{filterConfig.valueField}}
+              @labelField={{filterConfig.labelField}}
+              @maxDate={{get @filter filterConfig.maxDate}}
+              @minDate={{get @filter filterConfig.minDate}}
+            />
+          {{/let}}
+        {{/let}}
+      {{/each}}
     </fieldset>
 
     <button type="submit">
