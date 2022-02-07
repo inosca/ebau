@@ -213,7 +213,7 @@ class KtSchwyzDossierWriter(DossierWriter):
                 Message(
                     level=LOG_LEVEL_WARNING,
                     code=MessageCodes.DUPLICATE_DOSSIER.value,
-                    detail=f"Dossier with ID {dossier.id} already exists.",
+                    detail=None,
                 )
             )
             dossier_summary.status = DOSSIER_IMPORT_STATUS_ERROR
