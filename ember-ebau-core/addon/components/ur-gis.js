@@ -91,6 +91,13 @@ function EPSG3857toLatLng(coordinates) {
   return L.CRS.EPSG3857.unproject(new L.point(arr));
 }
 
+function EPSG2056toLatLng(coordinates) {
+  const arr = Array.isArray(coordinates)
+    ? coordinates
+    : [coordinates.x, coordinates.y];
+  return L.CRS.EPSG2056.unproject(new L.point(arr));
+}
+
 const filterFeatureById = (features, id) =>
   features.find((feature) => feature.id.includes(id));
 
@@ -117,6 +124,7 @@ export default class UrGisComponent extends Component {
   @tracked zoom = 13;
   @tracked _search = "";
   @tracked parcels = [];
+  @tracked point = "";
 
   minZoom = 10;
   maxZoom = 18;
@@ -133,12 +141,35 @@ export default class UrGisComponent extends Component {
 
   @enqueueTask
   *handleLoad(target) {
-    this._map = target;
-    yield this.search.perform();
+    try {
+      this._map = target;
+
+      const table = this.args.field.document.findAnswer(
+        KEY_TABLE_QUESTION || []
+      );
+
+      const coordinatesEast = table ? table[0]["coordinates-east"] : null;
+      const coordinatesNorth = table ? table[0]["coordinates-north"] : null;
+
+      if (coordinatesEast && coordinatesNorth) {
+        const latlng = EPSG2056toLatLng([
+          parseFloat(coordinatesEast),
+          parseFloat(coordinatesNorth),
+        ]);
+        this.point = latlng;
+        this.latlng = latlng;
+        this.zoom = 18;
+        yield this.getFeatures.perform(this.point);
+      }
+    } catch (error) {
+      console.error(error);
+      this.notification.danger(this.intl.t("gis.noParcelNumber"));
+    }
   }
 
   @restartableTask
   *getFeatures(latlng) {
+    this.point = latlng;
     const { x, y } = LatLngToEPSG3857(latlng);
     try {
       const layerList = LAYERS.join(",");
@@ -403,7 +434,6 @@ export default class UrGisComponent extends Component {
     };
     const searchMunicipalityBy = searchMapping[municipality] || municipality;
     try {
-      this.parcels = [];
       const params = new URLSearchParams({
         service: "WFS",
         version: "1.1.0",
@@ -497,7 +527,6 @@ export default class UrGisComponent extends Component {
         parcelOrBuildingleaseNr,
         municipality.label
       );
-      yield this.getFeatures.perform(this.latlng);
     } catch (error) {
       console.error(error);
       this.notification.danger(this.intl.t("gis.noParcelNumber"));
