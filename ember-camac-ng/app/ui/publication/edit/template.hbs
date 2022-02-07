@@ -1,26 +1,27 @@
 <CfContent
-  @documentId={{decode-id this.publication.document.id}}
-  @disabled={{cannot "edit publication" this.publication}}
+  @documentId={{this.documentId}}
+  @loading={{this.publication.isRunning}}
+  @disabled={{cannot "edit publication" this.publication.value}}
   @context={{hash
     instanceId=@model.instanceId
-    workItemStatus=this.publication.status
-    workItemIsPublished=this.publication.meta.is-published
+    workItemStatus=this.publication.value.status
+    workItemIsPublished=this.publication.value.meta.is-published
     actionButtonOnSuccess=this.refreshNavigation
   }}
   as |content|
 >
   <PublicationInfo
     @instanceId={{@model.instanceId}}
-    @status={{this.publication.status}}
-    @isPublished={{this.publication.meta.is-published}}
+    @status={{this.publication.value.status}}
+    @isPublished={{this.publication.value.meta.is-published}}
     @type={{@model.type}}
   />
 
   <content.form />
 
-  {{#if (or (can "create publication" this.publication) (can "cancel publication" this.publication))}}
+  {{#if (or (can "create publication" this.publication.value) (can "cancel publication" this.publication.value))}}
     <div class="uk-flex">
-      {{#if (can "create publication" this.publication)}}
+      {{#if (can "create publication" this.publication.value)}}
         <TaskButton
           class="uk-margin-right"
           @color="primary"
@@ -36,7 +37,7 @@
         />
       {{/if}}
 
-      {{#if (can "cancel publication" this.publication)}}
+      {{#if (can "cancel publication" this.publication.value)}}
         <UkButton
           @label={{t "global.cancel"}}
           @loading={{this.cancel.isRunning}}
