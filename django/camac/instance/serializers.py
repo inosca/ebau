@@ -1082,17 +1082,21 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             existing_instance = models.Instance.objects.get(pk=existing_instance_id)
             link_instances(instance, existing_instance)
 
-    def _set_authority(self, instance, document, user):
+    def _set_authority(self, instance):
+        """Fill the answer to the question 'leitbehorde' (only used in UR)."""
+        if not settings.APPLICATION["CALUMA"].get("USE_LOCATION", False):
+            return
+
         authority_location = AuthorityLocation.objects.filter(
             location=instance.location
         )
 
         if authority_location:
             caluma_api.update_or_create_answer(
-                document,
+                instance.case.document,
                 "leitbehoerde",
                 str(authority_location.first().authority_id),
-                user,
+                user=self.context["request"].caluma_info.context.user,
             )
 
     @transaction.atomic
@@ -1157,13 +1161,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             ] = domain_logic.CreateInstanceLogic.generate_identifier(instance)
             case.save()
 
-            # Fill the answer to the question "leitbehorde"
-            self._set_authority(
-                instance,
-                case.document,
-                self.context["request"].caluma_info.context.user,
-            )
-
+        self._set_authority(instance)
         self._generate_and_store_pdf(instance)
         self._set_submit_date(validated_data)
         self._create_history_entry(gettext_noop("Dossier submitted"))

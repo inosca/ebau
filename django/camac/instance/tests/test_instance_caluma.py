@@ -597,7 +597,6 @@ def test_instance_submit_ur(
     caluma_admin_user,
     location_factory,
     workflow_item_factory,
-    authority_factory,
     authority_location_factory,
 ):
     application_settings["NOTIFICATIONS"]["SUBMIT"] = [
@@ -614,7 +613,7 @@ def test_instance_submit_ur(
         value=str(location.pk), question_id="municipality"
     )
 
-    authority_location_factory(location=location, authority=authority_factory())
+    authority_location_factory(location=location)
 
     group_factory(role=role_factory(name="support"))
     mocker.patch.object(
