@@ -202,7 +202,7 @@ class MasterDataField(serializers.ReadOnlyField):
             def parse(v):
                 try:
                     return int(v.get(self.sum_by))
-                except TypeError:  # pragma: no cover
+                except (TypeError, ValueError):  # pragma: no cover
                     return None
 
             parsed_values = list(filter(None, [parse(v) for v in value]))
