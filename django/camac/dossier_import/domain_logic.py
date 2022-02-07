@@ -13,6 +13,7 @@ from camac.dossier_import.loaders import XlsxFileDossierLoader
 from camac.dossier_import.messages import update_summary
 from camac.dossier_import.models import DossierImport
 from camac.instance.models import Instance
+from camac.user.models import User
 from camac.utils import build_url
 
 logger = getLogger(__name__)
@@ -20,16 +21,15 @@ logger = getLogger(__name__)
 
 def perform_import(dossier_import, override_config=None):
     try:
+        IMPORT_SETTINGS = settings.APPLICATION["DOSSIER_IMPORT"]
         if override_config:
             settings.APPLICATION = settings.APPLICATIONS[override_config]
-        configured_writer_cls = import_string(
-            settings.APPLICATION["DOSSIER_IMPORT"]["WRITER_CLASS"]
-        )
+        configured_writer_cls = import_string(IMPORT_SETTINGS["WRITER_CLASS"])
 
         loader = XlsxFileDossierLoader()
 
         writer = configured_writer_cls(
-            user_id=dossier_import.user.pk,
+            user_id=User.objects.get(username=IMPORT_SETTINGS["USER"]).pk,
             group_id=dossier_import.group.pk,
             location_id=dossier_import.location and dossier_import.location.pk,
             import_settings=settings.APPLICATION["DOSSIER_IMPORT"],
