@@ -2198,6 +2198,12 @@ APPLICATIONS = {
             # "Guest": None,  # TODO AFAIK we don't grant unauthenticated users access to endpoints
         },
         "ROLE_INHERITANCE": {"trusted_service": "service"},
+        "INSTANCE_HIDDEN_STATES": {
+            "municipality": ["del"],
+            "coordination": ["new", "new_portal", "del", "rejected"],
+            "trusted_service": ["new", "new_portal", "del", "rejected"],
+            "oereb_api": ["new", "new_portal", "del", "rejected"],
+        },
         "INSTANCE_PERMISSIONS": {
             "MUNICIPALITY_WRITE": ["comm", "ext_gem", "done", "old", "control"]
         },

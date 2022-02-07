@@ -15,7 +15,7 @@ from camac.instance.models import Instance
 from camac.mixins import AttributeMixin
 from camac.request import get_request
 from camac.user.models import User
-from camac.user.permissions import permission_aware
+from camac.user.permissions import get_group, get_role_name, permission_aware
 
 from . import models
 
@@ -75,7 +75,17 @@ class InstanceQuerysetMixin(object):
         """
         # instance state is always used to determine permissions
         instance_state_expr = self._get_instance_filter_expr("instance_state")
-        return super().get_queryset().select_related(instance_state_expr)
+        role_name = get_role_name(get_group(self))
+        hidden_states = settings.APPLICATION.get("INSTANCE_HIDDEN_STATES", {}).get(
+            role_name, []
+        )
+        queryset = super().get_queryset().select_related(instance_state_expr)
+
+        if len(hidden_states):
+            state_field = self._get_instance_filter_expr("instance_state__name", "in")
+            return queryset.exclude(**{state_field: hidden_states})
+
+        return queryset
 
     @permission_aware
     def get_queryset(self, group=None):
@@ -110,7 +120,6 @@ class InstanceQuerysetMixin(object):
         group = self._get_group(group)
         queryset = self.get_base_queryset()
         instance_field = self._get_instance_filter_expr("pk", "in")
-        state_field = self._get_instance_filter_expr("instance_state__name", "in")
         form_field = self._get_instance_filter_expr("form", "in")
 
         instances_created_by_group = self._instances_created_by(group)
@@ -126,7 +135,6 @@ class InstanceQuerysetMixin(object):
                     }
                 )
             )
-            & ~Q(**{state_field: uri_constants.INSTANCE_STATES_PRIVATE})
         )
 
     def get_queryset_for_municipality(self, group=None):
@@ -143,16 +151,11 @@ class InstanceQuerysetMixin(object):
 
         instances_for_activation = self._instances_with_activation(group)
 
-        filtered_queryset = queryset.filter(
+        return queryset.filter(
             Q(**{instance_field: instances_for_location})
             | Q(**{instance_field: instances_for_service})
             | Q(**{instance_field: instances_for_activation})
         )
-
-        if settings.APPLICATION_NAME == "kt_uri":
-            return filtered_queryset.exclude(instance_state__name="del")
-
-        return filtered_queryset
 
     def get_queryset_for_service(self, group=None):
         group = self._get_group(group)
@@ -164,11 +167,7 @@ class InstanceQuerysetMixin(object):
 
     def get_queryset_for_trusted_service(self, group=None):
         # "Trusted" services see all submitted instances (Kt. UR)
-        state_field = self._get_instance_filter_expr("instance_state__name", "in")
-
-        return self.get_base_queryset().filter(
-            ~Q(**{state_field: uri_constants.INSTANCE_STATES_PRIVATE})
-        )
+        return self.get_base_queryset()
 
     def get_queryset_for_canton(self, group=None):
         return self.get_base_queryset()
@@ -309,7 +308,6 @@ class InstanceQuerysetMixin(object):
 
     def get_queryset_for_oereb_api(self, group):
         queryset = self.get_base_queryset()
-        state_field = self._get_instance_filter_expr("instance_state__name", "in")
 
         return queryset.filter(
             Q(
@@ -319,7 +317,6 @@ class InstanceQuerysetMixin(object):
                     ),
                 }
             )
-            & ~Q(**{state_field: uri_constants.INSTANCE_STATES_PRIVATE})
         )
 
     def _instances_with_activation(self, group):
@@ -454,7 +451,10 @@ class InstanceEditableMixin(AttributeMixin):
 
     def validate_instance_for_coordination(self, instance):
         # TODO: Map form types to responsible KOORS
-        if instance.instance_state.name in uri_constants.INSTANCE_STATES_PRIVATE:
+        hidden_states = settings.APPLICATION.get("INSTANCE_HIDDEN_STATES", {}).get(
+            "coordination", []
+        )
+        if instance.instance_state.name in hidden_states:
             raise exceptions.ValidationError(
                 _("Not allowed to add data to instance %(instance)s as coordination")
                 % {"instance": instance.pk}
