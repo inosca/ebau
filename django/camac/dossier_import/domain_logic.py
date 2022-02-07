@@ -8,6 +8,7 @@ from django.utils import timezone
 from django.utils.module_loading import import_string
 from requests_toolbelt.multipart.encoder import MultipartEncoder
 
+from caluma.caluma_workflow.models import Case
 from camac.document.models import Attachment
 from camac.dossier_import.loaders import XlsxFileDossierLoader
 from camac.dossier_import.messages import update_summary
@@ -110,3 +111,8 @@ def transmit_import(dossier_import):
         dossier_import.messages["import"]["exception"] = str(e)
         dossier_import.status = DossierImport.IMPORT_STATUS_TRANSMISSION_FAILED
         dossier_import.save()
+
+
+def undo_import(dossier_import):
+    Case.objects.filter(**{"meta__import-id": str(dossier_import.pk)}).delete()
+    dossier_import.delete()
