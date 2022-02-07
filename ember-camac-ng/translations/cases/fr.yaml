@@ -16,7 +16,7 @@ cases:
     coordinationShort: ""
     reason: ""
     caseStatus: ""
-    caseWorkflowName: ""
+    caseDocumentFormName: ""
     parcelNumbers: ""
     createdAt: ""
     modifiedAt: ""
@@ -55,6 +55,10 @@ cases:
     applicantName-placeholder: ""
     street: ""
     street-placeholder: ""
+    caseStatus: ""
+    caseStatus-placeholder: ""
+    caseDocumentFormName: ""
+    caseDocumentFormName-placeholder: ""
 
   miscellaneous:
     linkInstance: ""
