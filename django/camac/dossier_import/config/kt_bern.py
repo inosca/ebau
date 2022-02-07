@@ -217,6 +217,9 @@ class KtBernDossierWriter(DossierWriter):
             dossier_id=dossier.id, status=DOSSIER_IMPORT_STATUS_SUCCESS, details=[]
         )
 
+        # copy messages from loader to summary
+        dossier_summary.details += dossier._meta.errors
+
         if dossier._meta.missing:
             dossier_summary.details.append(
                 Message(
