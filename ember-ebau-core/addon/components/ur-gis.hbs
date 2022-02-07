@@ -26,25 +26,19 @@
     @layers={{this.layers}}
     @url={{this.config.gisUrl}}
   />
+  {{#if this.point}}
+    <map.marker
+      @lat={{this.point.lat}}
+      @lng={{this.point.lng}}
+    />
+  {{/if}}
 
   {{#each this.parcels as |parcel|}}
     <map.polygon
       @locations={{parcel.coordinates}}
       @clickable={{false}}
       @color="red"
-    >
-      {{#if parcel.number}}
-        <TooltipLayer @sticky={{true}}>
-          <strong>
-            {{parcel.number}} {{parcel.municipality}}
-          </strong>
-
-          <i>
-            {{parcel.egrid}}
-          </i>
-        </TooltipLayer>
-      {{/if}}
-    </map.polygon>
+    />
   {{/each}}
 </LeafletMap>
 
