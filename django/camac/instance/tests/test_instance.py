@@ -1165,6 +1165,7 @@ def test_instance_list_coordination_created(
     is_creator,
     group_factory,
     forbidden_states,
+    application_settings,
 ):
     """Ensure that the coordination role sees their correct dossiers.
 
@@ -1177,7 +1178,7 @@ def test_instance_list_coordination_created(
         # unfortunately cannot parametrize this :(
         forbidden_states = [instance_state.name]
 
-    mocker.patch("camac.constants.kt_uri.INSTANCE_STATES_PRIVATE", forbidden_states)
+    application_settings["INSTANCE_HIDDEN_STATES"] = {"coordination": forbidden_states}
 
     if not is_creator:
         other_group = group_factory()
