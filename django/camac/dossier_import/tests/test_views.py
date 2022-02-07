@@ -6,6 +6,7 @@ from rest_framework import status
 from rest_framework.reverse import reverse
 
 from camac.utils import build_url
+from caluma.caluma_workflow.models import Case
 
 from ..domain_logic import transmit_import
 from ..models import DossierImport
@@ -275,6 +276,20 @@ def test_file_validation(
             status.HTTP_400_BAD_REQUEST,
             None,
         ),
+        (
+            "undo",
+            "support",
+            DossierImport.IMPORT_STATUS_IMPORTED,
+            status.HTTP_200_OK,
+            "deleted",
+        ),
+        (
+            "undo",
+            "municipality-lead",
+            DossierImport.IMPORT_STATUS_IMPORTED,
+            status.HTTP_403_FORBIDDEN,
+            None,
+        ),
     ],
 )
 def test_state_transitions(
@@ -293,6 +308,7 @@ def test_state_transitions(
     status_before,
     expected_response_code,
     status_after,
+    case_factory,
 ):
     make_workflow_items_for_config(config)
     setup_fixtures_required_by_application_config(config)
@@ -305,13 +321,23 @@ def test_state_transitions(
         group=admin_client.user.groups.first(),
     )
 
+    if action == "undo":
+        case_factory.create_batch(2, meta={"import-id": str(dossier_import.pk)})
+        case_factory()  # unrelated case
+
     resp = admin_client.post(
         reverse(f"dossier-import-{action}", args=(dossier_import.pk,))
     )
     assert resp.status_code == expected_response_code
     if expected_response_code == status.HTTP_200_OK:
-        dossier_import.refresh_from_db()
-        assert dossier_import.status == status_after
+        if status_after == "deleted":
+            assert not DossierImport.objects.filter(pk=dossier_import.pk).exists()
+            assert not Case.objects.filter(
+                **{"meta__import-id": str(dossier_import.pk)}
+            ).exists()
+        else:
+            dossier_import.refresh_from_db()
+            assert dossier_import.status == status_after
 
 
 def test_transmitting_logic(

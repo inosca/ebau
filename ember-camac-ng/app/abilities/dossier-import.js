@@ -22,6 +22,13 @@ export default class extends Ability {
     return this.shoebox.isSupportRole && this.model?.status === "confirmed";
   }
 
+  get canUndo() {
+    return (
+      this.shoebox.isSupportRole &&
+      ["imported", "confirmed"].includes(this.model?.status)
+    );
+  }
+
   get canDelete() {
     return ["verified", "failed"].includes(this.model?.status);
   }

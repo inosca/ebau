@@ -5,7 +5,11 @@ from rest_framework.exceptions import ValidationError
 from rest_framework.response import Response
 from rest_framework_json_api.views import ModelViewSet
 
-from camac.dossier_import.domain_logic import perform_import, transmit_import
+from camac.dossier_import.domain_logic import (
+    perform_import,
+    transmit_import,
+    undo_import,
+)
 from camac.dossier_import.models import DossierImport
 from camac.dossier_import.serializers import DossierImportSerializer
 from camac.user.permissions import permission_aware
@@ -104,3 +108,27 @@ class DossierImportView(ModelViewSet):
         dossier_import.save()
 
         return Response({"task_id": task_id})
+
+    @permission_aware
+    def has_object_undo_permission(self, instance):
+        return False
+
+    @permission_aware
+    def has_object_undo_permission_for_support(self, instance):
+        return True
+
+    @action(methods=["POST"], url_path="undo", detail=True)
+    def undo(self, request, pk=None):
+        dossier_import = self.get_object()
+        if dossier_import.status in [
+            DossierImport.IMPORT_STATUS_NEW,
+            DossierImport.IMPORT_STATUS_VALIDATION_SUCCESSFUL,
+            DossierImport.IMPORT_STATUS_IMPORT_FAILED,
+            DossierImport.IMPORT_STATUS_IMPORT_INPROGRESS,
+        ]:
+            raise ValidationError(
+                "Undoing an import is only possible after it has been imported.",
+            )
+
+        undo_import(dossier_import)
+        return Response()
