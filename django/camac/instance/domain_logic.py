@@ -185,7 +185,9 @@ class CreateInstanceLogic:
 
             start = separator.join([identifier_start, str(year).zfill(2)])
 
-            if settings.APPLICATION["CALUMA"].get("SAVE_DOSSIER_NUMBER_IN_CALUMA"):
+            if settings.APPLICATION["CALUMA"].get("SAVE_DOSSIER_NUMBER_IN_CALUMA") or (
+                name in settings.APPLICATION.get("CALUMA_INSTANCE_FORMS", [])
+            ):
                 last_identifier = (
                     workflow_models.Case.objects.filter(
                         **{"meta__dossier-number__startswith": start}
