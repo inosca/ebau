@@ -171,6 +171,9 @@ def test_public_caluma_instance_oereb_ur(
     is_oereb_form,
 ):
     application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_uri"]["MASTER_DATA"]
+    application_settings["INSTANCE_HIDDEN_STATES"] = settings.APPLICATIONS["kt_uri"][
+        "INSTANCE_HIDDEN_STATES"
+    ]
     application_settings["USE_OEREB_FIELDS_FOR_PUBLIC_ENDPOINT"] = True
 
     oereb_form = form_factory()
