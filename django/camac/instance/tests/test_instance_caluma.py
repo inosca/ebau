@@ -598,6 +598,7 @@ def test_instance_submit_ur(
     caluma_admin_user,
     location_factory,
     workflow_item_factory,
+    authority_location_factory,
 ):
     application_settings["NOTIFICATIONS"]["SUBMIT"] = [
         {"template_slug": notification_template.slug, "recipient_types": ["applicant"]}
@@ -607,11 +608,13 @@ def test_instance_submit_ur(
 
     workflow_item_factory(workflow_item_id=WORKFLOW_ITEM_EINGANG_ONLINE_UR)
 
-    location = location_factory(location_id="1")
+    location = location_factory()
 
     ur_instance.case.document.answers.create(
         value=str(location.pk), question_id="municipality"
     )
+
+    authority_location_factory(location=location)
 
     group_factory(role=role_factory(name="support"))
     mocker.patch.object(
@@ -660,6 +663,7 @@ def test_instance_submit_cantonal_territory_usage_ur(
     instance_state_factory,
     submit_to,
     service_factory,
+    authority_location_factory,
 ):
     settings.APPLICATION_NAME = "kt_uri"
     application_settings["CALUMA"]["USE_LOCATION"] = True
@@ -714,11 +718,13 @@ def test_instance_submit_cantonal_territory_usage_ur(
 
     workflow_item_factory(workflow_item_id=WORKFLOW_ITEM_EINGANG_ONLINE_UR)
 
-    location = location_factory(location_id="1")
+    location = location_factory()
 
     ur_instance.case.document.answers.create(
         value=str(location.pk), question_id="municipality"
     )
+
+    authority_location_factory(location=location)
 
     mocker.patch.object(
         DocumentParser,
