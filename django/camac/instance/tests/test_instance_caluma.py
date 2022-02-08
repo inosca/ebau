@@ -17,13 +17,13 @@ from camac.core.models import Chapter, ProposalActivation, Question, QuestionTyp
 from camac.echbern import event_handlers
 from camac.echbern.data_preparation import DocumentParser
 from camac.echbern.tests.caluma_document_data import baugesuch_data
+from camac.instance.domain_logic import WORKFLOW_ITEM_DOSSIER_IN_UREC_ERFASST_UR
 from camac.instance.models import Instance
 from camac.instance.serializers import (
     SUBMIT_DATE_CHAPTER,
     SUBMIT_DATE_FORMAT,
     SUBMIT_DATE_QUESTION_ID,
-    WORKFLOW_ITEM_DOSSIER_ERFASST_UR,
-    WORKFLOW_ITEM_DOSSIEREINGANG_UR,
+    WORKFLOW_ITEM_EINGANG_ONLINE_UR,
     CalumaInstanceSerializer,
     CalumaInstanceSubmitSerializer,
 )
@@ -266,7 +266,8 @@ def test_create_instance_caluma_ur(
 
     authority_factory(name="Foo")
 
-    workflow_item_factory(workflow_item_id=WORKFLOW_ITEM_DOSSIER_ERFASST_UR)
+    workflow_item_factory(workflow_item_id=WORKFLOW_ITEM_EINGANG_ONLINE_UR)
+    workflow_item_factory(workflow_item_id=WORKFLOW_ITEM_DOSSIER_IN_UREC_ERFASST_UR)
 
     if archive:
         application_settings["ARCHIVE_FORMS"] = [form.pk]
@@ -604,7 +605,7 @@ def test_instance_submit_ur(
     application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = True
     application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
 
-    workflow_item_factory(workflow_item_id=WORKFLOW_ITEM_DOSSIEREINGANG_UR)
+    workflow_item_factory(workflow_item_id=WORKFLOW_ITEM_EINGANG_ONLINE_UR)
 
     location = location_factory(location_id="1")
 
@@ -711,7 +712,7 @@ def test_instance_submit_cantonal_territory_usage_ur(
     application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = True
     application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
 
-    workflow_item_factory(workflow_item_id=WORKFLOW_ITEM_DOSSIEREINGANG_UR)
+    workflow_item_factory(workflow_item_id=WORKFLOW_ITEM_EINGANG_ONLINE_UR)
 
     location = location_factory(location_id="1")
 
@@ -790,7 +791,7 @@ def test_instance_submit_message_building_services_ur(
     application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = True
     application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
 
-    workflow_item_factory(workflow_item_id=WORKFLOW_ITEM_DOSSIEREINGANG_UR)
+    workflow_item_factory(workflow_item_id=WORKFLOW_ITEM_EINGANG_ONLINE_UR)
 
     location = location_factory(location_id="1")
 
