@@ -347,8 +347,18 @@ def test_instance_group_unlink(
     ],
 )
 def test_instance_update(
-    admin_client, instance, location_factory, form_factory, status_code, mocker
+    admin_client,
+    instance,
+    location_factory,
+    form_factory,
+    status_code,
+    mocker,
+    application_settings,
 ):
+    application_settings["INSTANCE_HIDDEN_STATES"] = {
+        "coordination": ["new"],
+    }
+
     url = reverse("instance-detail", args=[instance.pk])
 
     data = {
