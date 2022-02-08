@@ -102,6 +102,14 @@ class CirculationStateFilter(NumberMultiValueFilter):
         return super().filter(qs, value)
 
 
+class FormNameFilter(CharFilter):
+    def filter(self, qs, value, *args, **kwargs):
+        if value and value.startswith("-"):
+            return qs.exclude(form__name=value[1:])
+
+        return super().filter(qs, value)
+
+
 class InstanceFilterSet(FilterSet):
     instance_id = NumberMultiValueFilter()
     service = NumberFilter(field_name="circulations__activations__service")
@@ -121,7 +129,7 @@ class InstanceFilterSet(FilterSet):
     is_applicant = BooleanFilter(
         field_name="involved_applicants__invitee", method="filter_is_applicant"
     )
-    form_name = CharFilter(field_name="form__name")
+    form_name = FormNameFilter(field_name="form__name")
     location = NumberMultiValueFilter()
     has_pending_billing_entry = BooleanFilter(method="filter_has_pending_billing_entry")
     has_pending_sanction = BooleanFilter(method="filter_has_pending_sanction")
