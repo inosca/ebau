@@ -24,6 +24,7 @@ from camac.caluma.api import CalumaApi
 from camac.constants import kt_bern as be_constants, kt_uri as uri_constants
 from camac.core.models import (
     Answer,
+    AuthorityLocation,
     HistoryActionConfig,
     InstanceLocation,
     InstanceService,
@@ -1080,6 +1081,23 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             existing_instance = models.Instance.objects.get(pk=existing_instance_id)
             link_instances(instance, existing_instance)
 
+    def _set_authority(self, instance):
+        """Fill the answer to the question 'leitbehorde' (only used in UR)."""
+        if not settings.APPLICATION["CALUMA"].get("USE_LOCATION", False):
+            return
+
+        authority_location = AuthorityLocation.objects.filter(
+            location_id=instance.location_id
+        )
+
+        if authority_location:
+            caluma_api.update_or_create_answer(
+                instance.case.document,
+                "leitbehoerde",
+                str(authority_location.first().authority_id),
+                user=self.context["request"].caluma_info.context.user,
+            )
+
     @transaction.atomic
     def update(self, instance, validated_data):
         request_logger.info(f"Submitting instance {instance.pk}")
@@ -1142,6 +1160,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             ] = domain_logic.CreateInstanceLogic.generate_identifier(instance)
             case.save()
 
+        self._set_authority(instance)
         self._generate_and_store_pdf(instance)
         self._set_submit_date(validated_data)
         self._create_history_entry(gettext_noop("Dossier submitted"))
