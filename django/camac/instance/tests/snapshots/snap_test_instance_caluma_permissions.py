@@ -4286,9 +4286,10 @@ snapshots['test_instance_permissions_ur[circ-Coordination-instance__user0] 1'] =
     ]
 }
 
-snapshots['test_instance_permissions_ur[circ-SystemOperation-instance__user0] 1'] = {
+snapshots['test_instance_permissions_ur[circ-Support-instance__user0] 1'] = {
     'case-meta': [
-        'read'
+        'read',
+        'write'
     ],
     'main': [
         'read',
@@ -4306,9 +4307,10 @@ snapshots['test_instance_permissions_ur[ext-Coordination-instance__user0] 1'] = 
     ]
 }
 
-snapshots['test_instance_permissions_ur[ext-SystemOperation-instance__user0] 1'] = {
+snapshots['test_instance_permissions_ur[ext-Support-instance__user0] 1'] = {
     'case-meta': [
-        'read'
+        'read',
+        'write'
     ],
     'main': [
         'read',
@@ -4326,9 +4328,10 @@ snapshots['test_instance_permissions_ur[redac-Coordination-instance__user0] 1'] 
     ]
 }
 
-snapshots['test_instance_permissions_ur[redac-SystemOperation-instance__user0] 1'] = {
+snapshots['test_instance_permissions_ur[redac-Support-instance__user0] 1'] = {
     'case-meta': [
-        'read'
+        'read',
+        'write'
     ],
     'main': [
         'read',
