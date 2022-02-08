@@ -3,12 +3,12 @@ from dataclasses import asdict
 from logging import getLogger
 
 import requests
+from caluma.caluma_workflow.models import Case
 from django.conf import settings
 from django.utils import timezone
 from django.utils.module_loading import import_string
 from requests_toolbelt.multipart.encoder import MultipartEncoder
 
-from caluma.caluma_workflow.models import Case
 from camac.document.models import Attachment
 from camac.dossier_import.loaders import XlsxFileDossierLoader
 from camac.dossier_import.messages import update_summary

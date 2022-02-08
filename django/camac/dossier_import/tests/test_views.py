@@ -1,12 +1,12 @@
 import mimetypes
 
 import pytest
+from caluma.caluma_workflow.models import Case
 from pytest_lazyfixture import lazy_fixture
 from rest_framework import status
 from rest_framework.reverse import reverse
 
 from camac.utils import build_url
-from caluma.caluma_workflow.models import Case
 
 from ..domain_logic import transmit_import
 from ..models import DossierImport
