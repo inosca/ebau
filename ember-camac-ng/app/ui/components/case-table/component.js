@@ -220,10 +220,7 @@ export default class CaseTableComponent extends Component {
         this.args.filter.pendingSanctionsControlInstance,
     };
     this.casesQuery.fetch({
-      order: [
-        { documentAnswer: "municipality" },
-        { meta: "dossier-number", direction: "DESC" },
-      ],
+      order: config.APPLICATION.casesQueryOrder,
       filter: this.gqlFilter,
       queryOptions: {
         context: {
