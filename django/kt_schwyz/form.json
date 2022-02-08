@@ -1473,10 +1473,7 @@
     "geschaeftskontrolle": {
       "title": "Geschäftskontrolle",
       "parent": null,
-      "questions": [
-        "geschaeftskontrolle-arbeitsschritt",
-        "geschaeftskontrolle-bemerkung"
-      ]
+      "questions": []
     },
     "meta": {
       "title": "Meta",
