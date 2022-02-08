@@ -1088,7 +1088,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             return
 
         authority_location = AuthorityLocation.objects.filter(
-            location=instance.location
+            location_id=instance.location_id
         )
 
         if authority_location:
