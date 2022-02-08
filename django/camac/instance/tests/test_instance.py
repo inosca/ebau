@@ -172,6 +172,41 @@ def test_instance_filter_fields(admin_client, instance, form_field_factory):
 
 
 @pytest.mark.parametrize(
+    "role__name,instance__user,form_filter,form_filter_name,exclude,expected_count",
+    [
+        ("Applicant", LazyFixture("admin_user"), False, None, False, 1),
+        ("Applicant", LazyFixture("admin_user"), True, None, False, 1),
+        ("Applicant", LazyFixture("admin_user"), True, None, True, 0),
+        ("Applicant", LazyFixture("admin_user"), True, "test", False, 0),
+        ("Applicant", LazyFixture("admin_user"), True, "test", True, 1),
+    ],
+)
+def test_instance_form_name_filter(
+    application_settings,
+    admin_client,
+    instance,
+    instance_factory,
+    form_filter,
+    form_filter_name,
+    exclude,
+    expected_count,
+):
+
+    url = reverse("instance-list")
+
+    if form_filter:
+        prefix = "-" if exclude else ""
+        name = form_filter_name or instance.form.name
+        response = admin_client.get(url, {"form_name": prefix + name})
+    else:
+        response = admin_client.get(url)
+
+    assert response.status_code == status.HTTP_200_OK
+    data = response.json()["data"]
+    assert len(data) == expected_count
+
+
+@pytest.mark.parametrize(
     "role__name,instance__user", [("Municipality", LazyFixture("admin_user"))]
 )
 def test_linked_instances(
