@@ -26,7 +26,7 @@ from camac.user.permissions import permission_aware
 from . import models
 
 SUBMIT_DATE_FORMAT = "%Y-%m-%dT%H:%M:%S%z"
-WORKFLOW_ITEM_DOSSIER_ERFASST_UR = 12
+WORKFLOW_ITEM_DOSSIER_IN_UREC_ERFASST_UR = 12
 
 caluma_api = CalumaApi()
 
@@ -238,7 +238,7 @@ class CreateInstanceLogic:
         ]:
             creation_date = timezone.now().strftime(SUBMIT_DATE_FORMAT)
             workflow_item = WorkflowItem.objects.get(
-                pk=WORKFLOW_ITEM_DOSSIER_ERFASST_UR
+                pk=WORKFLOW_ITEM_DOSSIER_IN_UREC_ERFASST_UR
             )
 
             WorkflowEntry.objects.create(
