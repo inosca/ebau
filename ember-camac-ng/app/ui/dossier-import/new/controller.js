@@ -26,6 +26,9 @@ export default class DossierImportIndexController extends Controller {
   @lastValue("fetchLocations") locations;
   @restartableTask
   *fetchLocations() {
+    if (this.shoebox.isSupportRole) {
+      return yield this.store.findAll("location");
+    }
     const group = yield this.store.findRecord(
       "group",
       this.shoebox.content.groupId
