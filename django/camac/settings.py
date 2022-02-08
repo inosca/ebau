@@ -315,6 +315,9 @@ APPLICATIONS = {
             "vbs": "PV",
             "uebrige": "PU",
         },
+        "CALUMA_INSTANCE_FORMS": [
+            "geschaeftskontrolle",
+        ],
         # please also update django/Makefile command when changing apps here
         "SEQUENCE_NAMESPACE_APPS": [],
         "NOTIFICATIONS_EXCLUDED_TASKS": [],
