@@ -775,15 +775,16 @@ def test_instance_export_detail(
 @pytest.mark.freeze_time("2017-7-27")
 @pytest.mark.parametrize("separator", ["-"])
 @pytest.mark.parametrize(
-    "short_dossier_number,use_caluma,prefix,padding,form_abbreviation,expected",
+    "short_dossier_number,use_caluma,prefix,padding,form_abbreviation,caluma_instance_forms,expected",
     (
-        [True, False, None, None, None, "11-17-011"],
-        [False, False, None, None, None, "1311-17-011"],
-        [False, True, None, None, None, "1311-17-011"],
-        [True, True, None, None, None, "11-17-011"],
-        [True, False, None, None, "abbr", "AB-17-001"],
-        [True, False, "IM", 4, "abbr", "AB-17-0001"],
-        [True, False, "IM", 4, None, "IM-11-17-0011"],
+        [True, False, None, None, None, False, "11-17-011"],
+        [False, False, None, None, None, False, "1311-17-011"],
+        [False, True, None, None, None, False, "1311-17-011"],
+        [True, True, None, None, None, False, "11-17-011"],
+        [True, False, None, None, "abbr", False, "AB-17-001"],
+        [True, False, "IM", 4, "abbr", False, "AB-17-0001"],
+        [True, False, "IM", 4, None, False, "IM-11-17-0011"],
+        [True, False, None, None, "abbr", True, "AB-17-011"],
     ),
 )
 @pytest.mark.parametrize("location__communal_federal_number", ["1311"])
@@ -800,6 +801,7 @@ def test_instance_generate_identifier(
     padding,
     separator,
     form_abbreviation,
+    caluma_instance_forms,
     expected,
 ):
     application_settings["CALUMA"]["SAVE_DOSSIER_NUMBER_IN_CALUMA"] = use_caluma
@@ -808,25 +810,31 @@ def test_instance_generate_identifier(
     elements = []
 
     if form_abbreviation:
+        form_abbreviation_value = form_abbreviation[:2].upper()
         application_settings["INSTANCE_IDENTIFIER_FORM_ABBR"] = {
-            form_abbreviation: form_abbreviation[:2].upper()
+            form_abbreviation: form_abbreviation_value
         } or {}
         form_field_factory(
             name="meta",
             value=json.dumps({"formType": form_abbreviation}),
             instance=instance,
         )
+        if caluma_instance_forms:
+            application_settings["CALUMA_INSTANCE_FORMS"] = [form_abbreviation]
+            elements.append(form_abbreviation_value)
 
     if prefix:
         elements.append(prefix)
 
-    communal_id = short_dossier_number and "11" or "1311"
+    id_number = separator.join(["17", "010"])
+    if not caluma_instance_forms:
+        communal_id = short_dossier_number and "11" or "1311"
+        id_number = separator.join([communal_id, id_number])
 
-    elements.append(separator.join([communal_id, "17", "010"]))
-
+    elements.append(id_number)
     identifier = separator.join(elements)
 
-    if use_caluma:
+    if use_caluma or caluma_instance_forms:
         instance.case = case_factory(meta={"dossier-number": identifier})
         instance.save()
     else:
