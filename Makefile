@@ -69,6 +69,10 @@ loadconfig: loadconfig-camac loadconfig-dms ## Load the DMS and camac configurat
 dbshell: ## Start a psql shell
 	@docker-compose exec db psql -Ucamac ${APPLICATION}
 
+.PHONY: ember-dev
+ember-dev: ## Set ember.development to true in application.ini
+	@sed -re 's/ember\.development.*/ember.development = true/' -i php/${APPLICATION}/configs/application.ini
+
 
 ######### Changes from eBau Bern #########
 
