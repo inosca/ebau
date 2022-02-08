@@ -557,9 +557,6 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
     def _get_main_form_permissions_for_support(self, instance):
         return set(["read", "write"])
 
-    def _get_main_form_permissions_for_system_operation(self, instance):
-        return set(["read", "write"])
-
     @permission_aware
     def _get_sb1_form_permissions(self, instance):
         state = instance.instance_state.name
