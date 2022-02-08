@@ -515,7 +515,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             permissions.add("read")
 
         # COMM is needed for "Bundesstelle"
-        if state in ["comm", "ext", "circ", "redac", "old"]:
+        if state in ["comm", "ext", "circ", "redac"]:
             permissions.add("write")
         return permissions
 
