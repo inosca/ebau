@@ -2193,7 +2193,7 @@ APPLICATIONS = {
             "Vernehmlassungsstelle Gemeindezirkulation": "service",
             "Vernehmlassungsstelle mit Koordinationsaufgaben": "trusted_service",
             "Vernehmlassungsstelle ohne Koordinationsaufgaben": "trusted_service",
-            "Support": "support",
+            "System-Betrieb": "support",
             "Oereb Api": "oereb_api",
             # "Portal User": None,  # Uses the fallback permissions
             # "Admin": None,

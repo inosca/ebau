@@ -22980,6 +22980,21 @@
   },
   {
     "model": "core.instanceresource",
+    "pk": 2000003,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 2000000,
+      "name": "Formular",
+      "description": null,
+      "template": "/ember/instance.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 0,
+      "form_group": 161
+    }
+  },
+  {
+    "model": "core.instanceresource",
     "pk": 12000000,
     "fields": {
       "available_instance_resource": "editformpage",
@@ -26493,6 +26508,13 @@
   {
     "model": "core.irpage",
     "pk": 2000002,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
+    "pk": 2000003,
     "fields": {
       "pdf_class": null
     }
@@ -35969,6 +35991,141 @@
   },
   {
     "model": "core.irroleacl",
+    "pk": 2000035,
+    "fields": {
+      "instance_resource": 2000003,
+      "role": 1131,
+      "instance_state": 1
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000036,
+    "fields": {
+      "instance_resource": 2000003,
+      "role": 1131,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000037,
+    "fields": {
+      "instance_resource": 2000003,
+      "role": 1131,
+      "instance_state": 22
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000038,
+    "fields": {
+      "instance_resource": 2000003,
+      "role": 1131,
+      "instance_state": 32
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000039,
+    "fields": {
+      "instance_resource": 2000003,
+      "role": 1131,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000040,
+    "fields": {
+      "instance_resource": 2000003,
+      "role": 1131,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000041,
+    "fields": {
+      "instance_resource": 2000003,
+      "role": 1131,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000042,
+    "fields": {
+      "instance_resource": 2000003,
+      "role": 1131,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000043,
+    "fields": {
+      "instance_resource": 2000003,
+      "role": 1131,
+      "instance_state": 26
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000044,
+    "fields": {
+      "instance_resource": 2000003,
+      "role": 1131,
+      "instance_state": 27
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000045,
+    "fields": {
+      "instance_resource": 2000003,
+      "role": 1131,
+      "instance_state": 28
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000046,
+    "fields": {
+      "instance_resource": 2000003,
+      "role": 1131,
+      "instance_state": 29
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000047,
+    "fields": {
+      "instance_resource": 2000003,
+      "role": 1131,
+      "instance_state": 30
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000048,
+    "fields": {
+      "instance_resource": 2000003,
+      "role": 1131,
+      "instance_state": 31
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000049,
+    "fields": {
+      "instance_resource": 2000003,
+      "role": 1131,
+      "instance_state": 33
+    }
+  },
+  {
+    "model": "core.irroleacl",
     "pk": 12000000,
     "fields": {
       "instance_resource": 46,
@@ -42254,6 +42411,13 @@
   },
   {
     "model": "core.remberlist",
+    "pk": 2000000,
+    "fields": {
+      "instance_states": "1,21,22,32,23,24,25,34,26,27,28,29,30,31,33"
+    }
+  },
+  {
+    "model": "core.remberlist",
     "pk": 12000000,
     "fields": {
       "instance_states": "30"
@@ -43171,6 +43335,14 @@
   },
   {
     "model": "core.rroleacl",
+    "pk": 2000000,
+    "fields": {
+      "resource": 2000000,
+      "role": 1131
+    }
+  },
+  {
+    "model": "core.rroleacl",
     "pk": 12000000,
     "fields": {
       "resource": 12000000,
@@ -43651,7 +43823,7 @@
       "template": "/global/home.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 32
+      "sort": 30
     }
   },
   {
@@ -43664,7 +43836,7 @@
       "template": "/global/search.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 30
+      "sort": 28
     }
   },
   {
@@ -43677,7 +43849,7 @@
       "template": "/buildom/search.phtml",
       "class_field": "",
       "hidden": 1,
-      "sort": 28
+      "sort": 26
     }
   },
   {
@@ -43703,7 +43875,7 @@
       "template": "/portal/notfound.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 33
+      "sort": 31
     }
   },
   {
@@ -43716,7 +43888,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 16
+      "sort": 14
     }
   },
   {
@@ -43729,7 +43901,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 23
+      "sort": 21
     }
   },
   {
@@ -43742,7 +43914,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 14
+      "sort": 12
     }
   },
   {
@@ -43755,7 +43927,7 @@
       "template": "",
       "class_field": "",
       "hidden": 0,
-      "sort": 24
+      "sort": 22
     }
   },
   {
@@ -43768,7 +43940,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 15
+      "sort": 13
     }
   },
   {
@@ -43781,7 +43953,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 17
+      "sort": 15
     }
   },
   {
@@ -43794,7 +43966,7 @@
       "template": null,
       "class_field": "hasPendingBillingEntry",
       "hidden": 0,
-      "sort": 26
+      "sort": 24
     }
   },
   {
@@ -43807,7 +43979,7 @@
       "template": null,
       "class_field": "hasPendingSanction",
       "hidden": 0,
-      "sort": 25
+      "sort": 23
     }
   },
   {
@@ -43820,7 +43992,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 18
+      "sort": 16
     }
   },
   {
@@ -43833,7 +44005,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 19
+      "sort": 17
     }
   },
   {
@@ -43846,7 +44018,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 20
+      "sort": 18
     }
   },
   {
@@ -43859,7 +44031,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 27
+      "sort": 25
     }
   },
   {
@@ -43872,7 +44044,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 12
+      "sort": 10
     }
   },
   {
@@ -43937,7 +44109,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 22
+      "sort": 20
     }
   },
   {
@@ -43989,7 +44161,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 31
+      "sort": 29
     }
   },
   {
@@ -44002,7 +44174,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 21
+      "sort": 19
     }
   },
   {
@@ -44015,7 +44187,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 13
+      "sort": 11
     }
   },
   {
@@ -44041,7 +44213,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 29
+      "sort": 27
     }
   },
   {
@@ -44054,7 +44226,20 @@
       "template": "/ember/form-builder.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 34
+      "sort": 32
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 2000000,
+    "fields": {
+      "available_resource": "emberlist",
+      "name": "Alle Dossiers",
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 33
     }
   },
   {
