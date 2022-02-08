@@ -107,7 +107,7 @@ dossierImport:
       undoImport:
         title: Annuler l'importation
         description: |-
-          Supprime l'importation ainsi que tous les dossiers importés (uniquement pour l'exploitation du système).
+          Supprime l'importation ainsi que tous les dossiers importés.
         buttonLabel: Annuler l'importation
         success: L'importation a été annulée avec succès.
         error: Quelque chose s'est mal passé lors de l'annulation de l'importation.
