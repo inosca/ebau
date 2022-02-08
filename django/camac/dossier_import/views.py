@@ -114,21 +114,21 @@ class DossierImportView(ModelViewSet):
         return False
 
     @permission_aware
-    def has_object_undo_permission_for_support(self, instance):
-        return True
+    def has_object_undo_permission_for_municipality(self, instance):
+        return instance.status in [
+            DossierImport.IMPORT_STATUS_IMPORTED,
+        ]
 
-    @action(methods=["POST"], url_path="undo", detail=True)
-    def undo(self, request, pk=None):
-        dossier_import = self.get_object()
-        if dossier_import.status in [
+    @permission_aware
+    def has_object_undo_permission_for_support(self, instance):
+        return instance.status not in [
             DossierImport.IMPORT_STATUS_NEW,
             DossierImport.IMPORT_STATUS_VALIDATION_SUCCESSFUL,
             DossierImport.IMPORT_STATUS_IMPORT_FAILED,
             DossierImport.IMPORT_STATUS_IMPORT_INPROGRESS,
-        ]:
-            raise ValidationError(
-                "Undoing an import is only possible after it has been imported.",
-            )
+        ]
 
-        undo_import(dossier_import)
+    @action(methods=["POST"], url_path="undo", detail=True)
+    def undo(self, request, pk=None):
+        undo_import(self.get_object())
         return Response()

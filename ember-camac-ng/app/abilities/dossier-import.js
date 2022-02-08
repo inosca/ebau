@@ -23,10 +23,13 @@ export default class extends Ability {
   }
 
   get canUndo() {
-    return (
-      this.shoebox.isSupportRole &&
-      ["imported", "confirmed"].includes(this.model?.status)
-    );
+    if (this.shoebox.isSupportRole) {
+      return ["imported", "confirmed"].includes(this.model?.status);
+    }
+    if (this.shoebox.role === "municipality") {
+      return ["imported"].includes(this.model?.status);
+    }
+    return false;
   }
 
   get canDelete() {
