@@ -32,23 +32,6 @@ class ResponsibleUserFilter(CharFilter):
         return super().filter(qs, value)
 
 
-class ResponsibleInstanceUserFilter(CharFilter):
-    def filter(self, qs, value):
-        if value in EMPTY_VALUES:
-            return qs
-
-        if value.lower() == "nobody":
-            return qs.filter(
-                responsible_services__service__isnull=True,
-                responsible_services__responsible_user__isnull=True,
-            )
-
-        return qs.filter(
-            responsible_services__service=self.parent.request.group.service,
-            responsible_services__responsible_user=value,
-        )
-
-
 class ResponsibleServiceFilter(CharFilter):
     def filter(self, qs, value):
         if value in EMPTY_VALUES:
@@ -76,13 +59,12 @@ class ResponsibleServiceUserFilter(CharFilter):
         current_service = self.parent.request.group.service
 
         if value.lower() == "nobody":
-            qs = qs.exclude(
+            return qs.exclude(
                 # exclude all instances which have responsible services
                 pk__in=responsible_models.ResponsibleService.objects.filter(
                     service=current_service
                 ).values("instance")
             )
-            return qs
 
         return qs.filter(
             # restrict to current service
@@ -114,7 +96,6 @@ class InstanceFilterSet(FilterSet):
     )
     instance_state = NumberMultiValueFilter()
     responsible_user = ResponsibleUserFilter(field_name="responsibilities__user")
-    responsible_instance_user = ResponsibleInstanceUserFilter()
     responsible_service = ResponsibleServiceFilter()
     responsible_service_user = ResponsibleServiceUserFilter()
     circulation_state = CirculationStateFilter()
@@ -172,7 +153,6 @@ class InstanceFilterSet(FilterSet):
             "service",
             "user",
             "responsible_user",
-            "responsible_instance_user",
             "responsible_service",
             "responsible_service_user",
             "is_applicant",
