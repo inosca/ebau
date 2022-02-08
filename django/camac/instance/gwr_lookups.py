@@ -21,7 +21,7 @@ def catch_and_log(fallback=None):
             try:
                 return fn(*args, **kwargs)
             except Exception as e:  # noqa: B902
-                logger.exception(e)
+                logger.warning(e)
                 return fallback
 
         return wrapper
