@@ -100,6 +100,7 @@ export default class InstancesIndexController extends Controller.extend(
       ...this.allQueryParams,
       include: "form,instance-state,location",
       is_applicant: 1,
+      form_name: "-geschaeftskontrolle",
     });
 
     yield this.store.query("form-field", {
