@@ -2,6 +2,8 @@ import { getOwner } from "@ember/application";
 import Route from "@ember/routing/route";
 import { inject as service } from "@ember/service";
 
+import { isEmbedded } from "caluma-portal/helpers/is-embedded";
+
 export default class ApplicationRoute extends Route {
   @service session;
   @service router;
@@ -30,7 +32,7 @@ export default class ApplicationRoute extends Route {
       });
     }
 
-    if (window.top !== window) {
+    if (isEmbedded()) {
       getOwner(this)
         .lookup("service:-document")
         .querySelector("body")
