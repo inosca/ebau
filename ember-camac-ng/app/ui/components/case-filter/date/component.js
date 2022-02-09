@@ -1,7 +1,7 @@
 import { action } from "@ember/object";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
-import moment from "moment";
+import { DateTime } from "luxon";
 
 export default class CaseFilterDateComponent extends Component {
   @tracked _value = this.value;
@@ -19,7 +19,7 @@ export default class CaseFilterDateComponent extends Component {
 
   @action
   updateFilter(date) {
-    const value = date && moment(date).format(moment.HTML5_FMT.DATE);
+    const value = date && DateTime.fromJSDate(date).toISODate();
 
     this.args.updateFilter({
       target: { value },

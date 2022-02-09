@@ -3,7 +3,7 @@ import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import { dropTask, lastValue } from "ember-concurrency";
-import moment from "moment";
+import { DateTime } from "luxon";
 
 export default class StatisticsIndexController extends Controller {
   @service fetch;
@@ -45,9 +45,9 @@ export default class StatisticsIndexController extends Controller {
 
   @action
   setFilter(name, value) {
-    const date = moment(value);
+    const date = DateTime.fromJSDate(value);
 
-    this[name] = date.isValid() ? date.format(moment.HTML5_FMT.DATE) : null;
+    this[name] = date.isValid ? date.toISODate() : null;
 
     this.fetchInstancesSummary.perform();
     this.fetchClaimsSummary.perform();

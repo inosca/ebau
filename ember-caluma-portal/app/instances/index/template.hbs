@@ -85,23 +85,21 @@
         <label class="uk-form-label">{{t "instances.submitDate"}}</label>
         <div class="uk-form-controls uk-grid-small uk-child-width-1-2" uk-grid>
           <div>
-            <PikadayInput
+            <input
+              type="text"
               class="uk-input"
+              name="submitFrom"
               aria-label={{t "instances.submitDateFrom"}}
-              @name="submitFrom"
-              @useUTC={{true}}
-              @value={{this.submitFrom}}
-              @onSelection={{fn this.updateDate "submitFrom"}}
+              {{pikaday value=this.submitFrom onSelect=(fn (mut this.submitFrom))}}
             />
           </div>
           <div>
-            <PikadayInput
+            <input
+              type="text"
               class="uk-input"
-              @name="submitTo"
-              @useUTC={{true}}
+              name="submitTo"
               aria-label={{t "instances.submitDateTo"}}
-              @value={{this.submitTo}}
-              @onSelection={{fn this.updateDate "submitTo"}}
+              {{pikaday value=this.submitTo onSelect=(fn (mut this.submitTo))}}
             />
           </div>
         </div>
@@ -179,7 +177,7 @@
             <td class="uk-text-nowrap">{{case.type}} {{case.instance.typeDetail}}</td>
             <td>{{case.municipality}}</td>
             <td class="uk-text-truncate" title={{case.address}}>{{case.address}}</td>
-            <td>{{if case.submitDate (moment-format case.submitDate "DD.MM.YYYY")}}</td>
+            <td>{{if case.submitDate (format-date case.submitDate format="date")}}</td>
             <td>{{case.status}}</td>
             <td class="uk-text-truncate" title={{case.description}}>{{case.description}}</td>
           </tr>
