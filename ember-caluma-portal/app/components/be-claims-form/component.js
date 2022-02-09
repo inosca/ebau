@@ -31,7 +31,7 @@ class Claim {
   @field("nfd-tabelle-behoerde") authority;
 
   get id() {
-    return this.document.id;
+    return this.document.uuid;
   }
 
   get statusSlug() {
