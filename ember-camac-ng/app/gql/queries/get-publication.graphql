@@ -4,6 +4,7 @@ query GetPublication($id: ID!) {
     ... on WorkItem {
       status
       meta
+      addressedGroups
       document {
         id
       }
