@@ -1,6 +1,8 @@
 import { inject as service } from "@ember/service";
 import { Ability } from "ember-can";
 
+import isProd from "camac-ng/utils/is-prod";
+
 export default class extends Ability {
   @service shoebox;
 
@@ -11,15 +13,35 @@ export default class extends Ability {
   }
 
   get canStart() {
-    return this.model?.status === "verified";
+    return (
+      this.model?.status === "verified" &&
+      (!isProd() || this.shoebox.isSupportRole())
+    );
   }
 
   get canConfirm() {
-    return this.model?.status === "imported";
+    return !isProd() && this.model?.status === "imported";
   }
 
   get canTransmit() {
-    return this.shoebox.isSupportRole && this.model?.status === "confirmed";
+    return (
+      !isProd() &&
+      this.shoebox.isSupportRole &&
+      this.model?.status === "confirmed"
+    );
+  }
+
+  get canUndo() {
+    if (isProd()) {
+      return false;
+    }
+    if (this.shoebox.isSupportRole) {
+      return ["imported", "confirmed"].includes(this.model?.status);
+    }
+    if (this.shoebox.role === "municipality") {
+      return ["imported"].includes(this.model?.status);
+    }
+    return false;
   }
 
   get canDelete() {
