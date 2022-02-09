@@ -184,6 +184,9 @@ class KtSchwyzDossierWriter(DossierWriter):
             dossier_id=dossier.id, status=DOSSIER_IMPORT_STATUS_SUCCESS, details=[]
         )
 
+        # copy messages from loader to summary
+        dossier_summary.details += dossier._meta.errors
+
         if dossier._meta.missing:
             dossier_summary.details.append(
                 Message(
@@ -213,7 +216,7 @@ class KtSchwyzDossierWriter(DossierWriter):
                 Message(
                     level=LOG_LEVEL_WARNING,
                     code=MessageCodes.DUPLICATE_DOSSIER.value,
-                    detail=f"Dossier with ID {dossier.id} already exists.",
+                    detail=None,
                 )
             )
             dossier_summary.status = DOSSIER_IMPORT_STATUS_ERROR
