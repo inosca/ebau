@@ -87,7 +87,7 @@ class DossierImportView(ModelViewSet):
 
     @permission_aware
     def has_object_transmit_permission_for_support(self, instance):
-        return True
+        return not is_prod()
 
     @action(methods=["POST"], url_path="transmit", detail=True)
     def transmit(self, request, pk=None):
@@ -110,7 +110,7 @@ class DossierImportView(ModelViewSet):
         return Response({"task_id": task_id})
 
     @permission_aware
-    def has_object_undo_permission(self, instance):
+    def has_object_undo_permission(self, instance):  # pragma: no cover
         return False
 
     @permission_aware
@@ -121,6 +121,9 @@ class DossierImportView(ModelViewSet):
 
     @permission_aware
     def has_object_undo_permission_for_support(self, instance):
+        if is_prod():
+            return False
+
         return instance.status not in [
             DossierImport.IMPORT_STATUS_NEW,
             DossierImport.IMPORT_STATUS_VALIDATION_SUCCESSFUL,
