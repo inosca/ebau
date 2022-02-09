@@ -1922,6 +1922,7 @@ class PublicCalumaInstanceSerializer(serializers.Serializer):  # pragma: no cove
     instance_id = serializers.IntegerField(read_only=True)
     dossier_nr = serializers.CharField(read_only=True)
     publication_date = serializers.DateTimeField(read_only=True)
+    publication_end_date = serializers.DateTimeField(read_only=True)
     publication_text = serializers.CharField(read_only=True)
 
     municipality = serializers.SerializerMethodField()

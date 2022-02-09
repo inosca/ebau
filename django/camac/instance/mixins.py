@@ -286,19 +286,29 @@ class InstanceQuerysetMixin(object):
                 .distinct()
             )
         elif settings.APPLICATION.get("PUBLICATION_BACKEND") == "camac-ng":
-            return queryset.filter(
-                **{
-                    self._get_instance_filter_expr(
-                        "publication_entries__publication_date__lte"
-                    ): timezone.now(),
-                    self._get_instance_filter_expr(
-                        "publication_entries__publication_end_date__gte"
-                    ): timezone.now(),
-                    self._get_instance_filter_expr(
-                        "publication_entries__is_published"
-                    ): True,
-                },
-            ).distinct()
+            return (
+                queryset.filter(
+                    **{
+                        self._get_instance_filter_expr(
+                            "publication_entries__publication_date__lte"
+                        ): timezone.now(),
+                        self._get_instance_filter_expr(
+                            "publication_entries__publication_end_date__gte"
+                        ): timezone.now(),
+                        self._get_instance_filter_expr(
+                            "publication_entries__is_published"
+                        ): True,
+                    },
+                )
+                .exclude(
+                    **{
+                        self._get_instance_filter_expr(
+                            "form_id"
+                        ): settings.APPLICATION.get("OEREB_FORM", None)
+                    }
+                )
+                .distinct()
+            )
 
         return queryset.none()
 
