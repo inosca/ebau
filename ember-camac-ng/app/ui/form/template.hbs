@@ -3,7 +3,10 @@
 {{#if this.data.document}}
   <CfContent
     @documentId={{this.data.document.id}}
-    @context={{hash instanceId=this.model.id}}
+    @context={{hash 
+      instanceId=this.model.id
+      actionButtonOnSuccess=(perform this.getData)
+    }}
     @disabled={{cannot "write form of instance" this.data.instance}}
   />
 {{/if}}
