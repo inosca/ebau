@@ -9,4 +9,5 @@ export default class PublicCalumaInstanceModel extends Model {
   @attr intent;
   @attr street;
   @attr parcels;
+  @attr publicationEndDate;
 }
