@@ -296,6 +296,8 @@ class SchwyzInstanceSerializer(InstanceSerializer):
             form=form_models.Form.objects.get(pk=caluma_form),
             user=self.context["request"].caluma_info.context.user,
             meta={"camac-instance-id": instance.pk},
+            # necessary for resolving dynamic groups
+            context={"instance": instance.pk},
         )
 
         instance.case = case
