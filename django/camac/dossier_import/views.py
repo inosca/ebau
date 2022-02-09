@@ -5,7 +5,11 @@ from rest_framework.exceptions import ValidationError
 from rest_framework.response import Response
 from rest_framework_json_api.views import ModelViewSet
 
-from camac.dossier_import.domain_logic import perform_import, transmit_import
+from camac.dossier_import.domain_logic import (
+    perform_import,
+    transmit_import,
+    undo_import,
+)
 from camac.dossier_import.models import DossierImport
 from camac.dossier_import.serializers import DossierImportSerializer
 from camac.user.permissions import permission_aware
@@ -83,7 +87,7 @@ class DossierImportView(ModelViewSet):
 
     @permission_aware
     def has_object_transmit_permission_for_support(self, instance):
-        return True
+        return not is_prod()
 
     @action(methods=["POST"], url_path="transmit", detail=True)
     def transmit(self, request, pk=None):
@@ -104,3 +108,30 @@ class DossierImportView(ModelViewSet):
         dossier_import.save()
 
         return Response({"task_id": task_id})
+
+    @permission_aware
+    def has_object_undo_permission(self, instance):  # pragma: no cover
+        return False
+
+    @permission_aware
+    def has_object_undo_permission_for_municipality(self, instance):
+        return instance.status in [
+            DossierImport.IMPORT_STATUS_IMPORTED,
+        ]
+
+    @permission_aware
+    def has_object_undo_permission_for_support(self, instance):
+        if is_prod():
+            return False
+
+        return instance.status not in [
+            DossierImport.IMPORT_STATUS_NEW,
+            DossierImport.IMPORT_STATUS_VALIDATION_SUCCESSFUL,
+            DossierImport.IMPORT_STATUS_IMPORT_FAILED,
+            DossierImport.IMPORT_STATUS_IMPORT_INPROGRESS,
+        ]
+
+    @action(methods=["POST"], url_path="undo", detail=True)
+    def undo(self, request, pk=None):
+        undo_import(self.get_object())
+        return Response()
