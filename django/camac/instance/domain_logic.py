@@ -563,6 +563,7 @@ class CreateInstanceLogic:
             form=caluma_form and form_models.Form.objects.get(pk=caluma_form),
             user=caluma_user,
             meta=case_meta,
+            context={"instance": instance.pk},
         )
 
         instance.case = case
