@@ -14354,6 +14354,15 @@
     }
   },
   {
+    "model": "core.irroleacl",
+    "pk": 1024,
+    "fields": {
+      "instance_resource": 1,
+      "role": 3,
+      "instance_state": 2
+    }
+  },
+  {
     "model": "core.irserviceacl",
     "pk": 1,
     "fields": {
