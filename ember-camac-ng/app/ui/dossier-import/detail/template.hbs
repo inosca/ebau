@@ -8,7 +8,7 @@
   >
     {{t
       "dossierImport.detail.title"
-      creationDate=(moment-format this.import.createdAt "DD.MM.YYYY HH:mm")
+      creationDate=(format-date this.import.createdAt format="datetime")
       user=(if this.isProd this.import.group.name this.import.user.fullName)
     }}
   </h3>

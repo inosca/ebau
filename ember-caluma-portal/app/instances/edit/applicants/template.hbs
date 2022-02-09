@@ -22,7 +22,7 @@
               <span class="uk-text-meta">({{t "instances.applicants.unregistered"}})</span>
             {{/if}}
           </td>
-          <td>{{format-date applicant.created month="2-digit" day="2-digit" year="numeric" hour="2-digit" minute="2-digit"}}</td>
+          <td>{{format-date applicant.created format="datetime"}}</td>
           <td>{{applicant.user.fullName}}</td>
           <td class="uk-text-right">
             {{#if (gt this.applicants.length 1)}}

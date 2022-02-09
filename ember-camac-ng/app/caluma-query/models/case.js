@@ -1,6 +1,6 @@
 import { inject as service } from "@ember/service";
 import CaseModel from "@projectcaluma/ember-core/caluma-query/models/case";
-import moment from "moment";
+import { DateTime } from "luxon";
 
 import config from "camac-ng/config/environment";
 
@@ -216,12 +216,14 @@ export default class CustomCaseModel extends CaseModel {
       return null;
     }
 
-    const now = moment();
+    const now = DateTime.now();
     if (activation.state === "NFD") {
       return "nfd";
-    } else if (moment(activation.deadlineDate) < now) {
+    } else if (DateTime.fromISO(activation.deadlineDate) < now) {
       return "expired";
-    } else if (moment(activation.deadlineDate).subtract("5", "days") < now) {
+    } else if (
+      DateTime.fromISO(activation.deadlineDate).minus({ days: 5 }) < now
+    ) {
       return "due-shortly";
     }
 

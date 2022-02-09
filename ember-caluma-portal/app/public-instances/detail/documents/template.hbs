@@ -33,7 +33,7 @@
             </button>
           </td>
           <td>{{attachment.filesize}}</td>
-          <td>{{moment-format attachment.date "DD.MM.YYYY"}}</td>
+          <td>{{format-date attachment.date format="date"}}</td>
         </tr>
       {{/each}}
     {{else}}

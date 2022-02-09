@@ -1,6 +1,5 @@
 import { inject as service } from "@ember/service";
 import CaseModel from "@projectcaluma/ember-core/caluma-query/models/case";
-import moment from "moment";
 
 import config from "caluma-portal/config/environment";
 
@@ -60,9 +59,7 @@ export default class CustomCaseModel extends CaseModel {
   }
 
   get submitDate() {
-    const raw = this.raw.meta["submit-date"];
-
-    return raw ? moment(raw) : null;
+    return this.raw.meta["submit-date"] ?? null;
   }
 
   get description() {
