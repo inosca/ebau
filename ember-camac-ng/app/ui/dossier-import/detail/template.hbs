@@ -157,6 +157,19 @@
             }}
           />
         {{/if}}
+        {{#if (can "undo dossier-import" this.import)}}
+          <DossierImportAction
+            @actionName="undoImport"
+            @task={{this.undoImport}}
+            @title={{t "dossierImport.detail.actions.undoImport.title"}}
+            @description={{t
+              "dossierImport.detail.actions.undoImport.description"
+            }}
+            @buttonLabel={{t
+              "dossierImport.detail.actions.undoImport.buttonLabel"
+            }}
+          />
+        {{/if}}
         {{#if (can "delete dossier-import" this.import)}}
           <DossierImportAction
             @actionName="deleteImport"
