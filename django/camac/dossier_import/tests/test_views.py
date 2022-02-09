@@ -225,10 +225,11 @@ def test_file_validation(
     ],
 )
 @pytest.mark.parametrize(
-    "action,role__name,status_before,expected_response_code,status_after",
+    "action,host,role__name,status_before,expected_response_code,status_after",
     [
         (
             "start",
+            "sycloud",
             "municipality-lead",
             DossierImport.IMPORT_STATUS_VALIDATION_SUCCESSFUL,
             status.HTTP_200_OK,
@@ -236,6 +237,15 @@ def test_file_validation(
         ),
         (
             "start",
+            "prod",
+            "municipality-lead",
+            DossierImport.IMPORT_STATUS_VALIDATION_SUCCESSFUL,
+            status.HTTP_404_NOT_FOUND,
+            None,
+        ),
+        (
+            "start",
+            "sycloud",
             "municipality-lead",
             DossierImport.IMPORT_STATUS_VALIDATION_FAILED,
             status.HTTP_400_BAD_REQUEST,
@@ -243,6 +253,7 @@ def test_file_validation(
         ),
         (
             "confirm",
+            "sycloud",
             "municipality-lead",
             DossierImport.IMPORT_STATUS_IMPORTED,
             status.HTTP_200_OK,
@@ -250,6 +261,7 @@ def test_file_validation(
         ),
         (
             "confirm",
+            "sycloud",
             "municipality-lead",
             DossierImport.IMPORT_STATUS_VALIDATION_SUCCESSFUL,
             status.HTTP_400_BAD_REQUEST,
@@ -257,6 +269,7 @@ def test_file_validation(
         ),
         (
             "transmit",
+            "sycloud",
             "support",
             DossierImport.IMPORT_STATUS_CONFIRMED,
             status.HTTP_200_OK,
@@ -264,6 +277,15 @@ def test_file_validation(
         ),
         (
             "transmit",
+            "prod",
+            "support",
+            DossierImport.IMPORT_STATUS_CONFIRMED,
+            status.HTTP_403_FORBIDDEN,
+            None,
+        ),
+        (
+            "transmit",
+            "sycloud",
             "municipality-lead",
             DossierImport.IMPORT_STATUS_CONFIRMED,
             status.HTTP_403_FORBIDDEN,
@@ -271,6 +293,7 @@ def test_file_validation(
         ),
         (
             "transmit",
+            "sycloud",
             "support",
             DossierImport.IMPORT_STATUS_IMPORTED,
             status.HTTP_400_BAD_REQUEST,
@@ -278,6 +301,7 @@ def test_file_validation(
         ),
         (
             "undo",
+            "sycloud",
             "support",
             DossierImport.IMPORT_STATUS_IMPORTED,
             status.HTTP_200_OK,
@@ -285,9 +309,26 @@ def test_file_validation(
         ),
         (
             "undo",
+            "sycloud",
             "municipality-lead",
             DossierImport.IMPORT_STATUS_IMPORTED,
+            status.HTTP_200_OK,
+            "deleted",
+        ),
+        (
+            "undo",
+            "prod",
+            "support",
+            DossierImport.IMPORT_STATUS_IMPORTED,
             status.HTTP_403_FORBIDDEN,
+            None,
+        ),
+        (
+            "undo",
+            "prod",
+            "municipality-lead",
+            DossierImport.IMPORT_STATUS_IMPORTED,
+            status.HTTP_404_NOT_FOUND,
             None,
         ),
     ],
@@ -309,10 +350,12 @@ def test_state_transitions(
     expected_response_code,
     status_after,
     case_factory,
+    host,
 ):
     make_workflow_items_for_config(config)
     setup_fixtures_required_by_application_config(config)
     settings.APPLICATION = settings.APPLICATIONS[config]
+    settings.INTERNAL_BASE_URL = f"https://{host}.example.com"
     # settings.Q_CLUSTER["sync"] = True  # doesn't work, unfortunately
 
     dossier_import = dossier_import_factory(
