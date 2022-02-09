@@ -441,13 +441,13 @@
       "modified_by_group": null,
       "name": "{\"de\": \"Abschliessen\", \"fr\": null}",
       "description": "{\"de\": null, \"fr\": null}",
-      "type": "simple",
+      "type": "complete_workflow_form",
       "meta": {},
-      "address_groups": null,
+      "address_groups": "info.work_item.created_by_group",
       "control_groups": null,
       "is_archived": false,
       "form": null,
-      "lead_time": 864000,
+      "lead_time": null,
       "is_multiple_instance": false
     }
   },
