@@ -25,7 +25,7 @@ export default class BeClaimsFormEditComponent extends Component {
 
   get section() {
     return this.args.document.jexl.evalSync(
-      this.args.form.meta["attachment-section"],
+      this.args.form.raw.meta["attachment-section"],
       this.args.document.jexlContext
     );
   }
