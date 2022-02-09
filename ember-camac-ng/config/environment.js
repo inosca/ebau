@@ -1,7 +1,5 @@
 "use strict";
 
-const locales = require("./locales");
-
 module.exports = function (environment) {
   const ENV = {
     modulePrefix: "camac-ng",
@@ -14,10 +12,6 @@ module.exports = function (environment) {
     maxDossierImportSize: 1000000000, // 1GB
     apollo: {
       apiURL: "/graphql/",
-    },
-    moment: {
-      includeLocales: locales,
-      allowEmpty: true,
     },
     EmberENV: {
       FEATURES: {

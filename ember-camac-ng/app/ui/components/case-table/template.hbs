@@ -32,7 +32,7 @@
             {{#if (eq tColumn "applicant")}}
               {{get node (concat tColumn ".name")}}
             {{else if (eq tColumn "processingDeadline")}}
-              {{moment-from (get node tColumn)}}
+              {{date-from-now (get node tColumn)}}
             {{else}}
               {{get node tColumn}}
             {{/if}}
