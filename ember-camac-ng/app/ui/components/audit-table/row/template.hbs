@@ -6,7 +6,7 @@
       {{t "audit.modifiedText"
         user=@audit.modifiedByUser.fullName
         service=@audit.modifiedByService.name
-        date=(moment-format @audit.modifiedAt "DD.MM.YYYY HH:mm")
+        date=(format-date @audit.modifiedAt format="datetime")
         htmlSafe=true
       }}
     {{else}}

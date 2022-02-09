@@ -16,7 +16,7 @@
                 <span class="uk-text-bold">
                   {{journalEntry.user.username}}
                 </span>
-                {{moment-format journalEntry.creationDate "HH:mm DD.MM.YY"}}
+                {{format-date journalEntry.creationDate format="datetime"}}
               </span>
               <hr class="uk-margin-small-top uk-margin-small-bottom" />
 

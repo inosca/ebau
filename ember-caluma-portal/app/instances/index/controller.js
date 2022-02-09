@@ -7,7 +7,7 @@ import { allCases } from "@projectcaluma/ember-core/caluma-query/queries";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
 import { useTask } from "ember-resources";
-import moment from "moment";
+import { DateTime } from "luxon";
 import { TrackedObject } from "tracked-built-ins";
 import { dedupeTracked, cached } from "tracked-toolbox";
 
@@ -15,7 +15,6 @@ import config from "caluma-portal/config/environment";
 import getRootFormsQuery from "caluma-portal/gql/queries/get-root-forms.graphql";
 
 const { answerSlugs } = config.APPLICATION;
-const DATE_URL_FORMAT = "YYYY-MM-DD";
 
 const getRecursiveSources = (form, forms) => {
   if (!form.source?.slug) {
@@ -27,18 +26,16 @@ const getRecursiveSources = (form, forms) => {
   return [source.node.slug, ...getRecursiveSources(source.node, forms)];
 };
 
-const toDateTime = (date) => (date.isValid() ? date.utc().format() : null);
-
 const dateFilter = {
   serialize(value) {
-    const date = moment.utc(value);
+    const date = DateTime.fromJSDate(value);
 
-    return date.isValid() ? date.utc().format(DATE_URL_FORMAT) : null;
+    return date.isValid ? date.toISODate() : null;
   },
   deserialize(value) {
-    const date = moment.utc(value, DATE_URL_FORMAT);
+    const date = DateTime.fromISO(value);
 
-    return date.isValid() ? date.toDate() : null;
+    return date.isValid ? date.toJSDate() : null;
   },
 };
 
@@ -257,12 +254,12 @@ export default class InstancesIndexController extends Controller {
           { key: answerSlugs.specialId, value: this._specialId },
           {
             key: "submit-date",
-            value: toDateTime(moment(this._submitFrom).startOf("day")),
+            value: DateTime.fromISO(this._submitFrom).startOf("day").toISO(),
             lookup: "GTE",
           },
           {
             key: "submit-date",
-            value: toDateTime(moment(this._submitTo).endOf("day")),
+            value: DateTime.fromISO(this._submitTo).endOf("day").toISO(),
             lookup: "LTE",
           },
         ].filter(({ value }) => !isEmpty(value)),
@@ -358,11 +355,6 @@ export default class InstancesIndexController extends Controller {
   @action
   updateFilter(event) {
     this[event.target.name] = event.target.value;
-  }
-
-  @action
-  updateDate(prop, value) {
-    this[prop] = moment(value);
   }
 
   @action
