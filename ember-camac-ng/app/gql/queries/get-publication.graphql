@@ -1,0 +1,12 @@
+query GetPublication($id: ID!) {
+  node(id: $id) {
+    id
+    ... on WorkItem {
+      status
+      meta
+      document {
+        id
+      }
+    }
+  }
+}
