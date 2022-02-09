@@ -1316,6 +1316,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "internes-geschaeft.internes-geschaeft-button-abschliessen",
+    "fields": {
+      "created_at": "2022-02-08T13:40:16.824Z",
+      "modified_at": "2022-02-08T13:40:16.824Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "internes-geschaeft",
+      "question": "internes-geschaeft-button-abschliessen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "internes-geschaeft.internes-geschaeft-generelle-informationen",
     "fields": {
       "created_at": "2022-01-26T14:20:44.358Z",
@@ -1326,7 +1341,7 @@
       "modified_by_group": null,
       "form": "internes-geschaeft",
       "question": "internes-geschaeft-generelle-informationen",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -1341,7 +1356,7 @@
       "modified_by_group": null,
       "form": "internes-geschaeft",
       "question": "internes-geschaeft-lokalisierung",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -1356,7 +1371,7 @@
       "modified_by_group": null,
       "form": "internes-geschaeft",
       "question": "internes-geschaeft-lokalisierung-ort",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -1371,7 +1386,7 @@
       "modified_by_group": null,
       "form": "internes-geschaeft",
       "question": "internes-geschaeft-lokalisierung-parzellennummer",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -1386,7 +1401,7 @@
       "modified_by_group": null,
       "form": "internes-geschaeft",
       "question": "internes-geschaeft-lokalisierung-plz",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -1401,7 +1416,7 @@
       "modified_by_group": null,
       "form": "internes-geschaeft",
       "question": "internes-geschaeft-lokalisierung-strasse-nr",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -1416,7 +1431,7 @@
       "modified_by_group": null,
       "form": "internes-geschaeft",
       "question": "internes-geschaeft-personalien",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -1431,7 +1446,7 @@
       "modified_by_group": null,
       "form": "internes-geschaeft",
       "question": "internes-geschaeft-titel",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -1446,7 +1461,7 @@
       "modified_by_group": null,
       "form": "internes-geschaeft",
       "question": "internes-geschaeft-vorhaben",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -3289,6 +3304,40 @@
       "configuration": {
         "max_length": null,
         "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "internes-geschaeft-button-abschliessen",
+    "fields": {
+      "created_at": "2022-02-08T13:40:16.740Z",
+      "modified_at": "2022-02-08T13:40:16.740Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abschliessen\", \"fr\": null}",
+      "type": "action_button",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "color": "primary",
+        "action": "complete",
+        "validate_on_enter": false
       },
       "meta": {},
       "data_source": null,
