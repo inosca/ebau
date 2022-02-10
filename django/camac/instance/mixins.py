@@ -302,7 +302,7 @@ class InstanceQuerysetMixin(object):
 
         return queryset.none()
 
-    def get_queryset_for_oereb_api(self, group):
+    def get_queryset_for_oereb_api(self, group=None):
         queryset = self.get_base_queryset()
         state_field = self._get_instance_filter_expr("instance_state__name", "in")
 
