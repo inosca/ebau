@@ -10,12 +10,14 @@
   }}
   as |content|
 >
-  <PublicationInfo
-    @instanceId={{@model.instanceId}}
-    @status={{this.publication.value.status}}
-    @isPublished={{this.publication.value.meta.is-published}}
-    @type={{@model.type}}
-  />
+  {{#if (can "show info for publication" this.publication.value)}}
+    <PublicationInfo
+      @instanceId={{@model.instanceId}}
+      @status={{this.publication.value.status}}
+      @isPublished={{this.publication.value.meta.is-published}}
+      @type={{@model.type}}
+    />
+  {{/if}}
 
   <content.form />
 
