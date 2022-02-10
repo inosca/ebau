@@ -472,6 +472,46 @@
     }
   },
   {
+    "model": "core.aformtransition",
+    "pk": 12000014,
+    "fields": {
+      "current_instance_state": null,
+      "next_instance_state": 21
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 12000015,
+    "fields": {
+      "current_instance_state": null,
+      "next_instance_state": 23
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 12000016,
+    "fields": {
+      "current_instance_state": null,
+      "next_instance_state": 32
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 12000017,
+    "fields": {
+      "current_instance_state": null,
+      "next_instance_state": 24
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 12000018,
+    "fields": {
+      "current_instance_state": null,
+      "next_instance_state": 25
+    }
+  },
+  {
     "model": "core.alocation",
     "pk": 1009,
     "fields": {}
@@ -5053,6 +5093,76 @@
       "description": null,
       "success_message": "Der Entscheid wurde erfolgreich verschickt",
       "error_message": "Es sind im Dokumenten Modul noch keine Entscheiddokumente markiert",
+      "execute_always": 0,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000014,
+    "fields": {
+      "available_action": "formtransition",
+      "button": 12000007,
+      "name": "Status zu COMM",
+      "description": "Status zu COMM",
+      "success_message": "Status\u00e4nderung erfolgreich ausgef\u00fchrt",
+      "error_message": "Status\u00e4nderung konnte nicht ausgef\u00fchrt werden",
+      "execute_always": 0,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000015,
+    "fields": {
+      "available_action": "formtransition",
+      "button": 12000008,
+      "name": "Status zu CIRC",
+      "description": "Status zu CIRC",
+      "success_message": "Status\u00e4nderung erfolgreich ausgef\u00fchrt",
+      "error_message": "Status\u00e4nderung konnte nicht ausgef\u00fchrt werden",
+      "execute_always": 0,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000016,
+    "fields": {
+      "available_action": "formtransition",
+      "button": 12000009,
+      "name": "Status zu EXT-GEM",
+      "description": "Status zu EXT-GEM",
+      "success_message": "Status\u00e4nderung erfolgreich ausgef\u00fchrt",
+      "error_message": "Status\u00e4nderung konnte nicht ausgef\u00fchrt werden",
+      "execute_always": 0,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000017,
+    "fields": {
+      "available_action": "formtransition",
+      "button": 12000010,
+      "name": "Status zu REDAC",
+      "description": "Status zu REDAC",
+      "success_message": "Status\u00e4nderung erfolgreich ausgef\u00fchrt",
+      "error_message": "Status\u00e4nderung konnte nicht ausgef\u00fchrt werden",
+      "execute_always": 0,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000018,
+    "fields": {
+      "available_action": "formtransition",
+      "button": 12000011,
+      "name": "Status zu DONE",
+      "description": "Status zu DONE",
+      "success_message": "Status\u00e4nderung erfolgreich ausgef\u00fchrt",
+      "error_message": "Status\u00e4nderung konnte nicht ausgef\u00fchrt werden",
       "execute_always": 0,
       "sort": 0
     }
@@ -15259,6 +15369,681 @@
     }
   },
   {
+    "model": "core.broleacl",
+    "pk": 12000021,
+    "fields": {
+      "button": 12000007,
+      "role": 1131,
+      "instance_state": 1
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000022,
+    "fields": {
+      "button": 12000007,
+      "role": 1131,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000023,
+    "fields": {
+      "button": 12000007,
+      "role": 1131,
+      "instance_state": 22
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000024,
+    "fields": {
+      "button": 12000007,
+      "role": 1131,
+      "instance_state": 32
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000025,
+    "fields": {
+      "button": 12000007,
+      "role": 1131,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000026,
+    "fields": {
+      "button": 12000007,
+      "role": 1131,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000027,
+    "fields": {
+      "button": 12000007,
+      "role": 1131,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000028,
+    "fields": {
+      "button": 12000007,
+      "role": 1131,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000029,
+    "fields": {
+      "button": 12000007,
+      "role": 1131,
+      "instance_state": 26
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000030,
+    "fields": {
+      "button": 12000007,
+      "role": 1131,
+      "instance_state": 27
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000031,
+    "fields": {
+      "button": 12000007,
+      "role": 1131,
+      "instance_state": 28
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000032,
+    "fields": {
+      "button": 12000007,
+      "role": 1131,
+      "instance_state": 29
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000033,
+    "fields": {
+      "button": 12000007,
+      "role": 1131,
+      "instance_state": 30
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000034,
+    "fields": {
+      "button": 12000007,
+      "role": 1131,
+      "instance_state": 31
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000035,
+    "fields": {
+      "button": 12000007,
+      "role": 1131,
+      "instance_state": 33
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000036,
+    "fields": {
+      "button": 12000008,
+      "role": 1131,
+      "instance_state": 1
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000037,
+    "fields": {
+      "button": 12000008,
+      "role": 1131,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000038,
+    "fields": {
+      "button": 12000008,
+      "role": 1131,
+      "instance_state": 22
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000039,
+    "fields": {
+      "button": 12000008,
+      "role": 1131,
+      "instance_state": 32
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000040,
+    "fields": {
+      "button": 12000008,
+      "role": 1131,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000041,
+    "fields": {
+      "button": 12000008,
+      "role": 1131,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000042,
+    "fields": {
+      "button": 12000008,
+      "role": 1131,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000043,
+    "fields": {
+      "button": 12000008,
+      "role": 1131,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000044,
+    "fields": {
+      "button": 12000008,
+      "role": 1131,
+      "instance_state": 26
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000045,
+    "fields": {
+      "button": 12000008,
+      "role": 1131,
+      "instance_state": 27
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000046,
+    "fields": {
+      "button": 12000008,
+      "role": 1131,
+      "instance_state": 28
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000047,
+    "fields": {
+      "button": 12000008,
+      "role": 1131,
+      "instance_state": 29
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000048,
+    "fields": {
+      "button": 12000008,
+      "role": 1131,
+      "instance_state": 30
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000049,
+    "fields": {
+      "button": 12000008,
+      "role": 1131,
+      "instance_state": 31
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000050,
+    "fields": {
+      "button": 12000008,
+      "role": 1131,
+      "instance_state": 33
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000051,
+    "fields": {
+      "button": 12000009,
+      "role": 1131,
+      "instance_state": 1
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000052,
+    "fields": {
+      "button": 12000009,
+      "role": 1131,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000053,
+    "fields": {
+      "button": 12000009,
+      "role": 1131,
+      "instance_state": 22
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000054,
+    "fields": {
+      "button": 12000009,
+      "role": 1131,
+      "instance_state": 32
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000055,
+    "fields": {
+      "button": 12000009,
+      "role": 1131,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000056,
+    "fields": {
+      "button": 12000009,
+      "role": 1131,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000057,
+    "fields": {
+      "button": 12000009,
+      "role": 1131,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000058,
+    "fields": {
+      "button": 12000009,
+      "role": 1131,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000059,
+    "fields": {
+      "button": 12000009,
+      "role": 1131,
+      "instance_state": 26
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000060,
+    "fields": {
+      "button": 12000009,
+      "role": 1131,
+      "instance_state": 27
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000061,
+    "fields": {
+      "button": 12000009,
+      "role": 1131,
+      "instance_state": 28
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000062,
+    "fields": {
+      "button": 12000009,
+      "role": 1131,
+      "instance_state": 29
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000063,
+    "fields": {
+      "button": 12000009,
+      "role": 1131,
+      "instance_state": 30
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000064,
+    "fields": {
+      "button": 12000009,
+      "role": 1131,
+      "instance_state": 31
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000065,
+    "fields": {
+      "button": 12000009,
+      "role": 1131,
+      "instance_state": 33
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000066,
+    "fields": {
+      "button": 12000010,
+      "role": 1131,
+      "instance_state": 1
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000067,
+    "fields": {
+      "button": 12000010,
+      "role": 1131,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000068,
+    "fields": {
+      "button": 12000010,
+      "role": 1131,
+      "instance_state": 22
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000069,
+    "fields": {
+      "button": 12000010,
+      "role": 1131,
+      "instance_state": 32
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000070,
+    "fields": {
+      "button": 12000010,
+      "role": 1131,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000071,
+    "fields": {
+      "button": 12000010,
+      "role": 1131,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000072,
+    "fields": {
+      "button": 12000010,
+      "role": 1131,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000073,
+    "fields": {
+      "button": 12000010,
+      "role": 1131,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000074,
+    "fields": {
+      "button": 12000010,
+      "role": 1131,
+      "instance_state": 26
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000075,
+    "fields": {
+      "button": 12000010,
+      "role": 1131,
+      "instance_state": 27
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000076,
+    "fields": {
+      "button": 12000010,
+      "role": 1131,
+      "instance_state": 28
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000077,
+    "fields": {
+      "button": 12000010,
+      "role": 1131,
+      "instance_state": 29
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000078,
+    "fields": {
+      "button": 12000010,
+      "role": 1131,
+      "instance_state": 30
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000079,
+    "fields": {
+      "button": 12000010,
+      "role": 1131,
+      "instance_state": 31
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000080,
+    "fields": {
+      "button": 12000010,
+      "role": 1131,
+      "instance_state": 33
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000081,
+    "fields": {
+      "button": 12000011,
+      "role": 1131,
+      "instance_state": 30
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000082,
+    "fields": {
+      "button": 12000011,
+      "role": 1131,
+      "instance_state": 31
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000083,
+    "fields": {
+      "button": 12000011,
+      "role": 1131,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000084,
+    "fields": {
+      "button": 12000011,
+      "role": 1131,
+      "instance_state": 33
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000085,
+    "fields": {
+      "button": 12000011,
+      "role": 1131,
+      "instance_state": 29
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000086,
+    "fields": {
+      "button": 12000011,
+      "role": 1131,
+      "instance_state": 1
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000087,
+    "fields": {
+      "button": 12000011,
+      "role": 1131,
+      "instance_state": 28
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000088,
+    "fields": {
+      "button": 12000011,
+      "role": 1131,
+      "instance_state": 32
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000089,
+    "fields": {
+      "button": 12000011,
+      "role": 1131,
+      "instance_state": 22
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000090,
+    "fields": {
+      "button": 12000011,
+      "role": 1131,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000091,
+    "fields": {
+      "button": 12000011,
+      "role": 1131,
+      "instance_state": 27
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000092,
+    "fields": {
+      "button": 12000011,
+      "role": 1131,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000093,
+    "fields": {
+      "button": 12000011,
+      "role": 1131,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000094,
+    "fields": {
+      "button": 12000011,
+      "role": 1131,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000095,
+    "fields": {
+      "button": 12000011,
+      "role": 1131,
+      "instance_state": 26
+    }
+  },
+  {
     "model": "core.billingconfig",
     "pk": 1,
     "fields": {
@@ -17247,6 +18032,66 @@
       "class_field": "in_form_group:12000001",
       "hidden": 0,
       "sort": 7
+    }
+  },
+  {
+    "model": "core.button",
+    "pk": 12000007,
+    "fields": {
+      "instance_resource": 2000003,
+      "name": "Status zu COMM",
+      "description": "\u00c4ndert den Status des Dossiers",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.button",
+    "pk": 12000008,
+    "fields": {
+      "instance_resource": 2000003,
+      "name": "Status zu CIRC",
+      "description": "\u00c4ndert den Status des Dossiers",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.button",
+    "pk": 12000009,
+    "fields": {
+      "instance_resource": 2000003,
+      "name": "Status zu EXT-GEM",
+      "description": "\u00c4ndert den Status des Dossiers",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 2
+    }
+  },
+  {
+    "model": "core.button",
+    "pk": 12000010,
+    "fields": {
+      "instance_resource": 2000003,
+      "name": "Status zu REDAC",
+      "description": "\u00c4ndert den Status des Dossiers",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 3
+    }
+  },
+  {
+    "model": "core.button",
+    "pk": 12000011,
+    "fields": {
+      "instance_resource": 2000003,
+      "name": "Status zu DONE",
+      "description": "\u00c4ndert den Status des Dossiers",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 4
     }
   },
   {
