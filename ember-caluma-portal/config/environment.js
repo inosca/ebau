@@ -116,7 +116,7 @@ module.exports = function (environment) {
         faq: true,
         publication: {
           form: true,
-          municipalityFilter: true,
+          endDate: false,
         },
       },
     },
@@ -194,7 +194,7 @@ module.exports = function (environment) {
         faq: false,
         publication: {
           form: false,
-          municipalityFilter: false,
+          endDate: true,
         },
       },
     },

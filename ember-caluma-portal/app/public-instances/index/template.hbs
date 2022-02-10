@@ -1,23 +1,20 @@
 <h1>{{t (concat "publicInstances.title-" (application-name))}}</h1>
-
-{{#if (has-feature "publication.municipalityFilter")}}
-  <div>
-    <label class="uk-form-label" for="type">{{t "instances.municipality"}}</label>
-    <div class="uk-form-controls">
-      <PowerSelect
-        @selected={{this.selectedMunicipality}}
-        @options={{this.municipalities}}
-        @searchEnabled={{true}}
-        @searchField="label"
-        @allowClear={{true}}
-        @onChange={{this.updateMunicipality}}
-      as |option|>
-        {{option.label}}
-      </PowerSelect>
-    </div>
+<div>
+  <label class="uk-form-label" for="type">{{t "instances.municipality"}}</label>
+  <div class="uk-form-controls">
+    <PowerSelect
+      class="uk-width-1-3"
+      @selected={{this.selectedMunicipality}}
+      @options={{this.municipalities}}
+      @searchEnabled={{true}}
+      @searchField="label"
+      @allowClear={{true}}
+      @onChange={{this.updateMunicipality}}
+    as |option|>
+      {{option.label}}
+    </PowerSelect>
   </div>
-{{/if}}
-
+</div>
 {{#if (and this.instances.isRunning (not this.instances.value))}}
   <div class="uk-text-center uk-padding">
     <UkSpinner @ratio={{2}} />
@@ -31,7 +28,10 @@
         <th class="uk-text-nowrap">{{t "publicInstances.applicant"}}</th>
         <th class="uk-text-nowrap">{{t (concat "instances.description-" (application-name))}}</th>
         <th class="uk-text-nowrap">{{t (concat "instances.address-" (application-name))}}</th>
-        <th class="uk-text-nowrap">{{t "instances.parcel"}}</th>
+        <th class="uk-text-nowrap">{{t (concat "instances.parcel-" (application-name))}}</th>
+        {{#if (has-feature "publication.endDate")}}
+          <th class="uk-text-nowrap">{{t "instances.objectionPeriod"}}</th>
+        {{/if}}
       </tr>
     </thead>
     <tbody>
@@ -51,6 +51,9 @@
           <td>{{publicInstance.intent}}</td>
           <td>{{publicInstance.street}}</td>
           <td>{{publicInstance.parcels}}</td>
+          {{#if (has-feature "publication.endDate")}}
+            <td>{{format-date publicInstance.publicationEndDate format="date"}}</td>
+          {{/if}}
         </tr>
       {{/each}}
       {{#if this.hasNextPage}}
