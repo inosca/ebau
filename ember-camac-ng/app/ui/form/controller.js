@@ -30,6 +30,6 @@ export default class FormController extends Controller {
       "allCases.edges.firstObject.node"
     );
 
-    return { instance, document: raw.document };
+    return { instance, case: raw, document: raw.document };
   }
 }
