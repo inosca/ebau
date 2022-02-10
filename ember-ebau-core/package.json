@@ -32,7 +32,7 @@
     "@glimmer/component": "1.0.4",
     "@glimmer/tracking": "1.0.4",
     "@projectcaluma/ember-core": "11.0.0-beta.4",
-    "@projectcaluma/ember-form": "11.0.0-beta.9",
+    "@projectcaluma/ember-form": "11.0.0-beta.10",
     "ember-apollo-client": "3.2.0",
     "ember-auto-import": "2.4.0",
     "ember-cli-babel": "7.26.11",
