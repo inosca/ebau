@@ -15,16 +15,16 @@
                 {{@journalEntry.duration}}
               </span>
           {{/if}}
-          <i
-            class="uk-flex"
-            title={{if @journalEntry.visibility (t "journal.visibleForAuthorities") (t "journal.visibleForOwnOrganization")}}
-          >
-            {{#if @journalEntry.visibility}}
-              <FaIcon @icon="eye" />
-            {{else}}
-              <FaIcon @icon="eye-slash" />
-            {{/if}}
-          </i>
+
+          <FaIcon
+            @icon={{if @journalEntry.visibility "eye" "eye-slash"}} 
+            @fixedWidth={{true}}
+            title={{if
+              @journalEntry.visibility
+              (t "journal.visibleForAuthorities")
+              (t "journal.visibleForOwnOrganization")
+            }}
+          />
 
         </div>
         {{#if (and (can "edit journal-entry" @journalEntry) (not @journalEntry.edit))}}
