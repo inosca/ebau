@@ -8,7 +8,6 @@ import { useTask } from "ember-resources";
 
 import config from "caluma-portal/config/environment";
 import getMunicipalities from "caluma-portal/gql/queries/get-municipalities.graphql";
-import { hasFeature } from "caluma-portal/helpers/has-feature";
 
 const { answerSlugs } = config.APPLICATION;
 
@@ -73,10 +72,6 @@ export default class PublicInstancesIndexController extends Controller {
 
   @dropTask
   *fetchMunicipalities() {
-    if (!hasFeature("publication.municipalityFilter")) {
-      return [];
-    }
-
     try {
       const options =
         (yield this.apollo.query(

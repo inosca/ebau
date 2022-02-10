@@ -1372,12 +1372,12 @@ class PublicCalumaInstanceView(mixins.InstanceQuerysetMixin, ListAPIView):
 
         return queryset.annotate(
             dossier_nr=KeyTextTransform("dossier-number", "meta"),
-            publication_date=Subquery(
+            publication_end_date=Subquery(
                 PublicationEntry.objects.filter(
                     instance_id=OuterRef("instance_id")
-                ).values("publication_date")[:1]
+                ).values("publication_end_date")[:1]
             ),
-        ).order_by("-publication_date", "dossier_nr")
+        ).order_by("instance__location", "publication_end_date", "dossier_nr")
 
     def get_queryset_for_oereb_api(self):
         queryset = (
