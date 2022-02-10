@@ -262,6 +262,19 @@ PERMISSIONS = {
         "organization_readonly": {ReadPermission: [12000000]},
         "commission": {ReadPermission: [12000004, 12000000, 12000002, 12000003]},
         "portal user": {AdminServicePermission: [12000000], ReadPermission: [12000001]},
+        "oereb_api": {
+            ReadPermission: [
+                12000000,
+                12000001,
+                12000002,
+                12000003,
+                12000004,
+                12000005,
+                12000006,
+                12000007,
+                12000008,
+            ],
+        },
     },
     "demo": {"applicant": {AdminPermission: [250, 251]}},
 }
