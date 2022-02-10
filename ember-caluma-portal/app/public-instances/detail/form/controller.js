@@ -8,4 +8,8 @@ export default class PublicInstancesDetailFormController extends Controller {
   get documentId() {
     return this.detailController.publicInstance.value?.documentId;
   }
+
+  get instanceId() {
+    return this.detailController.publicInstance.value?.instanceId;
+  }
 }
