@@ -381,8 +381,8 @@ def test_prematurely_end_circulation(
             }
         ]
     }
-    state_done = circulation_state_factory(name="DONE")
-    application_settings["CIRCULATION_STATE_DONE_ID"] = state_done.pk
+    state_done = circulation_state_factory()
+    application_settings["CIRCULATION_STATE_END"] = state_done.name
 
     state_inprogress = circulation_state_factory(name="WORKING")
     circulation_to_end = init_circulation_with_activations(
