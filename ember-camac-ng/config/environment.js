@@ -55,7 +55,7 @@ module.exports = function (environment) {
           cantonAbbreviation: "SZ",
           importModels: ["project", "building", "dwelling"],
         },
-
+        casesQueryOrder: [{ meta: "dossier-number" }],
         allowApplicantManualWorkItem: true,
         journalDefaultVisibility: false,
         journalEntryDuration: true,
@@ -84,6 +84,10 @@ module.exports = function (environment) {
           cantonAbbreviation: "UR",
           importModels: ["project", "building", "dwelling"],
         },
+        casesQueryOrder: [
+          { documentAnswer: "municipality" },
+          { meta: "dossier-number", direction: "DESC" },
+        ],
         allowApplicantManualWorkItem: false,
         journalDefaultVisibility: true,
         journalEntryDuration: false,
