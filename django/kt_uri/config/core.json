@@ -5349,13 +5349,13 @@
     "pk": 12000019,
     "fields": {
       "available_action": "php",
-      "button": 216,
+      "button": 215,
       "name": "Service setzen",
       "description": null,
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 5
+      "sort": 1
     }
   },
   {
@@ -5419,13 +5419,13 @@
     "pk": 12000024,
     "fields": {
       "available_action": "php",
-      "button": 923,
+      "button": 922,
       "name": "Service setzen",
       "description": null,
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 4
+      "sort": 1
     }
   },
   {
@@ -18215,7 +18215,7 @@
       "instance_resource": 753,
       "name": "Zirkulation abschliessen",
       "description": null,
-      "class_field": null,
+      "class_field": "circ_end",
       "hidden": 0,
       "sort": 4
     }
