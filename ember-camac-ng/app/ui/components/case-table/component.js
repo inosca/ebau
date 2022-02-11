@@ -183,7 +183,7 @@ export default class CaseTableComponent extends Component {
         this.args.filter.pendingSanctionsControlInstance,
     };
     this.casesQuery.fetch({
-      order: [{ meta: "dossier-number" }],
+      order: config.APPLICATION.casesQueryOrder,
       filter: this.gqlFilter,
       queryOptions: {
         context: {
