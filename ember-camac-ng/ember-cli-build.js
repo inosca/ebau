@@ -14,9 +14,6 @@ const ENV = ENV_MAP[process.env.APPLICATION] || ENVS[0];
 
 module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
-    sourcemaps: { enabled: true },
-    SRI: { enabled: false },
-    fingerprint: { enabled: false },
     "ember-simple-auth": {
       useSessionSetupMethod: true,
     },
