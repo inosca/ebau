@@ -284,6 +284,7 @@ APPLICATIONS = {
         "PUBLICATION_BACKEND": "camac-ng",
         "PUBLICATION_ATTACHMENT_SECTION": [4],
         "IS_MULTILINGUAL": False,
+        "CIRCULATION_STATE_END": "DONE",
         "FORM_BACKEND": "camac-ng",
         "COORDINATE_QUESTION": "punkte",
         "LOCATION_NAME_QUESTION": "ortsbezeichnung-des-vorhabens",
@@ -980,6 +981,7 @@ APPLICATIONS = {
         "CUSTOM_NOTIFICATION_TYPES": [
             "inactive_municipality",
         ],
+        "CIRCULATION_STATE_END": "DONE",
         "CIRCULATION_ANSWER_UNINVOLVED": "not_concerned",
         "NOTIFICATIONS": {
             "SUBMIT": [
@@ -2077,6 +2079,7 @@ APPLICATIONS = {
         "PORTAL_USER_ID": 1209,
         "USE_OEREB_FIELDS_FOR_PUBLIC_ENDPOINT": True,
         "LINK_INSTANCES_ON_COPY": True,
+        "CIRCULATION_STATE_END": "OK",
         "APPLICANT_GROUP_ID": 685,  # We reuse the Portal User group
         "SEQUENCE_NAMESPACE_APPS": ["core", "document", "responsible"],
         "CUSTOM_NOTIFICATION_TYPES": [
