@@ -114,7 +114,7 @@ class CirculationView(InstanceQuerysetMixin, InstanceEditableMixin, views.ModelV
         # set state of all activations to done
         circulation.activations.update(
             circulation_state=CirculationState.objects.get(
-                pk=settings.APPLICATION["CIRCULATION_STATE_DONE_ID"]
+                name=settings.APPLICATION["CIRCULATION_STATE_END"]
             )
         )
 
