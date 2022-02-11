@@ -314,7 +314,7 @@ def test_end_circulation(
     activation,
     caluma_workflow_config_be,
     caluma_admin_user,
-    circulation_state_factory,
+    circulation_state,
     notification_template,
     application_settings,
 ):
@@ -327,8 +327,7 @@ def test_end_circulation(
         ]
     }
 
-    new_state = circulation_state_factory(name="DONE")
-    application_settings["CIRCULATION_STATE_DONE_ID"] = new_state.pk
+    application_settings["CIRCULATION_STATE_END"] = circulation_state.name
 
     case = start_case(
         workflow=Workflow.objects.get(pk="building-permit"),
@@ -350,7 +349,7 @@ def test_end_circulation(
     activation.refresh_from_db()
 
     assert response.status_code == status.HTTP_204_NO_CONTENT
-    assert activation.circulation_state == new_state
+    assert activation.circulation_state == circulation_state
     assert (
         case.work_items.get(**{"meta__circulation-id": circulation.pk}).status
         == WorkItem.STATUS_SKIPPED
