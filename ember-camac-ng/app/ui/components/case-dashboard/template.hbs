@@ -1,4 +1,4 @@
-<div class="uk-width-1" {{did-insert (perform this.fetchWrapper)}}>
+<div class="uk-width-1" {{did-insert (perform this.initialize)}}>
   {{#if this.isLoading}}
     <div class="uk-flex uk-flex-center">
       <UkSpinner />
@@ -27,13 +27,13 @@
       </tr>
         <tr>
           <CaseDashboard::Column @header={{t "cases.tableHeaders.linkedInstances"}}>
-            {{#if this.linkedDossiers}}
+            {{#if this.currentInstance.linkedInstances}}
               <ul class="uk-list uk-list-collapse">
-                {{#each this.linkedDossiers as |linkedDossier|}}
+                {{#each this.currentInstance.linkedInstances as |linkedInstance|}}
                   <li class="uk-margin-small">
                     <div class="uk-flex uk-flex-right">
-                      <a class="uk-width-expand" href="/index/redirect-to-instance-resource/instance-id/{{linkedDossier.id}}">
-                        {{linkedDossier.form.name}} ({{linkedDossier.dossierNumber}})
+                      <a class="uk-width-expand" href="/index/redirect-to-instance-resource/instance-id/{{linkedInstance.id}}">
+                        {{linkedInstance.form.name}} ({{linkedInstance.dossierNumber}})
                       </a>
                       {{#if (can "link dossiers to instance" this.models.caseModel.instance)}}
                         <button
@@ -42,7 +42,7 @@
                           uk-icon="trash"
                           type="button"
                           title={{t "cases.miscellaneous.unLinkInstance"}}
-                          {{on "click" (perform this.unLinkDossier linkedDossier)}}>
+                          {{on "click" (perform this.unLinkDossier linkedInstance)}}>
                         </button>
                       {{/if}}
                     </div>
@@ -64,7 +64,7 @@
                   class="uk-button uk-button-small uk-button-primary"
                   type="button"
                   title={{t "cases.miscellaneous.linkInstance"}}
-                  {{on "click" (perform this.linkDossier false)}}
+                  {{on "click" (perform this.searchAndLinkDossier)}}
                 >
                   <UkIcon @icon="plus" />
                 </button>
@@ -98,7 +98,7 @@
                             uk-icon=""
                             type="button"
                             title={{t "cases.miscellaneous.linkInstance"}}
-                            {{on "click" (perform this.linkDossier instanceOnSamePlot.dossierNumber )}}>
+                            {{on "click" (perform this.linkDossier instanceOnSamePlot.id)}}>
                               <i class="link-instance attachment-icon" />
                           </button>
                         {{/if}}
@@ -270,7 +270,7 @@
         @filter={{this.caseFilter}}
         @useInModal={{true}}
         @instancesOnSamePlot={{this.instancesOnSamePlot}}
-        @linkedDossiers={{this.linkedDossiers}}
+        @linkedDossiers={{this.currentInstance.linkedInstances}}
       />
     </Modal.body>
   </UkModal>

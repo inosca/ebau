@@ -66,7 +66,7 @@ export default class CaseDashboardComponent extends Component {
   }
 
   get linkedAndOnSamePlot() {
-    return this.linkedDossiers.filter((value) =>
+    return this.currentInstance.linkedInstances.filter((value) =>
       this.instancesOnSamePlot.includes(value)
     );
   }
@@ -79,34 +79,29 @@ export default class CaseDashboardComponent extends Component {
     this.showModal = !this.showModal;
   }
 
-  @lastValue("fetchCurrentInstance") currentInstance;
   @dropTask
-  *fetchCurrentInstance() {
-    return yield this.store.findRecord("instance", this.args.caseId, {
-      reload: true,
-    });
+  *initialize() {
+    yield this.fetchCurrentInstance.perform(true);
+    yield this.fetchCase.perform();
+    yield this.fetchInstancesOnSamePlot.perform();
   }
 
-  @lastValue("fetchCase") models;
-
-  @lastValue("fetchLinkedDossiers") linkedDossiers;
+  @lastValue("fetchCurrentInstance") currentInstance;
   @dropTask
-  *fetchLinkedDossiers() {
-    if (!this.currentInstance.linkedInstances) {
-      return null;
+  *fetchCurrentInstance(fetchDossierNumbersOfLinkedInstances = false) {
+    const instance = yield this.store.findRecord("instance", this.args.caseId, {
+      reload: true,
+    });
+
+    if (fetchDossierNumbersOfLinkedInstances && instance.linkedInstances) {
+      const instances = yield instance.linkedInstances.filter(
+        ({ id }) => id !== instance.id
+      );
+
+      instances.forEach((element) => element.fetchCaseMeta.perform());
     }
-    console.log(this.currentInstance);
 
-    const instances = yield this.currentInstance.linkedInstances.filter(
-      (instance) => {
-        return instance.id !== this.currentInstance.id;
-      }
-    );
-    console.log(instances);
-
-    instances.forEach((element) => element.fetchCaseMeta.perform());
-
-    return yield instances;
+    return instance;
   }
 
   @lastValue("fetchInstancesOnSamePlot") instancesOnSamePlot;
@@ -169,7 +164,7 @@ export default class CaseDashboardComponent extends Component {
   }
 
   @dropTask
-  *linkDossier(number) {
+  *searchAndLinkDossier() {
     try {
       const caseRecord = yield this.apollo.query(
         {
@@ -190,7 +185,7 @@ export default class CaseDashboardComponent extends Component {
             metaFilter: [
               {
                 key: "dossier-number",
-                value: number ? number : this.dossierNumber.trim(),
+                value: this.dossierNumber.trim(),
               },
             ],
           },
@@ -198,25 +193,39 @@ export default class CaseDashboardComponent extends Component {
         "allCases.edges"
       );
       const modelInstance = new CustomCaseModel(caseRecord?.[0]?.node);
+      return yield this.linkDossier.perform(
+        modelInstance.meta["camac-instance-id"]
+      );
+    } catch (e) {
+      console.error(e);
+      this.notification.danger(
+        this.intl.t("cases.miscellaneous.linkInstanceError")
+      );
+    }
+  }
 
+  @dropTask
+  *linkDossier(instanceId) {
+    try {
       yield this.fetch.fetch(`/api/v1/instances/${this.args.caseId}/link`, {
-        method: "POST",
+        method: "PATCH",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
           data: {
             attributes: {
-              "link-to": modelInstance.meta["camac-instance-id"],
+              "link-to": instanceId,
             },
           },
         }),
       });
 
-      this.fetchLinkedDossiers.perform();
+      yield this.fetchCurrentInstance.perform(true);
       this.dossierNumber = null;
       this.notification.success(
         this.intl.t("cases.miscellaneous.linkInstanceSuccess")
       );
     } catch (e) {
+      console.error(e);
       this.notification.danger(
         this.intl.t("cases.miscellaneous.linkInstanceError")
       );
@@ -226,29 +235,20 @@ export default class CaseDashboardComponent extends Component {
   @dropTask
   *unLinkDossier(instance) {
     try {
-      yield this.fetch.fetch(`/api/v1/instances/${instance.id}/unlink`, {
-        method: "PATCH",
-        headers: { "content-type": "application/json" },
-      });
-      this.fetchLinkedDossiers.perform();
+      yield instance.unlink();
+      yield this.fetchCurrentInstance.perform();
       this.notification.success(
         this.intl.t("cases.miscellaneous.unLinkInstanceSuccess")
       );
     } catch (e) {
+      console.error(e);
       this.notification.danger(
         this.intl.t("cases.miscellaneous.unLinkInstanceError")
       );
     }
   }
 
-  @dropTask
-  *fetchWrapper() {
-    yield this.fetchCurrentInstance.perform();
-    yield this.fetchCase.perform();
-    yield this.fetchLinkedDossiers.perform();
-    yield this.fetchInstancesOnSamePlot.perform();
-  }
-
+  @lastValue("fetchCase") models;
   @dropTask
   *fetchCase() {
     const journalEntries = yield this.store.query("journal-entry", {
