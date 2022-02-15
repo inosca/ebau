@@ -9,25 +9,7 @@ import { gql } from "graphql-tag";
 import { all } from "rsvp";
 
 import CustomCaseModel from "camac-ng/caluma-query/models/case";
-import { objectFromQueryParams } from "camac-ng/decorators";
 import getCaseFromParcelsQuery from "camac-ng/gql/queries/get-case-from-parcels.graphql";
-
-const filterQueryParams = [
-  "instanceId",
-  "dossierNumber",
-  "municipality",
-  "parcelNumber",
-  "instanceState",
-  "buildingPermitType",
-  "createdAfter",
-  "createdBefore",
-  "intent",
-  "applicantName",
-  "street",
-  "service",
-  "pendingSanctionsControlInstance",
-  "workflow",
-];
 
 const WORKFLOW_ITEM_IDS = [
   12, // Dossier erfasst
@@ -70,9 +52,6 @@ export default class CaseDashboardComponent extends Component {
       this.instancesOnSamePlot.includes(value)
     );
   }
-
-  @objectFromQueryParams(...filterQueryParams)
-  caseFilter;
 
   @action
   toggleModal() {
@@ -145,6 +124,9 @@ export default class CaseDashboardComponent extends Component {
       const instanceIds = filteredCaseEdges.map(
         (caseEdge) => caseEdge.node.meta["camac-instance-id"]
       );
+      if (!instanceIds.length) {
+        return null;
+      }
 
       const instances = yield this.store.query("instance", {
         instance_id: instanceIds.join(","),
