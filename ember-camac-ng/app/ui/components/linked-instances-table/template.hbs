@@ -16,11 +16,7 @@
   <tbody>
     {{#each this.casesQuery.value as |node|}}
       <tr
-        class={{
-          if
-          node.activationWarning
-          (concat "activation-warning " node.activationWarning)
-        }}
+        class={{if (and @instancesOnSamePlot (includes node.raw.meta.dossier-number this.linkedAndOnSamePlot)) "uk-text-muted"}}
       >
         {{#each this.tableColumns as |tColumn|}}
           <td
@@ -50,7 +46,7 @@
                 uk-icon=""
                 type="button"
                 title={{t "cases.miscellaneous.unLinkInstance" }}
-                {{on "click" (perform this.unLinkDossier node)}}>
+                {{on "click" (perform @onUnlink node.instance)}}>
                   <i class="unlink-instance attachment-icon" />
               </button>
             </td>
@@ -60,9 +56,10 @@
                 class="uk-button-link uk-flex"
                 ratio="0.7"
                 uk-icon=""
+                disabled={{if (eq this.instanceIdAsInt node.instanceId) "true"}}
                 type="button"
                 title={{t "cases.miscellaneous.linkInstance"}}
-                {{on "click" (perform this.linkDossier node )}}>
+                {{on "click" (perform @onLink node.instanceId)}}>
                   <i class="link-instance attachment-icon" />
               </button>
             </td>
