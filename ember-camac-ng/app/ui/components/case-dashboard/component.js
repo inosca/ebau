@@ -70,6 +70,7 @@ export default class CaseDashboardComponent extends Component {
   *fetchCurrentInstance(fetchDossierNumbersOfLinkedInstances = false) {
     const instance = yield this.store.findRecord("instance", this.args.caseId, {
       reload: true,
+      include: "linked_instances",
     });
 
     if (fetchDossierNumbersOfLinkedInstances && instance.linkedInstances) {
