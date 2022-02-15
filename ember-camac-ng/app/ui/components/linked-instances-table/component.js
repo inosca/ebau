@@ -117,6 +117,11 @@ export default class LinkedInstancesTableComponent extends Component {
       .map((instance) => instance.dossierNumber);
   }
 
+  get instanceIdAsInt() {
+    console.log("gugu", typeof this.args.currentInstanceId);
+    return parseInt(this.args.currentInstanceId);
+  }
+
   @action
   setup() {
     const camacFilters = {
@@ -149,71 +154,5 @@ export default class LinkedInstancesTableComponent extends Component {
     location.assign(
       `/index/redirect-to-instance-resource/instance-id/${caseRecord.instanceId}/`
     );
-  }
-
-  @dropTask
-  *linkDossier(caseRecord) {
-    try {
-      yield this.fetch.fetch(
-        `/api/v1/instances/${caseRecord.instanceId}/link`,
-        {
-          method: "POST",
-          headers: { "content-type": "application/json" },
-          body: JSON.stringify({
-            data: {
-              attributes: {
-                "link-to": caseRecord.instanceId,
-              },
-            },
-          }),
-        }
-      );
-
-      this.fetchLinkedDossiers.perform(caseRecord);
-      this.notification.success(
-        this.intl.t("cases.miscellaneous.linkInstanceSuccess")
-      );
-    } catch (e) {
-      this.notification.danger(
-        this.intl.t("cases.miscellaneous.linkInstanceError")
-      );
-    }
-  }
-
-  @dropTask
-  *unLinkDossier(caseRecord) {
-    try {
-      yield this.fetch.fetch(
-        `/api/v1/instances/${caseRecord.instanceId}/unlink`,
-        {
-          method: "PATCH",
-          headers: { "content-type": "application/json" },
-        }
-      );
-      this.fetchLinkedDossiers.perform(caseRecord);
-      this.notification.success(
-        this.intl.t("cases.miscellaneous.unLinkInstanceSuccess")
-      );
-    } catch (e) {
-      this.notification.danger(
-        this.intl.t("cases.miscellaneous.unLinkInstanceError")
-      );
-    }
-  }
-
-  @lastValue("fetchLinkedDossiers") linkedDossiers;
-  @dropTask
-  *fetchLinkedDossiers(caseRecord) {
-    if (!caseRecord.instance.linkedInstances) {
-      return null;
-    }
-
-    const instances = caseRecord.instance.linkedInstances.filter((instance) => {
-      return instance.id !== caseRecord.instanceId;
-    });
-
-    instances.forEach((element) => element.fetchCaseMeta.perform());
-
-    return yield instances;
   }
 }
