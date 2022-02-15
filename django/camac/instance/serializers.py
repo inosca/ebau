@@ -175,6 +175,7 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         "circulations": "camac.circulation.serializers.CirculationSerializer",
         "services": "camac.user.serializers.ServiceSerializer",
         "involved_services": "camac.user.serializers.ServiceSerializer",
+        "linked_instances": "camac.instance.serializers.InstanceSerializer",
     }
 
     def validate_location(self, location):
