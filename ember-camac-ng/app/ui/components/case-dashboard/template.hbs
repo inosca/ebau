@@ -107,12 +107,14 @@
                   </li>
                 {{/each}}
               </ul>
-              <button
-                class="uk-button uk-button-small uk-button-default"
-                type="button"
-                {{on "click" this.toggleModal}}>
-                  {{t "cases.miscellaneous.showAll"}} ({{this.totalInstancesOnSamePlot}})
-              </button>
+              {{#if (gte this.instancesOnSamePlot.length 5)}}
+                <button
+                  class="uk-button uk-button-small uk-button-default"
+                  type="button"
+                  {{on "click" this.toggleModal}}>
+                    {{t "cases.miscellaneous.showAll"}} ({{this.totalInstancesOnSamePlot}})
+                </button>
+              {{/if}}
             {{/if}}
           </CaseDashboard::Column>
         </tr>
@@ -267,7 +269,6 @@
         {{t "cases.miscellaneous.modalTitle"}} {{this.models.caseModel.parcelNumbers}}, {{this.models.caseModel.street}} ({{this.models.caseModel.municipality}})
       </h2>
       <LinkedInstancesTable
-        @filter={{this.caseFilter}}
         @useInModal={{true}}
         @instancesOnSamePlot={{this.instancesOnSamePlot}}
         @linkedDossiers={{this.currentInstance.linkedInstances}}
