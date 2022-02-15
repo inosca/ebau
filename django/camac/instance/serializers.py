@@ -302,22 +302,17 @@ class SchwyzInstanceSerializer(InstanceSerializer):
         )
 
         instance.case = case
-        instance.save()
 
         # Creation logic for caluma based forms
         if caluma_workflow != "building-permit":
-            InstanceService.objects.create(
-                instance=instance,
-                service=self.context["request"].group.service,
-                active=1,
-                activation_date=None,
-            )
 
-            instance.case.meta[
-                "dossier-number"
-            ] = domain_logic.CreateInstanceLogic.generate_identifier(instance)
+            identifier = domain_logic.CreateInstanceLogic.generate_identifier(instance)
+            instance.case.meta["dossier-number"] = identifier
+            instance.case.meta["form-backend"] = "caluma"
             instance.case.save()
+            instance.identifier = identifier
 
+        instance.save()
         return instance
 
     @permission_aware
@@ -331,6 +326,9 @@ class SchwyzInstanceSerializer(InstanceSerializer):
             return {"bauverwaltung": {"read", "write"}, "main": {"read", "write"}}
 
     def get_permissions_for_service(self, instance):
+        if instance.instance_state.name in ["internal"]:
+            return {"bauverwaltung": {"read"}, "main": {"read", "write"}}
+
         return {"bauverwaltung": {"read"}}
 
     def get_permissions_for_public(self, instance):

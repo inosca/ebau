@@ -90,6 +90,12 @@ export default class CustomWorkItemModel extends WorkItemModel {
     return this.raw.status === "COMPLETED";
   }
 
+  get isCalumaBackend() {
+    return this.shoebox.content.application === "kt_schwyz"
+      ? this.case?.meta["form-backend"] === "caluma"
+      : true;
+  }
+
   get responsible() {
     if (this.isAddressedToCurrentService) {
       return this.assignedUser?.fullName || "-";
@@ -115,7 +121,9 @@ export default class CustomWorkItemModel extends WorkItemModel {
 
   get instanceName() {
     const identifier = this.instance?.identifier || this.instanceId;
-    const name = this.instance?.name || this.instance?.form.get("description");
+    const name = this.isCalumaBackend
+      ? this.case?.document.form.name
+      : this.instance?.name || this.instance?.form.get("description");
     const ebauNr = this.case?.meta["ebau-number"];
     const suffix = ebauNr ? `(${ebauNr})` : "";
 
@@ -127,18 +135,18 @@ export default class CustomWorkItemModel extends WorkItemModel {
   }
 
   get instanceDescription() {
-    if (this.shoebox.content.application === "kt_schwyz") {
+    if (!this.isCalumaBackend) {
       const formFields = this.store
         .peekAll("form-field")
         .filter(
           (field) => field.instance.get("id") === this.instanceId.toString()
         );
 
-      const { value } =
+      const formField =
         formFields.find((field) => field.name === "bezeichnung-override") ||
         formFields.find((field) => field.name === "bezeichnung");
 
-      return value;
+      return formField?.value;
     }
 
     return this.case?.document.answers.edges
@@ -247,7 +255,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
         form {
           name
         }
-        answers(questions: ["beschreibung-bauvorhaben"]) {
+        answers(questions: ["beschreibung-bauvorhaben", "internes-geschaeft-vorhaben"]) {
           edges {
             node {
               ... on StringAnswer {
