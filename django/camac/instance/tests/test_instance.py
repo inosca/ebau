@@ -280,7 +280,7 @@ def test_instance_group_link(
         }
     }
 
-    response = admin_client.post(
+    response = admin_client.patch(
         url, data=json.dumps(data), content_type="application/json"
     )
     main_group_before = main_instance.instance_group
@@ -319,15 +319,23 @@ def test_instance_group_link(
 @pytest.mark.parametrize("role__name", ["Municipality", "Coordination"])
 def test_instance_group_unlink(
     admin_client,
-    instance,
+    ur_instance,
     instance_factory,
     instance_group_factory,
     more_than_one_other_group,
     mocker,
+    application_settings,
+    instance_state_factory,
 ):
-    main_instance = instance
+
+    application_settings["FORM_BACKEND"] = "caluma"
+
+    main_instance = ur_instance
     main_instance.instance_group = instance_group_factory()
     main_instance.save()
+
+    instance_state_factory(name="comm")
+    instance_state_factory(name="ext")
 
     other_instance = instance_factory(location=main_instance.location)
     other_instance.instance_group = main_instance.instance_group
@@ -353,13 +361,13 @@ def test_instance_group_unlink(
     if more_than_one_other_group:
         other_instance_2.refresh_from_db()
 
-        assert response.status_code == status.HTTP_204_NO_CONTENT
+        assert response.status_code == status.HTTP_200_OK
         assert main_instance.instance_group is None
         assert other_instance.instance_group == main_group_before
         assert other_instance_2.instance_group == main_group_before
 
     else:
-        assert response.status_code == status.HTTP_204_NO_CONTENT
+        assert response.status_code == status.HTTP_200_OK
         assert main_instance.instance_group is None
         assert other_instance.instance_group is None
 
