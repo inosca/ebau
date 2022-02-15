@@ -271,6 +271,9 @@
         @useInModal={{true}}
         @instancesOnSamePlot={{this.instancesOnSamePlot}}
         @linkedDossiers={{this.currentInstance.linkedInstances}}
+        @onLink={{this.linkDossier}}
+        @onUnlink={{this.unLinkDossier}}
+        @currentInstanceId={{@caseId}}
       />
     </Modal.body>
   </UkModal>
