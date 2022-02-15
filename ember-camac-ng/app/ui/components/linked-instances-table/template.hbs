@@ -2,7 +2,7 @@
   {{this.paginationInfo}}
 </div>
 
-<table {{did-insert this.setup}} {{did-update this.setup @filter}}>
+<table {{did-insert this.setup}}>
   <thead>
     <tr>
       {{#each this.tableColumns as |tColumn|}}
@@ -80,7 +80,7 @@
 
     <tr>
       {{#if (and this.casesQuery.hasNextPage (not this.casesQuery.isLoading))}}
-        <td colspan={{this.tableColumns.length}} class="uk-text-center">
+        <td colspan="6" class="uk-text-center">
           <button type="button" {{on "click" this.loadNextPage}}>
             {{t "global.loadMore"}}
           </button>

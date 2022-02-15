@@ -26,61 +26,6 @@ export default class LinkedInstancesTableComponent extends Component {
     };
   }
 
-  get gqlFilter() {
-    const filter = this.args.filter;
-    const availableFilterSet = {
-      buildingPermitType: {
-        hasAnswer: [
-          {
-            question: "form-type",
-            value: filter.buildingPermitType,
-          },
-        ],
-      },
-      instanceId: {
-        metaValue: [
-          {
-            key: "camac-instance-id",
-            value: filter.instanceId,
-          },
-        ],
-      },
-      dossierNumber: {
-        metaValue: [
-          {
-            key: "dossier-number",
-            lookup: "CONTAINS",
-            value: filter.dossierNumber,
-          },
-        ],
-      },
-      intent: {
-        searchAnswers: [
-          {
-            questions: config.APPLICATION.intentSlugs,
-            lookup: "CONTAINS",
-            value: filter.intent,
-          },
-        ],
-      },
-      caseStatus: {
-        status: filter.caseStatus,
-      },
-      caseDocumentFormName: {
-        documentForm: filter.caseDocumentFormName,
-      },
-    };
-
-    const searchFilters = Object.entries(filter)
-      .filter(
-        ([key, value]) => Boolean(value) && Boolean(availableFilterSet[key])
-      )
-      .map(([key]) => availableFilterSet[key]);
-
-    const workflow = this.args.workflow;
-    return [...searchFilters, ...(workflow ? [{ workflow }] : [])];
-  }
-
   get paginationInfo() {
     return htmlSafe(
       this.intl.t("global.paginationInfo", {
@@ -122,23 +67,8 @@ export default class LinkedInstancesTableComponent extends Component {
 
   @action
   setup() {
-    const camacFilters = {
-      instance_state: this.args.filter.instanceState || "",
-      location: this.args.filter.municipality,
-    };
     this.casesQuery.fetch({
       order: config.APPLICATION.casesQueryOrder,
-      filter: this.gqlFilter,
-      queryOptions: {
-        context: {
-          headers: {
-            "x-camac-filters": Object.entries(camacFilters)
-              .filter(([, value]) => value)
-              .map((entry) => entry.join("="))
-              .join("&"),
-          },
-        },
-      },
     });
   }
 
