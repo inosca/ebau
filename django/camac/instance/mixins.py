@@ -153,22 +153,33 @@ class InstanceQuerysetMixin(object):
         instances_for_service = InstanceService.objects.filter(
             service=group.service
         ).values("instance_id")
-
+        instances_for_responsible_service = self._instances_for_responsible_service(
+            group
+        )
         instances_for_activation = self._instances_with_activation(group)
 
         return queryset.filter(
             Q(**{instance_field: instances_for_location})
             | Q(**{instance_field: instances_for_service})
             | Q(**{instance_field: instances_for_activation})
+            | Q(**{instance_field: instances_for_responsible_service})
         )
 
     def get_queryset_for_service(self, group=None):
         group = self._get_group(group)
         queryset = self.get_base_queryset()
         instance_field = self._get_instance_filter_expr("pk", "in")
-        instances = self._instances_with_activation(group)
+
+        instances_for_responsible_service = self._instances_for_responsible_service(
+            group
+        )
+        instances_for_activation = self._instances_with_activation(group)
+
         # use subquery to avoid duplicates
-        return queryset.filter(**{instance_field: instances})
+        return queryset.filter(
+            Q(**{instance_field: instances_for_responsible_service})
+            | Q(**{instance_field: instances_for_activation})
+        )
 
     def get_queryset_for_trusted_service(self, group=None):
         # "Trusted" services see all submitted instances (Kt. UR)
@@ -339,6 +350,16 @@ class InstanceQuerysetMixin(object):
             "instance_id"
         )
 
+    def _instances_for_responsible_service(self, group):
+        instance_ids_for_responsible_service = [
+            instance.pk
+            for instance in models.Instance.objects.all()
+            if instance.responsible_service() == group.service
+        ]
+        return models.Instance.objects.filter(
+            pk__in=instance_ids_for_responsible_service
+        )
+
     def _instances_created_by(self, group):
         return Instance.objects.filter(group=group).values("instance_id")
 
@@ -396,6 +417,11 @@ class InstanceEditableMixin(AttributeMixin):
         return set()
 
     def get_editable_for_service(self, instance):
+        group = get_request(self).group
+        service = group.service
+        if instance.responsible_service() == service:
+            return {"form", "document"}
+
         return {"document"}
 
     def get_editable_for_municipality(self, instance):
@@ -452,6 +478,7 @@ class InstanceEditableMixin(AttributeMixin):
         group = get_request(self).group
         service = group.service
         circulations = instance.circulations.all()
+        responsible_service = instance.responsible_service()
 
         return self._validate_instance_editablity(
             instance,
@@ -461,6 +488,7 @@ class InstanceEditableMixin(AttributeMixin):
                 or InstanceService.objects.filter(
                     service=service, instance=instance
                 ).exists()
+                or responsible_service == service
             ),
         )
 
@@ -480,9 +508,14 @@ class InstanceEditableMixin(AttributeMixin):
     def validate_instance_for_service(self, instance):
         service = get_request(self).group.service
         circulations = instance.circulations.all()
+        responsible_service = instance.responsible_service()
 
         return self._validate_instance_editablity(
-            instance, lambda: circulations.filter(activations__service=service).exists()
+            instance,
+            lambda: (
+                circulations.filter(activations__service=service).exists()
+                or responsible_service == service
+            ),
         )
 
     def validate_instance_for_canton(self, instance):
