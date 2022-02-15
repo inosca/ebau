@@ -5,7 +5,6 @@ import Component from "@glimmer/component";
 import calumaQuery from "@projectcaluma/ember-core/caluma-query";
 import { allCases } from "@projectcaluma/ember-core/caluma-query/queries";
 import { queryManager } from "ember-apollo-client";
-import { dropTask, lastValue } from "ember-concurrency";
 
 import config from "camac-ng/config/environment";
 
@@ -118,7 +117,6 @@ export default class LinkedInstancesTableComponent extends Component {
   }
 
   get instanceIdAsInt() {
-    console.log("gugu", typeof this.args.currentInstanceId);
     return parseInt(this.args.currentInstanceId);
   }
 
