@@ -1,5 +1,5 @@
 Babel==2.9.1
-caluma==7.14.0
+caluma==7.14.1
 dataclasses-json==0.5.6
 Django==2.2.17
 django-clamd==0.4.0
