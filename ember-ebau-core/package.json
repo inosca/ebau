@@ -32,7 +32,7 @@
     "@glimmer/component": "1.0.4",
     "@glimmer/tracking": "1.0.4",
     "@projectcaluma/ember-core": "11.0.0-beta.4",
-    "@projectcaluma/ember-form": "11.0.0-beta.10",
+    "@projectcaluma/ember-form": "11.0.0-beta.11",
     "ember-apollo-client": "3.2.0",
     "ember-auto-import": "2.4.0",
     "ember-cli-babel": "7.26.11",
@@ -54,7 +54,7 @@
     "@adfinis-sygroup/eslint-config": "1.5.0",
     "@ember/optional-features": "2.0.0",
     "@ember/test-helpers": "2.6.0",
-    "@embroider/test-setup": "1.1.0",
+    "@embroider/test-setup": "1.2.0",
     "babel-eslint": "10.1.0",
     "broccoli-asset-rev": "3.0.0",
     "ember-cli": "3.28.5",
@@ -72,10 +72,10 @@
     "ember-resolver": "8.0.3",
     "ember-source": "3.28.8",
     "ember-source-channel-url": "3.0.0",
-    "ember-template-lint": "4.0.0",
+    "ember-template-lint": "4.1.0",
     "eslint": "7.32.0",
     "eslint-config-prettier": "8.3.0",
-    "eslint-plugin-ember": "10.5.8",
+    "eslint-plugin-ember": "10.5.9",
     "eslint-plugin-import": "2.25.4",
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-prettier": "4.0.0",
@@ -83,10 +83,10 @@
     "loader.js": "4.7.0",
     "npm-run-all": "4.1.5",
     "prettier": "2.5.1",
-    "qunit": "2.17.2",
+    "qunit": "2.18.0",
     "qunit-dom": "2.0.0",
     "sass": "1.49.7",
-    "webpack": "5.68.0"
+    "webpack": "5.69.0"
   },
   "engines": {
     "node": "12.* || 14.* || >= 16"
