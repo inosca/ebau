@@ -1,7 +1,9 @@
 mutation completeWorkItem($input: CompleteWorkItemInput!) {
-  completeWorkItem(
-    input: $input
-  ) {
+  completeWorkItem(input: $input) {
     clientMutationId
+    workItem {
+      id
+      status
+    }
   }
 }
