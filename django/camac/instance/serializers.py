@@ -175,6 +175,7 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         "circulations": "camac.circulation.serializers.CirculationSerializer",
         "services": "camac.user.serializers.ServiceSerializer",
         "involved_services": "camac.user.serializers.ServiceSerializer",
+        "linked_instances": "camac.instance.serializers.InstanceSerializer",
     }
 
     def validate_location(self, location):
@@ -1635,6 +1636,22 @@ class CalumaInstanceFinalizeSerializer(CalumaInstanceSubmitSerializer):
         # send out emails upon submission
         for notification_config in settings.APPLICATION["NOTIFICATIONS"]["FINALIZE"]:
             self._send_notification(**notification_config)
+
+        return instance
+
+
+class CalumaInstanceUnlinkSerializer(CalumaInstanceSubmitSerializer):
+    @transaction.atomic
+    def update(self, instance, validated_data):
+        instances_with_same_group = models.Instance.objects.filter(
+            instance_group=instance.instance_group
+        ).exclude(pk=instance.pk)
+        # if only two dossiers were in group, unlink both
+        if len(instances_with_same_group) == 1:
+            instances_with_same_group.update(instance_group=None)
+
+        instance.instance_group = None
+        instance.save()
 
         return instance
 
