@@ -40,7 +40,7 @@ export default class CaseDashboardComponent extends Component {
   @tracked totalInstanceOnSamePlot;
 
   get isLoading() {
-    return this.fetchCase.isRunning;
+    return this.initialize.isRunning;
   }
 
   get isService() {
@@ -61,7 +61,7 @@ export default class CaseDashboardComponent extends Component {
   @dropTask
   *initialize() {
     yield this.fetchCurrentInstance.perform(true);
-    yield this.fetchCase.perform();
+    yield this.fetchModels.perform();
     yield this.fetchInstancesOnSamePlot.perform();
   }
 
@@ -241,9 +241,9 @@ export default class CaseDashboardComponent extends Component {
     }
   }
 
-  @lastValue("fetchCase") models;
+  @lastValue("fetchModels") models;
   @dropTask
-  *fetchCase() {
+  *fetchModels() {
     const journalEntries = yield this.store.query("journal-entry", {
       instance: this.args.instanceId,
       "page[size]": 3,
@@ -335,11 +335,11 @@ export default class CaseDashboardComponent extends Component {
       },
       "allCases.edges"
     );
-    const modelInstance = new CustomCaseModel(caseRecord?.[0]?.node);
-    setOwner(modelInstance, getOwner(this));
+    const caseModel = new CustomCaseModel(caseRecord?.[0]?.node);
+    setOwner(caseModel, getOwner(this));
 
     return {
-      caseModel: modelInstance,
+      caseModel,
       journalEntries,
       involvedServices,
       ownActivation,
