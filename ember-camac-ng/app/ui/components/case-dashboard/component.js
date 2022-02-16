@@ -90,11 +90,9 @@ export default class CaseDashboardComponent extends Component {
 
   get samePlotFilters() {
     const plotNumbers = this.models?.caseModel.parcelNumbers;
-    const municipality = this.models?.caseModel.document.answers.edges.filter(
-      (edge) => edge.node.question.slug === "municipality"
-    );
+    const municipality = this.models?.caseModel.municipalityId;
 
-    if (!plotNumbers || plotNumbers.length === 0) {
+    if (!municipality || !plotNumbers || plotNumbers.length === 0) {
       return false;
     }
     return [
@@ -106,7 +104,7 @@ export default class CaseDashboardComponent extends Component {
       },
       {
         question: "municipality",
-        value: municipality[0].node.stringValue,
+        value: municipality,
       },
     ];
   }
