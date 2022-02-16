@@ -6,8 +6,8 @@
     "ember-ebau-core"
   ],
   "resolutions": {
-    "@embroider/macros": "^1.1.0",
-    "@embroider/util": "^1.1.0",
+    "@embroider/macros": "^1.2.0",
+    "@embroider/util": "^1.2.0",
     "ember-engines": "https://gitpkg.now.sh/anehx/ember-engines/packages/ember-engines?c08f7650ffc4b723e8ba1143d7498e58bc1e4b78"
   }
 }
