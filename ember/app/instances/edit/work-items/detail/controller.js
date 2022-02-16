@@ -8,7 +8,5 @@ export default class WorkItemsInstanceEditController extends Controller {
   @action
   async completeWorkItem() {
     await this.model.completeWorkItem.perform();
-
-    await this.router.transitionTo("instance.edit.work-items.index");
   }
 }
