@@ -50,19 +50,20 @@
                   <i class="unlink-instance attachment-icon" />
               </button>
             </td>
-          {{else}}
+          {{else if (not-eq this.instanceIdAsInt node.instanceId)}}
             <td>
               <button
                 class="uk-button-link uk-flex"
                 ratio="0.7"
                 uk-icon=""
-                disabled={{if (eq this.instanceIdAsInt node.instanceId) "true"}}
                 type="button"
                 title={{t "cases.miscellaneous.linkInstance"}}
                 {{on "click" (perform @onLink node.instanceId)}}>
                   <i class="link-instance attachment-icon" />
               </button>
             </td>
+          {{else}}
+            <td></td>
           {{/if}}
         {{/if}}
       </tr>

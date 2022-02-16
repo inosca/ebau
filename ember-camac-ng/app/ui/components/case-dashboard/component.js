@@ -68,10 +68,14 @@ export default class CaseDashboardComponent extends Component {
   @lastValue("fetchCurrentInstance") currentInstance;
   @dropTask
   *fetchCurrentInstance(fetchDossierNumbersOfLinkedInstances = false) {
-    const instance = yield this.store.findRecord("instance", this.args.caseId, {
-      reload: true,
-      include: "linked_instances",
-    });
+    const instance = yield this.store.findRecord(
+      "instance",
+      this.args.instanceId,
+      {
+        reload: true,
+        include: "linked_instances",
+      }
+    );
 
     if (fetchDossierNumbersOfLinkedInstances && instance.linkedInstances) {
       const instances = yield instance.linkedInstances.filter(
@@ -89,7 +93,9 @@ export default class CaseDashboardComponent extends Component {
   *fetchInstancesOnSamePlot(showAll = false) {
     try {
       const plotNumbers = this.models.caseModel.parcelNumbers;
-      const municipality = this.models.caseModel.municipality;
+      const municipality = this.models.caseModel.document.answers.edges.filter(
+        (edge) => edge.node.question.slug === "municipality"
+      );
 
       if (plotNumbers.length === 0) {
         return;
@@ -98,17 +104,15 @@ export default class CaseDashboardComponent extends Component {
       const caseEdges = yield this.apollo.query(
         {
           query: getCaseFromParcelsQuery,
-          filter: {
+          variables: {
             hasAnswerFilter: [
               {
                 question: "parcel-number",
-                lookup: "CONTAINS",
-                value: plotNumbers,
+                value: plotNumbers[0],
               },
               {
                 question: "municipality",
-                lookup: "CONTAINS",
-                value: municipality,
+                value: municipality[0].node.stringValue,
               },
             ],
           },
@@ -125,6 +129,7 @@ export default class CaseDashboardComponent extends Component {
       const instanceIds = filteredCaseEdges.map(
         (caseEdge) => caseEdge.node.meta["camac-instance-id"]
       );
+
       if (!instanceIds.length) {
         return null;
       }
@@ -190,7 +195,7 @@ export default class CaseDashboardComponent extends Component {
   @dropTask
   *linkDossier(instanceId) {
     try {
-      yield this.fetch.fetch(`/api/v1/instances/${this.args.caseId}/link`, {
+      yield this.fetch.fetch(`/api/v1/instances/${this.args.instanceId}/link`, {
         method: "PATCH",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
@@ -235,19 +240,19 @@ export default class CaseDashboardComponent extends Component {
   @dropTask
   *fetchCase() {
     const journalEntries = yield this.store.query("journal-entry", {
-      instance: this.args.caseId,
+      instance: this.args.instanceId,
       "page[size]": 3,
       include: "user",
       sort: "-creation_date",
     });
 
     const activations = yield this.store.query("activation", {
-      instance: this.args.caseId,
+      instance: this.args.instanceId,
       include: "service",
     });
 
     const workflowEntries = yield this.store.query("workflowEntry", {
-      instance: this.args.caseId,
+      instance: this.args.instanceId,
       workflow_item_id: WORKFLOW_ITEM_IDS.toString(),
     });
 
@@ -272,7 +277,7 @@ export default class CaseDashboardComponent extends Component {
     );
 
     const attachment = yield this.store.query("attachment", {
-      instance: this.args.caseId,
+      instance: this.args.instanceId,
       name: "Parzellenbild.png",
       context: JSON.stringify({
         key: "isReplaced",
@@ -318,7 +323,7 @@ export default class CaseDashboardComponent extends Component {
           metaFilter: [
             {
               key: "camac-instance-id",
-              value: this.args.caseId,
+              value: this.args.instanceId,
             },
           ],
         },

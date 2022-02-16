@@ -4,56 +4,6 @@ query GetCaseFromParcels($hasAnswerFilter: [HasAnswerFilterType]) {
       node {
         id
         meta
-        document {
-          answers(
-            questions: [
-              "parcels"
-              "municipality"
-              "proposal-description"
-              "beschreibung-zu-mbv"
-              "bezeichnung"
-              "vorhaben-proposal-description"
-              "veranstaltung-beschrieb"
-            ]
-          ) {
-            edges {
-              node {
-                id
-                ... on StringAnswer {
-                  value
-                  question {
-                    ... on DynamicChoiceQuestion {
-                      options {
-                        edges {
-                          node {
-                            slug
-                            label
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-                ... on TableAnswer {
-                  tableValue: value {
-                    answers(questions: ["parcels"]) {
-                      edges {
-                        node {
-                          ... on StringAnswer {
-                            stringValue: value
-                          }
-                          question {
-                            slug
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
       }
     }
   }
