@@ -51,7 +51,7 @@ export default class InstancesEditIndexController extends Controller {
       config.APPLICATION.name === "ur" &&
       parseInt(this.instance.value?.get("instanceState.id")) ===
         config.APPLICATION.instanceStates.finished &&
-      this.instance.mainForm.slug === "building-permit"
+      this.instance.value?.mainForm.slug === "building-permit"
     );
   }
 
@@ -89,7 +89,7 @@ export default class InstancesEditIndexController extends Controller {
     yield this.router.transitionTo(
       "instances.edit.form",
       data.id,
-      this.instance.calumaForm
+      this.instance.value.calumaForm
     );
   }
 
@@ -107,7 +107,7 @@ export default class InstancesEditIndexController extends Controller {
     }
 
     try {
-      yield this.instance.destroyRecord();
+      yield this.instance.value.destroyRecord();
       this.notification.success(this.intl.t("instances.deleteInstanceSuccess"));
       yield this.router.transitionTo("instances");
     } catch (error) {
@@ -123,7 +123,7 @@ export default class InstancesEditIndexController extends Controller {
         data: {
           attributes: {
             "caluma-form": "verlaengerung-geltungsdauer",
-            "extend-validity-for": this.instance.id,
+            "extend-validity-for": this.model,
           },
           type: "instances",
         },
