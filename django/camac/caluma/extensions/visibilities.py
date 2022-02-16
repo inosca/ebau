@@ -16,16 +16,6 @@ from camac.user.models import Role
 from camac.utils import filters
 
 
-def disallow_public_access(fn):
-    def wrapper(self, node, queryset, info):
-        if not info.context.user.is_authenticated:
-            return queryset.none()
-
-        return fn(self, node, queryset, info)
-
-    return wrapper
-
-
 class CustomVisibility(Authenticated, InstanceQuerysetMixin):
     """Custom visibility for Kanton Bern.
 
@@ -77,14 +67,12 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
         return queryset
 
     @filter_queryset_for(workflow_schema.Case)
-    @disallow_public_access
     def filter_queryset_for_case(self, node, queryset, info):
         return queryset.filter(
             family__instance__pk__in=self._all_visible_instances(info)
         )
 
     @filter_queryset_for(workflow_schema.WorkItem)
-    @disallow_public_access
     def filter_queryset_for_work_items(self, node, queryset, info):
         return queryset.filter(
             case__family__instance__pk__in=self._all_visible_instances(info)
