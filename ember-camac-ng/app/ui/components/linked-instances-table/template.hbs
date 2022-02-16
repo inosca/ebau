@@ -14,9 +14,9 @@
     </tr>
   </thead>
   <tbody>
-    {{#each this.casesQuery.value as |node|}}
+    {{#each this.casesQuery.value as |case|}}
       <tr
-        class={{if (and @instancesOnSamePlot (includes node.raw.meta.dossier-number this.linkedAndOnSamePlot)) "uk-text-muted"}}
+        class={{if (and @instancesOnSamePlot (includes case.instanceId this.linkedInstanceIds)) "uk-text-muted"}}
       >
         {{#each this.tableColumns as |tColumn|}}
           <td
@@ -24,21 +24,17 @@
               if (eq tColumn "intent") "uk-text-truncate uk-table-expand"
             }}
           >
-            {{#if (eq tColumn "applicant")}}
-              {{get node (concat tColumn ".name")}}
-            {{else if (eq tColumn "processingDeadline")}}
-              {{date-from-now (get node tColumn)}}
-            {{else if (eq tColumn "instanceId")}}
-              <a href="/index/redirect-to-instance-resource/instance-id/{{node.instanceId}}">
-                {{node.instanceId}}
+            {{#if (eq tColumn "instanceId")}}
+              <a href="/index/redirect-to-instance-resource/instance-id/{{case.instanceId}}">
+                {{case.instanceId}}
               </a>
             {{else}}
-              {{get node tColumn}}
+              {{get case tColumn}}
             {{/if}}
           </td>
         {{/each}}
         {{#if @instancesOnSamePlot}}
-          {{#if (includes node.raw.meta.dossier-number this.linkedAndOnSamePlot)}}
+          {{#if (includes case.instanceId this.linkedInstanceIds)}}
             <td>
               <button
                 class="uk-button-link uk-flex"
@@ -46,11 +42,11 @@
                 uk-icon=""
                 type="button"
                 title={{t "cases.miscellaneous.unLinkInstance" }}
-                {{on "click" (perform @onUnlink node.instance)}}>
+                {{on "click" (perform @onUnlink case.instance)}}>
                   <i class="unlink-instance attachment-icon" />
               </button>
             </td>
-          {{else if (not-eq this.instanceIdAsInt node.instanceId)}}
+          {{else if (not-eq this.instanceIdAsInt case.instanceId)}}
             <td>
               <button
                 class="uk-button-link uk-flex"
@@ -58,7 +54,7 @@
                 uk-icon=""
                 type="button"
                 title={{t "cases.miscellaneous.linkInstance"}}
-                {{on "click" (perform @onLink node.instanceId)}}>
+                {{on "click" (perform @onLink case.instanceId)}}>
                   <i class="link-instance attachment-icon" />
               </button>
             </td>

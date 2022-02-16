@@ -47,13 +47,8 @@ export default class LinkedInstancesTableComponent extends Component {
     return cases;
   }
 
-  get linkedAndOnSamePlot() {
-    const dossierNumbers = this.args.instancesOnSamePlot.map(
-      (instance) => instance.dossierNumber
-    );
-    return this.args.linkedDossiers
-      .filter((value) => dossierNumbers.includes(value.dossierNumber))
-      .map((instance) => instance.dossierNumber);
+  get linkedInstanceIds() {
+    return this.args.linkedInstances.map((instance) => parseInt(instance.id));
   }
 
   get instanceIdAsInt() {
