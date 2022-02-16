@@ -50,11 +50,15 @@ export default class InstanceAbility extends Ability {
     const userId = parseInt(this.session.user.value?.id);
 
     // must be an applicant or support
-    return Boolean(
-      this.session.isSupport ||
-        applicants.find(
-          (applicant) => parseInt(applicant.get("invitee.id")) === userId
-        )
+    return (
+      !this.model.isDestroyed &&
+      !this.model.isDestroying &&
+      (this.session.isSupport ||
+        Boolean(
+          applicants?.find(
+            (applicant) => parseInt(applicant.get("invitee.id")) === userId
+          )
+        ))
     );
   }
 
