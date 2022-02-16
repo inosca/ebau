@@ -68,6 +68,7 @@ export default class LinkedInstancesTableComponent extends Component {
   @action
   setup() {
     this.casesQuery.fetch({
+      filter: [{ hasAnswer: this.args.filters }],
       order: config.APPLICATION.casesQueryOrder,
     });
   }
