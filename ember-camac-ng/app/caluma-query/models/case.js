@@ -81,12 +81,20 @@ export default class CustomCaseModel extends CaseModel {
   }
 
   get dossierNr() {
-    return this.raw.meta["dossier-number"] ?? this.instance.identifier;
+    return this.raw.meta["dossier-number"] ?? this.instance?.identifier;
+  }
+
+  get municipalityNode() {
+    const answer = getAnswer(this.raw.document, "municipality");
+    return answer?.node;
   }
 
   get municipality() {
-    const answer = getAnswer(this.raw.document, "municipality");
-    return answer?.node.selectedOption?.label;
+    return this.municipalityNode?.selectedOption?.label;
+  }
+
+  get municipalityId() {
+    return this.municipalityNode?.stringValue;
   }
 
   get applicant() {

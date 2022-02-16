@@ -164,7 +164,6 @@ export default class CaseTableComponent extends Component {
     }
 
     const role = this.shoebox.role;
-    // TODO camac_legacy: Remove this in the future
     return tableColumns[role] ?? tableColumns.default ?? [];
   }
 

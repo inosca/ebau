@@ -1,0 +1,10 @@
+query GetCaseFromParcels($hasAnswerFilter: [HasAnswerFilterType]) {
+  allCases(filter: { hasAnswer: $hasAnswerFilter }) {
+    edges {
+      node {
+        id
+        meta
+      }
+    }
+  }
+}
