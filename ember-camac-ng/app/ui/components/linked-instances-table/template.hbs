@@ -1,0 +1,91 @@
+<div class="uk-text-right">
+  {{this.paginationInfo}}
+</div>
+
+<table {{did-insert this.setup}}>
+  <thead>
+    <tr>
+      {{#each this.tableColumns as |tColumn|}}
+        <th>
+          {{t (concat "cases.tableHeaders." tColumn)}}
+        </th>
+      {{/each}}
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each this.casesQuery.value as |case|}}
+      <tr
+        class={{if (and @instancesOnSamePlot (includes case.instanceId this.linkedInstanceIds)) "uk-text-muted"}}
+      >
+        {{#each this.tableColumns as |tColumn|}}
+          <td
+            class={{
+              if (eq tColumn "intent") "uk-text-truncate uk-table-expand"
+            }}
+          >
+            {{#if (eq tColumn "instanceId")}}
+              <a href="/index/redirect-to-instance-resource/instance-id/{{case.instanceId}}">
+                {{case.instanceId}}
+              </a>
+            {{else}}
+              {{get case tColumn}}
+            {{/if}}
+          </td>
+        {{/each}}
+        {{#if @instancesOnSamePlot}}
+          {{#if (includes case.instanceId this.linkedInstanceIds)}}
+            <td>
+              <button
+                class="uk-button-link uk-flex"
+                ratio="0.7"
+                uk-icon=""
+                type="button"
+                title={{t "cases.miscellaneous.unLinkInstance" }}
+                {{on "click" (perform @onUnlink case.instance)}}>
+                  <i class="unlink-instance attachment-icon" />
+              </button>
+            </td>
+          {{else if (not-eq this.instanceIdAsInt case.instanceId)}}
+            <td>
+              <button
+                class="uk-button-link uk-flex"
+                ratio="0.7"
+                uk-icon=""
+                type="button"
+                title={{t "cases.miscellaneous.linkInstance"}}
+                {{on "click" (perform @onLink case.instanceId)}}>
+                  <i class="link-instance attachment-icon" />
+              </button>
+            </td>
+          {{else}}
+            <td></td>
+          {{/if}}
+        {{/if}}
+      </tr>
+    {{else}}
+      <tr>
+        <td colspan="99" class="uk-text-center">
+          {{#if this.casesQuery.isLoading}}
+            {{t "global.loading"}}
+          {{else}}
+            {{t "global.empty"}}
+          {{/if}}
+        </td>
+      </tr>
+    {{/each}}
+
+    <tr>
+      {{#if (and this.casesQuery.hasNextPage (not this.casesQuery.isLoading))}}
+        <td colspan="99" class="uk-text-center">
+          <button type="button" {{on "click" this.loadNextPage}}>
+            {{t "global.loadMore"}}
+          </button>
+        </td>
+      {{/if}}
+    </tr>
+  </tbody>
+</table>
+<div class="uk-text-right">
+  {{this.paginationInfo}}
+</div>
