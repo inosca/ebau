@@ -13,11 +13,10 @@ export default class LinkedInstancesTableComponent extends Component {
 
   @service store;
   @service intl;
-  @service shoebox;
-  @service notification;
-  @service fetch;
 
   @calumaQuery({ query: allCases, options: "options" }) casesQuery;
+
+  tableColumns = ["instanceId", "dossierNr", "form", "intent", "instanceState"];
 
   get options() {
     return {
@@ -46,10 +45,6 @@ export default class LinkedInstancesTableComponent extends Component {
       include: "instance_state,user,form",
     });
     return cases;
-  }
-
-  get tableColumns() {
-    return config.APPLICATION.caseTableColumns.linkedInstances;
   }
 
   get linkedAndOnSamePlot() {

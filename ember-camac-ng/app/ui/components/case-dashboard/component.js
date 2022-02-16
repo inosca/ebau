@@ -71,10 +71,7 @@ export default class CaseDashboardComponent extends Component {
     const instance = yield this.store.findRecord(
       "instance",
       this.args.instanceId,
-      {
-        reload: true,
-        include: "linked_instances",
-      }
+      { include: "linked_instances" }
     );
 
     if (fetchDossierNumbersOfLinkedInstances && instance.linkedInstances) {
@@ -109,6 +106,10 @@ export default class CaseDashboardComponent extends Component {
     ];
   }
 
+  get totalInstancesOnSamePlot() {
+    return this.instancesOnSamePlot?.length;
+  }
+
   @lastValue("fetchInstancesOnSamePlot") instancesOnSamePlot;
   @dropTask
   *fetchInstancesOnSamePlot() {
@@ -127,15 +128,9 @@ export default class CaseDashboardComponent extends Component {
         "allCases.edges"
       );
 
-      const filteredCaseEdges = caseEdges.filter(({ node }) => {
-        return (
-          node.meta["camac-instance-id"] !== parseInt(this.currentInstance.id)
-        );
-      });
-
-      const instanceIds = filteredCaseEdges.map(
-        (caseEdge) => caseEdge.node.meta["camac-instance-id"]
-      );
+      const instanceIds = caseEdges
+        .map(({ node }) => node.meta["camac-instance-id"])
+        .filter((id) => id !== parseInt(this.currentInstance.id));
 
       if (!instanceIds.length) {
         return null;
@@ -145,8 +140,7 @@ export default class CaseDashboardComponent extends Component {
         instance_id: instanceIds.join(","),
       });
 
-      instances.forEach((element) => element.fetchCaseMeta.perform());
-      this.totalInstancesOnSamePlot = instances.length;
+      instances.forEach((instance) => instance.fetchCaseMeta.perform());
 
       return instances;
     } catch (error) {

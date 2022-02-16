@@ -143,13 +143,6 @@ module.exports = function (environment) {
             "street",
             "parcelNumbers",
           ],
-          linkedInstances: [
-            "instanceId",
-            "dossierNr",
-            "form",
-            "intent",
-            "instanceState",
-          ],
         },
         activeCaseFilters: [
           "instanceId",
