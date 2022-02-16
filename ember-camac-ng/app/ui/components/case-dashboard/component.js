@@ -88,16 +88,34 @@ export default class CaseDashboardComponent extends Component {
     return instance;
   }
 
+  get samePlotFilters() {
+    const plotNumbers = this.models?.caseModel.parcelNumbers;
+    const municipality = this.models?.caseModel.document.answers.edges.filter(
+      (edge) => edge.node.question.slug === "municipality"
+    );
+
+    if (!plotNumbers || plotNumbers.length === 0) {
+      return false;
+    }
+    return [
+      {
+        question: "parcel-number",
+        // TODO use "IN" lookup to search for all parcels once
+        // https://github.com/projectcaluma/caluma/pull/1677 landed
+        value: plotNumbers[0],
+      },
+      {
+        question: "municipality",
+        value: municipality[0].node.stringValue,
+      },
+    ];
+  }
+
   @lastValue("fetchInstancesOnSamePlot") instancesOnSamePlot;
   @dropTask
-  *fetchInstancesOnSamePlot(showAll = false) {
+  *fetchInstancesOnSamePlot() {
     try {
-      const plotNumbers = this.models.caseModel.parcelNumbers;
-      const municipality = this.models.caseModel.document.answers.edges.filter(
-        (edge) => edge.node.question.slug === "municipality"
-      );
-
-      if (plotNumbers.length === 0) {
+      if (!this.samePlotFilters) {
         return;
       }
 
@@ -105,16 +123,7 @@ export default class CaseDashboardComponent extends Component {
         {
           query: getCaseFromParcelsQuery,
           variables: {
-            hasAnswerFilter: [
-              {
-                question: "parcel-number",
-                value: plotNumbers[0],
-              },
-              {
-                question: "municipality",
-                value: municipality[0].node.stringValue,
-              },
-            ],
+            hasAnswerFilter: this.samePlotFilters,
           },
         },
         "allCases.edges"
@@ -141,11 +150,7 @@ export default class CaseDashboardComponent extends Component {
       instances.forEach((element) => element.fetchCaseMeta.perform());
       this.totalInstancesOnSamePlot = instances.length;
 
-      if (showAll) {
-        return instances;
-      }
-
-      return instances.slice(0, 5);
+      return instances;
     } catch (error) {
       console.error(error);
     }
