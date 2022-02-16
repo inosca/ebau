@@ -81,7 +81,7 @@ export default class CustomCaseModel extends CaseModel {
   }
 
   get dossierNr() {
-    return this.raw.meta["dossier-number"] ?? this.instance.identifier;
+    return this.raw.meta["dossier-number"] ?? this.instance?.identifier;
   }
 
   get municipality() {
