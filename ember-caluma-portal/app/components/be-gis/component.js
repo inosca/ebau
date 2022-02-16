@@ -182,14 +182,18 @@ export default class BeGisComponent extends Component {
   }
 
   get confirmField() {
-    return this.isBuildingPermitForm
-      ? this.args.field.document.findField("bestaetigung-gis")
-      : null;
+    if (!this.isBuildingPermitForm) {
+      return null;
+    }
+
+    const field = this.args.field.document.findField("bestaetigung-gis");
+
+    return field.hidden ? null : field;
   }
 
   get confirmFieldUnchecked() {
-    return this.isBuildingPermitForm
-      ? this.args.field.document.findAnswer("bestaetigung-gis")?.length !== 1
+    return this.confirmField
+      ? this.confirmField.answer.value?.length !== 1
       : false;
   }
 
