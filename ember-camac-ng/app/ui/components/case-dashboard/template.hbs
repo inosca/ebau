@@ -273,7 +273,6 @@
           {{t "cases.miscellaneous.modalTitle"}} {{this.models.caseModel.parcelNumbers}}, {{this.models.caseModel.street}} ({{this.models.caseModel.municipality}})
         </h2>
         <LinkedInstancesTable
-          @useInModal={{true}}
           @instancesOnSamePlot={{this.instancesOnSamePlot}}
           @linkedDossiers={{this.currentInstance.linkedInstances}}
           @filters={{this.samePlotFilters}}
