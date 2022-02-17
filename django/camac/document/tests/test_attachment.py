@@ -1329,7 +1329,7 @@ def test_attachment_delete_multiple_sections(
     url = reverse("attachment-detail", args=[attachment.pk])
 
     response = admin_client.delete(url)
-    assert response.status_code == status.HTTP_403_FORBIDDEN
+    assert response.status_code == status.HTTP_204_NO_CONTENT
 
 
 @pytest.mark.parametrize("role__name", ["Service"])
