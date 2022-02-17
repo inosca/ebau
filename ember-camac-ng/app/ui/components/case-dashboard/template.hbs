@@ -82,27 +82,12 @@
                           {{instanceOnSamePlot.form.name}} ({{instanceOnSamePlot.dossierNumber}})
                         </a>
                         {{#if (can "link dossiers to instance" this.models.caseModel.instance)}}
-                          {{#if (includes instanceOnSamePlot this.linkedAndOnSamePlot)}}
-                            <button
-                              class="uk-button-link uk-flex"
-                              ratio="0.7"
-                              uk-icon=""
-                              type="button"
-                              title={{t "cases.miscellaneous.unLinkInstance" }}
-                              {{on "click" (perform this.unLinkDossier instanceOnSamePlot)}}>
-                                <i class="unlink-instance attachment-icon" />
-                            </button>
-                          {{else}}
-                            <button
-                              class="uk-button-link uk-flex"
-                              ratio="0.7"
-                              uk-icon=""
-                              type="button"
-                              title={{t "cases.miscellaneous.linkInstance"}}
-                              {{on "click" (perform this.linkDossier instanceOnSamePlot.id)}}>
-                                <i class="link-instance attachment-icon" />
-                            </button>
-                          {{/if}}
+                          <LinkInstanceButton
+                            @type={{if (includes instanceOnSamePlot this.linkedAndOnSamePlot) "unlink" "link"}}
+                            @onLink={{this.linkDossier}}
+                            @onUnlink={{this.unLinkDossier}}
+                            @instanceOnSamePlot={{instanceOnSamePlot}}
+                          />
                         {{/if}}
                       </div>
                     </li>
