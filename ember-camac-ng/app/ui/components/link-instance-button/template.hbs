@@ -1,0 +1,9 @@
+<button
+  class="uk-button-link uk-flex"
+  ratio="0.7"
+  uk-icon=""
+  type="button"
+  title={{if (eq @type "link") (t "cases.miscellaneous.linkInstance") (t "cases.miscellaneous.unLinkInstance") }}
+  {{on "click" this.toggle}}>
+    <i class="{{if (eq @type "link") "link-instance" "unlink-instance"}} attachment-icon"/>
+</button>
