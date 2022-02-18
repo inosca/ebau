@@ -414,7 +414,7 @@ def test_copy_without_permission(
 @pytest.mark.parametrize(
     "role__name,instance__user,editable",
     [
-        ("Service", LazyFixture("user"), {"document"}),
+        ("Service", LazyFixture("user"), {"form", "document"}),
         ("Canton", LazyFixture("user"), {"form", "document"}),
     ],
 )
