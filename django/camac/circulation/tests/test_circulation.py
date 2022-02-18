@@ -24,8 +24,8 @@ def get_activation_work_item(case, activation_id):
     [
         ("Applicant", LazyFixture("admin_user"), 10),
         ("Canton", LazyFixture("user"), 10),
-        ("Municipality", LazyFixture("user"), 9),
-        ("Service", LazyFixture("user"), 9),
+        ("Municipality", LazyFixture("user"), 12),
+        ("Service", LazyFixture("user"), 12),
     ],
 )
 def test_circulation_list(

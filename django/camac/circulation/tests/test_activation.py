@@ -14,7 +14,7 @@ from camac.circulation import serializers
     [
         ("Applicant", LazyFixture("admin_user"), 5),
         ("Canton", LazyFixture("user"), 5),
-        ("Municipality", LazyFixture("user"), 5),
+        ("Municipality", LazyFixture("user"), 8),
         ("Service", LazyFixture("user"), 5),
     ],
 )
