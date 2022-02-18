@@ -263,7 +263,7 @@ export default class CustomCaseModel extends CaseModel {
         "bezeichnung",
         "vorhaben-proposal-description",
         "veranstaltung-beschrieb",
-        "internes-geschaeft-vorhaben",
+        "voranfrage-vorhaben",
         "municipality",
         "parcels",
         "status-bauprojekt",
