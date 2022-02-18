@@ -150,13 +150,14 @@ def test_template_destroy(admin_client, template, status_code):
     [("Grund", "OK", "Antwort")],
 )
 @pytest.mark.parametrize(
-    "form_field__name,instance__identifier,location__name,activation__service",
+    "form_field__name,instance__identifier,location__name,activation__service,instance__group",
     [
         (
             "testname",
             "11-18-011",
             "Schwyz",
             LazyFixture(lambda service_factory: service_factory(name="Fachstelle")),
+            LazyFixture(lambda group_factory: group_factory()),
         )
     ],
 )
