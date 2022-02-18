@@ -18,10 +18,10 @@ from .data import django_file
     "role__name,instance__user,num_queries",
     [
         ("Applicant", LazyFixture("admin_user"), 13),
-        ("Reader", LazyFixture("user"), 13),
+        ("Reader", LazyFixture("user"), 16),
         ("Canton", LazyFixture("user"), 13),
-        ("Municipality", LazyFixture("user"), 12),
-        ("Service", LazyFixture("user"), 12),
+        ("Municipality", LazyFixture("user"), 15),
+        ("Service", LazyFixture("user"), 15),
     ],
 )
 @pytest.mark.parametrize(
@@ -288,7 +288,7 @@ def test_attachment_context_filter(
             LazyFixture("user"),
             LazyFixture(lambda location_factory: location_factory()),
             LazyFixture(lambda service_factory: service_factory()),
-            LazyFixture("group"),
+            LazyFixture(lambda group_factory: group_factory()),
             permissions.AdminPermission,
             status.HTTP_400_BAD_REQUEST,
         ),
@@ -330,7 +330,7 @@ def test_attachment_context_filter(
             LazyFixture("admin_user"),
             LazyFixture("location"),
             LazyFixture(lambda service_factory: service_factory()),
-            LazyFixture("group"),
+            LazyFixture(lambda group_factory: group_factory()),
             permissions.AdminPermission,
             status.HTTP_400_BAD_REQUEST,
         ),
