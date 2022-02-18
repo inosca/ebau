@@ -75,7 +75,7 @@ module.exports = function (environment) {
           "caseStatus",
           "caseDocumentFormName",
         ],
-        intentSlugs: ["internes-geschaeft-vorhaben"],
+        intentSlugs: ["voranfrage-vorhaben"],
         externalServiceGroupIds: [],
       },
       kt_uri: {
