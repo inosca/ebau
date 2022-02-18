@@ -322,7 +322,11 @@ class TemplateSerializer(serializers.ModelSerializer):
 class AttachmentDownloadHistorySerializer(serializers.ModelSerializer):
     group = GroupFormDataResourceRelatedField(default=CurrentGroupDefault())
     attachment = FormDataResourceRelatedField(queryset=models.Attachment.objects)
+    included_serializers = {
+        "user": "camac.user.serializers.UserSerializer",
+    }
 
     class Meta:
         model = models.AttachmentDownloadHistory
-        fields = ("date_time", "keycloak_id", "name", "attachment", "group")
+        fields = ("date_time", "user", "attachment", "group")
+        read_only_fields = ("date_time", "user", "attachment", "group")

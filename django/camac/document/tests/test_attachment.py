@@ -1094,7 +1094,7 @@ def test_attachment_public_access(
     assert response.status_code == status.HTTP_200_OK
 
     assert aasa.download_history.count() == 1
-    assert aasa.download_history.first().name == "Anonymous User"
+    assert not aasa.download_history.first().user
 
     aas2.attachment.context = {"isPublished": True}
     aas2.attachment.save()
