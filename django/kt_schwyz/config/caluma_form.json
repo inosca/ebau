@@ -224,12 +224,12 @@
     "pk": "internes-geschaeft",
     "fields": {
       "created_at": "2022-01-20T18:19:46.226Z",
-      "modified_at": "2022-01-20T18:19:46.226Z",
+      "modified_at": "2022-02-14T12:50:50.438Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "a4d0c254-cd39-4070-8b20-e7e83de68694",
       "modified_by_group": null,
-      "name": "{\"de\": \"Internes Gesch\\u00e4ft\", \"fr\": null}",
+      "name": "{\"de\": \"Voranfrage\", \"fr\": null}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {
         "visibility": {
@@ -1296,7 +1296,7 @@
       "modified_by_group": null,
       "form": "internes-geschaeft-personalien",
       "question": "internes-geschaeft-personalien-titel",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -1312,6 +1312,36 @@
       "form": "internes-geschaeft-personalien",
       "question": "internes-geschaeft-personalien-vorname",
       "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "internes-geschaeft-personalien.internes-geschaeft-rolle",
+    "fields": {
+      "created_at": "2022-02-14T13:18:32.068Z",
+      "modified_at": "2022-02-14T13:18:32.068Z",
+      "created_by_user": "a4d0c254-cd39-4070-8b20-e7e83de68694",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "internes-geschaeft-personalien",
+      "question": "internes-geschaeft-rolle",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "internes-geschaeft.internes-geschaeft-betroffene-nutzungszonen",
+    "fields": {
+      "created_at": "2022-02-14T14:33:29.689Z",
+      "modified_at": "2022-02-14T14:33:29.689Z",
+      "created_by_user": "a4d0c254-cd39-4070-8b20-e7e83de68694",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "internes-geschaeft",
+      "question": "internes-geschaeft-betroffene-nutzungszonen",
+      "sort": 2
     }
   },
   {
@@ -1341,7 +1371,7 @@
       "modified_by_group": null,
       "form": "internes-geschaeft",
       "question": "internes-geschaeft-generelle-informationen",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -1356,7 +1386,7 @@
       "modified_by_group": null,
       "form": "internes-geschaeft",
       "question": "internes-geschaeft-lokalisierung",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -1371,7 +1401,7 @@
       "modified_by_group": null,
       "form": "internes-geschaeft",
       "question": "internes-geschaeft-lokalisierung-ort",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -1386,7 +1416,7 @@
       "modified_by_group": null,
       "form": "internes-geschaeft",
       "question": "internes-geschaeft-lokalisierung-parzellennummer",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -1401,7 +1431,7 @@
       "modified_by_group": null,
       "form": "internes-geschaeft",
       "question": "internes-geschaeft-lokalisierung-plz",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -1416,7 +1446,7 @@
       "modified_by_group": null,
       "form": "internes-geschaeft",
       "question": "internes-geschaeft-lokalisierung-strasse-nr",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -1431,7 +1461,7 @@
       "modified_by_group": null,
       "form": "internes-geschaeft",
       "question": "internes-geschaeft-personalien",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -1446,7 +1476,7 @@
       "modified_by_group": null,
       "form": "internes-geschaeft",
       "question": "internes-geschaeft-titel",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -1461,7 +1491,7 @@
       "modified_by_group": null,
       "form": "internes-geschaeft",
       "question": "internes-geschaeft-vorhaben",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -1667,6 +1697,70 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Herr\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "internes-geschaeft-rolle-anfragesteller",
+    "fields": {
+      "created_at": "2022-02-14T14:57:55.964Z",
+      "modified_at": "2022-02-14T14:58:29.831Z",
+      "created_by_user": "a4d0c254-cd39-4070-8b20-e7e83de68694",
+      "created_by_group": null,
+      "modified_by_user": "a4d0c254-cd39-4070-8b20-e7e83de68694",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anfragesteller\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "internes-geschaeft-rolle-bauherrschaft",
+    "fields": {
+      "created_at": "2022-02-14T13:18:30.922Z",
+      "modified_at": "2022-02-14T14:58:29.850Z",
+      "created_by_user": "a4d0c254-cd39-4070-8b20-e7e83de68694",
+      "created_by_group": null,
+      "modified_by_user": "a4d0c254-cd39-4070-8b20-e7e83de68694",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bauherrschaft\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "internes-geschaeft-rolle-grundeigentumerschaft",
+    "fields": {
+      "created_at": "2022-02-14T14:57:56.077Z",
+      "modified_at": "2022-02-14T14:58:29.838Z",
+      "created_by_user": "a4d0c254-cd39-4070-8b20-e7e83de68694",
+      "created_by_group": null,
+      "modified_by_user": "a4d0c254-cd39-4070-8b20-e7e83de68694",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Grundeigent\\u00fcmerschaft\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "internes-geschaeft-rolle-projektverfasser-planer",
+    "fields": {
+      "created_at": "2022-02-14T13:18:30.767Z",
+      "modified_at": "2022-02-14T14:58:29.859Z",
+      "created_by_user": "a4d0c254-cd39-4070-8b20-e7e83de68694",
+      "created_by_group": null,
+      "modified_by_user": "a4d0c254-cd39-4070-8b20-e7e83de68694",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Projektverfasser / Planer\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -3318,6 +3412,39 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "internes-geschaeft-betroffene-nutzungszonen",
+    "fields": {
+      "created_at": "2022-02-14T14:33:29.542Z",
+      "modified_at": "2022-02-14T14:33:29.542Z",
+      "created_by_user": "a4d0c254-cd39-4070-8b20-e7e83de68694",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"betroffene Nutzungszone(n)\", \"fr\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "internes-geschaeft-button-abschliessen",
     "fields": {
       "created_at": "2022-02-08T13:40:16.740Z",
@@ -3452,18 +3579,18 @@
     "pk": "internes-geschaeft-lokalisierung-parzellennummer",
     "fields": {
       "created_at": "2022-01-26T14:18:17.104Z",
-      "modified_at": "2022-01-26T14:18:17.104Z",
+      "modified_at": "2022-02-11T13:42:07.669Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "a4d0c254-cd39-4070-8b20-e7e83de68694",
       "modified_by_group": null,
-      "label": "{\"de\": \"Parzellennummer\", \"fr\": null}",
+      "label": "{\"de\": \"Grundst\\u00fccknummer\", \"fr\": null}",
       "type": "text",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -3551,10 +3678,10 @@
     "pk": "internes-geschaeft-personalien",
     "fields": {
       "created_at": "2022-01-26T12:56:03.242Z",
-      "modified_at": "2022-01-27T12:57:47.528Z",
+      "modified_at": "2022-02-14T15:03:02.532Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "a4d0c254-cd39-4070-8b20-e7e83de68694",
       "modified_by_group": null,
       "label": "{\"de\": \"Personalien\", \"fr\": null}",
       "type": "table",
@@ -3578,7 +3705,8 @@
           "internes-geschaeft-personalien-plz",
           "internes-geschaeft-personalien-ort",
           "internes-geschaeft-personalien-e-mail",
-          "internes-geschaeft-personalien-tel-nr"
+          "internes-geschaeft-personalien-tel-nr",
+          "internes-geschaeft-rolle"
         ]
       },
       "data_source": null,
@@ -3919,22 +4047,52 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "internes-geschaeft-rolle",
+    "fields": {
+      "created_at": "2022-02-14T13:18:31.287Z",
+      "modified_at": "2022-02-14T14:58:29.988Z",
+      "created_by_user": "a4d0c254-cd39-4070-8b20-e7e83de68694",
+      "created_by_group": null,
+      "modified_by_user": "a4d0c254-cd39-4070-8b20-e7e83de68694",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Rolle\", \"fr\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "internes-geschaeft-titel",
     "fields": {
       "created_at": "2022-01-20T18:19:46.226Z",
-      "modified_at": "2022-01-20T18:28:31.352Z",
+      "modified_at": "2022-02-14T12:55:30.121Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "a4d0c254-cd39-4070-8b20-e7e83de68694",
       "modified_by_group": null,
-      "label": "{\"de\": \"\", \"fr\": \"\"}",
+      "label": "{\"de\": \"Titel\", \"fr\": \"\"}",
       "type": "static",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
-      "static_content": "{\"de\": \"<h1>Internes Gesch\\u00e4ft</h1>\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"# Voranfrage\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -4263,6 +4421,66 @@
       "question": "internes-geschaeft-personalien-anrede",
       "option": "internes-geschaeft-personalien-anrede-herr",
       "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "internes-geschaeft-rolle.internes-geschaeft-rolle-anfragesteller",
+    "fields": {
+      "created_at": "2022-02-14T14:58:30.010Z",
+      "modified_at": "2022-02-14T14:58:30.010Z",
+      "created_by_user": "a4d0c254-cd39-4070-8b20-e7e83de68694",
+      "created_by_group": null,
+      "modified_by_user": "a4d0c254-cd39-4070-8b20-e7e83de68694",
+      "modified_by_group": null,
+      "question": "internes-geschaeft-rolle",
+      "option": "internes-geschaeft-rolle-anfragesteller",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "internes-geschaeft-rolle.internes-geschaeft-rolle-bauherrschaft",
+    "fields": {
+      "created_at": "2022-02-14T14:58:30.006Z",
+      "modified_at": "2022-02-14T14:58:30.006Z",
+      "created_by_user": "a4d0c254-cd39-4070-8b20-e7e83de68694",
+      "created_by_group": null,
+      "modified_by_user": "a4d0c254-cd39-4070-8b20-e7e83de68694",
+      "modified_by_group": null,
+      "question": "internes-geschaeft-rolle",
+      "option": "internes-geschaeft-rolle-bauherrschaft",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "internes-geschaeft-rolle.internes-geschaeft-rolle-grundeigentumerschaft",
+    "fields": {
+      "created_at": "2022-02-14T14:58:30.002Z",
+      "modified_at": "2022-02-14T14:58:30.002Z",
+      "created_by_user": "a4d0c254-cd39-4070-8b20-e7e83de68694",
+      "created_by_group": null,
+      "modified_by_user": "a4d0c254-cd39-4070-8b20-e7e83de68694",
+      "modified_by_group": null,
+      "question": "internes-geschaeft-rolle",
+      "option": "internes-geschaeft-rolle-grundeigentumerschaft",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "internes-geschaeft-rolle.internes-geschaeft-rolle-projektverfasser-planer",
+    "fields": {
+      "created_at": "2022-02-14T14:58:29.998Z",
+      "modified_at": "2022-02-14T14:58:29.998Z",
+      "created_by_user": "a4d0c254-cd39-4070-8b20-e7e83de68694",
+      "created_by_group": null,
+      "modified_by_user": "a4d0c254-cd39-4070-8b20-e7e83de68694",
+      "modified_by_group": null,
+      "question": "internes-geschaeft-rolle",
+      "option": "internes-geschaeft-rolle-projektverfasser-planer",
+      "sort": 1
     }
   }
 ]
