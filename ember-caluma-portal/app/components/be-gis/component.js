@@ -244,10 +244,12 @@ export default class BeGisComponent extends Component {
   get oerebLinkData() {
     const tables =
       this.args.field.document.findAnswer(KEY_TABLE_QUESTION) || [];
-    return tables.map((table) => ({
-      egrid: table[KEY_TABLE_EGRID],
-      parcel: table[KEY_TABLE_PARCEL],
-    }));
+    return tables
+      .map((table) => ({
+        egrid: table[KEY_TABLE_EGRID],
+        parcel: table[KEY_TABLE_PARCEL],
+      }))
+      .filter(({ egrid }) => !isEmpty(egrid));
   }
 
   get origin() {
