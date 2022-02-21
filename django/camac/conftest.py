@@ -123,6 +123,7 @@ CALUMA_FORM_TYPES_SLUGS = [
     "zutrittsermaechtigung",
     "verlaengerung-geltungsdauer",
     "building-permit",
+    "solaranlagen-meldung",
 ]
 
 
