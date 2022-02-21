@@ -4342,7 +4342,7 @@
       "label": "{\"de\": \"Ist die verantwortliche Person f\\u00fcr die Selbstdeklaration Baukontrolle identisch mit dem/r Gesuchsteller/in?\", \"fr\": \"La personne responsable de la d\\u00e9claration spontan\\u00e9e en mati\\u00e8re de contr\\u00f4le des constructions est-elle identique \\u00e0 la personne requ\\u00e9rante ?\"}",
       "type": "choice",
       "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
-      "is_hidden": "'vorabklaerung' in form",
+      "is_hidden": "'vorabklaerung' in form || 'solaranlagen-meldung' in form",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
