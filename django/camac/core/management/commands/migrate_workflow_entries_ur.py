@@ -76,7 +76,7 @@ class Command(BaseCommand):
                         self.stdout.write(
                             f"For the instance {case.instance.pk} the workflow entries {[workflow_entry.workflow_entry_id for workflow_entry in workflow_entries]} where chnanged from workflow item Nr. 10 to workflow item Nr. 12000000"
                         )
-            except Exception as e:
+            except Exception as e:  # pragma: no cover # noqa: B902
                 self.stdout.write(f"Could not migrate case {case.id}: {e}")
 
         if options["dry"]:  # pragma: no cover
