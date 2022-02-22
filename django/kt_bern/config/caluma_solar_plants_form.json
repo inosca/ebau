@@ -1,0 +1,1249 @@
+[
+  {
+    "model": "caluma_form.form",
+    "pk": "solaranlagen",
+    "fields": {
+      "created_at": "2022-02-21T09:27:34.330Z",
+      "modified_at": "2022-02-21T17:05:35.507Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Solaranlagen\", \"fr\": \"Installations solaires\"}",
+      "description": "{\"de\": \"Meldung Solaranlagen > Solaranlagen\", \"fr\": \"Annonce d\\u2019installations solaires > Installations solaires\"}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "solaranlagen-bestaetigung",
+    "fields": {
+      "created_at": "2022-02-21T13:53:43.261Z",
+      "modified_at": "2022-02-21T17:05:22.628Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Best\\u00e4tigung\", \"fr\": \"Confirmation\"}",
+      "description": "{\"de\": \"Meldung Solaranlagen > Best\\u00e4tigung\", \"fr\": \"Annonce d\\u2019installations solaires > Confirmation\"}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "solaranlagen-dokumente",
+    "fields": {
+      "created_at": "2022-02-21T09:56:14.906Z",
+      "modified_at": "2022-02-21T17:05:07.940Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Dokumente\", \"fr\": \"Documents\"}",
+      "description": "{\"de\": \"Meldung Solaranlagen > Dokumente\", \"fr\": \"Annonce d\\u2019installations solaires > Documents\"}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "solaranlagen-meldung",
+    "fields": {
+      "created_at": "2022-02-21T09:24:14.359Z",
+      "modified_at": "2022-02-21T12:16:38.878Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Meldung Solaranlagen\", \"fr\": \"Annonce d\\u2019installations solaires\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\"}",
+      "meta": {
+        "order": 5,
+        "category": "special-procedure",
+        "is-creatable": true,
+        "is-main-form": true
+      },
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "solaranlagen-tabelle",
+    "fields": {
+      "created_at": "2022-02-21T09:30:50.138Z",
+      "modified_at": "2022-02-21T17:05:47.937Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Solaranlagen Tabelle\", \"fr\": \"Installations solaires tableau\"}",
+      "description": "{\"de\": \"Meldung Solaranlagen > Solaranlagen > Solaranlagen Tabelle\", \"fr\": \"Annonce d\\u2019installations solaires > Installations solaires > Installations solaires tableau\"}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-bestaetigung.solaranlagen-bestaetigung-anforderungen-eingehalten",
+    "fields": {
+      "created_at": "2022-02-21T16:30:03.193Z",
+      "modified_at": "2022-02-21T16:30:03.193Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-bestaetigung",
+      "question": "solaranlagen-bestaetigung-anforderungen-eingehalten",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-bestaetigung.solaranlagen-bestaetigung-richtigkeit-der-angaben",
+    "fields": {
+      "created_at": "2022-02-21T13:55:03.037Z",
+      "modified_at": "2022-02-21T13:55:03.037Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-bestaetigung",
+      "question": "solaranlagen-bestaetigung-richtigkeit-der-angaben",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-dokumente.dokumente-platzhalter",
+    "fields": {
+      "created_at": "2022-02-21T09:56:44.417Z",
+      "modified_at": "2022-02-21T09:56:44.417Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-dokumente",
+      "question": "dokumente-platzhalter",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-dokumente.solaranlagen-tabelle-grundriss-ansichtsplan-dokument",
+    "fields": {
+      "created_at": "2022-02-21T12:37:59.783Z",
+      "modified_at": "2022-02-21T12:37:59.783Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-dokumente",
+      "question": "solaranlagen-tabelle-grundriss-ansichtsplan-dokument",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-meldung.8-freigabequittung",
+    "fields": {
+      "created_at": "2022-02-21T09:25:34.703Z",
+      "modified_at": "2022-02-21T09:25:34.703Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-meldung",
+      "question": "8-freigabequittung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-meldung.allgemeine-angaben-kurz-formular",
+    "fields": {
+      "created_at": "2022-02-21T09:25:12.991Z",
+      "modified_at": "2022-02-21T09:25:12.991Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-meldung",
+      "question": "allgemeine-angaben-kurz-formular",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-meldung.personalien-kurz-formular",
+    "fields": {
+      "created_at": "2022-02-21T09:24:58.932Z",
+      "modified_at": "2022-02-21T09:24:58.932Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-meldung",
+      "question": "personalien-kurz-formular",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-meldung.solaranlagen",
+    "fields": {
+      "created_at": "2022-02-21T09:48:10.602Z",
+      "modified_at": "2022-02-21T09:48:10.602Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-meldung",
+      "question": "solaranlagen",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-meldung.solaranlagen-bestaetigung",
+    "fields": {
+      "created_at": "2022-02-21T13:54:07.537Z",
+      "modified_at": "2022-02-21T13:54:07.537Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-meldung",
+      "question": "solaranlagen-bestaetigung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-meldung.solaranlagen-dokumente",
+    "fields": {
+      "created_at": "2022-02-21T09:58:29.491Z",
+      "modified_at": "2022-02-21T09:58:29.491Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-meldung",
+      "question": "solaranlagen-dokumente",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-tabelle.solaranlagen-tabelle-bemerkungen",
+    "fields": {
+      "created_at": "2022-02-21T16:18:21.646Z",
+      "modified_at": "2022-02-21T16:18:21.647Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-tabelle",
+      "question": "solaranlagen-tabelle-bemerkungen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-tabelle.solaranlagen-tabelle-erwartete-stromproduktion",
+    "fields": {
+      "created_at": "2022-02-21T09:45:54.241Z",
+      "modified_at": "2022-02-21T09:45:54.241Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-tabelle",
+      "question": "solaranlagen-tabelle-erwartete-stromproduktion",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-tabelle.solaranlagen-tabelle-gesamtflaeche",
+    "fields": {
+      "created_at": "2022-02-21T09:43:24.399Z",
+      "modified_at": "2022-02-21T09:43:24.399Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-tabelle",
+      "question": "solaranlagen-tabelle-gesamtflaeche",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-tabelle.solaranlagen-tabelle-gesamtleistung",
+    "fields": {
+      "created_at": "2022-02-21T09:44:54.778Z",
+      "modified_at": "2022-02-21T09:44:54.779Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-tabelle",
+      "question": "solaranlagen-tabelle-gesamtleistung",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-tabelle.solaranlagen-tabelle-kollektoren-typ",
+    "fields": {
+      "created_at": "2022-02-21T09:40:00.625Z",
+      "modified_at": "2022-02-21T09:40:00.625Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-tabelle",
+      "question": "solaranlagen-tabelle-kollektoren-typ",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-tabelle.solaranlagen-tabelle-nutzung",
+    "fields": {
+      "created_at": "2022-02-21T09:41:23.977Z",
+      "modified_at": "2022-02-21T09:41:23.977Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-tabelle",
+      "question": "solaranlagen-tabelle-nutzung",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-tabelle.solaranlagen-tabelle-nutzung-andere",
+    "fields": {
+      "created_at": "2022-02-21T09:46:46.514Z",
+      "modified_at": "2022-02-21T09:46:46.514Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-tabelle",
+      "question": "solaranlagen-tabelle-nutzung-andere",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-tabelle.solaranlagen-tabelle-typ",
+    "fields": {
+      "created_at": "2022-02-21T09:32:02.637Z",
+      "modified_at": "2022-02-21T09:32:02.637Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-tabelle",
+      "question": "solaranlagen-tabelle-typ",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen.solaranlagen-information",
+    "fields": {
+      "created_at": "2022-02-21T11:59:10.751Z",
+      "modified_at": "2022-02-21T11:59:10.752Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen",
+      "question": "solaranlagen-information",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen.solaranlagen-tabelle",
+    "fields": {
+      "created_at": "2022-02-21T09:47:37.383Z",
+      "modified_at": "2022-02-21T09:47:37.384Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen",
+      "question": "solaranlagen-tabelle",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "solaranlagen-bestaetigung-anforderungen-eingehalten-ja",
+    "fields": {
+      "created_at": "2022-02-21T16:30:02.874Z",
+      "modified_at": "2022-02-21T16:59:51.687Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Die Anforderungen sind gem\\u00e4ss den Richtlinien \\u00abBewilligungsfreie Anlagen zur Gewinnung von erneuerbarer Energie\\u00bb eingehalten\", \"fr\": \"Les exigences \\u00e9nonc\\u00e9es aux directives \\u00abInstallations de production d\\u2019\\u00e9nergies renouvelables non soumises au r\\u00e9gime du permis de construire\\u00bb\"}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "solaranlagen-bestaetigung-richtigkeit-der-angaben-ja",
+    "fields": {
+      "created_at": "2022-02-21T13:55:02.776Z",
+      "modified_at": "2022-02-21T13:57:16.804Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Die Richtigkeit der Angaben best\\u00e4tigt die Liegenschaftseigent\\u00fcmerschaft oder deren Vertretung\", \"fr\": \"Le ou la propri\\u00e9taire du bien-fonds ou son repr\\u00e9sentant/sa repr\\u00e9sentante confirme l\\u2019exactitude des indications fournies\"}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "solaranlagen-tabelle-grundriss-ansichtsplan-dokument-ja",
+    "fields": {
+      "created_at": "2022-02-21T12:37:59.443Z",
+      "modified_at": "2022-02-21T17:03:54.820Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Grundriss- und/oder Ansichtsplan (wenn m\\u00f6glich Fotomontage) mit eingezeichneter Solaranlage (auf dem Plan ist die Nordrichtung anzugeben)\", \"fr\": \"Vue en plan et/ou d\\u2019un plan en coupe (si possible sous la forme d\\u2019un photomontage) qui int\\u00e8gre l\\u2019installation solaire (la direction du nord doit \\u00eatre indiqu\\u00e9e sur le plan)\"}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "solaranlagen-tabelle-kollektoren-typ-flach",
+    "fields": {
+      "created_at": "2022-02-21T09:40:00.286Z",
+      "modified_at": "2022-02-21T12:19:47.524Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Flachkollektoren\", \"fr\": \"Capteurs plans\"}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "solaranlagen-tabelle-kollektoren-typ-hybrid",
+    "fields": {
+      "created_at": "2022-02-21T09:40:00.326Z",
+      "modified_at": "2022-02-21T12:19:47.551Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hybridkollektoren\", \"fr\": \"Capteurs hybrides\"}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "solaranlagen-tabelle-kollektoren-typ-roehren",
+    "fields": {
+      "created_at": "2022-02-21T09:40:00.341Z",
+      "modified_at": "2022-02-21T12:19:47.527Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"R\\u00f6hrenkollektoren\", \"fr\": \"Capteurs \\u00e0 tubes\"}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "solaranlagen-tabelle-nutzung-andere",
+    "fields": {
+      "created_at": "2022-02-21T09:41:23.685Z",
+      "modified_at": "2022-02-21T12:19:54.468Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": \"Pour une autre utilisation\"}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "solaranlagen-tabelle-nutzung-brauchwarmwasser",
+    "fields": {
+      "created_at": "2022-02-21T09:41:23.671Z",
+      "modified_at": "2022-02-21T12:19:54.418Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"f\\u00fcr Brauchwarmwasser\", \"fr\": \"Pour l\\u2019eau chaude sanitaire\"}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "solaranlagen-tabelle-nutzung-heizungsunterstutzung",
+    "fields": {
+      "created_at": "2022-02-21T09:41:23.710Z",
+      "modified_at": "2022-02-21T12:19:54.446Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"f\\u00fcr Heizungsunterst\\u00fctzung\", \"fr\": \"Pour un chauffage d\\u2019appoint\"}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "solaranlagen-tabelle-typ-photovoltaik",
+    "fields": {
+      "created_at": "2022-02-21T09:32:02.228Z",
+      "modified_at": "2022-02-21T10:33:56.619Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Photovoltaikanlage (Stromproduktion)\", \"fr\": \"Installation photovolta\\u00efque (production d\\u2019\\u00e9lectricit\\u00e9)\"}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "solaranlagen-tabelle-typ-thermisch",
+    "fields": {
+      "created_at": "2022-02-21T09:32:02.193Z",
+      "modified_at": "2022-02-21T10:33:56.590Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Thermische Solaranlage (W\\u00e4rmeproduktion)\", \"fr\": \"Installation solaire thermique (production de chaleur)\"}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "solaranlagen",
+    "fields": {
+      "created_at": "2022-02-21T09:48:10.398Z",
+      "modified_at": "2022-02-21T12:16:48.835Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Solaranlagen\", \"fr\": \"Installations solaires\"}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "solaranlagen",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "solaranlagen-bestaetigung",
+    "fields": {
+      "created_at": "2022-02-21T13:54:07.337Z",
+      "modified_at": "2022-02-21T13:57:55.339Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Best\\u00e4tigung\", \"fr\": \"Confirmation\"}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "solaranlagen-bestaetigung",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "solaranlagen-bestaetigung-anforderungen-eingehalten",
+    "fields": {
+      "created_at": "2022-02-21T16:30:03.046Z",
+      "modified_at": "2022-02-21T16:59:52.152Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Die Anforderungen sind gem\\u00e4ss den Richtlinien \\u00abBewilligungsfreie Anlagen zur Gewinnung von erneuerbarer Energie\\u00bb eingehalten\", \"fr\": \"Les exigences \\u00e9nonc\\u00e9es aux directives \\u00abInstallations de production d\\u2019\\u00e9nergies renouvelables non soumises au r\\u00e9gime du permis de construire\\u00bb\"}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"[Richtlinien \\u00abBewilligungsfreie Anlagen zur Gewinnung von erneuerbarer Energie\\u00bb](https://www.weu.be.ch/content/dam/weu/dokumente/aue/de/energievorschriften-bauen/aue-en-richtlinien-erneuerbare-energien-de.pdf)\", \"fr\": \"[Directives \\u00abInstallations de production d\\u2019\\u00e9nergies renouvelables non soumises au r\\u00e9gime du permis de construire\\u00bb](http://www.weu.be.ch/content/dam/weu/dokumente/aue/fr/energievorschriften-bauen/aue-en-richtlinien-erneuerbare-energien-fr.pdf)\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "solaranlagen-bestaetigung-richtigkeit-der-angaben",
+    "fields": {
+      "created_at": "2022-02-21T13:55:02.917Z",
+      "modified_at": "2022-02-21T13:57:17.094Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Die Richtigkeit der Angaben best\\u00e4tigt die Liegenschaftseigent\\u00fcmerschaft oder deren Vertretung\", \"fr\": \"Le ou la propri\\u00e9taire du bien-fonds ou son repr\\u00e9sentant/sa repr\\u00e9sentante confirme l\\u2019exactitude des indications fournies\"}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "solaranlagen-dokumente",
+    "fields": {
+      "created_at": "2022-02-21T09:58:29.356Z",
+      "modified_at": "2022-02-21T12:16:55.993Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dokumente\", \"fr\": \"Documents\"}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "be-documents-form",
+        "attachment-section": "'is-paper'|answer == 'is-paper-yes'? 13 : 1"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "solaranlagen-dokumente",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "solaranlagen-information",
+    "fields": {
+      "created_at": "2022-02-21T11:59:10.605Z",
+      "modified_at": "2022-02-21T12:15:04.154Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Solaranlagen Information\", \"fr\": \"Installations solaires information\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"Gem\\u00e4ss Art.18a des Raumplanungsgesetzes (RPG; SR 700) m\\u00fcssen Solaranlagen, die nicht der Bewilligungspflicht unterstehen, vor der Realisierung der zust\\u00e4ndigen Beh\\u00f6rde gemeldet werden.\\n\\nF\\u00fcr nicht gen\\u00fcgend angepasste Anlagen\\u00b9 ist immer <u>eine Baubewilligung n\\u00f6tig</u>. Dies gilt auch f\\u00fcr Solaranlagen auf Kultur- und Naturdenkm\\u00e4lern. Mit dem Einreichen eines Baugesuchs ist aber auch die Meldepflicht erf\\u00fcllt.\\n\\nF\\u00fcr Anlagen, bei denen keine Baubewilligung notwendig ist, <u>besteht eine Meldepflicht</u>. Zust\\u00e4ndige Beh\\u00f6rde f\\u00fcr die Meldung der Solaranlage ist die Standortgemeinde.\\n\\n<p class=\\\"uk-text-meta\\\">\\u00b9 vgl. auch Art. 32a und b Raumplanungsverordnung (RPV; SR 700.1) sowie <a href=\\\"https://www.weu.be.ch/content/dam/weu/dokumente/aue/de/energievorschriften-bauen/aue-en-richtlinien-erneuerbare-energien-de.pdf\\\">Richtlinien \\u00abBewilligungsfreie Anlagen zur Gewinnung von erneuerbarer Energie\\u00bb</a></p>\\n\\n<hr class=\\\"uk-margin-remove-bottom\\\">\", \"fr\": \"L\\u2019article 18a de la loi sur l\\u2019am\\u00e9nagement du territoire (LAT; RS 700) pr\\u00e9voit que les installations solaires qui ne n\\u00e9cessitent pas d\\u2019autorisation doivent \\u00eatre annonc\\u00e9es \\u00e0 l\\u2019autorit\\u00e9 comp\\u00e9tente avant le d\\u00e9but des travaux.\\n\\nDans le cas des installations consid\\u00e9r\\u00e9es comme non suffisamment adapt\\u00e9es aux toits\\u00b9, <u>un permis de construire est</u> toujours <u>n\\u00e9cessaire</u>. Cette r\\u00e8gle s\\u2019applique \\u00e9galement aux installations solaires pr\\u00e9vues sur des biens culturels ou dans des sites naturels. La remise d\\u2019une demande de permis de construire r\\u00e9pond \\u00e9galement \\u00e0 l\\u2019obligation d\\u2019annoncer.\\n\\nLes installations solaires qui n\\u2019exigent pas de permis de construire <u>doivent</u> obligatoirement <u>\\u00eatre annonc\\u00e9es</u>. L\\u2019autorit\\u00e9 \\u00e0 laquelle il convient de faire cette annonce est la commune concern\\u00e9e par l\\u2019installation.\\n\\n<p class=\\\"uk-text-meta\\\">\\u00b9 Voir \\u00e9galement les articles 32a et 32b de l\\u2019ordonnance sur l\\u2019am\\u00e9nagement du territoire (OAT; RS 700.1) ainsi que les <a href=\\\"http://www.weu.be.ch/content/dam/weu/dokumente/aue/fr/energievorschriften-bauen/aue-en-richtlinien-erneuerbare-energien-fr.pdf\\\">directives \\u00abInstallations de production d\\u2019\\u00e9nergies renouvelables non soumises au r\\u00e9gime du permis de construire\\u00bb</a></p>\\n\\n<hr class=\\\"uk-margin-remove-bottom\\\">\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "solaranlagen-tabelle",
+    "fields": {
+      "created_at": "2022-02-21T09:47:37.202Z",
+      "modified_at": "2022-02-21T16:19:55.080Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Solaranlagen\", \"fr\": \"Installations solaires\"}",
+      "type": "table",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "columnsToDisplay": [
+          "solaranlagen-tabelle-typ",
+          "solaranlagen-tabelle-gesamtflaeche",
+          "solaranlagen-tabelle-bemerkungen"
+        ]
+      },
+      "data_source": null,
+      "row_form": "solaranlagen-tabelle",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "solaranlagen-tabelle-bemerkungen",
+    "fields": {
+      "created_at": "2022-02-21T16:18:21.434Z",
+      "modified_at": "2022-02-21T16:55:10.251Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": \"Remarques\"}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": \"\"}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "solaranlagen-tabelle-erwartete-stromproduktion",
+    "fields": {
+      "created_at": "2022-02-21T09:45:54.074Z",
+      "modified_at": "2022-02-21T12:20:20.130Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Erwartete Stromproduktion in kWh/Jahr\", \"fr\": \"Production d\\u2019\\u00e9lectricit\\u00e9 pr\\u00e9vue en kWh/an\"}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "'solaranlagen-tabelle-typ'|answer != 'solaranlagen-tabelle-typ-photovoltaik'",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": \"\"}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": 0
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "solaranlagen-tabelle-gesamtflaeche",
+    "fields": {
+      "created_at": "2022-02-21T09:43:24.257Z",
+      "modified_at": "2022-02-21T10:32:58.716Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gesamtfl\\u00e4che in m\\u00b2 (ohne Blindfl\\u00e4che)\", \"fr\": \"Surface totale en m\\u00b2 (sans les modules passifs)\"}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": \"\"}",
+      "info_text": "{\"de\": \"[Merkblatt - Reinigung und Entw\\u00e4sserung von Fl\\u00e4chen mit Photovoltaikanlagen und Sonnenkollektoren sowie Glasd\\u00e4chern](https://www.bvd.be.ch/content/dam/bvd/dokumente/de/awa/wasser/abwasserentsorgung/grundst%C3%BCcksentw%C3%A4sserung/photovoltaikanlagen,-sonnenkollektoren-und-glasd%C3%A4cher/merkblatt-reinigung-und-entwaesserung-von-photovoltaikanlagen.pdf)\", \"fr\": \"[Notice Evacuation des eaux de nettoyage d'installations photovolta\\u00efques, de panneaux solaires et de toits en verre](https://www.bvd.be.ch/content/dam/bvd/dokumente/fr/awa/wasser/abwasserentsorgung/grundst%C3%BCcksentw%C3%A4sserung/photovoltaikanlagen,-sonnenkollektoren-und-glasd%C3%A4cher/merkblatt-reinigung-und-entwaesserung-von-photovoltaikanlagen-fr.pdf)\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": 0
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "solaranlagen-tabelle-gesamtleistung",
+    "fields": {
+      "created_at": "2022-02-21T09:44:54.613Z",
+      "modified_at": "2022-02-21T12:20:14.046Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gesamtleistung in kWpeak\", \"fr\": \"Rendement global en kilowatt cr\\u00eate (kWc)\"}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "'solaranlagen-tabelle-typ'|answer != 'solaranlagen-tabelle-typ-photovoltaik'",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": \"\"}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": 0
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "solaranlagen-tabelle-grundriss-ansichtsplan-dokument",
+    "fields": {
+      "created_at": "2022-02-21T12:37:59.648Z",
+      "modified_at": "2022-02-21T17:03:55.293Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Grundriss- und/oder Ansichtsplan (wenn m\\u00f6glich Fotomontage) mit eingezeichneter Solaranlage (auf dem Plan ist die Nordrichtung anzugeben)\", \"fr\": \"Vue en plan et/ou d\\u2019un plan en coupe (si possible sous la forme d\\u2019un photomontage) qui int\\u00e8gre l\\u2019installation solaire (la direction du nord doit \\u00eatre indiqu\\u00e9e sur le plan)\"}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true,
+        "documentCategory": "plaene"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "solaranlagen-tabelle-kollektoren-typ",
+    "fields": {
+      "created_at": "2022-02-21T09:40:00.501Z",
+      "modified_at": "2022-02-21T12:19:47.760Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Typ der Kollektoren\", \"fr\": \"Type de capteurs\"}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "'solaranlagen-tabelle-typ'|answer != 'solaranlagen-tabelle-typ-thermisch'",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "solaranlagen-tabelle-nutzung",
+    "fields": {
+      "created_at": "2022-02-21T09:41:23.858Z",
+      "modified_at": "2022-02-21T12:19:54.640Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nutzung\", \"fr\": \"Utilisation\"}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "'solaranlagen-tabelle-typ'|answer != 'solaranlagen-tabelle-typ-thermisch'",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "solaranlagen-tabelle-nutzung-andere",
+    "fields": {
+      "created_at": "2022-02-21T09:46:46.345Z",
+      "modified_at": "2022-02-21T12:21:27.776Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere Nutzung\", \"fr\": \"Utilisation autre\"}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "!('solaranlagen-tabelle-nutzung-andere' in 'solaranlagen-tabelle-nutzung'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": \"\"}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "solaranlagen-tabelle-typ",
+    "fields": {
+      "created_at": "2022-02-21T09:32:02.461Z",
+      "modified_at": "2022-02-21T10:33:57.174Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Typ der Anlage\", \"fr\": \"Type d'installation\"}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "solaranlagen-bestaetigung-anforderungen-eingehalten.solaranlagen-bestaetigung-anforderungen-eingehalten-ja",
+    "fields": {
+      "created_at": "2022-02-21T16:59:52.164Z",
+      "modified_at": "2022-02-21T16:59:52.164Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "solaranlagen-bestaetigung-anforderungen-eingehalten",
+      "option": "solaranlagen-bestaetigung-anforderungen-eingehalten-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "solaranlagen-bestaetigung-richtigkeit-der-angaben.solaranlagen-bestaetigung-richtigkeit-der-angaben-ja",
+    "fields": {
+      "created_at": "2022-02-21T13:57:17.124Z",
+      "modified_at": "2022-02-21T13:57:17.124Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "solaranlagen-bestaetigung-richtigkeit-der-angaben",
+      "option": "solaranlagen-bestaetigung-richtigkeit-der-angaben-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "solaranlagen-tabelle-grundriss-ansichtsplan-dokument.solaranlagen-tabelle-grundriss-ansichtsplan-dokument-ja",
+    "fields": {
+      "created_at": "2022-02-21T17:03:55.308Z",
+      "modified_at": "2022-02-21T17:03:55.308Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "solaranlagen-tabelle-grundriss-ansichtsplan-dokument",
+      "option": "solaranlagen-tabelle-grundriss-ansichtsplan-dokument-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "solaranlagen-tabelle-kollektoren-typ.solaranlagen-tabelle-kollektoren-typ-flach",
+    "fields": {
+      "created_at": "2022-02-21T12:19:47.778Z",
+      "modified_at": "2022-02-21T12:19:47.778Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "solaranlagen-tabelle-kollektoren-typ",
+      "option": "solaranlagen-tabelle-kollektoren-typ-flach",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "solaranlagen-tabelle-kollektoren-typ.solaranlagen-tabelle-kollektoren-typ-hybrid",
+    "fields": {
+      "created_at": "2022-02-21T12:19:47.769Z",
+      "modified_at": "2022-02-21T12:19:47.769Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "solaranlagen-tabelle-kollektoren-typ",
+      "option": "solaranlagen-tabelle-kollektoren-typ-hybrid",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "solaranlagen-tabelle-kollektoren-typ.solaranlagen-tabelle-kollektoren-typ-roehren",
+    "fields": {
+      "created_at": "2022-02-21T12:19:47.773Z",
+      "modified_at": "2022-02-21T12:19:47.773Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "solaranlagen-tabelle-kollektoren-typ",
+      "option": "solaranlagen-tabelle-kollektoren-typ-roehren",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "solaranlagen-tabelle-nutzung.solaranlagen-tabelle-nutzung-andere",
+    "fields": {
+      "created_at": "2022-02-21T12:19:54.649Z",
+      "modified_at": "2022-02-21T12:19:54.649Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "solaranlagen-tabelle-nutzung",
+      "option": "solaranlagen-tabelle-nutzung-andere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "solaranlagen-tabelle-nutzung.solaranlagen-tabelle-nutzung-brauchwarmwasser",
+    "fields": {
+      "created_at": "2022-02-21T12:19:54.658Z",
+      "modified_at": "2022-02-21T12:19:54.658Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "solaranlagen-tabelle-nutzung",
+      "option": "solaranlagen-tabelle-nutzung-brauchwarmwasser",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "solaranlagen-tabelle-nutzung.solaranlagen-tabelle-nutzung-heizungsunterstutzung",
+    "fields": {
+      "created_at": "2022-02-21T12:19:54.654Z",
+      "modified_at": "2022-02-21T12:19:54.654Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "solaranlagen-tabelle-nutzung",
+      "option": "solaranlagen-tabelle-nutzung-heizungsunterstutzung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "solaranlagen-tabelle-typ.solaranlagen-tabelle-typ-photovoltaik",
+    "fields": {
+      "created_at": "2022-02-21T10:33:57.186Z",
+      "modified_at": "2022-02-21T10:33:57.187Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "solaranlagen-tabelle-typ",
+      "option": "solaranlagen-tabelle-typ-photovoltaik",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "solaranlagen-tabelle-typ.solaranlagen-tabelle-typ-thermisch",
+    "fields": {
+      "created_at": "2022-02-21T10:33:57.194Z",
+      "modified_at": "2022-02-21T10:33:57.194Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "solaranlagen-tabelle-typ",
+      "option": "solaranlagen-tabelle-typ-thermisch",
+      "sort": 2
+    }
+  }
+]
