@@ -79,7 +79,12 @@ class InstanceQuerysetMixin(object):
         hidden_states = settings.APPLICATION.get("INSTANCE_HIDDEN_STATES", {}).get(
             role_name, []
         )
-        queryset = super().get_queryset().select_related(instance_state_expr)
+        queryset = (
+            super().get_queryset()
+            if hasattr(super(), "get_queryset")
+            else Instance.objects.all()
+        )
+        queryset = queryset.select_related(instance_state_expr)
 
         if len(hidden_states):
             state_field = self._get_instance_filter_expr("instance_state__name", "in")

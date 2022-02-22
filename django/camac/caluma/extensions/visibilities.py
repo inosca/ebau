@@ -12,7 +12,6 @@ from camac.caluma.utils import CamacRequest
 from camac.constants.kt_bern import DASHBOARD_FORM_SLUG
 from camac.instance.filters import CalumaInstanceFilterSet
 from camac.instance.mixins import InstanceQuerysetMixin
-from camac.instance.models import Instance
 from camac.user.models import Role
 from camac.utils import filters
 
@@ -90,11 +89,6 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
         return queryset.filter(
             case__family__instance__pk__in=self._all_visible_instances(info)
         )
-
-    def get_base_queryset(self):
-        """Overridden from InstanceQuerysetMixin to avoid the super().get_queryset() call."""
-        instance_state_expr = self._get_instance_filter_expr("instance_state")
-        return Instance.objects.all().select_related(instance_state_expr)
 
     def _all_visible_instances(self, info):
         """Fetch visible camac instances and cache the result.
