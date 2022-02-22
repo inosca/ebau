@@ -60,18 +60,24 @@ export default class CaseDashboardComponent extends Component {
 
   @dropTask
   *initialize() {
-    yield this.fetchCurrentInstance.perform(true);
+    yield this.fetchCurrentInstance.perform(true, true);
     yield this.fetchModels.perform();
     yield this.fetchInstancesOnSamePlot.perform();
   }
 
   @lastValue("fetchCurrentInstance") currentInstance;
   @dropTask
-  *fetchCurrentInstance(fetchDossierNumbersOfLinkedInstances = false) {
+  *fetchCurrentInstance(
+    reloadInstance = false,
+    fetchDossierNumbersOfLinkedInstances = false
+  ) {
     const instance = yield this.store.findRecord(
       "instance",
       this.args.instanceId,
-      { include: "linked_instances" }
+      {
+        reload: reloadInstance,
+        include: "linked_instances",
+      }
     );
 
     if (fetchDossierNumbersOfLinkedInstances && instance.linkedInstances) {
@@ -204,7 +210,7 @@ export default class CaseDashboardComponent extends Component {
         }),
       });
 
-      yield this.fetchCurrentInstance.perform(true);
+      yield this.fetchCurrentInstance.perform(true, true);
       this.dossierNumber = null;
       this.notification.success(
         this.intl.t("cases.miscellaneous.linkInstanceSuccess")
