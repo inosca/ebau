@@ -34,30 +34,13 @@
           </td>
         {{/each}}
         {{#if @instancesOnSamePlot}}
-          {{#if (includes case.instanceId this.linkedInstanceIds)}}
-            <td>
-              <button
-                class="uk-button-link uk-flex"
-                ratio="0.7"
-                uk-icon=""
-                type="button"
-                title={{t "cases.miscellaneous.unLinkInstance" }}
-                {{on "click" (perform @onUnlink case.instance)}}>
-                  <i class="unlink-instance attachment-icon" />
-              </button>
-            </td>
-          {{else if (not-eq this.instanceIdAsInt case.instanceId)}}
-            <td>
-              <button
-                class="uk-button-link uk-flex"
-                ratio="0.7"
-                uk-icon=""
-                type="button"
-                title={{t "cases.miscellaneous.linkInstance"}}
-                {{on "click" (perform @onLink case.instanceId)}}>
-                  <i class="link-instance attachment-icon" />
-              </button>
-            </td>
+          {{#if (not-eq this.instanceIdAsInt case.instanceId) }}
+            <LinkInstanceButton
+              @type={{if (includes case.instanceId this.linkedInstanceIds) "unlink" "link"}}
+              @onLink={{@onLink}}
+              @onUnlink={{@onUnlink}}
+              @instanceOnSamePlot={{case.instance}}
+            />
           {{else}}
             <td></td>
           {{/if}}
