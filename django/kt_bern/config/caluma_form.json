@@ -25182,7 +25182,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "zustimmungen"
       },
       "data_source": null,
@@ -26290,7 +26289,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "bauwerk-energie"
       },
       "data_source": null,
@@ -26316,7 +26314,7 @@
       "label": "{\"de\": \"Ausnahmegesuche\", \"fr\": \"Demande de d\\u00e9rogation\"}",
       "type": "textarea",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "'solaranlagen-meldung' in form",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": \"\"}",
       "info_text": "{\"de\": null, \"fr\": \"\"}",
@@ -26389,7 +26387,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "informationen-ueber-grundstueck"
       },
       "data_source": null,
@@ -26663,7 +26660,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "bauwerk-gewaesserschutz"
       },
       "data_source": null,
@@ -27718,7 +27714,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "bauwerk-allgemein"
       },
       "data_source": null,
@@ -28264,7 +28259,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "spezialformulare-gastgewerbe"
       },
       "data_source": null,
@@ -28424,7 +28418,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "bauwerk-gewaesserschutz"
       },
       "data_source": null,
@@ -28616,7 +28609,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "spezialformulare-gastgewerbe"
       },
       "data_source": null,
@@ -29021,7 +29013,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "spezialformulare-entsorgung-bodenschutz"
       },
       "data_source": null,
@@ -29148,7 +29139,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "bauwerk-brandschutz"
       },
       "data_source": null,
@@ -29182,7 +29172,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "bauwerk-brandschutz"
       },
       "data_source": null,
@@ -30708,7 +30697,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "bauwerk-energie"
       },
       "data_source": null,
@@ -30804,7 +30792,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "spezialformulare-entsorgung-bodenschutz"
       },
       "data_source": null,
@@ -30870,7 +30857,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "bauwerk-gewaesserschutz"
       },
       "data_source": null,
@@ -30904,7 +30890,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "bauwerk-gewaesserschutz"
       },
       "data_source": null,
@@ -30938,7 +30923,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "bauwerk-gewaesserschutz"
       },
       "data_source": null,
@@ -31032,7 +31016,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "spezialformulare-waermepumpen"
       },
       "data_source": null,
@@ -31443,7 +31426,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "plaene"
       },
       "data_source": null,
@@ -31541,7 +31523,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "spezialformulare-reklame"
       },
       "data_source": null,
@@ -31922,7 +31903,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "spezialformulare-waermepumpen"
       },
       "data_source": null,
@@ -32793,7 +32773,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "spezialformulare-naturgefahren"
       },
       "data_source": null,
@@ -33075,7 +33054,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "informationen-ueber-grundstueck"
       },
       "data_source": null,
@@ -33109,7 +33087,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "bauwerk-gewaesserschutz"
       },
       "data_source": null,
@@ -33143,7 +33120,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "bauwerk-energie"
       },
       "data_source": null,
@@ -33177,7 +33153,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "spezialformulare-immissionsschutz"
       },
       "data_source": null,
@@ -33361,7 +33336,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "bauwerk-gewaesserschutz"
       },
       "data_source": null,
@@ -33577,7 +33551,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "informationen-ueber-grundstueck"
       },
       "data_source": null,
@@ -33676,7 +33649,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "plaene"
       },
       "data_source": null,
@@ -33710,7 +33682,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "plaene"
       },
       "data_source": null,
@@ -33744,7 +33715,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "beilagen-vorabklaerung"
       },
       "data_source": null,
@@ -34428,7 +34398,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "spezialformulare-waermepumpen"
       },
       "data_source": null,
@@ -34462,7 +34431,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "spezialformulare-waermepumpen"
       },
       "data_source": null,
@@ -34742,7 +34710,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "zustimmungen"
       },
       "data_source": null,
@@ -35242,7 +35209,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "bauwerk-gewaesserschutz"
       },
       "data_source": null,
@@ -35710,7 +35676,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "spezialformulare-stoerfallvorsorge"
       },
       "data_source": null,
@@ -36565,7 +36530,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "spezialformulare-entsorgung-bodenschutz"
       },
       "data_source": null,
@@ -36599,7 +36563,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "spezialformulare-entsorgung-bodenschutz"
       },
       "data_source": null,
@@ -37006,7 +36969,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "spezialformulare-immissionsschutz"
       },
       "data_source": null,
@@ -38954,7 +38916,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "plaene"
       },
       "data_source": null,
@@ -38988,7 +38949,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "bauwerk-gewaesserschutz"
       },
       "data_source": null,
@@ -39022,7 +38982,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "spezialformulare-biologische-sicherheit"
       },
       "data_source": null,
@@ -39056,7 +39015,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "spezialformulare-biologische-sicherheit"
       },
       "data_source": null,
@@ -39090,7 +39048,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "plaene"
       },
       "data_source": null,
@@ -39699,7 +39656,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "bauwerk-brandschutz"
       },
       "data_source": null,
@@ -39765,7 +39721,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "bauwerk-brandschutz"
       },
       "data_source": null,
@@ -39889,7 +39844,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "informationen-ueber-grundstueck"
       },
       "data_source": null,
@@ -40043,7 +39997,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "spezialformulare-stoerfallvorsorge"
       },
       "data_source": null,
@@ -40077,7 +40030,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "spezialformulare-wald"
       },
       "data_source": null,
@@ -40111,7 +40063,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "spezialformulare-wald"
       },
       "data_source": null,
@@ -40205,7 +40156,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "spezialformulare-entsorgung-bodenschutz"
       },
       "data_source": null,
@@ -40585,7 +40535,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "plaene"
       },
       "data_source": null,
@@ -40619,7 +40568,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "bauwerk-gewaesserschutz"
       },
       "data_source": null,
@@ -40837,7 +40785,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "spezialformulare-zivilschutz"
       },
       "data_source": null,
@@ -40994,7 +40941,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "spezialformulare-stoerfallvorsorge"
       },
       "data_source": null,
@@ -41118,7 +41064,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "spezialformulare-zivilschutz"
       },
       "data_source": null,
@@ -41152,7 +41097,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "bauwerk-allgemein"
       },
       "data_source": null,
@@ -41306,7 +41250,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "plaene"
       },
       "data_source": null,
@@ -41470,7 +41413,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "spezialformulare-reklame"
       },
       "data_source": null,
@@ -41597,7 +41539,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "spezialformulare-waermepumpen"
       },
       "data_source": null,
@@ -41757,7 +41698,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "spezialformulare-biologische-sicherheit"
       },
       "data_source": null,
@@ -41943,7 +41883,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "spezialformulare-stoerfallvorsorge"
       },
       "data_source": null,
@@ -43329,7 +43268,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "informationen-ueber-grundstueck"
       },
       "data_source": null,
@@ -43427,7 +43365,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "spezialformulare-wald"
       },
       "data_source": null,
@@ -43521,7 +43458,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "plaene"
       },
       "data_source": null,
@@ -43740,7 +43676,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "bauwerk-gewaesserschutz"
       },
       "data_source": null,
@@ -43834,7 +43769,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "informationen-ueber-grundstueck"
       },
       "data_source": null,
@@ -44082,7 +44016,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "spezialformulare-entsorgung-bodenschutz"
       },
       "data_source": null,
@@ -44116,7 +44049,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "allgemeine-informationen"
       },
       "data_source": null,
@@ -44150,7 +44082,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "allgemeine-informationen"
       },
       "data_source": null,
@@ -44743,7 +44674,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "spezialformulare-waermepumpen"
       },
       "data_source": null,
@@ -45801,7 +45731,6 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-
         "documentCategory": "zustimmungen"
       },
       "data_source": null,
