@@ -42,7 +42,7 @@ export default class LinkedInstancesTableComponent extends Component {
 
     await this.store.query("instance", {
       instance_id: instanceIds.join(","),
-      include: "instance_state,user,form",
+      include: "instance_state",
     });
     return cases;
   }
