@@ -1381,6 +1381,7 @@ APPLICATIONS = {
                         "zutrittsermaechtigung",
                         "klaerung-baubewilligungspflicht",
                         "verlaengerung-geltungsdauer",
+                        "solaranlagen-meldung",
                     ],
                     "template": "form",
                     "personalien": "personalien",
@@ -1766,6 +1767,18 @@ APPLICATIONS = {
                 "caluma_form.Question": Q(forms__pk="ebau-number"),
                 "caluma_form.QuestionOption": Q(question__forms__pk="ebau-number"),
                 "caluma_form.Option": Q(questions__forms__pk="ebau-number"),
+            },
+            "caluma_solar_plants_form": {
+                "caluma_form.Form": Q(pk__startswith="solaranlagen"),
+                "caluma_form.FormQuestion": Q(form__pk__startswith="solaranlagen"),
+                "caluma_form.Question": Q(forms__pk__startswith="solaranlagen")
+                & ~Q(pk__in=["8-freigabequittung", "dokumente-platzhalter"]),
+                "caluma_form.QuestionOption": Q(
+                    question__forms__pk__startswith="solaranlagen"
+                ),
+                "caluma_form.Option": Q(
+                    questions__forms__pk__startswith="solaranlagen"
+                ),
             },
         },
         "DUMP_CONFIG_EXCLUDED_MODELS": [
@@ -3095,6 +3108,7 @@ ECH_EXCLUDED_FORMS = [
     "hecken-feldgehoelze-baeume",
     "klaerung-baubewilligungspflicht",
     "zutrittsermaechtigung",
+    "solaranlagen-meldung",
 ]
 
 # Swagger settings
