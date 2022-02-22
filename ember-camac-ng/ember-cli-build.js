@@ -17,6 +17,15 @@ module.exports = function (defaults) {
     "ember-simple-auth": {
       useSessionSetupMethod: true,
     },
+    fingerprint: {
+      exclude: [
+        "images/layers-2x.png",
+        "images/layers.png",
+        "images/marker-icon-2x.png",
+        "images/marker-icon.png",
+        "images/marker-shadow.png",
+      ],
+    },
   });
 
   app.import("node_modules/proj4/dist/proj4.js");
