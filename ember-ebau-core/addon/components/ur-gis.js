@@ -303,17 +303,6 @@ export default class UrGisComponent extends Component {
 
   @restartableTask
   *applySelection() {
-    const parcelBounds = L.featureGroup(
-      this.parcels.map((p) =>
-        L.polyline(
-          this.parcels[0]["building-law-number"]
-            ? p["coordinates-baurecht"]
-            : p.coordinates
-        )
-      )
-    ).getBounds();
-    yield this._map.target.fitBounds(parcelBounds);
-
     yield this.populateFields.perform(this.parcels);
     yield this.populateTable.perform(this.parcels);
 
