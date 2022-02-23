@@ -15346,6 +15346,28 @@
     }
   },
   {
+    "model": "core.pageform",
+    "pk": 82,
+    "fields": {
+      "page": 1,
+      "form": 40,
+      "page_form_mode": 1,
+      "page_form_group": 1,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.pageform",
+    "pk": 83,
+    "fields": {
+      "page": 2,
+      "form": 40,
+      "page_form_mode": 1,
+      "page_form_group": 1,
+      "sort": 0
+    }
+  },
+  {
     "model": "core.pageformgroup",
     "pk": 1,
     "fields": {
