@@ -298,6 +298,22 @@
       "personalien.projektverfasser-planer-v2",
       "gesuchsunterlagen"
     ],
+    "projektanderung-v6": [
+      "projektanderung",
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "grundinformationen.kategorisierung",
+      "grundinformationen.allgemeine-informationen-zum-vorhaben-v3",
+      "grundinformationen.ausnahmebewilligungen",
+      "grundinformationen.gwr-v2",
+      "personalien",
+      "personalien.grundeigentumerschaft",
+      "personalien.bauherrschaft-v2",
+      "personalien.projektverfasser-planer-v2",
+      "fachthemen",
+      "fachthemen.energie",
+      "gesuchsunterlagen"
+    ],
     "vorentscheid-gemass-ss84-pbg-v3": [
       "vorentscheid",
       "grundinformationen",

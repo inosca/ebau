@@ -351,6 +351,15 @@
     }
   },
   {
+    "model": "instance.form",
+    "pk": 40,
+    "fields": {
+      "form_state": 1,
+      "name": "projektanderung-v6",
+      "description": "Projekt\u00e4nderung zu bewilligtem Baugesuch"
+    }
+  },
+  {
     "model": "instance.formstate",
     "pk": 1,
     "fields": {
