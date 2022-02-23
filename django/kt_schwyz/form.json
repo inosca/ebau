@@ -5540,7 +5540,7 @@
       }
     },
     "datenverschnitt-naturgefahren": {
-      "label": "Gemäss Lokalisierung befindet sich Ihr Vorhaben an einem Ort mit Einflüssen durch Naturgefahren. Allfällige Schutzmassnahmen sind in der Planung zu berücksichtigen und mit einem Objektschutznachweis darzulegen. Weitere Informationen sind dem Infoblatt <a href='/assets/documents/Bauvorhaben-und-Naturgefahren.pdf' title='Herunterladen'>\"Bauvorhaben und Naturgefahren\"</a> zu entnehmen.",
+      "label": "Gemäss Lokalisierung befindet sich Ihr Vorhaben an einem Ort, wo Naturgefahrenprozesse zu Schäden führen können. Im Rahmen des Baubewilligungsverfahrens ist es darum Pflicht, sich mit den Naturgefahren auseinanderzusetzen und allenfalls Objektschutzmassnahmen einzuplanen. Weitere Informationen sind der Internetseite <a href='https://www.sz.ch/bauen-und-naturgefahren' target='_blank'>Bauen und Naturgefahren</a> zu entnehmen.",
       "type": "checkbox",
       "required": false,
       "active-expression": "'ms:ch.sz.a012.naturgefahrenkarte.synoptisch' in 'layer'|value|mapby('name') && ('Neubau' in 'vorhaben-mit-baute'|value || 'Anbau / Erweiterung' in 'vorhaben-mit-baute'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value || 'Nutzungsänderung' in 'vorhaben-mit-baute'|value || 'Neubau' in 'vorhaben-mit-anlage'|value || 'Erweiterung' in 'vorhaben-mit-anlage'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-anlage'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-anlage'|value)",
