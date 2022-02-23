@@ -181,12 +181,10 @@ class AttachmentView(
     ordering_fields = ("name", "date", "size")
 
     def has_object_destroy_permission(self, attachment):
-        if attachment.attachment_sections.count() > 1:
-            return False
-
-        return attachment.attachment_sections.first().can_destroy(
-            attachment, self.request.group
-        )
+        for section in attachment.attachment_sections.all():
+            if not section.can_destroy(attachment, self.request.group):
+                return False
+        return True
 
     @swagger_auto_schema(
         tags=["File download service"],
