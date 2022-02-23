@@ -255,7 +255,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
         form {
           name
         }
-        answers(questions: ["beschreibung-bauvorhaben", "internes-geschaeft-vorhaben"]) {
+        answers(questions: ["beschreibung-bauvorhaben", "voranfrage-vorhaben"]) {
           edges {
             node {
               ... on StringAnswer {
