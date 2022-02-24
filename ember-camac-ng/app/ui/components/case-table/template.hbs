@@ -54,7 +54,7 @@
     <tr>
       {{#if (and this.casesQuery.hasNextPage (not this.casesQuery.isLoading))}}
         <td colspan={{this.tableColumns.length}} class="uk-text-center">
-          <button type="button" {{on "click" this.loadNextPage}}>
+          <button type="button" class="button" {{on "click" this.loadNextPage}}>
             {{t "global.loadMore"}}
           </button>
         </td>

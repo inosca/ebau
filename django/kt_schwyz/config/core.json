@@ -5448,6 +5448,21 @@
     }
   },
   {
+    "model": "core.instanceresource",
+    "pk": 59,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 27,
+      "name": "Notizen",
+      "description": null,
+      "template": "/ember-camac-ng/journal.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 2,
+      "form_group": 1
+    }
+  },
+  {
     "model": "core.instanceresourceaction",
     "pk": 1,
     "fields": {
@@ -7599,6 +7614,13 @@
   {
     "model": "core.irpage",
     "pk": 52,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
+    "pk": 59,
     "fields": {
       "pdf_class": null
     }
@@ -14363,6 +14385,69 @@
     }
   },
   {
+    "model": "core.irroleacl",
+    "pk": 1025,
+    "fields": {
+      "instance_resource": 59,
+      "role": 11,
+      "instance_state": 16
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1026,
+    "fields": {
+      "instance_resource": 59,
+      "role": 3,
+      "instance_state": 16
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1027,
+    "fields": {
+      "instance_resource": 59,
+      "role": 8,
+      "instance_state": 16
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1028,
+    "fields": {
+      "instance_resource": 58,
+      "role": 7,
+      "instance_state": 16
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1029,
+    "fields": {
+      "instance_resource": 57,
+      "role": 7,
+      "instance_state": 16
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1030,
+    "fields": {
+      "instance_resource": 59,
+      "role": 5,
+      "instance_state": 16
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1031,
+    "fields": {
+      "instance_resource": 59,
+      "role": 7,
+      "instance_state": 16
+    }
+  },
+  {
     "model": "core.irserviceacl",
     "pk": 1,
     "fields": {
@@ -16607,6 +16692,14 @@
     "fields": {
       "resource": 27,
       "role": 8
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 81,
+    "fields": {
+      "resource": 27,
+      "role": 11
     }
   },
   {

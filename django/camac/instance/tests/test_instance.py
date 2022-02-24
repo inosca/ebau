@@ -35,7 +35,7 @@ from camac.instance.models import HistoryEntryT
         ("Reader", LazyFixture("user"), 18, 1, set()),
         ("Canton", LazyFixture("user"), 18, 1, {"form", "document"}),
         ("Municipality", LazyFixture("user"), 17, 1, {"form", "document"}),
-        ("Service", LazyFixture("user"), 17, 1, {"document"}),
+        ("Service", LazyFixture("user"), 17, 1, {"form", "document"}),
         ("Public", LazyFixture("user"), 2, 0, {}),
     ],
 )
@@ -384,7 +384,7 @@ def test_instance_group_unlink(
         ("Reader", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
         ("Canton", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
         ("Municipality", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
-        ("Service", LazyFixture("user"), status.HTTP_404_NOT_FOUND),
+        ("Service", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
         ("Unknown", LazyFixture("user"), status.HTTP_404_NOT_FOUND),
         ("Coordination", LazyFixture("user"), status.HTTP_404_NOT_FOUND),
     ],
@@ -456,7 +456,7 @@ def test_instance_update_location(admin_client, instance, location_factory):
         ("Reader", LazyFixture("admin_user"), "new", status.HTTP_204_NO_CONTENT),
         ("Canton", LazyFixture("user"), "new", status.HTTP_403_FORBIDDEN),
         ("Municipality", LazyFixture("user"), "new", status.HTTP_403_FORBIDDEN),
-        ("Service", LazyFixture("user"), "new", status.HTTP_404_NOT_FOUND),
+        ("Service", LazyFixture("user"), "new", status.HTTP_403_FORBIDDEN),
         ("Unknown", LazyFixture("user"), "new", status.HTTP_404_NOT_FOUND),
     ],
 )
