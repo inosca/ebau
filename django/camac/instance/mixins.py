@@ -351,14 +351,10 @@ class InstanceQuerysetMixin(object):
         )
 
     def _instances_for_responsible_service(self, group):
-        instance_ids_for_responsible_service = [
-            instance.pk
-            for instance in models.Instance.objects.all()
-            if instance.responsible_service() == group.service
-        ]
-        return models.Instance.objects.filter(
-            pk__in=instance_ids_for_responsible_service
-        )
+        if settings.APPLICATION.get("USE_INSTANCE_SERVICE"):
+            return models.Instance.objects.none()
+
+        return models.Instance.objects.filter(group__service=group.service)
 
     def _instances_created_by(self, group):
         return Instance.objects.filter(group=group).values("instance_id")
@@ -417,8 +413,7 @@ class InstanceEditableMixin(AttributeMixin):
         return set()
 
     def get_editable_for_service(self, instance):
-        group = get_request(self).group
-        service = group.service
+        service = get_request(self).group.service
         if instance.responsible_service() == service:
             return {"form", "document"}
 
