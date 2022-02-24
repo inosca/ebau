@@ -67,6 +67,9 @@
             {{#if (and this.session.isAuthenticated (has-feature "faq"))}}
               <UkSubnav::Item @href="/faq">{{t "nav.faq"}}</UkSubnav::Item>
             {{/if}}
+            {{#if this.showFormBuilder}}
+              <UkSubnav::Item @href="/form-builder">{{t "nav.form-builder"}}</UkSubnav::Item>
+            {{/if}}
           </ul>
         </div>
 
