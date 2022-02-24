@@ -1,10 +1,11 @@
 import Route from "@ember/routing/route";
-
-import { hasFeature } from "caluma-portal/helpers/has-feature";
+import { macroCondition, getOwnConfig } from "@embroider/macros";
 
 export default class PublicInstancesDetailFormRoute extends Route {
   redirectTo() {
-    if (!hasFeature("publication.form")) {
+    if (macroCondition(getOwnConfig().features.publication.form)) {
+      // do nothing
+    } else {
       return this.replaceWith("public-instances.detail.index");
     }
   }
