@@ -3,6 +3,7 @@ from datetime import date, timedelta
 import pytest
 from django.core.exceptions import ObjectDoesNotExist
 from django.urls import reverse
+from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
 
@@ -22,11 +23,19 @@ def test_objection_list(admin_client, objection, size):
 
 
 @pytest.mark.parametrize(
-    "role__name,status_code",
+    "role__name,status_code,instance__group",
     [
-        ("Applicant", status.HTTP_403_FORBIDDEN),
-        ("Service", status.HTTP_400_BAD_REQUEST),
-        ("Municipality", status.HTTP_201_CREATED),
+        ("Applicant", status.HTTP_403_FORBIDDEN, LazyFixture("group")),
+        (
+            "Service",
+            status.HTTP_400_BAD_REQUEST,
+            LazyFixture(lambda group_factory: group_factory()),
+        ),
+        (
+            "Municipality",
+            status.HTTP_201_CREATED,
+            LazyFixture(lambda group_factory: group_factory()),
+        ),
     ],
 )
 def test_objection_create(admin_client, group, instance, status_code):
