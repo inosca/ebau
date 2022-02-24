@@ -8,25 +8,25 @@ publication:
   cancelError: "Erreur lors de l'annulation"
 
   cancelConfirm:
-    public: ""
-    neighbors: ""
+    public: "Voulez-vous vraiment annuler la publication ?"
+    neighbors: "Voulez-vous vraiment annuler la communication aux voisin(e)s ?"
 
   empty:
-    public: ""
-    neighbors: ""
+    public: "Aucune publication n'a été réalisée."
+    neighbors: "Aucune communication aux voisin(e)s n'a été réalisée."
 
   info:
     attention: "Attention :"
     note: "Note :"
-    documents: ""
+    documents: "Veuillez marquer les documents qui doivent être mis à l'enquête comme document de publication dans le menu «Documents»."
     published:
-      public: ""
+      public: "La publication est autorisée. Les dossiers mis à l'enquête de cette commune peuvent être consultés en ligne sous ce lien pendant la période indiquée :"
     unpublished:
-      public: ""
-      neighbors: ""
+      public: "La publication doit être autorisée pour que le dossier apparaisse pendant la période indiquée dans le dépôt public du portail."
+      neighbors: "La communication aux voisin(e)s doit être autorisée pour que le code QR et le lien direct fonctionnent et puissent être envoyés."
     canceled:
-      public: ""
-      neighbors: ""
+      public: "La publication a été annulée. Le dossier n'apparaît plus dans le dépôt public du portail, à condition qu'aucune autre publication autorisée ne soit en cours."
+      neighbors: "La communication aux voisin(e)s a été annulée. Le code QR et le lien direct ne fonctionnent plus."
 
   qr-code:
     link: "Lien direct"
