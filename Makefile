@@ -224,13 +224,15 @@ load-be-dump:
 		echo "\n"; \
 		curl -s -u $$user:$$pass --output latest.dmp https://cloud.adfinis.com/remote.php/webdav/partner/KantonBE/db_dumps/ebau.apps.be.ch/latest.dmp > /dev/null; \
 	fi
-	@docker cp latest.dmp compose_db_1:/tmp
+	@docker cp latest.dmp $(docker-compose ps -q db):/tmp
 	@echo "Importing dump into DB..."
 	@docker-compose restart db > /dev/null 2>&1
 	@docker-compose exec db dropdb -U camac ${APPLICATION}
 	@docker-compose exec db createdb -U camac ${APPLICATION}
 	@docker-compose exec db pg_restore -d ${APPLICATION} -U camac -c --no-privileges --no-owner --if-exists /tmp/latest.dmp
 	@echo "Running migrations and loading new config..."
+	@docker-compose stop keycloak
+	@docker-compose rm keycloak
 	@docker-compose restart > /dev/null 2>&1
 	@make loadconfig > /dev/null 2>&1
 	@rm latest.dmp
@@ -262,10 +264,11 @@ create-be-dump:
 	TRUNCATE TABLE reversion_version CASCADE; \
 	TRUNCATE TABLE reversion_revision CASCADE; \
 	TRUNCATE TABLE thumbnail_kvstore; \
+	CREATE SCHEMA keycloak AUTHORIZATION camac;
 	COMMIT; \
 	"
 	@docker-compose exec db pg_dump -U camac -d ${APPLICATION} -Fc -f /tmp/latest.dmp
-	@docker cp compose_db_1:/tmp/latest.dmp .
+	@docker cp $(docker-compose ps -q db):/tmp/latest.dmp .
 	@docker-compose exec db rm /tmp/latest.dmp
 	@echo "Please upload latest.dmp here: https://cloud.adfinis.com/apps/files/?dir=/partner/KantonBE/db_dumps/ebau.apps.be.ch"
 
