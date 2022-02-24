@@ -1,13 +1,11 @@
-<span {{did-insert (perform this.getData)}}></span>
-
 {{#if this.data.document}}
   <CfContent
     @documentId={{this.data.document.id}}
-    @context={{hash 
+    @context={{hash
       instanceId=this.model.id
       actionButtonOnSuccess=(perform this.getData)
     }}
-    @disabled={{or 
+    @disabled={{or
       (cannot "write form of instance" this.data.instance)
       (cannot "edit document of case" this.data.case)
     }}
