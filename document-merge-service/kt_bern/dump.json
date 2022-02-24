@@ -198,5 +198,15 @@
       "engine": "docx-template",
       "group": null
     }
+  },
+  {
+    "model": "api.template",
+    "pk": "fr-communication-aux-voisins-et-aux-voisines",
+    "fields": {
+      "description": "FR Communication aux voisins et aux voisines",
+      "template": "fr-communication-aux-voisins-et-aux-voisines.docx",
+      "engine": "docx-template",
+      "group": null
+    }
   }
 ]
