@@ -64,8 +64,10 @@
                 {{t (concat "nav.public-instance-" (application-name))}}
               </UkSubnav::Item>
             {{/if}}
-            {{#if (and this.session.isAuthenticated (has-feature "faq"))}}
-              <UkSubnav::Item @href="/faq">{{t "nav.faq"}}</UkSubnav::Item>
+            {{#if (macroCondition (macroGetOwnConfig "features.faq"))}}
+              {{#if this.session.isAuthenticated}}
+                <UkSubnav::Item @href="/faq">{{t "nav.faq"}}</UkSubnav::Item>
+              {{/if}}
             {{/if}}
           </ul>
         </div>
