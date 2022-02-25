@@ -660,6 +660,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         if (
             instance.instance_state.name
             in [
+                "subm",
                 "circulation_init",
                 "circulation",
                 "coordination",
