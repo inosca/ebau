@@ -304,7 +304,7 @@ APPLICATIONS = {
             "grundeigentumerschaft",
         ],
         "INSTANCE_IDENTIFIER_FORM_ABBR": {
-            "geschaeftskontrolle": "GK",
+            "geschaeftskontrolle": "IG",
             "municipality": "GS",
             "district": "BS",
             "canton": "KS",
