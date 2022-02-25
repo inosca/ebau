@@ -58,7 +58,7 @@
     "pk": "bauverwaltung",
     "fields": {
       "created_at": "2021-11-26T12:01:57.701Z",
-      "modified_at": "2021-11-30T17:19:37.446Z",
+      "modified_at": "2022-02-23T09:28:32.652Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "jonas.lehmann@adfinis.com",
@@ -1147,12 +1147,12 @@
     "pk": "solar-declaration",
     "fields": {
       "created_at": "2020-12-07T15:38:43.488Z",
-      "modified_at": "2021-03-16T08:28:40.997Z",
+      "modified_at": "2022-02-24T15:09:51.507Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "name": "{\"de\": \"Meldung Solaranlage\", \"fr\": null}",
+      "name": "{\"de\": \"Solaranlage\", \"fr\": null}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {
         "category": "special-procedure",
@@ -1188,10 +1188,10 @@
     "pk": "solaranlagen-tabelle",
     "fields": {
       "created_at": "2020-10-21T12:20:38.477Z",
-      "modified_at": "2020-10-21T12:20:38.477Z",
+      "modified_at": "2022-02-24T15:22:41.776Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "name": "{\"de\": \"Solaranlagen Tabelle\", \"fr\": null}",
       "description": "{\"de\": \"\", \"fr\": null}",
@@ -10587,7 +10587,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "24d-rpg",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -10607,6 +10607,81 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-tabelle.anlagedaten",
+    "fields": {
+      "created_at": "2022-02-24T15:19:54.457Z",
+      "modified_at": "2022-02-24T15:19:54.457Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-tabelle",
+      "question": "anlagedaten",
+      "sort": 20
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-tabelle.art-der-kollektoren",
+    "fields": {
+      "created_at": "2022-02-24T15:32:17.185Z",
+      "modified_at": "2022-02-24T15:32:17.185Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-tabelle",
+      "question": "art-der-kollektoren",
+      "sort": 18
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-tabelle.beschreibung-der-warmenutzung",
+    "fields": {
+      "created_at": "2022-02-24T15:34:26.325Z",
+      "modified_at": "2022-02-24T15:34:26.325Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-tabelle",
+      "question": "beschreibung-der-warmenutzung",
+      "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-tabelle.erwartete-stromproduktion",
+    "fields": {
+      "created_at": "2022-02-24T15:45:33.216Z",
+      "modified_at": "2022-02-24T15:45:33.216Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-tabelle",
+      "question": "erwartete-stromproduktion",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-tabelle.gesetzliche-vorgaben",
+    "fields": {
+      "created_at": "2022-02-24T15:15:42.526Z",
+      "modified_at": "2022-02-24T15:15:42.526Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-tabelle",
+      "question": "gesetzliche-vorgaben",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "solaranlagen-tabelle.hinweis-baugesuch-noetig",
     "fields": {
       "created_at": "2020-10-27T11:39:16.386Z",
@@ -10617,7 +10692,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "hinweis-baugesuch-noetig",
-      "sort": 10
+      "sort": 12
     }
   },
   {
@@ -10632,7 +10707,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "isos",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -10662,7 +10737,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "kulturobjekt",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -10677,7 +10752,22 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "neben-kulturobjekt",
-      "sort": 8
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-tabelle.nutzung",
+    "fields": {
+      "created_at": "2022-02-24T15:33:47.649Z",
+      "modified_at": "2022-02-24T15:33:47.649Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-tabelle",
+      "question": "nutzung",
+      "sort": 17
     }
   },
   {
@@ -10707,7 +10797,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "solar-gesamtflaeche-m2",
-      "sort": 12
+      "sort": 15
     }
   },
   {
@@ -10722,6 +10812,21 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "solar-gesamtleistung-kw",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-tabelle.solaranlagen-auf-kulturobjekten",
+    "fields": {
+      "created_at": "2022-02-24T15:12:17.735Z",
+      "modified_at": "2022-02-24T15:12:17.735Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-tabelle",
+      "question": "solaranlagen-auf-kulturobjekten",
       "sort": 11
     }
   },
@@ -10737,7 +10842,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "standort-kernzone",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -10752,7 +10857,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "typ-der-solaranlage",
-      "sort": 13
+      "sort": 19
     }
   },
   {
@@ -11667,7 +11772,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "abbruch",
-      "sort": 23
+      "sort": 36
     }
   },
   {
@@ -11682,7 +11787,37 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "abbruch-aushub-entsorgung-titel",
-      "sort": 24
+      "sort": 37
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "umweltschutz.altlasten",
+    "fields": {
+      "created_at": "2022-02-24T12:05:47.858Z",
+      "modified_at": "2022-02-24T12:05:47.858Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "umweltschutz",
+      "question": "altlasten",
+      "sort": 17
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "umweltschutz.art-der-einbauten",
+    "fields": {
+      "created_at": "2022-02-24T12:34:06.132Z",
+      "modified_at": "2022-02-24T12:34:06.132Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "umweltschutz",
+      "question": "art-der-einbauten",
+      "sort": 20
     }
   },
   {
@@ -11697,7 +11832,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "asbest",
-      "sort": 22
+      "sort": 35
     }
   },
   {
@@ -11712,7 +11847,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "aushub-erforderlich",
-      "sort": 20
+      "sort": 33
     }
   },
   {
@@ -11732,6 +11867,36 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "umweltschutz.bauen-im-grundwasser",
+    "fields": {
+      "created_at": "2022-02-24T12:28:55.962Z",
+      "modified_at": "2022-02-24T12:28:55.962Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "umweltschutz",
+      "question": "bauen-im-grundwasser",
+      "sort": 22
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "umweltschutz.belasteter-standort",
+    "fields": {
+      "created_at": "2022-02-24T12:09:28.184Z",
+      "modified_at": "2022-02-24T12:09:28.184Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "umweltschutz",
+      "question": "belasteter-standort",
+      "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "umweltschutz.beschreibung-aushub",
     "fields": {
       "created_at": "2020-11-11T11:17:12.063Z",
@@ -11742,7 +11907,37 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "beschreibung-aushub",
-      "sort": 18
+      "sort": 29
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "umweltschutz.beschreibung-einbauten",
+    "fields": {
+      "created_at": "2022-02-24T12:35:54.331Z",
+      "modified_at": "2022-02-24T12:35:54.331Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "umweltschutz",
+      "question": "beschreibung-einbauten",
+      "sort": 19
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "umweltschutz.einbauten-ins-grundwasser",
+    "fields": {
+      "created_at": "2022-02-24T12:32:13.912Z",
+      "modified_at": "2022-02-24T12:32:13.912Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "umweltschutz",
+      "question": "einbauten-ins-grundwasser",
+      "sort": 21
     }
   },
   {
@@ -11757,7 +11952,37 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "entsorgungskonzept",
-      "sort": 21
+      "sort": 34
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "umweltschutz.entwasserung",
+    "fields": {
+      "created_at": "2022-02-24T10:52:44.113Z",
+      "modified_at": "2022-02-24T10:52:44.113Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "umweltschutz",
+      "question": "entwasserung",
+      "sort": 27
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "umweltschutz.entwasserungsplan",
+    "fields": {
+      "created_at": "2022-02-24T12:25:25.746Z",
+      "modified_at": "2022-02-24T12:25:25.746Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "umweltschutz",
+      "question": "entwasserungsplan",
+      "sort": 24
     }
   },
   {
@@ -11788,6 +12013,21 @@
       "form": "umweltschutz",
       "question": "immissionsnachweis-luftwaermepumpen",
       "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "umweltschutz.kanalisation",
+    "fields": {
+      "created_at": "2022-02-24T11:06:22.846Z",
+      "modified_at": "2022-02-24T11:06:22.846Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "umweltschutz",
+      "question": "kanalisation",
+      "sort": 26
     }
   },
   {
@@ -11897,6 +12137,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "umweltschutz.meteorwasser",
+    "fields": {
+      "created_at": "2022-02-24T11:10:13.080Z",
+      "modified_at": "2022-02-24T11:10:13.080Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "umweltschutz",
+      "question": "meteorwasser",
+      "sort": 25
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "umweltschutz.nisv",
     "fields": {
       "created_at": "2020-11-04T15:48:55.868Z",
@@ -11907,7 +12162,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "nisv",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -11922,7 +12177,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "ort-verwendung-humus",
-      "sort": 16
+      "sort": 31
     }
   },
   {
@@ -11937,7 +12192,37 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "pruefung-umweltschutz",
-      "sort": 25
+      "sort": 38
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "umweltschutz.trennlinie-altlasten",
+    "fields": {
+      "created_at": "2022-02-24T12:11:25.501Z",
+      "modified_at": "2022-02-24T12:11:25.501Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "umweltschutz",
+      "question": "trennlinie-altlasten",
+      "sort": 18
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "umweltschutz.trennlinie-bauen-im-grundwasser",
+    "fields": {
+      "created_at": "2022-02-24T12:29:26.707Z",
+      "modified_at": "2022-02-24T12:29:26.707Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "umweltschutz",
+      "question": "trennlinie-bauen-im-grundwasser",
+      "sort": 1
     }
   },
   {
@@ -11972,6 +12257,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "umweltschutz.trennlinie-liegenschaftsentwasserung",
+    "fields": {
+      "created_at": "2022-02-24T11:17:17.279Z",
+      "modified_at": "2022-02-24T11:17:17.279Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "umweltschutz",
+      "question": "trennlinie-liegenschaftsentwasserung",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "umweltschutz.trennlinie-luft-laerm-licht",
     "fields": {
       "created_at": "2020-11-04T14:19:57.409Z",
@@ -11982,7 +12282,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "trennlinie-luft-laerm-licht",
-      "sort": 15
+      "sort": 28
     }
   },
   {
@@ -11997,7 +12297,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "trennlinie-nisv",
-      "sort": 2
+      "sort": 23
     }
   },
   {
@@ -12012,7 +12312,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "verwendung-aushub",
-      "sort": 19
+      "sort": 30
     }
   },
   {
@@ -12027,7 +12327,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "verwendung-humus",
-      "sort": 17
+      "sort": 32
     }
   },
   {
@@ -12755,10 +13055,10 @@
     "pk": "angaben-zu-haustechnischen-anlagen-ja",
     "fields": {
       "created_at": "2021-06-17T11:29:22.749Z",
-      "modified_at": "2021-11-23T16:28:33.307Z",
+      "modified_at": "2022-02-24T13:46:45.895Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null}",
       "is_archived": false,
@@ -12771,10 +13071,10 @@
     "pk": "angaben-zu-haustechnischen-anlagen-nein",
     "fields": {
       "created_at": "2021-06-17T11:29:22.764Z",
-      "modified_at": "2021-11-23T16:28:33.303Z",
+      "modified_at": "2022-02-24T13:46:45.895Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null}",
       "is_archived": false,
@@ -12819,7 +13119,7 @@
     "pk": "anlagetyp-analgetyp-klima",
     "fields": {
       "created_at": "2020-09-19T10:45:29.296Z",
-      "modified_at": "2021-11-29T10:56:21.396Z",
+      "modified_at": "2022-02-24T13:48:09.160Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "jonas.lehmann@adfinis.com",
@@ -12931,7 +13231,7 @@
     "pk": "anlagetyp-aufzuege",
     "fields": {
       "created_at": "2020-09-19T10:45:29.314Z",
-      "modified_at": "2021-11-29T10:56:21.469Z",
+      "modified_at": "2022-02-24T13:48:09.156Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "jonas.lehmann@adfinis.com",
@@ -12947,7 +13247,7 @@
     "pk": "anlagetyp-betankungsanlage",
     "fields": {
       "created_at": "2020-10-21T13:11:18.662Z",
-      "modified_at": "2021-11-29T10:56:22.842Z",
+      "modified_at": "2022-02-24T13:48:09.234Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "modified_by_user": "jonas.lehmann@adfinis.com",
@@ -12963,7 +13263,7 @@
     "pk": "anlagetyp-gasanlage",
     "fields": {
       "created_at": "2021-11-23T16:52:27.317Z",
-      "modified_at": "2021-11-29T10:56:22.895Z",
+      "modified_at": "2022-02-24T13:48:09.256Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "jonas.lehmann@adfinis.com",
@@ -12979,7 +13279,7 @@
     "pk": "anlagetyp-gasanlage-2",
     "fields": {
       "created_at": "2021-11-29T10:43:28.233Z",
-      "modified_at": "2021-11-29T10:56:22.851Z",
+      "modified_at": "2022-02-24T13:48:09.271Z",
       "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
       "modified_by_user": "jonas.lehmann@adfinis.com",
@@ -13171,7 +13471,7 @@
     "pk": "anlagetyp-hauptheizung",
     "fields": {
       "created_at": "2020-09-19T10:45:29.332Z",
-      "modified_at": "2021-11-29T10:56:21.454Z",
+      "modified_at": "2022-02-24T13:48:09.175Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "jonas.lehmann@adfinis.com",
@@ -13187,7 +13487,7 @@
     "pk": "anlagetyp-lueftungsanlage",
     "fields": {
       "created_at": "2020-10-26T08:11:57.459Z",
-      "modified_at": "2021-11-29T10:56:21.403Z",
+      "modified_at": "2022-02-24T13:48:09.169Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "modified_by_user": "jonas.lehmann@adfinis.com",
@@ -13203,7 +13503,7 @@
     "pk": "anlagetyp-notstrom-aggregat",
     "fields": {
       "created_at": "2020-10-21T13:11:18.667Z",
-      "modified_at": "2021-11-29T10:56:22.811Z",
+      "modified_at": "2022-02-24T13:48:09.249Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "modified_by_user": "jonas.lehmann@adfinis.com",
@@ -13219,7 +13519,7 @@
     "pk": "anlagetyp-photovoltaische-solaranlage",
     "fields": {
       "created_at": "2020-09-19T10:45:29.381Z",
-      "modified_at": "2021-11-29T10:56:21.428Z",
+      "modified_at": "2022-02-24T13:48:09.177Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "jonas.lehmann@adfinis.com",
@@ -13235,7 +13535,7 @@
     "pk": "anlagetyp-tankanlagen",
     "fields": {
       "created_at": "2020-10-31T20:11:50.153Z",
-      "modified_at": "2021-11-29T10:56:22.890Z",
+      "modified_at": "2022-02-24T13:48:09.233Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "jonas.lehmann@adfinis.com",
@@ -13251,7 +13551,7 @@
     "pk": "anlagetyp-thermische-solaranlage",
     "fields": {
       "created_at": "2020-09-19T10:45:29.324Z",
-      "modified_at": "2021-11-29T10:56:21.467Z",
+      "modified_at": "2022-02-24T13:48:09.134Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "jonas.lehmann@adfinis.com",
@@ -13267,7 +13567,7 @@
     "pk": "anlagetyp-warmwasser",
     "fields": {
       "created_at": "2020-10-19T12:35:27.834Z",
-      "modified_at": "2021-11-29T10:56:21.444Z",
+      "modified_at": "2022-02-24T13:48:09.176Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "jonas.lehmann@adfinis.com",
@@ -13283,7 +13583,7 @@
     "pk": "anlagetyp-zusatzheizung",
     "fields": {
       "created_at": "2020-09-19T10:45:29.347Z",
-      "modified_at": "2021-11-29T10:56:21.451Z",
+      "modified_at": "2022-02-24T13:48:09.181Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "jonas.lehmann@adfinis.com",
@@ -13546,6 +13846,86 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Wanderweg (Wanderwegrichtplan)\", \"fr\": null}",
       "is_archived": true,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-der-einbauten-andere",
+    "fields": {
+      "created_at": "2022-02-24T12:34:05.840Z",
+      "modified_at": "2022-02-24T12:40:16.670Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-der-einbauten-leitungen",
+    "fields": {
+      "created_at": "2022-02-24T12:34:05.912Z",
+      "modified_at": "2022-02-24T12:40:16.694Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Leitungen / Kan\\u00e4le\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-der-einbauten-pfahlung",
+    "fields": {
+      "created_at": "2022-02-24T12:34:05.692Z",
+      "modified_at": "2022-02-24T12:40:16.663Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Pf\\u00e4hlung\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-der-einbauten-spundwand",
+    "fields": {
+      "created_at": "2022-02-24T12:34:05.770Z",
+      "modified_at": "2022-02-24T12:40:16.690Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Spundwand\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-der-einbauten-untergeschoss",
+    "fields": {
+      "created_at": "2022-02-24T12:34:05.985Z",
+      "modified_at": "2022-02-24T12:40:16.674Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Untergeschoss\", \"fr\": null}",
+      "is_archived": false,
       "meta": {},
       "source": null
     }
@@ -14931,10 +15311,10 @@
     "pk": "aushub-erforderlich-ja",
     "fields": {
       "created_at": "2021-05-19T11:27:13.402Z",
-      "modified_at": "2021-05-19T11:27:13.402Z",
+      "modified_at": "2022-02-24T10:44:40.565Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null}",
       "is_archived": false,
@@ -14947,10 +15327,10 @@
     "pk": "aushub-erforderlich-nein",
     "fields": {
       "created_at": "2021-05-19T11:27:13.416Z",
-      "modified_at": "2021-05-19T11:27:13.416Z",
+      "modified_at": "2022-02-24T10:44:40.477Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null}",
       "is_archived": false,
@@ -15525,6 +15905,38 @@
       "created_at": "2020-09-21T08:52:52.410Z",
       "modified_at": "2020-10-21T14:38:58.068Z",
       "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "belasteter-standort-ja",
+    "fields": {
+      "created_at": "2022-02-24T12:09:27.254Z",
+      "modified_at": "2022-02-24T12:09:27.254Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "belasteter-standort-nein",
+    "fields": {
+      "created_at": "2022-02-24T12:09:27.251Z",
+      "modified_at": "2022-02-24T12:09:27.251Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
@@ -16160,6 +16572,38 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "einbauten-ins-grundwasser-ja",
+    "fields": {
+      "created_at": "2022-02-24T12:32:13.785Z",
+      "modified_at": "2022-02-24T12:40:27.378Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "einbauten-ins-grundwasser-nein",
+    "fields": {
+      "created_at": "2022-02-24T12:32:13.770Z",
+      "modified_at": "2022-02-24T12:40:27.371Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"nein\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "einreichen-button-eingereicht",
     "fields": {
       "created_at": "2021-04-15T12:38:26.043Z",
@@ -16489,6 +16933,38 @@
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Entw\\u00e4sserungsplan\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "entwasserungsplan-ja",
+    "fields": {
+      "created_at": "2022-02-24T12:25:25.611Z",
+      "modified_at": "2022-02-24T12:26:45.453Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja (liegt vor)\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "entwasserungsplan-nein",
+    "fields": {
+      "created_at": "2022-02-24T12:25:25.612Z",
+      "modified_at": "2022-02-24T12:26:45.450Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein (Vorhaben nicht enw\\u00e4sserungsrelevant)\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -19859,10 +20335,10 @@
     "pk": "isos-ja",
     "fields": {
       "created_at": "2020-10-27T10:38:25.571Z",
-      "modified_at": "2020-10-27T12:24:22.993Z",
+      "modified_at": "2022-02-25T08:26:59.296Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null}",
       "is_archived": false,
@@ -19875,10 +20351,10 @@
     "pk": "isos-nein",
     "fields": {
       "created_at": "2020-10-27T10:38:25.585Z",
-      "modified_at": "2020-10-27T12:24:22.993Z",
+      "modified_at": "2022-02-25T08:26:59.215Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null}",
       "is_archived": false,
@@ -19913,6 +20389,54 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kanalisation-bestehend",
+    "fields": {
+      "created_at": "2022-02-24T11:06:22.696Z",
+      "modified_at": "2022-02-24T11:06:22.696Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bestehend\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kanalisation-dezentral",
+    "fields": {
+      "created_at": "2022-02-24T11:06:22.687Z",
+      "modified_at": "2022-02-24T11:06:22.687Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dezentrale L\\u00f6sung (z.B. Kleinkl\\u00e4ranlage)\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kanalisation-neu",
+    "fields": {
+      "created_at": "2022-02-24T11:06:22.704Z",
+      "modified_at": "2022-02-24T11:06:22.704Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Neu\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -20041,6 +20565,54 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"K\\u00fcche (> 4 m2)\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kollektortyp-flachkollektoren",
+    "fields": {
+      "created_at": "2022-02-24T15:32:17.027Z",
+      "modified_at": "2022-02-25T09:19:15.945Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Flachkollektoren\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kollektortyp-hybridkollektoren",
+    "fields": {
+      "created_at": "2022-02-24T15:32:17.028Z",
+      "modified_at": "2022-02-25T09:19:15.936Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hybridkollektoren\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kollektortyp-rohrenkollektoren",
+    "fields": {
+      "created_at": "2022-02-24T15:32:17.021Z",
+      "modified_at": "2022-02-25T09:19:15.940Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
+      "modified_by_group": null,
+      "label": "{\"de\": \"R\\u00f6hrenkollektoren\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -20704,6 +21276,38 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "meteorwasser-ableitung",
+    "fields": {
+      "created_at": "2022-02-24T11:10:12.809Z",
+      "modified_at": "2022-02-24T11:10:48.930Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ableitung in ein Oberfl\\u00e4chengew\\u00e4sser oder eine Meteorwasserleitung\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "meteorwasser-versickerung",
+    "fields": {
+      "created_at": "2022-02-24T11:10:12.824Z",
+      "modified_at": "2022-02-24T11:10:48.930Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Versickerung\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "migrated-from-camac-no",
     "fields": {
       "created_at": "2021-03-22T16:40:23.171Z",
@@ -21177,6 +21781,54 @@
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Normalprofil\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "nutzung-andere-nutzung",
+    "fields": {
+      "created_at": "2022-02-24T15:33:47.513Z",
+      "modified_at": "2022-02-25T09:19:42.782Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere Nutzung\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "nutzung-brauchwasser",
+    "fields": {
+      "created_at": "2022-02-24T15:33:47.516Z",
+      "modified_at": "2022-02-25T09:19:42.766Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
+      "modified_by_group": null,
+      "label": "{\"de\": \"W\\u00e4rmerzeugung f\\u00fcr Brauchwasser\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "nutzung-heizungsunterstuetzung",
+    "fields": {
+      "created_at": "2022-02-24T15:33:47.500Z",
+      "modified_at": "2022-02-25T09:19:42.784Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
+      "modified_by_group": null,
+      "label": "{\"de\": \"W\\u00e4rmeerzeugung f\\u00fcr Heizungsunterst\\u00fctzung\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -24307,12 +24959,12 @@
     "pk": "typ-der-solaranlage-photovoltaische-solaranlage",
     "fields": {
       "created_at": "2020-10-21T12:21:04.728Z",
-      "modified_at": "2020-10-27T15:09:55.814Z",
+      "modified_at": "2022-02-24T15:30:04.257Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Photovoltaische Solaranlage\", \"fr\": null}",
+      "label": "{\"de\": \"Photovoltaische Solaranlage (Stromproduktion)\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -24323,12 +24975,12 @@
     "pk": "typ-der-solaranlage-thermische-solaranlage",
     "fields": {
       "created_at": "2020-10-21T12:21:04.725Z",
-      "modified_at": "2020-10-27T15:09:55.814Z",
+      "modified_at": "2022-02-24T15:30:04.267Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Thermische Solaranlage\", \"fr\": null}",
+      "label": "{\"de\": \"Thermische Solaranlage (W\\u00e4rmeproduktion)\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -25747,10 +26399,10 @@
     "pk": "verwendung-aushub-ja",
     "fields": {
       "created_at": "2020-11-04T13:02:28.184Z",
-      "modified_at": "2021-05-19T11:27:49.098Z",
+      "modified_at": "2022-02-24T10:46:54.678Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null}",
       "is_archived": false,
@@ -25763,10 +26415,10 @@
     "pk": "verwendung-aushub-nein",
     "fields": {
       "created_at": "2020-11-04T13:02:28.186Z",
-      "modified_at": "2021-05-19T11:27:49.117Z",
+      "modified_at": "2022-02-24T10:46:54.674Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null}",
       "is_archived": false,
@@ -25779,10 +26431,10 @@
     "pk": "verwendung-humus-ja",
     "fields": {
       "created_at": "2020-11-04T13:05:22.494Z",
-      "modified_at": "2021-05-19T11:27:59.178Z",
+      "modified_at": "2022-02-24T10:46:29.275Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null}",
       "is_archived": false,
@@ -25795,10 +26447,10 @@
     "pk": "verwendung-humus-nein",
     "fields": {
       "created_at": "2020-11-04T13:05:22.495Z",
-      "modified_at": "2021-05-19T11:27:59.188Z",
+      "modified_at": "2022-02-24T10:46:29.278Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null}",
       "is_archived": false,
@@ -27748,6 +28400,36 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "altlasten",
+    "fields": {
+      "created_at": "2022-02-24T12:05:47.789Z",
+      "modified_at": "2022-02-24T12:15:41.621Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Altlasten\", \"fr\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"####Altlasten / belastete Standorte (KbS)\\n\\nWenn belastete Standorte betroffen sind, muss der Sachverhalt m\\u00f6glichst fr\\u00fchzeitig gekl\\u00e4rt werden. Allenfalls sind zus\\u00e4tzliche Untersuchungen notwendig. Eine entsprechende Dokumentation des Standorts ist mit der Baueingabe einzureichen. Weitere Informationen zur Lage der belasteten Standorte finden Sie unter [www.geo.ur.ch](https://www.geo.ur.ch/?center=960356%2C5922354&layers=Kataster%20der%20belasteten%20Standorte&opacity=1&visibility=true&zoom=14)\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "andere-gebaeude",
     "fields": {
       "created_at": "2021-11-08T20:00:32.155Z",
@@ -27841,15 +28523,15 @@
     "pk": "angaben-zu-haustechnischen-anlagen",
     "fields": {
       "created_at": "2021-06-17T11:29:22.870Z",
-      "modified_at": "2021-11-23T16:28:33.378Z",
+      "modified_at": "2022-02-24T13:46:45.996Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "label": "{\"de\": \"Liegen die Angaben zu den geb\\u00e4udetechnischen Anlagen (Heizung usw.) bereits vor?\", \"fr\": null}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "'haustechnische-anlagen-erstellt-ja' != 'haustechnische-anlagen-erstellt'|answer",
+      "is_hidden": "true",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -27961,10 +28643,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "anlagedaten",
+    "fields": {
+      "created_at": "2022-02-24T15:19:54.395Z",
+      "modified_at": "2022-02-24T15:22:35.049Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anlagedaten\", \"fr\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"####Anlagedaten\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "anlagetyp",
     "fields": {
       "created_at": "2020-09-19T10:31:49.295Z",
-      "modified_at": "2021-11-29T10:56:23.528Z",
+      "modified_at": "2022-02-24T13:48:09.396Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "jonas.lehmann@adfinis.com",
@@ -27972,7 +28684,7 @@
       "label": "{\"de\": \"Anlagetyp\", \"fr\": null}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "!('technische-bewilligung' in form || 'angaben-zu-haustechnischen-anlagen-ja' == 'angaben-zu-haustechnischen-anlagen'|answer)",
+      "is_hidden": "!('technische-bewilligung' in form ||\n'haustechnische-anlagen-erstellt-ja' == 'haustechnische-anlagen-erstellt'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -28746,6 +29458,36 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "art-der-einbauten",
+    "fields": {
+      "created_at": "2022-02-24T12:34:06.047Z",
+      "modified_at": "2022-02-24T12:40:16.808Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Art der Einbauten\", \"fr\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "!(\"einbauten-ins-grundwasser-ja\" == \"einbauten-ins-grundwasser\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"Permanente Einbauten ins Grundwasser bed\\u00fcrfen einer Ausnahmebewilligung. Dazu ist mit der Baueingabe ein Durchflussnachweis einzureichen.\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "art-der-einsprache",
     "fields": {
       "created_at": "2021-11-28T16:58:41.853Z",
@@ -28968,6 +29710,36 @@
       "type": "choice",
       "is_required": "false",
       "is_hidden": "!(\n  \"hauptheizungsanlage-gtt-holz\" == \"hauptheizungsanlage-gtt\"|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "art-der-kollektoren",
+    "fields": {
+      "created_at": "2022-02-24T15:32:17.099Z",
+      "modified_at": "2022-02-25T09:19:16.068Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Typ der Kollektoren\", \"fr\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "!(\"typ-der-solaranlage-thermische-solaranlage\" in \"typ-der-solaranlage\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -29604,18 +30376,18 @@
     "pk": "aushub-erforderlich",
     "fields": {
       "created_at": "2021-05-19T11:27:13.609Z",
-      "modified_at": "2021-05-19T11:27:13.609Z",
+      "modified_at": "2022-02-24T10:44:40.662Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Ist f\\u00fcr das Vorhaben ein Aushub erforderlich?\", \"fr\": null}",
+      "label": "{\"de\": \"Ist f\\u00fcr das Vorhaben ein Aushub oder ein Bodenabtrag erforderlich?\", \"fr\": null}",
       "type": "choice",
       "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -30100,6 +30872,36 @@
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"##Wichtiger Hinweis\\n\\nVerwenden Sie dieses Formular, wenn Sie beispielsweise Unterhaltsarbeiten an Fassaden durchf\\u00fchren, ein Gartenhaus errichten, Bauten und Anlagen entfernen wollen, die nicht Geb\\u00e4ude oder Geb\\u00e4udeteile sind, etc. Beschreiben Sie das Vorhaben m\\u00f6glichst genau. Ein neuer Farbanstrich einer Baute sollte zum Beispiel eindeutige Angaben zum Farbton enthalten (RAL oder NCS Nummer) oder die Lage und der Umfang einer geringf\\u00fcgigen Terrainver\\u00e4nderung muss aus den Angaben klar ersichtlich sein. Sie erleichtern der Gemeindebaubeh\\u00f6rde dadurch die Beurteilung betreffend Baubewilligungspflicht.\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bauen-im-grundwasser",
+    "fields": {
+      "created_at": "2022-02-24T12:28:55.900Z",
+      "modified_at": "2022-02-24T12:28:55.900Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bauen im Grundwasser\", \"fr\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"####Bauen im Grundwasser\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -30658,6 +31460,36 @@
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"---\\n\\n####Vorkehren f\\u00fcr hindernisfreies Bauen\\n \\nBei folgenden Projekten sind Vorkehren f\\u00fcr das hindernisfreie Bauen gest\\u00fctzt auf Artikel 80 des Planungs- und Baugesetzes des Kantons Uri (PBG) im besonderen Mass zu ber\\u00fccksichtigen:\\n- \\u00d6ffentlich zug\\u00e4ngliche Bauten und Anlagen\\n- Wohn\\u00fcberbauungen und Gesch\\u00e4ftsh\\u00e4user\\n- Mehrfamilienh\\u00e4user mit vier und mehr Wohneinheiten\\n- Geb\\u00e4ude mit Arbeitspl\\u00e4tzen ab einer gesamten Nutzungsfl\\u00e4che von 500 m2\\n- Parkpl\\u00e4tze von \\u00f6ffentlich zug\\u00e4nglichen Geb\\u00e4uden\\n\\n**Hinweis:** Es empfiehlt sich, die Normen und besonderen Vorkehren f\\u00fcr das hindernisfreie Bauen bei s\\u00e4mtlichen Hochbauten, insbesondere auch bei Wohnbauten die vom Eigent\\u00fcmer selber genutzt werden, zu beachten.\\n\\nHier gehts zu den [Merkbl\\u00e4ttern und Checklisten - Procap](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjqsaiaovbsAhUJxBQKHTDLAY0QFjAAegQIARAC&url=https%3A%2F%2Fwww.procap.ch%2Fde%2Fangebote%2Fberatung-information%2Fbauen-und-verkehr%2Fmerkblaetter-und-checklisten.html&usg=AOvVaw22mufgjOdttc4H6GIjwIa_)\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "belasteter-standort",
+    "fields": {
+      "created_at": "2022-02-24T12:09:27.852Z",
+      "modified_at": "2022-02-24T12:09:27.852Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ist ein belasteter Standort betroffen?\", \"fr\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -31461,14 +32293,14 @@
     "pk": "beschreibung-aushub",
     "fields": {
       "created_at": "2020-11-11T11:17:11.970Z",
-      "modified_at": "2020-11-11T18:28:35.225Z",
+      "modified_at": "2022-02-24T10:50:20.787Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Beschreibung Ort und Verwendung \\u00fcbersch\\u00fcssiger Aushub\", \"fr\": null}",
+      "label": "{\"de\": \"Beschreibung Ort und Verwendung \\u00fcbersch\\u00fcssiger Unterboden (Aushub)\", \"fr\": null}",
       "type": "text",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "!(\n  \"verwendung-aushub-nein\" == \"verwendung-aushub\"|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
@@ -31541,6 +32373,72 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"Anlagebezeichnung\", \"fr\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "beschreibung-der-warmenutzung",
+    "fields": {
+      "created_at": "2022-02-24T15:34:26.235Z",
+      "modified_at": "2022-02-25T09:15:11.326Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung der W\\u00e4rmenutzung\", \"fr\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!(\"nutzung-andere\" in \"nutzung\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "beschreibung-einbauten",
+    "fields": {
+      "created_at": "2022-02-24T12:35:54.261Z",
+      "modified_at": "2022-02-24T13:35:16.566Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung\", \"fr\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "!(\"art-der-einbauten-andere\" in \"art-der-einbauten\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null}",
+      "info_text": "{\"de\": \"Permanente Einbauten ins Grundwasser bed\\u00fcrfen einer Ausnahmebewilligung. Dazu ist mit der Baueingabe ein Durchflussnachweis einzureichen.\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -32667,15 +33565,15 @@
     "pk": "bezeichnung-dazugehoeriges-gebaeude",
     "fields": {
       "created_at": "2021-11-24T12:34:22.189Z",
-      "modified_at": "2021-11-29T08:58:16.365Z",
+      "modified_at": "2022-02-24T13:47:26.442Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "christian.zosel@adfinis.com",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "label": "{\"de\": \"Dazugeh\\u00f6riges Geb\\u00e4ude\", \"fr\": null}",
       "type": "text",
       "is_required": "true",
-      "is_hidden": "!('technische-bewilligung' in form ||\n'angaben-zu-haustechnischen-anlagen-ja' == 'angaben-zu-haustechnischen-anlagen'|answer)",
+      "is_hidden": "!('technische-bewilligung' in form ||\n'haustechnische-anlagen-erstellt-ja' == 'haustechnische-anlagen-erstellt'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": \"z.M- MFH A\", \"fr\": null}",
       "info_text": "{\"de\": \"Bezeichnen Sie das Geb\\u00e4ude, zu welchem die geb\\u00e4udetechnische Anlage geh\\u00f6rt. Falls das Gesuch mehrere Geb\\u00e4ude mit technischen Anlagen beinhaltet, dann ordnen Sie die jeweils erfasste Anlage dem entsprechenden Geb\\u00e4ude zu.\", \"fr\": null}",
@@ -34108,6 +35006,36 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "einbauten-ins-grundwasser",
+    "fields": {
+      "created_at": "2022-02-24T12:32:13.839Z",
+      "modified_at": "2022-02-24T12:40:27.469Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Sind Einbauten ins Grundwasser vorgesehen?\", \"fr\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "einfuehrungstext",
     "fields": {
       "created_at": "2020-11-04T19:31:39.730Z",
@@ -34749,6 +35677,66 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "entwasserung",
+    "fields": {
+      "created_at": "2022-02-24T10:52:44.046Z",
+      "modified_at": "2022-02-24T11:03:59.184Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entw\\u00e4sserung\", \"fr\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"####Liegenschaftsentw\\u00e4sserung\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "entwasserungsplan",
+    "fields": {
+      "created_at": "2022-02-24T12:25:25.670Z",
+      "modified_at": "2022-02-24T12:26:45.524Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entw\\u00e4sserungsplan\", \"fr\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"Ein Entw\\u00e4sserungplan, der die Behandlung der verschiedenen Abw\\u00e4sser aufzeigt (h\\u00e4usliches Abwasser und / oder Meteorwasser wie Dachwasser, Verkehrsfl\\u00e4chen, Balkone und Terrassen, usw.) ist wichtig f\\u00fcr die Beurteilung eines Baugesuchs und bei der Baueingabe zur Pr\\u00fcfung einzureichen.\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "eproid",
     "fields": {
       "created_at": "2020-11-09T15:44:10.370Z",
@@ -35045,6 +36033,39 @@
       "info_text": "{\"de\": \"INFO\\n\\nArt. 36 Verordnung 3 zum Arbeitsgesetz Erste Hilfe\\n\\n1 F\\u00fcr die Erste Hilfe m\\u00fcssen entsprechend den Betriebsgefahren, der Gr\\u00f6sse und der \\u00f6rtlichen Lage des Betriebs stets die erforderlichen Mittel verf\\u00fcgbar sein. Die Erste-Hilfe-Ausstattung muss gut erreichbar sein und \\u00fcberall dort aufbewahrt werden, wo die Arbeitsbedingungen dies erfordern.\\n\\n2 N\\u00f6tigenfalls m\\u00fcssen zweckm\\u00e4ssig gelegene und eingerichtete Sanit\\u00e4tsr\\u00e4ume und im Sanit\\u00e4tsdienst ausgebildetes Personal zur Verf\\u00fcgung stehen. Die Sanit\\u00e4tsr\\u00e4ume m\\u00fcssen mit Tragbahren leicht zug\\u00e4nglich sein.\\n\\n3 Die Sanit\\u00e4tsr\\u00e4ume und die Aufbewahrungsstellen f\\u00fcr die Erste-Hilfe-Ausstattung sind gut sichtbar zu kennzeichnen.\", \"fr\": null}",
       "static_content": "{\"de\": \"WICHTIGER HINWEIS: Bitte beachten Sie Art. 36 der Verordnung 3 zum Arbeitsgesetz (ArG) Thema \\\"Erste Hilfe\\\"\", \"fr\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "erwartete-stromproduktion",
+    "fields": {
+      "created_at": "2022-02-24T15:45:33.159Z",
+      "modified_at": "2022-02-25T09:21:10.489Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Erwartete Stromproduktion in kWh/Jahr\", \"fr\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!(\"typ-der-solaranlage-photovoltaische-solaranlage\" in \"typ-der-solaranlage\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -37058,6 +38079,36 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "gesetzliche-vorgaben",
+    "fields": {
+      "created_at": "2022-02-24T15:15:42.451Z",
+      "modified_at": "2022-02-25T08:32:06.599Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gesetzliche Vorgaben\", \"fr\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"Raumplanungsverordnung\\nArt. 32a Bewilligungsfreie Solaranlagen\\n\\n1 Solaranlagen gelten als auf einem Dach gen\\u00fcgend angepasst (Art. 18a Abs. 1 RPG), wenn sie:\\n\\na. die Dachfl\\u00e4che im rechten Winkel um h\\u00f6chstens 20 cm \\u00fcberragen;\\nb. von vorne und von oben gesehen nicht \\u00fcber die Dachfl\\u00e4che hinausragen;\\nc. nach dem Stand der Technik reflexionsarm ausgef\\u00fchrt werden; und\\nd. als kompakte Fl\\u00e4che zusammenh\\u00e4ngen.\\n\\n2 Konkrete Gestaltungsvorschriften des kantonalen Rechts sind anwendbar, wenn sie zur Wahrung berechtigter Schutzanliegen verh\\u00e4ltnism\\u00e4ssig sind und die Nutzung der Sonnenenergie nicht st\\u00e4rker einschr\\u00e4nken als Absatz 1.\\n\\n3 Bewilligungsfreie Vorhaben sind vor Baubeginn der Baubewilligungsbeh\\u00f6rde oder einer anderen vom kantonalen Recht f\\u00fcr zust\\u00e4ndig erkl\\u00e4rten Beh\\u00f6rde zu melden. Das kantonale Recht legt die Frist sowie die Pl\\u00e4ne und Unterlagen, die der Meldung beizulegen sind, fest.\", \"fr\": null}",
+      "static_content": "{\"de\": \"####Bundesrecht - Gesetzliche Vorgaben f\\u00fcr baubewilligungsbefreite Solaranlagen\\n(Artikel 32a Raumplanungsverordnung RPV)\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "gesundheitsschaedliche-stoffe-titel",
     "fields": {
       "created_at": "2020-10-26T10:37:52.659Z",
@@ -37627,7 +38678,7 @@
     "pk": "haus-und-gebaeudetechnik-einleitung",
     "fields": {
       "created_at": "2021-06-17T11:13:04.454Z",
-      "modified_at": "2021-11-25T14:49:35.266Z",
+      "modified_at": "2022-02-25T09:28:04.587Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -37639,7 +38690,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
-      "static_content": "{\"de\": \"**Geb\\u00e4udetechnik**\\n\\nDie Angaben zur W\\u00e4rmequelle und zum W\\u00e4rmeerzeuger f\\u00fcr Heizung und Warmwasser sind je nach Art des Vorhabens zwingender Bestantteil einer Baueingabe. Bitte erfassen Sie f\\u00fcr alle geb\\u00e4udetechnischen Anlagen jeweils einen separaten Datensatz (z.B. f\\u00fcr die W\\u00e4rmequelle der Hauptheizung, f\\u00fcr die W\\u00e4rmequelle der Zusatzheizung und, falls vorgesehen auch f\\u00fcr die Solaranlage usw.).\\n\\nFalls W\\u00e4rmequelle und W\\u00e4rmeerzeuger oder andere f\\u00fcr das Gesuch relevante geb\\u00e4udetechnische Anlagen zum Zeitpunkt der Baueingabe noch nicht definitiv bestimmt sind, bitten wir Sie einerseits, unter Bemerkungen kurz zu umschreiben, welche W\\u00e4rmequellen / Erzeuger voraussichtlich zum Einsatz kommen. \\n\\nAndererseits bitten wir Sie, f\\u00fcr die nachtr\\u00e4gliche Erfassung bzw. Meldung von geb\\u00e4udetechnischen Angaben das Formular \\\"MELDUNG GEBAUEDETECHNIK\\\" zu verwenden.\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"**Geb\\u00e4udetechnik**\\n\\nDie Angaben zur W\\u00e4rmequelle und zum W\\u00e4rmeerzeuger f\\u00fcr Heizung und Warmwasser sind je nach Art des Vorhabens zwingender Bestantteil einer Baueingabe. **Bitte erfassen Sie f\\u00fcr alle geb\\u00e4udetechnischen Anlagen jeweils einen separaten Datensatz** (z.B. f\\u00fcr die W\\u00e4rmequelle der Hauptheizung, f\\u00fcr die W\\u00e4rmequelle der Zusatzheizung und, falls vorgesehen auch f\\u00fcr die Solaranlage usw.).\\n\\nF\\u00fcr die nachtr\\u00e4gliche Erfassung bzw. Meldung von geb\\u00e4udetechnischen Angaben verwenden Sie bitte das Formular \\\"MELDUNG GEBAUEDETECHNIK\\\".\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -39130,18 +40181,18 @@
     "pk": "isos",
     "fields": {
       "created_at": "2020-10-27T10:38:25.667Z",
-      "modified_at": "2020-10-27T12:24:23.097Z",
+      "modified_at": "2022-02-25T08:26:59.378Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Liegt die geplante Anlage in einem sch\\u00fctzenswerten Ortsbild gem\\u00e4ss ISOS (Erhaltungsziel A)?\", \"fr\": null}",
+      "label": "{\"de\": \"Liegt die geplante Anlage in einem sch\\u00fctzenswerten Ortsbild (ISOS Erhaltungsziel A)?\", \"fr\": null}",
       "type": "choice",
       "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": \"#### INFO\\nDie Installation einer Solaranlage welche Gebiete, Baugruppen oder Einzelelemente gem\\u00e4ssBundesinventar der sch\\u00fctzenswerten Ortsbilder von nationaler Bedeutung (ISOS) mit Erhaltungsziel A; (siehe www.bak.admin.ch/isos) tangiert, ist nicht grunds\\u00e4tzlich ausgeschlossen. Entsprechende Projekte m\\u00fcssen jedoch zwingend im Rahmen eines ordentlichen Baubewilligungsverfahren durch die kantonale Denkmalpflege gepr\\u00fcft werden.\", \"fr\": null}",
+      "info_text": "{\"de\": \"#### INFO\\nDie Installation einer Solaranlage welche Gebiete, Baugruppen oder Einzelelemente gem\\u00e4ss Bundesinventar der sch\\u00fctzenswerten Ortsbilder von nationaler Bedeutung (ISOS) mit Erhaltungsziel A betrifft, sind nicht grunds\\u00e4tzlich ausgeschlossen. Entsprechende Projekte m\\u00fcssen jedoch zwingend im Rahmen eines ordentlichen Baubewilligungsverfahren durch die kantonale Denkmalpflege gepr\\u00fcft werden. Weitere Informationen zum [ISOS](https://gisos.bak.admin.ch/).\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -39237,6 +40288,36 @@
         "max_length": null,
         "min_length": null
       },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "kanalisation",
+    "fields": {
+      "created_at": "2022-02-24T11:06:22.764Z",
+      "modified_at": "2022-02-24T11:06:22.764Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entsorgung h\\u00e4usliches Abwasser / Kanalisationsanschluss\", \"fr\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -41491,6 +42572,36 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "meteorwasser",
+    "fields": {
+      "created_at": "2022-02-24T11:10:12.985Z",
+      "modified_at": "2022-02-24T11:10:48.998Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entsorgung Meteorwasser\", \"fr\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"Die Ableitung des Meteorwassers in ein Oberfl\\u00e4chengew\\u00e4sser oder eine Meteorwassserleitung ist nur zul\\u00e4ssig, wenn keine Versickerung vor Ort m\\u00f6glich ist! Ein ensprechender Nachweis durch eine hydrogeologische Fachperson ist bei der Baueingabe einzureichen.\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "migrated-from-camac",
     "fields": {
       "created_at": "2021-03-19T11:48:59.824Z",
@@ -42230,6 +43341,36 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "nutzung",
+    "fields": {
+      "created_at": "2022-02-24T15:33:47.572Z",
+      "modified_at": "2022-02-25T09:19:42.875Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nutzung\", \"fr\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "!(\"typ-der-solaranlage-thermische-solaranlage\" in \"typ-der-solaranlage\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "nutzungsaenderung",
     "fields": {
       "created_at": "2021-11-09T08:43:42.180Z",
@@ -42536,14 +43677,14 @@
     "pk": "ort-verwendung-humus",
     "fields": {
       "created_at": "2020-11-11T11:19:09.535Z",
-      "modified_at": "2020-11-11T18:28:50.732Z",
+      "modified_at": "2022-02-24T10:49:59.487Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Angabe Ort und Verwendung \\u00fcbersch\\u00fcssiger Humus\", \"fr\": null}",
+      "label": "{\"de\": \"Angabe Ort und Verwendung \\u00fcbersch\\u00fcssiger Oberboden (Humus)\", \"fr\": null}",
       "type": "text",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "!(\n  \"verwendung-humus-nein\" == \"verwendung-humus\"|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
@@ -45376,15 +46517,15 @@
     "pk": "solar-gesamtleistung-kw",
     "fields": {
       "created_at": "2020-10-21T12:30:11.535Z",
-      "modified_at": "2020-10-27T15:10:05.708Z",
+      "modified_at": "2022-02-25T09:20:53.578Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
-      "label": "{\"de\": \"Gesamtleistung (kW)\", \"fr\": null}",
+      "label": "{\"de\": \"Gesamtleistung (kWpeak)\", \"fr\": null}",
       "type": "float",
       "is_required": "true",
-      "is_hidden": "false",
+      "is_hidden": "!(\"typ-der-solaranlage-photovoltaische-solaranlage\" in \"typ-der-solaranlage\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
@@ -45434,6 +46575,36 @@
       },
       "data_source": null,
       "row_form": "solaranlagen-tabelle",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "solaranlagen-auf-kulturobjekten",
+    "fields": {
+      "created_at": "2022-02-24T15:12:17.669Z",
+      "modified_at": "2022-02-25T08:31:07.517Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Solaranlagen auf oder neben Kulturobjekten und in Schutzgebieten (ISOS, Kernzonen usw.)\", \"fr\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"####Kantonale Praxis - Kl\\u00e4rung der Baubewilligungspflicht\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
@@ -46620,6 +47791,36 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "test",
+    "fields": {
+      "created_at": "2022-01-10T09:23:09.312Z",
+      "modified_at": "2022-01-10T09:24:11.517Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": "christian.zosel@adfinis.com",
+      "modified_by_group": null,
+      "label": "{\"de\": \"test\", \"fr\": null}",
+      "type": "calculated_float",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"xy\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": "1 + 1",
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "text-rodungsgesuch",
     "fields": {
       "created_at": "2020-11-13T12:47:12.806Z",
@@ -47157,6 +48358,66 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "trennlinie-altlasten",
+    "fields": {
+      "created_at": "2022-02-24T12:11:25.435Z",
+      "modified_at": "2022-02-24T12:11:25.435Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Trennlinie-Altlasten\", \"fr\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"---\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "trennlinie-bauen-im-grundwasser",
+    "fields": {
+      "created_at": "2022-02-24T12:29:26.641Z",
+      "modified_at": "2022-02-24T12:29:26.641Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Trennlinie Bauen im Grundwasser\", \"fr\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"---\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "trennlinie-entsorgung",
     "fields": {
       "created_at": "2020-11-04T13:10:29.226Z",
@@ -47226,6 +48487,36 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Trennlinie Lichtschutz\", \"fr\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"---\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "trennlinie-liegenschaftsentwasserung",
+    "fields": {
+      "created_at": "2022-02-24T11:17:17.218Z",
+      "modified_at": "2022-02-24T11:17:17.218Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Trennlinie Liegenschaftsentw\\u00e4sserung\", \"fr\": null}",
       "type": "static",
       "is_required": "false",
       "is_hidden": "false",
@@ -47373,10 +48664,10 @@
     "pk": "typ-der-solaranlage",
     "fields": {
       "created_at": "2020-10-21T12:21:04.829Z",
-      "modified_at": "2020-10-27T15:09:55.944Z",
+      "modified_at": "2022-02-24T15:30:04.491Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Typ der Anlage\", \"fr\": null}",
       "type": "choice",
@@ -48504,12 +49795,12 @@
     "pk": "verwendung-aushub",
     "fields": {
       "created_at": "2020-11-04T13:02:28.282Z",
-      "modified_at": "2021-05-19T11:27:49.346Z",
+      "modified_at": "2022-02-24T10:46:54.767Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Wird der anfallende Aushub im Rahmen des Bauprojekts vor Ort wieder verwendet?\", \"fr\": null}",
+      "label": "{\"de\": \"Wird der anfallende Unterboden (Aushub) im Rahmen des Bauprojekts vor Ort wieder verwendet?\", \"fr\": null}",
       "type": "choice",
       "is_required": "true",
       "is_hidden": "!(\"aushub-erforderlich-ja\" == \"aushub-erforderlich\"|answer)",
@@ -48534,12 +49825,12 @@
     "pk": "verwendung-humus",
     "fields": {
       "created_at": "2020-11-04T13:05:22.586Z",
-      "modified_at": "2021-05-19T11:27:59.332Z",
+      "modified_at": "2022-02-24T10:46:29.348Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Wird der anfallende Humus im Rahmen des Bauprojekts vor Ort wieder verwendet?\", \"fr\": null}",
+      "label": "{\"de\": \"Wird der anfallende Oberboden (Humus) im Rahmen des Bauprojekts vor Ort wieder verwendet?\", \"fr\": null}",
       "type": "choice",
       "is_required": "true",
       "is_hidden": "!(\"aushub-erforderlich-ja\" == \"aushub-erforderlich\"|answer)",
@@ -50045,11 +51336,11 @@
     "model": "caluma_form.questionoption",
     "pk": "angaben-zu-haustechnischen-anlagen.angaben-zu-haustechnischen-anlagen-ja",
     "fields": {
-      "created_at": "2021-11-23T16:28:33.385Z",
-      "modified_at": "2021-11-23T16:28:33.385Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2022-02-24T13:46:46.005Z",
+      "modified_at": "2022-02-24T13:46:46.005Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "angaben-zu-haustechnischen-anlagen",
       "option": "angaben-zu-haustechnischen-anlagen-ja",
@@ -50060,11 +51351,11 @@
     "model": "caluma_form.questionoption",
     "pk": "angaben-zu-haustechnischen-anlagen.angaben-zu-haustechnischen-anlagen-nein",
     "fields": {
-      "created_at": "2021-11-23T16:28:33.383Z",
-      "modified_at": "2021-11-23T16:28:33.383Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2022-02-24T13:46:46.001Z",
+      "modified_at": "2022-02-24T13:46:46.001Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "angaben-zu-haustechnischen-anlagen",
       "option": "angaben-zu-haustechnischen-anlagen-nein",
@@ -50390,8 +51681,8 @@
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-analgetyp-klima",
     "fields": {
-      "created_at": "2021-11-29T10:56:23.559Z",
-      "modified_at": "2021-11-29T10:56:23.559Z",
+      "created_at": "2022-02-24T13:48:09.429Z",
+      "modified_at": "2022-02-24T13:48:09.429Z",
       "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
       "modified_by_user": "jonas.lehmann@adfinis.com",
@@ -50405,8 +51696,8 @@
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-aufzuege",
     "fields": {
-      "created_at": "2021-11-29T10:56:23.555Z",
-      "modified_at": "2021-11-29T10:56:23.555Z",
+      "created_at": "2022-02-24T13:48:09.424Z",
+      "modified_at": "2022-02-24T13:48:09.424Z",
       "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
       "modified_by_user": "jonas.lehmann@adfinis.com",
@@ -50420,8 +51711,8 @@
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-betankungsanlage",
     "fields": {
-      "created_at": "2021-11-29T10:56:23.543Z",
-      "modified_at": "2021-11-29T10:56:23.543Z",
+      "created_at": "2022-02-24T13:48:09.411Z",
+      "modified_at": "2022-02-24T13:48:09.411Z",
       "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
       "modified_by_user": "jonas.lehmann@adfinis.com",
@@ -50435,8 +51726,8 @@
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-gasanlage",
     "fields": {
-      "created_at": "2021-11-29T10:56:23.537Z",
-      "modified_at": "2021-11-29T10:56:23.537Z",
+      "created_at": "2022-02-24T13:48:09.404Z",
+      "modified_at": "2022-02-24T13:48:09.404Z",
       "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
       "modified_by_user": "jonas.lehmann@adfinis.com",
@@ -50450,8 +51741,8 @@
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-gasanlage-2",
     "fields": {
-      "created_at": "2021-11-29T10:56:23.535Z",
-      "modified_at": "2021-11-29T10:56:23.535Z",
+      "created_at": "2022-02-24T13:48:09.402Z",
+      "modified_at": "2022-02-24T13:48:09.402Z",
       "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
       "modified_by_user": "jonas.lehmann@adfinis.com",
@@ -50465,8 +51756,8 @@
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-hauptheizung",
     "fields": {
-      "created_at": "2021-11-29T10:56:23.553Z",
-      "modified_at": "2021-11-29T10:56:23.553Z",
+      "created_at": "2022-02-24T13:48:09.422Z",
+      "modified_at": "2022-02-24T13:48:09.422Z",
       "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
       "modified_by_user": "jonas.lehmann@adfinis.com",
@@ -50480,8 +51771,8 @@
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-lueftungsanlage",
     "fields": {
-      "created_at": "2021-11-29T10:56:23.557Z",
-      "modified_at": "2021-11-29T10:56:23.557Z",
+      "created_at": "2022-02-24T13:48:09.427Z",
+      "modified_at": "2022-02-24T13:48:09.427Z",
       "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
       "modified_by_user": "jonas.lehmann@adfinis.com",
@@ -50495,8 +51786,8 @@
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-notstrom-aggregat",
     "fields": {
-      "created_at": "2021-11-29T10:56:23.539Z",
-      "modified_at": "2021-11-29T10:56:23.539Z",
+      "created_at": "2022-02-24T13:48:09.406Z",
+      "modified_at": "2022-02-24T13:48:09.406Z",
       "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
       "modified_by_user": "jonas.lehmann@adfinis.com",
@@ -50510,8 +51801,8 @@
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-photovoltaische-solaranlage",
     "fields": {
-      "created_at": "2021-11-29T10:56:23.545Z",
-      "modified_at": "2021-11-29T10:56:23.545Z",
+      "created_at": "2022-02-24T13:48:09.413Z",
+      "modified_at": "2022-02-24T13:48:09.413Z",
       "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
       "modified_by_user": "jonas.lehmann@adfinis.com",
@@ -50525,8 +51816,8 @@
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-tankanlagen",
     "fields": {
-      "created_at": "2021-11-29T10:56:23.541Z",
-      "modified_at": "2021-11-29T10:56:23.541Z",
+      "created_at": "2022-02-24T13:48:09.409Z",
+      "modified_at": "2022-02-24T13:48:09.409Z",
       "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
       "modified_by_user": "jonas.lehmann@adfinis.com",
@@ -50540,8 +51831,8 @@
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-thermische-solaranlage",
     "fields": {
-      "created_at": "2021-11-29T10:56:23.547Z",
-      "modified_at": "2021-11-29T10:56:23.547Z",
+      "created_at": "2022-02-24T13:48:09.415Z",
+      "modified_at": "2022-02-24T13:48:09.415Z",
       "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
       "modified_by_user": "jonas.lehmann@adfinis.com",
@@ -50555,8 +51846,8 @@
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-warmwasser",
     "fields": {
-      "created_at": "2021-11-29T10:56:23.551Z",
-      "modified_at": "2021-11-29T10:56:23.551Z",
+      "created_at": "2022-02-24T13:48:09.419Z",
+      "modified_at": "2022-02-24T13:48:09.419Z",
       "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
       "modified_by_user": "jonas.lehmann@adfinis.com",
@@ -50570,8 +51861,8 @@
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-zusatzheizung",
     "fields": {
-      "created_at": "2021-11-29T10:56:23.549Z",
-      "modified_at": "2021-11-29T10:56:23.549Z",
+      "created_at": "2022-02-24T13:48:09.417Z",
+      "modified_at": "2022-02-24T13:48:09.417Z",
       "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
       "modified_by_user": "jonas.lehmann@adfinis.com",
@@ -50819,6 +52110,81 @@
       "question": "art-der-anlage",
       "option": "art-der-anlage-wanderweg-wanderwegrichtplan",
       "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-einbauten.art-der-einbauten-andere",
+    "fields": {
+      "created_at": "2022-02-24T12:40:16.815Z",
+      "modified_at": "2022-02-24T12:40:16.815Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "art-der-einbauten",
+      "option": "art-der-einbauten-andere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-einbauten.art-der-einbauten-leitungen",
+    "fields": {
+      "created_at": "2022-02-24T12:40:16.818Z",
+      "modified_at": "2022-02-24T12:40:16.818Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "art-der-einbauten",
+      "option": "art-der-einbauten-leitungen",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-einbauten.art-der-einbauten-pfahlung",
+    "fields": {
+      "created_at": "2022-02-24T12:40:16.824Z",
+      "modified_at": "2022-02-24T12:40:16.824Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "art-der-einbauten",
+      "option": "art-der-einbauten-pfahlung",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-einbauten.art-der-einbauten-spundwand",
+    "fields": {
+      "created_at": "2022-02-24T12:40:16.821Z",
+      "modified_at": "2022-02-24T12:40:16.821Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "art-der-einbauten",
+      "option": "art-der-einbauten-spundwand",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-einbauten.art-der-einbauten-untergeschoss",
+    "fields": {
+      "created_at": "2022-02-24T12:40:16.827Z",
+      "modified_at": "2022-02-24T12:40:16.827Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "art-der-einbauten",
+      "option": "art-der-einbauten-untergeschoss",
+      "sort": 5
     }
   },
   {
@@ -51573,6 +52939,51 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "art-der-kollektoren.kollektortyp-flachkollektoren",
+    "fields": {
+      "created_at": "2022-02-25T09:19:16.079Z",
+      "modified_at": "2022-02-25T09:19:16.079Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
+      "modified_by_group": null,
+      "question": "art-der-kollektoren",
+      "option": "kollektortyp-flachkollektoren",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-kollektoren.kollektortyp-hybridkollektoren",
+    "fields": {
+      "created_at": "2022-02-25T09:19:16.074Z",
+      "modified_at": "2022-02-25T09:19:16.074Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
+      "modified_by_group": null,
+      "question": "art-der-kollektoren",
+      "option": "kollektortyp-hybridkollektoren",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-kollektoren.kollektortyp-rohrenkollektoren",
+    "fields": {
+      "created_at": "2022-02-25T09:19:16.077Z",
+      "modified_at": "2022-02-25T09:19:16.077Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
+      "modified_by_group": null,
+      "question": "art-der-kollektoren",
+      "option": "kollektortyp-rohrenkollektoren",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "art-der-lueftung.art-der-lueftung-kuenstlich",
     "fields": {
       "created_at": "2020-10-26T16:37:56.632Z",
@@ -52115,11 +53526,11 @@
     "model": "caluma_form.questionoption",
     "pk": "aushub-erforderlich.aushub-erforderlich-ja",
     "fields": {
-      "created_at": "2021-05-19T11:27:13.627Z",
-      "modified_at": "2021-05-19T11:27:13.627Z",
-      "created_by_user": "admin",
+      "created_at": "2022-02-24T10:44:40.694Z",
+      "modified_at": "2022-02-24T10:44:40.694Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "aushub-erforderlich",
       "option": "aushub-erforderlich-ja",
@@ -52130,11 +53541,11 @@
     "model": "caluma_form.questionoption",
     "pk": "aushub-erforderlich.aushub-erforderlich-nein",
     "fields": {
-      "created_at": "2021-05-19T11:27:13.620Z",
-      "modified_at": "2021-05-19T11:27:13.620Z",
-      "created_by_user": "admin",
+      "created_at": "2022-02-24T10:44:40.689Z",
+      "modified_at": "2022-02-24T10:44:40.689Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "aushub-erforderlich",
       "option": "aushub-erforderlich-nein",
@@ -52678,6 +54089,36 @@
       "modified_by_group": null,
       "question": "befreiung-von-schutzraeumen-beantragt",
       "option": "befreiung-von-schutzraeumen-beantragt-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "belasteter-standort.belasteter-standort-ja",
+    "fields": {
+      "created_at": "2022-02-24T12:09:27.865Z",
+      "modified_at": "2022-02-24T12:09:27.865Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "belasteter-standort",
+      "option": "belasteter-standort-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "belasteter-standort.belasteter-standort-nein",
+    "fields": {
+      "created_at": "2022-02-24T12:09:27.859Z",
+      "modified_at": "2022-02-24T12:09:27.859Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "belasteter-standort",
+      "option": "belasteter-standort-nein",
       "sort": 1
     }
   },
@@ -53238,6 +54679,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "einbauten-ins-grundwasser.einbauten-ins-grundwasser-ja",
+    "fields": {
+      "created_at": "2022-02-24T12:40:27.476Z",
+      "modified_at": "2022-02-24T12:40:27.476Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "einbauten-ins-grundwasser",
+      "option": "einbauten-ins-grundwasser-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "einbauten-ins-grundwasser.einbauten-ins-grundwasser-nein",
+    "fields": {
+      "created_at": "2022-02-24T12:40:27.473Z",
+      "modified_at": "2022-02-24T12:40:27.473Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "einbauten-ins-grundwasser",
+      "option": "einbauten-ins-grundwasser-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "einreichen-button.einreichen-button-eingereicht",
     "fields": {
       "created_at": "2021-04-15T12:38:26.163Z",
@@ -53548,6 +55019,36 @@
       "modified_by_group": null,
       "question": "entwaesserungsplan",
       "option": "entwaesserungsplan-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "entwasserungsplan.entwasserungsplan-ja",
+    "fields": {
+      "created_at": "2022-02-24T12:26:45.532Z",
+      "modified_at": "2022-02-24T12:26:45.532Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "entwasserungsplan",
+      "option": "entwasserungsplan-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "entwasserungsplan.entwasserungsplan-nein",
+    "fields": {
+      "created_at": "2022-02-24T12:26:45.528Z",
+      "modified_at": "2022-02-24T12:26:45.528Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "entwasserungsplan",
+      "option": "entwasserungsplan-nein",
       "sort": 1
     }
   },
@@ -56660,11 +58161,11 @@
     "model": "caluma_form.questionoption",
     "pk": "isos.isos-ja",
     "fields": {
-      "created_at": "2020-10-27T12:24:23.109Z",
-      "modified_at": "2020-10-27T12:24:23.109Z",
+      "created_at": "2022-02-25T08:26:59.386Z",
+      "modified_at": "2022-02-25T08:26:59.386Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "isos",
       "option": "isos-ja",
@@ -56675,11 +58176,11 @@
     "model": "caluma_form.questionoption",
     "pk": "isos.isos-nein",
     "fields": {
-      "created_at": "2020-10-27T12:24:23.105Z",
-      "modified_at": "2020-10-27T12:24:23.105Z",
+      "created_at": "2022-02-25T08:26:59.384Z",
+      "modified_at": "2022-02-25T08:26:59.384Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "isos",
       "option": "isos-nein",
@@ -56714,6 +58215,51 @@
       "question": "ist-eine-anlage-des-langsamverkehrs-betroffen",
       "option": "ist-eine-anlage-des-langsamverkehrs-betroffen-nein",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kanalisation.kanalisation-bestehend",
+    "fields": {
+      "created_at": "2022-02-24T11:06:22.778Z",
+      "modified_at": "2022-02-24T11:06:22.778Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "kanalisation",
+      "option": "kanalisation-bestehend",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kanalisation.kanalisation-dezentral",
+    "fields": {
+      "created_at": "2022-02-24T11:06:22.769Z",
+      "modified_at": "2022-02-24T11:06:22.769Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "kanalisation",
+      "option": "kanalisation-dezentral",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kanalisation.kanalisation-neu",
+    "fields": {
+      "created_at": "2022-02-24T11:06:22.775Z",
+      "modified_at": "2022-02-24T11:06:22.775Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "kanalisation",
+      "option": "kanalisation-neu",
+      "sort": 2
     }
   },
   {
@@ -57408,6 +58954,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "meteorwasser.meteorwasser-ableitung",
+    "fields": {
+      "created_at": "2022-02-24T11:10:49.003Z",
+      "modified_at": "2022-02-24T11:10:49.003Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "meteorwasser",
+      "option": "meteorwasser-ableitung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "meteorwasser.meteorwasser-versickerung",
+    "fields": {
+      "created_at": "2022-02-24T11:10:49.006Z",
+      "modified_at": "2022-02-24T11:10:49.006Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "meteorwasser",
+      "option": "meteorwasser-versickerung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "migrated-from-camac.migrated-from-camac-no",
     "fields": {
       "created_at": "2021-03-22T16:58:11.337Z",
@@ -57794,6 +59370,51 @@
       "question": "normalprofil",
       "option": "normalprofil-ja",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "nutzung.nutzung-andere-nutzung",
+    "fields": {
+      "created_at": "2022-02-25T09:19:42.880Z",
+      "modified_at": "2022-02-25T09:19:42.880Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
+      "modified_by_group": null,
+      "question": "nutzung",
+      "option": "nutzung-andere-nutzung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "nutzung.nutzung-brauchwasser",
+    "fields": {
+      "created_at": "2022-02-25T09:19:42.885Z",
+      "modified_at": "2022-02-25T09:19:42.885Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
+      "modified_by_group": null,
+      "question": "nutzung",
+      "option": "nutzung-brauchwasser",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "nutzung.nutzung-heizungsunterstuetzung",
+    "fields": {
+      "created_at": "2022-02-25T09:19:42.882Z",
+      "modified_at": "2022-02-25T09:19:42.882Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
+      "modified_by_group": null,
+      "question": "nutzung",
+      "option": "nutzung-heizungsunterstuetzung",
+      "sort": 2
     }
   },
   {
@@ -60710,11 +62331,11 @@
     "model": "caluma_form.questionoption",
     "pk": "typ-der-solaranlage.typ-der-solaranlage-photovoltaische-solaranlage",
     "fields": {
-      "created_at": "2020-10-27T15:09:55.953Z",
-      "modified_at": "2020-10-27T15:09:55.953Z",
+      "created_at": "2022-02-24T15:30:04.497Z",
+      "modified_at": "2022-02-24T15:30:04.497Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "typ-der-solaranlage",
       "option": "typ-der-solaranlage-photovoltaische-solaranlage",
@@ -60725,11 +62346,11 @@
     "model": "caluma_form.questionoption",
     "pk": "typ-der-solaranlage.typ-der-solaranlage-thermische-solaranlage",
     "fields": {
-      "created_at": "2020-10-27T15:09:55.957Z",
-      "modified_at": "2020-10-27T15:09:55.957Z",
+      "created_at": "2022-02-24T15:30:04.500Z",
+      "modified_at": "2022-02-24T15:30:04.500Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "typ-der-solaranlage",
       "option": "typ-der-solaranlage-thermische-solaranlage",
@@ -62060,11 +63681,11 @@
     "model": "caluma_form.questionoption",
     "pk": "verwendung-aushub.verwendung-aushub-ja",
     "fields": {
-      "created_at": "2021-05-19T11:27:49.369Z",
-      "modified_at": "2021-05-19T11:27:49.369Z",
-      "created_by_user": "admin",
+      "created_at": "2022-02-24T10:46:54.774Z",
+      "modified_at": "2022-02-24T10:46:54.774Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "verwendung-aushub",
       "option": "verwendung-aushub-ja",
@@ -62075,11 +63696,11 @@
     "model": "caluma_form.questionoption",
     "pk": "verwendung-aushub.verwendung-aushub-nein",
     "fields": {
-      "created_at": "2021-05-19T11:27:49.354Z",
-      "modified_at": "2021-05-19T11:27:49.354Z",
-      "created_by_user": "admin",
+      "created_at": "2022-02-24T10:46:54.771Z",
+      "modified_at": "2022-02-24T10:46:54.771Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "verwendung-aushub",
       "option": "verwendung-aushub-nein",
@@ -62090,11 +63711,11 @@
     "model": "caluma_form.questionoption",
     "pk": "verwendung-humus.verwendung-humus-ja",
     "fields": {
-      "created_at": "2021-05-19T11:27:59.351Z",
-      "modified_at": "2021-05-19T11:27:59.352Z",
-      "created_by_user": "admin",
+      "created_at": "2022-02-24T10:46:29.356Z",
+      "modified_at": "2022-02-24T10:46:29.356Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "verwendung-humus",
       "option": "verwendung-humus-ja",
@@ -62105,11 +63726,11 @@
     "model": "caluma_form.questionoption",
     "pk": "verwendung-humus.verwendung-humus-nein",
     "fields": {
-      "created_at": "2021-05-19T11:27:59.345Z",
-      "modified_at": "2021-05-19T11:27:59.345Z",
-      "created_by_user": "admin",
+      "created_at": "2022-02-24T10:46:29.354Z",
+      "modified_at": "2022-02-24T10:46:29.354Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "verwendung-humus",
       "option": "verwendung-humus-nein",
