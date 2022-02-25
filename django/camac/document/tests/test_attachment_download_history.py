@@ -26,6 +26,43 @@ def test_attachment_download_history_list(
     )
 
 
+@pytest.mark.parametrize("only_involved_applicants", [True, False])
+def test_filter_only_involved_applicants(
+    admin_client,
+    attachment_factory,
+    attachment_download_history_factory,
+    only_involved_applicants,
+):
+    attachment = attachment_factory()
+
+    attachment_download_history_factory(attachment=attachment)
+    adhl_1 = attachment_download_history_factory(attachment=attachment)
+    adhl_2 = attachment_download_history_factory(attachment=attachment)
+
+    attachment.instance.involved_applicants.create(
+        user=adhl_1.user, invitee=adhl_1.user
+    )
+    attachment.instance.involved_applicants.create(
+        user=adhl_2.user, invitee=adhl_2.user
+    )
+
+    url = reverse("attachmentdownloadhistory-list")
+    response = admin_client.get(
+        url,
+        {
+            "attachment": attachment.pk,
+            "only_involved_applicants": True if only_involved_applicants else False,
+        },
+    )
+
+    assert response.status_code == status.HTTP_200_OK
+    json = response.json()
+    if only_involved_applicants:
+        assert len(json["data"]) == 2
+    else:
+        assert len(json["data"]) == 3
+
+
 @pytest.mark.parametrize(
     "instance__user,attachment__path,role__name",
     [(LazyFixture("admin_user"), django_file("multiple-pages.pdf"), "Applicant")],

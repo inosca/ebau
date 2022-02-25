@@ -2,9 +2,10 @@ import json
 
 from caluma.caluma_core.filters import JSONValueFilter
 from django.core.validators import EMPTY_VALUES
+from django.db.models import F
 from django.utils.translation import gettext as _
 from django_filters.filters import BaseCSVFilter
-from django_filters.rest_framework import DateTimeFilter, FilterSet
+from django_filters.rest_framework import BooleanFilter, DateTimeFilter, FilterSet
 from rest_framework.exceptions import ValidationError
 
 from camac.filters import CharMultiValueFilter, NumberFilter
@@ -98,17 +99,25 @@ class TemplateFilterSet(FilterSet):
 
 
 class AttachmentDownloadHistoryFilterSet(FilterSet):
-    name = CharMultiValueFilter(lookup_expr="startswith")
     download_date_after = DateTimeFilter(field_name="date_time", lookup_expr="gte")
     download_date_before = DateTimeFilter(field_name="date_time", lookup_expr="lte")
+    only_involved_applicants = BooleanFilter(method="filter_only_involved_applicants")
+
+    def filter_only_involved_applicants(self, queryset, name, value):
+        if value:
+            return queryset.filter(
+                attachment__instance__involved_applicants__invitee__pk=F("user_id")
+            ).distinct()
+
+        return queryset
 
     class Meta:
         model = models.AttachmentDownloadHistory
         fields = (
             "date_time",
-            "keycloak_id",
-            "name",
+            "user",
             "attachment",
             "group",
             "group__role",
+            "only_involved_applicants",
         )
