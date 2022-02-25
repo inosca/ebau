@@ -267,16 +267,13 @@ class AttachmentDownloadView(
 
     def _create_history_entry(self, request, attachment):
         fields = {
-            "keycloak_id": request.user.username,
-            "name": "{0} {1}".format(
-                getattr(request.user, "name", "Anonymous"),
-                getattr(request.user, "surname", "User"),
-            ),
             "attachment": attachment,
         }
 
         if bool(request.group):
             fields["group"] = request.group
+        if request.user.is_authenticated:
+            fields["user"] = request.user
         return models.AttachmentDownloadHistory.objects.create(**fields)
 
     @swagger_auto_schema(auto_schema=None)
