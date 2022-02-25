@@ -1605,7 +1605,8 @@ snapshots['test_instance_permissions_be[municipality-lead-district-subm-instance
         'read'
     ],
     'nfd': [
-        'read'
+        'read',
+        'write'
     ],
     'publikation': [
     ],
@@ -2060,7 +2061,8 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-subm-inst
         'read'
     ],
     'nfd': [
-        'read'
+        'read',
+        'write'
     ],
     'publikation': [
     ],
