@@ -233,7 +233,10 @@
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {
         "visibility": {
-          "type": "internal"
+          "type": "specific",
+          "visibleFor": {
+            "roles": [3]
+          }
         },
         "is_creatable": true
       },
@@ -256,7 +259,10 @@
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {
         "visibility": {
-          "type": "internal"
+          "type": "specific",
+          "visibleFor": {
+            "roles": [3]
+          }
         }
       },
       "is_published": true,
