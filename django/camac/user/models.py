@@ -2,6 +2,7 @@ import hashlib
 
 from django.conf import settings
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
+from django.contrib.auth.models import PermissionsMixin
 from django.contrib.postgres.fields import CIEmailField
 from django.db import models
 
@@ -22,7 +23,7 @@ class UserManager(BaseUserManager):
         return self.create_user(username, email, password, **extra_fields)
 
 
-class User(AbstractBaseUser):
+class User(AbstractBaseUser, PermissionsMixin):
     objects = UserManager()
 
     USERNAME_FIELD = "username"
@@ -48,6 +49,7 @@ class User(AbstractBaseUser):
     city = models.CharField(db_column="CITY", max_length=100, blank=True, null=True)
     zip = models.CharField(db_column="ZIP", max_length=10, blank=True, null=True)
     groups = models.ManyToManyField("Group", through="UserGroup", related_name="users")
+    is_staff = models.BooleanField(db_column="IS_STAFF", default=False)
 
     def _make_password(self, raw_password):
         salted = settings.AUTH_PASSWORT_SALT + raw_password
@@ -333,6 +335,7 @@ class Service(core_models.MultilingualModel, models.Model):
     class Meta:
         managed = True
         db_table = "SERVICE"
+        ordering = ["service_group__name"]
 
 
 class ServiceT(models.Model):

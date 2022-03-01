@@ -59,7 +59,11 @@ USE_X_FORWARDED_HOST = env.bool("DJANGO_USE_X_FORWARDED_HOST", default=False)
 # Application definition
 
 INSTALLED_APPS = [
+    "camac.apps.DjangoAdminConfig",
+    "django.contrib.messages",
     "django.contrib.auth",
+    "django.contrib.sessions",
+    "mozilla_django_oidc",
     "django.contrib.postgres",
     "django.contrib.contenttypes",
     "django.contrib.staticfiles",
@@ -106,13 +110,18 @@ INSTALLED_APPS = [
     # TODO: remove this when all production environments ran the migration to
     # delete the tables of this app
     "camac.file.apps.DefaultConfig",
+    "adminsortable2",
 ]
 
 if DEBUG:
     INSTALLED_APPS.append("django_extensions")
 
 MIDDLEWARE = [
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.security.SecurityMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "mozilla_django_oidc.middleware.SessionRefresh",
     "django.middleware.common.CommonMiddleware",
     "camac.user.middleware.GroupMiddleware",
     "camac.caluma.middleware.CalumaInfoMiddleware",
@@ -129,13 +138,14 @@ ROOT_URLCONF = "camac.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [os.path.join(ROOT_DIR, "camac/templates")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
                 "django.template.context_processors.debug",
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
             ],
             # for rendering plain-text emails
             "autoescape": False,
@@ -3226,4 +3236,51 @@ DOSSIER_IMPORT_CLIENT_ID = env.str(
 DOSSIER_IMPORT_CLIENT_SECRET = env.str(
     "DJANGO_DOSSIER_IMPORT_CLIENT_SECRET",
     default="KlYAayhG99lMGIUGKXhm9ha7lUNqQuD4",
+)
+
+# Django-Admin OIDC
+AUTHENTICATION_BACKENDS = [
+    "camac.user.authentication.DjangoAdminOIDCAuthenticationBackend",
+]
+
+OIDC_RP_CLIENT_ID = env.str("DJANGO_OIDC_RP_CLIENT_ID", default="camac")
+OIDC_RP_CLIENT_SECRET = env.str("DJANGO_OIDC_RP_CLIENT_SECRET", default=None)
+
+OIDC_DEFAULT_BASE_URL = env.str(
+    "DJANGO_OIDC_DEFAULT_BASE_URL",
+    default=f"{KEYCLOAK_URL}realms/{KEYCLOAK_REALM}/protocol/openid-connect",
+)
+
+OIDC_OP_AUTHORIZATION_ENDPOINT = env.str(
+    "DJANGO_OIDC_OP_AUTHORIZATION_ENDPOINT", default=f"{OIDC_DEFAULT_BASE_URL}/auth"
+)
+
+OIDC_OP_TOKEN_ENDPOINT = env.str(
+    "DJANGO_OIDC_OP_TOKEN_ENDPOINT", default=f"{OIDC_DEFAULT_BASE_URL}/token"
+)
+OIDC_OP_USER_ENDPOINT = env.str(
+    "DJANGO_OIDC_USERINFO_ENDPOINT", default=f"{OIDC_DEFAULT_BASE_URL}/userinfo"
+)
+
+# admin page after completing server-side authentication flow
+LOGIN_REDIRECT_URL = env.str(
+    "DJANGO_OIDC_ADMIN_LOGIN_REDIRECT_URL",
+    default=default(f"{INTERNAL_BASE_URL}/django-admin/"),
+)
+
+OIDC_RP_SIGN_ALGO = env.str("DJANGO_OIDC_RP_SIGN_ALGO", default="RS256")
+
+OIDC_OP_JWKS_ENDPOINT = env.str(
+    "DJANGO_OIDC_OP_JWKS_ENDPOINT", default=f"{OIDC_DEFAULT_BASE_URL}/certs"
+)
+
+OIDC_EMAIL_CLAIM = env.str("DJANGO_OIDC_EMAIL_CLAIM", default="email")
+
+OIDC_FIRSTNAME_CLAIM = env.str("DJANGO_OIDC_FIRSTNAME_CLAIM", default="given_name")
+
+OIDC_LASTNAME_CLAIM = env.str("DJANGO_OIDC_LASTNAME_CLAIM", default="family_name")
+
+OIDC_OP_INTROSPECT_ENDPOINT = env.str(
+    "DJANGO_OIDC_OP_INTROSPECT_ENDPOINT",
+    default=f"{OIDC_DEFAULT_BASE_URL}/token/introspect",
 )

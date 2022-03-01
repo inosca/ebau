@@ -1,3 +1,4 @@
+import functools
 import hashlib
 import logging
 
@@ -13,6 +14,7 @@ from django.utils.translation import gettext_lazy as _
 from jose.exceptions import ExpiredSignatureError, JOSEError
 from keycloak import KeycloakOpenID
 from keycloak.exceptions import KeycloakAuthenticationError
+from mozilla_django_oidc.auth import OIDCAuthenticationBackend
 from rest_framework.authentication import BaseAuthentication, get_authorization_header
 from rest_framework.exceptions import AuthenticationFailed
 
@@ -171,6 +173,47 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
 
     def authenticate_header(self, request):
         return 'JWT realm="{0}"'.format(settings.KEYCLOAK_REALM)
+
+
+class DjangoAdminOIDCAuthenticationBackend(OIDCAuthenticationBackend):
+    def get_userinfo_or_introspection(self, access_token):
+        return self.cached_request(self.get_userinfo, access_token, "auth.userinfo")
+
+    def get_or_create_user(self, access_token, id_token, payload):
+        """Verify claims and return user, otherwise raise an Exception."""
+
+        claims = self.get_userinfo_or_introspection(access_token)
+
+        users = self.filter_users_by_claims(claims)
+
+        user = users.get()
+        self.update_user_from_claims(user, claims)
+
+        return user
+
+    def update_user_from_claims(self, user, claims):
+        user.email = claims.get(settings.OIDC_EMAIL_CLAIM, "")
+        user.first_name = claims.get(settings.OIDC_FIRSTNAME_CLAIM, "")
+        user.last_name = claims.get(settings.OIDC_LASTNAME_CLAIM, "")
+        user.save()
+
+    def filter_users_by_claims(self, claims):
+        username = self.get_username(claims)
+        return self.UserModel.objects.filter(username__iexact=username)
+
+    def cached_request(self, method, token, cache_prefix):
+        token_hash = hashlib.sha256(force_bytes(token)).hexdigest()
+
+        func = functools.partial(method, token, None, None)
+
+        return cache.get_or_set(
+            f"{cache_prefix}.{token_hash}",
+            func,
+            timeout=settings.OIDC_BEARER_TOKEN_REVALIDATION_TIME,
+        )
+
+    def get_username(self, claims):
+        return claims[settings.OIDC_USERNAME_CLAIM]
 
 
 @transaction.atomic
