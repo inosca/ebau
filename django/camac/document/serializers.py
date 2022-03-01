@@ -14,6 +14,7 @@ from rest_framework_json_api import serializers
 
 from camac.core import serializers as core_serializers
 from camac.instance.mixins import InstanceEditableMixin
+from camac.instance.models import Instance
 from camac.notification.serializers import NotificationTemplateSendmailSerializer
 from camac.relations import FormDataResourceRelatedField
 from camac.user.permissions import permission_aware
@@ -108,14 +109,20 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         relative = self.context["request"].build_absolute_uri(f"/dav/{token.as_url()}")
         return f"ms-{handler}:ofe|u|{relative}"
 
-    def _get_default_attachment_sections(self, group):
-        return models.AttachmentSection.objects.filter_group(group)[:1]
+    def _get_default_attachment_sections(self, group, instance):
+        return models.AttachmentSection.objects.filter_group(group, instance)[:1]
 
     def validate_attachment_sections(self, attachment_sections):
         group = self.context["request"].group
 
+        # Supply the target instance for attachments that are being created
+        instance_id = self.get_initial().get("instance")
+        instance = Instance.objects.get(pk=instance_id) if instance_id else None
+
         if not attachment_sections:
-            attachment_sections = self._get_default_attachment_sections(group)
+            attachment_sections = self._get_default_attachment_sections(
+                group, instance_id
+            )
 
         existing_section_ids = (
             set(self.instance.attachment_sections.values_list("pk", flat=True))
@@ -128,7 +135,7 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
                 # document already assigned, so even if it's forbidden,
                 # it's not a violation
                 continue
-            if not attachment_section.can_write(self.instance, group):
+            if not attachment_section.can_write(self.instance, group, instance):
                 raise exceptions.ValidationError(
                     _("Insufficent permissions to add file to section '%(section)s'.")
                     % {"section": attachment_section.get_name()}
@@ -214,11 +221,17 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         if "path" in data:
             path = data["path"]
 
+            instance_id = (
+                self.instance.instance.pk
+                if self.instance
+                else self.get_initial().get("instance")
+            )
+
             attachment_sections = (
                 data["attachment_sections"]
                 if "attachment_sections" in data
                 else self._get_default_attachment_sections(
-                    self.context["request"].group
+                    self.context["request"].group, instance_id
                 )
             )
 
