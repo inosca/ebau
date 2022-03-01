@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.conf.urls import include
+from django.contrib import admin
 from django.urls import re_path
 from ebau_gwr.linker.views import GWRLinkViewSet
 from ebau_gwr.token_proxy.views import TokenProxyView
@@ -43,6 +44,8 @@ urlpatterns = [
     re_path(r"^api/v1/", include("gisbern.urls")),
     re_path(r"^api/v1/", include("camac.responsible.urls")),
     re_path(r"^api/v1/stats/", include("camac.stats.urls")),
+    re_path(r"^django-admin/", admin.site.urls),
+    re_path(r"^oidc/", include("mozilla_django_oidc.urls")),
     re_path(
         r"^api/swagger(?P<format>\.json|\.yaml)$",
         SCHEMA_VIEW.without_ui(cache_timeout=0),
