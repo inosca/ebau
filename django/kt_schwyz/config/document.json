@@ -120,6 +120,18 @@
     }
   },
   {
+    "model": "document.attachmentsection",
+    "pk": 12,
+    "fields": {
+      "name": "Dokumente, Dateien und Anh\u00e4nge",
+      "description": null,
+      "sort": 11,
+      "notification_template": null,
+      "recipient_types": "[]",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\"]"
+    }
+  },
+  {
     "model": "document.attachmentsectiont",
     "pk": 1,
     "fields": {
@@ -216,6 +228,16 @@
       "attachment_section": 11,
       "language": "de",
       "name": "Baukontrolle und Bauabnahme",
+      "description": null
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 11,
+    "fields": {
+      "attachment_section": 12,
+      "language": "de",
+      "name": "Dokumente, Dateien und Anh\u00e4nge",
       "description": null
     }
   }
