@@ -235,7 +235,7 @@
         "visibility": {
           "type": "specific",
           "visibleFor": {
-            "roles": [3]
+            "roles": [3, 12]
           }
         },
         "is_creatable": true
@@ -261,7 +261,7 @@
         "visibility": {
           "type": "specific",
           "visibleFor": {
-            "roles": [3]
+            "roles": [3, 12]
           }
         }
       },
