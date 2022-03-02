@@ -142,13 +142,13 @@ class AdminInternalBusinessControlPermission(AdminInternalPermission):
 
     @classmethod
     def is_internal_instance(cls, instance) -> bool:
-        return not instance or instance.instance_state.name in settings.APPLICATION.get(
+        return instance.instance_state.name in settings.APPLICATION.get(
             "ATTACHMENT_INTERNAL_STATES", []
         )
 
     @classmethod
     def is_case_running(cls, instance) -> bool:
-        return not instance or instance.case.status == Case.STATUS_RUNNING
+        return instance.case.status == Case.STATUS_RUNNING
 
     @classmethod
     def can_write(cls, attachment, group, instance=None) -> bool:
