@@ -1,6 +1,10 @@
-FROM python:3.7
+FROM python:3.8-slim
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
+	git \
+	build-essential \
+	curl \
+	imagemagick \
 	ghostscript \
 	postgresql-client \
 	gettext \
