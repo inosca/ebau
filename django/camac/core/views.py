@@ -172,8 +172,8 @@ class PublicationEntryView(ModelViewSet):
 
         return persons
 
-    @action(methods=["post"], detail=True)  # noqa: C901
-    def publish(self, request, pk=None):
+    @action(methods=["post"], detail=True)
+    def publish(self, request, pk=None):  # noqa: C901
         payload = {}
         publication = self.get_object()
         formFieldQuery = FormField.objects.filter(instance=publication.instance)
