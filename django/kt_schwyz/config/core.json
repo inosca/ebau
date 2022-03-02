@@ -4453,6 +4453,14 @@
     }
   },
   {
+    "model": "core.formgroupform",
+    "pk": 40,
+    "fields": {
+      "form_group": 1,
+      "form": 40
+    }
+  },
+  {
     "model": "core.grouppermission",
     "pk": 1,
     "fields": {
