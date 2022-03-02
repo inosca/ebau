@@ -749,7 +749,8 @@
       "modified_by_group": null,
       "workflow": "circulation",
       "task": "revise-statement",
-      "flow": "5458d733-43b8-46e3-9687-3683a41aea5c"
+      "flow": "5458d733-43b8-46e3-9687-3683a41aea5c",
+      "redoable": null
     }
   },
   {
@@ -764,7 +765,8 @@
       "modified_by_group": null,
       "workflow": "circulation",
       "task": "write-statement",
-      "flow": "35510a01-c37c-4f0d-b743-e81c2e3df7f6"
+      "flow": "35510a01-c37c-4f0d-b743-e81c2e3df7f6",
+      "redoable": null
     }
   },
   {
@@ -779,7 +781,8 @@
       "modified_by_group": null,
       "workflow": "building-permit",
       "task": "start-decision",
-      "flow": "f28bc947-71c4-4f64-a3ad-c12a664763f9"
+      "flow": "f28bc947-71c4-4f64-a3ad-c12a664763f9",
+      "redoable": null
     }
   },
   {
@@ -794,7 +797,8 @@
       "modified_by_group": null,
       "workflow": "building-permit",
       "task": "submit-additional-demand",
-      "flow": "cddc5d44-ef9d-4d48-9618-21567070b654"
+      "flow": "cddc5d44-ef9d-4d48-9618-21567070b654",
+      "redoable": null
     }
   },
   {
@@ -809,7 +813,8 @@
       "modified_by_group": null,
       "workflow": "building-permit",
       "task": "make-decision",
-      "flow": "83f2c279-bc8c-4cf4-97e1-8068fa85e8fa"
+      "flow": "83f2c279-bc8c-4cf4-97e1-8068fa85e8fa",
+      "redoable": null
     }
   },
   {
@@ -824,7 +829,8 @@
       "modified_by_group": null,
       "workflow": "building-permit",
       "task": "submit",
-      "flow": "eeb26142-ec06-428b-a971-5dccf67d7812"
+      "flow": "eeb26142-ec06-428b-a971-5dccf67d7812",
+      "redoable": null
     }
   },
   {
@@ -839,7 +845,8 @@
       "modified_by_group": null,
       "workflow": "building-permit",
       "task": "complete-check",
-      "flow": "915cdda0-42f9-4c76-9c5d-93438db5172b"
+      "flow": "915cdda0-42f9-4c76-9c5d-93438db5172b",
+      "redoable": null
     }
   },
   {
@@ -854,7 +861,8 @@
       "modified_by_group": null,
       "workflow": "building-permit",
       "task": "skip-circulation",
-      "flow": "3ee40b13-7014-4efb-8ca7-aeaf1f241c5b"
+      "flow": "3ee40b13-7014-4efb-8ca7-aeaf1f241c5b",
+      "redoable": null
     }
   },
   {
@@ -869,7 +877,8 @@
       "modified_by_group": null,
       "workflow": "building-permit",
       "task": "reopen-circulation",
-      "flow": "eef82db1-a20f-4ce0-89c8-145c55575cae"
+      "flow": "eef82db1-a20f-4ce0-89c8-145c55575cae",
+      "redoable": null
     }
   },
   {
@@ -884,7 +893,8 @@
       "modified_by_group": null,
       "workflow": "building-permit",
       "task": "additional-demand",
-      "flow": "b6059235-cba1-403c-9cbb-127502abd9ea"
+      "flow": "b6059235-cba1-403c-9cbb-127502abd9ea",
+      "redoable": null
     }
   },
   {
@@ -899,7 +909,8 @@
       "modified_by_group": null,
       "workflow": "building-permit",
       "task": "start-circulation",
-      "flow": "52bc4149-6c84-475b-b85b-e3293b8e7ea0"
+      "flow": "52bc4149-6c84-475b-b85b-e3293b8e7ea0",
+      "redoable": null
     }
   },
   {
@@ -914,7 +925,8 @@
       "modified_by_group": null,
       "workflow": "circulation",
       "task": "alter-statement",
-      "flow": "7462ad22-2f90-4bb4-815b-496b453dc0f1"
+      "flow": "7462ad22-2f90-4bb4-815b-496b453dc0f1",
+      "redoable": null
     }
   },
   {
@@ -929,7 +941,8 @@
       "modified_by_group": null,
       "workflow": "building-permit",
       "task": "start-additional-circulation",
-      "flow": "74adbeb1-9e28-48d7-97f9-62975bdf5b71"
+      "flow": "74adbeb1-9e28-48d7-97f9-62975bdf5b71",
+      "redoable": null
     }
   },
   {
@@ -944,7 +957,8 @@
       "modified_by_group": null,
       "workflow": "building-permit",
       "task": "reject-form",
-      "flow": "f2bb6f3c-8f85-443f-977f-2f05dfb5c996"
+      "flow": "f2bb6f3c-8f85-443f-977f-2f05dfb5c996",
+      "redoable": null
     }
   },
   {
@@ -959,7 +973,8 @@
       "modified_by_group": null,
       "workflow": "building-permit",
       "task": "circulation",
-      "flow": "4e405383-e014-4106-b95c-853da58a568b"
+      "flow": "4e405383-e014-4106-b95c-853da58a568b",
+      "redoable": null
     }
   },
   {
@@ -974,7 +989,8 @@
       "modified_by_group": null,
       "workflow": "building-permit",
       "task": "formal-addition",
-      "flow": "f0d95573-f1d6-4e63-bc70-0b145caa6aea"
+      "flow": "f0d95573-f1d6-4e63-bc70-0b145caa6aea",
+      "redoable": null
     }
   },
   {
@@ -989,7 +1005,8 @@
       "modified_by_group": null,
       "workflow": "building-permit",
       "task": "depreciate-case",
-      "flow": "83f2c279-bc8c-4cf4-97e1-8068fa85e8fa"
+      "flow": "83f2c279-bc8c-4cf4-97e1-8068fa85e8fa",
+      "redoable": null
     }
   },
   {

@@ -4,9 +4,9 @@
     "pk": 13,
     "fields": {
       "slug": "ruckweisung",
-      "purpose": "R\u00fcckweisung",
-      "subject": "Gesuch {{identifier}}: R\u00fcckweisung zur Erg\u00e4nzung / Bereinigung",
-      "body": "Ihr Gesuch ({{identifier}}, {{location}}) weist formelle M\u00e4ngel auf. Bitte bereinigen Sie diese und reichen das Gesuch wieder ein.",
+      "purpose": "Rückweisung",
+      "subject": "Gesuch {{identifier}}: Rückweisung zur Ergänzung / Bereinigung",
+      "body": "Ihr Gesuch ({{identifier}}, {{location}}) weist formelle Mängel auf. Bitte bereinigen Sie diese und reichen das Gesuch wieder ein.",
       "service": null,
       "type": "email"
     }
@@ -18,7 +18,7 @@
       "slug": "nachforderung",
       "purpose": "Nachforderung",
       "subject": "Gesuch {{identifier}}: Nachforderung",
-      "body": "Die bisherige materielle Pr\u00fcfung Ihres Gesuchs ({{identifier}}, {{location}}) hat ergeben, dass erg\u00e4nzende Unterlagen und/oder eine Projektanpassung n\u00f6tig sind. Details k\u00f6nnen Sie dem Schreiben in der Dokumentenablage \u00abFreigegebene Unterlagen\u00bb entnehmen. Einen Direktlink erhalten Sie mit separater E-Mail Nachricht.",
+      "body": "Die bisherige materielle Prüfung Ihres Gesuchs ({{identifier}}, {{location}}) hat ergeben, dass ergänzende Unterlagen und/oder eine Projektanpassung nötig sind. Details können Sie dem Schreiben in der Dokumentenablage «Freigegebene Unterlagen» entnehmen. Einen Direktlink erhalten Sie mit separater E-Mail Nachricht.",
       "service": null,
       "type": "email"
     }
@@ -30,7 +30,7 @@
       "slug": "bewilligungsprozess-gestartet",
       "purpose": "Bewilligungsprozess gestartet",
       "subject": "Gesuch {{identifier}}: Bewilligungsprozess gestartet",
-      "body": "Ihr Gesuch ({{identifier}}, {{location}}) wurde formell gepr\u00fcft und wird nun der materiellen Beurteilung zugef\u00fchrt.",
+      "body": "Ihr Gesuch ({{identifier}}, {{location}}) wurde formell geprüft und wird nun der materiellen Beurteilung zugeführt.",
       "service": null,
       "type": "email"
     }
@@ -42,7 +42,7 @@
       "slug": "gesuchseingang",
       "purpose": "Gesuchseingang",
       "subject": "Gesuch {{identifier}}: neues Gesuch oder Aktion in laufendem Gesuch",
-      "body": "Ein neues Gesuch ist eingegangen oder zu einem laufenden Gesuch wurden nachtr\u00e4glich Unterlagen hochgeladen ({{identifier}}, {{location}}).\r\n\r\nSie finden das Gesuch im CAMAC (https://behoerden.ebau-sz.ch) unter dem Tab \"Neue Gesuche\".",
+      "body": "Ein neues Gesuch ist eingegangen oder zu einem laufenden Gesuch wurden nachträglich Unterlagen hochgeladen ({{identifier}}, {{location}}).\r\n\r\nSie finden das Gesuch im CAMAC (https://behoerden.ebau-sz.ch) unter dem Tab \"Neue Gesuche\".",
       "service": null,
       "type": "email"
     }
@@ -66,7 +66,7 @@
       "slug": "bereitstellung-von-dokumenten",
       "purpose": "Bereitstellung von Dokumenten",
       "subject": "Gesuch {{identifier}}: Dokumente zum Download bereit",
-      "body": "Zu Ihrem Gesuch {{identifier}}, {{location}} wurden Ihnen Dokumente freigegeben. Sie k\u00f6nnen diese \u00fcber das eBau Portal einsehen.\r\n",
+      "body": "Zu Ihrem Gesuch {{identifier}}, {{location}} wurden Ihnen Dokumente freigegeben. Sie können diese über das eBau Portal einsehen.\r\n",
       "service": null,
       "type": "email"
     }
@@ -78,7 +78,7 @@
       "slug": "gesuchsbearbeitungs-einladung-neu",
       "purpose": "Gesuchsbearbeitungs Einladung, Neu",
       "subject": "Sie wurden eingeladen an einem Baugesuch mitzuarbeiten",
-      "body": "Sie wurden eingeladen am Baugesuch {{ public_dossier_link }} mitzuarbeiten.\r\n\r\nUm das Baugesuch einsehen und bearbeiten zu k\u00f6nnen, ist eine Registration auf dem eBau Portal des Kanton Schwyz erforderlich.\r\nUnter folgendem Link k\u00f6nnen Sie sich registrieren: {{ registration_link }}",
+      "body": "Sie wurden eingeladen am Baugesuch {{ public_dossier_link }} mitzuarbeiten.\r\n\r\nUm das Baugesuch einsehen und bearbeiten zu können, ist eine Registration auf dem eBau Portal des Kanton Schwyz erforderlich.\r\nUnter folgendem Link können Sie sich registrieren: {{ registration_link }}",
       "service": null,
       "type": "email"
     }

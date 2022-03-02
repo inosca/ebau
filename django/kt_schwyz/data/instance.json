@@ -93,7 +93,7 @@
       "user": 1,
       "created_at": "2020-11-23T13:34:42.342Z",
       "title": "Notifikation gesendet an test@test.test ([eBau Test]: Sie wurden Eingeladen ein Baugesuch mitzubearbeiten)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nSie wurden eingeladen am Baugesuch http://caluma-portal.local/instances/1 mitzuarbeiten.\n\nUm das Baugesuch einsehen und bearbeiten zu k\u00f6nnen, ist eine Registration auf dem eBau Portal des Kanton Schwyz erforderlich.\nUnter folgendem Link k\u00f6nnen Sie sich registrieren: http://camac-ng-keycloak.local/auth/realms/ebau/login-actions/registration?client_id=camac",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nSie wurden eingeladen am Baugesuch http://caluma-portal.local/instances/1 mitzuarbeiten.\n\nUm das Baugesuch einsehen und bearbeiten zu können, ist eine Registration auf dem eBau Portal des Kanton Schwyz erforderlich.\nUnter folgendem Link können Sie sich registrieren: http://camac-ng-keycloak.local/auth/realms/ebau/login-actions/registration?client_id=camac",
       "history_type": "notification"
     }
   },
@@ -106,7 +106,7 @@
       "user": 1,
       "created_at": "2020-11-23T13:36:29.016Z",
       "title": "Notifikation gesendet an bauverwaltung@gemeindeschwyz.ch ([eBau Test]: Gesuch 72-20-001: neues Gesuch oder Aktion in laufendem Gesuch)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nEin neues Gesuch ist eingegangen oder zu einem laufenden Gesuch wurden nachtr\u00e4glich Unterlagen hochgeladen (72-20-001, Schwyz).\n\nSie finden das Gesuch im CAMAC (https://behoerden.ebau-sz.ch) unter dem Tab \"Neue Gesuche\".",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nEin neues Gesuch ist eingegangen oder zu einem laufenden Gesuch wurden nachträglich Unterlagen hochgeladen (72-20-001, Schwyz).\n\nSie finden das Gesuch im CAMAC (https://behoerden.ebau-sz.ch) unter dem Tab \"Neue Gesuche\".",
       "history_type": "notification"
     }
   },
@@ -119,7 +119,7 @@
       "user": 1,
       "created_at": "2020-11-23T13:40:27.004Z",
       "title": "Notifikation gesendet an bauverwaltung@gemeindeschwyz.ch ([eBau Test]: Gesuch 72-20-002: neues Gesuch oder Aktion in laufendem Gesuch)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nEin neues Gesuch ist eingegangen oder zu einem laufenden Gesuch wurden nachtr\u00e4glich Unterlagen hochgeladen (72-20-002, Schwyz).\n\nSie finden das Gesuch im CAMAC (https://behoerden.ebau-sz.ch) unter dem Tab \"Neue Gesuche\".",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nEin neues Gesuch ist eingegangen oder zu einem laufenden Gesuch wurden nachträglich Unterlagen hochgeladen (72-20-002, Schwyz).\n\nSie finden das Gesuch im CAMAC (https://behoerden.ebau-sz.ch) unter dem Tab \"Neue Gesuche\".",
       "history_type": "notification"
     }
   },
@@ -132,7 +132,7 @@
       "user": 1,
       "created_at": "2020-11-23T13:47:46.299Z",
       "title": "Notifikation gesendet an bauverwaltung@gemeindeschwyz.ch ([eBau Test]: Gesuch 72-20-003: neues Gesuch oder Aktion in laufendem Gesuch)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nEin neues Gesuch ist eingegangen oder zu einem laufenden Gesuch wurden nachtr\u00e4glich Unterlagen hochgeladen (72-20-003, Schwyz).\n\nSie finden das Gesuch im CAMAC (https://behoerden.ebau-sz.ch) unter dem Tab \"Neue Gesuche\".",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nEin neues Gesuch ist eingegangen oder zu einem laufenden Gesuch wurden nachträglich Unterlagen hochgeladen (72-20-003, Schwyz).\n\nSie finden das Gesuch im CAMAC (https://behoerden.ebau-sz.ch) unter dem Tab \"Neue Gesuche\".",
       "history_type": "notification"
     }
   },
@@ -145,7 +145,7 @@
       "user": 1,
       "created_at": "2020-11-23T14:02:38.408Z",
       "title": "Notifikation gesendet an bauverwaltung@gemeindeschwyz.ch ([eBau Test]: Gesuch 72-20-004: neues Gesuch oder Aktion in laufendem Gesuch)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nEin neues Gesuch ist eingegangen oder zu einem laufenden Gesuch wurden nachtr\u00e4glich Unterlagen hochgeladen (72-20-004, Schwyz).\n\nSie finden das Gesuch im CAMAC (https://behoerden.ebau-sz.ch) unter dem Tab \"Neue Gesuche\".",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nEin neues Gesuch ist eingegangen oder zu einem laufenden Gesuch wurden nachträglich Unterlagen hochgeladen (72-20-004, Schwyz).\n\nSie finden das Gesuch im CAMAC (https://behoerden.ebau-sz.ch) unter dem Tab \"Neue Gesuche\".",
       "history_type": "notification"
     }
   },
@@ -158,7 +158,7 @@
       "user": 1,
       "created_at": "2020-11-23T14:11:54.146Z",
       "title": "Notifikation gesendet an admin-camac@example.net ([eBau Test]: Gesuch 72-20-001: Bewilligungsprozess gestartet)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nIhr Gesuch (72-20-001, Schwyz) wurde formell gepr\u00fcft und wird nun der materiellen Beurteilung zugef\u00fchrt.",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nIhr Gesuch (72-20-001, Schwyz) wurde formell geprüft und wird nun der materiellen Beurteilung zugeführt.",
       "history_type": "notification"
     }
   },
@@ -184,7 +184,7 @@
       "user": 1,
       "created_at": "2020-11-23T14:12:51.619Z",
       "title": "Notifikation gesendet an admin-camac@example.net ([eBau Test]: Gesuch 72-20-003: Bewilligungsprozess gestartet)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nIhr Gesuch (72-20-003, Schwyz) wurde formell gepr\u00fcft und wird nun der materiellen Beurteilung zugef\u00fchrt.",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nIhr Gesuch (72-20-003, Schwyz) wurde formell geprüft und wird nun der materiellen Beurteilung zugeführt.",
       "history_type": "notification"
     }
   },
@@ -210,7 +210,7 @@
       "user": 1,
       "created_at": "2020-11-23T14:13:27.061Z",
       "title": "Notifikation gesendet an admin-camac@example.net ([eBau Test]: Gesuch 72-20-004: Bewilligungsprozess gestartet)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nIhr Gesuch (72-20-004, Schwyz) wurde formell gepr\u00fcft und wird nun der materiellen Beurteilung zugef\u00fchrt.",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nIhr Gesuch (72-20-004, Schwyz) wurde formell geprüft und wird nun der materiellen Beurteilung zugeführt.",
       "history_type": "notification"
     }
   },
@@ -271,7 +271,7 @@
     "pk": 1,
     "fields": {
       "title": "Notifikation gesendet an test@test.test ([eBau Test]: Sie wurden Eingeladen ein Baugesuch mitzubearbeiten)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nSie wurden eingeladen am Baugesuch http://caluma-portal.local/instances/1 mitzuarbeiten.\n\nUm das Baugesuch einsehen und bearbeiten zu k\u00f6nnen, ist eine Registration auf dem eBau Portal des Kanton Schwyz erforderlich.\nUnter folgendem Link k\u00f6nnen Sie sich registrieren: http://camac-ng-keycloak.local/auth/realms/ebau/login-actions/registration?client_id=camac",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nSie wurden eingeladen am Baugesuch http://caluma-portal.local/instances/1 mitzuarbeiten.\n\nUm das Baugesuch einsehen und bearbeiten zu können, ist eine Registration auf dem eBau Portal des Kanton Schwyz erforderlich.\nUnter folgendem Link können Sie sich registrieren: http://camac-ng-keycloak.local/auth/realms/ebau/login-actions/registration?client_id=camac",
       "history_entry": 1,
       "language": "de"
     }
@@ -280,8 +280,8 @@
     "model": "instance.historyentryt",
     "pk": 2,
     "fields": {
-      "title": "Notification envoy\u00e9e \u00e0 test@test.test ([eBau Test]: Sie wurden Eingeladen ein Baugesuch mitzubearbeiten)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nSie wurden eingeladen am Baugesuch http://caluma-portal.local/instances/1 mitzuarbeiten.\n\nUm das Baugesuch einsehen und bearbeiten zu k\u00f6nnen, ist eine Registration auf dem eBau Portal des Kanton Schwyz erforderlich.\nUnter folgendem Link k\u00f6nnen Sie sich registrieren: http://camac-ng-keycloak.local/auth/realms/ebau/login-actions/registration?client_id=camac",
+      "title": "Notification envoyée à test@test.test ([eBau Test]: Sie wurden Eingeladen ein Baugesuch mitzubearbeiten)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nSie wurden eingeladen am Baugesuch http://caluma-portal.local/instances/1 mitzuarbeiten.\n\nUm das Baugesuch einsehen und bearbeiten zu können, ist eine Registration auf dem eBau Portal des Kanton Schwyz erforderlich.\nUnter folgendem Link können Sie sich registrieren: http://camac-ng-keycloak.local/auth/realms/ebau/login-actions/registration?client_id=camac",
       "history_entry": 1,
       "language": "fr"
     }
@@ -291,7 +291,7 @@
     "pk": 3,
     "fields": {
       "title": "Notifikation gesendet an bauverwaltung@gemeindeschwyz.ch ([eBau Test]: Gesuch 72-20-001: neues Gesuch oder Aktion in laufendem Gesuch)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nEin neues Gesuch ist eingegangen oder zu einem laufenden Gesuch wurden nachtr\u00e4glich Unterlagen hochgeladen (72-20-001, Schwyz).\n\nSie finden das Gesuch im CAMAC (https://behoerden.ebau-sz.ch) unter dem Tab \"Neue Gesuche\".",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nEin neues Gesuch ist eingegangen oder zu einem laufenden Gesuch wurden nachträglich Unterlagen hochgeladen (72-20-001, Schwyz).\n\nSie finden das Gesuch im CAMAC (https://behoerden.ebau-sz.ch) unter dem Tab \"Neue Gesuche\".",
       "history_entry": 2,
       "language": "de"
     }
@@ -300,8 +300,8 @@
     "model": "instance.historyentryt",
     "pk": 4,
     "fields": {
-      "title": "Notification envoy\u00e9e \u00e0 bauverwaltung@gemeindeschwyz.ch ([eBau Test]: Gesuch 72-20-001: neues Gesuch oder Aktion in laufendem Gesuch)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nEin neues Gesuch ist eingegangen oder zu einem laufenden Gesuch wurden nachtr\u00e4glich Unterlagen hochgeladen (72-20-001, Schwyz).\n\nSie finden das Gesuch im CAMAC (https://behoerden.ebau-sz.ch) unter dem Tab \"Neue Gesuche\".",
+      "title": "Notification envoyée à bauverwaltung@gemeindeschwyz.ch ([eBau Test]: Gesuch 72-20-001: neues Gesuch oder Aktion in laufendem Gesuch)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nEin neues Gesuch ist eingegangen oder zu einem laufenden Gesuch wurden nachträglich Unterlagen hochgeladen (72-20-001, Schwyz).\n\nSie finden das Gesuch im CAMAC (https://behoerden.ebau-sz.ch) unter dem Tab \"Neue Gesuche\".",
       "history_entry": 2,
       "language": "fr"
     }
@@ -311,7 +311,7 @@
     "pk": 5,
     "fields": {
       "title": "Notifikation gesendet an bauverwaltung@gemeindeschwyz.ch ([eBau Test]: Gesuch 72-20-002: neues Gesuch oder Aktion in laufendem Gesuch)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nEin neues Gesuch ist eingegangen oder zu einem laufenden Gesuch wurden nachtr\u00e4glich Unterlagen hochgeladen (72-20-002, Schwyz).\n\nSie finden das Gesuch im CAMAC (https://behoerden.ebau-sz.ch) unter dem Tab \"Neue Gesuche\".",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nEin neues Gesuch ist eingegangen oder zu einem laufenden Gesuch wurden nachträglich Unterlagen hochgeladen (72-20-002, Schwyz).\n\nSie finden das Gesuch im CAMAC (https://behoerden.ebau-sz.ch) unter dem Tab \"Neue Gesuche\".",
       "history_entry": 3,
       "language": "de"
     }
@@ -320,8 +320,8 @@
     "model": "instance.historyentryt",
     "pk": 6,
     "fields": {
-      "title": "Notification envoy\u00e9e \u00e0 bauverwaltung@gemeindeschwyz.ch ([eBau Test]: Gesuch 72-20-002: neues Gesuch oder Aktion in laufendem Gesuch)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nEin neues Gesuch ist eingegangen oder zu einem laufenden Gesuch wurden nachtr\u00e4glich Unterlagen hochgeladen (72-20-002, Schwyz).\n\nSie finden das Gesuch im CAMAC (https://behoerden.ebau-sz.ch) unter dem Tab \"Neue Gesuche\".",
+      "title": "Notification envoyée à bauverwaltung@gemeindeschwyz.ch ([eBau Test]: Gesuch 72-20-002: neues Gesuch oder Aktion in laufendem Gesuch)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nEin neues Gesuch ist eingegangen oder zu einem laufenden Gesuch wurden nachträglich Unterlagen hochgeladen (72-20-002, Schwyz).\n\nSie finden das Gesuch im CAMAC (https://behoerden.ebau-sz.ch) unter dem Tab \"Neue Gesuche\".",
       "history_entry": 3,
       "language": "fr"
     }
@@ -331,7 +331,7 @@
     "pk": 7,
     "fields": {
       "title": "Notifikation gesendet an bauverwaltung@gemeindeschwyz.ch ([eBau Test]: Gesuch 72-20-003: neues Gesuch oder Aktion in laufendem Gesuch)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nEin neues Gesuch ist eingegangen oder zu einem laufenden Gesuch wurden nachtr\u00e4glich Unterlagen hochgeladen (72-20-003, Schwyz).\n\nSie finden das Gesuch im CAMAC (https://behoerden.ebau-sz.ch) unter dem Tab \"Neue Gesuche\".",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nEin neues Gesuch ist eingegangen oder zu einem laufenden Gesuch wurden nachträglich Unterlagen hochgeladen (72-20-003, Schwyz).\n\nSie finden das Gesuch im CAMAC (https://behoerden.ebau-sz.ch) unter dem Tab \"Neue Gesuche\".",
       "history_entry": 4,
       "language": "de"
     }
@@ -340,8 +340,8 @@
     "model": "instance.historyentryt",
     "pk": 8,
     "fields": {
-      "title": "Notification envoy\u00e9e \u00e0 bauverwaltung@gemeindeschwyz.ch ([eBau Test]: Gesuch 72-20-003: neues Gesuch oder Aktion in laufendem Gesuch)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nEin neues Gesuch ist eingegangen oder zu einem laufenden Gesuch wurden nachtr\u00e4glich Unterlagen hochgeladen (72-20-003, Schwyz).\n\nSie finden das Gesuch im CAMAC (https://behoerden.ebau-sz.ch) unter dem Tab \"Neue Gesuche\".",
+      "title": "Notification envoyée à bauverwaltung@gemeindeschwyz.ch ([eBau Test]: Gesuch 72-20-003: neues Gesuch oder Aktion in laufendem Gesuch)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nEin neues Gesuch ist eingegangen oder zu einem laufenden Gesuch wurden nachträglich Unterlagen hochgeladen (72-20-003, Schwyz).\n\nSie finden das Gesuch im CAMAC (https://behoerden.ebau-sz.ch) unter dem Tab \"Neue Gesuche\".",
       "history_entry": 4,
       "language": "fr"
     }
@@ -351,7 +351,7 @@
     "pk": 9,
     "fields": {
       "title": "Notifikation gesendet an bauverwaltung@gemeindeschwyz.ch ([eBau Test]: Gesuch 72-20-004: neues Gesuch oder Aktion in laufendem Gesuch)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nEin neues Gesuch ist eingegangen oder zu einem laufenden Gesuch wurden nachtr\u00e4glich Unterlagen hochgeladen (72-20-004, Schwyz).\n\nSie finden das Gesuch im CAMAC (https://behoerden.ebau-sz.ch) unter dem Tab \"Neue Gesuche\".",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nEin neues Gesuch ist eingegangen oder zu einem laufenden Gesuch wurden nachträglich Unterlagen hochgeladen (72-20-004, Schwyz).\n\nSie finden das Gesuch im CAMAC (https://behoerden.ebau-sz.ch) unter dem Tab \"Neue Gesuche\".",
       "history_entry": 5,
       "language": "de"
     }
@@ -360,8 +360,8 @@
     "model": "instance.historyentryt",
     "pk": 10,
     "fields": {
-      "title": "Notification envoy\u00e9e \u00e0 bauverwaltung@gemeindeschwyz.ch ([eBau Test]: Gesuch 72-20-004: neues Gesuch oder Aktion in laufendem Gesuch)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nEin neues Gesuch ist eingegangen oder zu einem laufenden Gesuch wurden nachtr\u00e4glich Unterlagen hochgeladen (72-20-004, Schwyz).\n\nSie finden das Gesuch im CAMAC (https://behoerden.ebau-sz.ch) unter dem Tab \"Neue Gesuche\".",
+      "title": "Notification envoyée à bauverwaltung@gemeindeschwyz.ch ([eBau Test]: Gesuch 72-20-004: neues Gesuch oder Aktion in laufendem Gesuch)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nEin neues Gesuch ist eingegangen oder zu einem laufenden Gesuch wurden nachträglich Unterlagen hochgeladen (72-20-004, Schwyz).\n\nSie finden das Gesuch im CAMAC (https://behoerden.ebau-sz.ch) unter dem Tab \"Neue Gesuche\".",
       "history_entry": 5,
       "language": "fr"
     }
@@ -371,7 +371,7 @@
     "pk": 11,
     "fields": {
       "title": "Notifikation gesendet an admin-camac@example.net ([eBau Test]: Gesuch 72-20-001: Bewilligungsprozess gestartet)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nIhr Gesuch (72-20-001, Schwyz) wurde formell gepr\u00fcft und wird nun der materiellen Beurteilung zugef\u00fchrt.",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nIhr Gesuch (72-20-001, Schwyz) wurde formell geprüft und wird nun der materiellen Beurteilung zugeführt.",
       "history_entry": 6,
       "language": "de"
     }
@@ -380,8 +380,8 @@
     "model": "instance.historyentryt",
     "pk": 12,
     "fields": {
-      "title": "Notification envoy\u00e9e \u00e0 admin-camac@example.net ([eBau Test]: Gesuch 72-20-001: Bewilligungsprozess gestartet)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nIhr Gesuch (72-20-001, Schwyz) wurde formell gepr\u00fcft und wird nun der materiellen Beurteilung zugef\u00fchrt.",
+      "title": "Notification envoyée à admin-camac@example.net ([eBau Test]: Gesuch 72-20-001: Bewilligungsprozess gestartet)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nIhr Gesuch (72-20-001, Schwyz) wurde formell geprüft und wird nun der materiellen Beurteilung zugeführt.",
       "history_entry": 6,
       "language": "fr"
     }
@@ -401,7 +401,7 @@
     "pk": 14,
     "fields": {
       "title": "Notifikation gesendet an admin-camac@example.net ([eBau Test]: Gesuch 72-20-003: Bewilligungsprozess gestartet)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nIhr Gesuch (72-20-003, Schwyz) wurde formell gepr\u00fcft und wird nun der materiellen Beurteilung zugef\u00fchrt.",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nIhr Gesuch (72-20-003, Schwyz) wurde formell geprüft und wird nun der materiellen Beurteilung zugeführt.",
       "history_entry": 8,
       "language": "de"
     }
@@ -410,8 +410,8 @@
     "model": "instance.historyentryt",
     "pk": 15,
     "fields": {
-      "title": "Notification envoy\u00e9e \u00e0 admin-camac@example.net ([eBau Test]: Gesuch 72-20-003: Bewilligungsprozess gestartet)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nIhr Gesuch (72-20-003, Schwyz) wurde formell gepr\u00fcft und wird nun der materiellen Beurteilung zugef\u00fchrt.",
+      "title": "Notification envoyée à admin-camac@example.net ([eBau Test]: Gesuch 72-20-003: Bewilligungsprozess gestartet)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nIhr Gesuch (72-20-003, Schwyz) wurde formell geprüft und wird nun der materiellen Beurteilung zugeführt.",
       "history_entry": 8,
       "language": "fr"
     }
@@ -431,7 +431,7 @@
     "pk": 17,
     "fields": {
       "title": "Notifikation gesendet an admin-camac@example.net ([eBau Test]: Gesuch 72-20-004: Bewilligungsprozess gestartet)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nIhr Gesuch (72-20-004, Schwyz) wurde formell gepr\u00fcft und wird nun der materiellen Beurteilung zugef\u00fchrt.",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nIhr Gesuch (72-20-004, Schwyz) wurde formell geprüft und wird nun der materiellen Beurteilung zugeführt.",
       "history_entry": 10,
       "language": "de"
     }
@@ -440,8 +440,8 @@
     "model": "instance.historyentryt",
     "pk": 18,
     "fields": {
-      "title": "Notification envoy\u00e9e \u00e0 admin-camac@example.net ([eBau Test]: Gesuch 72-20-004: Bewilligungsprozess gestartet)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nIhr Gesuch (72-20-004, Schwyz) wurde formell gepr\u00fcft und wird nun der materiellen Beurteilung zugef\u00fchrt.",
+      "title": "Notification envoyée à admin-camac@example.net ([eBau Test]: Gesuch 72-20-004: Bewilligungsprozess gestartet)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nIhr Gesuch (72-20-004, Schwyz) wurde formell geprüft und wird nun der materiellen Beurteilung zugeführt.",
       "history_entry": 10,
       "language": "fr"
     }
@@ -563,7 +563,7 @@
     "fields": {
       "instance": 1,
       "name": "art-der-nutzung",
-      "value": ["Wohnen", "Industrie", "\u00d6ffentliche Nutzung"]
+      "value": ["Wohnen", "Industrie", "Öffentliche Nutzung"]
     }
   },
   {
@@ -572,7 +572,7 @@
     "fields": {
       "instance": 1,
       "name": "vorhaben-mit-baute",
-      "value": ["Neubau", "Nutzungs\u00e4nderung"]
+      "value": ["Neubau", "Nutzungsänderung"]
     }
   },
   {
@@ -840,14 +840,14 @@
           "vers-nr": "12345",
           "leistung": 757,
           "geschosse": 9,
-          "kategorie": "Geb\u00e4ude mit ausschliesslicher Wohnnutzung",
+          "kategorie": "Gebäude mit ausschliesslicher Wohnnutzung",
           "wohnungen": [
             {
               "lage": "Oben",
               "uuid": "a135f419-5928-4eaf-9aca-d659070cac7d",
               "flache": 166,
               "zimmer": 13,
-              "kuchenart": "K\u00fcche (min. 4m\u00b2)",
+              "kuchenart": "Küche (min. 4m²)",
               "stockwerk": "1",
               "maisonette": "Nein",
               "eingangs-nr": "12"
@@ -857,8 +857,8 @@
           "heizungsart": "Einzelofenheizung",
           "kataster-nr": "12345",
           "beherbungsbetrieb": "Nein",
-          "energietrager-heizung": "Elektrizit\u00e4t",
-          "energietrager-warmwasser": "Elektrizit\u00e4t"
+          "energietrager-heizung": "Elektrizität",
+          "energietrager-warmwasser": "Elektrizität"
         }
       ]
     }
@@ -950,7 +950,7 @@
     "fields": {
       "instance": 1,
       "name": "arbeitssicherheit-tangiert",
-      "value": ["Arbeitsr\u00e4ume", "Betriebseinrichtungen"]
+      "value": ["Arbeitsräume", "Betriebseinrichtungen"]
     }
   },
   {
@@ -1183,7 +1183,7 @@
     "fields": {
       "instance": 2,
       "name": "vorhaben-mit-anlage",
-      "value": ["R\u00fcckbau"]
+      "value": ["Rückbau"]
     }
   },
   {
@@ -1420,7 +1420,7 @@
     "fields": {
       "instance": 2,
       "name": "arbeitssicherheit-tangiert",
-      "value": ["Gesundheitssch\u00e4dliche Stoffe"]
+      "value": ["Gesundheitsschädliche Stoffe"]
     }
   },
   {
@@ -1831,7 +1831,7 @@
     "fields": {
       "instance": 3,
       "name": "geometer-v2",
-      "value": "HSK Ingenieur AG (Goldau, K\u00fcssnacht, Brunnen)"
+      "value": "HSK Ingenieur AG (Goldau, Küssnacht, Brunnen)"
     }
   },
   {
@@ -2103,7 +2103,7 @@
     "fields": {
       "instance": 4,
       "name": "art-der-nutzung",
-      "value": ["\u00d6ffentliche Nutzung"]
+      "value": ["Öffentliche Nutzung"]
     }
   },
   {
@@ -2639,7 +2639,7 @@
     "fields": {
       "instance": 5,
       "name": "geometer-v2",
-      "value": "Wild Ingenieure AG (K\u00fcssnacht)"
+      "value": "Wild Ingenieure AG (Küssnacht)"
     }
   },
   {
