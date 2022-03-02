@@ -137,24 +137,25 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     activation_answer_de = serializers.SerializerMethodField()
     activation_answer_fr = serializers.SerializerMethodField()
 
-    def __init__(self, instance, *args, activation=None, escape=False, **kwargs):
-        self.escape = escape
+    def __init__(self, *args, instance=None, activation=None, escape=False, **kwargs):
+        if instance:
+            self.escape = escape
 
-        lookup = {"circulation__instance": instance}
-        if activation:
-            self.activation = activation
-            self.circulation = self.activation.circulation
+            lookup = {"circulation__instance": instance}
+            if activation:
+                self.activation = activation
+                self.circulation = self.activation.circulation
 
-            lookup.update(
-                {
-                    "circulation": self.activation.circulation,
-                    "service_parent": self.activation.service_parent,
-                }
-            )
+                lookup.update(
+                    {
+                        "circulation": self.activation.circulation,
+                        "service_parent": self.activation.service_parent,
+                    }
+                )
 
-        instance.activations = Activation.objects.filter(**lookup)
+            instance.activations = Activation.objects.filter(**lookup)
 
-        super().__init__(instance, *args, **kwargs)
+        super().__init__(*args, instance=instance, **kwargs)
 
     def _escape(self, data):
         result = data
@@ -550,12 +551,16 @@ class IssueMergeSerializer(serializers.Serializer):
         ret = super().to_representation(issue)
 
         # include instance merge fields
-        ret.update(InstanceMergeSerializer(issue.instance, context=self.context).data)
+        ret.update(
+            InstanceMergeSerializer(instance=issue.instance, context=self.context).data
+        )
 
         return ret
 
 
 class NotificationTemplateSerializer(serializers.ModelSerializer):
+    notification_type = serializers.CharField(source="type")
+
     def create(self, validated_data):
         service = self.context["request"].group.service
         validated_data["service"] = service
@@ -569,7 +574,7 @@ class NotificationTemplateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.NotificationTemplate
-        fields = ("slug", "purpose", "subject", "body", "type", "service")
+        fields = ("slug", "purpose", "subject", "body", "notification_type", "service")
 
 
 class NotificationTemplateMergeSerializer(
@@ -597,7 +602,7 @@ class NotificationTemplateMergeSerializer(
         try:
             value_template = jinja2.Template(value)
             data = InstanceMergeSerializer(
-                instance, context=self.context, activation=activation
+                instance=instance, context=self.context, activation=activation
             ).data
 
             # some cantons use uppercase placeholders. be as compatible as possible

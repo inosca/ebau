@@ -447,7 +447,7 @@ class TemplateView(ModelViewSet):
         response["Content-Disposition"] = 'attachment; filename="{0}"'.format(filename)
         response["Content-Type"] = mimetypes.guess_type(filename)[0]
 
-        serializer = self.get_serializer(instance, escape=True)
+        serializer = self.get_serializer(instance=instance, escape=True)
         serializer.validate_instance(instance)
         data = serializer.data
 
