@@ -15,7 +15,8 @@ export default class TextcomponentComponent extends Component {
       .filter((template) => {
         return (
           parseInt(template.belongsTo("service").id()) ===
-            this.shoebox.content.serviceId && template.type === "textcomponent"
+            this.shoebox.content.serviceId &&
+          template.notificationType === "textcomponent"
         );
       });
 

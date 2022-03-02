@@ -78,7 +78,7 @@ def test_notification_template_create(admin_client, notification_template, statu
                 "slug": "test",
                 "body": "Test",
                 "purpose": "Test",
-                "type": "textcomponent",
+                "notification-type": "textcomponent",
                 "subject": "Test",
             },
         }
@@ -88,7 +88,7 @@ def test_notification_template_create(admin_client, notification_template, statu
     assert response.status_code == status_code
     if status_code == status.HTTP_201_CREATED:
         json = response.json()
-        assert json["data"]["attributes"]["type"] == "textcomponent"
+        assert json["data"]["attributes"]["notification-type"] == "textcomponent"
 
 
 @pytest.mark.parametrize(
@@ -821,7 +821,7 @@ def test_notification_validate_slug_update(admin_client, notification_template):
                 "slug": "test",
                 "body": "Test",
                 "purpose": "Test",
-                "type": "textcomponent",
+                "notification-type": "textcomponent",
                 "subject": "Test",
             },
         }
@@ -843,7 +843,7 @@ def test_notification_validate_slug_create(admin_client, notification_template):
                 "slug": notification_template.slug,
                 "body": "Test",
                 "purpose": "Test",
-                "type": "textcomponent",
+                "notification-type": "textcomponent",
                 "subject": "Test",
             },
         }
@@ -1194,7 +1194,7 @@ def test_recipient_inactive_municipality(
 def test_portal_submission_placeholder(
     db, instance, camac_answer_factory, mocker, submitter_type
 ):
-    serializer = InstanceMergeSerializer(instance)
+    serializer = InstanceMergeSerializer(instance=instance)
     if submitter_type is not None:
         ans_submitter_type = camac_answer_factory(
             answer=submitter_type, instance=instance
