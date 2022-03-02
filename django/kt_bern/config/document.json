@@ -150,7 +150,7 @@
       "attachment_section": 1,
       "language": "de",
       "name": "Beilagen zum Gesuch",
-      "description": "Diese Dokumente wurden vom Gesuchstellenden hochgeladen und sind f\u00fcr alle am Verfahren beteiligten Beh\u00f6rden einsehbar."
+      "description": "Diese Dokumente wurden vom Gesuchstellenden hochgeladen und sind für alle am Verfahren beteiligten Behörden einsehbar."
     }
   },
   {
@@ -159,8 +159,8 @@
     "fields": {
       "attachment_section": 2,
       "language": "de",
-      "name": "Beteiligte Beh\u00f6rden",
-      "description": "Hier werden die von den beteiligten Beh\u00f6rden erfassten Dokumente (z.B. Verf\u00fcgungen, Amts- und Fachberichte, Stellungnahmen) hochgeladen. Diese Dokumente sind nur f\u00fcr die am Verfahren beteiligten Beh\u00f6rden sichtbar, nicht aber f\u00fcr die Gesuchstellenden."
+      "name": "Beteiligte Behörden",
+      "description": "Hier werden die von den beteiligten Behörden erfassten Dokumente (z.B. Verfügungen, Amts- und Fachberichte, Stellungnahmen) hochgeladen. Diese Dokumente sind nur für die am Verfahren beteiligten Behörden sichtbar, nicht aber für die Gesuchstellenden."
     }
   },
   {
@@ -170,7 +170,7 @@
       "attachment_section": 3,
       "language": "de",
       "name": "Alle Beteiligten",
-      "description": "Hier werden von der Leitbeh\u00f6rde Dokumente hochgeladen, welche f\u00fcr alle am Verfahren beteiligten Rollen einsehbar sein sollen (z.B. Verfahrensprogramm, Bauentscheid). Gesuchstellenden werden diese Dokumente im eBau-Portal unter \"R\u00fcckmeldungen\" angezeigt."
+      "description": "Hier werden von der Leitbehörde Dokumente hochgeladen, welche für alle am Verfahren beteiligten Rollen einsehbar sein sollen (z.B. Verfahrensprogramm, Bauentscheid). Gesuchstellenden werden diese Dokumente im eBau-Portal unter \"Rückmeldungen\" angezeigt."
     }
   },
   {
@@ -180,7 +180,7 @@
       "attachment_section": 4,
       "language": "de",
       "name": "Intern",
-      "description": "Hier werden Dokumente hochgeladen, welche nur innerhalb der eigenen Organisation sichtbar sein sollen. In diesem Ordner bestehen keine Einschr\u00e4nkungen hinsichtlich der erlaubten Dateiformate."
+      "description": "Hier werden Dokumente hochgeladen, welche nur innerhalb der eigenen Organisation sichtbar sein sollen. In diesem Ordner bestehen keine Einschränkungen hinsichtlich der erlaubten Dateiformate."
     }
   },
   {
@@ -210,7 +210,7 @@
       "attachment_section": 7,
       "language": "de",
       "name": "Nachforderungen",
-      "description": "Diese Dokumente wurden im Rahmen einer Nachforderung vom Gesuchstellenden hochgeladen und sind f\u00fcr alle beteiligten Beh\u00f6rden einsehbar."
+      "description": "Diese Dokumente wurden im Rahmen einer Nachforderung vom Gesuchstellenden hochgeladen und sind für alle beteiligten Behörden einsehbar."
     }
   },
   {
@@ -229,8 +229,8 @@
     "fields": {
       "attachment_section": 1,
       "language": "fr",
-      "name": "Pi\u00e8ces jointes \u00e0 la demande",
-      "description": "Ces documents ont \u00e9t\u00e9 t\u00e9l\u00e9charg\u00e9s par la personne requ\u00e9rante et peuvent \u00eatre consult\u00e9s par toutes les autorit\u00e9s impliqu\u00e9es dans la proc\u00e9dure."
+      "name": "Pièces jointes à la demande",
+      "description": "Ces documents ont été téléchargés par la personne requérante et peuvent être consultés par toutes les autorités impliquées dans la procédure."
     }
   },
   {
@@ -239,8 +239,8 @@
     "fields": {
       "attachment_section": 7,
       "language": "fr",
-      "name": "Demandes de compl\u00e9ment d\u2019information",
-      "description": "Ces documents ont \u00e9t\u00e9 t\u00e9l\u00e9charg\u00e9s par la personne requ\u00e9rante dans le cadre d'une demande de compl\u00e9ment d\u2019information et peuvent \u00eatre consult\u00e9s par toutes les autorit\u00e9s concern\u00e9es."
+      "name": "Demandes de complément d’information",
+      "description": "Ces documents ont été téléchargés par la personne requérante dans le cadre d'une demande de complément d’information et peuvent être consultés par toutes les autorités concernées."
     }
   },
   {
@@ -249,8 +249,8 @@
     "fields": {
       "attachment_section": 2,
       "language": "fr",
-      "name": "Autorit\u00e9s participantes",
-      "description": "C'est l\u00e0 que les documents enregistr\u00e9s par les autorit\u00e9s participantes sont t\u00e9l\u00e9charg\u00e9s (par exemple, les d\u00e9cisions, les rapports officiels et techniques, prises de position). Ces documents ne sont visibles que par les autorit\u00e9s impliqu\u00e9es dans la proc\u00e9dure, mais pas par les personnes requ\u00e9rantes."
+      "name": "Autorités participantes",
+      "description": "C'est là que les documents enregistrés par les autorités participantes sont téléchargés (par exemple, les décisions, les rapports officiels et techniques, prises de position). Ces documents ne sont visibles que par les autorités impliquées dans la procédure, mais pas par les personnes requérantes."
     }
   },
   {
@@ -260,7 +260,7 @@
       "attachment_section": 3,
       "language": "fr",
       "name": "Toutes les parties",
-      "description": "C'est l\u00e0 que les documents visibles par toutes les parties impliqu\u00e9es dans la proc\u00e9dure sont t\u00e9l\u00e9charg\u00e9s par l'autorit\u00e9 directrice (par exemple, programme de proc\u00e9dure, permis de construire). Les personnes requ\u00e9rantes peuvent consulter ces documents sur le portail eBau, sous la rubrique \"Remarques\"."
+      "description": "C'est là que les documents visibles par toutes les parties impliquées dans la procédure sont téléchargés par l'autorité directrice (par exemple, programme de procédure, permis de construire). Les personnes requérantes peuvent consulter ces documents sur le portail eBau, sous la rubrique \"Remarques\"."
     }
   },
   {
@@ -270,7 +270,7 @@
       "attachment_section": 4,
       "language": "fr",
       "name": "Interne",
-      "description": "Ici sont t\u00e9l\u00e9charg\u00e9s des documents qui ne doivent \u00eatre visibles qu'au sein de la propre organisation. Dans ce dossier, il n'y a aucune restriction concernant les formats de fichiers autoris\u00e9s."
+      "description": "Ici sont téléchargés des documents qui ne doivent être visibles qu'au sein de la propre organisation. Dans ce dossier, il n'y a aucune restriction concernant les formats de fichiers autorisés."
     }
   },
   {
@@ -279,7 +279,7 @@
     "fields": {
       "attachment_section": 8,
       "language": "fr",
-      "name": "Documents de d\u00e9cision",
+      "name": "Documents de décision",
       "description": null
     }
   },
@@ -289,8 +289,8 @@
     "fields": {
       "attachment_section": 6,
       "language": "fr",
-      "name": "Suppl\u00e9ments DC1",
-      "description": "Ces documents ont \u00e9t\u00e9 t\u00e9l\u00e9charg\u00e9s par la personne requ\u00e9rante dans le cadre de d\u00e9claration spontan\u00e9e en mati\u00e8re de contr\u00f4le des constructions 1 (DC1)."
+      "name": "Suppléments DC1",
+      "description": "Ces documents ont été téléchargés par la personne requérante dans le cadre de déclaration spontanée en matière de contrôle des constructions 1 (DC1)."
     }
   },
   {
@@ -299,8 +299,8 @@
     "fields": {
       "attachment_section": 5,
       "language": "fr",
-      "name": "Suppl\u00e9ments DC2",
-      "description": "Ces documents ont \u00e9t\u00e9 t\u00e9l\u00e9charg\u00e9s par la personne requ\u00e9rante dans le cadre de la d\u00e9claration spontan\u00e9e en mati\u00e8re de contr\u00f4le des constructions 2 (DC2)."
+      "name": "Suppléments DC2",
+      "description": "Ces documents ont été téléchargés par la personne requérante dans le cadre de la déclaration spontanée en matière de contrôle des constructions 2 (DC2)."
     }
   },
   {
@@ -310,7 +310,7 @@
       "attachment_section": 13,
       "language": "de",
       "name": "Beilagen zum Gesuch (Papier)",
-      "description": "Hier k\u00f6nnen Dokumente hochgeladen werden, welche durch die Gesuchstellenden in Papierform (oder ausserhalb des Systems, z.B. per Mail) eingereicht wurden sind. Die Dokumente sind f\u00fcr alle am Verfahren beteiligten Beh\u00f6rden einsehbar."
+      "description": "Hier können Dokumente hochgeladen werden, welche durch die Gesuchstellenden in Papierform (oder ausserhalb des Systems, z.B. per Mail) eingereicht wurden sind. Die Dokumente sind für alle am Verfahren beteiligten Behörden einsehbar."
     }
   },
   {
@@ -319,8 +319,8 @@
     "fields": {
       "attachment_section": 13,
       "language": "fr",
-      "name": "Pi\u00e8ces jointes \u00e0 la demande (papier)",
-      "description": "vous pouvez t\u00e9l\u00e9charger ici les documents qui ont \u00e9t\u00e9 soumis par la personne requ\u00e9rante sous forme papier (ou en dehors du syst\u00e8me eBau, par exemple par courrier \u00e9lectronique). Les documents peuvent \u00eatre consult\u00e9s par toutes les autorit\u00e9s impliqu\u00e9es dans la proc\u00e9dure."
+      "name": "Pièces jointes à la demande (papier)",
+      "description": "vous pouvez télécharger ici les documents qui ont été soumis par la personne requérante sous forme papier (ou en dehors du système eBau, par exemple par courrier électronique). Les documents peuvent être consultés par toutes les autorités impliquées dans la procédure."
     }
   },
   {
@@ -330,7 +330,7 @@
       "attachment_section": 10,
       "language": "de",
       "name": "Beilagen SB1 (Papier)",
-      "description": "Hier k\u00f6nnen Dokumente hochgeladen werden, welche durch die Gesuchstellenden in Papierform (oder ausserhalb des Systems, z.B. per Mail) im Rahmen der Selbstdeklaration (SB1) eingereicht wurden sind. Die Dokumente sind f\u00fcr alle am Verfahren beteiligten Beh\u00f6rden einsehbar."
+      "description": "Hier können Dokumente hochgeladen werden, welche durch die Gesuchstellenden in Papierform (oder ausserhalb des Systems, z.B. per Mail) im Rahmen der Selbstdeklaration (SB1) eingereicht wurden sind. Die Dokumente sind für alle am Verfahren beteiligten Behörden einsehbar."
     }
   },
   {
@@ -339,8 +339,8 @@
     "fields": {
       "attachment_section": 10,
       "language": "fr",
-      "name": "Suppl\u00e9ments DC1 (papier)",
-      "description": "Il est possible de t\u00e9l\u00e9charger ici des documents qui ont \u00e9t\u00e9 soumis par la personne requ\u00e9rante sur papier (ou en dehors du syst\u00e8me eBau, par exemple par courrier \u00e9lectronique) dans le cadre de la d\u00e9claration spontan\u00e9e en mati\u00e8re de contr\u00f4le des constructions 1 (DC1). Les documents peuvent \u00eatre consult\u00e9s par toutes les autorit\u00e9s impliqu\u00e9es dans la proc\u00e9dure."
+      "name": "Suppléments DC1 (papier)",
+      "description": "Il est possible de télécharger ici des documents qui ont été soumis par la personne requérante sur papier (ou en dehors du système eBau, par exemple par courrier électronique) dans le cadre de la déclaration spontanée en matière de contrôle des constructions 1 (DC1). Les documents peuvent être consultés par toutes les autorités impliquées dans la procédure."
     }
   },
   {
@@ -350,7 +350,7 @@
       "attachment_section": 11,
       "language": "de",
       "name": "Beilagen SB2 (Papier)",
-      "description": "Hier k\u00f6nnen Dokumente hochgeladen werden, welche durch die Gesuchstellenden in Papierform (oder ausserhalb des Systems, z.B. per Mail) im Rahmen der Selbstdeklaration (SB2) eingereicht wurden sind. Die Dokumente sind f\u00fcr alle am Verfahren beteiligten Beh\u00f6rden einsehbar."
+      "description": "Hier können Dokumente hochgeladen werden, welche durch die Gesuchstellenden in Papierform (oder ausserhalb des Systems, z.B. per Mail) im Rahmen der Selbstdeklaration (SB2) eingereicht wurden sind. Die Dokumente sind für alle am Verfahren beteiligten Behörden einsehbar."
     }
   },
   {
@@ -359,8 +359,8 @@
     "fields": {
       "attachment_section": 11,
       "language": "fr",
-      "name": "Suppl\u00e9ments DC2 (papier)",
-      "description": "Il est possible de t\u00e9l\u00e9charger ici des documents qui ont \u00e9t\u00e9 soumis par la personne requ\u00e9rante sur papier (ou en dehors du syst\u00e8me eBau, par exemple par courrier \u00e9lectronique) dans le cadre de la d\u00e9claration spontan\u00e9e en mati\u00e8re de contr\u00f4le des constructions 2 (DC2). Les documents peuvent \u00eatre consult\u00e9s par toutes les autorit\u00e9s impliqu\u00e9es dans la proc\u00e9dure."
+      "name": "Suppléments DC2 (papier)",
+      "description": "Il est possible de télécharger ici des documents qui ont été soumis par la personne requérante sur papier (ou en dehors du système eBau, par exemple par courrier électronique) dans le cadre de la déclaration spontanée en matière de contrôle des constructions 2 (DC2). Les documents peuvent être consultés par toutes les autorités impliquées dans la procédure."
     }
   },
   {
@@ -370,7 +370,7 @@
       "attachment_section": 12,
       "language": "de",
       "name": "Nachforderungen (Papier)",
-      "description": "Hier k\u00f6nnen Dokumente hochgeladen werden, welche durch die Gesuchstellenden in Papierform (oder ausserhalb des Systems, z.B. per Mail) im Rahmen einer Nachforderung eingereicht wurden sind. Die Dokumente sind f\u00fcr alle beteiligten am Verfahren Beh\u00f6rden einsehbar."
+      "description": "Hier können Dokumente hochgeladen werden, welche durch die Gesuchstellenden in Papierform (oder ausserhalb des Systems, z.B. per Mail) im Rahmen einer Nachforderung eingereicht wurden sind. Die Dokumente sind für alle beteiligten am Verfahren Behörden einsehbar."
     }
   },
   {
@@ -379,8 +379,8 @@
     "fields": {
       "attachment_section": 12,
       "language": "fr",
-      "name": "Demandes de compl\u00e9ment d\u2019information (papier)",
-      "description": "Il est possible de t\u00e9l\u00e9charger ici des documents qui ont \u00e9t\u00e9 soumis par la personne requ\u00e9rante sur papier (ou en dehors du syst\u00e8me eBau, par exemple par courrier \u00e9lectronique) dans le cadre d'une demande de compl\u00e9ment d\u2019information. Les documents peuvent \u00eatre consult\u00e9s par toutes les autorit\u00e9s impliqu\u00e9es dans la proc\u00e9dure."
+      "name": "Demandes de complément d’information (papier)",
+      "description": "Il est possible de télécharger ici des documents qui ont été soumis par la personne requérante sur papier (ou en dehors du système eBau, par exemple par courrier électronique) dans le cadre d'une demande de complément d’information. Les documents peuvent être consultés par toutes les autorités impliquées dans la procédure."
     }
   }
 ]

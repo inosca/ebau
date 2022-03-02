@@ -51,7 +51,7 @@
     "model": "document.attachmentsection",
     "pk": 6,
     "fields": {
-      "name": "Bauentscheid und Merkbl\u00e4tter",
+      "name": "Bauentscheid und Merkblätter",
       "description": null,
       "sort": 7,
       "notification_template": null,
@@ -87,7 +87,7 @@
     "model": "document.attachmentsection",
     "pk": 9,
     "fields": {
-      "name": "Dokumente f\u00fcr Gesuchsteller",
+      "name": "Dokumente für Gesuchsteller",
       "description": null,
       "sort": 10,
       "notification_template": null,
@@ -123,7 +123,7 @@
     "model": "document.attachmentsection",
     "pk": 12,
     "fields": {
-      "name": "Dokumente, Dateien und Anh\u00e4nge",
+      "name": "Dokumente, Dateien und Anhänge",
       "description": null,
       "sort": 11,
       "notification_template": null,
@@ -177,7 +177,7 @@
     "fields": {
       "attachment_section": 6,
       "language": "de",
-      "name": "Bauentscheid und Merkbl\u00e4tter",
+      "name": "Bauentscheid und Merkblätter",
       "description": null
     }
   },
@@ -207,7 +207,7 @@
     "fields": {
       "attachment_section": 9,
       "language": "de",
-      "name": "Dokumente f\u00fcr Gesuchsteller",
+      "name": "Dokumente für Gesuchsteller",
       "description": null
     }
   },
@@ -237,7 +237,7 @@
     "fields": {
       "attachment_section": 12,
       "language": "de",
-      "name": "Dokumente, Dateien und Anh\u00e4nge",
+      "name": "Dokumente, Dateien und Anhänge",
       "description": null
     }
   }

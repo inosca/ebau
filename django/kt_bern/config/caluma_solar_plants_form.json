@@ -634,6 +634,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": null, \"fr\": \"\"}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -664,6 +665,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": null, \"fr\": \"\"}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -694,6 +696,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"[Richtlinien \\u00abBewilligungsfreie Anlagen zur Gewinnung von erneuerbarer Energie\\u00bb](https://www.weu.be.ch/content/dam/weu/dokumente/aue/de/energievorschriften-bauen/aue-en-richtlinien-erneuerbare-energien-de.pdf)\", \"fr\": \"[Directives \\u00abInstallations de production d\\u2019\\u00e9nergies renouvelables non soumises au r\\u00e9gime du permis de construire\\u00bb](http://www.weu.be.ch/content/dam/weu/dokumente/aue/fr/energievorschriften-bauen/aue-en-richtlinien-erneuerbare-energien-fr.pdf)\"}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {
@@ -726,6 +729,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": null, \"fr\": \"\"}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {
@@ -758,6 +762,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": null, \"fr\": \"\"}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {
@@ -791,6 +796,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"Gem\\u00e4ss Art.18a des Raumplanungsgesetzes (RPG; SR 700) m\\u00fcssen Solaranlagen, die nicht der Bewilligungspflicht unterstehen, vor der Realisierung der zust\\u00e4ndigen Beh\\u00f6rde gemeldet werden.\\n\\nF\\u00fcr nicht gen\\u00fcgend angepasste Anlagen\\u00b9 ist immer <u>eine Baubewilligung n\\u00f6tig</u>. Dies gilt auch f\\u00fcr Solaranlagen auf Kultur- und Naturdenkm\\u00e4lern. Mit dem Einreichen eines Baugesuchs ist aber auch die Meldepflicht erf\\u00fcllt.\\n\\nF\\u00fcr Anlagen, bei denen keine Baubewilligung notwendig ist, <u>besteht eine Meldepflicht</u>. Zust\\u00e4ndige Beh\\u00f6rde f\\u00fcr die Meldung der Solaranlage ist die Standortgemeinde.\\n\\n<p class=\\\"uk-text-meta\\\">\\u00b9 vgl. auch Art. 32a und b Raumplanungsverordnung (RPV; SR 700.1) sowie <a href=\\\"https://www.weu.be.ch/content/dam/weu/dokumente/aue/de/energievorschriften-bauen/aue-en-richtlinien-erneuerbare-energien-de.pdf\\\">Richtlinien \\u00abBewilligungsfreie Anlagen zur Gewinnung von erneuerbarer Energie\\u00bb</a></p>\\n\\n<hr class=\\\"uk-margin-remove-bottom\\\">\", \"fr\": \"L\\u2019article 18a de la loi sur l\\u2019am\\u00e9nagement du territoire (LAT; RS 700) pr\\u00e9voit que les installations solaires qui ne n\\u00e9cessitent pas d\\u2019autorisation doivent \\u00eatre annonc\\u00e9es \\u00e0 l\\u2019autorit\\u00e9 comp\\u00e9tente avant le d\\u00e9but des travaux.\\n\\nDans le cas des installations consid\\u00e9r\\u00e9es comme non suffisamment adapt\\u00e9es aux toits\\u00b9, <u>un permis de construire est</u> toujours <u>n\\u00e9cessaire</u>. Cette r\\u00e8gle s\\u2019applique \\u00e9galement aux installations solaires pr\\u00e9vues sur des biens culturels ou dans des sites naturels. La remise d\\u2019une demande de permis de construire r\\u00e9pond \\u00e9galement \\u00e0 l\\u2019obligation d\\u2019annoncer.\\n\\nLes installations solaires qui n\\u2019exigent pas de permis de construire <u>doivent</u> obligatoirement <u>\\u00eatre annonc\\u00e9es</u>. L\\u2019autorit\\u00e9 \\u00e0 laquelle il convient de faire cette annonce est la commune concern\\u00e9e par l\\u2019installation.\\n\\n<p class=\\\"uk-text-meta\\\">\\u00b9 Voir \\u00e9galement les articles 32a et 32b de l\\u2019ordonnance sur l\\u2019am\\u00e9nagement du territoire (OAT; RS 700.1) ainsi que les <a href=\\\"http://www.weu.be.ch/content/dam/weu/dokumente/aue/fr/energievorschriften-bauen/aue-en-richtlinien-erneuerbare-energien-fr.pdf\\\">directives \\u00abInstallations de production d\\u2019\\u00e9nergies renouvelables non soumises au r\\u00e9gime du permis de construire\\u00bb</a></p>\\n\\n<hr class=\\\"uk-margin-remove-bottom\\\">\"}",
       "configuration": {},
       "meta": {},
@@ -821,6 +827,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {
@@ -857,6 +864,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": \"\"}",
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -890,6 +898,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": \"\"}",
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_value": null,
@@ -923,6 +932,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": \"\"}",
       "info_text": "{\"de\": \"[Merkblatt - Reinigung und Entw\\u00e4sserung von Fl\\u00e4chen mit Photovoltaikanlagen und Sonnenkollektoren sowie Glasd\\u00e4chern](https://www.bvd.be.ch/content/dam/bvd/dokumente/de/awa/wasser/abwasserentsorgung/grundst%C3%BCcksentw%C3%A4sserung/photovoltaikanlagen,-sonnenkollektoren-und-glasd%C3%A4cher/merkblatt-reinigung-und-entwaesserung-von-photovoltaikanlagen.pdf)\", \"fr\": \"[Notice Evacuation des eaux de nettoyage d'installations photovolta\\u00efques, de panneaux solaires et de toits en verre](https://www.bvd.be.ch/content/dam/bvd/dokumente/fr/awa/wasser/abwasserentsorgung/grundst%C3%BCcksentw%C3%A4sserung/photovoltaikanlagen,-sonnenkollektoren-und-glasd%C3%A4cher/merkblatt-reinigung-und-entwaesserung-von-photovoltaikanlagen-fr.pdf)\"}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_value": null,
@@ -956,6 +966,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": \"\"}",
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_value": null,
@@ -989,6 +1000,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {
@@ -1022,6 +1034,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -1052,6 +1065,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -1082,6 +1096,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -1112,6 +1127,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": \"\"}",
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -1145,6 +1161,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": null, \"fr\": \"\"}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},

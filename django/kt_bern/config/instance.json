@@ -201,7 +201,7 @@
     "fields": {
       "instance_state": 10000,
       "language": "de",
-      "name": "Zur\u00fcckgewiesen",
+      "name": "Zurückgewiesen",
       "description": null
     }
   },
@@ -261,7 +261,7 @@
     "fields": {
       "instance_state": 20008,
       "language": "de",
-      "name": "Korrigiert von Leitbeh\u00f6rde",
+      "name": "Korrigiert von Leitbehörde",
       "description": null
     }
   },
@@ -341,7 +341,7 @@
     "fields": {
       "instance_state": 10000,
       "language": "fr",
-      "name": "Renvoy\u00e9e",
+      "name": "Renvoyée",
       "description": null
     }
   },
@@ -351,7 +351,7 @@
     "fields": {
       "instance_state": 20000,
       "language": "fr",
-      "name": "Attribuer un num\u00e9ro eBau",
+      "name": "Attribuer un numéro eBau",
       "description": null
     }
   },
@@ -361,7 +361,7 @@
     "fields": {
       "instance_state": 20004,
       "language": "fr",
-      "name": "En proc\u00e9dure de circulation",
+      "name": "En procédure de circulation",
       "description": null
     }
   },
@@ -391,7 +391,7 @@
     "fields": {
       "instance_state": 20008,
       "language": "fr",
-      "name": "Corrig\u00e9 par l'autorit\u00e9 directrice",
+      "name": "Corrigé par l'autorité directrice",
       "description": null
     }
   },
@@ -401,7 +401,7 @@
     "fields": {
       "instance_state": 20009,
       "language": "fr",
-      "name": "Archiv\u00e9",
+      "name": "Archivé",
       "description": null
     }
   },
@@ -431,7 +431,7 @@
     "fields": {
       "instance_state": 20010,
       "language": "fr",
-      "name": "\u00c9valuation cl\u00f4tur\u00e9e",
+      "name": "Évaluation clôturée",
       "description": null
     }
   },
@@ -441,7 +441,7 @@
     "fields": {
       "instance_state": 20011,
       "language": "fr",
-      "name": " D\u00e9claration spontan\u00e9e (DC1)",
+      "name": " Déclaration spontanée (DC1)",
       "description": null
     }
   },
@@ -471,7 +471,7 @@
     "fields": {
       "instance_state": 120000,
       "language": "fr",
-      "name": "Termin\u00e9",
+      "name": "Terminé",
       "description": null
     }
   },
@@ -531,7 +531,7 @@
     "fields": {
       "instance_state": 120003,
       "language": "fr",
-      "name": "Termin\u00e9 (interne)",
+      "name": "Terminé (interne)",
       "description": null
     }
   }
