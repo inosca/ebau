@@ -3544,7 +3544,7 @@
     "pk": "voranfrage-button-abschliessen",
     "fields": {
       "created_at": "2022-02-08T13:40:16.740Z",
-      "modified_at": "2022-02-08T13:40:16.740Z",
+      "modified_at": "2022-03-02T09:20:13.130Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": null,
@@ -3555,7 +3555,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"<h3>Hinweis</h3>\\nNach dem Abschliessen des internen Gesch\\u00e4fts k\\u00f6nnen keine \\u00c4nderungen mehr angebracht werden.</br> \\nWollen Sie trotzdem fortfahren?\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "color": "primary",
