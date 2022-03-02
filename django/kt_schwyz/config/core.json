@@ -369,7 +369,7 @@
     "fields": {
       "available_action": "workflow",
       "button": 1,
-      "name": "Workflow Datum Dossier vollst\u00e4ndig setzen",
+      "name": "Workflow Datum Dossier vollständig setzen",
       "description": null,
       "success_message": null,
       "error_message": null,
@@ -735,8 +735,8 @@
       "button": 31,
       "name": "activation idle to run",
       "description": null,
-      "success_message": "Erfolgreich zur Zirkulation hinzugef\u00fcgt.",
-      "error_message": "Konnte nicht zur Zirkulation hinzugef\u00fcgt werden.",
+      "success_message": "Erfolgreich zur Zirkulation hinzugefügt.",
+      "error_message": "Konnte nicht zur Zirkulation hinzugefügt werden.",
       "execute_always": 0,
       "sort": 1
     }
@@ -1349,7 +1349,7 @@
     "fields": {
       "available_action": "pageredirect",
       "button": 38,
-      "name": "Zur\u00fcck zur Aufgabenliste",
+      "name": "Zurück zur Aufgabenliste",
       "description": null,
       "success_message": null,
       "error_message": null,
@@ -1363,7 +1363,7 @@
     "fields": {
       "available_action": "pageredirect",
       "button": 34,
-      "name": "Zur\u00fcck zur Zirkulation",
+      "name": "Zurück zur Zirkulation",
       "description": null,
       "success_message": null,
       "error_message": null,
@@ -1377,7 +1377,7 @@
     "fields": {
       "available_action": "pageredirect",
       "button": 37,
-      "name": "Zur\u00fcck zur Zirkulation",
+      "name": "Zurück zur Zirkulation",
       "description": null,
       "success_message": null,
       "error_message": null,
@@ -1391,7 +1391,7 @@
     "fields": {
       "available_action": "pageredirect",
       "button": 44,
-      "name": "Zur\u00fcck zur Zirkulation",
+      "name": "Zurück zur Zirkulation",
       "description": null,
       "success_message": null,
       "error_message": null,
@@ -1405,7 +1405,7 @@
     "fields": {
       "available_action": "pageredirect",
       "button": 45,
-      "name": "Zur\u00fcck zur Zirkulation",
+      "name": "Zurück zur Zirkulation",
       "description": null,
       "success_message": null,
       "error_message": null,
@@ -1419,7 +1419,7 @@
     "fields": {
       "available_action": "pageredirect",
       "button": 46,
-      "name": "Zur\u00fcck zur Zirkulation",
+      "name": "Zurück zur Zirkulation",
       "description": null,
       "success_message": null,
       "error_message": null,
@@ -1433,7 +1433,7 @@
     "fields": {
       "available_action": "pageredirect",
       "button": 21,
-      "name": "Zur\u00fcck zur Aufgabenliste",
+      "name": "Zurück zur Aufgabenliste",
       "description": null,
       "success_message": null,
       "error_message": null,
@@ -1447,7 +1447,7 @@
     "fields": {
       "available_action": "pageredirect",
       "button": 3,
-      "name": "Zur\u00fcck zur Aufgabenliste",
+      "name": "Zurück zur Aufgabenliste",
       "description": null,
       "success_message": null,
       "error_message": null,
@@ -1461,7 +1461,7 @@
     "fields": {
       "available_action": "pageredirect",
       "button": 23,
-      "name": "Zur\u00fcck zur Zirkulation",
+      "name": "Zurück zur Zirkulation",
       "description": null,
       "success_message": null,
       "error_message": null,
@@ -1475,7 +1475,7 @@
     "fields": {
       "available_action": "pageredirect",
       "button": 19,
-      "name": "Zur\u00fcck zur Aufgabenliste",
+      "name": "Zurück zur Aufgabenliste",
       "description": null,
       "success_message": null,
       "error_message": null,
@@ -1489,7 +1489,7 @@
     "fields": {
       "available_action": "pageredirect",
       "button": 1,
-      "name": "Zur\u00fcck zur Aufgabenliste",
+      "name": "Zurück zur Aufgabenliste",
       "description": null,
       "success_message": null,
       "error_message": null,
@@ -1503,7 +1503,7 @@
     "fields": {
       "available_action": "workflow",
       "button": 3,
-      "name": "Workflow Datum R\u00fcckweisung",
+      "name": "Workflow Datum Rückweisung",
       "description": null,
       "success_message": null,
       "error_message": null,
@@ -3591,7 +3591,7 @@
     "pk": 3,
     "fields": {
       "instance_resource": 33,
-      "name": "R\u00fcckweisung",
+      "name": "Rückweisung",
       "description": null,
       "class_field": null,
       "hidden": 0,
@@ -3651,7 +3651,7 @@
     "pk": 10,
     "fields": {
       "instance_resource": 7,
-      "name": "Zu aktueller Zirkulation hinzuf\u00fcgen",
+      "name": "Zu aktueller Zirkulation hinzufügen",
       "description": null,
       "class_field": "add_to_circ",
       "hidden": 0,
@@ -3759,7 +3759,7 @@
     "pk": 28,
     "fields": {
       "instance_resource": 18,
-      "name": "Zu aktueller Zirkulation hinzuf\u00fcgen",
+      "name": "Zu aktueller Zirkulation hinzufügen",
       "description": null,
       "class_field": "add_to_circ",
       "hidden": 0,
@@ -3783,7 +3783,7 @@
     "pk": 31,
     "fields": {
       "instance_resource": 39,
-      "name": "Zu aktueller Zirkulation hinzuf\u00fcgen",
+      "name": "Zu aktueller Zirkulation hinzufügen",
       "description": null,
       "class_field": "add_to_circ",
       "hidden": 0,
@@ -3855,7 +3855,7 @@
     "pk": 37,
     "fields": {
       "instance_resource": 7,
-      "name": "Zur\u00fcck in Zirkulation",
+      "name": "Zurück in Zirkulation",
       "description": null,
       "class_field": null,
       "hidden": 0,
@@ -3915,7 +3915,7 @@
     "pk": 42,
     "fields": {
       "instance_resource": 47,
-      "name": "Zu aktueller Zirkulation hinzuf\u00fcgen",
+      "name": "Zu aktueller Zirkulation hinzufügen",
       "description": null,
       "class_field": "add_to_circ",
       "hidden": 0,
@@ -3963,7 +3963,7 @@
     "pk": 46,
     "fields": {
       "instance_resource": 47,
-      "name": "Zur\u00fcck in Zirkulation",
+      "name": "Zurück in Zirkulation",
       "description": null,
       "class_field": null,
       "hidden": 0,
@@ -4004,7 +4004,7 @@
     "fields": {
       "circulation_type": 1,
       "circulation_answer_type": 1,
-      "name": "Unterlagenerg\u00e4nzung",
+      "name": "Unterlagenergänzung",
       "sort": 2
     }
   },
@@ -4014,7 +4014,7 @@
     "fields": {
       "circulation_type": 1,
       "circulation_answer_type": 1,
-      "name": "Rechtliches Geh\u00f6r",
+      "name": "Rechtliches Gehör",
       "sort": 3
     }
   },
@@ -4024,7 +4024,7 @@
     "fields": {
       "circulation_type": 1,
       "circulation_answer_type": 1,
-      "name": "Unterlagenerg\u00e4nzung & Rechtliches Geh\u00f6r",
+      "name": "Unterlagenergänzung & Rechtliches Gehör",
       "sort": 4
     }
   },
@@ -4064,7 +4064,7 @@
     "fields": {
       "circulation_type": 1,
       "circulation_answer_type": 1,
-      "name": "Weitere Abkl\u00e4rungen",
+      "name": "Weitere Abklärungen",
       "sort": 0
     }
   },
@@ -5146,8 +5146,8 @@
     "fields": {
       "available_instance_resource": "billing",
       "resource": 1,
-      "name": "Geb\u00fchren",
-      "description": "Geb\u00fchren der Gemeinde",
+      "name": "Gebühren",
+      "description": "Gebühren der Gemeinde",
       "template": null,
       "class_field": null,
       "hidden": 0,
@@ -5161,8 +5161,8 @@
     "fields": {
       "available_instance_resource": "billing",
       "resource": 6,
-      "name": "Geb\u00fchren",
-      "description": "Geb\u00fchren der Fachstelle",
+      "name": "Gebühren",
+      "description": "Gebühren der Fachstelle",
       "template": null,
       "class_field": null,
       "hidden": 0,
@@ -5176,7 +5176,7 @@
     "fields": {
       "available_instance_resource": "integritydashboard",
       "resource": 1,
-      "name": "Vollst\u00e4ndigkeitspr\u00fcfung",
+      "name": "Vollständigkeitsprüfung",
       "description": null,
       "template": null,
       "class_field": null,
@@ -5192,7 +5192,7 @@
       "available_instance_resource": "editformpage",
       "resource": 15,
       "name": "Formular",
-      "description": "Forumlar ansicht f\u00fcr Leserolle",
+      "description": "Forumlar ansicht für Leserolle",
       "template": "/ember/instance.phtml",
       "class_field": null,
       "hidden": 0,
@@ -5207,7 +5207,7 @@
       "available_instance_resource": "apidocuments",
       "resource": 15,
       "name": "Dokumente",
-      "description": "Dokumente f\u00fcr Leserolle",
+      "description": "Dokumente für Leserolle",
       "template": null,
       "class_field": null,
       "hidden": 0,
@@ -5221,8 +5221,8 @@
     "fields": {
       "available_instance_resource": "integritydashboard",
       "resource": 15,
-      "name": "Vollst\u00e4ndigkeitspr\u00fcfung",
-      "description": "Vollst\u00e4ndigkeitspr\u00fcfung f\u00fcr Leserolle",
+      "name": "Vollständigkeitsprüfung",
+      "description": "Vollständigkeitsprüfung für Leserolle",
       "template": null,
       "class_field": null,
       "hidden": 0,
@@ -5237,7 +5237,7 @@
       "available_instance_resource": "circulation",
       "resource": 15,
       "name": "Stellungnahmen",
-      "description": "Stellungsnahmen f\u00fcr Leserolle",
+      "description": "Stellungsnahmen für Leserolle",
       "template": null,
       "class_field": null,
       "hidden": 0,
@@ -5252,7 +5252,7 @@
       "available_instance_resource": "editcirculation",
       "resource": 6,
       "name": "Zirkulation",
-      "description": "Zirkulation der Fachstellen f\u00fcr die Unterfachstellen",
+      "description": "Zirkulation der Fachstellen für die Unterfachstellen",
       "template": null,
       "class_field": null,
       "hidden": 0,
@@ -5266,7 +5266,7 @@
     "fields": {
       "available_instance_resource": "integritydashboard",
       "resource": 6,
-      "name": "Vollst\u00e4ndigkeitspr\u00fcfung",
+      "name": "Vollständigkeitsprüfung",
       "description": null,
       "template": null,
       "class_field": null,
@@ -5327,7 +5327,7 @@
       "available_instance_resource": "editcirculation",
       "resource": 1,
       "name": "Zirkulation",
-      "description": "Zirkulation einer Fachstelle als Leitbeh\u00f6rde",
+      "description": "Zirkulation einer Fachstelle als Leitbehörde",
       "template": null,
       "class_field": null,
       "hidden": 0,
@@ -14614,7 +14614,7 @@
     "pk": 5,
     "fields": {
       "circulation_type": 1,
-      "name": "Begr\u00fcndung"
+      "name": "Begründung"
     }
   },
   {
@@ -15587,7 +15587,7 @@
       "question_type": 10,
       "mapping": 1,
       "answer_query": null,
-      "name": "Dossier vollst\u00e4ndig",
+      "name": "Dossier vollständig",
       "description": null,
       "javascript": null,
       "regex": null,
@@ -15603,7 +15603,7 @@
       "question_type": 10,
       "mapping": 1,
       "answer_query": null,
-      "name": "Zur \u00dcberpr\u00fcfung freigegeben",
+      "name": "Zur Überprüfung freigegeben",
       "description": null,
       "javascript": null,
       "regex": null,
@@ -16776,7 +16776,7 @@
     "fields": {
       "available_resource": "apilistinstance",
       "name": "Neue Gesuche",
-      "description": "Eingereichte Dossiers f\u00fcr die Gemeinde",
+      "description": "Eingereichte Dossiers für die Gemeinde",
       "template": null,
       "class_field": null,
       "hidden": 0,
@@ -16789,7 +16789,7 @@
     "fields": {
       "available_resource": "apilistinstance",
       "name": "Start Zirkulation",
-      "description": "Pendenzenliste der Gemeinde f\u00fcr neue Dossiers",
+      "description": "Pendenzenliste der Gemeinde für neue Dossiers",
       "template": null,
       "class_field": null,
       "hidden": 0,
@@ -16815,7 +16815,7 @@
     "fields": {
       "available_resource": "apilistinstance",
       "name": "Entscheid",
-      "description": "Abzuschliessende Dossiers f\u00fcr die Gemeinde",
+      "description": "Abzuschliessende Dossiers für die Gemeinde",
       "template": null,
       "class_field": null,
       "hidden": 0,
@@ -16840,8 +16840,8 @@
     "pk": 7,
     "fields": {
       "available_resource": "apilistinstance",
-      "name": "\u00dcbersicht aktiver Dossiers",
-      "description": "\u00dcbersicht aktiver Dossiers f\u00fcr den Kanton",
+      "name": "Übersicht aktiver Dossiers",
+      "description": "Übersicht aktiver Dossiers für den Kanton",
       "template": null,
       "class_field": null,
       "hidden": 0,
@@ -16996,7 +16996,7 @@
     "pk": 26,
     "fields": {
       "available_resource": "page",
-      "name": "Internes Gesch\u00e4ft erstellen",
+      "name": "Internes Geschäft erstellen",
       "description": null,
       "template": "/ember-camac-ng/bussinesscontrol-create.phtml",
       "class_field": null,
@@ -17009,7 +17009,7 @@
     "pk": 27,
     "fields": {
       "available_resource": "emberlist",
-      "name": "Interne Gesch\u00e4fte",
+      "name": "Interne Geschäfte",
       "description": null,
       "template": null,
       "class_field": null,
@@ -17160,7 +17160,7 @@
     "pk": 56,
     "fields": {
       "position": 14,
-      "name": "Schnurger\u00fcstabnahme",
+      "name": "Schnurgerüstabnahme",
       "automatical": 0,
       "different_color": 0,
       "is_workflow": 1,
@@ -17250,7 +17250,7 @@
     "pk": 69,
     "fields": {
       "position": 21,
-      "name": "Meldung an Liegenschaftssch\u00e4tzung",
+      "name": "Meldung an Liegenschaftsschätzung",
       "automatical": 1,
       "different_color": 0,
       "is_workflow": 1,
@@ -17265,7 +17265,7 @@
     "pk": 81,
     "fields": {
       "position": 2,
-      "name": "R\u00fcckweisung",
+      "name": "Rückweisung",
       "automatical": 1,
       "different_color": 0,
       "is_workflow": 1,
@@ -17280,7 +17280,7 @@
     "pk": 82,
     "fields": {
       "position": 6,
-      "name": "R\u00fcckzug",
+      "name": "Rückzug",
       "automatical": 0,
       "different_color": 0,
       "is_workflow": 1,

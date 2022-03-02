@@ -1582,10 +1582,10 @@
     "fields": {
       "available_action": "formtransition",
       "button": 124,
-      "name": "Zur\u00fcck an Gemeinde schicken",
+      "name": "Zurück an Gemeinde schicken",
       "description": "ext zu comm",
-      "success_message": "Das Dossier wurde zur\u00fcck an die Gemeinde geschickt",
-      "error_message": "Das Dossier konnte nicht zur\u00fcck an die Gemeinde geschickt werden, da ein Fehler aufgetreten ist!",
+      "success_message": "Das Dossier wurde zurück an die Gemeinde geschickt",
+      "error_message": "Das Dossier konnte nicht zurück an die Gemeinde geschickt werden, da ein Fehler aufgetreten ist!",
       "execute_always": 0,
       "sort": 0
     }
@@ -1610,10 +1610,10 @@
     "fields": {
       "available_action": "formtransition",
       "button": 144,
-      "name": "L\u00f6schen",
-      "description": "L\u00f6schen eines Dossiers der Koord",
-      "success_message": "Dossier gel\u00f6scht.",
-      "error_message": "Das Dossier konnte nich gel\u00f6scht werden, da ein Fehler aufgetreten ist!",
+      "name": "Löschen",
+      "description": "Löschen eines Dossiers der Koord",
+      "success_message": "Dossier gelöscht.",
+      "error_message": "Das Dossier konnte nich gelöscht werden, da ein Fehler aufgetreten ist!",
       "execute_always": 0,
       "sort": 0
     }
@@ -1624,10 +1624,10 @@
     "fields": {
       "available_action": "formtransition",
       "button": 146,
-      "name": "L\u00f6schen",
-      "description": "Dossier der Gemeinde l\u00f6schen",
-      "success_message": "Dossier erfolgreich gel\u00f6scht.",
-      "error_message": "Das Dossier konnte nicht gel\u00f6scht werden, da ein Fehler aufgetreten ist!",
+      "name": "Löschen",
+      "description": "Dossier der Gemeinde löschen",
+      "success_message": "Dossier erfolgreich gelöscht.",
+      "error_message": "Das Dossier konnte nicht gelöscht werden, da ein Fehler aufgetreten ist!",
       "execute_always": 0,
       "sort": 0
     }
@@ -1638,10 +1638,10 @@
     "fields": {
       "available_action": "formtransition",
       "button": 147,
-      "name": "Zur\u00fcck an Gemeinde schicken",
+      "name": "Zurück an Gemeinde schicken",
       "description": "redac zu done",
-      "success_message": "Das Dossier wurde zur\u00fcck an die Gemeinde geschickt.",
-      "error_message": "Das Dossier konnte nicht zur\u00fcck an die Gemeinde geschickt werden, da ein Fehler aufgetreten ist!",
+      "success_message": "Das Dossier wurde zurück an die Gemeinde geschickt.",
+      "error_message": "Das Dossier konnte nicht zurück an die Gemeinde geschickt werden, da ein Fehler aufgetreten ist!",
       "execute_always": 0,
       "sort": 0
     }
@@ -1990,8 +1990,8 @@
       "button": 326,
       "name": "Zirkulation auf OK setzen",
       "description": "",
-      "success_message": "Antwort wurde zur\u00fcck gesandt",
-      "error_message": "Antwort konnte nicht zur\u00fcck gesandt werden",
+      "success_message": "Antwort wurde zurück gesandt",
+      "error_message": "Antwort konnte nicht zurück gesandt werden",
       "execute_always": 0,
       "sort": 1
     }
@@ -2016,9 +2016,9 @@
     "fields": {
       "available_action": "php",
       "button": 389,
-      "name": "Zirkulation wieder\u00f6ffnen",
+      "name": "Zirkulation wiederöffnen",
       "description": "",
-      "success_message": "Zirkulation wurde f\u00fcr die selektierten Fachstellen wiederer\u00f6ffnet!",
+      "success_message": "Zirkulation wurde für die selektierten Fachstellen wiedereröffnet!",
       "error_message": "",
       "execute_always": 0,
       "sort": 0
@@ -2044,7 +2044,7 @@
     "fields": {
       "available_action": "formtransition",
       "button": 429,
-      "name": "L\u00f6schen",
+      "name": "Löschen",
       "description": "",
       "success_message": "",
       "error_message": "",
@@ -2184,7 +2184,7 @@
     "fields": {
       "available_action": "php",
       "button": 434,
-      "name": "Zirkulation wieder\u00f6ffnen",
+      "name": "Zirkulation wiederöffnen",
       "description": "",
       "success_message": "",
       "error_message": "",
@@ -2268,7 +2268,7 @@
     "fields": {
       "available_action": "formtransition",
       "button": 488,
-      "name": "Wiederer\u00f6ffnen CONTROL/DONE - COMM",
+      "name": "Wiedereröffnen CONTROL/DONE - COMM",
       "description": null,
       "success_message": null,
       "error_message": null,
@@ -2380,9 +2380,9 @@
     "fields": {
       "available_action": "formtransition",
       "button": 529,
-      "name": "Zur\u00fcck an Gemeinde schicken",
+      "name": "Zurück an Gemeinde schicken",
       "description": "",
-      "success_message": "Das Dossier wurde zur\u00fcck an die Gemeinde geschickt",
+      "success_message": "Das Dossier wurde zurück an die Gemeinde geschickt",
       "error_message": "",
       "execute_always": 0,
       "sort": 0
@@ -2408,7 +2408,7 @@
     "fields": {
       "available_action": "workflow",
       "button": 529,
-      "name": "Zur\u00fcck an Gemeinde",
+      "name": "Zurück an Gemeinde",
       "description": "",
       "success_message": "",
       "error_message": "",
@@ -2506,7 +2506,7 @@
     "fields": {
       "available_action": "notification",
       "button": 568,
-      "name": "E-Mail an hinzugef\u00fcgte Fachstellen versenden",
+      "name": "E-Mail an hinzugefügte Fachstellen versenden",
       "description": null,
       "success_message": null,
       "error_message": null,
@@ -2534,7 +2534,7 @@
     "fields": {
       "available_action": "notification",
       "button": 570,
-      "name": "E-Mail an hinzugef\u00fcgte Fachstellen versenden",
+      "name": "E-Mail an hinzugefügte Fachstellen versenden",
       "description": null,
       "success_message": null,
       "error_message": null,
@@ -2591,9 +2591,9 @@
       "available_action": "circulationtransition",
       "button": 648,
       "name": "NFD - RUN",
-      "description": "Setzt die Zirkulation wieder in den Zustand RUN (Dossier vollst\u00e4ndig)",
-      "success_message": "Dossier als vollst\u00e4ndig markiert!",
-      "error_message": "Dossier konnte nicht als vollst\u00e4ndig markiert werden!",
+      "description": "Setzt die Zirkulation wieder in den Zustand RUN (Dossier vollständig)",
+      "success_message": "Dossier als vollständig markiert!",
+      "error_message": "Dossier konnte nicht als vollständig markiert werden!",
       "execute_always": 0,
       "sort": 1
     }
@@ -2618,7 +2618,7 @@
     "fields": {
       "available_action": "php",
       "button": 648,
-      "name": "Dossier vollst\u00e4ndig Datum setzen",
+      "name": "Dossier vollständig Datum setzen",
       "description": "",
       "success_message": "",
       "error_message": "",
@@ -2674,7 +2674,7 @@
     "fields": {
       "available_action": "workflow",
       "button": 648,
-      "name": "Im Workflow Datum Dossier vollst\u00e4ndig setzen",
+      "name": "Im Workflow Datum Dossier vollständig setzen",
       "description": "",
       "success_message": "",
       "error_message": "",
@@ -2800,7 +2800,7 @@
     "fields": {
       "available_action": "notification",
       "button": 690,
-      "name": "E-Mail an hinzugef\u00fcgte Fachstellen versenden",
+      "name": "E-Mail an hinzugefügte Fachstellen versenden",
       "description": null,
       "success_message": null,
       "error_message": null,
@@ -2856,7 +2856,7 @@
     "fields": {
       "available_action": "php",
       "button": 692,
-      "name": "Zirkulation wieder\u00f6ffnen",
+      "name": "Zirkulation wiederöffnen",
       "description": "",
       "success_message": "",
       "error_message": "",
@@ -2870,10 +2870,10 @@
     "fields": {
       "available_action": "formtransition",
       "button": 710,
-      "name": "L\u00f6schen EXT - DEL",
-      "description": "L\u00f6schen eines Dossiers der Koord BD",
-      "success_message": "Dossier gel\u00f6scht.",
-      "error_message": "Das Dossier konnte nich gel\u00f6scht werden, da ein Fehler aufgetreten ist!",
+      "name": "Löschen EXT - DEL",
+      "description": "Löschen eines Dossiers der Koord BD",
+      "success_message": "Dossier gelöscht.",
+      "error_message": "Das Dossier konnte nich gelöscht werden, da ein Fehler aufgetreten ist!",
       "execute_always": 0,
       "sort": 0
     }
@@ -3052,7 +3052,7 @@
     "fields": {
       "available_action": "workflow",
       "button": 746,
-      "name": "Workflow Datum Dossier vollst\u00e4ndig setzen",
+      "name": "Workflow Datum Dossier vollständig setzen",
       "description": "",
       "success_message": "",
       "error_message": "",
@@ -3066,7 +3066,7 @@
     "fields": {
       "available_action": "formtransition",
       "button": 756,
-      "name": "Wiederer\u00f6ffnen ARCH - COMM",
+      "name": "Wiedereröffnen ARCH - COMM",
       "description": "",
       "success_message": "",
       "error_message": "",
@@ -3080,7 +3080,7 @@
     "fields": {
       "available_action": "formtransition",
       "button": 757,
-      "name": "Wiederer\u00f6ffnen ARCH - EXT",
+      "name": "Wiedereröffnen ARCH - EXT",
       "description": "",
       "success_message": "",
       "error_message": "",
@@ -3094,7 +3094,7 @@
     "fields": {
       "available_action": "formtransition",
       "button": 758,
-      "name": "Wiederer\u00f6ffnen ARCH - EXT",
+      "name": "Wiedereröffnen ARCH - EXT",
       "description": "",
       "success_message": "",
       "error_message": "",
@@ -3108,7 +3108,7 @@
     "fields": {
       "available_action": "formtransition",
       "button": 760,
-      "name": "Wiederer\u00f6ffnen ARCH - EXT",
+      "name": "Wiedereröffnen ARCH - EXT",
       "description": "",
       "success_message": "",
       "error_message": "",
@@ -3150,10 +3150,10 @@
     "fields": {
       "available_action": "formtransition",
       "button": 762,
-      "name": "Status\u00e4nderung EXT GEM in COMM",
+      "name": "Statusänderung EXT GEM in COMM",
       "description": "EXT GEM in COMM",
-      "success_message": "Status\u00e4nderung erfolgreich ausgef\u00fchrt",
-      "error_message": "Status\u00e4nderung konnte nicht ausgef\u00fchrt werden",
+      "success_message": "Statusänderung erfolgreich ausgeführt",
+      "error_message": "Statusänderung konnte nicht ausgeführt werden",
       "execute_always": 0,
       "sort": 0
     }
@@ -3164,10 +3164,10 @@
     "fields": {
       "available_action": "formtransition",
       "button": 766,
-      "name": "L\u00f6schen",
-      "description": "L\u00f6schen eines Dossiers der Koord AfU",
-      "success_message": "Dossier gel\u00f6scht.",
-      "error_message": "Das Dossier konnte nich gel\u00f6scht werden, da ein Fehler aufgetreten ist!",
+      "name": "Löschen",
+      "description": "Löschen eines Dossiers der Koord AfU",
+      "success_message": "Dossier gelöscht.",
+      "error_message": "Das Dossier konnte nich gelöscht werden, da ein Fehler aufgetreten ist!",
       "execute_always": 0,
       "sort": 0
     }
@@ -3206,7 +3206,7 @@
     "fields": {
       "available_action": "formtransition",
       "button": 769,
-      "name": "Wiederer\u00f6ffnen ARCH - EXT",
+      "name": "Wiedereröffnen ARCH - EXT",
       "description": "",
       "success_message": "",
       "error_message": "",
@@ -3388,7 +3388,7 @@
     "fields": {
       "available_action": "notification",
       "button": 782,
-      "name": "E-Mail an hinzugef\u00fcgte Fachstellen versenden",
+      "name": "E-Mail an hinzugefügte Fachstellen versenden",
       "description": null,
       "success_message": null,
       "error_message": null,
@@ -3444,7 +3444,7 @@
     "fields": {
       "available_action": "php",
       "button": 784,
-      "name": "Zirkulation wieder\u00f6ffnen",
+      "name": "Zirkulation wiederöffnen",
       "description": "",
       "success_message": "",
       "error_message": "",
@@ -3458,10 +3458,10 @@
     "fields": {
       "available_action": "formtransition",
       "button": 791,
-      "name": "L\u00f6schen",
-      "description": "L\u00f6schen eines Dossiers der Koord ALA",
-      "success_message": "Dossier gel\u00f6scht.",
-      "error_message": "Das Dossier konnte nich gel\u00f6scht werden, da ein Fehler aufgetreten ist!",
+      "name": "Löschen",
+      "description": "Löschen eines Dossiers der Koord ALA",
+      "success_message": "Dossier gelöscht.",
+      "error_message": "Das Dossier konnte nich gelöscht werden, da ein Fehler aufgetreten ist!",
       "execute_always": 0,
       "sort": 0
     }
@@ -3500,7 +3500,7 @@
     "fields": {
       "available_action": "formtransition",
       "button": 793,
-      "name": "Wiederer\u00f6ffnen ARCH - EXT",
+      "name": "Wiedereröffnen ARCH - EXT",
       "description": "",
       "success_message": "",
       "error_message": "",
@@ -3626,7 +3626,7 @@
     "fields": {
       "available_action": "notification",
       "button": 796,
-      "name": "E-Mail an hinzugef\u00fcgte Fachstellen versenden",
+      "name": "E-Mail an hinzugefügte Fachstellen versenden",
       "description": null,
       "success_message": null,
       "error_message": null,
@@ -3682,7 +3682,7 @@
     "fields": {
       "available_action": "php",
       "button": 798,
-      "name": "Zirkulation wieder\u00f6ffnen",
+      "name": "Zirkulation wiederöffnen",
       "description": "",
       "success_message": "",
       "error_message": "",
@@ -3724,10 +3724,10 @@
     "fields": {
       "available_action": "formtransition",
       "button": 803,
-      "name": "L\u00f6schen",
-      "description": "L\u00f6schen eines Dossiers der Koord AfE",
-      "success_message": "Dossier gel\u00f6scht.",
-      "error_message": "Das Dossier konnte nich gel\u00f6scht werden, da ein Fehler aufgetreten ist!",
+      "name": "Löschen",
+      "description": "Löschen eines Dossiers der Koord AfE",
+      "success_message": "Dossier gelöscht.",
+      "error_message": "Das Dossier konnte nich gelöscht werden, da ein Fehler aufgetreten ist!",
       "execute_always": 0,
       "sort": 0
     }
@@ -3766,7 +3766,7 @@
     "fields": {
       "available_action": "formtransition",
       "button": 805,
-      "name": "Wiederer\u00f6ffnen ARCH - EXT",
+      "name": "Wiedereröffnen ARCH - EXT",
       "description": "",
       "success_message": "",
       "error_message": "",
@@ -3892,7 +3892,7 @@
     "fields": {
       "available_action": "notification",
       "button": 808,
-      "name": "E-Mail an hinzugef\u00fcgte Fachstellen versenden",
+      "name": "E-Mail an hinzugefügte Fachstellen versenden",
       "description": null,
       "success_message": null,
       "error_message": null,
@@ -3948,7 +3948,7 @@
     "fields": {
       "available_action": "php",
       "button": 810,
-      "name": "Zirkulation wieder\u00f6ffnen",
+      "name": "Zirkulation wiederöffnen",
       "description": "",
       "success_message": "",
       "error_message": "",
@@ -3990,10 +3990,10 @@
     "fields": {
       "available_action": "formtransition",
       "button": 823,
-      "name": "L\u00f6schen",
-      "description": "L\u00f6schen eines Dossiers der Koord AFJ",
-      "success_message": "Dossier gel\u00f6scht.",
-      "error_message": "Das Dossier konnte nicht gel\u00f6scht werden, da ein Fehler aufgetreten ist!",
+      "name": "Löschen",
+      "description": "Löschen eines Dossiers der Koord AFJ",
+      "success_message": "Dossier gelöscht.",
+      "error_message": "Das Dossier konnte nicht gelöscht werden, da ein Fehler aufgetreten ist!",
       "execute_always": 0,
       "sort": 0
     }
@@ -4032,7 +4032,7 @@
     "fields": {
       "available_action": "formtransition",
       "button": 825,
-      "name": "Wiederer\u00f6ffnen ARCH - EXT",
+      "name": "Wiedereröffnen ARCH - EXT",
       "description": "",
       "success_message": "",
       "error_message": "",
@@ -4158,7 +4158,7 @@
     "fields": {
       "available_action": "notification",
       "button": 828,
-      "name": "E-Mail an hinzugef\u00fcgte Fachstellen versenden AFJ",
+      "name": "E-Mail an hinzugefügte Fachstellen versenden AFJ",
       "description": null,
       "success_message": null,
       "error_message": null,
@@ -4214,7 +4214,7 @@
     "fields": {
       "available_action": "php",
       "button": 830,
-      "name": "Zirkulation wieder\u00f6ffnen",
+      "name": "Zirkulation wiederöffnen",
       "description": "",
       "success_message": "",
       "error_message": "",
@@ -4257,9 +4257,9 @@
       "available_action": "notification",
       "button": 834,
       "name": "E-Mail an Lisag",
-      "description": "S\u00e4mtliche \u00d6REB Meldungen k\u00f6nnen direkt per Email an die Lisag gesendet werden. Diese Aktion wird f\u00fcr solche Mails von der Koordinationsstelle Nutzungsplanung (NP) gesendet.",
-      "success_message": "Ein E-Mail mit der \u00d6REB Meldung wurde versendet.",
-      "error_message": "Das E-Mail mit der \u00d6REB Meldung konnte nicht versendet werden.",
+      "description": "Sämtliche ÖREB Meldungen können direkt per Email an die Lisag gesendet werden. Diese Aktion wird für solche Mails von der Koordinationsstelle Nutzungsplanung (NP) gesendet.",
+      "success_message": "Ein E-Mail mit der ÖREB Meldung wurde versendet.",
+      "error_message": "Das E-Mail mit der ÖREB Meldung konnte nicht versendet werden.",
       "execute_always": 0,
       "sort": 0
     }
@@ -4272,8 +4272,8 @@
       "button": 874,
       "name": "E-Mail an Lisag",
       "description": "",
-      "success_message": "Ein E-Mail mit der \u00d6REB Meldung wurde versendet.",
-      "error_message": "Das E-Mail mit der \u00d6REB Meldung konnte nicht versendet werden.",
+      "success_message": "Ein E-Mail mit der ÖREB Meldung wurde versendet.",
+      "error_message": "Das E-Mail mit der ÖREB Meldung konnte nicht versendet werden.",
       "execute_always": 0,
       "sort": 0
     }
@@ -4286,8 +4286,8 @@
       "button": 894,
       "name": "E-Mail an Lisag",
       "description": "",
-      "success_message": "Ein E-Mail mit der \u00d6REB Meldung wurde versendet.",
-      "error_message": "Das E-Mail mit der \u00d6REB Meldung konnte nicht versendet werden.",
+      "success_message": "Ein E-Mail mit der ÖREB Meldung wurde versendet.",
+      "error_message": "Das E-Mail mit der ÖREB Meldung konnte nicht versendet werden.",
       "execute_always": 0,
       "sort": 0
     }
@@ -4300,8 +4300,8 @@
       "button": 914,
       "name": "E-Mail an Lisag",
       "description": "",
-      "success_message": "Ein E-Mail mit der \u00d6REB Meldung wurde versendet.",
-      "error_message": "Das E-Mail mit der \u00d6REB Meldung konnte nicht versendet werden.",
+      "success_message": "Ein E-Mail mit der ÖREB Meldung wurde versendet.",
+      "error_message": "Das E-Mail mit der ÖREB Meldung konnte nicht versendet werden.",
       "execute_always": 0,
       "sort": 0
     }
@@ -4314,8 +4314,8 @@
       "button": 915,
       "name": "E-Mail an Lisag",
       "description": "",
-      "success_message": "Ein E-Mail mit der \u00d6REB Meldung wurde versendet.",
-      "error_message": "Das E-Mail mit der \u00d6REB Meldung konnte nicht versendet werden.",
+      "success_message": "Ein E-Mail mit der ÖREB Meldung wurde versendet.",
+      "error_message": "Das E-Mail mit der ÖREB Meldung konnte nicht versendet werden.",
       "execute_always": 0,
       "sort": 0
     }
@@ -4328,8 +4328,8 @@
       "button": 917,
       "name": "E-Mail an Lisag",
       "description": "",
-      "success_message": "Ein E-Mail mit der \u00d6REB Meldung wurde versendet.",
-      "error_message": "Das E-Mail mit der \u00d6REB Meldung konnte nicht versendet werden.",
+      "success_message": "Ein E-Mail mit der ÖREB Meldung wurde versendet.",
+      "error_message": "Das E-Mail mit der ÖREB Meldung konnte nicht versendet werden.",
       "execute_always": 0,
       "sort": 0
     }
@@ -4340,7 +4340,7 @@
     "fields": {
       "available_action": "workflow",
       "button": 894,
-      "name": "\u00d6REB Workflow-Datum setzen",
+      "name": "ÖREB Workflow-Datum setzen",
       "description": "",
       "success_message": "",
       "error_message": "",
@@ -4354,7 +4354,7 @@
     "fields": {
       "available_action": "workflow",
       "button": 834,
-      "name": "\u00d6REB Workflow-Datum setzen",
+      "name": "ÖREB Workflow-Datum setzen",
       "description": "",
       "success_message": "",
       "error_message": "",
@@ -4368,7 +4368,7 @@
     "fields": {
       "available_action": "workflow",
       "button": 874,
-      "name": "\u00d6REB Workflow-Datum setzen",
+      "name": "ÖREB Workflow-Datum setzen",
       "description": "",
       "success_message": "",
       "error_message": "",
@@ -4382,7 +4382,7 @@
     "fields": {
       "available_action": "workflow",
       "button": 917,
-      "name": "\u00d6REB Workflow-Datum setzen",
+      "name": "ÖREB Workflow-Datum setzen",
       "description": "",
       "success_message": "",
       "error_message": "",
@@ -4396,7 +4396,7 @@
     "fields": {
       "available_action": "workflow",
       "button": 915,
-      "name": "\u00d6REB Workflow-Datum setzen",
+      "name": "ÖREB Workflow-Datum setzen",
       "description": "",
       "success_message": "",
       "error_message": "",
@@ -4410,7 +4410,7 @@
     "fields": {
       "available_action": "workflow",
       "button": 914,
-      "name": "\u00d6REB Workflow-Datum setzen",
+      "name": "ÖREB Workflow-Datum setzen",
       "description": "",
       "success_message": "",
       "error_message": "",
@@ -4480,7 +4480,7 @@
     "fields": {
       "available_action": "notification",
       "button": 828,
-      "name": "E-Mail an hinzugef\u00fcgte Fachstellen versenden SD",
+      "name": "E-Mail an hinzugefügte Fachstellen versenden SD",
       "description": null,
       "success_message": null,
       "error_message": null,
@@ -4511,7 +4511,7 @@
       "name": "CheckIfNFDPossible",
       "description": null,
       "success_message": null,
-      "error_message": "Da die Frist dieses Dossiers in weniger als einer Woche endet oder das Dossier bereits seit 2 Wochen vollst\u00e4ndig ist, ist es nicht mehr m\u00f6glich Nachforderungen zu stellen.",
+      "error_message": "Da die Frist dieses Dossiers in weniger als einer Woche endet oder das Dossier bereits seit 2 Wochen vollständig ist, ist es nicht mehr möglich Nachforderungen zu stellen.",
       "execute_always": 0,
       "sort": 0
     }
@@ -4592,7 +4592,7 @@
     "fields": {
       "available_action": "notification",
       "button": 924,
-      "name": "E-Mail an hinzugef\u00fcgte Fachstellen versenden",
+      "name": "E-Mail an hinzugefügte Fachstellen versenden",
       "description": null,
       "success_message": null,
       "error_message": null,
@@ -4620,9 +4620,9 @@
     "fields": {
       "available_action": "php",
       "button": 925,
-      "name": "Zirkulation wieder\u00f6ffnen",
+      "name": "Zirkulation wiederöffnen",
       "description": null,
-      "success_message": "Zirkulation wurde f\u00fcr die selektierten Fachstellen wiederer\u00f6ffnet!",
+      "success_message": "Zirkulation wurde für die selektierten Fachstellen wiedereröffnet!",
       "error_message": null,
       "execute_always": 0,
       "sort": 0
@@ -4704,10 +4704,10 @@
     "fields": {
       "available_action": "formtransition",
       "button": 932,
-      "name": "L\u00f6schen",
+      "name": "Löschen",
       "description": null,
-      "success_message": "Dossier erfolgreich gel\u00f6scht.",
-      "error_message": "Das Dossier konnte nicht gel\u00f6scht werden, da ein Fehler aufgetreten ist!",
+      "success_message": "Dossier erfolgreich gelöscht.",
+      "error_message": "Das Dossier konnte nicht gelöscht werden, da ein Fehler aufgetreten ist!",
       "execute_always": 0,
       "sort": 0
     }
@@ -4816,9 +4816,9 @@
     "fields": {
       "available_action": "php",
       "button": 938,
-      "name": "Zirkulation wieder\u00f6ffnen",
+      "name": "Zirkulation wiederöffnen",
       "description": null,
-      "success_message": "Zirkulation wurde f\u00fcr die selektierten Fachstellen wiederer\u00f6ffnet!",
+      "success_message": "Zirkulation wurde für die selektierten Fachstellen wiedereröffnet!",
       "error_message": null,
       "execute_always": 0,
       "sort": 0
@@ -4844,7 +4844,7 @@
     "fields": {
       "available_action": "notification",
       "button": 936,
-      "name": "E-Mail an hinzugef\u00fcgte Fachstellen versenden",
+      "name": "E-Mail an hinzugefügte Fachstellen versenden",
       "description": null,
       "success_message": null,
       "error_message": null,
@@ -5110,10 +5110,10 @@
     "fields": {
       "available_action": "formtransition",
       "button": 949,
-      "name": "Status\u00e4nderung von CIRC in REDAC",
-      "description": "\u00c4ndert den Statusdes Dossiers",
-      "success_message": "Staus\u00e4nderung erfolgreich ausgef\u00fchrt",
-      "error_message": "Staus\u00e4nderung konnte nicht ausgef\u00fchrt werden",
+      "name": "Statusänderung von CIRC in REDAC",
+      "description": "Ändert den Statusdes Dossiers",
+      "success_message": "Stausänderung erfolgreich ausgeführt",
+      "error_message": "Stausänderung konnte nicht ausgeführt werden",
       "execute_always": 0,
       "sort": 0
     }
@@ -5166,10 +5166,10 @@
     "fields": {
       "available_action": "formtransition",
       "button": 12000001,
-      "name": "Reset State to \"Zur\u00fcckgewiesen\"",
+      "name": "Reset State to \"Zurückgewiesen\"",
       "description": null,
-      "success_message": "Dossier erfolgreich zur\u00fcckgewiesen",
-      "error_message": "Bei der \u00c4nderung vom Dossierstatus ist ein Fehler aufgetreten",
+      "success_message": "Dossier erfolgreich zurückgewiesen",
+      "error_message": "Bei der Änderung vom Dossierstatus ist ein Fehler aufgetreten",
       "execute_always": 0,
       "sort": 1
     }
@@ -5180,10 +5180,10 @@
     "fields": {
       "available_action": "formtransition",
       "button": 12000002,
-      "name": "Reset state \"Zur\u00fcckgewiesen\" to previous state",
+      "name": "Reset state \"Zurückgewiesen\" to previous state",
       "description": null,
-      "success_message": "Dossier Zur\u00fcckweisung wurde erfolgreich aufgehoben",
-      "error_message": "Bei der \u00c4nderung vom Dossierstatus ist ein Fehler aufgetreten",
+      "success_message": "Dossier Zurückweisung wurde erfolgreich aufgehoben",
+      "error_message": "Bei der Änderung vom Dossierstatus ist ein Fehler aufgetreten",
       "execute_always": 0,
       "sort": 0
     }
@@ -5980,8 +5980,8 @@
       "button": 12000015,
       "name": "Status zu COMM",
       "description": "Status zu COMM",
-      "success_message": "Status\u00e4nderung erfolgreich ausgef\u00fchrt",
-      "error_message": "Status\u00e4nderung konnte nicht ausgef\u00fchrt werden",
+      "success_message": "Statusänderung erfolgreich ausgeführt",
+      "error_message": "Statusänderung konnte nicht ausgeführt werden",
       "execute_always": 0,
       "sort": 0
     }
@@ -5994,8 +5994,8 @@
       "button": 12000016,
       "name": "Status zu CIRC",
       "description": "Status zu CIRC",
-      "success_message": "Status\u00e4nderung erfolgreich ausgef\u00fchrt",
-      "error_message": "Status\u00e4nderung konnte nicht ausgef\u00fchrt werden",
+      "success_message": "Statusänderung erfolgreich ausgeführt",
+      "error_message": "Statusänderung konnte nicht ausgeführt werden",
       "execute_always": 0,
       "sort": 0
     }
@@ -6008,8 +6008,8 @@
       "button": 12000017,
       "name": "Status zu EXT-GEM",
       "description": "Status zu EXT-GEM",
-      "success_message": "Status\u00e4nderung erfolgreich ausgef\u00fchrt",
-      "error_message": "Status\u00e4nderung konnte nicht ausgef\u00fchrt werden",
+      "success_message": "Statusänderung erfolgreich ausgeführt",
+      "error_message": "Statusänderung konnte nicht ausgeführt werden",
       "execute_always": 0,
       "sort": 0
     }
@@ -6022,8 +6022,8 @@
       "button": 12000018,
       "name": "Status zu REDAC",
       "description": "Status zu REDAC",
-      "success_message": "Status\u00e4nderung erfolgreich ausgef\u00fchrt",
-      "error_message": "Status\u00e4nderung konnte nicht ausgef\u00fchrt werden",
+      "success_message": "Statusänderung erfolgreich ausgeführt",
+      "error_message": "Statusänderung konnte nicht ausgeführt werden",
       "execute_always": 0,
       "sort": 0
     }
@@ -6036,8 +6036,8 @@
       "button": 12000019,
       "name": "Status zu DONE",
       "description": "Status zu DONE",
-      "success_message": "Status\u00e4nderung erfolgreich ausgef\u00fchrt",
-      "error_message": "Status\u00e4nderung konnte nicht ausgef\u00fchrt werden",
+      "success_message": "Statusänderung erfolgreich ausgeführt",
+      "error_message": "Statusänderung konnte nicht ausgeführt werden",
       "execute_always": 0,
       "sort": 0
     }
@@ -6965,7 +6965,7 @@
     "fields": {
       "question": 22,
       "value": "OE",
-      "name": "Zone f\u00fcr \u00f6ffentliche Bauten und Anlagen",
+      "name": "Zone für öffentliche Bauten und Anlagen",
       "sort": 30
     }
   },
@@ -6995,7 +6995,7 @@
     "fields": {
       "question": 22,
       "value": "SF",
-      "name": "Zone f\u00fcr Sport- und Freizeitanlagen",
+      "name": "Zone für Sport- und Freizeitanlagen",
       "sort": 33
     }
   },
@@ -7005,7 +7005,7 @@
     "fields": {
       "question": 22,
       "value": "VF",
-      "name": "Verkehrsfl\u00e4che innerhalb Bauzonen",
+      "name": "Verkehrsfläche innerhalb Bauzonen",
       "sort": 35
     }
   },
@@ -7015,7 +7015,7 @@
     "fields": {
       "question": 22,
       "value": "AB",
-      "name": "Zone f\u00fcr besondere Anlagen und Betriebsst\u00e4tten",
+      "name": "Zone für besondere Anlagen und Betriebsstätten",
       "sort": 37
     }
   },
@@ -7075,7 +7075,7 @@
     "fields": {
       "question": 22,
       "value": "GR",
-      "name": "Gew\u00e4sserraumzone",
+      "name": "Gewässerraumzone",
       "sort": 48
     }
   },
@@ -7085,7 +7085,7 @@
     "fields": {
       "question": 22,
       "value": "Ge",
-      "name": "Gew\u00e4sser",
+      "name": "Gewässer",
       "sort": 49
     }
   },
@@ -7105,7 +7105,7 @@
     "fields": {
       "question": 22,
       "value": "VFaB",
-      "name": "Verkehrsfl\u00e4che ausserhalb Bauzonen",
+      "name": "Verkehrsfläche ausserhalb Bauzonen",
       "sort": 51
     }
   },
@@ -7165,7 +7165,7 @@
     "fields": {
       "question": 22,
       "value": "SFG",
-      "name": "Zone f\u00fcr Sport- und Freizeitanlagen Golf",
+      "name": "Zone für Sport- und Freizeitanlagen Golf",
       "sort": 58
     }
   },
@@ -7195,7 +7195,7 @@
     "fields": {
       "question": 94,
       "value": "Arch",
-      "name": "Arch\u00e4ologisches Funderwartungsgebiet",
+      "name": "Archäologisches Funderwartungsgebiet",
       "sort": 3
     }
   },
@@ -7204,8 +7204,8 @@
     "pk": 65,
     "fields": {
       "question": 94,
-      "value": "NSl\u00fc",
-      "name": "Naturschutzzone lokal, \u00fcberlagert",
+      "value": "NSlü",
+      "name": "Naturschutzzone lokal, überlagert",
       "sort": 4
     }
   },
@@ -7225,7 +7225,7 @@
     "fields": {
       "question": 94,
       "value": "LpB",
-      "name": "Gebiet mit landschaftspr\u00e4genden Bauten",
+      "name": "Gebiet mit landschaftsprägenden Bauten",
       "sort": 6
     }
   },
@@ -7244,8 +7244,8 @@
     "pk": 69,
     "fields": {
       "question": 94,
-      "value": "GR\u00fc",
-      "name": "Gew\u00e4sserraumzone, \u00fcberlagert",
+      "value": "GRü",
+      "name": "Gewässerraumzone, überlagert",
       "sort": 8
     }
   },
@@ -7285,7 +7285,7 @@
     "fields": {
       "question": 94,
       "value": "ZW",
-      "name": "Zone f\u00fcr Wintersport",
+      "name": "Zone für Wintersport",
       "sort": 13
     }
   },
@@ -7294,8 +7294,8 @@
     "pk": 74,
     "fields": {
       "question": 94,
-      "value": "D\u00fc",
-      "name": "Deponiezone, \u00fcberlagert",
+      "value": "Dü",
+      "name": "Deponiezone, überlagert",
       "sort": 14
     }
   },
@@ -7304,8 +7304,8 @@
     "pk": 75,
     "fields": {
       "question": 94,
-      "value": "A\u00fc",
-      "name": "Abbauzone, \u00fcberlagert",
+      "value": "Aü",
+      "name": "Abbauzone, überlagert",
       "sort": 15
     }
   },
@@ -7314,8 +7314,8 @@
     "pk": 76,
     "fields": {
       "question": 94,
-      "value": "AB\u00fc",
-      "name": "Zone f\u00fcr besondere Anlagen und Betriebsst\u00e4tten, \u00fcberlagert",
+      "value": "ABü",
+      "name": "Zone für besondere Anlagen und Betriebsstätten, überlagert",
       "sort": 16
     }
   },
@@ -7325,7 +7325,7 @@
     "fields": {
       "question": 94,
       "value": "ZBG",
-      "name": "Zone f\u00fcr Bauten in Gew\u00e4ssern",
+      "name": "Zone für Bauten in Gewässern",
       "sort": 18
     }
   },
@@ -7334,8 +7334,8 @@
     "pk": 78,
     "fields": {
       "question": 94,
-      "value": "SF\u00fc",
-      "name": "Zone f\u00fcr Sport- und Freizeitanlagen, \u00fcberlagert",
+      "value": "SFü",
+      "name": "Zone für Sport- und Freizeitanlagen, überlagert",
       "sort": 19
     }
   },
@@ -7345,7 +7345,7 @@
     "fields": {
       "question": 94,
       "value": "QPr",
-      "name": "Bereich rechtsg\u00fcltiger Quartierplan",
+      "name": "Bereich rechtsgültiger Quartierplan",
       "sort": 21
     }
   },
@@ -7355,7 +7355,7 @@
     "fields": {
       "question": 94,
       "value": "QGPr",
-      "name": "Bereich rechtsg\u00fcltiger Quartiergestaltungsplan",
+      "name": "Bereich rechtsgültiger Quartiergestaltungsplan",
       "sort": 22
     }
   },
@@ -7405,7 +7405,7 @@
     "fields": {
       "question": 94,
       "value": "wfF",
-      "name": "weitere fl\u00e4chenbezogene Festlegung",
+      "name": "weitere flächenbezogene Festlegung",
       "sort": 28
     }
   },
@@ -7425,7 +7425,7 @@
     "fields": {
       "question": 94,
       "value": "BLG",
-      "name": "Baulinie Gew\u00e4sser",
+      "name": "Baulinie Gewässer",
       "sort": 35
     }
   },
@@ -7595,7 +7595,7 @@
     "fields": {
       "question": 95,
       "value": "NOrn",
-      "name": "Naturobjekt regional / national, punktf\u00f6rmig",
+      "name": "Naturobjekt regional / national, punktförmig",
       "sort": 12
     }
   },
@@ -7605,7 +7605,7 @@
     "fields": {
       "question": 95,
       "value": "KOrn",
-      "name": "Kulturobjekt regional / national, punktf\u00f6rmig",
+      "name": "Kulturobjekt regional / national, punktförmig",
       "sort": 14
     }
   },
@@ -7615,7 +7615,7 @@
     "fields": {
       "question": 95,
       "value": "FFF",
-      "name": "Fruchtfolgefl\u00e4che",
+      "name": "Fruchtfolgefläche",
       "sort": 15
     }
   },
@@ -7665,7 +7665,7 @@
     "fields": {
       "question": 97,
       "value": "24",
-      "name": "Zweck\u00e4nderung",
+      "name": "Zweckänderung",
       "sort": 3
     }
   },
@@ -7675,7 +7675,7 @@
     "fields": {
       "question": 97,
       "value": "25",
-      "name": "Terrainver\u00e4nderung",
+      "name": "Terrainveränderung",
       "sort": 4
     }
   },
@@ -7755,7 +7755,7 @@
     "fields": {
       "question": 97,
       "value": "33",
-      "name": "Gesch\u00e4ftshaus",
+      "name": "Geschäftshaus",
       "sort": 12
     }
   },
@@ -7815,7 +7815,7 @@
     "fields": {
       "question": 99,
       "value": "B",
-      "name": "B\u00fcro",
+      "name": "Büro",
       "sort": 2
     }
   },
@@ -7875,7 +7875,7 @@
     "fields": {
       "question": 121,
       "value": "verfuegung",
-      "name": "Verf\u00fcgung",
+      "name": "Verfügung",
       "sort": 0
     }
   },
@@ -7905,7 +7905,7 @@
     "fields": {
       "question": 141,
       "value": "verfuegung",
-      "name": "Verf\u00fcgung",
+      "name": "Verfügung",
       "sort": 0
     }
   },
@@ -7985,7 +7985,7 @@
     "fields": {
       "question": 141,
       "value": "rechnung",
-      "name": "Rechnung / Geb\u00fchr",
+      "name": "Rechnung / Gebühr",
       "sort": 4
     }
   },
@@ -8025,7 +8025,7 @@
     "fields": {
       "question": 22,
       "value": "W2K",
-      "name": "Wohnzone 2 Kirchh\u00fcgel",
+      "name": "Wohnzone 2 Kirchhügel",
       "sort": 5
     }
   },
@@ -8094,8 +8094,8 @@
     "pk": 237,
     "fields": {
       "question": 22,
-      "value": "WSR\u00fctli",
-      "name": "Sonderwohnzone R\u00fctli",
+      "value": "WSRütli",
+      "name": "Sonderwohnzone Rütli",
       "sort": 11
     }
   },
@@ -8155,7 +8155,7 @@
     "fields": {
       "question": 22,
       "value": "ABEC",
-      "name": "Zone f\u00fcr besondere Anlage und Betriebsst\u00e4tte Event-Center",
+      "name": "Zone für besondere Anlage und Betriebsstätte Event-Center",
       "sort": 38
     }
   },
@@ -8175,7 +8175,7 @@
     "fields": {
       "question": 22,
       "value": "BZB",
-      "name": "BZ Br\u00fcsti",
+      "name": "BZ Brüsti",
       "sort": 10
     }
   },
@@ -8265,7 +8265,7 @@
     "fields": {
       "question": 94,
       "value": "KOIIGM",
-      "name": "Gesch\u00fctzte Mauer",
+      "name": "Geschützte Mauer",
       "sort": 40
     }
   },
@@ -8285,7 +8285,7 @@
     "fields": {
       "question": 94,
       "value": "EOSG",
-      "name": "Schutzw\u00fcrdige Geb\u00e4ude",
+      "name": "Schutzwürdige Gebäude",
       "sort": 47
     }
   },
@@ -8305,7 +8305,7 @@
     "fields": {
       "question": 95,
       "value": "GmsB",
-      "name": "Gebiete mit sch\u00fctzenswerter Bausubstanz",
+      "name": "Gebiete mit schützenswerter Bausubstanz",
       "sort": 10
     }
   },
@@ -8325,7 +8325,7 @@
     "fields": {
       "question": 94,
       "value": "QRPr",
-      "name": "Bereich rechtsg\u00fcltiger Quartierrichtplan",
+      "name": "Bereich rechtsgültiger Quartierrichtplan",
       "sort": 20
     }
   },
@@ -8365,7 +8365,7 @@
     "fields": {
       "question": 94,
       "value": "SUB",
-      "name": "Seeuferbereich, \u00fcberlagert",
+      "name": "Seeuferbereich, überlagert",
       "sort": 9
     }
   },
@@ -8404,8 +8404,8 @@
     "pk": 269,
     "fields": {
       "question": 94,
-      "value": "AB\u00fcH",
-      "name": "Gewerbesonderzone Harder, \u00fcberlagert",
+      "value": "ABüH",
+      "name": "Gewerbesonderzone Harder, überlagert",
       "sort": 17
     }
   },
@@ -8455,7 +8455,7 @@
     "fields": {
       "question": 260,
       "value": "stopped",
-      "name": "Bauarbeiten sind gestartet; Baustopp verf\u00fcgt.",
+      "name": "Bauarbeiten sind gestartet; Baustopp verfügt.",
       "sort": 1
     }
   },
@@ -8535,7 +8535,7 @@
     "fields": {
       "question": 261,
       "value": "zweck",
-      "name": "Zweck\u00e4nderung",
+      "name": "Zweckänderung",
       "sort": 5
     }
   },
@@ -8574,8 +8574,8 @@
     "pk": 286,
     "fields": {
       "question": 262,
-      "value": "wohn\u00f6konomie",
-      "name": "Wohn- / \u00d6konomiebaute",
+      "value": "wohnökonomie",
+      "name": "Wohn- / Ökonomiebaute",
       "sort": 1
     }
   },
@@ -8585,7 +8585,7 @@
     "fields": {
       "question": 262,
       "value": "gewerbemitap",
-      "name": "Gewerbebaute mit Arbeitpl\u00e4tzen",
+      "name": "Gewerbebaute mit Arbeitplätzen",
       "sort": 2
     }
   },
@@ -8595,7 +8595,7 @@
     "fields": {
       "question": 262,
       "value": "gewerbeohneap",
-      "name": "Gewerbebaute ohne Arbeitspl\u00e4tze",
+      "name": "Gewerbebaute ohne Arbeitsplätze",
       "sort": 3
     }
   },
@@ -8604,8 +8604,8 @@
     "pk": 289,
     "fields": {
       "question": 262,
-      "value": "\u00f6konomie_tier",
-      "name": "\u00d6konomiebaute mit Tierhaltung",
+      "value": "ökonomie_tier",
+      "name": "Ökonomiebaute mit Tierhaltung",
       "sort": 4
     }
   },
@@ -8614,8 +8614,8 @@
     "pk": 290,
     "fields": {
       "question": 262,
-      "value": "\u00f6konomie",
-      "name": "\u00d6konomiebaute ohne Tierhaltung",
+      "value": "ökonomie",
+      "name": "Ökonomiebaute ohne Tierhaltung",
       "sort": 5
     }
   },
@@ -8625,7 +8625,7 @@
     "fields": {
       "question": 262,
       "value": "terrain",
-      "name": "Terrainver\u00e4nderung",
+      "name": "Terrainveränderung",
       "sort": 6
     }
   },
@@ -8654,8 +8654,8 @@
     "pk": 294,
     "fields": {
       "question": 262,
-      "value": "hofg\u00fcter",
-      "name": "Hof- / G\u00fctererschliessung",
+      "value": "hofgüter",
+      "name": "Hof- / Gütererschliessung",
       "sort": 10
     }
   },
@@ -8705,7 +8705,7 @@
     "fields": {
       "question": 264,
       "value": "5001",
-      "name": "RPG 16a RPV 34 1 \u00d6konomiebauten f\u00fcr die bodenabh\u00e4ngige Landwirtschaft",
+      "name": "RPG 16a RPV 34 1 Ökonomiebauten für die bodenabhängige Landwirtschaft",
       "sort": 1
     }
   },
@@ -8745,7 +8745,7 @@
     "fields": {
       "question": 264,
       "value": "5031",
-      "name": "RPG 24a Zweck\u00e4nderung ohne bauliche Massnahmen",
+      "name": "RPG 24a Zweckänderung ohne bauliche Massnahmen",
       "sort": 17
     }
   },
@@ -8765,7 +8765,7 @@
     "fields": {
       "question": 264,
       "value": "5051",
-      "name": "RPG 24c RPV 42 \u00c4nderung zonenwidrig gewordener Bauten und Anlagen",
+      "name": "RPG 24c RPV 42 Änderung zonenwidrig gewordener Bauten und Anlagen",
       "sort": 21
     }
   },
@@ -8775,7 +8775,7 @@
     "fields": {
       "question": 264,
       "value": "5061",
-      "name": "RPG 24d 1 RPV 42a \u00c4nderungen an ehemals landwirtschaftlich genutzten Wohnbauten",
+      "name": "RPG 24d 1 RPV 42a Änderungen an ehemals landwirtschaftlich genutzten Wohnbauten",
       "sort": 22
     }
   },
@@ -8785,7 +8785,7 @@
     "fields": {
       "question": 264,
       "value": "5064",
-      "name": "RPG 24e 1 Hobbym\u00e4ssige Tierhaltung  in nahe bei der Bauzone gelegenen Geb\u00e4uden",
+      "name": "RPG 24e 1 Hobbymässige Tierhaltung  in nahe bei der Bauzone gelegenen Gebäuden",
       "sort": 23
     }
   },
@@ -8795,7 +8795,7 @@
     "fields": {
       "question": 264,
       "value": "5071",
-      "name": "RPG 37a RPV 43 \u00c4nderung zonenwidrig gewordener gewerblicher Bauten",
+      "name": "RPG 37a RPV 43 Änderung zonenwidrig gewordener gewerblicher Bauten",
       "sort": 26
     }
   },
@@ -8855,7 +8855,7 @@
     "fields": {
       "question": 267,
       "value": "6110",
-      "name": "Kanton (z.B. ARE BD, ohne \u00f6ffentliche Unternehmen)",
+      "name": "Kanton (z.B. ARE BD, ohne öffentliche Unternehmen)",
       "sort": 6
     }
   },
@@ -8865,7 +8865,7 @@
     "fields": {
       "question": 267,
       "value": "6115",
-      "name": "Gemeinden (inkl. Korporationen B\u00fcrgergemeinden und Alpgenossenschaften)",
+      "name": "Gemeinden (inkl. Korporationen Bürgergemeinden und Alpgenossenschaften)",
       "sort": 8
     }
   },
@@ -8895,7 +8895,7 @@
     "fields": {
       "question": 267,
       "value": "BAFU",
-      "name": "Bundesamt f\u00fcr Umweltschutz",
+      "name": "Bundesamt für Umweltschutz",
       "sort": 26
     }
   },
@@ -8905,7 +8905,7 @@
     "fields": {
       "question": 261,
       "value": "bgbb",
-      "name": "Abparzellierung Ver\u00e4usserung Betriebs\u00fcbergabe",
+      "name": "Abparzellierung Veräusserung Betriebsübergabe",
       "sort": 6
     }
   },
@@ -8925,7 +8925,7 @@
     "fields": {
       "question": 264,
       "value": "2 Kein GWR Code",
-      "name": "BGBB 4a VBB Abparzellierung von Bauten und Anlagen, Feststellungsverf\u00fcgung",
+      "name": "BGBB 4a VBB Abparzellierung von Bauten und Anlagen, Feststellungsverfügung",
       "sort": 27
     }
   },
@@ -8955,7 +8955,7 @@
     "fields": {
       "question": 264,
       "value": "5003",
-      "name": "RPG 16a 1 RPV 34 3 Wohnbauten f\u00fcr landwirtschaftliche Gewerbe",
+      "name": "RPG 16a 1 RPV 34 3 Wohnbauten für landwirtschaftliche Gewerbe",
       "sort": 3
     }
   },
@@ -8975,7 +8975,7 @@
     "fields": {
       "question": 264,
       "value": "5005",
-      "name": "RPG 16a 2 RPV 36 Innere Aufstockung Tierhaltung (Schweinest\u00e4lle, Gefl\u00fcgelhallen)",
+      "name": "RPG 16a 2 RPV 36 Innere Aufstockung Tierhaltung (Schweineställe, Geflügelhallen)",
       "sort": 5
     }
   },
@@ -8985,7 +8985,7 @@
     "fields": {
       "question": 264,
       "value": "5006",
-      "name": "RPG 16a 2 RPV 37 Innere Aufstockung Gem\u00fcse- und Pflanzenbau (Gew\u00e4chsh\u00e4user)",
+      "name": "RPG 16a 2 RPV 37 Innere Aufstockung Gemüse- und Pflanzenbau (Gewächshäuser)",
       "sort": 6
     }
   },
@@ -9025,7 +9025,7 @@
     "fields": {
       "question": 264,
       "value": "5011",
-      "name": "RPG 18 allgemein, Zonenkonforme Bauten und Anlagen in Spezialzonen (Deponie, Sport, u.\u00e4. ohne Weiler, Erhaltungszonen)",
+      "name": "RPG 18 allgemein, Zonenkonforme Bauten und Anlagen in Spezialzonen (Deponie, Sport, u.ä. ohne Weiler, Erhaltungszonen)",
       "sort": 10
     }
   },
@@ -9035,7 +9035,7 @@
     "fields": {
       "question": 264,
       "value": "5012",
-      "name": "RPG 18 RPV 33 Zonenkonforme Bauten und Anlagen in Weiler- oder Erhaltungszonen u.\u00e4.",
+      "name": "RPG 18 RPV 33 Zonenkonforme Bauten und Anlagen in Weiler- oder Erhaltungszonen u.ä.",
       "sort": 11
     }
   },
@@ -9045,7 +9045,7 @@
     "fields": {
       "question": 264,
       "value": "5022",
-      "name": "RPG 24 RPV 39 1 Vollst\u00e4ndige Zweck\u00e4nderung von Bauten in Streusiedlungsgebieten",
+      "name": "RPG 24 RPV 39 1 Vollständige Zweckänderung von Bauten in Streusiedlungsgebieten",
       "sort": 15
     }
   },
@@ -9055,7 +9055,7 @@
     "fields": {
       "question": 264,
       "value": "5023",
-      "name": "RPG 24 RPV 39 2 Vollst\u00e4ndige Zweck\u00e4nderung landschaftspr\u00e4gender Bauten",
+      "name": "RPG 24 RPV 39 2 Vollständige Zweckänderung landschaftsprägender Bauten",
       "sort": 16
     }
   },
@@ -9075,7 +9075,7 @@
     "fields": {
       "question": 264,
       "value": "5044",
-      "name": "RPG 24b 1 ter Nichtlandw. Nebenbetriebe in tempor\u00e4ren Betriebszentren",
+      "name": "RPG 24b 1 ter Nichtlandw. Nebenbetriebe in temporären Betriebszentren",
       "sort": 20
     }
   },
@@ -9085,7 +9085,7 @@
     "fields": {
       "question": 264,
       "value": "5063",
-      "name": "RPG 24e 2-4 Aussenanlagen zur hobbym\u00e4ssigen Tierhaltung",
+      "name": "RPG 24e 2-4 Aussenanlagen zur hobbymässigen Tierhaltung",
       "sort": 24
     }
   },
@@ -9095,7 +9095,7 @@
     "fields": {
       "question": 264,
       "value": "5062",
-      "name": "RPG 24d 2 Vollst\u00e4ndige Zweck\u00e4nderung gesch\u00fctzter Bauten",
+      "name": "RPG 24d 2 Vollständige Zweckänderung geschützter Bauten",
       "sort": 25
     }
   },
@@ -9125,7 +9125,7 @@
     "fields": {
       "question": 267,
       "value": "6103",
-      "name": "VBS (Eidg. Departement f\u00fcr Verteidigung, Bev\u00f6lkerungsschutz und Sport)",
+      "name": "VBS (Eidg. Departement für Verteidigung, Bevölkerungsschutz und Sport)",
       "sort": 1
     }
   },
@@ -9135,7 +9135,7 @@
     "fields": {
       "question": 267,
       "value": "6104",
-      "name": "BBL (Bundesamt f\u00fcr Bauten und Logistik)",
+      "name": "BBL (Bundesamt für Bauten und Logistik)",
       "sort": 2
     }
   },
@@ -9145,7 +9145,7 @@
     "fields": {
       "question": 267,
       "value": "6105",
-      "name": "ASTRA (Bundesamt f\u00fcr Strassen)",
+      "name": "ASTRA (Bundesamt für Strassen)",
       "sort": 3
     }
   },
@@ -9175,7 +9175,7 @@
     "fields": {
       "question": 267,
       "value": "6111",
-      "name": "Kanton (\u00f6ffentliche Unternehmen des Kantons, z.B. Spital)",
+      "name": "Kanton (öffentliche Unternehmen des Kantons, z.B. Spital)",
       "sort": 7
     }
   },
@@ -9185,7 +9185,7 @@
     "fields": {
       "question": 267,
       "value": "6116",
-      "name": "Gemeinden (\u00f6ffentliche Unternehmen Gemeinde, z.B. Wasserwerke, Elektrizit\u00e4stwerke)",
+      "name": "Gemeinden (öffentliche Unternehmen Gemeinde, z.B. Wasserwerke, Elektrizitästwerke)",
       "sort": 9
     }
   },
@@ -9205,7 +9205,7 @@
     "fields": {
       "question": 267,
       "value": "6122",
-      "name": "Personalf\u00fcrsorgestiftungen (Pensionskassen)",
+      "name": "Personalfürsorgestiftungen (Pensionskassen)",
       "sort": 11
     }
   },
@@ -9225,7 +9225,7 @@
     "fields": {
       "question": 267,
       "value": "6131",
-      "name": "Elektrizit\u00e4tswerke (ausgenommen gemeindeeigene Werke)",
+      "name": "Elektrizitätswerke (ausgenommen gemeindeeigene Werke)",
       "sort": 14
     }
   },
@@ -9349,7 +9349,7 @@
     "model": "core.answerquery",
     "pk": 41,
     "fields": {
-      "name": "Leitbeh\u00f6rde",
+      "name": "Leitbehörde",
       "query": "SELECT DISTINCT\r\n  \"AUTHORITY\".\"AUTHORITY_ID\",\r\n  \"AUTHORITY\".\"NAME\"\r\nFROM\r\n  \"AUTHORITY\"\r\nLEFT JOIN\r\n  \"GROUP_LOCATION\" ON (\r\n  \"GROUP_LOCATION\".\"GROUP_ID\" = [GROUP_ID]\r\n)\r\nLEFT JOIN\r\n  \"GROUP\" ON (\r\n  \"GROUP\".\"GROUP_ID\" = [GROUP_ID]\r\n)\r\nLEFT JOIN\r\n  \"AUTHORITY_LOCATION\" ON (\r\n    \"AUTHORITY\".\"AUTHORITY_ID\" = \"AUTHORITY_LOCATION\".\"AUTHORITY_ID\"\r\n  )\r\n \r\nJOIN\r\n  \"AUTHORITY_AUTHORITY_TYPE\" \"AAT\" ON (\r\n    \"AUTHORITY\".\"AUTHORITY_ID\" = \"AAT\".\"AUTHORITY_ID\"\r\n  )\r\nJOIN\r\n  \"AUTHORITY_TYPE\" \"AT\" ON (\r\n    \"AAT\".\"AUTHORITY_TYPE_ID\" = \"AT\".\"AUTHORITY_TYPE_ID\"\r\n  )\r\nLEFT JOIN\r\n  \"FORM_GROUP_FORM\" \"FGF\" ON (\r\n    \"FGF\".\"FORM_ID\" = [URL_FORM_ID]\r\n  )\r\n\r\nWHERE (\r\n\r\n  (\r\n    \"GROUP_LOCATION\".\"LOCATION_ID\" = \"AUTHORITY_LOCATION\".\"LOCATION_ID\"\r\n    AND\r\n    (\r\n      (\"FGF\".\"FORM_GROUP_ID\" = 30 AND \"AT\".\"TAG\" = 'BG')\r\n      OR\r\n      (\"FGF\".\"FORM_GROUP_ID\" = 141 AND \"AT\".\"TAG\" = 'NP')\r\n    )\r\n  )\r\n  OR\r\n  -- HACK: If the Group is Bundestelle set Leitbehoerde to BAV\r\n  (\r\n\t\"GROUP\".\"GROUP_ID\" = 1028\r\n\t AND\r\n\t\"AUTHORITY\".\"AUTHORITY_ID\" = 75\r\n  )\r\n  OR\r\n  (\r\n    \"GROUP_LOCATION\".\"LOCATION_ID\" IS NULL\r\n    AND\r\n\tNOT \"GROUP\".\"GROUP_ID\" = 1028\r\n  )\r\n\r\n)\r\nORDER BY \"AUTHORITY\".\"NAME\""
     }
   },
@@ -10176,7 +10176,7 @@
     "model": "core.authority",
     "pk": 22,
     "fields": {
-      "name": "Baukommission B\u00fcrglen"
+      "name": "Baukommission Bürglen"
     }
   },
   {
@@ -10190,7 +10190,7 @@
     "model": "core.authority",
     "pk": 24,
     "fields": {
-      "name": "Baukommission Fl\u00fcelen"
+      "name": "Baukommission Flüelen"
     }
   },
   {
@@ -10260,7 +10260,7 @@
     "model": "core.authority",
     "pk": 50,
     "fields": {
-      "name": "Gemeinderat Untersch\u00e4chen"
+      "name": "Gemeinderat Unterschächen"
     }
   },
   {
@@ -10323,56 +10323,56 @@
     "model": "core.authority",
     "pk": 63,
     "fields": {
-      "name": "Amt f\u00fcr Energie"
+      "name": "Amt für Energie"
     }
   },
   {
     "model": "core.authority",
     "pk": 64,
     "fields": {
-      "name": "Amt f\u00fcr Forst und Jagd"
+      "name": "Amt für Forst und Jagd"
     }
   },
   {
     "model": "core.authority",
     "pk": 65,
     "fields": {
-      "name": "Amt f\u00fcr Hochbau"
+      "name": "Amt für Hochbau"
     }
   },
   {
     "model": "core.authority",
     "pk": 66,
     "fields": {
-      "name": "Amt f\u00fcr Landwirtschaft"
+      "name": "Amt für Landwirtschaft"
     }
   },
   {
     "model": "core.authority",
     "pk": 67,
     "fields": {
-      "name": "Amt f\u00fcr Raumentwicklung"
+      "name": "Amt für Raumentwicklung"
     }
   },
   {
     "model": "core.authority",
     "pk": 68,
     "fields": {
-      "name": "Amt f\u00fcr Tiefbau"
+      "name": "Amt für Tiefbau"
     }
   },
   {
     "model": "core.authority",
     "pk": 69,
     "fields": {
-      "name": "Amt f\u00fcr Umweltschutz"
+      "name": "Amt für Umweltschutz"
     }
   },
   {
     "model": "core.authority",
     "pk": 70,
     "fields": {
-      "name": "Amt f\u00fcr Wasserbau"
+      "name": "Amt für Wasserbau"
     }
   },
   {
@@ -10393,7 +10393,7 @@
     "model": "core.authority",
     "pk": 73,
     "fields": {
-      "name": "Gemeinderat G\u00f6schenen"
+      "name": "Gemeinderat Göschenen"
     }
   },
   {
@@ -10407,14 +10407,14 @@
     "model": "core.authority",
     "pk": 75,
     "fields": {
-      "name": "Bundesamt f\u00fcr Verkehr (BAV)"
+      "name": "Bundesamt für Verkehr (BAV)"
     }
   },
   {
     "model": "core.authority",
     "pk": 76,
     "fields": {
-      "name": "Bundesamt f\u00fcr Umweltschutz (BAfU)"
+      "name": "Bundesamt für Umweltschutz (BAfU)"
     }
   },
   {
@@ -10442,7 +10442,7 @@
     "model": "core.authority",
     "pk": 80,
     "fields": {
-      "name": "Gemeinderat B\u00fcrglen"
+      "name": "Gemeinderat Bürglen"
     }
   },
   {
@@ -10456,7 +10456,7 @@
     "model": "core.authority",
     "pk": 82,
     "fields": {
-      "name": "Gemeinderat Fl\u00fcelen"
+      "name": "Gemeinderat Flüelen"
     }
   },
   {
@@ -10498,7 +10498,7 @@
     "model": "core.authority",
     "pk": 88,
     "fields": {
-      "name": "Bundesamt f\u00fcr Zivilluftfahrt (BAZL)"
+      "name": "Bundesamt für Zivilluftfahrt (BAZL)"
     }
   },
   {
@@ -10512,14 +10512,14 @@
     "model": "core.authority",
     "pk": 90,
     "fields": {
-      "name": "Amt f\u00fcr Kantonspolizei"
+      "name": "Amt für Kantonspolizei"
     }
   },
   {
     "model": "core.authority",
     "pk": 91,
     "fields": {
-      "name": "Bundesamt f\u00fcr Strassen (ASTRA)"
+      "name": "Bundesamt für Strassen (ASTRA)"
     }
   },
   {
@@ -17023,7 +17023,7 @@
     "model": "core.buildingauthoritybutton",
     "pk": 5,
     "fields": {
-      "label": "Bau beendet, Info an Liegenschaftssch\u00e4tzung"
+      "label": "Bau beendet, Info an Liegenschaftsschätzung"
     }
   },
   {
@@ -17044,7 +17044,7 @@
     "model": "core.buildingauthoritybutton",
     "pk": 8,
     "fields": {
-      "label": "Abnahme Schnurger\u00fcst, Info an ABM"
+      "label": "Abnahme Schnurgerüst, Info an ABM"
     }
   },
   {
@@ -17065,7 +17065,7 @@
     "model": "core.buildingauthoritybutton",
     "pk": 11,
     "fields": {
-      "label": "Baubewilligung erteilt, Info an Geb\u00e4udesch\u00e4tzung"
+      "label": "Baubewilligung erteilt, Info an Gebäudeschätzung"
     }
   },
   {
@@ -17144,7 +17144,7 @@
     "pk": 2,
     "fields": {
       "building_authority_button": 3,
-      "email_text": "URec Info\r\n\r\n(automatisch generierte E-Mail von URec, bitte nicht darauf  antworten)\r\n\r\nMeldung Baubewilligung erteilt\r\n\r\nDie zust\u00e4ndige Gemeindebaubeh\u00f6rde [INSTANCE_LOCATION] hat betreffend das Dossier ID [INSTANCE_ID] mit der URec Dossier Nr. [DOSSIER_NUMBER] die Baubewilligung erteilt. Die Baubewilligung wurde unter \u201eDokumente\u201c im URec hochgeladen.\r\n\r\n[INSTANCE_LOCATION], [DATE]",
+      "email_text": "URec Info\r\n\r\n(automatisch generierte E-Mail von URec, bitte nicht darauf  antworten)\r\n\r\nMeldung Baubewilligung erteilt\r\n\r\nDie zuständige Gemeindebaubehörde [INSTANCE_LOCATION] hat betreffend das Dossier ID [INSTANCE_ID] mit der URec Dossier Nr. [DOSSIER_NUMBER] die Baubewilligung erteilt. Die Baubewilligung wurde unter „Dokumente“ im URec hochgeladen.\r\n\r\n[INSTANCE_LOCATION], [DATE]",
       "receiver_query": "camac.ur@achtgradost.ch",
       "email_subject": "URec Dossier Nr. [DOSSIER_NUMBER]: Meldung Baubewilligung erteilt",
       "from_email": "urec@ur.ch",
@@ -17158,7 +17158,7 @@
     "pk": 22,
     "fields": {
       "building_authority_button": 4,
-      "email_text": "URec Info\r\n\r\n(automatisch generierte E-Mail von URec, bitte nicht darauf  antworten)\r\n\r\nMeldung Bau beendet\r\n\r\nDas Bauvorhaben mit der Dossier ID [INSTANCE_ID] / URec Dossier Nr. [DOSSIER_NUMBER] ist fertiggestellt. Wir bitten Sie, das Bauobjekt zu vermessen und die Vermarkung zu \u00fcberpr\u00fcfen. Allf\u00e4llige Kosten gehen zu Lasten der Bauherrschaft. Die Bauherrschaft wurde im Rahmen der Baubewilligung \u00fcber die Vermessungspflicht und daraus allf\u00e4llig entstehenden Kosten in Kenntnis gesetzt.\r\n\r\nEGID Nr.   \u2026\u2026\u2026\u2026...\r\n\r\nEWID Nr.  \u2026\u2026\u2026\u2026\u2026\r\n\r\nDie EGID Nr. bzw. die EWID Nummern gem\u00e4ss GWR werden mitgeteilt sobald das Objekt im GWR erfasst wurde und die entsprechenden Nummern bekannt sind. \r\n\r\n(bitte nichtzutreffendes l\u00f6schen, entweder Angabe der Nummern oder Hinweis).\r\n\r\n[INSTANCE_LOCATION], [DATE]",
+      "email_text": "URec Info\r\n\r\n(automatisch generierte E-Mail von URec, bitte nicht darauf  antworten)\r\n\r\nMeldung Bau beendet\r\n\r\nDas Bauvorhaben mit der Dossier ID [INSTANCE_ID] / URec Dossier Nr. [DOSSIER_NUMBER] ist fertiggestellt. Wir bitten Sie, das Bauobjekt zu vermessen und die Vermarkung zu überprüfen. Allfällige Kosten gehen zu Lasten der Bauherrschaft. Die Bauherrschaft wurde im Rahmen der Baubewilligung über die Vermessungspflicht und daraus allfällig entstehenden Kosten in Kenntnis gesetzt.\r\n\r\nEGID Nr.   …………...\r\n\r\nEWID Nr.  ……………\r\n\r\nDie EGID Nr. bzw. die EWID Nummern gemäss GWR werden mitgeteilt sobald das Objekt im GWR erfasst wurde und die entsprechenden Nummern bekannt sind. \r\n\r\n(bitte nichtzutreffendes löschen, entweder Angabe der Nummern oder Hinweis).\r\n\r\n[INSTANCE_LOCATION], [DATE]",
       "receiver_query": "camac.ur@achtgradost.ch",
       "email_subject": "URec Dossier Nr. [DOSSIER_NUMBER]: Meldung Bau beendet",
       "from_email": "urec@ur.ch",
@@ -17172,7 +17172,7 @@
     "pk": 42,
     "fields": {
       "building_authority_button": 5,
-      "email_text": "URec Info\r\n\r\n(automatisch generierte E-Mail von URec, bitte nicht darauf antworten)\r\n\r\nMeldung Fertigstellung Bauvorhaben gest\u00fctzt auf Artikel 2 Absatz 3 der Verordnung \u00fcber die steueramtliche Sch\u00e4tzung der Grundst\u00fccke.\r\n\r\nDas Bauvorhaben mit der Dossier ID [INSTANCE_ID] / URec Dossier Nr. [DOSSIER_NUMBER] ist fertiggestellt.\r\n\r\nGem\u00e4ss Sch\u00e4tzungsverordnung sind Zwischensch\u00e4tzungen vorzunehmen, wenn der Bestand der Baute oder Anlage ver\u00e4ndert wird. Dies ist insbesondere dann der Fall, wenn sich der Umfang des Grundst\u00fcckes ver\u00e4ndert hat, wenn Neubauten oder wesentliche Um,- Aus- oder Anbauten verwirklicht werden, wenn Geb\u00e4ulichkeiten abgebrochen werden oder wenn andere Gr\u00fcnde zu einer wesentlichen Wertver\u00e4nderung beitragen. Weiter sind Zwischensch\u00e4tzungen notwendig bei wesentlichen \u00c4nderungen der Ben\u00fctzungsart und \u00c4nderungen der Beschaffenheit des Grundst\u00fcckes.\r\n\r\nWir bitten Sie, das Erfordernis der Zwischensch\u00e4tzung zu pr\u00fcfen und gegebenenfalls die notwendigen Schritte einzuleiten.\r\n\r\n[INSTANCE_LOCATION], [DATE]",
+      "email_text": "URec Info\r\n\r\n(automatisch generierte E-Mail von URec, bitte nicht darauf antworten)\r\n\r\nMeldung Fertigstellung Bauvorhaben gestützt auf Artikel 2 Absatz 3 der Verordnung über die steueramtliche Schätzung der Grundstücke.\r\n\r\nDas Bauvorhaben mit der Dossier ID [INSTANCE_ID] / URec Dossier Nr. [DOSSIER_NUMBER] ist fertiggestellt.\r\n\r\nGemäss Schätzungsverordnung sind Zwischenschätzungen vorzunehmen, wenn der Bestand der Baute oder Anlage verändert wird. Dies ist insbesondere dann der Fall, wenn sich der Umfang des Grundstückes verändert hat, wenn Neubauten oder wesentliche Um,- Aus- oder Anbauten verwirklicht werden, wenn Gebäulichkeiten abgebrochen werden oder wenn andere Gründe zu einer wesentlichen Wertveränderung beitragen. Weiter sind Zwischenschätzungen notwendig bei wesentlichen Änderungen der Benützungsart und Änderungen der Beschaffenheit des Grundstückes.\r\n\r\nWir bitten Sie, das Erfordernis der Zwischenschätzung zu prüfen und gegebenenfalls die notwendigen Schritte einzuleiten.\r\n\r\n[INSTANCE_LOCATION], [DATE]",
       "receiver_query": "grundstueckschaetzung@ur.ch",
       "email_subject": "URec Dossier Nr. [DOSSIER_NUMBER]: Meldung Fertigstellung Bauvorhaben",
       "from_email": "urec@ur.ch",
@@ -17200,9 +17200,9 @@
     "pk": 44,
     "fields": {
       "building_authority_button": 8,
-      "email_text": "URec Info\r\n\r\n(automatisch generierte E-Mail von URec, bitte nicht darauf antworten)\r\n\r\nMeldung Abnahme Schnurger\u00fcst\r\n\r\nBeim Bauvorhaben mit der Dossier ID [INSTANCE_ID] / URec Dossier Nr. [DOSSIER_NUMBER] ist die Abnahme Schnurger\u00fcst erfolgt.\r\n\r\n[INSTANCE_LOCATION], [DATE]",
+      "email_text": "URec Info\r\n\r\n(automatisch generierte E-Mail von URec, bitte nicht darauf antworten)\r\n\r\nMeldung Abnahme Schnurgerüst\r\n\r\nBeim Bauvorhaben mit der Dossier ID [INSTANCE_ID] / URec Dossier Nr. [DOSSIER_NUMBER] ist die Abnahme Schnurgerüst erfolgt.\r\n\r\n[INSTANCE_LOCATION], [DATE]",
       "receiver_query": "gisler.martin@ur.ch",
-      "email_subject": "URec Dossier Nr. [DOSSIER_NUMBER]: Meldung Abnahme Schnurger\u00fcst",
+      "email_subject": "URec Dossier Nr. [DOSSIER_NUMBER]: Meldung Abnahme Schnurgerüst",
       "from_email": "urec@ur.ch",
       "from_name": "URec Info",
       "attachment_section": null,
@@ -17214,7 +17214,7 @@
     "pk": 45,
     "fields": {
       "building_authority_button": 11,
-      "email_text": "URec Info\r\n\r\n(automatisch generierte E-Mail von URec, bitte nicht darauf  antworten)\r\n\r\nMeldung Baubewilligung erteilt\r\n\r\nDie zust\u00e4ndige Gemeindebaubeh\u00f6rde [INSTANCE_LOCATION] hat betreffend das Dossier ID [INSTANCE_ID] mit der URec Dossier Nr. [DOSSIER_NUMBER] die Baubewilligung erteilt. Die Baubewilligung wurde unter \u201eDokumente\u201c im URec hochgeladen.\r\n\r\n[INSTANCE_LOCATION], [DATE]",
+      "email_text": "URec Info\r\n\r\n(automatisch generierte E-Mail von URec, bitte nicht darauf  antworten)\r\n\r\nMeldung Baubewilligung erteilt\r\n\r\nDie zuständige Gemeindebaubehörde [INSTANCE_LOCATION] hat betreffend das Dossier ID [INSTANCE_ID] mit der URec Dossier Nr. [DOSSIER_NUMBER] die Baubewilligung erteilt. Die Baubewilligung wurde unter „Dokumente“ im URec hochgeladen.\r\n\r\n[INSTANCE_LOCATION], [DATE]",
       "receiver_query": "ds@fgs-ur.ch",
       "email_subject": "URec Dossier Nr. [DOSSIER_NUMBER]: Meldung Baubewilligung erteilt",
       "from_email": "urec@ur.ch",
@@ -17228,7 +17228,7 @@
     "pk": 46,
     "fields": {
       "building_authority_button": 12,
-      "email_text": "URec Info\r\n(automatisch generierte E-Mail von URec, bitte nicht darauf antworten)\r\n\r\nBAU- UND EINSPRACHE-ENTSCHEID\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID Nr. [INSTANCE_ID] bzw. der URec Nr. [DOSSIER_NUMBER] wurde der Bau- und Einsprache-Entscheid von der zust\u00e4ndigen Gemeindebaubeh\u00f6rde [INSTANCE_LOCATION] erteilt und dem Gesuchsteller zugestellt.\r\n\r\nBitte kontaktieren Sie die zust\u00e4ndige Gemeindebaubeh\u00f6rde falls diese den Bauentscheid im URec noch nicht hochgeladen hat.\r\n\r\nAmt f\u00fcr Raumentwicklung \r\nKoordinationsstelle f\u00fcr Baueingaben\r\nRathausplatz 5\r\n6460 Altdorf\r\n\r\nTel. 041 875 24 29\r\nE-Mail: raumplanung@ur.ch",
+      "email_text": "URec Info\r\n(automatisch generierte E-Mail von URec, bitte nicht darauf antworten)\r\n\r\nBAU- UND EINSPRACHE-ENTSCHEID\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID Nr. [INSTANCE_ID] bzw. der URec Nr. [DOSSIER_NUMBER] wurde der Bau- und Einsprache-Entscheid von der zuständigen Gemeindebaubehörde [INSTANCE_LOCATION] erteilt und dem Gesuchsteller zugestellt.\r\n\r\nBitte kontaktieren Sie die zuständige Gemeindebaubehörde falls diese den Bauentscheid im URec noch nicht hochgeladen hat.\r\n\r\nAmt für Raumentwicklung \r\nKoordinationsstelle für Baueingaben\r\nRathausplatz 5\r\n6460 Altdorf\r\n\r\nTel. 041 875 24 29\r\nE-Mail: raumplanung@ur.ch",
       "receiver_query": "[fachstellen]",
       "email_subject": "URec Dossier Nr. [DOSSIER_NUMBER]: Bau- und Einsprache-Entscheid",
       "from_email": "urec@ur.ch",
@@ -17242,7 +17242,7 @@
     "pk": 66,
     "fields": {
       "building_authority_button": 12,
-      "email_text": "URec Info\r\n(automatisch generierte E-Mail von URec, bitte nicht darauf antworten)\r\n\r\nStatusmeldung zum Stand des Bewilligungsverfahrens\r\nBAU- UND EINSPRACHEENTSCHEID\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nDer Bau- und Einspracheentscheid der Gemeindebaubeh\u00f6rde [INSTANCE_LOCATION] zum Dossier mit der ID Nr. [INSTANCE_ID] (URec Dossiernummer [DOSSIER_NUMBER]) wurde verschickt.\r\n\r\nMit freundlichen Gr\u00fcssen\r\nGemeindebaubeh\u00f6rde [INSTANCE_LOCATION]",
+      "email_text": "URec Info\r\n(automatisch generierte E-Mail von URec, bitte nicht darauf antworten)\r\n\r\nStatusmeldung zum Stand des Bewilligungsverfahrens\r\nBAU- UND EINSPRACHEENTSCHEID\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nDer Bau- und Einspracheentscheid der Gemeindebaubehörde [INSTANCE_LOCATION] zum Dossier mit der ID Nr. [INSTANCE_ID] (URec Dossiernummer [DOSSIER_NUMBER]) wurde verschickt.\r\n\r\nMit freundlichen Grüssen\r\nGemeindebaubehörde [INSTANCE_LOCATION]",
       "receiver_query": "[gesuchsteller]",
       "email_subject": "URec Dossier Nr. [DOSSIER_NUMBER]: Bau- und Einsprache-Entscheid",
       "from_email": "urec@ur.ch",
@@ -17256,7 +17256,7 @@
     "pk": 67,
     "fields": {
       "building_authority_button": 14,
-      "email_text": "URec Info (automatisch generierte E-Mail von URec, bitte nicht darauf antworten) Statusmeldung zum Stand des Verfahrens\r\n\r\nER\u00d6FFNUNG STELLUNGNAHME / VORENTSCHEID\r\n\r\nSehr geehrte Dame Sehr geehrter Herr\r\n\r\nZum Dossier mit der ID Nr. [INSTANCE_ID], (URec Dossiernummer [DOSSIER_NUMBER]) wird Ihnen hiermit eine Stellungnahme / Vorentscheid via Gemeindebaubeh\u00f6rde [INSTANCE_LOCATION] zugestellt. Die Originaldokumente bleiben bei der ausstellenden Beh\u00f6rde und k\u00f6nnen bei Bedarf angefordert werden. Sie k\u00f6nnen die relevanten Dokumente \u00fcber den folgenden Link herunterladen:\r\n\r\n[PORTAL_LINK]\r\n\r\nFalls der Link nicht funktioniert, stellen Sie bitte sicher, dass Sie sich im URec Portal mit der E-Mail-Adresse [APPLICANT_EMAIL] registriert und angemeldet haben. Unter folgendem Link k\u00f6nnen Sie sich registrieren: https://www.ur.ch/myservice/create.\r\n\r\nMit dem \u00d6ffnen eines Dokuments beginnt gleichzeitig die in der Stellungnahme / Vorentscheid erw\u00e4hnte Frist f\u00fcr das rechtliche Geh\u00f6r. Das aktuelle Datum beim Anklicken des Links wurde im System gespeichert und gilt als Er\u00f6ffnungsdatum.\r\n\r\nMit freundlichen Gr\u00fcssen\r\nGemeindebaubeh\u00f6rde [INSTANCE_LOCATION]\r\n",
+      "email_text": "URec Info (automatisch generierte E-Mail von URec, bitte nicht darauf antworten) Statusmeldung zum Stand des Verfahrens\r\n\r\nERÖFFNUNG STELLUNGNAHME / VORENTSCHEID\r\n\r\nSehr geehrte Dame Sehr geehrter Herr\r\n\r\nZum Dossier mit der ID Nr. [INSTANCE_ID], (URec Dossiernummer [DOSSIER_NUMBER]) wird Ihnen hiermit eine Stellungnahme / Vorentscheid via Gemeindebaubehörde [INSTANCE_LOCATION] zugestellt. Die Originaldokumente bleiben bei der ausstellenden Behörde und können bei Bedarf angefordert werden. Sie können die relevanten Dokumente über den folgenden Link herunterladen:\r\n\r\n[PORTAL_LINK]\r\n\r\nFalls der Link nicht funktioniert, stellen Sie bitte sicher, dass Sie sich im URec Portal mit der E-Mail-Adresse [APPLICANT_EMAIL] registriert und angemeldet haben. Unter folgendem Link können Sie sich registrieren: https://www.ur.ch/myservice/create.\r\n\r\nMit dem Öffnen eines Dokuments beginnt gleichzeitig die in der Stellungnahme / Vorentscheid erwähnte Frist für das rechtliche Gehör. Das aktuelle Datum beim Anklicken des Links wurde im System gespeichert und gilt als Eröffnungsdatum.\r\n\r\nMit freundlichen Grüssen\r\nGemeindebaubehörde [INSTANCE_LOCATION]\r\n",
       "receiver_query": "[gesuchsteller]",
       "email_subject": "URec Dossier Nr. [DOSSIER_NUMBER]: Bau- und Einsprache-Entscheid",
       "from_email": "urec@ur.ch",
@@ -17270,7 +17270,7 @@
     "pk": 68,
     "fields": {
       "building_authority_button": 13,
-      "email_text": "URec Info (automatisch generierte E-Mail von URec, bitte nicht darauf antworten) Statusmeldung zum Stand des Verfahrens\r\n\r\nER\u00d6FFNUNG STELLUNGNAHME / VORENTSCHEID\r\n\r\nSehr geehrte Dame Sehr geehrter Herr\r\n\r\nZum Dossier mit der ID Nr. [INSTANCE_ID], (URec Dossiernummer [DOSSIER_NUMBER]) wird Ihnen hiermit eine Stellungnahme / Vorentscheid via Gemeindebaubeh\u00f6rde [INSTANCE_LOCATION] zugestellt. Die Originaldokumente bleiben bei der ausstellenden Beh\u00f6rde und k\u00f6nnen bei Bedarf angefordert werden. Sie k\u00f6nnen die relevanten Dokumente \u00fcber den folgenden Link herunterladen:\r\n\r\n[PORTAL_LINK]\r\n\r\nFalls der Link nicht funktioniert, stellen Sie bitte sicher, dass Sie sich im URec Portal mit der E-Mail-Adresse [APPLICANT_EMAIL] registriert und angemeldet haben. Unter folgendem Link k\u00f6nnen Sie sich registrieren: https://www.ur.ch/myservice/create.\r\n\r\nMit dem \u00d6ffnen eines Dokuments beginnt gleichzeitig die in der Stellungnahme / Vorentscheid erw\u00e4hnte Frist f\u00fcr das rechtliche Geh\u00f6r. Das aktuelle Datum beim Anklicken des Links wurde im System gespeichert und gilt als Er\u00f6ffnungsdatum.\r\n\r\nMit freundlichen Gr\u00fcssen\r\nGemeindebaubeh\u00f6rde [INSTANCE_LOCATION]\r\n",
+      "email_text": "URec Info (automatisch generierte E-Mail von URec, bitte nicht darauf antworten) Statusmeldung zum Stand des Verfahrens\r\n\r\nERÖFFNUNG STELLUNGNAHME / VORENTSCHEID\r\n\r\nSehr geehrte Dame Sehr geehrter Herr\r\n\r\nZum Dossier mit der ID Nr. [INSTANCE_ID], (URec Dossiernummer [DOSSIER_NUMBER]) wird Ihnen hiermit eine Stellungnahme / Vorentscheid via Gemeindebaubehörde [INSTANCE_LOCATION] zugestellt. Die Originaldokumente bleiben bei der ausstellenden Behörde und können bei Bedarf angefordert werden. Sie können die relevanten Dokumente über den folgenden Link herunterladen:\r\n\r\n[PORTAL_LINK]\r\n\r\nFalls der Link nicht funktioniert, stellen Sie bitte sicher, dass Sie sich im URec Portal mit der E-Mail-Adresse [APPLICANT_EMAIL] registriert und angemeldet haben. Unter folgendem Link können Sie sich registrieren: https://www.ur.ch/myservice/create.\r\n\r\nMit dem Öffnen eines Dokuments beginnt gleichzeitig die in der Stellungnahme / Vorentscheid erwähnte Frist für das rechtliche Gehör. Das aktuelle Datum beim Anklicken des Links wurde im System gespeichert und gilt als Eröffnungsdatum.\r\n\r\nMit freundlichen Grüssen\r\nGemeindebaubehörde [INSTANCE_LOCATION]\r\n",
       "receiver_query": "[gesuchsteller]",
       "email_subject": "URec Dossier Nr. [DOSSIER_NUMBER]: Bau- und Einsprache-Entscheid",
       "from_email": "urec@ur.ch",
@@ -17284,7 +17284,7 @@
     "pk": 69,
     "fields": {
       "building_authority_button": 15,
-      "email_text": "URec Info (automatisch generierte E-Mail von URec, bitte nicht darauf antworten) Statusmeldung zum Stand des Verfahrens\r\n\r\nER\u00d6FFNUNG STELLUNGNAHME / VORENTSCHEID\r\n\r\nSehr geehrte Dame Sehr geehrter Herr\r\n\r\nZum Dossier mit der ID Nr. [INSTANCE_ID], (URec Dossiernummer [DOSSIER_NUMBER]) wird Ihnen hiermit eine Stellungnahme / Vorentscheid via Gemeindebaubeh\u00f6rde [INSTANCE_LOCATION] zugestellt. Die Originaldokumente bleiben bei der ausstellenden Beh\u00f6rde und k\u00f6nnen bei Bedarf angefordert werden. Sie k\u00f6nnen die relevanten Dokumente \u00fcber den folgenden Link herunterladen:\r\n\r\n[PORTAL_LINK]\r\n\r\nFalls der Link nicht funktioniert, stellen Sie bitte sicher, dass Sie sich im URec Portal mit der E-Mail-Adresse [APPLICANT_EMAIL] registriert und angemeldet haben. Unter folgendem Link k\u00f6nnen Sie sich registrieren: https://www.ur.ch/myservice/create.\r\n\r\nMit dem \u00d6ffnen eines Dokuments beginnt gleichzeitig die in der Stellungnahme / Vorentscheid erw\u00e4hnte Frist f\u00fcr das rechtliche Geh\u00f6r. Das aktuelle Datum beim Anklicken des Links wurde im System gespeichert und gilt als Er\u00f6ffnungsdatum.\r\n\r\nMit freundlichen Gr\u00fcssen\r\nGemeindebaubeh\u00f6rde [INSTANCE_LOCATION]\r\n",
+      "email_text": "URec Info (automatisch generierte E-Mail von URec, bitte nicht darauf antworten) Statusmeldung zum Stand des Verfahrens\r\n\r\nERÖFFNUNG STELLUNGNAHME / VORENTSCHEID\r\n\r\nSehr geehrte Dame Sehr geehrter Herr\r\n\r\nZum Dossier mit der ID Nr. [INSTANCE_ID], (URec Dossiernummer [DOSSIER_NUMBER]) wird Ihnen hiermit eine Stellungnahme / Vorentscheid via Gemeindebaubehörde [INSTANCE_LOCATION] zugestellt. Die Originaldokumente bleiben bei der ausstellenden Behörde und können bei Bedarf angefordert werden. Sie können die relevanten Dokumente über den folgenden Link herunterladen:\r\n\r\n[PORTAL_LINK]\r\n\r\nFalls der Link nicht funktioniert, stellen Sie bitte sicher, dass Sie sich im URec Portal mit der E-Mail-Adresse [APPLICANT_EMAIL] registriert und angemeldet haben. Unter folgendem Link können Sie sich registrieren: https://www.ur.ch/myservice/create.\r\n\r\nMit dem Öffnen eines Dokuments beginnt gleichzeitig die in der Stellungnahme / Vorentscheid erwähnte Frist für das rechtliche Gehör. Das aktuelle Datum beim Anklicken des Links wurde im System gespeichert und gilt als Eröffnungsdatum.\r\n\r\nMit freundlichen Grüssen\r\nGemeindebaubehörde [INSTANCE_LOCATION]\r\n",
       "receiver_query": "[gesuchsteller]",
       "email_subject": "URec Dossier Nr. [DOSSIER_NUMBER]: Bau- und Einsprache-Entscheid",
       "from_email": "urec@ur.ch",
@@ -17298,7 +17298,7 @@
     "pk": 70,
     "fields": {
       "building_authority_button": 16,
-      "email_text": "URec Info\r\n(automatisch generierte E-Mail von URec, bitte nicht darauf antworten)\r\n\r\nBAU- UND EINSPRACHE-ENTSCHEID\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID Nr. [INSTANCE_ID] bzw. der URec Nr. [DOSSIER_NUMBER] wurde der Bau- und Einsprache-Entscheid von der zust\u00e4ndigen Gemeindebaubeh\u00f6rde [INSTANCE_LOCATION] erteilt und dem Gesuchsteller zugestellt.\r\n\r\nBitte kontaktieren Sie die zust\u00e4ndige Gemeindebaubeh\u00f6rde falls diese den Bauentscheid im URec noch nicht hochgeladen hat.\r\n\r\nAmt f\u00fcr Raumentwicklung \r\nKoordinationsstelle f\u00fcr Baueingaben\r\nRathausplatz 5\r\n6460 Altdorf\r\n\r\nTel. 041 875 24 29\r\nE-Mail: raumplanung@ur.ch",
+      "email_text": "URec Info\r\n(automatisch generierte E-Mail von URec, bitte nicht darauf antworten)\r\n\r\nBAU- UND EINSPRACHE-ENTSCHEID\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID Nr. [INSTANCE_ID] bzw. der URec Nr. [DOSSIER_NUMBER] wurde der Bau- und Einsprache-Entscheid von der zuständigen Gemeindebaubehörde [INSTANCE_LOCATION] erteilt und dem Gesuchsteller zugestellt.\r\n\r\nBitte kontaktieren Sie die zuständige Gemeindebaubehörde falls diese den Bauentscheid im URec noch nicht hochgeladen hat.\r\n\r\nAmt für Raumentwicklung \r\nKoordinationsstelle für Baueingaben\r\nRathausplatz 5\r\n6460 Altdorf\r\n\r\nTel. 041 875 24 29\r\nE-Mail: raumplanung@ur.ch",
       "receiver_query": "[fachstellen]",
       "email_subject": "URec Dossier Nr. [DOSSIER_NUMBER]: Bau- und Einsprache-Entscheid",
       "from_email": "urec@ur.ch",
@@ -17312,7 +17312,7 @@
     "pk": 71,
     "fields": {
       "building_authority_button": 16,
-      "email_text": "URec Info\r\n(automatisch generierte E-Mail von URec, bitte nicht darauf antworten)\r\n\r\nStatusmeldung zum Stand des Bewilligungsverfahrens\r\nBAU- UND EINSPRACHEENTSCHEID\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nDer Bau- und Einspracheentscheid der Gemeindebaubeh\u00f6rde [INSTANCE_LOCATION] zum Dossier mit der ID Nr. [INSTANCE_ID] (URec Dossiernummer [DOSSIER_NUMBER]) wurde verschickt.\r\n\r\nMit freundlichen Gr\u00fcssen\r\nGemeindebaubeh\u00f6rde [INSTANCE_LOCATION]",
+      "email_text": "URec Info\r\n(automatisch generierte E-Mail von URec, bitte nicht darauf antworten)\r\n\r\nStatusmeldung zum Stand des Bewilligungsverfahrens\r\nBAU- UND EINSPRACHEENTSCHEID\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nDer Bau- und Einspracheentscheid der Gemeindebaubehörde [INSTANCE_LOCATION] zum Dossier mit der ID Nr. [INSTANCE_ID] (URec Dossiernummer [DOSSIER_NUMBER]) wurde verschickt.\r\n\r\nMit freundlichen Grüssen\r\nGemeindebaubehörde [INSTANCE_LOCATION]",
       "receiver_query": "[gesuchsteller]",
       "email_subject": "URec Dossier Nr. [DOSSIER_NUMBER]: Bau- und Einsprache-Entscheid",
       "from_email": "urec@ur.ch",
@@ -17366,8 +17366,8 @@
     "pk": 4,
     "fields": {
       "instance_resource": 180000,
-      "name": "Freigeben f\u00fcr Koordinationsstelle",
-      "description": "Freigeben f\u00fcr KOOR BG",
+      "name": "Freigeben für Koordinationsstelle",
+      "description": "Freigeben für KOOR BG",
       "class_field": "release_koor in_form_group:31",
       "hidden": 0,
       "sort": 2
@@ -17378,7 +17378,7 @@
     "pk": 124,
     "fields": {
       "instance_resource": 180002,
-      "name": "Zur\u00fcck an Gemeinde",
+      "name": "Zurück an Gemeinde",
       "description": "ext zu comm",
       "class_field": "return_to_community no-animation in_form_group:81",
       "hidden": 0,
@@ -17390,7 +17390,7 @@
     "pk": 144,
     "fields": {
       "instance_resource": 180002,
-      "name": "L\u00f6schen",
+      "name": "Löschen",
       "description": "",
       "class_field": " in_form_group:32",
       "hidden": 0,
@@ -17402,7 +17402,7 @@
     "pk": 146,
     "fields": {
       "instance_resource": 180000,
-      "name": "L\u00f6schen",
+      "name": "Löschen",
       "description": "",
       "class_field": "",
       "hidden": 0,
@@ -17414,7 +17414,7 @@
     "pk": 147,
     "fields": {
       "instance_resource": 180002,
-      "name": "Zur\u00fcck an Gemeinde",
+      "name": "Zurück an Gemeinde",
       "description": "redac zu done",
       "class_field": "return_to_community  no-animation in_form_group:81",
       "hidden": 0,
@@ -17486,7 +17486,7 @@
     "pk": 248,
     "fields": {
       "instance_resource": 314,
-      "name": "Entscheid / Stellungnahme \u00f6ffnen",
+      "name": "Entscheid / Stellungnahme öffnen",
       "description": "",
       "class_field": "downloady trigger-modal",
       "hidden": 0,
@@ -17594,7 +17594,7 @@
     "pk": 389,
     "fields": {
       "instance_resource": 315,
-      "name": "Wiederer\u00f6ffnen",
+      "name": "Wiedereröffnen",
       "description": "",
       "class_field": "reopen_button",
       "hidden": 0,
@@ -17618,7 +17618,7 @@
     "pk": 429,
     "fields": {
       "instance_resource": 180003,
-      "name": "L\u00f6schen",
+      "name": "Löschen",
       "description": "",
       "class_field": " in_form_group:141",
       "hidden": 0,
@@ -17678,7 +17678,7 @@
     "pk": 434,
     "fields": {
       "instance_resource": 467,
-      "name": "Wiederer\u00f6ffnen",
+      "name": "Wiedereröffnen",
       "description": "",
       "class_field": "reopen_button",
       "hidden": 0,
@@ -17702,8 +17702,8 @@
     "pk": 470,
     "fields": {
       "instance_resource": 180000,
-      "name": "Freigeben f\u00fcr Koordinationsstelle",
-      "description": "Freigeben f\u00fcr KOOR NP",
+      "name": "Freigeben für Koordinationsstelle",
+      "description": "Freigeben für KOOR NP",
       "class_field": "release_koor in_form_group:141",
       "hidden": 0,
       "sort": 3
@@ -17714,7 +17714,7 @@
     "pk": 488,
     "fields": {
       "instance_resource": 180000,
-      "name": "Wiederer\u00f6ffnen",
+      "name": "Wiedereröffnen",
       "description": "",
       "class_field": "",
       "hidden": 0,
@@ -17726,7 +17726,7 @@
     "pk": 528,
     "fields": {
       "instance_resource": 486,
-      "name": "Rechnung / Geb\u00fchren",
+      "name": "Rechnung / Gebühren",
       "description": "",
       "class_field": "downloady",
       "hidden": 0,
@@ -17738,7 +17738,7 @@
     "pk": 529,
     "fields": {
       "instance_resource": 180003,
-      "name": "Zur\u00fcck an Gemeinde",
+      "name": "Zurück an Gemeinde",
       "description": null,
       "class_field": "return_to_community no-animation in_form_group:141",
       "hidden": 0,
@@ -17750,7 +17750,7 @@
     "pk": 548,
     "fields": {
       "instance_resource": 486,
-      "name": "Entscheid / Stellungnahme \u00f6ffnen",
+      "name": "Entscheid / Stellungnahme öffnen",
       "description": "",
       "class_field": "downloady trigger-modal",
       "hidden": 0,
@@ -17762,7 +17762,7 @@
     "pk": 568,
     "fields": {
       "instance_resource": 315,
-      "name": "Zur Zirkulation hinzuf\u00fcgen",
+      "name": "Zur Zirkulation hinzufügen",
       "description": null,
       "class_field": "add_to_circ",
       "hidden": 0,
@@ -17774,7 +17774,7 @@
     "pk": 570,
     "fields": {
       "instance_resource": 467,
-      "name": "Zur Zirkulation hinzuf\u00fcgen",
+      "name": "Zur Zirkulation hinzufügen",
       "description": "",
       "class_field": "add_to_circ",
       "hidden": 0,
@@ -17799,7 +17799,7 @@
     "fields": {
       "instance_resource": 367,
       "name": "Nachforderung",
-      "description": "Button, der die Zirkulation in Nachforderung setzt f\u00fcr diese Vernehmlassungsstelle",
+      "description": "Button, der die Zirkulation in Nachforderung setzt für diese Vernehmlassungsstelle",
       "class_field": "circ_nfd_button",
       "hidden": 0,
       "sort": 2
@@ -17810,7 +17810,7 @@
     "pk": 648,
     "fields": {
       "instance_resource": 367,
-      "name": "Dossier vollst\u00e4ndig",
+      "name": "Dossier vollständig",
       "description": "Button, wenn die Nachforderung erledigt ist",
       "class_field": "circ_complete_button",
       "hidden": 0,
@@ -17846,7 +17846,7 @@
     "pk": 690,
     "fields": {
       "instance_resource": 625,
-      "name": "Zur Zirkulation hinzuf\u00fcgen",
+      "name": "Zur Zirkulation hinzufügen",
       "description": "",
       "class_field": "add_to_circ",
       "hidden": 0,
@@ -17870,7 +17870,7 @@
     "pk": 692,
     "fields": {
       "instance_resource": 625,
-      "name": "Wiederer\u00f6ffnen",
+      "name": "Wiedereröffnen",
       "description": "",
       "class_field": "reopen_button",
       "hidden": 0,
@@ -17882,7 +17882,7 @@
     "pk": 710,
     "fields": {
       "instance_resource": 180004,
-      "name": "L\u00f6schen",
+      "name": "Löschen",
       "description": "",
       "class_field": "",
       "hidden": 0,
@@ -17906,7 +17906,7 @@
     "pk": 714,
     "fields": {
       "instance_resource": 646,
-      "name": "Rechnung / Geb\u00fchren",
+      "name": "Rechnung / Gebühren",
       "description": "",
       "class_field": "downloady",
       "hidden": 0,
@@ -17918,7 +17918,7 @@
     "pk": 719,
     "fields": {
       "instance_resource": 180004,
-      "name": "Wiederer\u00f6ffnen (COMM)",
+      "name": "Wiedereröffnen (COMM)",
       "description": "",
       "class_field": "button_reopen",
       "hidden": 0,
@@ -17930,7 +17930,7 @@
     "pk": 721,
     "fields": {
       "instance_resource": 180003,
-      "name": "Wiederer\u00f6ffnen (COMM)",
+      "name": "Wiedereröffnen (COMM)",
       "description": "",
       "class_field": "button_reopen in_form_group:141",
       "hidden": 0,
@@ -17979,7 +17979,7 @@
     "fields": {
       "instance_resource": 180000,
       "name": "Dossier annehmen",
-      "description": "Akzeptieren vom Dossier, d.h., in den echten Workflow \u00fcbernehmen",
+      "description": "Akzeptieren vom Dossier, d.h., in den echten Workflow übernehmen",
       "class_field": "button_accept",
       "hidden": 0,
       "sort": 0
@@ -17990,7 +17990,7 @@
     "pk": 756,
     "fields": {
       "instance_resource": 180002,
-      "name": "Wiederer\u00f6ffnen (COMM)",
+      "name": "Wiedereröffnen (COMM)",
       "description": null,
       "class_field": null,
       "hidden": 0,
@@ -18002,7 +18002,7 @@
     "pk": 757,
     "fields": {
       "instance_resource": 180003,
-      "name": "Wiederer\u00f6ffnen (EXT)",
+      "name": "Wiedereröffnen (EXT)",
       "description": "",
       "class_field": " in_form_group:141",
       "hidden": 0,
@@ -18014,7 +18014,7 @@
     "pk": 758,
     "fields": {
       "instance_resource": 180004,
-      "name": "Wiederer\u00f6ffnen (EXT)",
+      "name": "Wiedereröffnen (EXT)",
       "description": "",
       "class_field": "",
       "hidden": 0,
@@ -18026,7 +18026,7 @@
     "pk": 760,
     "fields": {
       "instance_resource": 180002,
-      "name": "Wiederer\u00f6ffnen (EXT)",
+      "name": "Wiedereröffnen (EXT)",
       "description": null,
       "class_field": null,
       "hidden": 0,
@@ -18038,8 +18038,8 @@
     "pk": 762,
     "fields": {
       "instance_resource": 180002,
-      "name": "Status\u00e4nderung",
-      "description": "\u00c4ndert den Status des Dossiers",
+      "name": "Statusänderung",
+      "description": "Ändert den Status des Dossiers",
       "class_field": null,
       "hidden": 0,
       "sort": 5
@@ -18050,7 +18050,7 @@
     "pk": 766,
     "fields": {
       "instance_resource": 180005,
-      "name": "L\u00f6schen",
+      "name": "Löschen",
       "description": "",
       "class_field": "",
       "hidden": 0,
@@ -18074,8 +18074,8 @@
     "pk": 769,
     "fields": {
       "instance_resource": 180005,
-      "name": "Wiederer\u00f6ffnen (EXT)",
-      "description": "Von Arch zur\u00fcck zu Redac",
+      "name": "Wiedereröffnen (EXT)",
+      "description": "Von Arch zurück zu Redac",
       "class_field": "",
       "hidden": 0,
       "sort": 3
@@ -18110,7 +18110,7 @@
     "pk": 774,
     "fields": {
       "instance_resource": 704,
-      "name": "Rechnung / Geb\u00fchren",
+      "name": "Rechnung / Gebühren",
       "description": "",
       "class_field": "downloady",
       "hidden": 0,
@@ -18146,7 +18146,7 @@
     "pk": 782,
     "fields": {
       "instance_resource": 702,
-      "name": "Zur Zirkulation hinzuf\u00fcgen",
+      "name": "Zur Zirkulation hinzufügen",
       "description": "",
       "class_field": "add_to_circ",
       "hidden": 0,
@@ -18170,7 +18170,7 @@
     "pk": 784,
     "fields": {
       "instance_resource": 702,
-      "name": "Wiederer\u00f6ffnen",
+      "name": "Wiedereröffnen",
       "description": "",
       "class_field": "reopen_button",
       "hidden": 0,
@@ -18182,7 +18182,7 @@
     "pk": 791,
     "fields": {
       "instance_resource": 180006,
-      "name": "L\u00f6schen",
+      "name": "Löschen",
       "description": "",
       "class_field": "",
       "hidden": 0,
@@ -18206,8 +18206,8 @@
     "pk": 793,
     "fields": {
       "instance_resource": 180006,
-      "name": "Wiederer\u00f6ffnen (EXT)",
-      "description": "Von Arch zur\u00fcck zu Redac",
+      "name": "Wiedereröffnen (EXT)",
+      "description": "Von Arch zurück zu Redac",
       "class_field": "",
       "hidden": 0,
       "sort": 3
@@ -18242,7 +18242,7 @@
     "pk": 796,
     "fields": {
       "instance_resource": 717,
-      "name": "Zur Zirkulation hinzuf\u00fcgen",
+      "name": "Zur Zirkulation hinzufügen",
       "description": "",
       "class_field": "add_to_circ",
       "hidden": 0,
@@ -18266,7 +18266,7 @@
     "pk": 798,
     "fields": {
       "instance_resource": 717,
-      "name": "Wiederer\u00f6ffnen",
+      "name": "Wiedereröffnen",
       "description": "",
       "class_field": "reopen_button",
       "hidden": 0,
@@ -18278,7 +18278,7 @@
     "pk": 799,
     "fields": {
       "instance_resource": 719,
-      "name": "Rechnung / Geb\u00fchren",
+      "name": "Rechnung / Gebühren",
       "description": "",
       "class_field": "downloady",
       "hidden": 0,
@@ -18302,7 +18302,7 @@
     "pk": 803,
     "fields": {
       "instance_resource": 180007,
-      "name": "L\u00f6schen",
+      "name": "Löschen",
       "description": "",
       "class_field": "",
       "hidden": 0,
@@ -18326,8 +18326,8 @@
     "pk": 805,
     "fields": {
       "instance_resource": 180007,
-      "name": "Wiederer\u00f6ffnen (EXT)",
-      "description": "Von Arch zur\u00fcck zu Redac",
+      "name": "Wiedereröffnen (EXT)",
+      "description": "Von Arch zurück zu Redac",
       "class_field": "",
       "hidden": 0,
       "sort": 3
@@ -18362,7 +18362,7 @@
     "pk": 808,
     "fields": {
       "instance_resource": 726,
-      "name": "Zur Zirkulation hinzuf\u00fcgen",
+      "name": "Zur Zirkulation hinzufügen",
       "description": "",
       "class_field": "add_to_circ",
       "hidden": 0,
@@ -18386,7 +18386,7 @@
     "pk": 810,
     "fields": {
       "instance_resource": 726,
-      "name": "Wiederer\u00f6ffnen",
+      "name": "Wiedereröffnen",
       "description": "",
       "class_field": "reopen_button",
       "hidden": 0,
@@ -18398,7 +18398,7 @@
     "pk": 811,
     "fields": {
       "instance_resource": 727,
-      "name": "Rechnung / Geb\u00fchren",
+      "name": "Rechnung / Gebühren",
       "description": "",
       "class_field": "downloady",
       "hidden": 0,
@@ -18422,7 +18422,7 @@
     "pk": 823,
     "fields": {
       "instance_resource": 180008,
-      "name": "L\u00f6schen",
+      "name": "Löschen",
       "description": "",
       "class_field": "",
       "hidden": 0,
@@ -18446,8 +18446,8 @@
     "pk": 825,
     "fields": {
       "instance_resource": 180008,
-      "name": "Wiederer\u00f6ffnen (EXT)",
-      "description": "Von Arch zur\u00fcck zu Redac",
+      "name": "Wiedereröffnen (EXT)",
+      "description": "Von Arch zurück zu Redac",
       "class_field": "",
       "hidden": 0,
       "sort": 2
@@ -18482,7 +18482,7 @@
     "pk": 828,
     "fields": {
       "instance_resource": 738,
-      "name": "Zur Zirkulation hinzuf\u00fcgen",
+      "name": "Zur Zirkulation hinzufügen",
       "description": "",
       "class_field": "add_to_circ",
       "hidden": 0,
@@ -18506,7 +18506,7 @@
     "pk": 830,
     "fields": {
       "instance_resource": 738,
-      "name": "Wiederer\u00f6ffnen",
+      "name": "Wiedereröffnen",
       "description": "",
       "class_field": "reopen_button",
       "hidden": 0,
@@ -18518,7 +18518,7 @@
     "pk": 831,
     "fields": {
       "instance_resource": 739,
-      "name": "Rechnung / Geb\u00fchren",
+      "name": "Rechnung / Gebühren",
       "description": "",
       "class_field": "downloady",
       "hidden": 0,
@@ -18542,7 +18542,7 @@
     "pk": 834,
     "fields": {
       "instance_resource": 180000,
-      "name": "\u00d6REB Meldung",
+      "name": "ÖREB Meldung",
       "description": null,
       "class_field": "oereb",
       "hidden": 1,
@@ -18554,7 +18554,7 @@
     "pk": 874,
     "fields": {
       "instance_resource": 180003,
-      "name": "\u00d6REB Meldung",
+      "name": "ÖREB Meldung",
       "description": "",
       "class_field": "oereb in_form_group:141",
       "hidden": 0,
@@ -18566,7 +18566,7 @@
     "pk": 894,
     "fields": {
       "instance_resource": 180002,
-      "name": "\u00d6REB Meldung",
+      "name": "ÖREB Meldung",
       "description": "",
       "class_field": "oereb in_form_group:81",
       "hidden": 0,
@@ -18578,7 +18578,7 @@
     "pk": 914,
     "fields": {
       "instance_resource": 180008,
-      "name": "\u00d6REB Meldung",
+      "name": "ÖREB Meldung",
       "description": "",
       "class_field": "oereb",
       "hidden": 0,
@@ -18590,7 +18590,7 @@
     "pk": 915,
     "fields": {
       "instance_resource": 180005,
-      "name": "\u00d6REB Meldung",
+      "name": "ÖREB Meldung",
       "description": "",
       "class_field": "oereb",
       "hidden": 0,
@@ -18602,7 +18602,7 @@
     "pk": 917,
     "fields": {
       "instance_resource": 180004,
-      "name": "\u00d6REB Meldung",
+      "name": "ÖREB Meldung",
       "description": "",
       "class_field": "oereb",
       "hidden": 0,
@@ -18614,7 +18614,7 @@
     "pk": 919,
     "fields": {
       "instance_resource": 752,
-      "name": "Rechnung / Geb\u00fchren",
+      "name": "Rechnung / Gebühren",
       "description": null,
       "class_field": "downloady",
       "hidden": 0,
@@ -18638,7 +18638,7 @@
     "pk": 921,
     "fields": {
       "instance_resource": 180000,
-      "name": "Freigeben f\u00fcr Gemeindebaubeh\u00f6rde",
+      "name": "Freigeben für Gemeindebaubehörde",
       "description": null,
       "class_field": "release_buildingauthority in_form_group:61,12000000",
       "hidden": 0,
@@ -18674,7 +18674,7 @@
     "pk": 924,
     "fields": {
       "instance_resource": 753,
-      "name": "Zur Zirkulation hinzuf\u00fcgen",
+      "name": "Zur Zirkulation hinzufügen",
       "description": null,
       "class_field": "add_to_circ",
       "hidden": 0,
@@ -18686,7 +18686,7 @@
     "pk": 925,
     "fields": {
       "instance_resource": 753,
-      "name": "Wiederer\u00f6ffnen",
+      "name": "Wiedereröffnen",
       "description": null,
       "class_field": "reopen_button",
       "hidden": 0,
@@ -18734,7 +18734,7 @@
     "pk": 932,
     "fields": {
       "instance_resource": 180001,
-      "name": "L\u00f6schen",
+      "name": "Löschen",
       "description": null,
       "class_field": null,
       "hidden": 0,
@@ -18782,7 +18782,7 @@
     "pk": 936,
     "fields": {
       "instance_resource": 763,
-      "name": "Zur Zirkulation hinzuf\u00fcgen",
+      "name": "Zur Zirkulation hinzufügen",
       "description": null,
       "class_field": "add_to_circ",
       "hidden": 0,
@@ -18794,7 +18794,7 @@
     "pk": 938,
     "fields": {
       "instance_resource": 763,
-      "name": "Wiederer\u00f6ffnen",
+      "name": "Wiedereröffnen",
       "description": null,
       "class_field": "reopen_button",
       "hidden": 0,
@@ -18830,7 +18830,7 @@
     "pk": 943,
     "fields": {
       "instance_resource": 180001,
-      "name": "Freigeben f\u00fcr Koordinationsstelle",
+      "name": "Freigeben für Koordinationsstelle",
       "description": null,
       "class_field": "release_koor",
       "hidden": 0,
@@ -18842,7 +18842,7 @@
     "pk": 945,
     "fields": {
       "instance_resource": 180002,
-      "name": "Zur\u00fcck an Leitbeh\u00f6rde",
+      "name": "Zurück an Leitbehörde",
       "description": null,
       "class_field": "in_form_group:32",
       "hidden": 0,
@@ -18854,7 +18854,7 @@
     "pk": 946,
     "fields": {
       "instance_resource": 180004,
-      "name": "Zur\u00fcck an Leitbeh\u00f6rde",
+      "name": "Zurück an Leitbehörde",
       "description": null,
       "class_field": null,
       "hidden": 0,
@@ -18890,8 +18890,8 @@
     "pk": 949,
     "fields": {
       "instance_resource": 180003,
-      "name": "Status\u00e4nderung",
-      "description": "\u00c4ndert den Status des Dossiers",
+      "name": "Statusänderung",
+      "description": "Ändert den Status des Dossiers",
       "class_field": " in_form_group:141",
       "hidden": 0,
       "sort": 6
@@ -18914,7 +18914,7 @@
     "pk": 12000001,
     "fields": {
       "instance_resource": 12000000,
-      "name": "Dossier zur\u00fcckweisen",
+      "name": "Dossier zurückweisen",
       "description": null,
       "class_field": null,
       "hidden": 0,
@@ -18926,7 +18926,7 @@
     "pk": 12000002,
     "fields": {
       "instance_resource": 12000000,
-      "name": "R\u00fcckweisung aufheben",
+      "name": "Rückweisung aufheben",
       "description": null,
       "class_field": null,
       "hidden": 0,
@@ -19083,7 +19083,7 @@
     "fields": {
       "instance_resource": 2000003,
       "name": "Status zu COMM",
-      "description": "\u00c4ndert den Status des Dossiers",
+      "description": "Ändert den Status des Dossiers",
       "class_field": null,
       "hidden": 0,
       "sort": 0
@@ -19231,7 +19231,7 @@
     "model": "core.chapter",
     "pk": 105,
     "fields": {
-      "name": "Stellungsnahme f\u00fcr Gemeindeservicestellen",
+      "name": "Stellungsnahme für Gemeindeservicestellen",
       "description": null,
       "javascript": null
     }
@@ -19249,7 +19249,7 @@
     "model": "core.chapter",
     "pk": 12000000,
     "fields": {
-      "name": "R\u00fcckmeldungen f\u00fcr Gesuchsteller/in",
+      "name": "Rückmeldungen für Gesuchsteller/in",
       "description": null,
       "javascript": null
     }
@@ -19560,7 +19560,7 @@
     "fields": {
       "circulation_type": 41,
       "circulation_answer_type": 1,
-      "name": "Keine R\u00fcckmeldung",
+      "name": "Keine Rückmeldung",
       "sort": 12
     }
   },
@@ -19570,7 +19570,7 @@
     "fields": {
       "circulation_type": 61,
       "circulation_answer_type": 1,
-      "name": "Keine R\u00fcckmeldung",
+      "name": "Keine Rückmeldung",
       "sort": 13
     }
   },
@@ -19580,7 +19580,7 @@
     "fields": {
       "circulation_type": 62,
       "circulation_answer_type": 1,
-      "name": "Keine R\u00fcckmeldung",
+      "name": "Keine Rückmeldung",
       "sort": 7
     }
   },
@@ -20122,7 +20122,7 @@
     "model": "core.docgentemplate",
     "pk": 83,
     "fields": {
-      "name": "R\u00fcckmeldung",
+      "name": "Rückmeldung",
       "path": "rueckmeldung.zip",
       "type": 2.0
     }
@@ -20167,7 +20167,7 @@
     "model": "core.docgentemplate",
     "pk": 181,
     "fields": {
-      "name": "R\u00fcckmeldung Nutzungsplanung",
+      "name": "Rückmeldung Nutzungsplanung",
       "path": "rueckmeldungNP.zip",
       "type": 2.0
     }
@@ -20230,7 +20230,7 @@
     "model": "core.docgentemplate",
     "pk": 208,
     "fields": {
-      "name": "Brief Gemeindebaubeh\u00f6rde an Diverse",
+      "name": "Brief Gemeindebaubehörde an Diverse",
       "path": "letterGemeindebaubehoerdeDiverse.docx",
       "type": 1.0
     }
@@ -20239,7 +20239,7 @@
     "model": "core.docgentemplate",
     "pk": 209,
     "fields": {
-      "name": "Brief Gemeindebaubeh\u00f6rde an Gesuchsteller",
+      "name": "Brief Gemeindebaubehörde an Gesuchsteller",
       "path": "letterGemeindebaubehoerdeGesuchsteller.docx",
       "type": 1.0
     }
@@ -20401,7 +20401,7 @@
     "model": "core.docgentemplateclass",
     "pk": 84,
     "fields": {
-      "name": "R\u00fcckmeldung",
+      "name": "Rückmeldung",
       "path": "Rueckmeldung.php",
       "type": 2.0
     }
@@ -20463,7 +20463,7 @@
     "model": "core.formgroup",
     "pk": 31,
     "fields": {
-      "name": "Alle Dossiers von der Gemeinde mit Kantonaler Beteiligung f\u00fcr BG",
+      "name": "Alle Dossiers von der Gemeinde mit Kantonaler Beteiligung für BG",
       "description": ""
     }
   },
@@ -20520,7 +20520,7 @@
     "pk": 182,
     "fields": {
       "name": "Baubewilligungen",
-      "description": "Beide Baubewilligungen. N\u00f6tig f\u00fcr die Publikation"
+      "description": "Beide Baubewilligungen. Nötig für die Publikation"
     }
   },
   {
@@ -20543,15 +20543,15 @@
     "model": "core.formgroup",
     "pk": 242,
     "fields": {
-      "name": "Alle Dossiers Koordinationsstelle Baudirektion BD ohne Bewilligungsverfahren f\u00fcr die Beanspruchung von Kantonsgebiet",
-      "description": "Um die \"Bearbeiten\" Seite anzeigen zu k\u00f6nnen, die bei genanntem Verfahren anders ist"
+      "name": "Alle Dossiers Koordinationsstelle Baudirektion BD ohne Bewilligungsverfahren für die Beanspruchung von Kantonsgebiet",
+      "description": "Um die \"Bearbeiten\" Seite anzeigen zu können, die bei genanntem Verfahren anders ist"
     }
   },
   {
     "model": "core.formgroup",
     "pk": 243,
     "fields": {
-      "name": "Nur Dossier Bewilligungsverfahren f\u00fcr die Beanspruchung von Kantonsgebiet",
+      "name": "Nur Dossier Bewilligungsverfahren für die Beanspruchung von Kantonsgebiet",
       "description": "Weil dieses Dossier eine andere Seite hat"
     }
   },
@@ -20584,7 +20584,7 @@
     "pk": 247,
     "fields": {
       "name": "Alle Dossiers Portal",
-      "description": "Alle Dossiers, die von Nutzern des \u00f6ffentlichen Portals erstellt werden k\u00f6nnen"
+      "description": "Alle Dossiers, die von Nutzern des öffentlichen Portals erstellt werden können"
     }
   },
   {
@@ -20664,7 +20664,7 @@
     "pk": 257,
     "fields": {
       "name": "Alle Dossiers mit Publikation",
-      "description": "Alle Dossiers bei welchen eine Form von Publikation m\u00f6glich ist"
+      "description": "Alle Dossiers bei welchen eine Form von Publikation möglich ist"
     }
   },
   {
@@ -20672,7 +20672,7 @@
     "pk": 12000000,
     "fields": {
       "name": "Solargesuche, Meldung Vorhaben und Reklamegesuche von der Gemeinde",
-      "description": "Wird f\u00fcr die Anzeige des Buttons \"Freigabe an Gemeindebaubeh\u00f6rde\" benutzt"
+      "description": "Wird für die Anzeige des Buttons \"Freigabe an Gemeindebaubehörde\" benutzt"
     }
   },
   {
@@ -20680,7 +20680,7 @@
     "pk": 12000001,
     "fields": {
       "name": "Dossier kopieren",
-      "description": "Forms die kopiert werden k\u00f6nnen"
+      "description": "Forms die kopiert werden können"
     }
   },
   {
@@ -23267,7 +23267,7 @@
     "fields": {
       "available_instance_resource": "billing",
       "resource": 302,
-      "name": "Geb\u00fchrenerfassung",
+      "name": "Gebührenerfassung",
       "description": "",
       "template": "",
       "class_field": "",
@@ -23282,8 +23282,8 @@
     "fields": {
       "available_instance_resource": "billing",
       "resource": 267,
-      "name": "Geb\u00fchren verwalten",
-      "description": "Geb\u00fchren verwalten  Koor BG",
+      "name": "Gebühren verwalten",
+      "description": "Gebühren verwalten  Koor BG",
       "template": "",
       "class_field": "",
       "hidden": 0,
@@ -23298,7 +23298,7 @@
       "available_instance_resource": "formpage",
       "resource": 42,
       "name": "Personen- und Projektdaten",
-      "description": "Personen- und Projektdaten KOOR BG & Gemeindebaubeh\u00f6rde",
+      "description": "Personen- und Projektdaten KOOR BG & Gemeindebaubehörde",
       "template": "/form/form-read.phtml",
       "class_field": null,
       "hidden": 0,
@@ -23312,7 +23312,7 @@
     "fields": {
       "available_instance_resource": "page",
       "resource": 301,
-      "name": "Verfahren \u00e4ndern",
+      "name": "Verfahren ändern",
       "description": "",
       "template": "/change/gem.phtml",
       "class_field": "",
@@ -23402,8 +23402,8 @@
     "fields": {
       "available_instance_resource": "editnotice",
       "resource": 302,
-      "name": "R\u00fcckmeldung",
-      "description": "R\u00fcckmeldung der Koodinationsstelle",
+      "name": "Rückmeldung",
+      "description": "Rückmeldung der Koodinationsstelle",
       "template": null,
       "class_field": null,
       "hidden": 0,
@@ -23447,8 +23447,8 @@
     "fields": {
       "available_instance_resource": "editnotice",
       "resource": 122,
-      "name": "R\u00fcckmeldung",
-      "description": "R\u00fcckmeldung Dossiers von der Koordinationsstelle",
+      "name": "Rückmeldung",
+      "description": "Rückmeldung Dossiers von der Koordinationsstelle",
       "template": "",
       "class_field": null,
       "hidden": 0,
@@ -23537,8 +23537,8 @@
     "fields": {
       "available_instance_resource": "billing",
       "resource": 288,
-      "name": "Geb\u00fchren verwalten",
-      "description": "Geb\u00fchren verwalten Koor NP",
+      "name": "Gebühren verwalten",
+      "description": "Gebühren verwalten Koor NP",
       "template": "",
       "class_field": null,
       "hidden": 0,
@@ -23613,7 +23613,7 @@
       "available_instance_resource": "formpage",
       "resource": 42,
       "name": "Personen- und Projektdaten",
-      "description": "Dossieransicht f\u00fcr Amt Fachstelle OHNE Koordination bei der Dossiersuche f\u00fcr BG Dossiers",
+      "description": "Dossieransicht für Amt Fachstelle OHNE Koordination bei der Dossiersuche für BG Dossiers",
       "template": "/form/form-read.phtml",
       "class_field": "",
       "hidden": 0,
@@ -23628,7 +23628,7 @@
       "available_instance_resource": "formpage",
       "resource": 42,
       "name": "Personen- und Projektdaten",
-      "description": "Anschauen f\u00fcr Amt Fachstelle f\u00fcr die Dossiersuche f\u00fcr NP",
+      "description": "Anschauen für Amt Fachstelle für die Dossiersuche für NP",
       "template": "/form/form-read.phtml",
       "class_field": "",
       "hidden": 0,
@@ -23643,7 +23643,7 @@
       "available_instance_resource": "apidocuments",
       "resource": 42,
       "name": "Dokumente",
-      "description": "Dokumente anschauen f\u00fcr Dossier, die nicht in der Pendenzenliste sind",
+      "description": "Dokumente anschauen für Dossier, die nicht in der Pendenzenliste sind",
       "template": "",
       "class_field": "",
       "hidden": 0,
@@ -23658,7 +23658,7 @@
       "available_instance_resource": "apidocuments",
       "resource": 309,
       "name": "Dokumente",
-      "description": "Dokumentenauflistung f\u00fcr die Kommissionsmitglieder",
+      "description": "Dokumentenauflistung für die Kommissionsmitglieder",
       "template": "",
       "class_field": "",
       "hidden": 0,
@@ -23672,7 +23672,7 @@
     "fields": {
       "available_instance_resource": "page",
       "resource": 302,
-      "name": "Dossier f\u00fcr Fachbereich freischalten",
+      "name": "Dossier für Fachbereich freischalten",
       "description": "Verwalten der Kommissionsmitglieder",
       "template": "/dept/commissioners.phtml",
       "class_field": "commissioners",
@@ -23688,7 +23688,7 @@
       "available_instance_resource": "page",
       "resource": 264,
       "name": "Formular",
-      "description": "Formular f\u00fcr alle Dossiers KOOR BD",
+      "description": "Formular für alle Dossiers KOOR BD",
       "template": "/ember/instance.phtml",
       "class_field": null,
       "hidden": 0,
@@ -23718,7 +23718,7 @@
       "available_instance_resource": "editcirculation",
       "resource": 264,
       "name": "Zirkulation",
-      "description": "Zirkulation machen f\u00fcr die Dossiers BD",
+      "description": "Zirkulation machen für die Dossiers BD",
       "template": null,
       "class_field": null,
       "hidden": 0,
@@ -23732,8 +23732,8 @@
     "fields": {
       "available_instance_resource": "billing",
       "resource": 264,
-      "name": "Geb\u00fchren verwalten",
-      "description": "Geb\u00fchren verwalten Koor BD",
+      "name": "Gebühren verwalten",
+      "description": "Gebühren verwalten Koor BD",
       "template": "",
       "class_field": null,
       "hidden": 0,
@@ -23793,7 +23793,7 @@
       "available_instance_resource": "sanction",
       "resource": 267,
       "name": "Erfasste Auflagen bewirtschaften",
-      "description": "Erfasste Auflagen bewirtschaften f\u00fcr KOOR BG",
+      "description": "Erfasste Auflagen bewirtschaften für KOOR BG",
       "template": null,
       "class_field": null,
       "hidden": 0,
@@ -23808,7 +23808,7 @@
       "available_instance_resource": "sanction",
       "resource": 288,
       "name": "Erfasste Auflagen bewirtschaften",
-      "description": "Erfasste Auflagen bewirtschaften f\u00fcr KOOR NP",
+      "description": "Erfasste Auflagen bewirtschaften für KOOR NP",
       "template": null,
       "class_field": null,
       "hidden": 0,
@@ -23823,7 +23823,7 @@
       "available_instance_resource": "sanction",
       "resource": 301,
       "name": "Auflagen bewirtschaften",
-      "description": "Auflagen bewirtschaften Gemeindebaubeh\u00f6rde",
+      "description": "Auflagen bewirtschaften Gemeindebaubehörde",
       "template": null,
       "class_field": null,
       "hidden": 0,
@@ -23838,7 +23838,7 @@
       "available_instance_resource": "sanction",
       "resource": 264,
       "name": "Erfasste Auflagen bewirtschaften",
-      "description": "Erfasste Auflagen bewirtschaften f\u00fcr KOOR BD",
+      "description": "Erfasste Auflagen bewirtschaften für KOOR BD",
       "template": null,
       "class_field": null,
       "hidden": 0,
@@ -23853,7 +23853,7 @@
       "available_instance_resource": "sanction",
       "resource": 302,
       "name": "Auflagen bewirtschaften",
-      "description": "Auflagen bewirtschaften f\u00fcr Vernehmlassungsstellen",
+      "description": "Auflagen bewirtschaften für Vernehmlassungsstellen",
       "template": "",
       "class_field": null,
       "hidden": 0,
@@ -23988,7 +23988,7 @@
       "available_instance_resource": "sanction",
       "resource": 289,
       "name": "Erfasste Auflagen bewirtschaften",
-      "description": "Erfasste Auflagen bewirtschaften f\u00fcr KOOR AfU",
+      "description": "Erfasste Auflagen bewirtschaften für KOOR AfU",
       "template": null,
       "class_field": null,
       "hidden": 0,
@@ -24078,7 +24078,7 @@
       "available_instance_resource": "sanction",
       "resource": 296,
       "name": "Erfasste Auflagen bewirtschaften",
-      "description": "Erfasste Auflagen bewirtschaften f\u00fcr KOOR ALA",
+      "description": "Erfasste Auflagen bewirtschaften für KOOR ALA",
       "template": "",
       "class_field": null,
       "hidden": 0,
@@ -24168,7 +24168,7 @@
       "available_instance_resource": "sanction",
       "resource": 297,
       "name": "Erfasste Auflagen bewirtschaften",
-      "description": "Erfasste Auflagen bewirtschaften f\u00fcr KOOR AfE",
+      "description": "Erfasste Auflagen bewirtschaften für KOOR AfE",
       "template": null,
       "class_field": null,
       "hidden": 0,
@@ -24258,7 +24258,7 @@
       "available_instance_resource": "sanction",
       "resource": 298,
       "name": "Erfasste Auflagen bewirtschaften",
-      "description": "Erfasste Auflagen bewirtschaften f\u00fcr KOOR AJF und SD",
+      "description": "Erfasste Auflagen bewirtschaften für KOOR AJF und SD",
       "template": null,
       "class_field": null,
       "hidden": 0,
@@ -24302,8 +24302,8 @@
     "fields": {
       "available_instance_resource": "billing",
       "resource": 289,
-      "name": "Geb\u00fchren verwalten",
-      "description": "Geb\u00fchren verwalten Koor Afu",
+      "name": "Gebühren verwalten",
+      "description": "Gebühren verwalten Koor Afu",
       "template": null,
       "class_field": null,
       "hidden": 0,
@@ -24317,8 +24317,8 @@
     "fields": {
       "available_instance_resource": "billing",
       "resource": 296,
-      "name": "Geb\u00fchren verwalten",
-      "description": "Geb\u00fchren verwalten Koor ALA",
+      "name": "Gebühren verwalten",
+      "description": "Gebühren verwalten Koor ALA",
       "template": null,
       "class_field": null,
       "hidden": 0,
@@ -24332,8 +24332,8 @@
     "fields": {
       "available_instance_resource": "billing",
       "resource": 297,
-      "name": "Geb\u00fchren verwalten",
-      "description": "Geb\u00fchren verwalten AfE",
+      "name": "Gebühren verwalten",
+      "description": "Gebühren verwalten AfE",
       "template": null,
       "class_field": null,
       "hidden": 0,
@@ -24347,8 +24347,8 @@
     "fields": {
       "available_instance_resource": "billing",
       "resource": 298,
-      "name": "Geb\u00fchren verwalten",
-      "description": "Geb\u00fchren verwalten Koor AFJ SD",
+      "name": "Gebühren verwalten",
+      "description": "Gebühren verwalten Koor AFJ SD",
       "template": null,
       "class_field": null,
       "hidden": 0,
@@ -24422,8 +24422,8 @@
     "fields": {
       "available_instance_resource": "editnotice",
       "resource": 314,
-      "name": "R\u00fcckmeldung",
-      "description": "R\u00fcckmeldung von Dossier Gemeinde",
+      "name": "Rückmeldung",
+      "description": "Rückmeldung von Dossier Gemeinde",
       "template": null,
       "class_field": null,
       "hidden": 0,
@@ -24497,8 +24497,8 @@
     "fields": {
       "available_instance_resource": "editnotice",
       "resource": 302,
-      "name": "R\u00fcckmeldung Bundesstelle",
-      "description": "R\u00fcckmeldung Dossiers der Bundesstelle",
+      "name": "Rückmeldung Bundesstelle",
+      "description": "Rückmeldung Dossiers der Bundesstelle",
       "template": null,
       "class_field": null,
       "hidden": 0,
@@ -24512,7 +24512,7 @@
     "fields": {
       "available_instance_resource": "circulation",
       "resource": 301,
-      "name": "R\u00fcckmeldungen Gemeindeservice",
+      "name": "Rückmeldungen Gemeindeservice",
       "description": "Einsehen von Resultaten der Gemeindezirkulation",
       "template": null,
       "class_field": null,
@@ -24542,8 +24542,8 @@
     "fields": {
       "available_instance_resource": "editnotice",
       "resource": 317,
-      "name": "R\u00fcckmeldung",
-      "description": "R\u00fcckmeldung an das Gemeinde Sekretariat",
+      "name": "Rückmeldung",
+      "description": "Rückmeldung an das Gemeinde Sekretariat",
       "template": null,
       "class_field": null,
       "hidden": 0,
@@ -24887,7 +24887,7 @@
     "fields": {
       "available_instance_resource": "editformpage",
       "resource": 301,
-      "name": "Dossier zur\u00fcckweisen",
+      "name": "Dossier zurückweisen",
       "description": null,
       "template": null,
       "class_field": null,
@@ -39769,7 +39769,7 @@
     "pk": 24,
     "fields": {
       "circulation_type": 61,
-      "name": "R\u00fcckmeldung an Bausekretariat"
+      "name": "Rückmeldung an Bausekretariat"
     }
   },
   {
@@ -39777,7 +39777,7 @@
     "pk": 25,
     "fields": {
       "circulation_type": 41,
-      "name": "Mitteilungen an die Gemeindebaubeh\u00f6rde"
+      "name": "Mitteilungen an die Gemeindebaubehörde"
     }
   },
   {
@@ -39829,7 +39829,7 @@
     "pk": 82,
     "fields": {
       "name": "Hauptformular Kantonsgebiet",
-      "description": "Eine andere Variante von der Seite f\u00fcr das Formular \"Beanspruchung Kantonsgebiet\"",
+      "description": "Eine andere Variante von der Seite für das Formular \"Beanspruchung Kantonsgebiet\"",
       "javascript": ""
     }
   },
@@ -39838,7 +39838,7 @@
     "pk": 83,
     "fields": {
       "name": "Meta",
-      "description": "Diese Seite dient dazu, dass man Meta-Informationen zu einem Formular speichern kann.\nWird prim\u00e4r f\u00fcr das Portal benutzt, um zu speichern, wer dass das Dossier eingereicht hat. Ansonsten m\u00fcsste man die ACL wieder einf\u00fchren. Wenn es in der bestehenden Seite ist, wird das Feld immer wieder mit leer \u00fcberschrieben!",
+      "description": "Diese Seite dient dazu, dass man Meta-Informationen zu einem Formular speichern kann.\nWird primär für das Portal benutzt, um zu speichern, wer dass das Dossier eingereicht hat. Ansonsten müsste man die ACL wieder einführen. Wenn es in der bestehenden Seite ist, wird das Feld immer wieder mit leer überschrieben!",
       "javascript": ""
     }
   },
@@ -39846,7 +39846,7 @@
     "model": "core.page",
     "pk": 12000000,
     "fields": {
-      "name": "R\u00fcckmeldungen f\u00fcr Gesuchsteller/innen",
+      "name": "Rückmeldungen für Gesuchsteller/innen",
       "description": null,
       "javascript": null
     }
@@ -41247,7 +41247,7 @@
     "pk": 4,
     "fields": {
       "key": "text",
-      "value": "Gemeindebaubeh\u00f6rde [@authority]\r\n\r\nStandeskanzlei Uri\r\nRedaktion Amtsblatt\r\nRathaus\r\n6460 Altdorf\r\n\r\n[@zip] [@location], [@date]\r\n\r\n\r\nMeldung einer Bauplanauflage zur Publikation im Amtsblatt unter der Rubrik\r\n\"Bau und Planungsrecht\"\r\n\r\nSehr geehrte Damen und Herren\r\n\r\nWir bitten Sie, folgende Bauplanauflage im Amtsblatt vom Freitag [@publishDate]\r\nzu publizieren:\r\n\r\n[@community]\r\n\r\nBauherrschaft: [@organization], [@firstNameLastName], [@streetNr], [@plzLocation]\r\nBauvorhaben: [@intent]\r\nBauplatz: [@parcelLocation]\r\nParzelle: [@parcelNr]\r\nBemerkungen: [@note]\r\n\r\n\r\n\r\n\r\nWir danken Ihnen f\u00fcr Ihre Bem\u00fchungen und stehen bei Fragen gerne zur Verf\u00fcgung\r\n\r\nFreundliche Gr\u00fcsse\r\n\r\nGemeindebaubeh\u00f6rde [@authority]\r\n\r\n\r\n[@zip] [@location], [@date]\r\n",
+      "value": "Gemeindebaubehörde [@authority]\r\n\r\nStandeskanzlei Uri\r\nRedaktion Amtsblatt\r\nRathaus\r\n6460 Altdorf\r\n\r\n[@zip] [@location], [@date]\r\n\r\n\r\nMeldung einer Bauplanauflage zur Publikation im Amtsblatt unter der Rubrik\r\n\"Bau und Planungsrecht\"\r\n\r\nSehr geehrte Damen und Herren\r\n\r\nWir bitten Sie, folgende Bauplanauflage im Amtsblatt vom Freitag [@publishDate]\r\nzu publizieren:\r\n\r\n[@community]\r\n\r\nBauherrschaft: [@organization], [@firstNameLastName], [@streetNr], [@plzLocation]\r\nBauvorhaben: [@intent]\r\nBauplatz: [@parcelLocation]\r\nParzelle: [@parcelNr]\r\nBemerkungen: [@note]\r\n\r\n\r\n\r\n\r\nWir danken Ihnen für Ihre Bemühungen und stehen bei Fragen gerne zur Verfügung\r\n\r\nFreundliche Grüsse\r\n\r\nGemeindebaubehörde [@authority]\r\n\r\n\r\n[@zip] [@location], [@date]\r\n",
       "type": 1
     }
   },
@@ -41265,7 +41265,7 @@
     "pk": 6,
     "fields": {
       "key": "stopText",
-      "value": "Gemeindebaubeh\u00f6rde [@authority]\r\n\r\nStandeskanzlei Uri\r\nRedaktion Amtsblatt\r\nRathaus\r\n6460 Altdorf\r\n\r\n[@zip] [@location], [@date]\r\n\r\n\r\nSTOPP - Meldung einer Bauplanauflage\r\n\r\nSehr geehrte Damen und Herren\r\n\r\nVia URec haben Sie die Meldung zur folgenden Bauplanauflage erhalten.\r\n\r\n[@community]\r\n\r\nBauherrschaft: [@organization], [@firstNameLastName], [@streetNr], [@plzLocation]\r\nBauvorhaben: [@intent]\r\nBauplatz: [@parcelLocation]\r\nParzelle: [@parcelNr]\r\nBemerkungen: [@note]\r\nPublikationsdatum: [@publishDate]\r\n\r\n\r\nWir bitten Sie, die Bauplanauflage zu STOPPEN. Sofern das Vorhaben weiterverfolgt wird, erhalten Sie zu gegebener Zeit eine neue Publikationsmeldung.\r\n\r\nWir danken Ihnen f\u00fcr Ihre Bem\u00fchungen und stehen bei Fragen gerne zur Verf\u00fcgung\r\n\r\nFreundliche Gr\u00fcsse\r\n\r\nGemeindebaubeh\u00f6rde [@authority]\r\n\r\n\r\n[@zip] [@location], [@date]\r\n",
+      "value": "Gemeindebaubehörde [@authority]\r\n\r\nStandeskanzlei Uri\r\nRedaktion Amtsblatt\r\nRathaus\r\n6460 Altdorf\r\n\r\n[@zip] [@location], [@date]\r\n\r\n\r\nSTOPP - Meldung einer Bauplanauflage\r\n\r\nSehr geehrte Damen und Herren\r\n\r\nVia URec haben Sie die Meldung zur folgenden Bauplanauflage erhalten.\r\n\r\n[@community]\r\n\r\nBauherrschaft: [@organization], [@firstNameLastName], [@streetNr], [@plzLocation]\r\nBauvorhaben: [@intent]\r\nBauplatz: [@parcelLocation]\r\nParzelle: [@parcelNr]\r\nBemerkungen: [@note]\r\nPublikationsdatum: [@publishDate]\r\n\r\n\r\nWir bitten Sie, die Bauplanauflage zu STOPPEN. Sofern das Vorhaben weiterverfolgt wird, erhalten Sie zu gegebener Zeit eine neue Publikationsmeldung.\r\n\r\nWir danken Ihnen für Ihre Bemühungen und stehen bei Fragen gerne zur Verfügung\r\n\r\nFreundliche Grüsse\r\n\r\nGemeindebaubehörde [@authority]\r\n\r\n\r\n[@zip] [@location], [@date]\r\n",
       "type": 1
     }
   },
@@ -41292,7 +41292,7 @@
     "pk": 9,
     "fields": {
       "key": "text",
-      "value": "Gemeinde [@location]\n\nAltdorf, [@date]\n\nMeldung eines Auflage- und Einspracheverfahrens zur Publikation im Amtsblatt unter der Rubrik \"Bau und Planungsrecht\" und im amtlichen Publikationsorgan (APO)\n\nSehr geehrte Damen und Herren\n\nWir bitten Sie, folgendes Auflage- und Einspracheverfahren im Amtsblatt vom Freitag [@publishDate] bzw. ab Freitag [@publishDate] im APO zu publizieren:\n\n\u00c4nderung des Nutzungsplans Gemeinde [@location]\n\nGest\u00fctzt auf Artikel 43 des Planungs- und Baugesetzes (PBG; RB 40.1111) wird w\u00e4hrend 30 Tagen die folgende \u00c4nderung des Nutzungsplans ([@intent]) der Gemeinde [@location] \u00f6ffentlich aufgelegt:\n\n [@documents]\n\nDie Auflage erfolgt auf der Gemeindekanzlei und im Kataster der \u00f6ffentlich-rechtlichen Eigentumsbeschr\u00e4nkungen (oereb.ur.ch/auflage).\n\nInnerhalb der Auflagefrist k\u00f6nnen schriftliche Einsprachen mit bestimmten Begehren und begr\u00fcndet beim Gemeinderat eingereicht werden.\n\n[@location], [@date] [@authority]\n\nWir danken Ihnen f\u00fcr Ihre Bem\u00fchungen und stehen bei Fragen gerne zur Verf\u00fcgung\n\nFreundliche Gr\u00fcsse\n\n[@authority]\n",
+      "value": "Gemeinde [@location]\n\nAltdorf, [@date]\n\nMeldung eines Auflage- und Einspracheverfahrens zur Publikation im Amtsblatt unter der Rubrik \"Bau und Planungsrecht\" und im amtlichen Publikationsorgan (APO)\n\nSehr geehrte Damen und Herren\n\nWir bitten Sie, folgendes Auflage- und Einspracheverfahren im Amtsblatt vom Freitag [@publishDate] bzw. ab Freitag [@publishDate] im APO zu publizieren:\n\nÄnderung des Nutzungsplans Gemeinde [@location]\n\nGestützt auf Artikel 43 des Planungs- und Baugesetzes (PBG; RB 40.1111) wird während 30 Tagen die folgende Änderung des Nutzungsplans ([@intent]) der Gemeinde [@location] öffentlich aufgelegt:\n\n [@documents]\n\nDie Auflage erfolgt auf der Gemeindekanzlei und im Kataster der öffentlich-rechtlichen Eigentumsbeschränkungen (oereb.ur.ch/auflage).\n\nInnerhalb der Auflagefrist können schriftliche Einsprachen mit bestimmten Begehren und begründet beim Gemeinderat eingereicht werden.\n\n[@location], [@date] [@authority]\n\nWir danken Ihnen für Ihre Bemühungen und stehen bei Fragen gerne zur Verfügung\n\nFreundliche Grüsse\n\n[@authority]\n",
       "type": 2
     }
   },
@@ -41310,7 +41310,7 @@
     "pk": 11,
     "fields": {
       "key": "stopText",
-      "value": "Gemeindebaubeh\u00f6rde [@location]\n\nStandeskanzlei Uri\nRedaktion Amtsblatt\nRathaus\n6460 Altdorf\n\nLisag AG\nNeuland 11\n6460 Altdorf\n\n[@zip] [@location], [@date]\n\n\nSTOPP - Meldung eines Auflage- und Einspracheverfahrens\n\nSehr geehrte Damen und Herren\n\nVia URec haben Sie die Meldung zu folgendem Auflage- und Einspracheverfahren erhalten.\n\n[@community]\n\n\nVorhaben: [@intent]\nPublikationsdatum: [@publishDate]\n\n\nWir bitten Sie, die Auflage zu STOPPEN. Sofern das Vorhaben weiterverfolgt wird, erhalten Sie zu gegebener Zeit eine neue Publikationsmeldung.\n\nWir danken Ihnen f\u00fcr Ihre Bem\u00fchungen und stehen bei Fragen gerne zur Verf\u00fcgung\n\nFreundliche Gr\u00fcsse\n\n[@authority]\n\n\n[@zip] [@location], [@date]\n",
+      "value": "Gemeindebaubehörde [@location]\n\nStandeskanzlei Uri\nRedaktion Amtsblatt\nRathaus\n6460 Altdorf\n\nLisag AG\nNeuland 11\n6460 Altdorf\n\n[@zip] [@location], [@date]\n\n\nSTOPP - Meldung eines Auflage- und Einspracheverfahrens\n\nSehr geehrte Damen und Herren\n\nVia URec haben Sie die Meldung zu folgendem Auflage- und Einspracheverfahren erhalten.\n\n[@community]\n\n\nVorhaben: [@intent]\nPublikationsdatum: [@publishDate]\n\n\nWir bitten Sie, die Auflage zu STOPPEN. Sofern das Vorhaben weiterverfolgt wird, erhalten Sie zu gegebener Zeit eine neue Publikationsmeldung.\n\nWir danken Ihnen für Ihre Bemühungen und stehen bei Fragen gerne zur Verfügung\n\nFreundliche Grüsse\n\n[@authority]\n\n\n[@zip] [@location], [@date]\n",
       "type": 2
     }
   },
@@ -41337,7 +41337,7 @@
     "pk": 14,
     "fields": {
       "key": "text",
-      "value": "Gemeinde [@location]\n\nAltdorf, [@date]\n\nMeldung eines Auflage- und Einspracheverfahrens zur Publikation im Amtsblatt unter der Rubrik \"Bau und Planungsrecht\" und im amtlichen Publikationsorgan (APO)\n\nSehr geehrte Damen und Herren\n\nWir bitten Sie, folgendes Auflage- und Einspracheverfahren im Amtsblatt vom Freitag [@publishDate] bzw. ab Freitag [@publishDate] im APO zu publizieren:\n\n\u00c4nderung des Nutzungsplans Gemeinde [@location]\n\nGest\u00fctzt auf Artikel 55 des Planungs- und Baugesetzes (PBG; RB 40.1111) wird w\u00e4hrend 30 Tagen der [@intent] der Gemeinde [@location] \u00f6ffentlich aufgelegt:\n\nDokumente:\n [@documents]\n\nPlanungsperimeter:\n - [@parcelNr]\n\nDie Auflage erfolgt auf der Gemeindekanzlei und im Kataster der \u00f6ffentlich-rechtlichen Eigentumsbeschr\u00e4nkungen (oereb.ur.ch/auflage).\n\nInnerhalb der Auflagefrist k\u00f6nnen schriftliche Einsprachen mit bestimmten Begehren und begr\u00fcndet beim Gemeinderat eingereicht werden.\n\n[@location], [@date] [@authority]\n\nWir danken Ihnen f\u00fcr Ihre Bem\u00fchungen und stehen bei Fragen gerne zur Verf\u00fcgung\n\nFreundliche Gr\u00fcsse\n\n[@authority]\n",
+      "value": "Gemeinde [@location]\n\nAltdorf, [@date]\n\nMeldung eines Auflage- und Einspracheverfahrens zur Publikation im Amtsblatt unter der Rubrik \"Bau und Planungsrecht\" und im amtlichen Publikationsorgan (APO)\n\nSehr geehrte Damen und Herren\n\nWir bitten Sie, folgendes Auflage- und Einspracheverfahren im Amtsblatt vom Freitag [@publishDate] bzw. ab Freitag [@publishDate] im APO zu publizieren:\n\nÄnderung des Nutzungsplans Gemeinde [@location]\n\nGestützt auf Artikel 55 des Planungs- und Baugesetzes (PBG; RB 40.1111) wird während 30 Tagen der [@intent] der Gemeinde [@location] öffentlich aufgelegt:\n\nDokumente:\n [@documents]\n\nPlanungsperimeter:\n - [@parcelNr]\n\nDie Auflage erfolgt auf der Gemeindekanzlei und im Kataster der öffentlich-rechtlichen Eigentumsbeschränkungen (oereb.ur.ch/auflage).\n\nInnerhalb der Auflagefrist können schriftliche Einsprachen mit bestimmten Begehren und begründet beim Gemeinderat eingereicht werden.\n\n[@location], [@date] [@authority]\n\nWir danken Ihnen für Ihre Bemühungen und stehen bei Fragen gerne zur Verfügung\n\nFreundliche Grüsse\n\n[@authority]\n",
       "type": 3
     }
   },
@@ -41355,7 +41355,7 @@
     "pk": 16,
     "fields": {
       "key": "stopText",
-      "value": "Gemeindebaubeh\u00f6rde [@location]\n\nStandeskanzlei Uri\nRedaktion Amtsblatt\nRathaus\n6460 Altdorf\n\nLisag AG\nNeuland 11\n6460 Altdorf\n\n[@zip] [@location], [@date]\n\n\nSTOPP - Meldung eines Auflage- und Einspracheverfahrens\n\nSehr geehrte Damen und Herren\n\nVia URec haben Sie die Meldung zu folgendem Auflage- und Einspracheverfahren erhalten.\n\n[@community]\n\n\nVorhaben: [@intent]\nPublikationsdatum: [@publishDate]\n\n\nWir bitten Sie, die Auflage zu STOPPEN. Sofern das Vorhaben weiterverfolgt wird, erhalten Sie zu gegebener Zeit eine neue Publikationsmeldung.\n\nWir danken Ihnen f\u00fcr Ihre Bem\u00fchungen und stehen bei Fragen gerne zur Verf\u00fcgung\n\nFreundliche Gr\u00fcsse\n\n[@authority]\n\n\n[@zip] [@location], [@date]\n",
+      "value": "Gemeindebaubehörde [@location]\n\nStandeskanzlei Uri\nRedaktion Amtsblatt\nRathaus\n6460 Altdorf\n\nLisag AG\nNeuland 11\n6460 Altdorf\n\n[@zip] [@location], [@date]\n\n\nSTOPP - Meldung eines Auflage- und Einspracheverfahrens\n\nSehr geehrte Damen und Herren\n\nVia URec haben Sie die Meldung zu folgendem Auflage- und Einspracheverfahren erhalten.\n\n[@community]\n\n\nVorhaben: [@intent]\nPublikationsdatum: [@publishDate]\n\n\nWir bitten Sie, die Auflage zu STOPPEN. Sofern das Vorhaben weiterverfolgt wird, erhalten Sie zu gegebener Zeit eine neue Publikationsmeldung.\n\nWir danken Ihnen für Ihre Bemühungen und stehen bei Fragen gerne zur Verfügung\n\nFreundliche Grüsse\n\n[@authority]\n\n\n[@zip] [@location], [@date]\n",
       "type": 3
     }
   },
@@ -41435,7 +41435,7 @@
       "question_type": 7,
       "mapping": 1,
       "answer_query": null,
-      "name": "Die Gemeindebaubeh\u00f6rde w\u00fcnscht, dass das vorliegende Gesuch hinsichtlich folgender Fachbereiche durch die zust\u00e4ndigen kantonalen Fachstellen gepr\u00fcft wird",
+      "name": "Die Gemeindebaubehörde wünscht, dass das vorliegende Gesuch hinsichtlich folgender Fachbereiche durch die zuständigen kantonalen Fachstellen geprüft wird",
       "description": "",
       "javascript": "",
       "regex": "",
@@ -41451,7 +41451,7 @@
       "question_type": 3,
       "mapping": 1,
       "answer_query": 41,
-      "name": "Leitbeh\u00f6rde",
+      "name": "Leitbehörde",
       "description": "",
       "javascript": "var authority_element = $('#authority.[QUESTION], #[QUESTION]i1')\nvar options = authority_element.find('option')\noptions.removeAttr('selected')\n\nif (options.length == 2) { \n  $(authority_element).prop(\"disabled\", true);\n  $(options[1]).attr('selected', 'selected')\n  \n  var hid = $('<input type=\"hidden\" name=\"[QUESTION]i1\" >')\n  hid.val($(options[1]).val());\n  hid.appendTo($('#[PAGE]'));\n}",
       "regex": "",
@@ -41659,7 +41659,7 @@
       "question_type": 1,
       "mapping": 1,
       "answer_query": null,
-      "name": "Telefon Gesch\u00e4ft",
+      "name": "Telefon Geschäft",
       "description": "",
       "javascript": "",
       "regex": "",
@@ -41835,7 +41835,7 @@
       "question_type": 1,
       "mapping": 1,
       "answer_query": null,
-      "name": "Telefon Gesch\u00e4ft",
+      "name": "Telefon Geschäft",
       "description": "",
       "javascript": "",
       "regex": "/^\\+?[\\d ]+$/",
@@ -41867,7 +41867,7 @@
       "question_type": 6,
       "mapping": 1,
       "answer_query": null,
-      "name": "Grundeigent\u00fcmerIn identisch GesuchstellerIn",
+      "name": "GrundeigentümerIn identisch GesuchstellerIn",
       "description": "",
       "javascript": "",
       "regex": "",
@@ -41883,7 +41883,7 @@
       "question_type": 9,
       "mapping": null,
       "answer_query": null,
-      "name": "3 Grundeigent\u00fcmerIn",
+      "name": "3 GrundeigentümerIn",
       "description": "",
       "javascript": "",
       "regex": "",
@@ -41932,7 +41932,7 @@
       "mapping": 1,
       "answer_query": null,
       "name": "PLZ / Ort",
-      "description": "Postleitzahl grundeigent\u00fcmer",
+      "description": "Postleitzahl grundeigentümer",
       "javascript": "",
       "regex": "",
       "default_answer": "",
@@ -42011,7 +42011,7 @@
       "question_type": 1,
       "mapping": 1,
       "answer_query": null,
-      "name": "Telefon Gesch\u00e4ft",
+      "name": "Telefon Geschäft",
       "description": "",
       "javascript": "",
       "regex": "/^\\+?[\\d ]+$/",
@@ -42091,7 +42091,7 @@
       "question_type": 4,
       "mapping": 1,
       "answer_query": null,
-      "name": "\u00dcberlagerte Nutzungsplaninhalte",
+      "name": "Überlagerte Nutzungsplaninhalte",
       "description": "",
       "javascript": "",
       "regex": "",
@@ -42287,7 +42287,7 @@
       "description": "",
       "javascript": "",
       "regex": "",
-      "default_answer": "Bitte die Art der Bearbeitung (z.B. Verf\u00fcgung Rechnung) ausw\u00e4hlen (die Mehrfachauswahl ist mit der Control-Taste m\u00f6glich)",
+      "default_answer": "Bitte die Art der Bearbeitung (z.B. Verfügung Rechnung) auswählen (die Mehrfachauswahl ist mit der Control-Taste möglich)",
       "class_field": "",
       "validation": ""
     }
@@ -42299,7 +42299,7 @@
       "question_type": 2,
       "mapping": 1,
       "answer_query": null,
-      "name": "Mitteilungen der zust\u00e4ndigen Koordinationsstelle",
+      "name": "Mitteilungen der zuständigen Koordinationsstelle",
       "description": "",
       "javascript": "",
       "regex": "",
@@ -42380,7 +42380,7 @@
       "mapping": 1,
       "answer_query": null,
       "name": "Hinweis Nachforderung",
-      "description": "Text f\u00fcr die Nachforderung",
+      "description": "Text für die Nachforderung",
       "javascript": "",
       "regex": "",
       "default_answer": "",
@@ -42395,8 +42395,8 @@
       "question_type": 10,
       "mapping": 1,
       "answer_query": null,
-      "name": "Dossier vollst\u00e4ndig",
-      "description": "Datum f\u00fcr Dossier vollst\u00e4ndig",
+      "name": "Dossier vollständig",
+      "description": "Datum für Dossier vollständig",
       "javascript": "",
       "regex": "",
       "default_answer": "",
@@ -42491,7 +42491,7 @@
       "question_type": 11,
       "mapping": 1,
       "answer_query": null,
-      "name": "Beanspruchte Fl\u00e4che in m2",
+      "name": "Beanspruchte Fläche in m2",
       "description": "",
       "javascript": "",
       "regex": "",
@@ -42523,8 +42523,8 @@
       "question_type": 6,
       "mapping": 1,
       "answer_query": null,
-      "name": "Pr\u00fcfungshinweise Gemeindebaubeh\u00f6rde",
-      "description": "Wird nur f\u00fcr die Baudirektion verwendet",
+      "name": "Prüfungshinweise Gemeindebaubehörde",
+      "description": "Wird nur für die Baudirektion verwendet",
       "javascript": "",
       "regex": "",
       "default_answer": "0",
@@ -42603,8 +42603,8 @@
       "question_type": 2,
       "mapping": 1,
       "answer_query": null,
-      "name": "Mitteilung an B\u00fcrger",
-      "description": "Mitteilung der Nachforderungen an den B\u00fcrger",
+      "name": "Mitteilung an Bürger",
+      "description": "Mitteilung der Nachforderungen an den Bürger",
       "javascript": "",
       "regex": "",
       "default_answer": "",
@@ -42655,7 +42655,7 @@
       "description": "Hinweis Fachstelle zur Endabnahme aufbieten",
       "javascript": "",
       "regex": "",
-      "default_answer": "Bei Aktivierung von \"Fachstelle zur Endabnahme aufbieten\" erh\u00e4lt die Gemeindebaubeh\u00f6rde im Rahmen der R\u00fcckmeldung einen entsprechenden Hinweis. Optional kann diese Auflage im Auflagen-Controlling zus\u00e4tzlich erfasst werden.",
+      "default_answer": "Bei Aktivierung von \"Fachstelle zur Endabnahme aufbieten\" erhält die Gemeindebaubehörde im Rahmen der Rückmeldung einen entsprechenden Hinweis. Optional kann diese Auflage im Auflagen-Controlling zusätzlich erfasst werden.",
       "class_field": "",
       "validation": ""
     }
@@ -42667,7 +42667,7 @@
       "question_type": 7,
       "mapping": 1,
       "answer_query": null,
-      "name": "Gesuch nachtr\u00e4glich eingereicht",
+      "name": "Gesuch nachträglich eingereicht",
       "description": "",
       "javascript": "",
       "regex": "",
@@ -42779,7 +42779,7 @@
       "question_type": 1,
       "mapping": 1,
       "answer_query": null,
-      "name": "Fl\u00e4chenbedarf Fruchtfolgefl\u00e4chen (m\u00b2)",
+      "name": "Flächenbedarf Fruchtfolgeflächen (m²)",
       "description": "",
       "javascript": "",
       "regex": "",
@@ -42795,7 +42795,7 @@
       "question_type": 1,
       "mapping": 1,
       "answer_query": null,
-      "name": "Kompensation Fruchtfolgefl\u00e4chen (m\u00b2)",
+      "name": "Kompensation Fruchtfolgeflächen (m²)",
       "description": "",
       "javascript": "",
       "regex": "",
@@ -42812,7 +42812,7 @@
       "mapping": 1,
       "answer_query": 42,
       "name": "Parzellenstandort (Gemeinde)",
-      "description": "In welcher Gemeinde sich die gew\u00fcnschte Parzelle befindet. (Relevant f\u00fcr \"Diverse Gemeinde\" und \"Alle Gemeinden\")",
+      "description": "In welcher Gemeinde sich die gewünschte Parzelle befindet. (Relevant für \"Diverse Gemeinde\" und \"Alle Gemeinden\")",
       "javascript": null,
       "regex": null,
       "default_answer": null,
@@ -42859,7 +42859,7 @@
       "question_type": 2,
       "mapping": 1,
       "answer_query": null,
-      "name": "R\u00fcckmeldung",
+      "name": "Rückmeldung",
       "description": null,
       "javascript": null,
       "regex": null,
@@ -45726,7 +45726,7 @@
     "fields": {
       "available_resource": "emberlist",
       "name": "Dossiersuche",
-      "description": "Dossiersuche BK eingeschr\u00e4nkt auf die Gemeinde",
+      "description": "Dossiersuche BK eingeschränkt auf die Gemeinde",
       "template": "/buildom/search.phtml",
       "class_field": "",
       "hidden": 1,
@@ -45739,7 +45739,7 @@
     "fields": {
       "available_resource": "list",
       "name": "Pendenzenliste Subfachstelle",
-      "description": "Pendenzenliste f\u00fcr die SubFachstellen",
+      "description": "Pendenzenliste für die SubFachstellen",
       "template": "",
       "class_field": "",
       "hidden": 0,
@@ -45765,7 +45765,7 @@
     "fields": {
       "available_resource": "emberlist",
       "name": "Dossierzirkulation starten",
-      "description": "Dossierzirkulation starten f\u00fcr die Koordinationsstelle Baudirektion BD",
+      "description": "Dossierzirkulation starten für die Koordinationsstelle Baudirektion BD",
       "template": null,
       "class_field": null,
       "hidden": 0,
@@ -45791,7 +45791,7 @@
     "fields": {
       "available_resource": "emberlist",
       "name": "Dossierzirkulation starten",
-      "description": "Dossierzirkulation starten f\u00fcr Koord Baugesuche BG",
+      "description": "Dossierzirkulation starten für Koord Baugesuche BG",
       "template": null,
       "class_field": null,
       "hidden": 0,
@@ -45817,7 +45817,7 @@
     "fields": {
       "available_resource": "emberlist",
       "name": "Dossierzirkulation starten",
-      "description": "Dossierzirkulation starten f\u00fcr Koord NP",
+      "description": "Dossierzirkulation starten für Koord NP",
       "template": null,
       "class_field": null,
       "hidden": 0,
@@ -45830,7 +45830,7 @@
     "fields": {
       "available_resource": "emberlist",
       "name": "Dossierzirkulation starten",
-      "description": "Dossierzirkulation starten f\u00fcr Koord Umweltschutz AfU",
+      "description": "Dossierzirkulation starten für Koord Umweltschutz AfU",
       "template": null,
       "class_field": null,
       "hidden": 0,
@@ -45842,7 +45842,7 @@
     "pk": 294,
     "fields": {
       "available_resource": "emberlist",
-      "name": "Baubegleitungssgeb\u00fchren",
+      "name": "Baubegleitungssgebühren",
       "description": null,
       "template": null,
       "class_field": "hasPendingBillingEntry",
@@ -45869,7 +45869,7 @@
     "fields": {
       "available_resource": "emberlist",
       "name": "Dossierzirkulation starten",
-      "description": "Dossierzirkulation starten f\u00fcr Koord Landwirtschaft ALA",
+      "description": "Dossierzirkulation starten für Koord Landwirtschaft ALA",
       "template": null,
       "class_field": null,
       "hidden": 0,
@@ -45882,7 +45882,7 @@
     "fields": {
       "available_resource": "emberlist",
       "name": "Dossierzirkulation starten",
-      "description": "Dossierzirkulation starten f\u00fcr Koord Energie AfE",
+      "description": "Dossierzirkulation starten für Koord Energie AfE",
       "template": null,
       "class_field": null,
       "hidden": 0,
@@ -45895,7 +45895,7 @@
     "fields": {
       "available_resource": "emberlist",
       "name": "Dossierzirkulation starten",
-      "description": "Dossierzirkulation starten f\u00fcr Koord AFJ SD",
+      "description": "Dossierzirkulation starten für Koord AFJ SD",
       "template": null,
       "class_field": null,
       "hidden": 0,
@@ -45921,7 +45921,7 @@
     "fields": {
       "available_resource": "emberlist",
       "name": "Dossierbearbeitung starten",
-      "description": "Dossierbearbeitung startenf\u00fcr Gemeinden",
+      "description": "Dossierbearbeitung startenfür Gemeinden",
       "template": null,
       "class_field": null,
       "hidden": 0,
@@ -45933,8 +45933,8 @@
     "pk": 302,
     "fields": {
       "available_resource": "emberlist",
-      "name": "Zur Pr\u00fcfung zugewiesene Dossiers",
-      "description": "Zur Pr\u00fcfung zugewiesene Dossiers f\u00fcr Vernehmlassungsstellen",
+      "name": "Zur Prüfung zugewiesene Dossiers",
+      "description": "Zur Prüfung zugewiesene Dossiers für Vernehmlassungsstellen",
       "template": null,
       "class_field": "hasActivation",
       "hidden": 0,
@@ -45985,8 +45985,8 @@
     "pk": 306,
     "fields": {
       "available_resource": "emberlist",
-      "name": "Kantonale Pr\u00fcfung beendet",
-      "description": "Kantonale Pr\u00fcfung beendet f\u00fcr Gemeinden",
+      "name": "Kantonale Prüfung beendet",
+      "description": "Kantonale Prüfung beendet für Gemeinden",
       "template": null,
       "class_field": null,
       "hidden": 0,
@@ -45998,8 +45998,8 @@
     "pk": 307,
     "fields": {
       "available_resource": "emberlist",
-      "name": "Laufende Baubewilligungsverfahren und Vorabkl\u00e4rungen",
-      "description": "Dossiers die bei den Gemeinden und dem Kanton in Bearbeitung sind, Anzeige f\u00fcr Organisation mit Leserechten",
+      "name": "Laufende Baubewilligungsverfahren und Vorabklärungen",
+      "description": "Dossiers die bei den Gemeinden und dem Kanton in Bearbeitung sind, Anzeige für Organisation mit Leserechten",
       "template": null,
       "class_field": null,
       "hidden": 0,
@@ -46011,8 +46011,8 @@
     "pk": 309,
     "fields": {
       "available_resource": "emberlist",
-      "name": "Zur Pr\u00fcfung zugewiesene Dossiers",
-      "description": "Zur Pr\u00fcfung zugewiesene Dossiers f\u00fcr die Kommissionsmitglieder",
+      "name": "Zur Prüfung zugewiesene Dossiers",
+      "description": "Zur Prüfung zugewiesene Dossiers für die Kommissionsmitglieder",
       "template": null,
       "class_field": "show_list_count",
       "hidden": 0,
@@ -46025,7 +46025,7 @@
     "fields": {
       "available_resource": "emberlist",
       "name": "Erledigte Dossiers",
-      "description": "Erledigte Dossiers f\u00fcr die Kommissionsmitglieder",
+      "description": "Erledigte Dossiers für die Kommissionsmitglieder",
       "template": "",
       "class_field": "show_list_count",
       "hidden": 0,
@@ -46037,8 +46037,8 @@
     "pk": 312,
     "fields": {
       "available_resource": "statistics",
-      "name": "Geb\u00fchren-Statistik",
-      "description": "Erlaubt das Erstellen von Dossier \u00fcbergreifenden Auswertungen",
+      "name": "Gebühren-Statistik",
+      "description": "Erlaubt das Erstellen von Dossier übergreifenden Auswertungen",
       "template": null,
       "class_field": null,
       "hidden": 0,
@@ -46050,7 +46050,7 @@
     "pk": 314,
     "fields": {
       "available_resource": "emberlist",
-      "name": "Aufgaben Gemeindebaubeh\u00f6rde",
+      "name": "Aufgaben Gemeindebaubehörde",
       "description": null,
       "template": null,
       "class_field": null,
@@ -46076,8 +46076,8 @@
     "pk": 317,
     "fields": {
       "available_resource": "emberlist",
-      "name": "Zur Pr\u00fcfung zugewiesene Dossiers",
-      "description": "Zur Pr\u00fcfung zugewiesene Dossiers f\u00fcr Vernehmlassungsstellen Gemeindezirkulation",
+      "name": "Zur Prüfung zugewiesene Dossiers",
+      "description": "Zur Prüfung zugewiesene Dossiers für Vernehmlassungsstellen Gemeindezirkulation",
       "template": null,
       "class_field": "hasActivation",
       "hidden": 0,
@@ -46116,7 +46116,7 @@
     "fields": {
       "available_resource": "emberlist",
       "name": "Eingang Online - Dossiers",
-      "description": "Dossiers, die von den B\u00fcrgern eingereicht wurden",
+      "description": "Dossiers, die von den Bürgern eingereicht wurden",
       "template": null,
       "class_field": null,
       "hidden": 0,
@@ -46488,7 +46488,7 @@
     "pk": 1,
     "fields": {
       "position": 6,
-      "name": "Pr\u00fcfung durch Gemeinde",
+      "name": "Prüfung durch Gemeinde",
       "automatical": 0,
       "different_color": 0,
       "is_workflow": 1,
@@ -46533,7 +46533,7 @@
     "pk": 13,
     "fields": {
       "position": 4,
-      "name": "Nachforderung Gemeindebaubeh\u00f6rde",
+      "name": "Nachforderung Gemeindebaubehörde",
       "automatical": 0,
       "different_color": 0,
       "is_workflow": 1,
@@ -46638,7 +46638,7 @@
     "pk": 43,
     "fields": {
       "position": 12,
-      "name": "Dossier vollst\u00e4ndig",
+      "name": "Dossier vollständig",
       "automatical": 0,
       "different_color": 0,
       "is_workflow": 1,
@@ -46683,7 +46683,7 @@
     "pk": 46,
     "fields": {
       "position": 15,
-      "name": "R\u00fcckgabe an Gemeinde",
+      "name": "Rückgabe an Gemeinde",
       "automatical": 1,
       "different_color": 0,
       "is_workflow": 1,
@@ -46803,7 +46803,7 @@
     "pk": 54,
     "fields": {
       "position": 32,
-      "name": "Entsch. rechtskr\u00e4ftig",
+      "name": "Entsch. rechtskräftig",
       "automatical": 0,
       "different_color": 0,
       "is_workflow": 1,
@@ -46833,7 +46833,7 @@
     "pk": 56,
     "fields": {
       "position": 34,
-      "name": "Abnahme Schnurger\u00fcst",
+      "name": "Abnahme Schnurgerüst",
       "automatical": 0,
       "different_color": 0,
       "is_workflow": 1,
@@ -47028,7 +47028,7 @@
     "pk": 69,
     "fields": {
       "position": 39,
-      "name": "Bau beendet Info an Liegenschaftssch\u00e4tzung",
+      "name": "Bau beendet Info an Liegenschaftsschätzung",
       "automatical": 1,
       "different_color": 0,
       "is_workflow": 1,
@@ -47058,7 +47058,7 @@
     "pk": 71,
     "fields": {
       "position": 47,
-      "name": "Baubewilligung g\u00fcltig bis",
+      "name": "Baubewilligung gültig bis",
       "automatical": 1,
       "different_color": 0,
       "is_workflow": 1,
@@ -47088,7 +47088,7 @@
     "pk": 73,
     "fields": {
       "position": 48,
-      "name": "Verl\u00e4ngerung Baubewilligung bis",
+      "name": "Verlängerung Baubewilligung bis",
       "automatical": 0,
       "different_color": 0,
       "is_workflow": 0,
@@ -47133,7 +47133,7 @@
     "pk": 80,
     "fields": {
       "position": 43,
-      "name": "\u00d6REB Meldung",
+      "name": "ÖREB Meldung",
       "automatical": 1,
       "different_color": 0,
       "is_workflow": 1,
@@ -47238,7 +47238,7 @@
     "pk": 87,
     "fields": {
       "position": 55,
-      "name": "Empfangsbest\u00e4tigung Entscheiddokumente",
+      "name": "Empfangsbestätigung Entscheiddokumente",
       "automatical": 1,
       "different_color": 0,
       "is_workflow": 1,
@@ -47298,7 +47298,7 @@
     "pk": 130000,
     "fields": {
       "position": 56,
-      "name": "Empfangsbest\u00e4tigung Vorentscheid",
+      "name": "Empfangsbestätigung Vorentscheid",
       "automatical": 1,
       "different_color": 0,
       "is_workflow": 1,
