@@ -712,7 +712,7 @@ def sz_master_data_case(db, sz_instance, form_field_factory, workflow_entry_fact
             # 6. Query for prefetching row documents
             # 7. Query for prefetching answer on previously prefetched row documents
             # 8. Query for prefetching dynamic options
-            10,
+            9,
         ),
         (
             "kt_bern",
@@ -729,7 +729,7 @@ def sz_master_data_case(db, sz_instance, form_field_factory, workflow_entry_fact
                 "work_items__document__answers__answerdocument_set",
                 "work_items__document__answers__answerdocument_set__document__answers",
             ],
-            10,
+            9,
         ),
         (
             "kt_uri",
