@@ -5471,6 +5471,21 @@
     }
   },
   {
+    "model": "core.instanceresource",
+    "pk": 60,
+    "fields": {
+      "available_instance_resource": "apidocuments",
+      "resource": 27,
+      "name": "Dokumente",
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 3,
+      "form_group": 1
+    }
+  },
+  {
     "model": "core.instanceresourceaction",
     "pk": 1,
     "fields": {
@@ -14452,6 +14467,51 @@
     "fields": {
       "instance_resource": 59,
       "role": 7,
+      "instance_state": 16
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1032,
+    "fields": {
+      "instance_resource": 60,
+      "role": 5,
+      "instance_state": 16
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1033,
+    "fields": {
+      "instance_resource": 60,
+      "role": 11,
+      "instance_state": 16
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1034,
+    "fields": {
+      "instance_resource": 60,
+      "role": 7,
+      "instance_state": 16
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1035,
+    "fields": {
+      "instance_resource": 60,
+      "role": 3,
+      "instance_state": 16
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1036,
+    "fields": {
+      "instance_resource": 60,
+      "role": 8,
       "instance_state": 16
     }
   },
