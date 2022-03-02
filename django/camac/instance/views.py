@@ -631,7 +631,7 @@ class InstanceView(
             "instance_state": new_instance_state,
         }
 
-        serializer = self.get_serializer(instance, data=data, partial=True)
+        serializer = self.get_serializer(instance=instance, data=data, partial=True)
         serializer.is_valid(raise_exception=True)
         serializer.save()
 
@@ -694,7 +694,7 @@ class InstanceView(
 
     def _custom_serializer_action(self, request, pk=None, status_code=None):
         serializer = self.get_serializer(
-            self.get_object(), data=request.data, partial=True
+            instance=self.get_object(), data=request.data, partial=True
         )
         serializer.is_valid(raise_exception=True)
         serializer.save()
@@ -828,7 +828,7 @@ class InstanceView(
         url_path="dms-placeholders",
     )
     def dms_placeholders(self, request, pk):
-        serializer = self.get_serializer(self.get_object())
+        serializer = self.get_serializer(instance=self.get_object())
         return response.Response(serializer.data)
 
 
