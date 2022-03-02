@@ -586,7 +586,7 @@ def test_attachment_download(
     response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
     assert (
-        response._headers["content-disposition"][1]
+        response.headers["content-disposition"]
         == f'attachment; filename="{expected_name}"'
     )
 

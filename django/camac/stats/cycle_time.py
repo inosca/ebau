@@ -2,9 +2,9 @@ import datetime
 from typing import Dict, List, Tuple
 
 from caluma.caluma_form.models import Document
-from django.contrib.postgres.fields.jsonb import KeyTextTransform
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import Avg, Count, IntegerField, QuerySet
+from django.db.models.fields.json import KeyTextTransform
 from django.db.models.functions import Cast, ExtractYear
 
 from camac.instance.master_data import MasterData
