@@ -116,8 +116,18 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         group = self.context["request"].group
 
         # Supply the target instance for attachments that are being created
-        instance_id = self.get_initial().get("instance")
-        instance = Instance.objects.get(pk=instance_id) if instance_id else None
+        # through the provided request data, use the instance reference
+        # for existing attachments
+        instance_id = (
+            self.instance.instance.pk
+            if self.instance
+            else self.get_initial().get("instance")
+        )
+        instance = (
+            self.instance.instance
+            if self.instance
+            else Instance.objects.get(pk=instance_id)
+        )
 
         if not attachment_sections:
             attachment_sections = self._get_default_attachment_sections(
