@@ -5,5 +5,9 @@
   type="button"
   title={{if (eq @type "link") (t "cases.miscellaneous.linkInstance") (t "cases.miscellaneous.unLinkInstance") }}
   {{on "click" this.toggle}}>
-    <i class="{{if (eq @type "link") "link-instance" "unlink-instance"}} attachment-icon"/>
+    <img
+      class="attachment-icon"
+      src="{{if (eq @type "link") "/assets/images/link-instance.svg" "/assets/images/unlink-instance.svg"}}"
+      alt={{if (eq @type "link") (t "cases.miscellaneous.linkInstance") (t "cases.miscellaneous.unLinkInstance") }}
+    />
 </button>
