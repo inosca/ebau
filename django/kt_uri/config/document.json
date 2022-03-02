@@ -16,7 +16,7 @@
     "pk": 12000001,
     "fields": {
       "name": "Interne Dokumente",
-      "description": "Private Ablage f\u00fcr jeden Service",
+      "description": "Private Ablage für jeden Service",
       "sort": 0,
       "notification_template": null,
       "recipient_types": null,
@@ -28,7 +28,7 @@
     "pk": 12000002,
     "fields": {
       "name": "Dokumente Fachstellen Kanton / Bund",
-      "description": "R\u00fcckmeldungen von Fachstellen und Koordinationsstellen (z.B. Stellungnahme)",
+      "description": "Rückmeldungen von Fachstellen und Koordinationsstellen (z.B. Stellungnahme)",
       "sort": 2,
       "notification_template": null,
       "recipient_types": null,
@@ -51,8 +51,8 @@
     "model": "document.attachmentsection",
     "pk": 12000004,
     "fields": {
-      "name": "Dokumente Leitbeh\u00f6rde",
-      "description": "Baubewilligungen, Verf\u00fcgungen usw.",
+      "name": "Dokumente Leitbehörde",
+      "description": "Baubewilligungen, Verfügungen usw.",
       "sort": 4,
       "notification_template": null,
       "recipient_types": null,
@@ -75,7 +75,7 @@
     "model": "document.attachmentsection",
     "pk": 12000006,
     "fields": {
-      "name": "Geb\u00fchren",
+      "name": "Gebühren",
       "description": null,
       "sort": 6,
       "notification_template": null,
@@ -124,7 +124,7 @@
       "attachment_section": 12000001,
       "language": "de",
       "name": "Interne Dokumente",
-      "description": "Private Ablage f\u00fcr jeden Service"
+      "description": "Private Ablage für jeden Service"
     }
   },
   {
@@ -134,7 +134,7 @@
       "attachment_section": 12000002,
       "language": "de",
       "name": "Dokumente Fachstellen Kanton / Bund",
-      "description": "R\u00fcckmeldungen von Fachstellen und Koordinationsstellen (z.B. Stellungnahme)"
+      "description": "Rückmeldungen von Fachstellen und Koordinationsstellen (z.B. Stellungnahme)"
     }
   },
   {
@@ -154,7 +154,7 @@
       "attachment_section": 12000004,
       "language": "de",
       "name": "Entscheiddokumente",
-      "description": "Baubewilligungen, Verf\u00fcgungen usw."
+      "description": "Baubewilligungen, Verfügungen usw."
     }
   },
   {
@@ -173,7 +173,7 @@
     "fields": {
       "attachment_section": 12000006,
       "language": "de",
-      "name": "Geb\u00fchren",
+      "name": "Gebühren",
       "description": null
     }
   },

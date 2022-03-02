@@ -4,8 +4,8 @@
     "pk": 21,
     "fields": {
       "form_state": 1,
-      "name": "Baugesuch-Vorabkl\u00e4rung mit kantonaler Beteiligung",
-      "description": "KOOR-ARE-BG;Koordinationsstelle f\u00fcr Baueingaben Amt f\u00fcr Raumentwicklung"
+      "name": "Baugesuch-Vorabklärung mit kantonaler Beteiligung",
+      "description": "KOOR-ARE-BG;Koordinationsstelle für Baueingaben Amt für Raumentwicklung"
     }
   },
   {
@@ -14,7 +14,7 @@
     "fields": {
       "form_state": 1,
       "name": "Verfahren nach BGBB / und Apparzellierungsverfahren",
-      "description": "KOOR-ARE-BG;Koordinationsstelle f\u00fcr Baueingaben Amt f\u00fcr Raumentwicklung"
+      "description": "KOOR-ARE-BG;Koordinationsstelle für Baueingaben Amt für Raumentwicklung"
     }
   },
   {
@@ -23,7 +23,7 @@
     "fields": {
       "form_state": 1,
       "name": "Internes Mitberichtsverfahren BG",
-      "description": "KOOR-ARE-BG;Koordinationsstelle f\u00fcr Baueingaben Amt f\u00fcr Raumentwicklung"
+      "description": "KOOR-ARE-BG;Koordinationsstelle für Baueingaben Amt für Raumentwicklung"
     }
   },
   {
@@ -32,7 +32,7 @@
     "fields": {
       "form_state": 1,
       "name": "Internes Genehmigungsverfahren",
-      "description": "KOOR-ARE-BG;Koordinationsstelle f\u00fcr Baueingaben Amt f\u00fcr Raumentwicklung"
+      "description": "KOOR-ARE-BG;Koordinationsstelle für Baueingaben Amt für Raumentwicklung"
     }
   },
   {
@@ -41,7 +41,7 @@
     "fields": {
       "form_state": 1,
       "name": "Baubewilligungsverfahren mit kantonaler Beteiligung",
-      "description": "KOOR-ARE-BG;Koordinationsstelle f\u00fcr Baueingaben Amt f\u00fcr Raumentwicklung"
+      "description": "KOOR-ARE-BG;Koordinationsstelle für Baueingaben Amt für Raumentwicklung"
     }
   },
   {
@@ -50,7 +50,7 @@
     "fields": {
       "form_state": 1,
       "name": "Mitberichtsverfahren / PGV nach Luftfahrtgesetz",
-      "description": "KOOR-ARE-BG;Koordinationsstelle f\u00fcr Baueingaben Amt f\u00fcr Raumentwicklung"
+      "description": "KOOR-ARE-BG;Koordinationsstelle für Baueingaben Amt für Raumentwicklung"
     }
   },
   {
@@ -58,8 +58,8 @@
     "pk": 46,
     "fields": {
       "form_state": 1,
-      "name": "Mitberichtsverfahren / PGV f\u00fcr milit\u00e4rische Bauten",
-      "description": "KOOR-ARE-BG;Koordinationsstelle f\u00fcr Baueingaben Amt f\u00fcr Raumentwicklung"
+      "name": "Mitberichtsverfahren / PGV für militärische Bauten",
+      "description": "KOOR-ARE-BG;Koordinationsstelle für Baueingaben Amt für Raumentwicklung"
     }
   },
   {
@@ -76,7 +76,7 @@
     "pk": 61,
     "fields": {
       "form_state": 1,
-      "name": "Baugesuch-Vorabkl\u00e4rung ohne kantonale Beteiligung",
+      "name": "Baugesuch-Vorabklärung ohne kantonale Beteiligung",
       "description": ""
     }
   },
@@ -86,7 +86,7 @@
     "fields": {
       "form_state": 1,
       "name": "Genehmigung Teilrevision Nutzungsplanung",
-      "description": "KOOR-ARE-NP;Koordinationsstelle f\u00fcr Nutzungsplanung Amt f\u00fcr Raumentwicklung"
+      "description": "KOOR-ARE-NP;Koordinationsstelle für Nutzungsplanung Amt für Raumentwicklung"
     }
   },
   {
@@ -94,8 +94,8 @@
     "pk": 102,
     "fields": {
       "form_state": 1,
-      "name": "Vorpr\u00fcfung Teilrevision Nutzungsplanung",
-      "description": "KOOR-ARE-NP;Koordinationsstelle f\u00fcr Nutzungsplanung Amt f\u00fcr Raumentwicklung"
+      "name": "Vorprüfung Teilrevision Nutzungsplanung",
+      "description": "KOOR-ARE-NP;Koordinationsstelle für Nutzungsplanung Amt für Raumentwicklung"
     }
   },
   {
@@ -103,8 +103,8 @@
     "pk": 103,
     "fields": {
       "form_state": 1,
-      "name": "Vorpr\u00fcfung Gesamtrevision Nutzungsplanung",
-      "description": "KOOR-ARE-NP;Koordinationsstelle f\u00fcr Nutzungsplanung Amt f\u00fcr Raumentwicklung"
+      "name": "Vorprüfung Gesamtrevision Nutzungsplanung",
+      "description": "KOOR-ARE-NP;Koordinationsstelle für Nutzungsplanung Amt für Raumentwicklung"
     }
   },
   {
@@ -113,7 +113,7 @@
     "fields": {
       "form_state": 1,
       "name": "Genehmigung Gesamtrevision Nutzungsplanung",
-      "description": "KOOR-ARE-NP;Koordinationsstelle f\u00fcr Nutzungsplanung Amt f\u00fcr Raumentwicklung"
+      "description": "KOOR-ARE-NP;Koordinationsstelle für Nutzungsplanung Amt für Raumentwicklung"
     }
   },
   {
@@ -121,8 +121,8 @@
     "pk": 105,
     "fields": {
       "form_state": 1,
-      "name": "Vorpr\u00fcfung Quartiergestaltungsplan QGP",
-      "description": "KOOR-ARE-NP;Koordinationsstelle f\u00fcr Nutzungsplanung Amt f\u00fcr Raumentwicklung"
+      "name": "Vorprüfung Quartiergestaltungsplan QGP",
+      "description": "KOOR-ARE-NP;Koordinationsstelle für Nutzungsplanung Amt für Raumentwicklung"
     }
   },
   {
@@ -131,7 +131,7 @@
     "fields": {
       "form_state": 1,
       "name": "Genehmigung Quartiergestaltungsplan QGP",
-      "description": "KOOR-ARE-NP;Koordinationsstelle f\u00fcr Nutzungsplanung Amt f\u00fcr Raumentwicklung"
+      "description": "KOOR-ARE-NP;Koordinationsstelle für Nutzungsplanung Amt für Raumentwicklung"
     }
   },
   {
@@ -139,8 +139,8 @@
     "pk": 107,
     "fields": {
       "form_state": 1,
-      "name": "Vorpr\u00fcfung Quartierplan QP",
-      "description": "KOOR-ARE-NP;Koordinationsstelle f\u00fcr Nutzungsplanung Amt f\u00fcr Raumentwicklung"
+      "name": "Vorprüfung Quartierplan QP",
+      "description": "KOOR-ARE-NP;Koordinationsstelle für Nutzungsplanung Amt für Raumentwicklung"
     }
   },
   {
@@ -149,7 +149,7 @@
     "fields": {
       "form_state": 1,
       "name": "Genehmigung Quartierplan QP",
-      "description": "KOOR-ARE-NP;Koordinationsstelle f\u00fcr Nutzungsplanung Amt f\u00fcr Raumentwicklung"
+      "description": "KOOR-ARE-NP;Koordinationsstelle für Nutzungsplanung Amt für Raumentwicklung"
     }
   },
   {
@@ -158,7 +158,7 @@
     "fields": {
       "form_state": 1,
       "name": "Reklame-Gesuch (eingereicht via Gemeinde)",
-      "description": "KOOR-ARE-BG;Koordinationsstelle f\u00fcr Baueingaben Amt f\u00fcr Raumentwicklung"
+      "description": "KOOR-ARE-BG;Koordinationsstelle für Baueingaben Amt für Raumentwicklung"
     }
   },
   {
@@ -167,7 +167,7 @@
     "fields": {
       "form_state": 1,
       "name": "Meldung-Solaranlage",
-      "description": "KOOR-ARE-BG;Koordinationsstelle f\u00fcr Baueingaben Amt f\u00fcr Raumentwicklung"
+      "description": "KOOR-ARE-BG;Koordinationsstelle für Baueingaben Amt für Raumentwicklung"
     }
   },
   {
@@ -176,7 +176,7 @@
     "fields": {
       "form_state": 1,
       "name": "Internes Mitberichtsverfahren NP",
-      "description": "KOOR-ARE-NP;Koordinationsstelle f\u00fcr Nutzungsplanung Amt f\u00fcr Raumentwicklung"
+      "description": "KOOR-ARE-NP;Koordinationsstelle für Nutzungsplanung Amt für Raumentwicklung"
     }
   },
   {
@@ -185,7 +185,7 @@
     "fields": {
       "form_state": 1,
       "name": "PGV Kantonsstrasse (Artikel 30 StrG)",
-      "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
+      "description": "KOOR-BD;Koordinationsstelle für Bewilligungsverfahren Baudirektion"
     }
   },
   {
@@ -194,7 +194,7 @@
     "fields": {
       "form_state": 1,
       "name": "PGV Gemeindestrasse (Artikel 30 StrG)",
-      "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
+      "description": "KOOR-BD;Koordinationsstelle für Bewilligungsverfahren Baudirektion"
     }
   },
   {
@@ -203,7 +203,7 @@
     "fields": {
       "form_state": 1,
       "name": "PGV Korporationsstrasse (Artikel 30 StrG)",
-      "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
+      "description": "KOOR-BD;Koordinationsstelle für Bewilligungsverfahren Baudirektion"
     }
   },
   {
@@ -212,7 +212,7 @@
     "fields": {
       "form_state": 1,
       "name": "PGV vereinfachtes Verfahren (Artikel 31 StrG)",
-      "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
+      "description": "KOOR-BD;Koordinationsstelle für Bewilligungsverfahren Baudirektion"
     }
   },
   {
@@ -220,8 +220,8 @@
     "pk": 223,
     "fields": {
       "form_state": 1,
-      "name": "PGV \u00f6ffentliche Gew\u00e4sser (Artikel 12 WBG)",
-      "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
+      "name": "PGV öffentliche Gewässer (Artikel 12 WBG)",
+      "description": "KOOR-BD;Koordinationsstelle für Bewilligungsverfahren Baudirektion"
     }
   },
   {
@@ -229,8 +229,8 @@
     "pk": 224,
     "fields": {
       "form_state": 1,
-      "name": "PGV private Gew\u00e4sser (Artikel 19 WBG)",
-      "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
+      "name": "PGV private Gewässer (Artikel 19 WBG)",
+      "description": "KOOR-BD;Koordinationsstelle für Bewilligungsverfahren Baudirektion"
     }
   },
   {
@@ -238,8 +238,8 @@
     "pk": 225,
     "fields": {
       "form_state": 1,
-      "name": "Konzessionsverfahren Regierungsrat f\u00fcr Anlagen bis 1000 kW (Artikel 18 GNG) BD",
-      "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
+      "name": "Konzessionsverfahren Regierungsrat für Anlagen bis 1000 kW (Artikel 18 GNG) BD",
+      "description": "KOOR-BD;Koordinationsstelle für Bewilligungsverfahren Baudirektion"
     }
   },
   {
@@ -247,8 +247,8 @@
     "pk": 241,
     "fields": {
       "form_state": 1,
-      "name": "Konzessionsverfahren Landrat f\u00fcr Anlagen ab 1000 kW (Artikel 18 GNG) BD",
-      "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
+      "name": "Konzessionsverfahren Landrat für Anlagen ab 1000 kW (Artikel 18 GNG) BD",
+      "description": "KOOR-BD;Koordinationsstelle für Bewilligungsverfahren Baudirektion"
     }
   },
   {
@@ -256,8 +256,8 @@
     "pk": 242,
     "fields": {
       "form_state": 1,
-      "name": "Konzessionsverfahren Baudirektion f\u00fcr W\u00e4rmeentnahmen (Artikel 40 GNG) BD",
-      "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
+      "name": "Konzessionsverfahren Baudirektion für Wärmeentnahmen (Artikel 40 GNG) BD",
+      "description": "KOOR-BD;Koordinationsstelle für Bewilligungsverfahren Baudirektion"
     }
   },
   {
@@ -266,7 +266,7 @@
     "fields": {
       "form_state": 1,
       "name": "Mitberichtsverfahren / PGV nach Starkstromverordnung (EleG)",
-      "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
+      "description": "KOOR-BD;Koordinationsstelle für Bewilligungsverfahren Baudirektion"
     }
   },
   {
@@ -275,7 +275,7 @@
     "fields": {
       "form_state": 1,
       "name": "Mitberichtsverfahren / PGV nach Eisenbahngesetz (EBG)",
-      "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
+      "description": "KOOR-BD;Koordinationsstelle für Bewilligungsverfahren Baudirektion"
     }
   },
   {
@@ -284,7 +284,7 @@
     "fields": {
       "form_state": 1,
       "name": "Mitberichtsverfahren / PGV nach Nationalstrassengesetz (NSG)",
-      "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
+      "description": "KOOR-BD;Koordinationsstelle für Bewilligungsverfahren Baudirektion"
     }
   },
   {
@@ -292,8 +292,8 @@
     "pk": 246,
     "fields": {
       "form_state": 1,
-      "name": "Konzessionsverfahren Baudirektion Beanspruchung Kantonsgew\u00e4sser bis 500 m2 (Artikel 3 ORR)",
-      "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
+      "name": "Konzessionsverfahren Baudirektion Beanspruchung Kantonsgewässer bis 500 m2 (Artikel 3 ORR)",
+      "description": "KOOR-BD;Koordinationsstelle für Bewilligungsverfahren Baudirektion"
     }
   },
   {
@@ -301,8 +301,8 @@
     "pk": 247,
     "fields": {
       "form_state": 1,
-      "name": "Bewilligungsverfahren f\u00fcr die Beanspruchung von Kantonsgebiet",
-      "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
+      "name": "Bewilligungsverfahren für die Beanspruchung von Kantonsgebiet",
+      "description": "KOOR-BD;Koordinationsstelle für Bewilligungsverfahren Baudirektion"
     }
   },
   {
@@ -311,7 +311,7 @@
     "fields": {
       "form_state": 1,
       "name": "Internes Mitberichtsverfahren BD",
-      "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
+      "description": "KOOR-BD;Koordinationsstelle für Bewilligungsverfahren Baudirektion"
     }
   },
   {
@@ -320,7 +320,7 @@
     "fields": {
       "form_state": 1,
       "name": "Reklame-Gesuch (eingereicht via Baudirektion)",
-      "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
+      "description": "KOOR-BD;Koordinationsstelle für Bewilligungsverfahren Baudirektion"
     }
   },
   {
@@ -329,7 +329,7 @@
     "fields": {
       "form_state": 1,
       "name": "Mitberichtsverfahren / PGV nach Seilbahngesetz (SebG)",
-      "description": "KOOR-ARE-BG;Koordinationsstelle f\u00fcr Baueingaben Amt f\u00fcr Raumentwicklung"
+      "description": "KOOR-ARE-BG;Koordinationsstelle für Baueingaben Amt für Raumentwicklung"
     }
   },
   {
@@ -338,7 +338,7 @@
     "fields": {
       "form_state": 1,
       "name": "Internes Mitberichtsverfahren AfU",
-      "description": "KOOR-AfU;Koordinationsstelle Amt f\u00fcr Umweltschutz"
+      "description": "KOOR-AfU;Koordinationsstelle Amt für Umweltschutz"
     }
   },
   {
@@ -347,7 +347,7 @@
     "fields": {
       "form_state": 1,
       "name": "Internes Mitberichtsverfahren nach Artikel 30 BG Umweltschutz",
-      "description": "KOOR-AfU;Koordinationsstelle Amt f\u00fcr Umweltschutz"
+      "description": "KOOR-AfU;Koordinationsstelle Amt für Umweltschutz"
     }
   },
   {
@@ -355,8 +355,8 @@
     "pk": 253,
     "fields": {
       "form_state": 1,
-      "name": "Internes Mitberichtsverfahren / Bewilligungsverfahren gem\u00e4ss UVP",
-      "description": "KOOR-AfU;Koordinationsstelle Amt f\u00fcr Umweltschutz"
+      "name": "Internes Mitberichtsverfahren / Bewilligungsverfahren gemäss UVP",
+      "description": "KOOR-AfU;Koordinationsstelle Amt für Umweltschutz"
     }
   },
   {
@@ -365,7 +365,7 @@
     "fields": {
       "form_state": 1,
       "name": "Internes Mitberichtsverfahren ALA",
-      "description": "KOOR-ALA;Koordinationsstelle Amt f\u00fcr Landwirtschaft"
+      "description": "KOOR-ALA;Koordinationsstelle Amt für Landwirtschaft"
     }
   },
   {
@@ -374,7 +374,7 @@
     "fields": {
       "form_state": 1,
       "name": "Internes Mitberichtsverfahren ALA (Korporationsstrassen mit Subventionierung)",
-      "description": "KOOR-ALA;Koordinationsstelle Amt f\u00fcr Landwirtschaft"
+      "description": "KOOR-ALA;Koordinationsstelle Amt für Landwirtschaft"
     }
   },
   {
@@ -383,7 +383,7 @@
     "fields": {
       "form_state": 1,
       "name": "Internes Mitberichtsverfahren AfE",
-      "description": "KOOR-AFE;Koordinationsstelle Amt f\u00fcr Energie"
+      "description": "KOOR-AFE;Koordinationsstelle Amt für Energie"
     }
   },
   {
@@ -391,8 +391,8 @@
     "pk": 257,
     "fields": {
       "form_state": 1,
-      "name": "Konzessionsverfahren Regierungsrat f\u00fcr Anlagen bis 1000 kW (Artikel 18 GNG) AFE",
-      "description": "KOOR-AFE;Koordinationsstelle Amt f\u00fcr Energie"
+      "name": "Konzessionsverfahren Regierungsrat für Anlagen bis 1000 kW (Artikel 18 GNG) AFE",
+      "description": "KOOR-AFE;Koordinationsstelle Amt für Energie"
     }
   },
   {
@@ -400,8 +400,8 @@
     "pk": 258,
     "fields": {
       "form_state": 1,
-      "name": "Konzessionsverfahren Landrat f\u00fcr Anlagen ab 1000 kW (Artikel 18 GNG) AFE",
-      "description": "KOOR-AFE;Koordinationsstelle Amt f\u00fcr Energie"
+      "name": "Konzessionsverfahren Landrat für Anlagen ab 1000 kW (Artikel 18 GNG) AFE",
+      "description": "KOOR-AFE;Koordinationsstelle Amt für Energie"
     }
   },
   {
@@ -409,8 +409,8 @@
     "pk": 259,
     "fields": {
       "form_state": 1,
-      "name": "Konzessionsverfahren Baudirektion f\u00fcr W\u00e4rmeentnahmen (Artikel 40 GNG) AFE",
-      "description": "KOOR-AFE;Koordinationsstelle Amt f\u00fcr Energie"
+      "name": "Konzessionsverfahren Baudirektion für Wärmeentnahmen (Artikel 40 GNG) AFE",
+      "description": "KOOR-AFE;Koordinationsstelle Amt für Energie"
     }
   },
   {
@@ -419,7 +419,7 @@
     "fields": {
       "form_state": 1,
       "name": "Internes Mitberichtsverfahren AFJ",
-      "description": "KOOR-AFJ;Koordinationsstelle Amt f\u00fcr Forst und Jagd"
+      "description": "KOOR-AFJ;Koordinationsstelle Amt für Forst und Jagd"
     }
   },
   {
@@ -427,8 +427,8 @@
     "pk": 261,
     "fields": {
       "form_state": 1,
-      "name": "Meldung \u00d6REB Anpassung",
-      "description": "KOOR-ARE-NP;Koordinationsstelle f\u00fcr Nutzungsplanung Amt f\u00fcr Raumentwicklung"
+      "name": "Meldung ÖREB Anpassung",
+      "description": "KOOR-ARE-NP;Koordinationsstelle für Nutzungsplanung Amt für Raumentwicklung"
     }
   },
   {
@@ -436,8 +436,8 @@
     "pk": 281,
     "fields": {
       "form_state": 1,
-      "name": "Meldung \u00d6REB Anpassung AFJ",
-      "description": "KOOR-AFJ;Koordinationsstelle Amt f\u00fcr Forst und Jagd"
+      "name": "Meldung ÖREB Anpassung AFJ",
+      "description": "KOOR-AFJ;Koordinationsstelle Amt für Forst und Jagd"
     }
   },
   {
@@ -445,8 +445,8 @@
     "pk": 282,
     "fields": {
       "form_state": 1,
-      "name": "Meldung \u00d6REB Anpassung AFU",
-      "description": "KOOR-AfU;Koordinationsstelle Amt f\u00fcr Umweltschutz"
+      "name": "Meldung ÖREB Anpassung AFU",
+      "description": "KOOR-AfU;Koordinationsstelle Amt für Umweltschutz"
     }
   },
   {
@@ -454,8 +454,8 @@
     "pk": 284,
     "fields": {
       "form_state": 1,
-      "name": "Meldung \u00d6REB Anpassung ARE NP",
-      "description": "KOOR-ARE-NP;Koordinationsstelle f\u00fcr Nutzungsplanung Amt f\u00fcr Raumentwicklung"
+      "name": "Meldung ÖREB Anpassung ARE NP",
+      "description": "KOOR-ARE-NP;Koordinationsstelle für Nutzungsplanung Amt für Raumentwicklung"
     }
   },
   {
@@ -463,8 +463,8 @@
     "pk": 285,
     "fields": {
       "form_state": 1,
-      "name": "Meldung \u00d6REB Anpassung BD",
-      "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
+      "name": "Meldung ÖREB Anpassung BD",
+      "description": "KOOR-BD;Koordinationsstelle für Bewilligungsverfahren Baudirektion"
     }
   },
   {
@@ -473,7 +473,7 @@
     "fields": {
       "form_state": 1,
       "name": "Land- und Rechtserwerb",
-      "description": "KOOR-BD;Koordinationsstelle f\u00fcr Landerwerbsgesch\u00e4fte Baudirektion"
+      "description": "KOOR-BD;Koordinationsstelle für Landerwerbsgeschäfte Baudirektion"
     }
   },
   {
@@ -499,8 +499,8 @@
     "pk": 289,
     "fields": {
       "form_state": 1,
-      "name": "Konzessionsverfahren Korporationsgew\u00e4sser mit Genehmigung durch Regierungsrat (Artikel 15 GNG)",
-      "description": "KOOR-AFE;Koordinationsstelle Amt f\u00fcr Energie"
+      "name": "Konzessionsverfahren Korporationsgewässer mit Genehmigung durch Regierungsrat (Artikel 15 GNG)",
+      "description": "KOOR-AFE;Koordinationsstelle Amt für Energie"
     }
   },
   {
@@ -509,7 +509,7 @@
     "fields": {
       "form_state": 1,
       "name": "Meldung Vorhaben",
-      "description": "KOOR-ARE-BG;Koordinationsstelle f\u00fcr Baueingaben Amt f\u00fcr Raumentwicklung"
+      "description": "KOOR-ARE-BG;Koordinationsstelle für Baueingaben Amt für Raumentwicklung"
     }
   },
   {
@@ -517,7 +517,7 @@
     "pk": 291,
     "fields": {
       "form_state": 1,
-      "name": "Bewilligungsverfahren f\u00fcr die Beanspruchung von Kantonsgebiet SD",
+      "name": "Bewilligungsverfahren für die Beanspruchung von Kantonsgebiet SD",
       "description": "KOOR-SD;Koordinationsstelle SD"
     }
   },
@@ -562,8 +562,8 @@
     "pk": 296,
     "fields": {
       "form_state": 1,
-      "name": "\u00d6REB Verfahren",
-      "description": "KOOR-ARE-NP;Koordinationsstelle f\u00fcr Nutzungsplanung Amt f\u00fcr Raumentwicklung"
+      "name": "ÖREB Verfahren",
+      "description": "KOOR-ARE-NP;Koordinationsstelle für Nutzungsplanung Amt für Raumentwicklung"
     }
   },
   {
@@ -571,8 +571,8 @@
     "pk": 297,
     "fields": {
       "form_state": 1,
-      "name": "Meldung Geb\u00e4udetechnik",
-      "description": "KOOR-ARE-BG;Koordinationsstelle f\u00fcr Baueingaben Amt f\u00fcr Raumentwicklung"
+      "name": "Meldung Gebäudetechnik",
+      "description": "KOOR-ARE-BG;Koordinationsstelle für Baueingaben Amt für Raumentwicklung"
     }
   },
   {
@@ -728,7 +728,7 @@
     "model": "instance.instancestatedescription",
     "pk": 21,
     "fields": {
-      "description": "Bearbeitung Leitbeh\u00f6rde"
+      "description": "Bearbeitung Leitbehörde"
     }
   },
   {
@@ -756,7 +756,7 @@
     "model": "instance.instancestatedescription",
     "pk": 25,
     "fields": {
-      "description": "Zur\u00fcck bei Gemeinde"
+      "description": "Zurück bei Gemeinde"
     }
   },
   {
@@ -770,7 +770,7 @@
     "model": "instance.instancestatedescription",
     "pk": 27,
     "fields": {
-      "description": "Gel\u00f6scht"
+      "description": "Gelöscht"
     }
   },
   {
@@ -805,7 +805,7 @@
     "model": "instance.instancestatedescription",
     "pk": 32,
     "fields": {
-      "description": "Dossiers bleibt bei Gemeindebaubeh\u00f6rde"
+      "description": "Dossiers bleibt bei Gemeindebaubehörde"
     }
   },
   {

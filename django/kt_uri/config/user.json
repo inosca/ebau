@@ -67,8 +67,8 @@
       "communal_federal_number": "1205",
       "district_number": null,
       "section_number": null,
-      "name": "B\u00fcrglen",
-      "commune_name": "B\u00fcrglen",
+      "name": "Bürglen",
+      "commune_name": "Bürglen",
       "district_name": "",
       "section_name": "",
       "zip": "6463"
@@ -97,8 +97,8 @@
       "communal_federal_number": "1207",
       "district_number": null,
       "section_number": null,
-      "name": "Fl\u00fcelen",
-      "commune_name": "Fl\u00fcelen",
+      "name": "Flüelen",
+      "commune_name": "Flüelen",
       "district_name": "",
       "section_name": "",
       "zip": "6454"
@@ -112,8 +112,8 @@
       "communal_federal_number": "1208",
       "district_number": null,
       "section_number": null,
-      "name": "G\u00f6schenen",
-      "commune_name": "G\u00f6schenen",
+      "name": "Göschenen",
+      "commune_name": "Göschenen",
       "district_name": "",
       "section_name": "",
       "zip": "6487"
@@ -277,8 +277,8 @@
       "communal_federal_number": "1219",
       "district_number": null,
       "section_number": null,
-      "name": "Untersch\u00e4chen",
-      "commune_name": "Untersch\u00e4chen",
+      "name": "Unterschächen",
+      "commune_name": "Unterschächen",
       "district_name": "",
       "section_name": "",
       "zip": "6465"
@@ -379,7 +379,7 @@
     "pk": 6,
     "fields": {
       "role_parent": null,
-      "name": "Sekretariat der Gemeindebaubeh\u00f6rde",
+      "name": "Sekretariat der Gemeindebaubehörde",
       "group_prefix": null
     }
   },
@@ -388,7 +388,7 @@
     "pk": 7,
     "fields": {
       "role_parent": null,
-      "name": "Mitglied der Gemeindebaubeh\u00f6rde",
+      "name": "Mitglied der Gemeindebaubehörde",
       "group_prefix": null
     }
   },
@@ -564,7 +564,7 @@
     "model": "user.servicegroup",
     "pk": 41,
     "fields": {
-      "name": "Gemeinder\u00e4te - externe Pendenzen",
+      "name": "Gemeinderäte - externe Pendenzen",
       "sort": null
     }
   },
@@ -628,7 +628,7 @@
     "model": "user.servicegroup",
     "pk": 68,
     "fields": {
-      "name": "Sekretariate Gemeindebaubeh\u00f6rden",
+      "name": "Sekretariate Gemeindebaubehörden",
       "sort": null
     }
   },
@@ -668,7 +668,7 @@
     "model": "user.servicegroup",
     "pk": 73,
     "fields": {
-      "name": "Gemeinder\u00e4te - interne Pendenzen",
+      "name": "Gemeinderäte - interne Pendenzen",
       "sort": null
     }
   },
@@ -676,7 +676,7 @@
     "model": "user.servicegroup",
     "pk": 74,
     "fields": {
-      "name": "Umweltschutzverb\u00e4nde",
+      "name": "Umweltschutzverbände",
       "sort": null
     }
   }
