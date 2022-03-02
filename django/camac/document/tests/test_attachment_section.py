@@ -151,18 +151,31 @@ def test_attachment_section_special_permissions_ur(
             "trusted_service": {
                 permissions.ReadPermission: [1, 2, 3],
                 permissions.AdminServicePermission: [23, 33],
+                permissions.AdminInternalBusinessControlPermission: (
+                    permissions._is_internal_instance,
+                    [4],
+                ),
+                permissions.AdminPermission: (permissions._is_general_instance, [5]),
             }
         }
     ],
 )
-def test_rebuild_app_permissions(data):
-    assert permissions.rebuild_app_permissions(data) == {
+def test_rebuild_app_permissions(
+    db, group, instance, data, application_settings, instance_state_factory
+):
+    application_settings["ATTACHMENT_INTERNAL_STATES"] = ["internal"]
+
+    instance.instance_state = instance_state_factory(name="internal")
+    instance.save()
+
+    assert permissions.rebuild_app_permissions(data, group, instance) == {
         "trusted_service": {
             1: permissions.ReadPermission,
             2: permissions.ReadPermission,
             3: permissions.ReadPermission,
             23: permissions.AdminServicePermission,
             33: permissions.AdminServicePermission,
+            4: permissions.AdminInternalBusinessControlPermission,
         }
     }
 

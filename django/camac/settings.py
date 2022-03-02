@@ -283,6 +283,7 @@ APPLICATIONS = {
         "PUBLICATION_DURATION": timedelta(days=20),
         "PUBLICATION_BACKEND": "camac-ng",
         "PUBLICATION_ATTACHMENT_SECTION": [4],
+        "ATTACHMENT_INTERNAL_STATES": ["internal"],
         "IS_MULTILINGUAL": False,
         "CIRCULATION_STATE_END": "DONE",
         "FORM_BACKEND": "camac-ng",

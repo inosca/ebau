@@ -167,12 +167,14 @@ class AttachmentSection(core_models.MultilingualModel, models.Model):
             else False
         )
 
-    def can_write(self, attachment, group):
+    def can_write(self, attachment, group, instance=None):
         permission_class = self.get_permission(
             group, attachment.instance if attachment else None
         )
         return (
-            permission_class.can_write(attachment, group) if permission_class else False
+            permission_class.can_write(attachment, group, instance)
+            if permission_class
+            else False
         )
 
     class Meta:
