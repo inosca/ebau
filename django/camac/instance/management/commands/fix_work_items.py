@@ -298,7 +298,8 @@ class Command(BaseCommand):
         )
         count = circulation_work_items.count() + activation_work_items.count()
 
-        circulation_work_items.union(activation_work_items).delete()
+        circulation_work_items.delete()
+        activation_work_items.delete()
 
         self.stdout.write(
             self.style.WARNING(f"Deleted {count} circulation and activation work items")

@@ -4,9 +4,10 @@ from uuid import uuid4
 from caluma.caluma_form import api as form_api, models as form_models
 from caluma.caluma_workflow import api as workflow_api, models as workflow_models
 from django.conf import settings
-from django.contrib.postgres.fields.jsonb import KeyTextTransform
 from django.core.files.base import ContentFile
-from django.db.models import Q
+from django.db.models import CharField, Q
+from django.db.models.fields.json import KeyTextTransform
+from django.db.models.functions import Cast
 from django.utils import timezone
 from rest_framework.exceptions import ValidationError
 
@@ -192,7 +193,11 @@ class CreateInstanceLogic:
                     workflow_models.Case.objects.filter(
                         **{"meta__dossier-number__startswith": start}
                     )
-                    .annotate(dossier_nr=KeyTextTransform("dossier-number", "meta"))
+                    .annotate(
+                        dossier_nr=Cast(
+                            KeyTextTransform("dossier-number", "meta"), CharField()
+                        )
+                    )
                     .order_by("-dossier_nr")
                     .values_list("dossier_nr", flat=True)
                     .first()
