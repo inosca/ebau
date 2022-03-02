@@ -24871,13 +24871,13 @@
     "pk": 2000003,
     "fields": {
       "available_instance_resource": "page",
-      "resource": 2000000,
+      "resource": 42,
       "name": "Formular",
       "description": null,
       "template": "/ember/instance.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 0,
+      "sort": 4,
       "form_group": 161
     }
   },
@@ -44299,13 +44299,6 @@
   },
   {
     "model": "core.remberlist",
-    "pk": 2000000,
-    "fields": {
-      "instance_states": "1,21,22,32,23,24,25,34,26,27,28,29,30,31,33"
-    }
-  },
-  {
-    "model": "core.remberlist",
     "pk": 12000000,
     "fields": {
       "instance_states": "30"
@@ -45223,18 +45216,18 @@
   },
   {
     "model": "core.rroleacl",
-    "pk": 2000000,
-    "fields": {
-      "resource": 2000000,
-      "role": 1131
-    }
-  },
-  {
-    "model": "core.rroleacl",
     "pk": 12000000,
     "fields": {
       "resource": 12000000,
       "role": 6
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 12000001,
+    "fields": {
+      "resource": 42,
+      "role": 1131
     }
   },
   {
@@ -46115,19 +46108,6 @@
       "class_field": null,
       "hidden": 0,
       "sort": 32
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 2000000,
-    "fields": {
-      "available_resource": "emberlist",
-      "name": "Alle Dossiers",
-      "description": null,
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 33
     }
   },
   {
