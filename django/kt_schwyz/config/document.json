@@ -128,7 +128,7 @@
       "sort": 11,
       "notification_template": null,
       "recipient_types": "[]",
-      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\"]"
+      "allowed_mime_types": "[]"
     }
   },
   {
