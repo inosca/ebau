@@ -8,8 +8,8 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.db import transaction
 from django.db.models import Q
 from django.utils import translation
-from django.utils.encoding import force_bytes, smart_text
-from django.utils.translation import ugettext as _
+from django.utils.encoding import force_bytes, smart_str
+from django.utils.translation import gettext_lazy as _
 from jose.exceptions import ExpiredSignatureError, JOSEError
 from keycloak import KeycloakOpenID
 from keycloak.exceptions import KeycloakAuthenticationError
@@ -29,7 +29,7 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
         auth = get_authorization_header(request).split()
         header_prefix = "Bearer"
 
-        if not auth or smart_text(auth[0].lower()) != header_prefix.lower():
+        if not auth or smart_str(auth[0].lower()) != header_prefix.lower():
             return None
 
         if len(auth) == 1:

@@ -2,7 +2,7 @@ from uuid import uuid4
 
 import reversion
 from django.conf import settings
-from django.contrib.postgres.fields import ArrayField, JSONField
+from django.contrib.postgres.fields import ArrayField
 from django.core.validators import MaxValueValidator
 from django.db import models
 from django.utils import timezone
@@ -86,7 +86,7 @@ class Attachment(models.Model):
     Service attachment has been uploaded with.
     """
 
-    context = JSONField(default=dict)
+    context = models.JSONField(default=dict)
 
     @property
     def display_name(self):

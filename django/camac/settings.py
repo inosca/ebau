@@ -2816,6 +2816,7 @@ REQUEST_LOGGING_HTTP_4XX_LOG_LEVEL = env.str(
 # Managing files
 
 MEDIA_ROOT = env.str("DJANGO_MEDIA_ROOT", default=default(ROOT_DIR("media")))
+MEDIA_URL = "/api/v1/"
 TEMPFILE_DOWNLOAD_PATH = env.str(
     "DJANGO_TEMPFILE_DOWNLOAD_PATH", default="/tmp/camac/tmpfiles"
 )
@@ -2918,6 +2919,10 @@ AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
 ]
+
+# https://docs.djangoproject.com/en/4.0/releases/3.2/#customizing-type-of-auto-created-primary-keys
+# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
+DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
 
 # Internationalization

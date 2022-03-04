@@ -431,8 +431,8 @@ class Command(BaseCommand):
         if answer.question.type == answer.question.TYPE_INTEGER:
             try:
                 # some mild sanitizing
-                value = re.sub("\.0*$", "", new_value)
-                value = re.sub("['`]", "", value)
+                value = re.sub(r"\.0*$", "", new_value)
+                value = re.sub(r"['`]", "", value)
                 if "price" in slug and "." in value:
                     # prices in francs is enough
                     value = re.sub(r"\.[0-9]+$", "", value)
