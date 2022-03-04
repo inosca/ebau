@@ -67,8 +67,8 @@
       "communal_federal_number": "1331",
       "district_number": null,
       "section_number": null,
-      "name": "K\u00fcssnacht",
-      "commune_name": "K\u00fcssnacht",
+      "name": "Küssnacht",
+      "commune_name": "Küssnacht",
       "district_name": null,
       "section_name": null,
       "zip": null
@@ -157,8 +157,8 @@
       "communal_federal_number": "1346",
       "district_number": null,
       "section_number": null,
-      "name": "Sch\u00fcbelbach",
-      "commune_name": "Sch\u00fcbelbach",
+      "name": "Schübelbach",
+      "commune_name": "Schübelbach",
       "district_name": null,
       "section_name": null,
       "zip": null
@@ -472,8 +472,8 @@
       "communal_federal_number": "KW",
       "district_number": null,
       "section_number": null,
-      "name": "Amt f\u00fcr Gew\u00e4sser",
-      "commune_name": "Amt f\u00fcr Gew\u00e4sser",
+      "name": "Amt für Gewässer",
+      "commune_name": "Amt für Gewässer",
       "district_name": null,
       "section_name": null,
       "zip": null
@@ -517,8 +517,8 @@
       "communal_federal_number": "OEV",
       "district_number": null,
       "section_number": null,
-      "name": "Amt f\u00fcr \u00f6ffentlichen Verkehr",
-      "commune_name": "Amt f\u00fcr \u00f6ffentlichen Verkehr",
+      "name": "Amt für öffentlichen Verkehr",
+      "commune_name": "Amt für öffentlichen Verkehr",
       "district_name": null,
       "section_name": null,
       "zip": null
@@ -532,8 +532,8 @@
       "communal_federal_number": "ARE",
       "district_number": null,
       "section_number": null,
-      "name": "Amt f\u00fcr Raumentwicklung",
-      "commune_name": "Amt f\u00fcr Raumentwicklung",
+      "name": "Amt für Raumentwicklung",
+      "commune_name": "Amt für Raumentwicklung",
       "district_name": null,
       "section_name": null,
       "zip": null
@@ -574,11 +574,11 @@
     "pk": 39,
     "fields": {
       "communal_cantonal_number": null,
-      "communal_federal_number": "BzK\u00fcs",
+      "communal_federal_number": "BzKüs",
       "district_number": null,
       "section_number": null,
-      "name": "Bezirk K\u00fcssnacht",
-      "commune_name": "Bezirk K\u00fcssnacht",
+      "name": "Bezirk Küssnacht",
+      "commune_name": "Bezirk Küssnacht",
       "district_name": null,
       "section_name": null,
       "zip": null
@@ -589,11 +589,11 @@
     "pk": 40,
     "fields": {
       "communal_cantonal_number": null,
-      "communal_federal_number": "BzH\u00f6f",
+      "communal_federal_number": "BzHöf",
       "district_number": null,
       "section_number": null,
-      "name": "Bezirk H\u00f6fe",
-      "commune_name": "Bezirk H\u00f6fe",
+      "name": "Bezirk Höfe",
+      "commune_name": "Bezirk Höfe",
       "district_name": null,
       "section_name": null,
       "zip": null
@@ -739,7 +739,7 @@
     "pk": 11,
     "fields": {
       "role_parent": null,
-      "name": "Fachstelle Leitbeh\u00f6rde",
+      "name": "Fachstelle Leitbehörde",
       "group_prefix": null
     }
   },

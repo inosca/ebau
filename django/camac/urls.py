@@ -1,5 +1,6 @@
 from django.conf import settings
-from django.conf.urls import include, url
+from django.conf.urls import include
+from django.urls import re_path
 from ebau_gwr.linker.views import GWRLinkViewSet
 from ebau_gwr.token_proxy.views import TokenProxyView
 from rest_framework.routers import SimpleRouter
@@ -29,42 +30,42 @@ r.register(
 r.register(r"^api/v1/linker/gwr-links", UnswaggeredGWRLinkViewSet)
 
 urlpatterns = [
-    url(r"^api/v1/", include("camac.applicants.urls")),
-    url(r"^api/v1/", include("camac.core.urls")),
-    url(r"^api/v1/", include("camac.user.urls")),
-    url(r"^api/v1/", include("camac.instance.urls")),
-    url(r"^api/v1/", include("camac.document.urls")),
-    url(r"^api/v1/", include("camac.dossier_import.urls")),
-    url(r"^api/v1/", include("camac.circulation.urls")),
-    url(r"^api/v1/", include("camac.notification.urls")),
-    url(r"^api/v1/", include("camac.objection.urls")),
-    url(r"^ech/v1/", include("camac.echbern.urls")),
-    url(r"^api/v1/", include("gisbern.urls")),
-    url(r"^api/v1/", include("camac.responsible.urls")),
-    url(r"^api/v1/stats/", include("camac.stats.urls")),
-    url(
+    re_path(r"^api/v1/", include("camac.applicants.urls")),
+    re_path(r"^api/v1/", include("camac.core.urls")),
+    re_path(r"^api/v1/", include("camac.user.urls")),
+    re_path(r"^api/v1/", include("camac.instance.urls")),
+    re_path(r"^api/v1/", include("camac.document.urls")),
+    re_path(r"^api/v1/", include("camac.dossier_import.urls")),
+    re_path(r"^api/v1/", include("camac.circulation.urls")),
+    re_path(r"^api/v1/", include("camac.notification.urls")),
+    re_path(r"^api/v1/", include("camac.objection.urls")),
+    re_path(r"^ech/v1/", include("camac.echbern.urls")),
+    re_path(r"^api/v1/", include("gisbern.urls")),
+    re_path(r"^api/v1/", include("camac.responsible.urls")),
+    re_path(r"^api/v1/stats/", include("camac.stats.urls")),
+    re_path(
         r"^api/swagger(?P<format>\.json|\.yaml)$",
         SCHEMA_VIEW.without_ui(cache_timeout=0),
         name="schema-json",
     ),
-    url(
+    re_path(
         r"^api/swagger/$",
         SCHEMA_VIEW.with_ui("swagger", cache_timeout=0),
         name="schema-swagger-ui",
     ),
-    url(
+    re_path(
         r"^api/redoc/$",
         SCHEMA_VIEW.with_ui("redoc", cache_timeout=0),
         name="schema-redoc",
     ),
-    url(
+    re_path(
         r"^graphql",
         CamacAuthenticatedGraphQLView.as_view(graphiql=settings.DEBUG),
         name="graphql",
     ),
-    # url(r'^api/docs/$', schema_view),
-    # url(r'^api/auth/$', include('keycloak_adapter.urls')),
+    # re_path(r'^api/docs/$', schema_view),
+    # re_path(r'^api/auth/$', include('keycloak_adapter.urls')),
 ] + r.urls
 
 if settings.ENABLE_SILK:  # pragma: no cover
-    urlpatterns.append(url(r"^api/silk/", include("silk.urls", namespace="silk")))
+    urlpatterns.append(re_path(r"^api/silk/", include("silk.urls", namespace="silk")))
