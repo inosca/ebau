@@ -1,10 +1,9 @@
 import Route from "@ember/routing/route";
-
-import { hasFeature } from "caluma-portal/helpers/has-feature";
+import { macroCondition, getOwnConfig } from "@embroider/macros";
 
 export default class PublicInstancesDetailIndexRoute extends Route {
   redirect() {
-    const redirectTo = hasFeature("publication.form")
+    const redirectTo = macroCondition(getOwnConfig().features.publication.form)
       ? "public-instances.detail.form"
       : "public-instances.detail.documents";
 

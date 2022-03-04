@@ -29,7 +29,7 @@
         <th class="uk-text-nowrap">{{t (concat "instances.description-" (application-name))}}</th>
         <th class="uk-text-nowrap">{{t (concat "instances.address-" (application-name))}}</th>
         <th class="uk-text-nowrap">{{t (concat "instances.parcel-" (application-name))}}</th>
-        {{#if (has-feature "publication.endDate")}}
+        {{#if (macroCondition (macroGetOwnConfig "features.publication.endDate"))}}
           <th class="uk-text-nowrap">{{t "instances.objectionPeriod"}}</th>
         {{/if}}
       </tr>
@@ -51,7 +51,7 @@
           <td>{{publicInstance.intent}}</td>
           <td>{{publicInstance.street}}</td>
           <td>{{publicInstance.parcels}}</td>
-          {{#if (has-feature "publication.endDate")}}
+          {{#if (macroCondition (macroGetOwnConfig "features.publication.endDate"))}}
             <td>{{format-date publicInstance.publicationEndDate format="date"}}</td>
           {{/if}}
         </tr>
