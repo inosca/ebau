@@ -15,6 +15,17 @@ const UNUSED_ENVS = ENVS.filter((e) => e !== ENV).join("|");
 
 module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
+    "@embroider/macros": {
+      setOwnConfig: {
+        features: {
+          faq: ENV === "be",
+          publication: {
+            form: ENV === "be",
+            endDate: ENV === "ur",
+          },
+        },
+      },
+    },
     "ember-simple-auth": {
       useSessionSetupMethod: true,
     },

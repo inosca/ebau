@@ -112,13 +112,6 @@ module.exports = function (environment) {
         juristicNameRegexp: "^name-juristische-person.*$",
         emailRegexp: "^e-mail-.*$",
       },
-      features: {
-        faq: true,
-        publication: {
-          form: true,
-          endDate: false,
-        },
-      },
     },
     kt_uri: {
       name: "ur",
@@ -189,13 +182,6 @@ module.exports = function (environment) {
         lastNameRegexp: "^last-name$",
         juristicNameRegexp: "^juristic-person-name$",
         emailRegexp: "^e-mail$",
-      },
-      features: {
-        faq: false,
-        publication: {
-          form: false,
-          endDate: true,
-        },
       },
     },
   }[app];
