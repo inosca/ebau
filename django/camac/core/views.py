@@ -250,9 +250,9 @@ class PublicationEntryView(ModelViewSet):
         payload["grundstuecknummern"] = grundstuecknummern
 
         standort_koordinaten = formFieldQuery.filter(name="standort-koordinaten")
+        coordinates_override = []
         if standort_koordinaten.exists():
             coordinates = standort_koordinaten.first().value.splitlines()
-            coordinates_override = []
             for coordinate in coordinates:
                 coordinate = [c.strip() for c in coordinate.split(";")]
                 coordinates_override.append(
@@ -279,7 +279,7 @@ class PublicationEntryView(ModelViewSet):
             for coord in coordSet:
                 lat = coord["lat"]
                 lng = coord["lng"]
-                if not coord["skip_transform"]:
+                if "skip_transform" not in coord or not coord["skip_transform"]:
                     lat, lng = transformer.transform(lat, lng)
                 lat = f"{int(lat)}"
                 lng = f"{int(lng)}"
