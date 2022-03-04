@@ -7,12 +7,12 @@ from caluma.caluma_form import models as form_models
 from caluma.caluma_workflow import api as workflow_api, models as workflow_models
 from dateutil.parser import parse as dateutil_parse
 from django.conf import settings
-from django.contrib.postgres.fields.jsonb import KeyTextTransform
 from django.core.files import File
 from django.db import transaction
-from django.db.models import F, OuterRef, Q, Subquery, Value
+from django.db.models import CharField, F, OuterRef, Q, Subquery, Value
 from django.db.models.expressions import Func
 from django.db.models.fields import IntegerField
+from django.db.models.fields.json import KeyTextTransform
 from django.db.models.functions import Cast
 from django.http import HttpResponse
 from django.utils import timezone
@@ -631,7 +631,7 @@ class InstanceView(
             "instance_state": new_instance_state,
         }
 
-        serializer = self.get_serializer(instance, data=data, partial=True)
+        serializer = self.get_serializer(instance=instance, data=data, partial=True)
         serializer.is_valid(raise_exception=True)
         serializer.save()
 
@@ -694,7 +694,7 @@ class InstanceView(
 
     def _custom_serializer_action(self, request, pk=None, status_code=None):
         serializer = self.get_serializer(
-            self.get_object(), data=request.data, partial=True
+            instance=self.get_object(), data=request.data, partial=True
         )
         serializer.is_valid(raise_exception=True)
         serializer.save()
@@ -828,7 +828,7 @@ class InstanceView(
         url_path="dms-placeholders",
     )
     def dms_placeholders(self, request, pk):
-        serializer = self.get_serializer(self.get_object())
+        serializer = self.get_serializer(instance=self.get_object())
         return response.Response(serializer.data)
 
 
@@ -1339,7 +1339,7 @@ class PublicCalumaInstanceView(mixins.InstanceQuerysetMixin, ListAPIView):
 
         if settings.APPLICATION.get("PUBLICATION_BACKEND") == "caluma":
             return queryset.annotate(
-                dossier_nr=KeyTextTransform("ebau-number", "meta"),
+                dossier_nr=Cast(KeyTextTransform("ebau-number", "meta"), CharField()),
                 year=Cast(
                     Func(
                         F("dossier_nr"),
@@ -1361,7 +1361,7 @@ class PublicCalumaInstanceView(mixins.InstanceQuerysetMixin, ListAPIView):
             ).order_by("year", "nr")
 
         return queryset.annotate(
-            dossier_nr=KeyTextTransform("dossier-number", "meta"),
+            dossier_nr=Cast(KeyTextTransform("dossier-number", "meta"), CharField()),
             publication_end_date=Subquery(
                 PublicationEntry.objects.filter(
                     instance_id=OuterRef("instance_id")
@@ -1382,7 +1382,7 @@ class PublicCalumaInstanceView(mixins.InstanceQuerysetMixin, ListAPIView):
             .annotate(instance_id=F("instance__pk"))
         )
         return queryset.annotate(
-            dossier_nr=KeyTextTransform("dossier-number", "meta"),
+            dossier_nr=Cast(KeyTextTransform("dossier-number", "meta"), CharField()),
             publication_date=Subquery(
                 PublicationEntry.objects.filter(
                     instance_id=OuterRef("instance_id")

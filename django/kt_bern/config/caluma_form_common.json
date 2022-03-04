@@ -1802,6 +1802,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"Informationsfenster\\nDas Baurecht beinhaltet das Recht, Bauten auf fremdem Boden zu errichten und fortbestehen zu lassen. Das Baurecht durchbricht das sog. Akzessionsprinzip, wonach Bauten immer Bestandteil des Grundst\\u00fcckes bilden.\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null
@@ -1834,6 +1835,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"Kantonaler Geb\\u00e4udeidentifikator\", \"fr\": \"Identificateur bernois du b\\u00e2timent\"}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -1867,6 +1869,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"M\\u00f6glichst genaue Umschreibung des Bauvorhabens. Die wesentlichen Gegenst\\u00e4nde des Bauvorhabens sind aufzuf\\u00fchren.\", \"fr\": \"Description aussi pr\\u00e9cise que possible du projet de construction. Les \\u00e9l\\u00e9ments essentiels du projet doivent \\u00eatre pr\\u00e9sent\\u00e9s.\"}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": 1000,
@@ -1900,6 +1903,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"Eidgen\\u00f6ssische Grundst\\u00fccksidentifikationsnummer\", \"fr\": \"Num\\u00e9ro d'identification f\\u00e9d\\u00e9ral du b\\u00e2timent\"}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": 14
@@ -1932,6 +1936,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -1965,6 +1970,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -1998,6 +2004,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -2031,6 +2038,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -2064,6 +2072,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -2097,6 +2106,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {
@@ -2129,6 +2139,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"Eidgen\\u00f6ssischer Geb\\u00e4udeidentifikator\", \"fr\": \"Identificateur f\\u00e9d\\u00e9ral du b\\u00e2timent\"}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_value": 900000000,
@@ -2162,6 +2173,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"<div class=\\\"uk-alert\\\"><p>Wenn die hier erfasste Person zus\\u00e4tzlich Zugang zum Dossier erhalten und \\u00fcber dessen Bearbeitungsfortschritt informiert werden soll, erfassen Sie diese im Men\\u00fc \\\"Berechtigungen\\\".</p>\\n\\n<p>Um auf das Dossier zuzugreifen, muss die eingeladene Personen auf dem eBau Portal registriert sein. Falls dies noch nicht der Fall ist, wird bei der Einladung automatisch eine E-Mail mit einem Link zur Registrierung versendet.</p></div>\", \"fr\": \"<div class=\\\"uk-alert\\\"><p>Si la personne saisie ici doit \\u00e9galement avoir acc\\u00e8s au dossier et \\u00eatre inform\\u00e9e de l'avancement du projet, saisissez cette personne dans le menu \\\"Autorisation\\\".</p> \\n\\n<p>Pour acc\\u00e9der au dossier, la personne invit\\u00e9e doit \\u00eatre enregistr\\u00e9e sur le portail eBau. Si ce n'est pas encore le cas, un e-mail contenant un lien vers l'enregistrement sera automatiquement envoy\\u00e9 avec l'invitation.</p></div>\"}",
       "configuration": {},
       "meta": {},
@@ -2192,6 +2204,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"<div class=\\\"uk-alert\\\"><p>Wenn die hier erfasste Person zus\\u00e4tzlich Zugang zum Dossier erhalten und \\u00fcber dessen Bearbeitungsfortschritt informiert werden soll, erfassen Sie diese im Men\\u00fc \\\"Berechtigungen\\\".</p>\\n\\n<p>Um auf das Dossier zuzugreifen, muss die eingeladene Personen auf dem eBau Portal registriert sein. Falls dies noch nicht der Fall ist, wird bei der Einladung automatisch eine E-Mail mit einem Link zur Registrierung versendet.</p></div>\", \"fr\": \"<div class=\\\"uk-alert\\\"><p>Si la personne saisie ici doit \\u00e9galement avoir acc\\u00e8s au dossier et \\u00eatre inform\\u00e9e de l'avancement du projet, saisissez cette personne dans le menu \\\"Autorisation\\\".</p> \\n\\n<p>Pour acc\\u00e9der au dossier, la personne invit\\u00e9e doit \\u00eatre enregistr\\u00e9e sur le portail eBau. Si ce n'est pas encore le cas, un e-mail contenant un lien vers l'enregistrement sera automatiquement envoy\\u00e9 avec l'invitation.</p></div>\"}",
       "configuration": {},
       "meta": {},
@@ -2222,6 +2235,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"<div class=\\\"uk-alert\\\"><p>Wenn die hier erfasste Person zus\\u00e4tzlich Zugang zum Dossier erhalten und \\u00fcber dessen Bearbeitungsfortschritt informiert werden soll, erfassen Sie diese im Men\\u00fc \\\"Berechtigungen\\\".</p>\\n\\n<p>Um auf das Dossier zuzugreifen, muss die eingeladene Personen auf dem eBau Portal registriert sein. Falls dies noch nicht der Fall ist, wird bei der Einladung automatisch eine E-Mail mit einem Link zur Registrierung versendet.</p></div>\", \"fr\": \"<div class=\\\"uk-alert\\\"><p>Si la personne saisie ici doit \\u00e9galement avoir acc\\u00e8s au dossier et \\u00eatre inform\\u00e9e de l'avancement du projet, saisissez cette personne dans le menu \\\"Autorisation\\\".</p> \\n\\n<p>Pour acc\\u00e9der au dossier, la personne invit\\u00e9e doit \\u00eatre enregistr\\u00e9e sur le portail eBau. Si ce n'est pas encore le cas, un e-mail contenant un lien vers l'enregistrement sera automatiquement envoy\\u00e9 avec l'invitation.</p></div>\"}",
       "configuration": {},
       "meta": {},
@@ -2252,6 +2266,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"<div class=\\\"uk-alert\\\"><p>Wenn die hier erfasste Person zus\\u00e4tzlich Zugang zum Dossier erhalten und \\u00fcber dessen Bearbeitungsfortschritt informiert werden soll, erfassen Sie diese im Men\\u00fc \\\"Berechtigungen\\\".</p>\\n\\n<p>Um auf das Dossier zuzugreifen, muss die eingeladene Personen auf dem eBau Portal registriert sein. Falls dies noch nicht der Fall ist, wird bei der Einladung automatisch eine E-Mail mit einem Link zur Registrierung versendet.</p></div>\", \"fr\": \"<div class=\\\"uk-alert\\\"><p>Si la personne saisie ici doit \\u00e9galement avoir acc\\u00e8s au dossier et \\u00eatre inform\\u00e9e de l'avancement du projet, saisissez cette personne dans le menu \\\"Autorisation\\\".</p> \\n\\n<p>Pour acc\\u00e9der au dossier, la personne invit\\u00e9e doit \\u00eatre enregistr\\u00e9e sur le portail eBau. Si ce n'est pas encore le cas, un e-mail contenant un lien vers l'enregistrement sera automatiquement envoy\\u00e9 avec l'invitation.</p></div>\"}",
       "configuration": {},
       "meta": {},
@@ -2282,6 +2297,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"<div class=\\\"uk-alert\\\"><p>Wenn die hier erfasste Person zus\\u00e4tzlich Zugang zum Dossier erhalten und \\u00fcber dessen Bearbeitungsfortschritt informiert werden soll, erfassen Sie diese im Men\\u00fc \\\"Berechtigungen\\\".</p>\\n\\n<p>Um auf das Dossier zuzugreifen, muss die eingeladene Personen auf dem eBau Portal registriert sein. Falls dies noch nicht der Fall ist, wird bei der Einladung automatisch eine E-Mail mit einem Link zur Registrierung versendet.</p></div>\", \"fr\": \"<div class=\\\"uk-alert\\\"><p>Si la personne saisie ici doit \\u00e9galement avoir acc\\u00e8s au dossier et \\u00eatre inform\\u00e9e de l'avancement du projet, saisissez cette personne dans le menu \\\"Autorisation\\\".</p> \\n\\n<p>Pour acc\\u00e9der au dossier, la personne invit\\u00e9e doit \\u00eatre enregistr\\u00e9e sur le portail eBau. Si ce n'est pas encore le cas, un e-mail contenant un lien vers l'enregistrement sera automatiquement envoy\\u00e9 avec l'invitation.</p></div>\"}",
       "configuration": {},
       "meta": {},
@@ -2312,6 +2328,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {
@@ -2345,6 +2362,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -2375,6 +2393,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -2405,6 +2424,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -2435,6 +2455,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -2465,6 +2486,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -2495,6 +2517,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null
@@ -2529,6 +2552,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_value": 1300000.999,
@@ -2562,6 +2586,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_value": 2840000.999,
@@ -2595,6 +2620,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_value": null,
@@ -2628,6 +2654,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null
@@ -2660,6 +2687,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": 30
@@ -2692,6 +2720,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null
@@ -2724,6 +2753,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null
@@ -2756,6 +2786,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null
@@ -2788,6 +2819,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null
@@ -2820,6 +2852,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null
@@ -2852,6 +2885,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null
@@ -2884,6 +2918,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null
@@ -2916,6 +2951,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null
@@ -2948,6 +2984,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": 12,
@@ -2981,6 +3018,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": null, \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null
@@ -3013,6 +3051,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": 12,
@@ -3046,6 +3085,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": null, \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null
@@ -3078,6 +3118,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": null, \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null
@@ -3110,6 +3151,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": null, \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null
@@ -3142,6 +3184,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -3175,6 +3218,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null
@@ -3207,6 +3251,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": 40
@@ -3239,6 +3284,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null
@@ -3271,6 +3317,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": 40,
@@ -3304,6 +3351,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": 40
@@ -3336,6 +3384,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null
@@ -3368,6 +3417,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null
@@ -3400,6 +3450,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {
@@ -3436,6 +3487,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"Parzelle: Durch Vermessung festgelegtes Grundst\\u00fcck (bzw. Grundst\\u00fccksteil).\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_value": null,
@@ -3470,6 +3522,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {
@@ -3507,6 +3560,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {
@@ -3544,6 +3598,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {
@@ -3581,6 +3636,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {
@@ -3618,6 +3674,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {
@@ -3655,6 +3712,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {
@@ -3692,6 +3750,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_value": null,
@@ -3725,6 +3784,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": null, \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_value": null,
@@ -3758,6 +3818,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_value": null,
@@ -3791,6 +3852,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": null, \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_value": null,
@@ -3824,6 +3886,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_value": null,
@@ -3857,6 +3920,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_value": null,
@@ -3890,6 +3954,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": \"\"}",
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -3923,6 +3988,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -3956,6 +4022,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": 60,
@@ -3989,6 +4056,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null
@@ -4021,6 +4089,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": 60
@@ -4053,6 +4122,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null
@@ -4085,6 +4155,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": null, \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null
@@ -4117,6 +4188,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null
@@ -4149,6 +4221,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null
@@ -4181,6 +4254,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -4214,6 +4288,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -4247,6 +4322,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -4280,6 +4356,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -4313,6 +4390,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -4346,6 +4424,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -4376,6 +4455,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -4406,6 +4486,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null
@@ -4438,6 +4519,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": 30
@@ -4470,6 +4552,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null
@@ -4502,6 +4585,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null
@@ -4534,6 +4618,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null
@@ -4566,6 +4651,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"Mit der Vollmacht handeln Sie in Stellvertretung f\\u00fcr Dritte. Hinweise \\u00fcber die Regelungen der Stellvertretung finden Sie in Art. 32-40 OR.\", \"fr\": \"Une procuration permet de repr\\u00e9senter des tiers. Les articles 32 \\u00e0 40 CO contiennent les dispositions relatives \\u00e0 la repr\\u00e9sentation.\"}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},

@@ -10,6 +10,11 @@ from django.conf import settings
 from django.urls import reverse
 from rest_framework import status
 
+from camac.constants.kt_bern import (
+    NOTICE_TYPE_NEBENBESTIMMUNG,
+    NOTICE_TYPE_STELLUNGNAHME,
+)
+from camac.core.models import NoticeType
 from camac.instance.placeholders.aliases import ALIASES
 
 from .test_master_data import add_answer, add_table_answer, be_master_data_case  # noqa
@@ -33,6 +38,7 @@ def test_dms_placeholders(
     instance_service,
     multilang,
     notice_factory,
+    notice_type_factory,
     responsible_service_factory,
     service_factory,
     snapshot,
@@ -162,8 +168,15 @@ def test_dms_placeholders(
     )
 
     for activation in activations:
-        notice_factory(activation=activation, notice_type_id=1)
-        notice_factory(activation=activation, notice_type_id=20000)
+        stellungnahme = NoticeType.objects.filter(
+            pk=NOTICE_TYPE_STELLUNGNAHME
+        ).first() or notice_type_factory(pk=NOTICE_TYPE_STELLUNGNAHME)
+        nebenbestimmung = NoticeType.objects.filter(
+            pk=NOTICE_TYPE_NEBENBESTIMMUNG
+        ).first() or notice_type_factory(pk=NOTICE_TYPE_NEBENBESTIMMUNG)
+
+        notice_factory(activation=activation, notice_type=stellungnahme)
+        notice_factory(activation=activation, notice_type=nebenbestimmung)
 
     activations[0].service = group.service
     activations[0].save()

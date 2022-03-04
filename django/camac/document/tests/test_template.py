@@ -222,7 +222,7 @@ def test_template_merge(
             response["Content-Type"] == mimetypes.guess_type("filename." + to_type)[0]
         )
         if to_type == "docx":
-            docx = DocxTemplate(BytesIO(response.content))
+            docx = DocxTemplate(BytesIO(response.content)).get_docx()
             xml = etree.tostring(
                 docx._element.body, encoding="unicode", pretty_print=True
             )
@@ -251,6 +251,6 @@ def test_template_download(
 ):
     url = reverse("template-download", args=[template.pk])
     response = admin_client.get(url)
-    docx = DocxTemplate(BytesIO(response.content))
+    docx = DocxTemplate(BytesIO(response.content)).get_docx()
     xml = etree.tostring(docx._element.body, encoding="unicode", pretty_print=True)
     snapshot.assert_match(xml)

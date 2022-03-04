@@ -5,9 +5,9 @@ from manabi.auth import ManabiAuthenticator
 from manabi.filesystem import ManabiProvider
 from manabi.lock import ManabiLockLockStorage
 from manabi.log import HeaderLogger, verbose_logging
-from wsgidav.debug_filter import WsgiDavDebugFilter  # type: ignore
 from wsgidav.dir_browser import WsgiDavDirBrowser  # type: ignore
 from wsgidav.error_printer import ErrorPrinter  # type: ignore
+from wsgidav.mw.debug_filter import WsgiDavDebugFilter  # type: ignore
 from wsgidav.request_resolver import RequestResolver  # type: ignore
 from wsgidav.wsgidav_app import WsgiDAVApp  # type: ignore
 
@@ -22,7 +22,7 @@ def get_dav():
     return WsgiDAVApp(
         {
             "mount_path": "/dav",
-            "lock_manager": ManabiLockLockStorage(
+            "lock_storage": ManabiLockLockStorage(
                 refresh, Path(settings.MEDIA_ROOT, "manabi")
             ),
             "provider_mapping": {
