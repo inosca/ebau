@@ -47,14 +47,14 @@
     "graphql": "15.7.2",
     "html2canvas": "1.0.0-rc.6",
     "leaflet": "1.7.1",
-    "luxon": "2.3.0",
+    "luxon": "2.3.1",
     "proj4leaflet": "1.0.2"
   },
   "devDependencies": {
     "@adfinis-sygroup/eslint-config": "1.5.0",
     "@ember/optional-features": "2.0.0",
     "@ember/test-helpers": "2.6.0",
-    "@embroider/test-setup": "1.2.0",
+    "@embroider/test-setup": "1.4.0",
     "babel-eslint": "10.1.0",
     "broccoli-asset-rev": "3.0.0",
     "ember-cli": "3.28.5",
@@ -74,7 +74,7 @@
     "ember-source-channel-url": "3.0.0",
     "ember-template-lint": "4.2.0",
     "eslint": "7.32.0",
-    "eslint-config-prettier": "8.4.0",
+    "eslint-config-prettier": "8.5.0",
     "eslint-plugin-ember": "10.5.9",
     "eslint-plugin-import": "2.25.4",
     "eslint-plugin-node": "11.1.0",
@@ -85,8 +85,8 @@
     "prettier": "2.5.1",
     "qunit": "2.18.0",
     "qunit-dom": "2.0.0",
-    "sass": "1.49.8",
-    "webpack": "5.69.1"
+    "sass": "1.49.9",
+    "webpack": "5.70.0"
   },
   "engines": {
     "node": "12.* || 14.* || >= 16"
