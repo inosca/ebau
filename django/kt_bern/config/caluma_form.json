@@ -32368,7 +32368,7 @@
       "label": "{\"de\": \"freigabequittung-text\", \"fr\": \"Declaration de validation\"}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "'is-paper'|answer == 'is-paper-yes'",
+      "is_hidden": "'is-paper'|answer == 'is-paper-yes' || 'vorabklaerung' in form || 'solaranlagen-meldung' in form",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
