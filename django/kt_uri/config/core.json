@@ -1417,6 +1417,48 @@
   },
   {
     "model": "core.aphp",
+    "pk": 2000000,
+    "fields": {
+      "php_class": "SetCircService"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 2000001,
+    "fields": {
+      "php_class": "SetCircService"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 2000002,
+    "fields": {
+      "php_class": "SetCircService"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 2000003,
+    "fields": {
+      "php_class": "SetCircService"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 2000004,
+    "fields": {
+      "php_class": "SetCircService"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 2000005,
+    "fields": {
+      "php_class": "SetCircService"
+    }
+  },
+  {
+    "model": "core.aphp",
     "pk": 12000011,
     "fields": {
       "php_class": "CopyInstance"
@@ -5130,6 +5172,90 @@
       "error_message": "Dossier konnte nicht erstellt werden (NG API call failed)",
       "execute_always": 0,
       "sort": 0
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 2000000,
+    "fields": {
+      "available_action": "php",
+      "button": 688,
+      "name": "Service setzen",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 2000001,
+    "fields": {
+      "available_action": "php",
+      "button": 431,
+      "name": "SetCircService",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 2000002,
+    "fields": {
+      "available_action": "php",
+      "button": 770,
+      "name": "SetCircService",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 2000003,
+    "fields": {
+      "available_action": "php",
+      "button": 794,
+      "name": "SetCircService",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 2000004,
+    "fields": {
+      "available_action": "php",
+      "button": 806,
+      "name": "SetCircService",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 2000005,
+    "fields": {
+      "available_action": "php",
+      "button": 826,
+      "name": "SetCircService",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 1
     }
   },
   {
@@ -27225,7 +27351,7 @@
       "add_activation_template": "",
       "read_notice_template": "",
       "pdf_class": "",
-      "default_circulation_name": "",
+      "default_circulation_name": "Erste Zirkulation",
       "single_circulation": 0,
       "inherit_notices": 1,
       "display_first_circulation": 0,
@@ -27243,7 +27369,7 @@
       "add_activation_template": null,
       "read_notice_template": null,
       "pdf_class": null,
-      "default_circulation_name": null,
+      "default_circulation_name": "Erste Zirkulation",
       "single_circulation": 1,
       "inherit_notices": 0,
       "display_first_circulation": 1,
@@ -27261,7 +27387,7 @@
       "add_activation_template": null,
       "read_notice_template": null,
       "pdf_class": null,
-      "default_circulation_name": null,
+      "default_circulation_name": "Erste Zirkulation",
       "single_circulation": 1,
       "inherit_notices": 0,
       "display_first_circulation": 1,
