@@ -19,7 +19,7 @@ services:
       - djangomedia:/var/lib/camac/media:ro
       - djangotmpmedia:/tmp/camac/tmpfiles:ro
 
-  django:
+  django: &django
     image: acr.run/camac-ng/camac-ng/django:${CI_COMMIT_REF_SLUG}-${APPLICATION}
     build:
       context: ../django
@@ -40,6 +40,10 @@ services:
       - /etc/camac/django.env:/run/secrets/django.env:ro
       - djangomedia:/var/lib/camac/media
       - djangotmpmedia:/tmp/camac/tmpfiles
+
+  django-q:
+    <<: *django
+    command: /bin/sh -c "./wait-for-it.sh db:5431 -- ./manage.py qcluster --pythonpath /app/$APPLICATION"
 
   ember:
     image: acr.run/camac-ng/camac-ng/ember:${CI_COMMIT_REF_SLUG}-${APPLICATION}
