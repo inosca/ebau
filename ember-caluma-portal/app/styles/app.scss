@@ -27,6 +27,11 @@ $badge-in-tab-ratio: 0.85;
   font-size: $badge-font-size * $badge-in-tab-ratio;
 }
 
+.uk-table .uk-icon {
+  min-width: 20px;
+  min-height: 20px;
+}
+
 .white-space-pre-line {
   white-space: pre-line;
 }
