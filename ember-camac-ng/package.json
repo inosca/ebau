@@ -76,7 +76,7 @@
     "ember-promise-helpers": "2.0.0",
     "ember-qunit": "5.1.5",
     "ember-resolver": "8.0.3",
-    "ember-resources": "4.3.3",
+    "ember-resources": "4.4.0",
     "ember-router-scroll": "4.1.2",
     "ember-set-helper": "2.0.1",
     "ember-simple-auth": "4.2.0",
@@ -86,7 +86,7 @@
     "ember-truth-helpers": "3.0.0",
     "ember-uikit": "5.0.0",
     "eslint": "7.32.0",
-    "eslint-config-prettier": "8.4.0",
+    "eslint-config-prettier": "8.5.0",
     "eslint-plugin-ember": "10.5.9",
     "eslint-plugin-import": "2.25.4",
     "eslint-plugin-node": "11.1.0",
@@ -102,9 +102,9 @@
     "qrcode": "1.5.0",
     "qunit": "2.18.0",
     "qunit-dom": "2.0.0",
-    "sass": "1.49.8",
+    "sass": "1.49.9",
     "uuid": "8.3.2",
-    "webpack": "5.69.1"
+    "webpack": "5.70.0"
   },
   "engines": {
     "node": "12.* || 14.* || >= 16"
