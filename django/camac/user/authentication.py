@@ -9,7 +9,7 @@ from django.db import transaction
 from django.db.models import Q
 from django.utils import translation
 from django.utils.encoding import force_bytes, smart_str
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext as _
 from jose.exceptions import ExpiredSignatureError, JOSEError
 from keycloak import KeycloakOpenID
 from keycloak.exceptions import KeycloakAuthenticationError
