@@ -104,8 +104,6 @@ services:
     restart: always
 
   keycloak:
-    depends_on:
-      - db
     image: acr.run/camac-ng/keycloak:16.1.0_theme-v1.0.1
     volumes:
       - /etc/camac/keycloak.env:/run/secrets/keycloak.env:ro
