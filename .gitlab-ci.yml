@@ -256,7 +256,7 @@ build-kt_uri-stage:
 build-kt_uri-production:
   extends: .build-image
   variables:
-    KEYCLOAK_HOST: https://camac.ur.ch
+    KEYCLOAK_HOST: https://urec.ur.ch
     APP_ENV: production
     APPLICATION: kt_uri
     COMPOSE: docker-compose -f compose/kt_uri.yml -f compose/kt_uri-prod.yml
