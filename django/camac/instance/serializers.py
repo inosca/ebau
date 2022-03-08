@@ -1427,7 +1427,7 @@ class CalumaInstanceChangeResponsibleServiceSerializer(serializers.Serializer):
     service_type = serializers.CharField()
     to = serializers.ResourceRelatedField(queryset=Service.objects.all())
 
-    def validate_service_type(self, value):
+    def validate_service_type(self, value):  # pragma: todo distribution
         expected = [
             key.lower()
             for key in settings.APPLICATION.get("ACTIVE_SERVICES", {}).keys()
@@ -1454,68 +1454,12 @@ class CalumaInstanceChangeResponsibleServiceSerializer(serializers.Serializer):
 
         return super().validate(data)
 
-    def _sync_circulations(self, from_service, to_service):
-        if self.instance.instance_state.name not in [
-            "circulation_init",
-            "circulation",
-            "coordination",
-        ]:
-            return
-
-        caluma_user = self.context["request"].caluma_info.context.user
-
-        for circulation in self.instance.circulations.all():
-            # Get all activations where the old responsible service invited
-            # it's own sub services or the invited service is the newly
-            # responsible service
-            deleted_activations = circulation.activations.filter(
-                Q(service_parent=from_service, service__service_parent=from_service)
-                | Q(service=to_service)
-            )
-
-            if deleted_activations.exists():
-                # Delete said activations
-                deleted_activations.delete()
-                # Sync circulation with caluma
-                CalumaApi().sync_circulation(circulation, caluma_user)
-
-            if not circulation.activations.exists():
-                circulation_work_item = workflow_models.WorkItem.objects.filter(
-                    **{"meta__circulation-id": circulation.pk, "task_id": "circulation"}
-                ).first()
-
-                if circulation_work_item:
-                    if (
-                        circulation_work_item.status
-                        == workflow_models.WorkItem.STATUS_READY
-                    ):
-                        # skip the work item to continue the workflow
-                        workflow_api.skip_work_item(circulation_work_item, caluma_user)
-
-                    # then delete it since the ciruclation will be deleted
-                    circulation_work_item.delete()
-
-                # Delete empty circulation
-                circulation.delete()
-
-                continue
-
-            # Set service parent of remaining activations to the newly responsible service
-            circulation.activations.filter(service_parent=from_service).update(
-                service_parent=to_service
-            )
-
-        # Set service parent of circulations to the newly responsible service
-        self.instance.circulations.filter(service=from_service).update(
-            service=to_service
-        )
-
     def _sync_with_caluma(self, from_service, to_service):
         CalumaApi().reassign_work_items(
             self.instance.pk, from_service.pk, to_service.pk
         )
 
-    def _send_notification(self):
+    def _send_notification(self):  # pragma: todo distribution
         config = settings.APPLICATION["NOTIFICATIONS"].get("CHANGE_RESPONSIBLE_SERVICE")
 
         if config:
@@ -1571,7 +1515,6 @@ class CalumaInstanceChangeResponsibleServiceSerializer(serializers.Serializer):
             )
 
         # Side effects
-        self._sync_circulations(from_service, to_service)
         self._sync_with_caluma(from_service, to_service)
         self._send_notification()
         self._trigger_ech_message()
@@ -1585,7 +1528,6 @@ class CalumaInstanceChangeResponsibleServiceSerializer(serializers.Serializer):
 
 class CalumaInstanceFixWorkItemsSerializer(serializers.Serializer):
     dry = serializers.BooleanField(default=True)
-    sync_circulation = serializers.BooleanField(default=True)
     output = serializers.CharField()
 
     def update(self, instance, validated_data):
@@ -1599,13 +1541,13 @@ class CalumaInstanceFixWorkItemsSerializer(serializers.Serializer):
             **validated_data,
         )
 
-        Response = namedtuple("Response", ("dry", "sync_circulation", "output", "pk"))
+        Response = namedtuple("Response", ("dry", "output", "pk"))
 
         return Response(**validated_data, output=output.getvalue(), pk=None)
 
     class Meta:
         resource_name = "instance-fix-work-items"
-        fields = ("dry", "sync_circulation", "output")
+        fields = ("dry", "output")
         read_only_fields = ("output",)
 
 

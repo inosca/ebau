@@ -7,6 +7,7 @@ from caluma.caluma_workflow.dynamic_groups import (
 
 from camac.core.models import Activation, Circulation
 from camac.instance.models import Instance
+from camac.user.models import Service
 
 log = logging.getLogger()
 
@@ -26,8 +27,8 @@ class CustomDynamicGroups(BaseDynamicGroups):
 
     def _get_responsible_service(self, case, filter_type, context):
         instance = (
-            case.instance
-            if hasattr(case, "instance")
+            case.family.instance
+            if hasattr(case.family, "instance")
             else Instance.objects.get(pk=context.get("instance"))
         )
         service = instance.responsible_service(filter_type=filter_type)
@@ -86,3 +87,25 @@ class CustomDynamicGroups(BaseDynamicGroups):
             return []
 
         return [str(activation.service_parent.pk)]
+
+    @register_dynamic_group("distribution_create_inquiry")
+    def resolve_distribution_create_inquiry(
+        self, task, case, user, prev_work_item, context, **kwargs
+    ):
+        if context and context.get("addressed_groups") and prev_work_item:
+            services = Service.objects.filter(
+                pk__in=[
+                    # Target service for the inquiry
+                    *context.get("addressed_groups", []),
+                    # Service that created an inquiry
+                    *prev_work_item.addressed_groups,
+                ],
+                service_parent__isnull=True,  # Subservices can't create any inquiries
+            )
+            return [str(pk) for pk in services.values_list("pk", flat=True)]
+
+        # If no context is given it's the first "create-inquiry" work item in
+        # the distribution case which must be assigned to the municipality
+        return self.resolve_municipality(
+            task, case, user, prev_work_item, context, **kwargs
+        )

@@ -25,7 +25,6 @@ from rest_framework.exceptions import ValidationError
 from rest_framework.generics import ListAPIView, RetrieveAPIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.renderers import JSONRenderer
-from rest_framework.response import Response
 from rest_framework.settings import api_settings
 from rest_framework_json_api import views
 from rest_framework_json_api.views import ReadOnlyModelViewSet
@@ -34,7 +33,6 @@ from camac.caluma.api import CalumaApi
 from camac.constants import kt_uri as ur_constants
 from camac.core.models import (
     Activation,
-    CirculationState,
     InstanceService,
     PublicationEntry,
     WorkflowEntry,
@@ -290,12 +288,6 @@ class InstanceView(
 
     def has_object_fix_work_items_permission_for_support(self, instance):
         return True
-
-    def has_object_end_circulations_permission(self, instance):
-        return (
-            instance.responsible_service(filter_type="municipality")
-            == self.request.group.service
-        )
 
     @permission_aware
     def has_object_link_permission(self, instance):
@@ -845,28 +837,6 @@ class InstanceView(
     @action(methods=["post"], detail=True, url_path="fix-work-items")
     def fix_work_items(self, request, pk=None):
         return self._custom_serializer_action(request, pk)
-
-    @swagger_auto_schema(auto_schema=None)
-    @action(methods=["PATCH"], detail=True, url_path="end-circulations")
-    @transaction.atomic
-    def end_circulations(self, request, pk=None):
-        instance = self.get_object()
-
-        # skip all open circulation work items
-        for work_item in instance.case.work_items.filter(
-            task="circulation", status=workflow_models.WorkItem.STATUS_READY
-        ):
-            workflow_api.skip_work_item(
-                work_item=work_item, user=self.request.caluma_info.context.user
-            )
-
-        # set state of all activations to done
-        for circ in instance.circulations.all():
-            circ.activations.update(
-                circulation_state=CirculationState.objects.get(name="DONE")
-            )
-
-        return Response([], 204)
 
     @swagger_auto_schema(auto_schema=None)
     @action(

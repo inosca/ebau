@@ -47,6 +47,7 @@ from camac.instance.serializers import SUBMIT_DATE_FORMAT
 from camac.notification import factories as notification_factories
 from camac.objection import factories as objection_factories
 from camac.responsible import factories as responsible_factories
+from camac.settings_distribution import DISTRIBUTION
 from camac.tags import factories as tags_factories
 from camac.urls import urlpatterns as app_patterns
 from camac.user import factories as user_factories
@@ -480,7 +481,11 @@ def caluma_workflow_config_be(
     for slug in CALUMA_FORM_TYPES_SLUGS:
         caluma_form_models.Form.objects.create(slug=slug)
 
-    call_command("loaddata", settings.ROOT_DIR("kt_bern/config/caluma_workflow.json"))
+    call_command(
+        "loaddata",
+        settings.ROOT_DIR("kt_bern/config/caluma_distribution.json"),
+        settings.ROOT_DIR("kt_bern/config/caluma_workflow.json"),
+    )
 
     workflows = caluma_workflow_models.Workflow.objects.all()
     main_form = caluma_form_models.Form.objects.get(pk="main-form")
@@ -573,7 +578,6 @@ def caluma_forms_be(settings):
     caluma_form_models.Form.objects.create(slug="sb1")
     caluma_form_models.Form.objects.create(slug="sb2")
     caluma_form_models.Form.objects.create(slug="nfd")
-    caluma_form_models.Form.objects.create(slug="circulation")
     caluma_form_models.Form.objects.create(slug="migriertes-dossier")
     caluma_form_models.Form.objects.create(slug="dossierpruefung")
     caluma_form_models.Form.objects.create(slug="publikation")
@@ -779,7 +783,12 @@ def instance_with_case(db, caluma_admin_user):
 
 
 @pytest.fixture
-def be_instance(instance_service, caluma_workflow_config_be, instance_with_case):
+def be_instance(
+    instance_service,
+    caluma_workflow_config_be,
+    instance_with_case,
+    distribution_settings,
+):
     instance = instance_with_case(
         instance_service.instance, context={"instance": instance_service.instance}
     )
@@ -950,5 +959,30 @@ def decision_factory(be_instance, document_factory, work_item_factory):
             )
 
         return work_item
+
+    return factory
+
+
+@pytest.fixture
+def distribution_settings(settings):
+    distribution_dict = copy.deepcopy(DISTRIBUTION["kt_bern"])
+    settings.DISTRIBUTION = distribution_dict
+    return distribution_dict
+
+
+@pytest.fixture
+def active_inquiry_factory(instance, service, distribution_settings):
+    def factory(
+        for_instance=instance,
+        addressed_service=service,
+        status=caluma_workflow_models.WorkItem.STATUS_READY,
+    ):
+        return caluma_workflow_factories.WorkItemFactory(
+            case=for_instance.case,
+            task_id=distribution_settings["INQUIRY_TASK"],
+            status=status,
+            addressed_groups=[str(addressed_service.pk)],
+            controlling_groups=[str(service.pk)],
+        )
 
     return factory
