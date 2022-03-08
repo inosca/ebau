@@ -58,8 +58,10 @@ def test_applicant_delete(
     applicant_factory,
     extra_applicants,
     expected_status,
-    activation,
+    active_inquiry_factory,
 ):
+    active_inquiry_factory(be_instance)
+
     if extra_applicants:
         applicant_factory.create_batch(extra_applicants, instance=be_instance)
 

@@ -182,7 +182,7 @@ class StatusNotificationEventHandler(BaseEventHandler):
             == "rejected"  # cancel rejection must result in start circulation status notification
         ):
             message_type = ECH_STATUS_NOTIFICATION_ZIRKULATION_GESTARTET
-        elif self.instance.instance_state.name == "sb1":
+        elif self.instance.instance_state.name == "sb1":  # pragma: todo distribution
             message_type = ECH_STATUS_NOTIFICATION_SB1_AUSSTEHEND
         elif self.instance.instance_state.name in ["evaluated", "finished"]:
             message_type = ECH_STATUS_NOTIFICATION_ABGESCHLOSSEN

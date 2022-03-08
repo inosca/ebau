@@ -6,6 +6,7 @@
   @import "variables";
   &:not(.disable-uikit) {
     @import "ember-uikit";
+    @import "@projectcaluma/ember-distribution";
     @import "@projectcaluma/ember-form";
     @import "@projectcaluma/ember-form-builder";
     @import "ember-ebau-gwr";

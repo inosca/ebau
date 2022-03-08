@@ -47,32 +47,6 @@ mutation CreateEBauNumberTask {
   }
 }
 
-mutation CreateSkipCirculationTask {
-  saveSimpleTask(
-    input: {
-      slug: "skip-circulation"
-      name: "Zirkulation überspringen"
-      addressGroups: "['municipality']|groups"
-    }
-  ) {
-    clientMutationId
-  }
-}
-
-mutation CreateInitCirculationTask {
-  saveSimpleTask(
-    input: {
-      slug: "init-circulation"
-      name: "Zirkulation initialisieren"
-      addressGroups: "['municipality']|groups"
-      controlGroups: "['municipality']|groups"
-      leadTime: 864000 # 10 days
-    }
-  ) {
-    clientMutationId
-  }
-}
-
 mutation CreateAuditTask {
   saveCompleteTaskFormTask(
     input: {
@@ -154,73 +128,6 @@ mutation CreateNewPublicationTask {
   }
 }
 
-mutation CreateCirculationTask {
-  saveSimpleTask(
-    input: {
-      slug: "circulation"
-      name: "Zirkulation"
-      addressGroups: "['circulation_service']|groups"
-      isMultipleInstance: true
-    }
-  ) {
-    clientMutationId
-  }
-}
-
-mutation CreateActivationTask {
-  saveSimpleTask(
-    input: {
-      slug: "activation"
-      name: "Stellungnahme verfassen"
-      addressGroups: "['activation_service']|groups"
-      controlGroups: "['activation_service-parent']|groups"
-    }
-  ) {
-    clientMutationId
-  }
-}
-
-mutation CreateStartCirculationTask {
-  saveSimpleTask(
-    input: {
-      slug: "start-circulation"
-      name: "Weitere Zirkulation starten"
-      addressGroups: "['municipality']|groups"
-    }
-  ) {
-    clientMutationId
-  }
-}
-
-mutation CreateCheckActivationTask {
-  saveSimpleTask(
-    input: {
-      slug: "check-activation"
-      name: "Stellungnahmen prüfen"
-      addressGroups: "['municipality']|groups"
-      controlGroups: "['municipality']|groups"
-      leadTime: 864000 # 10 days
-      meta: "{\"is-manually-completable\":true}"
-    }
-  ) {
-    clientMutationId
-  }
-}
-
-mutation CreateStartDecisionTask {
-  saveSimpleTask(
-    input: {
-      slug: "start-decision"
-      name: "Entscheid starten"
-      addressGroups: "['municipality']|groups"
-      controlGroups: "['municipality']|groups"
-      leadTime: 864000 # 10 days
-    }
-  ) {
-    clientMutationId
-  }
-}
-
 mutation CreateDecisionTask {
   saveSimpleTask(
     input: {
@@ -229,18 +136,6 @@ mutation CreateDecisionTask {
       addressGroups: "['municipality']|groups"
       controlGroups: "['municipality']|groups"
       leadTime: 864000 # 10 days
-    }
-  ) {
-    clientMutationId
-  }
-}
-
-mutation CreateReopenCirculationTask {
-  saveSimpleTask(
-    input: {
-      slug: "reopen-circulation"
-      name: "Zirkulation wiedereröffnen"
-      addressGroups: "['municipality']|groups"
     }
   ) {
     clientMutationId

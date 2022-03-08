@@ -331,7 +331,7 @@ class KtBernDossierWriter(DossierWriter):
 
         # configure workflow state advance path and strategies (skip | cancel)
         SUBMITTED = ["submit"]
-        APPROVED = SUBMITTED + ["ebau-number", "skip-circulation", "decision"]
+        APPROVED = SUBMITTED + ["ebau-number", "distribution", "decision"]
         DONE = APPROVED + ["sb1", "sb2", "complete"]
 
         if workflow_type == "PRELIMINARY":

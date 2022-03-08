@@ -1,0 +1,6 @@
+distribution:
+  districts: "RSTAs"
+  municipalities: "Gemeinden"
+  services: "Amts- / Fachstellen"
+  subservices: "Unterfachstellen"
+  send-answer: "Antwort senden"

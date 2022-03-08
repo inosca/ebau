@@ -3,6 +3,7 @@ import logging
 import os
 import re
 from datetime import timedelta
+from importlib import import_module
 
 import environ
 from django.db.models.expressions import Q
@@ -167,6 +168,22 @@ COMMON_FORM_SLUGS_BE = [
     "vertreterin-mit-vollmacht",
 ]
 
+DISTRIBUTION_REGEX = r"(inquir(y|ies)|distribution)"
+
+DISTRIBUTION_DUMP_CONFIG = {
+    "caluma_distribution": {
+        "caluma_form.Form": Q(pk__iregex=DISTRIBUTION_REGEX),
+        "caluma_form.FormQuestion": Q(form__pk__iregex=DISTRIBUTION_REGEX),
+        "caluma_form.Question": Q(forms__pk__iregex=DISTRIBUTION_REGEX),
+        "caluma_form.QuestionOption": Q(question__forms__pk__iregex=DISTRIBUTION_REGEX),
+        "caluma_form.Option": Q(questions__forms__pk__iregex=DISTRIBUTION_REGEX),
+        "caluma_workflow.Workflow": Q(pk__iregex=DISTRIBUTION_REGEX),
+        "caluma_workflow.Task": Q(pk__iregex=DISTRIBUTION_REGEX),
+        "caluma_workflow.TaskFlow": Q(workflow__pk__iregex=DISTRIBUTION_REGEX),
+        "caluma_workflow.Flow": Q(task_flows__workflow__pk__iregex=DISTRIBUTION_REGEX),
+    },
+}
+
 # Application specific settings
 # an application is defined by the customer e.g. uri, schwyz, etc.
 APPLICATIONS = {
@@ -297,24 +314,28 @@ APPLICATIONS = {
         "PUBLIC_ROLES": ["Publikation", "Portal"],
         "PORTAL_GROUP": 4,
         "SERVICE_GROUPS_FOR_DISTRIBUTION": {
-            "Gemeinde": [
-                {"id": "4", "localized": False},
-                {"id": "5", "localized": True},
-            ],
-            "Gemeinde Sachbearbeiter": [
-                {"id": "4", "localized": False},
-                {"id": "5", "localized": True},
-            ],
-            "Fachstelle Leitbehörde": [
-                {"id": "3", "localized": False},
-                {"id": "4", "localized": False},
-            ],
-            "Kanton": [
-                {"id": "1", "localized": False},
-                {"id": "2", "localized": False},
-            ],
+            "roles": {
+                "Gemeinde": [
+                    {"id": "4", "localized": False},
+                    {"id": "5", "localized": True},
+                ],
+                "Gemeinde Sachbearbeiter": [
+                    {"id": "4", "localized": False},
+                    {"id": "5", "localized": True},
+                ],
+                "Fachstelle Leitbehörde": [
+                    {"id": "3", "localized": False},
+                    {"id": "4", "localized": False},
+                ],
+            },
+            "groups": {
+                7: [  # Baugesuchszentrale
+                    {"id": "1", "localized": False},
+                    {"id": "2", "localized": False},
+                ],
+            },
         },
-        "PLACEHOLDER_ACTIVATION_VISIBILITIES": {
+        "INTER_SERVICE_GROUP_VISIBILITIES": {
             # Externe Fachstellen
             1: [1, 2, 3, 4],
             # Fachstellen
@@ -389,37 +410,13 @@ APPLICATIONS = {
         "SEQUENCE_NAMESPACE_APPS": [],
         "NOTIFICATIONS_EXCLUDED_TASKS": [],
         "CALUMA": {
-            "CIRCULATION_WORKFLOW": "circulation",
-            "CIRCULATION_TASK": "circulation",
-            "CIRCULATION_FORM": "circulation",
-            "ACTIVATION_INIT_TASK": "write-statement",
-            "ACTIVATION_TASKS": [
-                "write-statement",
-                "check-statement",
-                "revise-statement",
-                "alter-statement",
-            ],
-            "ACTIVATION_RELEVANT_TASKS": [
-                "write-statement",
-                "check-statement",
-            ],
             "ACTIVATION_EXCLUDE_ROLES": ["Lesezugriff"],
             "SUBMIT_TASKS": ["submit", "submit-additional-demand", "formal-addition"],
             "REJECTION_TASK": "reject-form",
             "PRE_COMPLETE": {
                 "complete-check": {"cancel": ["reject-form"]},
                 "reject-form": {"cancel": ["complete-check", "depreciate-case"]},
-                "start-circulation": {"cancel": ["skip-circulation"]},
-                "skip-circulation": {"cancel": ["start-circulation"]},
                 "formal-addition": {"cancel": ["archive-instance"]},
-                "start-additional-circulation": {
-                    "cancel": ["check-statements", "start-decision"]
-                },
-                "start-decision": {
-                    "skip": ["check-statements"],
-                    "cancel": ["start-additional-circulation", "additional-demand"],
-                },
-                "reopen-circulation": {"cancel": ["make-decision"]},
                 "make-decision": {
                     "skip": [
                         "depreciate-case",
@@ -428,8 +425,9 @@ APPLICATIONS = {
                         "reopen-circulation",
                     ],
                 },
-                "check-statement": {"cancel": ["revise-statement"]},
-                "revise-statement": {"cancel": ["check-statement"]},
+                "check-inquiry": {"cancel": ["revise-inquiry"]},
+                "revise-inquiry": {"cancel": ["check-inquiry"]},
+                "distribution": {"cancel": ["additional-demand"]},
                 "depreciate-case": {
                     # CAUTION: When importing dossiers this section is modified in runtime to avoid unwanted
                     # outcomes when fast-forwarding workflow states of imported cases.
@@ -437,17 +435,11 @@ APPLICATIONS = {
                         "formal-addition",
                         "complete-check",
                         "reject-form",
-                        "start-circulation",
                         "publication",
-                        "skip-circulation",
-                        "circulation",
+                        "distribution",
                         "additional-demand",
                         "submit-additional-demand",
-                        "start-additional-circulation",
-                        "check-statements",
-                        "start-decision",
                         "make-decision",
-                        "reopen-circulation",
                     ]
                 },
                 "archive-instance": {
@@ -469,7 +461,7 @@ APPLICATIONS = {
                     "next_instance_state": "subm",
                 },
                 "complete-check": {
-                    "next_instance_state": "comm",
+                    "next_instance_state": "circ",
                     "history_text": "Dossier angenommen",
                     "notification": {
                         "template_slug": "bewilligungsprozess-gestartet",
@@ -504,17 +496,12 @@ APPLICATIONS = {
                         "recipient_types": ["applicant"],
                     },
                 },
-                "skip-circulation": {
+                "init-distribution": {
+                    "history_text": "Zirkulation gestartet",
+                },
+                "complete-distribution": {
                     "next_instance_state": "redac",
                     "history_text": "Zirkulationsentscheid gestartet",
-                },
-                "start-decision": {
-                    "next_instance_state": "redac",
-                    "history_text": "Zirkulationsentscheid gestartet",
-                },
-                "reopen-circulation": {
-                    "next_instance_state": "circ",
-                    "history_text": "Zurück zur Zirkulation",
                 },
             },
         },
@@ -589,6 +576,8 @@ APPLICATIONS = {
                     questions__pk__startswith="baukontrolle-realisierung"
                 ),
             },
+            # Distribution
+            **DISTRIBUTION_DUMP_CONFIG,
         },
         "REJECTION_FEEDBACK_QUESTION": {},
         "FORM_FIELD_HISTORY_ENTRY": [
@@ -1255,12 +1244,6 @@ APPLICATIONS = {
                     "recipient_types": ["leitbehoerde", "service"],
                 },
             ],
-            "END_CIRCULATION": [
-                {
-                    "template_slug": "03-verfahren-vorzeitig-beendet",
-                    "recipient_types": ["unanswered_activation"],
-                },
-            ],
             "ECH_KIND_OF_PROCEEDINGS": [
                 {
                     "template_slug": "03-verfahrensablauf-gesuchsteller",
@@ -1302,12 +1285,6 @@ APPLICATIONS = {
                 "ebau-number",
                 "decision",
             ],
-            "CIRCULATION_WORKFLOW": "circulation",
-            "CIRCULATION_TASK": "circulation",
-            "CIRCULATION_FORM": "circulation",
-            "ACTIVATION_INIT_TASK": "activation",
-            "ACTIVATION_TASKS": ["activation"],
-            "ACTIVATION_RELEVANT_TASKS": ["activation"],
             "SUBMIT_TASKS": ["submit"],
             "REPORT_TASK": "sb1",
             "FINALIZE_TASK": "sb2",
@@ -1315,21 +1292,29 @@ APPLICATIONS = {
             "DECISION_TASK": "decision",
             "EBAU_NUMBER_TASK": "ebau-number",
             "SIMPLE_WORKFLOW": {
-                "reopen-circulation": {
+                "init-distribution": {
                     "next_instance_state": "circulation",
                     "ech_event": "camac.ech0211.signals.circulation_started",
-                    "history_text": gettext_lazy("Circulation reopened"),
+                    "history_text": gettext_lazy("Circulation started"),
+                    "notification": {
+                        "template_slug": "03-verfahrensablauf-gesuchsteller",
+                        "recipient_types": ["applicant"],
+                    },
                 },
-                "skip-circulation": {
-                    "next_instance_state": "coordination",
-                    "ech_event": "camac.ech0211.signals.circulation_ended",
-                    "history_text": gettext_lazy("Circulation skipped"),
-                },
-                "start-decision": {
+                "complete-distribution": {
                     "next_instance_state": "coordination",
                     "ech_event": "camac.ech0211.signals.circulation_ended",
                     "history_text": gettext_lazy("Circulation completed"),
+                    "notification": {
+                        "template_slug": "03-verfahren-vorzeitig-beendet",
+                        "recipient_types": ["unanswered_inquiries"],
+                    },
                 },
+                # "reopen-circulation": {
+                #     "next_instance_state": "circulation",
+                #     "ech_event": "camac.ech0211.signals.circulation_started",
+                #     "history_text": gettext_lazy("Circulation reopened"),
+                # },
                 "complete": {
                     "next_instance_state": "finished",
                     "ech_event": "camac.ech0211.signals.finished",
@@ -1383,21 +1368,9 @@ APPLICATIONS = {
                 },
             ],
             "PRE_COMPLETE": {
-                "start-decision": {
-                    "complete": ["check-activation"],
-                    "cancel": ["start-circulation"],
-                },
-                "skip-circulation": {"cancel": ["init-circulation"]},
-                "init-circulation": {"cancel": ["skip-circulation"]},
-                "start-circulation": {"cancel": ["check-activation", "start-decision"]},
                 "decision": {
-                    "skip": [
-                        "audit",
-                        "publication",
-                        "fill-publication",
-                    ],
+                    "skip": ["audit", "publication", "fill-publication"],
                     "cancel": [
-                        "reopen-circulation",
                         "create-manual-workitems",
                         "create-publication",
                         "information-of-neighbors",
@@ -1405,7 +1378,6 @@ APPLICATIONS = {
                     ],
                     "complete": ["nfd"],
                 },
-                "reopen-circulation": {"cancel": ["decision"]},
                 "complete": {
                     "skip": ["check-sb1", "check-sb2"],
                     "cancel": [
@@ -1663,270 +1635,6 @@ APPLICATIONS = {
             "QUESTION": 20037,
             "ITEM": 1,
         },
-        "SUGGESTIONS": [
-            (
-                "art-versickerung-dach",
-                "art-versickerung-dach-oberflaechengewaesser",
-                [20063],
-            ),
-            (
-                "art-versickerung-platz",
-                "art-versickerung-platz-oberflachengewasser",
-                [20063],
-            ),
-            (
-                "art-versickerung-dach-v2",
-                "art-versickerung-dach-v2-oberflaechengewaesser",
-                [20063],
-            ),
-            (
-                "art-versickerung-platz-v2",
-                "art-versickerung-platz-v2-oberflaechengewaesser",
-                [20063],
-            ),
-            (
-                "ausnahme-im-sinne-von-artikel-64-kenv",
-                "ausnahme-im-sinne-von-artikel-64-kenv-ja",
-                [20046],
-            ),
-            ("aussenlaerm", "aussenlaerm-ja", [20054]),
-            (
-                "bau-im-wald-oder-innerhalb-von-30-m-abstand",
-                "bau-im-wald-oder-innerhalb-von-30-m-abstand-ja",
-                [20048],
-            ),
-            ("baubeschrieb", "baubeschrieb-erweiterung-anbau", [20068, 20055]),
-            ("baubeschrieb", "baubeschrieb-neubau", [20055]),
-            ("baubeschrieb", "baubeschrieb-technische-anlage", [20055]),
-            ("baubeschrieb", "baubeschrieb-tiefbauanlage", [20068]),
-            ("baubeschrieb", "baubeschrieb-um-ausbau", [20055, 20068]),
-            ("baubeschrieb", "baubeschrieb-umnutzung", [20055]),
-            ("baugruppe-bauinventar", "baugruppe-bauinventar-ja", [20043]),
-            (
-                "bauten-oder-pfaehlen-im-grundwasser",
-                "bauten-oder-pfaehlen-im-grundwasser-ja",
-                [20050],
-            ),
-            ("belasteter-standort", "belasteter-standort-ja", [20050]),
-            ("besondere-brandrisiken", "besondere-brandrisiken-ja", [20057]),
-            ("brandbelastung", "brandbelastung-ja", [20057]),
-            (
-                "eigenstaendiger-grossverbraucher",
-                "eigenstaendiger-grossverbraucher-ja",
-                [20046],
-            ),
-            ("erhaltenswert", "erhaltenswert-ja", [20043]),
-            ("feuerungsanlagen", "feuerungsanlagen-holzfeuerungen", [20057]),
-            (
-                "feuerungsanlagen",
-                "feuerungsanlagen-ol-oder-gasfeuerungen-350-kw",
-                [20057],
-            ),
-            (
-                "feuerungsanlagen",
-                "feuerungsanlagen-pellet-schnitzelfeuerungsanlage",
-                [20055],
-            ),
-            (
-                "feuerungsanlagen",
-                "feuerungsanlagen-pellet-schnitzelfeuerungsanlage",
-                [20054],
-            ),
-            (
-                "feuerungsanlagen",
-                "feuerungsanlagen-pellet-schnitzelfeuerungsanlage",
-                [20057],
-            ),
-            (
-                "gebiet-mit-archaeologischen-objekten",
-                "gebiet-mit-archaeologischen-objekten-ja",
-                [20043],
-            ),
-            ("gebiet-mit-naturgefahren", "gebiet-mit-naturgefahren-ja", [20049]),
-            ("gefahrenstufe", "gefahrenstufe-blau", [20049]),
-            ("gefahrenstufe", "gefahrenstufe-rot", [20049]),
-            ("gefahrenstufe", "gefahrenstufe-unbestimmt", [20049]),
-            ("gefaehrliche-stoffe", "gefaehrliche-stoffe-ja", [20055]),
-            (
-                "gentechnisch-veraenderte-organismen",
-                "gentechnisch-veraenderte-organismen-ja",
-                [20060],
-            ),
-            (
-                "geplante-anlagen",
-                "geplante-anlagen-solar-oder-photovoltaik-anlage",
-                [20054],
-            ),
-            ("grundwasserschutzzonen", "grundwasserschutzzonen-s1", [20050]),
-            ("grundwasserschutzzonen", "grundwasserschutzzonen-s2sh", [20050]),
-            ("grundwasserschutzzonen", "grundwasserschutzzonen-s3sm", [20050]),
-            ("grundwasserschutzzonen-v2", "grundwasserschutzzonen-v2-s1", [20050]),
-            ("grundwasserschutzzonen-v2", "grundwasserschutzzonen-v2-s2", [20050]),
-            ("grundwasserschutzzonen-v2", "grundwasserschutzzonen-v2-s3-s3zu", [20050]),
-            ("grundwasserschutzzonen-v2", "grundwasserschutzzonen-v2-sa", [20050]),
-            ("grundwasserschutzzonen-v2", "grundwasserschutzzonen-v2-sbw", [20050]),
-            ("grundwasserschutzzonen-v2", "grundwasserschutzzonen-v2-sh", [20050]),
-            ("grundwasserschutzzonen-v2", "grundwasserschutzzonen-v2-sm", [20050]),
-            (
-                "ist-das-vorhaben-energierelevant",
-                "ist-das-vorhaben-energierelevant-ja",
-                [20046],
-            ),
-            (
-                "ist-durch-das-bauvorhaben-boden-betroffen",
-                "ist-durch-das-bauvorhaben-boden-betroffen-ja",
-                [20050],
-            ),
-            (
-                "ist-durch-das-bauvorhaben-boden-ober-unterboden-betroffen-v2",
-                "ist-durch-das-bauvorhaben-boden-ober-unterboden-betroffen-v2-ja",
-                [20050],
-            ),
-            (
-                "ist-mit-bauabfaellen-zu-rechnen",
-                "ist-mit-bauabfaellen-zu-rechnen-ja",
-                [20050],
-            ),
-            ("k-objekt", "k-objekt-ja", [20043]),
-            (
-                "klassierung-der-taetigkeit",
-                "klassierung-der-taetigkeit-klasse-3",
-                [20055],
-            ),
-            (
-                "klassierung-der-taetigkeit",
-                "klassierung-der-taetigkeit-klasse-4",
-                [20055],
-            ),
-            ("maschinelle-arbeitsmittel", "maschinelle-arbeitsmittel-ja", [20055]),
-            (
-                "maschinen-aus-den-folgenden-kategorien",
-                "maschinen-aus-den-folgenden-kategorien-erzeugung",
-                [20055],
-            ),
-            (
-                "maschinen-aus-den-folgenden-kategorien",
-                "maschinen-aus-den-folgenden-kategorien-reinigung",
-                [20055],
-            ),
-            (
-                "maschinen-aus-den-folgenden-kategorien",
-                "maschinen-aus-den-folgenden-kategorien-strom",
-                [20055],
-            ),
-            (
-                "maschinen-aus-den-folgenden-kategorien",
-                "maschinen-aus-den-folgenden-kategorien-transport",
-                [20055],
-            ),
-            (
-                "maschinen-aus-den-folgenden-kategorien",
-                "maschinen-aus-den-folgenden-kategorien-werkhoefe",
-                [20055],
-            ),
-            ("naturschutz", "naturschutz-ja", [20065]),
-            ("nutzungsart", "nutzungsart-andere", [20054, 20055]),
-            ("nutzungsart", "nutzungsart-dienstleistung", [20054, 20055]),
-            ("nutzungsart", "nutzungsart-gastgewerbe", [20054, 20055]),
-            ("nutzungsart", "nutzungsart-gewerbe", [20054, 20055, 20074]),
-            ("nutzungsart", "nutzungsart-industrie", [20054, 20055, 20074]),
-            ("nutzungsart", "nutzungsart-lager", [20054, 20055]),
-            ("nutzungsart", "nutzungsart-landwirtschaft", [20054, 20055, 20074]),
-            ("nutzungsart", "nutzungsart-verkauf", [20054, 20055]),
-            ("organismen-in-anlage", "organismen-in-anlage-andere", [20055]),
-            ("organismen-in-anlage", "organismen-in-anlage-bakterien", [20055]),
-            ("organismen-in-anlage", "organismen-in-anlage-viren", [20055]),
-            ("rrb", "rrb-ja", [20043]),
-            ("schuetzenswert", "schuetzenswert-ja", [20043]),
-            (
-                "sind-belange-des-gewasserschutzes-betroffen",
-                "sind-belange-des-gewasserschutzes-betroffen-ja",
-                [20050],
-            ),
-            (
-                "sind-belange-des-gewaesserschutzes-betroffen-v2",
-                "sind-belange-des-gewaesserschutzes-betroffen-v2-ja",
-                [20050],
-            ),
-            ("versickerung", "versickerung-nein", [20063]),
-            ("versickerung-v2", "versickerung-v2-nein", [20063]),
-            ("verunreinigte-abluft", "verunreinigte-abluft-ja", [20054]),
-            (
-                "verwendungszweck-der-anlage",
-                "verwendungszweck-der-anlage-andere",
-                [20055],
-            ),
-            (
-                "verwendungszweck-der-anlage",
-                "verwendungszweck-der-anlage-diagnostik",
-                [20055],
-            ),
-            (
-                "verwendungszweck-der-anlage",
-                "verwendungszweck-der-anlage-forschung",
-                [20055],
-            ),
-            (
-                "verwendungszweck-der-anlage",
-                "verwendungszweck-der-anlage-gewaechshaus",
-                [20055],
-            ),
-            (
-                "verwendungszweck-der-anlage",
-                "verwendungszweck-der-anlage-produktion",
-                [20055],
-            ),
-            (
-                "verwendungszweck-der-anlage",
-                "verwendungszweck-der-anlage-tieranlage",
-                [20055],
-            ),
-            (
-                "verwendungszweck-der-anlage",
-                "verwendungszweck-der-anlage-unterricht",
-                [20055],
-            ),
-            ("was-fuer-ein-vorhaben", "was-fuer-ein-vorhaben-andere", [20055]),
-            ("was-fuer-ein-vorhaben", "was-fuer-ein-vorhaben-grossraumbueros", [20055]),
-            ("was-fuer-ein-vorhaben", "was-fuer-ein-vorhaben-spitaeler", [20055]),
-            (
-                "was-fuer-ein-vorhaben",
-                "was-fuer-ein-vorhaben-verkaufsgeschaefte",
-                [20055],
-            ),
-            (
-                "wassergefaehrdende-explosive-stoffe",
-                "wassergefaehrdende-explosive-stoffe-ja",
-                [20050, 20060],
-            ),
-            (
-                "welche-art-vorhaben",
-                "welche-art-vorhaben-erstellung-aussenraum",
-                [20068],
-            ),
-            (
-                "welche-art-vorhaben",
-                "welche-art-vorhaben-fischhaltung-aquakulturanlage",
-                [20050, 20051, 20052, 20053, 20063],
-            ),
-            ("welche-waermepumpen", "welche-waermepumpen-boden-untergrund", [20053]),
-            ("welche-waermepumpen", "welche-waermepumpen-luft", [20054]),
-            ("welche-waermepumpen", "welche-waermepumpen-wasser", [20053, 20063]),
-            (
-                "werden-brandschutzabstaende-unterschritten",
-                "werden-brandschutzabstande-unterschritten-ja",
-                [20057],
-            ),
-            ("werden-siloanlagen-erstellt", "werden-siloanlagen-erstellt-ja", [20055]),
-            ("wildtierschutz", "wildtierschutz-ja", [20064]),
-            ("gesuchstyp", "gesuchstyp-baum", [20065]),
-            ("gesuchstyp", "gesuchstyp-hecke-feldgehoelz", [20065]),
-            (
-                "handelt-es-sich-um-ein-sensibles-objekt",
-                "handelt-es-sich-um-ein-sensibles-objekt-ja",
-                [20075, 20076, 20077, 20078],
-            ),
-        ],
         "NOTIFICATIONS_EXCLUDED_TASKS": [],
         "DUMP_CONFIG_GROUPS": {
             "email_notifications": {
@@ -2012,6 +1720,8 @@ APPLICATIONS = {
                 "caluma_form.QuestionOption": Q(question__forms__pk="decision"),
                 "caluma_form.Option": Q(questions__forms__pk="decision"),
             },
+            # Distribution
+            **DISTRIBUTION_DUMP_CONFIG,
         },
         "DUMP_CONFIG_EXCLUDED_MODELS": [
             "user.Group",
@@ -3501,3 +3211,14 @@ OIDC_OP_INTROSPECT_ENDPOINT = env.str(
 )
 
 STATICFILES_DIRS += APPLICATIONS[APPLICATION_NAME].get("INCLUDE_STATIC_FILES", [])
+
+
+def load_module_settings(module_name):
+    module = getattr(
+        import_module(f"camac.settings_{module_name.lower()}"), module_name.upper()
+    )
+    app_config = module.get(APPLICATION_NAME, {})
+    return {**module["default"], **app_config} if app_config.get("ENABLED") else {}
+
+
+DISTRIBUTION = load_module_settings("distribution")

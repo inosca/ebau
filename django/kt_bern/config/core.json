@@ -49251,7 +49251,7 @@
       "template": "/circulation/edit-circulation.phtml",
       "class_field": "menu-category-process menu-group-circulation",
       "hidden": 0,
-      "sort": 7,
+      "sort": 8,
       "form_group": 40000
     }
   },
@@ -49266,7 +49266,7 @@
       "template": "/circulation/index.phtml",
       "class_field": "menu-category-process menu-group-circulation",
       "hidden": 0,
-      "sort": 8,
+      "sort": 10,
       "form_group": 40000
     }
   },
@@ -49281,7 +49281,7 @@
       "template": "/circulation/list-notice.phtml",
       "class_field": "menu-category-process leitung_only",
       "hidden": 0,
-      "sort": 9,
+      "sort": 10,
       "form_group": 40000
     }
   },
@@ -49296,7 +49296,7 @@
       "template": "/circulation/edit-circulation.phtml",
       "class_field": "menu-category-process menu-group-subcirculation",
       "hidden": 0,
-      "sort": 6,
+      "sort": 7,
       "form_group": 40000
     }
   },
@@ -49311,7 +49311,7 @@
       "template": "/circulation/index.phtml",
       "class_field": "menu-category-process menu-group-subcirculation",
       "hidden": 0,
-      "sort": 7,
+      "sort": 8,
       "form_group": 40000
     }
   },
@@ -49341,7 +49341,7 @@
       "template": "/ember-camac-ng/publication.phtml",
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 15,
+      "sort": 16,
       "form_group": 40000
     }
   },
@@ -49356,7 +49356,7 @@
       "template": null,
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 10,
+      "sort": 11,
       "form_group": 40000
     }
   },
@@ -49416,7 +49416,7 @@
       "template": "/circulation/index.phtml",
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 8,
+      "sort": 9,
       "form_group": 40000
     }
   },
@@ -49431,7 +49431,7 @@
       "template": "/circulation/list-notice.phtml",
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 12,
+      "sort": 14,
       "form_group": 40000
     }
   },
@@ -49446,7 +49446,7 @@
       "template": "/circulation/edit-circulation.phtml",
       "class_field": "menu-category-process menu-group-subcirculation",
       "hidden": 0,
-      "sort": 9,
+      "sort": 11,
       "form_group": 40000
     }
   },
@@ -49461,7 +49461,7 @@
       "template": "/circulation/index.phtml",
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 11,
+      "sort": 13,
       "form_group": 40000
     }
   },
@@ -49476,7 +49476,7 @@
       "template": "/circulation/index.phtml",
       "class_field": "menu-category-process menu-group-subcirculation",
       "hidden": 0,
-      "sort": 10,
+      "sort": 12,
       "form_group": 40000
     }
   },
@@ -49791,7 +49791,7 @@
       "template": "/ember-camac-ng/journal.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 12,
+      "sort": 13,
       "form_group": 40000
     }
   },
@@ -49806,7 +49806,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 14,
+      "sort": 15,
       "form_group": 40000
     }
   },
@@ -49911,7 +49911,7 @@
       "template": null,
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 13,
+      "sort": 14,
       "form_group": 40000
     }
   },
@@ -50031,7 +50031,7 @@
       "template": null,
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 11,
+      "sort": 12,
       "form_group": 40000
     }
   },
@@ -50046,7 +50046,7 @@
       "template": "/ember-camac-ng/information-of-neighbors.phtml",
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 16,
+      "sort": 17,
       "form_group": 40000
     }
   },
@@ -50061,7 +50061,7 @@
       "template": null,
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 14,
+      "sort": 15,
       "form_group": 40000
     }
   },
@@ -50077,6 +50077,36 @@
       "class_field": "menu-category-process",
       "hidden": 0,
       "sort": 5,
+      "form_group": 40000
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 15000004,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 20006,
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/distribution.phtml",
+      "class_field": "menu-category-process",
+      "hidden": 0,
+      "sort": 7,
+      "form_group": 40000
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 15000005,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 20007,
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/distribution.phtml",
+      "class_field": "menu-category-process",
+      "hidden": 0,
+      "sort": 6,
       "form_group": 40000
     }
   },
@@ -53601,6 +53631,46 @@
     }
   },
   {
+    "model": "core.instanceresourcet",
+    "pk": 15000009,
+    "fields": {
+      "instance_resource": 15000004,
+      "language": "de",
+      "name": "Zirkulation",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 15000010,
+    "fields": {
+      "instance_resource": 15000004,
+      "language": "fr",
+      "name": "Circulation",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 15000011,
+    "fields": {
+      "instance_resource": 15000005,
+      "language": "de",
+      "name": "Zirkulation",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 15000012,
+    "fields": {
+      "instance_resource": 15000005,
+      "language": "fr",
+      "name": "Circulation",
+      "description": null
+    }
+  },
+  {
     "model": "core.ircirculation",
     "pk": 20006,
     "fields": {
@@ -53952,6 +54022,20 @@
   {
     "model": "core.irpage",
     "pk": 15000001,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
+    "pk": 15000004,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
+    "pk": 15000005,
     "fields": {
       "pdf_class": null
     }
@@ -63143,6 +63227,114 @@
       "instance_resource": 15000001,
       "role": 20003,
       "instance_state": 120000
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15000354,
+    "fields": {
+      "instance_resource": 15000004,
+      "role": 3,
+      "instance_state": 20003
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15000355,
+    "fields": {
+      "instance_resource": 15000004,
+      "role": 3,
+      "instance_state": 20004
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15000356,
+    "fields": {
+      "instance_resource": 15000004,
+      "role": 3,
+      "instance_state": 20005
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15000357,
+    "fields": {
+      "instance_resource": 15000004,
+      "role": 3,
+      "instance_state": 20010
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15000358,
+    "fields": {
+      "instance_resource": 15000004,
+      "role": 3,
+      "instance_state": 20011
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15000359,
+    "fields": {
+      "instance_resource": 15000004,
+      "role": 3,
+      "instance_state": 20013
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15000360,
+    "fields": {
+      "instance_resource": 15000004,
+      "role": 3,
+      "instance_state": 20014
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15000361,
+    "fields": {
+      "instance_resource": 15000004,
+      "role": 3,
+      "instance_state": 10000
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15000362,
+    "fields": {
+      "instance_resource": 15000004,
+      "role": 3,
+      "instance_state": 20009
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15000363,
+    "fields": {
+      "instance_resource": 15000004,
+      "role": 3,
+      "instance_state": 120000
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15000364,
+    "fields": {
+      "instance_resource": 15000005,
+      "role": 4,
+      "instance_state": 20004
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15000365,
+    "fields": {
+      "instance_resource": 15000005,
+      "role": 20000,
+      "instance_state": 20004
     }
   },
   {

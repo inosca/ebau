@@ -299,6 +299,24 @@ class InstanceQuerysetMixin(object):
         )
 
     def _instances_with_activation(self, group):
+        if settings.DISTRIBUTION:
+            # WARNING: if this logic changes, `hasInquiry` in
+            # php/library/Custom/CalumaDistribution.php needs to be updated as
+            # well
+            return (
+                WorkItem.objects.filter(
+                    task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
+                    addressed_groups=[str(group.service.pk)],
+                )
+                .exclude(
+                    status__in=[
+                        WorkItem.STATUS_SUSPENDED,
+                        WorkItem.STATUS_CANCELED,
+                    ],
+                )
+                .values("case__family__instance__pk")
+            )
+
         return Circulation.objects.filter(activations__service=group.service).values(
             "instance_id"
         )

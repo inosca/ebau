@@ -2,6 +2,9 @@ import Route from "@ember/routing/route";
 import { inject as service } from "@ember/service";
 import DocumentValidityButtonComponent from "ember-ebau-core/components/document-validity-button";
 
+import CfSnippetsTextareaComponent from "camac-ng/ui/components/cf-snippets-textarea/component";
+import InquiryAnswerStatus from "camac-ng/ui/components/inquiry-answer-status/component";
+
 export default class ApplicationRoute extends Route {
   @service intl;
   @service session;
@@ -49,6 +52,7 @@ export default class ApplicationRoute extends Route {
     this.calumaOptions.registerComponentOverride({
       label: "Textarea with snippets",
       component: "cf-snippets-textarea",
+      componentClass: CfSnippetsTextareaComponent,
       type: "TextareaQuestion",
     });
 
@@ -80,6 +84,13 @@ export default class ApplicationRoute extends Route {
       label: "Validierungs Button",
       component: "document-validity-button",
       componentClass: DocumentValidityButtonComponent,
+    });
+
+    this.calumaOptions.registerComponentOverride({
+      label: "Stellungnahme Status",
+      component: "inquiry-answer-status",
+      componentClass: InquiryAnswerStatus,
+      type: "ChoiceQuestion",
     });
   }
 }
