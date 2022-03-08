@@ -79,7 +79,7 @@ module.exports = function (environment) {
         externalServiceGroupIds: [],
       },
       kt_uri: {
-        prodUrl: "camac.ur.ch",
+        prodUrl: "urec.ur.ch",
         gwr: {
           cantonAbbreviation: "UR",
           importModels: ["project", "building", "dwelling"],
