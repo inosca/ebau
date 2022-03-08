@@ -1,0 +1,6 @@
+distribution:
+  districts: "Préfectures"
+  municipalities: "Communes"
+  services: "Offices cantonaux et offices spécialisés"
+  subservices: "Offices régionaux spécialisés"
+  send-answer: "Envoyer la réponse"

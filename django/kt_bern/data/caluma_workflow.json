@@ -424,38 +424,6 @@
   },
   {
     "model": "caluma_workflow.workitem",
-    "pk": "7be05ea5-c2e9-42d2-b397-792ca9c652d3",
-    "fields": {
-      "created_at": "2021-04-06T12:19:11.131Z",
-      "modified_at": "2021-04-06T12:19:18.149Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "2",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "name": "{\"de\": \"Zirkulation initialisieren\", \"fr\": \"Initialiser la circulation\"}",
-      "description": "{\"de\": null, \"fr\": null}",
-      "closed_at": "2021-04-06T12:19:18.147Z",
-      "closed_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "closed_by_group": "2",
-      "deadline": "2021-04-16T12:19:11.118Z",
-      "task": "init-circulation",
-      "status": "canceled",
-      "meta": {
-        "not-viewed": true,
-        "notify-deadline": true,
-        "notify-completed": false
-      },
-      "addressed_groups": "[\"2\"]",
-      "controlling_groups": "[]",
-      "assigned_users": "[]",
-      "case": "e9197275-36df-460c-b261-ff27f781c5d9",
-      "child_case": null,
-      "document": null,
-      "previous_work_item": "7701c0e1-cef3-4159-9c01-78955791d104"
-    }
-  },
-  {
-    "model": "caluma_workflow.workitem",
     "pk": "7c4aea21-be54-40ce-91fb-9a2b2f1f1185",
     "fields": {
       "created_at": "2021-04-06T12:19:11.131Z",
@@ -648,38 +616,6 @@
   },
   {
     "model": "caluma_workflow.workitem",
-    "pk": "d1308232-2425-437d-8e88-e0a92a08f966",
-    "fields": {
-      "created_at": "2021-04-06T12:19:11.132Z",
-      "modified_at": "2021-04-06T12:19:18.154Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "2",
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": "2",
-      "name": "{\"de\": \"Zirkulation \\u00fcberspringen\", \"fr\": \"Sauter la proc\\u00e9dure de circulation\"}",
-      "description": "{\"de\": null, \"fr\": null}",
-      "closed_at": "2021-04-06T12:19:18.154Z",
-      "closed_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "closed_by_group": "2",
-      "deadline": null,
-      "task": "skip-circulation",
-      "status": "completed",
-      "meta": {
-        "not-viewed": false,
-        "notify-deadline": true,
-        "notify-completed": false
-      },
-      "addressed_groups": "[\"2\"]",
-      "controlling_groups": "[]",
-      "assigned_users": "[]",
-      "case": "e9197275-36df-460c-b261-ff27f781c5d9",
-      "child_case": null,
-      "document": null,
-      "previous_work_item": "7701c0e1-cef3-4159-9c01-78955791d104"
-    }
-  },
-  {
-    "model": "caluma_workflow.workitem",
     "pk": "d2877a2d-a1a8-4c74-b0d4-0bd601f42b5e",
     "fields": {
       "created_at": "2021-04-06T12:19:18.225Z",
@@ -706,40 +642,8 @@
       "assigned_users": "[]",
       "case": "e9197275-36df-460c-b261-ff27f781c5d9",
       "child_case": null,
-      "document": "e101ed70-5cbc-4e7f-a022-c3ed39247c46",
-      "previous_work_item": "d1308232-2425-437d-8e88-e0a92a08f966"
-    }
-  },
-  {
-    "model": "caluma_workflow.workitem",
-    "pk": "d628cc47-d480-4440-a7b6-05122a7a5908",
-    "fields": {
-      "created_at": "2021-04-06T12:19:18.225Z",
-      "modified_at": "2021-04-06T12:19:37.689Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "2",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "name": "{\"de\": \"Zirkulation wiederer\\u00f6ffnen\", \"fr\": \"Rouvrir la proc\\u00e9dure de circulation\"}",
-      "description": "{\"de\": null, \"fr\": null}",
-      "closed_at": "2021-04-06T12:19:37.687Z",
-      "closed_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "closed_by_group": "2",
-      "deadline": null,
-      "task": "reopen-circulation",
-      "status": "canceled",
-      "meta": {
-        "not-viewed": true,
-        "notify-deadline": true,
-        "notify-completed": false
-      },
-      "addressed_groups": "[\"2\"]",
-      "controlling_groups": "[]",
-      "assigned_users": "[]",
-      "case": "e9197275-36df-460c-b261-ff27f781c5d9",
-      "child_case": null,
       "document": null,
-      "previous_work_item": "d1308232-2425-437d-8e88-e0a92a08f966"
+      "previous_work_item": null
     }
   },
   {

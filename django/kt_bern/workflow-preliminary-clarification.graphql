@@ -36,7 +36,7 @@ mutation CreateFlow2 {
     input: {
       workflow: "preliminary-clarification"
       tasks: ["ebau-number"]
-      next: "['skip-circulation', 'init-circulation', 'audit', 'publication', 'fill-publication', 'information-of-neighbors']|tasks"
+      next: "['distribution', 'audit', 'publication', 'fill-publication', 'information-of-neighbors']|tasks"
     }
   ) {
     clientMutationId
@@ -71,8 +71,8 @@ mutation CreateFlow5 {
   addWorkflowFlow(
     input: {
       workflow: "preliminary-clarification"
-      tasks: ["init-circulation"]
-      next: "'circulation'|task"
+      tasks: ["distribution"]
+      next: "['decision']|tasks"
     }
   ) {
     clientMutationId
@@ -80,66 +80,6 @@ mutation CreateFlow5 {
 }
 
 mutation CreateFlow6 {
-  addWorkflowFlow(
-    input: {
-      workflow: "preliminary-clarification"
-      tasks: ["circulation"]
-      next: "['after-circulation']|tasks"
-    }
-  ) {
-    clientMutationId
-  }
-}
-
-mutation CreateFlow7 {
-  addWorkflowFlow(
-    input: {
-      workflow: "preliminary-clarification"
-      tasks: ["start-circulation"]
-      next: "'circulation'|task"
-    }
-  ) {
-    clientMutationId
-  }
-}
-
-mutation CreateFlow8 {
-  addWorkflowFlow(
-    input: {
-      workflow: "preliminary-clarification"
-      tasks: ["start-decision"]
-      next: "['decision', 'reopen-circulation']|tasks"
-    }
-  ) {
-    clientMutationId
-  }
-}
-
-mutation CreateFlow9 {
-  addWorkflowFlow(
-    input: {
-      workflow: "preliminary-clarification"
-      tasks: ["reopen-circulation"]
-      next: "['start-circulation', 'start-decision']|tasks"
-    }
-  ) {
-    clientMutationId
-  }
-}
-
-mutation CreateFlow10 {
-  addWorkflowFlow(
-    input: {
-      workflow: "preliminary-clarification"
-      tasks: ["skip-circulation"]
-      next: "['decision', 'reopen-circulation']|tasks"
-    }
-  ) {
-    clientMutationId
-  }
-}
-
-mutation CreateFlow11 {
   addWorkflowFlow(
     input: {
       workflow: "preliminary-clarification"
@@ -151,7 +91,7 @@ mutation CreateFlow11 {
   }
 }
 
-mutation CreateFlow12 {
+mutation CreateFlow7 {
   addWorkflowFlow(
     input: {
       workflow: "building-permit"

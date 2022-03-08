@@ -24,33 +24,27 @@ from camac.caluma.extensions.visibilities import CustomVisibility, CustomVisibil
 )
 def test_document_visibility(
     db,
-    role,
+    active_inquiry_factory,
+    admin_user,
+    caluma_admin_schema_executor,
+    caluma_workflow_config_be,
     expected_count,
     instance_factory,
-    activation_factory,
-    admin_user,
-    caluma_admin_user,
-    caluma_workflow_config_be,
-    caluma_admin_schema_executor,
+    instance_with_case,
+    role,
 ):
     group = admin_user.groups.first()
 
-    instance = instance_factory(group=group)
-    activation_factory(circulation__instance=instance, service=group.service)
+    instance = instance_with_case(instance_factory(group=group))
+    instance_with_case(instance_factory(group=group))
+    instance_with_case(instance_factory())
 
-    for instance in [instance, instance_factory(group=group), instance_factory()]:
-        case = workflow_api.start_case(
-            workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
-            form=caluma_form_models.Form.objects.get(pk="main-form"),
-            user=caluma_admin_user,
-        )
-        instance.case = case
-        instance.save()
+    active_inquiry_factory(instance, group.service)
 
     result = caluma_admin_schema_executor(
         """
         query {
-            allDocuments {
+            allDocuments(filter: [{ form: "main-form" }]) {
                 edges {
                     node {
                         id
@@ -85,49 +79,39 @@ def test_document_visibility(
 @pytest.mark.parametrize("role__name", ["Support"])
 def test_document_visibility_filter(
     db,
-    rf,
-    role,
-    instance_factory,
-    activation_factory,
+    active_inquiry_factory,
     admin_user,
     caluma_admin_user,
     caluma_workflow_config_be,
-    circulation_state,
-    circulation_state_factory,
+    instance_factory,
+    instance_with_case,
+    rf,
+    role,
 ):
     group = admin_user.groups.first()
 
-    instance1 = instance_factory(group=group)
-    activation_factory(
-        circulation__instance=instance1,
-        service=group.service,
-        circulation_state=circulation_state,
+    instance1 = instance_with_case(instance_factory(group=group))
+    active_inquiry_factory(
+        instance1,
+        group.service,
+        caluma_workflow_models.WorkItem.STATUS_READY,
     )
 
-    instance2 = instance_factory(group=group)
-    activation_factory(
-        circulation__instance=instance2,
-        service=group.service,
-        circulation_state=circulation_state_factory(),
+    instance2 = instance_with_case(instance_factory(group=group))
+    active_inquiry_factory(
+        instance2,
+        group.service,
+        caluma_workflow_models.WorkItem.STATUS_COMPLETED,
     )
-
-    for instance in [instance1, instance2]:
-        case = workflow_api.start_case(
-            workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
-            form=caluma_form_models.Form.objects.get(pk="main-form"),
-            user=caluma_admin_user,
-        )
-        instance.case = case
-        instance.save()
 
     request = rf.get(
         "/graphql",
-        **{"HTTP_X_CAMAC_FILTERS": f"circulation_state={circulation_state.pk}"},
+        **{"HTTP_X_CAMAC_FILTERS": "inquiry_state=pending"},
     )
     request.user = caluma_admin_user
     query = """
         query {
-            allDocuments {
+            allDocuments(filter: [{ form: "main-form" }]) {
                 edges {
                     node {
                         id
@@ -161,38 +145,29 @@ def test_document_visibility_filter(
 @pytest.mark.parametrize("role__name", ["Municipality"])
 def test_work_item_visibility(
     db,
-    role,
-    instance_factory,
+    active_inquiry_factory,
     admin_user,
     caluma_admin_schema_executor,
     caluma_admin_user,
     caluma_workflow_config_be,
-    activation_factory,
-    circulation_state_factory,
+    instance_factory,
+    instance_with_case,
+    role,
 ):
     group = admin_user.groups.first()
-    visible_instance = instance_factory(group=group)
-    not_visible_instance = instance_factory()
-    activation_factory(
-        circulation__instance=visible_instance,
-        service=group.service,
-        circulation_state=circulation_state_factory(),
-    )
+    visible_instance = instance_with_case(instance_factory(group=group))
+    not_visible_instance = instance_with_case(instance_factory())
+    active_inquiry_factory(visible_instance, group.service)
 
     for instance in [visible_instance, not_visible_instance]:
-        case = workflow_api.start_case(
-            workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
-            form=caluma_form_models.Form.objects.get(pk="main-form"),
-            user=caluma_admin_user,
+        instance.case.document.answers.create(
+            question_id="is-paper", value="is-paper-no"
         )
-        instance.case = case
-        instance.save()
-
-        case.document.answers.create(question_id="is-paper", value="is-paper-no")
 
         # complete submit work item, there should now be 4 work items
         workflow_api.complete_work_item(
-            work_item=case.work_items.get(task_id="submit"), user=caluma_admin_user
+            work_item=instance.case.work_items.get(task_id="submit"),
+            user=caluma_admin_user,
         )
 
     result = caluma_admin_schema_executor(
@@ -217,14 +192,15 @@ def test_work_item_visibility(
             for edge in result.data["allWorkItems"]["edges"]
         ]
     )
-    assert len(visible_workitems) == 4
+    assert (
+        len(visible_workitems) == 5
+    )  # submit, nfd, create-manual-workitem, ebau-number, inquiry
 
     # should be same as from graphql query
     visible = caluma_workflow_models.WorkItem.objects.filter(
         case__instance__pk=visible_instance.pk
     )
-
-    assert visible.count() == 4
+    assert visible.count() == 5
     assert (
         set([str(_id) for _id in visible.values_list("id", flat=True)])
         == visible_workitems
@@ -234,7 +210,7 @@ def test_work_item_visibility(
     not_visible = caluma_workflow_models.WorkItem.objects.filter(
         case__instance__pk=not_visible_instance.pk
     )
-    assert not_visible.count() == 4
+    assert not_visible.count() == 4  # submit, nfd, create-manual-workitem, ebau-number
     assert (
         set(
             [str(_id) for _id in not_visible.values_list("id", flat=True)]

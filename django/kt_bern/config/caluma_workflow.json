@@ -1,45 +1,6 @@
 [
   {
     "model": "caluma_workflow.flow",
-    "pk": "10ce3772-ca45-4000-8d85-8fab4b379f6f",
-    "fields": {
-      "created_at": "2020-08-10T14:30:21.420Z",
-      "modified_at": "2020-08-10T14:30:21.420Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "next": "['start-circulation', 'start-decision']|tasks"
-    }
-  },
-  {
-    "model": "caluma_workflow.flow",
-    "pk": "10edadbe-80f7-48b4-9837-7062c8b8e863",
-    "fields": {
-      "created_at": "2020-08-10T14:29:37.829Z",
-      "modified_at": "2020-08-10T14:29:37.829Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "next": "'circulation'|task"
-    }
-  },
-  {
-    "model": "caluma_workflow.flow",
-    "pk": "135e0ae3-ff30-475d-a0e8-efc004d04f1b",
-    "fields": {
-      "created_at": "2020-09-15T14:09:40.350Z",
-      "modified_at": "2020-09-15T14:09:40.350Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "next": "['decision', 'reopen-circulation']|tasks"
-    }
-  },
-  {
-    "model": "caluma_workflow.flow",
     "pk": "240e43d1-3969-41e6-8f25-f27fa1751592",
     "fields": {
       "created_at": "2020-08-10T14:30:14.806Z",
@@ -48,7 +9,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['skip-circulation', 'init-circulation', 'audit', 'publication', 'fill-publication', 'information-of-neighbors']|tasks"
+      "next": "['distribution', 'audit', 'publication', 'fill-publication', 'information-of-neighbors']|tasks"
     }
   },
   {
@@ -88,19 +49,6 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "next": "'complete'|task"
-    }
-  },
-  {
-    "model": "caluma_workflow.flow",
-    "pk": "363f0977-a68b-4d3c-990b-39f2e747b19d",
-    "fields": {
-      "created_at": "2020-08-10T14:29:36.182Z",
-      "modified_at": "2020-08-10T14:29:36.182Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "next": "['after-circulation']|tasks"
     }
   },
   {
@@ -170,19 +118,6 @@
   },
   {
     "model": "caluma_workflow.flow",
-    "pk": "4a409fe9-741e-4e36-99c6-2cde4b2150c2",
-    "fields": {
-      "created_at": "2020-08-10T14:29:40.827Z",
-      "modified_at": "2020-08-10T14:29:40.827Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "next": "['start-circulation', 'start-decision']|tasks"
-    }
-  },
-  {
-    "model": "caluma_workflow.flow",
     "pk": "4daff7a4-f031-47bf-8fef-445d5ca88278",
     "fields": {
       "created_at": "2020-08-10T14:29:33.526Z",
@@ -191,7 +126,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['skip-circulation', 'init-circulation', 'audit', 'publication', 'fill-publication', 'information-of-neighbors']|tasks"
+      "next": "['distribution', 'audit', 'publication', 'fill-publication', 'information-of-neighbors']|tasks"
     }
   },
   {
@@ -222,32 +157,6 @@
   },
   {
     "model": "caluma_workflow.flow",
-    "pk": "68438cb7-3635-4586-a3f6-a5032b5fbc4e",
-    "fields": {
-      "created_at": "2020-08-10T14:29:34.744Z",
-      "modified_at": "2020-08-10T14:29:34.744Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "next": "'circulation'|task"
-    }
-  },
-  {
-    "model": "caluma_workflow.flow",
-    "pk": "71149692-b9a9-4a85-8e29-929c39f7a9c5",
-    "fields": {
-      "created_at": "2020-09-15T14:09:38.952Z",
-      "modified_at": "2020-09-15T14:09:38.952Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "next": "['decision', 'reopen-circulation']|tasks"
-    }
-  },
-  {
-    "model": "caluma_workflow.flow",
     "pk": "71e4db71-f7ad-42ce-b94e-0471ddff8d42",
     "fields": {
       "created_at": "2022-01-28T15:41:08.519Z",
@@ -261,19 +170,6 @@
   },
   {
     "model": "caluma_workflow.flow",
-    "pk": "7885afc9-3322-4572-b81b-d177136e5d62",
-    "fields": {
-      "created_at": "2020-08-10T14:29:39.487Z",
-      "modified_at": "2020-08-10T14:29:39.487Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "next": "['decision', 'reopen-circulation']|tasks"
-    }
-  },
-  {
-    "model": "caluma_workflow.flow",
     "pk": "8a5c5a85-4d01-413c-8a29-ffd8cfb0de90",
     "fields": {
       "created_at": "2022-01-28T15:38:53.525Z",
@@ -283,19 +179,6 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "next": "'create-information-of-neighbors'|task"
-    }
-  },
-  {
-    "model": "caluma_workflow.flow",
-    "pk": "944dc36e-68c6-498f-9fc3-fa47b1afa843",
-    "fields": {
-      "created_at": "2020-08-10T14:30:20.015Z",
-      "modified_at": "2020-08-10T14:30:20.015Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "next": "['decision', 'reopen-circulation']|tasks"
     }
   },
   {
@@ -326,28 +209,28 @@
   },
   {
     "model": "caluma_workflow.flow",
-    "pk": "b37d20b3-38f9-4971-bdb9-bbf80f0b9f0b",
+    "pk": "af5839f9-c8af-4a0b-a9ea-d80cad570b05",
     "fields": {
-      "created_at": "2020-08-10T14:30:17.331Z",
-      "modified_at": "2020-08-10T14:30:17.331Z",
+      "created_at": "2022-02-11T08:10:39.571Z",
+      "modified_at": "2022-02-11T08:10:39.571Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['after-circulation']|tasks"
+      "next": "['decision']|tasks"
     }
   },
   {
     "model": "caluma_workflow.flow",
-    "pk": "c02b6af6-6eb3-4d62-8717-d09eb2cda738",
+    "pk": "bb5c5cb2-934d-466b-8f5a-1bbded407ecc",
     "fields": {
-      "created_at": "2020-08-10T14:30:16.090Z",
-      "modified_at": "2020-08-10T14:30:16.090Z",
+      "created_at": "2022-02-11T08:10:54.933Z",
+      "modified_at": "2022-02-11T08:10:54.933Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "'circulation'|task"
+      "next": "['decision']|tasks"
     }
   },
   {
@@ -361,19 +244,6 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "next": "['ebau-number', 'audit', 'nfd', 'decision', 'create-manual-workitems']|tasks"
-    }
-  },
-  {
-    "model": "caluma_workflow.flow",
-    "pk": "c6acccb6-301d-4a70-97fe-4ee57dcdc5d5",
-    "fields": {
-      "created_at": "2020-08-10T14:30:18.759Z",
-      "modified_at": "2020-08-10T14:30:18.760Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "next": "'circulation'|task"
     }
   },
   {
@@ -417,29 +287,6 @@
   },
   {
     "model": "caluma_workflow.task",
-    "pk": "activation",
-    "fields": {
-      "created_at": "2020-08-10T14:27:54.985Z",
-      "modified_at": "2020-09-15T09:33:24.450Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "name": "{\"de\": \"Stellungnahme verfassen\", \"fr\": \"R\\u00e9diger une prise de position\"}",
-      "description": "{\"de\": null, \"fr\": null}",
-      "type": "simple",
-      "meta": {},
-      "address_groups": "['activation_service']|groups",
-      "control_groups": "['activation_service_parent']|groups",
-      "is_archived": false,
-      "form": null,
-      "lead_time": null,
-      "is_multiple_instance": false,
-      "continue_async": false
-    }
-  },
-  {
-    "model": "caluma_workflow.task",
     "pk": "audit",
     "fields": {
       "created_at": "2020-08-10T14:27:49.526Z",
@@ -456,31 +303,6 @@
       "control_groups": "['municipality']|groups",
       "is_archived": false,
       "form": "dossierpruefung",
-      "lead_time": 864000,
-      "is_multiple_instance": false,
-      "continue_async": false
-    }
-  },
-  {
-    "model": "caluma_workflow.task",
-    "pk": "check-activation",
-    "fields": {
-      "created_at": "2020-08-10T14:27:59Z",
-      "modified_at": "2020-09-15T09:34:12.007Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "name": "{\"de\": \"Stellungnahmen pr\\u00fcfen\", \"fr\": \"V\\u00e9rifier les prises de position\"}",
-      "description": "{\"de\": null, \"fr\": null}",
-      "type": "simple",
-      "meta": {
-        "is-manually-completable": true
-      },
-      "address_groups": "['municipality']|groups",
-      "control_groups": "['municipality']|groups",
-      "is_archived": false,
-      "form": null,
       "lead_time": 864000,
       "is_multiple_instance": false,
       "continue_async": false
@@ -533,29 +355,6 @@
       "form": null,
       "lead_time": 432000,
       "is_multiple_instance": false,
-      "continue_async": false
-    }
-  },
-  {
-    "model": "caluma_workflow.task",
-    "pk": "circulation",
-    "fields": {
-      "created_at": "2020-08-10T14:27:53.318Z",
-      "modified_at": "2020-09-15T09:35:02.383Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "name": "{\"de\": \"Zirkulation\", \"fr\": \"Circulation\"}",
-      "description": "{\"de\": null, \"fr\": null}",
-      "type": "simple",
-      "meta": {},
-      "address_groups": "['circulation_service']|groups",
-      "control_groups": null,
-      "is_archived": false,
-      "form": null,
-      "lead_time": null,
-      "is_multiple_instance": true,
       "continue_async": false
     }
   },
@@ -747,29 +546,6 @@
   },
   {
     "model": "caluma_workflow.task",
-    "pk": "init-circulation",
-    "fields": {
-      "created_at": "2020-08-10T14:27:47.968Z",
-      "modified_at": "2020-09-15T09:37:04.487Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "name": "{\"de\": \"Zirkulation initialisieren\", \"fr\": \"Initialiser la circulation\"}",
-      "description": "{\"de\": null, \"fr\": null}",
-      "type": "simple",
-      "meta": {},
-      "address_groups": "['municipality']|groups",
-      "control_groups": "['municipality']|groups",
-      "is_archived": false,
-      "form": null,
-      "lead_time": 864000,
-      "is_multiple_instance": false,
-      "continue_async": false
-    }
-  },
-  {
-    "model": "caluma_workflow.task",
     "pk": "nfd",
     "fields": {
       "created_at": "2020-08-10T14:27:44.791Z",
@@ -812,29 +588,6 @@
       "is_archived": false,
       "form": null,
       "lead_time": 864000,
-      "is_multiple_instance": false,
-      "continue_async": false
-    }
-  },
-  {
-    "model": "caluma_workflow.task",
-    "pk": "reopen-circulation",
-    "fields": {
-      "created_at": "2020-08-10T14:28:06.447Z",
-      "modified_at": "2020-09-15T09:38:05.440Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "name": "{\"de\": \"Zirkulation wiederer\\u00f6ffnen\", \"fr\": \"Rouvrir la proc\\u00e9dure de circulation\"}",
-      "description": "{\"de\": null, \"fr\": null}",
-      "type": "simple",
-      "meta": {},
-      "address_groups": "['municipality']|groups",
-      "control_groups": null,
-      "is_archived": false,
-      "form": null,
-      "lead_time": null,
       "is_multiple_instance": false,
       "continue_async": false
     }
@@ -887,75 +640,6 @@
   },
   {
     "model": "caluma_workflow.task",
-    "pk": "skip-circulation",
-    "fields": {
-      "created_at": "2020-09-15T14:09:37.342Z",
-      "modified_at": "2020-09-15T14:09:37.342Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "name": "{\"de\": \"Zirkulation \\u00fcberspringen\", \"fr\": \"Sauter la proc\\u00e9dure de circulation\"}",
-      "description": "{\"de\": null, \"fr\": null}",
-      "type": "simple",
-      "meta": {},
-      "address_groups": "['municipality']|groups",
-      "control_groups": null,
-      "is_archived": false,
-      "form": null,
-      "lead_time": null,
-      "is_multiple_instance": false,
-      "continue_async": false
-    }
-  },
-  {
-    "model": "caluma_workflow.task",
-    "pk": "start-circulation",
-    "fields": {
-      "created_at": "2020-08-10T14:27:57.215Z",
-      "modified_at": "2020-09-15T09:39:32.539Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "name": "{\"de\": \"Weitere Zirkulation starten\", \"fr\": \"Lancer une autre circulation\"}",
-      "description": "{\"de\": null, \"fr\": null}",
-      "type": "simple",
-      "meta": {},
-      "address_groups": "['municipality']|groups",
-      "control_groups": null,
-      "is_archived": false,
-      "form": null,
-      "lead_time": null,
-      "is_multiple_instance": false,
-      "continue_async": false
-    }
-  },
-  {
-    "model": "caluma_workflow.task",
-    "pk": "start-decision",
-    "fields": {
-      "created_at": "2020-08-10T14:28:01.904Z",
-      "modified_at": "2020-09-15T09:39:12.006Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "name": "{\"de\": \"Entscheid starten\", \"fr\": \"Clore la proc\\u00e9dure de circulation\"}",
-      "description": "{\"de\": null, \"fr\": null}",
-      "type": "simple",
-      "meta": {},
-      "address_groups": "['municipality']|groups",
-      "control_groups": "['municipality']|groups",
-      "is_archived": false,
-      "form": null,
-      "lead_time": 864000,
-      "is_multiple_instance": false,
-      "continue_async": false
-    }
-  },
-  {
-    "model": "caluma_workflow.task",
     "pk": "submit",
     "fields": {
       "created_at": "2020-08-10T14:27:37.866Z",
@@ -990,22 +674,6 @@
       "workflow": "building-permit",
       "task": "submit",
       "flow": "46846c68-6d6d-4eb5-b2dd-296d62d31393",
-      "redoable": null
-    }
-  },
-  {
-    "model": "caluma_workflow.taskflow",
-    "pk": "0cb1575e-47a3-43b8-86b3-e7bde2f25b53",
-    "fields": {
-      "created_at": "2020-08-10T14:29:40.831Z",
-      "modified_at": "2020-08-10T14:29:40.831Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "workflow": "building-permit",
-      "task": "reopen-circulation",
-      "flow": "4a409fe9-741e-4e36-99c6-2cde4b2150c2",
       "redoable": null
     }
   },
@@ -1070,22 +738,6 @@
       "workflow": "preliminary-clarification",
       "task": "information-of-neighbors",
       "flow": "434a4895-d5e9-4845-aaab-f6b0eb084f0f",
-      "redoable": null
-    }
-  },
-  {
-    "model": "caluma_workflow.taskflow",
-    "pk": "28e8fef2-3ddb-499d-9419-2c679c0979fd",
-    "fields": {
-      "created_at": "2020-08-10T14:30:17.336Z",
-      "modified_at": "2020-08-10T14:30:17.336Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "workflow": "preliminary-clarification",
-      "task": "circulation",
-      "flow": "b37d20b3-38f9-4971-bdb9-bbf80f0b9f0b",
       "redoable": null
     }
   },
@@ -1171,6 +823,22 @@
   },
   {
     "model": "caluma_workflow.taskflow",
+    "pk": "40247a28-2458-481c-ac7d-77e8230b5f67",
+    "fields": {
+      "created_at": "2022-02-11T08:10:54.940Z",
+      "modified_at": "2022-02-11T08:10:54.940Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "preliminary-clarification",
+      "task": "distribution",
+      "flow": "bb5c5cb2-934d-466b-8f5a-1bbded407ecc",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
     "pk": "404f80c2-9fa4-48d1-be07-14d4d80b63a3",
     "fields": {
       "created_at": "2020-08-10T14:29:45.508Z",
@@ -1219,70 +887,6 @@
   },
   {
     "model": "caluma_workflow.taskflow",
-    "pk": "6a64dc2d-d8df-4329-b452-4cc95acd3121",
-    "fields": {
-      "created_at": "2020-09-15T14:09:38.959Z",
-      "modified_at": "2020-09-15T14:09:38.959Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "workflow": "building-permit",
-      "task": "skip-circulation",
-      "flow": "71149692-b9a9-4a85-8e29-929c39f7a9c5",
-      "redoable": null
-    }
-  },
-  {
-    "model": "caluma_workflow.taskflow",
-    "pk": "78610aa1-5084-46c4-af20-b7d91168fba4",
-    "fields": {
-      "created_at": "2020-08-10T14:30:16.096Z",
-      "modified_at": "2020-08-10T14:30:16.096Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "workflow": "preliminary-clarification",
-      "task": "init-circulation",
-      "flow": "c02b6af6-6eb3-4d62-8717-d09eb2cda738",
-      "redoable": null
-    }
-  },
-  {
-    "model": "caluma_workflow.taskflow",
-    "pk": "7d77cde9-2cc5-4363-82b0-6330c64e2f3d",
-    "fields": {
-      "created_at": "2020-08-10T14:30:18.765Z",
-      "modified_at": "2020-08-10T14:30:18.765Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "workflow": "preliminary-clarification",
-      "task": "start-circulation",
-      "flow": "c6acccb6-301d-4a70-97fe-4ee57dcdc5d5",
-      "redoable": null
-    }
-  },
-  {
-    "model": "caluma_workflow.taskflow",
-    "pk": "807aca8f-7136-4342-bc2a-754f3d28c13b",
-    "fields": {
-      "created_at": "2020-08-10T14:29:36.187Z",
-      "modified_at": "2020-08-10T14:29:36.187Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "workflow": "building-permit",
-      "task": "circulation",
-      "flow": "363f0977-a68b-4d3c-990b-39f2e747b19d",
-      "redoable": null
-    }
-  },
-  {
-    "model": "caluma_workflow.taskflow",
     "pk": "8642bda0-55d6-4445-ae3a-19273ecf8f08",
     "fields": {
       "created_at": "2022-01-28T15:41:31.197Z",
@@ -1294,38 +898,6 @@
       "workflow": "building-permit",
       "task": "create-information-of-neighbors",
       "flow": "d2ceacda-7648-4c46-b1f1-ee35573414c7",
-      "redoable": null
-    }
-  },
-  {
-    "model": "caluma_workflow.taskflow",
-    "pk": "90593ffe-fb74-4651-9c83-9355cc72a308",
-    "fields": {
-      "created_at": "2020-08-10T14:29:34.748Z",
-      "modified_at": "2020-08-10T14:29:34.748Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "workflow": "building-permit",
-      "task": "init-circulation",
-      "flow": "68438cb7-3635-4586-a3f6-a5032b5fbc4e",
-      "redoable": null
-    }
-  },
-  {
-    "model": "caluma_workflow.taskflow",
-    "pk": "95bd957f-f9a2-415b-b396-41e8aff2fc85",
-    "fields": {
-      "created_at": "2020-08-10T14:30:21.425Z",
-      "modified_at": "2020-08-10T14:30:21.425Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "workflow": "preliminary-clarification",
-      "task": "reopen-circulation",
-      "flow": "10ce3772-ca45-4000-8d85-8fab4b379f6f",
       "redoable": null
     }
   },
@@ -1347,6 +919,22 @@
   },
   {
     "model": "caluma_workflow.taskflow",
+    "pk": "9bfaa8bf-0c7b-400c-93ba-0752e67bf4c7",
+    "fields": {
+      "created_at": "2022-02-11T08:10:39.580Z",
+      "modified_at": "2022-02-11T08:10:39.580Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "building-permit",
+      "task": "distribution",
+      "flow": "af5839f9-c8af-4a0b-a9ea-d80cad570b05",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
     "pk": "a25e652b-0f8c-4069-a073-78acfce51ca2",
     "fields": {
       "created_at": "2020-11-27T10:34:55.716Z",
@@ -1358,22 +946,6 @@
       "workflow": "preliminary-clarification",
       "task": "create-publication",
       "flow": "35207bd3-ab3b-4ef3-910a-bcb5a3f971cb",
-      "redoable": null
-    }
-  },
-  {
-    "model": "caluma_workflow.taskflow",
-    "pk": "b02fdb61-7fc4-4348-a644-3eeeba5685d8",
-    "fields": {
-      "created_at": "2020-08-10T14:29:39.493Z",
-      "modified_at": "2020-08-10T14:29:39.493Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "workflow": "building-permit",
-      "task": "start-decision",
-      "flow": "7885afc9-3322-4572-b81b-d177136e5d62",
       "redoable": null
     }
   },
@@ -1395,22 +967,6 @@
   },
   {
     "model": "caluma_workflow.taskflow",
-    "pk": "cc2b3dab-0fb1-432c-8a30-82553fe1ece3",
-    "fields": {
-      "created_at": "2020-08-10T14:30:20.022Z",
-      "modified_at": "2020-08-10T14:30:20.022Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "workflow": "preliminary-clarification",
-      "task": "start-decision",
-      "flow": "944dc36e-68c6-498f-9fc3-fa47b1afa843",
-      "redoable": null
-    }
-  },
-  {
-    "model": "caluma_workflow.taskflow",
     "pk": "d6db4a54-251f-4a89-b6f2-9f299b21de28",
     "fields": {
       "created_at": "2021-01-25T14:50:39.205Z",
@@ -1427,22 +983,6 @@
   },
   {
     "model": "caluma_workflow.taskflow",
-    "pk": "ee31165e-cf25-4044-b72a-f210086e7320",
-    "fields": {
-      "created_at": "2020-08-10T14:29:37.834Z",
-      "modified_at": "2020-08-10T14:29:37.834Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "workflow": "building-permit",
-      "task": "start-circulation",
-      "flow": "10edadbe-80f7-48b4-9837-7062c8b8e863",
-      "redoable": null
-    }
-  },
-  {
-    "model": "caluma_workflow.taskflow",
     "pk": "eec0ca4c-5939-4bbd-8a4a-a6fbac106cf3",
     "fields": {
       "created_at": "2020-08-25T11:14:35.931Z",
@@ -1454,22 +994,6 @@
       "workflow": "preliminary-clarification",
       "task": "submit",
       "flow": "a5dba546-a4fe-4670-8c85-6c3057deaa8f",
-      "redoable": null
-    }
-  },
-  {
-    "model": "caluma_workflow.taskflow",
-    "pk": "f5bb2aa4-d524-4764-9913-7c3de213953e",
-    "fields": {
-      "created_at": "2020-09-15T14:09:40.355Z",
-      "modified_at": "2020-09-15T14:09:40.355Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "workflow": "preliminary-clarification",
-      "task": "skip-circulation",
-      "flow": "135e0ae3-ff30-475d-a0e8-efc004d04f1b",
       "redoable": null
     }
   },
@@ -1500,26 +1024,6 @@
         "migriertes-dossier",
         "verlaengerung-geltungsdauer"
       ]
-    }
-  },
-  {
-    "model": "caluma_workflow.workflow",
-    "pk": "circulation",
-    "fields": {
-      "created_at": "2020-08-10T14:28:56.643Z",
-      "modified_at": "2020-08-10T14:28:56.643Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "name": "{\"de\": \"Zirkulation\", \"fr\": null}",
-      "description": "{\"de\": null, \"fr\": null}",
-      "meta": {},
-      "is_published": true,
-      "is_archived": false,
-      "allow_all_forms": false,
-      "start_tasks": ["activation"],
-      "allow_forms": ["circulation"]
     }
   },
   {

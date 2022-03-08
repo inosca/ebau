@@ -1,6 +1,7 @@
 import pytest
 from caluma.caluma_form.models import Form
 from caluma.caluma_workflow.api import start_case
+from caluma.caluma_workflow.factories import WorkItemFactory
 from caluma.caluma_workflow.models import Workflow
 
 from camac.caluma.extensions.dynamic_groups import CustomDynamicGroups
@@ -82,3 +83,39 @@ def test_dynamic_group_schwyz(
     assert CustomDynamicGroups().resolve("municipality")(
         None, case, None, None, None
     ) == [str(instance.group.service.pk)]
+
+
+@pytest.mark.parametrize("has_context", [True, False])
+def test_dynamic_group_distribution_create_inquiry(
+    db, be_instance, caluma_admin_user, service, service_factory, has_context
+):
+    prev_work_item = WorkItemFactory(
+        case=be_instance.case, addressed_groups=[str(service.pk)]
+    )
+    context = {}
+
+    if has_context:
+        target_service = service_factory()
+        target_subservice = service_factory(service_parent=service_factory())
+
+        context = {
+            "addressed_groups": [str(target_service.pk), str(target_subservice.pk)]
+        }
+
+    resolved_groups = CustomDynamicGroups().resolve("distribution_create_inquiry")(
+        task=None,
+        case=be_instance.case,
+        user=caluma_admin_user,
+        prev_work_item=prev_work_item,
+        context=context,
+    )
+
+    if has_context:
+        assert str(target_service.pk) in resolved_groups
+        assert str(target_subservice.pk) not in resolved_groups
+        assert str(service.pk) in resolved_groups
+    else:
+        assert (
+            str(be_instance.responsible_service(filter_type="municipality").pk)
+            in resolved_groups
+        )

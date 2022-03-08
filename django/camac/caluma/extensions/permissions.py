@@ -19,6 +19,7 @@ from caluma.caluma_workflow.schema import (
     CompleteWorkItem,
     CreateWorkItem,
     ResumeCase,
+    ResumeWorkItem,
     SaveCase,
     SaveWorkItem,
     SkipWorkItem,
@@ -152,6 +153,14 @@ class CustomPermission(IsAuthenticated):
         return is_addressed_to_service(
             work_item, get_current_service_id(info)
         ) or is_addressed_to_applicant(work_item)
+
+    @permission_for(ResumeWorkItem)
+    @object_permission_for(ResumeWorkItem)
+    def has_permission_for_resume_work_item(self, mutation, info, work_item=None):
+        if not work_item:
+            return True
+
+        return is_controlled_by_service(work_item, get_current_service_id(info))
 
     # Document
     @permission_for(RemoveDocument)

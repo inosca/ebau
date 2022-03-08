@@ -9,9 +9,7 @@ from caluma.caluma_workflow.events import (
     post_skip_work_item,
 )
 from django.conf import settings
-from django.urls import reverse
 from django.utils import timezone
-from pytest_factoryboy import LazyFixture
 
 from camac.constants.kt_bern import (
     DECISION_TYPE_BUILDING_PERMIT,
@@ -40,11 +38,7 @@ def test_copy_papierdossier(
     for task_id in [
         "submit",
         "ebau-number",
-        "publication",
-        "audit",
-        "init-circulation",
-        "circulation",
-        "start-decision",
+        "distribution",
         "decision",
         "sb1",
     ]:
@@ -94,11 +88,7 @@ def test_copy_sb_personalien(
     for task_id in [
         "submit",
         "ebau-number",
-        "publication",
-        "audit",
-        "init-circulation",
-        "circulation",
-        "start-decision",
+        "distribution",
         "decision",
     ]:
         if task_id == "decision":
@@ -183,11 +173,7 @@ def test_copy_municipality_tags_for_sb1(
     for task_id in [
         "submit",
         "ebau-number",
-        "publication",
-        "audit",
-        "init-circulation",
-        "circulation",
-        "start-decision",
+        "distribution",
     ]:
         workflow_api.skip_work_item(
             work_item=be_instance.case.work_items.get(task_id=task_id),
@@ -267,9 +253,7 @@ def test_copy_tank_installation(
         "ebau-number",
         "publication",
         "audit",
-        "init-circulation",
-        "circulation",
-        "start-decision",
+        "distribution",
         "decision",
         "sb1",
     ]:
@@ -388,54 +372,6 @@ def test_set_is_published(
     workflow_api.complete_work_item(work_item, user=caluma_admin_user)
 
     assert work_item.meta["is-published"]
-
-
-@pytest.mark.parametrize(
-    "role__name,instance__user", [("Municipality", LazyFixture("admin_user"))]
-)
-def test_complete_case(
-    caluma_admin_user,
-    admin_client,
-    instance_service,
-    circulation,
-    activation_factory,
-    caluma_workflow_config_be,
-):
-    case = workflow_api.start_case(
-        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
-        form=caluma_form_models.Form.objects.get(pk="main-form"),
-        user=caluma_admin_user,
-    )
-    circulation.instance.case = case
-    circulation.instance.save()
-
-    for task_id in ["submit", "ebau-number", "init-circulation"]:
-        workflow_api.skip_work_item(
-            case.work_items.get(task_id=task_id),
-            user=caluma_admin_user,
-            context={"circulation-id": circulation.pk},
-        )
-
-    circulation_work_item = case.work_items.get(
-        **{"task_id": "circulation", "meta__circulation-id": circulation.pk}
-    )
-
-    activation = activation_factory(circulation=circulation)
-
-    admin_client.patch(reverse("circulation-sync", args=[circulation.pk]))
-
-    circulation_work_item.refresh_from_db()
-    activation_work_item = circulation_work_item.child_case.work_items.get(
-        **{"task_id": "activation", "meta__activation-id": activation.pk}
-    )
-
-    workflow_api.complete_work_item(activation_work_item, caluma_admin_user)
-
-    circulation_work_item.child_case.refresh_from_db()
-    assert (
-        circulation_work_item.child_case.status
-        == caluma_workflow_models.Case.STATUS_COMPLETED
-    )
 
 
 @pytest.mark.parametrize(
@@ -758,12 +694,7 @@ def test_complete_decision(
 
 @pytest.mark.parametrize(
     "task,expected_instance_state,expected_history_text",
-    [
-        ("start-decision", "coordination", "Zirkulation abgeschlossen"),
-        ("skip-circulation", "coordination", "Zirkulation übersprungen"),
-        ("reopen-circulation", "circulation", "Zirkulation wiedereröffnet"),
-        ("complete", "finished", "Baugesuchsverfahren abgeschlossen"),
-    ],
+    [("complete", "finished", "Baugesuchsverfahren abgeschlossen")],
 )
 def test_complete_simple_workflow(
     application_settings,
