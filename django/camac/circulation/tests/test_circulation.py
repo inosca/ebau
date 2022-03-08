@@ -301,7 +301,7 @@ def test_delete_circulation(
             assert case.work_items.filter(
                 task_id=task_id,
                 status=WorkItem.STATUS_READY,
-            ).exists()
+            ).exists(), f"There is no ready work item for the task '{task_id}'"
 
 
 @pytest.mark.parametrize(
