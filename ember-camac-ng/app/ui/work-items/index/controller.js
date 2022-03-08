@@ -99,14 +99,16 @@ export default class WorkItemsIndexController extends Controller {
 
     if (this.role === "control") {
       filter.push(
-        { controllingGroups: [this.shoebox.content.serviceId] },
+        { controllingGroups: [String(this.shoebox.content.serviceId)] },
         {
-          addressedGroups: [this.shoebox.content.serviceId],
+          addressedGroups: [String(this.shoebox.content.serviceId)],
           invert: true,
         }
       );
     } else {
-      filter.push({ addressedGroups: [this.shoebox.content.serviceId] });
+      filter.push({
+        addressedGroups: [String(this.shoebox.content.serviceId)],
+      });
     }
 
     const order =

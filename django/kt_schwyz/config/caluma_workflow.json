@@ -226,7 +226,8 @@
       "is_archived": false,
       "form": null,
       "lead_time": null,
-      "is_multiple_instance": false
+      "is_multiple_instance": false,
+      "continue_async": false
     }
   },
   {
@@ -248,7 +249,8 @@
       "is_archived": false,
       "form": null,
       "lead_time": 86400,
-      "is_multiple_instance": false
+      "is_multiple_instance": false,
+      "continue_async": false
     }
   },
   {
@@ -270,7 +272,8 @@
       "is_archived": false,
       "form": null,
       "lead_time": null,
-      "is_multiple_instance": false
+      "is_multiple_instance": false,
+      "continue_async": false
     }
   },
   {
@@ -292,7 +295,8 @@
       "is_archived": false,
       "form": "bauverwaltung",
       "lead_time": null,
-      "is_multiple_instance": false
+      "is_multiple_instance": false,
+      "continue_async": false
     }
   },
   {
@@ -314,7 +318,8 @@
       "is_archived": false,
       "form": null,
       "lead_time": 259200,
-      "is_multiple_instance": false
+      "is_multiple_instance": false,
+      "continue_async": false
     }
   },
   {
@@ -336,7 +341,8 @@
       "is_archived": false,
       "form": null,
       "lead_time": 432000,
-      "is_multiple_instance": false
+      "is_multiple_instance": false,
+      "continue_async": false
     }
   },
   {
@@ -358,7 +364,8 @@
       "is_archived": false,
       "form": null,
       "lead_time": null,
-      "is_multiple_instance": true
+      "is_multiple_instance": true,
+      "continue_async": false
     }
   },
   {
@@ -380,7 +387,8 @@
       "is_archived": false,
       "form": null,
       "lead_time": 432000,
-      "is_multiple_instance": false
+      "is_multiple_instance": false,
+      "continue_async": false
     }
   },
   {
@@ -404,7 +412,8 @@
       "is_archived": false,
       "form": null,
       "lead_time": null,
-      "is_multiple_instance": true
+      "is_multiple_instance": true,
+      "continue_async": false
     }
   },
   {
@@ -426,7 +435,8 @@
       "is_archived": false,
       "form": null,
       "lead_time": null,
-      "is_multiple_instance": false
+      "is_multiple_instance": false,
+      "continue_async": false
     }
   },
   {
@@ -448,7 +458,8 @@
       "is_archived": false,
       "form": null,
       "lead_time": null,
-      "is_multiple_instance": false
+      "is_multiple_instance": false,
+      "continue_async": false
     }
   },
   {
@@ -470,7 +481,8 @@
       "is_archived": false,
       "form": null,
       "lead_time": 5184000,
-      "is_multiple_instance": false
+      "is_multiple_instance": false,
+      "continue_async": false
     }
   },
   {
@@ -492,7 +504,8 @@
       "is_archived": false,
       "form": null,
       "lead_time": 864000,
-      "is_multiple_instance": false
+      "is_multiple_instance": false,
+      "continue_async": false
     }
   },
   {
@@ -514,7 +527,8 @@
       "is_archived": false,
       "form": null,
       "lead_time": 345600,
-      "is_multiple_instance": false
+      "is_multiple_instance": false,
+      "continue_async": false
     }
   },
   {
@@ -536,7 +550,8 @@
       "is_archived": false,
       "form": null,
       "lead_time": null,
-      "is_multiple_instance": false
+      "is_multiple_instance": false,
+      "continue_async": false
     }
   },
   {
@@ -558,7 +573,8 @@
       "is_archived": false,
       "form": null,
       "lead_time": null,
-      "is_multiple_instance": false
+      "is_multiple_instance": false,
+      "continue_async": false
     }
   },
   {
@@ -580,7 +596,8 @@
       "is_archived": false,
       "form": null,
       "lead_time": null,
-      "is_multiple_instance": false
+      "is_multiple_instance": false,
+      "continue_async": false
     }
   },
   {
@@ -602,7 +619,8 @@
       "is_archived": false,
       "form": null,
       "lead_time": null,
-      "is_multiple_instance": false
+      "is_multiple_instance": false,
+      "continue_async": false
     }
   },
   {
@@ -624,7 +642,8 @@
       "is_archived": false,
       "form": null,
       "lead_time": null,
-      "is_multiple_instance": false
+      "is_multiple_instance": false,
+      "continue_async": false
     }
   },
   {
@@ -646,7 +665,8 @@
       "is_archived": false,
       "form": null,
       "lead_time": 345600,
-      "is_multiple_instance": false
+      "is_multiple_instance": false,
+      "continue_async": false
     }
   },
   {
@@ -668,7 +688,8 @@
       "is_archived": false,
       "form": null,
       "lead_time": 432000,
-      "is_multiple_instance": false
+      "is_multiple_instance": false,
+      "continue_async": false
     }
   },
   {
@@ -690,7 +711,8 @@
       "is_archived": false,
       "form": null,
       "lead_time": 7776000,
-      "is_multiple_instance": false
+      "is_multiple_instance": false,
+      "continue_async": false
     }
   },
   {
@@ -712,7 +734,8 @@
       "is_archived": false,
       "form": null,
       "lead_time": 1728000,
-      "is_multiple_instance": false
+      "is_multiple_instance": false,
+      "continue_async": false
     }
   },
   {
@@ -734,7 +757,8 @@
       "is_archived": false,
       "form": null,
       "lead_time": 259200,
-      "is_multiple_instance": false
+      "is_multiple_instance": false,
+      "continue_async": false
     }
   },
   {

@@ -434,7 +434,8 @@
       "is_archived": false,
       "form": null,
       "lead_time": null,
-      "is_multiple_instance": false
+      "is_multiple_instance": false,
+      "continue_async": false
     }
   },
   {
@@ -458,7 +459,8 @@
       "is_archived": false,
       "form": "dossierpruefung",
       "lead_time": 864000,
-      "is_multiple_instance": false
+      "is_multiple_instance": false,
+      "continue_async": false
     }
   },
   {
@@ -482,7 +484,8 @@
       "is_archived": false,
       "form": null,
       "lead_time": 864000,
-      "is_multiple_instance": false
+      "is_multiple_instance": false,
+      "continue_async": false
     }
   },
   {
@@ -506,7 +509,8 @@
       "is_archived": false,
       "form": null,
       "lead_time": 432000,
-      "is_multiple_instance": false
+      "is_multiple_instance": false,
+      "continue_async": false
     }
   },
   {
@@ -530,7 +534,8 @@
       "is_archived": false,
       "form": null,
       "lead_time": 432000,
-      "is_multiple_instance": false
+      "is_multiple_instance": false,
+      "continue_async": false
     }
   },
   {
@@ -552,7 +557,8 @@
       "is_archived": false,
       "form": null,
       "lead_time": null,
-      "is_multiple_instance": true
+      "is_multiple_instance": true,
+      "continue_async": false
     }
   },
   {
@@ -574,7 +580,8 @@
       "is_archived": false,
       "form": null,
       "lead_time": 864000,
-      "is_multiple_instance": false
+      "is_multiple_instance": false,
+      "continue_async": false
     }
   },
   {
@@ -596,7 +603,8 @@
       "is_archived": false,
       "form": null,
       "lead_time": null,
-      "is_multiple_instance": false
+      "is_multiple_instance": false,
+      "continue_async": false
     }
   },
   {
@@ -620,7 +628,8 @@
       "is_archived": false,
       "form": null,
       "lead_time": null,
-      "is_multiple_instance": true
+      "is_multiple_instance": true,
+      "continue_async": false
     }
   },
   {
@@ -642,7 +651,8 @@
       "is_archived": false,
       "form": null,
       "lead_time": null,
-      "is_multiple_instance": false
+      "is_multiple_instance": false,
+      "continue_async": false
     }
   },
   {
@@ -664,7 +674,8 @@
       "is_archived": false,
       "form": null,
       "lead_time": 864000,
-      "is_multiple_instance": false
+      "is_multiple_instance": false,
+      "continue_async": false
     }
   },
   {
@@ -686,7 +697,8 @@
       "is_archived": false,
       "form": "ebau-number",
       "lead_time": 432000,
-      "is_multiple_instance": false
+      "is_multiple_instance": false,
+      "continue_async": false
     }
   },
   {
@@ -708,7 +720,8 @@
       "is_archived": false,
       "form": "publikation",
       "lead_time": null,
-      "is_multiple_instance": false
+      "is_multiple_instance": false,
+      "continue_async": false
     }
   },
   {
@@ -730,7 +743,8 @@
       "is_archived": false,
       "form": "information-of-neighbors",
       "lead_time": null,
-      "is_multiple_instance": false
+      "is_multiple_instance": false,
+      "continue_async": false
     }
   },
   {
@@ -752,7 +766,8 @@
       "is_archived": false,
       "form": null,
       "lead_time": 864000,
-      "is_multiple_instance": false
+      "is_multiple_instance": false,
+      "continue_async": false
     }
   },
   {
@@ -774,7 +789,8 @@
       "is_archived": false,
       "form": "nfd",
       "lead_time": null,
-      "is_multiple_instance": false
+      "is_multiple_instance": false,
+      "continue_async": false
     }
   },
   {
@@ -798,7 +814,8 @@
       "is_archived": false,
       "form": null,
       "lead_time": 864000,
-      "is_multiple_instance": false
+      "is_multiple_instance": false,
+      "continue_async": false
     }
   },
   {
@@ -820,7 +837,8 @@
       "is_archived": false,
       "form": null,
       "lead_time": null,
-      "is_multiple_instance": false
+      "is_multiple_instance": false,
+      "continue_async": false
     }
   },
   {
@@ -842,7 +860,8 @@
       "is_archived": false,
       "form": "sb1",
       "lead_time": null,
-      "is_multiple_instance": false
+      "is_multiple_instance": false,
+      "continue_async": false
     }
   },
   {
@@ -864,7 +883,8 @@
       "is_archived": false,
       "form": "sb2",
       "lead_time": null,
-      "is_multiple_instance": false
+      "is_multiple_instance": false,
+      "continue_async": false
     }
   },
   {
@@ -886,7 +906,8 @@
       "is_archived": false,
       "form": null,
       "lead_time": null,
-      "is_multiple_instance": false
+      "is_multiple_instance": false,
+      "continue_async": false
     }
   },
   {
@@ -908,7 +929,8 @@
       "is_archived": false,
       "form": null,
       "lead_time": null,
-      "is_multiple_instance": false
+      "is_multiple_instance": false,
+      "continue_async": false
     }
   },
   {
@@ -930,7 +952,8 @@
       "is_archived": false,
       "form": null,
       "lead_time": 864000,
-      "is_multiple_instance": false
+      "is_multiple_instance": false,
+      "continue_async": false
     }
   },
   {
@@ -952,7 +975,8 @@
       "is_archived": false,
       "form": null,
       "lead_time": null,
-      "is_multiple_instance": false
+      "is_multiple_instance": false,
+      "continue_async": false
     }
   },
   {

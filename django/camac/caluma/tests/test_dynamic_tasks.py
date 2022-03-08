@@ -184,4 +184,4 @@ def test_dynamic_task_after_circulation(
     for task in expected_tasks:
         assert case.work_items.filter(
             task_id=task, status=WorkItem.STATUS_READY
-        ).exists()
+        ).exists(), f"There is no ready work item for the task '{task}'"
