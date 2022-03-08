@@ -18,7 +18,8 @@
       "is_archived": false,
       "form": null,
       "lead_time": null,
-      "is_multiple_instance": false
+      "is_multiple_instance": false,
+      "continue_async": false
     }
   },
   {
