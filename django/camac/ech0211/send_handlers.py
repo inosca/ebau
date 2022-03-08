@@ -2,21 +2,14 @@ from collections import namedtuple
 from datetime import datetime, time, timedelta
 from math import trunc
 
-from caluma.caluma_core.events import send_event
-from caluma.caluma_form import api as form_api
-from caluma.caluma_form.models import Question
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
-from caluma.caluma_workflow.events import post_create_work_item
-from caluma.caluma_workflow.utils import create_work_items
 from django.conf import settings
 from django.db.models import Count, Q
 from django.utils import timezone
 from django.utils.translation import gettext_noop
 
-from camac.caluma.api import CalumaApi
 from camac.constants.kt_bern import (
     ATTACHMENT_SECTION_ALLE_BETEILIGTEN,
-    DECISION_TYPE_UNKNOWN,
     INSTANCE_RESOURCE_ZIRKULATION,
     NOTICE_TYPE_NEBENBESTIMMUNG,
     NOTICE_TYPE_STELLUNGNAHME,
@@ -177,7 +170,7 @@ class NoticeRulingSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
         judgement = self.data.eventNotice.decisionRuling.judgement
 
         try:
-            decision = judgement_to_decision(judgement, workflow_slug)
+            decision = judgement_to_decision(judgement, workflow_slug)  # noqa: F841
         except KeyError:
             raise SendHandlerException(
                 f'"{judgement}" is not a valid judgement for "{workflow_slug}"'
@@ -200,36 +193,38 @@ class NoticeRulingSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
             # suspend case
             workflow_api.suspend_case(case=case, user=self.caluma_user)
         else:
+            pass
+            # TODO: reimplement with new circulation
             # we might have a running circulation, skip it
-            self.skip_work_item("circulation")
-            self.skip_work_item("start-decision")
+            # self.skip_work_item("circulation")
+            # self.skip_work_item("start-decision")
             # if we don't have one, skip the whole circulation
-            self.skip_work_item("skip-circulation")
+            # self.skip_work_item("skip-circulation")
 
             # write the decision document
-            decision_document = case.work_items.get(
-                task_id="decision", status=caluma_workflow_models.WorkItem.STATUS_READY
-            ).document
-            form_api.save_answer(
-                document=decision_document,
-                question=Question.objects.get(slug="decision-decision-assessment"),
-                value=decision,
-            )
-            form_api.save_answer(
-                document=decision_document,
-                question=Question.objects.get(slug="decision-date"),
-                date=self.data.eventNotice.decisionRuling.date.date(),
-            )
-            if workflow_slug == "building-permit":
-                form_api.save_answer(
-                    document=decision_document,
-                    question=Question.objects.get(slug="decision-approval-type"),
-                    value=DECISION_TYPE_UNKNOWN,
-                )
+            # decision_document = case.work_items.get(
+            #     task_id="decision", status=caluma_workflow_models.WorkItem.STATUS_READY
+            # ).document
+            # form_api.save_answer(
+            #     document=decision_document,
+            #     question=Question.objects.get(slug="decision-decision-assessment"),
+            #     value=decision,
+            # )
+            # form_api.save_answer(
+            #     document=decision_document,
+            #     question=Question.objects.get(slug="decision-date"),
+            #     date=self.data.eventNotice.decisionRuling.date.date(),
+            # )
+            # if workflow_slug == "building-permit":
+            #     form_api.save_answer(
+            #         document=decision_document,
+            #         question=Question.objects.get(slug="decision-approval-type"),
+            #         value=DECISION_TYPE_UNKNOWN,
+            #     )
 
             # this handle status changes and assignment of the construction control
             # for "normal" judgements
-            self.complete_work_item("decision")
+            # self.complete_work_item("decision")
 
         self.link_to_section(attachments)
 
@@ -331,9 +326,10 @@ class AccompanyingReportSendHandler(BaseSendHandler):
         self.activation.circulation_state = CirculationState.objects.get(name="DONE")
         self.activation.save()
 
-        self.complete_work_item(
-            "activation", {"meta__activation-id": self.activation.pk}
-        )
+        # TODO: reimplement with new circulation
+        # self.complete_work_item(
+        #     "activation", {"meta__activation-id": self.activation.pk}
+        # )
 
         answer = "; ".join(self.data.eventAccompanyingReport.remark)
         clause = "; ".join(self.data.eventAccompanyingReport.ancillaryClauses)
@@ -420,8 +416,6 @@ class TaskSendHandler(BaseSendHandler):
         )
 
         if not has_circulations or circulation not in running_circulations:
-            has_running_circulations = running_circulations.exists()
-
             # If the latest circulation is not running or no circulation exists
             # we need to create a new one
             circulation = Circulation.objects.create(
@@ -431,36 +425,38 @@ class TaskSendHandler(BaseSendHandler):
                 name=trunc(timezone.now().timestamp()),
             )
 
-            context = {"circulation-id": circulation.pk}
-            if not has_circulations:
-                # If there are no circulations yet, we complete the
-                # init-circulation work item which will create a new circulation
-                # work item
-                self.complete_work_item("init-circulation", {}, context)
-            elif not has_running_circulations:
-                # If there are no running circulations anymore, we complete the
-                # start-circulation work item which will create a new
-                # circulation work item
-                self.complete_work_item("start-circulation", {}, context)
-            else:
-                # If there are running circulations but the latest circulation
-                # is not one of them, we create a new circulation work item
-                # manually like the `createWorkItem` mutation would.
-                # TODO: This should probably be a public caluma API
-                for work_item in create_work_items(
-                    caluma_workflow_models.Task.objects.filter(pk="circulation"),
-                    self.instance.case,
-                    self.caluma_user,
-                    None,
-                    context,
-                ):
-                    send_event(
-                        post_create_work_item,
-                        sender="case_post_create",
-                        work_item=work_item,
-                        user=self.caluma_user,
-                        context=context,
-                    )
+            # TODO: reimplement with new circulation
+            # has_running_circulations = running_circulations.exists()
+            # context = {"circulation-id": circulation.pk}
+            # if not has_circulations:
+            #     # If there are no circulations yet, we complete the
+            #     # init-circulation work item which will create a new circulation
+            #     # work item
+            #     self.complete_work_item("init-circulation", {}, context)
+            # elif not has_running_circulations:
+            #     # If there are no running circulations anymore, we complete the
+            #     # start-circulation work item which will create a new
+            #     # circulation work item
+            #     self.complete_work_item("start-circulation", {}, context)
+            # else:
+            #     # If there are running circulations but the latest circulation
+            #     # is not one of them, we create a new circulation work item
+            #     # manually like the `createWorkItem` mutation would.
+            #     # TODO: This should probably be a public caluma API
+            #     for work_item in create_work_items(
+            #         caluma_workflow_models.Task.objects.filter(pk="circulation"),
+            #         self.instance.case,
+            #         self.caluma_user,
+            #         None,
+            #         context,
+            #     ):
+            #         send_event_with_deprecations(
+            #             "post_create_work_item",
+            #             sender="case_post_create",
+            #             work_item=work_item,
+            #             user=self.caluma_user,
+            #             context=context,
+            #         )
 
         return circulation
 
@@ -506,7 +502,8 @@ class TaskSendHandler(BaseSendHandler):
             email_sent=0,
         )
 
-        CalumaApi().sync_circulation(circulation, self.caluma_user)
+        # TODO: reimplement with new circulation
+        # CalumaApi().sync_circulation(circulation, self.caluma_user)
 
         return activation
 

@@ -65,4 +65,9 @@ Router.map(function () {
     this.route("new");
     this.route("detail", { path: "/:import_id" });
   });
+
+  this.mount("@projectcaluma/ember-distribution", {
+    as: "distribution",
+    path: "/distribution/:case",
+  });
 });

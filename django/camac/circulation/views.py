@@ -1,6 +1,4 @@
 import django_excel
-from caluma.caluma_workflow.api import skip_work_item
-from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.db import transaction
 from django.db.models import OuterRef, Subquery
@@ -9,12 +7,10 @@ from rest_framework.response import Response
 from rest_framework.settings import api_settings
 from rest_framework_json_api import views
 
-from camac.caluma.api import CalumaApi
 from camac.core.models import Activation, Circulation, CirculationState
 from camac.instance.filters import FormFieldOrdering
 from camac.instance.mixins import InstanceEditableMixin, InstanceQuerysetMixin
 from camac.instance.models import FormField
-from camac.notification.utils import send_mail
 
 from . import filters, serializers
 
@@ -46,70 +42,30 @@ class CirculationView(InstanceQuerysetMixin, InstanceEditableMixin, views.ModelV
     def has_object_update_permission(self, instance):
         return False
 
-    def has_object_sync_permission(self, instance):
-        return self.has_base_object_permission(instance)
-
     def has_object_end_permission(self, instance):
         return (
             self.has_base_object_permission(instance)
             and instance.service == self.request.group.service
         )
 
-    @transaction.atomic
-    def perform_destroy(self, circulation):
-        work_item = WorkItem.objects.filter(
-            **{"meta__circulation-id": circulation.pk}
-        ).first()
-
-        # delete circulation
-        super().perform_destroy(circulation)
-
-        if work_item:
-            # skip work item to continue the workflow
-            skip_work_item(
-                work_item=work_item,
-                user=self.request.caluma_info.context.user,
-                context={"no-history": True},
-            )
-
-            # remove obsolete work item
-            work_item.delete()
-
-    @action(methods=["PATCH"], detail=True)
-    @transaction.atomic
-    def sync(self, request, pk=None):
-        CalumaApi().sync_circulation(
-            self.get_object(), request.caluma_info.context.user
-        )
-
-        return Response([], 204)
-
     @action(methods=["PATCH"], detail=True)
     @transaction.atomic
     def end(self, request, pk=None):
         circulation = self.get_object()
 
-        # skip ready circulation work item
-        work_item = WorkItem.objects.filter(
-            **{"meta__circulation-id": circulation.pk, "status": WorkItem.STATUS_READY}
-        ).first()
-        if work_item:
-            skip_work_item(
-                work_item=work_item, user=self.request.caluma_info.context.user
-            )
-
         # send notifications
-        notification_config = settings.APPLICATION["NOTIFICATIONS"].get(
-            "END_CIRCULATION", []
-        )
-        for config in notification_config:
-            send_mail(
-                config["template_slug"],
-                self.get_serializer_context(),
-                recipient_types=config["recipient_types"],
-                instance={"type": "instances", "id": circulation.instance.pk},
-                circulation={"type": "circulations", "id": circulation.pk},
-            )
+        # TODO: implement this in caluma event
+        # notification_config = settings.APPLICATION["NOTIFICATIONS"].get(
+        #     "END_CIRCULATION", []
+        # )
+        # for config in notification_config:
+        #     send_mail(
+        #         config["template_slug"],
+        #         self.get_serializer_context(),
+        #         recipient_types=config["recipient_types"],
+        #         instance={"type": "instances", "id": circulation.instance.pk},
+        #         circulation={"type": "circulations", "id": circulation.pk},
+        #     )
 
         # set state of all activations to done
         circulation.activations.update(

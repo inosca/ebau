@@ -1,7 +1,7 @@
 import pytest
-from caluma.caluma_form.models import DynamicOption, Form
-from caluma.caluma_workflow.api import complete_work_item, skip_work_item, start_case
-from caluma.caluma_workflow.models import Case, Workflow, WorkItem
+from caluma.caluma_form.models import DynamicOption
+from caluma.caluma_workflow.api import complete_work_item, skip_work_item
+from caluma.caluma_workflow.models import Case
 
 from camac.constants.kt_bern import (
     DECISION_TYPE_BAUBEWILLIGUNGSFREI,
@@ -126,16 +126,16 @@ def test_dynamic_task_after_decision(
     )
     case.document.answers.create(question_id="gemeinde", value=dynamic_option.slug)
 
-    for task_id in [
-        "submit",
-        "ebau-number",
-        "skip-circulation",
-        "decision",
+    for task_id, fn in [
+        ("submit", complete_work_item),
+        ("ebau-number", complete_work_item),
+        ("distribution", skip_work_item),
+        ("decision", complete_work_item),
     ]:
         if task_id == "decision":
             decision_factory(decision=decision, decision_type=decision_type)
 
-        complete_work_item(case.work_items.get(task_id=task_id), caluma_admin_user)
+        fn(case.work_items.get(task_id=task_id), caluma_admin_user)
 
     case.refresh_from_db()
 
@@ -144,45 +144,3 @@ def test_dynamic_task_after_decision(
     if case.status == Case.STATUS_RUNNING:
         assert case.work_items.filter(task_id="sb1").exists()
         assert case.instance.instance_state.name == "sb1"
-
-
-@pytest.mark.parametrize(
-    "has_circulation,instance_state__name,expected_tasks",
-    [
-        (False, "circulation_init", ["skip-circulation", "init-circulation"]),
-        (False, "circulation", ["start-circulation", "start-decision"]),
-        (
-            True,
-            "circulation",
-            ["start-circulation", "check-activation", "start-decision"],
-        ),
-    ],
-)
-def test_dynamic_task_after_circulation(
-    db,
-    caluma_admin_user,
-    caluma_publication,
-    instance,
-    instance_state,
-    circulation_factory,
-    has_circulation,
-    expected_tasks,
-):
-    if has_circulation:
-        circulation_factory(instance=instance)
-
-    case = start_case(
-        workflow=Workflow.objects.get(pk="building-permit"),
-        form=Form.objects.get(pk="main-form"),
-        user=caluma_admin_user,
-    )
-    instance.case = case
-    instance.save()
-
-    for task_id in ["submit", "ebau-number", "init-circulation", "circulation"]:
-        skip_work_item(case.work_items.get(task_id=task_id), caluma_admin_user)
-
-    for task in expected_tasks:
-        assert case.work_items.filter(
-            task_id=task, status=WorkItem.STATUS_READY
-        ).exists(), f"There is no ready work item for the task '{task}'"

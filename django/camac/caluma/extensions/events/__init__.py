@@ -4,8 +4,8 @@
 
 from . import (  # noqa: F401
     audit,
-    circulation,
     decision,
+    distribution,
     ebau_number,
     general,
     simple_workflow,

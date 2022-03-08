@@ -416,16 +416,13 @@ def test_copy_without_permission(
 def test_instance_list(
     admin_client,
     be_instance,
-    activation,
-    group,
+    active_inquiry_factory,
     editable,
-    group_location_factory,
     mock_public_status,
-    use_caluma_form,
     multilang,
-    responsible_service,
     mock_nfd_permissions,
 ):
+    active_inquiry_factory(be_instance)
 
     url = reverse("instance-list")
     included = CalumaInstanceSerializer.included_serializers
@@ -975,11 +972,16 @@ def test_instance_report(
         service = be_instance.responsible_service()
         construction_control = construction_control_for(service)
 
-        for task_id in ["submit", "ebau-number", "skip-circulation", "decision"]:
+        for task_id, fn in [
+            ("submit", workflow_api.complete_work_item),
+            ("ebau-number", workflow_api.complete_work_item),
+            ("distribution", workflow_api.skip_work_item),
+            ("decision", workflow_api.complete_work_item),
+        ]:
             if task_id == "decision":
                 decision_factory(decision=be_constants.DECISIONS_BEWILLIGT)
 
-            workflow_api.complete_work_item(
+            fn(
                 work_item=be_instance.case.work_items.get(task_id=task_id),
                 user=caluma_admin_user,
                 context={"group-id": service.pk},
@@ -1060,11 +1062,17 @@ def test_instance_finalize(
         service = be_instance.responsible_service()
         construction_control = construction_control_for(service)
 
-        for task_id in ["submit", "ebau-number", "skip-circulation", "decision", "sb1"]:
+        for task_id, fn in [
+            ("submit", workflow_api.complete_work_item),
+            ("ebau-number", workflow_api.complete_work_item),
+            ("distribution", workflow_api.skip_work_item),
+            ("decision", workflow_api.complete_work_item),
+            ("sb1", workflow_api.complete_work_item),
+        ]:
             if task_id == "decision":
                 decision_factory(decision=be_constants.DECISIONS_BEWILLIGT)
 
-            workflow_api.complete_work_item(
+            fn(
                 work_item=be_instance.case.work_items.get(task_id=task_id),
                 user=caluma_admin_user,
                 context={"group-id": service.pk},

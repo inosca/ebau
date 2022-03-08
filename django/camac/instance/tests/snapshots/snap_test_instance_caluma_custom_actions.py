@@ -7,7 +7,7 @@ from snapshottest import Snapshot
 
 snapshots = Snapshot()
 
-snapshots['test_fix_work_items[Support-circulation_init-False-200-expected_work_items1-False-instance__user0-municipality] 1'] = '''Fixed 0 wrong instances states
+snapshots['test_fix_work_items[Support-circulation_init-200-expected_work_items1-False-instance__user0-municipality] 1'] = '''Fixed 0 wrong instances states
 Fixed 0 missing circulation work items
 Deleted 0 circulation and activation work items
 Canceled 0 activation work items of finished circulations
@@ -22,7 +22,7 @@ Fixed 1 instances:
 - INSTANCE_ID, circulation_init, Elizabeth Garcia, Missing work items
 '''
 
-snapshots['test_fix_work_items[Support-circulation_init-False-200-expected_work_items1-True-instance__user0-municipality] 1'] = '''Fixed 0 wrong instances states
+snapshots['test_fix_work_items[Support-circulation_init-200-expected_work_items1-True-instance__user0-municipality] 1'] = '''Fixed 0 wrong instances states
 Fixed 0 missing circulation work items
 Deleted 0 circulation and activation work items
 Canceled 0 activation work items of finished circulations
@@ -37,7 +37,7 @@ Fixed 1 instances:
 - INSTANCE_ID, circulation_init, Elizabeth Garcia, Missing work items
 '''
 
-snapshots['test_fix_work_items[Support-sb1-False-200-expected_work_items2-False-instance__user0-municipality] 1'] = '''Fixed 0 wrong instances states
+snapshots['test_fix_work_items[Support-sb1-200-expected_work_items2-False-instance__user0-municipality] 1'] = '''Fixed 0 wrong instances states
 Fixed 0 missing circulation work items
 Deleted 0 circulation and activation work items
 Canceled 0 activation work items of finished circulations
@@ -52,7 +52,7 @@ Fixed 1 instances:
 - INSTANCE_ID, sb1, Elizabeth Garcia, Missing work items
 '''
 
-snapshots['test_fix_work_items[Support-sb1-False-200-expected_work_items2-True-instance__user0-municipality] 1'] = '''Fixed 0 wrong instances states
+snapshots['test_fix_work_items[Support-sb1-200-expected_work_items2-True-instance__user0-municipality] 1'] = '''Fixed 0 wrong instances states
 Fixed 0 missing circulation work items
 Deleted 0 circulation and activation work items
 Canceled 0 activation work items of finished circulations
@@ -67,7 +67,7 @@ Fixed 1 instances:
 - INSTANCE_ID, sb1, Elizabeth Garcia, Missing work items
 '''
 
-snapshots['test_fix_work_items[Support-subm-False-200-expected_work_items0-False-instance__user0-municipality] 1'] = '''Fixed 0 wrong instances states
+snapshots['test_fix_work_items[Support-subm-200-expected_work_items0-False-instance__user0-municipality] 1'] = '''Fixed 0 wrong instances states
 Fixed 0 missing circulation work items
 Deleted 0 circulation and activation work items
 Canceled 0 activation work items of finished circulations
@@ -82,7 +82,7 @@ Fixed 1 instances:
 - INSTANCE_ID, subm, Elizabeth Garcia, Missing work items
 '''
 
-snapshots['test_fix_work_items[Support-subm-False-200-expected_work_items0-True-instance__user0-municipality] 1'] = '''Fixed 0 wrong instances states
+snapshots['test_fix_work_items[Support-subm-200-expected_work_items0-True-instance__user0-municipality] 1'] = '''Fixed 0 wrong instances states
 Fixed 0 missing circulation work items
 Deleted 0 circulation and activation work items
 Canceled 0 activation work items of finished circulations

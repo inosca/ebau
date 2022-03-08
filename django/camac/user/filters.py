@@ -33,6 +33,7 @@ class PublicServiceFilterSet(FilterSet):
         field_name="service_parent", lookup_expr="isnull", exclude=True
     )
     available_in_distribution = BooleanFilter(method="_available_in_distribution")
+    service_group_name = CharMultiValueFilter(field_name="service_group__name")
 
     @permission_aware
     def _available_in_distribution(self, queryset, name, value):
@@ -77,7 +78,13 @@ class PublicServiceFilterSet(FilterSet):
 
     class Meta:
         model = models.Service
-        fields = ("service_group", "has_parent", "available_in_distribution")
+        fields = (
+            "service_group",
+            "has_parent",
+            "available_in_distribution",
+            "service_group_name",
+            "service_parent",
+        )
 
 
 class ServiceFilterSet(FilterSet):

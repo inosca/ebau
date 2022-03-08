@@ -236,9 +236,14 @@ class PublicRoleSerializer(MultilingualSerializer, serializers.ModelSerializer):
 
 
 class PublicServiceGroupSerializer(MultilingualSerializer, serializers.ModelSerializer):
+    slug = serializers.CharField(source="name")
+
     class Meta:
         model = models.ServiceGroup
-        fields = ("name",)
+        fields = (
+            "name",
+            "slug",
+        )
         resource_name = "public-service-groups"
 
 

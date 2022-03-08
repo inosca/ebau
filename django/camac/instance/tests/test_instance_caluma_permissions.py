@@ -68,8 +68,8 @@ def sort_permissions(permissions):
 )
 def test_instance_permissions_be(
     admin_client,
-    activation,
     be_instance,
+    active_inquiry_factory,
     instance_state,
     use_caluma_form,
     snapshot,
@@ -85,6 +85,8 @@ def test_instance_permissions_be(
         "INSTANCE_PERMISSIONS"
     ]
 
+    active_inquiry_factory(be_instance)
+
     response = admin_client.get(reverse("instance-detail", args=[be_instance.pk]))
 
     assert response.status_code == status.HTTP_200_OK
@@ -99,7 +101,7 @@ def test_instance_permissions_be(
 @pytest.mark.parametrize("instance_state__name", ["ext", "circ", "redac"])
 def test_instance_permissions_ur(
     admin_client,
-    activation,
+    instance_service,
     ur_instance,
     instance_state,
     use_caluma_form,
@@ -229,13 +231,15 @@ def document_with_row_and_erledigt(empty_document, row_form, nfd_table_question)
 )
 def test_instance_nfd_permissions(
     admin_client,
-    activation,
+    active_inquiry_factory,
     instance,
     expected_nfd_permissions,
     use_caluma_form,
     requests_mock,
     caluma_doc,
 ):
+    active_inquiry_factory()
+
     url = reverse("instance-detail", args=[instance.pk])
     response = admin_client.get(url)
 
