@@ -3,6 +3,7 @@
 from logging import getLogger
 from django.conf import settings
 from django.db import migrations, models
+from django.db.models import OuterRef, Subquery
 import django.db.models.deletion
 
 log = getLogger()
@@ -11,17 +12,12 @@ log = getLogger()
 def set_user(apps, schema_editor):
     AttachmentDownloadHistory = apps.get_model("document", "AttachmentDownloadHistory")
     User = apps.get_model("user", "User")
-    for adh in AttachmentDownloadHistory.objects.all():
-        user = User.objects.filter(username=adh.keycloak_id).first()
 
-        if user:
-            adh.user_id = user.id
-            adh.save()
-        else:
-            adh.delete()
-            log.error(
-                f"The AttachmentDownloadHistory {adh.id} was deleted because there was no user with username {adh.keycloak_id}"
-            )
+    AttachmentDownloadHistory.objects.update(
+        user_id=Subquery(
+            User.objects.filter(username=OuterRef("keycloak_id")).values("pk")[:1]
+        )
+    )
 
 
 class Migration(migrations.Migration):
