@@ -86,8 +86,15 @@ export default class CustomCaseModel extends CaseModel {
   }
 
   get intent() {
-    return getAnswer(this.raw.document, config.APPLICATION.intentSlugs)?.node
-      .stringValue;
+    const answer = getAnswer(this.raw.document, config.APPLICATION.intentSlugs);
+
+    if (answer.node.__typename === "TableAnswer") {
+      return config.APPLICATION.advertisementIntentSlugMapping[
+        getAnswer(answer?.node.value[0], "art-der-reklame")?.node.stringValue
+      ];
+    }
+
+    return answer.node.stringValue;
   }
 
   get intentSZ() {
@@ -308,6 +315,7 @@ export default class CustomCaseModel extends CaseModel {
         "typ-des-verfahrens",
         "oereb-thema",
         "teilstatus",
+        "reklamen",
       ]) {
         edges {
           node {
