@@ -16416,15 +16416,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 12000027,
-    "fields": {
-      "button": 12000014,
-      "role": 1128,
-      "instance_state": 23
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 12000028,
     "fields": {
       "button": 12000005,
@@ -17114,6 +17105,15 @@
       "button": 12000019,
       "role": 1131,
       "instance_state": 33
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000105,
+    "fields": {
+      "button": 12000014,
+      "role": 1129,
+      "instance_state": 23
     }
   },
   {
@@ -19113,7 +19113,7 @@
     "fields": {
       "instance_resource": 315,
       "name": "Zirkulation abschliessen",
-      "description": null,
+      "description": "KOOR BG",
       "class_field": null,
       "hidden": 0,
       "sort": 5
@@ -19125,7 +19125,7 @@
     "fields": {
       "instance_resource": 753,
       "name": "Zirkulation abschliessen",
-      "description": null,
+      "description": "Gemeinde",
       "class_field": "circ_end",
       "hidden": 0,
       "sort": 4
@@ -19137,7 +19137,7 @@
     "fields": {
       "instance_resource": 467,
       "name": "Zirkulation abschliessen",
-      "description": null,
+      "description": "KOOR NP",
       "class_field": null,
       "hidden": 0,
       "sort": 5
@@ -19149,7 +19149,7 @@
     "fields": {
       "instance_resource": 625,
       "name": "Zirkulation abschliessen",
-      "description": null,
+      "description": "KOOR BD",
       "class_field": null,
       "hidden": 0,
       "sort": 5
@@ -19161,7 +19161,7 @@
     "fields": {
       "instance_resource": 702,
       "name": "Zirkulation abschliessen",
-      "description": null,
+      "description": "KOOR AfU",
       "class_field": null,
       "hidden": 0,
       "sort": 5
@@ -19173,7 +19173,7 @@
     "fields": {
       "instance_resource": 717,
       "name": "Zirkulation abschliessen",
-      "description": null,
+      "description": "KOOR ALA",
       "class_field": null,
       "hidden": 0,
       "sort": 5
@@ -19185,7 +19185,7 @@
     "fields": {
       "instance_resource": 726,
       "name": "Zirkulation abschliessen",
-      "description": null,
+      "description": "KOOR AfE",
       "class_field": null,
       "hidden": 0,
       "sort": 5
@@ -19197,7 +19197,7 @@
     "fields": {
       "instance_resource": 738,
       "name": "Zirkulation abschliessen",
-      "description": null,
+      "description": "KOOR SD",
       "class_field": null,
       "hidden": 0,
       "sort": 5
