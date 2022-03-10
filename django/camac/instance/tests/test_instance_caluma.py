@@ -746,7 +746,7 @@ def test_instance_submit_cantonal_territory_usage_ur(
     assert koor_email in mail.outbox[0].recipients()
 
     assert ur_instance.instance_state.name == "ext"
-    assert ur_instance.location_id == 22
+    assert ur_instance.location_id == location.pk
     assert ur_instance.group == koor_group
 
 
