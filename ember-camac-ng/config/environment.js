@@ -198,7 +198,12 @@ module.exports = function (environment) {
           "bezeichnung",
           "vorhaben-proposal-description",
           "veranstaltung-beschrieb",
+          "reklamen",
         ],
+        advertisementIntentSlugMapping: {
+          "art-der-reklame-neue": "Neue Reklame",
+          "art-der-reklame-aenderung": "Änderung bestehender Reklame",
+        },
         externalServiceGroupIds: [
           "21",
           "70",
