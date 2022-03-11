@@ -3,7 +3,7 @@ import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { dropTask, task } from "ember-concurrency";
-import UIkit from "uikit";
+import { confirm } from "ember-uikit";
 
 import config from "caluma-portal/config/environment";
 
@@ -50,20 +50,11 @@ export default class BeDocumentBucketComponent extends Component {
 
   @dropTask
   *delete(attachment) {
-    if (!this.args.deletable) return;
-
-    try {
-      yield UIkit.modal.confirm(
-        this.intl.t("documents.deleteInfo", { filename: attachment.name }),
-        {
-          labels: {
-            ok: this.intl.t("global.ok"),
-            cancel: this.intl.t("global.cancel"),
-          },
-        }
-      );
-    } catch (error) {
-      return; // confirmation denied
+    if (
+      !this.args.deletable &&
+      !(yield confirm(this.intl.t("documents.deleteInfo")))
+    ) {
+      return;
     }
 
     return yield this.onDelete({ attachment, bucket: this.slug });

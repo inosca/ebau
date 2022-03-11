@@ -1,7 +1,6 @@
 import { getOwner } from "@ember/application";
 import { tracked } from "@glimmer/tracking";
-
-import confirm from "camac-ng/utils/confirm";
+import { confirm } from "ember-uikit";
 
 export function loadingTask(target, property, desc) {
   const gen = desc.value;
