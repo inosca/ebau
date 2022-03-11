@@ -1,5 +1,6 @@
 from django.core.management.base import BaseCommand
 from django.db import transaction
+from django.db.models import Q
 
 from camac.constants import kt_uri as uri_constants
 from camac.document.models import Attachment
@@ -16,8 +17,14 @@ class Command(BaseCommand):
         sid = transaction.savepoint()
 
         internal_attachments_koor_afj = Attachment.objects.filter(
-            group_id=uri_constants.KOOR_AFJ_GROUP_ID,
-            attachment_sections=uri_constants.INTERNAL_DOCUMENTS_ATTACHMENT_SECTION_ID,
+            Q(
+                group_id=uri_constants.KOOR_AFJ_GROUP_ID,
+                attachment_sections=uri_constants.INTERNAL_DOCUMENTS_ATTACHMENT_SECTION_ID,
+            )
+            | Q(
+                service_id=uri_constants.KOOR_AFJ_SERVICE_ID,
+                attachment_sections=uri_constants.INTERNAL_DOCUMENTS_ATTACHMENT_SECTION_ID,
+            ),
         )
         for attachment in internal_attachments_koor_afj:
             attachment_attachment_section = attachment.attachment_sections.through.objects.filter(
