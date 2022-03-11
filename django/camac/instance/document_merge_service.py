@@ -11,7 +11,7 @@ from django.core.serializers.json import DjangoJSONEncoder
 from django.db.models import Q
 from django.utils.text import slugify
 from django.utils.translation import get_language, gettext as _
-from rest_framework import exceptions
+from rest_framework import exceptions, status
 from rest_framework.authentication import get_authorization_header
 
 from camac.instance.master_data import MasterData
@@ -204,6 +204,10 @@ class DMSClient:
             data=json.dumps({"convert": convert, "data": data}, cls=DjangoJSONEncoder),
             headers=headers,
         )
+
+        if response.status_code == status.HTTP_401_UNAUTHORIZED:
+            raise exceptions.AuthenticationFailed(_("Signature has expired."))
+
         response.raise_for_status()
 
         return response.content
