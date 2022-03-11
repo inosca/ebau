@@ -2,7 +2,7 @@ import "ember-pikaday/pikaday.css";
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import PikadayModifier from "ember-pikaday/modifiers/pikaday";
-import { Info } from "luxon";
+import { DateTime, Info } from "luxon";
 
 // put the last element to the front of the array
 const shift = (array) => [...array.slice(-1), ...array.slice(0, -1)];
@@ -24,7 +24,17 @@ export default class CustomPikadayModifier extends PikadayModifier {
         weekdaysShort: shift(Info.weekdays("short", { locale })),
       },
       toString: this.formatDate,
+      parse: this.parseDate,
     };
+  }
+
+  @action
+  parseDate(value) {
+    const date = DateTime.fromFormat(value, "D", {
+      locale: this.intl.primaryLocale,
+    });
+
+    return date.isValid ? date.toJSDate() : null;
   }
 
   @action
