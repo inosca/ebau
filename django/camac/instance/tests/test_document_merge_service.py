@@ -5,6 +5,8 @@ from caluma.caluma_form.models import Document, DynamicOption
 from django.conf import settings
 from django.core.cache import cache
 from django.core.management import call_command
+from django.utils.translation import gettext as _
+from rest_framework import exceptions, status
 
 from camac.utils import build_url
 
@@ -254,3 +256,22 @@ def test_document_merge_service_cover_sheet_without_header_values(
             be_instance, be_instance.case.document, group.service
         )
     )
+
+
+def test_document_merge_service_unauthorized(db, requests_mock):
+    template = "some-template"
+
+    requests_mock.register_uri(
+        "POST",
+        build_url(
+            settings.DOCUMENT_MERGE_SERVICE_URL,
+            f"/template/{template}/merge",
+            trailing=True,
+        ),
+        status_code=status.HTTP_401_UNAUTHORIZED,
+    )
+
+    with pytest.raises(exceptions.AuthenticationFailed) as e:
+        DMSClient("some token").merge({"foo": "some data"}, template)
+
+    assert str(e.value.detail) == _("Signature has expired.")
