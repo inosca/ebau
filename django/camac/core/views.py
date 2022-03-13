@@ -105,11 +105,7 @@ class PublicationEntryView(ModelViewSet):
 
     @permission_aware
     def get_queryset(self):
-        return models.PublicationEntry.objects.filter(
-            publication_date__lte=timezone.now(),
-            publication_end_date__gte=timezone.now(),
-            is_published=True,
-        )
+        return models.PublicationEntry.objects.none()
 
     def get_queryset_for_municipality(self):
         return models.PublicationEntry.objects.filter(
@@ -127,6 +123,13 @@ class PublicationEntryView(ModelViewSet):
     def get_queryset_for_reader(self):
         return models.PublicationEntry.objects.filter(
             instance__circulations__activations__service=self.request.group.service
+        )
+
+    def get_queryset_for_public(self):
+        return models.PublicationEntry.objects.filter(
+            publication_date__date__lte=timezone.localdate(),
+            publication_end_date__date__gte=timezone.localdate(),
+            is_published=True,
         )
 
     @permission_aware
