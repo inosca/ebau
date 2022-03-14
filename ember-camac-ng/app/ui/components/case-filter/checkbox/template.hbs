@@ -1,0 +1,10 @@
+{{! template-lint-disable require-input-label }}
+<CaseFilter::Base @filterName={{@filterName}}>
+  <input
+    name={{@filterName}}
+    type={{or @type "checkbox"}}
+    checked={{@value}}
+    class="uk-margin-remove"
+    {{on "change" this.onChange}}
+  />
+</CaseFilter::Base>

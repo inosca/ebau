@@ -220,6 +220,7 @@ export default class CaseTableComponent extends Component {
       has_pending_sanction: this.args.hasPendingSanction,
       pending_sanctions_control_instance:
         this.args.filter.pendingSanctionsControlInstance,
+      with_cantonal_participation: this.args.filter.withCantonalParticipation,
       identifier: this.args.filter.instanceIdentifier || "",
       exclude_child_cases: true,
     };
