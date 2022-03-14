@@ -1,6 +1,10 @@
+import json
+
 import pytest
 from django.conf import settings
 from jose.exceptions import ExpiredSignatureError, JOSEError
+from mozilla_django_oidc.contrib.drf import OIDCAuthentication
+from rest_framework import exceptions, status
 from rest_framework.exceptions import AuthenticationFailed
 
 from camac.user.authentication import JSONWebTokenKeycloakAuthentication
@@ -116,6 +120,52 @@ def test_authenticate_ok(rf, admin_user, mocker, clear_cache):
 
     assert user == admin_user
     assert decode_token.return_value == token
+
+
+@pytest.mark.parametrize("is_id_token", [True, False])
+@pytest.mark.parametrize(
+    "authentication_header,authenticated,error",
+    [
+        ("", False, False),
+        ("Bearer", False, True),
+        ("Bearer Too many params", False, True),
+        ("Basic Auth", False, True),
+        ("Bearer Token", True, False),
+    ],
+)
+@pytest.mark.parametrize("user__username", ["1"])
+def test_django_admin_oidc_authentication(
+    db,
+    user,
+    rf,
+    authentication_header,
+    authenticated,
+    error,
+    is_id_token,
+    requests_mock,
+    settings,
+):
+    userinfo = {"sub": "1", "preferred_username": "1"}
+    requests_mock.get(settings.OIDC_OP_USER_ENDPOINT, text=json.dumps(userinfo))
+
+    if not is_id_token:
+        userinfo = {"client_id": "test_client", "sub": "1"}
+        requests_mock.get(
+            settings.OIDC_OP_USER_ENDPOINT, status_code=status.HTTP_401_UNAUTHORIZED
+        )
+        requests_mock.post(
+            settings.OIDC_OP_INTROSPECT_ENDPOINT, text=json.dumps(userinfo)
+        )
+
+    request = rf.get("/openid", HTTP_AUTHORIZATION=authentication_header)
+    try:
+        result = OIDCAuthentication().authenticate(request)
+    except exceptions.AuthenticationFailed:
+        assert error
+    else:
+        if result:
+            user, auth = result
+            assert user.is_authenticated
 
 
 @pytest.mark.parametrize("side_effect", [ExpiredSignatureError(), JOSEError()])
