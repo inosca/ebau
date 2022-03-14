@@ -71,6 +71,7 @@ cases:
     instanceIdentifier-placeholder: ""
     intent: ""
     intent-placeholder: ""
+    withCantonalParticipation: ""
     applicantName: ""
     applicantName-placeholder: ""
     street: ""

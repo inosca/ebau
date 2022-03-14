@@ -61,6 +61,7 @@ export default {
       "createdAfter",
       "createdBefore",
       "intent",
+      "withCantonalParticipation",
     ],
   },
   activeCirculationStates: [
