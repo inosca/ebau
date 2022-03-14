@@ -2192,6 +2192,7 @@ class InstanceResource(MultilingualModel, models.Model):
     class Meta:
         managed = True
         db_table = "INSTANCE_RESOURCE"
+        ordering = ["resource__sort", "sort"]
 
 
 class InstanceResourceAction(models.Model):
@@ -3867,6 +3868,7 @@ class Resource(MultilingualModel, models.Model):
     class Meta:
         managed = True
         db_table = "RESOURCE"
+        ordering = ["sort"]
 
 
 class ResourceT(models.Model):
