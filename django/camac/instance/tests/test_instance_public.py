@@ -527,7 +527,7 @@ def test_public_caluma_instance_form_type_filter(
     for instance in instances[:3]:
         AnswerFactory(
             question_id="form-type",
-            value="form-type-building-permit-canton",
+            value="baubewilligungsverfahren",
             document=instance.case.document,
         )
 
@@ -543,7 +543,7 @@ def test_public_caluma_instance_form_type_filter(
     response = admin_client.get(
         url,
         {
-            "form_type": "form-type-building-permit-canton",
+            "form_type": "baubewilligungsverfahren",
             "fields[public-caluma-instances]": "id",
         },
         HTTP_X_CAMAC_PUBLIC_ACCESS=True,

@@ -70,6 +70,7 @@ cases:
     instanceIdentifier-placeholder: "01-20-001"
     intent: "Vorhaben"
     intent-placeholder: "Detailbeschreibung Vorhaben"
+    withCantonalParticipation: "Mit kantonaler Beteiligung"
     applicantName: "Gesuchsteller"
     applicantName-placeholder: "Marc Muster"
     street: "Strasse / Flurname / Ort"

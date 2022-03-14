@@ -197,10 +197,8 @@ class InstanceQuerysetMixin(object):
         instance_field = self._get_instance_filter_expr("pk", "in")
         instance_states = ["ext", "ext_gem", "circ", "redac", "done"]
         form_ids = [
-            uri_constants.FORM_VORABKLAERUNG_MIT_KANTON,
-            uri_constants.FORM_BAUGESUCH_MIT_KANTON,
-            uri_constants.FORM_BAUGESUCH_OHNE_KANTON,
-            uri_constants.FORM_VORABKLAERUNG_OHNE_KANTON,
+            uri_constants.FORM_VORABKLAERUNG,
+            uri_constants.FORM_BAUGESUCH,
         ]
 
         instances_for_location = models.Instance.objects.filter(
