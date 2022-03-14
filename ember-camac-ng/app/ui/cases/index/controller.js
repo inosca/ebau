@@ -25,6 +25,7 @@ const filterQueryParams = [
   "caseStatus",
   "caseDocumentFormName",
   "responsibleServiceUser",
+  "withCantonalParticipation",
   "addressSZ",
   "intentSZ",
   "plotSZ",

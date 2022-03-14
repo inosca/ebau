@@ -630,6 +630,26 @@
     }
   },
   {
+    "model": "instance.form",
+    "pk": 298,
+    "fields": {
+      "form_state": 1,
+      "name": "Baubewilligungsverfahren",
+      "description": null,
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 299,
+    "fields": {
+      "form_state": 1,
+      "name": "Baugesuch-Vorabklärung",
+      "description": null,
+      "family": null
+    }
+  },
+  {
     "model": "instance.formstate",
     "pk": 1,
     "fields": {
