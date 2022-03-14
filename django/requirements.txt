@@ -38,3 +38,5 @@ uWSGI==2.0.20
 whitenoise==6.0.0
 xmlschema==1.9.2
 manabi==0.5.2
+mozilla-django-oidc==2.0.0
+django-admin-sortable2==1.0.4
