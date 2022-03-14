@@ -16,13 +16,8 @@ class UIkitModalLabels {
 
 export function initialize(appInstance) {
   const modalLabels = new UIkitModalLabels();
-
   setOwner(modalLabels, appInstance);
-
-  UIkit.container = appInstance.rootElement;
   UIkit.modal.labels = modalLabels;
 }
 
-export default {
-  initialize,
-};
+export default { initialize };

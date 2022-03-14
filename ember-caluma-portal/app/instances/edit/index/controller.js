@@ -3,7 +3,7 @@ import { inject as service } from "@ember/service";
 import { useCalumaQuery } from "@projectcaluma/ember-core/caluma-query";
 import { allCases } from "@projectcaluma/ember-core/caluma-query/queries";
 import { dropTask } from "ember-concurrency";
-import UIkit from "uikit";
+import { confirm } from "ember-uikit";
 
 import config from "../../../config/environment";
 
@@ -95,14 +95,7 @@ export default class InstancesEditIndexController extends Controller {
 
   @dropTask
   *deleteInstance() {
-    try {
-      yield UIkit.modal.confirm(this.intl.t("instances.deleteInstanceModal"), {
-        labels: {
-          ok: this.intl.t("global.ok"),
-          cancel: this.intl.t("global.cancel"),
-        },
-      });
-    } catch (error) {
+    if (!confirm(this.intl.t("instances.deleteInstanceModal"))) {
       return;
     }
 

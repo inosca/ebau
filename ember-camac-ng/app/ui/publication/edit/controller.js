@@ -5,12 +5,12 @@ import { decodeId } from "@projectcaluma/ember-core/helpers/decode-id";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
 import { useTask } from "ember-resources";
+import { confirm } from "ember-uikit";
 import { dedupeTracked } from "tracked-toolbox";
 
 import saveWorkItemMutation from "camac-ng/gql/mutations/save-workitem.graphql";
 import getPublication from "camac-ng/gql/queries/get-publication.graphql";
 import getPublications from "camac-ng/gql/queries/get-publications.graphql";
-import confirm from "camac-ng/utils/confirm";
 
 export default class PublicationEditController extends Controller {
   @service notifications;
