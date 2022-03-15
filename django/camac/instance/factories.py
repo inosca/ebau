@@ -29,6 +29,7 @@ class FormFactory(DjangoModelFactory):
     name = Faker("name")
     description = Faker("name")
     form_state = SubFactory(FormStateFactory)
+    family = None
 
     class Meta:
         model = models.Form

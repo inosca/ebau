@@ -32,6 +32,14 @@ class Form(core_models.MultilingualModel, models.Model):
     description = models.CharField(
         db_column="DESCRIPTION", max_length=1000, blank=True, null=True
     )
+    family = models.ForeignKey(
+        "self",
+        models.DO_NOTHING,
+        db_column="FAMILY",
+        related_name="+",
+        blank=False,
+        null=True,
+    )
 
     class Meta:
         managed = True

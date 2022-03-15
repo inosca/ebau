@@ -13,7 +13,10 @@ module("Integration | Component | case-filter/select", function (hooks) {
     // Handle any actions with this.set('myAction', function(val) { ... });
 
     this.set("update", () => null);
-    await render(hbs`<CaseFilter::Select @updateFilter={{update}} />`);
+    this.set("options", [{ label: "Option 1", slug: "option-1" }]);
+    await render(
+      hbs`<CaseFilter::Select @updateFilter={{update}} @filterOptions={{options}} />`
+    );
 
     assert.ok(this.element.textContent.trim());
   });

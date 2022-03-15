@@ -1,4 +1,8 @@
+from functools import reduce
+
+from django.conf import settings
 from django.contrib.auth import get_user_model
+from django.db.models import Q
 from django_filters.rest_framework import (
     BooleanFilter,
     CharFilter,
@@ -11,7 +15,7 @@ from camac.instance.models import Instance
 from camac.instance.views import InstanceView
 
 from . import models
-from .permissions import get_permission_func
+from .permissions import get_permission_func, permission_aware
 
 
 class LocationFilterSet(FilterSet):
@@ -27,10 +31,52 @@ class PublicServiceFilterSet(FilterSet):
     has_parent = BooleanFilter(
         field_name="service_parent", lookup_expr="isnull", exclude=True
     )
+    available_in_distribution = BooleanFilter(method="_available_in_distribution")
+
+    @permission_aware
+    def _available_in_distribution(self, queryset, name, value):
+        if not value:
+            return queryset  # pragma: no cover
+
+        return queryset.none()
+
+    def _available_in_distribution_for_service(self, queryset, name, value):
+        if not value:
+            return queryset  # pragma: no cover
+
+        # Services can invite subservices
+        service = self.request.group.service
+        return queryset.filter(service_parent=service)
+
+    def _available_in_distribution_for_municipality(self, queryset, name, value):
+        if not value:
+            return queryset  # pragma: no cover
+
+        group = self.request.group
+        service_group_mapping = settings.APPLICATION.get(
+            "SERVICE_GROUPS_FOR_DISTRIBUTION", {}
+        )
+        service_groups = service_group_mapping.get(group.role.name, [])
+        filters = []
+        for config in service_groups:
+            if config["localized"]:
+                filters.append(
+                    Q(
+                        service_group__pk=config["id"],
+                        groups__locations__in=group.locations.all(),
+                    )
+                )
+            else:
+                filters.append(Q(service_group__pk=config["id"]))
+
+        return queryset.filter(reduce(lambda a, b: a | b, filters)).distinct()
+
+    def _available_in_distribution_for_canton(self, queryset, name, value):
+        return self._available_in_distribution_for_municipality(queryset, name, value)
 
     class Meta:
         model = models.Service
-        fields = ("service_group", "has_parent")
+        fields = ("service_group", "has_parent", "available_in_distribution")
 
 
 class ServiceFilterSet(FilterSet):
