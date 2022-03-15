@@ -1,0 +1,73 @@
+@import "custom";
+
+$filter-font-size: 14px;
+$filter-font-weight: 400;
+$filter-font-color: black;
+$filter-line-height: 18px;
+$filter-color-selected: rgb(230, 230, 230);
+$filter-color-placeholder: #999;
+$filter-color-option-border: rgb(210, 210, 210);
+
+.case-filter__text {
+  font-size: $filter-font-size;
+  font-family: $global-font-family;
+  font-weight: $filter-font-weight;
+  line-height: $filter-line-height;
+  color: $filter-font-color;
+}
+
+.case-filter__input {
+  @extend .case-filter__text;
+
+  &::placeholder {
+    color: $filter-color-placeholder;
+    // firefox reduces opacity for placeholders by default ...
+    opacity: 1;
+  }
+}
+
+.case-filter__select {
+  @extend .case-filter__input;
+
+  & .ember-power-select-placeholder,
+  .input[type="search" i],
+  .ember-power-select-selected-item,
+  .ember-power-select-option {
+    margin-left: 0px;
+  }
+
+  &.ember-power-select-trigger,
+  input[type="search" i],
+  .ember-power-select-option,
+  .ember-power-select-multiple-option {
+    line-height: $filter-line-height;
+  }
+
+  &.ember-power-select-trigger {
+    min-height: $filter-line-height;
+    padding-right: 20px;
+    padding: 1px;
+  }
+
+  & .ember-power-select-search-input {
+    padding: 1px;
+  }
+
+  & .ember-power-select-trigger-multiple-input {
+    margin-top: 2px;
+  }
+
+  & .ember-power-select-option[aria-selected="true"] {
+    background-color: $filter-color-selected;
+    color: inherit;
+  }
+
+  & .ember-power-select-multiple-option {
+    border-radius: 3px;
+    border: 1px solid $filter-color-option-border;
+    background-color: $filter-color-selected;
+    color: inherit;
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+}

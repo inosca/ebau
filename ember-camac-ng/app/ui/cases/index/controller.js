@@ -7,9 +7,12 @@ import { objectFromQueryParams } from "camac-ng/decorators";
 const filterQueryParams = [
   "instanceId",
   "dossierNumber",
+  "instanceIdentifier",
   "municipality",
+  "locationSZ",
   "parcelNumber",
   "instanceState",
+  "instanceStateDescription",
   "buildingPermitType",
   "createdAfter",
   "createdBefore",
@@ -17,9 +20,19 @@ const filterQueryParams = [
   "applicantName",
   "street",
   "service",
+  "serviceSZ",
   "pendingSanctionsControlInstance",
   "caseStatus",
   "caseDocumentFormName",
+  "responsibleServiceUser",
+  "addressSZ",
+  "plotSZ",
+  "builderSZ",
+  "landownerSZ",
+  "applicantSZ",
+  "submitDateAfterSZ",
+  "submitDateBeforeSZ",
+  "formSZ",
 ];
 
 export default class CasesIndexController extends Controller {
@@ -29,6 +42,9 @@ export default class CasesIndexController extends Controller {
     "hasPendingBillingEntry",
     "hasPendingSanction",
     "workflow",
+    "excludeWorkflow",
+    "isCaluma",
+    "instanceStates",
     ...filterQueryParams,
   ];
 
@@ -37,9 +53,16 @@ export default class CasesIndexController extends Controller {
   @tracked hasPendingBillingEntry = false;
   @tracked hasPendingSanction = false;
   @tracked workflow = null;
+  @tracked excludeWorkflow = null;
+  @tracked isCaluma = null;
+  @tracked instanceStates = null;
 
   @objectFromQueryParams(...filterQueryParams)
   caseFilter;
+
+  get casesBackend() {
+    return (this.isCaluma ?? "true") === "true" ? "caluma" : "camac-ng";
+  }
 
   @action
   setCaseFilter(filter) {

@@ -5,7 +5,8 @@
     "fields": {
       "form_state": 1,
       "name": "baugesuch-reklamegesuch",
-      "description": "Baugesuch"
+      "description": "Baugesuch",
+      "family": 1
     }
   },
   {
@@ -14,7 +15,8 @@
     "fields": {
       "form_state": 1,
       "name": "projektanderung",
-      "description": "Projektänderung zu bewilligtem Baugesuch"
+      "description": "Projektänderung zu bewilligtem Baugesuch",
+      "family": 2
     }
   },
   {
@@ -23,7 +25,8 @@
     "fields": {
       "form_state": 1,
       "name": "vorentscheid-gemass-ss84-pbg",
-      "description": "Vorentscheid gemäss § 84 PBG"
+      "description": "Vorentscheid gemäss § 84 PBG",
+      "family": 3
     }
   },
   {
@@ -32,7 +35,8 @@
     "fields": {
       "form_state": 1,
       "name": "vorabklarung",
-      "description": "Vorabklärung"
+      "description": "Vorabklärung",
+      "family": 4
     }
   },
   {
@@ -41,7 +45,8 @@
     "fields": {
       "form_state": 1,
       "name": "baumeldung-fur-geringfugiges-vorhaben",
-      "description": "Baumeldung für geringfügiges Vorhaben"
+      "description": "Baumeldung für geringfügiges Vorhaben",
+      "family": 5
     }
   },
   {
@@ -50,7 +55,8 @@
     "fields": {
       "form_state": 1,
       "name": "technische-bewilligung",
-      "description": "Gesuch um technische Bewilligung"
+      "description": "Gesuch um technische Bewilligung",
+      "family": 6
     }
   },
   {
@@ -59,7 +65,8 @@
     "fields": {
       "form_state": 1,
       "name": "konzession-fur-wasserentnahme",
-      "description": "Konzession für Wasserentnahme"
+      "description": "Konzession für Wasserentnahme",
+      "family": 7
     }
   },
   {
@@ -68,7 +75,8 @@
     "fields": {
       "form_state": 1,
       "name": "plangenehmigungsgesuch",
-      "description": "Plangenehmigungsgesuch"
+      "description": "Plangenehmigungsgesuch",
+      "family": 8
     }
   },
   {
@@ -77,7 +85,8 @@
     "fields": {
       "form_state": 1,
       "name": "projektgenehmigungsgesuch-gemass-ss15-strag",
-      "description": "Projektgenehmigungsgesuch gemäss § 15 StraG"
+      "description": "Projektgenehmigungsgesuch gemäss § 15 StraG",
+      "family": 9
     }
   },
   {
@@ -86,7 +95,8 @@
     "fields": {
       "form_state": 1,
       "name": "anlassbewilligungen-verkehrsbewilligungen",
-      "description": "Anlassbewilligungen / Verkehrsbewilligungen"
+      "description": "Anlassbewilligungen / Verkehrsbewilligungen",
+      "family": 10
     }
   },
   {
@@ -95,7 +105,8 @@
     "fields": {
       "form_state": 2,
       "name": "geschaeftskontrolle",
-      "description": "Geschäftskontrolle"
+      "description": "Geschäftskontrolle",
+      "family": 11
     }
   },
   {
@@ -104,7 +115,8 @@
     "fields": {
       "form_state": 1,
       "name": "vorabklarung-v2",
-      "description": "Vorabklärung"
+      "description": "Vorabklärung",
+      "family": 4
     }
   },
   {
@@ -113,7 +125,8 @@
     "fields": {
       "form_state": 1,
       "name": "baumeldung-fur-geringfugiges-vorhaben-v2",
-      "description": "Baumeldung für geringfügiges Vorhaben"
+      "description": "Baumeldung für geringfügiges Vorhaben",
+      "family": 5
     }
   },
   {
@@ -122,7 +135,8 @@
     "fields": {
       "form_state": 1,
       "name": "konzession-fur-wasserentnahme-v2",
-      "description": "Konzession für Wasserentnahme"
+      "description": "Konzession für Wasserentnahme",
+      "family": 7
     }
   },
   {
@@ -131,7 +145,8 @@
     "fields": {
       "form_state": 1,
       "name": "plangenehmigungsgesuch-v2",
-      "description": "Plangenehmigungsgesuch"
+      "description": "Plangenehmigungsgesuch",
+      "family": 8
     }
   },
   {
@@ -140,7 +155,8 @@
     "fields": {
       "form_state": 1,
       "name": "projektgenehmigungsgesuch-gemass-ss15-strag-v2",
-      "description": "Projektgenehmigungsgesuch gemäss § 15 StraG"
+      "description": "Projektgenehmigungsgesuch gemäss § 15 StraG",
+      "family": 9
     }
   },
   {
@@ -149,7 +165,8 @@
     "fields": {
       "form_state": 1,
       "name": "anlassbewilligungen-verkehrsbewilligungen-v2",
-      "description": "Anlassbewilligungen / Verkehrsbewilligungen"
+      "description": "Anlassbewilligungen / Verkehrsbewilligungen",
+      "family": 10
     }
   },
   {
@@ -158,7 +175,8 @@
     "fields": {
       "form_state": 1,
       "name": "baugesuch-reklamegesuch-v2",
-      "description": "Baugesuch"
+      "description": "Baugesuch",
+      "family": 1
     }
   },
   {
@@ -167,7 +185,8 @@
     "fields": {
       "form_state": 1,
       "name": "projektanderung-v2",
-      "description": "Projektänderung zu bewilligtem Baugesuch"
+      "description": "Projektänderung zu bewilligtem Baugesuch",
+      "family": 2
     }
   },
   {
@@ -176,7 +195,8 @@
     "fields": {
       "form_state": 1,
       "name": "vorentscheid-gemass-ss84-pbg-v2",
-      "description": "Vorentscheid gemäss § 84 PBG"
+      "description": "Vorentscheid gemäss § 84 PBG",
+      "family": 3
     }
   },
   {
@@ -185,7 +205,8 @@
     "fields": {
       "form_state": 1,
       "name": "vorabklarung-v3",
-      "description": "Vorabklärung"
+      "description": "Vorabklärung",
+      "family": 4
     }
   },
   {
@@ -194,7 +215,8 @@
     "fields": {
       "form_state": 1,
       "name": "baumeldung-fur-geringfugiges-vorhaben-v3",
-      "description": "Baumeldung für geringfügiges Vorhaben"
+      "description": "Baumeldung für geringfügiges Vorhaben",
+      "family": 5
     }
   },
   {
@@ -203,7 +225,8 @@
     "fields": {
       "form_state": 1,
       "name": "baugesuch-reklamegesuch-v3",
-      "description": "Baugesuch"
+      "description": "Baugesuch",
+      "family": 1
     }
   },
   {
@@ -212,7 +235,8 @@
     "fields": {
       "form_state": 1,
       "name": "projektanderung-v3",
-      "description": "Projektänderung zu bewilligtem Baugesuch"
+      "description": "Projektänderung zu bewilligtem Baugesuch",
+      "family": 2
     }
   },
   {
@@ -221,7 +245,8 @@
     "fields": {
       "form_state": 1,
       "name": "vorentscheid-gemass-ss84-pbg-v3",
-      "description": "Vorentscheid gemäss § 84 PBG"
+      "description": "Vorentscheid gemäss § 84 PBG",
+      "family": 3
     }
   },
   {
@@ -230,7 +255,8 @@
     "fields": {
       "form_state": 1,
       "name": "baugesuch-reklamegesuch-v4",
-      "description": "Baugesuch"
+      "description": "Baugesuch",
+      "family": 1
     }
   },
   {
@@ -239,7 +265,8 @@
     "fields": {
       "form_state": 1,
       "name": "projektanderung-v4",
-      "description": "Projektänderung zu bewilligtem Baugesuch"
+      "description": "Projektänderung zu bewilligtem Baugesuch",
+      "family": 2
     }
   },
   {
@@ -248,7 +275,8 @@
     "fields": {
       "form_state": 1,
       "name": "vorentscheid-gemass-ss84-pbg-v4",
-      "description": "Vorentscheid gemäss § 84 PBG"
+      "description": "Vorentscheid gemäss § 84 PBG",
+      "family": 3
     }
   },
   {
@@ -257,7 +285,8 @@
     "fields": {
       "form_state": 1,
       "name": "migriertes-dossier",
-      "description": "Migriertes Dossier"
+      "description": "Migriertes Dossier",
+      "family": 29
     }
   },
   {
@@ -266,7 +295,8 @@
     "fields": {
       "form_state": 1,
       "name": "baugesuch-reklamegesuch-v5",
-      "description": "Baugesuch"
+      "description": "Baugesuch",
+      "family": 1
     }
   },
   {
@@ -275,7 +305,8 @@
     "fields": {
       "form_state": 1,
       "name": "projektanderung-v5",
-      "description": "Projektänderung zu bewilligtem Baugesuch"
+      "description": "Projektänderung zu bewilligtem Baugesuch",
+      "family": 2
     }
   },
   {
@@ -284,7 +315,8 @@
     "fields": {
       "form_state": 1,
       "name": "vorentscheid-gemass-ss84-pbg-v5",
-      "description": "Vorentscheid gemäss § 84 PBG"
+      "description": "Vorentscheid gemäss § 84 PBG",
+      "family": 3
     }
   },
   {
@@ -293,7 +325,8 @@
     "fields": {
       "form_state": 1,
       "name": "vorabklarung-v4",
-      "description": "Vorabklärung"
+      "description": "Vorabklärung",
+      "family": 4
     }
   },
   {
@@ -302,7 +335,8 @@
     "fields": {
       "form_state": 1,
       "name": "baumeldung-fur-geringfugiges-vorhaben-v4",
-      "description": "Baumeldung für geringfügiges Vorhaben"
+      "description": "Baumeldung für geringfügiges Vorhaben",
+      "family": 5
     }
   },
   {
@@ -311,7 +345,8 @@
     "fields": {
       "form_state": 1,
       "name": "technische-bewilligung-v2",
-      "description": "Gesuch um technische Bewilligung"
+      "description": "Gesuch um technische Bewilligung",
+      "family": 6
     }
   },
   {
@@ -320,7 +355,8 @@
     "fields": {
       "form_state": 1,
       "name": "konzession-fur-wasserentnahme-v3",
-      "description": "Konzession für Wasserentnahme"
+      "description": "Konzession für Wasserentnahme",
+      "family": 7
     }
   },
   {
@@ -329,7 +365,8 @@
     "fields": {
       "form_state": 1,
       "name": "anlassbewilligungen-verkehrsbewilligungen-v3",
-      "description": "Anlassbewilligungen / Verkehrsbewilligungen"
+      "description": "Anlassbewilligungen / Verkehrsbewilligungen",
+      "family": 10
     }
   },
   {
@@ -338,7 +375,8 @@
     "fields": {
       "form_state": 1,
       "name": "plangenehmigungsgesuch-v3",
-      "description": "Plangenehmigungsgesuch"
+      "description": "Plangenehmigungsgesuch",
+      "family": 8
     }
   },
   {
@@ -347,7 +385,8 @@
     "fields": {
       "form_state": 1,
       "name": "projektgenehmigungsgesuch-gemass-ss15-strag-v3",
-      "description": "Projektgenehmigungsgesuch gemäss § 15 StraG"
+      "description": "Projektgenehmigungsgesuch gemäss § 15 StraG",
+      "family": 9
     }
   },
   {
@@ -356,7 +395,8 @@
     "fields": {
       "form_state": 1,
       "name": "projektanderung-v6",
-      "description": "Projektänderung zu bewilligtem Baugesuch"
+      "description": "Projektänderung zu bewilligtem Baugesuch",
+      "family": 2
     }
   },
   {

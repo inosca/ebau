@@ -12,6 +12,7 @@ export default class CaseTableComponent extends Component {
   @service store;
   @service intl;
   @service shoebox;
+  @service apollo;
 
   @calumaQuery({ query: allCases, options: "options" }) casesQuery;
 
@@ -123,7 +124,12 @@ export default class CaseTableComponent extends Component {
       .map(([key]) => availableFilterSet[key]);
 
     const workflow = this.args.workflow;
-    return [...searchFilters, ...(workflow ? [{ workflow }] : [])];
+    const excludeWorkflow = this.args.excludeWorkflow;
+    return [
+      ...searchFilters,
+      ...(workflow ? [{ workflow }] : []),
+      ...(excludeWorkflow ? [{ workflow: excludeWorkflow, invert: true }] : []),
+    ];
   }
 
   get paginationInfo() {
@@ -153,11 +159,21 @@ export default class CaseTableComponent extends Component {
       instance_id: instanceIds.join(","),
       include: "instance_state,user,form",
     });
+
+    if (this.args.casesBackend === "camac-ng") {
+      await this.store.query("form-field", {
+        instance: instanceIds.join(","),
+        name: (config.APPLICATION.caseTableFormFields ?? []).join(","),
+        include: "instance",
+      });
+    }
+
     return cases;
   }
 
   get tableColumns() {
-    const tableColumns = config.APPLICATION.caseTableColumns;
+    const tableColumns =
+      config.APPLICATION.caseTableColumns[this.args.casesBackend];
 
     if (Array.isArray(tableColumns)) {
       return tableColumns;
@@ -170,9 +186,22 @@ export default class CaseTableComponent extends Component {
   @action
   setup() {
     const camacFilters = {
-      instance_state: this.args.filter.instanceState || "",
-      location: this.args.filter.municipality,
-      service: this.args.filter.service,
+      instance_state:
+        this.args.filter.instanceState ||
+        this.args.filter.instanceStateDescription ||
+        this.args.instanceStates ||
+        "",
+      location: this.args.filter.municipality || this.args.filter.locationSZ,
+      service: this.args.filter.service || this.args.filter.serviceSZ,
+      responsible_service_user: this.args.filter.responsibleServiceUser,
+      address_sz: this.args.filter.addressSZ,
+      plot_sz: this.args.filter.plotSZ,
+      builder_sz: this.args.filter.builderSZ,
+      landowner_sz: this.args.filter.landownerSZ,
+      applicant_sz: this.args.filter.applicantSZ,
+      submit_date_after_sz: this.args.filter.submitDateAfterSZ,
+      submit_date_before_sz: this.args.filter.submitDateBeforeSZ,
+      form_name_versioned: this.args.filter.formSZ,
       circulation_state: this.args.hasActivation
         ? config.APPLICATION.activeCirculationStates
         : null,
@@ -180,7 +209,10 @@ export default class CaseTableComponent extends Component {
       has_pending_sanction: this.args.hasPendingSanction,
       pending_sanctions_control_instance:
         this.args.filter.pendingSanctionsControlInstance,
+      identifier: this.args.filter.instanceIdentifier || "",
+      exclude_child_cases: true,
     };
+
     this.casesQuery.fetch({
       order: config.APPLICATION.casesQueryOrder,
       filter: this.gqlFilter,
@@ -188,7 +220,7 @@ export default class CaseTableComponent extends Component {
         context: {
           headers: {
             "x-camac-filters": Object.entries(camacFilters)
-              .filter(([, value]) => value)
+              .filter(([, value]) => ![null, undefined, ""].includes(value))
               .map((entry) => entry.join("="))
               .join("&"),
           },

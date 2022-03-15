@@ -4815,7 +4815,7 @@
     "pk": 1,
     "fields": {
       "available_instance_resource": "apidocuments",
-      "resource": 1,
+      "resource": 28,
       "name": "Dokumente",
       "description": null,
       "template": null,
@@ -4830,7 +4830,7 @@
     "pk": 3,
     "fields": {
       "available_instance_resource": "editformpage",
-      "resource": 1,
+      "resource": 28,
       "name": "Formular",
       "description": null,
       "template": "/ember/instance.phtml",
@@ -4845,7 +4845,7 @@
     "pk": 4,
     "fields": {
       "available_instance_resource": "publication",
-      "resource": 1,
+      "resource": 28,
       "name": "Publikation",
       "description": null,
       "template": null,
@@ -4860,7 +4860,7 @@
     "pk": 5,
     "fields": {
       "available_instance_resource": "workflow",
-      "resource": 1,
+      "resource": 28,
       "name": "Workflow",
       "description": null,
       "template": null,
@@ -4875,7 +4875,7 @@
     "pk": 7,
     "fields": {
       "available_instance_resource": "editcirculation",
-      "resource": 1,
+      "resource": 28,
       "name": "Zirkulation",
       "description": "Zirkulation Gemeinde",
       "template": null,
@@ -4890,7 +4890,7 @@
     "pk": 10,
     "fields": {
       "available_instance_resource": "circulation",
-      "resource": 1,
+      "resource": 28,
       "name": "Stellungnahmen",
       "description": null,
       "template": null,
@@ -4905,7 +4905,7 @@
     "pk": 11,
     "fields": {
       "available_instance_resource": "editformpage",
-      "resource": 6,
+      "resource": 28,
       "name": "Formular",
       "description": null,
       "template": "/ember/instance.phtml",
@@ -4920,7 +4920,7 @@
     "pk": 12,
     "fields": {
       "available_instance_resource": "apidocuments",
-      "resource": 6,
+      "resource": 28,
       "name": "Dokumente",
       "description": null,
       "template": null,
@@ -4935,7 +4935,7 @@
     "pk": 14,
     "fields": {
       "available_instance_resource": "editnotice",
-      "resource": 6,
+      "resource": 28,
       "name": "Eigener Fachbericht",
       "description": null,
       "template": null,
@@ -4980,7 +4980,7 @@
     "pk": 18,
     "fields": {
       "available_instance_resource": "editcirculation",
-      "resource": 6,
+      "resource": 28,
       "name": "Zirkulation BGZ",
       "description": "Zirkulation des Kantons (BGZ)",
       "template": null,
@@ -4995,7 +4995,7 @@
     "pk": 20,
     "fields": {
       "available_instance_resource": "circulation",
-      "resource": 6,
+      "resource": 28,
       "name": "Stellungnahmen",
       "description": "Stellungnahmen der Fachstellen Zirkulation",
       "template": null,
@@ -5010,7 +5010,7 @@
     "pk": 21,
     "fields": {
       "available_instance_resource": "page",
-      "resource": 1,
+      "resource": 28,
       "name": "Verantwortliche Person",
       "description": null,
       "template": "/ember-camac-ng/responsible.phtml",
@@ -5025,7 +5025,7 @@
     "pk": 22,
     "fields": {
       "available_instance_resource": "page",
-      "resource": 6,
+      "resource": 28,
       "name": "Verantwortliche Person",
       "description": null,
       "template": "/ember-camac-ng/responsible.phtml",
@@ -5040,7 +5040,7 @@
     "pk": 23,
     "fields": {
       "available_instance_resource": "templatecenter",
-      "resource": 1,
+      "resource": 28,
       "name": "Dokumente generieren",
       "description": null,
       "template": null,
@@ -5055,7 +5055,7 @@
     "pk": 24,
     "fields": {
       "available_instance_resource": "templatecenter",
-      "resource": 6,
+      "resource": 28,
       "name": "Dokumente generieren",
       "description": null,
       "template": null,
@@ -5070,7 +5070,7 @@
     "pk": 25,
     "fields": {
       "available_instance_resource": "objection",
-      "resource": 1,
+      "resource": 28,
       "name": "Einsprecher",
       "description": null,
       "template": null,
@@ -5085,7 +5085,7 @@
     "pk": 26,
     "fields": {
       "available_instance_resource": "page",
-      "resource": 1,
+      "resource": 28,
       "name": "Notizen",
       "description": null,
       "template": "/ember-camac-ng/journal.phtml",
@@ -5100,7 +5100,7 @@
     "pk": 27,
     "fields": {
       "available_instance_resource": "issue",
-      "resource": 1,
+      "resource": 28,
       "name": "Pendenzen",
       "description": null,
       "template": null,
@@ -5145,7 +5145,7 @@
     "pk": 30,
     "fields": {
       "available_instance_resource": "billing",
-      "resource": 1,
+      "resource": 28,
       "name": "Gebühren",
       "description": "Gebühren der Gemeinde",
       "template": null,
@@ -5160,7 +5160,7 @@
     "pk": 31,
     "fields": {
       "available_instance_resource": "billing",
-      "resource": 6,
+      "resource": 28,
       "name": "Gebühren",
       "description": "Gebühren der Fachstelle",
       "template": null,
@@ -5175,7 +5175,7 @@
     "pk": 33,
     "fields": {
       "available_instance_resource": "integritydashboard",
-      "resource": 1,
+      "resource": 28,
       "name": "Vollständigkeitsprüfung",
       "description": null,
       "template": null,
@@ -5250,7 +5250,7 @@
     "pk": 39,
     "fields": {
       "available_instance_resource": "editcirculation",
-      "resource": 6,
+      "resource": 28,
       "name": "Zirkulation",
       "description": "Zirkulation der Fachstellen für die Unterfachstellen",
       "template": null,
@@ -5265,7 +5265,7 @@
     "pk": 40,
     "fields": {
       "available_instance_resource": "integritydashboard",
-      "resource": 6,
+      "resource": 28,
       "name": "Vollständigkeitsprüfung",
       "description": null,
       "template": null,
@@ -5280,7 +5280,7 @@
     "pk": 41,
     "fields": {
       "available_instance_resource": "page",
-      "resource": 6,
+      "resource": 28,
       "name": "Notizen",
       "description": null,
       "template": "/ember-camac-ng/journal.phtml",
@@ -5295,7 +5295,7 @@
     "pk": 42,
     "fields": {
       "available_instance_resource": "issue",
-      "resource": 6,
+      "resource": 28,
       "name": "Pendenzen",
       "description": null,
       "template": null,
@@ -5310,7 +5310,7 @@
     "pk": 43,
     "fields": {
       "available_instance_resource": "objection",
-      "resource": 6,
+      "resource": 28,
       "name": "Einsprecher",
       "description": null,
       "template": null,
@@ -5325,7 +5325,7 @@
     "pk": 47,
     "fields": {
       "available_instance_resource": "editcirculation",
-      "resource": 1,
+      "resource": 28,
       "name": "Zirkulation",
       "description": "Zirkulation einer Fachstelle als Leitbehörde",
       "template": null,
@@ -5340,7 +5340,7 @@
     "pk": 48,
     "fields": {
       "available_instance_resource": "history",
-      "resource": 1,
+      "resource": 28,
       "name": "Verlauf",
       "description": null,
       "template": null,
@@ -5355,7 +5355,7 @@
     "pk": 49,
     "fields": {
       "available_instance_resource": "workitemlistinstance",
-      "resource": 1,
+      "resource": 28,
       "name": "Aufgaben",
       "description": null,
       "template": null,
@@ -5370,7 +5370,7 @@
     "pk": 50,
     "fields": {
       "available_instance_resource": "workitemlistinstance",
-      "resource": 6,
+      "resource": 28,
       "name": "Aufgaben",
       "description": null,
       "template": null,
@@ -5385,7 +5385,7 @@
     "pk": 51,
     "fields": {
       "available_instance_resource": "history",
-      "resource": 6,
+      "resource": 28,
       "name": "Verlauf",
       "description": null,
       "template": null,
@@ -5400,7 +5400,7 @@
     "pk": 52,
     "fields": {
       "available_instance_resource": "page",
-      "resource": 1,
+      "resource": 28,
       "name": "GWR",
       "description": null,
       "template": "/ember-camac-ng/gwr.phtml",
@@ -5415,7 +5415,7 @@
     "pk": 54,
     "fields": {
       "available_instance_resource": "taskform",
-      "resource": 1,
+      "resource": 28,
       "name": "Bauverwaltung",
       "description": null,
       "template": null,
@@ -15887,14 +15887,6 @@
     }
   },
   {
-    "model": "core.rapilistcirculationtype",
-    "pk": 18,
-    "fields": {
-      "resource": 8,
-      "circulation_type": 1
-    }
-  },
-  {
     "model": "core.rapilistinstancestate",
     "pk": 2,
     "fields": {
@@ -16175,90 +16167,17 @@
     }
   },
   {
-    "model": "core.rapilistinstancestate",
-    "pk": 89,
-    "fields": {
-      "resource": 8,
-      "instance_state": 12
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 90,
-    "fields": {
-      "resource": 8,
-      "instance_state": 2
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 91,
-    "fields": {
-      "resource": 8,
-      "instance_state": 3
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 92,
-    "fields": {
-      "resource": 8,
-      "instance_state": 5
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 93,
-    "fields": {
-      "resource": 8,
-      "instance_state": 6
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 94,
-    "fields": {
-      "resource": 8,
-      "instance_state": 7
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 95,
-    "fields": {
-      "resource": 8,
-      "instance_state": 13
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 96,
-    "fields": {
-      "resource": 8,
-      "instance_state": 8
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 97,
-    "fields": {
-      "resource": 8,
-      "instance_state": 9
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 98,
-    "fields": {
-      "resource": 8,
-      "instance_state": 10
-    }
-  },
-  {
     "model": "core.remberlist",
     "pk": 27,
     "fields": {
       "instance_states": "16"
+    }
+  },
+  {
+    "model": "core.remberlist",
+    "pk": 28,
+    "fields": {
+      "instance_states": "12,2,3,5,6,7,13,8,9,10"
     }
   },
   {
@@ -16328,14 +16247,6 @@
     "fields": {
       "resource": 7,
       "role": 6
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 9,
-    "fields": {
-      "resource": 8,
-      "role": 3
     }
   },
   {
@@ -16460,14 +16371,6 @@
   },
   {
     "model": "core.rroleacl",
-    "pk": 30,
-    "fields": {
-      "resource": 8,
-      "role": 8
-    }
-  },
-  {
-    "model": "core.rroleacl",
     "pk": 31,
     "fields": {
       "resource": 9,
@@ -16487,22 +16390,6 @@
     "pk": 33,
     "fields": {
       "resource": 10,
-      "role": 7
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 34,
-    "fields": {
-      "resource": 8,
-      "role": 5
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 35,
-    "fields": {
-      "resource": 8,
       "role": 7
     }
   },
@@ -16567,14 +16454,6 @@
     "pk": 50,
     "fields": {
       "resource": 5,
-      "role": 11
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 51,
-    "fields": {
-      "resource": 8,
       "role": 11
     }
   },
@@ -16663,14 +16542,6 @@
     "pk": 62,
     "fields": {
       "resource": 24,
-      "role": 12
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 63,
-    "fields": {
-      "resource": 8,
       "role": 12
     }
   },
@@ -16771,6 +16642,54 @@
     }
   },
   {
+    "model": "core.rroleacl",
+    "pk": 82,
+    "fields": {
+      "resource": 28,
+      "role": 5
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 83,
+    "fields": {
+      "resource": 28,
+      "role": 11
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 84,
+    "fields": {
+      "resource": 28,
+      "role": 7
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 85,
+    "fields": {
+      "resource": 28,
+      "role": 3
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 86,
+    "fields": {
+      "resource": 28,
+      "role": 8
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 87,
+    "fields": {
+      "resource": 28,
+      "role": 12
+    }
+  },
+  {
     "model": "core.resource",
     "pk": 1,
     "fields": {
@@ -16779,7 +16698,7 @@
       "description": "Eingereichte Dossiers für die Gemeinde",
       "template": null,
       "class_field": null,
-      "hidden": 0,
+      "hidden": 1,
       "sort": 1
     }
   },
@@ -16792,7 +16711,7 @@
       "description": "Pendenzenliste der Gemeinde für neue Dossiers",
       "template": null,
       "class_field": null,
-      "hidden": 0,
+      "hidden": 1,
       "sort": 2
     }
   },
@@ -16805,7 +16724,7 @@
       "description": "Zirkulation aus Sicht der Gemeinde",
       "template": null,
       "class_field": null,
-      "hidden": 0,
+      "hidden": 1,
       "sort": 3
     }
   },
@@ -16818,7 +16737,7 @@
       "description": "Abzuschliessende Dossiers für die Gemeinde",
       "template": null,
       "class_field": null,
-      "hidden": 0,
+      "hidden": 1,
       "sort": 5
     }
   },
@@ -16831,7 +16750,7 @@
       "description": "Zirkulation aus Sicht der Fachstellen",
       "template": null,
       "class_field": null,
-      "hidden": 0,
+      "hidden": 1,
       "sort": 4
     }
   },
@@ -16850,19 +16769,6 @@
   },
   {
     "model": "core.resource",
-    "pk": 8,
-    "fields": {
-      "available_resource": "apilistinstance",
-      "name": "Suche",
-      "description": null,
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 7
-    }
-  },
-  {
-    "model": "core.resource",
     "pk": 9,
     "fields": {
       "available_resource": "templatemanager",
@@ -16871,7 +16777,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -16884,7 +16790,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -16897,7 +16803,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -16910,7 +16816,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -16923,7 +16829,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -16936,7 +16842,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -16949,7 +16855,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -16975,7 +16881,7 @@
       "template": "/ember-camac-ng/formbuilder.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 20
+      "sort": 19
     }
   },
   {
@@ -16988,7 +16894,7 @@
       "template": "/ember-camac-ng/dossierimport.phtml",
       "class_field": null,
       "hidden": 1,
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -17014,7 +16920,20 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 19
+      "sort": 18
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 28,
+    "fields": {
+      "available_resource": "emberlist",
+      "name": "Meine Dossiers",
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 8
     }
   },
   {
