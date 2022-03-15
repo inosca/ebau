@@ -220,3 +220,22 @@ class CustomVisibilitySZ(CustomVisibility):
     def filter_queryset_public(self, node, queryset, info):
         # this is blueprint data which is uncritical and can be exposed publicly
         return queryset
+
+    @filter_queryset_for(workflow_schema.Case)
+    def filter_queryset_for_case(self, node, queryset, info):
+        # Child cases are used for instances in circulation but
+        # shouldn't be returned for cases list (marked by the
+        # exclude_child_cases)
+        exclude_child_cases = filters(CamacRequest(info).request).get(
+            "exclude_child_cases"
+        )
+
+        if exclude_child_cases == "true":
+            return queryset.filter(
+                family__instance__pk__in=self._all_visible_instances(info),
+                parent_work_item__isnull=True,
+            )
+
+        return queryset.filter(
+            family__instance__pk__in=self._all_visible_instances(info),
+        )
