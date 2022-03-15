@@ -2,14 +2,9 @@ import { inject as service } from "@ember/service";
 import CaseModel from "@projectcaluma/ember-core/caluma-query/models/case";
 import { DateTime } from "luxon";
 
-import config from "camac-ng/config/environment";
+import caseModelConfig from "./config";
 
-function getAnswer(document, slugOrSlugs) {
-  const slugs = Array.isArray(slugOrSlugs) ? slugOrSlugs : [slugOrSlugs];
-  return document.answers.edges.find((edge) =>
-    slugs.includes(edge.node.question.slug)
-  );
-}
+import getAnswer from "camac-ng/utils/get-answer";
 
 export default class CustomCaseModel extends CaseModel {
   @service store;
@@ -86,15 +81,7 @@ export default class CustomCaseModel extends CaseModel {
   }
 
   get intent() {
-    const answer = getAnswer(this.raw.document, config.APPLICATION.intentSlugs);
-
-    if (answer.node.__typename === "TableAnswer") {
-      return config.APPLICATION.advertisementIntentSlugMapping[
-        getAnswer(answer?.node.value[0], "art-der-reklame")?.node.stringValue
-      ];
-    }
-
-    return answer.node.stringValue;
+    return caseModelConfig.intent?.(this.raw.document);
   }
 
   get intentSZ() {

@@ -97,7 +97,6 @@ module.exports = function (environment) {
             "formSZ",
           ],
         },
-        intentSlugs: ["voranfrage-vorhaben"],
         externalServiceGroupIds: [],
         caseTableFormFields: [
           "bauherrschaft",
@@ -191,18 +190,6 @@ module.exports = function (environment) {
             "createdBefore",
             "intent",
           ],
-        },
-        intentSlugs: [
-          "proposal-description",
-          "beschreibung-zu-mbv",
-          "bezeichnung",
-          "vorhaben-proposal-description",
-          "veranstaltung-beschrieb",
-          "reklamen",
-        ],
-        advertisementIntentSlugMapping: {
-          "art-der-reklame-neue": "Neue Reklame",
-          "art-der-reklame-aenderung": "Änderung bestehender Reklame",
         },
         externalServiceGroupIds: [
           "21",
