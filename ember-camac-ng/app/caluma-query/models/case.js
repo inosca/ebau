@@ -2,8 +2,7 @@ import { inject as service } from "@ember/service";
 import CaseModel from "@projectcaluma/ember-core/caluma-query/models/case";
 import { DateTime } from "luxon";
 
-import caseModelConfig from "./config";
-
+import caseModelConfig from "camac-ng/config/case-model";
 import getAnswer from "camac-ng/utils/get-answer";
 
 export default class CustomCaseModel extends CaseModel {

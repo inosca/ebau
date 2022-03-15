@@ -63,17 +63,6 @@ module.exports = function (environment) {
           calumaWorkflow: "internal-document",
           camacForm: 11,
         },
-        caseTableColumns: {
-          caluma: ["dossierNr", "caseDocumentFormName", "intent", "caseStatus"],
-          "camac-ng": [
-            "dossierNr",
-            "instanceFormDescription",
-            "locationSZ",
-            "builderSZ",
-            "intentSZ",
-            "instanceStateDescription",
-          ],
-        },
         activeCaseFilters: {
           caluma: [
             "dossierNumber",
@@ -127,53 +116,6 @@ module.exports = function (environment) {
           142, // KOOR BG
           21, // KOOR NP
         ],
-        caseTableColumns: {
-          caluma: {
-            municipality: [
-              "instanceId",
-              "dossierNr",
-              "form",
-              "municipality",
-              "user",
-              "applicant",
-              "intent",
-              "street",
-              "instanceState",
-            ],
-            coordination: [
-              "instanceId",
-              "dossierNr",
-              "circulationInitializerService",
-              "form",
-              "municipality",
-              "user",
-              "applicant",
-              "intent",
-              "street",
-              "instanceState",
-            ],
-            service: [
-              "deadlineColor",
-              "instanceId",
-              "dossierNr",
-              "circulationInitializerService",
-              "form",
-              "municipality",
-              "applicant",
-              "intent",
-              "street",
-              "processingDeadline",
-            ],
-            default: [
-              "dossierNr",
-              "municipality",
-              "applicant",
-              "intent",
-              "street",
-              "parcelNumbers",
-            ],
-          },
-        },
         activeCaseFilters: {
           caluma: [
             "instanceId",
