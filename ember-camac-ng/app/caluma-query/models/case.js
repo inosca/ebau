@@ -186,10 +186,8 @@ export default class CustomCaseModel extends CaseModel {
     return this.instance?.get("location.communalFederalNumber");
   }
 
-  get coordination() {
-    const description = this.instance?.get("form.description");
-
-    return description && description.split(";")[0];
+  get circulationInitializerService() {
+    return this.instance?.get("circulationInitializerService.name");
   }
   get reason() {
     //TODO camac_legacy: Not yet implemented

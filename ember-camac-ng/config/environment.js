@@ -144,7 +144,7 @@ module.exports = function (environment) {
             coordination: [
               "instanceId",
               "dossierNr",
-              "coordination",
+              "circulationInitializerService",
               "form",
               "municipality",
               "user",
@@ -157,7 +157,7 @@ module.exports = function (environment) {
               "deadlineColor",
               "instanceId",
               "dossierNr",
-              "coordination",
+              "circulationInitializerService",
               "form",
               "municipality",
               "applicant",

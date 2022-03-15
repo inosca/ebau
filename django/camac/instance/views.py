@@ -119,6 +119,9 @@ class InstanceView(
             "circulations__activations",
             "circulations__activations__service",
         ],
+        "circulation_initializer_service": [
+            "circulations",
+        ],
     }
     ordering_fields = (
         "instance_id",
