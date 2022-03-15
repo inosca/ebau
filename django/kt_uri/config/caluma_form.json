@@ -10587,7 +10587,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "24d-rpg",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -10602,7 +10602,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "anlage-ragt-nicht-ueber-dachflaeche-hinaus",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -10677,7 +10677,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "gesetzliche-vorgaben",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -10692,7 +10692,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "hinweis-baugesuch-noetig",
-      "sort": 12
+      "sort": 1
     }
   },
   {
@@ -10707,7 +10707,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "isos",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -10722,7 +10722,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "kompakte-flaeche",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -10737,7 +10737,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "kulturobjekt",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -10752,7 +10752,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "neben-kulturobjekt",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -10782,7 +10782,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "reflexionsarm",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -10827,7 +10827,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "solaranlagen-auf-kulturobjekten",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -10842,7 +10842,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "standort-kernzone",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -10872,7 +10872,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "ueberragt-dachflaeche",
-      "sort": 4
+      "sort": 5
     }
   },
   {
