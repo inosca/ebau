@@ -110,8 +110,8 @@ class InstanceQuerysetMixin(object):
         instance_field = self._get_instance_filter_expr("pk", "in")
 
         instances = models.Instance.objects.filter(
-            publication_entries__publication_date__lte=timezone.now(),
-            publication_entries__publication_end_date__gte=timezone.now(),
+            publication_entries__publication_date__date__lte=timezone.localdate(),
+            publication_entries__publication_end_date__date__gte=timezone.localdate(),
             publication_entries__is_published=True,
             location__in=self._get_group().locations.all(),
         )
@@ -310,11 +310,11 @@ class InstanceQuerysetMixin(object):
                 queryset.filter(
                     **{
                         self._get_instance_filter_expr(
-                            "publication_entries__publication_date__lte"
-                        ): timezone.now(),
+                            "publication_entries__publication_date__date__lte"
+                        ): timezone.localdate(),
                         self._get_instance_filter_expr(
-                            "publication_entries__publication_end_date__gte"
-                        ): timezone.now(),
+                            "publication_entries__publication_end_date__date__gte"
+                        ): timezone.localdate(),
                         self._get_instance_filter_expr(
                             "publication_entries__is_published"
                         ): True,
