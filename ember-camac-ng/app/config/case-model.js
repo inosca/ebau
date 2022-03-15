@@ -4,16 +4,19 @@ import getAnswer from "camac-ng/utils/get-answer";
 
 let config;
 if (macroCondition(getOwnConfig().canton === "ur")) {
+  const intentSlugs = [
+    "proposal-description",
+    "beschreibung-zu-mbv",
+    "bezeichnung",
+    "vorhaben-proposal-description",
+    "veranstaltung-beschrieb",
+    "reklamen",
+  ];
+
   config = {
+    intentSlugs,
     intent: (document) => {
-      const answer = getAnswer(document, [
-        "proposal-description",
-        "beschreibung-zu-mbv",
-        "bezeichnung",
-        "vorhaben-proposal-description",
-        "veranstaltung-beschrieb",
-        "reklamen",
-      ]);
+      const answer = getAnswer(document, intentSlugs);
 
       if (answer?.node.question.slug === "reklamen") {
         const mapping = {
@@ -33,9 +36,11 @@ if (macroCondition(getOwnConfig().canton === "be")) {
   config = {};
 }
 if (macroCondition(getOwnConfig().canton === "sz")) {
+  const intentSlugs = ["voranfrage-vorhaben"];
   config = {
+    intentSlugs,
     intent: (document) => {
-      return getAnswer(document, "voranfrage-vorhaben")?.node.stringValue;
+      return getAnswer(document, intentSlugs)?.node.stringValue;
     },
   };
 }
