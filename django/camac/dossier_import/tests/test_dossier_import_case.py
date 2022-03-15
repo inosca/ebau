@@ -9,6 +9,7 @@ from pytest_lazyfixture import lazy_fixture
 from camac.caluma.api import CalumaApi
 from camac.constants.kt_bern import DECISION_TYPE_BUILDING_PERMIT
 from camac.core.models import InstanceLocation
+from camac.dossier_import.dossier_classes import Dossier
 from camac.dossier_import.loaders import InvalidImportDataError, XlsxFileDossierLoader
 from camac.dossier_import.messages import MessageCodes, update_summary
 from camac.dossier_import.validation import validate_zip_archive_structure
@@ -221,10 +222,30 @@ def test_set_workflow_state_exceptions(
     [
         # based on existing ebau-number and service access resulting ebau-number differs
         ({"STATUS": "SUBMITTED", "CANTONAL-ID": None}, "dossier_number"),  # None
-        ({"STATUS": "APPROVED", "CANTONAL-ID": None}, "dossier_number"),  # 2017-1
-        ({"STATUS": "DONE", "CANTONAL-ID": None}, "dossier_number"),  # 2017-1
-        ({"CANTONAL-ID": "2020-1"}, "dossier_number"),  # 2020-1
-        ({"CANTONAL-ID": "2020-2"}, "dossier_number"),  # 2017-1
+        (
+            {
+                "STATUS": "APPROVED",
+                "CANTONAL-ID": None,
+            },
+            "dossier_number",
+        ),  # 2017-1
+        (
+            {
+                "STATUS": "DONE",
+                "CANTONAL-ID": None,
+            },
+            "dossier_number",
+        ),  # 2017-1
+        (
+            {"CANTONAL-ID": "2020-1"},
+            "dossier_number",
+        ),  # 2020-1
+        (
+            {
+                "CANTONAL-ID": "2020-2",
+            },
+            "dossier_number",
+        ),  # 2017-1
         (
             {
                 "COORDINATE-E": "2`710`662",
@@ -633,11 +654,12 @@ def test_validation(
 
 
 @pytest.mark.parametrize(
-    "target_state,workflow_type,expected_work_items_states,expected_case_status",
+    "target_state,workflow_type,ebau_number,expected_work_items_states,expected_case_status",
     [
         (
             "SUBMITTED",
             "PRELIMINARY",
+            None,
             [
                 ("submit", "skipped"),  # "Gesuch ausfüllen"
                 ("ebau-number", "ready"),  # "eBau Nummer vergeben"
@@ -649,6 +671,7 @@ def test_validation(
         (
             "APPROVED",
             "PRELIMINARY",
+            None,
             [
                 ("submit", "skipped"),  # "Gesuch ausfüllen"
                 ("ebau-number", "skipped"),  # "eBau Nummer vergeben"
@@ -669,6 +692,7 @@ def test_validation(
         (
             "SUBMITTED",
             DECISION_TYPE_BUILDING_PERMIT,
+            None,
             [
                 ("submit", "skipped"),  # "Gesuch ausfüllen"
                 ("ebau-number", "ready"),  # "eBau Nummer vergeben"
@@ -678,8 +702,24 @@ def test_validation(
             "running",
         ),  # "Gesuch einreichen"
         (
+            "SUBMITTED",
+            DECISION_TYPE_BUILDING_PERMIT,
+            "2022-1",
+            [
+                ("submit", "skipped"),  # "Gesuch ausfüllen"
+                ("ebau-number", "skipped"),  # "eBau Nummer vergeben"
+                ("init-circulation", "ready"),  # "Zirkulation initialisieren"
+                ("publication", "ready"),  # "Dossier publizieren"
+                ("audit", "ready"),  # "Dossier prüfen"
+                ("nfd", "ready"),  # Nachforderungen
+                ("create-manual-workitems", "ready"),  # "Manuelle aufgabe erfassen"
+            ],
+            "running",
+        ),
+        (
             "APPROVED",
             DECISION_TYPE_BUILDING_PERMIT,
+            None,
             [
                 ("submit", "skipped"),  # "Gesuch ausfüllen"
                 ("ebau-number", "skipped"),  # "eBau Nummer vergeben"
@@ -703,6 +743,7 @@ def test_validation(
         (
             "DONE",
             DECISION_TYPE_BUILDING_PERMIT,
+            None,
             [
                 ("submit", "skipped"),  # "Gesuch ausfüllen"
                 ("ebau-number", "skipped"),  # "eBau Nummer vergeben"
@@ -732,6 +773,7 @@ def test_set_workflow_state_be(
     make_dossier_writer,
     target_state,
     workflow_type,
+    ebau_number,
     construction_control_for,
     expected_work_items_states,
     expected_case_status,
@@ -761,6 +803,9 @@ def test_set_workflow_state_be(
         value=str(instance_municipality.service.pk),
         user=BaseUser(),
     )
+    if ebau_number:
+        be_instance.case.meta["ebau-number"] = ebau_number
+        be_instance.case.save()
 
     writer = make_dossier_writer(
         "kt_bern",
@@ -769,9 +814,12 @@ def test_set_workflow_state_be(
     writer.is_paper.owner = writer
     writer.is_paper.write(be_instance, writer.is_paper.value)
 
-    writer._set_workflow_state(be_instance, target_state, workflow_type=workflow_type)
+    dossier = Dossier(id=123, proposal="Just a test")
+    writer._set_workflow_state(
+        be_instance, target_state, dossier, workflow_type=workflow_type
+    )
+    be_instance.case.refresh_from_db()
     for task_id, expected_status in expected_work_items_states:
-        be_instance.case.refresh_from_db()
         assert (
             be_instance.case.work_items.filter(
                 task_id=task_id, status=expected_status
@@ -784,3 +832,22 @@ def test_set_workflow_state_be(
             is not None
         )
     assert be_instance.case.status == expected_case_status
+    ebau_number_answers = (
+        be_instance.case.work_items.filter(task_id="ebau-number")
+        .first()
+        .document.answers.all()
+    )
+    if ebau_number and target_state == "SUBMITTED":
+        assert be_instance.instance_state.name == "circulation_init"
+        assert set(ebau_number_answers.values_list("question", flat=True)) == set(
+            [
+                "ebau-number-has-existing",
+                "ebau-number-existing",
+            ]
+        )
+        assert set(ebau_number_answers.values_list("value", flat=True)) == set(
+            [
+                "ebau-number-has-existing-yes",
+                ebau_number,
+            ]
+        )
