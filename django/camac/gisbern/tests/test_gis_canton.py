@@ -8,7 +8,7 @@ def vcr_config():
         # add "body" to default match_on because we're passing the
         # egrid number in the body.
         "match_on": ["method", "scheme", "host", "port", "path", "query", "body"],
-        "cassette_library_dir": "gisbern/tests/cassettes",
+        "cassette_library_dir": "camac/gisbern/tests/cassettes",
         "decode_compressed_response": True,
     }
 
