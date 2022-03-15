@@ -6,6 +6,8 @@ import calumaQuery from "@projectcaluma/ember-core/caluma-query";
 import { allCases } from "@projectcaluma/ember-core/caluma-query/queries";
 import { DateTime } from "luxon";
 
+import caseModelConfig from "camac-ng/config/case-model";
+import caseTableConfig from "camac-ng/config/case-table";
 import config from "camac-ng/config/environment";
 
 export default class CaseTableComponent extends Component {
@@ -76,7 +78,7 @@ export default class CaseTableComponent extends Component {
       intent: {
         searchAnswers: [
           {
-            questions: config.APPLICATION.intentSlugs,
+            questions: caseModelConfig.intentSlugs,
             lookup: "CONTAINS",
             value: filter.intent,
           },
@@ -172,8 +174,7 @@ export default class CaseTableComponent extends Component {
   }
 
   get tableColumns() {
-    const tableColumns =
-      config.APPLICATION.caseTableColumns[this.args.casesBackend];
+    const tableColumns = caseTableConfig.columns[this.args.casesBackend];
 
     if (Array.isArray(tableColumns)) {
       return tableColumns;
