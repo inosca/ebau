@@ -1,14 +1,13 @@
 {{! template-lint-disable require-input-label }}
 {{#if @filterOptions.length}}
   <CaseFilter::Base @filterName={{@filterName}}>
-    <PowerSelect
+    <PowerSelectMultiple
       id={{concat "case-filter__" @filterName}}
       class="uk-width-1 case-filter__select"
       @dropdownClass="case-filter__select"
       @triggerClass="case-filter__select"
       @searchEnabled={{true}}
       @searchField={{or @labelField "label"}}
-      @allowClear={{true}}
       @options={{@filterOptions}}
       @selected={{this.value}}
       @placeholder={{or
@@ -18,6 +17,6 @@
       @onChange={{this.onChange}} as |filterOption|
     >
       {{if @labelField (get filterOption @labelField) filterOption.label}}
-    </PowerSelect>
+    </PowerSelectMultiple>
   </CaseFilter::Base>
 {{/if}}

@@ -283,6 +283,24 @@ APPLICATIONS = {
         },
         "PUBLIC_ROLES": ["Publikation", "Portal"],
         "PORTAL_GROUP": 4,
+        "SERVICE_GROUPS_FOR_DISTRIBUTION": {
+            "Gemeinde": [
+                {"id": "4", "localized": False},
+                {"id": "5", "localized": True},
+            ],
+            "Gemeinde Sachbearbeiter": [
+                {"id": "4", "localized": False},
+                {"id": "5", "localized": True},
+            ],
+            "Fachstelle Leitbehörde": [
+                {"id": "3", "localized": False},
+                {"id": "4", "localized": False},
+            ],
+            "Kanton": [
+                {"id": "1", "localized": False},
+                {"id": "2", "localized": False},
+            ],
+        },
         "NOTIFICATIONS": {
             "SUBMIT": "gesuchseingang",
             "APPLICANT": {
@@ -532,6 +550,11 @@ APPLICATIONS = {
                 "name": "materieller-pruefbericht-bemerkung",
                 "title": "Materieller Prüfbericht",
             }
+        ],
+        "ADDRESS_FORM_FIELDS": [
+            "ortsbezeichnung-des-vorhabens",
+            "standort-spezialbezeichnung",
+            "standort-ort",
         ],
         "DOSSIER_IMPORT": {
             "WRITER_CLASS": "camac.dossier_import.config.kt_schwyz.KtSchwyzDossierWriter",

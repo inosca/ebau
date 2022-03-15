@@ -206,6 +206,336 @@ def test_instance_form_name_filter(
     assert len(data) == expected_count
 
 
+@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
+@pytest.mark.parametrize(
+    "field,submit_date,expected_count",
+    [
+        ("submit_date_after_sz", "2020-03-02", 1),
+        ("submit_date_before_sz", "2022-03-02", 1),
+        ("submit_date_after_sz", "2021-04-02", 0),
+        ("submit_date_before_sz", "2021-02-02", 0),
+        ("submit_date_after_sz", "2021-03-02", 1),
+        ("submit_date_before_sz", "2021-03-04", 1),
+        ("submit_date_after_sz", "2021-03-03", 1),
+        ("submit_date_before_sz", "2021-03-03", 1),
+        ("submit_date_after_sz", "2021-03-04", 0),
+        ("submit_date_before_sz", "2021-03-02", 0),
+    ],
+)
+def test_instance_submit_date_filter(
+    admin_client,
+    instance,
+    field,
+    submit_date,
+    expected_count,
+    workflow_item_factory,
+    workflow_entry_factory,
+):
+
+    workflow_entry_factory(
+        workflow_item=workflow_item_factory(pk=10),
+        workflow_date=datetime.datetime(2021, 3, 3),
+        instance=instance,
+    )
+
+    url = reverse("instance-list")
+
+    response = admin_client.get(url, {field: submit_date})
+
+    assert response.status_code == status.HTTP_200_OK
+    data = response.json()["data"]
+    assert len(data) == expected_count
+
+
+@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
+@pytest.mark.parametrize(
+    "address,expected_count",
+    [
+        ("ous", 1),
+        ("Large House", 1),
+        ("garden  ", 1),
+        ("large  garden", 0),
+        ("aa", 0),
+        ("hoouse", 0),
+        ("Luxury tent", 0),
+    ],
+)
+def test_instance_address_filter(
+    application_settings,
+    admin_client,
+    instance,
+    address,
+    expected_count,
+    form_field_factory,
+):
+
+    application_settings["ADDRESS_FORM_FIELDS"] = ["address1", "address2"]
+    form_field_factory(
+        name="address1",
+        value="Large house",
+        instance=instance,
+    )
+    form_field_factory(
+        name="address2",
+        value="Small garden",
+        instance=instance,
+    )
+    form_field_factory(name="address3", value="Luxury tent", instance=instance)
+
+    url = reverse("instance-list")
+    response = admin_client.get(url, {"address_sz": address})
+
+    assert response.status_code == status.HTTP_200_OK
+    data = response.json()["data"]
+    assert len(data) == expected_count
+
+
+@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
+@pytest.mark.parametrize(
+    "plot,expected_count",
+    [
+        ("CH9", 2),
+        ("4", 2),
+        ("ch967722307039  ", 1),
+        (" 420", 1),
+        ("7899", 1),
+        # Works because of key value concatenation
+        ("420 ch967722307039", 1),
+        ("420  ch967722307039", 1),
+        ("ch9677223070390", 0),
+        ("651", 0),
+    ],
+)
+def test_instance_plot_filter(
+    application_settings,
+    admin_client,
+    instance,
+    plot,
+    expected_count,
+    form_field_factory,
+    instance_factory,
+):
+
+    instance_1 = instance
+    instance_2 = instance_factory(user=instance.user)
+
+    form_field_factory(
+        name="parzellen",
+        value=[{"egrid": "CH967722307039", "number": 420, "municipality": "Schwyz"}],
+        instance=instance_1,
+    )
+    form_field_factory(
+        name="parzellen",
+        value=[{"egrid": "CH912734307899", "number": 650, "municipality": "Schwyz"}],
+        instance=instance_2,
+    )
+
+    url = reverse("instance-list")
+    response = admin_client.get(url, {"plot_sz": plot})
+
+    assert response.status_code == status.HTTP_200_OK
+    data = response.json()["data"]
+    assert len(data) == expected_count
+
+
+@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
+@pytest.mark.parametrize(
+    "form_field_name,filter_name",
+    [
+        ("bauherrschaft", "builder_sz"),
+        ("grundeigentumerschaft", "landowner_sz"),
+        ("projektverfasser-planer", "applicant_sz"),
+    ],
+)
+@pytest.mark.parametrize(
+    "search,expected_count",
+    [
+        (
+            "a",
+            {
+                "bauherrschaft": 2,
+                "grundeigentumerschaft": 2,
+                "projektverfasser-planer": 2,
+            },
+        ),
+        (
+            "Red Stra",
+            {
+                "bauherrschaft": 1,
+                "grundeigentumerschaft": 1,
+                "projektverfasser-planer": 1,
+            },
+        ),
+        (
+            "melo  ",
+            {
+                "bauherrschaft": 1,
+                "grundeigentumerschaft": 0,
+                "projektverfasser-planer": 1,
+            },
+        ),
+        (
+            "8840",
+            {
+                "bauherrschaft": 0,
+                "grundeigentumerschaft": 0,
+                "projektverfasser-planer": 0,
+            },
+        ),
+        (
+            "ious Inc",
+            {
+                "bauherrschaft": 1,
+                "grundeigentumerschaft": 0,
+                "projektverfasser-planer": 1,
+            },
+        ),
+        (
+            "Tangerine Turbo Mixer 9000",
+            {
+                "bauherrschaft": 1,
+                "grundeigentumerschaft": 1,
+                "projektverfasser-planer": 1,
+            },
+        ),
+        (
+            "Tangerine Orange",
+            {
+                "bauherrschaft": 1,
+                "grundeigentumerschaft": 1,
+                "projektverfasser-planer": 1,
+            },
+        ),
+        (
+            "en me",
+            {
+                "bauherrschaft": 1,
+                "grundeigentumerschaft": 0,
+                "projektverfasser-planer": 1,
+            },
+        ),
+        (
+            "bananaaa",
+            {
+                "bauherrschaft": 0,
+                "grundeigentumerschaft": 0,
+                "projektverfasser-planer": 0,
+            },
+        ),
+    ],
+)
+def test_instance_form_field_list_value_filter(
+    application_settings,
+    admin_client,
+    instance,
+    form_field_name,
+    filter_name,
+    search,
+    expected_count,
+    form_field_factory,
+    instance_factory,
+):
+
+    instance_1 = instance
+    instance_2 = instance_factory(user=instance.user)
+
+    form_field_factory(
+        name=f"{form_field_name}",
+        value=[{"name": "Strawberry", "vorname": "Red", "plz": 8840}],
+        instance=instance_1,
+    )
+    form_field_factory(
+        name=f"{form_field_name}-v2",
+        value=[
+            {
+                "vorname": "Yellow",
+                "firma": "Smoothie-licious Inc.",
+                "name": "Banana",
+                "plz": 8670,
+            }
+        ],
+        instance=instance_1,
+    )
+
+    form_field_factory(
+        name=f"{form_field_name}-v2",
+        value=[{"name": "Melon", "vorname": "Green", "plz": 8840}],
+        instance=instance_2,
+    )
+    form_field_factory(
+        name=f"{form_field_name}-override",
+        value=[
+            {
+                "plz": 8670,
+                "vorname": "Orange",
+                "name": "Tangerine",
+                "firma": "Turbo Mixer 9000 Corp.",
+            }
+        ],
+        instance=instance_2,
+    )
+
+    url = reverse("instance-list")
+    response = admin_client.get(url, {f"{filter_name}": search})
+
+    assert response.status_code == status.HTTP_200_OK
+    data = response.json()["data"]
+    assert len(data) == expected_count[form_field_name]
+
+
+@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
+def test_instance_form_name_versioned_filter(
+    admin_client,
+    instance,
+    form_factory,
+    instance_factory,
+):
+
+    form_0 = form_factory(name="form")
+    form_0.family = form_0
+    form_0.save()
+    instance.form = form_0
+    instance.save()
+
+    form_1 = form_factory(family=form_0, name="form-v1")
+    instance_factory(form=form_1, user=instance.user)
+
+    form_2 = form_factory(name="form-v2")
+    instance_factory(form=form_2, user=instance.user)
+
+    url = reverse("instance-list")
+
+    response = admin_client.get(url, {"form_name_versioned": form_0.pk})
+
+    assert response.status_code == status.HTTP_200_OK
+    data = response.json()["data"]
+    assert len(data) == 2
+
+
+@pytest.mark.parametrize(
+    "instance__user,instance__identifier,identifier,expected_count",
+    [
+        (LazyFixture("admin_user"), "001", "1", 1),
+        (LazyFixture("admin_user"), "001", "2", 0),
+        (LazyFixture("admin_user"), "001", "001", 1),
+    ],
+)
+def test_instance_identifier_filter(
+    admin_client,
+    instance,
+    identifier,
+    expected_count,
+):
+
+    url = reverse("instance-list")
+
+    response = admin_client.get(url, {"identifier": identifier})
+
+    assert response.status_code == status.HTTP_200_OK
+    data = response.json()["data"]
+    assert len(data) == expected_count
+
+
 @pytest.mark.parametrize(
     "role__name,instance__user", [("Municipality", LazyFixture("admin_user"))]
 )
