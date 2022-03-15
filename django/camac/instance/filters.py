@@ -3,12 +3,13 @@ import re
 from caluma.caluma_workflow.models import Case
 from django.conf import settings
 from django.core.validators import EMPTY_VALUES
-from django.db.models import OuterRef, Subquery
+from django.db.models import F, OuterRef, Subquery
 from django.db.models.constants import LOOKUP_SEP
 from django_filters.rest_framework import (
     BooleanFilter,
     CharFilter,
     DateFilter,
+    Filter,
     FilterSet,
     NumberFilter,
 )
@@ -92,8 +93,128 @@ class FormNameFilter(CharFilter):
         return super().filter(qs, value)
 
 
+class InstanceStateFilterSet(FilterSet):
+    instance_state_id = NumberMultiValueFilter()
+
+    class Meta:
+        model = models.InstanceState
+        fields = ("name", "instance_state_id")
+
+
+class FormFieldListValueFilter(Filter):
+    """
+    Filter a JSON field containing a list of values.
+
+    For certain instance form field values the data contained in the
+    JSONField is a list of objects, which has the following structure:
+
+        [
+            {"name": "jupiter", "size": "large", "color": "yellow"},
+            {"name": "mercury", "size": "small", "color": "grey"},
+        ]
+
+    This filter allows lookups to be performed on specific
+    values in a list of JSON objects. Using the django json field
+    filter lookup __contains does not allow for substring searches
+    on list values, it only matches the entire key value pair, such
+    as for example { "name": "jupiter" }.
+
+    Filter Example:
+
+    Three instance form fields with the name "planets" where the
+    json field "value" contains a list:
+
+        Instance 1, form field 1, value: [
+            {"name": "jupiter", "size": "large", "color": "yellow"},
+            {"name": "mercury", "size": "small", "color": "grey"},
+        ],
+        Instance 2, form field 2, value: [
+            {"name": "mars", "size": "medium", "color": "red"},
+        ]
+        Instance 3, form field 3, value: [
+            {"name": "earth", "size": "medium", "color": "blue"}
+        ]
+
+    Filter configuration on the instance model:
+        planet = FormFieldListValueFilter(
+                    form_field_names=["planets"],
+                    keys=["name", "color"]
+                )
+
+    Using the filter "planet=u" on the api endpoint "instances" will
+    match the following instances:
+
+        Instance 1 (form field 1, due to "name": "jupiter" and "name": "mercury"),
+        Instance 3 (form field 3, due to "color": "blue")
+
+    The filter considers all keys if multiple keys are given.
+    """
+
+    def __init__(self, form_field_names, keys, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self._form_field_names = form_field_names
+        self._keys = keys
+
+    def filter(self, qs, value, *args, **kwargs):
+
+        if value in EMPTY_VALUES:
+            return qs
+
+        key_fragments = ", ".join([f"{key} text" for key in self._keys])
+        query = f"jsonb_to_recordset(instance_formfield.value) as field_values({key_fragments})"
+
+        search_values = [
+            f"%{v.strip()}%" for v in value.strip().split(" ") if v.strip()
+        ]
+
+        search_query = " and ".join(
+            [
+                "("
+                + " or ".join(
+                    [f"field_values.{key} ilike %({i})s" for key in self._keys]
+                )
+                + ")"
+                for i in range(len(search_values))
+            ]
+        )
+
+        form_fields = models.FormField.objects.raw(
+            f"""
+                select id
+                from instance_formfield,
+                {query}
+                where instance_formfield.name = any (%(field_names)s)
+                and {search_query}
+                """,
+            {
+                "field_names": self._form_field_names,
+                **{str(i): val for i, val in enumerate(search_values)},
+            },
+        )
+
+        return qs.filter(fields__in=form_fields).distinct()
+
+
+class InstanceSubmitDateFilter(DateFilter):
+    def __init__(self, lookup_expr, *args, **kwargs):
+        super().__init__(lookup_expr, *args, **kwargs)
+        self._lookup_expr = lookup_expr
+
+    def filter(self, qs, value, *args, **kwargs):
+        if not value:
+            return qs
+
+        return qs.filter(
+            **{
+                "workflowentry__workflow_item_id": 10,  # Submit date
+                f"workflowentry__workflow_date__{self._lookup_expr}": value,
+            }
+        )
+
+
 class InstanceFilterSet(FilterSet):
     instance_id = NumberMultiValueFilter()
+    identifier = CharFilter(field_name="identifier", lookup_expr="icontains")
     service = NumberFilter(field_name="circulations__activations__service")
     creation_date_after = DateFilter(
         field_name="creation_date__date", lookup_expr="gte"
@@ -102,6 +223,8 @@ class InstanceFilterSet(FilterSet):
     creation_date_before = DateFilter(
         field_name="creation_date__date", lookup_expr="lte"
     )
+    submit_date_after_sz = InstanceSubmitDateFilter(lookup_expr="gte")
+    submit_date_before_sz = InstanceSubmitDateFilter(lookup_expr="lte")
     instance_state = NumberMultiValueFilter()
     responsible_user = ResponsibleUserFilter(field_name="responsibilities__user")
     responsible_service = ResponsibleServiceFilter()
@@ -111,7 +234,32 @@ class InstanceFilterSet(FilterSet):
         field_name="involved_applicants__invitee", method="filter_is_applicant"
     )
     form_name = FormNameFilter(field_name="form__name")
+    form_name_versioned = NumberFilter(field_name="form__family__pk")
     location = NumberMultiValueFilter()
+    address_sz = CharFilter(method="filter_address_sz")
+    plot_sz = FormFieldListValueFilter(
+        form_field_names=["parzellen"], keys=["number", "egrid"]
+    )
+    builder_sz = FormFieldListValueFilter(
+        form_field_names=[
+            "bauherrschaft",
+            "bauherrschaft-v2",
+            "bauherrschaft-override",
+        ],
+        keys=["vorname", "name", "firma"],
+    )
+    landowner_sz = FormFieldListValueFilter(
+        form_field_names=["grundeigentumerschaft", "grundeigentumerschaft-override"],
+        keys=["vorname", "name", "firma"],
+    )
+    applicant_sz = FormFieldListValueFilter(
+        form_field_names=[
+            "projektverfasser-planer",
+            "projektverfasser-planer-v2",
+            "projektverfasser-planer-override",
+        ],
+        keys=["vorname", "name", "firma"],
+    )
     has_pending_billing_entry = BooleanFilter(method="filter_has_pending_billing_entry")
     has_pending_sanction = BooleanFilter(method="filter_has_pending_sanction")
     pending_sanctions_control_instance = NumberFilter(
@@ -148,11 +296,21 @@ class InstanceFilterSet(FilterSet):
 
         return queryset.filter(**_filter)
 
+    def filter_address_sz(self, queryset, name, value):
+
+        address_form_fields = settings.APPLICATION.get("ADDRESS_FORM_FIELDS", [])
+        return queryset.filter(
+            fields__name__in=address_form_fields, fields__value__icontains=value
+        )
+
     class Meta:
         model = models.Instance
         fields = (
             "creation_date",
+            "submit_date_after_sz",
+            "submit_date_before_sz",
             "form",
+            "form_name_versioned",
             "identifier",
             "instance_state",
             "instance_group",
@@ -163,6 +321,11 @@ class InstanceFilterSet(FilterSet):
             "responsible_user",
             "responsible_service",
             "responsible_service_user",
+            "address_sz",
+            "plot_sz",
+            "builder_sz",
+            "landowner_sz",
+            "applicant_sz",
             "is_applicant",
             "form_name",
             "has_pending_billing_entry",
@@ -248,9 +411,14 @@ class InstanceFormFieldFilterBackend(BaseFilterBackend):
 
 
 class FormFilterSet(FilterSet):
+    forms_all_versions = BooleanFilter(method="filter_forms_all_versions")
+
+    def filter_forms_all_versions(self, queryset, name, value):
+        return queryset.filter(family__pk=F("pk")) if not value else queryset
+
     class Meta:
         model = models.Form
-        fields = ["name"]
+        fields = ("name", "form_state")
 
 
 class FormFieldFilterSet(FilterSet):

@@ -1,11 +1,9 @@
-<div {{did-insert (perform this.fetchFilterData)}}>
+<div class="uk-margin-bottom" {{did-insert (perform this.fetchFilterData)}}>
+  <h2>
+    {{t "cases.filter"}}
+  </h2>
   <form {{on "submit" this.applyFilter}}>
-    <fieldset class="uk-grid uk-margin-small-bottom">
-      <legend>
-        <b>
-          {{t "cases.filter"}}
-        </b>
-      </legend>
+    <div class="uk-grid uk-grid-column-small uk-grid-row-collapse uk-margin-small-bottom">
       {{#each this.activeCaseFilters as |filterName|}}
         {{#let (get this.caseFilters filterName) as |filterConfig|}}
           {{#let
@@ -15,19 +13,18 @@
           }}
             <CaseFilterComponent
               @filterName={{filterName}}
-              @value={{get @filter filterName}}
+              @value={{get this._filter filterName}}
               @updateFilter={{fn this.updateFilter filterName}}
               @filterOptions={{get this.filterData filterConfig.options}}
               @valueField={{filterConfig.valueField}}
               @labelField={{filterConfig.labelField}}
-              @maxDate={{get @filter filterConfig.maxDate}}
-              @minDate={{get @filter filterConfig.minDate}}
+              @maxDate={{get this._filter filterConfig.maxDate}}
+              @minDate={{get this._filter filterConfig.minDate}}
             />
           {{/let}}
         {{/let}}
       {{/each}}
-    </fieldset>
-
+    </div>
     <button type="submit" class="button">
       {{t "global.search"}}
     </button>

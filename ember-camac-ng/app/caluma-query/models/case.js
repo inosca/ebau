@@ -48,12 +48,27 @@ export default class CustomCaseModel extends CaseModel {
     return null;
   }
 
+  getFormFields(fields) {
+    return this.store
+      .peekAll("form-field")
+      .find(
+        (formField) =>
+          formField.instance.get("id") === String(this.instanceId) &&
+          fields.includes(formField.name) &&
+          formField.value.length
+      );
+  }
+
   get instanceId() {
     return this.raw.meta["camac-instance-id"];
   }
 
   get instance() {
     return this.store.peekRecord("instance", this.instanceId);
+  }
+
+  get instanceFormDescription() {
+    return this.instance?.form.get("description");
   }
 
   get user() {
@@ -73,6 +88,10 @@ export default class CustomCaseModel extends CaseModel {
   get intent() {
     return getAnswer(this.raw.document, config.APPLICATION.intentSlugs)?.node
       .stringValue;
+  }
+
+  get intentSZ() {
+    return this.getFormFields(["bezeichnung-override", "bezeichnung"])?.value;
   }
 
   get authority() {
@@ -95,6 +114,10 @@ export default class CustomCaseModel extends CaseModel {
 
   get municipalityId() {
     return this.municipalityNode?.stringValue;
+  }
+
+  get locationSZ() {
+    return this.instance?.location.get("name");
   }
 
   get applicant() {
@@ -155,6 +178,10 @@ export default class CustomCaseModel extends CaseModel {
     return this.instance?.get("instanceState.uppercaseName");
   }
 
+  get instanceStateDescription() {
+    return this.instance?.get("instanceState.description");
+  }
+
   get communalFederalNumber() {
     return this.instance?.get("location.communalFederalNumber");
   }
@@ -198,6 +225,16 @@ export default class CustomCaseModel extends CaseModel {
     return tableAnswers
       .map((answer) => getAnswer(answer, "e-grid")?.node.stringValue)
       .filter(Boolean);
+  }
+
+  get builderSZ() {
+    const row = this.getFormFields([
+      "bauherrschaft-override",
+      "bauherrschaft-v2",
+      "bauherrschaft",
+    ])?.value?.[0];
+
+    return `${row?.vorname} ${row?.name}`;
   }
 
   get processingDeadline() {
