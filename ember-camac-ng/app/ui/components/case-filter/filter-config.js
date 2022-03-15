@@ -5,6 +5,9 @@ export default {
   dossierNumber: {
     type: "input",
   },
+  instanceIdentifier: {
+    type: "input",
+  },
   applicantName: {
     type: "input",
   },
@@ -17,14 +20,26 @@ export default {
     valueField: "id",
     labelField: "name",
   },
+  locationSZ: {
+    type: "select",
+    options: "municipalities",
+    valueField: "id",
+    labelField: "name",
+  },
   parcelNumber: {
     type: "input",
   },
   instanceState: {
-    type: "select",
+    type: "select-multiple",
     options: "instanceStates",
     valueField: "id",
     labelField: "uppercaseName",
+  },
+  instanceStateDescription: {
+    type: "select-multiple",
+    options: "instanceStates",
+    valueField: "id",
+    labelField: "description",
   },
   service: {
     type: "select",
@@ -64,5 +79,45 @@ export default {
     type: "select",
     options: "formOptions",
     labelField: "name",
+  },
+  responsibleServiceUser: {
+    type: "select",
+    options: "responsibleServiceUsers",
+    valueField: "value",
+  },
+  addressSZ: {
+    type: "input",
+  },
+  plotSZ: {
+    type: "input",
+  },
+  builderSZ: {
+    type: "input",
+  },
+  landownerSZ: {
+    type: "input",
+  },
+  applicantSZ: {
+    type: "input",
+  },
+  submitDateAfterSZ: {
+    type: "date",
+    maxDate: "submitDateBeforeSZ",
+  },
+  submitDateBeforeSZ: {
+    type: "date",
+    minDate: "submitDateAfterSZ",
+  },
+  serviceSZ: {
+    type: "select",
+    options: "servicesSZ",
+    valueField: "id",
+    labelField: "name",
+  },
+  formSZ: {
+    type: "select",
+    options: "formsSZ",
+    valueField: "id",
+    labelField: "description",
   },
 };

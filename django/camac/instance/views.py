@@ -65,6 +65,7 @@ from .placeholders.serializers import DMSPlaceholdersSerializer
 class InstanceStateView(ReadOnlyModelViewSet):
     swagger_schema = None
     serializer_class = serializers.InstanceStateSerializer
+    filterset_class = filters.InstanceStateFilterSet
     ordering = ("sort", "name")
 
     def get_queryset(self):

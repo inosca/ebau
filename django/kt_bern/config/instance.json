@@ -5,7 +5,8 @@
     "fields": {
       "form_state": 1,
       "name": null,
-      "description": null
+      "description": null,
+      "family": null
     }
   },
   {
