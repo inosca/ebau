@@ -12,7 +12,7 @@ class Permission:
     destroy = False
 
     @classmethod
-    def can_write(cls, attachment, group, *args) -> bool:
+    def can_write(cls, attachment, group, instance=None) -> bool:
         return cls.write
 
     @classmethod
@@ -63,10 +63,11 @@ class AdminInternalPermission(AdminServicePermission):
     """Read, write and delete permission on attachments owned by the current service."""
 
     @classmethod
-    def can_write(cls, attachment, group, *args) -> bool:
+    def can_write(cls, attachment, group, instance=None) -> bool:
         return cls.is_owned_by_service(attachment, group) and super().can_write(
             attachment,
             group,
+            instance,
         )
 
 
@@ -112,28 +113,27 @@ class AdminServiceRunningActivationPermission(AdminServicePermission):
     """
 
     @classmethod
-    def has_running_activation(cls, attachment, group) -> bool:
-        return (
-            not attachment
-            or Activation.objects.filter(
-                service=group.service,
-                circulation__instance=attachment.instance,
-                circulation_state__name__in=settings.APPLICATION.get(
-                    "ATTACHMENT_RUNNING_ACTIVATION_STATES", []
-                ),
-            ).exists()
-        )
+    def has_running_activation(cls, instance, group) -> bool:
+        return Activation.objects.filter(
+            service=group.service,
+            circulation__instance=instance,
+            circulation_state__name__in=settings.APPLICATION.get(
+                "ATTACHMENT_RUNNING_ACTIVATION_STATES", []
+            ),
+        ).exists()
 
     @classmethod
     def can_destroy(cls, attachment, group) -> bool:
-        return cls.has_running_activation(attachment, group) and super().can_destroy(
-            attachment, group
-        )
+        return cls.has_running_activation(
+            attachment.instance, group
+        ) and super().can_destroy(attachment, group)
 
     @classmethod
-    def can_write(cls, attachment, group, *args) -> bool:
-        return cls.has_running_activation(attachment, group) and super().can_write(
-            attachment, group
+    def can_write(cls, attachment, group, instance=None) -> bool:
+        # During creation, the attachment doesn't exist yet
+        instance = attachment.instance if attachment else instance
+        return cls.has_running_activation(instance, group) and super().can_write(
+            attachment, group, instance
         )
 
 
@@ -157,7 +157,7 @@ class AdminInternalBusinessControlPermission(AdminInternalPermission):
         return (
             cls.is_internal_instance(instance)
             and cls.is_case_running(instance)
-            and super().can_write(attachment, group)
+            and super().can_write(attachment, group, instance)
         )
 
     @classmethod
