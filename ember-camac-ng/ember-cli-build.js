@@ -14,6 +14,11 @@ const ENV = ENV_MAP[process.env.APPLICATION] || ENVS[0];
 
 module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
+    "@embroider/macros": {
+      setOwnConfig: {
+        canton: ENV,
+      },
+    },
     "ember-simple-auth": {
       useSessionSetupMethod: true,
     },
