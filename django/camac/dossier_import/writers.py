@@ -377,53 +377,6 @@ class EbauNumberWriter(CalumaAnswerWriter):
         )
         instance.case.meta["ebau-number"] = value
         instance.case.save()
-        try:
-            document = instance.case.document
-            ebau_number_slug = "ebau-number-existing"
-            question = Question.objects.get(slug=ebau_number_slug)
-            try:
-                form_api.save_answer(
-                    question=question,
-                    document=document,
-                    value=value,
-                    user=BaseUser(
-                        username=self.owner._user.username, group=self.owner._group.pk
-                    ),
-                )
-            except CustomValidationError:  # pragma: no cover
-                dossier._meta.errors.append(
-                    Message(
-                        level=LOG_LEVEL_WARNING,
-                        code=MessageCodes.FIELD_VALIDATION_ERROR.value,
-                        detail=f"Failed to write {value} to {ebau_number_slug} for dossier {instance}",
-                    )
-                )
-                return
-            exists_slug = "ebau-number-has-existing"
-            question_exists = Question.objects.get(slug=exists_slug)
-            try:
-                form_api.save_answer(
-                    question=question_exists,
-                    document=document,
-                    value=f"{exists_slug}-yes",
-                    user=BaseUser(
-                        username=self.owner._user.username, group=self.owner._group.pk
-                    ),
-                )
-            except CustomValidationError:  # pragma: no cover
-                dossier._meta.errors.append(
-                    Message(
-                        level=LOG_LEVEL_WARNING,
-                        code=MessageCodes.FIELD_VALIDATION_ERROR.value,
-                        detail=f"Failed to write '{exists_slug}-yes' to {exists_slug} for dossier {instance}",
-                    )
-                )
-                return
-
-        except ObjectDoesNotExist as e:  # pragma: no cover
-            raise RuntimeError(
-                f"Failed to write {value} to field {self.target} on {instance} because of : {e}"
-            )
 
 
 class DossierWriter:
