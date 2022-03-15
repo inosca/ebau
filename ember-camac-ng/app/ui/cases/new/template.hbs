@@ -1,11 +1,9 @@
 <h1 class="uk-text-center">
   {{t "cases.new.title"}}
 </h1>
-
 <p class="uk-text-center uk-text-large">
   {{t "cases.new.type"}}
 </p>
-
 {{#if this.formQuery.isLoading}}
   <LoadingText />
 {{else}}
@@ -15,9 +13,7 @@
         <UkButton
           @width="1-1"
           @label={{form.name}}
-          @color={{
-            if (eq form.slug this.selectedForm) "secondary" "default"
-          }}
+          @color={{if (eq form.slug this.selectedForm) "secondary" "default"}}
           @onClick={{fn (mut this.selectedForm) form.slug}}
           class=""
         />
@@ -29,7 +25,6 @@
     {{/each}}
   </div>
 {{/if}}
-
 <div class="uk-text-right">
   <UkButton
     @color="primary"
