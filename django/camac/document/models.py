@@ -169,7 +169,7 @@ class AttachmentSection(core_models.MultilingualModel, models.Model):
 
     def can_write(self, attachment, group, instance=None):
         permission_class = self.get_permission(
-            group, attachment.instance if attachment else None
+            group, attachment.instance if attachment else instance
         )
         return (
             permission_class.can_write(attachment, group, instance)
