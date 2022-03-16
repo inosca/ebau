@@ -15,7 +15,7 @@ export default {
       coordination: [
         "instanceId",
         "dossierNr",
-        "coordination",
+        "circulationInitializerService",
         "form",
         "municipality",
         "user",
@@ -28,7 +28,7 @@ export default {
         "deadlineColor",
         "instanceId",
         "dossierNr",
-        "coordination",
+        "circulationInitializerService",
         "form",
         "municipality",
         "applicant",
