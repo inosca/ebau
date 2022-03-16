@@ -8,7 +8,6 @@ import { DateTime } from "luxon";
 
 import caseModelConfig from "camac-ng/config/case-model";
 import caseTableConfig from "camac-ng/config/case-table";
-import config from "camac-ng/config/environment";
 
 export default class CaseTableComponent extends Component {
   @service store;
@@ -165,7 +164,7 @@ export default class CaseTableComponent extends Component {
     if (this.args.casesBackend === "camac-ng") {
       await this.store.query("form-field", {
         instance: instanceIds.join(","),
-        name: (config.APPLICATION.caseTableFormFields ?? []).join(","),
+        name: (caseTableConfig.formFields ?? []).join(","),
         include: "instance",
       });
     }
@@ -204,7 +203,7 @@ export default class CaseTableComponent extends Component {
       submit_date_before_sz: this.args.filter.submitDateBeforeSZ,
       form_name_versioned: this.args.filter.formSZ,
       circulation_state: this.args.hasActivation
-        ? config.APPLICATION.activeCirculationStates
+        ? caseTableConfig.activeCirculationStates
         : null,
       has_pending_billing_entry: this.args.hasPendingBillingEntry,
       has_pending_sanction: this.args.hasPendingSanction,
@@ -215,7 +214,7 @@ export default class CaseTableComponent extends Component {
     };
 
     this.casesQuery.fetch({
-      order: config.APPLICATION.casesQueryOrder,
+      order: caseTableConfig.order,
       filter: this.gqlFilter,
       queryOptions: {
         context: {
