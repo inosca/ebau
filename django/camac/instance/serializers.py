@@ -1058,8 +1058,6 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
     def _prepare_cantonal_territory_usage(self, instance):
         instance.instance_state = models.InstanceState.objects.get(name="ext")
 
-        instance.location_id = 22  # Alle Gemeinden
-
         self._update_instance_location(instance)
 
         event_type_answer = self.get_master_data(instance.case).veranstaltung_art
