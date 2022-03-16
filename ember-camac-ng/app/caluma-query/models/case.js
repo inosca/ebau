@@ -2,14 +2,8 @@ import { inject as service } from "@ember/service";
 import CaseModel from "@projectcaluma/ember-core/caluma-query/models/case";
 import { DateTime } from "luxon";
 
-import config from "camac-ng/config/environment";
-
-function getAnswer(document, slugOrSlugs) {
-  const slugs = Array.isArray(slugOrSlugs) ? slugOrSlugs : [slugOrSlugs];
-  return document.answers.edges.find((edge) =>
-    slugs.includes(edge.node.question.slug)
-  );
-}
+import caseModelConfig from "camac-ng/config/case-model";
+import getAnswer from "camac-ng/utils/get-answer";
 
 export default class CustomCaseModel extends CaseModel {
   @service store;
@@ -86,8 +80,7 @@ export default class CustomCaseModel extends CaseModel {
   }
 
   get intent() {
-    return getAnswer(this.raw.document, config.APPLICATION.intentSlugs)?.node
-      .stringValue;
+    return caseModelConfig.intent?.(this.raw.document);
   }
 
   get intentSZ() {
@@ -308,6 +301,7 @@ export default class CustomCaseModel extends CaseModel {
         "typ-des-verfahrens",
         "oereb-thema",
         "teilstatus",
+        "reklamen",
       ]) {
         edges {
           node {
