@@ -15,7 +15,7 @@ export default class extends Ability {
   get canStart() {
     return (
       this.model?.status === "verified" &&
-      (!isProd() || this.shoebox.isSupportRole())
+      (!isProd() || this.shoebox.isSupportRole)
     );
   }
 
@@ -38,7 +38,7 @@ export default class extends Ability {
     if (this.shoebox.isSupportRole) {
       return ["imported", "confirmed"].includes(this.model?.status);
     }
-    if (this.shoebox.role === "municipality") {
+    if (["municipality", "municipality-admin"].includes(this.shoebox.role)) {
       return ["imported"].includes(this.model?.status);
     }
     return false;
