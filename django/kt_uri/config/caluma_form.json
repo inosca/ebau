@@ -10407,7 +10407,7 @@
       "modified_by_group": null,
       "form": "reklame",
       "question": "baubewilligungspflicht-reklamebauten",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -10423,6 +10423,21 @@
       "form": "reklame",
       "question": "bemerkungen-reklame",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "reklame.beschreibung-reklame",
+    "fields": {
+      "created_at": "2022-03-16T14:31:17.113Z",
+      "modified_at": "2022-03-16T14:31:17.113Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "reklame",
+      "question": "beschreibung-reklame",
+      "sort": 3
     }
   },
   {
@@ -14831,10 +14846,10 @@
     "pk": "art-der-reklame-aenderung",
     "fields": {
       "created_at": "2020-10-21T12:33:49.683Z",
-      "modified_at": "2022-03-09T16:17:37.578Z",
+      "modified_at": "2020-10-27T15:12:00.462Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"\\u00c4nderung bestehender Reklame\", \"fr\": null}",
       "is_archived": false,
@@ -14847,10 +14862,10 @@
     "pk": "art-der-reklame-neue",
     "fields": {
       "created_at": "2020-10-21T12:33:49.685Z",
-      "modified_at": "2022-03-09T16:17:37.556Z",
+      "modified_at": "2020-10-27T15:12:00.462Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Neue Reklame\", \"fr\": null}",
       "is_archived": false,
@@ -29939,12 +29954,12 @@
     "pk": "art-der-reklame",
     "fields": {
       "created_at": "2020-10-21T12:33:49.838Z",
-      "modified_at": "2022-03-09T16:17:37.707Z",
+      "modified_at": "2020-10-27T15:12:00.562Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Art der Reklame / Vorhaben\", \"fr\": null}",
+      "label": "{\"de\": \"Art der Reklame\", \"fr\": null}",
       "type": "choice",
       "is_required": "true",
       "is_hidden": "false",
@@ -32836,6 +32851,40 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "beschreibung-reklame",
+    "fields": {
+      "created_at": "2022-03-16T14:31:16.994Z",
+      "modified_at": "2022-03-16T14:31:16.994Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kurzbeschreibung\", \"fr\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"z.B. Plakatwerbung\", \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
       "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
@@ -53844,11 +53893,11 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-reklame.art-der-reklame-aenderung",
     "fields": {
-      "created_at": "2022-03-09T16:17:37.717Z",
-      "modified_at": "2022-03-09T16:17:37.717Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-27T15:12:00.570Z",
+      "modified_at": "2020-10-27T15:12:00.570Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": null,
       "modified_by_group": null,
       "question": "art-der-reklame",
       "option": "art-der-reklame-aenderung",
@@ -53859,11 +53908,11 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-reklame.art-der-reklame-neue",
     "fields": {
-      "created_at": "2022-03-09T16:17:37.721Z",
-      "modified_at": "2022-03-09T16:17:37.721Z",
-      "created_by_user": "admin",
+      "created_at": "2020-10-27T15:12:00.574Z",
+      "modified_at": "2020-10-27T15:12:00.574Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": null,
       "modified_by_group": null,
       "question": "art-der-reklame",
       "option": "art-der-reklame-neue",
