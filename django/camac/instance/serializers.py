@@ -119,6 +119,10 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         source="get_linked_instances", model=models.Instance, read_only=True, many=True
     )
 
+    circulation_initializer_service = relations.SerializerMethodResourceRelatedField(
+        source="get_circulation_initializer_service", model=Service, read_only=True
+    )
+
     def get_permissions(self, instance):
         return {}
 
@@ -155,6 +159,10 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
             .exclude(pk=obj.pk)
         )
 
+    def get_circulation_initializer_service(self, obj):
+        first_circulation = obj.circulations.first()
+        return first_circulation.service if first_circulation else None
+
     def get_involved_services(self, obj):
         filters = Q(pk__in=obj.circulations.values("activations__service__pk"))
 
@@ -176,6 +184,7 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         "services": "camac.user.serializers.ServiceSerializer",
         "involved_services": "camac.user.serializers.ServiceSerializer",
         "linked_instances": "camac.instance.serializers.InstanceSerializer",
+        "circulation_initializer_service": "camac.user.serializers.ServiceSerializer",
     }
 
     def validate_location(self, location):
@@ -251,6 +260,7 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
             "services",
             "involved_services",
             "linked_instances",
+            "circulation_initializer_service",
         )
         read_only_fields = (
             "circulations",
@@ -260,6 +270,7 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
             "services",
             "involved_services",
             "linked_instances",
+            "circulation_initializer_service",
         )
 
 
