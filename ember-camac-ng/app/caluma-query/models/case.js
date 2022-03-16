@@ -301,7 +301,7 @@ export default class CustomCaseModel extends CaseModel {
         "typ-des-verfahrens",
         "oereb-thema",
         "teilstatus",
-        "reklamen",
+        "beschreibung-reklame",
       ]) {
         edges {
           node {
