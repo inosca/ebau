@@ -9,7 +9,7 @@ import { restartableTask, lastValue } from "ember-concurrency";
 
 import caseFilters from "./filter-config";
 
-import config from "camac-ng/config/environment";
+import caseTableConfig from "camac-ng/config/case-table";
 import getBuildingPermitQuestion from "camac-ng/gql/queries/get-building-permit-question.graphql";
 
 export default class CaseFilterComponent extends Component {
@@ -123,8 +123,9 @@ export default class CaseFilterComponent extends Component {
         }),
       services: async () =>
         await this.store.query("service", {
-          service_group_id:
-            config.APPLICATION.externalServiceGroupIds.join(","),
+          service_group_id: (
+            caseTableConfig.externalServiceGroupIds || []
+          ).join(","),
         }),
       servicesSZ: async () =>
         await this.store.query("public-service", {
@@ -180,7 +181,7 @@ export default class CaseFilterComponent extends Component {
 
   get activeCaseFilters() {
     const activeCaseFilters =
-      config.APPLICATION.activeCaseFilters[this.args.casesBackend] ?? [];
+      caseTableConfig.activeFilters[this.args.casesBackend] ?? [];
 
     if (Array.isArray(activeCaseFilters)) {
       return activeCaseFilters;
