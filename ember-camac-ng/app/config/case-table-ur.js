@@ -46,4 +46,42 @@ export default {
       ],
     },
   },
+  activeFilters: {
+    caluma: [
+      "instanceId",
+      "dossierNumber",
+      "applicantName",
+      "street",
+      "municipality",
+      "parcelNumber",
+      "instanceState",
+      "service",
+      "pendingSanctionsControlInstance",
+      "buildingPermitType",
+      "createdAfter",
+      "createdBefore",
+      "intent",
+    ],
+  },
+  activeCirculationStates: [
+    1, // RUN
+    41, // NFD
+  ],
+  externalServiceGroupIds: [
+    "21",
+    "70",
+    "2",
+    "65",
+    "66",
+    "62",
+    "61",
+    "63",
+    "64",
+    "41",
+    "71",
+  ],
+  order: [
+    { documentAnswer: "municipality" },
+    { meta: "dossier-number", direction: "DESC" },
+  ],
 };
