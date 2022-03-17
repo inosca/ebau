@@ -383,11 +383,19 @@ def test_state_transitions(
             assert dossier_import.status == status_after
 
 
+@pytest.mark.parametrize("location_required", [True, False])
 def test_transmitting_logic(
-    db, dossier_import_factory, archive_file, group, settings, requests_mock
+    db,
+    dossier_import_factory,
+    archive_file,
+    group,
+    settings,
+    requests_mock,
+    location_required,
 ):
     settings.APPLICATION = settings.APPLICATIONS["kt_bern"]
     settings.APPLICATION["DOSSIER_IMPORT"]["PROD_URL"] = "http://camac-ng.local"
+    settings.APPLICATION["DOSSIER_IMPORT"]["LOCATION_REQUIRED"] = location_required
     settings.APPLICATION["DOSSIER_IMPORT"][
         "PROD_AUTH_URL"
     ] = settings.KEYCLOAK_OIDC_TOKEN_URL
@@ -403,6 +411,11 @@ def test_transmitting_logic(
         json={"access_token": "hello123"},
         complete_qs=True,
     )
+
+    def matcher(request):
+        assert bool(request.body.fields.get("location_id", False)) == location_required
+        return True
+
     requests_mock.register_uri(
         "POST",
         build_url(settings.INTERNAL_BASE_URL, "/api/v1/dossier-imports"),
@@ -414,6 +427,7 @@ def test_transmitting_logic(
                 "relationships": {},
             }
         },
+        additional_matcher=matcher,
     )
 
     # Call domain logic directly, this can be removed once sync calls in Q cluster work

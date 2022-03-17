@@ -566,12 +566,13 @@ APPLICATIONS = {
             "LOCATION_REQUIRED": True,  # this is a workaround to account for differing validation requirements per config
             "TRANSFORM_COORDINATE_SYSTEM": "epsg:4326",  # use world wide coordinates instead of swiss ones
             "PROD_URL": env.str(
-                "DJANGO_DOSSIER_IMPORT_PROD_URL", "https://ebau-sz.ch/"
+                "DJANGO_DOSSIER_IMPORT_PROD_URL", "https://behoerden.ebau-sz.ch/"
             ),
             "PROD_AUTH_URL": env.str(
                 "DJANGO_DOSSIER_IMPORT_PROD_AUTH_URL",
                 "https://ebau-sz.ch/auth/realms/ebau/protocol/openid-connect/token",
             ),
+            "PROD_SUPPORT_GROUP_ID": 486,
         },
         "MASTER_DATA": {
             "canton": ("static", "SZ"),
@@ -1861,6 +1862,7 @@ APPLICATIONS = {
                 "DJANGO_DOSSIER_IMPORT_PROD_AUTH_URL",
                 "https://sso.be.ch/auth/realms/ebau/protocol/openid-connect/token",
             ),
+            "PROD_SUPPORT_GROUP_ID": 10000,
         },
         "MASTER_DATA": {
             "canton": ("static", "BE"),
