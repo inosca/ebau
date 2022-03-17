@@ -95,7 +95,7 @@ export default class InstancesEditIndexController extends Controller {
 
   @dropTask
   *deleteInstance() {
-    if (!confirm(this.intl.t("instances.deleteInstanceModal"))) {
+    if (!(yield confirm(this.intl.t("instances.deleteInstanceModal")))) {
       return;
     }
 
