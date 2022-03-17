@@ -1,5 +1,6 @@
+import { tracked } from "@glimmer/tracking";
 import { TrackedObject } from "tracked-built-ins";
-import { dedupeTracked, cached } from "tracked-toolbox";
+import { cached } from "tracked-toolbox";
 
 /**
  * Decorator to define an intermediate filter that stores the filters in a
@@ -72,7 +73,7 @@ export default function trackedFilter({
     Object.defineProperty(
       target,
       privateKey,
-      dedupeTracked(target, privateKey, { initializer: () => defaultValue })
+      tracked(target, privateKey, { initializer: () => defaultValue })
     );
 
     target._filters[property] = defaultValue;
