@@ -233,7 +233,7 @@
     "model": "instance.historyentryt",
     "pk": 8,
     "fields": {
-      "title": "Dossier envoy\u00e9",
+      "title": "Dossier envoyé",
       "body": "",
       "history_entry": 4,
       "language": "fr"
@@ -243,8 +243,8 @@
     "model": "instance.historyentryt",
     "pk": 9,
     "fields": {
-      "title": "Notifikation gesendet an email@example.ch ([eBau Test]: Erfolgreiche Einreichung / Formulaire d\u00e9pos\u00e9 avec succ\u00e8s)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nIhr Dossier mit der Dossier-Nr. 3 wurde erfolgreich \u00fcbermittelt. Alle auf eBau hochgeladenen Pl\u00e4ne und Dokumente m\u00fcssen unterschrieben, datiert und in mindestens zweifacher Ausfertigung mit dem Gesuchsformular bei der zust\u00e4ndigen Gemeinde eingereicht werden. Das Dossier wird erst bearbeitet, wenn die Gemeinde das Papierdossier erhalten hat.\n\nhttp://caluma-portal.local/instances/3\n\nGerne m\u00f6chten wir erfahren wie einfach die elektronische Eingabe eines Dossiers war. Wir bitten Sie daher, sich 2 - 3 Minuten Zeit zu nehmen und den folgenden Fragebogen zu beantworten. Besten Dank.\n\nhttps://www.onlineumfragen.com/login.cfm?umfrage=87201\n\nFreundliche Gr\u00fcsse\nLeitbeh\u00f6rde Burgdorf\n\n*** version fran\u00e7aise ***\n\nMadame, Monsieur,\n\nVotre dossier portant le num\u00e9ro de dossier 3 a \u00e9t\u00e9 d\u00e9pos\u00e9/e avec succ\u00e8s. Tous les plans et documents t\u00e9l\u00e9charg\u00e9s sur eBau doivent \u00eatre sign\u00e9s, dat\u00e9s et envoy\u00e9s en au moins deux exemplaires avec le formulaire de demande de permis de construire \u00e0 la commune responsable. Le dossier ne sera trait\u00e9 que lorsque la commune aura re\u00e7u le dossier papier.\n\nhttp://caluma-portal.local/instances/3\n\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\nLeitbeh\u00f6rde Burgdorf",
+      "title": "Notifikation gesendet an email@example.ch ([eBau Test]: Erfolgreiche Einreichung / Formulaire déposé avec succès)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nIhr Dossier mit der Dossier-Nr. 3 wurde erfolgreich übermittelt. Alle auf eBau hochgeladenen Pläne und Dokumente müssen unterschrieben, datiert und in mindestens zweifacher Ausfertigung mit dem Gesuchsformular bei der zuständigen Gemeinde eingereicht werden. Das Dossier wird erst bearbeitet, wenn die Gemeinde das Papierdossier erhalten hat.\n\nhttp://caluma-portal.local/instances/3\n\nGerne möchten wir erfahren wie einfach die elektronische Eingabe eines Dossiers war. Wir bitten Sie daher, sich 2 - 3 Minuten Zeit zu nehmen und den folgenden Fragebogen zu beantworten. Besten Dank.\n\nhttps://www.onlineumfragen.com/login.cfm?umfrage=87201\n\nFreundliche Grüsse\nLeitbehörde Burgdorf\n\n*** version française ***\n\nMadame, Monsieur,\n\nVotre dossier portant le numéro de dossier 3 a été déposé/e avec succès. Tous les plans et documents téléchargés sur eBau doivent être signés, datés et envoyés en au moins deux exemplaires avec le formulaire de demande de permis de construire à la commune responsable. Le dossier ne sera traité que lorsque la commune aura reçu le dossier papier.\n\nhttp://caluma-portal.local/instances/3\n\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\nLeitbehörde Burgdorf",
       "history_entry": 5,
       "language": "de"
     }
@@ -253,8 +253,8 @@
     "model": "instance.historyentryt",
     "pk": 10,
     "fields": {
-      "title": "Notification envoy\u00e9e \u00e0 email@example.ch ([eBau Test]: Erfolgreiche Einreichung / Formulaire d\u00e9pos\u00e9 avec succ\u00e8s)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nIhr Dossier mit der Dossier-Nr. 3 wurde erfolgreich \u00fcbermittelt. Alle auf eBau hochgeladenen Pl\u00e4ne und Dokumente m\u00fcssen unterschrieben, datiert und in mindestens zweifacher Ausfertigung mit dem Gesuchsformular bei der zust\u00e4ndigen Gemeinde eingereicht werden. Das Dossier wird erst bearbeitet, wenn die Gemeinde das Papierdossier erhalten hat.\n\nhttp://caluma-portal.local/instances/3\n\nGerne m\u00f6chten wir erfahren wie einfach die elektronische Eingabe eines Dossiers war. Wir bitten Sie daher, sich 2 - 3 Minuten Zeit zu nehmen und den folgenden Fragebogen zu beantworten. Besten Dank.\n\nhttps://www.onlineumfragen.com/login.cfm?umfrage=87201\n\nFreundliche Gr\u00fcsse\nLeitbeh\u00f6rde Burgdorf\n\n*** version fran\u00e7aise ***\n\nMadame, Monsieur,\n\nVotre dossier portant le num\u00e9ro de dossier 3 a \u00e9t\u00e9 d\u00e9pos\u00e9/e avec succ\u00e8s. Tous les plans et documents t\u00e9l\u00e9charg\u00e9s sur eBau doivent \u00eatre sign\u00e9s, dat\u00e9s et envoy\u00e9s en au moins deux exemplaires avec le formulaire de demande de permis de construire \u00e0 la commune responsable. Le dossier ne sera trait\u00e9 que lorsque la commune aura re\u00e7u le dossier papier.\n\nhttp://caluma-portal.local/instances/3\n\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\nLeitbeh\u00f6rde Burgdorf",
+      "title": "Notification envoyée à email@example.ch ([eBau Test]: Erfolgreiche Einreichung / Formulaire déposé avec succès)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nIhr Dossier mit der Dossier-Nr. 3 wurde erfolgreich übermittelt. Alle auf eBau hochgeladenen Pläne und Dokumente müssen unterschrieben, datiert und in mindestens zweifacher Ausfertigung mit dem Gesuchsformular bei der zuständigen Gemeinde eingereicht werden. Das Dossier wird erst bearbeitet, wenn die Gemeinde das Papierdossier erhalten hat.\n\nhttp://caluma-portal.local/instances/3\n\nGerne möchten wir erfahren wie einfach die elektronische Eingabe eines Dossiers war. Wir bitten Sie daher, sich 2 - 3 Minuten Zeit zu nehmen und den folgenden Fragebogen zu beantworten. Besten Dank.\n\nhttps://www.onlineumfragen.com/login.cfm?umfrage=87201\n\nFreundliche Grüsse\nLeitbehörde Burgdorf\n\n*** version française ***\n\nMadame, Monsieur,\n\nVotre dossier portant le numéro de dossier 3 a été déposé/e avec succès. Tous les plans et documents téléchargés sur eBau doivent être signés, datés et envoyés en au moins deux exemplaires avec le formulaire de demande de permis de construire à la commune responsable. Le dossier ne sera traité que lorsque la commune aura reçu le dossier papier.\n\nhttp://caluma-portal.local/instances/3\n\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\nLeitbehörde Burgdorf",
       "history_entry": 5,
       "language": "fr"
     }
@@ -263,8 +263,8 @@
     "model": "instance.historyentryt",
     "pk": 11,
     "fields": {
-      "title": "Notifikation gesendet an baudirektion@burgdorf.ch ([eBau Test]: Neu eingegangen / Nouvelle entr\u00e9e)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. 3.\n\nhttp://camac-ng.local/index/redirect-to-instance-resource/instance-id/3\n\neBau\n\n*** version fran\u00e7aise ***\n\nMadame, Monsieur,\n\neBau a enregistr\u00e9 une nouvelle entr\u00e9e de type Baugesuch portant le num\u00e9ro de dossier 3.\n\nhttp://camac-ng.local/index/redirect-to-instance-resource/instance-id/3\n\neBau",
+      "title": "Notifikation gesendet an baudirektion@burgdorf.ch ([eBau Test]: Neu eingegangen / Nouvelle entrée)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. 3.\n\nhttp://camac-ng.local/index/redirect-to-instance-resource/instance-id/3\n\neBau\n\n*** version française ***\n\nMadame, Monsieur,\n\neBau a enregistré une nouvelle entrée de type Baugesuch portant le numéro de dossier 3.\n\nhttp://camac-ng.local/index/redirect-to-instance-resource/instance-id/3\n\neBau",
       "history_entry": 6,
       "language": "de"
     }
@@ -273,8 +273,8 @@
     "model": "instance.historyentryt",
     "pk": 12,
     "fields": {
-      "title": "Notification envoy\u00e9e \u00e0 baudirektion@burgdorf.ch ([eBau Test]: Neu eingegangen / Nouvelle entr\u00e9e)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. 3.\n\nhttp://camac-ng.local/index/redirect-to-instance-resource/instance-id/3\n\neBau\n\n*** version fran\u00e7aise ***\n\nMadame, Monsieur,\n\neBau a enregistr\u00e9 une nouvelle entr\u00e9e de type Baugesuch portant le num\u00e9ro de dossier 3.\n\nhttp://camac-ng.local/index/redirect-to-instance-resource/instance-id/3\n\neBau",
+      "title": "Notification envoyée à baudirektion@burgdorf.ch ([eBau Test]: Neu eingegangen / Nouvelle entrée)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. 3.\n\nhttp://camac-ng.local/index/redirect-to-instance-resource/instance-id/3\n\neBau\n\n*** version française ***\n\nMadame, Monsieur,\n\neBau a enregistré une nouvelle entrée de type Baugesuch portant le numéro de dossier 3.\n\nhttp://camac-ng.local/index/redirect-to-instance-resource/instance-id/3\n\neBau",
       "history_entry": 6,
       "language": "fr"
     }
@@ -293,7 +293,7 @@
     "model": "instance.historyentryt",
     "pk": 14,
     "fields": {
-      "title": "Attribution d'un num\u00e9ro eBau",
+      "title": "Attribution d'un numéro eBau",
       "body": "",
       "history_entry": 7,
       "language": "fr"
@@ -303,7 +303,7 @@
     "model": "instance.historyentryt",
     "pk": 15,
     "fields": {
-      "title": "Zirkulation \u00fcbersprungen",
+      "title": "Zirkulation übersprungen",
       "body": "",
       "history_entry": 8,
       "language": "de"
@@ -313,7 +313,7 @@
     "model": "instance.historyentryt",
     "pk": 16,
     "fields": {
-      "title": "Sans proc\u00e9dure de circulation",
+      "title": "Sans procédure de circulation",
       "body": "",
       "history_entry": 8,
       "language": "fr"
@@ -323,7 +323,7 @@
     "model": "instance.historyentryt",
     "pk": 17,
     "fields": {
-      "title": "Dossierpr\u00fcfung \u00fcbersprungen",
+      "title": "Dossierprüfung übersprungen",
       "body": "",
       "history_entry": 9,
       "language": "de"
@@ -333,7 +333,7 @@
     "model": "instance.historyentryt",
     "pk": 18,
     "fields": {
-      "title": "Examen saut\u00e9",
+      "title": "Examen sauté",
       "body": "",
       "history_entry": 9,
       "language": "fr"
@@ -343,8 +343,8 @@
     "model": "instance.historyentryt",
     "pk": 19,
     "fields": {
-      "title": "Notifikation gesendet an email@example.ch ([eBau Test]: Information \u00fcber Entscheid (eBau Nr. 2021-1) / Information sur le prononc\u00e9 de la d\u00e9cision (n\u00b0 eBau 2021-1))",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nDer Bauentscheid zum Dossier mit der eBau Nr. 2021-1 wurde gef\u00e4llt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\n\nhttp://caluma-portal.local/instances/3/feedback\n\nFreundliche Gr\u00fcsse\nLeitbeh\u00f6rde Burgdorf\n\n*** version fran\u00e7aise ***\n\nMadame, Monsieur,\n\nLa d\u00e9cision relative au dossier portant le num\u00e9ro eBau 2021-1 a \u00e9t\u00e9 rendue. Elle est jointe en annexe, accompagn\u00e9e de l'indication des voies de droit.\n\nhttp://caluma-portal.local/instances/3/feedback\n\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\nLeitbeh\u00f6rde Burgdorf",
+      "title": "Notifikation gesendet an email@example.ch ([eBau Test]: Information über Entscheid (eBau Nr. 2021-1) / Information sur le prononcé de la décision (n° eBau 2021-1))",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nDer Bauentscheid zum Dossier mit der eBau Nr. 2021-1 wurde gefällt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\n\nhttp://caluma-portal.local/instances/3/feedback\n\nFreundliche Grüsse\nLeitbehörde Burgdorf\n\n*** version française ***\n\nMadame, Monsieur,\n\nLa décision relative au dossier portant le numéro eBau 2021-1 a été rendue. Elle est jointe en annexe, accompagnée de l'indication des voies de droit.\n\nhttp://caluma-portal.local/instances/3/feedback\n\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\nLeitbehörde Burgdorf",
       "history_entry": 10,
       "language": "de"
     }
@@ -353,8 +353,8 @@
     "model": "instance.historyentryt",
     "pk": 20,
     "fields": {
-      "title": "Notification envoy\u00e9e \u00e0 email@example.ch ([eBau Test]: Information \u00fcber Entscheid (eBau Nr. 2021-1) / Information sur le prononc\u00e9 de la d\u00e9cision (n\u00b0 eBau 2021-1))",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nDer Bauentscheid zum Dossier mit der eBau Nr. 2021-1 wurde gef\u00e4llt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\n\nhttp://caluma-portal.local/instances/3/feedback\n\nFreundliche Gr\u00fcsse\nLeitbeh\u00f6rde Burgdorf\n\n*** version fran\u00e7aise ***\n\nMadame, Monsieur,\n\nLa d\u00e9cision relative au dossier portant le num\u00e9ro eBau 2021-1 a \u00e9t\u00e9 rendue. Elle est jointe en annexe, accompagn\u00e9e de l'indication des voies de droit.\n\nhttp://caluma-portal.local/instances/3/feedback\n\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\nLeitbeh\u00f6rde Burgdorf",
+      "title": "Notification envoyée à email@example.ch ([eBau Test]: Information über Entscheid (eBau Nr. 2021-1) / Information sur le prononcé de la décision (n° eBau 2021-1))",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nDer Bauentscheid zum Dossier mit der eBau Nr. 2021-1 wurde gefällt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\n\nhttp://caluma-portal.local/instances/3/feedback\n\nFreundliche Grüsse\nLeitbehörde Burgdorf\n\n*** version française ***\n\nMadame, Monsieur,\n\nLa décision relative au dossier portant le numéro eBau 2021-1 a été rendue. Elle est jointe en annexe, accompagnée de l'indication des voies de droit.\n\nhttp://caluma-portal.local/instances/3/feedback\n\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\nLeitbehörde Burgdorf",
       "history_entry": 10,
       "language": "fr"
     }
@@ -363,8 +363,8 @@
     "model": "instance.historyentryt",
     "pk": 21,
     "fields": {
-      "title": "Notifikation gesendet an baudirektion@burgdorf.ch ([eBau Test]: Information \u00fcber Entscheid (eBau Nr. 2021-1) / Information sur le prononc\u00e9 de la d\u00e9cision (n\u00b0 eBau 2021-1))",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nDer Bauentscheid zum Dossier mit der eBau Nr. 2021-1 wurde gef\u00e4llt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\n\nhttp://camac-ng.local/apidocuments/list/list/instance-resource-id/20068/instance-id/3\n\nLeitbeh\u00f6rde Burgdorf\n\n*** version fran\u00e7aise ***\n\nMadame, Monsieur,\n\nLa d\u00e9cision relative au dossier portant le num\u00e9ro eBau 2021-1 a \u00e9t\u00e9 rendue. Elle est jointe en annexe, accompagn\u00e9e de l'indication des voies de droit.\n\nhttp://camac-ng.local/apidocuments/list/list/instance-resource-id/20068/instance-id/3\n\nLeitbeh\u00f6rde Burgdorf",
+      "title": "Notifikation gesendet an baudirektion@burgdorf.ch ([eBau Test]: Information über Entscheid (eBau Nr. 2021-1) / Information sur le prononcé de la décision (n° eBau 2021-1))",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nDer Bauentscheid zum Dossier mit der eBau Nr. 2021-1 wurde gefällt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\n\nhttp://camac-ng.local/apidocuments/list/list/instance-resource-id/20068/instance-id/3\n\nLeitbehörde Burgdorf\n\n*** version française ***\n\nMadame, Monsieur,\n\nLa décision relative au dossier portant le numéro eBau 2021-1 a été rendue. Elle est jointe en annexe, accompagnée de l'indication des voies de droit.\n\nhttp://camac-ng.local/apidocuments/list/list/instance-resource-id/20068/instance-id/3\n\nLeitbehörde Burgdorf",
       "history_entry": 11,
       "language": "de"
     }
@@ -373,8 +373,8 @@
     "model": "instance.historyentryt",
     "pk": 22,
     "fields": {
-      "title": "Notification envoy\u00e9e \u00e0 baudirektion@burgdorf.ch ([eBau Test]: Information \u00fcber Entscheid (eBau Nr. 2021-1) / Information sur le prononc\u00e9 de la d\u00e9cision (n\u00b0 eBau 2021-1))",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nDer Bauentscheid zum Dossier mit der eBau Nr. 2021-1 wurde gef\u00e4llt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\n\nhttp://camac-ng.local/apidocuments/list/list/instance-resource-id/20068/instance-id/3\n\nLeitbeh\u00f6rde Burgdorf\n\n*** version fran\u00e7aise ***\n\nMadame, Monsieur,\n\nLa d\u00e9cision relative au dossier portant le num\u00e9ro eBau 2021-1 a \u00e9t\u00e9 rendue. Elle est jointe en annexe, accompagn\u00e9e de l'indication des voies de droit.\n\nhttp://camac-ng.local/apidocuments/list/list/instance-resource-id/20068/instance-id/3\n\nLeitbeh\u00f6rde Burgdorf",
+      "title": "Notification envoyée à baudirektion@burgdorf.ch ([eBau Test]: Information über Entscheid (eBau Nr. 2021-1) / Information sur le prononcé de la décision (n° eBau 2021-1))",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nDer Bauentscheid zum Dossier mit der eBau Nr. 2021-1 wurde gefällt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\n\nhttp://camac-ng.local/apidocuments/list/list/instance-resource-id/20068/instance-id/3\n\nLeitbehörde Burgdorf\n\n*** version française ***\n\nMadame, Monsieur,\n\nLa décision relative au dossier portant le numéro eBau 2021-1 a été rendue. Elle est jointe en annexe, accompagnée de l'indication des voies de droit.\n\nhttp://camac-ng.local/apidocuments/list/list/instance-resource-id/20068/instance-id/3\n\nLeitbehörde Burgdorf",
       "history_entry": 11,
       "language": "fr"
     }
@@ -383,8 +383,8 @@
     "model": "instance.historyentryt",
     "pk": 23,
     "fields": {
-      "title": "Notifikation gesendet an  ([eBau Test]: Information \u00fcber Entscheid (eBau Nr. 2021-1) / Information sur le prononc\u00e9 de la d\u00e9cision (n\u00b0 eBau 2021-1))",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nDer Bauentscheid zum Dossier mit der eBau Nr. 2021-1 wurde gef\u00e4llt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\n\nhttp://camac-ng.local/apidocuments/list/list/instance-resource-id/20069/instance-id/3\n\nFreundliche Gr\u00fcsse\nLeitbeh\u00f6rde Burgdorf\n\n*** version fran\u00e7aise ***\n\nMadame, Monsieur,\n\nLa d\u00e9cision relative \u00e0 l'affaire portant le num\u00e9ro eBau 2021-1 a \u00e9t\u00e9 rendue et vous la trouverez en annexe.\n\nhttp://camac-ng.local/apidocuments/list/list/instance-resource-id/20069/instance-id/3\n\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\nLeitbeh\u00f6rde Burgdorf",
+      "title": "Notifikation gesendet an  ([eBau Test]: Information über Entscheid (eBau Nr. 2021-1) / Information sur le prononcé de la décision (n° eBau 2021-1))",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nDer Bauentscheid zum Dossier mit der eBau Nr. 2021-1 wurde gefällt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\n\nhttp://camac-ng.local/apidocuments/list/list/instance-resource-id/20069/instance-id/3\n\nFreundliche Grüsse\nLeitbehörde Burgdorf\n\n*** version française ***\n\nMadame, Monsieur,\n\nLa décision relative à l'affaire portant le numéro eBau 2021-1 a été rendue et vous la trouverez en annexe.\n\nhttp://camac-ng.local/apidocuments/list/list/instance-resource-id/20069/instance-id/3\n\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\nLeitbehörde Burgdorf",
       "history_entry": 12,
       "language": "de"
     }
@@ -393,8 +393,8 @@
     "model": "instance.historyentryt",
     "pk": 24,
     "fields": {
-      "title": "Notification envoy\u00e9e \u00e0  ([eBau Test]: Information \u00fcber Entscheid (eBau Nr. 2021-1) / Information sur le prononc\u00e9 de la d\u00e9cision (n\u00b0 eBau 2021-1))",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nDer Bauentscheid zum Dossier mit der eBau Nr. 2021-1 wurde gef\u00e4llt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\n\nhttp://camac-ng.local/apidocuments/list/list/instance-resource-id/20069/instance-id/3\n\nFreundliche Gr\u00fcsse\nLeitbeh\u00f6rde Burgdorf\n\n*** version fran\u00e7aise ***\n\nMadame, Monsieur,\n\nLa d\u00e9cision relative \u00e0 l'affaire portant le num\u00e9ro eBau 2021-1 a \u00e9t\u00e9 rendue et vous la trouverez en annexe.\n\nhttp://camac-ng.local/apidocuments/list/list/instance-resource-id/20069/instance-id/3\n\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\nLeitbeh\u00f6rde Burgdorf",
+      "title": "Notification envoyée à  ([eBau Test]: Information über Entscheid (eBau Nr. 2021-1) / Information sur le prononcé de la décision (n° eBau 2021-1))",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nDer Bauentscheid zum Dossier mit der eBau Nr. 2021-1 wurde gefällt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\n\nhttp://camac-ng.local/apidocuments/list/list/instance-resource-id/20069/instance-id/3\n\nFreundliche Grüsse\nLeitbehörde Burgdorf\n\n*** version française ***\n\nMadame, Monsieur,\n\nLa décision relative à l'affaire portant le numéro eBau 2021-1 a été rendue et vous la trouverez en annexe.\n\nhttp://camac-ng.local/apidocuments/list/list/instance-resource-id/20069/instance-id/3\n\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\nLeitbehörde Burgdorf",
       "history_entry": 12,
       "language": "fr"
     }
@@ -403,7 +403,7 @@
     "model": "instance.historyentryt",
     "pk": 25,
     "fields": {
-      "title": "Bauentscheid verf\u00fcgt",
+      "title": "Bauentscheid verfügt",
       "body": "",
       "history_entry": 13,
       "language": "de"
@@ -413,7 +413,7 @@
     "model": "instance.historyentryt",
     "pk": 26,
     "fields": {
-      "title": "D\u00e9cision relative \u00e0 la demande de permis de construire rendue",
+      "title": "Décision relative à la demande de permis de construire rendue",
       "body": "",
       "history_entry": 13,
       "language": "fr"
@@ -433,7 +433,7 @@
     "model": "instance.historyentryt",
     "pk": 28,
     "fields": {
-      "title": "DC1 envoy\u00e9",
+      "title": "DC1 envoyé",
       "body": "",
       "history_entry": 14,
       "language": "fr"
@@ -443,8 +443,8 @@
     "model": "instance.historyentryt",
     "pk": 29,
     "fields": {
-      "title": "Notifikation gesendet an email@example.ch ([eBau Test]: Meldung Selbstdeklaration (eBau Nr. 2021-1) / Avis concernant la d\u00e9claration spontan\u00e9e (n\u00b0 eBau 2021-1))",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nDie Meldung der Selbstdeklariation Baukontrolle 1 (SB1) wurde erfolgreich versendet. Die zust\u00e4ndige Baupolizeibeh\u00f6rde wird falls notwendig die n\u00e4chsten Schritte einleiten.\n\nWeitere Informationen finden Sie unter:\nhttps://www.jgk.be.ch/jgk/de/index/baubewilligungen/baubewilligungen.assetref/content/dam/documents/JGK/AGR/de/Baubewilligungen/AGR_BAUEN_ERLAUETERUNG_bsig_selbstdeklaration_bei_der_baukontrolle_de.pdf\n\n\nFreundliche Gr\u00fcsse \nLeitbeh\u00f6rde Burgdorf\n\n*** version fran\u00e7aise ***\n\nMadame, Monsieur,\n\nL'avis relatif \u00e0 la d\u00e9claration spontan\u00e9e en mati\u00e8re de contr\u00f4le des constructions a \u00e9t\u00e9 envoy\u00e9 avec succ\u00e8s. L'autorit\u00e9 de police des constructions comp\u00e9tente va entreprendre les d\u00e9marches n\u00e9cessaires.\n\nVous trouverez de plus amples informations sous:\nhttps://www.jgk.be.ch/jgk/de/index/baubewilligungen/baubewilligungen.assetref/content/dam/documents/JGK/AGR/de/Baubewilligungen/AGR_BAUEN_ERLAUETERUNG_bsig_selbstdeklaration_bei_der_baukontrolle_de.pdf\n\n\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures. \nLeitbeh\u00f6rde Burgdorf",
+      "title": "Notifikation gesendet an email@example.ch ([eBau Test]: Meldung Selbstdeklaration (eBau Nr. 2021-1) / Avis concernant la déclaration spontanée (n° eBau 2021-1))",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nDie Meldung der Selbstdeklariation Baukontrolle 1 (SB1) wurde erfolgreich versendet. Die zuständige Baupolizeibehörde wird falls notwendig die nächsten Schritte einleiten.\n\nWeitere Informationen finden Sie unter:\nhttps://www.jgk.be.ch/jgk/de/index/baubewilligungen/baubewilligungen.assetref/content/dam/documents/JGK/AGR/de/Baubewilligungen/AGR_BAUEN_ERLAUETERUNG_bsig_selbstdeklaration_bei_der_baukontrolle_de.pdf\n\n\nFreundliche Grüsse \nLeitbehörde Burgdorf\n\n*** version française ***\n\nMadame, Monsieur,\n\nL'avis relatif à la déclaration spontanée en matière de contrôle des constructions a été envoyé avec succès. L'autorité de police des constructions compétente va entreprendre les démarches nécessaires.\n\nVous trouverez de plus amples informations sous:\nhttps://www.jgk.be.ch/jgk/de/index/baubewilligungen/baubewilligungen.assetref/content/dam/documents/JGK/AGR/de/Baubewilligungen/AGR_BAUEN_ERLAUETERUNG_bsig_selbstdeklaration_bei_der_baukontrolle_de.pdf\n\n\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures. \nLeitbehörde Burgdorf",
       "history_entry": 15,
       "language": "de"
     }
@@ -453,8 +453,8 @@
     "model": "instance.historyentryt",
     "pk": 30,
     "fields": {
-      "title": "Notification envoy\u00e9e \u00e0 email@example.ch ([eBau Test]: Meldung Selbstdeklaration (eBau Nr. 2021-1) / Avis concernant la d\u00e9claration spontan\u00e9e (n\u00b0 eBau 2021-1))",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nDie Meldung der Selbstdeklariation Baukontrolle 1 (SB1) wurde erfolgreich versendet. Die zust\u00e4ndige Baupolizeibeh\u00f6rde wird falls notwendig die n\u00e4chsten Schritte einleiten.\n\nWeitere Informationen finden Sie unter:\nhttps://www.jgk.be.ch/jgk/de/index/baubewilligungen/baubewilligungen.assetref/content/dam/documents/JGK/AGR/de/Baubewilligungen/AGR_BAUEN_ERLAUETERUNG_bsig_selbstdeklaration_bei_der_baukontrolle_de.pdf\n\n\nFreundliche Gr\u00fcsse \nLeitbeh\u00f6rde Burgdorf\n\n*** version fran\u00e7aise ***\n\nMadame, Monsieur,\n\nL'avis relatif \u00e0 la d\u00e9claration spontan\u00e9e en mati\u00e8re de contr\u00f4le des constructions a \u00e9t\u00e9 envoy\u00e9 avec succ\u00e8s. L'autorit\u00e9 de police des constructions comp\u00e9tente va entreprendre les d\u00e9marches n\u00e9cessaires.\n\nVous trouverez de plus amples informations sous:\nhttps://www.jgk.be.ch/jgk/de/index/baubewilligungen/baubewilligungen.assetref/content/dam/documents/JGK/AGR/de/Baubewilligungen/AGR_BAUEN_ERLAUETERUNG_bsig_selbstdeklaration_bei_der_baukontrolle_de.pdf\n\n\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures. \nLeitbeh\u00f6rde Burgdorf",
+      "title": "Notification envoyée à email@example.ch ([eBau Test]: Meldung Selbstdeklaration (eBau Nr. 2021-1) / Avis concernant la déclaration spontanée (n° eBau 2021-1))",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nDie Meldung der Selbstdeklariation Baukontrolle 1 (SB1) wurde erfolgreich versendet. Die zuständige Baupolizeibehörde wird falls notwendig die nächsten Schritte einleiten.\n\nWeitere Informationen finden Sie unter:\nhttps://www.jgk.be.ch/jgk/de/index/baubewilligungen/baubewilligungen.assetref/content/dam/documents/JGK/AGR/de/Baubewilligungen/AGR_BAUEN_ERLAUETERUNG_bsig_selbstdeklaration_bei_der_baukontrolle_de.pdf\n\n\nFreundliche Grüsse \nLeitbehörde Burgdorf\n\n*** version française ***\n\nMadame, Monsieur,\n\nL'avis relatif à la déclaration spontanée en matière de contrôle des constructions a été envoyé avec succès. L'autorité de police des constructions compétente va entreprendre les démarches nécessaires.\n\nVous trouverez de plus amples informations sous:\nhttps://www.jgk.be.ch/jgk/de/index/baubewilligungen/baubewilligungen.assetref/content/dam/documents/JGK/AGR/de/Baubewilligungen/AGR_BAUEN_ERLAUETERUNG_bsig_selbstdeklaration_bei_der_baukontrolle_de.pdf\n\n\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures. \nLeitbehörde Burgdorf",
       "history_entry": 15,
       "language": "fr"
     }
@@ -463,8 +463,8 @@
     "model": "instance.historyentryt",
     "pk": 31,
     "fields": {
-      "title": "Notifikation gesendet an baudirektion@burgdorf.ch ([eBau Test]: Meldung Selbstdeklaration - eBau Nr. 2021-1 (3) / Avis concernant la d\u00e9claration spontan\u00e9e (n\u00b0 eBau 2021-1) (3))",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\n Guten Tag\n\nDie Meldung zur Selbstdeklaration Baukontrolle 1 (SB1) vom Dossier mit der eBau-Nummer 2021-1 (3) ist eingetroffen.\n\neBau\n\n*** version fran\u00e7aise ***\n\nMadame, Monsieur,\n\nLe message \u00e0 l'autod\u00e9claration de Building Control 1 (SB1) du fichier avec le num\u00e9ro eBau 2021-1 (3) est arriv\u00e9.\n\neBau",
+      "title": "Notifikation gesendet an baudirektion@burgdorf.ch ([eBau Test]: Meldung Selbstdeklaration - eBau Nr. 2021-1 (3) / Avis concernant la déclaration spontanée (n° eBau 2021-1) (3))",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\n Guten Tag\n\nDie Meldung zur Selbstdeklaration Baukontrolle 1 (SB1) vom Dossier mit der eBau-Nummer 2021-1 (3) ist eingetroffen.\n\neBau\n\n*** version française ***\n\nMadame, Monsieur,\n\nLe message à l'autodéclaration de Building Control 1 (SB1) du fichier avec le numéro eBau 2021-1 (3) est arrivé.\n\neBau",
       "history_entry": 16,
       "language": "de"
     }
@@ -473,8 +473,8 @@
     "model": "instance.historyentryt",
     "pk": 32,
     "fields": {
-      "title": "Notification envoy\u00e9e \u00e0 baudirektion@burgdorf.ch ([eBau Test]: Meldung Selbstdeklaration - eBau Nr. 2021-1 (3) / Avis concernant la d\u00e9claration spontan\u00e9e (n\u00b0 eBau 2021-1) (3))",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\n Guten Tag\n\nDie Meldung zur Selbstdeklaration Baukontrolle 1 (SB1) vom Dossier mit der eBau-Nummer 2021-1 (3) ist eingetroffen.\n\neBau\n\n*** version fran\u00e7aise ***\n\nMadame, Monsieur,\n\nLe message \u00e0 l'autod\u00e9claration de Building Control 1 (SB1) du fichier avec le num\u00e9ro eBau 2021-1 (3) est arriv\u00e9.\n\neBau",
+      "title": "Notification envoyée à baudirektion@burgdorf.ch ([eBau Test]: Meldung Selbstdeklaration - eBau Nr. 2021-1 (3) / Avis concernant la déclaration spontanée (n° eBau 2021-1) (3))",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\n Guten Tag\n\nDie Meldung zur Selbstdeklaration Baukontrolle 1 (SB1) vom Dossier mit der eBau-Nummer 2021-1 (3) ist eingetroffen.\n\neBau\n\n*** version française ***\n\nMadame, Monsieur,\n\nLe message à l'autodéclaration de Building Control 1 (SB1) du fichier avec le numéro eBau 2021-1 (3) est arrivé.\n\neBau",
       "history_entry": 16,
       "language": "fr"
     }

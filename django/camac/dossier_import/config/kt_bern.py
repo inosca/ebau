@@ -1,19 +1,18 @@
-import re
 from typing import List
 
 from caluma.caluma_form.api import save_answer
 from caluma.caluma_form.models import Form as CalumaForm, Question
+from caluma.caluma_form.validators import CustomValidationError
 from caluma.caluma_user.models import BaseUser
 from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.api import skip_work_item
-from caluma.caluma_workflow.models import Case, WorkItem
+from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
 from django.db import transaction
 
 from camac.caluma.extensions.events.general import get_caluma_setting
 from camac.core.models import InstanceService
-from camac.core.utils import generate_ebau_nr
 from camac.dossier_import.dossier_classes import Dossier
 from camac.dossier_import.messages import (
     DOSSIER_IMPORT_STATUS_ERROR,
@@ -217,6 +216,9 @@ class KtBernDossierWriter(DossierWriter):
             dossier_id=dossier.id, status=DOSSIER_IMPORT_STATUS_SUCCESS, details=[]
         )
 
+        # copy messages from loader to summary
+        dossier_summary.details += dossier._meta.errors
+
         if dossier._meta.missing:
             dossier_summary.details.append(
                 Message(
@@ -276,7 +278,7 @@ class KtBernDossierWriter(DossierWriter):
             instance.decision.save()
 
         workflow_message = self._set_workflow_state(
-            instance, dossier._meta.target_state
+            instance, dossier._meta.target_state, dossier
         )
         instance.history.all().delete()
 
@@ -297,7 +299,11 @@ class KtBernDossierWriter(DossierWriter):
         return dossier_summary
 
     def _set_workflow_state(  # noqa: C901
-        self, instance: Instance, target_state, workflow_type: str = "BUILDINGPERMIT"
+        self,
+        instance: Instance,
+        target_state,
+        dossier,
+        workflow_type: str = "BUILDINGPERMIT",
     ) -> List[Message]:
         """Advance instance's case through defined workflow sequence to target state.
 
@@ -364,11 +370,16 @@ class KtBernDossierWriter(DossierWriter):
             if task_id == "decision":
                 set_construction_control(instance)
             if target_state == "SUBMITTED":
-                instance.instance_state = InstanceState.objects.get(name="subm")
-                instance.save()
                 if instance.case.meta.get("ebau-number"):
                     work_item = instance.case.work_items.get(task_id="ebau-number")
                     skip_work_item(work_item, user=caluma_user, context=default_context)
+                    self.write_ebau_number_form(instance, work_item, dossier)
+                    instance.instance_state = InstanceState.objects.get(
+                        name="circulation_init"
+                    )
+                else:
+                    instance.instance_state = InstanceState.objects.get(name="subm")
+                instance.save()
         messages.append(  # pragma: no cover
             Message(
                 level=LOG_LEVEL_DEBUG,
@@ -378,20 +389,42 @@ class KtBernDossierWriter(DossierWriter):
         )
         return messages
 
-    def get_or_create_ebau_nr(self, dossier):
-        pattern = re.compile("([0-9]{4}-[1-9][0-9]*)")
-        result = pattern.search(str(dossier.cantonal_id))
-        if result:
-            try:
-                match = result.groups()[0]
-                case = Case.objects.filter(**{"meta__ebau-number": match}).first()
-                if case.instance.services.filter(
-                    service_id=self._group.service.pk
-                ).exists():
-                    return match
-            except AttributeError:
-                pass
-
-        return (
-            generate_ebau_nr(dossier.submit_date.year) if dossier.submit_date else None
-        )
+    def write_ebau_number_form(self, instance, ebau_number_work_item, dossier):
+        document = ebau_number_work_item.document
+        ebau_number_slug = "ebau-number-existing"
+        question = Question.objects.get(slug=ebau_number_slug)
+        value = instance.case.meta.get("ebau-number")
+        try:
+            save_answer(
+                question=question,
+                document=document,
+                value=value,
+                user=BaseUser(username=self._user.username, group=self._group.pk),
+            )
+        except CustomValidationError:  # pragma: no cover
+            dossier._meta.errors.append(
+                Message(
+                    level=LOG_LEVEL_WARNING,
+                    code=MessageCodes.FIELD_VALIDATION_ERROR.value,
+                    detail=f"Failed to write {value} to {ebau_number_slug} for dossier {instance}",
+                )
+            )
+            return
+        exists_slug = "ebau-number-has-existing"
+        question_exists = Question.objects.get(slug=exists_slug)
+        try:
+            save_answer(
+                question=question_exists,
+                document=document,
+                value=f"{exists_slug}-yes",
+                user=BaseUser(username=self._user.username, group=self._group.pk),
+            )
+        except CustomValidationError:  # pragma: no cover
+            dossier._meta.errors.append(
+                Message(
+                    level=LOG_LEVEL_WARNING,
+                    code=MessageCodes.FIELD_VALIDATION_ERROR.value,
+                    detail=f"Failed to write '{exists_slug}-yes' to {exists_slug} for dossier {instance}",
+                )
+            )
+            return

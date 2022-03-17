@@ -223,16 +223,13 @@ class Services(BaseDataSource):
             .prefetch_related("trans")
         )
 
-        data = (
-            sorted(
-                [
-                    [str(service.pk), get_municipality_label(service, True)]
-                    for service in services
-                ],
-                key=lambda x: x[1]["de"].casefold(),
-            )
-            + [get_others_option()]
-        )
+        data = sorted(
+            [
+                [str(service.pk), get_municipality_label(service, True)]
+                for service in services
+            ],
+            key=lambda x: x[1]["de"].casefold(),
+        ) + [get_others_option()]
 
         return data
 

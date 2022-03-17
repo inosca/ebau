@@ -36,6 +36,7 @@ nav:
   internal: "au domaine interne"
   overview: "Aperçu"
   faq: "FAQ"
+  form-builder: "Form Builder"
 
 feedback:
   info: "Vous n'avez pas de commentaires pour le moment. Dès que le dossier aura été soumis, les réactions éventuelles de l'autorité chef de file ou des agences spécialisées seront affichées ici."
@@ -188,7 +189,9 @@ instances:
   municipality: "Commune"
   address-be: "Adresse"
   address-ur: ""
-  parcel: "N° de parcelle / de bien-fonds"
+  parcel-be: "N° de parcelle / de bien-fonds"
+  parcel-ur: ""
+  objectionPeriod: ""
   filter: "Cherche"
   reset: "Remise à l'état initial"
   pageInfo: "Dossiers '<strong'>1 - {length}'</strong'> de {total}"

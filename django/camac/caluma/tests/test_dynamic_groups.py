@@ -66,13 +66,15 @@ def test_dynamic_group_bern(
         )
 
 
+@pytest.mark.parametrize("workflow", ["building-permit", "internal-document"])
 def test_dynamic_group_schwyz(
-    db, instance, caluma_admin_user, caluma_workflow_config_sz
+    db, instance, caluma_admin_user, caluma_workflow_config_sz, workflow
 ):
     case = start_case(
-        workflow=Workflow.objects.get(pk="building-permit"),
+        workflow=Workflow.objects.get(pk=workflow),
         form=Form.objects.get(pk="baugesuch"),
         user=caluma_admin_user,
+        context={"instance": instance.pk},
     )
     instance.case = case
     instance.save()

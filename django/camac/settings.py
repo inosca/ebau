@@ -52,14 +52,18 @@ DEMO_MODE = env.bool("DEMO_MODE", default=False)
 # See https://docs.djangoproject.com/en/2.2/ref/settings/#secure-proxy-ssl-header
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
-# UR uses camac.ur.ch and camac.kt.ur.ch to refer to the same system. This makes sure
+# UR uses urec.ur.ch and urec.kt.ur.ch to refer to the same system. This makes sure
 # that django infers the correct base uri in FileFields (build_absolute_uri).
 USE_X_FORWARDED_HOST = env.bool("DJANGO_USE_X_FORWARDED_HOST", default=False)
 
 # Application definition
 
 INSTALLED_APPS = [
+    "camac.apps.DjangoAdminConfig",
+    "django.contrib.messages",
     "django.contrib.auth",
+    "django.contrib.sessions",
+    "mozilla_django_oidc",
     "django.contrib.postgres",
     "django.contrib.contenttypes",
     "django.contrib.staticfiles",
@@ -93,26 +97,31 @@ INSTALLED_APPS = [
     "camac.tags.apps.DefaultConfig",
     "camac.objection.apps.DefaultConfig",
     "camac.echbern.apps.EchbernConfig",
-    "camac.migrate_to_caluma",
+    "camac.migrate_to_caluma.apps.MigrateConfig",
     "camac.stats.apps.StatsConfig",
-    "camac.parashift",
+    "camac.parashift.apps.ParashiftConfig",
     "camac.dossier_import.apps.DossierImportConfig",
+    "camac.gisbern.apps.GisbernConfig",
     "sorl.thumbnail",
     "django_clamd",
     "django_q",
     "reversion",
     "rest_framework_xml",
-    "gisbern",
     # TODO: remove this when all production environments ran the migration to
     # delete the tables of this app
     "camac.file.apps.DefaultConfig",
+    "adminsortable2",
 ]
 
 if DEBUG:
     INSTALLED_APPS.append("django_extensions")
 
 MIDDLEWARE = [
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.security.SecurityMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "mozilla_django_oidc.middleware.SessionRefresh",
     "django.middleware.common.CommonMiddleware",
     "camac.user.middleware.GroupMiddleware",
     "camac.caluma.middleware.CalumaInfoMiddleware",
@@ -129,13 +138,14 @@ ROOT_URLCONF = "camac.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [os.path.join(ROOT_DIR, "camac/templates")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
                 "django.template.context_processors.debug",
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
             ],
             # for rendering plain-text emails
             "autoescape": False,
@@ -273,6 +283,24 @@ APPLICATIONS = {
         },
         "PUBLIC_ROLES": ["Publikation", "Portal"],
         "PORTAL_GROUP": 4,
+        "SERVICE_GROUPS_FOR_DISTRIBUTION": {
+            "Gemeinde": [
+                {"id": "4", "localized": False},
+                {"id": "5", "localized": True},
+            ],
+            "Gemeinde Sachbearbeiter": [
+                {"id": "4", "localized": False},
+                {"id": "5", "localized": True},
+            ],
+            "Fachstelle Leitbehörde": [
+                {"id": "3", "localized": False},
+                {"id": "4", "localized": False},
+            ],
+            "Kanton": [
+                {"id": "1", "localized": False},
+                {"id": "2", "localized": False},
+            ],
+        },
         "NOTIFICATIONS": {
             "SUBMIT": "gesuchseingang",
             "APPLICANT": {
@@ -283,7 +311,9 @@ APPLICATIONS = {
         "PUBLICATION_DURATION": timedelta(days=20),
         "PUBLICATION_BACKEND": "camac-ng",
         "PUBLICATION_ATTACHMENT_SECTION": [4],
+        "ATTACHMENT_INTERNAL_STATES": ["internal"],
         "IS_MULTILINGUAL": False,
+        "CIRCULATION_STATE_END": "DONE",
         "FORM_BACKEND": "camac-ng",
         "COORDINATE_QUESTION": "punkte",
         "LOCATION_NAME_QUESTION": "ortsbezeichnung-des-vorhabens",
@@ -303,7 +333,7 @@ APPLICATIONS = {
             "grundeigentumerschaft",
         ],
         "INSTANCE_IDENTIFIER_FORM_ABBR": {
-            "geschaeftskontrolle": "GK",
+            "geschaeftskontrolle": "IG",
             "municipality": "GS",
             "district": "BS",
             "canton": "KS",
@@ -320,6 +350,9 @@ APPLICATIONS = {
                 "TASK_SLUG": "building-authority",
             }
         },
+        "CALUMA_INSTANCE_FORMS": [
+            "geschaeftskontrolle",
+        ],
         # please also update django/Makefile command when changing apps here
         "SEQUENCE_NAMESPACE_APPS": [],
         "NOTIFICATIONS_EXCLUDED_TASKS": [],
@@ -486,6 +519,7 @@ APPLICATIONS = {
             "projektanderung-v3",
             "projektanderung-v4",
             "projektanderung-v5",
+            "projektanderung-v6",
             "technische-bewilligung",
             "technische-bewilligung-v2",
             "baumeldung-fur-geringfugiges-vorhaben-v2",
@@ -522,6 +556,11 @@ APPLICATIONS = {
                 "title": "Materieller Prüfbericht",
             }
         ],
+        "ADDRESS_FORM_FIELDS": [
+            "ortsbezeichnung-des-vorhabens",
+            "standort-spezialbezeichnung",
+            "standort-ort",
+        ],
         "DOSSIER_IMPORT": {
             "WRITER_CLASS": "camac.dossier_import.config.kt_schwyz.KtSchwyzDossierWriter",
             "INSTANCE_STATE_MAPPING": {"SUBMITTED": 2, "APPROVED": 8, "DONE": 10},
@@ -532,12 +571,13 @@ APPLICATIONS = {
             "LOCATION_REQUIRED": True,  # this is a workaround to account for differing validation requirements per config
             "TRANSFORM_COORDINATE_SYSTEM": "epsg:4326",  # use world wide coordinates instead of swiss ones
             "PROD_URL": env.str(
-                "DJANGO_DOSSIER_IMPORT_PROD_URL", "https://ebau-sz.ch/"
+                "DJANGO_DOSSIER_IMPORT_PROD_URL", "https://behoerden.ebau-sz.ch/"
             ),
             "PROD_AUTH_URL": env.str(
                 "DJANGO_DOSSIER_IMPORT_PROD_AUTH_URL",
                 "https://ebau-sz.ch/auth/realms/ebau/protocol/openid-connect/token",
             ),
+            "PROD_SUPPORT_GROUP_ID": 486,
         },
         "MASTER_DATA": {
             "canton": ("static", "SZ"),
@@ -982,6 +1022,7 @@ APPLICATIONS = {
         "CUSTOM_NOTIFICATION_TYPES": [
             "inactive_municipality",
         ],
+        "CIRCULATION_STATE_END": "DONE",
         "CIRCULATION_ANSWER_UNINVOLVED": "not_concerned",
         "NOTIFICATIONS": {
             "SUBMIT": [
@@ -1373,14 +1414,28 @@ APPLICATIONS = {
                         "baugesuch-mit-uvp-v2",
                         "baugesuch-generell",
                         "baugesuch-generell-v2",
-                        "vorabklaerung-einfach",
-                        "vorabklaerung-vollstaendig",
-                        "vorabklaerung-vollstaendig-v2",
                         "hecken-feldgehoelze-baeume",
                         "baupolizeiliches-verfahren",
                         "zutrittsermaechtigung",
                         "klaerung-baubewilligungspflicht",
                         "verlaengerung-geltungsdauer",
+                    ],
+                    "template": "form",
+                    "personalien": "personalien",
+                    "exclude_slugs": [
+                        "is-paper",
+                        "projektaenderung",
+                        "einreichen-button",
+                        "karte",
+                        "dokumente-platzhalter",
+                    ],
+                },
+                "vorabklaerung": {
+                    "forms": [
+                        "vorabklaerung-einfach",
+                        "vorabklaerung-vollstaendig",
+                        "vorabklaerung-vollstaendig-v2",
+                        "solaranlagen-meldung",
                     ],
                     "template": "form",
                     "personalien": "personalien",
@@ -1767,6 +1822,18 @@ APPLICATIONS = {
                 "caluma_form.QuestionOption": Q(question__forms__pk="ebau-number"),
                 "caluma_form.Option": Q(questions__forms__pk="ebau-number"),
             },
+            "caluma_solar_plants_form": {
+                "caluma_form.Form": Q(pk__startswith="solaranlagen"),
+                "caluma_form.FormQuestion": Q(form__pk__startswith="solaranlagen"),
+                "caluma_form.Question": Q(forms__pk__startswith="solaranlagen")
+                & ~Q(pk__in=["8-freigabequittung", "dokumente-platzhalter"]),
+                "caluma_form.QuestionOption": Q(
+                    question__forms__pk__startswith="solaranlagen"
+                ),
+                "caluma_form.Option": Q(
+                    questions__forms__pk__startswith="solaranlagen"
+                ),
+            },
         },
         "DUMP_CONFIG_EXCLUDED_MODELS": [
             "user.Group",
@@ -1800,6 +1867,7 @@ APPLICATIONS = {
                 "DJANGO_DOSSIER_IMPORT_PROD_AUTH_URL",
                 "https://sso.be.ch/auth/realms/ebau/protocol/openid-connect/token",
             ),
+            "PROD_SUPPORT_GROUP_ID": 10000,
         },
         "MASTER_DATA": {
             "canton": ("static", "BE"),
@@ -2079,6 +2147,7 @@ APPLICATIONS = {
         "PORTAL_USER_ID": 1209,
         "USE_OEREB_FIELDS_FOR_PUBLIC_ENDPOINT": True,
         "LINK_INSTANCES_ON_COPY": True,
+        "CIRCULATION_STATE_END": "OK",
         "APPLICANT_GROUP_ID": 685,  # We reuse the Portal User group
         "SEQUENCE_NAMESPACE_APPS": ["core", "document", "responsible"],
         "CUSTOM_NOTIFICATION_TYPES": [
@@ -2195,7 +2264,7 @@ APPLICATIONS = {
             "Vernehmlassungsstelle Gemeindezirkulation": "service",
             "Vernehmlassungsstelle mit Koordinationsaufgaben": "trusted_service",
             "Vernehmlassungsstelle ohne Koordinationsaufgaben": "trusted_service",
-            "Support": "support",
+            "System-Betrieb": "support",
             "Oereb Api": "oereb_api",
             # "Portal User": None,  # Uses the fallback permissions
             # "Admin": None,
@@ -2203,6 +2272,12 @@ APPLICATIONS = {
             # "Guest": None,  # TODO AFAIK we don't grant unauthenticated users access to endpoints
         },
         "ROLE_INHERITANCE": {"trusted_service": "service"},
+        "INSTANCE_HIDDEN_STATES": {
+            "municipality": ["del"],
+            "coordination": ["new", "new_portal", "del", "rejected"],
+            "trusted_service": ["new", "new_portal", "del", "rejected"],
+            "oereb_api": ["new", "new_portal", "del", "rejected"],
+        },
         "INSTANCE_PERMISSIONS": {
             "MUNICIPALITY_WRITE": ["comm", "ext_gem", "done", "old", "control"]
         },
@@ -2794,6 +2869,7 @@ REQUEST_LOGGING_HTTP_4XX_LOG_LEVEL = env.str(
 # Managing files
 
 MEDIA_ROOT = env.str("DJANGO_MEDIA_ROOT", default=default(ROOT_DIR("media")))
+MEDIA_URL = "/api/v1/"
 TEMPFILE_DOWNLOAD_PATH = env.str(
     "DJANGO_TEMPFILE_DOWNLOAD_PATH", default="/tmp/camac/tmpfiles"
 )
@@ -2896,6 +2972,10 @@ AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
 ]
+
+# https://docs.djangoproject.com/en/4.0/releases/3.2/#customizing-type-of-auto-created-primary-keys
+# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
+DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
 
 # Internationalization
@@ -3026,7 +3106,7 @@ EMAIL_PREFIX_BODY_SPECIAL_FORMS = env.str(
     "EMAIL_PREFIX_BODY_SPECIAL_FORMS",
     (
         "Achtung: Dieses Gesuch kann nur in eBau bearbeitet werden.\n"
-        "Attention: Cette demande ne peut être traitée dans eBau.\n\n"
+        "Attention: Cette demande ne peut être traitée dans que eBau.\n\n"
     ),
 )
 
@@ -3088,6 +3168,7 @@ ECH_EXCLUDED_FORMS = [
     "hecken-feldgehoelze-baeume",
     "klaerung-baubewilligungspflicht",
     "zutrittsermaechtigung",
+    "solaranlagen-meldung",
 ]
 
 # Swagger settings
@@ -3198,4 +3279,51 @@ DOSSIER_IMPORT_CLIENT_ID = env.str(
 DOSSIER_IMPORT_CLIENT_SECRET = env.str(
     "DJANGO_DOSSIER_IMPORT_CLIENT_SECRET",
     default="KlYAayhG99lMGIUGKXhm9ha7lUNqQuD4",
+)
+
+# Django-Admin OIDC
+AUTHENTICATION_BACKENDS = [
+    "camac.user.authentication.DjangoAdminOIDCAuthenticationBackend",
+]
+
+OIDC_RP_CLIENT_ID = env.str("DJANGO_OIDC_RP_CLIENT_ID", default="camac")
+OIDC_RP_CLIENT_SECRET = env.str("DJANGO_OIDC_RP_CLIENT_SECRET", default=None)
+
+OIDC_DEFAULT_BASE_URL = env.str(
+    "DJANGO_OIDC_DEFAULT_BASE_URL",
+    default=f"{KEYCLOAK_URL}realms/{KEYCLOAK_REALM}/protocol/openid-connect",
+)
+
+OIDC_OP_AUTHORIZATION_ENDPOINT = env.str(
+    "DJANGO_OIDC_OP_AUTHORIZATION_ENDPOINT", default=f"{OIDC_DEFAULT_BASE_URL}/auth"
+)
+
+OIDC_OP_TOKEN_ENDPOINT = env.str(
+    "DJANGO_OIDC_OP_TOKEN_ENDPOINT", default=f"{OIDC_DEFAULT_BASE_URL}/token"
+)
+OIDC_OP_USER_ENDPOINT = env.str(
+    "DJANGO_OIDC_USERINFO_ENDPOINT", default=f"{OIDC_DEFAULT_BASE_URL}/userinfo"
+)
+
+# admin page after completing server-side authentication flow
+LOGIN_REDIRECT_URL = env.str(
+    "DJANGO_OIDC_ADMIN_LOGIN_REDIRECT_URL",
+    default=default(f"{INTERNAL_BASE_URL}/django-admin/"),
+)
+
+OIDC_RP_SIGN_ALGO = env.str("DJANGO_OIDC_RP_SIGN_ALGO", default="RS256")
+
+OIDC_OP_JWKS_ENDPOINT = env.str(
+    "DJANGO_OIDC_OP_JWKS_ENDPOINT", default=f"{OIDC_DEFAULT_BASE_URL}/certs"
+)
+
+OIDC_EMAIL_CLAIM = env.str("DJANGO_OIDC_EMAIL_CLAIM", default="email")
+
+OIDC_FIRSTNAME_CLAIM = env.str("DJANGO_OIDC_FIRSTNAME_CLAIM", default="given_name")
+
+OIDC_LASTNAME_CLAIM = env.str("DJANGO_OIDC_LASTNAME_CLAIM", default="family_name")
+
+OIDC_OP_INTROSPECT_ENDPOINT = env.str(
+    "DJANGO_OIDC_OP_INTROSPECT_ENDPOINT",
+    default=f"{OIDC_DEFAULT_BASE_URL}/token/introspect",
 )

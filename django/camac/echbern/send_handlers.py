@@ -1,4 +1,5 @@
 from collections import namedtuple
+from datetime import datetime
 from math import trunc
 
 import pytz
@@ -184,7 +185,7 @@ class NoticeRulingSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
         DocxDecision.objects.create(
             instance=self.instance,
             decision=decision,
-            decision_date=self.data.eventNotice.decisionRuling.date,
+            decision_date=self.data.eventNotice.decisionRuling.date.date(),
             decision_type="UNKNOWN_ECH",
         )
 
@@ -463,15 +464,15 @@ class TaskSendHandler(BaseSendHandler):
     def _create_activation(self, circulation, service):
         circulation_state = CirculationState.objects.get(name="RUN")
         try:
-            deadline_date_raw = self.data.eventRequest.directive.deadline
-            deadline_date = deadline_date_raw.astimezone(pytz.UTC) + timezone.timedelta(
-                hours=4
-            )  # add 4 hours to prevent timezone problems
+            deadline_date = pytz.utc.localize(
+                datetime.combine(
+                    self.data.eventRequest.directive.deadline.date(),
+                    datetime.min.time(),
+                )
+            )
         # Fallback for messages with missing `directive`
         except AttributeError:  # pragma: no cover
-            deadline_date = timezone.now().replace(
-                hour=4, minute=0, second=0, microsecond=0
-            ) + timezone.timedelta(weeks=4)
+            deadline_date = timezone.now()
 
         start_date = timezone.now().replace(hour=4, minute=0, second=0, microsecond=0)
 

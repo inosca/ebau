@@ -408,7 +408,7 @@ def test_close_dossier_send_handler(
         assert Message.objects.first().receiver == ech_instance.responsible_service()
 
 
-@pytest.mark.parametrize(  # noqa: C901
+@pytest.mark.parametrize(
     "circulation_status,has_service,valid_service_id,success",
     [
         ("no_existing", True, True, True),
@@ -420,7 +420,7 @@ def test_close_dossier_send_handler(
         ("no_existing", True, False, False),
     ],
 )
-def test_task_send_handler(
+def test_task_send_handler(  # noqa: C901
     circulation_status,
     has_service,
     valid_service_id,

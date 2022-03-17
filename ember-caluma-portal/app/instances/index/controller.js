@@ -2,20 +2,20 @@ import Controller from "@ember/controller";
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { isEmpty } from "@ember/utils";
+import { tracked } from "@glimmer/tracking";
 import { useCalumaQuery } from "@projectcaluma/ember-core/caluma-query";
 import { allCases } from "@projectcaluma/ember-core/caluma-query/queries";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
 import { useTask } from "ember-resources";
-import moment from "moment";
-import { TrackedObject } from "tracked-built-ins";
-import { dedupeTracked, cached } from "tracked-toolbox";
+import { DateTime } from "luxon";
+import { cached } from "tracked-toolbox";
 
 import config from "caluma-portal/config/environment";
+import trackedFilter from "caluma-portal/decorators/tracked-filter";
 import getRootFormsQuery from "caluma-portal/gql/queries/get-root-forms.graphql";
 
 const { answerSlugs } = config.APPLICATION;
-const DATE_URL_FORMAT = "YYYY-MM-DD";
 
 const getRecursiveSources = (form, forms) => {
   if (!form.source?.slug) {
@@ -27,78 +27,18 @@ const getRecursiveSources = (form, forms) => {
   return [source.node.slug, ...getRecursiveSources(source.node, forms)];
 };
 
-const toDateTime = (date) => (date.isValid() ? date.utc().format() : null);
-
 const dateFilter = {
   serialize(value) {
-    const date = moment.utc(value);
+    const date = DateTime.fromJSDate(value);
 
-    return date.isValid() ? date.utc().format(DATE_URL_FORMAT) : null;
+    return date.isValid ? date.toISODate() : null;
   },
   deserialize(value) {
-    const date = moment.utc(value, DATE_URL_FORMAT);
+    const date = DateTime.fromISO(value);
 
-    return date.isValid() ? date.toDate() : null;
+    return date.isValid ? date.toJSDate() : null;
   },
 };
-
-function trackedFilter({
-  serialize = (value) => value,
-  deserialize = (value) => value,
-  defaultValue,
-}) {
-  return function decorator(target, property) {
-    if (!Object.prototype.hasOwnProperty.call(target, "_filters")) {
-      target._filters = new TrackedObject();
-      target._applyFilters = function () {
-        this._filtersConfig.forEach(({ privateKey, publicKey, serialize }) => {
-          this[privateKey] = serialize.call(this, this[publicKey]);
-        });
-      };
-      target._resetFilters = function () {
-        this._filtersConfig.forEach(
-          ({ publicKey, privateKey, defaultValue }) => {
-            this._filters[publicKey] = defaultValue;
-            this[privateKey] = defaultValue;
-          }
-        );
-      };
-    }
-
-    const privateKey = `_${property}`;
-
-    Object.defineProperty(
-      target,
-      privateKey,
-      dedupeTracked(target, privateKey, { initializer: () => defaultValue })
-    );
-
-    target._filters[property] = defaultValue;
-    target._filtersConfig = [
-      ...(target._filtersConfig ?? []),
-      { privateKey, publicKey: property, serialize, deserialize, defaultValue },
-    ];
-
-    return cached(target, property, {
-      enumerable: true,
-      configurable: false,
-      get() {
-        const filtersValue = this._filters[property];
-        const targetValue = this[privateKey];
-
-        const value =
-          filtersValue === defaultValue && targetValue !== defaultValue
-            ? targetValue
-            : filtersValue;
-
-        return deserialize.call(this, value);
-      },
-      set(value) {
-        this._filters[property] = serialize.call(this, value);
-      },
-    });
-  };
-}
 
 export default class InstancesIndexController extends Controller {
   @queryManager apollo;
@@ -118,8 +58,8 @@ export default class InstancesIndexController extends Controller {
     ];
   }
 
-  @dedupeTracked order = "camac-instance-id:desc";
-  @dedupeTracked category = config.APPLICATION.defaultInstanceStateCategory;
+  @tracked order = "camac-instance-id:desc";
+  @tracked category = config.APPLICATION.defaultInstanceStateCategory;
 
   @trackedFilter({
     serialize(value) {
@@ -257,12 +197,12 @@ export default class InstancesIndexController extends Controller {
           { key: answerSlugs.specialId, value: this._specialId },
           {
             key: "submit-date",
-            value: toDateTime(moment(this._submitFrom).startOf("day")),
+            value: DateTime.fromISO(this._submitFrom).startOf("day").toISO(),
             lookup: "GTE",
           },
           {
             key: "submit-date",
-            value: toDateTime(moment(this._submitTo).endOf("day")),
+            value: DateTime.fromISO(this._submitTo).endOf("day").toISO(),
             lookup: "LTE",
           },
         ].filter(({ value }) => !isEmpty(value)),
@@ -358,11 +298,6 @@ export default class InstancesIndexController extends Controller {
   @action
   updateFilter(event) {
     this[event.target.name] = event.target.value;
-  }
-
-  @action
-  updateDate(prop, value) {
-    this[prop] = moment(value);
   }
 
   @action

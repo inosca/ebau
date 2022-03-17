@@ -16,12 +16,12 @@
           <li>
             <a
               href="#"
-              title={{moment-format @claim.answeredDate "DD.MM.YYYY"}}
+              title={{format-date @claim.answered.answer.value format="date"}}
               pos="bottom"
               delay="200"
               uk-tooltip
             >
-              {{t "claims.answered"}} {{moment-format @claim.answeredDate "DD.MM.YYYY"}}
+              {{t "claims.answered"}} {{format-date @claim.answered.answer.value format="date"}}
             </a>
           </li>
         {{else}}
@@ -29,12 +29,12 @@
             <a
               href="#"
               class={{if @claim.isOverdue "uk-text-warning"}}
-              title={{moment-format @claim.deadlineDate "DD.MM.YYYY"}}
+              title={{format-date @claim.deadline.answer.value format="date"}}
               pos="bottom"
               delay="200"
               uk-tooltip
             >
-              {{t "claims.deadline"}} {{moment-from-now @claim.deadlineDate}}
+              {{t "claims.deadline"}} {{date-from-now @claim.deadline.answer.value}}
             </a>
           </li>
         {{/if}}

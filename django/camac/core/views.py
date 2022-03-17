@@ -105,11 +105,7 @@ class PublicationEntryView(ModelViewSet):
 
     @permission_aware
     def get_queryset(self):
-        return models.PublicationEntry.objects.filter(
-            publication_date__lte=timezone.now(),
-            publication_end_date__gte=timezone.now(),
-            is_published=True,
-        )
+        return models.PublicationEntry.objects.none()
 
     def get_queryset_for_municipality(self):
         return models.PublicationEntry.objects.filter(
@@ -127,6 +123,13 @@ class PublicationEntryView(ModelViewSet):
     def get_queryset_for_reader(self):
         return models.PublicationEntry.objects.filter(
             instance__circulations__activations__service=self.request.group.service
+        )
+
+    def get_queryset_for_public(self):
+        return models.PublicationEntry.objects.filter(
+            publication_date__date__lte=timezone.localdate(),
+            publication_end_date__date__gte=timezone.localdate(),
+            is_published=True,
         )
 
     @permission_aware
@@ -172,8 +175,8 @@ class PublicationEntryView(ModelViewSet):
 
         return persons
 
-    @action(methods=["post"], detail=True)  # noqa: C901
-    def publish(self, request, pk=None):
+    @action(methods=["post"], detail=True)
+    def publish(self, request, pk=None):  # noqa: C901
         payload = {}
         publication = self.get_object()
         formFieldQuery = FormField.objects.filter(instance=publication.instance)
@@ -250,9 +253,9 @@ class PublicationEntryView(ModelViewSet):
         payload["grundstuecknummern"] = grundstuecknummern
 
         standort_koordinaten = formFieldQuery.filter(name="standort-koordinaten")
+        coordinates_override = []
         if standort_koordinaten.exists():
             coordinates = standort_koordinaten.first().value.splitlines()
-            coordinates_override = []
             for coordinate in coordinates:
                 coordinate = [c.strip() for c in coordinate.split(";")]
                 coordinates_override.append(
@@ -279,7 +282,7 @@ class PublicationEntryView(ModelViewSet):
             for coord in coordSet:
                 lat = coord["lat"]
                 lng = coord["lng"]
-                if not coord["skip_transform"]:
+                if "skip_transform" not in coord or not coord["skip_transform"]:
                     lat, lng = transformer.transform(lat, lng)
                 lat = f"{int(lat)}"
                 lng = f"{int(lng)}"

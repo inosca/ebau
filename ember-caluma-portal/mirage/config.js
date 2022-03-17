@@ -3,7 +3,7 @@ import { discoverEmberDataModels } from "ember-cli-mirage";
 import { createServer } from "miragejs";
 
 export default function makeServer(config) {
-  const finalConfig = {
+  return createServer({
     ...config,
     models: { ...discoverEmberDataModels(), ...config.models },
     routes() {
@@ -55,7 +55,5 @@ export default function makeServer(config) {
 
       this.post("/graphql/", graphqlHandler(this), 200);
     },
-  };
-
-  return createServer(finalConfig);
+  });
 }

@@ -1,3 +1,4 @@
+from caluma.caluma_workflow.models import Case
 from django.conf import settings
 from django.db.models import Q
 
@@ -11,7 +12,7 @@ class Permission:
     destroy = False
 
     @classmethod
-    def can_write(cls, attachment, group) -> bool:
+    def can_write(cls, attachment, group, instance=None) -> bool:
         return cls.write
 
     @classmethod
@@ -62,10 +63,11 @@ class AdminInternalPermission(AdminServicePermission):
     """Read, write and delete permission on attachments owned by the current service."""
 
     @classmethod
-    def can_write(cls, attachment, group) -> bool:
+    def can_write(cls, attachment, group, instance=None) -> bool:
         return cls.is_owned_by_service(attachment, group) and super().can_write(
             attachment,
             group,
+            instance,
         )
 
 
@@ -111,29 +113,72 @@ class AdminServiceRunningActivationPermission(AdminServicePermission):
     """
 
     @classmethod
-    def has_running_activation(cls, attachment, group) -> bool:
+    def has_running_activation(cls, instance, group) -> bool:
+        return Activation.objects.filter(
+            service=group.service,
+            circulation__instance=instance,
+            circulation_state__name__in=settings.APPLICATION.get(
+                "ATTACHMENT_RUNNING_ACTIVATION_STATES", []
+            ),
+        ).exists()
+
+    @classmethod
+    def can_destroy(cls, attachment, group) -> bool:
+        return cls.has_running_activation(
+            attachment.instance, group
+        ) and super().can_destroy(attachment, group)
+
+    @classmethod
+    def can_write(cls, attachment, group, instance=None) -> bool:
+        # During creation, the attachment doesn't exist yet
+        instance = attachment.instance if attachment else instance
+        return cls.has_running_activation(instance, group) and super().can_write(
+            attachment, group, instance
+        )
+
+
+class AdminInternalBusinessControlPermission(AdminInternalPermission):
+    """Read, write and delete permission on attachments owned by the current service for internal instances."""
+
+    @classmethod
+    def is_internal_instance(cls, instance) -> bool:
+        return instance.instance_state.name in settings.APPLICATION.get(
+            "ATTACHMENT_INTERNAL_STATES", []
+        )
+
+    @classmethod
+    def is_case_running(cls, instance) -> bool:
+        return instance.case.status == Case.STATUS_RUNNING
+
+    @classmethod
+    def can_write(cls, attachment, group, instance=None) -> bool:
+        # During creation, the attachment doesn't exist yet
+        instance = attachment.instance if attachment else instance
         return (
-            not attachment
-            or Activation.objects.filter(
-                service=group.service,
-                circulation__instance=attachment.instance,
-                circulation_state__name__in=settings.APPLICATION.get(
-                    "ATTACHMENT_RUNNING_ACTIVATION_STATES", []
-                ),
-            ).exists()
+            cls.is_internal_instance(instance)
+            and cls.is_case_running(instance)
+            and super().can_write(attachment, group, instance)
         )
 
     @classmethod
     def can_destroy(cls, attachment, group) -> bool:
-        return cls.has_running_activation(attachment, group) and super().can_destroy(
-            attachment, group
+        instance = attachment.instance
+        return (
+            cls.is_internal_instance(instance)
+            and cls.is_case_running(instance)
+            and super().can_destroy(attachment, group)
         )
 
-    @classmethod
-    def can_write(cls, attachment, group) -> bool:
-        return cls.has_running_activation(attachment, group) and super().can_write(
-            attachment, group
-        )
+
+def _is_internal_instance(group, instance):
+    return (
+        instance.instance_state.name
+        in settings.APPLICATION.get("ATTACHMENT_INTERNAL_STATES", [])
+    ) and (instance.group.service == group.service)
+
+
+def _is_general_instance(group, instance):
+    return not _is_internal_instance(group, instance)
 
 
 # Permissions configuration:
@@ -206,29 +251,43 @@ PERMISSIONS = {
         },
     },
     "kt_schwyz": {
-        "municipality": {AdminPermission: [1, 4, 5, 6, 7, 8, 9, 10, 11]},
+        "municipality": {
+            AdminPermission: (
+                _is_general_instance,
+                [1, 4, 5, 6, 7, 8, 9, 10, 11],
+            ),
+            AdminInternalBusinessControlPermission: (_is_internal_instance, [12]),
+        },
         "portal": {AdminPermission: [1], ReadPermission: [5, 9, 4]},
         "fachstelle": {
-            ReadPermission: [1, 5, 4, 6, 9, 10, 11],
-            AdminInternalPermission: [2],
-            AdminServicePermission: [8],
+            ReadPermission: (_is_general_instance, [1, 5, 4, 6, 9, 10, 11]),
+            AdminInternalPermission: (_is_general_instance, [2]),
+            AdminServicePermission: (_is_general_instance, [8]),
+            AdminInternalBusinessControlPermission: (_is_internal_instance, [12]),
         },
         "kanton": {ReadPermission: [1, 2, 11], AdminPermission: [8, 6, 9, 10]},
         "publikation": {ReadPermission: [4]},
-        "gemeinde sachbearbeiter": {AdminPermission: [6, 7, 1, 4, 5, 8, 9, 10, 11]},
-        "fachstelle sachbearbeiter": {
-            ReadPermission: [1, 4, 5, 6, 9, 10, 11],
-            AdminInternalPermission: [2],
-            AdminServicePermission: [8],
+        "gemeinde sachbearbeiter": {
+            AdminPermission: (_is_general_instance, [6, 7, 1, 4, 5, 8, 9, 10, 11]),
+            AdminInternalBusinessControlPermission: (_is_internal_instance, [12]),
         },
-        "fachstelle leitbehörde": {AdminPermission: [1, 4, 5, 6, 7, 8, 9, 10, 11]},
+        "fachstelle sachbearbeiter": {
+            ReadPermission: (_is_general_instance, [1, 4, 5, 6, 9, 10, 11]),
+            AdminInternalPermission: (_is_general_instance, [2]),
+            AdminServicePermission: (_is_general_instance, [8]),
+            AdminInternalBusinessControlPermission: (_is_internal_instance, [12]),
+        },
+        "fachstelle leitbehörde": {
+            AdminPermission: (_is_general_instance, [1, 4, 5, 6, 7, 8, 9, 10, 11]),
+            AdminInternalBusinessControlPermission: (_is_internal_instance, [12]),
+        },
         "lesezugriff": {ReadPermission: [1, 8, 4, 5, 6, 10, 11]},
         "support": {AdminPermission: [1, 4, 5, 6, 7, 8, 9, 10, 11]},
     },
     "kt_uri": {
         "municipality": {
             ReadPermission: [12000002, 12000003, 12000006],
-            WritePermission: [12000005],
+            WritePermission: [12000005, 12000003],
             AdminInternalPermission: [12000001],
             AdminServicePermission: [12000000, 12000004, 12000007],
         },
@@ -262,6 +321,19 @@ PERMISSIONS = {
         "organization_readonly": {ReadPermission: [12000000]},
         "commission": {ReadPermission: [12000004, 12000000, 12000002, 12000003]},
         "portal user": {AdminServicePermission: [12000000], ReadPermission: [12000001]},
+        "oereb_api": {
+            ReadPermission: [
+                12000000,
+                12000001,
+                12000002,
+                12000003,
+                12000004,
+                12000005,
+                12000006,
+                12000007,
+                12000008,
+            ],
+        },
     },
     "demo": {"applicant": {AdminPermission: [250, 251]}},
 }
@@ -302,6 +374,7 @@ PERMISSION_ORDERED = [
     ReadPermission,
     WritePermission,
     AdminInternalPermission,
+    AdminInternalBusinessControlPermission,
     AdminServiceRunningActivationPermission,
     AdminServiceBeforeDecisionPermission,
     AdminServicePermission,
@@ -310,11 +383,16 @@ PERMISSION_ORDERED = [
 ]
 
 
-def rebuild_app_permissions(permissions):
+def rebuild_app_permissions(permissions, group, instance):
     result = {}
     for role, value in permissions.items():
         result[role] = {}
         for permission, sections in value.items():
+            if type(sections) is tuple:
+                is_visible, sections = sections
+                if instance and not is_visible(group, instance):
+                    continue
+
             for section in sections:
                 result[role][section] = permission
     return result
@@ -324,6 +402,13 @@ def section_permissions(group, instance=None):
     role = group.role.name
     app_name = settings.APPLICATION_NAME
 
+    if instance:
+        instance = (
+            instance
+            if isinstance(instance, Instance)
+            else Instance.objects.get(pk=instance)
+        )
+
     # use service permissions for municipalities that are involved via
     # activation and not via instance service
     if (
@@ -331,15 +416,12 @@ def section_permissions(group, instance=None):
         and instance
         and role.startswith("municipality-")
     ):
-        instance = (
-            instance
-            if isinstance(instance, Instance)
-            else Instance.objects.get(pk=instance)
-        )
         if not instance.instance_services.filter(service=group.service).exists():
             role = role.replace("municipality-", "service-")
 
-    all_app_permissions = rebuild_app_permissions(PERMISSIONS[app_name])
+    all_app_permissions = rebuild_app_permissions(
+        PERMISSIONS[app_name], group, instance
+    )
     role_perms = settings.APPLICATIONS[app_name].get("ROLE_PERMISSIONS", {})
     role_name_int = role_perms.get(role, role).lower()
     if role_name_int not in all_app_permissions:

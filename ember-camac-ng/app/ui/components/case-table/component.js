@@ -4,20 +4,22 @@ import { htmlSafe } from "@ember/template";
 import Component from "@glimmer/component";
 import calumaQuery from "@projectcaluma/ember-core/caluma-query";
 import { allCases } from "@projectcaluma/ember-core/caluma-query/queries";
-import moment from "moment";
+import { DateTime } from "luxon";
 
-import config from "camac-ng/config/environment";
+import caseModelConfig from "camac-ng/config/case-model";
+import caseTableConfig from "camac-ng/config/case-table";
 
 export default class CaseTableComponent extends Component {
   @service store;
   @service intl;
   @service shoebox;
+  @service apollo;
 
   @calumaQuery({ query: allCases, options: "options" }) casesQuery;
 
   get options() {
     return {
-      pageSize: 15,
+      pageSize: caseTableConfig.pageSize || 15,
       processNew: (cases) => this.processNew(cases),
     };
   }
@@ -49,6 +51,7 @@ export default class CaseTableComponent extends Component {
         metaValue: [
           {
             key: "dossier-number",
+            lookup: "CONTAINS",
             value: filter.dossierNumber,
           },
         ],
@@ -58,7 +61,7 @@ export default class CaseTableComponent extends Component {
           {
             key: "submit-date",
             lookup: "LTE",
-            value: moment.utc(filter.createdBefore).endOf("day"),
+            value: DateTime.fromISO(filter.createdBefore).endOf("day").toISO(),
           },
         ],
       },
@@ -67,14 +70,14 @@ export default class CaseTableComponent extends Component {
           {
             key: "submit-date",
             lookup: "GTE",
-            value: moment.utc(filter.createdAfter).startOf("day"),
+            value: DateTime.fromISO(filter.createdAfter).startOf("day").toISO(),
           },
         ],
       },
       intent: {
         searchAnswers: [
           {
-            questions: config.APPLICATION.intentSlugs,
+            questions: caseModelConfig.intentSlugs,
             lookup: "CONTAINS",
             value: filter.intent,
           },
@@ -107,16 +110,27 @@ export default class CaseTableComponent extends Component {
           },
         ],
       },
-      workflow: {
-        workflow: filter.workflow,
+      caseStatus: {
+        status: filter.caseStatus,
+      },
+      caseDocumentFormName: {
+        documentForm: filter.caseDocumentFormName,
       },
     };
 
-    return Object.entries(filter)
+    const searchFilters = Object.entries(filter)
       .filter(
         ([key, value]) => Boolean(value) && Boolean(availableFilterSet[key])
       )
       .map(([key]) => availableFilterSet[key]);
+
+    const workflow = this.args.workflow;
+    const excludeWorkflow = this.args.excludeWorkflow;
+    return [
+      ...searchFilters,
+      ...(workflow ? [{ workflow }] : []),
+      ...(excludeWorkflow ? [{ workflow: excludeWorkflow, invert: true }] : []),
+    ];
   }
 
   get paginationInfo() {
@@ -144,89 +158,69 @@ export default class CaseTableComponent extends Component {
 
     await this.store.query("instance", {
       instance_id: instanceIds.join(","),
-      include: "instance_state,user,form",
+      include: "instance_state,user,form,circulation_initializer_service",
     });
+
+    if (this.args.casesBackend === "camac-ng") {
+      await this.store.query("form-field", {
+        instance: instanceIds.join(","),
+        name: (caseTableConfig.formFields ?? []).join(","),
+        include: "instance",
+      });
+    }
+
     return cases;
   }
 
-  get tableHeaders() {
-    if (this.shoebox.content.customTableHeaders) {
-      return this.shoebox.content.customTableHeaders;
+  get tableColumns() {
+    const tableColumns = caseTableConfig.columns[this.args.casesBackend];
+
+    if (Array.isArray(tableColumns)) {
+      return tableColumns;
     }
-    // TODO camac_legacy: Remove this in the future
-    switch (this.shoebox.role) {
-      case "municipality":
-        return [
-          "instanceId",
-          "dossierNr",
-          "form",
-          "municipality",
-          "user",
-          "applicant",
-          "intent",
-          "street",
-          "instanceState",
-        ];
-      case "coordination":
-        return [
-          "instanceId",
-          "dossierNr",
-          "coordination",
-          "form",
-          "municipality",
-          "user",
-          "applicant",
-          "intent",
-          "street",
-          "instanceState",
-        ];
-      case "service":
-        return [
-          "deadlineColor",
-          "instanceId",
-          "dossierNr",
-          "coordination",
-          "form",
-          "municipality",
-          "applicant",
-          "intent",
-          "street",
-          "processingDeadline",
-        ];
-      default:
-        return [
-          "dossierNr",
-          "municipality",
-          "applicant",
-          "intent",
-          "street",
-          "parcelNumbers",
-        ];
-    }
+
+    const role = this.shoebox.role;
+    return tableColumns[role] ?? tableColumns.default ?? [];
   }
 
   @action
   setup() {
     const camacFilters = {
-      instance_state: this.args.filter.instanceState || "",
-      location: this.args.filter.municipality,
-      service: this.args.filter.service,
+      instance_state:
+        this.args.filter.instanceState ||
+        this.args.filter.instanceStateDescription ||
+        this.args.instanceStates ||
+        "",
+      location: this.args.filter.municipality || this.args.filter.locationSZ,
+      service: this.args.filter.service || this.args.filter.serviceSZ,
+      responsible_service_user: this.args.filter.responsibleServiceUser,
+      address_sz: this.args.filter.addressSZ,
+      plot_sz: this.args.filter.plotSZ,
+      builder_sz: this.args.filter.builderSZ,
+      landowner_sz: this.args.filter.landownerSZ,
+      applicant_sz: this.args.filter.applicantSZ,
+      submit_date_after_sz: this.args.filter.submitDateAfterSZ,
+      submit_date_before_sz: this.args.filter.submitDateBeforeSZ,
+      form_name_versioned: this.args.filter.formSZ,
       circulation_state: this.args.hasActivation
-        ? config.APPLICATION.activeCirculationStates
+        ? caseTableConfig.activeCirculationStates
         : null,
       has_pending_billing_entry: this.args.hasPendingBillingEntry,
       has_pending_sanction: this.args.hasPendingSanction,
       pending_sanctions_control_instance:
         this.args.filter.pendingSanctionsControlInstance,
+      identifier: this.args.filter.instanceIdentifier || "",
+      exclude_child_cases: true,
     };
+
     this.casesQuery.fetch({
-      order: [{ meta: "dossier-number" }],
+      order: caseTableConfig.order,
       filter: this.gqlFilter,
       queryOptions: {
         context: {
           headers: {
             "x-camac-filters": Object.entries(camacFilters)
-              .filter(([, value]) => value)
+              .filter(([, value]) => ![null, undefined, ""].includes(value))
               .map((entry) => entry.join("="))
               .join("&"),
           },

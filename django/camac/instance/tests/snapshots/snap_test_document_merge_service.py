@@ -1758,74 +1758,6 @@ snapshots['test_document_merge_service_snapshot[sb1] 1'] = [
                             'label': 'Handelt es sich um eine juristische Person?',
                             'slug': 'juristische-person-gesuchstellerin',
                             'type': 'TextQuestion',
-                            'value': 'Ja'
-                        },
-                        {
-                            'label': 'Name juristische Person',
-                            'slug': 'name-juristische-person-gesuchstellerin',
-                            'type': 'TextQuestion',
-                            'value': 'Architekturbüro Asdf'
-                        },
-                        {
-                            'label': 'Name',
-                            'slug': 'name-gesuchstellerin',
-                            'type': 'TextQuestion',
-                            'value': 'Egger'
-                        },
-                        {
-                            'label': 'Vorname',
-                            'slug': 'vorname-gesuchstellerin',
-                            'type': 'TextQuestion',
-                            'value': 'Ernst'
-                        },
-                        {
-                            'label': 'Strasse',
-                            'slug': 'strasse-gesuchstellerin',
-                            'type': 'TextQuestion',
-                            'value': 'Eggistrasse'
-                        },
-                        {
-                            'label': 'Nummer',
-                            'slug': 'nummer-gesuchstellerin',
-                            'type': 'TextQuestion',
-                            'value': None
-                        },
-                        {
-                            'label': 'PLZ',
-                            'slug': 'plz-gesuchstellerin',
-                            'type': 'IntegerQuestion',
-                            'value': 3456
-                        },
-                        {
-                            'label': 'Ort',
-                            'slug': 'ort-gesuchstellerin',
-                            'type': 'TextQuestion',
-                            'value': 'Ebersecken'
-                        },
-                        {
-                            'label': 'Telefon oder Mobile',
-                            'slug': 'telefon-oder-mobile-gesuchstellerin',
-                            'type': 'TextQuestion',
-                            'value': '01010101'
-                        },
-                        {
-                            'label': 'E-Mail',
-                            'slug': 'e-mail-gesuchstellerin',
-                            'type': 'TextQuestion',
-                            'value': 'i@e.org'
-                        },
-                        {
-                            'content': None,
-                            'label': 'Hinweis Gesuchsteller/in',
-                            'slug': 'hinweis-personalien',
-                            'type': 'StaticQuestion'
-                        }
-                    ],
-                    [
-                        {
-                            'label': 'Handelt es sich um eine juristische Person?',
-                            'slug': 'juristische-person-gesuchstellerin',
-                            'type': 'TextQuestion',
                             'value': 'Nein'
                         },
                         {
@@ -1881,6 +1813,74 @@ snapshots['test_document_merge_service_snapshot[sb1] 1'] = [
                             'slug': 'e-mail-gesuchstellerin',
                             'type': 'TextQuestion',
                             'value': 'info@example.com'
+                        },
+                        {
+                            'content': None,
+                            'label': 'Hinweis Gesuchsteller/in',
+                            'slug': 'hinweis-personalien',
+                            'type': 'StaticQuestion'
+                        }
+                    ],
+                    [
+                        {
+                            'label': 'Handelt es sich um eine juristische Person?',
+                            'slug': 'juristische-person-gesuchstellerin',
+                            'type': 'TextQuestion',
+                            'value': 'Ja'
+                        },
+                        {
+                            'label': 'Name juristische Person',
+                            'slug': 'name-juristische-person-gesuchstellerin',
+                            'type': 'TextQuestion',
+                            'value': 'Architekturbüro Asdf'
+                        },
+                        {
+                            'label': 'Name',
+                            'slug': 'name-gesuchstellerin',
+                            'type': 'TextQuestion',
+                            'value': 'Egger'
+                        },
+                        {
+                            'label': 'Vorname',
+                            'slug': 'vorname-gesuchstellerin',
+                            'type': 'TextQuestion',
+                            'value': 'Ernst'
+                        },
+                        {
+                            'label': 'Strasse',
+                            'slug': 'strasse-gesuchstellerin',
+                            'type': 'TextQuestion',
+                            'value': 'Eggistrasse'
+                        },
+                        {
+                            'label': 'Nummer',
+                            'slug': 'nummer-gesuchstellerin',
+                            'type': 'TextQuestion',
+                            'value': None
+                        },
+                        {
+                            'label': 'PLZ',
+                            'slug': 'plz-gesuchstellerin',
+                            'type': 'IntegerQuestion',
+                            'value': 3456
+                        },
+                        {
+                            'label': 'Ort',
+                            'slug': 'ort-gesuchstellerin',
+                            'type': 'TextQuestion',
+                            'value': 'Ebersecken'
+                        },
+                        {
+                            'label': 'Telefon oder Mobile',
+                            'slug': 'telefon-oder-mobile-gesuchstellerin',
+                            'type': 'TextQuestion',
+                            'value': '01010101'
+                        },
+                        {
+                            'label': 'E-Mail',
+                            'slug': 'e-mail-gesuchstellerin',
+                            'type': 'TextQuestion',
+                            'value': 'i@e.org'
                         },
                         {
                             'content': None,
@@ -1980,12 +1980,12 @@ snapshots['test_document_merge_service_snapshot[sb1] 1'] = [
                 'label': 'Verantwortliche Person Selbstdeklaration Baukontrolle',
                 'people': [
                     {
-                        'familyName': 'Egger',
-                        'givenName': 'Ernst'
-                    },
-                    {
                         'familyName': 'Muster',
                         'givenName': 'Max'
+                    },
+                    {
+                        'familyName': 'Egger',
+                        'givenName': 'Ernst'
                     }
                 ],
                 'type': 'SignatureQuestion'

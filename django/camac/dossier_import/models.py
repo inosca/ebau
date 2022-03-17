@@ -3,7 +3,6 @@ from pathlib import Path
 
 from caluma.caluma_core.models import UUIDModel
 from django.conf import settings
-from django.contrib.postgres.fields import JSONField
 from django.db import models
 
 from camac.dossier_import.messages import default_messages_object
@@ -81,7 +80,7 @@ class DossierImport(UUIDModel):
         "user.Location", models.DO_NOTHING, related_name="+", null=True, blank=True
     )
 
-    messages = JSONField(default=default_messages_object)
+    messages = models.JSONField(default=default_messages_object)
 
     source_file = models.FileField(
         max_length=255, upload_to=source_file_directory_path, null=True, blank=True

@@ -36,7 +36,7 @@ class ActivationFilterSet(FilterSet):
     creation_date_before = DateFilter(
         field_name="circulation__instance__creation_date__date", lookup_expr="lte"
     )
-    responsible_instance_user = NumberFilter(
+    responsible_service_user = NumberFilter(
         field_name="circulation__instance__responsible_services__responsible_user"
     )
 

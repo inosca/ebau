@@ -1,5 +1,6 @@
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
+import { isDevelopingApp, macroCondition } from "@embroider/macros";
 import Component from "@glimmer/component";
 import { dropTask, lastValue } from "ember-concurrency";
 
@@ -33,6 +34,12 @@ export default class BeNavbarComponent extends Component {
 
   languages = languages;
   environment = environment;
+
+  get showFormBuilder() {
+    return macroCondition(isDevelopingApp())
+      ? this.session.isAuthenticated && this.session.isSupport
+      : false;
+  }
 
   get internalLink() {
     const currentRoute = this.router.currentRoute;
