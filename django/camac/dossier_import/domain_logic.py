@@ -84,16 +84,18 @@ def transmit_import(dossier_import):
 
         DOSSIER_IMPORT = settings.APPLICATION.get("DOSSIER_IMPORT", {})
         dossier_import.source_file.seek(0)
-        m = MultipartEncoder(
-            fields={
-                "group": str(dossier_import.group.pk),
-                "source_file": (
-                    os.path.basename(dossier_import.source_file.name),
-                    dossier_import.source_file,
-                    "application/zip",
-                ),
-            }
-        )
+        fields = {
+            "group": str(dossier_import.group.pk),
+            "source_file": (
+                os.path.basename(dossier_import.source_file.name),
+                dossier_import.source_file,
+                "application/zip",
+            ),
+        }
+        if DOSSIER_IMPORT.get("LOCATION_REQUIRED", False):
+            fields["location_id"] = str(dossier_import.location.pk)
+
+        m = MultipartEncoder(fields=fields)
 
         r = requests.post(
             build_url(DOSSIER_IMPORT.get("PROD_URL"), "/api/v1/dossier-imports"),
@@ -101,7 +103,7 @@ def transmit_import(dossier_import):
             headers={
                 "Content-Type": m.content_type,
                 "Authorization": token,
-                "x-camac-group": "10000",
+                "x-camac-group": str(DOSSIER_IMPORT.get("PROD_SUPPORT_GROUP_ID")),
             },
         )
         r.raise_for_status()
