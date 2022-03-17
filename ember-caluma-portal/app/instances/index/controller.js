@@ -2,13 +2,14 @@ import Controller from "@ember/controller";
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { isEmpty } from "@ember/utils";
+import { tracked } from "@glimmer/tracking";
 import { useCalumaQuery } from "@projectcaluma/ember-core/caluma-query";
 import { allCases } from "@projectcaluma/ember-core/caluma-query/queries";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
 import { useTask } from "ember-resources";
 import { DateTime } from "luxon";
-import { dedupeTracked, cached } from "tracked-toolbox";
+import { cached } from "tracked-toolbox";
 
 import config from "caluma-portal/config/environment";
 import trackedFilter from "caluma-portal/decorators/tracked-filter";
@@ -57,8 +58,8 @@ export default class InstancesIndexController extends Controller {
     ];
   }
 
-  @dedupeTracked order = "camac-instance-id:desc";
-  @dedupeTracked category = config.APPLICATION.defaultInstanceStateCategory;
+  @tracked order = "camac-instance-id:desc";
+  @tracked category = config.APPLICATION.defaultInstanceStateCategory;
 
   @trackedFilter({
     serialize(value) {
