@@ -43,7 +43,7 @@ export default class CustomCaseModel extends CaseModel {
   }
 
   get status() {
-    return this.instance.status;
+    return this.instance?.status;
   }
 
   get isPaper() {
