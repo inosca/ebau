@@ -2,52 +2,40 @@
   <nav class="be-navbar">
     <div class="uk-container uk-flex uk-flex-column">
       <div class="uk-width-1-1 uk-position-relative">
-        <LinkTo @route="index" class="be-logo uk-link-reset">
-          {{#if (is-application "be")}}
-            <img
-              class="uk-height-1-1"
-              src="/assets/images/logo-ebau-bern-1-{{this.session.language}}.svg"
-              alt={{t "global.title-be"}}
-            />
-          {{else if (is-application "ur")}}
-            <div class="uk-flex uk-flex-between uk-height-1-1">
+        <div class="uk-flex uk-flex-middle uk-flex-between uk-height-1-1">
+          <LinkTo @route="index" class={{concat "main-logo-" (application-name) " uk-link-reset"}}>
+            {{#if (is-application "be")}}
               <img
-                class="uk-height-1-1 ur-logo"
+                class="uk-height-1-1"
+                src="/assets/images/logo-ebau-bern-1-{{this.session.language}}.svg"
+                alt={{t "global.title-be"}}
+              />
+            {{else if (is-application "ur")}}
+              <img
+                class="uk-height-1-1"
                 src="/assets/images/logo-urec.svg"
                 alt={{t "global.urec"}}
               />
+            {{/if}}
+          </LinkTo>
+          <div class="uk-text-right">
+            {{#if (is-application "ur")}}
               <img
-                class="uk-height-1-1 ur-logo"
+                class="uk-height-1-1 secondary-logo"
                 src="/assets/images/logo-kanton-uri.svg"
                 alt={{t "global.title-ur"}}
               />
-            </div>
-          {{/if}}
-
-          {{#if
-            (and (not-eq this.environment "production") (is-application "be"))
-          }}
-            <div class="uk-margin-small-top">
-              <span class="uk-text-small">
-                {{t "global.versionPrefix"}}{{app-version versionOnly=true showExtended=true}}
-              </span>
-              <UkLabel
-                @label={{this.environment}}
-                class="uk-margin-small-left"
-              />
-            </div>
-          {{/if}}
-        </LinkTo>
-
-        {{#if (and this.session.isAuthenticated this.session.isInternal (is-application "be"))}}
-          <a
-            href="{{this.internalLink}}"
-            class="be-navbar-internal-link uk-position-center-right"
-          >
-            {{t "nav.internal"}}
-            <UkIcon @icon="arrow-right" />
-          </a>
-        {{/if}}
+            {{/if}}
+            {{#if (and this.session.isAuthenticated this.session.showInternalLink)}}
+              <div class="uk-margin-small-top uk-margin-small-bottom">
+                <a href="{{this.internalLink}}" class="be-navbar-internal-link">
+                  {{t "nav.internal"}}
+                  <UkIcon @icon="arrow-right" />
+                </a>
+              </div>
+            {{/if}}
+          </div>
+        </div>
       </div>
 
       <div class="uk-width-1-1 uk-flex">

@@ -41,12 +41,12 @@ module("Integration | Component | be-navbar", function (hooks) {
 
     await this.setLanguage("de");
     assert
-      .dom(".be-logo img")
+      .dom(".main-logo-be img")
       .hasAttribute("src", "/assets/images/logo-ebau-bern-1-de.svg");
 
     await this.setLanguage("fr");
     assert
-      .dom(".be-logo img")
+      .dom(".main-logo-be img")
       .hasAttribute("src", "/assets/images/logo-ebau-bern-1-fr.svg");
   });
 

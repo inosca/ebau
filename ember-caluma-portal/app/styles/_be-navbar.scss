@@ -1,4 +1,5 @@
 .be-navbar {
+  padding-top: 20px;
   border-bottom: 1px solid $global-border;
 
   .be-navbar-internal-link {
@@ -13,10 +14,18 @@
     }
   }
 
-  .be-logo {
+  .main-logo-be {
     display: block;
     height: 2rem;
-    margin: 2rem 0;
+  }
+
+  .main-logo-ur {
+    display: block;
+    height: 67px;
+  }
+
+  .secondary-logo {
+    height: 45px;
   }
 
   .uk-navbar-left ul > li > a {
@@ -27,8 +36,4 @@
     box-shadow: inset 0 -1px 0 0 $global-primary-background,
       0 1px 0 0 $global-primary-background;
   }
-}
-
-.ur-logo {
-  height: 67px;
 }
