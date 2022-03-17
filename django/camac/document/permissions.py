@@ -287,7 +287,7 @@ PERMISSIONS = {
     "kt_uri": {
         "municipality": {
             ReadPermission: [12000002, 12000003, 12000006],
-            WritePermission: [12000005],
+            WritePermission: [12000005, 12000003],
             AdminInternalPermission: [12000001],
             AdminServicePermission: [12000000, 12000004, 12000007],
         },
