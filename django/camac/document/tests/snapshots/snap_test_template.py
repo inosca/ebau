@@ -1734,8 +1734,8 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
     </w:tblPr>
     <w:tblGrid>
       <w:gridCol w:w="2422"/>
-      <w:gridCol w:w="2696"/>
-      <w:gridCol w:w="1722"/>
+      <w:gridCol w:w="2695"/>
+      <w:gridCol w:w="1723"/>
       <w:gridCol w:w="1351"/>
       <w:gridCol w:w="1447"/>
     </w:tblGrid>
@@ -1767,7 +1767,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="2696" w:type="dxa"/>
+          <w:tcW w:w="2695" w:type="dxa"/>
           <w:tcBorders>
             <w:top w:val="single" w:sz="2" w:space="0" w:color="000001"/>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000001"/>
@@ -1791,7 +1791,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="1722" w:type="dxa"/>
+          <w:tcW w:w="1723" w:type="dxa"/>
           <w:tcBorders>
             <w:top w:val="single" w:sz="2" w:space="0" w:color="000001"/>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000001"/>
@@ -1956,7 +1956,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="2696" w:type="dxa"/>
+          <w:tcW w:w="2695" w:type="dxa"/>
           <w:tcBorders>
             <w:top w:val="single" w:sz="2" w:space="0" w:color="000001"/>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000001"/>
@@ -1994,7 +1994,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="1722" w:type="dxa"/>
+          <w:tcW w:w="1723" w:type="dxa"/>
           <w:tcBorders>
             <w:top w:val="single" w:sz="2" w:space="0" w:color="000001"/>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000001"/>
@@ -3133,16 +3133,17 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       <w:gridCol w:w="1605"/>
       <w:gridCol w:w="1607"/>
       <w:gridCol w:w="1606"/>
-      <w:gridCol w:w="1608"/>
-      <w:gridCol w:w="1675"/>
-      <w:gridCol w:w="1541"/>
+      <w:gridCol w:w="1609"/>
+      <w:gridCol w:w="1"/>
+      <w:gridCol w:w="1674"/>
+      <w:gridCol w:w="1540"/>
     </w:tblGrid>
     <w:tr>
       <w:trPr/>
       <w:tc>
         <w:tcPr>
           <w:tcW w:w="9642" w:type="dxa"/>
-          <w:gridSpan w:val="6"/>
+          <w:gridSpan w:val="7"/>
           <w:tcBorders>
             <w:top w:val="single" w:sz="2" w:space="0" w:color="000000"/>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
@@ -3227,7 +3228,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="1608" w:type="dxa"/>
+          <w:tcW w:w="1609" w:type="dxa"/>
           <w:tcBorders>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
             <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
@@ -3254,8 +3255,8 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="3216" w:type="dxa"/>
-          <w:gridSpan w:val="2"/>
+          <w:tcW w:w="3215" w:type="dxa"/>
+          <w:gridSpan w:val="3"/>
           <w:tcBorders>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
             <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
@@ -3383,7 +3384,8 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="1608" w:type="dxa"/>
+          <w:tcW w:w="1610" w:type="dxa"/>
+          <w:gridSpan w:val="2"/>
           <w:tcBorders>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
             <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
@@ -3422,7 +3424,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="1675" w:type="dxa"/>
+          <w:tcW w:w="1674" w:type="dxa"/>
           <w:tcBorders>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
             <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
@@ -3449,7 +3451,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="1541" w:type="dxa"/>
+          <w:tcW w:w="1540" w:type="dxa"/>
           <w:tcBorders>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
             <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
@@ -3481,7 +3483,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       <w:tc>
         <w:tcPr>
           <w:tcW w:w="9642" w:type="dxa"/>
-          <w:gridSpan w:val="6"/>
+          <w:gridSpan w:val="7"/>
           <w:tcBorders>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
             <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
@@ -3627,7 +3629,8 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="1608" w:type="dxa"/>
+          <w:tcW w:w="1610" w:type="dxa"/>
+          <w:gridSpan w:val="2"/>
           <w:tcBorders>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
             <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
@@ -3662,7 +3665,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="1675" w:type="dxa"/>
+          <w:tcW w:w="1674" w:type="dxa"/>
           <w:tcBorders>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
             <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
@@ -3697,7 +3700,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="1541" w:type="dxa"/>
+          <w:tcW w:w="1540" w:type="dxa"/>
           <w:tcBorders>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
             <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
@@ -3737,7 +3740,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       <w:tc>
         <w:tcPr>
           <w:tcW w:w="9642" w:type="dxa"/>
-          <w:gridSpan w:val="6"/>
+          <w:gridSpan w:val="7"/>
           <w:tcBorders>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
             <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
@@ -3765,7 +3768,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       <w:tc>
         <w:tcPr>
           <w:tcW w:w="9642" w:type="dxa"/>
-          <w:gridSpan w:val="6"/>
+          <w:gridSpan w:val="7"/>
           <w:tcBorders>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
             <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
@@ -3965,19 +3968,370 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
       <w:t>Bauverwaltung</w:t>
     </w:r>
   </w:p>
+  <w:tbl>
+    <w:tblPr>
+      <w:tblW w:w="9638" w:type="dxa"/>
+      <w:jc w:val="left"/>
+      <w:tblInd w:w="55" w:type="dxa"/>
+      <w:tblLayout w:type="fixed"/>
+      <w:tblCellMar>
+        <w:top w:w="55" w:type="dxa"/>
+        <w:left w:w="55" w:type="dxa"/>
+        <w:bottom w:w="55" w:type="dxa"/>
+        <w:right w:w="55" w:type="dxa"/>
+      </w:tblCellMar>
+    </w:tblPr>
+    <w:tblGrid>
+      <w:gridCol w:w="3212"/>
+      <w:gridCol w:w="3213"/>
+      <w:gridCol w:w="3213"/>
+    </w:tblGrid>
+    <w:tr>
+      <w:trPr/>
+      <w:tc>
+        <w:tcPr>
+          <w:tcW w:w="3212" w:type="dxa"/>
+          <w:tcBorders>
+            <w:top w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+          </w:tcBorders>
+        </w:tcPr>
+        <w:p>
+          <w:pPr>
+            <w:pStyle w:val="TableContents"/>
+            <w:keepNext w:val="true"/>
+            <w:rPr>
+              <w:b/>
+              <w:b/>
+              <w:bCs/>
+            </w:rPr>
+          </w:pPr>
+          <w:r>
+            <w:rPr>
+              <w:b/>
+              <w:bCs/>
+            </w:rPr>
+            <w:t>Datum</w:t>
+          </w:r>
+        </w:p>
+      </w:tc>
+      <w:tc>
+        <w:tcPr>
+          <w:tcW w:w="3213" w:type="dxa"/>
+          <w:tcBorders>
+            <w:top w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+          </w:tcBorders>
+        </w:tcPr>
+        <w:p>
+          <w:pPr>
+            <w:pStyle w:val="TableContents"/>
+            <w:rPr>
+              <w:b/>
+              <w:b/>
+              <w:bCs/>
+            </w:rPr>
+          </w:pPr>
+          <w:r>
+            <w:rPr>
+              <w:b/>
+              <w:bCs/>
+            </w:rPr>
+            <w:t>Nr.</w:t>
+          </w:r>
+        </w:p>
+      </w:tc>
+      <w:tc>
+        <w:tcPr>
+          <w:tcW w:w="3213" w:type="dxa"/>
+          <w:tcBorders>
+            <w:top w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:right w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+          </w:tcBorders>
+        </w:tcPr>
+        <w:p>
+          <w:pPr>
+            <w:pStyle w:val="TableContents"/>
+            <w:rPr>
+              <w:b/>
+              <w:b/>
+              <w:bCs/>
+            </w:rPr>
+          </w:pPr>
+          <w:r>
+            <w:rPr>
+              <w:b/>
+              <w:bCs/>
+            </w:rPr>
+            <w:t>Beschreibung</w:t>
+          </w:r>
+        </w:p>
+      </w:tc>
+    </w:tr>
+    <w:tr>
+      <w:trPr/>
+      <w:tc>
+        <w:tcPr>
+          <w:tcW w:w="9638" w:type="dxa"/>
+          <w:gridSpan w:val="3"/>
+          <w:tcBorders>
+            <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:right w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+          </w:tcBorders>
+        </w:tcPr>
+        <w:p>
+          <w:pPr>
+            <w:pStyle w:val="TableContents"/>
+            <w:keepNext w:val="true"/>
+            <w:widowControl w:val="false"/>
+            <w:rPr/>
+          </w:pPr>
+          <w:r>
+            <w:rPr>
+              <w:rFonts w:ascii="Liberation Serif" w:hAnsi="Liberation Serif"/>
+              <w:sz w:val="24"/>
+              <w:szCs w:val="24"/>
+            </w:rPr>
+            <w:t xml:space="preserve">{%tr for </w:t>
+          </w:r>
+          <w:r>
+            <w:rPr>
+              <w:rFonts w:eastAsia="Noto Sans CJK SC Regular" w:cs="FreeSans" w:ascii="Liberation Serif" w:hAnsi="Liberation Serif"/>
+              <w:color w:val="00000A"/>
+              <w:kern w:val="0"/>
+              <w:sz w:val="24"/>
+              <w:szCs w:val="24"/>
+              <w:lang w:val="en-US" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
+            </w:rPr>
+            <w:t>sitzung</w:t>
+          </w:r>
+          <w:r>
+            <w:rPr>
+              <w:rFonts w:ascii="Liberation Serif" w:hAnsi="Liberation Serif"/>
+              <w:sz w:val="24"/>
+              <w:szCs w:val="24"/>
+            </w:rPr>
+            <w:t xml:space="preserve"> in </w:t>
+          </w:r>
+          <w:r>
+            <w:rPr>
+              <w:rFonts w:ascii="Liberation Serif" w:hAnsi="Liberation Serif"/>
+              <w:sz w:val="24"/>
+              <w:szCs w:val="24"/>
+            </w:rPr>
+            <w:t>bauverwaltung</w:t>
+          </w:r>
+          <w:r>
+            <w:rPr>
+              <w:rFonts w:ascii="Liberation Serif" w:hAnsi="Liberation Serif"/>
+              <w:sz w:val="24"/>
+              <w:szCs w:val="24"/>
+            </w:rPr>
+            <w:t>.bewilligungsverfahren_sitzung_baukommission%}</w:t>
+          </w:r>
+        </w:p>
+      </w:tc>
+    </w:tr>
+    <w:tr>
+      <w:trPr/>
+      <w:tc>
+        <w:tcPr>
+          <w:tcW w:w="3212" w:type="dxa"/>
+          <w:tcBorders>
+            <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+          </w:tcBorders>
+        </w:tcPr>
+        <w:p>
+          <w:pPr>
+            <w:pStyle w:val="TableContents"/>
+            <w:keepNext w:val="true"/>
+            <w:rPr>
+              <w:rFonts w:ascii="Liberation Serif" w:hAnsi="Liberation Serif"/>
+              <w:sz w:val="24"/>
+              <w:szCs w:val="24"/>
+            </w:rPr>
+          </w:pPr>
+          <w:r>
+            <w:rPr>
+              <w:rFonts w:ascii="Liberation Serif" w:hAnsi="Liberation Serif"/>
+              <w:sz w:val="24"/>
+              <w:szCs w:val="24"/>
+            </w:rPr>
+            <w:t xml:space="preserve">{{ </w:t>
+          </w:r>
+          <w:r>
+            <w:rPr>
+              <w:rFonts w:eastAsia="Noto Sans CJK SC Regular" w:cs="FreeSans" w:ascii="Liberation Serif" w:hAnsi="Liberation Serif"/>
+              <w:color w:val="00000A"/>
+              <w:kern w:val="0"/>
+              <w:sz w:val="24"/>
+              <w:szCs w:val="24"/>
+              <w:lang w:val="en-US" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
+            </w:rPr>
+            <w:t>sitzung.bewilligungsverfahren_sitzun</w:t>
+            <w:br/>
+            <w:t>g_baukommission_datum</w:t>
+          </w:r>
+          <w:r>
+            <w:rPr>
+              <w:rFonts w:ascii="Liberation Serif" w:hAnsi="Liberation Serif"/>
+              <w:sz w:val="24"/>
+              <w:szCs w:val="24"/>
+            </w:rPr>
+            <w:t xml:space="preserve"> }}</w:t>
+          </w:r>
+        </w:p>
+      </w:tc>
+      <w:tc>
+        <w:tcPr>
+          <w:tcW w:w="3213" w:type="dxa"/>
+          <w:tcBorders>
+            <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+          </w:tcBorders>
+        </w:tcPr>
+        <w:p>
+          <w:pPr>
+            <w:pStyle w:val="TableContents"/>
+            <w:rPr/>
+          </w:pPr>
+          <w:r>
+            <w:rPr/>
+            <w:t xml:space="preserve">{{ </w:t>
+          </w:r>
+          <w:r>
+            <w:rPr>
+              <w:rFonts w:eastAsia="Noto Sans CJK SC Regular" w:cs="FreeSans" w:ascii="Liberation Serif" w:hAnsi="Liberation Serif"/>
+              <w:color w:val="00000A"/>
+              <w:kern w:val="0"/>
+              <w:sz w:val="24"/>
+              <w:szCs w:val="24"/>
+              <w:lang w:val="en-US" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
+            </w:rPr>
+            <w:t>sitzung.bewilligungsverfahren_sitzung_baukommission_nr</w:t>
+          </w:r>
+          <w:r>
+            <w:rPr/>
+            <w:t xml:space="preserve"> }}</w:t>
+          </w:r>
+        </w:p>
+      </w:tc>
+      <w:tc>
+        <w:tcPr>
+          <w:tcW w:w="3213" w:type="dxa"/>
+          <w:tcBorders>
+            <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:right w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+          </w:tcBorders>
+        </w:tcPr>
+        <w:p>
+          <w:pPr>
+            <w:pStyle w:val="TableContents"/>
+            <w:rPr/>
+          </w:pPr>
+          <w:r>
+            <w:rPr>
+              <w:rFonts w:ascii="Liberation Serif" w:hAnsi="Liberation Serif"/>
+            </w:rPr>
+            <w:t xml:space="preserve">{{ </w:t>
+          </w:r>
+          <w:r>
+            <w:rPr>
+              <w:rFonts w:eastAsia="Noto Sans CJK SC Regular" w:cs="FreeSans" w:ascii="Liberation Serif" w:hAnsi="Liberation Serif"/>
+              <w:color w:val="00000A"/>
+              <w:kern w:val="0"/>
+              <w:sz w:val="24"/>
+              <w:szCs w:val="24"/>
+              <w:lang w:val="en-US" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
+            </w:rPr>
+            <w:t>sitzung.bewilligungsverfahren_sitzung_baukommission_bemerkung</w:t>
+          </w:r>
+          <w:r>
+            <w:rPr>
+              <w:rFonts w:ascii="Liberation Serif" w:hAnsi="Liberation Serif"/>
+            </w:rPr>
+            <w:t xml:space="preserve"> }}</w:t>
+          </w:r>
+        </w:p>
+      </w:tc>
+    </w:tr>
+    <w:tr>
+      <w:trPr/>
+      <w:tc>
+        <w:tcPr>
+          <w:tcW w:w="9638" w:type="dxa"/>
+          <w:gridSpan w:val="3"/>
+          <w:tcBorders>
+            <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:right w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+          </w:tcBorders>
+        </w:tcPr>
+        <w:p>
+          <w:pPr>
+            <w:pStyle w:val="TableContents"/>
+            <w:keepNext w:val="true"/>
+            <w:widowControl w:val="false"/>
+            <w:rPr/>
+          </w:pPr>
+          <w:r>
+            <w:rPr>
+              <w:lang w:val="de-CH" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
+            </w:rPr>
+            <w:t>{%tr endfor %}</w:t>
+          </w:r>
+        </w:p>
+      </w:tc>
+    </w:tr>
+  </w:tbl>
   <w:p>
     <w:pPr>
-      <w:pStyle w:val="TextBody"/>
-      <w:spacing w:before="0" w:after="140"/>
+      <w:pStyle w:val="Tabelle"/>
       <w:rPr>
-        <w:b/>
-        <w:b/>
-        <w:bCs/>
+        <w:i w:val="false"/>
+        <w:i w:val="false"/>
+        <w:iCs w:val="false"/>
       </w:rPr>
     </w:pPr>
     <w:r>
+      <w:rPr>
+        <w:i w:val="false"/>
+        <w:iCs w:val="false"/>
+      </w:rPr>
+      <w:t>GR Sitzungsnummer:</w:t>
+    </w:r>
+    <w:r>
+      <w:rPr>
+        <w:i w:val="false"/>
+        <w:iCs w:val="false"/>
+      </w:rPr>
+      <w:t xml:space="preserve"> </w:t>
+    </w:r>
+    <w:r>
+      <w:rPr>
+        <w:rFonts w:ascii="Liberation Serif" w:hAnsi="Liberation Serif"/>
+        <w:i w:val="false"/>
+        <w:iCs w:val="false"/>
+        <w:sz w:val="24"/>
+        <w:szCs w:val="24"/>
+      </w:rPr>
+      <w:t>{{ bauverwaltung.bewilligungsverfahren_gr_sitzung_nummer }}</w:t>
+    </w:r>
+  </w:p>
+  <w:p>
+    <w:pPr>
+      <w:pStyle w:val="Normal"/>
       <w:rPr/>
-      <w:t>{{ bauverwaltung }}</w:t>
+    </w:pPr>
+    <w:r>
+      <w:rPr/>
     </w:r>
   </w:p>
   <w:sectPr>
@@ -5879,8 +6233,8 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Gr
     </w:tblPr>
     <w:tblGrid>
       <w:gridCol w:w="2422"/>
-      <w:gridCol w:w="2696"/>
-      <w:gridCol w:w="1722"/>
+      <w:gridCol w:w="2695"/>
+      <w:gridCol w:w="1723"/>
       <w:gridCol w:w="1351"/>
       <w:gridCol w:w="1447"/>
     </w:tblGrid>
@@ -5912,7 +6266,7 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Gr
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="2696" w:type="dxa"/>
+          <w:tcW w:w="2695" w:type="dxa"/>
           <w:tcBorders>
             <w:top w:val="single" w:sz="2" w:space="0" w:color="000001"/>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000001"/>
@@ -5936,7 +6290,7 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Gr
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="1722" w:type="dxa"/>
+          <w:tcW w:w="1723" w:type="dxa"/>
           <w:tcBorders>
             <w:top w:val="single" w:sz="2" w:space="0" w:color="000001"/>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000001"/>
@@ -6036,7 +6390,7 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Gr
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="2696" w:type="dxa"/>
+          <w:tcW w:w="2695" w:type="dxa"/>
           <w:tcBorders>
             <w:top w:val="single" w:sz="2" w:space="0" w:color="000001"/>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000001"/>
@@ -6060,7 +6414,7 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Gr
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="1722" w:type="dxa"/>
+          <w:tcW w:w="1723" w:type="dxa"/>
           <w:tcBorders>
             <w:top w:val="single" w:sz="2" w:space="0" w:color="000001"/>
             <w:left w:val="single" w:sz="2" w:space="0" w:color="000001"/>
@@ -6894,19 +7248,152 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Gr
       <w:t>Bauverwaltung</w:t>
     </w:r>
   </w:p>
+  <w:tbl>
+    <w:tblPr>
+      <w:tblW w:w="9638" w:type="dxa"/>
+      <w:jc w:val="left"/>
+      <w:tblInd w:w="55" w:type="dxa"/>
+      <w:tblLayout w:type="fixed"/>
+      <w:tblCellMar>
+        <w:top w:w="55" w:type="dxa"/>
+        <w:left w:w="55" w:type="dxa"/>
+        <w:bottom w:w="55" w:type="dxa"/>
+        <w:right w:w="55" w:type="dxa"/>
+      </w:tblCellMar>
+    </w:tblPr>
+    <w:tblGrid>
+      <w:gridCol w:w="3212"/>
+      <w:gridCol w:w="3213"/>
+      <w:gridCol w:w="3213"/>
+    </w:tblGrid>
+    <w:tr>
+      <w:trPr/>
+      <w:tc>
+        <w:tcPr>
+          <w:tcW w:w="3212" w:type="dxa"/>
+          <w:tcBorders>
+            <w:top w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+          </w:tcBorders>
+        </w:tcPr>
+        <w:p>
+          <w:pPr>
+            <w:pStyle w:val="TableContents"/>
+            <w:keepNext w:val="true"/>
+            <w:rPr>
+              <w:b/>
+              <w:b/>
+              <w:bCs/>
+            </w:rPr>
+          </w:pPr>
+          <w:r>
+            <w:rPr>
+              <w:b/>
+              <w:bCs/>
+            </w:rPr>
+            <w:t>Datum</w:t>
+          </w:r>
+        </w:p>
+      </w:tc>
+      <w:tc>
+        <w:tcPr>
+          <w:tcW w:w="3213" w:type="dxa"/>
+          <w:tcBorders>
+            <w:top w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+          </w:tcBorders>
+        </w:tcPr>
+        <w:p>
+          <w:pPr>
+            <w:pStyle w:val="TableContents"/>
+            <w:rPr>
+              <w:b/>
+              <w:b/>
+              <w:bCs/>
+            </w:rPr>
+          </w:pPr>
+          <w:r>
+            <w:rPr>
+              <w:b/>
+              <w:bCs/>
+            </w:rPr>
+            <w:t>Nr.</w:t>
+          </w:r>
+        </w:p>
+      </w:tc>
+      <w:tc>
+        <w:tcPr>
+          <w:tcW w:w="3213" w:type="dxa"/>
+          <w:tcBorders>
+            <w:top w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:left w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:bottom w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+            <w:right w:val="single" w:sz="2" w:space="0" w:color="000000"/>
+          </w:tcBorders>
+        </w:tcPr>
+        <w:p>
+          <w:pPr>
+            <w:pStyle w:val="TableContents"/>
+            <w:rPr>
+              <w:b/>
+              <w:b/>
+              <w:bCs/>
+            </w:rPr>
+          </w:pPr>
+          <w:r>
+            <w:rPr>
+              <w:b/>
+              <w:bCs/>
+            </w:rPr>
+            <w:t xml:space="preserve">Beschreibung</w:t>
+          </w:r>
+        </w:p>
+      </w:tc>
+    </w:tr>
+  </w:tbl>
   <w:p>
     <w:pPr>
-      <w:pStyle w:val="TextBody"/>
-      <w:spacing w:before="0" w:after="140"/>
+      <w:pStyle w:val="Tabelle"/>
       <w:rPr>
-        <w:b/>
-        <w:b/>
-        <w:bCs/>
+        <w:i w:val="false"/>
+        <w:i w:val="false"/>
+        <w:iCs w:val="false"/>
       </w:rPr>
     </w:pPr>
     <w:r>
+      <w:rPr>
+        <w:i w:val="false"/>
+        <w:iCs w:val="false"/>
+      </w:rPr>
+      <w:t>GR Sitzungsnummer:</w:t>
+    </w:r>
+    <w:r>
+      <w:rPr>
+        <w:i w:val="false"/>
+        <w:iCs w:val="false"/>
+      </w:rPr>
+      <w:t xml:space="preserve"> </w:t>
+    </w:r>
+    <w:r>
+      <w:rPr>
+        <w:rFonts w:ascii="Liberation Serif" w:hAnsi="Liberation Serif"/>
+        <w:i w:val="false"/>
+        <w:iCs w:val="false"/>
+        <w:sz w:val="24"/>
+        <w:szCs w:val="24"/>
+      </w:rPr>
+      <w:t xml:space="preserve"/>
+    </w:r>
+  </w:p>
+  <w:p>
+    <w:pPr>
+      <w:pStyle w:val="Normal"/>
       <w:rPr/>
-      <w:t xml:space="preserve">{}</w:t>
+    </w:pPr>
+    <w:r>
+      <w:rPr/>
     </w:r>
   </w:p>
   <w:sectPr>

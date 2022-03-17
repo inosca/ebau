@@ -513,7 +513,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             circulation_state_id=be_constants.CIRCULATION_STATE_WORKING
         ).count()
 
-    def _get_caluma_answer_value(self, answer):
+    def _get_answer_value_or_date(self, answer):
         if answer.question.type in [
             caluma_form_models.Question.TYPE_MULTIPLE_CHOICE,
             caluma_form_models.Question.TYPE_CHOICE,
@@ -543,17 +543,35 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
         document = work_item_qs.first().document
         answers = {
-            answer.question.slug: self._get_caluma_answer_value(answer)
-            for answer in document.answers.all()
-            if answer.value or answer.date
+            inflection.underscore(answer.question.slug): self._get_answer_value_or_date(
+                answer
+            )
+            for answer in document.answers.filter(
+                Q(value__isnull=False) | Q(date__isnull=False)
+            )
         }
 
-        for table in caluma_form_models.Document.objects.filter(family=document):
-            for answer in table.answers.all():
-                if answer.value or answer.date:
-                    answers[answer.question.slug] = self._get_caluma_answer_value(
-                        answer
-                    )
+        # loop over sub form questions
+        for category in document.form.questions.filter(
+            type=caluma_form_models.Question.TYPE_FORM
+        ):
+            # loop over table questions in sub form
+            for question in category.sub_form.questions.filter(
+                type=caluma_form_models.Question.TYPE_TABLE
+            ):
+                question_answers = []
+                # loop over table rows in table question
+                for row in caluma_form_models.AnswerDocument.objects.filter(
+                    answer__question_id=question.slug, document__family=document
+                ):
+                    row_answers = {}
+                    # loop over answers in table row to format the answer
+                    for answer in row.document.answers.all():
+                        row_answers[
+                            inflection.underscore(answer.question.slug)
+                        ] = self._get_answer_value_or_date(answer)
+                    question_answers.append(row_answers)
+                answers[inflection.underscore(question.slug)] = question_answers
 
         return answers
 
