@@ -1,6 +1,8 @@
 import Route from "@ember/routing/route";
 import { next } from "@ember/runloop";
 
+import { isEmbedded } from "caluma-portal/helpers/is-embedded";
+
 export default class InstancesEditIndexRoute extends Route {
   model() {
     return this.modelFor("instances.edit");
@@ -13,7 +15,7 @@ export default class InstancesEditIndexRoute extends Route {
       const instance = await controller.instance;
 
       // redirect directly to the main form if the app is embedded
-      if (instance && instance.mainForm && controller.embedded) {
+      if (instance && instance.mainForm && isEmbedded()) {
         this.replaceWith("instances.edit.form", instance.mainForm.slug);
       }
     });

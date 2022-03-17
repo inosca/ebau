@@ -24,6 +24,7 @@ from camac.caluma.api import CalumaApi
 from camac.constants import kt_bern as be_constants, kt_uri as uri_constants
 from camac.core.models import (
     Answer,
+    AuthorityLocation,
     HistoryActionConfig,
     InstanceLocation,
     InstanceService,
@@ -61,8 +62,7 @@ from .domain_logic import save_ebau_number
 SUBMIT_DATE_CHAPTER = 100001
 SUBMIT_DATE_QUESTION_ID = 20036
 SUBMIT_DATE_FORMAT = "%Y-%m-%dT%H:%M:%S%z"
-WORKFLOW_ITEM_DOSSIEREINGANG_UR = 10
-WORKFLOW_ITEM_DOSSIER_ERFASST_UR = 12
+WORKFLOW_ITEM_EINGANG_ONLINE_UR = 12000000
 COMPLETE_PRELIMINARY_CLARIFICATION_SLUGS_BE = [
     "vorabklaerung-vollstaendig",
     "vorabklaerung-vollstaendig-v2",
@@ -119,6 +119,10 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         source="get_linked_instances", model=models.Instance, read_only=True, many=True
     )
 
+    circulation_initializer_service = relations.SerializerMethodResourceRelatedField(
+        source="get_circulation_initializer_service", model=Service, read_only=True
+    )
+
     def get_permissions(self, instance):
         return {}
 
@@ -155,6 +159,10 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
             .exclude(pk=obj.pk)
         )
 
+    def get_circulation_initializer_service(self, obj):
+        first_circulation = obj.circulations.first()
+        return first_circulation.service if first_circulation else None
+
     def get_involved_services(self, obj):
         filters = Q(pk__in=obj.circulations.values("activations__service__pk"))
 
@@ -175,6 +183,8 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         "circulations": "camac.circulation.serializers.CirculationSerializer",
         "services": "camac.user.serializers.ServiceSerializer",
         "involved_services": "camac.user.serializers.ServiceSerializer",
+        "linked_instances": "camac.instance.serializers.InstanceSerializer",
+        "circulation_initializer_service": "camac.user.serializers.ServiceSerializer",
     }
 
     def validate_location(self, location):
@@ -250,6 +260,7 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
             "services",
             "involved_services",
             "linked_instances",
+            "circulation_initializer_service",
         )
         read_only_fields = (
             "circulations",
@@ -259,6 +270,7 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
             "services",
             "involved_services",
             "linked_instances",
+            "circulation_initializer_service",
         )
 
 
@@ -296,25 +308,22 @@ class SchwyzInstanceSerializer(InstanceSerializer):
             form=form_models.Form.objects.get(pk=caluma_form),
             user=self.context["request"].caluma_info.context.user,
             meta={"camac-instance-id": instance.pk},
+            # necessary for resolving dynamic groups
+            context={"instance": instance.pk},
         )
 
         instance.case = case
-        instance.save()
 
         # Creation logic for caluma based forms
         if caluma_workflow != "building-permit":
-            InstanceService.objects.create(
-                instance=instance,
-                service=self.context["request"].group.service,
-                active=1,
-                activation_date=None,
-            )
 
-            instance.case.meta[
-                "dossier-number"
-            ] = domain_logic.CreateInstanceLogic.generate_identifier(instance)
+            identifier = domain_logic.CreateInstanceLogic.generate_identifier(instance)
+            instance.case.meta["dossier-number"] = identifier
+            instance.case.meta["form-backend"] = "caluma"
             instance.case.save()
+            instance.identifier = identifier
 
+        instance.save()
         return instance
 
     @permission_aware
@@ -328,6 +337,9 @@ class SchwyzInstanceSerializer(InstanceSerializer):
             return {"bauverwaltung": {"read", "write"}, "main": {"read", "write"}}
 
     def get_permissions_for_service(self, instance):
+        if instance.instance_state.name in ["internal"]:
+            return {"bauverwaltung": {"read"}, "main": {"read", "write"}}
+
         return {"bauverwaltung": {"read"}}
 
     def get_permissions_for_public(self, instance):
@@ -515,7 +527,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             permissions.add("read")
 
         # COMM is needed for "Bundesstelle"
-        if state in ["comm", "ext", "circ", "redac", "old"]:
+        if state in ["comm", "ext", "circ", "redac"]:
             permissions.add("write")
         return permissions
 
@@ -659,6 +671,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         if (
             instance.instance_state.name
             in [
+                "subm",
                 "circulation_init",
                 "circulation",
                 "coordination",
@@ -951,7 +964,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                 defaults={"answer": submit_date},
             )
         elif settings.APPLICATION.get("SET_SUBMIT_DATE_CAMAC_WORKFLOW"):
-            workflow_item = WorkflowItem.objects.get(pk=WORKFLOW_ITEM_DOSSIEREINGANG_UR)
+            workflow_item = WorkflowItem.objects.get(pk=WORKFLOW_ITEM_EINGANG_ONLINE_UR)
 
             WorkflowEntry.objects.create(
                 workflow_date=submit_date,
@@ -1045,8 +1058,6 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
     def _prepare_cantonal_territory_usage(self, instance):
         instance.instance_state = models.InstanceState.objects.get(name="ext")
 
-        instance.location_id = 22  # Alle Gemeinden
-
         self._update_instance_location(instance)
 
         event_type_answer = self.get_master_data(instance.case).veranstaltung_art
@@ -1080,6 +1091,23 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         if existing_instance_id:
             existing_instance = models.Instance.objects.get(pk=existing_instance_id)
             link_instances(instance, existing_instance)
+
+    def _set_authority(self, instance):
+        """Fill the answer to the question 'leitbehorde' (only used in UR)."""
+        if not settings.APPLICATION["CALUMA"].get("USE_LOCATION", False):
+            return
+
+        authority_location = AuthorityLocation.objects.filter(
+            location_id=instance.location_id
+        )
+
+        if authority_location:
+            caluma_api.update_or_create_answer(
+                instance.case.document,
+                "leitbehoerde",
+                str(authority_location.first().authority_id),
+                user=self.context["request"].caluma_info.context.user,
+            )
 
     @transaction.atomic
     def update(self, instance, validated_data):
@@ -1143,6 +1171,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             ] = domain_logic.CreateInstanceLogic.generate_identifier(instance)
             case.save()
 
+        self._set_authority(instance)
         self._generate_and_store_pdf(instance)
         self._set_submit_date(validated_data)
         self._create_history_entry(gettext_noop("Dossier submitted"))
@@ -1619,6 +1648,22 @@ class CalumaInstanceFinalizeSerializer(CalumaInstanceSubmitSerializer):
         return instance
 
 
+class CalumaInstanceUnlinkSerializer(CalumaInstanceSubmitSerializer):
+    @transaction.atomic
+    def update(self, instance, validated_data):
+        instances_with_same_group = models.Instance.objects.filter(
+            instance_group=instance.instance_group
+        ).exclude(pk=instance.pk)
+        # if only two dossiers were in group, unlink both
+        if len(instances_with_same_group) == 1:
+            instances_with_same_group.update(instance_group=None)
+
+        instance.instance_group = None
+        instance.save()
+
+        return instance
+
+
 class InstanceResponsibilitySerializer(
     InstanceEditableMixin, serializers.ModelSerializer
 ):
@@ -1904,6 +1949,7 @@ class PublicCalumaInstanceSerializer(serializers.Serializer):  # pragma: no cove
     instance_id = serializers.IntegerField(read_only=True)
     dossier_nr = serializers.CharField(read_only=True)
     publication_date = serializers.DateTimeField(read_only=True)
+    publication_end_date = serializers.DateTimeField(read_only=True)
     publication_text = serializers.CharField(read_only=True)
 
     municipality = serializers.SerializerMethodField()

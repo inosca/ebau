@@ -42,7 +42,15 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name="notificationtemplate",
             name="slug",
-            field=models.SlugField(db_index=False, max_length=100, null=True),
+            # unique is required, otherwise we get an error on this step:
+            # there is no unique constraint matching given keys for
+            # referenced table "NOTIFICATION_TEMPLATE"
+            #
+            # TODO: check whether defining unique as true here is
+            # problematic with existing data
+            field=models.SlugField(
+                db_index=False, unique=True, max_length=100, null=True
+            ),
         ),
         migrations.AddField(
             model_name="notificationtemplatet",

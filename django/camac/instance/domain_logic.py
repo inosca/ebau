@@ -4,9 +4,10 @@ from uuid import uuid4
 from caluma.caluma_form import api as form_api, models as form_models
 from caluma.caluma_workflow import api as workflow_api, models as workflow_models
 from django.conf import settings
-from django.contrib.postgres.fields.jsonb import KeyTextTransform
 from django.core.files.base import ContentFile
-from django.db.models import Q
+from django.db.models import CharField, Q
+from django.db.models.fields.json import KeyTextTransform
+from django.db.models.functions import Cast
 from django.utils import timezone
 from rest_framework.exceptions import ValidationError
 
@@ -26,7 +27,7 @@ from camac.user.permissions import permission_aware
 from . import models
 
 SUBMIT_DATE_FORMAT = "%Y-%m-%dT%H:%M:%S%z"
-WORKFLOW_ITEM_DOSSIER_ERFASST_UR = 12
+WORKFLOW_ITEM_DOSSIER_IN_UREC_ERFASST_UR = 12
 
 caluma_api = CalumaApi()
 
@@ -185,12 +186,18 @@ class CreateInstanceLogic:
 
             start = separator.join([identifier_start, str(year).zfill(2)])
 
-            if settings.APPLICATION["CALUMA"].get("SAVE_DOSSIER_NUMBER_IN_CALUMA"):
+            if settings.APPLICATION["CALUMA"].get("SAVE_DOSSIER_NUMBER_IN_CALUMA") or (
+                name in settings.APPLICATION.get("CALUMA_INSTANCE_FORMS", [])
+            ):
                 last_identifier = (
                     workflow_models.Case.objects.filter(
                         **{"meta__dossier-number__startswith": start}
                     )
-                    .annotate(dossier_nr=KeyTextTransform("dossier-number", "meta"))
+                    .annotate(
+                        dossier_nr=Cast(
+                            KeyTextTransform("dossier-number", "meta"), CharField()
+                        )
+                    )
                     .order_by("-dossier_nr")
                     .values_list("dossier_nr", flat=True)
                     .first()
@@ -238,7 +245,7 @@ class CreateInstanceLogic:
         ]:
             creation_date = timezone.now().strftime(SUBMIT_DATE_FORMAT)
             workflow_item = WorkflowItem.objects.get(
-                pk=WORKFLOW_ITEM_DOSSIER_ERFASST_UR
+                pk=WORKFLOW_ITEM_DOSSIER_IN_UREC_ERFASST_UR
             )
 
             WorkflowEntry.objects.create(
@@ -561,6 +568,7 @@ class CreateInstanceLogic:
             form=caluma_form and form_models.Form.objects.get(pk=caluma_form),
             user=caluma_user,
             meta=case_meta,
+            context={"instance": instance.pk},
         )
 
         instance.case = case

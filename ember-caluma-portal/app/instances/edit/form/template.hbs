@@ -8,10 +8,7 @@
       @disabled={{cannot "write form of instance" this.instance.value form=this.document.value.form}}
       @useAsHeading={{true}}
       @headingBaseLevel={{2}}
-      @context={{hash
-        instance=this.instance.value
-        instanceId=this.instance.value.id
-      }}
+      @context={{hash instanceId=this.instance.value.id}}
     as |content|>
       {{#if (gt content.document.fieldsets.length 1)}}
         <div uk-grid>
@@ -32,10 +29,7 @@
       @disabled={{cannot "write form of instance" this.instance.value form=this.document.value.form}}
       @useAsHeading={{true}}
       @headingBaseLevel={{2}}
-      @context={{hash
-        instance=this.instance.value
-        instanceId=this.instance.value.id
-      }}
+      @context={{hash instanceId=this.instance.value.id}}
     />
   {{/if}}
 </LoadingOrNotfound>

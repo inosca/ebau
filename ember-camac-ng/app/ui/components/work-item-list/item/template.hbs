@@ -13,21 +13,13 @@
       {{else if (eq column "instance")}}
         {{@workItem.instanceName}}
       {{else if (eq column "deadline")}}
-        <span title={{format-date @workItem.deadline day="2-digit" month="2-digit" year="numeric"}}>
-          {{moment-from @workItem.deadline}}
+        <span title={{format-date @workItem.deadline format="date"}}>
+          {{date-from-now @workItem.deadline}}
         </span>
       {{else if (eq column "responsible")}}
         {{@workItem.responsible}}
       {{else if (eq column "closedAt")}}
-        {{format-date
-          @workItem.closedAt
-          day="2-digit"
-          month="2-digit"
-          year="numeric"
-          hour="2-digit"
-          minute="2-digit"
-          hour12=false
-        }}
+        {{format-date @workItem.closedAt format="datetime"}}
       {{else if (eq column "closedBy")}}
         {{if @workItem.closedByUser @workItem.closedByUser.fullName "-"}}
       {{else if (eq column "description")}}

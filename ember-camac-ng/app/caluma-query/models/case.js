@@ -1,15 +1,9 @@
 import { inject as service } from "@ember/service";
 import CaseModel from "@projectcaluma/ember-core/caluma-query/models/case";
-import moment from "moment";
+import { DateTime } from "luxon";
 
-import config from "camac-ng/config/environment";
-
-function getAnswer(document, slugOrSlugs) {
-  const slugs = Array.isArray(slugOrSlugs) ? slugOrSlugs : [slugOrSlugs];
-  return document.answers.edges.find((edge) =>
-    slugs.includes(edge.node.question.slug)
-  );
-}
+import caseModelConfig from "camac-ng/config/case-model";
+import getAnswer from "camac-ng/utils/get-answer";
 
 export default class CustomCaseModel extends CaseModel {
   @service store;
@@ -48,12 +42,27 @@ export default class CustomCaseModel extends CaseModel {
     return null;
   }
 
+  getFormFields(fields) {
+    return this.store
+      .peekAll("form-field")
+      .find(
+        (formField) =>
+          formField.instance.get("id") === String(this.instanceId) &&
+          fields.includes(formField.name) &&
+          formField.value.length
+      );
+  }
+
   get instanceId() {
     return this.raw.meta["camac-instance-id"];
   }
 
   get instance() {
     return this.store.peekRecord("instance", this.instanceId);
+  }
+
+  get instanceFormDescription() {
+    return this.instance?.form.get("description");
   }
 
   get user() {
@@ -71,8 +80,11 @@ export default class CustomCaseModel extends CaseModel {
   }
 
   get intent() {
-    return getAnswer(this.raw.document, config.APPLICATION.intentSlugs)?.node
-      .stringValue;
+    return caseModelConfig.intent?.(this.raw.document);
+  }
+
+  get intentSZ() {
+    return this.getFormFields(["bezeichnung-override", "bezeichnung"])?.value;
   }
 
   get authority() {
@@ -81,12 +93,24 @@ export default class CustomCaseModel extends CaseModel {
   }
 
   get dossierNr() {
-    return this.raw.meta["dossier-number"] ?? this.instance.identifier;
+    return this.raw.meta["dossier-number"] ?? this.instance?.identifier;
+  }
+
+  get municipalityNode() {
+    const answer = getAnswer(this.raw.document, "municipality");
+    return answer?.node;
   }
 
   get municipality() {
-    const answer = getAnswer(this.raw.document, "municipality");
-    return answer?.node.selectedOption?.label;
+    return this.municipalityNode?.selectedOption?.label;
+  }
+
+  get municipalityId() {
+    return this.municipalityNode?.stringValue;
+  }
+
+  get locationSZ() {
+    return this.instance?.location.get("name");
   }
 
   get applicant() {
@@ -147,14 +171,16 @@ export default class CustomCaseModel extends CaseModel {
     return this.instance?.get("instanceState.uppercaseName");
   }
 
+  get instanceStateDescription() {
+    return this.instance?.get("instanceState.description");
+  }
+
   get communalFederalNumber() {
     return this.instance?.get("location.communalFederalNumber");
   }
 
-  get coordination() {
-    const description = this.instance?.get("form.description");
-
-    return description && description.split(";")[0];
+  get circulationInitializerService() {
+    return this.instance?.get("circulationInitializerService.name");
   }
   get reason() {
     //TODO camac_legacy: Not yet implemented
@@ -165,8 +191,8 @@ export default class CustomCaseModel extends CaseModel {
     return this.intl.t(`cases.status.${this.raw.status}`);
   }
 
-  get caseWorkflowName() {
-    return this.raw.workflow.name;
+  get caseDocumentFormName() {
+    return this.raw.document.form.name;
   }
 
   get buildingProjectStatus() {
@@ -190,6 +216,16 @@ export default class CustomCaseModel extends CaseModel {
     return tableAnswers
       .map((answer) => getAnswer(answer, "e-grid")?.node.stringValue)
       .filter(Boolean);
+  }
+
+  get builderSZ() {
+    const row = this.getFormFields([
+      "bauherrschaft-override",
+      "bauherrschaft-v2",
+      "bauherrschaft",
+    ])?.value?.[0];
+
+    return `${row?.vorname} ${row?.name}`;
   }
 
   get processingDeadline() {
@@ -216,12 +252,14 @@ export default class CustomCaseModel extends CaseModel {
       return null;
     }
 
-    const now = moment();
+    const now = DateTime.now();
     if (activation.state === "NFD") {
       return "nfd";
-    } else if (moment(activation.deadlineDate) < now) {
+    } else if (DateTime.fromISO(activation.deadlineDate) < now) {
       return "expired";
-    } else if (moment(activation.deadlineDate).subtract("5", "days") < now) {
+    } else if (
+      DateTime.fromISO(activation.deadlineDate).minus({ days: 5 }) < now
+    ) {
       return "due-shortly";
     }
 
@@ -236,6 +274,10 @@ export default class CustomCaseModel extends CaseModel {
       name
     }
     document {
+      form {
+        slug
+        name
+      }
       answers(questions: [
         "applicant",
         "landowner",
@@ -249,6 +291,7 @@ export default class CustomCaseModel extends CaseModel {
         "bezeichnung",
         "vorhaben-proposal-description",
         "veranstaltung-beschrieb",
+        "voranfrage-vorhaben",
         "municipality",
         "parcels",
         "status-bauprojekt",
@@ -258,6 +301,7 @@ export default class CustomCaseModel extends CaseModel {
         "typ-des-verfahrens",
         "oereb-thema",
         "teilstatus",
+        "beschreibung-reklame",
       ]) {
         edges {
           node {

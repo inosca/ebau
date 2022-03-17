@@ -369,7 +369,7 @@
     "fields": {
       "available_action": "workflow",
       "button": 1,
-      "name": "Workflow Datum Dossier vollst\u00e4ndig setzen",
+      "name": "Workflow Datum Dossier vollständig setzen",
       "description": null,
       "success_message": null,
       "error_message": null,
@@ -735,8 +735,8 @@
       "button": 31,
       "name": "activation idle to run",
       "description": null,
-      "success_message": "Erfolgreich zur Zirkulation hinzugef\u00fcgt.",
-      "error_message": "Konnte nicht zur Zirkulation hinzugef\u00fcgt werden.",
+      "success_message": "Erfolgreich zur Zirkulation hinzugefügt.",
+      "error_message": "Konnte nicht zur Zirkulation hinzugefügt werden.",
       "execute_always": 0,
       "sort": 1
     }
@@ -1349,7 +1349,7 @@
     "fields": {
       "available_action": "pageredirect",
       "button": 38,
-      "name": "Zur\u00fcck zur Aufgabenliste",
+      "name": "Zurück zur Aufgabenliste",
       "description": null,
       "success_message": null,
       "error_message": null,
@@ -1363,7 +1363,7 @@
     "fields": {
       "available_action": "pageredirect",
       "button": 34,
-      "name": "Zur\u00fcck zur Zirkulation",
+      "name": "Zurück zur Zirkulation",
       "description": null,
       "success_message": null,
       "error_message": null,
@@ -1377,7 +1377,7 @@
     "fields": {
       "available_action": "pageredirect",
       "button": 37,
-      "name": "Zur\u00fcck zur Zirkulation",
+      "name": "Zurück zur Zirkulation",
       "description": null,
       "success_message": null,
       "error_message": null,
@@ -1391,7 +1391,7 @@
     "fields": {
       "available_action": "pageredirect",
       "button": 44,
-      "name": "Zur\u00fcck zur Zirkulation",
+      "name": "Zurück zur Zirkulation",
       "description": null,
       "success_message": null,
       "error_message": null,
@@ -1405,7 +1405,7 @@
     "fields": {
       "available_action": "pageredirect",
       "button": 45,
-      "name": "Zur\u00fcck zur Zirkulation",
+      "name": "Zurück zur Zirkulation",
       "description": null,
       "success_message": null,
       "error_message": null,
@@ -1419,7 +1419,7 @@
     "fields": {
       "available_action": "pageredirect",
       "button": 46,
-      "name": "Zur\u00fcck zur Zirkulation",
+      "name": "Zurück zur Zirkulation",
       "description": null,
       "success_message": null,
       "error_message": null,
@@ -1433,7 +1433,7 @@
     "fields": {
       "available_action": "pageredirect",
       "button": 21,
-      "name": "Zur\u00fcck zur Aufgabenliste",
+      "name": "Zurück zur Aufgabenliste",
       "description": null,
       "success_message": null,
       "error_message": null,
@@ -1447,7 +1447,7 @@
     "fields": {
       "available_action": "pageredirect",
       "button": 3,
-      "name": "Zur\u00fcck zur Aufgabenliste",
+      "name": "Zurück zur Aufgabenliste",
       "description": null,
       "success_message": null,
       "error_message": null,
@@ -1461,7 +1461,7 @@
     "fields": {
       "available_action": "pageredirect",
       "button": 23,
-      "name": "Zur\u00fcck zur Zirkulation",
+      "name": "Zurück zur Zirkulation",
       "description": null,
       "success_message": null,
       "error_message": null,
@@ -1475,7 +1475,7 @@
     "fields": {
       "available_action": "pageredirect",
       "button": 19,
-      "name": "Zur\u00fcck zur Aufgabenliste",
+      "name": "Zurück zur Aufgabenliste",
       "description": null,
       "success_message": null,
       "error_message": null,
@@ -1489,7 +1489,7 @@
     "fields": {
       "available_action": "pageredirect",
       "button": 1,
-      "name": "Zur\u00fcck zur Aufgabenliste",
+      "name": "Zurück zur Aufgabenliste",
       "description": null,
       "success_message": null,
       "error_message": null,
@@ -1503,7 +1503,7 @@
     "fields": {
       "available_action": "workflow",
       "button": 3,
-      "name": "Workflow Datum R\u00fcckweisung",
+      "name": "Workflow Datum Rückweisung",
       "description": null,
       "success_message": null,
       "error_message": null,
@@ -2408,6 +2408,15 @@
     }
   },
   {
+    "model": "core.araction",
+    "pk": 22,
+    "fields": {
+      "available_resource": "emberlist",
+      "action_name": "index",
+      "hidden": 0
+    }
+  },
+  {
     "model": "core.availableaction",
     "pk": "addhistory",
     "fields": {
@@ -2843,6 +2852,15 @@
       "module_name": "businesscontrol",
       "controller_name": "businesscontrol",
       "description": "Page to list business control forms"
+    }
+  },
+  {
+    "model": "core.availableresource",
+    "pk": "emberlist",
+    "fields": {
+      "module_name": "emberlist",
+      "controller_name": "emberlist",
+      "description": "Page with a list of instances (from caluma)"
     }
   },
   {
@@ -3573,7 +3591,7 @@
     "pk": 3,
     "fields": {
       "instance_resource": 33,
-      "name": "R\u00fcckweisung",
+      "name": "Rückweisung",
       "description": null,
       "class_field": null,
       "hidden": 0,
@@ -3633,7 +3651,7 @@
     "pk": 10,
     "fields": {
       "instance_resource": 7,
-      "name": "Zu aktueller Zirkulation hinzuf\u00fcgen",
+      "name": "Zu aktueller Zirkulation hinzufügen",
       "description": null,
       "class_field": "add_to_circ",
       "hidden": 0,
@@ -3741,7 +3759,7 @@
     "pk": 28,
     "fields": {
       "instance_resource": 18,
-      "name": "Zu aktueller Zirkulation hinzuf\u00fcgen",
+      "name": "Zu aktueller Zirkulation hinzufügen",
       "description": null,
       "class_field": "add_to_circ",
       "hidden": 0,
@@ -3765,7 +3783,7 @@
     "pk": 31,
     "fields": {
       "instance_resource": 39,
-      "name": "Zu aktueller Zirkulation hinzuf\u00fcgen",
+      "name": "Zu aktueller Zirkulation hinzufügen",
       "description": null,
       "class_field": "add_to_circ",
       "hidden": 0,
@@ -3837,7 +3855,7 @@
     "pk": 37,
     "fields": {
       "instance_resource": 7,
-      "name": "Zur\u00fcck in Zirkulation",
+      "name": "Zurück in Zirkulation",
       "description": null,
       "class_field": null,
       "hidden": 0,
@@ -3897,7 +3915,7 @@
     "pk": 42,
     "fields": {
       "instance_resource": 47,
-      "name": "Zu aktueller Zirkulation hinzuf\u00fcgen",
+      "name": "Zu aktueller Zirkulation hinzufügen",
       "description": null,
       "class_field": "add_to_circ",
       "hidden": 0,
@@ -3945,7 +3963,7 @@
     "pk": 46,
     "fields": {
       "instance_resource": 47,
-      "name": "Zur\u00fcck in Zirkulation",
+      "name": "Zurück in Zirkulation",
       "description": null,
       "class_field": null,
       "hidden": 0,
@@ -3986,7 +4004,7 @@
     "fields": {
       "circulation_type": 1,
       "circulation_answer_type": 1,
-      "name": "Unterlagenerg\u00e4nzung",
+      "name": "Unterlagenergänzung",
       "sort": 2
     }
   },
@@ -3996,7 +4014,7 @@
     "fields": {
       "circulation_type": 1,
       "circulation_answer_type": 1,
-      "name": "Rechtliches Geh\u00f6r",
+      "name": "Rechtliches Gehör",
       "sort": 3
     }
   },
@@ -4006,7 +4024,7 @@
     "fields": {
       "circulation_type": 1,
       "circulation_answer_type": 1,
-      "name": "Unterlagenerg\u00e4nzung & Rechtliches Geh\u00f6r",
+      "name": "Unterlagenergänzung & Rechtliches Gehör",
       "sort": 4
     }
   },
@@ -4046,7 +4064,7 @@
     "fields": {
       "circulation_type": 1,
       "circulation_answer_type": 1,
-      "name": "Weitere Abkl\u00e4rungen",
+      "name": "Weitere Abklärungen",
       "sort": 0
     }
   },
@@ -4435,6 +4453,14 @@
     }
   },
   {
+    "model": "core.formgroupform",
+    "pk": 40,
+    "fields": {
+      "form_group": 1,
+      "form": 40
+    }
+  },
+  {
     "model": "core.grouppermission",
     "pk": 1,
     "fields": {
@@ -4789,7 +4815,7 @@
     "pk": 1,
     "fields": {
       "available_instance_resource": "apidocuments",
-      "resource": 1,
+      "resource": 28,
       "name": "Dokumente",
       "description": null,
       "template": null,
@@ -4804,7 +4830,7 @@
     "pk": 3,
     "fields": {
       "available_instance_resource": "editformpage",
-      "resource": 1,
+      "resource": 28,
       "name": "Formular",
       "description": null,
       "template": "/ember/instance.phtml",
@@ -4819,7 +4845,7 @@
     "pk": 4,
     "fields": {
       "available_instance_resource": "publication",
-      "resource": 1,
+      "resource": 28,
       "name": "Publikation",
       "description": null,
       "template": null,
@@ -4834,7 +4860,7 @@
     "pk": 5,
     "fields": {
       "available_instance_resource": "workflow",
-      "resource": 1,
+      "resource": 28,
       "name": "Workflow",
       "description": null,
       "template": null,
@@ -4849,7 +4875,7 @@
     "pk": 7,
     "fields": {
       "available_instance_resource": "editcirculation",
-      "resource": 1,
+      "resource": 28,
       "name": "Zirkulation",
       "description": "Zirkulation Gemeinde",
       "template": null,
@@ -4864,7 +4890,7 @@
     "pk": 10,
     "fields": {
       "available_instance_resource": "circulation",
-      "resource": 1,
+      "resource": 28,
       "name": "Stellungnahmen",
       "description": null,
       "template": null,
@@ -4879,7 +4905,7 @@
     "pk": 11,
     "fields": {
       "available_instance_resource": "editformpage",
-      "resource": 6,
+      "resource": 28,
       "name": "Formular",
       "description": null,
       "template": "/ember/instance.phtml",
@@ -4894,7 +4920,7 @@
     "pk": 12,
     "fields": {
       "available_instance_resource": "apidocuments",
-      "resource": 6,
+      "resource": 28,
       "name": "Dokumente",
       "description": null,
       "template": null,
@@ -4909,7 +4935,7 @@
     "pk": 14,
     "fields": {
       "available_instance_resource": "editnotice",
-      "resource": 6,
+      "resource": 28,
       "name": "Eigener Fachbericht",
       "description": null,
       "template": null,
@@ -4954,7 +4980,7 @@
     "pk": 18,
     "fields": {
       "available_instance_resource": "editcirculation",
-      "resource": 6,
+      "resource": 28,
       "name": "Zirkulation BGZ",
       "description": "Zirkulation des Kantons (BGZ)",
       "template": null,
@@ -4969,7 +4995,7 @@
     "pk": 20,
     "fields": {
       "available_instance_resource": "circulation",
-      "resource": 6,
+      "resource": 28,
       "name": "Stellungnahmen",
       "description": "Stellungnahmen der Fachstellen Zirkulation",
       "template": null,
@@ -4984,7 +5010,7 @@
     "pk": 21,
     "fields": {
       "available_instance_resource": "page",
-      "resource": 1,
+      "resource": 28,
       "name": "Verantwortliche Person",
       "description": null,
       "template": "/ember-camac-ng/responsible.phtml",
@@ -4999,7 +5025,7 @@
     "pk": 22,
     "fields": {
       "available_instance_resource": "page",
-      "resource": 6,
+      "resource": 28,
       "name": "Verantwortliche Person",
       "description": null,
       "template": "/ember-camac-ng/responsible.phtml",
@@ -5014,7 +5040,7 @@
     "pk": 23,
     "fields": {
       "available_instance_resource": "templatecenter",
-      "resource": 1,
+      "resource": 28,
       "name": "Dokumente generieren",
       "description": null,
       "template": null,
@@ -5029,7 +5055,7 @@
     "pk": 24,
     "fields": {
       "available_instance_resource": "templatecenter",
-      "resource": 6,
+      "resource": 28,
       "name": "Dokumente generieren",
       "description": null,
       "template": null,
@@ -5044,7 +5070,7 @@
     "pk": 25,
     "fields": {
       "available_instance_resource": "objection",
-      "resource": 1,
+      "resource": 28,
       "name": "Einsprecher",
       "description": null,
       "template": null,
@@ -5059,7 +5085,7 @@
     "pk": 26,
     "fields": {
       "available_instance_resource": "page",
-      "resource": 1,
+      "resource": 28,
       "name": "Notizen",
       "description": null,
       "template": "/ember-camac-ng/journal.phtml",
@@ -5074,7 +5100,7 @@
     "pk": 27,
     "fields": {
       "available_instance_resource": "issue",
-      "resource": 1,
+      "resource": 28,
       "name": "Pendenzen",
       "description": null,
       "template": null,
@@ -5119,9 +5145,9 @@
     "pk": 30,
     "fields": {
       "available_instance_resource": "billing",
-      "resource": 1,
-      "name": "Geb\u00fchren",
-      "description": "Geb\u00fchren der Gemeinde",
+      "resource": 28,
+      "name": "Gebühren",
+      "description": "Gebühren der Gemeinde",
       "template": null,
       "class_field": null,
       "hidden": 0,
@@ -5134,9 +5160,9 @@
     "pk": 31,
     "fields": {
       "available_instance_resource": "billing",
-      "resource": 6,
-      "name": "Geb\u00fchren",
-      "description": "Geb\u00fchren der Fachstelle",
+      "resource": 28,
+      "name": "Gebühren",
+      "description": "Gebühren der Fachstelle",
       "template": null,
       "class_field": null,
       "hidden": 0,
@@ -5149,8 +5175,8 @@
     "pk": 33,
     "fields": {
       "available_instance_resource": "integritydashboard",
-      "resource": 1,
-      "name": "Vollst\u00e4ndigkeitspr\u00fcfung",
+      "resource": 28,
+      "name": "Vollständigkeitsprüfung",
       "description": null,
       "template": null,
       "class_field": null,
@@ -5166,7 +5192,7 @@
       "available_instance_resource": "editformpage",
       "resource": 15,
       "name": "Formular",
-      "description": "Forumlar ansicht f\u00fcr Leserolle",
+      "description": "Forumlar ansicht für Leserolle",
       "template": "/ember/instance.phtml",
       "class_field": null,
       "hidden": 0,
@@ -5181,7 +5207,7 @@
       "available_instance_resource": "apidocuments",
       "resource": 15,
       "name": "Dokumente",
-      "description": "Dokumente f\u00fcr Leserolle",
+      "description": "Dokumente für Leserolle",
       "template": null,
       "class_field": null,
       "hidden": 0,
@@ -5195,8 +5221,8 @@
     "fields": {
       "available_instance_resource": "integritydashboard",
       "resource": 15,
-      "name": "Vollst\u00e4ndigkeitspr\u00fcfung",
-      "description": "Vollst\u00e4ndigkeitspr\u00fcfung f\u00fcr Leserolle",
+      "name": "Vollständigkeitsprüfung",
+      "description": "Vollständigkeitsprüfung für Leserolle",
       "template": null,
       "class_field": null,
       "hidden": 0,
@@ -5211,7 +5237,7 @@
       "available_instance_resource": "circulation",
       "resource": 15,
       "name": "Stellungnahmen",
-      "description": "Stellungsnahmen f\u00fcr Leserolle",
+      "description": "Stellungsnahmen für Leserolle",
       "template": null,
       "class_field": null,
       "hidden": 0,
@@ -5224,9 +5250,9 @@
     "pk": 39,
     "fields": {
       "available_instance_resource": "editcirculation",
-      "resource": 6,
+      "resource": 28,
       "name": "Zirkulation",
-      "description": "Zirkulation der Fachstellen f\u00fcr die Unterfachstellen",
+      "description": "Zirkulation der Fachstellen für die Unterfachstellen",
       "template": null,
       "class_field": null,
       "hidden": 0,
@@ -5239,8 +5265,8 @@
     "pk": 40,
     "fields": {
       "available_instance_resource": "integritydashboard",
-      "resource": 6,
-      "name": "Vollst\u00e4ndigkeitspr\u00fcfung",
+      "resource": 28,
+      "name": "Vollständigkeitsprüfung",
       "description": null,
       "template": null,
       "class_field": null,
@@ -5254,7 +5280,7 @@
     "pk": 41,
     "fields": {
       "available_instance_resource": "page",
-      "resource": 6,
+      "resource": 28,
       "name": "Notizen",
       "description": null,
       "template": "/ember-camac-ng/journal.phtml",
@@ -5269,7 +5295,7 @@
     "pk": 42,
     "fields": {
       "available_instance_resource": "issue",
-      "resource": 6,
+      "resource": 28,
       "name": "Pendenzen",
       "description": null,
       "template": null,
@@ -5284,7 +5310,7 @@
     "pk": 43,
     "fields": {
       "available_instance_resource": "objection",
-      "resource": 6,
+      "resource": 28,
       "name": "Einsprecher",
       "description": null,
       "template": null,
@@ -5299,9 +5325,9 @@
     "pk": 47,
     "fields": {
       "available_instance_resource": "editcirculation",
-      "resource": 1,
+      "resource": 28,
       "name": "Zirkulation",
-      "description": "Zirkulation einer Fachstelle als Leitbeh\u00f6rde",
+      "description": "Zirkulation einer Fachstelle als Leitbehörde",
       "template": null,
       "class_field": null,
       "hidden": 0,
@@ -5314,7 +5340,7 @@
     "pk": 48,
     "fields": {
       "available_instance_resource": "history",
-      "resource": 1,
+      "resource": 28,
       "name": "Verlauf",
       "description": null,
       "template": null,
@@ -5329,7 +5355,7 @@
     "pk": 49,
     "fields": {
       "available_instance_resource": "workitemlistinstance",
-      "resource": 1,
+      "resource": 28,
       "name": "Aufgaben",
       "description": null,
       "template": null,
@@ -5344,7 +5370,7 @@
     "pk": 50,
     "fields": {
       "available_instance_resource": "workitemlistinstance",
-      "resource": 6,
+      "resource": 28,
       "name": "Aufgaben",
       "description": null,
       "template": null,
@@ -5359,7 +5385,7 @@
     "pk": 51,
     "fields": {
       "available_instance_resource": "history",
-      "resource": 6,
+      "resource": 28,
       "name": "Verlauf",
       "description": null,
       "template": null,
@@ -5374,7 +5400,7 @@
     "pk": 52,
     "fields": {
       "available_instance_resource": "page",
-      "resource": 1,
+      "resource": 28,
       "name": "GWR",
       "description": null,
       "template": "/ember-camac-ng/gwr.phtml",
@@ -5389,7 +5415,7 @@
     "pk": 54,
     "fields": {
       "available_instance_resource": "taskform",
-      "resource": 1,
+      "resource": 28,
       "name": "Bauverwaltung",
       "description": null,
       "template": null,
@@ -5401,10 +5427,10 @@
   },
   {
     "model": "core.instanceresource",
-    "pk": 55,
+    "pk": 57,
     "fields": {
       "available_instance_resource": "workitemlistinstance",
-      "resource": 22,
+      "resource": 27,
       "name": "Aufgaben",
       "description": null,
       "template": null,
@@ -5416,16 +5442,46 @@
   },
   {
     "model": "core.instanceresource",
-    "pk": 56,
+    "pk": 58,
     "fields": {
       "available_instance_resource": "editformpage",
-      "resource": 22,
+      "resource": 27,
       "name": "Formular",
       "description": null,
       "template": "/ember-camac-ng/form.phtml",
       "class_field": null,
       "hidden": 0,
       "sort": 1,
+      "form_group": 1
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 59,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 27,
+      "name": "Notizen",
+      "description": null,
+      "template": "/ember-camac-ng/journal.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 2,
+      "form_group": 1
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 60,
+    "fields": {
+      "available_instance_resource": "apidocuments",
+      "resource": 27,
+      "name": "Dokumente",
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 3,
       "form_group": 1
     }
   },
@@ -7490,15 +7546,7 @@
   },
   {
     "model": "core.ireditformpage",
-    "pk": 55,
-    "fields": {
-      "page": 1,
-      "pdf_class": null
-    }
-  },
-  {
-    "model": "core.ireditformpage",
-    "pk": 56,
+    "pk": 58,
     "fields": {
       "page": 1,
       "pdf_class": null
@@ -7589,6 +7637,13 @@
   {
     "model": "core.irpage",
     "pk": 52,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
+    "pk": 59,
     "fields": {
       "pdf_class": null
     }
@@ -14275,7 +14330,7 @@
     "model": "core.irroleacl",
     "pk": 1016,
     "fields": {
-      "instance_resource": 55,
+      "instance_resource": 57,
       "role": 3,
       "instance_state": 16
     }
@@ -14284,8 +14339,8 @@
     "model": "core.irroleacl",
     "pk": 1017,
     "fields": {
-      "instance_resource": 55,
-      "role": 5,
+      "instance_resource": 58,
+      "role": 3,
       "instance_state": 16
     }
   },
@@ -14293,7 +14348,7 @@
     "model": "core.irroleacl",
     "pk": 1018,
     "fields": {
-      "instance_resource": 55,
+      "instance_resource": 57,
       "role": 11,
       "instance_state": 16
     }
@@ -14302,7 +14357,7 @@
     "model": "core.irroleacl",
     "pk": 1019,
     "fields": {
-      "instance_resource": 56,
+      "instance_resource": 58,
       "role": 5,
       "instance_state": 16
     }
@@ -14311,7 +14366,7 @@
     "model": "core.irroleacl",
     "pk": 1020,
     "fields": {
-      "instance_resource": 56,
+      "instance_resource": 58,
       "role": 11,
       "instance_state": 16
     }
@@ -14320,8 +14375,143 @@
     "model": "core.irroleacl",
     "pk": 1021,
     "fields": {
-      "instance_resource": 56,
+      "instance_resource": 57,
+      "role": 5,
+      "instance_state": 16
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1022,
+    "fields": {
+      "instance_resource": 57,
+      "role": 8,
+      "instance_state": 16
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1023,
+    "fields": {
+      "instance_resource": 58,
+      "role": 8,
+      "instance_state": 16
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1024,
+    "fields": {
+      "instance_resource": 1,
       "role": 3,
+      "instance_state": 2
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1025,
+    "fields": {
+      "instance_resource": 59,
+      "role": 11,
+      "instance_state": 16
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1026,
+    "fields": {
+      "instance_resource": 59,
+      "role": 3,
+      "instance_state": 16
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1027,
+    "fields": {
+      "instance_resource": 59,
+      "role": 8,
+      "instance_state": 16
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1028,
+    "fields": {
+      "instance_resource": 58,
+      "role": 7,
+      "instance_state": 16
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1029,
+    "fields": {
+      "instance_resource": 57,
+      "role": 7,
+      "instance_state": 16
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1030,
+    "fields": {
+      "instance_resource": 59,
+      "role": 5,
+      "instance_state": 16
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1031,
+    "fields": {
+      "instance_resource": 59,
+      "role": 7,
+      "instance_state": 16
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1032,
+    "fields": {
+      "instance_resource": 60,
+      "role": 5,
+      "instance_state": 16
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1033,
+    "fields": {
+      "instance_resource": 60,
+      "role": 11,
+      "instance_state": 16
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1034,
+    "fields": {
+      "instance_resource": 60,
+      "role": 7,
+      "instance_state": 16
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1035,
+    "fields": {
+      "instance_resource": 60,
+      "role": 3,
+      "instance_state": 16
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1036,
+    "fields": {
+      "instance_resource": 60,
+      "role": 8,
       "instance_state": 16
     }
   },
@@ -14424,7 +14614,7 @@
     "pk": 5,
     "fields": {
       "circulation_type": 1,
-      "name": "Begr\u00fcndung"
+      "name": "Begründung"
     }
   },
   {
@@ -15309,6 +15499,28 @@
     }
   },
   {
+    "model": "core.pageform",
+    "pk": 82,
+    "fields": {
+      "page": 1,
+      "form": 40,
+      "page_form_mode": 1,
+      "page_form_group": 1,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.pageform",
+    "pk": 83,
+    "fields": {
+      "page": 2,
+      "form": 40,
+      "page_form_mode": 1,
+      "page_form_group": 1,
+      "sort": 0
+    }
+  },
+  {
     "model": "core.pageformgroup",
     "pk": 1,
     "fields": {
@@ -15375,7 +15587,7 @@
       "question_type": 10,
       "mapping": 1,
       "answer_query": null,
-      "name": "Dossier vollst\u00e4ndig",
+      "name": "Dossier vollständig",
       "description": null,
       "javascript": null,
       "regex": null,
@@ -15391,7 +15603,7 @@
       "question_type": 10,
       "mapping": 1,
       "answer_query": null,
-      "name": "Zur \u00dcberpr\u00fcfung freigegeben",
+      "name": "Zur Überprüfung freigegeben",
       "description": null,
       "javascript": null,
       "regex": null,
@@ -15671,22 +15883,6 @@
     "pk": 14,
     "fields": {
       "resource": 5,
-      "circulation_type": 1
-    }
-  },
-  {
-    "model": "core.rapilistcirculationtype",
-    "pk": 18,
-    "fields": {
-      "resource": 8,
-      "circulation_type": 1
-    }
-  },
-  {
-    "model": "core.rapilistcirculationtype",
-    "pk": 26,
-    "fields": {
-      "resource": 22,
       "circulation_type": 1
     }
   },
@@ -15971,91 +16167,17 @@
     }
   },
   {
-    "model": "core.rapilistinstancestate",
-    "pk": 89,
+    "model": "core.remberlist",
+    "pk": 27,
     "fields": {
-      "resource": 8,
-      "instance_state": 12
+      "instance_states": "16"
     }
   },
   {
-    "model": "core.rapilistinstancestate",
-    "pk": 90,
+    "model": "core.remberlist",
+    "pk": 28,
     "fields": {
-      "resource": 8,
-      "instance_state": 2
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 91,
-    "fields": {
-      "resource": 8,
-      "instance_state": 3
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 92,
-    "fields": {
-      "resource": 8,
-      "instance_state": 5
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 93,
-    "fields": {
-      "resource": 8,
-      "instance_state": 6
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 94,
-    "fields": {
-      "resource": 8,
-      "instance_state": 7
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 95,
-    "fields": {
-      "resource": 8,
-      "instance_state": 13
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 96,
-    "fields": {
-      "resource": 8,
-      "instance_state": 8
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 97,
-    "fields": {
-      "resource": 8,
-      "instance_state": 9
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 98,
-    "fields": {
-      "resource": 8,
-      "instance_state": 10
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 106,
-    "fields": {
-      "resource": 22,
-      "instance_state": 16
+      "instance_states": "12,2,3,5,6,7,13,8,9,10"
     }
   },
   {
@@ -16068,6 +16190,13 @@
   {
     "model": "core.rpage",
     "pk": 25,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.rpage",
+    "pk": 26,
     "fields": {
       "pdf_class": null
     }
@@ -16118,14 +16247,6 @@
     "fields": {
       "resource": 7,
       "role": 6
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 9,
-    "fields": {
-      "resource": 8,
-      "role": 3
     }
   },
   {
@@ -16250,14 +16371,6 @@
   },
   {
     "model": "core.rroleacl",
-    "pk": 30,
-    "fields": {
-      "resource": 8,
-      "role": 8
-    }
-  },
-  {
-    "model": "core.rroleacl",
     "pk": 31,
     "fields": {
       "resource": 9,
@@ -16277,22 +16390,6 @@
     "pk": 33,
     "fields": {
       "resource": 10,
-      "role": 7
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 34,
-    "fields": {
-      "resource": 8,
-      "role": 5
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 35,
-    "fields": {
-      "resource": 8,
       "role": 7
     }
   },
@@ -16330,38 +16427,6 @@
   },
   {
     "model": "core.rroleacl",
-    "pk": 41,
-    "fields": {
-      "resource": 17,
-      "role": 3
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 42,
-    "fields": {
-      "resource": 17,
-      "role": 8
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 45,
-    "fields": {
-      "resource": 22,
-      "role": 3
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 46,
-    "fields": {
-      "resource": 22,
-      "role": 8
-    }
-  },
-  {
-    "model": "core.rroleacl",
     "pk": 47,
     "fields": {
       "resource": 1,
@@ -16389,14 +16454,6 @@
     "pk": 50,
     "fields": {
       "resource": 5,
-      "role": 11
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 51,
-    "fields": {
-      "resource": 8,
       "role": 11
     }
   },
@@ -16490,14 +16547,6 @@
   },
   {
     "model": "core.rroleacl",
-    "pk": 63,
-    "fields": {
-      "resource": 8,
-      "role": 12
-    }
-  },
-  {
-    "model": "core.rroleacl",
     "pk": 64,
     "fields": {
       "resource": 1,
@@ -16514,42 +16563,130 @@
   },
   {
     "model": "core.rroleacl",
-    "pk": 66,
+    "pk": 72,
     "fields": {
-      "resource": 22,
-      "role": 7
+      "resource": 26,
+      "role": 5
     }
   },
   {
     "model": "core.rroleacl",
-    "pk": 67,
+    "pk": 73,
     "fields": {
-      "resource": 17,
+      "resource": 26,
       "role": 11
     }
   },
   {
     "model": "core.rroleacl",
-    "pk": 68,
+    "pk": 74,
     "fields": {
-      "resource": 17,
-      "role": 5
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 70,
-    "fields": {
-      "resource": 17,
+      "resource": 26,
       "role": 7
     }
   },
   {
     "model": "core.rroleacl",
-    "pk": 71,
+    "pk": 75,
     "fields": {
-      "resource": 22,
+      "resource": 26,
+      "role": 3
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 76,
+    "fields": {
+      "resource": 26,
+      "role": 8
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 77,
+    "fields": {
+      "resource": 27,
       "role": 5
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 78,
+    "fields": {
+      "resource": 27,
+      "role": 7
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 79,
+    "fields": {
+      "resource": 27,
+      "role": 3
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 80,
+    "fields": {
+      "resource": 27,
+      "role": 8
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 81,
+    "fields": {
+      "resource": 27,
+      "role": 11
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 82,
+    "fields": {
+      "resource": 28,
+      "role": 5
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 83,
+    "fields": {
+      "resource": 28,
+      "role": 11
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 84,
+    "fields": {
+      "resource": 28,
+      "role": 7
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 85,
+    "fields": {
+      "resource": 28,
+      "role": 3
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 86,
+    "fields": {
+      "resource": 28,
+      "role": 8
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 87,
+    "fields": {
+      "resource": 28,
+      "role": 12
     }
   },
   {
@@ -16558,10 +16695,10 @@
     "fields": {
       "available_resource": "apilistinstance",
       "name": "Neue Gesuche",
-      "description": "Eingereichte Dossiers f\u00fcr die Gemeinde",
+      "description": "Eingereichte Dossiers für die Gemeinde",
       "template": null,
       "class_field": null,
-      "hidden": 0,
+      "hidden": 1,
       "sort": 1
     }
   },
@@ -16571,10 +16708,10 @@
     "fields": {
       "available_resource": "apilistinstance",
       "name": "Start Zirkulation",
-      "description": "Pendenzenliste der Gemeinde f\u00fcr neue Dossiers",
+      "description": "Pendenzenliste der Gemeinde für neue Dossiers",
       "template": null,
       "class_field": null,
-      "hidden": 0,
+      "hidden": 1,
       "sort": 2
     }
   },
@@ -16587,7 +16724,7 @@
       "description": "Zirkulation aus Sicht der Gemeinde",
       "template": null,
       "class_field": null,
-      "hidden": 0,
+      "hidden": 1,
       "sort": 3
     }
   },
@@ -16597,10 +16734,10 @@
     "fields": {
       "available_resource": "apilistinstance",
       "name": "Entscheid",
-      "description": "Abzuschliessende Dossiers f\u00fcr die Gemeinde",
+      "description": "Abzuschliessende Dossiers für die Gemeinde",
       "template": null,
       "class_field": null,
-      "hidden": 0,
+      "hidden": 1,
       "sort": 5
     }
   },
@@ -16613,7 +16750,7 @@
       "description": "Zirkulation aus Sicht der Fachstellen",
       "template": null,
       "class_field": null,
-      "hidden": 0,
+      "hidden": 1,
       "sort": 4
     }
   },
@@ -16622,25 +16759,12 @@
     "pk": 7,
     "fields": {
       "available_resource": "apilistinstance",
-      "name": "\u00dcbersicht aktiver Dossiers",
-      "description": "\u00dcbersicht aktiver Dossiers f\u00fcr den Kanton",
+      "name": "Übersicht aktiver Dossiers",
+      "description": "Übersicht aktiver Dossiers für den Kanton",
       "template": null,
       "class_field": null,
       "hidden": 0,
       "sort": 6
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 8,
-    "fields": {
-      "available_resource": "apilistinstance",
-      "name": "Suche",
-      "description": null,
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 7
     }
   },
   {
@@ -16653,7 +16777,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -16666,7 +16790,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -16679,7 +16803,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -16692,7 +16816,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -16705,7 +16829,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -16718,7 +16842,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -16731,33 +16855,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 9
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 17,
-    "fields": {
-      "available_resource": "businesscontrolcreate",
-      "name": "Gesch\u00e4ftskontrolle erstellen",
-      "description": null,
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 16
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 22,
-    "fields": {
-      "available_resource": "businesscontrollist",
-      "name": "Gesch\u00e4ftskontrollen",
-      "description": null,
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 17
+      "sort": 10
     }
   },
   {
@@ -16783,7 +16881,7 @@
       "template": "/ember-camac-ng/formbuilder.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 18
+      "sort": 19
     }
   },
   {
@@ -16796,7 +16894,46 @@
       "template": "/ember-camac-ng/dossierimport.phtml",
       "class_field": null,
       "hidden": 1,
-      "sort": 13
+      "sort": 14
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 26,
+    "fields": {
+      "available_resource": "page",
+      "name": "Internes Geschäft erstellen",
+      "description": null,
+      "template": "/ember-camac-ng/bussinesscontrol-create.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 17
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 27,
+    "fields": {
+      "available_resource": "emberlist",
+      "name": "Interne Geschäfte",
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 18
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 28,
+    "fields": {
+      "available_resource": "emberlist",
+      "name": "Meine Dossiers",
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 8
     }
   },
   {
@@ -16942,7 +17079,7 @@
     "pk": 56,
     "fields": {
       "position": 14,
-      "name": "Schnurger\u00fcstabnahme",
+      "name": "Schnurgerüstabnahme",
       "automatical": 0,
       "different_color": 0,
       "is_workflow": 1,
@@ -17032,7 +17169,7 @@
     "pk": 69,
     "fields": {
       "position": 21,
-      "name": "Meldung an Liegenschaftssch\u00e4tzung",
+      "name": "Meldung an Liegenschaftsschätzung",
       "automatical": 1,
       "different_color": 0,
       "is_workflow": 1,
@@ -17047,7 +17184,7 @@
     "pk": 81,
     "fields": {
       "position": 2,
-      "name": "R\u00fcckweisung",
+      "name": "Rückweisung",
       "automatical": 1,
       "different_color": 0,
       "is_workflow": 1,
@@ -17062,7 +17199,7 @@
     "pk": 82,
     "fields": {
       "position": 6,
-      "name": "R\u00fcckzug",
+      "name": "Rückzug",
       "automatical": 0,
       "different_color": 0,
       "is_workflow": 1,

@@ -1,7 +1,5 @@
 "use strict";
 
-const locales = require("./locales");
-
 module.exports = function (environment) {
   const ENV = {
     modulePrefix: "camac-ng",
@@ -14,10 +12,6 @@ module.exports = function (environment) {
     maxDossierImportSize: 1000000000, // 1GB
     apollo: {
       apiURL: "/graphql/",
-    },
-    moment: {
-      includeLocales: locales,
-      allowEmpty: true,
     },
     EmberENV: {
       FEATURES: {
@@ -61,7 +55,6 @@ module.exports = function (environment) {
           cantonAbbreviation: "SZ",
           importModels: ["project", "building", "dwelling"],
         },
-
         allowApplicantManualWorkItem: true,
         journalDefaultVisibility: false,
         journalEntryDuration: true,
@@ -69,9 +62,10 @@ module.exports = function (environment) {
           calumaWorkflow: "internal-document",
           camacForm: 11,
         },
+        externalServiceGroupIds: [],
       },
       kt_uri: {
-        prodUrl: "camac.ur.ch",
+        prodUrl: "urec.ur.ch",
         gwr: {
           cantonAbbreviation: "UR",
           importModels: ["project", "building", "dwelling"],
@@ -79,20 +73,9 @@ module.exports = function (environment) {
         allowApplicantManualWorkItem: false,
         journalDefaultVisibility: true,
         journalEntryDuration: false,
-        activeCirculationStates: [
-          1, // RUN
-          41, // NFD
-        ],
         allowedInstanceLinkingGroups: [
           142, // KOOR BG
           21, // KOOR NP
-        ],
-        intentSlugs: [
-          "proposal-description",
-          "beschreibung-zu-mbv",
-          "bezeichnung",
-          "vorhaben-proposal-description",
-          "veranstaltung-beschrieb",
         ],
       },
     },

@@ -105,7 +105,6 @@ export default class InstancesEditRoute extends Route {
       // have too much unnecessary data in the memory
       this.store.unloadAll();
       this.questionStore.clear();
-      this.session.set("data.enforcePublicAccess", false);
       controller.publication = null;
     }
   }

@@ -13,7 +13,7 @@ ENV KEYCLOAK_URL=$KEYCLOAK_URL_ARG
 
 RUN yarn deploy $DEPLOY_TARGET
 
-FROM nginx:alpine
+FROM nginx:1.21-alpine
 
 COPY --from=build /myapp/build /usr/share/nginx/html
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf

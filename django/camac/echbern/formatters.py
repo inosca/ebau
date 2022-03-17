@@ -63,9 +63,7 @@ def assure_string_length(value, min_length=1, max_length=0):
     if len(value) > max_length:
         return f"{value[:max_length - 1]}…"
     elif len(value) < min_length:
-        return (
-            "." if not len(value) else f"{value} {'.' * (min_length - len(value) - 1)}"
-        )
+        return f"{value}{'.' * (min_length - len(value))}"
     return value
 
 

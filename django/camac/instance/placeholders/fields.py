@@ -5,7 +5,7 @@ import qrcode
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.db.models import Sum
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext as _
 from rest_framework import serializers
 
 from camac.core.models import Activation, BillingV2Entry
@@ -202,7 +202,7 @@ class MasterDataField(serializers.ReadOnlyField):
             def parse(v):
                 try:
                     return int(v.get(self.sum_by))
-                except TypeError:  # pragma: no cover
+                except (TypeError, ValueError):  # pragma: no cover
                     return None
 
             parsed_values = list(filter(None, [parse(v) for v in value]))

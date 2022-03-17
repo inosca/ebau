@@ -3,7 +3,7 @@ import { inject as service } from "@ember/service";
 import { useCalumaQuery } from "@projectcaluma/ember-core/caluma-query";
 import { allCases } from "@projectcaluma/ember-core/caluma-query/queries";
 import { dropTask } from "ember-concurrency";
-import UIkit from "uikit";
+import { confirm } from "ember-uikit";
 
 import config from "../../../config/environment";
 
@@ -51,7 +51,7 @@ export default class InstancesEditIndexController extends Controller {
       config.APPLICATION.name === "ur" &&
       parseInt(this.instance.value?.get("instanceState.id")) ===
         config.APPLICATION.instanceStates.finished &&
-      this.instance.mainForm.slug === "building-permit"
+      this.instance.value?.mainForm.slug === "building-permit"
     );
   }
 
@@ -89,25 +89,18 @@ export default class InstancesEditIndexController extends Controller {
     yield this.router.transitionTo(
       "instances.edit.form",
       data.id,
-      this.instance.calumaForm
+      this.instance.value.calumaForm
     );
   }
 
   @dropTask
   *deleteInstance() {
-    try {
-      yield UIkit.modal.confirm(this.intl.t("instances.deleteInstanceModal"), {
-        labels: {
-          ok: this.intl.t("global.ok"),
-          cancel: this.intl.t("global.cancel"),
-        },
-      });
-    } catch (error) {
+    if (!(yield confirm(this.intl.t("instances.deleteInstanceModal")))) {
       return;
     }
 
     try {
-      yield this.instance.destroyRecord();
+      yield this.instance.value.destroyRecord();
       this.notification.success(this.intl.t("instances.deleteInstanceSuccess"));
       yield this.router.transitionTo("instances");
     } catch (error) {
@@ -123,7 +116,7 @@ export default class InstancesEditIndexController extends Controller {
         data: {
           attributes: {
             "caluma-form": "verlaengerung-geltungsdauer",
-            "extend-validity-for": this.instance.id,
+            "extend-validity-for": this.model,
           },
           type: "instances",
         },

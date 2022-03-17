@@ -1,5 +1,5 @@
 from django.db.models import Q
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext as _
 
 from camac.caluma.api import CalumaApi
 from camac.constants.kt_bern import (

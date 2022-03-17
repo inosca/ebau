@@ -18,7 +18,7 @@ export default class FormController extends Controller {
 
   @lastValue("getData") data;
 
-  @dropTask()
+  @dropTask
   *getData() {
     const instance = yield this.store.findRecord("instance", this.model.id);
     const raw = yield this.apollo.query(
@@ -30,6 +30,6 @@ export default class FormController extends Controller {
       "allCases.edges.firstObject.node"
     );
 
-    return { instance, document: raw.document };
+    return { instance, case: raw, document: raw.document };
   }
 }

@@ -1,15 +1,18 @@
+{{! template-lint-disable require-input-label }}
 <CaseFilter::Base @filterName={{@filterName}}>
-  <PikadayInput
-    @onSelection={{this.updateFilter}}
-    @format="DD.MM.YYYY"
-    @useUTC={{true}}
-    @placeholder={{or
+  <input
+    id={{concat "case-filter__" @filterName}}
+    type="text"
+    class="uk-width-1 case-filter__input"
+    placeholder={{or
       @placeholder
       (t (concat "cases.filters." @filterName "-placeholder"))
     }}
-    @value={{this.value}}
-    @maxDate={{this.maxDate}}
-    @minDate={{this.minDate}}
-    class="uk-width-1"
+    {{on "change" this.onChange}}
+    {{pikaday
+      value=this.value
+      maxDate=this.maxDate
+      minDate=this.minDate
+    }}
   />
 </CaseFilter::Base>

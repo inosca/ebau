@@ -11,7 +11,9 @@
         </span>
       {{/if}}
     </span>
-    {{camac-hint-dialog this.question.field.hint}}
+    {{#if this.question.field.hint}}
+      {{camac-hint-dialog this.question.field.hint}}
+    {{/if}}
   </div>
   <div class="uk-card-body uk-text-small uk-padding-remove">
     <table class="uk-table uk-table-divider uk-table-small uk-table-middle">
@@ -19,9 +21,14 @@
         {{#each this.question.model as |doc|}}
           <tr>
             <td class="uk-table-expand uk-text-truncate">
-              <span class="uk-link" title={{doc.name}}>
+              <button
+                class="uk-button uk-button-link"
+                title={{doc.name}}
+                type="button"
+                {{on "click" (perform this.download doc)}}
+              >
                 {{doc.name}}
-              </span>
+              </button>
               {{#unless this.isEmbedded}}
                 <div
                   uk-drop="pos: left-center; animation: uk-animation-slide-left-small"

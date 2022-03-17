@@ -1,5 +1,5 @@
 <UkTab as |Tab|>
-  <Tab.item @href="/statistics/index">{{t "statistics.general"}}</Tab.item>
+  <Tab.item @href="/statistics/" @linkToIndex={{true}}>{{t "statistics.general"}}</Tab.item>
   {{#if (can "view statistic" "process-time")}}
     <Tab.item @href="/statistics/process-time">{{t "statistics.process-time"}}</Tab.item>
   {{/if}}

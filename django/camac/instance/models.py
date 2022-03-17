@@ -2,7 +2,6 @@ import logging
 
 import reversion
 from django.conf import settings
-from django.contrib.postgres.fields import JSONField
 from django.db import models
 
 from camac.core.models import HistoryActionConfig
@@ -32,6 +31,14 @@ class Form(core_models.MultilingualModel, models.Model):
     name = models.CharField(db_column="NAME", max_length=500, blank=True, null=True)
     description = models.CharField(
         db_column="DESCRIPTION", max_length=1000, blank=True, null=True
+    )
+    family = models.ForeignKey(
+        "self",
+        models.DO_NOTHING,
+        db_column="FAMILY",
+        related_name="+",
+        blank=False,
+        null=True,
     )
 
     class Meta:
@@ -348,7 +355,7 @@ class FormField(models.Model):
 
     instance = models.ForeignKey(Instance, models.CASCADE, related_name="fields")
     name = models.CharField(max_length=500)
-    value = JSONField()
+    value = models.JSONField()
 
     class Meta:
         unique_together = (("instance", "name"),)

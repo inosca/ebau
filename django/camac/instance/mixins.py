@@ -15,7 +15,7 @@ from camac.instance.models import Instance
 from camac.mixins import AttributeMixin
 from camac.request import get_request
 from camac.user.models import User
-from camac.user.permissions import permission_aware
+from camac.user.permissions import get_group, get_role_name, permission_aware
 
 from . import models
 
@@ -75,7 +75,22 @@ class InstanceQuerysetMixin(object):
         """
         # instance state is always used to determine permissions
         instance_state_expr = self._get_instance_filter_expr("instance_state")
-        return super().get_queryset().select_related(instance_state_expr)
+        role_name = get_role_name(get_group(self))
+        hidden_states = settings.APPLICATION.get("INSTANCE_HIDDEN_STATES", {}).get(
+            role_name, []
+        )
+        queryset = (
+            super().get_queryset()
+            if hasattr(super(), "get_queryset")
+            else Instance.objects.all()
+        )
+        queryset = queryset.select_related(instance_state_expr)
+
+        if len(hidden_states):
+            state_field = self._get_instance_filter_expr("instance_state__name", "in")
+            return queryset.exclude(**{state_field: hidden_states})
+
+        return queryset
 
     @permission_aware
     def get_queryset(self, group=None):
@@ -95,8 +110,8 @@ class InstanceQuerysetMixin(object):
         instance_field = self._get_instance_filter_expr("pk", "in")
 
         instances = models.Instance.objects.filter(
-            publication_entries__publication_date__lte=timezone.now(),
-            publication_entries__publication_end_date__gte=timezone.now(),
+            publication_entries__publication_date__date__lte=timezone.localdate(),
+            publication_entries__publication_end_date__date__gte=timezone.localdate(),
             publication_entries__is_published=True,
             location__in=self._get_group().locations.all(),
         )
@@ -110,7 +125,6 @@ class InstanceQuerysetMixin(object):
         group = self._get_group(group)
         queryset = self.get_base_queryset()
         instance_field = self._get_instance_filter_expr("pk", "in")
-        state_field = self._get_instance_filter_expr("instance_state__name", "in")
         form_field = self._get_instance_filter_expr("form", "in")
 
         instances_created_by_group = self._instances_created_by(group)
@@ -126,7 +140,6 @@ class InstanceQuerysetMixin(object):
                     }
                 )
             )
-            & ~Q(**{state_field: uri_constants.INSTANCE_STATES_PRIVATE})
         )
 
     def get_queryset_for_municipality(self, group=None):
@@ -140,30 +153,37 @@ class InstanceQuerysetMixin(object):
         instances_for_service = InstanceService.objects.filter(
             service=group.service
         ).values("instance_id")
-
+        instances_for_responsible_service = self._instances_for_responsible_service(
+            group
+        )
         instances_for_activation = self._instances_with_activation(group)
 
         return queryset.filter(
             Q(**{instance_field: instances_for_location})
             | Q(**{instance_field: instances_for_service})
             | Q(**{instance_field: instances_for_activation})
+            | Q(**{instance_field: instances_for_responsible_service})
         )
 
     def get_queryset_for_service(self, group=None):
         group = self._get_group(group)
         queryset = self.get_base_queryset()
         instance_field = self._get_instance_filter_expr("pk", "in")
-        instances = self._instances_with_activation(group)
+
+        instances_for_responsible_service = self._instances_for_responsible_service(
+            group
+        )
+        instances_for_activation = self._instances_with_activation(group)
+
         # use subquery to avoid duplicates
-        return queryset.filter(**{instance_field: instances})
+        return queryset.filter(
+            Q(**{instance_field: instances_for_responsible_service})
+            | Q(**{instance_field: instances_for_activation})
+        )
 
     def get_queryset_for_trusted_service(self, group=None):
         # "Trusted" services see all submitted instances (Kt. UR)
-        state_field = self._get_instance_filter_expr("instance_state__name", "in")
-
-        return self.get_base_queryset().filter(
-            ~Q(**{state_field: uri_constants.INSTANCE_STATES_PRIVATE})
-        )
+        return self.get_base_queryset()
 
     def get_queryset_for_canton(self, group=None):
         return self.get_base_queryset()
@@ -286,25 +306,34 @@ class InstanceQuerysetMixin(object):
                 .distinct()
             )
         elif settings.APPLICATION.get("PUBLICATION_BACKEND") == "camac-ng":
-            return queryset.filter(
-                **{
-                    self._get_instance_filter_expr(
-                        "publication_entries__publication_date__lte"
-                    ): timezone.now(),
-                    self._get_instance_filter_expr(
-                        "publication_entries__publication_end_date__gte"
-                    ): timezone.now(),
-                    self._get_instance_filter_expr(
-                        "publication_entries__is_published"
-                    ): True,
-                },
-            ).distinct()
+            return (
+                queryset.filter(
+                    **{
+                        self._get_instance_filter_expr(
+                            "publication_entries__publication_date__date__lte"
+                        ): timezone.localdate(),
+                        self._get_instance_filter_expr(
+                            "publication_entries__publication_end_date__date__gte"
+                        ): timezone.localdate(),
+                        self._get_instance_filter_expr(
+                            "publication_entries__is_published"
+                        ): True,
+                    },
+                )
+                .exclude(
+                    **{
+                        self._get_instance_filter_expr(
+                            "form_id"
+                        ): settings.APPLICATION.get("OEREB_FORM", None)
+                    }
+                )
+                .distinct()
+            )
 
         return queryset.none()
 
-    def get_queryset_for_oereb_api(self, group):
+    def get_queryset_for_oereb_api(self, group=None):
         queryset = self.get_base_queryset()
-        state_field = self._get_instance_filter_expr("instance_state__name", "in")
 
         return queryset.filter(
             Q(
@@ -314,13 +343,18 @@ class InstanceQuerysetMixin(object):
                     ),
                 }
             )
-            & ~Q(**{state_field: uri_constants.INSTANCE_STATES_PRIVATE})
         )
 
     def _instances_with_activation(self, group):
         return Circulation.objects.filter(activations__service=group.service).values(
             "instance_id"
         )
+
+    def _instances_for_responsible_service(self, group):
+        if settings.APPLICATION.get("USE_INSTANCE_SERVICE"):
+            return models.Instance.objects.none()
+
+        return models.Instance.objects.filter(group__service=group.service)
 
     def _instances_created_by(self, group):
         return Instance.objects.filter(group=group).values("instance_id")
@@ -379,6 +413,10 @@ class InstanceEditableMixin(AttributeMixin):
         return set()
 
     def get_editable_for_service(self, instance):
+        service = get_request(self).group.service
+        if instance.responsible_service() == service:
+            return {"form", "document"}
+
         return {"document"}
 
     def get_editable_for_municipality(self, instance):
@@ -435,6 +473,7 @@ class InstanceEditableMixin(AttributeMixin):
         group = get_request(self).group
         service = group.service
         circulations = instance.circulations.all()
+        responsible_service = instance.responsible_service()
 
         return self._validate_instance_editablity(
             instance,
@@ -444,12 +483,16 @@ class InstanceEditableMixin(AttributeMixin):
                 or InstanceService.objects.filter(
                     service=service, instance=instance
                 ).exists()
+                or responsible_service == service
             ),
         )
 
     def validate_instance_for_coordination(self, instance):
         # TODO: Map form types to responsible KOORS
-        if instance.instance_state.name in uri_constants.INSTANCE_STATES_PRIVATE:
+        hidden_states = settings.APPLICATION.get("INSTANCE_HIDDEN_STATES", {}).get(
+            "coordination", []
+        )
+        if instance.instance_state.name in hidden_states:
             raise exceptions.ValidationError(
                 _("Not allowed to add data to instance %(instance)s as coordination")
                 % {"instance": instance.pk}
@@ -460,9 +503,14 @@ class InstanceEditableMixin(AttributeMixin):
     def validate_instance_for_service(self, instance):
         service = get_request(self).group.service
         circulations = instance.circulations.all()
+        responsible_service = instance.responsible_service()
 
         return self._validate_instance_editablity(
-            instance, lambda: circulations.filter(activations__service=service).exists()
+            instance,
+            lambda: (
+                circulations.filter(activations__service=service).exists()
+                or responsible_service == service
+            ),
         )
 
     def validate_instance_for_canton(self, instance):
