@@ -19,7 +19,7 @@ export default class CaseTableComponent extends Component {
 
   get options() {
     return {
-      pageSize: 15,
+      pageSize: caseTableConfig.pageSize || 15,
       processNew: (cases) => this.processNew(cases),
     };
   }
