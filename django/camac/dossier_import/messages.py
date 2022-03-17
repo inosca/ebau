@@ -166,18 +166,24 @@ def compile_message_for_code(code, filtered_summaries):
         ),
     }
 
+    def format_message(message):
+        if message.get("detail") and message.get("field"):
+            return f"'{message['detail']}' ({message.get('field')})"
+        if message.get("detail"):
+            return f"{message.get('detail')}"
+        return message.get("field")
+
     def format_summary(summary: dict) -> str:
-        return "%(dossier_id)s: %(entries)s" % dict(
-            dossier_id=summary["dossier_id"],
-            entries=", ".join(
-                [
-                    f"'{message['detail']}' ({message.get('field')})"
-                    if message["detail"]
-                    else message.get("field")
-                    for message in summary["messages"]
-                ]
-            ),
+        entries = ", ".join(
+            [
+                format_message(message)
+                for message in summary["messages"]
+                if format_message(message)
+            ]
         )
+        if entries:
+            return f"{summary['dossier_id']}: {entries}"
+        return summary["dossier_id"]
 
     entries = [format_summary(summary) for summary in filtered_summaries]
 

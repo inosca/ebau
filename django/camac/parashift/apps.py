@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class ParashiftConfig(AppConfig):
-    name = "parashift"
+    name = "camac.parashift"

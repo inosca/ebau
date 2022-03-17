@@ -7,12 +7,12 @@ from caluma.caluma_form import models as form_models
 from caluma.caluma_workflow import api as workflow_api, models as workflow_models
 from dateutil.parser import parse as dateutil_parse
 from django.conf import settings
-from django.contrib.postgres.fields.jsonb import KeyTextTransform
 from django.core.files import File
 from django.db import transaction
-from django.db.models import F, OuterRef, Q, Subquery, Value
+from django.db.models import CharField, F, OuterRef, Q, Subquery, Value
 from django.db.models.expressions import Func
 from django.db.models.fields import IntegerField
+from django.db.models.fields.json import KeyTextTransform
 from django.db.models.functions import Cast
 from django.http import HttpResponse
 from django.utils import timezone
@@ -65,6 +65,7 @@ from .placeholders.serializers import DMSPlaceholdersSerializer
 class InstanceStateView(ReadOnlyModelViewSet):
     swagger_schema = None
     serializer_class = serializers.InstanceStateSerializer
+    filterset_class = filters.InstanceStateFilterSet
     ordering = ("sort", "name")
 
     def get_queryset(self):
@@ -118,6 +119,9 @@ class InstanceView(
             "circulations__activations",
             "circulations__activations__service",
         ],
+        "circulation_initializer_service": [
+            "circulations",
+        ],
     }
     ordering_fields = (
         "instance_id",
@@ -170,6 +174,7 @@ class InstanceView(
                 "archive": serializers.CalumaInstanceArchiveSerializer,
                 "change_form": serializers.CalumaInstanceChangeFormSerializer,
                 "fix_work_items": serializers.CalumaInstanceFixWorkItemsSerializer,
+                "unlink": serializers.CalumaInstanceUnlinkSerializer,
                 "dms_placeholders": DMSPlaceholdersSerializer,
                 "default": serializers.CalumaInstanceSerializer,
             },
@@ -630,7 +635,7 @@ class InstanceView(
             "instance_state": new_instance_state,
         }
 
-        serializer = self.get_serializer(instance, data=data, partial=True)
+        serializer = self.get_serializer(instance=instance, data=data, partial=True)
         serializer.is_valid(raise_exception=True)
         serializer.save()
 
@@ -693,7 +698,7 @@ class InstanceView(
 
     def _custom_serializer_action(self, request, pk=None, status_code=None):
         serializer = self.get_serializer(
-            self.get_object(), data=request.data, partial=True
+            instance=self.get_object(), data=request.data, partial=True
         )
         serializer.is_valid(raise_exception=True)
         serializer.save()
@@ -704,7 +709,7 @@ class InstanceView(
         return response.Response(data=serializer.data, status=status_code)
 
     @swagger_auto_schema(auto_schema=None)
-    @action(methods=["post"], detail=True, url_path="link")
+    @action(methods=["patch"], detail=True, url_path="link")
     def link(self, request, pk=None):
         instance = self.get_object()
         try:
@@ -721,18 +726,7 @@ class InstanceView(
     @swagger_auto_schema(auto_schema=None)
     @action(methods=["patch"], detail=True, url_path="unlink")
     def unlink(self, request, pk=None):
-        instance = self.get_object()
-        instances_with_same_group = models.Instance.objects.filter(
-            instance_group=instance.instance_group
-        ).exclude(pk=instance.pk)
-        # if only two dossiers were in group, unlink both
-        if len(instances_with_same_group) == 1:
-            instances_with_same_group.update(instance_group=None)
-
-        instance.instance_group = None
-        instance.save()
-
-        return response.Response(status=status.HTTP_204_NO_CONTENT)
+        return self._custom_serializer_action(request, pk)
 
     @swagger_auto_schema(auto_schema=None)
     @action(methods=["post"], detail=True)
@@ -838,7 +832,7 @@ class InstanceView(
         url_path="dms-placeholders",
     )
     def dms_placeholders(self, request, pk):
-        serializer = self.get_serializer(self.get_object())
+        serializer = self.get_serializer(instance=self.get_object())
         return response.Response(serializer.data)
 
 
@@ -1349,7 +1343,7 @@ class PublicCalumaInstanceView(mixins.InstanceQuerysetMixin, ListAPIView):
 
         if settings.APPLICATION.get("PUBLICATION_BACKEND") == "caluma":
             return queryset.annotate(
-                dossier_nr=KeyTextTransform("ebau-number", "meta"),
+                dossier_nr=Cast(KeyTextTransform("ebau-number", "meta"), CharField()),
                 year=Cast(
                     Func(
                         F("dossier_nr"),
@@ -1371,13 +1365,13 @@ class PublicCalumaInstanceView(mixins.InstanceQuerysetMixin, ListAPIView):
             ).order_by("year", "nr")
 
         return queryset.annotate(
-            dossier_nr=KeyTextTransform("dossier-number", "meta"),
-            publication_date=Subquery(
+            dossier_nr=Cast(KeyTextTransform("dossier-number", "meta"), CharField()),
+            publication_end_date=Subquery(
                 PublicationEntry.objects.filter(
                     instance_id=OuterRef("instance_id")
-                ).values("publication_date")[:1]
+                ).values("publication_end_date")[:1]
             ),
-        ).order_by("-publication_date", "dossier_nr")
+        ).order_by("instance__location", "publication_end_date", "dossier_nr")
 
     def get_queryset_for_oereb_api(self):
         queryset = (
@@ -1392,7 +1386,7 @@ class PublicCalumaInstanceView(mixins.InstanceQuerysetMixin, ListAPIView):
             .annotate(instance_id=F("instance__pk"))
         )
         return queryset.annotate(
-            dossier_nr=KeyTextTransform("dossier-number", "meta"),
+            dossier_nr=Cast(KeyTextTransform("dossier-number", "meta"), CharField()),
             publication_date=Subquery(
                 PublicationEntry.objects.filter(
                     instance_id=OuterRef("instance_id")

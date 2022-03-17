@@ -57,6 +57,7 @@ def test_import_dossiers_manage_command(
     construction_control_for,
     service_factory,
     user,
+    user_factory,
     group,
     location,
     dynamic_option_factory,
@@ -76,6 +77,7 @@ def test_import_dossiers_manage_command(
     )
     group.service = service
     group.save()
+    user_factory(username=settings.APPLICATION["DOSSIER_IMPORT"]["USER"])
     args = [
         "import_dossiers",
         "--no-input",

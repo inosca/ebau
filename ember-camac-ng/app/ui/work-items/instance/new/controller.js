@@ -4,7 +4,7 @@ import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
-import moment from "moment";
+import { DateTime } from "luxon";
 
 import ENV from "camac-ng/config/environment";
 import createWorkItem from "camac-ng/gql/mutations/create-work-item.graphql";
@@ -16,7 +16,7 @@ class NewWorkItem {
   @tracked assignedUsers = [];
   @tracked title = "";
   @tracked description = "";
-  @tracked deadline = moment().add(10, "days");
+  @tracked deadline = DateTime.now().plus({ days: 10 }).toJSDate();
   @tracked notificationCompleted = true;
   @tracked notificationDeadline = true;
 }

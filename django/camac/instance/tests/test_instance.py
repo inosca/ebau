@@ -27,15 +27,15 @@ from camac.instance.models import HistoryEntryT
         (
             "Applicant",
             LazyFixture("admin_user"),
-            18,
+            22,
             1,
             {"instance", "form", "document"},
         ),
         # reader should see instances from other users but has no editables
-        ("Reader", LazyFixture("user"), 18, 1, set()),
-        ("Canton", LazyFixture("user"), 18, 1, {"form", "document"}),
-        ("Municipality", LazyFixture("user"), 17, 1, {"form", "document"}),
-        ("Service", LazyFixture("user"), 17, 1, {"document"}),
+        ("Reader", LazyFixture("user"), 22, 1, set()),
+        ("Canton", LazyFixture("user"), 22, 1, {"form", "document"}),
+        ("Municipality", LazyFixture("user"), 21, 1, {"form", "document"}),
+        ("Service", LazyFixture("user"), 21, 1, {"form", "document"}),
         ("Public", LazyFixture("user"), 2, 0, {}),
     ],
 )
@@ -172,6 +172,371 @@ def test_instance_filter_fields(admin_client, instance, form_field_factory):
 
 
 @pytest.mark.parametrize(
+    "role__name,instance__user,form_filter,form_filter_name,exclude,expected_count",
+    [
+        ("Applicant", LazyFixture("admin_user"), False, None, False, 1),
+        ("Applicant", LazyFixture("admin_user"), True, None, False, 1),
+        ("Applicant", LazyFixture("admin_user"), True, None, True, 0),
+        ("Applicant", LazyFixture("admin_user"), True, "test", False, 0),
+        ("Applicant", LazyFixture("admin_user"), True, "test", True, 1),
+    ],
+)
+def test_instance_form_name_filter(
+    application_settings,
+    admin_client,
+    instance,
+    instance_factory,
+    form_filter,
+    form_filter_name,
+    exclude,
+    expected_count,
+):
+
+    url = reverse("instance-list")
+
+    if form_filter:
+        prefix = "-" if exclude else ""
+        name = form_filter_name or instance.form.name
+        response = admin_client.get(url, {"form_name": prefix + name})
+    else:
+        response = admin_client.get(url)
+
+    assert response.status_code == status.HTTP_200_OK
+    data = response.json()["data"]
+    assert len(data) == expected_count
+
+
+@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
+@pytest.mark.parametrize(
+    "field,submit_date,expected_count",
+    [
+        ("submit_date_after_sz", "2020-03-02", 1),
+        ("submit_date_before_sz", "2022-03-02", 1),
+        ("submit_date_after_sz", "2021-04-02", 0),
+        ("submit_date_before_sz", "2021-02-02", 0),
+        ("submit_date_after_sz", "2021-03-02", 1),
+        ("submit_date_before_sz", "2021-03-04", 1),
+        ("submit_date_after_sz", "2021-03-03", 1),
+        ("submit_date_before_sz", "2021-03-03", 1),
+        ("submit_date_after_sz", "2021-03-04", 0),
+        ("submit_date_before_sz", "2021-03-02", 0),
+    ],
+)
+def test_instance_submit_date_filter(
+    admin_client,
+    instance,
+    field,
+    submit_date,
+    expected_count,
+    workflow_item_factory,
+    workflow_entry_factory,
+):
+
+    workflow_entry_factory(
+        workflow_item=workflow_item_factory(pk=10),
+        workflow_date=datetime.datetime(2021, 3, 3),
+        instance=instance,
+    )
+
+    url = reverse("instance-list")
+
+    response = admin_client.get(url, {field: submit_date})
+
+    assert response.status_code == status.HTTP_200_OK
+    data = response.json()["data"]
+    assert len(data) == expected_count
+
+
+@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
+@pytest.mark.parametrize(
+    "address,expected_count",
+    [
+        ("ous", 1),
+        ("Large House", 1),
+        ("garden  ", 1),
+        ("large  garden", 0),
+        ("aa", 0),
+        ("hoouse", 0),
+        ("Luxury tent", 0),
+    ],
+)
+def test_instance_address_filter(
+    application_settings,
+    admin_client,
+    instance,
+    address,
+    expected_count,
+    form_field_factory,
+):
+
+    application_settings["ADDRESS_FORM_FIELDS"] = ["address1", "address2"]
+    form_field_factory(
+        name="address1",
+        value="Large house",
+        instance=instance,
+    )
+    form_field_factory(
+        name="address2",
+        value="Small garden",
+        instance=instance,
+    )
+    form_field_factory(name="address3", value="Luxury tent", instance=instance)
+
+    url = reverse("instance-list")
+    response = admin_client.get(url, {"address_sz": address})
+
+    assert response.status_code == status.HTTP_200_OK
+    data = response.json()["data"]
+    assert len(data) == expected_count
+
+
+@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
+@pytest.mark.parametrize(
+    "plot,expected_count",
+    [
+        ("CH9", 2),
+        ("4", 2),
+        ("ch967722307039  ", 1),
+        (" 420", 1),
+        ("7899", 1),
+        # Works because of key value concatenation
+        ("420 ch967722307039", 1),
+        ("420  ch967722307039", 1),
+        ("ch9677223070390", 0),
+        ("651", 0),
+    ],
+)
+def test_instance_plot_filter(
+    application_settings,
+    admin_client,
+    instance,
+    plot,
+    expected_count,
+    form_field_factory,
+    instance_factory,
+):
+
+    instance_1 = instance
+    instance_2 = instance_factory(user=instance.user)
+
+    form_field_factory(
+        name="parzellen",
+        value=[{"egrid": "CH967722307039", "number": 420, "municipality": "Schwyz"}],
+        instance=instance_1,
+    )
+    form_field_factory(
+        name="parzellen",
+        value=[{"egrid": "CH912734307899", "number": 650, "municipality": "Schwyz"}],
+        instance=instance_2,
+    )
+
+    url = reverse("instance-list")
+    response = admin_client.get(url, {"plot_sz": plot})
+
+    assert response.status_code == status.HTTP_200_OK
+    data = response.json()["data"]
+    assert len(data) == expected_count
+
+
+@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
+@pytest.mark.parametrize(
+    "form_field_name,filter_name",
+    [
+        ("bauherrschaft", "builder_sz"),
+        ("grundeigentumerschaft", "landowner_sz"),
+        ("projektverfasser-planer", "applicant_sz"),
+    ],
+)
+@pytest.mark.parametrize(
+    "search,expected_count",
+    [
+        (
+            "a",
+            {
+                "bauherrschaft": 2,
+                "grundeigentumerschaft": 2,
+                "projektverfasser-planer": 2,
+            },
+        ),
+        (
+            "Red Stra",
+            {
+                "bauherrschaft": 1,
+                "grundeigentumerschaft": 1,
+                "projektverfasser-planer": 1,
+            },
+        ),
+        (
+            "melo  ",
+            {
+                "bauherrschaft": 1,
+                "grundeigentumerschaft": 0,
+                "projektverfasser-planer": 1,
+            },
+        ),
+        (
+            "8840",
+            {
+                "bauherrschaft": 0,
+                "grundeigentumerschaft": 0,
+                "projektverfasser-planer": 0,
+            },
+        ),
+        (
+            "ious Inc",
+            {
+                "bauherrschaft": 1,
+                "grundeigentumerschaft": 0,
+                "projektverfasser-planer": 1,
+            },
+        ),
+        (
+            "Tangerine Turbo Mixer 9000",
+            {
+                "bauherrschaft": 1,
+                "grundeigentumerschaft": 1,
+                "projektverfasser-planer": 1,
+            },
+        ),
+        (
+            "Tangerine Orange",
+            {
+                "bauherrschaft": 1,
+                "grundeigentumerschaft": 1,
+                "projektverfasser-planer": 1,
+            },
+        ),
+        (
+            "en me",
+            {
+                "bauherrschaft": 1,
+                "grundeigentumerschaft": 0,
+                "projektverfasser-planer": 1,
+            },
+        ),
+        (
+            "bananaaa",
+            {
+                "bauherrschaft": 0,
+                "grundeigentumerschaft": 0,
+                "projektverfasser-planer": 0,
+            },
+        ),
+    ],
+)
+def test_instance_form_field_list_value_filter(
+    application_settings,
+    admin_client,
+    instance,
+    form_field_name,
+    filter_name,
+    search,
+    expected_count,
+    form_field_factory,
+    instance_factory,
+):
+
+    instance_1 = instance
+    instance_2 = instance_factory(user=instance.user)
+
+    form_field_factory(
+        name=f"{form_field_name}",
+        value=[{"name": "Strawberry", "vorname": "Red", "plz": 8840}],
+        instance=instance_1,
+    )
+    form_field_factory(
+        name=f"{form_field_name}-v2",
+        value=[
+            {
+                "vorname": "Yellow",
+                "firma": "Smoothie-licious Inc.",
+                "name": "Banana",
+                "plz": 8670,
+            }
+        ],
+        instance=instance_1,
+    )
+
+    form_field_factory(
+        name=f"{form_field_name}-v2",
+        value=[{"name": "Melon", "vorname": "Green", "plz": 8840}],
+        instance=instance_2,
+    )
+    form_field_factory(
+        name=f"{form_field_name}-override",
+        value=[
+            {
+                "plz": 8670,
+                "vorname": "Orange",
+                "name": "Tangerine",
+                "firma": "Turbo Mixer 9000 Corp.",
+            }
+        ],
+        instance=instance_2,
+    )
+
+    url = reverse("instance-list")
+    response = admin_client.get(url, {f"{filter_name}": search})
+
+    assert response.status_code == status.HTTP_200_OK
+    data = response.json()["data"]
+    assert len(data) == expected_count[form_field_name]
+
+
+@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
+def test_instance_form_name_versioned_filter(
+    admin_client,
+    instance,
+    form_factory,
+    instance_factory,
+):
+
+    form_0 = form_factory(name="form")
+    form_0.family = form_0
+    form_0.save()
+    instance.form = form_0
+    instance.save()
+
+    form_1 = form_factory(family=form_0, name="form-v1")
+    instance_factory(form=form_1, user=instance.user)
+
+    form_2 = form_factory(name="form-v2")
+    instance_factory(form=form_2, user=instance.user)
+
+    url = reverse("instance-list")
+
+    response = admin_client.get(url, {"form_name_versioned": form_0.pk})
+
+    assert response.status_code == status.HTTP_200_OK
+    data = response.json()["data"]
+    assert len(data) == 2
+
+
+@pytest.mark.parametrize(
+    "instance__user,instance__identifier,identifier,expected_count",
+    [
+        (LazyFixture("admin_user"), "001", "1", 1),
+        (LazyFixture("admin_user"), "001", "2", 0),
+        (LazyFixture("admin_user"), "001", "001", 1),
+    ],
+)
+def test_instance_identifier_filter(
+    admin_client,
+    instance,
+    identifier,
+    expected_count,
+):
+
+    url = reverse("instance-list")
+
+    response = admin_client.get(url, {"identifier": identifier})
+
+    assert response.status_code == status.HTTP_200_OK
+    data = response.json()["data"]
+    assert len(data) == expected_count
+
+
+@pytest.mark.parametrize(
     "role__name,instance__user", [("Municipality", LazyFixture("admin_user"))]
 )
 def test_linked_instances(
@@ -245,7 +610,7 @@ def test_instance_group_link(
         }
     }
 
-    response = admin_client.post(
+    response = admin_client.patch(
         url, data=json.dumps(data), content_type="application/json"
     )
     main_group_before = main_instance.instance_group
@@ -284,15 +649,23 @@ def test_instance_group_link(
 @pytest.mark.parametrize("role__name", ["Municipality", "Coordination"])
 def test_instance_group_unlink(
     admin_client,
-    instance,
+    ur_instance,
     instance_factory,
     instance_group_factory,
     more_than_one_other_group,
     mocker,
+    application_settings,
+    instance_state_factory,
 ):
-    main_instance = instance
+
+    application_settings["FORM_BACKEND"] = "caluma"
+
+    main_instance = ur_instance
     main_instance.instance_group = instance_group_factory()
     main_instance.save()
+
+    instance_state_factory(name="comm")
+    instance_state_factory(name="ext")
 
     other_instance = instance_factory(location=main_instance.location)
     other_instance.instance_group = main_instance.instance_group
@@ -318,13 +691,13 @@ def test_instance_group_unlink(
     if more_than_one_other_group:
         other_instance_2.refresh_from_db()
 
-        assert response.status_code == status.HTTP_204_NO_CONTENT
+        assert response.status_code == status.HTTP_200_OK
         assert main_instance.instance_group is None
         assert other_instance.instance_group == main_group_before
         assert other_instance_2.instance_group == main_group_before
 
     else:
-        assert response.status_code == status.HTTP_204_NO_CONTENT
+        assert response.status_code == status.HTTP_200_OK
         assert main_instance.instance_group is None
         assert other_instance.instance_group is None
 
@@ -341,14 +714,24 @@ def test_instance_group_unlink(
         ("Reader", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
         ("Canton", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
         ("Municipality", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
-        ("Service", LazyFixture("user"), status.HTTP_404_NOT_FOUND),
+        ("Service", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
         ("Unknown", LazyFixture("user"), status.HTTP_404_NOT_FOUND),
         ("Coordination", LazyFixture("user"), status.HTTP_404_NOT_FOUND),
     ],
 )
 def test_instance_update(
-    admin_client, instance, location_factory, form_factory, status_code, mocker
+    admin_client,
+    instance,
+    location_factory,
+    form_factory,
+    status_code,
+    mocker,
+    application_settings,
 ):
+    application_settings["INSTANCE_HIDDEN_STATES"] = {
+        "coordination": ["new"],
+    }
+
     url = reverse("instance-detail", args=[instance.pk])
 
     data = {
@@ -403,7 +786,7 @@ def test_instance_update_location(admin_client, instance, location_factory):
         ("Reader", LazyFixture("admin_user"), "new", status.HTTP_204_NO_CONTENT),
         ("Canton", LazyFixture("user"), "new", status.HTTP_403_FORBIDDEN),
         ("Municipality", LazyFixture("user"), "new", status.HTTP_403_FORBIDDEN),
-        ("Service", LazyFixture("user"), "new", status.HTTP_404_NOT_FOUND),
+        ("Service", LazyFixture("user"), "new", status.HTTP_403_FORBIDDEN),
         ("Unknown", LazyFixture("user"), "new", status.HTTP_404_NOT_FOUND),
     ],
 )
@@ -775,15 +1158,16 @@ def test_instance_export_detail(
 @pytest.mark.freeze_time("2017-7-27")
 @pytest.mark.parametrize("separator", ["-"])
 @pytest.mark.parametrize(
-    "short_dossier_number,use_caluma,prefix,padding,form_abbreviation,expected",
+    "short_dossier_number,use_caluma,prefix,padding,form_abbreviation,caluma_instance_forms,expected",
     (
-        [True, False, None, None, None, "11-17-011"],
-        [False, False, None, None, None, "1311-17-011"],
-        [False, True, None, None, None, "1311-17-011"],
-        [True, True, None, None, None, "11-17-011"],
-        [True, False, None, None, "abbr", "AB-17-001"],
-        [True, False, "IM", 4, "abbr", "AB-17-0001"],
-        [True, False, "IM", 4, None, "IM-11-17-0011"],
+        [True, False, None, None, None, False, "11-17-011"],
+        [False, False, None, None, None, False, "1311-17-011"],
+        [False, True, None, None, None, False, "1311-17-011"],
+        [True, True, None, None, None, False, "11-17-011"],
+        [True, False, None, None, "abbr", False, "AB-17-001"],
+        [True, False, "IM", 4, "abbr", False, "AB-17-0001"],
+        [True, False, "IM", 4, None, False, "IM-11-17-0011"],
+        [True, False, None, None, "abbr", True, "AB-17-011"],
     ),
 )
 @pytest.mark.parametrize("location__communal_federal_number", ["1311"])
@@ -800,6 +1184,7 @@ def test_instance_generate_identifier(
     padding,
     separator,
     form_abbreviation,
+    caluma_instance_forms,
     expected,
 ):
     application_settings["CALUMA"]["SAVE_DOSSIER_NUMBER_IN_CALUMA"] = use_caluma
@@ -808,25 +1193,31 @@ def test_instance_generate_identifier(
     elements = []
 
     if form_abbreviation:
+        form_abbreviation_value = form_abbreviation[:2].upper()
         application_settings["INSTANCE_IDENTIFIER_FORM_ABBR"] = {
-            form_abbreviation: form_abbreviation[:2].upper()
+            form_abbreviation: form_abbreviation_value
         } or {}
         form_field_factory(
             name="meta",
             value=json.dumps({"formType": form_abbreviation}),
             instance=instance,
         )
+        if caluma_instance_forms:
+            application_settings["CALUMA_INSTANCE_FORMS"] = [form_abbreviation]
+            elements.append(form_abbreviation_value)
 
     if prefix:
         elements.append(prefix)
 
-    communal_id = short_dossier_number and "11" or "1311"
+    id_number = separator.join(["17", "010"])
+    if not caluma_instance_forms:
+        communal_id = short_dossier_number and "11" or "1311"
+        id_number = separator.join([communal_id, id_number])
 
-    elements.append(separator.join([communal_id, "17", "010"]))
-
+    elements.append(id_number)
     identifier = separator.join(elements)
 
-    if use_caluma:
+    if use_caluma or caluma_instance_forms:
         instance.case = case_factory(meta={"dossier-number": identifier})
         instance.save()
     else:
@@ -902,6 +1293,58 @@ def test_instance_detail_publication(
     url = reverse("instance-detail", args=[instance.pk])
 
     response = admin_client.get(url)
+    assert response.status_code == status_code
+
+
+@pytest.mark.parametrize(
+    "date,status_code",
+    [
+        ("2017-7-19", status.HTTP_404_NOT_FOUND),
+        ("2017-7-20", status.HTTP_200_OK),
+        ("2017-7-27", status.HTTP_200_OK),
+        ("2017-7-28", status.HTTP_404_NOT_FOUND),
+    ],
+)
+@pytest.mark.parametrize(
+    "role__name,instance__user,publication_entry__publication_date,publication_entry__publication_end_date,publication_entry__is_published",
+    [
+        (
+            "PublicReader",
+            LazyFixture("admin_user"),
+            datetime.datetime(2017, 7, 20, tzinfo=pytz.timezone("Europe/Zurich")),
+            datetime.datetime(2017, 7, 27, tzinfo=pytz.timezone("Europe/Zurich")),
+            True,
+        ),
+        (
+            "Public",
+            LazyFixture("admin_user"),
+            datetime.datetime(2017, 7, 20, tzinfo=pytz.timezone("Europe/Zurich")),
+            datetime.datetime(2017, 7, 27, tzinfo=pytz.timezone("Europe/Zurich")),
+            True,
+        ),
+    ],
+)
+def test_instance_detail_publication_timezone(
+    admin_client,
+    instance,
+    publication_entry,
+    freezer,
+    status_code,
+    application_settings,
+    date,
+):
+    application_settings["PUBLICATION_BACKEND"] = "camac-ng"
+    url = reverse("instance-detail", args=[instance.pk])
+
+    freezer.move_to(date)
+
+    print("instance:", instance.group.role.name)
+    response = admin_client.get(
+        url,
+        **{"HTTP_X_CAMAC_PUBLIC_ACCESS": True}
+        if instance.group.role.name == "Public"
+        else {},
+    )
     assert response.status_code == status_code
 
 
@@ -1043,53 +1486,6 @@ def test_responsible_service_filters(
 
 
 @pytest.mark.parametrize(
-    "role__name,instance__user", [("Municipality", LazyFixture("user"))]
-)
-def test_responsible_instance_user(
-    admin_client, instance, user, service, service_factory
-):
-
-    instance.responsible_services.create(responsible_user=user, service=service)
-
-    # First make sure we can find instances with given responsible user
-    resp = admin_client.get(
-        reverse("instance-list"), {"responsible_instance_user": str(user.pk)}
-    )
-    assert resp.status_code == status.HTTP_200_OK and resp.content
-    assert len(resp.json()["data"]) == 1
-
-    # "nobody" filter should return nothing if all instances have a responsible user
-    resp = admin_client.get(
-        reverse("instance-list"), {"responsible_instance_user": "NOBODY"}
-    )
-    assert resp.status_code == status.HTTP_200_OK and resp.content
-    assert len(resp.json()["data"]) == 0
-
-    # "nobody" filter should return instance where there is no responsible user
-    instance.responsible_services.all().delete()
-    resp = admin_client.get(
-        reverse("instance-list"), {"responsible_instance_user": "NOBODY"}
-    )
-    assert resp.status_code == status.HTTP_200_OK and resp.content
-    assert len(resp.json()["data"]) == 1
-
-    # not set shouldn't do anything
-    resp = admin_client.get(reverse("instance-list"), {"responsible_instance_user": ""})
-    assert resp.status_code == status.HTTP_200_OK and resp.content
-    assert len(resp.json()["data"]) == 1
-
-    # different service shouldnt return anything
-    instance.responsible_services.create(
-        responsible_user=user, service=service_factory()
-    )
-    resp = admin_client.get(
-        reverse("instance-list"), {"responsible_instance_user": str(user.pk)}
-    )
-    assert resp.status_code == status.HTTP_200_OK and resp.content
-    assert len(resp.json()["data"]) == 0
-
-
-@pytest.mark.parametrize(
     "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
 )
 def test_instance_filter_is_applicant(admin_client, instance):
@@ -1165,6 +1561,7 @@ def test_instance_list_coordination_created(
     is_creator,
     group_factory,
     forbidden_states,
+    application_settings,
 ):
     """Ensure that the coordination role sees their correct dossiers.
 
@@ -1177,7 +1574,7 @@ def test_instance_list_coordination_created(
         # unfortunately cannot parametrize this :(
         forbidden_states = [instance_state.name]
 
-    mocker.patch("camac.constants.kt_uri.INSTANCE_STATES_PRIVATE", forbidden_states)
+    application_settings["INSTANCE_HIDDEN_STATES"] = {"coordination": forbidden_states}
 
     if not is_creator:
         other_group = group_factory()

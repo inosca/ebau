@@ -5,11 +5,14 @@ from io import BytesIO
 
 import pytest
 import pytz
+from django.core.management import call_command
 from django.urls import reverse
 from docxtpl import DocxTemplate
 from lxml import etree
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
+
+from camac.instance.tests.test_master_data import add_answer, add_table_answer
 
 from .data import django_file
 
@@ -150,13 +153,14 @@ def test_template_destroy(admin_client, template, status_code):
     [("Grund", "OK", "Antwort")],
 )
 @pytest.mark.parametrize(
-    "form_field__name,instance__identifier,location__name,activation__service",
+    "form_field__name,instance__identifier,location__name,activation__service,instance__group",
     [
         (
             "testname",
             "11-18-011",
             "Schwyz",
             LazyFixture(lambda service_factory: service_factory(name="Fachstelle")),
+            LazyFixture(lambda group_factory: group_factory()),
         )
     ],
 )
@@ -173,11 +177,18 @@ def test_template_merge(
     publication_entry,
     notice_factory,
     notice_type_factory,
+    work_item_factory,
+    document_factory,
     snapshot,
     settings,
     unoconv_pdf_mock,
     unoconv_invalid_mock,
 ):
+    call_command(
+        "loaddata", settings.ROOT_DIR("kt_schwyz/config/buildingauthority.json")
+    )
+    call_command("loaddata", settings.ROOT_DIR("kt_schwyz/config/caluma_form.json"))
+
     notice_type_application = notice_type_factory(name="Antrag")
     notice_type_hint = notice_type_factory(name="Hinweis")
 
@@ -213,6 +224,21 @@ def test_template_merge(
     add_address_field(name="projektverfasser-planer")
     add_address_field(name="projektverfasser-planer-v2")
 
+    work_item = work_item_factory(task_id="building-authority", case=sz_instance.case)
+    work_item.document = document_factory(form_id="bauverwaltung")
+    work_item.save()
+    add_answer(work_item.document, "bewilligungsverfahren-gr-sitzung-nummer", 12)
+    add_table_answer(
+        work_item.document,
+        "bewilligungsverfahren-sitzung-baukommission",
+        [
+            {
+                "bewilligungsverfahren-sitzung-baukommission-nr": 78,
+                "bewilligungsverfahren-sitzung-baukommission-bemerkung": "Foo Bar",
+            }
+        ],
+    )
+
     url = reverse("template-merge", args=[template.pk])
     response = admin_client.get(url, data={"instance": sz_instance.pk, "type": to_type})
     assert response.status_code == status_code
@@ -221,7 +247,7 @@ def test_template_merge(
             response["Content-Type"] == mimetypes.guess_type("filename." + to_type)[0]
         )
         if to_type == "docx":
-            docx = DocxTemplate(BytesIO(response.content))
+            docx = DocxTemplate(BytesIO(response.content)).get_docx()
             xml = etree.tostring(
                 docx._element.body, encoding="unicode", pretty_print=True
             )
@@ -250,6 +276,6 @@ def test_template_download(
 ):
     url = reverse("template-download", args=[template.pk])
     response = admin_client.get(url)
-    docx = DocxTemplate(BytesIO(response.content))
+    docx = DocxTemplate(BytesIO(response.content)).get_docx()
     xml = etree.tostring(docx._element.body, encoding="unicode", pretty_print=True)
     snapshot.assert_match(xml)

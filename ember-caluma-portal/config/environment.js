@@ -112,13 +112,6 @@ module.exports = function (environment) {
         juristicNameRegexp: "^name-juristische-person.*$",
         emailRegexp: "^e-mail-.*$",
       },
-      features: {
-        faq: true,
-        publication: {
-          form: true,
-          municipalityFilter: true,
-        },
-      },
     },
     kt_uri: {
       name: "ur",
@@ -190,13 +183,6 @@ module.exports = function (environment) {
         juristicNameRegexp: "^juristic-person-name$",
         emailRegexp: "^e-mail$",
       },
-      features: {
-        faq: false,
-        publication: {
-          form: false,
-          municipalityFilter: false,
-        },
-      },
     },
   }[app];
 
@@ -226,10 +212,6 @@ module.exports = function (environment) {
     },
     apollo: {
       apiURL: "/graphql/",
-    },
-    moment: {
-      includeLocales: locales,
-      allowEmpty: true,
     },
     EmberENV: {
       FEATURES: {

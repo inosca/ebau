@@ -3,6 +3,7 @@ from django.urls import reverse
 from rest_framework import status
 
 from camac.document import permissions
+from camac.document.tests.data import django_file
 
 
 @pytest.mark.parametrize("role__name", [("Applicant")])
@@ -151,18 +152,31 @@ def test_attachment_section_special_permissions_ur(
             "trusted_service": {
                 permissions.ReadPermission: [1, 2, 3],
                 permissions.AdminServicePermission: [23, 33],
+                permissions.AdminInternalBusinessControlPermission: (
+                    permissions._is_internal_instance,
+                    [4],
+                ),
+                permissions.AdminPermission: (permissions._is_general_instance, [5]),
             }
         }
     ],
 )
-def test_rebuild_app_permissions(data):
-    assert permissions.rebuild_app_permissions(data) == {
+def test_rebuild_app_permissions(
+    db, group, instance, data, application_settings, instance_state_factory
+):
+    application_settings["ATTACHMENT_INTERNAL_STATES"] = ["internal"]
+
+    instance.instance_state = instance_state_factory(name="internal")
+    instance.save()
+
+    assert permissions.rebuild_app_permissions(data, group, instance) == {
         "trusted_service": {
             1: permissions.ReadPermission,
             2: permissions.ReadPermission,
             3: permissions.ReadPermission,
             23: permissions.AdminServicePermission,
             33: permissions.AdminServicePermission,
+            4: permissions.AdminInternalBusinessControlPermission,
         }
     }
 
@@ -202,3 +216,103 @@ def test_attachment_section_permissions_kt_bern(
     response = admin_client.get(url, {"instance": instance.pk})
 
     assert response.json()["data"]["meta"]["permission-name"] == expected_permission
+
+
+@pytest.mark.parametrize("role__name", ["municipality-lead"])
+def test_attachment_modification_by_activation_involvement(
+    db,
+    settings,
+    application_settings,
+    be_instance,
+    mocker,
+    circulation,
+    activation_factory,
+    admin_client,
+    attachment_section,
+    instance_service_factory,
+    group_factory,
+    role,
+    group,
+):
+    """
+    Ensure that the backend api respects has_running_activation permission.
+
+    domain: kt_bern
+
+    Make an instance belonging to the lead group with role municipality-lead (e. g. RSTA) and
+    a service that is also municipality-lead (e. g. Leitbehörde) that is then involved via activation.
+
+    Let the group add some attachment to the attachment_section for involved groups. After answering the
+    activation and termination of the respective circulation all write and delete permissions should be
+    effectively revoked from that attachment_section.
+    """
+
+    settings.APPLICATION = settings.APPLICATIONS["kt_bern"]
+    settings.APPLICATION_NAME = "kt_bern"
+    application_settings["ATTACHMENT_AFTER_DECISION_STATES"] = ["finished"]
+
+    # make lead group responsible and ensure subordinate group is not involved
+    # as instance_service:
+    group.service.instance_set.clear()
+    lead_group = group_factory(role=role, name="Lead group")
+    instance_service_factory(instance=be_instance, service=lead_group.service)
+
+    # activate subordinate group by activation
+    activation = activation_factory(
+        circulation=circulation,
+        circulation__instance=be_instance,
+        circulation_state__name="RUN",
+        service=group.service,
+    )
+
+    application_settings["ATTACHMENT_RUNNING_ACTIVATION_STATES"] = [
+        activation.circulation_state.name
+    ]
+
+    path = django_file("multiple-pages.pdf")
+    create_data = {
+        "instance": be_instance.pk,
+        "path": path.file,
+        "group": group.pk,
+        "attachment_sections": attachment_section.pk,
+    }
+
+    # fix permissions
+    mocker.patch(
+        "camac.document.permissions.PERMISSIONS",
+        {
+            "kt_bern": {
+                "municipality-lead": {
+                    permissions.ReadPermission: [
+                        attachment_section.pk
+                    ]  # disallow the regular lead permission to ensure the problematic fallback does not kick in
+                },
+                "service-lead": {
+                    permissions.AdminServiceRunningActivationPermission: [
+                        attachment_section.pk
+                    ]
+                },
+            }
+        },
+    )
+    create_res = admin_client.post(
+        reverse("attachment-list"), data=create_data, format="multipart"
+    )
+    # creation of attachment should be allowed for group.service by activation involvement
+    assert create_res.status_code == status.HTTP_201_CREATED
+
+    # finish the current circulation to revoke group's involvement
+    activation.circulation_state.name = "DONE"
+    activation.circulation_state.save()
+
+    # ensure that deletion of the attachment fails
+    del_resp = admin_client.delete(
+        f'{reverse("attachment-detail", args=[create_res.json()["data"]["id"]])}?instance={be_instance.pk}'
+    )
+    assert del_resp.status_code == status.HTTP_403_FORBIDDEN
+
+    # ensure that creation of another attachment fails, too
+    create_res = admin_client.post(
+        reverse("attachment-list"), data=create_data, format="multipart"
+    )
+    assert create_res.status_code == status.HTTP_400_BAD_REQUEST

@@ -28,9 +28,11 @@ export default class BeDocumentsFormComponent extends Component {
   }
 
   get deletable() {
-    const state = parseInt(
-      this.args.context.instance.belongsTo("instanceState").id()
+    const instance = this.store.peekRecord(
+      "instance",
+      this.args.context.instanceId
     );
+    const state = parseInt(instance?.belongsTo("instanceState").id());
 
     return (
       !this.args.disabled &&

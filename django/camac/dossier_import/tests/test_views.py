@@ -1,6 +1,7 @@
 import mimetypes
 
 import pytest
+from caluma.caluma_workflow.models import Case
 from pytest_lazyfixture import lazy_fixture
 from rest_framework import status
 from rest_framework.reverse import reverse
@@ -224,10 +225,11 @@ def test_file_validation(
     ],
 )
 @pytest.mark.parametrize(
-    "action,role__name,status_before,expected_response_code,status_after",
+    "action,host,role__name,status_before,expected_response_code,status_after",
     [
         (
             "start",
+            "sycloud",
             "municipality-lead",
             DossierImport.IMPORT_STATUS_VALIDATION_SUCCESSFUL,
             status.HTTP_200_OK,
@@ -235,6 +237,15 @@ def test_file_validation(
         ),
         (
             "start",
+            "prod",
+            "municipality-lead",
+            DossierImport.IMPORT_STATUS_VALIDATION_SUCCESSFUL,
+            status.HTTP_404_NOT_FOUND,
+            None,
+        ),
+        (
+            "start",
+            "sycloud",
             "municipality-lead",
             DossierImport.IMPORT_STATUS_VALIDATION_FAILED,
             status.HTTP_400_BAD_REQUEST,
@@ -242,6 +253,7 @@ def test_file_validation(
         ),
         (
             "confirm",
+            "sycloud",
             "municipality-lead",
             DossierImport.IMPORT_STATUS_IMPORTED,
             status.HTTP_200_OK,
@@ -249,6 +261,7 @@ def test_file_validation(
         ),
         (
             "confirm",
+            "sycloud",
             "municipality-lead",
             DossierImport.IMPORT_STATUS_VALIDATION_SUCCESSFUL,
             status.HTTP_400_BAD_REQUEST,
@@ -256,6 +269,7 @@ def test_file_validation(
         ),
         (
             "transmit",
+            "sycloud",
             "support",
             DossierImport.IMPORT_STATUS_CONFIRMED,
             status.HTTP_200_OK,
@@ -263,6 +277,15 @@ def test_file_validation(
         ),
         (
             "transmit",
+            "prod",
+            "support",
+            DossierImport.IMPORT_STATUS_CONFIRMED,
+            status.HTTP_403_FORBIDDEN,
+            None,
+        ),
+        (
+            "transmit",
+            "sycloud",
             "municipality-lead",
             DossierImport.IMPORT_STATUS_CONFIRMED,
             status.HTTP_403_FORBIDDEN,
@@ -270,9 +293,42 @@ def test_file_validation(
         ),
         (
             "transmit",
+            "sycloud",
             "support",
             DossierImport.IMPORT_STATUS_IMPORTED,
             status.HTTP_400_BAD_REQUEST,
+            None,
+        ),
+        (
+            "undo",
+            "sycloud",
+            "support",
+            DossierImport.IMPORT_STATUS_IMPORTED,
+            status.HTTP_200_OK,
+            "deleted",
+        ),
+        (
+            "undo",
+            "sycloud",
+            "municipality-lead",
+            DossierImport.IMPORT_STATUS_IMPORTED,
+            status.HTTP_200_OK,
+            "deleted",
+        ),
+        (
+            "undo",
+            "prod",
+            "support",
+            DossierImport.IMPORT_STATUS_IMPORTED,
+            status.HTTP_403_FORBIDDEN,
+            None,
+        ),
+        (
+            "undo",
+            "prod",
+            "municipality-lead",
+            DossierImport.IMPORT_STATUS_IMPORTED,
+            status.HTTP_404_NOT_FOUND,
             None,
         ),
     ],
@@ -293,10 +349,13 @@ def test_state_transitions(
     status_before,
     expected_response_code,
     status_after,
+    case_factory,
+    host,
 ):
     make_workflow_items_for_config(config)
     setup_fixtures_required_by_application_config(config)
     settings.APPLICATION = settings.APPLICATIONS[config]
+    settings.INTERNAL_BASE_URL = f"https://{host}.example.com"
     # settings.Q_CLUSTER["sync"] = True  # doesn't work, unfortunately
 
     dossier_import = dossier_import_factory(
@@ -305,20 +364,38 @@ def test_state_transitions(
         group=admin_client.user.groups.first(),
     )
 
+    if action == "undo":
+        case_factory.create_batch(2, meta={"import-id": str(dossier_import.pk)})
+        case_factory()  # unrelated case
+
     resp = admin_client.post(
         reverse(f"dossier-import-{action}", args=(dossier_import.pk,))
     )
     assert resp.status_code == expected_response_code
     if expected_response_code == status.HTTP_200_OK:
-        dossier_import.refresh_from_db()
-        assert dossier_import.status == status_after
+        if status_after == "deleted":
+            assert not DossierImport.objects.filter(pk=dossier_import.pk).exists()
+            assert not Case.objects.filter(
+                **{"meta__import-id": str(dossier_import.pk)}
+            ).exists()
+        else:
+            dossier_import.refresh_from_db()
+            assert dossier_import.status == status_after
 
 
+@pytest.mark.parametrize("location_required", [True, False])
 def test_transmitting_logic(
-    db, dossier_import_factory, archive_file, group, settings, requests_mock
+    db,
+    dossier_import_factory,
+    archive_file,
+    group,
+    settings,
+    requests_mock,
+    location_required,
 ):
     settings.APPLICATION = settings.APPLICATIONS["kt_bern"]
     settings.APPLICATION["DOSSIER_IMPORT"]["PROD_URL"] = "http://camac-ng.local"
+    settings.APPLICATION["DOSSIER_IMPORT"]["LOCATION_REQUIRED"] = location_required
     settings.APPLICATION["DOSSIER_IMPORT"][
         "PROD_AUTH_URL"
     ] = settings.KEYCLOAK_OIDC_TOKEN_URL
@@ -334,6 +411,11 @@ def test_transmitting_logic(
         json={"access_token": "hello123"},
         complete_qs=True,
     )
+
+    def matcher(request):
+        assert bool(request.body.fields.get("location_id", False)) == location_required
+        return True
+
     requests_mock.register_uri(
         "POST",
         build_url(settings.INTERNAL_BASE_URL, "/api/v1/dossier-imports"),
@@ -345,6 +427,7 @@ def test_transmitting_logic(
                 "relationships": {},
             }
         },
+        additional_matcher=matcher,
     )
 
     # Call domain logic directly, this can be removed once sync calls in Q cluster work

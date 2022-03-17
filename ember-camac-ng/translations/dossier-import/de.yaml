@@ -108,6 +108,13 @@ dossierImport:
         buttonLabel: Import übertragen
         success: Der Import wurde erfolgreich übertragen.
         error: Beim Übertragen des Imports ist etwas schiefgegangen.
+      undoImport:
+        title: Import rückgängig machen
+        description: |-
+          Löscht den Import sowie alle dabei importieren Dossiers.
+        buttonLabel: Import rückgängig machen
+        success: Der Import wurde erfolgreich rückgängig gemacht.
+        error: Beim Rückgängigmachen des Imports ist etwas schiefgegangen.
       deleteImport:
         title: Import löschen
         description: Falls Sie den Import nicht mehr benötigen, können Sie ihn hier löschen.

@@ -8,10 +8,10 @@ const paths = [
   "../django/kt_bern/config/caluma_form_common.json",
   "../django/kt_bern/config/caluma_dossier_import_form.json",
   "../django/kt_bern/config/caluma_form.json",
-  "../django/kt_bern/config/caluma_form.json",
   "../django/kt_bern/config/caluma_form_v2.json",
   "../django/kt_bern/config/caluma_audit_form.json",
   "../django/kt_bern/config/caluma_publication_form.json",
+  "../django/kt_bern/config/caluma_solar_plants_form.json",
 ];
 
 export const config = paths.reduce(

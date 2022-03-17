@@ -5,7 +5,6 @@ export default class ApplicationRoute extends Route {
   @service intl;
   @service session;
   @service shoebox;
-  @service moment;
   @service calumaOptions;
 
   async beforeModel(transition) {
@@ -21,7 +20,6 @@ export default class ApplicationRoute extends Route {
       const locale = `${language}-ch`;
 
       this.intl.setLocale([locale, language]);
-      this.moment.setLocale(locale);
     }
 
     this.calumaOptions.registerComponentOverride({

@@ -1,11 +1,9 @@
 import Controller from "@ember/controller";
-import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import calumaQuery from "@projectcaluma/ember-core/caluma-query";
 import { allWorkItems } from "@projectcaluma/ember-core/caluma-query/queries";
 import { queryManager } from "ember-apollo-client";
 import { dropTask, lastValue } from "ember-concurrency";
-import moment from "moment";
 
 import completeWorkItem from "camac-ng/gql/mutations/complete-work-item.graphql";
 import saveWorkItem from "camac-ng/gql/mutations/save-workitem.graphql";
@@ -136,10 +134,5 @@ export default class WorkItemsInstanceEditController extends Controller {
     } catch (error) {
       this.notifications.error(this.intl.t("workItems.saveError"));
     }
-  }
-
-  @action
-  setDeadline(value) {
-    this.workItem.deadline = moment(value);
   }
 }

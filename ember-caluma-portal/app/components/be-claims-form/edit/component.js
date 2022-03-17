@@ -2,7 +2,7 @@ import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { dropTask, restartableTask } from "ember-concurrency";
-import moment from "moment";
+import { DateTime } from "luxon";
 import { all } from "rsvp";
 
 import config from "caluma-portal/config/environment";
@@ -25,7 +25,7 @@ export default class BeClaimsFormEditComponent extends Component {
 
   get section() {
     return this.args.document.jexl.evalSync(
-      this.args.form.meta["attachment-section"],
+      this.args.form.raw.meta["attachment-section"],
       this.args.document.jexlContext
     );
   }
@@ -151,11 +151,8 @@ export default class BeClaimsFormEditComponent extends Component {
 
   @dropTask
   *updateClaim() {
-    this.args.claim.set(
-      "status.answer.value",
-      "nfd-tabelle-status-beantwortet"
-    );
-    this.args.claim.set("answered.answer.value", moment().format("YYYY-MM-DD"));
+    this.args.claim.status.answer.value = "nfd-tabelle-status-beantwortet";
+    this.args.claim.answered.answer.value = DateTime.now().toISODate();
 
     yield all(
       [

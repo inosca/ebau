@@ -1,9 +1,10 @@
+import { getOwner } from "@ember/application";
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import { dropTask } from "ember-concurrency";
 import { useTask } from "ember-resources";
 import { handleUnauthorized } from "ember-simple-auth-oidc";
-import oidcConfig from "ember-simple-auth-oidc/config";
+import { getConfig } from "ember-simple-auth-oidc/config";
 import Session from "ember-simple-auth-oidc/services/session";
 import { getUserLocales } from "get-user-locale";
 import { localCopy, cached } from "tracked-toolbox";
@@ -11,7 +12,6 @@ import { localCopy, cached } from "tracked-toolbox";
 import config from "../config/environment";
 
 const { languages, fallbackLanguage } = config;
-const { authHeaderName, authPrefix, tokenPropertyName } = oidcConfig;
 
 const validateLanguage = (language) =>
   languages.find((lang) => lang === language);
@@ -20,7 +20,6 @@ export default class CustomSession extends Session {
   @service fetch;
   @service store;
   @service intl;
-  @service moment;
   @service router;
 
   @tracked groups = [];
@@ -86,11 +85,14 @@ export default class CustomSession extends Session {
     const locale = `${language}-ch`;
 
     this.intl.setLocale([locale, language]);
-    this.moment.setLocale(locale);
   }
 
   get authHeaders() {
     if (!this.isAuthenticated) return {};
+
+    const { authHeaderName, authPrefix, tokenPropertyName } = getConfig(
+      getOwner(this)
+    );
 
     const token = this.data.authenticated[tokenPropertyName];
     const tokenKey = authHeaderName.toLowerCase();

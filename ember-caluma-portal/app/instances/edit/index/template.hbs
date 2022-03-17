@@ -185,7 +185,7 @@
         {{t "instances.deleteInstanceText"}}
       </p>
       <UkButton
-        @onClick={{perform this.deleteInstance this.instance.value}}
+        @onClick={{perform this.deleteInstance}}
         @disabled={{this.deleteInstance.isRunning}}
         @loading={{this.deleteInstance.isRunning}}
       >

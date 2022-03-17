@@ -26,6 +26,9 @@ export default class DossierImportIndexController extends Controller {
   @lastValue("fetchLocations") locations;
   @restartableTask
   *fetchLocations() {
+    if (this.shoebox.isSupportRole) {
+      return yield this.store.findAll("location");
+    }
     const group = yield this.store.findRecord(
       "group",
       this.shoebox.content.groupId
@@ -45,7 +48,7 @@ export default class DossierImportIndexController extends Controller {
     formData.append("group", this.shoebox.content.groupId);
 
     // Locations only available (and necessary) for Kt. SZ
-    if (this.locations) {
+    if (this.locations.length) {
       formData.append(
         "location_id",
         this.selectedLocation?.id || this.locations.firstObject?.id

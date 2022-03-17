@@ -12,19 +12,8 @@ from camac.caluma.utils import CamacRequest
 from camac.constants.kt_bern import DASHBOARD_FORM_SLUG
 from camac.instance.filters import CalumaInstanceFilterSet
 from camac.instance.mixins import InstanceQuerysetMixin
-from camac.instance.models import Instance
 from camac.user.models import Role
 from camac.utils import filters
-
-
-def disallow_public_access(fn):
-    def wrapper(self, node, queryset, info):
-        if not info.context.user.is_authenticated:
-            return queryset.none()
-
-        return fn(self, node, queryset, info)
-
-    return wrapper
 
 
 class CustomVisibility(Authenticated, InstanceQuerysetMixin):
@@ -78,23 +67,16 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
         return queryset
 
     @filter_queryset_for(workflow_schema.Case)
-    @disallow_public_access
     def filter_queryset_for_case(self, node, queryset, info):
         return queryset.filter(
             family__instance__pk__in=self._all_visible_instances(info)
         )
 
     @filter_queryset_for(workflow_schema.WorkItem)
-    @disallow_public_access
     def filter_queryset_for_work_items(self, node, queryset, info):
         return queryset.filter(
             case__family__instance__pk__in=self._all_visible_instances(info)
         )
-
-    def get_base_queryset(self):
-        """Overridden from InstanceQuerysetMixin to avoid the super().get_queryset() call."""
-        instance_state_expr = self._get_instance_filter_expr("instance_state")
-        return Instance.objects.all().select_related(instance_state_expr)
 
     def _all_visible_instances(self, info):
         """Fetch visible camac instances and cache the result.
@@ -238,3 +220,22 @@ class CustomVisibilitySZ(CustomVisibility):
     def filter_queryset_public(self, node, queryset, info):
         # this is blueprint data which is uncritical and can be exposed publicly
         return queryset
+
+    @filter_queryset_for(workflow_schema.Case)
+    def filter_queryset_for_case(self, node, queryset, info):
+        # Child cases are used for instances in circulation but
+        # shouldn't be returned for cases list (marked by the
+        # exclude_child_cases)
+        exclude_child_cases = filters(CamacRequest(info).request).get(
+            "exclude_child_cases"
+        )
+
+        if exclude_child_cases == "true":
+            return queryset.filter(
+                family__instance__pk__in=self._all_visible_instances(info),
+                parent_work_item__isnull=True,
+            )
+
+        return queryset.filter(
+            family__instance__pk__in=self._all_visible_instances(info),
+        )

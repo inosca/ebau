@@ -16,6 +16,7 @@ export default class InstanceModel extends Model {
   @belongsTo form;
   @belongsTo instanceState;
   @belongsTo location;
+  @belongsTo("service") circulationInitializerService;
 
   @hasMany circulations;
   @hasMany services;
@@ -40,5 +41,10 @@ export default class InstanceModel extends Model {
 
   get dossierNumber() {
     return this._caseMeta?.["dossier-number"];
+  }
+
+  unlink() {
+    const adapter = this.store.adapterFor("instance");
+    return adapter.unlink(this);
   }
 }

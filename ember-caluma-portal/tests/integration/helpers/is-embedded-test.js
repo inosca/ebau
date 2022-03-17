@@ -10,17 +10,5 @@ module("Integration | Helper | is-embedded", function (hooks) {
     await render(hbs`{{is-embedded}}`);
 
     assert.dom(this.element).hasText("false");
-
-    const oldDescriptor = Object.getOwnPropertyDescriptor(
-      window,
-      "frameElement"
-    );
-    Object.defineProperty(window, "frameElement", { value: document });
-
-    await render(hbs`{{is-embedded}}`);
-
-    assert.dom(this.element).hasText("true");
-
-    Object.defineProperty(window, "frameElement", oldDescriptor);
   });
 });

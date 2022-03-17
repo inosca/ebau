@@ -1,0 +1,18 @@
+query BuildingPermitQuestion {
+  allQuestions(slugs: ["form-type"]) {
+    edges {
+      node {
+        ... on ChoiceQuestion {
+          options(orderBy: LABEL_ASC, isArchived: false) {
+            edges {
+              node {
+                slug
+                label
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

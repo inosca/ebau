@@ -15,11 +15,28 @@ const UNUSED_ENVS = ENVS.filter((e) => e !== ENV).join("|");
 
 module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
-    sourcemaps: { enabled: true },
-    SRI: { enabled: false },
-    fingerprint: { enabled: false },
+    "@embroider/macros": {
+      setOwnConfig: {
+        features: {
+          faq: ENV === "be",
+          publication: {
+            form: ENV === "be",
+            endDate: ENV === "ur",
+          },
+        },
+      },
+    },
     "ember-simple-auth": {
       useSessionSetupMethod: true,
+    },
+    fingerprint: {
+      exclude: [
+        "images/layers-2x.png",
+        "images/layers.png",
+        "images/marker-icon-2x.png",
+        "images/marker-icon.png",
+        "images/marker-shadow.png",
+      ],
     },
   });
 

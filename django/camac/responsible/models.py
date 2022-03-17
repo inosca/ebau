@@ -53,8 +53,10 @@ class IrEditresponsibleuser(models.Model):
     column_name = models.CharField(
         db_column="COLUMN_NAME", max_length=30, blank=True, null=True
     )
-    is_service_responsible = models.NullBooleanField(db_column="IS_SERVICE_RESPONSIBLE")
-    is_required = models.NullBooleanField(db_column="IS_REQUIRED")
+    is_service_responsible = models.BooleanField(
+        db_column="IS_SERVICE_RESPONSIBLE", null=True
+    )
+    is_required = models.BooleanField(db_column="IS_REQUIRED", null=True)
 
     class Meta:
         managed = True
@@ -71,8 +73,10 @@ class ASetresponsiblegroup(models.Model):
     )
     table_name = models.CharField(db_column="TABLE_NAME", max_length=30)
     column_name = models.CharField(db_column="COLUMN_NAME", max_length=30)
-    is_service_responsible = models.NullBooleanField(db_column="IS_SERVICE_RESPONSIBLE")
-    is_required = models.NullBooleanField(db_column="IS_REQUIRED")
+    is_service_responsible = models.BooleanField(
+        db_column="IS_SERVICE_RESPONSIBLE", null=True
+    )
+    is_required = models.BooleanField(db_column="IS_REQUIRED", null=True)
 
     class Meta:
         managed = True

@@ -11,9 +11,9 @@ from camac.instance.serializers import SUBMIT_DATE_FORMAT
     "call_args,expected_queries",
     [
         (("12345",), 2),
-        ((), 811),
+        ((), 710),
         (("--dry-run",), 508),
-        (("--no-recompute",), 811),
+        (("--no-recompute",), 710),
     ],
 )
 def test_calculate_cycle_times_command(

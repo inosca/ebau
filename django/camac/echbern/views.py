@@ -146,6 +146,7 @@ class EventView(ECHInstanceQuerysetMixin, GenericViewSet):
     queryset = Instance.objects
     swagger_schema = None
     parser_classes = (JSONParser,)
+    serializer_class = Serializer
 
     def has_create_permission(self):
         if self.request.group.role.name == "support":

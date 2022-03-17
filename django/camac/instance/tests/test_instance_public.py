@@ -171,6 +171,9 @@ def test_public_caluma_instance_oereb_ur(
     is_oereb_form,
 ):
     application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_uri"]["MASTER_DATA"]
+    application_settings["INSTANCE_HIDDEN_STATES"] = settings.APPLICATIONS["kt_uri"][
+        "INSTANCE_HIDDEN_STATES"
+    ]
     application_settings["USE_OEREB_FIELDS_FOR_PUBLIC_ENDPOINT"] = True
 
     oereb_form = form_factory()
@@ -284,7 +287,7 @@ def test_public_caluma_documents_ur(
 @pytest.mark.parametrize("role__name", ["Applicant"])
 @pytest.mark.parametrize(
     "headers,num_queries,num_instances",
-    [({}, 2, 0), ({"HTTP_X_CAMAC_PUBLIC_ACCESS": True}, 5, 1)],
+    [({}, 2, 0), ({"HTTP_X_CAMAC_PUBLIC_ACCESS": True}, 6, 1)],
 )
 def test_public_instance_sz(
     db,

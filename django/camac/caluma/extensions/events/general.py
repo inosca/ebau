@@ -28,12 +28,21 @@ def get_caluma_setting(key, default=None):
     return settings.APPLICATION.get("CALUMA", {}).get(key, default)
 
 
-def get_instance_id(work_item):
-    return work_item.case.family.instance.pk
+def get_instance_id(work_item, context=None):
+    # When starting a new case, the foreign key relationship instance.case
+    # and case.instance is only instantiated afterwards
+    family = work_item.case.family
+    if hasattr(family, "instance"):
+        return family.instance.pk
+
+    if context:
+        return context.get("instance")
+
+    return None  # pragma: no cover
 
 
-def get_instance(work_item):
-    return Instance.objects.get(pk=get_instance_id(work_item))
+def get_instance(work_item, context=None):
+    return Instance.objects.get(pk=get_instance_id(work_item, context))
 
 
 @on(post_create_work_item, raise_exception=True)
@@ -174,7 +183,7 @@ def set_assigned_user(sender, work_item, user, **kwargs):
     if len(work_item.assigned_users) or not addressed_group:
         return
 
-    instance = get_instance(work_item)
+    instance = get_instance(work_item, context=kwargs.get("context"))
     service = user_models.Service.objects.get(pk=addressed_group)
 
     responsible = instance.responsible_services.filter(service=service).values_list(

@@ -181,12 +181,10 @@ class AttachmentView(
     ordering_fields = ("name", "date", "size")
 
     def has_object_destroy_permission(self, attachment):
-        if attachment.attachment_sections.count() > 1:
-            return False
-
-        return attachment.attachment_sections.first().can_destroy(
-            attachment, self.request.group
-        )
+        for section in attachment.attachment_sections.all():
+            if not section.can_destroy(attachment, self.request.group):
+                return False
+        return True
 
     @swagger_auto_schema(
         tags=["File download service"],
@@ -269,16 +267,13 @@ class AttachmentDownloadView(
 
     def _create_history_entry(self, request, attachment):
         fields = {
-            "keycloak_id": request.user.username,
-            "name": "{0} {1}".format(
-                getattr(request.user, "name", "Anonymous"),
-                getattr(request.user, "surname", "User"),
-            ),
             "attachment": attachment,
         }
 
         if bool(request.group):
             fields["group"] = request.group
+        if request.user.is_authenticated:
+            fields["user"] = request.user
         return models.AttachmentDownloadHistory.objects.create(**fields)
 
     @swagger_auto_schema(auto_schema=None)
@@ -452,7 +447,7 @@ class TemplateView(ModelViewSet):
         response["Content-Disposition"] = 'attachment; filename="{0}"'.format(filename)
         response["Content-Type"] = mimetypes.guess_type(filename)[0]
 
-        serializer = self.get_serializer(instance, escape=True)
+        serializer = self.get_serializer(instance=instance, escape=True)
         serializer.validate_instance(instance)
         data = serializer.data
 

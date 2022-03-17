@@ -391,6 +391,23 @@ def test_form_visibility_sz(
     service_factory,
     mocker,
 ):
+    """Visibility test configuration.
+
+    The 6 test forms are configured with the following visibilites:
+
+        Form 1: No visibility configured.
+        Form 2: Public visibility.
+        Form 3: Internal visibility.
+        Form 4: Specific visibility for roles 'Admin' and 'Gemeinde' or
+                for services 'Service 1', 'Service 2' and 'Service 3'.
+        Form 5: Specific visibility for roles 'Admin', 'Gemeinde' and
+                'Fachstelle Leitbehörde'.
+        Form 6: Specific visibility for service 'Service 4'.
+
+    In the CustomVisibility class all the forms are visible (expected_form_count_public).
+    In the CustomVisibilitySZ class, the number of forms that are visible to
+    the request user depends on their role and service (expected_form_count_sz).
+    """
     # Kt. SZ specific public roles configuration
     application_settings["PUBLIC_ROLES"] = settings.APPLICATIONS["kt_schwyz"][
         "PUBLIC_ROLES"
@@ -503,3 +520,83 @@ def test_form_visibility_sz(
     )
     result = schema.execute(query, context_value=request, middleware=[])
     assert len(result.data["allForms"]["edges"]) == expected_form_count_sz
+
+
+@pytest.mark.parametrize(
+    "role__name,exclude_child_case,expected_count",
+    [
+        ("Support", "true", 1),
+        ("Support", "false", 2),
+        ("Service", "true", 1),
+        ("Service", "false", 2),
+        ("Municipality", "true", 1),
+        ("Municipality", "false", 2),
+        ("Applicant", "true", 0),
+        ("Applicant", "false", 0),
+    ],
+)
+def test_case_visibility_sz(
+    rf,
+    expected_count,
+    instance_factory,
+    caluma_admin_user,
+    instance,
+    caluma_workflow_config_sz,
+    circulation,
+    exclude_child_case,
+    work_item_factory,
+    mocker,
+):
+    mocker.patch(
+        "caluma.caluma_core.types.Node.visibility_classes", [CustomVisibilitySZ]
+    )
+
+    case = workflow_api.start_case(
+        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
+        form=caluma_form_models.Form.objects.get(pk="main-form"),
+        user=caluma_admin_user,
+    )
+    instance.case = case
+    instance.save()
+
+    circulation.instance = instance
+    circulation.save()
+
+    child_instance = instance_factory()
+    child_case = workflow_api.start_case(
+        workflow=caluma_workflow_models.Workflow.objects.get(pk="circulation"),
+        form=caluma_form_models.Form.objects.get(pk="main-form"),
+        family=case,
+        user=caluma_admin_user,
+    )
+
+    child_instance.case = child_case
+    child_instance.save()
+
+    work_item_factory(
+        task=caluma_workflow_models.Task.objects.get(pk="circulation"),
+        case=circulation.instance.case,
+        child_case=child_case,
+    )
+
+    request = rf.get(
+        "/graphql",
+        **{"HTTP_X_CAMAC_FILTERS": f"exclude_child_cases={exclude_child_case}"},
+    )
+    request.user = caluma_admin_user
+
+    query = """
+        query {
+            allCases {
+                edges {
+                    node {
+                        id
+                    }
+                }
+            }
+        }
+    """
+
+    result = schema.execute(query, context_value=request, middleware=[])
+    assert not result.errors
+    assert len(result.data["allCases"]["edges"]) == expected_count

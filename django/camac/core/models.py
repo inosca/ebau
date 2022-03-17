@@ -230,7 +230,7 @@ class ADeleteCirculation(models.Model):
     circulation_to_be_interpreted = models.CharField(
         db_column="CIRCULATION_TO_BE_INTERPRETED", max_length=100, blank=True, null=True
     )
-    is_single_delete = models.NullBooleanField(db_column="IS_SINGLE_DELETE")
+    is_single_delete = models.BooleanField(db_column="IS_SINGLE_DELETE", null=True)
 
     class Meta:
         managed = True
@@ -2192,6 +2192,7 @@ class InstanceResource(MultilingualModel, models.Model):
     class Meta:
         managed = True
         db_table = "INSTANCE_RESOURCE"
+        ordering = ["resource__sort", "sort"]
 
 
 class InstanceResourceAction(models.Model):
@@ -3867,6 +3868,7 @@ class Resource(MultilingualModel, models.Model):
     class Meta:
         managed = True
         db_table = "RESOURCE"
+        ordering = ["sort"]
 
 
 class ResourceT(models.Model):
