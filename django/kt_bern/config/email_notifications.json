@@ -475,8 +475,8 @@
       "template_slug": "00-empfang-anfragebaugesuch-gesuchsteller",
       "language": "de",
       "purpose": "00 Empfang Baugesuch (Gesuchsteller)",
-      "subject": "Erfolgreiche Einreichung / Formulaire d\u00e9pos\u00e9 avec succ\u00e8s",
-      "body": "Guten Tag\r\n\r\nIhr Dossier mit der Dossier-Nr. {{INSTANCE_ID}} wurde erfolgreich \u00fcbermittelt. Alle auf eBau hochgeladenen Pl\u00e4ne und Dokumente m\u00fcssen unterschrieben, datiert und in mindestens zweifacher Ausfertigung mit dem Gesuchsformular bei der zust\u00e4ndigen Gemeinde eingereicht werden. Das Dossier wird erst bearbeitet, wenn die Gemeinde das Papierdossier erhalten hat.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nGerne m\u00f6chten wir erfahren wie einfach die elektronische Eingabe eines Dossiers war. Wir bitten Sie daher, sich 2 - 3 Minuten Zeit zu nehmen und den folgenden Fragebogen zu beantworten. Besten Dank.\r\n\r\nhttps://www.onlineumfragen.com/login.cfm?umfrage=87201\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nVotre dossier portant le num\u00e9ro de dossier {{INSTANCE_ID}} a \u00e9t\u00e9 d\u00e9pos\u00e9/e avec succ\u00e8s. Tous les plans et documents t\u00e9l\u00e9charg\u00e9s sur eBau doivent \u00eatre sign\u00e9s, dat\u00e9s et envoy\u00e9s en au moins deux exemplaires avec le formulaire de demande de permis de construire \u00e0 la commune responsable. Le dossier ne sera trait\u00e9 que lorsque la commune aura re\u00e7u le dossier papier.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nCe message a \u00e9t\u00e9 g\u00e9n\u00e9r\u00e9 automatiquement, veuillez ne pas y r\u00e9pondre.\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
+      "subject": "Erfolgreiche Einreichung / Formulaire déposé avec succès",
+      "body": "Guten Tag\r\n\r\nIhr Dossier mit der Dossier-Nr. {{INSTANCE_ID}} wurde erfolgreich übermittelt. Alle auf eBau hochgeladenen Pläne und Dokumente müssen unterschrieben, datiert und in mindestens zweifacher Ausfertigung mit dem Gesuchsformular bei der zuständigen Gemeinde eingereicht werden. Das Dossier wird erst bearbeitet, wenn die Gemeinde das Papierdossier erhalten hat.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nGerne möchten wir erfahren wie einfach die elektronische Eingabe eines Dossiers war. Wir bitten Sie daher, sich 2 - 3 Minuten Zeit zu nehmen und den folgenden Fragebogen zu beantworten. Besten Dank.\r\n\r\nhttps://www.onlineumfragen.com/login.cfm?umfrage=87201\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nVotre dossier portant le numéro de dossier {{INSTANCE_ID}} a été déposé/e avec succès. Tous les plans et documents téléchargés sur eBau doivent être signés, datés et envoyés en au moins deux exemplaires avec le formulaire de demande de permis de construire à la commune responsable. Le dossier ne sera traité que lorsque la commune aura reçu le dossier papier.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
     }
   },
   {
@@ -486,9 +486,9 @@
       "template": 2,
       "template_slug": "00-empfang-anfragebaugesuch-behorden",
       "language": "de",
-      "purpose": "00 Empfang Anfrage/Baugesuch - (Beh\u00f6rden)",
-      "subject": "Neu eingegangen / Nouvelle entr\u00e9e",
-      "body": "Guten Tag\r\n\r\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. {{INSTANCE_ID}}.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\neBau\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\neBau a enregistr\u00e9 une nouvelle entr\u00e9e portant le num\u00e9ro de dossier {{INSTANCE_ID}}.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nCe message a \u00e9t\u00e9 g\u00e9n\u00e9r\u00e9 automatiquement, veuillez ne pas y r\u00e9pondre.\r\n\r\neBau"
+      "purpose": "00 Empfang Anfrage/Baugesuch - (Behörden)",
+      "subject": "Neu eingegangen / Nouvelle entrée",
+      "body": "Guten Tag\r\n\r\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. {{INSTANCE_ID}}.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\neBau\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\neBau a enregistré une nouvelle entrée portant le numéro de dossier {{INSTANCE_ID}}.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\neBau"
     }
   },
   {
@@ -498,9 +498,9 @@
       "template": 3,
       "template_slug": "00-empfang-vorabklaerung-gesuchsteller",
       "language": "de",
-      "purpose": "00 Empfang Vorabkl\u00e4rung (Gesuchsteller)",
-      "subject": "Erfolgreiche Einreichung / Formulaire d\u00e9pos\u00e9 avec succ\u00e8s",
-      "body": "Guten Tag\r\n\r\nIhr Dossier mit der Dossier-Nr. {{INSTANCE_ID}} wurde erfolgreich \u00fcbermittelt.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nGerne m\u00f6chten wir erfahren wie einfach die elektronische Eingabe eines Dossiers war. Wir bitten Sie daher, sich 2 - 3 Minuten Zeit zu nehmen und den folgenden Fragebogen zu beantworten. Besten Dank.\r\n\r\nhttps://www.onlineumfragen.com/login.cfm?umfrage=87201\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nVotre dossier portant le num\u00e9ro de dossier {{INSTANCE_ID}} a \u00e9t\u00e9 d\u00e9pos\u00e9/e avec succ\u00e8s.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nCe message a \u00e9t\u00e9 g\u00e9n\u00e9r\u00e9 automatiquement, veuillez ne pas y r\u00e9pondre.\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
+      "purpose": "00 Empfang Vorabklärung (Gesuchsteller)",
+      "subject": "Erfolgreiche Einreichung / Formulaire déposé avec succès",
+      "body": "Guten Tag\r\n\r\nIhr Dossier mit der Dossier-Nr. {{INSTANCE_ID}} wurde erfolgreich übermittelt.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nGerne möchten wir erfahren wie einfach die elektronische Eingabe eines Dossiers war. Wir bitten Sie daher, sich 2 - 3 Minuten Zeit zu nehmen und den folgenden Fragebogen zu beantworten. Besten Dank.\r\n\r\nhttps://www.onlineumfragen.com/login.cfm?umfrage=87201\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nVotre dossier portant le numéro de dossier {{INSTANCE_ID}} a été déposé/e avec succès.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
     }
   },
   {
@@ -511,8 +511,8 @@
       "template_slug": "01-empfang-baugesuch-gemeinde",
       "language": "de",
       "purpose": "01 Empfang Dossier (Gemeinde)",
-      "subject": "Empfang Dossier eBau-Nr. {{EBAU_NUMBER}} / R\u00e9ception du dossier portant le num\u00e9ro eBau {{EBAU_NUMBER}}",
-      "body": "Guten Tag\r\n\r\nDas Dossier mit der eBau-Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) wurde erfolgreich abgeschlossen. Das Baubewilligungsverfahren wird von der Gemeinde {{LEITBEHOERDE_NAME_DE}} er\u00f6ffnet.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nLe dossier portant le num\u00e9ro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}) a \u00e9t\u00e9 transmise avec succ\u00e8s. La commune de {{LEITBEHOERDE_NAME_FR}} ouvre la proc\u00e9dure d'octroi du permis de construire.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nCe message a \u00e9t\u00e9 g\u00e9n\u00e9r\u00e9 automatiquement, veuillez ne pas y r\u00e9pondre.\r\n\r\n{{LEITBEHOERDE_NAME_FR}}"
+      "subject": "Empfang Dossier eBau-Nr. {{EBAU_NUMBER}} / Réception du dossier portant le numéro eBau {{EBAU_NUMBER}}",
+      "body": "Guten Tag\r\n\r\nDas Dossier mit der eBau-Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) wurde erfolgreich abgeschlossen. Das Baubewilligungsverfahren wird von der Gemeinde {{LEITBEHOERDE_NAME_DE}} eröffnet.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nLe dossier portant le numéro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}) a été transmise avec succès. La commune de {{LEITBEHOERDE_NAME_FR}} ouvre la procédure d'octroi du permis de construire.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\n{{LEITBEHOERDE_NAME_FR}}"
     }
   },
   {
@@ -522,9 +522,9 @@
       "template": 5,
       "template_slug": "02-empfangsbestatigung-baugesuch-gesuchsteller",
       "language": "de",
-      "purpose": "02 Empfangsbest\u00e4tigung Dossier (Gesuchsteller)",
-      "subject": "Empfangsbest\u00e4tigung Dossier (eBau-Nr. {{EBAU_NUMBER}}) / Accus\u00e9 de r\u00e9ception du dossier (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nDas Dossier mit der eBau-Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) wurde erfolgreich \u00fcbermittelt. Das Verfahren wird nun ausgel\u00f6st. Sie werden \u00fcber die Statusmeldungen informiert. \r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nLe dossier portant le num\u00e9ro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}) a \u00e9t\u00e9 d\u00e9pos\u00e9e avec succ\u00e8s. La proc\u00e9dure est ouverte et tout changement de statut vous sera communiqu\u00e9. \r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nCe message a \u00e9t\u00e9 g\u00e9n\u00e9r\u00e9 automatiquement, veuillez ne pas y r\u00e9pondre.\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
+      "purpose": "02 Empfangsbestätigung Dossier (Gesuchsteller)",
+      "subject": "Empfangsbestätigung Dossier (eBau-Nr. {{EBAU_NUMBER}}) / Accusé de réception du dossier (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nDas Dossier mit der eBau-Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) wurde erfolgreich übermittelt. Das Verfahren wird nun ausgelöst. Sie werden über die Statusmeldungen informiert. \r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nLe dossier portant le numéro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}) a été déposée avec succès. La procédure est ouverte et tout changement de statut vous sera communiqué. \r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
     }
   },
   {
@@ -534,9 +534,9 @@
       "template": 6,
       "template_slug": "02-rueckweisung-gemeinde",
       "language": "de",
-      "purpose": "02 R\u00fcckweisung (Gemeinde)",
-      "subject": "Dossier aufgrund von M\u00e4ngeln abgewiesen oder nicht darauf eingetreten (eBau Nr. {{EBAU_NUMBER}}) / Dossier rejet\u00e9 en raison de d\u00e9fauts ou non satisfaite (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nDie Baubewilligungsbeh\u00f6rde {{LEITBEHOERDE_NAME_DE}} hat das Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) zur\u00fcckgewiesen.\r\n\r\nMitteilung der Baubewilligungsbeh\u00f6rde:\r\n\r\n{{REJECTION_FEEDBACK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur, \r\n\r\nL'autorit\u00e9 du permis de construire {{LEITBEHOERDE_NAME_FR}} a rejet\u00e9 le dossier avec eBau N\u00b0 {{EBAU_NUMBER}}. ({{INSTANCE_ID}}).\r\n\r\nCommunication de l'autorit\u00e9 d'octroi du permis de construire:\r\n\r\n{{REJECTION_FEEDBACK}}\r\n\r\nCe message a \u00e9t\u00e9 g\u00e9n\u00e9r\u00e9 automatiquement, veuillez ne pas y r\u00e9pondre."
+      "purpose": "02 Rückweisung (Gemeinde)",
+      "subject": "Dossier aufgrund von Mängeln abgewiesen oder nicht darauf eingetreten (eBau Nr. {{EBAU_NUMBER}}) / Dossier rejeté en raison de défauts ou non satisfaite (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nDie Baubewilligungsbehörde {{LEITBEHOERDE_NAME_DE}} hat das Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) zurückgewiesen.\r\n\r\nMitteilung der Baubewilligungsbehörde:\r\n\r\n{{REJECTION_FEEDBACK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur, \r\n\r\nL'autorité du permis de construire {{LEITBEHOERDE_NAME_FR}} a rejeté le dossier avec eBau N° {{EBAU_NUMBER}}. ({{INSTANCE_ID}}).\r\n\r\nCommunication de l'autorité d'octroi du permis de construire:\r\n\r\n{{REJECTION_FEEDBACK}}\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre."
     }
   },
   {
@@ -546,9 +546,9 @@
       "template": 7,
       "template_slug": "02-benachrichtigung-baubewilligungsbehorde",
       "language": "de",
-      "purpose": "02 Benachrichtigung Baubewilligungsbeh\u00f6rde",
-      "subject": "Fortsetzung Dossier (eBau-Nr. {{EBAU_NUMBER}}) / Poursuite du traitement du dossier (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nWir leiten Ihnen zust\u00e4ndigkeitshalber das Dossier mit der eBau-Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) zur Fortsetzung des Baubewilligungsverfahrens weiter.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nVeuillez trouver ci-joint le dossier portant le num\u00e9ro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}), dont la poursuite du traitement rel\u00e8ve de votre comp\u00e9tence.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nCe message a \u00e9t\u00e9 g\u00e9n\u00e9r\u00e9 automatiquement, veuillez ne pas y r\u00e9pondre.\r\n\r\n{{LEITBEHOERDE_NAME_FR}}"
+      "purpose": "02 Benachrichtigung Baubewilligungsbehörde",
+      "subject": "Fortsetzung Dossier (eBau-Nr. {{EBAU_NUMBER}}) / Poursuite du traitement du dossier (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nWir leiten Ihnen zuständigkeitshalber das Dossier mit der eBau-Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) zur Fortsetzung des Baubewilligungsverfahrens weiter.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nVeuillez trouver ci-joint le dossier portant le numéro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}), dont la poursuite du traitement relève de votre compétence.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\n{{LEITBEHOERDE_NAME_FR}}"
     }
   },
   {
@@ -558,9 +558,9 @@
       "template": 8,
       "template_slug": "02-erklarung-zustandigkeit-gemeinde",
       "language": "de",
-      "purpose": "02 Erkl\u00e4rung Zust\u00e4ndigkeit  (Gemeinde)",
-      "subject": "Erkl\u00e4rung Zust\u00e4ndigkeit (eBau Nr. {{EBAU_NUMBER}}) / D\u00e9claration relative \u00e0 la comp\u00e9tence (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nDas Baubewilligungsverfahren f\u00fcr das Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) wurde zust\u00e4ndigkeitshalber \u00fcbernommen. \r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version fran\u00e7aise ***\r\nMadame, Monsieur,\r\n\r\nNotre autorit\u00e9 se charge du dossier portant le num\u00e9ro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}), qui rel\u00e8ve de sa comp\u00e9tence. \r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nCe message a \u00e9t\u00e9 g\u00e9n\u00e9r\u00e9 automatiquement, veuillez ne pas y r\u00e9pondre.\r\n\r\n{{LEITBEHOERDE_NAME_FR}}"
+      "purpose": "02 Erklärung Zuständigkeit  (Gemeinde)",
+      "subject": "Erklärung Zuständigkeit (eBau Nr. {{EBAU_NUMBER}}) / Déclaration relative à la compétence (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nDas Baubewilligungsverfahren für das Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) wurde zuständigkeitshalber übernommen. \r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\nMadame, Monsieur,\r\n\r\nNotre autorité se charge du dossier portant le numéro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}), qui relève de sa compétence. \r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\n{{LEITBEHOERDE_NAME_FR}}"
     }
   },
   {
@@ -570,9 +570,9 @@
       "template": 9,
       "template_slug": "02-baugesuch-aufgrund-mangel-abweisen-oder-nicht-eintreten-art-18-bewd",
       "language": "de",
-      "purpose": "02 R\u00fcckweisung (Gesuchsteller)",
-      "subject": "Dossier aufgrund von M\u00e4ngeln abgewiesen oder nicht darauf eingetreten (eBau Nr. {{EBAU_NUMBER}}) / Dossier rejet\u00e9 en raison de d\u00e9fauts ou non satisfaite (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nDie Baubewilligungsbeh\u00f6rde {{LEITBEHOERDE_NAME_DE}} hat das Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) zur\u00fcckgewiesen. Das Dossier kann nun angepasst und erneut eingereicht werden.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nMitteilung der Baubewilligungsbeh\u00f6rde:\r\n\r\n{{REJECTION_FEEDBACK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur, \r\n\r\nL'autorit\u00e9 du permis de construire {{LEITBEHOERDE_NAME_FR}} a rejet\u00e9 le dossier avec eBau N\u00b0 {{EBAU_NUMBER}}. ({{INSTANCE_ID}}). Le dossier peut maintenant \u00eatre adapt\u00e9e et soumise \u00e0 nouveau. \r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nCommunication de l'autorit\u00e9 d'octroi du permis de construire:\r\n\r\n{{REJECTION_FEEDBACK}}\r\n\r\nCe message a \u00e9t\u00e9 g\u00e9n\u00e9r\u00e9 automatiquement, veuillez ne pas y r\u00e9pondre."
+      "purpose": "02 Rückweisung (Gesuchsteller)",
+      "subject": "Dossier aufgrund von Mängeln abgewiesen oder nicht darauf eingetreten (eBau Nr. {{EBAU_NUMBER}}) / Dossier rejeté en raison de défauts ou non satisfaite (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nDie Baubewilligungsbehörde {{LEITBEHOERDE_NAME_DE}} hat das Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) zurückgewiesen. Das Dossier kann nun angepasst und erneut eingereicht werden.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nMitteilung der Baubewilligungsbehörde:\r\n\r\n{{REJECTION_FEEDBACK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur, \r\n\r\nL'autorité du permis de construire {{LEITBEHOERDE_NAME_FR}} a rejeté le dossier avec eBau N° {{EBAU_NUMBER}}. ({{INSTANCE_ID}}). Le dossier peut maintenant être adaptée et soumise à nouveau. \r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nCommunication de l'autorité d'octroi du permis de construire:\r\n\r\n{{REJECTION_FEEDBACK}}\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre."
     }
   },
   {
@@ -583,8 +583,8 @@
       "template_slug": "03-verfahrensablauf-gesuchsteller",
       "language": "de",
       "purpose": "03 Verfahrensablauf (Gesuchsteller)",
-      "subject": "Hinweis zum Verfahrensablauf (eBau Nr. {{EBAU_NUMBER}}) / Pr\u00e9cision sur le d\u00e9roulement de la proc\u00e9dure (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nDie/das Dossier mit der eBau Nr. {{EBAU_NUMBER}} wurde gepr\u00fcft und das Verfahren ausgel\u00f6st. Entnehmen Sie die Verfahrensdaten den eBau-Dokumenten:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/feedback\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nLe dossier avec le num\u00e9ro d'eBau {{EBAU_NUMBER}}} a \u00e9t\u00e9 v\u00e9rifi\u00e9. La proc\u00e9dure directrice a \u00e9t\u00e9 lanc\u00e9e et vous trouverez les pr\u00e9cisions y relatives dans le document ci-joint.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/feedback\r\n\r\nCe message a \u00e9t\u00e9 g\u00e9n\u00e9r\u00e9 automatiquement, veuillez ne pas y r\u00e9pondre.\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
+      "subject": "Hinweis zum Verfahrensablauf (eBau Nr. {{EBAU_NUMBER}}) / Précision sur le déroulement de la procédure (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nDie/das Dossier mit der eBau Nr. {{EBAU_NUMBER}} wurde geprüft und das Verfahren ausgelöst. Entnehmen Sie die Verfahrensdaten den eBau-Dokumenten:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/feedback\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nLe dossier avec le numéro d'eBau {{EBAU_NUMBER}}} a été vérifié. La procédure directrice a été lancée et vous trouverez les précisions y relatives dans le document ci-joint.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/feedback\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
     }
   },
   {
@@ -595,8 +595,8 @@
       "template_slug": "03-verfahrensablauf-fachstelle",
       "language": "de",
       "purpose": "03 Verfahrensablauf (Fachstelle)",
-      "subject": "Hinweis zum Verfahrensablauf (eBau Nr. {{EBAU_NUMBER}}) / Pr\u00e9cision sur le d\u00e9roulement de la proc\u00e9dure (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nSie erhalten das Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) zur Ausarbeitung einer Stellungnahme, eines Amts-/ Fachberichtes oder einer Verf\u00fcgung gem\u00e4ss Verfahrensprogramm.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n{{CURRENT_SERVICE_DE}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nVeuillez trouver ci-joint le dossier eBau n\u00b0 {{EBAU_NUMBER}} ({{INSTANCE_ID}}) pour la pr\u00e9paration d'une prise de position, d'un rapport officiel/ technique ou d'une d\u00e9cision conform\u00e9ment au programme de proc\u00e9dure.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nCe message a \u00e9t\u00e9 g\u00e9n\u00e9r\u00e9 automatiquement, veuillez ne pas y r\u00e9pondre.\r\n\r\n{{CURRENT_SERVICE_FR}}"
+      "subject": "Hinweis zum Verfahrensablauf (eBau Nr. {{EBAU_NUMBER}}) / Précision sur le déroulement de la procédure (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nSie erhalten das Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) zur Ausarbeitung einer Stellungnahme, eines Amts-/ Fachberichtes oder einer Verfügung gemäss Verfahrensprogramm.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n{{CURRENT_SERVICE_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nVeuillez trouver ci-joint le dossier eBau n° {{EBAU_NUMBER}} ({{INSTANCE_ID}}) pour la préparation d'une prise de position, d'un rapport officiel/ technique ou d'une décision conformément au programme de procédure.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\n{{CURRENT_SERVICE_FR}}"
     }
   },
   {
@@ -606,9 +606,9 @@
       "template": 12,
       "template_slug": "03-meldung-fristuberschreitung-fachstelle",
       "language": "de",
-      "purpose": "03 Meldung Frist\u00fcberschreitung (Fachstelle)",
-      "subject": "Meldung Frist\u00fcberschreitung (eBau Nr. {{EBAU_NUMBER}}) / Avis concernant le d\u00e9passement du d\u00e9lai (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag \r\n\r\nDie gesetzte Frist im Baubewilligungsverfahren f\u00fcr das Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) ist abgelaufen. Fehlende Stellungnahmen,  Amts- und Fachberichte, Verf\u00fcgungen sind bei betroffenen Stellen nachzufordern.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur, \r\n\r\nLe d\u00e9lai fix\u00e9 dans la proc\u00e9dure d'octroi du dossier portant le num\u00e9ro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}) est \u00e9chu. Il convient donc de r\u00e9clamer les prises de position, les rapports officiels ou techniques ou encore les d\u00e9cisions aux instances qui ne les auraient pas encore remis.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nCe message a \u00e9t\u00e9 g\u00e9n\u00e9r\u00e9 automatiquement, veuillez ne pas y r\u00e9pondre.\r\n\r\n{{LEITBEHOERDE_NAME_FR}}"
+      "purpose": "03 Meldung Fristüberschreitung (Fachstelle)",
+      "subject": "Meldung Fristüberschreitung (eBau Nr. {{EBAU_NUMBER}}) / Avis concernant le dépassement du délai (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag \r\n\r\nDie gesetzte Frist im Baubewilligungsverfahren für das Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) ist abgelaufen. Fehlende Stellungnahmen,  Amts- und Fachberichte, Verfügungen sind bei betroffenen Stellen nachzufordern.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n** version française ***\r\n\r\nMadame, Monsieur, \r\n\r\nLe délai fixé dans la procédure d'octroi du dossier portant le numéro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}) est échu. Il convient donc de réclamer les prises de position, les rapports officiels ou techniques ou encore les décisions aux instances qui ne les auraient pas encore remis.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\n{{LEITBEHOERDE_NAME_FR}}"
     }
   },
   {
@@ -619,8 +619,8 @@
       "template_slug": "04-baugesuch-zur-auflage-gemeinde",
       "language": "de",
       "purpose": "04 Dossier zur Auflage (Gemeinde)",
-      "subject": "Dossier zur Auflage (eBau Nr. {{EBAU_NUMBER}}) / Dossier \u00e0 d\u00e9poser publiquement (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nDas Dossier mit der eBau Nr. {{EBAU_NUMBER}} ist gem\u00e4ss Anhang f\u00fcr die \u00f6ffentliche Auflage bereitzustellen.\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nNous vous prions de bien vouloir pr\u00e9parer le d\u00e9p\u00f4t public du dossier portant le num\u00e9ro eBau {{EBAU_NUMBER}} conform\u00e9ment \u00e0 l'annexe.\r\n\r\nCe message a \u00e9t\u00e9 g\u00e9n\u00e9r\u00e9 automatiquement, veuillez ne pas y r\u00e9pondre.\r\n\r\n{{LEITBEHOERDE_NAME_FR}}"
+      "subject": "Dossier zur Auflage (eBau Nr. {{EBAU_NUMBER}}) / Dossier à déposer publiquement (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nDas Dossier mit der eBau Nr. {{EBAU_NUMBER}} ist gemäss Anhang für die öffentliche Auflage bereitzustellen.\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nNous vous prions de bien vouloir préparer le dépôt public du dossier portant le numéro eBau {{EBAU_NUMBER}} conformément à l'annexe.\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\n{{LEITBEHOERDE_NAME_FR}}"
     }
   },
   {
@@ -630,9 +630,9 @@
       "template": 15,
       "template_slug": "04-elektronischer-versand-fur-anzeigeramtsblatt",
       "language": "de",
-      "purpose": "04 Elektronischer Versand f\u00fcr Anzeiger/Amtsblatt",
-      "subject": "Elektronischer Versand f\u00fcr Anzeiger/Amtsblatt (eBau Nr. {{EBAU_NUMBER}}) / Envoi \u00e9lectronique \u00e0 la Feuille officielle/feuille officielle d'avis (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nDas Dossier mit der eBau Nr. {{EBAU_NUMBER}} ist gem\u00e4ss Anhang zu publizieren.\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nNous vous prions de bien vouloir publier le dossier portant le num\u00e9ro eBau {{EBAU_NUMBER}} conform\u00e9ment \u00e0 l'annexe.\r\n\r\nCe message a \u00e9t\u00e9 g\u00e9n\u00e9r\u00e9 automatiquement, veuillez ne pas y r\u00e9pondre.\r\n\r\n{{LEITBEHOERDE_NAME_FR}}"
+      "purpose": "04 Elektronischer Versand für Anzeiger/Amtsblatt",
+      "subject": "Elektronischer Versand für Anzeiger/Amtsblatt (eBau Nr. {{EBAU_NUMBER}}) / Envoi électronique à la Feuille officielle/feuille officielle d'avis (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nDas Dossier mit der eBau Nr. {{EBAU_NUMBER}} ist gemäss Anhang zu publizieren.\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nNous vous prions de bien vouloir publier le dossier portant le numéro eBau {{EBAU_NUMBER}} conformément à l'annexe.\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\n{{LEITBEHOERDE_NAME_FR}}"
     }
   },
   {
@@ -642,9 +642,9 @@
       "template": 16,
       "template_slug": "03-zusaetzliche-unterlagen-notwendig-gemeinde",
       "language": "de",
-      "purpose": "03 Zus\u00e4tzliche Unterlagen notwendig (Gemeinde)",
-      "subject": "Zus\u00e4tzliche Unterlagen notwendig (eBau Nr. {{EBAU_NUMBER}}) / Documents compl\u00e9mentaires requis (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nDie Pr\u00fcfung hat ergeben, dass f\u00fcr die Beurteilung des Dossiers mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) noch weitere Unterlagen / Dokumente notwendig sind.\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nIl ressort d'un premier examen que d'autres documents / indications (selon le document annex\u00e9) sont n\u00e9cessaires \u00e0 l'appr\u00e9ciation du dossier portant le num\u00e9ro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}).\r\n\r\nCe message a \u00e9t\u00e9 g\u00e9n\u00e9r\u00e9 automatiquement, veuillez ne pas y r\u00e9pondre."
+      "purpose": "03 Zusätzliche Unterlagen notwendig (Gemeinde)",
+      "subject": "Zusätzliche Unterlagen notwendig (eBau Nr. {{EBAU_NUMBER}}) / Documents complémentaires requis (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nDie Prüfung hat ergeben, dass für die Beurteilung des Dossiers mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) noch weitere Unterlagen / Dokumente notwendig sind.\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nIl ressort d'un premier examen que d'autres documents / indications (selon le document annexé) sont nécessaires à l'appréciation du dossier portant le numéro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}).\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre."
     }
   },
   {
@@ -654,9 +654,9 @@
       "template": 17,
       "template_slug": "05-meldung-fristuberschreitung-fachstelle",
       "language": "de",
-      "purpose": "05 Meldung Frist\u00fcberschreitung (Fachstelle)",
-      "subject": "Frist\u00fcberschreitung (eBau Nr. {{EBAU_NUMBER}}) / non-respect d'un d\u00e9lai (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag \r\n\r\nSie wurden eingeladen, eine Stellungnahme, einen Amts-/ Fachbericht oder eine Verf\u00fcgung zum Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) zu verfassen. Die Frist ist abgelaufen. Sie werden hiermit aufgefordert, diese umgehend einzugeben.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nVous avez \u00e9t\u00e9 invit\u00e9 \u00e0 r\u00e9diger une prise de position, un rapport officiel/ technique ou une d\u00e9cision relative au dossier eBau n\u00b0 {{EBAU_NUMBER}}. ({{INSTANCE_ID}}). Le d\u00e9lai a expir\u00e9. Nous vous demandons de bien vouloir soumettre ces documents dans les meilleurs d\u00e9lais. \r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nCe message a \u00e9t\u00e9 g\u00e9n\u00e9r\u00e9 automatiquement, veuillez ne pas y r\u00e9pondre.\r\n\r\n{{LEITBEHOERDE_NAME_FR}}"
+      "purpose": "05 Meldung Fristüberschreitung (Fachstelle)",
+      "subject": "Fristüberschreitung (eBau Nr. {{EBAU_NUMBER}}) / non-respect d'un délai (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag \r\n\r\nSie wurden eingeladen, eine Stellungnahme, einen Amts-/ Fachbericht oder eine Verfügung zum Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) zu verfassen. Die Frist ist abgelaufen. Sie werden hiermit aufgefordert, diese umgehend einzugeben.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nVous avez été invité à rédiger une prise de position, un rapport officiel/ technique ou une décision relative au dossier eBau n° {{EBAU_NUMBER}}. ({{INSTANCE_ID}}). Le délai a expiré. Nous vous demandons de bien vouloir soumettre ces documents dans les meilleurs délais. \r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\n{{LEITBEHOERDE_NAME_FR}}"
     }
   },
   {
@@ -666,9 +666,9 @@
       "template": 18,
       "template_slug": "06-information-uber-eingabe-einsprecher",
       "language": "de",
-      "purpose": "06 Information \u00fcber Eingabe (Einsprecher)",
-      "subject": "Information \u00fcber Ihre Eingabe (eBau Nr. {{EBAU_NUMBER}}) / Information relative \u00e0 votre envoi (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag \r\n\r\nIhre Eingabe (Einsprache, Rechtsverwahrung, Lastenausgleich) wurde erfolgreich \u00fcbermittelt. \r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur, \r\n\r\nVotre opposition, r\u00e9serve de droit ou demande de compensation des charges a \u00e9t\u00e9 d\u00e9pos\u00e9e avec succ\u00e8s.\r\n\r\nCe message a \u00e9t\u00e9 g\u00e9n\u00e9r\u00e9 automatiquement, veuillez ne pas y r\u00e9pondre.\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
+      "purpose": "06 Information über Eingabe (Einsprecher)",
+      "subject": "Information über Ihre Eingabe (eBau Nr. {{EBAU_NUMBER}}) / Information relative à votre envoi (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag \r\n\r\nIhre Eingabe (Einsprache, Rechtsverwahrung, Lastenausgleich) wurde erfolgreich übermittelt. \r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur, \r\n\r\nVotre opposition, réserve de droit ou demande de compensation des charges a été déposée avec succès.\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
     }
   },
   {
@@ -679,8 +679,8 @@
       "template_slug": "07-eingaben-gesuchsteller-gemeinden-fachstellen",
       "language": "de",
       "purpose": "07 Eingaben (Gesuchsteller, Gemeinden, Fachstellen)",
-      "subject": "Information \u00fcber eingegangene Eingaben (eBau Nr. {{EBAU_NUMBER}}) / Information sur la r\u00e9ception d'envois (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nW\u00e4hrend der \u00f6ffentlichen Auflage sind Eingaben (Einsprache, Rechtsverwahrung, Lastenausgleich) gem\u00e4ss Anhang eingegangen. \r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nDes oppositions, r\u00e9serves de droit ou demandes de compensation des charges ont \u00e9t\u00e9 \u00e9mises pendant le d\u00e9p\u00f4t public. Elles sont mentionn\u00e9es dans l'annexe. \r\n\r\nCe message a \u00e9t\u00e9 g\u00e9n\u00e9r\u00e9 automatiquement, veuillez ne pas y r\u00e9pondre.\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
+      "subject": "Information über eingegangene Eingaben (eBau Nr. {{EBAU_NUMBER}}) / Information sur la réception d'envois (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nWährend der öffentlichen Auflage sind Eingaben (Einsprache, Rechtsverwahrung, Lastenausgleich) gemäss Anhang eingegangen. \r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nDes oppositions, réserves de droit ou demandes de compensation des charges ont été émises pendant le dépôt public. Elles sont mentionnées dans l'annexe. \r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
     }
   },
   {
@@ -691,8 +691,8 @@
       "template_slug": "07-protokoll-amts-und-fachstellen-gesuchsteller-einsprecher",
       "language": "de",
       "purpose": "07 Protokoll (Amts- und Fachstellen, Gesuchsteller, Einsprecher)",
-      "subject": "Protokoll Einigungsverhandlung (eBau Nr. {{EBAU_NUMBER}}) / Proc\u00e8s-verbal des pourparlers de conciliation (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nSie erhalten das Protokoll der Einigungsverhandlung zum Dossier mit der eBau Nr. {{EBAU_NUMBER}}.\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nVeuillez trouver ci-joint le proc\u00e8s-verbal des pourparlers de conciliation relatifs au dossier portant le num\u00e9ro eBau {{EBAU_NUMBER}}.\r\n\r\nCe message a \u00e9t\u00e9 g\u00e9n\u00e9r\u00e9 automatiquement, veuillez ne pas y r\u00e9pondre.\r\n\r\n{{LEITBEHOERDE_NAME_FR}}"
+      "subject": "Protokoll Einigungsverhandlung (eBau Nr. {{EBAU_NUMBER}}) / Procès-verbal des pourparlers de conciliation (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nSie erhalten das Protokoll der Einigungsverhandlung zum Dossier mit der eBau Nr. {{EBAU_NUMBER}}.\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nVeuillez trouver ci-joint le procès-verbal des pourparlers de conciliation relatifs au dossier portant le numéro eBau {{EBAU_NUMBER}}.\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\n{{LEITBEHOERDE_NAME_FR}}"
     }
   },
   {
@@ -703,8 +703,8 @@
       "template_slug": "08-entscheid-gesuchsteller",
       "language": "de",
       "purpose": "08 Entscheid (Gesuchsteller)",
-      "subject": "Information \u00fcber Entscheid (eBau Nr. {{EBAU_NUMBER}}) / Information sur le prononc\u00e9 de la d\u00e9cision (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nDer Bauentscheid zum Dossier mit der eBau Nr. {{EBAU_NUMBER}} wurde gef\u00e4llt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/feedback\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nLa d\u00e9cision relative au dossier portant le num\u00e9ro eBau {{EBAU_NUMBER}} a \u00e9t\u00e9 rendue. Elle est jointe en annexe, accompagn\u00e9e de l'indication des voies de droit.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/feedback\r\n\r\nCe message a \u00e9t\u00e9 g\u00e9n\u00e9r\u00e9 automatiquement, veuillez ne pas y r\u00e9pondre.\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
+      "subject": "Information über Entscheid (eBau Nr. {{EBAU_NUMBER}}) / Information sur le prononcé de la décision (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nDer Bauentscheid zum Dossier mit der eBau Nr. {{EBAU_NUMBER}} wurde gefällt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/feedback\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nLa décision relative au dossier portant le numéro eBau {{EBAU_NUMBER}} a été rendue. Elle est jointe en annexe, accompagnée de l'indication des voies de droit.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/feedback\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
     }
   },
   {
@@ -714,9 +714,9 @@
       "template": 22,
       "template_slug": "08-zustellung-baubewilligung-an-nachfuhrungsgeometer",
       "language": "de",
-      "purpose": "08 Zustellung Baubewilligung an Nachf\u00fchrungsgeometer",
-      "subject": "Aufforderung Nachf\u00fchrung Situationsplan (eBau Nr. {{EBAU_NUMBER}}) / Demande de mise \u00e0 jour du plan de situation (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nDas Dossier mit der eBau Nr. {{EBAU_NUMBER}}  wurde bewilligt. Sie wurden f\u00fcr dieses Dossier auf eBau unter folgendem Link freigeschalten. Bitte entnehmen Sie dort den Bauentscheid und den Situationsplan f\u00fcr die Nachf\u00fchrung.\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nLe dossier portant le num\u00e9ro eBau {{EBAU_NUMBER}} a \u00e9t\u00e9 accept\u00e9e. Le lien suivant vous donne acc\u00e8s aux donn\u00e9es eBau y relatives. Vous y trouverez la d\u00e9cision relative \u00e0 la demande de permis de construire ainsi que le plan de situation que vous voudrez bien mettre \u00e0 jour.\r\n\r\nCe message a \u00e9t\u00e9 g\u00e9n\u00e9r\u00e9 automatiquement, veuillez ne pas y r\u00e9pondre.\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
+      "purpose": "08 Zustellung Baubewilligung an Nachführungsgeometer",
+      "subject": "Aufforderung Nachführung Situationsplan (eBau Nr. {{EBAU_NUMBER}}) / Demande de mise à jour du plan de situation (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nDas Dossier mit der eBau Nr. {{EBAU_NUMBER}}  wurde bewilligt. Sie wurden für dieses Dossier auf eBau unter folgendem Link freigeschalten. Bitte entnehmen Sie dort den Bauentscheid und den Situationsplan für die Nachführung.\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nLe dossier portant le numéro eBau {{EBAU_NUMBER}} a été acceptée. Le lien suivant vous donne accès aux données eBau y relatives. Vous y trouverez la décision relative à la demande de permis de construire ainsi que le plan de situation que vous voudrez bien mettre à jour.\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
     }
   },
   {
@@ -727,8 +727,8 @@
       "template_slug": "03-verfahren-vorzeitig-beendet",
       "language": "de",
       "purpose": "03 Verfahren vorzeitig beendet",
-      "subject": "Verfahren vorzeitig beendet (eBau Nr. {{EBAU_NUMBER}}) / Proc\u00e9dure cl\u00f4tur\u00e9e pr\u00e9matur\u00e9ment (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nDie Leitbeh\u00f6rde hat das Verfahren zum Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) vorzeitig beendet. Es sind deshalb keine weiteren Aktionen von Ihrer Seite mehr notwendig.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nBonjour,\r\n\r\nL'autorit\u00e9 directrice a clos la proc\u00e9dure sur le dossier avec le num\u00e9ro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}) pr\u00e9matur\u00e9ment. Par cons\u00e9quent, aucune autre action n'est requise de votre part.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nCe message a \u00e9t\u00e9 g\u00e9n\u00e9r\u00e9 automatiquement, veuillez ne pas y r\u00e9pondre.\r\n\r\n{{LEITBEHOERDE_NAME_FR}}"
+      "subject": "Verfahren vorzeitig beendet (eBau Nr. {{EBAU_NUMBER}}) / Procédure clôturée prématurément (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nDie Leitbehörde hat das Verfahren zum Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) vorzeitig beendet. Es sind deshalb keine weiteren Aktionen von Ihrer Seite mehr notwendig.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nBonjour,\r\n\r\nL'autorité directrice a clos la procédure sur le dossier avec le numéro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}) prématurément. Par conséquent, aucune autre action n'est requise de votre part.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\n{{LEITBEHOERDE_NAME_FR}}"
     }
   },
   {
@@ -739,8 +739,8 @@
       "template_slug": "10-zugriffsmeldung",
       "language": "de",
       "purpose": "10 Zugriffsmeldung",
-      "subject": "Zugriffsmeldung (eBau Nr. {{EBAU_NUMBER}}) / Avis concernant l'acc\u00e8s (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nIhre Anfrage f\u00fcr den Zugriff auf das Dossier mit der eBau Nr. {{EBAU_NUMBER}} wurde bearbeitet. Der Zugriff auf das Dossier ist freigeschaltet.\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nVotre demande concernant l'acc\u00e8s au dossier portant le num\u00e9ro eBau {{EBAU_NUMBER}} a \u00e9t\u00e9 trait\u00e9e et le dossier vous est d\u00e9sormais accessible.\r\n\r\nCe message a \u00e9t\u00e9 g\u00e9n\u00e9r\u00e9 automatiquement, veuillez ne pas y r\u00e9pondre.\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
+      "subject": "Zugriffsmeldung (eBau Nr. {{EBAU_NUMBER}}) / Avis concernant l'accès (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nIhre Anfrage für den Zugriff auf das Dossier mit der eBau Nr. {{EBAU_NUMBER}} wurde bearbeitet. Der Zugriff auf das Dossier ist freigeschaltet.\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nVotre demande concernant l'accès au dossier portant le numéro eBau {{EBAU_NUMBER}} a été traitée et le dossier vous est désormais accessible.\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
     }
   },
   {
@@ -750,9 +750,9 @@
       "template": 25,
       "template_slug": "10-entscheid-gesuchsteller-gemeinde-baubewilligungsbehorde-amts-und-fachstellen-einsprecher",
       "language": "de",
-      "purpose": "10 Entscheid (Gesuchsteller, Gemeinde, Baubewilligungsbeh\u00f6rde, Amts- und Fachstellen, Einsprecher)",
-      "subject": "Information \u00fcber Entscheid (eBau Nr. {{EBAU_NUMBER}}) / Information sur le prononc\u00e9 de la d\u00e9cision (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nDer Entscheid im Rechtsgesch\u00e4ft mit der eBau Nr. {{EBAU_NUMBER}} wurde gef\u00e4llt. Bitte entnehmen Sie dem Anhang den Entscheid.\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nLa d\u00e9cision relative \u00e0 l'affaire portant le num\u00e9ro eBau {{EBAU_NUMBER}} a \u00e9t\u00e9 rendue et vous la trouverez en annexe.\r\n\r\nCe message a \u00e9t\u00e9 g\u00e9n\u00e9r\u00e9 automatiquement, veuillez ne pas y r\u00e9pondre.\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
+      "purpose": "10 Entscheid (Gesuchsteller, Gemeinde, Baubewilligungsbehörde, Amts- und Fachstellen, Einsprecher)",
+      "subject": "Information über Entscheid (eBau Nr. {{EBAU_NUMBER}}) / Information sur le prononcé de la décision (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nDer Entscheid im Rechtsgeschäft mit der eBau Nr. {{EBAU_NUMBER}} wurde gefällt. Bitte entnehmen Sie dem Anhang den Entscheid.\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nLa décision relative à l'affaire portant le numéro eBau {{EBAU_NUMBER}} a été rendue et vous la trouverez en annexe.\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
     }
   },
   {
@@ -763,8 +763,8 @@
       "template_slug": "11-meldung-selbstdeklaration-gesuchsteller",
       "language": "de",
       "purpose": "11 Meldung Selbstdeklaration (Gesuchsteller)",
-      "subject": "Meldung Selbstdeklaration (eBau Nr. {{EBAU_NUMBER}}) / Avis concernant la d\u00e9claration spontan\u00e9e (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nDie Meldung der Selbstdeklariation Baukontrolle 1 (SB1) wurde erfolgreich versendet. Die zust\u00e4ndige Baupolizeibeh\u00f6rde wird falls notwendig die n\u00e4chsten Schritte einleiten.\r\n\r\nWeitere Informationen finden Sie unter:\r\nhttps://www.jgk.be.ch/jgk/de/index/baubewilligungen/baubewilligungen.assetref/content/dam/documents/JGK/AGR/de/Baubewilligungen/AGR_BAUEN_ERLAUETERUNG_bsig_selbstdeklaration_bei_der_baukontrolle_de.pdf\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Gr\u00fcsse \r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nL'avis relatif \u00e0 la d\u00e9claration spontan\u00e9e en mati\u00e8re de contr\u00f4le des constructions a \u00e9t\u00e9 envoy\u00e9 avec succ\u00e8s. L'autorit\u00e9 de police des constructions comp\u00e9tente va entreprendre les d\u00e9marches n\u00e9cessaires.\r\n\r\nVous trouverez de plus amples informations sous:\r\nhttps://www.jgk.be.ch/jgk/de/index/baubewilligungen/baubewilligungen.assetref/content/dam/documents/JGK/AGR/de/Baubewilligungen/AGR_BAUEN_ERLAUETERUNG_bsig_selbstdeklaration_bei_der_baukontrolle_de.pdf\r\n\r\nCe message a \u00e9t\u00e9 g\u00e9n\u00e9r\u00e9 automatiquement, veuillez ne pas y r\u00e9pondre.\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures. \r\n{{LEITBEHOERDE_NAME_FR}}"
+      "subject": "Meldung Selbstdeklaration (eBau Nr. {{EBAU_NUMBER}}) / Avis concernant la déclaration spontanée (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nDie Meldung der Selbstdeklariation Baukontrolle 1 (SB1) wurde erfolgreich versendet. Die zuständige Baupolizeibehörde wird falls notwendig die nächsten Schritte einleiten.\r\n\r\nWeitere Informationen finden Sie unter:\r\nhttps://www.jgk.be.ch/jgk/de/index/baubewilligungen/baubewilligungen.assetref/content/dam/documents/JGK/AGR/de/Baubewilligungen/AGR_BAUEN_ERLAUETERUNG_bsig_selbstdeklaration_bei_der_baukontrolle_de.pdf\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse \r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nL'avis relatif à la déclaration spontanée en matière de contrôle des constructions a été envoyé avec succès. L'autorité de police des constructions compétente va entreprendre les démarches nécessaires.\r\n\r\nVous trouverez de plus amples informations sous:\r\nhttps://www.jgk.be.ch/jgk/de/index/baubewilligungen/baubewilligungen.assetref/content/dam/documents/JGK/AGR/de/Baubewilligungen/AGR_BAUEN_ERLAUETERUNG_bsig_selbstdeklaration_bei_der_baukontrolle_de.pdf\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures. \r\n{{LEITBEHOERDE_NAME_FR}}"
     }
   },
   {
@@ -775,8 +775,8 @@
       "template_slug": "12-meldung-termin-baukontrolle",
       "language": "de",
       "purpose": "12 Meldung Termin Baukontrolle",
-      "subject": "Meldung der Baukontrolle eingetroffen (eBau Nr. {{EBAU_NUMBER}}) / Avis de r\u00e9ception du contr\u00f4le des constructions (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nDie Meldung der Baukontrolle Selbstdeklaration Baukontrolle 1 (SB1), Selbstdeklaration Baukontrolle 2 (SB2) sind eingetroffen.\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nL'avis faisant suite aux d\u00e9clarations spontan\u00e9es en mati\u00e8re de contr\u00f4le des constructions DC1 et DC2 a \u00e9t\u00e9 envoy\u00e9.\r\n\r\nCe message a \u00e9t\u00e9 g\u00e9n\u00e9r\u00e9 automatiquement, veuillez ne pas y r\u00e9pondre.\r\n\r\n{{LEITBEHOERDE_NAME_FR}}"
+      "subject": "Meldung der Baukontrolle eingetroffen (eBau Nr. {{EBAU_NUMBER}}) / Avis de réception du contrôle des constructions (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nDie Meldung der Baukontrolle Selbstdeklaration Baukontrolle 1 (SB1), Selbstdeklaration Baukontrolle 2 (SB2) sind eingetroffen.\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nL'avis faisant suite aux déclarations spontanées en matière de contrôle des constructions DC1 et DC2 a été envoyé.\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\n{{LEITBEHOERDE_NAME_FR}}"
     }
   },
   {
@@ -787,8 +787,8 @@
       "template_slug": "12-meldung-pendenzen",
       "language": "de",
       "purpose": "12\tMeldung Pendenzen",
-      "subject": "Pendenzen aus Baukontrolle (eBau Nr. {{EBAU_NUMBER}}) / Points en suspens selon le contr\u00f4le des constructions (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nAufgrund der erfolgten Baukontrolle sind die im Anhang aufgef\u00fchrten Pendenzen erfasst worden. Bitte entnehmen Sie das weitere Vorgehen dem Anhang.\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nLe contr\u00f4le des constructions a r\u00e9v\u00e9l\u00e9 que certains points sont encore en suspens. Veuillez consulter l'annexe pour conna\u00eetre la suite de la proc\u00e9dure.\r\n\r\nCe message a \u00e9t\u00e9 g\u00e9n\u00e9r\u00e9 automatiquement, veuillez ne pas y r\u00e9pondre.\r\n\r\n{{LEITBEHOERDE_NAME_FR}}"
+      "subject": "Pendenzen aus Baukontrolle (eBau Nr. {{EBAU_NUMBER}}) / Points en suspens selon le contrôle des constructions (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nAufgrund der erfolgten Baukontrolle sind die im Anhang aufgeführten Pendenzen erfasst worden. Bitte entnehmen Sie das weitere Vorgehen dem Anhang.\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nLe contrôle des constructions a révélé que certains points sont encore en suspens. Veuillez consulter l'annexe pour connaître la suite de la procédure.\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\n{{LEITBEHOERDE_NAME_FR}}"
     }
   },
   {
@@ -799,8 +799,8 @@
       "template_slug": "13-meldung-termine-pflichtkontrollen-gesuchsteller",
       "language": "de",
       "purpose": "13 Meldung Termine Pflichtkontrollen (Gesuchsteller)",
-      "subject": "Termine Pflichtkontrollen (eBau Nr. {{EBAU_NUMBER}}) / Dates des contr\u00f4les obligatoires (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nDie Meldung der Selbstdeklariation Baukontrolle 2 (SB2) wurde erfolgreich versendet.\r\nDie zust\u00e4ndige Baupolizeibeh\u00f6rde wird falls notwendig die n\u00e4chsten Schritte einleiten.\r\n\r\nWeitere Informationen finden Sie unter:\r\nhttps://www.jgk.be.ch/jgk/de/index/baubewilligungen/baubewilligungen.assetref/content/dam/documents/JGK/AGR/de/Baubewilligungen/AGR_BAUEN_ERLAUETERUNG_bsig_selbstdeklaration_bei_der_baukontrolle_de.pdf\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Gr\u00fcsse \r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nL'avis faisant suite \u00e0 la d\u00e9claration spontan\u00e9e en mati\u00e8re de contr\u00f4le des constructions DC2 a \u00e9t\u00e9 envoy\u00e9.\r\nL'autorit\u00e9 de police des constructions comp\u00e9tente va entreprendre les d\u00e9marches n\u00e9cessaires.\r\n\r\nVous trouverez de plus amples informations sous:\r\nhttps://www.jgk.be.ch/jgk/de/index/baubewilligungen/baubewilligungen.assetref/content/dam/documents/JGK/AGR/de/Baubewilligungen/AGR_BAUEN_ERLAUETERUNG_bsig_selbstdeklaration_bei_der_baukontrolle_de.pdf\r\n\r\nCe message a \u00e9t\u00e9 g\u00e9n\u00e9r\u00e9 automatiquement, veuillez ne pas y r\u00e9pondre.\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures. \r\n{{LEITBEHOERDE_NAME_FR}}"
+      "subject": "Termine Pflichtkontrollen (eBau Nr. {{EBAU_NUMBER}}) / Dates des contrôles obligatoires (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nDie Meldung der Selbstdeklariation Baukontrolle 2 (SB2) wurde erfolgreich versendet.\r\nDie zuständige Baupolizeibehörde wird falls notwendig die nächsten Schritte einleiten.\r\n\r\nWeitere Informationen finden Sie unter:\r\nhttps://www.jgk.be.ch/jgk/de/index/baubewilligungen/baubewilligungen.assetref/content/dam/documents/JGK/AGR/de/Baubewilligungen/AGR_BAUEN_ERLAUETERUNG_bsig_selbstdeklaration_bei_der_baukontrolle_de.pdf\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse \r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nL'avis faisant suite à la déclaration spontanée en matière de contrôle des constructions DC2 a été envoyé.\r\nL'autorité de police des constructions compétente va entreprendre les démarches nécessaires.\r\n\r\nVous trouverez de plus amples informations sous:\r\nhttps://www.jgk.be.ch/jgk/de/index/baubewilligungen/baubewilligungen.assetref/content/dam/documents/JGK/AGR/de/Baubewilligungen/AGR_BAUEN_ERLAUETERUNG_bsig_selbstdeklaration_bei_der_baukontrolle_de.pdf\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures. \r\n{{LEITBEHOERDE_NAME_FR}}"
     }
   },
   {
@@ -811,8 +811,8 @@
       "template_slug": "03-dossierkorrektur-gesuchsteller",
       "language": "de",
       "purpose": "03 Dossierkorrektur (Gesuchsteller)",
-      "subject": "Dossierkorrektur (eBau Nr. {{EBAU_NUMBER}}) / Correction du dossier (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nZu dem von Ihnen eingereichten Dossier mit der eBau Nr. {{EBAU_NUMBER}} wurden von der Leitbeh\u00f6rde Korrekturen erfasst. Sie k\u00f6nnen das korrigierte Dossier unter folgendem Link einsehen:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nL'autorit\u00e9 directrice a apport\u00e9 des corrections au dossier portant le num\u00e9ro eBau {{EBAU_NUMBER}} que vous avez d\u00e9pos\u00e9e. Le lien suivant vous donne acc\u00e8s \u00e0 la version corrig\u00e9e:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nCe message a \u00e9t\u00e9 g\u00e9n\u00e9r\u00e9 automatiquement, veuillez ne pas y r\u00e9pondre.\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
+      "subject": "Dossierkorrektur (eBau Nr. {{EBAU_NUMBER}}) / Correction du dossier (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nZu dem von Ihnen eingereichten Dossier mit der eBau Nr. {{EBAU_NUMBER}} wurden von der Leitbehörde Korrekturen erfasst. Sie können das korrigierte Dossier unter folgendem Link einsehen:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nL'autorité directrice a apporté des corrections au dossier portant le numéro eBau {{EBAU_NUMBER}} que vous avez déposée. Le lien suivant vous donne accès à la version corrigée:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
     }
   },
   {
@@ -822,9 +822,9 @@
       "template": 31,
       "template_slug": "03-zusatzliche-unterlagen-notwendig-gesuchsteller",
       "language": "de",
-      "purpose": "03 Zus\u00e4tzliche Unterlagen notwendig (Gesuchsteller)",
-      "subject": "Zus\u00e4tzliche Unterlagen notwendig (eBau Nr. {{EBAU_NUMBER}}) / Documents compl\u00e9mentaires requis (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nDie Pr\u00fcfung hat ergeben, dass f\u00fcr die Beurteilung des Dossiers mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) noch weitere Unterlagen / Dokumente notwendig sind. Bitte \u00f6ffnen Sie das Men\u00fc \"Nachforderungen\" unter folgendem Link:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/nfd\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nIl ressort d'un premier examen que d'autres documents / indications (selon le document annex\u00e9) sont n\u00e9cessaires \u00e0 l'appr\u00e9ciation du dossier portant le num\u00e9ro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}). Veuillez ouvrir le menu \"Demande de compl\u00e9ment d'information\" au moyen du lien suivant:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/nfd\r\n\r\nCe message a \u00e9t\u00e9 g\u00e9n\u00e9r\u00e9 automatiquement, veuillez ne pas y r\u00e9pondre.\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
+      "purpose": "03 Zusätzliche Unterlagen notwendig (Gesuchsteller)",
+      "subject": "Zusätzliche Unterlagen notwendig (eBau Nr. {{EBAU_NUMBER}}) / Documents complémentaires requis (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nDie Prüfung hat ergeben, dass für die Beurteilung des Dossiers mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) noch weitere Unterlagen / Dokumente notwendig sind. Bitte öffnen Sie das Menü \"Nachforderungen\" unter folgendem Link:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/nfd\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nIl ressort d'un premier examen que d'autres documents / indications (selon le document annexé) sont nécessaires à l'appréciation du dossier portant le numéro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}). Veuillez ouvrir le menu \"Demande de complément d'information\" au moyen du lien suivant:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/nfd\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
     }
   },
   {
@@ -834,9 +834,9 @@
       "template": 32,
       "template_slug": "03-nachforderung-beantwortet-leitbehorde",
       "language": "de",
-      "purpose": "03 Nachforderung beantwortet (Leitbeh\u00f6rde)",
-      "subject": "Nachforderung beantwortet (eBau Nr. {{EBAU_NUMBER}}) / Compl\u00e9ment d'information fourni (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nEine Nachforderung zum Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) wurde beantwortet. \r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nLe compl\u00e9ment d'information sollicit\u00e9 au sujet du dossier portant le num\u00e9ro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}) a \u00e9t\u00e9 fourni. \r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nCe message a \u00e9t\u00e9 g\u00e9n\u00e9r\u00e9 automatiquement, veuillez ne pas y r\u00e9pondre."
+      "purpose": "03 Nachforderung beantwortet (Leitbehörde)",
+      "subject": "Nachforderung beantwortet (eBau Nr. {{EBAU_NUMBER}}) / Complément d'information fourni (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nEine Nachforderung zum Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) wurde beantwortet. \r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nLe complément d'information sollicité au sujet du dossier portant le numéro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}) a été fourni. \r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre."
     }
   },
   {
@@ -847,8 +847,8 @@
       "template_slug": "05-bericht-erstellt",
       "language": "de",
       "purpose": "05 Bericht Erstellt",
-      "subject": "Bericht erstellt (eBau-Nr. {{EBAU_NUMBER}}) / Rapport cr\u00e9\u00e9 (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nF\u00fcr das Dossier mit der eBau-Nr. {{EBAU_NUMBER}} wurden die gem\u00e4ss Leitverfahren eingeforderten\r\nStellungnahmen, Amts- und Fachberichte und Verf\u00fcgungen erstellt: {{ ACTIVATION_ANSWER_DE }}.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\n{{ACTIVATION_STATEMENT_DE}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n{{CURRENT_SERVICE_DE}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nEn ce qui concerne le dossier eBau n\u00b0 {{EBAU_NUMBER}}, les prises de position, les rapports officiels et techniques et/ou les d\u00e9cisions requis\r\nconform\u00e9ment \u00e0 la proc\u00e9dure directrice ont \u00e9t\u00e9 \u00e9tablis : {{ ACTIVATION_ANSWER_FR }}.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\n{{ACTIVATION_STATEMENT_FR}}\r\n\r\nCe message a \u00e9t\u00e9 g\u00e9n\u00e9r\u00e9 automatiquement, veuillez ne pas y r\u00e9pondre.\r\n\r\n{{CURRENT_SERVICE_FR}}"
+      "subject": "Bericht erstellt (eBau-Nr. {{EBAU_NUMBER}}) / Rapport créé (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nFür das Dossier mit der eBau-Nr. {{EBAU_NUMBER}} wurden die gemäss Leitverfahren eingeforderten\r\nStellungnahmen, Amts- und Fachberichte und Verfügungen erstellt: {{ ACTIVATION_ANSWER_DE }}.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\n{{ACTIVATION_STATEMENT_DE}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n{{CURRENT_SERVICE_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nEn ce qui concerne le dossier eBau n° {{EBAU_NUMBER}}, les prises de position, les rapports officiels et techniques et/ou les décisions requis\r\nconformément à la procédure directrice ont été établis : {{ ACTIVATION_ANSWER_FR }}.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\n{{ACTIVATION_STATEMENT_FR}}\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\n{{CURRENT_SERVICE_FR}}"
     }
   },
   {
@@ -858,9 +858,9 @@
       "template": 34,
       "template_slug": "08-stellungnahme-zu-voranfrage-behoerden",
       "language": "de",
-      "purpose": "08 Stellungnahme zu Voranfrage (Beh\u00f6rden)",
-      "subject": "Stellungnahme zu Voranfrage (eBau Nr. {{EBAU_NUMBER}}) / Observations sur l'enqu\u00eate pr\u00e9liminaire (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nSie finden die Stellungnahme / Antwort zur Voranfrage mit der eBau Nr. {{EBAU_NUMBER}} in den eBau-Dokumenten:\r\n\r\n{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=documents\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nVous trouverez la d\u00e9claration / r\u00e9ponse \u00e0 l'enqu\u00eate pr\u00e9liminaire avec le num\u00e9ro eBau {{EBAU_NUMBER}} dans les documents eBau :\r\n\r\n{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=documents\r\n\r\nCe message a \u00e9t\u00e9 g\u00e9n\u00e9r\u00e9 automatiquement, veuillez ne pas y r\u00e9pondre.\r\n\r\n{{LEITBEHOERDE_NAME_FR}}"
+      "purpose": "08 Stellungnahme zu Voranfrage (Behörden)",
+      "subject": "Stellungnahme zu Voranfrage (eBau Nr. {{EBAU_NUMBER}}) / Observations sur l'enquête préliminaire (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nSie finden die Stellungnahme / Antwort zur Voranfrage mit der eBau Nr. {{EBAU_NUMBER}} in den eBau-Dokumenten:\r\n\r\n{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=documents\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nVous trouverez la déclaration / réponse à l'enquête préliminaire avec le numéro eBau {{EBAU_NUMBER}} dans les documents eBau :\r\n\r\n{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=documents\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\n{{LEITBEHOERDE_NAME_FR}}"
     }
   },
   {
@@ -870,9 +870,9 @@
       "template": 35,
       "template_slug": "08-entscheid-behoerden",
       "language": "de",
-      "purpose": "08 Entscheid (Beh\u00f6rden)",
-      "subject": "Information \u00fcber Entscheid (eBau Nr. {{EBAU_NUMBER}}) / Information sur le prononc\u00e9 de la d\u00e9cision (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nDer Bauentscheid zum Dossier mit der eBau Nr. {{EBAU_NUMBER}} wurde gef\u00e4llt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\r\n\r\n{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=documents\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nLa d\u00e9cision relative \u00e0 l'affaire portant le num\u00e9ro eBau {{EBAU_NUMBER}} a \u00e9t\u00e9 rendue et vous la trouverez en annexe.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=documents\r\n\r\nCe message a \u00e9t\u00e9 g\u00e9n\u00e9r\u00e9 automatiquement, veuillez ne pas y r\u00e9pondre.\r\n\r\n{{LEITBEHOERDE_NAME_FR}}"
+      "purpose": "08 Entscheid (Behörden)",
+      "subject": "Information über Entscheid (eBau Nr. {{EBAU_NUMBER}}) / Information sur le prononcé de la décision (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nDer Bauentscheid zum Dossier mit der eBau Nr. {{EBAU_NUMBER}} wurde gefällt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\r\n\r\n{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=documents\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nLa décision relative à l'affaire portant le numéro eBau {{EBAU_NUMBER}} a été rendue et vous la trouverez en annexe.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=documents\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\n{{LEITBEHOERDE_NAME_FR}}"
     }
   },
   {
@@ -883,8 +883,8 @@
       "template_slug": "11-meldung-selbstdeklaration-baukontrolle",
       "language": "de",
       "purpose": "11 Meldung Selbstdeklaration (Baukontrolle)",
-      "subject": "Meldung Selbstdeklaration (eBau Nr. {{EBAU_NUMBER}}) / Avis concernant la d\u00e9claration spontan\u00e9e (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": " Guten Tag\r\n\r\nDie Meldung zur Selbstdeklaration Baukontrolle 1 (SB1) vom Dossier mit der eBau-Nummer {{EBAU_NUMBER}} ({{INSTANCE_ID}}) ist eingetroffen.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\neBau\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nLa notification concernant la d\u00e9claration spontan\u00e9e en mati\u00e8re de contr\u00f4le des constructions 1 (DC1) du dossier eBau n\u00b0 {{EBAU_NUMBER}} ({{INSTANCE_ID}}) est arriv\u00e9e. \r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nCe message a \u00e9t\u00e9 g\u00e9n\u00e9r\u00e9 automatiquement, veuillez ne pas y r\u00e9pondre.\r\n\r\neBau"
+      "subject": "Meldung Selbstdeklaration (eBau Nr. {{EBAU_NUMBER}}) / Avis concernant la déclaration spontanée (n° eBau {{EBAU_NUMBER}})",
+      "body": " Guten Tag\r\n\r\nDie Meldung zur Selbstdeklaration Baukontrolle 1 (SB1) vom Dossier mit der eBau-Nummer {{EBAU_NUMBER}} ({{INSTANCE_ID}}) ist eingetroffen.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\neBau\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nLa notification concernant la déclaration spontanée en matière de contrôle des constructions 1 (DC1) du dossier eBau n° {{EBAU_NUMBER}} ({{INSTANCE_ID}}) est arrivée. \r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\neBau"
     }
   },
   {
@@ -895,8 +895,8 @@
       "template_slug": "13-meldung-termine-pflichtkontrollen-baukontrolle",
       "language": "de",
       "purpose": "13 Meldung Termine Pflichtkontrollen (Baukontrolle)",
-      "subject": "Meldung Selbstdeklaration 2 (eBau Nr. {{EBAU_NUMBER}}) / Avis concernant la d\u00e9claration spontan\u00e9e DC2 (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nDie Meldung zur Selbstdeklaration Baukontrolle 2 (SB2) vom Dossier mit der eBau-Nummer {{EBAU_NUMBER}} ({{INSTANCE_ID}}) ist eingetroffen.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\neBau\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nL'avis faisant suite \u00e0 l'autod\u00e9claration en mati\u00e8re de contr\u00f4le des constructions DC2 avec le num\u00e9ro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}) a \u00e9t\u00e9 envoy\u00e9.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nCe message a \u00e9t\u00e9 g\u00e9n\u00e9r\u00e9 automatiquement, veuillez ne pas y r\u00e9pondre.\r\n\r\neBau"
+      "subject": "Meldung Selbstdeklaration 2 (eBau Nr. {{EBAU_NUMBER}}) / Avis concernant la déclaration spontanée DC2 (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nDie Meldung zur Selbstdeklaration Baukontrolle 2 (SB2) vom Dossier mit der eBau-Nummer {{EBAU_NUMBER}} ({{INSTANCE_ID}}) ist eingetroffen.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\neBau\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nL'avis faisant suite à l'autodéclaration en matière de contrôle des constructions DC2 avec le numéro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}) a été envoyé.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\neBau"
     }
   },
   {
@@ -907,8 +907,8 @@
       "template_slug": "08-stellungnahme-zu-voranfrage-gesuchsteller",
       "language": "de",
       "purpose": "08 Stellungnahme zu Voranfrage (Gesuchsteller)",
-      "subject": "Stellungnahme zu Voranfrage (eBau Nr. {{EBAU_NUMBER}}) / Observations sur l'enqu\u00eate pr\u00e9liminaire (n\u00b0 eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nSie finden die Stellungnahme zur Voranfrage mit der eBau Nr. {{EBAU_NUMBER}} in den eBau-Dokumenten:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/feedback\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nVous trouverez la d\u00e9claration \u00e0 l'enqu\u00eate pr\u00e9liminaire avec le num\u00e9ro eBau {{EBAU_NUMBER}} dans les documents eBau :\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/feedback\r\n\r\nCe message a \u00e9t\u00e9 g\u00e9n\u00e9r\u00e9 automatiquement, veuillez ne pas y r\u00e9pondre.\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
+      "subject": "Stellungnahme zu Voranfrage (eBau Nr. {{EBAU_NUMBER}}) / Observations sur l'enquête préliminaire (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nSie finden die Stellungnahme zur Voranfrage mit der eBau Nr. {{EBAU_NUMBER}} in den eBau-Dokumenten:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/feedback\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nVous trouverez la déclaration à l'enquête préliminaire avec le numéro eBau {{EBAU_NUMBER}} dans les documents eBau :\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/feedback\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
     }
   },
   {
@@ -919,8 +919,8 @@
       "template_slug": "gesuchsbearbeitungs-einladung-bestehend",
       "language": "de",
       "purpose": "Gesuchsbearbeitungs Einladung, Bestehend",
-      "subject": "Einsicht respektive Mitarbeit in Dossier (Nr. {{ INSTANCE_ID }}) / Consultation du ou participation au dossier (n\u00b0 {{ INSTANCE_ID }})",
-      "body": "Guten Tag\r\n\r\nSie haben vom/von der Gesuchsteller/in den Zugriff auf das Dossier-Nr. {{ INSTANCE_ID }} ({{ PUBLIC_DOSSIER_LINK }}) erhalten. Damit k\u00f6nnen Sie dieses einsehen respektive mitbearbeiten.\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Gr\u00fcsse\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nBonjour\r\n\r\nLe/la requ\u00e9rant(e) vous a donn\u00e9 acc\u00e8s au dossier n\u00b0 {{ INSTANCE_ID }} ({{ PUBLIC_DOSSIER_LINK }}). Cela vous permettra de le consulter ou de l\u2019\u00e9diter.\r\n\r\nCe message a \u00e9t\u00e9 g\u00e9n\u00e9r\u00e9 automatiquement, veuillez ne pas y r\u00e9pondre.\r\n\r\nMeilleures salutations"
+      "subject": "Einsicht respektive Mitarbeit in Dossier (Nr. {{ INSTANCE_ID }}) / Consultation du ou participation au dossier (n° {{ INSTANCE_ID }})",
+      "body": "Guten Tag\r\n\r\nSie haben vom/von der Gesuchsteller/in den Zugriff auf das Dossier-Nr. {{ INSTANCE_ID }} ({{ PUBLIC_DOSSIER_LINK }}) erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten.\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n\r\n*** version française ***\r\n\r\nBonjour\r\n\r\nLe/la requérant(e) vous a donné accès au dossier n° {{ INSTANCE_ID }} ({{ PUBLIC_DOSSIER_LINK }}). Cela vous permettra de le consulter ou de l’éditer.\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\nMeilleures salutations"
     }
   },
   {
@@ -931,8 +931,8 @@
       "template_slug": "gesuchsbearbeitungs-einladung-neu",
       "language": "de",
       "purpose": "Gesuchsbearbeitungs Einladung, Neu",
-      "subject": "Einsicht respektive Mitarbeit in Dossier (Nr. {{ INSTANCE_ID }}) / Consultation du ou participation au dossier (n\u00b0 {{ INSTANCE_ID }})",
-      "body": "Guten Tag\r\n\r\nSie haben vom/von der Gesuchsteller/in den Zugriff auf das Dossier-Nr. {{ INSTANCE_ID }} ({{ PUBLIC_DOSSIER_LINK }}) erhalten. Damit k\u00f6nnen Sie dieses einsehen respektive mitbearbeiten.\r\n\r\nUm das Dossier einsehen respektive mitbearbeiten zu k\u00f6nnen, ist eine Registrierung auf dem eBau Portal des Kantons Bern erforderlich.\r\n\r\nUnter folgendem Link k\u00f6nnen Sie sich registrieren: {{ REGISTRATION_LINK }}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Gr\u00fcsse\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nBonjour\r\n\r\nLe/la requ\u00e9rant(e) vous a donn\u00e9 acc\u00e8s au dossier n\u00b0 {{ INSTANCE_ID }} ({{ PUBLIC_DOSSIER_LINK }}). Cela vous permettra de le consulter ou de l\u2019\u00e9diter.\r\n\r\nL'enregistrement sur le portail eBau du canton de Berne est n\u00e9cessaire pour consulter et \u00e9diter le dossier.\r\n\r\nVous pouvez vous inscrire en cliquant sur le lien suivant : {{ REGISTRATION_LINK }}\r\n\r\nCe message a \u00e9t\u00e9 g\u00e9n\u00e9r\u00e9 automatiquement, veuillez ne pas y r\u00e9pondre.\r\n\r\nMeilleures salutations"
+      "subject": "Einsicht respektive Mitarbeit in Dossier (Nr. {{ INSTANCE_ID }}) / Consultation du ou participation au dossier (n° {{ INSTANCE_ID }})",
+      "body": "Guten Tag\r\n\r\nSie haben vom/von der Gesuchsteller/in den Zugriff auf das Dossier-Nr. {{ INSTANCE_ID }} ({{ PUBLIC_DOSSIER_LINK }}) erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten.\r\n\r\nUm das Dossier einsehen respektive mitbearbeiten zu können, ist eine Registrierung auf dem eBau Portal des Kantons Bern erforderlich.\r\n\r\nUnter folgendem Link können Sie sich registrieren: {{ REGISTRATION_LINK }}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n\r\n*** version française ***\r\n\r\nBonjour\r\n\r\nLe/la requérant(e) vous a donné accès au dossier n° {{ INSTANCE_ID }} ({{ PUBLIC_DOSSIER_LINK }}). Cela vous permettra de le consulter ou de l’éditer.\r\n\r\nL'enregistrement sur le portail eBau du canton de Berne est nécessaire pour consulter et éditer le dossier.\r\n\r\nVous pouvez vous inscrire en cliquant sur le lien suivant : {{ REGISTRATION_LINK }}\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\nMeilleures salutations"
     }
   }
 ]

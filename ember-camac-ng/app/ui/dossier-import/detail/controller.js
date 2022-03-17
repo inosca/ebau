@@ -101,6 +101,25 @@ export default class DossierImportDetailController extends Controller {
   }
 
   @dropTask
+  *undoImport() {
+    try {
+      this.notifications.clear();
+
+      yield this.import.undo();
+
+      this.notifications.success(
+        this.intl.t("dossierImport.detail.actions.undoImport.success")
+      );
+      this.router.transitionTo("dossier-import.index");
+    } catch (e) {
+      console.error(e);
+      this.notifications.error(
+        this.intl.t("dossierImport.detail.actions.confirmImport.error")
+      );
+    }
+  }
+
+  @dropTask
   *transmitImport() {
     try {
       this.notifications.clear();

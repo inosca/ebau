@@ -158,8 +158,8 @@ class Command(BaseCommand):
                     f"Skipped work item 'check-statement' for activation {activation.pk} that's already in review"
                 )
 
-    @transaction.atomic  # noqa: C901
-    def handle(self, *args, **options):
+    @transaction.atomic
+    def handle(self, *args, **options):  # noqa: C901
         self.verbose = not options["only_creation_log"]
 
         self.stdout.write("Starting Instance to Caluma Case and WorkItem migration")

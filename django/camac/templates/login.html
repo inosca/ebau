@@ -1,0 +1,33 @@
+{% extends "admin/login.html" %}
+
+{% block content %}
+
+{% if form.errors and not form.non_field_errors %}
+<p class="errornote">
+{% if form.errors.items|length == 1 %}Please correct the error below.{% else %}Please correct the errors below.{% endif %}
+</p>
+{% endif %}
+
+{% if form.non_field_errors %}
+{% for error in form.non_field_errors %}
+<p class="errornote">
+    {{ error }}
+</p>
+{% endfor %}
+{% endif %}
+
+<div id="content-main">
+
+{% if user.is_authenticated %}
+  <p>Current user: {{ user.email }}</p>
+  <form action="{% url 'oidc_logout' %}" method="post">
+    <input type="submit" value="logout">
+  </form>
+{% else %}
+<form class="submit-row" action="{% url 'oidc_authentication_init' %}">
+  <input type="submit" value="Login">
+</form>
+{% endif %}
+
+</div>
+{% endblock %}

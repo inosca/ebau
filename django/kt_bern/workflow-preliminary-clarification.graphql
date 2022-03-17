@@ -5,6 +5,9 @@ mutation CreatePreliminaryClarificationWorkflow {
       name: "Vorabklärung"
       startTasks: ["submit"]
       allowForms: [
+        "hecken-feldgehoelze-baeume"
+        "klaerung-baubewilligungspflicht"
+        "solaranlagen-meldung"
         "vorabklaerung-einfach"
         "vorabklaerung-vollstaendig"
         "vorabklaerung-vollstaendig-v2"

@@ -198,7 +198,7 @@
     "fields": {
       "role": 3,
       "language": "de",
-      "name": "Leitung Leitbeh\u00f6rde",
+      "name": "Leitung Leitbehörde",
       "group_prefix": "Leitung"
     }
   },
@@ -278,7 +278,7 @@
     "fields": {
       "role": 20003,
       "language": "de",
-      "name": "Einsichtsberechtigte Leitbeh\u00f6rde",
+      "name": "Einsichtsberechtigte Leitbehörde",
       "group_prefix": "Einsichtsberechtigte"
     }
   },
@@ -288,7 +288,7 @@
     "fields": {
       "role": 20004,
       "language": "de",
-      "name": "Sachbearbeiter Leitbeh\u00f6rde",
+      "name": "Sachbearbeiter Leitbehörde",
       "group_prefix": "Sachbearbeiter"
     }
   },
@@ -338,7 +338,7 @@
     "fields": {
       "role": 3,
       "language": "fr",
-      "name": "Direction: autorit\u00e9 directrice",
+      "name": "Direction: autorité directrice",
       "group_prefix": "Direction:"
     }
   },
@@ -358,7 +358,7 @@
     "fields": {
       "role": 5,
       "language": "fr",
-      "name": "Direction: contr\u00f4le des constructions",
+      "name": "Direction: contrôle des constructions",
       "group_prefix": "Direction:"
     }
   },
@@ -368,7 +368,7 @@
     "fields": {
       "role": 6,
       "language": "fr",
-      "name": "Requ\u00e9rant/e",
+      "name": "Requérant/e",
       "group_prefix": null
     }
   },
@@ -378,7 +378,7 @@
     "fields": {
       "role": 10000,
       "language": "fr",
-      "name": "Exploitation du syst\u00e8me",
+      "name": "Exploitation du système",
       "group_prefix": null
     }
   },
@@ -388,7 +388,7 @@
     "fields": {
       "role": 20000,
       "language": "fr",
-      "name": "Unit\u00e9 d'un service sp\u00e9cialis\u00e9",
+      "name": "Unité d'un service spécialisé",
       "group_prefix": null
     }
   },
@@ -398,7 +398,7 @@
     "fields": {
       "role": 20001,
       "language": "fr",
-      "name": "Collaborateur/collaboratrice d'un service sp\u00e9cialis\u00e9",
+      "name": "Collaborateur/collaboratrice d'un service spécialisé",
       "group_prefix": "Collaborateur/collaboratrice:"
     }
   },
@@ -418,7 +418,7 @@
     "fields": {
       "role": 20003,
       "language": "fr",
-      "name": "Droit de consulter le dossier: autorit\u00e9 directrice",
+      "name": "Droit de consulter le dossier: autorité directrice",
       "group_prefix": "Droit de consulter le dossier:"
     }
   },
@@ -428,7 +428,7 @@
     "fields": {
       "role": 20004,
       "language": "fr",
-      "name": "Collaborateur/collaboratrice de l'autorit\u00e9 directrice",
+      "name": "Collaborateur/collaboratrice de l'autorité directrice",
       "group_prefix": "Collaborateur/collaboratrice:"
     }
   },
@@ -438,7 +438,7 @@
     "fields": {
       "role": 20005,
       "language": "fr",
-      "name": "Collaborateur/collaboratrice du contr\u00f4le des constructions",
+      "name": "Collaborateur/collaboratrice du contrôle des constructions",
       "group_prefix": "Collaborateur/collaboratrice:"
     }
   },
@@ -448,7 +448,7 @@
     "fields": {
       "role": 20006,
       "language": "fr",
-      "name": "Droit de consulter le dossier: contr\u00f4le des constructions",
+      "name": "Droit de consulter le dossier: contrôle des constructions",
       "group_prefix": "Droit de consulter le dossier:"
     }
   },
@@ -458,7 +458,7 @@
     "fields": {
       "role": 20007,
       "language": "de",
-      "name": "Administration Leitbeh\u00f6rde",
+      "name": "Administration Leitbehörde",
       "group_prefix": "Administration"
     }
   },
@@ -488,7 +488,7 @@
     "fields": {
       "role": 20009,
       "language": "fr",
-      "name": "Administration: contr\u00f4le des constructions",
+      "name": "Administration: contrôle des constructions",
       "group_prefix": "Administration:"
     }
   },
@@ -508,7 +508,7 @@
     "fields": {
       "role": 20007,
       "language": "fr",
-      "name": "Administration: autorit\u00e9 directrice",
+      "name": "Administration: autorité directrice",
       "group_prefix": "Administration:"
     }
   },
@@ -567,7 +567,7 @@
     "fields": {
       "service_group": 2,
       "language": "de",
-      "name": "Leitbeh\u00f6rde Gemeinde"
+      "name": "Leitbehörde Gemeinde"
     }
   },
   {
@@ -585,7 +585,7 @@
     "fields": {
       "service_group": 20000,
       "language": "de",
-      "name": "Leitbeh\u00f6rde RSTA"
+      "name": "Leitbehörde RSTA"
     }
   },
   {
@@ -594,7 +594,7 @@
     "fields": {
       "service_group": 20001,
       "language": "de",
-      "name": "Leitbeh\u00f6rde Fachstelle"
+      "name": "Leitbehörde Fachstelle"
     }
   }
 ]

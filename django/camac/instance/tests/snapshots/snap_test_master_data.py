@@ -7,7 +7,7 @@ from snapshottest import GenericRepr, Snapshot
 
 snapshots = Snapshot()
 
-snapshots['test_master_data[kt_bern-de-be_master_data_case-select_related0-prefetch_related0-10] 1'] = {
+snapshots['test_master_data[kt_bern-de-be_master_data_case-select_related0-prefetch_related0-9] 1'] = {
     'alcohol_serving': 'mit',
     'applicants': [
         {
@@ -169,7 +169,7 @@ snapshots['test_master_data[kt_bern-de-be_master_data_case-select_related0-prefe
     ]
 }
 
-snapshots['test_master_data[kt_bern-fr-be_master_data_case-select_related1-prefetch_related1-10] 1'] = {
+snapshots['test_master_data[kt_bern-fr-be_master_data_case-select_related1-prefetch_related1-9] 1'] = {
     'alcohol_serving': 'mit',
     'applicants': [
         {

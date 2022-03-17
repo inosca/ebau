@@ -46,8 +46,10 @@ module.exports = function (environment) {
       // projektgenehmigungsgesuch-gemass-ss15-strag bezirk = Bezirksfachstelle
       // projektgenehmigungsgesuch-gemass-ss15-strag kanton = Tiefbauamt
       formLocations: {
-        "14": "Amt für Gewässer",
-        "17": "Kantonspolizei Schwyz",
+        14: "Amt für Gewässer",
+        36: "Amt für Gewässer",
+        17: "Kantonspolizei Schwyz",
+        37: "Kantonspolizei Schwyz",
         "15-astra": "Tiefbauamt des Kantons Schwyz",
         "15-esti": "Eidg. Starkstrominspektorat",
         "15-bavs": "Verkehrsamt Schwyz",
@@ -55,8 +57,17 @@ module.exports = function (environment) {
         "15-vbs": "Amt für Raumentwicklung",
         "15-bazl": "Amt für Raumentwicklung",
         "15-uebrige": "Amt für Raumentwicklung",
+        "38-astra": "Tiefbauamt des Kantons Schwyz",
+        "38-esti": "Eidg. Starkstrominspektorat",
+        "38-bavs": "Verkehrsamt Schwyz",
+        "38-bavb": "Amt für öffentlichen Verkehr",
+        "38-vbs": "Amt für Raumentwicklung",
+        "38-bazl": "Amt für Raumentwicklung",
+        "38-uebrige": "Amt für Raumentwicklung",
         "16-district": "district",
         "16-canton": "Tiefbauamt des Kantons Schwyz",
+        "39-district": "district",
+        "39-canton": "Tiefbauamt des Kantons Schwyz",
       },
 
       // Mapping used for identifying the district of a given municipality

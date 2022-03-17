@@ -138,24 +138,25 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     activation_answer_de = serializers.SerializerMethodField()
     activation_answer_fr = serializers.SerializerMethodField()
 
-    def __init__(self, instance, *args, activation=None, escape=False, **kwargs):
-        self.escape = escape
+    def __init__(self, *args, instance=None, activation=None, escape=False, **kwargs):
+        if instance:
+            self.escape = escape
 
-        lookup = {"circulation__instance": instance}
-        if activation:
-            self.activation = activation
-            self.circulation = self.activation.circulation
+            lookup = {"circulation__instance": instance}
+            if activation:
+                self.activation = activation
+                self.circulation = self.activation.circulation
 
-            lookup.update(
-                {
-                    "circulation": self.activation.circulation,
-                    "service_parent": self.activation.service_parent,
-                }
-            )
+                lookup.update(
+                    {
+                        "circulation": self.activation.circulation,
+                        "service_parent": self.activation.service_parent,
+                    }
+                )
 
-        instance.activations = Activation.objects.filter(**lookup)
+            instance.activations = Activation.objects.filter(**lookup)
 
-        super().__init__(instance, *args, **kwargs)
+        super().__init__(*args, instance=instance, **kwargs)
 
     def _escape(self, data):
         result = data
@@ -551,27 +552,31 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             )
         }
 
-        # loop over sub form questions
-        for category in document.form.questions.filter(
-            type=caluma_form_models.Question.TYPE_FORM
+        # loop over table questions in sub form questions
+        for question in caluma_form_models.Question.objects.filter(
+            type=caluma_form_models.Question.TYPE_TABLE,
+            forms__in=document.form.questions.filter(
+                type=caluma_form_models.Question.TYPE_FORM
+            ).values("sub_form"),
         ):
-            # loop over table questions in sub form
-            for question in category.sub_form.questions.filter(
-                type=caluma_form_models.Question.TYPE_TABLE
+            question_answers = []
+            # loop over table rows in table question
+            print(document)
+            print(
+                caluma_form_models.AnswerDocument.objects.all().first().document.family
+            )
+            for row in caluma_form_models.AnswerDocument.objects.filter(
+                answer__question_id=question.slug, document__family=document
             ):
-                question_answers = []
-                # loop over table rows in table question
-                for row in caluma_form_models.AnswerDocument.objects.filter(
-                    answer__question_id=question.slug, document__family=document
-                ):
-                    row_answers = {}
-                    # loop over answers in table row to format the answer
-                    for answer in row.document.answers.all():
-                        row_answers[
-                            inflection.underscore(answer.question.slug)
-                        ] = self._get_answer_value_or_date(answer)
-                    question_answers.append(row_answers)
-                answers[inflection.underscore(question.slug)] = question_answers
+                print(row)
+                row_answers = {}
+                # loop over answers in table row to format the answer
+                for answer in row.document.answers.all():
+                    row_answers[
+                        inflection.underscore(answer.question.slug)
+                    ] = self._get_answer_value_or_date(answer)
+                question_answers.append(row_answers)
+            answers[inflection.underscore(question.slug)] = question_answers
 
         return answers
 
@@ -613,12 +618,16 @@ class IssueMergeSerializer(serializers.Serializer):
         ret = super().to_representation(issue)
 
         # include instance merge fields
-        ret.update(InstanceMergeSerializer(issue.instance, context=self.context).data)
+        ret.update(
+            InstanceMergeSerializer(instance=issue.instance, context=self.context).data
+        )
 
         return ret
 
 
 class NotificationTemplateSerializer(serializers.ModelSerializer):
+    notification_type = serializers.CharField(source="type")
+
     def create(self, validated_data):
         service = self.context["request"].group.service
         validated_data["service"] = service
@@ -632,7 +641,7 @@ class NotificationTemplateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.NotificationTemplate
-        fields = ("slug", "purpose", "subject", "body", "type", "service")
+        fields = ("slug", "purpose", "subject", "body", "notification_type", "service")
 
 
 class NotificationTemplateMergeSerializer(
@@ -660,7 +669,7 @@ class NotificationTemplateMergeSerializer(
         try:
             value_template = jinja2.Template(value)
             data = InstanceMergeSerializer(
-                instance, context=self.context, activation=activation
+                instance=instance, context=self.context, activation=activation
             ).data
 
             # some cantons use uppercase placeholders. be as compatible as possible

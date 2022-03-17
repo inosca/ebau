@@ -2,7 +2,7 @@ from uuid import uuid4
 
 import reversion
 from django.conf import settings
-from django.contrib.postgres.fields import ArrayField, JSONField
+from django.contrib.postgres.fields import ArrayField
 from django.core.validators import MaxValueValidator
 from django.db import models
 from django.utils import timezone
@@ -86,7 +86,7 @@ class Attachment(models.Model):
     Service attachment has been uploaded with.
     """
 
-    context = JSONField(default=dict)
+    context = models.JSONField(default=dict)
 
     @property
     def display_name(self):
@@ -167,12 +167,14 @@ class AttachmentSection(core_models.MultilingualModel, models.Model):
             else False
         )
 
-    def can_write(self, attachment, group):
+    def can_write(self, attachment, group, instance=None):
         permission_class = self.get_permission(
-            group, attachment.instance if attachment else None
+            group, attachment.instance if attachment else instance
         )
         return (
-            permission_class.can_write(attachment, group) if permission_class else False
+            permission_class.can_write(attachment, group, instance)
+            if permission_class
+            else False
         )
 
     class Meta:
@@ -216,8 +218,12 @@ class Template(models.Model):
 
 class AttachmentDownloadHistory(models.Model):
     date_time = models.DateTimeField(default=timezone.now)
-    keycloak_id = models.CharField(max_length=250)
-    name = models.CharField(max_length=250)
+    user = models.ForeignKey(
+        "user.User",
+        models.CASCADE,
+        related_name="attachment_download_history",
+        null=True,
+    )
     attachment = models.ForeignKey(
         "Attachment", models.CASCADE, related_name="download_history"
     )

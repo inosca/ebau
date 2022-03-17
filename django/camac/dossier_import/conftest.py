@@ -43,6 +43,9 @@ def setup_fixtures_required_by_application_config(
                     "loaddata", f"/app/{config}/config/caluma_form_common.json"
                 )
                 call_command(
+                    "loaddata", f"/app/{config}/config/caluma_ebau_number_form.json"
+                )
+                call_command(
                     "loaddata", f"/app/{config}/config/caluma_dossier_import_form.json"
                 )
             if config == "kt_schwyz":

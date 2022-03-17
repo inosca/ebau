@@ -2,9 +2,9 @@ import datetime
 from typing import Dict, List, Tuple
 
 from caluma.caluma_form.models import Document
-from django.contrib.postgres.fields.jsonb import KeyTextTransform
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import Avg, Count, IntegerField, QuerySet
+from django.db.models.fields.json import KeyTextTransform
 from django.db.models.functions import Cast, ExtractYear
 
 from camac.instance.master_data import MasterData
@@ -81,7 +81,9 @@ def _compute_total_idle_days(
                     i += 1
                     elim.append(i)
             else:
-                break
+                # apparently this is not explicitly covered anymore but it still
+                # breaks the loop as expected, is this a change in python 3.8?
+                break  # pragma: no cover
         merged_ranges.append((start, end))
     return sum(map(lambda duration: (duration[1] - duration[0]).days, merged_ranges))
 

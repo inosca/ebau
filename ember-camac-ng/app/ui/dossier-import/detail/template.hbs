@@ -8,7 +8,7 @@
   >
     {{t
       "dossierImport.detail.title"
-      creationDate=(moment-format this.import.createdAt "DD.MM.YYYY HH:mm")
+      creationDate=(format-date this.import.createdAt format="datetime")
       user=(if this.isProd this.import.group.name this.import.user.fullName)
     }}
   </h3>
@@ -154,6 +154,19 @@
             }}
             @buttonLabel={{t
               "dossierImport.detail.actions.transmitImport.buttonLabel"
+            }}
+          />
+        {{/if}}
+        {{#if (can "undo dossier-import" this.import)}}
+          <DossierImportAction
+            @actionName="undoImport"
+            @task={{this.undoImport}}
+            @title={{t "dossierImport.detail.actions.undoImport.title"}}
+            @description={{t
+              "dossierImport.detail.actions.undoImport.description"
+            }}
+            @buttonLabel={{t
+              "dossierImport.detail.actions.undoImport.buttonLabel"
             }}
           />
         {{/if}}

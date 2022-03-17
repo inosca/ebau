@@ -7,6 +7,7 @@ include .env
 .DEFAULT_GOAL := help
 
 GIT_USER=$(shell git config user.email)
+DB_CONTAINER=$(shell docker-compose ps -q db)
 
 define set_env
 	sed 's/^\(APPLICATION=\).*$//\1$(1)/' -i .env django/.env
@@ -68,6 +69,10 @@ loadconfig: loadconfig-camac loadconfig-dms ## Load the DMS and camac configurat
 .PHONY: dbshell
 dbshell: ## Start a psql shell
 	@docker-compose exec db psql -Ucamac ${APPLICATION}
+
+.PHONY: ember-dev
+ember-dev: ## Set ember.development to true in application.ini
+	@sed -re 's/ember\.development.*/ember.development = true/' -i php/${APPLICATION}/configs/application.ini
 
 
 ######### Changes from eBau Bern #########
@@ -220,47 +225,27 @@ load-be-dump:
 		echo "\n"; \
 		curl -s -u $$user:$$pass --output latest.dmp https://cloud.adfinis.com/remote.php/webdav/partner/KantonBE/db_dumps/ebau.apps.be.ch/latest.dmp > /dev/null; \
 	fi
-	@docker cp latest.dmp compose_db_1:/tmp
+	@docker cp latest.dmp $(DB_CONTAINER):/tmp
 	@echo "Importing dump into DB..."
 	@docker-compose restart db > /dev/null 2>&1
 	@docker-compose exec db dropdb -U camac ${APPLICATION}
 	@docker-compose exec db createdb -U camac ${APPLICATION}
 	@docker-compose exec db pg_restore -d ${APPLICATION} -U camac -c --no-privileges --no-owner --if-exists /tmp/latest.dmp
 	@echo "Running migrations and loading new config..."
+	@docker-compose stop keycloak
+	@docker-compose rm -f keycloak
 	@docker-compose restart > /dev/null 2>&1
 	@make loadconfig > /dev/null 2>&1
 	@rm latest.dmp
 
+
 create-be-dump:
-	@docker-compose exec db psql -U camac ${APPLICATION} -c "\
-	BEGIN; \
-	TRUNCATE TABLE caluma_workflow_historicalcase; \
-	TRUNCATE TABLE caluma_workflow_historicalflow; \
-	TRUNCATE TABLE caluma_workflow_historicaltask; \
-	TRUNCATE TABLE caluma_workflow_historicaltaskflow; \
-	TRUNCATE TABLE caluma_workflow_historicalworkflow; \
-	TRUNCATE TABLE caluma_workflow_historicalworkitem; \
-	TRUNCATE TABLE caluma_form_historicalanswer; \
-	TRUNCATE TABLE caluma_form_historicaldocument; \
-	TRUNCATE TABLE caluma_form_historicalfile; \
-	TRUNCATE TABLE caluma_form_historicalformquestion; \
-	TRUNCATE TABLE caluma_form_historicalquestion; \
-	TRUNCATE TABLE caluma_form_historicalanswerdocument; \
-	TRUNCATE TABLE caluma_form_historicaldynamicoption; \
-	TRUNCATE TABLE caluma_form_historicalform; \
-	TRUNCATE TABLE caluma_form_historicaloption; \
-	TRUNCATE TABLE caluma_form_historicalquestionoption; \
-	TRUNCATE TABLE \"ACTIVATION_LOG\"; \
-	TRUNCATE TABLE \"ANSWER_LOG\"; \
-	TRUNCATE TABLE \"AUDIT_LOG\"; \
-	TRUNCATE TABLE document_attachmentdownloadhistory; \
-	TRUNCATE TABLE echbern_message; \
-	TRUNCATE TABLE reversion_version CASCADE; \
-	TRUNCATE TABLE reversion_revision CASCADE; \
-	TRUNCATE TABLE thumbnail_kvstore; \
-	COMMIT; \
-	"
+	@docker cp db/clean-dump.sql $(DB_CONTAINER):/tmp/clean-dump.sql
+	@docker-compose exec db psql -U camac ${APPLICATION} -f /tmp/clean-dump.sql
 	@docker-compose exec db pg_dump -U camac -d ${APPLICATION} -Fc -f /tmp/latest.dmp
-	@docker cp compose_db_1:/tmp/latest.dmp .
+	@docker cp $(DB_CONTAINER):/tmp/latest.dmp .
 	@docker-compose exec db rm /tmp/latest.dmp
 	@echo "Please upload latest.dmp here: https://cloud.adfinis.com/apps/files/?dir=/partner/KantonBE/db_dumps/ebau.apps.be.ch"
+
+update-lockfile:
+	@yarn upgrade && rm -rf node_modules ember-*/node-modules && yarn

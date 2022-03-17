@@ -4,12 +4,22 @@ import xml.dom.minidom as minidom
 
 import pytest
 import xmlschema
+from lxml import etree
 from pyxb import IncompleteElementContentError, UnprocessedElementContentError
 
 from camac.constants.kt_bern import ECH_BASE_DELIVERY
 from camac.echbern import formatters
 
 logger = logging.getLogger(__name__)
+
+
+def sort_xml(string):
+    return minidom.parseString(
+        etree.tostring(
+            etree.fromstring(string),
+            method="c14n",  # c14n forces attributes to be sorted
+        )
+    ).toprettyxml()
 
 
 @pytest.mark.parametrize(
@@ -71,7 +81,7 @@ def test_office(ech_instance, snapshot, multilang):
     off = formatters.office(
         ech_instance.responsible_service(filter_type="municipality")
     )
-    snapshot.assert_match(off.toxml(element_name="office"))
+    snapshot.assert_match(sort_xml(off.toxml(element_name="office")))
 
 
 @pytest.mark.parametrize("amount", [0, 1, 2])
@@ -102,9 +112,7 @@ def test_get_documents(db, attachment_factory, amount, with_display_name, snapsh
 
     for doc in xml:
         try:
-            xml_data = doc.toxml(element_name="doc")
-            pretty = minidom.parseString(xml_data).toprettyxml()
-            xml_documents.append(pretty)
+            xml_documents.append(sort_xml(doc.toxml(element_name="doc")))
         except (
             IncompleteElementContentError,
             UnprocessedElementContentError,

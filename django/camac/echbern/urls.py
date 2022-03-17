@@ -1,6 +1,5 @@
 from django.conf import settings
-from django.conf.urls import url
-from django.urls import path
+from django.urls import path, re_path
 from django.views.generic.base import RedirectView
 
 from .views import ApplicationsView, ApplicationView, EventView, MessageView, SendView
@@ -16,21 +15,21 @@ redirects = {
 urlpatterns = []
 if settings.APPLICATION.get("ECH_API"):
     urlpatterns = [
-        url(
+        re_path(
             r"application/(?P<instance_id>\d+)/?$",
             ApplicationView.as_view({"get": "retrieve"}),
             name="application",
         ),
-        url(
+        re_path(
             r"applications",
             ApplicationsView.as_view({"get": "list"}),
             name="applications",
         ),
-        url(r"message/$", MessageView.as_view({"get": "retrieve"}), name="message"),
-        url(
+        re_path(r"message/$", MessageView.as_view({"get": "retrieve"}), name="message"),
+        re_path(
             r"event/(?P<instance_id>(\d+))/(?P<event_type>(\w+))/?$",
             EventView.as_view({"post": "create"}),
             name="event",
         ),
-        url(r"send/$", SendView.as_view({"post": "create"}), name="send"),
+        re_path(r"send/$", SendView.as_view({"post": "create"}), name="send"),
     ] + [path(key, RedirectView.as_view(url=url)) for key, url in redirects.items()]

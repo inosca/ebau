@@ -15,6 +15,7 @@
         @onLabel={{t "journal.visibleForAuthorities"}}
         @showLabels={{true}}
         @size="small"
+        @onToggle={{fn (mut @journalEntry.visibility)}}
         title={{t "journal.visibility"}}
         class="x-small"
       />

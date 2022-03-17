@@ -1,5 +1,5 @@
 from django.conf import settings
-from django.conf.urls import url
+from django.urls import re_path
 from rest_framework.routers import SimpleRouter
 
 from . import views
@@ -23,7 +23,7 @@ r.register(r"issue-templates", views.IssueTemplateView, "issue-template")
 r.register(r"issue-template-sets", views.IssueTemplateSetView, "issue-template-set")
 
 urlpatterns.append(
-    url(
+    re_path(
         r"form-config",
         views.FormConfigDownloadView.as_view(),
         name="form-config-download",
@@ -33,7 +33,7 @@ urlpatterns.append(
 
 def enable_public_caluma_instances():
     urlpatterns.append(
-        url(
+        re_path(
             r"public-caluma-instances",
             views.PublicCalumaInstanceView.as_view(),
             name="public-caluma-instance",

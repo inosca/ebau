@@ -1,4 +1,4 @@
-from django.conf.urls import url
+from django.urls import re_path
 from rest_framework.routers import SimpleRouter
 
 from . import views
@@ -12,12 +12,12 @@ r.register(r"attachment-download-history", views.AttachmentDownloadHistoryView)
 
 
 urlpatterns = [
-    url(
+    re_path(
         r"^(?P<path>attachments/files/.+\..+)$",
         views.AttachmentDownloadView.as_view({"get": "retrieve"}),
         name="attachment-download",
     ),
-    url(
+    re_path(
         r"^attachments/files/",
         views.AttachmentDownloadView.as_view({"get": "list"}),
         name="multi-attachment-download",

@@ -245,7 +245,7 @@ build-kt_schwyz-production:
 build-kt_uri-stage:
   extends: .build-image
   variables:
-    KEYCLOAK_HOST: https://camac.ur.sycloud.ch
+    KEYCLOAK_HOST: https://urec.ur.sycloud.ch
     APP_ENV: staging
     APPLICATION: kt_uri
     COMPOSE: docker-compose -f compose/kt_uri.yml -f compose/kt_uri-stage.yml
@@ -253,21 +253,10 @@ build-kt_uri-stage:
   only:
     - stage-ur
 
-build-kt_uri-stage-old:
-  extends: .build-image
-  variables:
-    KEYCLOAK_HOST: https://camac-uri.sycloud.ch
-    APP_ENV: staging
-    APPLICATION: kt_uri
-    COMPOSE: docker-compose -f compose/kt_uri.yml -f compose/kt_uri-stage.yml
-    CONTAINERS: ember-camac-ng ember-caluma-portal django php db
-  only:
-    - stage-ur-old
-
 build-kt_uri-production:
   extends: .build-image
   variables:
-    KEYCLOAK_HOST: https://camac.ur.ch
+    KEYCLOAK_HOST: https://urec.ur.ch
     APP_ENV: production
     APPLICATION: kt_uri
     COMPOSE: docker-compose -f compose/kt_uri.yml -f compose/kt_uri-prod.yml
@@ -380,7 +369,7 @@ deploy-kt_uri-stage:
   extends: .deploy
   environment:
     name: stage-kt_uri
-    url: https://camac.ur.sycloud.ch/
+    url: https://urec.ur.sycloud.ch/
   before_script:
     - mkdir /root/.docker
     - echo "$UR_RUNNER_DOCKER_CAPEM" > /root/.docker/ca.pem

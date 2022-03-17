@@ -17,13 +17,13 @@ from camac.core.models import Chapter, ProposalActivation, Question, QuestionTyp
 from camac.echbern import event_handlers
 from camac.echbern.data_preparation import DocumentParser
 from camac.echbern.tests.caluma_document_data import baugesuch_data
+from camac.instance.domain_logic import WORKFLOW_ITEM_DOSSIER_IN_UREC_ERFASST_UR
 from camac.instance.models import Instance
 from camac.instance.serializers import (
     SUBMIT_DATE_CHAPTER,
     SUBMIT_DATE_FORMAT,
     SUBMIT_DATE_QUESTION_ID,
-    WORKFLOW_ITEM_DOSSIER_ERFASST_UR,
-    WORKFLOW_ITEM_DOSSIEREINGANG_UR,
+    WORKFLOW_ITEM_EINGANG_ONLINE_UR,
     CalumaInstanceSerializer,
     CalumaInstanceSubmitSerializer,
 )
@@ -75,7 +75,7 @@ def mock_generate_and_store_pdf(mocker):
     [(False, False, True), (True, False, False), (True, True, False)],
 )
 @pytest.mark.parametrize("convert_to_building_permit", [False, True])
-@pytest.mark.parametrize("role__name", ["Municipality", "Coordination"])
+@pytest.mark.parametrize("role__name", ["Municipality"])
 def test_create_instance_caluma_be(
     db,
     admin_client,
@@ -266,7 +266,8 @@ def test_create_instance_caluma_ur(
 
     authority_factory(name="Foo")
 
-    workflow_item_factory(workflow_item_id=WORKFLOW_ITEM_DOSSIER_ERFASST_UR)
+    workflow_item_factory(workflow_item_id=WORKFLOW_ITEM_EINGANG_ONLINE_UR)
+    workflow_item_factory(workflow_item_id=WORKFLOW_ITEM_DOSSIER_IN_UREC_ERFASST_UR)
 
     if archive:
         application_settings["ARCHIVE_FORMS"] = [form.pk]
@@ -307,7 +308,9 @@ def test_create_instance_caluma_ur(
             instance=instance, service=admin_client.user.groups.first().service
         )
 
-        if not modification:
+        if not modification and not admin_client.user.groups.filter(
+            role__name="Coordination"
+        ):
             old_instance = instance
             old_instance.instance_state = instance_state_factory(name="rejected")
             old_instance.save()
@@ -411,7 +414,7 @@ def test_copy_without_permission(
 @pytest.mark.parametrize(
     "role__name,instance__user,editable",
     [
-        ("Service", LazyFixture("user"), {"document"}),
+        ("Service", LazyFixture("user"), {"form", "document"}),
         ("Canton", LazyFixture("user"), {"form", "document"}),
     ],
 )
@@ -597,6 +600,7 @@ def test_instance_submit_ur(
     caluma_admin_user,
     location_factory,
     workflow_item_factory,
+    authority_location_factory,
 ):
     application_settings["NOTIFICATIONS"]["SUBMIT"] = [
         {"template_slug": notification_template.slug, "recipient_types": ["applicant"]}
@@ -604,13 +608,15 @@ def test_instance_submit_ur(
     application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = True
     application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
 
-    workflow_item_factory(workflow_item_id=WORKFLOW_ITEM_DOSSIEREINGANG_UR)
+    workflow_item_factory(workflow_item_id=WORKFLOW_ITEM_EINGANG_ONLINE_UR)
 
-    location = location_factory(location_id="1")
+    location = location_factory()
 
     ur_instance.case.document.answers.create(
         value=str(location.pk), question_id="municipality"
     )
+
+    authority_location_factory(location=location)
 
     group_factory(role=role_factory(name="support"))
     mocker.patch.object(
@@ -659,6 +665,7 @@ def test_instance_submit_cantonal_territory_usage_ur(
     instance_state_factory,
     submit_to,
     service_factory,
+    authority_location_factory,
 ):
     settings.APPLICATION_NAME = "kt_uri"
     application_settings["CALUMA"]["USE_LOCATION"] = True
@@ -711,13 +718,15 @@ def test_instance_submit_cantonal_territory_usage_ur(
     application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = True
     application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
 
-    workflow_item_factory(workflow_item_id=WORKFLOW_ITEM_DOSSIEREINGANG_UR)
+    workflow_item_factory(workflow_item_id=WORKFLOW_ITEM_EINGANG_ONLINE_UR)
 
-    location = location_factory(location_id="1")
+    location = location_factory()
 
     ur_instance.case.document.answers.create(
         value=str(location.pk), question_id="municipality"
     )
+
+    authority_location_factory(location=location)
 
     mocker.patch.object(
         DocumentParser,
@@ -737,7 +746,7 @@ def test_instance_submit_cantonal_territory_usage_ur(
     assert koor_email in mail.outbox[0].recipients()
 
     assert ur_instance.instance_state.name == "ext"
-    assert ur_instance.location_id == 22
+    assert ur_instance.location_id == location.pk
     assert ur_instance.group == koor_group
 
 
@@ -790,7 +799,7 @@ def test_instance_submit_message_building_services_ur(
     application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = True
     application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
 
-    workflow_item_factory(workflow_item_id=WORKFLOW_ITEM_DOSSIEREINGANG_UR)
+    workflow_item_factory(workflow_item_id=WORKFLOW_ITEM_EINGANG_ONLINE_UR)
 
     location = location_factory(location_id="1")
 

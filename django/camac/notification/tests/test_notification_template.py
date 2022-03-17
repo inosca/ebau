@@ -14,6 +14,7 @@ from rest_framework import exceptions, status
 
 from camac.conftest import CALUMA_FORM_TYPES_SLUGS, FakeRequest
 from camac.instance.models import HistoryEntry
+from camac.instance.tests.test_master_data import add_answer, add_table_answer
 from camac.notification import serializers
 from camac.notification.serializers import (
     InstanceMergeSerializer,
@@ -79,7 +80,7 @@ def test_notification_template_create(admin_client, notification_template, statu
                 "slug": "test",
                 "body": "Test",
                 "purpose": "Test",
-                "type": "textcomponent",
+                "notification-type": "textcomponent",
                 "subject": "Test",
             },
         }
@@ -89,7 +90,7 @@ def test_notification_template_create(admin_client, notification_template, statu
     assert response.status_code == status_code
     if status_code == status.HTTP_201_CREATED:
         json = response.json()
-        assert json["data"]["attributes"]["type"] == "textcomponent"
+        assert json["data"]["attributes"]["notification-type"] == "textcomponent"
 
 
 @pytest.mark.parametrize(
@@ -132,9 +133,7 @@ def test_notification_template_merge(
     form_field_factory,
     notice_factory,
     publication_entry,
-    task_factory,
     work_item_factory,
-    answer_factory,
     document_factory,
     settings,
 ):
@@ -150,37 +149,33 @@ def test_notification_template_merge(
     application_settings["INSTANCE_MERGE_CONFIG"] = {
         "BAUVERWALTUNG": {
             "TASK_SLUG": "building-authority",
-            "CATEGORIES": {
-                "Bewilligungsverfahren": [],
-                "Beschwerdeverfahren": [],
-            },
-            "TABLE_MAPPING": {"Beschwerdeverfahren": "realisierung-tabelle"},
         }
     }
 
     work_item = work_item_factory(task_id="building-authority", case=sz_instance.case)
-    mapping_document = document_factory(
-        family=work_item.document.family, form_id="beschwerdeverfahren-tabelle"
+    work_item.document = document_factory(form_id="bauverwaltung")
+    work_item.save()
+    add_answer(work_item.document, "bewilligungsverfahren-gr-sitzung-beschluss", "foo")
+    add_answer(
+        work_item.document,
+        "beschwerdeverfahren-weiterzug-durch",
+        "beschwerdeverfahren-weiterzug-durch-beschwerdegegner",
     )
-    answer_factory(
-        question_id="bewilligungsverfahren-gr-sitzung-beschluss",
-        value="foo",
-        document_id=work_item.document.pk,
+    add_answer(
+        work_item.document,
+        "bewilligungsverfahren-gr-sitzung-datum",
+        datetime.now(),
+        "date",
     )
-    answer_factory(
-        question_id="baukontrolle-realisierung-bemerkungen",
-        value="foo",
-        document_id=mapping_document.pk,
-    )
-    answer_factory(
-        question_id="beschwerdeverfahren-weiterzug-durch",
-        value="beschwerdeverfahren-weiterzug-durch-beschwerdegegner",
-        document_id=work_item.document.pk,
-    )
-    answer_factory(
-        question_id="bewilligungsverfahren-gr-sitzung-datum",
-        date=datetime.now(),
-        document_id=work_item.document.pk,
+    add_table_answer(
+        work_item.document,
+        "bewilligungsverfahren-sitzung-baukommission",
+        [
+            {
+                "bewilligungsverfahren-sitzung-baukommission-nr": 78,
+                "bewilligungsverfahren-sitzung-baukommission-bemerkung": "Foo Bar",
+            }
+        ],
     )
 
     add_field = functools.partial(form_field_factory, instance=sz_instance)
@@ -486,21 +481,22 @@ def test_notification_template_sendmail_koor(
     settings,
     instance_state_factory,
     use_forbidden_state,
+    application_settings,
 ):
     """Test notification permissions for KOOR roles.
 
     KOOR is special in that they have more complicated rules than other
     roles in Kanton Uri: Full access is granted for the following cases
     * They've created an instance themselves
-    * The instance is not in a "private" state (which mostly
+    * The instance is not in a "hidden" state (which mostly
       excludes instances being edited before submission)
     """
     if use_forbidden_state:
-        use_forbidden_state = [ur_instance.instance_state.name]
+        forbidden_states = [ur_instance.instance_state.name]
     else:
-        use_forbidden_state = [instance_state_factory().name]
+        forbidden_states = [instance_state_factory().name]
 
-    mocker.patch("camac.constants.kt_uri.INSTANCE_STATES_PRIVATE", use_forbidden_state)
+    application_settings["INSTANCE_HIDDEN_STATES"] = {"coordination": forbidden_states}
 
     url = reverse("notificationtemplate-sendmail")
     data = {
@@ -866,7 +862,7 @@ def test_notification_validate_slug_update(admin_client, notification_template):
                 "slug": "test",
                 "body": "Test",
                 "purpose": "Test",
-                "type": "textcomponent",
+                "notification-type": "textcomponent",
                 "subject": "Test",
             },
         }
@@ -888,7 +884,7 @@ def test_notification_validate_slug_create(admin_client, notification_template):
                 "slug": notification_template.slug,
                 "body": "Test",
                 "purpose": "Test",
-                "type": "textcomponent",
+                "notification-type": "textcomponent",
                 "subject": "Test",
             },
         }
@@ -1239,7 +1235,7 @@ def test_recipient_inactive_municipality(
 def test_portal_submission_placeholder(
     db, instance, camac_answer_factory, mocker, submitter_type
 ):
-    serializer = InstanceMergeSerializer(instance)
+    serializer = InstanceMergeSerializer(instance=instance)
     if submitter_type is not None:
         ans_submitter_type = camac_answer_factory(
             answer=submitter_type, instance=instance

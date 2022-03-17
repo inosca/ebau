@@ -1605,7 +1605,8 @@ snapshots['test_instance_permissions_be[municipality-lead-district-subm-instance
         'read'
     ],
     'nfd': [
-        'read'
+        'read',
+        'write'
     ],
     'publikation': [
     ],
@@ -2060,7 +2061,8 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-subm-inst
         'read'
     ],
     'nfd': [
-        'read'
+        'read',
+        'write'
     ],
     'publikation': [
     ],
@@ -4286,6 +4288,17 @@ snapshots['test_instance_permissions_ur[circ-Coordination-instance__user0] 1'] =
     ]
 }
 
+snapshots['test_instance_permissions_ur[circ-Support-instance__user0] 1'] = {
+    'case-meta': [
+        'read',
+        'write'
+    ],
+    'main': [
+        'read',
+        'write'
+    ]
+}
+
 snapshots['test_instance_permissions_ur[ext-Coordination-instance__user0] 1'] = {
     'case-meta': [
         'read'
@@ -4296,9 +4309,31 @@ snapshots['test_instance_permissions_ur[ext-Coordination-instance__user0] 1'] = 
     ]
 }
 
+snapshots['test_instance_permissions_ur[ext-Support-instance__user0] 1'] = {
+    'case-meta': [
+        'read',
+        'write'
+    ],
+    'main': [
+        'read',
+        'write'
+    ]
+}
+
 snapshots['test_instance_permissions_ur[redac-Coordination-instance__user0] 1'] = {
     'case-meta': [
         'read'
+    ],
+    'main': [
+        'read',
+        'write'
+    ]
+}
+
+snapshots['test_instance_permissions_ur[redac-Support-instance__user0] 1'] = {
+    'case-meta': [
+        'read',
+        'write'
     ],
     'main': [
         'read',

@@ -1,5 +1,7 @@
 import { helper } from "@ember/component/helper";
 
-export default helper(function isEmbedded() {
-  return window.frameElement !== null;
-});
+export function isEmbedded() {
+  return window.top !== window;
+}
+
+export default helper(isEmbedded);
