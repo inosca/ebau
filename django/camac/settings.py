@@ -1324,18 +1324,7 @@ APPLICATIONS = {
             "evaluated",
         ],
         "PORTAL_GROUP": 6,
-        "DEMO_MODE_GROUPS": [
-            20003,
-            20006,
-            20096,
-            20144,
-            20069,
-            22648,
-            20165,
-            22642,
-            20291,
-        ],  # DE
-        # "DEMO_MODE_GROUPS": [22274, 22271, 20099, 20078, 23248],  # FR
+        "DEMO_MODE_GROUPS": [],  # TODO add after sycloud reset
         "USE_INSTANCE_SERVICE": True,
         "ACTIVE_SERVICES": {
             "MUNICIPALITY": {
