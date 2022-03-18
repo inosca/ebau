@@ -17,6 +17,8 @@ export default class FetchService extends Service {
   @service session;
 
   async fetch(resource, init = {}) {
+    await this.session.refreshAuthentication.perform();
+
     init.headers = cleanObject({
       ...this.session.headers,
       accept: CONTENT_TYPE,
