@@ -9,10 +9,14 @@ export default class CustomCalumaApolloService extends CalumaApolloService {
   link() {
     const httpLink = super.link();
 
-    const middleware = setContext(async (_, context) => ({
-      ...context,
-      headers: { ...context.headers, ...this.session.authHeaders },
-    }));
+    const middleware = setContext(async (_, context) => {
+      await this.session.refreshAuthentication.perform();
+
+      return {
+        ...context,
+        headers: { ...context.headers, ...this.session.headers },
+      };
+    });
 
     const afterware = onError((error) => {
       if (error.networkError && error.networkError.statusCode === 401) {

@@ -7,17 +7,25 @@ module("Unit | Service | fetch", function (hooks) {
   setupTest(hooks);
   setupMirage(hooks);
 
-  hooks.beforeEach(async function () {
+  hooks.beforeEach(async function (assert) {
     await authenticateSession({ access_token: "opensesame" });
 
     const session = this.owner.lookup("service:session");
 
     session.language = "de";
     session.group = 5;
+    Object.defineProperty(session, "refreshAuthentication", {
+      value: {
+        async perform() {
+          assert.step("refresh");
+          return true;
+        },
+      },
+    });
   });
 
-  test("it can fetch", function (assert) {
-    assert.expect(3);
+  test("it can fetch", async function (assert) {
+    assert.expect(4);
 
     const service = this.owner.lookup("service:fetch");
 
@@ -35,7 +43,7 @@ module("Unit | Service | fetch", function (hooks) {
       assert.step("fetch");
     });
 
-    service.fetch("/foo", {
+    await service.fetch("/foo", {
       headers: {
         authorization: "changed",
         "x-some-header": "changed",
@@ -43,6 +51,6 @@ module("Unit | Service | fetch", function (hooks) {
       },
     });
 
-    assert.verifySteps(["fetch"]);
+    assert.verifySteps(["refresh", "fetch"]);
   });
 });
