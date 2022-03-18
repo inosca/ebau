@@ -56,6 +56,10 @@ export default class CustomSession extends Session {
     this._group = value;
   }
 
+  get showInternalLink() {
+    return Boolean(this.groups.content?.length);
+  }
+
   get isInternal() {
     return Boolean(this.group);
   }
