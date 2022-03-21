@@ -7,7 +7,7 @@ dashboard:
   invoiceRecipient: "Rechnungsempfänger"
   location: "Lage"
   editing: "Bearbeitung"
-  parcels: "Parzellen"
+  parcels: "Parzellen / Baurechtsnummern"
   egrid: "EGRID"
   basicUsage: "Grundnutzung"
   overlayUsage: "Überlagerte Nutzung"
