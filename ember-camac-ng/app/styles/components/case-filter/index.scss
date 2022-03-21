@@ -39,7 +39,8 @@ $filter-color-option-border: rgb(210, 210, 210);
   &.ember-power-select-trigger,
   input[type="search" i],
   .ember-power-select-option,
-  .ember-power-select-multiple-option {
+  .ember-power-select-multiple-option,
+  .ember-power-select-search-input {
     line-height: $filter-line-height;
   }
 
