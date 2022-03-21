@@ -103,8 +103,19 @@ export default class CaseFilterComponent extends Component {
         };
       }
     );
+
+    // Responsible service users are included for every
+    // service and instance they are assigned to and need
+    // to be deduplicated
+    const uniqueResponsibleServiceUsers = [];
+    responsibleServiceUsers.forEach((user) => {
+      if (!uniqueResponsibleServiceUsers.find((u) => u.value === user.value)) {
+        uniqueResponsibleServiceUsers.push(user);
+      }
+    });
+
     return [
-      ...responsibleServiceUsers,
+      ...uniqueResponsibleServiceUsers,
       {
         label: this.intl.t("cases.filters.responsibleServiceUser-nobody"),
         value: "nobody",
