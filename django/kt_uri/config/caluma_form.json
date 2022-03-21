@@ -10632,7 +10632,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "anlagedaten",
-      "sort": 20
+      "sort": 21
     }
   },
   {
@@ -10647,7 +10647,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "art-der-kollektoren",
-      "sort": 18
+      "sort": 19
     }
   },
   {
@@ -10662,7 +10662,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "beschreibung-der-warmenutzung",
-      "sort": 16
+      "sort": 17
     }
   },
   {
@@ -10677,6 +10677,21 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "erwartete-stromproduktion",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-tabelle.gesamtkosten",
+    "fields": {
+      "created_at": "2022-03-21T07:38:12.076Z",
+      "modified_at": "2022-03-21T07:38:12.077Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-tabelle",
+      "question": "gesamtkosten",
       "sort": 13
     }
   },
@@ -10782,7 +10797,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "nutzung",
-      "sort": 17
+      "sort": 18
     }
   },
   {
@@ -10812,7 +10827,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "solar-gesamtflaeche-m2",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -10827,7 +10842,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "solar-gesamtleistung-kw",
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -10872,7 +10887,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "typ-der-solaranlage",
-      "sort": 19
+      "sort": 20
     }
   },
   {
@@ -38388,6 +38403,40 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "gesamtkosten",
+    "fields": {
+      "created_at": "2022-03-21T07:38:11.946Z",
+      "modified_at": "2022-03-21T07:38:11.946Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gesamtkosten\", \"fr\": null}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
       "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
