@@ -189,18 +189,18 @@
       <tr>
         <CaseDashboard::Column @header={{t "dashboard.parcels"}}>
           <ul class="uk-list uk-list-disc uk-list-collapse">
-            {{#each this.models.caseModel.parcelNumbers as |parcelNumber|}}
+            {{#each this.models.caseModel.plotAndBuildingLawNumbers as |numbers|}}
               <li>
                 <a
                   href="https://geo.ur.ch/grundbuchauskunft/?gem={{
                     this.models.caseModel.communalFederalNumber
                   }}&nr={{
-                    parcelNumber
+                    numbers.parcel
                   }}"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {{parcelNumber}}
+                  {{numbers.parcel}} {{if numbers.buildingLaw (concat '(BR ' numbers.buildingLaw ')')}}
                 </a>
               </li>
             {{/each}}
