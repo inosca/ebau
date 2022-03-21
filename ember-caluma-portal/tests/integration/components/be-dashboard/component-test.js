@@ -2,6 +2,7 @@ import Service from "@ember/service";
 import { render, click, fillIn } from "@ember/test-helpers";
 import { tracked } from "@glimmer/tracking";
 import { setupMirage } from "ember-cli-mirage/test-support";
+import { task } from "ember-concurrency";
 import { setupIntl } from "ember-intl/test-support";
 import { setupRenderingTest } from "ember-qunit";
 import hbs from "htmlbars-inline-precompile";
@@ -12,7 +13,7 @@ module("Integration | Component | be-dashboard", function (hooks) {
   setupMirage(hooks);
   setupIntl(hooks);
 
-  hooks.beforeEach(function () {
+  hooks.beforeEach(async function () {
     const question = this.server.create("question", {
       slug: "test-content-de",
       type: "TEXT",
@@ -36,6 +37,11 @@ module("Integration | Component | be-dashboard", function (hooks) {
       class MockService extends Service {
         @tracked isSupport = false;
         @tracked language = "de";
+
+        @task
+        *refreshAuthentication() {
+          yield true;
+        }
       }
     );
   });
