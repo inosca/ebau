@@ -66,6 +66,7 @@ omit=
     camac/core/management/commands/migrate_is_published.py
     camac/core/management/commands/migrate_ebau_number_form.py
     camac/core/management/commands/migrate_koor_afj_documents.py
+    camac/core/management/commands/testsystem_cleanup_be.py
     # Audit migration
     camac/core/management/commands/config/
     camac/core/management/commands/migrate_audit.py
