@@ -1,10 +1,14 @@
 import re
+from functools import reduce
 
 from caluma.caluma_workflow.models import Case
 from django.conf import settings
+from django.contrib.postgres.fields import ArrayField
 from django.core.validators import EMPTY_VALUES
-from django.db.models import F, OuterRef, Subquery
+from django.db.models import Exists, F, OuterRef, Q, Subquery
 from django.db.models.constants import LOOKUP_SEP
+from django.db.models.expressions import RawSQL
+from django.db.models.fields import TextField
 from django_filters.rest_framework import (
     BooleanFilter,
     CharFilter,
@@ -160,39 +164,49 @@ class FormFieldListValueFilter(Filter):
         if value in EMPTY_VALUES:
             return qs
 
-        key_fragments = ", ".join([f"{key} text" for key in self._keys])
-        query = f"jsonb_to_recordset(instance_formfield.value) as field_values({key_fragments})"
+        form_fields = models.FormField.objects.all()
 
-        search_values = [
-            f"%{v.strip()}%" for v in value.strip().split(" ") if v.strip()
-        ]
+        # Use alias() instead of annotate() to only calculate expression if
+        # the form field has to be checked for the instance query.
+        # In addition, the form field name doesn't have to be prefiltered,
+        # since the expression is only evaluated in the instance query where
+        # the form field name is checked.
+        for key in self._keys:
+            form_fields = form_fields.alias(
+                **{
+                    f"values_{key}": RawSQL(
+                        f"""
+                            select array_agg({key})
+                            from jsonb_to_recordset(value) as ({key} text)
+                        """,
+                        (),
+                        ArrayField(TextField()),
+                    ),
+                }
+            )
 
-        search_query = " and ".join(
-            [
-                "("
-                + " or ".join(
-                    [f"field_values.{key} ilike %({i})s" for key in self._keys]
+        filters = []
+        search_values = filter(None, value.strip().split(" "))
+        for v in search_values:
+            subfilters = [Q(**{f"values_{key}__icontains": v}) for key in self._keys]
+            filters.append(reduce(lambda a, b: a | b, subfilters))
+
+        return qs.filter(
+            # Use exists() since the instance should be returned as long
+            # as at least one form field contains the search value, which
+            # limits the searched form fields to the ones contained in
+            # the instance queryset and allows the subquery to be terminated
+            # as soon as one form field of the instance is found that
+            # fulfills the condition.
+            Exists(
+                form_fields.filter(
+                    Q(instance__pk=OuterRef("pk"))
+                    & Q(name__in=self._form_field_names)
+                    & Q(value__isnull=False)
+                    & reduce(lambda a, b: a & b, filters)
                 )
-                + ")"
-                for i in range(len(search_values))
-            ]
+            )
         )
-
-        form_fields = models.FormField.objects.raw(
-            f"""
-                select id
-                from instance_formfield,
-                {query}
-                where instance_formfield.name = any (%(field_names)s)
-                and {search_query}
-                """,
-            {
-                "field_names": self._form_field_names,
-                **{str(i): val for i, val in enumerate(search_values)},
-            },
-        )
-
-        return qs.filter(fields__in=form_fields).distinct()
 
 
 class InstanceSubmitDateFilter(DateFilter):
