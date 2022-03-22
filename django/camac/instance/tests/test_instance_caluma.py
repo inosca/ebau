@@ -140,13 +140,6 @@ def test_create_instance_caluma_be(
         slug="dossiernummer", type=caluma_form_models.Question.TYPE_INTEGER
     )
     QuestionType.objects.create(question_type_id=1, name="Text")
-    Question.objects.create(
-        question_id=be_constants.QUESTION_EBAU_NR, question_type_id=1
-    )
-    QuestionType.objects.create(question_type_id=5, name="Radiobox")
-    Question.objects.create(
-        question_id=be_constants.QUESTION_EBAU_NR_EXISTS, question_type_id=5
-    )
 
     # chapter for application extension of validity period
     Chapter.objects.create(pk=be_constants.INSTANCE_STATE_EBAU_NUMMER_VERGEBEN)
