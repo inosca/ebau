@@ -94,7 +94,9 @@ def test_command(parashift_data, parashift_mock, application_settings):
 
     # master data doesn't work here because DynamicOption record is missing
     # when creating answers through caluma python api
-    assert answers.get(question_id="municipality").value == str(instance.location.pk)
+    assert answers.get(question_id="municipality").value == str(
+        instance.location.communal_federal_number
+    )
 
     # one PDF, split into 4 pieces
     assert instance.attachments.count() == 4
