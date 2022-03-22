@@ -335,7 +335,7 @@ class CreateInstanceLogic:
             caluma_api.update_or_create_answer(
                 case.document,
                 "municipality",
-                str(instance.location.pk),
+                instance.location.communal_federal_number,
                 user,
             )
 

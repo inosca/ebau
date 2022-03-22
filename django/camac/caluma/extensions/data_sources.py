@@ -107,7 +107,10 @@ class Locations(BaseDataSource):
         locations = Location.objects.filter(**filters)
 
         return sorted(
-            [[loc.pk, loc.name] for loc in locations.iterator()],
+            [
+                [int(loc.communal_federal_number), loc.name]
+                for loc in locations.iterator()
+            ],
             key=lambda x: x[1].casefold(),
         )
 
