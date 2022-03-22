@@ -1325,17 +1325,17 @@ APPLICATIONS = {
         ],
         "PORTAL_GROUP": 6,
         "DEMO_MODE_GROUPS": [
-            20003,
-            20006,
-            20096,
-            20144,
-            20069,
-            22648,
-            20165,
-            22642,
-            20291,
-        ],  # DE
-        # "DEMO_MODE_GROUPS": [22274, 22271, 20099, 20078, 23248],  # FR
+            23395,
+            23396,
+            23399,
+            23400,
+            23403,
+            23404,
+            23407,
+            23408,
+            23412,
+            23415,
+        ],
         "USE_INSTANCE_SERVICE": True,
         "ACTIVE_SERVICES": {
             "MUNICIPALITY": {
