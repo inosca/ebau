@@ -33,6 +33,7 @@ module.exports = function (environment) {
 
     APPLICATIONS: {
       kt_bern: {
+        name: "be",
         prodUrl: "ebau.apps.be.ch",
         gwr: {
           cantonAbbreviation: "BE",
@@ -50,6 +51,7 @@ module.exports = function (environment) {
         ],
       },
       kt_schwyz: {
+        name: "sz",
         prodUrl: "behoerden.ebau-sz.ch",
         gwr: {
           cantonAbbreviation: "SZ",
@@ -65,6 +67,7 @@ module.exports = function (environment) {
         externalServiceGroupIds: [],
       },
       kt_uri: {
+        name: "ur",
         prodUrl: "urec.ur.ch",
         gwr: {
           cantonAbbreviation: "UR",
