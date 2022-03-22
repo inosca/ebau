@@ -11,14 +11,7 @@ from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
 from camac.caluma.api import CalumaApi
-from camac.constants import kt_bern as constants
 from camac.instance.models import HistoryEntry
-
-
-@pytest.fixture
-def ebau_number_question(db, camac_question_factory, camac_chapter_factory):
-    camac_question_factory(question_id=constants.QUESTION_EBAU_NR)
-    camac_chapter_factory(chapter_id=constants.CHAPTER_EBAU_NR)
 
 
 @pytest.mark.freeze_time("2020-12-03")
@@ -44,8 +37,6 @@ def test_set_ebau_number(
     be_instance,
     instance_with_case,
     role,
-    ebau_number_question,
-    camac_answer_factory,
     instance_factory,
     instance_service_factory,
     instance_state_factory,
@@ -60,12 +51,6 @@ def test_set_ebau_number(
     instance_other = instance_with_case(
         instance_service_factory(service=service_factory()).instance
     )
-    camac_answer_factory(
-        instance=instance_other,
-        question_id=constants.QUESTION_EBAU_NR,
-        chapter_id=constants.CHAPTER_EBAU_NR,
-        answer="2020-1",
-    )
     instance_other.case.meta["ebau-number"] = "2020-1"
     instance_other.case.save()
 
@@ -76,24 +61,12 @@ def test_set_ebau_number(
         instance=instance_same,
         active=0,
     )
-    camac_answer_factory(
-        instance=instance_same,
-        question_id=constants.QUESTION_EBAU_NR,
-        chapter_id=constants.CHAPTER_EBAU_NR,
-        answer="2020-2",
-    )
     instance_same.case.meta["ebau-number"] = "2020-2"
     instance_same.case.save()
 
     # instance with different municipality but also ebau-nr 2020-2
     instance_indirect = instance_with_case(
         instance_service_factory(service=service_factory()).instance
-    )
-    camac_answer_factory(
-        instance=instance_indirect,
-        question_id=constants.QUESTION_EBAU_NR,
-        chapter_id=constants.CHAPTER_EBAU_NR,
-        answer="2020-2",
     )
     instance_indirect.case.meta["ebau-number"] = "2020-2"
     instance_indirect.case.save()
@@ -209,7 +182,6 @@ def test_set_ebau_number_workflow(
     instance_with_case,
     instance_state,
     role,
-    ebau_number_question,
     instance_state_factory,
     expected_status,
     caluma_workflow,
