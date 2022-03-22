@@ -521,15 +521,10 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
 
     def _get_main_form_permissions_for_coordination(self, instance):
         state = instance.instance_state.name
-        permissions = set()
 
         if state != "new":
-            permissions.add("read")
-
-        # COMM is needed for "Bundesstelle"
-        if state in ["comm", "ext", "circ", "redac"]:
-            permissions.add("write")
-        return permissions
+            return set(["read", "write"])
+        return set()  # pragma: no cover
 
     def _get_main_form_permissions_for_service(self, instance):
         if instance.instance_state.name == "new":
