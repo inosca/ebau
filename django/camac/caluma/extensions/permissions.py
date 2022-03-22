@@ -25,7 +25,6 @@ from caluma.caluma_workflow.schema import (
     SuspendCase,
 )
 from django.conf import settings
-from django.db.models import Q
 
 from camac.caluma.utils import CamacRequest
 from camac.constants.kt_bern import DASHBOARD_FORM_SLUG
@@ -228,9 +227,7 @@ class CustomPermission(IsAuthenticated):
             case = target
             permission_key = "case-meta"
         elif isinstance(target, Document):
-            case = Case.objects.filter(
-                Q(work_items__document_id=target.pk) | Q(document_id=target.pk)
-            ).first()
+            case = target.work_item.case if target.work_item else target.case
 
             if not case:
                 # if the document is unlinked, allow changing it this is used for
