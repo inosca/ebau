@@ -120,7 +120,6 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     billing_total = serializers.SerializerMethodField()
     my_activations = serializers.SerializerMethodField()
     objections = serializers.SerializerMethodField()
-    bauverwaltung = serializers.SerializerMethodField()
 
     vorhaben = serializers.SerializerMethodField()
     parzelle = serializers.SerializerMethodField()
@@ -513,67 +512,6 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         return instance.activations.filter(
             circulation_state_id=be_constants.CIRCULATION_STATE_WORKING
         ).count()
-
-    def _get_answer_value_or_date(self, answer):
-        if answer.question.type in [
-            caluma_form_models.Question.TYPE_MULTIPLE_CHOICE,
-            caluma_form_models.Question.TYPE_CHOICE,
-        ]:
-            return "\n".join(
-                [
-                    str(label)
-                    for label in answer.selected_options.values_list("label", flat=True)
-                ]
-            )
-        elif answer.question.type == caluma_form_models.Question.TYPE_DATE:
-            return answer.date.strftime(settings.MERGE_DATE_FORMAT)
-        return answer.value
-
-    def get_bauverwaltung(self, instance):
-        if not settings.APPLICATION.get("INSTANCE_MERGE_CONFIG"):
-            return {}
-
-        work_item_qs = instance.case.work_items.filter(
-            task_id=settings.APPLICATION["INSTANCE_MERGE_CONFIG"]["BAUVERWALTUNG"][
-                "TASK_SLUG"
-            ]
-        )
-
-        if not work_item_qs.exists():  # pragma: no cover
-            return {}
-
-        document = work_item_qs.first().document
-        answers = {
-            inflection.underscore(answer.question.slug): self._get_answer_value_or_date(
-                answer
-            )
-            for answer in document.answers.filter(
-                Q(value__isnull=False) | Q(date__isnull=False)
-            )
-        }
-
-        # loop over table questions in sub form questions
-        for question in caluma_form_models.Question.objects.filter(
-            type=caluma_form_models.Question.TYPE_TABLE,
-            forms__in=document.form.questions.filter(
-                type=caluma_form_models.Question.TYPE_FORM
-            ).values("sub_form"),
-        ):
-            question_answers = []
-            # loop over table rows in table question
-            for row in caluma_form_models.AnswerDocument.objects.filter(
-                answer__question_id=question.slug, document__family=document
-            ):
-                row_answers = {}
-                # loop over answers in table row to format the answer
-                for answer in row.document.answers.all():
-                    row_answers[
-                        inflection.underscore(answer.question.slug)
-                    ] = self._get_answer_value_or_date(answer)
-                question_answers.append(row_answers)
-            answers[inflection.underscore(question.slug)] = question_answers
-
-        return answers
 
     def to_representation(self, instance):
         ret = super().to_representation(instance)
