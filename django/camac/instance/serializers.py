@@ -45,7 +45,7 @@ from camac.instance.domain_logic import link_instances
 from camac.instance.master_data import MasterData
 from camac.instance.mixins import InstanceEditableMixin, InstanceQuerysetMixin
 from camac.notification.utils import send_mail
-from camac.user.models import Group, Service
+from camac.user.models import Group, Location, Service
 from camac.user.permissions import permission_aware
 from camac.user.relations import (
     CurrentUserResourceRelatedField,
@@ -1126,8 +1126,10 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             )
 
         if settings.APPLICATION["CALUMA"].get("USE_LOCATION"):
-            instance.location_id = int(
-                case.document.answers.get(question_id="municipality").value
+            instance.location = Location.objects.get(
+                communal_federal_number=case.document.answers.get(
+                    question_id="municipality"
+                ).value
             )
 
             self._update_instance_location(instance)
