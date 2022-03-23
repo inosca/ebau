@@ -561,14 +561,9 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         ):
             question_answers = []
             # loop over table rows in table question
-            print(document)
-            print(
-                caluma_form_models.AnswerDocument.objects.all().first().document.family
-            )
             for row in caluma_form_models.AnswerDocument.objects.filter(
                 answer__question_id=question.slug, document__family=document
             ):
-                print(row)
                 row_answers = {}
                 # loop over answers in table row to format the answer
                 for answer in row.document.answers.all():

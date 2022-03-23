@@ -1587,3 +1587,81 @@ def test_unnotified_services(
 
     assert len(mailoutbox) == 1
     assert circulation.activations.filter(email_sent=1).count() == 2
+
+
+@pytest.mark.parametrize(
+    "user__email,role__name,notification_template__body",
+    [
+        (
+            "user@example.com",
+            "Municipality",
+            """
+                BAUVERWALTUNG:
+                {{bauverwaltung.bewilligungsverfahren_sitzung_baukommission}}
+                {{bauverwaltung.bewilligungsverfahren_gr_sitzung_datum}}
+            """,
+        )
+    ],
+)
+def test_notification_bauverwaltung_placeholders(
+    admin_client,
+    sz_instance,
+    notification_template,
+    application_settings,
+    work_item_factory,
+    document_factory,
+    settings,
+):
+    call_command(
+        "loaddata", settings.ROOT_DIR("kt_schwyz/config/buildingauthority.json")
+    )
+    call_command("loaddata", settings.ROOT_DIR("kt_schwyz/config/caluma_form.json"))
+
+    application_settings["INSTANCE_MERGE_CONFIG"] = {
+        "BAUVERWALTUNG": {
+            "TASK_SLUG": "building-authority",
+        }
+    }
+
+    work_item = work_item_factory(task_id="building-authority", case=sz_instance.case)
+    work_item.document = document_factory(form_id="bauverwaltung")
+    work_item.save()
+    add_answer(work_item.document, "bewilligungsverfahren-gr-sitzung-beschluss", "foo")
+    add_answer(
+        work_item.document,
+        "beschwerdeverfahren-weiterzug-durch",
+        "beschwerdeverfahren-weiterzug-durch-beschwerdegegner",
+    )
+    date = datetime.now()
+    add_answer(
+        work_item.document,
+        "bewilligungsverfahren-gr-sitzung-datum",
+        date,
+        "date",
+    )
+    add_table_answer(
+        work_item.document,
+        "bewilligungsverfahren-sitzung-baukommission",
+        [
+            {
+                "bewilligungsverfahren-sitzung-baukommission-nr": 78,
+                "bewilligungsverfahren-sitzung-baukommission-bemerkung": "Foo Bar",
+            }
+        ],
+    )
+
+    url = reverse("notificationtemplate-merge", args=[notification_template.pk])
+    response = admin_client.get(url, data={"instance": sz_instance.pk})
+
+    assert response.status_code == status.HTTP_200_OK
+
+    assert [
+        placeholder.strip()
+        for placeholder in response.json()["data"]["attributes"]["body"]
+        .strip()
+        .split("\n")
+    ] == [
+        "BAUVERWALTUNG:",
+        "[{'bewilligungsverfahren_sitzung_baukommission_bemerkung': 'Foo Bar', 'bewilligungsverfahren_sitzung_baukommission_nr': 78}]",
+        f"{date.strftime(settings.MERGE_DATE_FORMAT)}",
+    ]
