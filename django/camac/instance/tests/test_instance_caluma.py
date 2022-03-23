@@ -613,7 +613,7 @@ def test_instance_submit_ur(
     location = location_factory()
 
     ur_instance.case.document.answers.create(
-        value=str(location.pk), question_id="municipality"
+        value=str(location.communal_federal_number), question_id="municipality"
     )
 
     authority_location_factory(location=location)
@@ -723,7 +723,7 @@ def test_instance_submit_cantonal_territory_usage_ur(
     location = location_factory()
 
     ur_instance.case.document.answers.create(
-        value=str(location.pk), question_id="municipality"
+        value=str(location.communal_federal_number), question_id="municipality"
     )
 
     authority_location_factory(location=location)
@@ -804,7 +804,7 @@ def test_instance_submit_message_building_services_ur(
     location = location_factory(location_id="1")
 
     ur_instance.case.document.answers.create(
-        value=str(location.pk), question_id="municipality"
+        value=str(location.communal_federal_number), question_id="municipality"
     )
 
     mocker.patch.object(
