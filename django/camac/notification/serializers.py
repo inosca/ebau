@@ -518,11 +518,11 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         if answer.question.type in [
             caluma_form_models.Question.TYPE_MULTIPLE_CHOICE,
             caluma_form_models.Question.TYPE_CHOICE,
-        ]:
+        ] and len(answer.selected_options):
             return "\n".join(
                 [
                     str(label)
-                    for label in answer.selected_options.values_list("label", flat=True)
+                    for label in [option.label for option in answer.selected_options]
                 ]
             )
         elif answer.question.type == caluma_form_models.Question.TYPE_DATE:
