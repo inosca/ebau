@@ -282,7 +282,7 @@
       "modified_by_group": null,
       "form": "bauverwaltung-baukontrolle",
       "question": "baukontrolle-baugespannkontrolle",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -297,7 +297,7 @@
       "modified_by_group": null,
       "form": "bauverwaltung-baukontrolle",
       "question": "baukontrolle-baugespannkontrolle-bemerkungen",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -312,7 +312,7 @@
       "modified_by_group": null,
       "form": "bauverwaltung-baukontrolle",
       "question": "baukontrolle-baugespannkontrolle-datum",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -373,6 +373,21 @@
       "form": "bauverwaltung-baukontrolle",
       "question": "baukontrolle-realisierung-table",
       "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauverwaltung-baukontrolle.baukontrolle-realisierung-table-title",
+    "fields": {
+      "created_at": "2022-03-23T12:42:46.867Z",
+      "modified_at": "2022-03-23T12:42:46.867Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "6",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauverwaltung-baukontrolle",
+      "question": "baukontrolle-realisierung-table-title",
+      "sort": 6
     }
   },
   {
