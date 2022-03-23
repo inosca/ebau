@@ -77,6 +77,7 @@ services:
       args:
         - APPLICATION=${APPLICATION}
         - KEYCLOAK_HOST=${KEYCLOAK_HOST}
+        - INTERNAL_URL=${INTERNAL_URL}
     restart: always
 
   keycloak:
