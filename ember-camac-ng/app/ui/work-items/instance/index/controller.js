@@ -76,12 +76,12 @@ export default class WorkItemsInstanceIndexController extends Controller {
           { key: "camac-instance-id", value: parseInt(this.model.id) },
         ],
       },
-      { [filterKey]: [this.shoebox.content.serviceId] },
+      { [filterKey]: [String(this.shoebox.content.serviceId)] },
     ];
 
     if (filterKey === "controllingGroups") {
       filter.push({
-        addressedGroups: [this.shoebox.content.serviceId],
+        addressedGroups: [String(this.shoebox.content.serviceId)],
         invert: true,
       });
     }
