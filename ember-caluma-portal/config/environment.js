@@ -188,6 +188,7 @@ module.exports = function (environment) {
 
   const oidcHost =
     process.env.KEYCLOAK_HOST || "http://camac-ng-keycloak.local";
+  const internalURL = process.env.INTERNAL_URL || "http://camac-ng.local";
   const beGisUrl = process.env.BE_GIS_URL || "https://www.map.apps.be.ch";
 
   const ENV = {
@@ -236,7 +237,7 @@ module.exports = function (environment) {
 
     ebau: {
       beGisUrl,
-      internalURL: "http://camac-ng.local",
+      internalURL,
       attachments: {
         allowedMimetypes: ["image/png", "image/jpeg", "application/pdf"],
         buckets: [

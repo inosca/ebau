@@ -2,6 +2,7 @@ FROM danlynn/ember-cli:3.28.5 as build
 
 ARG APPLICATION
 ARG KEYCLOAK_HOST
+ARG INTERNAL_URL
 
 COPY package.json yarn.lock /myapp/
 COPY ember-ebau-core /myapp/ember-ebau-core
