@@ -17690,22 +17690,6 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "form-type-kantonsgebiet-sd",
-    "fields": {
-      "created_at": "2020-11-02T11:33:25.076Z",
-      "modified_at": "2021-12-06T16:55:35.543Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": "admin",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Bewilligungsverfahren f\\u00fcr die Beanspruchung von Kantonsgebiet SD\", \"fr\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
     "pk": "form-type-konzession-landrat",
     "fields": {
       "created_at": "2020-10-30T13:57:12.781Z",
@@ -56561,21 +56545,6 @@
       "question": "form-type",
       "option": "form-type-kantonsgebiet",
       "sort": 36
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "form-type.form-type-kantonsgebiet-sd",
-    "fields": {
-      "created_at": "2021-12-06T16:55:36.150Z",
-      "modified_at": "2021-12-06T16:55:36.150Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": "admin",
-      "modified_by_group": null,
-      "question": "form-type",
-      "option": "form-type-kantonsgebiet-sd",
-      "sort": 5
     }
   },
   {

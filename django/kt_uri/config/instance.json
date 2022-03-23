@@ -571,16 +571,6 @@
   },
   {
     "model": "instance.form",
-    "pk": 291,
-    "fields": {
-      "form_state": 1,
-      "name": "Bewilligungsverfahren für die Beanspruchung von Kantonsgebiet SD",
-      "description": "KOOR-SD;Koordinationsstelle SD",
-      "family": null
-    }
-  },
-  {
-    "model": "instance.form",
     "pk": 292,
     "fields": {
       "form_state": 1,
