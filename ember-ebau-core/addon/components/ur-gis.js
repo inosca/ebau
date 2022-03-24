@@ -346,7 +346,7 @@ export default class UrGisComponent extends Component {
             if (value === undefined || value === null) {
               return;
             }
-            field.answer.value = String(value);
+            field.answer.value = value;
             await field.save.perform();
             await field.validate.perform();
           })
@@ -393,7 +393,7 @@ export default class UrGisComponent extends Component {
             const value = parcel[slug];
 
             if (!isEmpty(value)) {
-              field.answer.value = String(value);
+              field.answer.value = value;
             } else {
               field.answer.value = "";
             }
