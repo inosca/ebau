@@ -13,9 +13,8 @@ from rest_framework.exceptions import ValidationError
 
 from camac.caluma.api import CalumaApi
 from camac.caluma.extensions.data_sources import Municipalities
-from camac.constants import kt_bern as be_constants, kt_uri as ur_constants
+from camac.constants import kt_uri as ur_constants
 from camac.core.models import (
-    Answer,
     InstanceLocation,
     InstanceService,
     WorkflowEntry,
@@ -30,26 +29,6 @@ SUBMIT_DATE_FORMAT = "%Y-%m-%dT%H:%M:%S%z"
 WORKFLOW_ITEM_DOSSIER_IN_UREC_ERFASST_UR = 12
 
 caluma_api = CalumaApi()
-
-
-def save_ebau_number(instance, ebau_number):
-    instance.case.meta["ebau-number"] = ebau_number
-    instance.case.save()
-
-    Answer.objects.update_or_create(
-        instance=instance,
-        question_id=be_constants.QUESTION_EBAU_NR,
-        chapter_id=be_constants.CHAPTER_EBAU_NR,
-        item=1,
-        defaults={"answer": ebau_number},
-    )
-    Answer.objects.update_or_create(
-        instance=instance,
-        question_id=be_constants.QUESTION_EBAU_NR_EXISTS,
-        chapter_id=be_constants.CHAPTER_EBAU_NR,
-        item=1,
-        defaults={"answer": "yes"},
-    )
 
 
 def link_instances(first, second):
@@ -406,20 +385,6 @@ class CreateInstanceLogic:
         ebau_number = caluma_api.get_ebau_number(source_instance)
         case.meta["ebau-number"] = ebau_number
         case.save()
-        Answer.objects.create(
-            instance=target_instance,
-            question_id=be_constants.QUESTION_EBAU_NR_EXISTS,
-            chapter_id=be_constants.CHAPTER_EBAU_NR,
-            item=1,
-            answer="yes",
-        )
-        Answer.objects.create(
-            instance=target_instance,
-            question_id=be_constants.QUESTION_EBAU_NR,
-            chapter_id=be_constants.CHAPTER_EBAU_NR,
-            item=1,
-            answer=ebau_number,
-        )
 
     @staticmethod
     def copy_extend_validity_answers(source, target, user):

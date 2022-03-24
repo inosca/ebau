@@ -17,14 +17,7 @@ from camac.constants.kt_bern import (
     ECH_JUDGEMENT_WRITTEN_OFF,
     VORABKLAERUNG_DECISIONS_BEWILLIGT_MIT_VORBEHALT,
 )
-from camac.core.models import (
-    Answer,
-    Chapter,
-    DocxDecision,
-    Question,
-    QuestionT,
-    QuestionType,
-)
+from camac.core.models import DocxDecision
 from camac.echbern.schema.ech_0211_2_0 import CreateFromDocument
 
 from .. import views
@@ -41,6 +34,7 @@ def test_application_retrieve_full(
     admin_client,
     mocker,
     ech_instance,
+    instance_with_case,
     instance_factory,
     docx_decision_factory,
     attachment,
@@ -52,23 +46,17 @@ def test_application_retrieve_full(
         decision = VORABKLAERUNG_DECISIONS_BEWILLIGT_MIT_VORBEHALT
     docx_decision_factory(instance=ech_instance, decision=decision)
 
-    i = instance_factory()
+    i = instance_with_case(instance_factory())
 
     attachment.instance = ech_instance
     attachment.context = {"tags": ["some", "tags"]}
     attachment.save()
     attachment.attachment_sections.add(attachment_section)
 
-    qtype = QuestionType.objects.create(name="text")
-    q = Question.objects.create(question_type=qtype)
-    QuestionT.objects.create(question=q, name="eBau-Nummer", language="de")
-    chapter = Chapter.objects.create()
-    Answer.objects.create(
-        instance=i, question=q, answer="2019-23", item=1, chapter=chapter
-    )
-    Answer.objects.create(
-        instance=ech_instance, question=q, answer="2019-23", item=1, chapter=chapter
-    )
+    i.case.meta["ebau-number"] = "2019-23"
+    i.case.save()
+    ech_instance.case.meta["ebau-number"] = "2019-23"
+    ech_instance.case.save()
 
     url = reverse("application", args=[ech_instance.pk])
 

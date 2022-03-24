@@ -2,7 +2,6 @@ import pytest
 from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
 
-from camac.constants.kt_bern import QUESTION_EBAU_NR
 from camac.echbern.data_preparation import slugs_baugesuch, slugs_vorabklaerung_einfach
 from camac.instance.serializers import SUBMIT_DATE_FORMAT
 
@@ -15,10 +14,14 @@ def ech_instance(
     service_t_factory,
     camac_answer_factory,
     caluma_workflow_config_be,
+    instance_with_case,
+    instance_factory,
+    applicant_factory,
 ):
+    instance = instance_with_case(instance_factory(pk=2323))
     inst_serv = instance_service_factory(
         instance__user=admin_user,
-        instance__pk=2323,
+        instance=instance,
         service__name=None,
         service__city=None,
         service__zip="3400",
@@ -37,11 +40,11 @@ def ech_instance(
         city="Burgdorf",
     )
 
-    camac_answer_factory(
-        instance=inst_serv.instance, question__pk=QUESTION_EBAU_NR, answer="2020-1"
-    )
+    instance.case.meta["ebau-number"] = "2020-1"
 
-    return inst_serv.instance
+    applicant_factory(invitee=admin_user, instance=instance)
+
+    return instance
 
 
 @pytest.fixture

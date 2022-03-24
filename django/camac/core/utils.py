@@ -1,56 +1,48 @@
 from typing import Callable
 
+from caluma.caluma_workflow.models import Case
 from django.conf import settings
-from django.db.models import IntegerField
+from django.db.models import CharField, IntegerField
+from django.db.models.fields.json import KeyTextTransform
 from django.db.models.functions import Cast, Substr
 from django.utils import timezone
 
-from camac.constants.kt_bern import CHAPTER_EBAU_NR, QUESTION_EBAU_NR
 from camac.core.models import HistoryActionConfig
 from camac.core.translations import get_translations
 from camac.instance.models import HistoryEntry, HistoryEntryT, Instance
 from camac.user.models import User
 
-from .models import Answer
-
-
-def get_max_ebau_nr(year: int) -> int:
-    ebau_answer = (
-        Answer.objects.filter(
-            question_id=QUESTION_EBAU_NR,
-            chapter_id=CHAPTER_EBAU_NR,
-            answer__startswith=year,
-        )
-        # Substr is 1-index, so start after "YYYY-"
-        .annotate(seq=Cast(Substr("answer", 6), output_field=IntegerField()))
-        .order_by("-seq")
-        .first()
-    )
-    return ebau_answer.seq if ebau_answer is not None else 0
-
 
 def generate_ebau_nr(year: int) -> str:
-    return "%d-%d" % (year, get_max_ebau_nr(year) + 1)
+    max_number = (
+        Case.objects.filter(**{"meta__ebau-number__startswith": year})
+        .annotate(
+            ebau_nr=Cast(
+                Substr(Cast(KeyTextTransform("ebau-number", "meta"), CharField()), 6),
+                IntegerField(),
+            )
+        )
+        .order_by("-ebau_nr")
+        .values_list("ebau_nr", flat=True)
+        .first()
+    )
+
+    return "%d-%d" % (year, (max_number or 0) + 1)
 
 
 def assign_ebau_nr(instance: Instance, year=None) -> str:
+    existing = instance.case.meta.get("ebau-number")
+    if existing:
+        return existing
+
     year = timezone.now().year if year is None else year
 
     ebau_nr = generate_ebau_nr(year)
 
-    ans, _ = save_ebau_nr_answer(instance, ebau_nr)
-    return ans.answer
+    instance.case.meta["ebau-number"] = ebau_nr
+    instance.case.save()
 
-
-def save_ebau_nr_answer(instance: Instance, ebau_nr: str):
-    return Answer.objects.get_or_create(
-        instance=instance,
-        question_id=QUESTION_EBAU_NR,
-        chapter_id=CHAPTER_EBAU_NR,
-        # TODO check if this used somewhere
-        item=1,
-        defaults={"answer": ebau_nr},
-    )
+    return ebau_nr
 
 
 def create_history_entry(
