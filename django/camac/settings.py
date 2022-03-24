@@ -346,6 +346,11 @@ APPLICATIONS = {
             "vbs": "PV",
             "uebrige": "PU",
         },
+        "INSTANCE_MERGE_CONFIG": {
+            "BAUVERWALTUNG": {
+                "TASK_SLUG": "building-authority",
+            }
+        },
         "CALUMA_INSTANCE_FORMS": [
             "geschaeftskontrolle",
         ],
