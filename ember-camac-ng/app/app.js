@@ -22,7 +22,7 @@ export default class App extends Application {
         ],
       },
     },
-    emberEbauGwr: {
+    "ember-ebau-gwr": {
       dependencies: {
         services: [
           "notification", // ember-uikit for notifications
