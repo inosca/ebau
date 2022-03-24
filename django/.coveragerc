@@ -68,6 +68,7 @@ omit=
     camac/core/management/commands/migrate_koor_afj_documents.py
     camac/core/management/commands/testsystem_cleanup_be.py
     camac/core/management/commands/migrate_municipality_answer_value.py
+    camac/core/management/commands/migrate_uri_leitbehoerde.py
     # Audit migration
     camac/core/management/commands/config/
     camac/core/management/commands/migrate_audit.py
