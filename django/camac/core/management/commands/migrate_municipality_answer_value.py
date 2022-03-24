@@ -11,6 +11,9 @@ class Command(BaseCommand):
     def add_arguments(self, parser):
         parser.add_argument("--dry", dest="dry", action="store_true", default=False)
 
+    def get_location(self, id):
+        return Location.objects.filter(pk=int(id)).first()
+
     @transaction.atomic
     def handle(self, *args, **options):
         sid = transaction.savepoint()
@@ -21,11 +24,11 @@ class Command(BaseCommand):
 
         answer_counter = 0
         for answer in municipality_answers.iterator():
-            answer.value = Location.objects.get(
-                pk=int(answer.value)
-            ).communal_federal_number
-            answer.save()
-            answer_counter += 1
+            loc = self.get_location(answer.value)
+            if loc:
+                answer.value = loc.communal_federal_number
+                answer.save()
+                answer_counter += 1
 
         self.stdout.write(f"{answer_counter} municipality answer values were migrated")
 
@@ -35,11 +38,11 @@ class Command(BaseCommand):
 
         dynamic_option_counter = 0
         for dynamic_option in municipality_dynamic_options.iterator():
-            dynamic_option.slug = Location.objects.get(
-                pk=int(dynamic_option.slug)
-            ).communal_federal_number
-            dynamic_option.save()
-            dynamic_option_counter += 1
+            loc = self.get_location(dynamic_option.slug)
+            if loc:
+                dynamic_option.slug = loc.communal_federal_number
+                dynamic_option.save()
+                dynamic_option_counter += 1
 
         self.stdout.write(f"{dynamic_option_counter} dynamic options were migrated")
 
