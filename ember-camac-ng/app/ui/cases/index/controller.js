@@ -49,9 +49,9 @@ export default class CasesIndexController extends Controller {
   ];
 
   @tracked displaySearch = false;
-  @tracked hasActivation = false;
-  @tracked hasPendingBillingEntry = false;
-  @tracked hasPendingSanction = false;
+  @tracked hasActivation = null;
+  @tracked hasPendingBillingEntry = null;
+  @tracked hasPendingSanction = null;
   @tracked workflow = null;
   @tracked excludeWorkflow = null;
   @tracked isCaluma = null;
