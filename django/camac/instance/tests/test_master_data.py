@@ -54,7 +54,7 @@ def add_table_answer(document, question, rows, table_answer=None):
     answer = add_answer(document, question, None) if not table_answer else table_answer
 
     for i, row in enumerate(reversed(rows)):
-        row_document = caluma_form_factories.DocumentFactory()
+        row_document = caluma_form_factories.DocumentFactory(family=document)
         for column, value in row.items():
             add_answer(row_document, column, value)
 
