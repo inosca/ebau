@@ -31,6 +31,8 @@ export default class CustomWorkItemModel extends WorkItemModel {
   }
 
   get addressedService() {
+    if (!this.addressedGroups.length) return null;
+
     if (!parseInt(this.addressedGroups[0])) {
       return {
         name: this.intl.t(`global.${this.addressedGroups[0]}`),
@@ -102,9 +104,11 @@ export default class CustomWorkItemModel extends WorkItemModel {
     }
 
     return [
-      this.addressedService.name,
+      this.addressedService?.name,
       this.assignedUser ? `(${this.assignedUser.fullName})` : "",
-    ].join(" ");
+    ]
+      .filter(Boolean)
+      .join(" ");
   }
 
   get case() {
