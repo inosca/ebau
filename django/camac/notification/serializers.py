@@ -269,6 +269,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             publications.append(
                 {
                     "date": self.format_date(publication.publication_date),
+                    "end_date": self.format_date(publication.publication_end_date),
                     "calendar_week": publication.publication_date.isocalendar()[1],
                 }
             )
