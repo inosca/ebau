@@ -97,6 +97,7 @@ class ServiceView(MultilangMixin, ModelViewSet):
 
 
 class PublicServiceView(MultilangMixin, ReadOnlyModelViewSet):
+    swagger_schema = None
     filterset_class = filters.PublicServiceFilterSet
     serializer_class = serializers.PublicServiceSerializer
     queryset = models.Service.objects.filter(disabled=False)
