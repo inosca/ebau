@@ -227,7 +227,11 @@ class CustomPermission(IsAuthenticated):
             case = target
             permission_key = "case-meta"
         elif isinstance(target, Document):
-            case = target.work_item.case if target.work_item else target.case
+            case = (
+                target.work_item.case
+                if getattr(target, "work_item", None)
+                else getattr(target, "case", None)
+            )
 
             if not case:
                 # if the document is unlinked, allow changing it this is used for
