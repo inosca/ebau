@@ -11,7 +11,6 @@ from django.utils import timezone
 from pyxb import IncompleteElementContentError, UnprocessedElementContentError
 
 from camac import camac_metadata
-from camac.constants.kt_bern import QUESTION_EBAU_NR
 from camac.core.models import Answer, DocxDecision
 from camac.instance.models import Instance
 from camac.utils import build_url
@@ -87,11 +86,7 @@ def authority(service):
 
 
 def get_ebau_nr(instance):
-    ebau_answer = Answer.objects.filter(
-        question__pk=QUESTION_EBAU_NR, instance=instance
-    ).first()
-    if ebau_answer:
-        return ebau_answer.answer
+    return instance.case.meta.get("ebau-number")
 
 
 def get_related_instances(instance, ebau_nr=None):
