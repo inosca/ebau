@@ -31,6 +31,8 @@ export default class CaseFilterComponent extends Component {
       ...this.args.filter,
       ...this.storedFilters,
     };
+
+    this.args.onChange(this._filter);
   }
 
   get storedGroupFilters() {
