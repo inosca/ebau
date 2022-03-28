@@ -44635,7 +44635,7 @@
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Parzellen- oder Baurechtsnummer\", \"fr\": null}",
-      "type": "integer",
+      "type": "text",
       "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
