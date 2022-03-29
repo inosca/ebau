@@ -45,7 +45,6 @@ class ApplicationView(ECHInstanceQuerysetMixin, RetrieveModelMixin, GenericViewS
     )
     def retrieve(self, request, instance_id=None, **kwargs):
         qs = self.get_queryset()
-        breakpoint()
         instance = get_object_or_404(qs, pk=instance_id)
         document = get_document(instance.pk)
         try:
