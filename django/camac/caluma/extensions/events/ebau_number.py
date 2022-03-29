@@ -5,7 +5,7 @@ from django.db import transaction
 from django.utils.translation import gettext_noop
 
 from camac.core.utils import create_history_entry
-from camac.echbern.signals import assigned_ebau_number
+from camac.ech0211.signals import assigned_ebau_number
 from camac.instance.models import InstanceState
 from camac.user.models import User
 

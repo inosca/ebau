@@ -3,7 +3,7 @@ from caluma.caluma_form.models import Answer
 from caluma.caluma_form.schema import SaveDocumentStringAnswer
 
 from camac.caluma.utils import CamacRequest
-from camac.echbern.signals import file_subsequently
+from camac.ech0211.signals import file_subsequently
 from camac.notification.utils import send_mail
 
 CLAIM_QUESTION = "nfd-tabelle-table"
