@@ -5,6 +5,8 @@ from dateutil.parser import ParserError, parse as dateutil_parse
 from django.conf import settings
 from django.utils.translation import get_language
 
+from camac.core.models import MultilingualModel
+
 
 @dataclass
 class MasterData(object):
@@ -435,6 +437,12 @@ class MasterData(object):
             hasattr(self.case.instance, "decision")
             and self.case.instance.decision.decision_date
         ) or None
+
+    def instance_property_resolver(self, lookup):
+        prop = getattr(self.case.instance, lookup, None)
+        if isinstance(prop, MultilingualModel):
+            prop = prop.get_name()
+        return prop
 
     def datetime_parser(self, value, default, **kwargs):
         try:
