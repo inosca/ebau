@@ -97,7 +97,7 @@ INSTALLED_APPS = [
     "camac.auditlog.apps.DefaultConfig",
     "camac.tags.apps.DefaultConfig",
     "camac.objection.apps.DefaultConfig",
-    "camac.echbern.apps.EchbernConfig",
+    "camac.ech0211.apps.Ech0211Config",
     "camac.migrate_to_caluma.apps.MigrateConfig",
     "camac.stats.apps.StatsConfig",
     "camac.parashift.apps.ParashiftConfig",
@@ -171,6 +171,9 @@ COMMON_FORM_SLUGS_BE = [
 # an application is defined by the customer e.g. uri, schwyz, etc.
 APPLICATIONS = {
     "demo": {
+        "ECH0211": {
+            "API_ACTIVE": False,
+        },
         "LOG_NOTIFICATIONS": True,
         # Mapping between camac role and instance permission.
         "ROLE_PERMISSIONS": {
@@ -229,7 +232,9 @@ APPLICATIONS = {
             "SAVE_DOSSIER_NUMBER_IN_CALUMA": True,
         },
         "STORE_PDF": {"SECTION": 1},
-        "ECH_API": True,
+        "ECH0211": {
+            "API_ACTIVE": False,
+        },
         "INSTANCE_STATE_REJECTION_COMPLETE": "finished",
         "SET_SUBMIT_DATE_CAMAC_ANSWER": True,
         "REJECTION_FEEDBACK_QUESTION": {
@@ -282,6 +287,16 @@ APPLICATIONS = {
             "Fachstelle Leitbehörde": "municipality",
             "Support": "support",
         },
+        "ECH0211": {
+            "API_ACTIVE": True,
+            "SWAGGER_PATH": "camac.swagger.views.kt_schwyz",
+            "VIEW_PATH": "camac.ech0211.views.kt_schwyz",
+            "URLS": "camac.ech0211.urls.kt_schwyz",
+        },
+        "EXCLUDE_DOCS": [
+            "document",
+            "instance",
+        ],
         "PUBLIC_ROLES": ["Publikation", "Portal"],
         "PORTAL_GROUP": 4,
         "SERVICE_GROUPS_FOR_DISTRIBUTION": {
@@ -778,8 +793,13 @@ APPLICATIONS = {
                     },
                 },
             ),
+            "dossier_number": (("instance_property", "identifier")),
+            "municipality": (("instance_property", "location")),
             "proposal": ("ng_answer", ["bezeichnung", "bezeichnung-override"]),
             "construction_costs": ("ng_answer", "baukosten"),
+            "usage_zone": ("static", "nutzungszone"),  # TODO: changeme
+            "usage_type": ("static", "nutzungsart"),  # TODO: changeme
+            "application_type": ("ng_answer", "verfahrensart"),
             "application_type_migrated": (  # not the same as regular application_type that requires predefined choices
                 "ng_answer",
                 "verfahrensart-migriertes-dossier",
@@ -1180,22 +1200,22 @@ APPLICATIONS = {
             "SIMPLE_WORKFLOW": {
                 "reopen-circulation": {
                     "next_instance_state": "circulation",
-                    "ech_event": "camac.echbern.signals.circulation_started",
+                    "ech_event": "camac.ech0211.signals.circulation_started",
                     "history_text": gettext_lazy("Circulation reopened"),
                 },
                 "skip-circulation": {
                     "next_instance_state": "coordination",
-                    "ech_event": "camac.echbern.signals.circulation_ended",
+                    "ech_event": "camac.ech0211.signals.circulation_ended",
                     "history_text": gettext_lazy("Circulation skipped"),
                 },
                 "start-decision": {
                     "next_instance_state": "coordination",
-                    "ech_event": "camac.echbern.signals.circulation_ended",
+                    "ech_event": "camac.ech0211.signals.circulation_ended",
                     "history_text": gettext_lazy("Circulation completed"),
                 },
                 "complete": {
                     "next_instance_state": "finished",
-                    "ech_event": "camac.echbern.signals.finished",
+                    "ech_event": "camac.ech0211.signals.finished",
                     "history_text": gettext_lazy("Procedure completed"),
                 },
             },
@@ -1408,7 +1428,12 @@ APPLICATIONS = {
             },
             "ALLOWED_SERVICE_GROUPS": {"SB1": [3], "SB2": [3], "DEFAULT": [2, 20000]},
         },
-        "ECH_API": True,
+        "ECH0211": {
+            "API_ACTIVE": True,
+            "VIEW_PATH": "camac.ech0211.views.kt_bern",
+            "SWAGGER_PATH": "camac.swagger.views.kt_bern",
+            "URLS": "camac.ech0211.urls.kt_bern",
+        },
         "DOCUMENT_MERGE_SERVICE": {
             "FORM": {
                 "_base": {
@@ -1906,6 +1931,11 @@ APPLICATIONS = {
         },
         "MASTER_DATA": {
             "canton": ("static", "BE"),
+            "nature_risk_type": (
+                "table",
+                "beschreibung-der-prozessart-tabelle",
+                {"column_mapping": {"risk_type": "prozessart"}},
+            ),
             "applicants": (
                 "table",
                 "personalien-gesuchstellerin",
@@ -2176,6 +2206,9 @@ APPLICATIONS = {
         "PUBLICATION_BACKEND": "caluma",
     },
     "kt_uri": {
+        "ECH0211": {
+            "API_ACTIVE": False,
+        },
         "LOG_NOTIFICATIONS": False,
         "FORM_BACKEND": "caluma",
         "PUBLICATION_DURATION": timedelta(days=20),

@@ -14,6 +14,7 @@ exclude = '''
   | dist
   | .*/migrations
   | .*/echbern\/schema
+  | .*/ech0211\/schema
   | .*/snapshots
 )/
 '''
