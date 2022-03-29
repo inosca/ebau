@@ -232,9 +232,6 @@ APPLICATIONS = {
             "SAVE_DOSSIER_NUMBER_IN_CALUMA": True,
         },
         "STORE_PDF": {"SECTION": 1},
-        "ECH0211": {
-            "API_ACTIVE": False,
-        },
         "INSTANCE_STATE_REJECTION_COMPLETE": "finished",
         "SET_SUBMIT_DATE_CAMAC_ANSWER": True,
         "REJECTION_FEEDBACK_QUESTION": {
@@ -275,6 +272,7 @@ APPLICATIONS = {
         ],
     },
     "kt_schwyz": {
+        "INCLUDE_STATIC_FILES": [("xml", "kt_schwyz/static/ech0211/xml/")],
         "LOG_NOTIFICATIONS": True,
         "ROLE_PERMISSIONS": {
             "Gemeinde": "municipality",
@@ -1050,6 +1048,7 @@ APPLICATIONS = {
         },
     },
     "kt_bern": {
+        "INCLUDE_STATIC_FILES": [("xml", "kt_bern/static/ech0211/xml")],
         "LOG_NOTIFICATIONS": True,
         "SYSTEM_USER": "service-account-camac-admin",
         "ROLE_PERMISSIONS": {
@@ -2953,6 +2952,7 @@ TEMPFILE_RETENTION_TIME = env.int(
 )
 
 STATIC_ROOT = ROOT_DIR("staticfiles")
+STATICFILES_DIRS = []  # declare empyt list in order to append config specific dirs
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
@@ -3400,3 +3400,5 @@ OIDC_OP_INTROSPECT_ENDPOINT = env.str(
     "DJANGO_OIDC_OP_INTROSPECT_ENDPOINT",
     default=f"{OIDC_DEFAULT_BASE_URL}/token/introspect",
 )
+
+STATICFILES_DIRS += APPLICATIONS[APPLICATION_NAME].get("INCLUDE_STATIC_FILES", [])

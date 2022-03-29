@@ -35,7 +35,7 @@ from camac.core import factories as core_factories
 from camac.document import factories as document_factories
 from camac.document.tests.data import django_file
 from camac.dossier_import import factories as dossier_import_factories
-from camac.echbern import factories as ech_factories
+from camac.ech0211 import factories as ech_factories
 from camac.faker import FreezegunAwareDatetimeProvider
 from camac.instance import factories as instance_factories
 from camac.instance.serializers import SUBMIT_DATE_FORMAT
@@ -772,3 +772,75 @@ def construction_control_for(service_factory):
         )
 
     return wrapper
+
+
+@pytest.fixture
+def sz_master_data_case(db, sz_instance, form_field_factory, workflow_entry_factory):
+    # Simple data
+    form_field_factory(instance=sz_instance, name="bezeichnung", value="Grosses Haus")
+    form_field_factory(instance=sz_instance, name="baukosten", value=129000)
+
+    # Applicant
+    form_field_factory(
+        instance=sz_instance,
+        name="bauherrschaft",
+        value=[
+            {
+                "anrede": "Herr",
+                "vorname": "Max",
+                "name": "Mustermann",
+                "firma": "ACME AG",
+                "strasse": "Teststrasse 2",
+                "plz": 1233,
+                "ort": "Musterdorf",
+            }
+        ],
+    )
+
+    # Applicant V2
+    form_field_factory(
+        instance=sz_instance,
+        name="bauherrschaft-v2",
+        value=[
+            {
+                "anrede": "Herr",
+                "vorname": "Max",
+                "name": "Mustermann",
+                "firma": "ACME AG",
+                "strasse": "Teststrasse 2",
+                "plz": 1233,
+                "ort": "Musterdorf",
+            }
+        ],
+    )
+
+    # Applicant override (Vollständigkeitsprüfung)
+    form_field_factory(
+        instance=sz_instance,
+        name="bauherrschaft-override",
+        value=[
+            {
+                "anrede": "Herr",
+                "vorname": "Max",
+                "name": "Mustermann",
+                "firma": "ACME AG",
+                "strasse": "Teststrasse 3",
+                "plz": 5678,
+                "ort": "Musterdorf",
+            }
+        ],
+    )
+
+    # Plot data
+    form_field_factory(
+        instance=sz_instance,
+        name="parzellen",
+        value=[
+            {
+                "number": 1234,
+                "egrid": "CH1234567890",
+            }
+        ],
+    )
+
+    return sz_instance.case
