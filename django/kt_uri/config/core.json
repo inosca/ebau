@@ -763,24 +763,6 @@
   },
   {
     "model": "core.anotification",
-    "pk": 1281,
-    "fields": {
-      "template": "zirkulation-gestartet1",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 1286,
-    "fields": {
-      "template": "zirkulation-gestartet1",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
     "pk": 1297,
     "fields": {
       "template": "oreb-meldung",
@@ -839,15 +821,6 @@
     "fields": {
       "template": "zirkulation-abgeschlossen",
       "recipient_type": "Custom_Plugin_Notification_Recipient_SubmitterList",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 1374,
-    "fields": {
-      "template": "zirkulation-gestartet1",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
       "processor": "Notification_Processor_SendEmailAPI"
     }
   },
@@ -4126,20 +4099,6 @@
   },
   {
     "model": "core.action",
-    "pk": 1281,
-    "fields": {
-      "available_action": "notification",
-      "button": 827,
-      "name": "Zirkulation starten E-Mail AFJ",
-      "description": "Versendet eine E-Mail an alle zum Start der Zirkulation involvierten Stellen.",
-      "success_message": "E-Mail zum Start der Zirkulation wurde versandt",
-      "error_message": "E-Mail zum Start der Zirkulation konnte nicht versendet werden",
-      "execute_always": 0,
-      "sort": 3
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 1282,
     "fields": {
       "available_action": "php",
@@ -4192,20 +4151,6 @@
       "error_message": "",
       "execute_always": 0,
       "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 1286,
-    "fields": {
-      "available_action": "notification",
-      "button": 828,
-      "name": "E-Mail an hinzugefügte Fachstellen versenden AFJ",
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 1
     }
   },
   {
@@ -4508,7 +4453,7 @@
     "fields": {
       "available_action": "notification",
       "button": 827,
-      "name": "Zirkulation starten E-Mail SD",
+      "name": "Zirkulation starten E-Mail",
       "description": "Versendet eine E-Mail an alle zum Start der Zirkulation involvierten Stellen.",
       "success_message": null,
       "error_message": null,
@@ -4522,7 +4467,7 @@
     "fields": {
       "available_action": "notification",
       "button": 828,
-      "name": "E-Mail an hinzugefügte Fachstellen versenden SD",
+      "name": "E-Mail an hinzugefügte Fachstellen versenden",
       "description": null,
       "success_message": null,
       "error_message": null,
