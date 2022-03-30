@@ -7277,6 +7277,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "lokalisierung.lokalisierung-anleitung",
+    "fields": {
+      "created_at": "2022-04-14T11:35:59.047Z",
+      "modified_at": "2022-04-14T11:35:59.047Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "lokalisierung",
+      "question": "lokalisierung-anleitung",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "lokalisierung.lokalisierung-titel",
     "fields": {
       "created_at": "2020-11-04T18:08:38.136Z",
@@ -7287,7 +7302,7 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "lokalisierung-titel",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -42255,6 +42270,39 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "lokalisierung",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "lokalisierung-anleitung",
+    "fields": {
+      "created_at": "2022-04-14T11:35:58.847Z",
+      "modified_at": "2022-04-14T11:35:58.847Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anleitung\", \"fr\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"**So gehen Sie vor:**\\n- Schritt 1 - Suchen Sie die entsprechende Parzelle \\u00fcber das Feld \\\"Parzellen - oder Baurechtsnummer\\\" und klicken Sie auf \\\"Parzelle finden\\\".\\n- Schritt 2 - Klicken Sie in der Karte auf den entsprechenden Standort wo das Vorhaben realisiert wird und klicken Sie auf \\\"Daten \\u00fcbernehmen\\\". Geben Sie dem System genug Zeit, die Daten zu speichern.\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
