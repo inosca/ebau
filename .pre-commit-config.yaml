@@ -9,7 +9,8 @@ repos:
       exclude: >
           (?x)^(
             .*/migrations/.* |
-            .*/snapshots/.*
+            .*/snapshots/.* |
+            .*/ech0211\/schema/.*
           )$
     - id: isort
       name: isort
