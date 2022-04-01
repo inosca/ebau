@@ -1597,7 +1597,8 @@ def test_unnotified_services(
             "Municipality",
             """
                 BAUVERWALTUNG:
-                {{bauverwaltung.bewilligungsverfahren_sitzung_baukommission}}
+                {{bauverwaltung.bewilligungsverfahren_sitzung_baukommission[0].bewilligungsverfahren_sitzung_baukommission_bemerkung}}
+                {{bauverwaltung.bewilligungsverfahren_sitzung_baukommission[0].bewilligungsverfahren_sitzung_baukommission_nr}}
                 {{bauverwaltung.bewilligungsverfahren_gr_sitzung_datum}}
             """,
         )
@@ -1662,6 +1663,7 @@ def test_notification_bauverwaltung_placeholders(
         .split("\n")
     ] == [
         "BAUVERWALTUNG:",
-        "[{'bewilligungsverfahren_sitzung_baukommission_bemerkung': 'Foo Bar', 'bewilligungsverfahren_sitzung_baukommission_nr': 78}]",
+        "Foo Bar",
+        "78",
         f"{date.strftime(settings.MERGE_DATE_FORMAT)}",
     ]
