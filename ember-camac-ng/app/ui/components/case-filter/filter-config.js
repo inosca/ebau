@@ -15,7 +15,7 @@ export default {
     type: "input",
   },
   municipality: {
-    type: "select",
+    type: "select-multiple",
     options: "municipalities",
     valueField: "id",
     labelField: "name",
@@ -54,7 +54,7 @@ export default {
     labelField: "name",
   },
   buildingPermitType: {
-    type: "select",
+    type: "select-multiple",
     options: "buildingPermitTypes",
   },
   createdAfter: {
