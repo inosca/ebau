@@ -1,6 +1,6 @@
 """Helpers for exporting instance data to eCH-0211."""
-
-
+import datetime
+import itertools
 import logging
 import re
 
@@ -15,6 +15,7 @@ from camac.core.models import Answer, DocxDecision
 from camac.instance.models import Instance
 from camac.utils import build_url
 
+from ..instance.master_data import MasterData
 from .data_preparation import AnswersDict
 from .schema import (
     ech_0007_6_0,
@@ -352,6 +353,190 @@ def get_realestateinformation(answers):
     return re_info
 
 
+def application_md(instance: Instance):
+    """Create and format an application's properties based on the inststance's MasterData."""
+    md = MasterData(instance.case)
+
+    ebau_nr = md.dossier_number or "unknown"
+    permission_application_identification = (
+        ns_application.planningPermissionApplicationIdentificationType(  # 3.1.1.1
+            localID=[
+                ns_objektwesen.namedIdType(IdCategory="eBauNr", Id=ebau_nr)
+            ],  # 3.1.1.1.1
+            otherID=[
+                ns_objektwesen.namedIdType(IdCategory="eBauNr", Id=ebau_nr)
+            ],  # 3.1.1.1.2
+            dossierIdentification=str(instance.instance_id),  # 3.1.1.1.3
+        )
+    )
+
+    realestate_info = [
+        ns_application.realestateInformationType(
+            realestate=ns_objektwesen.realestatetype(
+                realestateidentification=ns_objektwesen.realestateidentificationtype(
+                    egrid=plot.get("egrid_number"),
+                    number=plot.get("plot_number"),
+                    # numbersuffix minoccurs=0
+                    # subdistrict minoccurs=0
+                    # lot minoccurs=0
+                ),
+                # authority minoccurs=0
+                # date minoccurs=0
+                realestatetype="8",  # mapping?
+                # cantonalsubkind minoccurs=0
+                # status minoccurs=0
+                # mutnumber minoccurs=0
+                # identdn minoccurs 0
+                # squaremeasure minoccurs 0
+                # realestateincomplete minoccurs 0
+                coordinates=ns_objektwesen.coordinatestype(
+                    lv95=pyxb.bind(
+                        east=handle_coordinate_value(plot.get("coord_east")),
+                        north=handle_coordinate_value(plot.get("coord_north")),
+                        originofcoordinates=904,
+                    )
+                )
+                if all(k in plot and plot[k] for k in ["coord_east", "coord_north"])
+                else None
+                # namedmetadata minoccurs 0
+            ),
+            municipality=ech_0007_6_0.swissmunicipalitytype(
+                # municipalityid minoccurs 0
+                municipalityname=assure_string_length(md.municipality, max_length=40),
+                cantonabbreviation=md.canton,
+            ),
+            owner=[
+                pyxb.bind(
+                    # owneridentification minoccurs=0
+                    owneradress=ns_address.mailaddresstype(
+                        person=ns_address.personmailaddressinfotype(
+                            # mrmrs="1",  # mapping?
+                            # title="dr med",
+                            firstname=assure_string_length(
+                                landower["first_name"], max_length=30
+                            ),
+                            lastname=assure_string_length(
+                                landower["last_name"], max_length=30
+                            ),
+                        ),
+                        addressinformation=ns_address.addressinformationtype(
+                            # not the same as swissaddressinformationtype (obv..)
+                            # addressline1 minoccurs=0
+                            # addressline2 minoccurs=0
+                            # (street, housenumber, dwellingnumber) minoccurs=0
+                            # (postofficeboxnumber, postofficeboxtext) minoccurs=0
+                            # locality minoccurs=0
+                            street=assure_string_length(
+                                landower["street"], max_length=60
+                            ),
+                            housenumber=assure_string_length(
+                                landower["number"], max_length=12
+                            ),
+                            town=assure_string_length(
+                                ns_address.towntype(landower["town"]), max_length=40
+                            ),
+                            swisszipcode=get_plz(landower["zip"]),
+                            # foreignzipcode minoccurs=0
+                            country="ch",
+                        ),
+                    )
+                )
+                for landower in md.building_owners
+            ],
+        )
+        for plot in md.plot_data
+    ] or [  # happens if no parcels are filled (preliminary clarification)
+        ns_application.realestateInformationType(
+            realestate=ns_objektwesen.realestateType(
+                realestateIdentification=ns_objektwesen.realestateIdentificationType(
+                    number="0"
+                ),
+                realestateType="8",
+                coordinates=None,
+            ),
+            municipality=ech_0007_6_0.swissMunicipalityType(
+                municipalityName=assure_string_length(md.municipality, max_length=40),
+                cantonAbbreviation=md.canton,
+            ),
+            buildingInformation=[
+                ns_application.buildingInformationType(
+                    building=ns_objektwesen.buildingType(
+                        buildingCategory=1040  # TODO: map category to GWR categories
+                    )
+                )
+            ],
+            owner=[
+                pyxb.BIND(
+                    ownerAdress=ns_address.mailAddressType(
+                        person=ns_address.personMailAddressInfoType(
+                            firstName="unknown", lastName="unknown"
+                        ),
+                        addressInformation=ns_address.addressInformationType(
+                            street="unknown",
+                            houseNumber="0",
+                            town=ns_address.townType("unknown"),
+                            swissZipCode=9999,
+                            country="CH",
+                        ),
+                    )
+                )
+            ],
+        )
+    ]
+    planning_permission_application_type = ns_application.planningPermissionApplicationType(
+        planningPermissionApplicationIdentification=permission_application_identification,  # 3.1.1.1
+        description=assure_string_length(
+            md.proposal, min_length=3, max_length=950
+        ),  # 3.1.1.2
+        applicationType=assure_string_length(
+            md.application_type, max_length=100
+        ),  # 3.1.1.3
+        remark=[],  # 3.1.1.4
+        intendedPurpose=assure_string_length(md.usage_type, max_length=255),  # 3.1.1.8
+        proceedingType=md.proceeding_type,  # 3.1.1.5  ??
+        profilingYesNo=isinstance(md.profile_approval_date, datetime.datetime),
+        profilingDate=None
+        if not md.profile_approval_date
+        else md.profile_approval_date,  # 3.1.1.7
+        constructionCost=md.construction_costs,  # 3.1.1.11
+        # namedMetaData=[  # TODO: Erweiterungsfelder 3.1.1.14
+        #     ns_objektwesen.namedMetaDataType(
+        #         metaDataName="status", metaDataValue=instance.instance_state.get_name()
+        #     )
+        # ],
+        locationAddress=ns_address.swissAddressInformationType(
+            houseNumber=assure_string_length(
+                getattr(md, "street_number", ""), max_length=12
+            ),
+            street=assure_string_length(
+                getattr(md, "street", "unknown"), max_length=60
+            ),
+            town=assure_string_length(getattr(md, "city", "unknown"), max_length=40),
+            swissZipCode=get_plz(getattr(md, "plz", 0000)),
+            country="CH",
+        ),
+        realestateInformation=realestate_info,
+        document=get_documents(instance.attachments.all()),
+        #        decisionRuling=[
+        #            decision_ruling(
+        #                instance, decision, "ech-subject", "building-permit"
+        #            )  # TODO: change "building-permit" dynamically to correct caluma-workflow-slug
+        #            for decision in DocxDecision.objects.filter(instance=instance)
+        #        ],  # TODO. how does that differ from kt_bern and ask jimmy about ech-subject vs caluma-workflow-slug
+        zone=[
+            ns_application.zoneType(
+                zoneDesignation=assure_string_length(md.usage_zone, max_length=255)
+            )
+        ]
+        if md.usage_zone
+        else [],  # eCH allows for max 225 chars
+        #        person=None,
+        #        relationshipToPersonType=None,
+        #        deputy=None,
+    )
+    return planning_permission_application_type
+
+
 def application(instance: Instance, answers: AnswersDict):
     nature_risk = []
     if "beschreibung-der-prozessart-tabelle" in answers:
@@ -507,6 +692,63 @@ def status_notification(instance: Instance):
     )
 
 
+class BaseDeliveryFormatter:
+    def __init__(self, config):
+        self.config = config
+
+    def _caluma_config(self, instance: Instance, answers: AnswersDict):
+        """
+        Make a well formatted baseDeliveryType from caluma workflow based config.
+
+        Supported config:
+         - kt_bern
+        """
+        municipality = instance.responsible_service(filter_type="municipality")
+        return ns_application.eventBaseDeliveryType(
+            planningPermissionApplicationInformation=[
+                (
+                    pyxb.BIND(
+                        planningPermissionApplication=application(instance, answers),
+                        relationshipToPerson=get_relationship_to_person(answers),
+                        decisionAuthority=decision_authority(municipality),
+                        entryOffice=office(municipality),
+                    )
+                )
+            ]
+        )
+
+    def _masterdata_config(self, instance: Instance):
+        """
+        Make a well formatted baseDeliveryType from MasterData ready config.
+
+        Supported config:
+         - kt_schwyz
+        """
+        responsible_service = instance.group.service
+
+        return ns_application.eventBaseDeliveryType(
+            planningPermissionApplicationInformation=[
+                (
+                    pyxb.BIND(
+                        planningPermissionApplication=application_md(instance),
+                        relationshipToPerson=format_relationships_to_persons(
+                            MasterData(instance.case)
+                        ),
+                        decisionAuthority=decision_authority(responsible_service),
+                        entryOffice=office(responsible_service),
+                    )
+                )
+            ]
+        )
+
+    def format_base_delivery(self, instance: Instance, **kwargs):
+        avaliable_configs = {
+            "kt_bern": self._caluma_config,
+            "kt_schwyz": self._masterdata_config,
+        }
+        return avaliable_configs[self.config](instance, **kwargs)
+
+
 def base_delivery(instance: Instance, answers: AnswersDict):
     municipality = instance.responsible_service(filter_type="municipality")
 
@@ -530,6 +772,74 @@ def submit(instance: Instance, answers: AnswersDict, event_type: str):
         planningPermissionApplication=application(instance, answers),
         relationshipToPerson=get_relationship_to_person(answers),
     )
+
+
+def person_to_ech0129_personIdentifcationType(person):
+    pers_identification = ech_0044_4_1.personIdentificationLightType(
+        officialName=assure_string_length(person.get("last_name", ""), max_length=30),
+        firstName=assure_string_length(person.get("first_name", ""), max_length=30),
+    )
+    org_identification = None
+    if person["is_juristic_person"]:
+        pers_identification = None
+        org_identification = ns_company_identification.organisationIdentificationType(
+            organisationName=assure_string_length(
+                person.get("juristic_name", ""), max_length=255
+            ),
+            organisationAdditionalName=assure_string_length(
+                f'{person.get("first_name", "")} {person.get("last_name", "")}'.strip(),
+                max_length=255,
+            ),
+            uid=ns_company_identification.uidStructureType(
+                # We don't bother with UIDs
+                uidOrganisationIdCategorie="CHE",
+                uidOrganisationId="123123123",
+            ),
+            localOrganisationId=ns_company_identification.namedOrganisationIdType(
+                organisationIdCategory="unknown", organisationId="unknown"
+            ),
+            legalForm="0223",
+        )
+
+    return ns_objektwesen.personType(
+        identification=pyxb.BIND(
+            personIdentification=pers_identification,
+            organisationIdentification=org_identification,
+        ),
+        address=ns_address.addressInformationType(
+            street=assure_string_length(person.get("street", ""), max_length=60),
+            houseNumber=assure_string_length("", max_length=12),
+            town=assure_string_length(
+                ns_address.townType(person.get("town", "")), max_length=40
+            ),
+            swissZipCode=get_plz(person.get("zip", "")),
+            country="CH",
+        ),
+    )
+
+
+def format_relationships_to_persons(md: MasterData):
+    role_map = {
+        "applicant": "applicants",
+        "contact": "legal_representatives",
+        "project author": "project_authors",
+        "landowner": "landowners",
+    }
+    relationships = list(
+        itertools.chain(
+            *[
+                [
+                    ns_application.relationshipToPersonType(
+                        role=role,
+                        person=person_to_ech0129_personIdentifcationType(person),
+                    )
+                    for person in getattr(md, mapped_to)
+                ]
+                for role, mapped_to in role_map.items()
+            ]
+        )
+    )
+    return relationships
 
 
 def get_relationship_to_person(answers: AnswersDict):
@@ -719,6 +1029,7 @@ def delivery(
     instance: Instance,
     answers: AnswersDict,
     message_type: str,
+    config: str = None,
     message_date=None,
     message_id=None,
     url=None,

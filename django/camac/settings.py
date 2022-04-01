@@ -657,6 +657,76 @@ APPLICATIONS = {
                     }
                 },
             ),
+            "building_owners": (
+                "ng_table",
+                [
+                    "bauherrschaft",
+                    "bauherrschaft-v2",
+                    "bauherrschaft-override",
+                ],  # TODO: hauseigentümerschaft in SZ?
+                {
+                    "column_mapping": {
+                        "last_name": "name",
+                        "first_name": "vorname",
+                        "street": "strasse",
+                        "zip": "plz",
+                        "town": "ort",
+                        "country": ("static", "Schweiz"),
+                        "is_juristic_person": (
+                            "anrede",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "Herr": False,
+                                            "Frau": False,
+                                            "Firma": True,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                        "juristic_name": "firma",
+                        "company": "firma",
+                        "email": "email",
+                        "phone": "tel",
+                    }
+                },
+            ),
+            "legal_representatives": (
+                "ng_table",
+                "vertreter-mit-vollmacht",
+                {
+                    "column_mapping": {
+                        "last_name": "name",
+                        "first_name": "vorname",
+                        "street": "strasse",
+                        "zip": "plz",
+                        "town": "ort",
+                        "country": ("static", "Schweiz"),
+                        "is_juristic_person": (
+                            "anrede",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "Herr": False,
+                                            "Frau": False,
+                                            "Firma": True,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                        "juristic_name": "firma",
+                        "company": "firma",
+                        "email": "email",
+                        "phone": "tel",
+                    }
+                },
+            ),
             "landowners": (
                 "ng_table",
                 ["grundeigentumerschaft", "grundeigentumerschaft-override"],
@@ -797,11 +867,17 @@ APPLICATIONS = {
             "construction_costs": ("ng_answer", "baukosten"),
             "usage_zone": ("static", "nutzungszone"),  # TODO: changeme
             "usage_type": ("static", "nutzungsart"),  # TODO: changeme
-            "application_type": ("ng_answer", "verfahrensart"),
+            "application_type": (
+                "ng_answer",
+                "verfahrensart",
+            ),  # This is called "Gesuchstyp" (cf. proceeding_type) in context of eCH standard
             "application_type_migrated": (  # not the same as regular application_type that requires predefined choices
                 "ng_answer",
                 "verfahrensart-migriertes-dossier",
             ),
+            "proceeding_type": (  # TODO: changeme
+                ("static", "Ordentliches Verfahren")
+            ),  # this is called "Verfahrensart" in context of eCH
             "coordinates": (
                 "ng_table",
                 "punkte",
