@@ -7,6 +7,18 @@ from camac.instance.serializers import SUBMIT_DATE_FORMAT
 
 
 @pytest.fixture
+def ech_instance_sz(ech_instance, sz_person_factory):
+    for role in [
+        "bauherrschaft",
+        "vertreter-mit-vollmacht",
+        "grundeigentumerschaft",
+        "projektverfasser-planer",
+    ]:
+        sz_person_factory(ech_instance, role)
+    return ech_instance
+
+
+@pytest.fixture
 def ech_instance(
     db,
     admin_user,
