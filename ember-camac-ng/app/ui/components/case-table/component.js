@@ -102,9 +102,9 @@ export default class CaseTableComponent extends Component {
         ],
       },
       parcelNumber: {
-        hasAnswer: [
+        searchAnswers: [
           {
-            question: "parcel-number",
+            questions: ["parcel-number", "building-law-number"],
             lookup: "CONTAINS",
             value: filter.parcelNumber,
           },
