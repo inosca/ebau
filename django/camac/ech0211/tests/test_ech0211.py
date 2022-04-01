@@ -1,23 +1,50 @@
 import os.path
 
+import pytest
 import xmlschema
+from django.conf import settings
+from pytest_lazyfixture import lazy_fixture
 
 from camac.constants.kt_bern import ECH_BASE_DELIVERY
 from camac.ech0211 import formatters
 
 
+@pytest.mark.parametrize(
+    "config,camac_instance",
+    [
+        ("kt_bern", lazy_fixture("ech_instance")),
+        ("kt_schwyz", lazy_fixture("ech_instance_sz")),
+    ],
+)
 def test_generate_delivery(
-    ech_mandatory_answers_einfache_vorabklaerung, ech_instance, multilang
+    ech_mandatory_answers_einfache_vorabklaerung,
+    camac_instance,
+    multilang,
+    config,
+    snapshot,
 ):
-    xml_data = formatters.delivery(
-        ech_instance,
+    settings.APPLICATION = settings.APPLICATIONS[config]
+    base_delivery_formatter = formatters.BaseDeliveryFormatter(config)
+    camac_instance.fields.create(name="verfahrensart", value="baubewilligung")
+    additional_data = (
+        {"answers": ech_mandatory_answers_einfache_vorabklaerung}
+        if config == "kt_bern"
+        else {}
+    )
+    delivery = formatters.delivery(
+        camac_instance,
         ech_mandatory_answers_einfache_vorabklaerung,
         ECH_BASE_DELIVERY,
-        eventBaseDelivery=formatters.base_delivery(
-            ech_instance, ech_mandatory_answers_einfache_vorabklaerung
+        eventBaseDelivery=base_delivery_formatter.format_base_delivery(
+            camac_instance, **additional_data
         ),
-    ).toxml()
-
+    )
+    xml_data = delivery.toxml()
     my_dir = os.path.dirname(__file__)
     my_schema = xmlschema.XMLSchema(my_dir + "/../xsd/ech_0211_2_0.xsd")
     my_schema.validate(xml_data)
+
+
+# from xml.dom import minidom
+#    pretty_xml = minidom.parseString(xml_data).toprettyxm()
+#    snapshot.update(pretty_xml)

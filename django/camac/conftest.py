@@ -775,6 +775,49 @@ def construction_control_for(service_factory):
 
 
 @pytest.fixture
+def sz_person_factory(db, form_field_factory, faker):
+    def wrapper(sz_instance, role):
+        new_person = {
+            "anrede": faker.prefix_nonbinary(),
+            "vorname": faker.first_name(),
+            "name": faker.last_name(),
+            "firma": faker.company(),
+            "strasse": faker.street_name(),
+            "plz": faker.pyint(min_value=1000, max_value=9999),
+            "ort": faker.city(),
+        }
+        role_persons, created = sz_instance.fields.get_or_create(
+            name=role, defaults={"value": [new_person]}
+        )
+        if not created:
+            role_persons.value += new_person
+            role_persons.save()
+        return role_persons
+
+    return wrapper
+
+
+@pytest.fixture
+def sample_form_data_sz(sz_instance, form_field_factory, workkflow_entry_factory):
+
+    form_field_factory(
+        instance=sz_instance,
+        name="bauherrschaft",
+        value=[
+            {
+                "anrede": "Herr",
+                "vorname": "Max",
+                "name": "Mustermann",
+                "firma": "ACME AG",
+                "strasse": "Teststrasse 2",
+                "plz": 1233,
+                "ort": "Musterdorf",
+            }
+        ],
+    )
+
+
+@pytest.fixture
 def sz_master_data_case(db, sz_instance, form_field_factory, workflow_entry_factory):
     # Simple data
     form_field_factory(instance=sz_instance, name="bezeichnung", value="Grosses Haus")
