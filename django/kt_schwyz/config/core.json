@@ -17280,8 +17280,8 @@
       "is_workflow": 1,
       "is_building_authority": 0,
       "workflow_section": 3,
-      "caluma_task": null,
-      "caluma_question": null
+      "caluma_task": "building-authority",
+      "caluma_question": "baukontrolle-realisierung-baufreigabe"
     }
   },
   {
@@ -17297,6 +17297,21 @@
       "workflow_section": 3,
       "caluma_task": "building-authority",
       "caluma_question": "baukontrolle-realisierung-kanalisationsabnahme"
+    }
+  },
+  {
+    "model": "core.workflowitem",
+    "pk": 89,
+    "fields": {
+      "position": 1,
+      "name": "Entscheid",
+      "automatical": 0,
+      "different_color": 0,
+      "is_workflow": 1,
+      "is_building_authority": 0,
+      "workflow_section": 2,
+      "caluma_task": "building-authority",
+      "caluma_question": "beschwerdeverfahren-entscheid-datum"
     }
   },
   {
