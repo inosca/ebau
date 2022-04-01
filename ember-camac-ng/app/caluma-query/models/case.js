@@ -213,19 +213,11 @@ export default class CustomCaseModel extends CaseModel {
   get plotAndBuildingLawNumbers() {
     const tableAnswers =
       getAnswer(this.raw.document, "parcels")?.node.value ?? [];
-    const buildingLawNumbers = tableAnswers.map(
-      (answer) => getAnswer(answer, "building-law-number")?.node.stringValue
-    );
-    const parcelNumbers = tableAnswers.map(
-      (answer) => getAnswer(answer, "parcel-number")?.node.stringValue
-    );
-    const numbers = parcelNumbers.map((parcelNumber, index) => {
-      return {
-        parcel: parcelNumber,
-        buildingLaw: buildingLawNumbers[index],
-      };
-    });
-    return numbers;
+
+    return tableAnswers.map((answer) => ({
+      parcel: getAnswer(answer, "parcel-number")?.node.stringValue,
+      buildingLaw: getAnswer(answer, "building-law-number")?.node.stringValue,
+    }));
   }
 
   get egridNumbers() {
