@@ -439,10 +439,34 @@ class MasterData(object):
         ) or None
 
     def instance_property_resolver(self, lookup):
-        prop = getattr(self.case.instance, lookup, None)
-        if isinstance(prop, MultilingualModel):
-            prop = prop.get_name()
-        return prop
+        """Take a dotted path to the property to return final value.
+
+        If on the path an intermediary attribute exists but is not set the lookup is aborted
+        and None returned, allowing non-mandatory lookups.
+
+        If an attribute on the path does not exist an AttributeError is raised.
+        """
+
+        def walk_props(inst, props):
+            if not props or not inst:
+                return
+            props = props.split(".")
+            value = getattr(inst, props[0])
+            props = props[1:]
+            if props:
+                return walk_props(value, ".".join(props))
+            return value
+
+        try:
+            value = walk_props(self.case.instance, lookup)
+        except AttributeError:
+            raise AttributeError(
+                f"Instance property lookup failed for lookup `{lookup}`."
+            )
+
+        if isinstance(value, MultilingualModel):
+            value = value.get_name()
+        return value
 
     def datetime_parser(self, value, default, **kwargs):
         try:

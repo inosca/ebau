@@ -26,6 +26,8 @@ def test_generate_delivery(
     settings.APPLICATION = settings.APPLICATIONS[config]
     base_delivery_formatter = formatters.BaseDeliveryFormatter(config)
     camac_instance.fields.create(name="verfahrensart", value="baubewilligung")
+    # kt_bern's formatting requires data standardization in AnswersDict.
+    # kt_schwyz relies on MasterData api
     additional_data = (
         {"answers": ech_mandatory_answers_einfache_vorabklaerung}
         if config == "kt_bern"

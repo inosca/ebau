@@ -356,157 +356,159 @@ def get_realestateinformation(answers):
 def application_md(instance: Instance):
     """Create and format an application's properties based on the inststance's MasterData."""
     md = MasterData(instance.case)
-
-    ebau_nr = md.dossier_number or "unknown"
-    permission_application_identification = (
-        ns_application.planningPermissionApplicationIdentificationType(  # 3.1.1.1
-            localID=[
-                ns_objektwesen.namedIdType(IdCategory="eBauNr", Id=ebau_nr)
-            ],  # 3.1.1.1.1
-            otherID=[
-                ns_objektwesen.namedIdType(IdCategory="eBauNr", Id=ebau_nr)
-            ],  # 3.1.1.1.2
-            dossierIdentification=str(instance.instance_id),  # 3.1.1.1.3
-        )
-    )
-
     realestate_info = [
         ns_application.realestateInformationType(
-            realestate=ns_objektwesen.realestatetype(
-                realestateidentification=ns_objektwesen.realestateidentificationtype(
-                    egrid=plot.get("egrid_number"),
-                    number=plot.get("plot_number"),
+            realestate=ns_objektwesen.realestateType(  # eCH0129 4.8.1
+                realestateIdentification=ns_objektwesen.realestateIdentificationType(
+                    EGRID=plot.get("egrid_number", "unknown"),
+                    number=str(plot.get("plot_number", "unknown")),
                     # numbersuffix minoccurs=0
                     # subdistrict minoccurs=0
                     # lot minoccurs=0
                 ),
                 # authority minoccurs=0
                 # date minoccurs=0
-                realestatetype="8",  # mapping?
+                realestateType="8",  # mapping?
                 # cantonalsubkind minoccurs=0
                 # status minoccurs=0
                 # mutnumber minoccurs=0
                 # identdn minoccurs 0
                 # squaremeasure minoccurs 0
                 # realestateincomplete minoccurs 0
-                coordinates=ns_objektwesen.coordinatestype(
-                    lv95=pyxb.bind(
+                coordinates=ns_objektwesen.coordinatesType(
+                    LV95=pyxb.BIND(
                         east=handle_coordinate_value(plot.get("coord_east")),
                         north=handle_coordinate_value(plot.get("coord_north")),
-                        originofcoordinates=904,
+                        originofCoordinates=904,
                     )
                 )
                 if all(k in plot and plot[k] for k in ["coord_east", "coord_north"])
                 else None
                 # namedmetadata minoccurs 0
             ),
-            municipality=ech_0007_6_0.swissmunicipalitytype(
-                # municipalityid minoccurs 0
-                municipalityname=assure_string_length(md.municipality, max_length=40),
-                cantonabbreviation=md.canton,
-            ),
-            owner=[
-                pyxb.bind(
-                    # owneridentification minoccurs=0
-                    owneradress=ns_address.mailaddresstype(
-                        person=ns_address.personmailaddressinfotype(
-                            # mrmrs="1",  # mapping?
-                            # title="dr med",
-                            firstname=assure_string_length(
-                                landower["first_name"], max_length=30
-                            ),
-                            lastname=assure_string_length(
-                                landower["last_name"], max_length=30
-                            ),
-                        ),
-                        addressinformation=ns_address.addressinformationtype(
-                            # not the same as swissaddressinformationtype (obv..)
-                            # addressline1 minoccurs=0
-                            # addressline2 minoccurs=0
-                            # (street, housenumber, dwellingnumber) minoccurs=0
-                            # (postofficeboxnumber, postofficeboxtext) minoccurs=0
-                            # locality minoccurs=0
-                            street=assure_string_length(
-                                landower["street"], max_length=60
-                            ),
-                            housenumber=assure_string_length(
-                                landower["number"], max_length=12
-                            ),
-                            town=assure_string_length(
-                                ns_address.towntype(landower["town"]), max_length=40
-                            ),
-                            swisszipcode=get_plz(landower["zip"]),
-                            # foreignzipcode minoccurs=0
-                            country="ch",
-                        ),
-                    )
-                )
-                for landower in md.building_owners
-            ],
-        )
-        for plot in md.plot_data
-    ] or [  # happens if no parcels are filled (preliminary clarification)
-        ns_application.realestateInformationType(
-            realestate=ns_objektwesen.realestateType(
-                realestateIdentification=ns_objektwesen.realestateIdentificationType(
-                    number="0"
-                ),
-                realestateType="8",
-                coordinates=None,
-            ),
             municipality=ech_0007_6_0.swissMunicipalityType(
+                # municipalityid minoccurs 0
                 municipalityName=assure_string_length(md.municipality, max_length=40),
                 cantonAbbreviation=md.canton,
             ),
-            buildingInformation=[
-                ns_application.buildingInformationType(
-                    building=ns_objektwesen.buildingType(
-                        buildingCategory=1040  # TODO: map category to GWR categories
-                    )
-                )
-            ],
             owner=[
                 pyxb.BIND(
+                    # ownerIdentification minOccurs=0
                     ownerAdress=ns_address.mailAddressType(
                         person=ns_address.personMailAddressInfoType(
-                            firstName="unknown", lastName="unknown"
+                            # mrMrs="1",  # mapping?
+                            # title="Dr Med",
+                            firstName=assure_string_length(
+                                owner.get("first_name", "unknown"), max_length=30
+                            ),
+                            lastName=assure_string_length(
+                                owner.get("last_name", "unknown"), max_length=30
+                            ),
                         ),
                         addressInformation=ns_address.addressInformationType(
-                            street="unknown",
-                            houseNumber="0",
-                            town=ns_address.townType("unknown"),
-                            swissZipCode=9999,
+                            # not the same as swissAddressInformationType (obv..)
+                            # addressLine1 minOccurs=0
+                            # addressLine2 minOccurs=0
+                            # (street, houseNumber, dwellingNumber) minOccurs=0
+                            # (postOfficeBoxNumber, postOfficeBoxText) minOccurs=0
+                            # locality minOccurs=0
+                            street=assure_string_length(
+                                owner.get("street", "unknown"), max_length=60
+                            ),
+                            houseNumber=assure_string_length(
+                                owner.get("street_number", "unknown"), max_length=12
+                            ),
+                            town=assure_string_length(
+                                ns_address.townType(owner.get("town", "unknown")),
+                                max_length=40,
+                            ),
+                            swissZipCode=get_plz(owner.get("zip", "unknown")),
+                            # foreignZipCode minOccurs=0
                             country="CH",
                         ),
                     )
                 )
+                for owner in md.landowners
             ],
         )
+        for plot in md.plot_data
     ]
+    if not realestate_info:
+        # happens if no parce ls are filled (preliminary clarification)
+        realestate_info = [
+            ns_application.realestateInformationType(
+                realestate=ns_objektwesen.realestateType(
+                    realestateIdentification=ns_objektwesen.realestateIdentificationType(
+                        number="0"
+                    ),
+                    realestateType="8",
+                    coordinates=None,
+                ),
+                municipality=ech_0007_6_0.swissMunicipalityType(
+                    municipalityName=assure_string_length(
+                        md.municipality, max_length=40
+                    ),
+                    cantonAbbreviation=md.canton,
+                ),
+                #                buildingInformation=[
+                #                    ns_application.buildingInformationType(
+                #                        building=ns_objektwesen.buildingType(
+                #                            buildingCategory=1040  # TODO: map category to GWR categories
+                #                        )
+                #                    )
+                #                ],
+                owner=[
+                    pyxb.BIND(
+                        ownerAdress=ns_address.mailAddressType(
+                            person=ns_address.personMailAddressInfoType(
+                                firstName="unknown", lastName="unknown"
+                            ),
+                            addressInformation=ns_address.addressInformationType(
+                                street="unknown",
+                                houseNumber="0",
+                                town=ns_address.townType("unknown"),
+                                swissZipCode=9999,
+                                country="CH",
+                            ),
+                        )
+                    )
+                ],
+            )
+        ]
+    related_instances = Instance.objects.exclude(pk=instance.pk).filter(
+        identifier=instance.identifier
+    )
     planning_permission_application_type = ns_application.planningPermissionApplicationType(
-        planningPermissionApplicationIdentification=permission_application_identification,  # 3.1.1.1
+        planningPermissionApplicationIdentification=permission_application_identification(
+            instance
+        ),  # 3.1.1.1
         description=assure_string_length(
             md.proposal, min_length=3, max_length=950
         ),  # 3.1.1.2
         applicationType=assure_string_length(
             md.application_type, max_length=100
-        ),  # 3.1.1.3
-        remark=[],  # 3.1.1.4
-        intendedPurpose=assure_string_length(md.usage_type, max_length=255),  # 3.1.1.8
-        proceedingType=md.proceeding_type,  # 3.1.1.5  ??
-        profilingYesNo=isinstance(md.profile_approval_date, datetime.datetime),
-        profilingDate=None
+        ),  # 3.1.1.3  #
+        remark=[
+            assure_string_length(md.remark, max_length=950)
+        ],  # 3.1.1.4  TODO: verify!
+        proceedingType=md.proceeding_type,  # 3.1.1.5
+        profilingYesNo=isinstance(
+            md.profile_approval_date, datetime.datetime
+        ),  # 3.1.1.6
+        profilingDate=None  # TODO: fix master_data for construction_control items returning []
         if not md.profile_approval_date
         else md.profile_approval_date,  # 3.1.1.7
+        intendedPurpose=assure_string_length(md.usage_type, max_length=255),  # 3.1.1.8
         constructionCost=md.construction_costs,  # 3.1.1.11
-        # namedMetaData=[  # TODO: Erweiterungsfelder 3.1.1.14
-        #     ns_objektwesen.namedMetaDataType(
-        #         metaDataName="status", metaDataValue=instance.instance_state.get_name()
-        #     )
-        # ],
-        locationAddress=ns_address.swissAddressInformationType(
+        namedMetaData=[  # Erweiterungsfelder 3.1.1.14  TODO: verify!
+            ns_objektwesen.namedMetaDataType(
+                metaDataName="status", metaDataValue=instance.instance_state.get_name()
+            )
+        ],
+        locationAddress=ns_address.swissAddressInformationType(  # 3.1.1.15
             houseNumber=assure_string_length(
-                getattr(md, "street_number", ""), max_length=12
+                getattr(md, "street_number", ""),
+                max_length=12,  # TODO: split street at first number
             ),
             street=assure_string_length(
                 getattr(md, "street", "unknown"), max_length=60
@@ -515,15 +517,19 @@ def application_md(instance: Instance):
             swissZipCode=get_plz(getattr(md, "plz", 0000)),
             country="CH",
         ),
-        realestateInformation=realestate_info,
-        document=get_documents(instance.attachments.all()),
-        #        decisionRuling=[
-        #            decision_ruling(
-        #                instance, decision, "ech-subject", "building-permit"
-        #            )  # TODO: change "building-permit" dynamically to correct caluma-workflow-slug
+        realestateInformation=realestate_info,  # TODO: 3.1.1.16 incl subtype
+        referencedPlanningPermissionApplication=[
+            permission_application_identification(i) for i in related_instances
+        ],  # Referenzierte Baugesuche 3.1.1.22 TODO: verify!
+        document=get_documents(instance.attachments.all()),  # 3.2
+        # decisionRuling=[  # TODO: Verfügung 3.4
+        #    decision_ruling(
+        #        instance, decision, "ech-subject", "building-permit"
+        #     )  # TODO: change "building-permit" dynamically to correct caluma-workflow-slug
         #            for decision in DocxDecision.objects.filter(instance=instance)
-        #        ],  # TODO. how does that differ from kt_bern and ask jimmy about ech-subject vs caluma-workflow-slug
-        zone=[
+        # ],  # TODO. how does that differ from kt_bern and ask jimmy about ech-subject vs caluma-workflow-slug
+        # entryOffice=None,  # TODO: Eingabestelle 3.5
+        zone=[  # TODO: 3.8
             ns_application.zoneType(
                 zoneDesignation=assure_string_length(md.usage_zone, max_length=255)
             )
@@ -665,7 +671,7 @@ def office(service):
 
 
 def permission_application_identification(instance: Instance):
-    ebau_nr = get_ebau_nr(instance) or "unknown"
+    ebau_nr = MasterData(instance.case).dossier_number or "unknown"
     return ns_application.planningPermissionApplicationIdentificationType(  # 3.1.1.1
         localID=[
             ns_objektwesen.namedIdType(IdCategory="eBauNr", Id=ebau_nr)
