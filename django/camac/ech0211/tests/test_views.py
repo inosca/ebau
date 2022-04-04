@@ -1,5 +1,5 @@
 import json
-from datetime import datetime
+import os
 
 import pytest
 from caluma.caluma_form import models as caluma_form_models
@@ -21,37 +21,63 @@ from camac.constants.kt_bern import (
 from camac.core.models import DocxDecision
 from camac.ech0211.schema.ech_0211_2_0 import CreateFromDocument
 
-from ...core.utils import generate_ebau_nr
+from ...dossier_import.config.kt_schwyz import COORDINATES_MAPPING, PARCEL_MAPPING
+from ...dossier_import.dossier_classes import Coordinates, PlotData
+from ...dossier_import.writers import CamacNgListAnswerWriter
 from .. import views
 from ..event_handlers import EventHandlerException, StatusNotificationEventHandler
+from ..formatters import delivery
 from ..models import Message
 from ..send_handlers import KindOfProceedingsSendHandler, NoticeRulingSendHandler
 from .caluma_document_data import baugesuch_data, vorabklaerung_data
 from .utils import xml_data
 
 
+@pytest.mark.parametrize(
+    "plot_data,coordinates",
+    [
+        (None, None),
+        (
+            [
+                PlotData(
+                    egrid="CH123-4-567", number=1234567, municipality="Hintertupfigen"
+                )
+            ],
+            [Coordinates(n=8.5592041911, e=47.0636626694)],
+        ),
+    ],
+)
 @pytest.mark.freeze_time("2020-02-01")
 def test_application_retrieve_full_sz(
     admin_client,
-    docx_decision_factory,
-    location,
-    attachment_factory,
-    ech_instance,
+    ech_instance_sz,
     ech_instance_case,
+    plot_data,
+    coordinates,
+    snapshot,
     settings,
+    mocker,
 ):
-    now = datetime.now()
     settings.APPLICATION = settings.APPLICATIONS["kt_schwyz"]
     settings.APPLICATION["ECH_API"] = True
-    ech_instance.case = ech_instance_case(ech_instance)
-    ech_instance.location = location
-    ech_instance.save()
+    mocker.patch.object(  # make for a deterministic message_id
+        delivery, "__defaults__", (None, None, str(ech_instance_sz.pk), None)
+    )
+    if plot_data:
+        CamacNgListAnswerWriter(
+            target="parzellen", column_mapping=PARCEL_MAPPING
+        ).write(ech_instance_sz, plot_data)
+    if coordinates:
+        CamacNgListAnswerWriter(
+            target="punkte", column_mapping=COORDINATES_MAPPING
+        ).write(ech_instance_sz, coordinates)
 
-    ech_instance.identifier = generate_ebau_nr(now.year)
-    docx_decision_factory(instance=ech_instance)
-    attachment_factory(instance=ech_instance)
+    resp = admin_client.get(reverse("application", args=[ech_instance_sz.pk]))
+    if os.environ.get("ENV", "").startswith("dev"):  # pragma: no cover
+        from xml.dom import minidom
 
-    resp = admin_client.get(reverse("application", args=[ech_instance.pk]))
+        dom = minidom.parseString(resp.content)
+        pretty = dom.toprettyxml()  # noqa
     assert resp.status_code == status.HTTP_200_OK
 
 

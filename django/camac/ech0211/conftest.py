@@ -3,11 +3,25 @@ from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
 
 from camac.ech0211.data_preparation import slugs_baugesuch, slugs_vorabklaerung_einfach
+from camac.instance.domain_logic import CreateInstanceLogic
 from camac.instance.serializers import SUBMIT_DATE_FORMAT
 
 
+@pytest.mark.freeze_time("2020-2-2")
 @pytest.fixture
-def ech_instance_sz(ech_instance, sz_person_factory):
+def ech_instance_sz(
+    attachment_factory,
+    ech_instance,
+    ech_instance_case,
+    sz_person_factory,
+    form_factory,
+    instance_factory,
+    instance_with_case,
+    location,
+):
+
+    ech_instance.case = ech_instance_case(ech_instance)
+
     for role in [
         "bauherrschaft",
         "vertreter-mit-vollmacht",
@@ -15,6 +29,15 @@ def ech_instance_sz(ech_instance, sz_person_factory):
         "projektverfasser-planer",
     ]:
         sz_person_factory(ech_instance, role)
+
+    ech_instance.identifier = CreateInstanceLogic.generate_identifier(
+        ech_instance, prefix="TEST"
+    )
+    instance_with_case(instance_factory(identifier=ech_instance.identifier))
+    ech_instance.form = form_factory(name="application_type")
+    attachment_factory(instance=ech_instance)
+    ech_instance.location = location
+    ech_instance.save()
     return ech_instance
 
 
