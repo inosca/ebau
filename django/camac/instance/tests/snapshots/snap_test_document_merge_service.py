@@ -1981,11 +1981,13 @@ snapshots['test_document_merge_service_snapshot[sb1] 1'] = [
                 'people': [
                     {
                         'familyName': 'Muster',
-                        'givenName': 'Max'
+                        'givenName': 'Max',
+                        'juristicName': None
                     },
                     {
                         'familyName': 'Egger',
-                        'givenName': 'Ernst'
+                        'givenName': 'Ernst',
+                        'juristicName': 'Architekturbüro Asdf'
                     }
                 ],
                 'type': 'SignatureQuestion'
@@ -2303,11 +2305,13 @@ snapshots['test_document_merge_service_snapshot[sb2] 1'] = [
                 'people': [
                     {
                         'familyName': 'Egger',
-                        'givenName': 'Ernst'
+                        'givenName': 'Ernst',
+                        'juristicName': 'Architekturbüro Asdf'
                     },
                     {
                         'familyName': 'Muster',
-                        'givenName': 'Max'
+                        'givenName': 'Max',
+                        'juristicName': None
                     }
                 ],
                 'type': 'SignatureQuestion'
