@@ -1418,6 +1418,9 @@ def test_instance_delete(
     instance = Instance.objects.get(pk=instance_id)
     instance.attachments.set([attachment])
 
+    case = instance.case
+    document = case.document
+
     url = reverse("instance-detail", args=[instance_id])
     response = admin_client.get(url, **headers)
     assert response.status_code == status.HTTP_200_OK
@@ -1428,12 +1431,23 @@ def test_instance_delete(
     response = admin_client.delete(url, **headers)
 
     assert response.status_code == status.HTTP_204_NO_CONTENT
-    assert not Instance.objects.filter(pk=instance_id).exists()
 
     with pytest.raises(attachment.DoesNotExist):
         attachment.refresh_from_db()
 
     assert not path.is_file()
+
+    with pytest.raises(attachment.DoesNotExist):
+        attachment.refresh_from_db()
+
+    with pytest.raises(document.DoesNotExist):
+        document.refresh_from_db()
+
+    with pytest.raises(case.DoesNotExist):
+        case.refresh_from_db()
+
+    with pytest.raises(instance.DoesNotExist):
+        instance.refresh_from_db()
 
 
 @pytest.mark.parametrize("service_group__name", ["municipality"])

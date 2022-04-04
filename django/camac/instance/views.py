@@ -331,15 +331,30 @@ class InstanceView(
         return super().partial_update(request, *args, **kwargs)
 
     @swagger_auto_schema(auto_schema=None)
-    @transaction.atomic
     def destroy(self, request, pk=None):
-        instance_id = self.get_object().pk
-        response = super().destroy(request, pk=pk)
+        return super().destroy(request, pk=pk)
 
+    @transaction.atomic
+    def perform_destroy(self, instance):
+        # TODO: this should be done for SZ as well - at least for related cases
         if settings.APPLICATION["FORM_BACKEND"] == "caluma":
-            CalumaApi().delete_instance_case(instance_id)
+            # Get documents related to the instance before deleting the cases
+            document_ids = list(
+                form_models.Document.objects.filter(
+                    Q(family__case__family__instance=instance)
+                    | Q(family__work_item__case__family__instance=instance)
+                ).values_list("pk", flat=True)
+            )
 
-        return response
+            # Delete cases (and work items via cascading) related to the instance
+            workflow_models.Case.objects.filter(family__instance=instance).delete()
+
+            # Delete documents (and answers via cascading) after the cases to avoid
+            # protected errors
+            form_models.Document.objects.filter(pk__in=document_ids).delete()
+
+        # Delete instance
+        super().perform_destroy(instance)
 
     @swagger_auto_schema(auto_schema=None)
     @action(methods=["get"], detail=True, renderer_classes=[JSONRenderer])
