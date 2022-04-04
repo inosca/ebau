@@ -72,6 +72,7 @@ def test_master_data_exceptions(
     application_settings["MASTER_DATA"] = {
         "bar": ("unconfigured", "bar"),
         "baz": ("case_meta", "baz", {"value_parser": "boolean"}),
+        "dottet_instance_property": ("instance_property", "farm.name"),
     }
 
     master_data = MasterData(caluma_workflow_factories.CaseFactory(meta={"baz": True}))
@@ -81,7 +82,7 @@ def test_master_data_exceptions(
 
     assert (
         str(e.value)
-        == "Key 'foo' is not configured in master data config. Available keys are: bar, baz"
+        == "Key 'foo' is not configured in master data config. Available keys are: bar, baz, dottet_instance_property"
     )
 
     with pytest.raises(AttributeError) as e:
@@ -96,6 +97,11 @@ def test_master_data_exceptions(
         assert master_data.baz
 
     assert str(e.value) == "Parser 'boolean' is not defined in master data class"
+
+    with pytest.raises(AttributeError) as e:
+        assert master_data.dottet_instance_property
+
+    assert str(e.value) == "Instance property lookup failed for lookup `farm.name`."
 
 
 def test_master_data_parsers(
@@ -695,25 +701,27 @@ def sz_master_data_case_gwr_v2(sz_master_data_case, form_field_factory):
             "kt_schwyz",
             "de",
             pytest.lazy_fixture("sz_master_data_case_gwr"),
-            ["instance"],
+            ["instance", "instance__form"],
             ["instance__fields", "instance__workflowentry_set", "work_items"],
             # 1. Query for fetching case
             # 2. Query for prefetching fields
             # 3. Query for prefetching workflow entries
             # 4. Query for prefetching work_items
-            4,
+            # 5. Query for selecting form
+            5,
         ),
         (
             "kt_schwyz",
             "de",
             pytest.lazy_fixture("sz_master_data_case_gwr_v2"),
-            ["instance"],
+            ["instance", "instance__form"],
             ["instance__fields", "instance__workflowentry_set", "work_items"],
             # 1. Query for fetching case
             # 2. Query for prefetching fields
             # 3. Query for prefetching workflow entries
             # 4. Query for prefetching work_items
-            4,
+            # 5. Query for selecting form
+            5,
         ),
     ],
 )
