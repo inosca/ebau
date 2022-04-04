@@ -472,7 +472,10 @@ class InstanceView(
             self.get_queryset()
             .select_related("instance_state")
             .prefetch_related(
-                "responsible_services", "tags", "circulations__activations"
+                "responsible_services",
+                "responsible_services__responsible_user",
+                "tags",
+                "circulations__activations",
             )
         )
         queryset = self.filter_queryset(queryset).order_by("pk")
@@ -501,9 +504,13 @@ class InstanceView(
                 else submit_date
             )
 
-            responsible_user = instance.responsible_user()
+            responsible_service = instance.responsible_services.filter(
+                service=current_service
+            ).first()
             responsible_user = (
-                responsible_user.get_full_name() if responsible_user else ""
+                responsible_service.responsible_user.get_full_name()
+                if responsible_service
+                else ""
             )
 
             muni_id = caluma_api.get_gemeinde(document)
