@@ -165,7 +165,7 @@ class Instance(models.Model):
         "caluma_workflow.Case",
         null=True,
         blank=True,
-        on_delete=models.CASCADE,
+        on_delete=models.SET_NULL,
         related_name="instance",
     )
     instance_group = models.ForeignKey(
