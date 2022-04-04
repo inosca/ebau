@@ -231,9 +231,6 @@ class Instance(models.Model):
 
         return self.group.service
 
-    def responsible_user(self):
-        return User.objects.filter(responsible_services__instance=self).first()
-
     class Meta:
         managed = True
         db_table = "INSTANCE"
