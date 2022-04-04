@@ -45,6 +45,7 @@ class ApplicationView(ECHInstanceQuerysetMixin, RetrieveModelMixin, GenericViewS
         try:
             xml_data = formatters.delivery(
                 instance,
+                answers={"ech-subject": instance.form.get_name()},
                 message_type=ECH_BASE_DELIVERY,
                 eventBaseDelivery=base_delivery_formatter.format_base_delivery(
                     instance
@@ -58,7 +59,6 @@ class ApplicationView(ECHInstanceQuerysetMixin, RetrieveModelMixin, GenericViewS
             raise
         response = HttpResponse(xml_data)
         response["Content-Type"] = "application/xml"
-
         return response
 
 

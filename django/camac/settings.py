@@ -861,22 +861,36 @@ APPLICATIONS = {
                     },
                 },
             ),
-            "dossier_number": (("instance_property", "identifier")),
-            "municipality": (("instance_property", "location")),
-            "proposal": ("ng_answer", ["bezeichnung", "bezeichnung-override"]),
-            "construction_costs": ("ng_answer", "baukosten"),
-            "usage_zone": ("static", "nutzungszone"),  # TODO: changeme
-            "usage_type": ("static", "nutzungsart"),  # TODO: changeme
-            "application_type": (
+            "dossier_number": (
+                "instance_property",
+                "identifier",
+            ),  # eCH0211: 3.1.1.1.1, 3.1.1.1.2
+            "municipality": ("instance_property", "location"),
+            "proposal": (
                 "ng_answer",
-                "verfahrensart",
-            ),  # This is called "Gesuchstyp" (cf. proceeding_type) in context of eCH standard
+                ["bezeichnung", "bezeichnung-override"],
+            ),  # eCH0211: 3.1.1.2
+            "remark": (
+                "ng_answer",
+                "vollstaendigkeitspruefung-bemerkung",
+            ),  # eCH0211: 3.1.1.4
+            "construction_costs": ("ng_answer", "baukosten"),  # eCH0211: 3.1.1.11
+            "usage_zone": (
+                "ng_answer",
+                "betroffene-nutzungszonen",
+            ),  # eCH0211: 3.8.1.3 TODO: verify!
+            "usage_type": ("ng_answer", "art-der-nutzung"),  # TODO: verify!
+            "application_type": (
+                "instance_property",
+                "form.name",
+            ),  # `proceeding_type` in context of eCH standard
+            #  SZ stores this as `instance.form.name`  # TODO: verify!
             "application_type_migrated": (  # not the same as regular application_type that requires predefined choices
                 "ng_answer",
                 "verfahrensart-migriertes-dossier",
             ),
-            "proceeding_type": (  # TODO: changeme
-                ("static", "Ordentliches Verfahren")
+            "proceeding_type": (  # TODO: verify!
+                ("ng_answer", "verfahrensart")
             ),  # this is called "Verfahrensart" in context of eCH
             "coordinates": (
                 "ng_table",
