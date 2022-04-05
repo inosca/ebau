@@ -189,6 +189,7 @@ instances:
   municipality: "Commune"
   address-be: "Adresse"
   address-ur: ""
+  applicant: "Requérant/e"
   parcel-be: "N° de parcelle / de bien-fonds"
   parcel-ur: ""
   objectionPeriod: ""
