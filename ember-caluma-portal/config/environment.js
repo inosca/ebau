@@ -97,6 +97,12 @@ module.exports = function (environment) {
         municipality: "gemeinde",
         specialId: "ebau-number",
         parcelNumber: "parzellennummer",
+        firstNameApplicant: "vorname-gesuchstellerin",
+        lastNameApplicant: "name-gesuchstellerin",
+        juristicNameApplicant: "name-juristische-person-gesuchstellerin",
+        isJuristicApplicant: "juristische-person-gesuchstellerin",
+        isJuristicApplicantYes: "juristische-person-gesuchstellerin-ja",
+        personalDataApplicant: "personalien-gesuchstellerin",
       },
       personalSuggestions: {
         tableQuestions: [
