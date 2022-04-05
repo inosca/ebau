@@ -36,7 +36,7 @@
           </Tab.item>
         {{/if}}
       {{/each}}
-      {{#if (can "manage applicants of instance" this.instance.value)}}
+      {{#if (can "read applicants of instance" this.instance.value)}}
         <Tab.item @href={{concat "/instances/" @model "/applicants"}} as |active|>
           <AriaHeading @enabled={{active}}>
             {{t "nav.applicants"}}
