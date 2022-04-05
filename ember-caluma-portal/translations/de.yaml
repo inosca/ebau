@@ -183,6 +183,7 @@ instances:
   municipality: "Gemeinde"
   address-be: "Adresse"
   address-ur: "Strasse / Flurname"
+  applicant: "Gesuchsteller/in"
   parcel-be: "Parzellennummer / Liegenschaftsnummer"
   parcel-ur: "Parzellen"
   objectionPeriod: "Einsprachefrist"
