@@ -163,7 +163,7 @@ class CreateInstanceLogic:
                     prefix and f"{prefix}-{instance.location.communal_federal_number}"
                 ) or instance.location.communal_federal_number
 
-            start = separator.join([identifier_start, str(year).zfill(2)])
+            start = separator.join([str(identifier_start), str(year).zfill(2)])
 
             if settings.APPLICATION["CALUMA"].get("SAVE_DOSSIER_NUMBER_IN_CALUMA") or (
                 name in settings.APPLICATION.get("CALUMA_INSTANCE_FORMS", [])
@@ -194,7 +194,7 @@ class CreateInstanceLogic:
 
             identifier = separator.join(
                 [
-                    identifier_start,
+                    str(identifier_start),
                     str(year).zfill(2),
                     str(last_position + 1).zfill(seq_zero_padding),
                 ]
