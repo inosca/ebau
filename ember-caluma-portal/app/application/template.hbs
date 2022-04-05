@@ -1,5 +1,5 @@
 {{page-title (t (concat "global.page-title-" (application-name)))}}
 <main>
   <BeNavbar />
-  <section class="uk-container uk-padding uk-padding-remove-horizontal">{{outlet}}</section>
+  <section class="uk-padding {{if (is-application 'ur') 'uk-container uk-padding-remove-horizontal'}}">{{outlet}}</section>
 </main>

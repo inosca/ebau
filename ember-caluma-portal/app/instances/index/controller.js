@@ -78,6 +78,7 @@ export default class InstancesIndexController extends Controller {
   @trackedFilter({ defaultValue: "" }) specialId;
   @trackedFilter({ defaultValue: "" }) parcel;
   @trackedFilter({ defaultValue: "" }) address;
+  @trackedFilter({ defaultValue: "" }) applicant;
   @trackedFilter({ ...dateFilter, defaultValue: null }) submitFrom;
   @trackedFilter({ ...dateFilter, defaultValue: null }) submitTo;
 
@@ -216,6 +217,14 @@ export default class InstancesIndexController extends Controller {
               answerSlugs.objectLocation,
             ],
             value: this._address,
+          },
+          {
+            questions: [
+              answerSlugs.firstNameApplicant,
+              answerSlugs.lastNameApplicant,
+              answerSlugs.juristicNameApplicant,
+            ],
+            value: this._applicant,
           },
         ].filter(({ value }) => !isEmpty(value)),
       },
