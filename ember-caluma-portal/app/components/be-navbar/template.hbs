@@ -1,6 +1,6 @@
 {{#if (not (is-embedded))}}
   <nav class="be-navbar">
-    <div class="uk-container uk-flex uk-flex-column">
+    <div class={{if (is-application "be") "uk-padding uk-padding-remove-vertical" "uk-container uk-flex uk-flex-column"}}>
       <div class="uk-width-1-1 uk-position-relative">
         <div class="uk-flex uk-flex-middle uk-flex-between uk-height-1-1">
           <LinkTo @route="index" class={{concat "main-logo-" (application-name) " uk-link-reset"}}>

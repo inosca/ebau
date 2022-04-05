@@ -5,25 +5,29 @@ import config from "caluma-portal/config/environment";
 
 const { answerSlugs } = config.APPLICATION;
 
+function findAnswer(document, slug) {
+  const answer = document.answers.edges
+    .map(({ node }) => node)
+    .find((answer) => answer.question.slug === slug);
+
+  if (!answer) {
+    return null;
+  }
+
+  if (answer.selectedOption) {
+    return answer.selectedOption.label;
+  }
+
+  const valueKey = Object.keys(answer).find((key) => /^\w+Value$/.test(key));
+
+  return answer[valueKey];
+}
+
 export default class CustomCaseModel extends CaseModel {
   @service store;
 
   _findAnswer(slug) {
-    const answer = this.raw.document.answers.edges
-      .map(({ node }) => node)
-      .find((answer) => answer.question.slug === slug);
-
-    if (!answer) {
-      return null;
-    }
-
-    if (answer.selectedOption) {
-      return answer.selectedOption.label;
-    }
-
-    const valueKey = Object.keys(answer).find((key) => /^\w+Value$/.test(key));
-
-    return answer[valueKey];
+    return findAnswer(this.raw.document, slug);
   }
 
   get instanceId() {
@@ -79,6 +83,26 @@ export default class CustomCaseModel extends CaseModel {
     return [streetAndNr, city].filter(Boolean).join(", ").trim();
   }
 
+  get applicant() {
+    const rows = this._findAnswer(answerSlugs.personalDataApplicant);
+
+    return (rows ?? [])
+      .map((row) => {
+        const isJuristicPerson = findAnswer(
+          row,
+          answerSlugs.isJuristicApplicant
+        );
+        if (isJuristicPerson === answerSlugs.isJuristicApplicantYes) {
+          return findAnswer(row, answerSlugs.juristicNameApplicant);
+        }
+        return [
+          findAnswer(row, answerSlugs.firstNameApplicant),
+          findAnswer(row, answerSlugs.lastNameApplicant),
+        ].join(" ");
+      })
+      .join(", ");
+  }
+
   static fragment = `{
     id
     meta
@@ -95,6 +119,7 @@ export default class CustomCaseModel extends CaseModel {
           "${answerSlugs.objectStreet}"
           "${answerSlugs.objectNumber}"
           "${answerSlugs.objectLocation}"
+          "${answerSlugs.personalDataApplicant}"
         ]
       ) {
         edges {
@@ -111,6 +136,32 @@ export default class CustomCaseModel extends CaseModel {
             }
             ...on IntegerAnswer {
               integerValue: value
+            }
+            ... on TableAnswer {
+              tableValue: value {
+                id
+                answers(
+                  questions: [
+                    "${answerSlugs.firstNameApplicant}"
+                    "${answerSlugs.lastNameApplicant}"
+                    "${answerSlugs.juristicNameApplicant}"
+                    "${answerSlugs.isJuristicApplicant}"
+                  ]
+                ) {
+                  edges {
+                    node {
+                      id
+                      question {
+                        id
+                        slug
+                      }
+                      ... on StringAnswer {
+                        stringValue: value
+                      }
+                    }
+                  }
+                }
+              }
             }
           }
         }
