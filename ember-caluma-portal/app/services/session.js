@@ -45,6 +45,10 @@ export default class CustomSession extends Session {
     return this.store.peekRecord("user", response.data.id);
   }
 
+  get currentService() {
+    return this.groups.find((group) => group.id === this.group)?.get("service");
+  }
+
   @cached
   get group() {
     return this._group;
