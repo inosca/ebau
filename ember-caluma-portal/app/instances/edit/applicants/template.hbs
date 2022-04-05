@@ -1,6 +1,6 @@
 <LoadingOrNotfound
   @loading={{this.editController.instance.isRunning}}
-  @hasPermission={{can "manage applicants of instance" this.editController.instance.value}}
+  @hasPermission={{can "read applicants of instance" this.editController.instance.value}}
 >
   <table class="uk-table uk-table-striped">
     <thead>
@@ -8,7 +8,9 @@
         <th>{{t "instances.applicants.invitee"}}</th>
         <th>{{t "instances.applicants.created"}}</th>
         <th>{{t "instances.applicants.user"}}</th>
-        <td></td>
+        {{#if (and (gt this.applicants.length 1) (can "manage applicants of instance" this.editController.instance.value))}}
+          <td></td>
+        {{/if}}
       </tr>
     </thead>
     <tbody>
@@ -24,45 +26,48 @@
           </td>
           <td>{{format-date applicant.created format="datetime"}}</td>
           <td>{{applicant.user.fullName}}</td>
-          <td class="uk-text-right">
-            {{#if (gt this.applicants.length 1)}}
-              <button
-                type="button"
-                class="uk-icon-button"
-                uk-icon="trash"
-                title={{t "global.delete"}}
-                {{on "click" (perform this.delete applicant)}}
-              ></button>
-            {{/if}}
-          </td>
+          {{#if (and (gt this.applicants.length 1) (can "manage applicants of instance" this.editController.instance.value))}}
+            <td class="uk-text-right">
+                <button
+                  type="button"
+                  class="uk-icon-button"
+                  uk-icon="trash"
+                  title={{t "global.delete"}}
+                  {{on "click" (perform this.delete applicant)}}
+                ></button>
+            </td>
+          {{/if}}
         </tr>
       {{/each}}
     </tbody>
   </table>
 
-  <form uk-grid class="uk-grid-small" onsubmit={{perform this.add}}>
-    <div class="uk-width-expand">
-      <div class="uk-inline uk-width-1-1">
-        <PersonalSuggestions
-          @instanceId={{this.editController.instance.value.id}}
-          @usedEmails={{this.usedEmails}}
-          @onSelect={{fn (mut this.email)}}
-        >
-          <UkIcon @icon="mail" class="uk-form-icon" />
-          <Input
-            class="uk-input"
-            id="email"
-            name="email"
-            placeholder={{t "instances.applicants.email"}}
-            required={{true}}
-            @type="email"
-            @value={{this.email}}
-          />
-        </PersonalSuggestions>
+
+  {{#if (can "manage applicants of instance" this.editController.instance.value)}}
+    <form uk-grid class="uk-grid-small" onsubmit={{perform this.add}}>
+      <div class="uk-width-expand">
+        <div class="uk-inline uk-width-1-1">
+          <PersonalSuggestions
+            @instanceId={{this.editController.instance.value.id}}
+            @usedEmails={{this.usedEmails}}
+            @onSelect={{fn (mut this.email)}}
+          >
+            <UkIcon @icon="mail" class="uk-form-icon" />
+            <Input
+              class="uk-input"
+              id="email"
+              name="email"
+              placeholder={{t "instances.applicants.email"}}
+              required={{true}}
+              @type="email"
+              @value={{this.email}}
+            />
+          </PersonalSuggestions>
+        </div>
       </div>
-    </div>
-    <div class="uk-width-auto">
-      <UkButton @type="submit" @color="primary" @disabled={{not this.email.length}}>{{t "instances.applicants.add"}}</UkButton>
-    </div>
-  </form>
+      <div class="uk-width-auto">
+        <UkButton @type="submit" @color="primary" @disabled={{not this.email.length}}>{{t "instances.applicants.add"}}</UkButton>
+      </div>
+    </form>
+  {{/if}}
 </LoadingOrNotfound>
