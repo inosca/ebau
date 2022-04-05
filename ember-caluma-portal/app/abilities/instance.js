@@ -62,6 +62,14 @@ export default class InstanceAbility extends Ability {
     );
   }
 
+  get canReadApplicants() {
+    return (
+      this.canManageApplicants ||
+      parseInt(this.model?.activeService.get("id")) ===
+        parseInt(this.session.currentService?.get("id"))
+    );
+  }
+
   get canRead() {
     return Object.values(this.model?.meta?.permissions ?? {})
       .reduce((items, flat) => [...flat, ...items], [])
