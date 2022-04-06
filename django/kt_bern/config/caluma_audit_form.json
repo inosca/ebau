@@ -2363,7 +2363,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-01-07-1972-um-und-ausgebaut",
-      "sort": 29
+      "sort": 30
     }
   },
   {
@@ -2378,7 +2378,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-01-07-1972-um-und-ausgebaut-meldung",
-      "sort": 28
+      "sort": 29
     }
   },
   {
@@ -2393,7 +2393,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-angaben-zonenkonform",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -2408,7 +2408,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-anzahl-sak",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -2423,7 +2423,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-anzahl-wohnungen",
-      "sort": 21
+      "sort": 22
     }
   },
   {
@@ -2438,7 +2438,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-anzahl-wohnungen-01-07-1972",
-      "sort": 20
+      "sort": 21
     }
   },
   {
@@ -2453,7 +2453,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-beilagen",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -2468,7 +2468,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-beilagen-titel",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -2483,7 +2483,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-bemerkungen",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -2498,7 +2498,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-bemerkungen-titel",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -2513,7 +2513,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-bgf",
-      "sort": 16
+      "sort": 17
     }
   },
   {
@@ -2528,7 +2528,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-bgf-01-07-1972",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -2543,7 +2543,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-bgf-heute",
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -2558,7 +2558,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-bgf-nach-ausbau",
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -2573,7 +2573,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-erstellung-des-gebaeudes",
-      "sort": 32
+      "sort": 33
     }
   },
   {
@@ -2588,7 +2588,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-erwerbsmaessigen-landwirtschaft",
-      "sort": 31
+      "sort": 32
     }
   },
   {
@@ -2603,7 +2603,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-erwerbsmaessigen-landwirtschaft-jahr",
-      "sort": 30
+      "sort": 31
     }
   },
   {
@@ -2618,7 +2618,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-grossvieheinheiten",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -2633,7 +2633,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-lanat-vorgeprueft",
-      "sort": 27
+      "sort": 28
     }
   },
   {
@@ -2648,7 +2648,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-lanat-vorgeprueft-bemerkungen",
-      "sort": 26
+      "sort": 27
     }
   },
   {
@@ -2663,7 +2663,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-land-bewirtschaftet",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -2678,7 +2678,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-naehe-von-schutzenswerten-gebaeuden",
-      "sort": 25
+      "sort": 26
     }
   },
   {
@@ -2693,7 +2693,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-naehe-von-schutzenswerten-gebaeuden-meldung",
-      "sort": 24
+      "sort": 25
     }
   },
   {
@@ -2708,7 +2708,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-nnf",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -2723,7 +2723,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-nnf-01-07-1972",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -2738,7 +2738,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-nnf-heute",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -2753,7 +2753,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-nnf-nach-ausbau",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -2768,7 +2768,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-nutzung",
-      "sort": 19
+      "sort": 20
     }
   },
   {
@@ -2783,7 +2783,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-nutzung-01-07-1972",
-      "sort": 18
+      "sort": 19
     }
   },
   {
@@ -2798,7 +2798,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-nutzung-01-07-1972-andere",
-      "sort": 17
+      "sort": 18
     }
   },
   {
@@ -2813,7 +2813,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-ortsschutzperimeter",
-      "sort": 23
+      "sort": 24
     }
   },
   {
@@ -2828,7 +2828,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-ortsschutzperimeter-bemerkungen",
-      "sort": 22
+      "sort": 23
     }
   },
   {
@@ -2843,7 +2843,22 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-streusiedlungsgebiet",
-      "sort": 33
+      "sort": 34
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab-form.bab-validate",
+    "fields": {
+      "created_at": "2022-04-06T11:06:59.487Z",
+      "modified_at": "2022-04-06T11:06:59.487Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab-form",
+      "question": "bab-validate",
+      "sort": 1
     }
   },
   {
@@ -2933,7 +2948,7 @@
       "modified_by_group": null,
       "form": "fp-form",
       "question": "fp-begruendungen-fuer-ausnahmen",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -2948,7 +2963,7 @@
       "modified_by_group": null,
       "form": "fp-form",
       "question": "fp-begruendungen-fuer-ausnahmen-bemerkungen",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -2963,7 +2978,7 @@
       "modified_by_group": null,
       "form": "fp-form",
       "question": "fp-beilagen-vorhanden",
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -2978,7 +2993,7 @@
       "modified_by_group": null,
       "form": "fp-form",
       "question": "fp-beilagen-vorhanden-bemerkungen",
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -2993,7 +3008,7 @@
       "modified_by_group": null,
       "form": "fp-form",
       "question": "fp-form-und-inhalt-des-situationsplanes",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -3008,7 +3023,7 @@
       "modified_by_group": null,
       "form": "fp-form",
       "question": "fp-form-und-inhalt-des-situationsplanes-bemerkungen",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -3023,7 +3038,7 @@
       "modified_by_group": null,
       "form": "fp-form",
       "question": "fp-formulare-vollstaendig",
-      "sort": 16
+      "sort": 17
     }
   },
   {
@@ -3038,7 +3053,7 @@
       "modified_by_group": null,
       "form": "fp-form",
       "question": "fp-formulare-vollstaendig-bemerkungen",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -3053,7 +3068,7 @@
       "modified_by_group": null,
       "form": "fp-form",
       "question": "fp-gesuchsbewilligungsart",
-      "sort": 20
+      "sort": 21
     }
   },
   {
@@ -3068,7 +3083,7 @@
       "modified_by_group": null,
       "form": "fp-form",
       "question": "fp-gesuchsbewilligungsart-andere",
-      "sort": 19
+      "sort": 20
     }
   },
   {
@@ -3083,7 +3098,7 @@
       "modified_by_group": null,
       "form": "fp-form",
       "question": "fp-offenkundige-materielle-maengel",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -3098,7 +3113,7 @@
       "modified_by_group": null,
       "form": "fp-form",
       "question": "fp-profile",
-      "sort": 18
+      "sort": 19
     }
   },
   {
@@ -3113,7 +3128,7 @@
       "modified_by_group": null,
       "form": "fp-form",
       "question": "fp-profile-bemerkungen",
-      "sort": 17
+      "sort": 18
     }
   },
   {
@@ -3128,7 +3143,7 @@
       "modified_by_group": null,
       "form": "fp-form",
       "question": "fp-projektplaene-vorhanden",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -3143,7 +3158,22 @@
       "modified_by_group": null,
       "form": "fp-form",
       "question": "fp-projektplaene-vorhanden-bemerkungen",
-      "sort": 7
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "fp-form.fp-validate",
+    "fields": {
+      "created_at": "2022-04-06T11:06:33.342Z",
+      "modified_at": "2022-04-06T11:06:33.342Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "fp-form",
+      "question": "fp-validate",
+      "sort": 1
     }
   },
   {
@@ -3158,7 +3188,7 @@
       "modified_by_group": null,
       "form": "fp-form",
       "question": "fp-zustaendige-baubewilligungsbehoerde",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -3173,7 +3203,7 @@
       "modified_by_group": null,
       "form": "fp-form",
       "question": "fp-zustaendige-baubewilligungsbehoerde-meldung",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -3188,7 +3218,7 @@
       "modified_by_group": null,
       "form": "fp-form",
       "question": "fp-zustaendigkeit-baubewilligung",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -3203,7 +3233,7 @@
       "modified_by_group": null,
       "form": "fp-form",
       "question": "fp-zustaendigkeit-bauvorhaben",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -3218,7 +3248,7 @@
       "modified_by_group": null,
       "form": "fp-form",
       "question": "fp-zustaendigkeit-hinweis",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -3233,7 +3263,22 @@
       "modified_by_group": null,
       "form": "mp-abschluss",
       "question": "mp-erforderliche-beilagen-vorhanden",
-      "sort": 2
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "mp-abschluss.mp-validate",
+    "fields": {
+      "created_at": "2022-04-06T11:08:18.044Z",
+      "modified_at": "2022-04-06T11:08:18.044Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "mp-abschluss",
+      "question": "mp-validate",
+      "sort": 1
     }
   },
   {
@@ -3248,7 +3293,7 @@
       "modified_by_group": null,
       "form": "mp-abschluss",
       "question": "mp-welche-beilagen-fehlen",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -19351,6 +19396,39 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "bab-validate",
+    "fields": {
+      "created_at": "2022-04-06T11:06:59.174Z",
+      "modified_at": "2022-04-06T11:50:30.016Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vollst\\u00e4ndigkeit pr\\u00fcfen\", \"fr\": \"V\\u00e9rifier l'int\\u00e9gralit\\u00e9\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\"}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "document-validity-button"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "fp-begruendungen-fuer-ausnahmen",
     "fields": {
       "created_at": "2020-10-13T13:53:05.080Z",
@@ -19859,6 +19937,39 @@
         "min_length": null
       },
       "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "fp-validate",
+    "fields": {
+      "created_at": "2022-04-06T11:06:33.136Z",
+      "modified_at": "2022-04-06T11:50:13.531Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vollst\\u00e4ndigkeit pr\\u00fcfen\", \"fr\": \"V\\u00e9rifier l'int\\u00e9gralit\\u00e9\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\"}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "document-validity-button"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -30480,6 +30591,39 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-validate",
+    "fields": {
+      "created_at": "2022-04-06T11:08:17.844Z",
+      "modified_at": "2022-04-06T11:49:51.267Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vollst\\u00e4ndigkeit pr\\u00fcfen\", \"fr\": \"V\\u00e9rifier l'int\\u00e9gralit\\u00e9\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\"}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "document-validity-button"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
