@@ -526,7 +526,9 @@ def no(lang):
 def caluma_forms_be(settings):
     # forms
     caluma_form_models.Form.objects.create(
-        slug="main-form", meta={"is-main-form": True}, name="Baugesuch"
+        slug="main-form",
+        meta={"is-main-form": True},
+        name={"de": "Baugesuch", "fr": "Demande de permis de construire"},
     )
     caluma_form_models.Form.objects.create(slug="sb1")
     caluma_form_models.Form.objects.create(slug="sb2")
