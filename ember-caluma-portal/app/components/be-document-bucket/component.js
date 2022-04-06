@@ -1,4 +1,5 @@
 import { assert } from "@ember/debug";
+import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
@@ -37,15 +38,7 @@ export default class BeDocumentBucketComponent extends Component {
 
   @task
   *upload(file) {
-    if (this.args.disabled) return;
-
-    if (!config.ebau.attachments.allowedMimetypes.includes(file.blob.type)) {
-      this.notification.danger(this.intl.t("documents.wrongMimeType"));
-
-      return;
-    }
-
-    return yield this.onUpload({ file, bucket: this.slug });
+    return yield this.onUpload({ file: file.file, bucket: this.slug });
   }
 
   @dropTask
@@ -72,5 +65,18 @@ export default class BeDocumentBucketComponent extends Component {
     this.attachmentLoading = this.attachmentLoading.filter(
       (id) => id !== attachment.id
     );
+  }
+
+  @action
+  validateFile(file) {
+    const isValidMimeType = config.ebau.attachments.allowedMimetypes.includes(
+      file.type
+    );
+
+    if (!isValidMimeType) {
+      this.notification.danger(this.intl.t("documents.wrongMimeType"));
+    }
+
+    return isValidMimeType && !this.args.disabled;
   }
 }

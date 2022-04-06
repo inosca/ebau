@@ -51,7 +51,7 @@
   resolved "https://registry.yarnpkg.com/@babel/compat-data/-/compat-data-7.17.7.tgz#078d8b833fbbcc95286613be8c716cef2b519fa2"
   integrity sha512-p8pdE6j0a29TNGebNm7NzYZWB3xVZJBZ7XGs42uAKzQo8VQ3F0By/cQCtUEABwIqw5zo6WA4NbmxsfzADzMKnQ==
 
-"@babel/core@^7.0.0", "@babel/core@^7.1.6", "@babel/core@^7.12.0", "@babel/core@^7.13.15", "@babel/core@^7.13.8", "@babel/core@^7.16.7", "@babel/core@^7.3.4":
+"@babel/core@^7.0.0", "@babel/core@^7.1.6", "@babel/core@^7.12.0", "@babel/core@^7.13.8", "@babel/core@^7.16.7", "@babel/core@^7.3.4":
   version "7.17.8"
   resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.17.8.tgz#3dac27c190ebc3a4381110d46c80e77efe172e1a"
   integrity sha512-OdQDV/7cRBtJHLSOBqqbYNkOcydOgnX59TZx4puf41fzcVtN3e/4yqY8lMQsK+5X2lJtAdmA+6OHqsj1hBJ4IQ==
@@ -5261,7 +5261,7 @@ ember-ast-helpers@0.3.5:
     "@glimmer/compiler" "^0.27.0"
     "@glimmer/syntax" "^0.27.0"
 
-ember-auto-import@2.4.1, ember-auto-import@^2.2.3, ember-auto-import@^2.3.0, ember-auto-import@^2.4.0:
+ember-auto-import@2.4.1, ember-auto-import@^2.0.0, ember-auto-import@^2.2.3, ember-auto-import@^2.3.0, ember-auto-import@^2.4.0:
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/ember-auto-import/-/ember-auto-import-2.4.1.tgz#25e1c21d403eed116b21972ccc5336b49a7ca46b"
   integrity sha512-lyCl2hzIb6Dlcmfm3gI3lAtaOk/nzR2kM4GDJRRu19YJhhSkpiIMSDVjw8ShxmnYiI005R1eOcP3C/GgRRW5mA==
@@ -5536,7 +5536,7 @@ ember-cli-get-component-path-option@^1.0.0:
   resolved "https://registry.yarnpkg.com/ember-cli-get-component-path-option/-/ember-cli-get-component-path-option-1.0.0.tgz#0d7b595559e2f9050abed804f1d8eff1b08bc771"
   integrity sha1-DXtZVVni+QUKvtgE8djv8bCLx3E=
 
-ember-cli-htmlbars@6.0.1, ember-cli-htmlbars@^6.0.0, ember-cli-htmlbars@^6.0.1:
+ember-cli-htmlbars@6.0.1, "ember-cli-htmlbars@^5.7.1 || ^6.0.1", ember-cli-htmlbars@^6.0.0, ember-cli-htmlbars@^6.0.1:
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/ember-cli-htmlbars/-/ember-cli-htmlbars-6.0.1.tgz#5487831d477e61682bc867fd138808269e5d2152"
   integrity sha512-IDsl9uty+MXtMfp/BUTEc/Q36EmlHYj8ZdPekcoRa8hmdsigHnK4iokfaB7dJFktlf6luruei+imv7JrJrBQPQ==
@@ -5772,6 +5772,22 @@ ember-cli-typescript@^4.0.0, ember-cli-typescript@^4.1.0, ember-cli-typescript@^
   version "4.2.1"
   resolved "https://registry.yarnpkg.com/ember-cli-typescript/-/ember-cli-typescript-4.2.1.tgz#54d08fc90318cc986f3ea562f93ce58a6cc4c24d"
   integrity sha512-0iKTZ+/wH6UB/VTWKvGuXlmwiE8HSIGcxHamwNhEC5x1mN3z8RfvsFZdQWYUzIWFN2Tek0gmepGRPTwWdBYl/A==
+  dependencies:
+    ansi-to-html "^0.6.15"
+    broccoli-stew "^3.0.0"
+    debug "^4.0.0"
+    execa "^4.0.0"
+    fs-extra "^9.0.1"
+    resolve "^1.5.0"
+    rsvp "^4.8.1"
+    semver "^7.3.2"
+    stagehand "^1.0.0"
+    walk-sync "^2.2.0"
+
+ember-cli-typescript@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/ember-cli-typescript/-/ember-cli-typescript-5.0.0.tgz#52f53843082d0a0128f318809dadabf83a76bbff"
+  integrity sha512-UDKZlG7bInRo7eDsF3jvPz1Dxh1YvRhMw9wyj5rj2K3brw0xEh1IMTqPgWRbPESqjcWuwa8s0FCNuYWDc4PTfg==
   dependencies:
     ansi-to-html "^0.6.15"
     broccoli-stew "^3.0.0"
@@ -6107,14 +6123,22 @@ ember-fetch@8.1.1, ember-fetch@^8.1.1:
     node-fetch "^2.6.1"
     whatwg-fetch "^3.6.2"
 
-ember-file-upload@4.0.3:
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/ember-file-upload/-/ember-file-upload-4.0.3.tgz#0cc66e1972cb462a80859a897550c147a279bab2"
-  integrity sha512-7IDNGolb9GkcIkQh0W30tL03v+1aOvJkCJ+kRm+0AZ0IbvkZD5T/v9jFwGDRchsMp/C3E8LqN3q8PkGi4BapYw==
+ember-file-upload@5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/ember-file-upload/-/ember-file-upload-5.0.0.tgz#8de87c469d920557589121cb59fdb04ad13419fd"
+  integrity sha512-5ij9uM0ApkpZ4uBwjtIvTEpARn+ZHUDWXqLQv4UX28PqpqNe5FvcC2QI1zfCf5ktHqOYWGwdOetBbmLMhOuS0Q==
   dependencies:
-    "@babel/core" "^7.13.15"
-    ember-cli-babel "^7.26.3"
-    ember-cli-htmlbars "^5.7.1"
+    "@ember/test-waiters" "^3.0.0"
+    "@embroider/macros" "^1.0.0"
+    "@glimmer/component" "^1.0.4"
+    "@glimmer/tracking" "^1.0.4"
+    broccoli-funnel "^3.0.8"
+    ember-auto-import "^2.0.0"
+    ember-cli-babel "^7.26.6"
+    ember-cli-htmlbars "^5.7.1 || ^6.0.1"
+    ember-cli-typescript "^5.0.0"
+    ember-modifier "^2.1.2 || ^3.0.0"
+    tracked-built-ins "^2.0.0"
 
 ember-focus-trap@^1.0.1:
   version "1.0.1"
@@ -12771,7 +12795,7 @@ tr46@~0.0.3:
   resolved "https://registry.yarnpkg.com/tr46/-/tr46-0.0.3.tgz#8184fd347dac9cdc185992f3a6622e14b9d9ab6a"
   integrity sha1-gYT9NH2snNwYWZLzpmIuFLnZq2o=
 
-tracked-built-ins@2.0.1, tracked-built-ins@^2.0.1:
+tracked-built-ins@2.0.1, tracked-built-ins@^2.0.0, tracked-built-ins@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/tracked-built-ins/-/tracked-built-ins-2.0.1.tgz#9d6d0db29ad187e8533591f0e891e15b7a2259c5"
   integrity sha512-v0DwPVNm3zA4cmJLpcBJxJfKefN6ldhkc8l5YA+cWHq7kI8WMUcXjIXgl/AIxmt1SoO1bwPdpikPRHHrIBDtFQ==
