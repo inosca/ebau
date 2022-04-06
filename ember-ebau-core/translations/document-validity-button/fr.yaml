@@ -1,0 +1,4 @@
+document-validity-button:
+  error: "Les questions suivantes n'ont pas encore été correctement remplies:"
+  success: "Toutes les questions ont été correctement remplies !"
+  loading: "Votre formulaire sera examiné. Veuillez patienter un instant."

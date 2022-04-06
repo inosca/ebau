@@ -158,9 +158,6 @@ gis:
     max-one: "Dans le cas d'une simple clarification préliminaire, un maximum d'une parcelle peut être sélectionné."
     error-additional: "Une erreur s'est produite lors de la demande d'informations supplémentaires. Veuillez réessayer d'accepter les données."
 
-submit:
-  warning: "Les questions suivantes n'ont pas encore été correctement remplies:"
-
 support:
   title: "Support technique (24/7)"
   info-be: "Pour toute question concernant la procédure, veuillez contacter la municipalité responsable"
@@ -361,7 +358,6 @@ instances:
     deleteError: "Quelque chose a mal tourné lors de la suppression de l'utilisateur"
 
 be-submit-instance:
-  loading: "Votre dossier sera examiné. Veuillez patienter un instant."
   success: "Le dossier a été soumise avec succès."
   failed-camac: "Erreur d'écriture sur le serveur."
   failed-message: "Oups, quelque chose s'est mal passé. Veuillez vérifier vos données d'entrée à nouveau. {reasons}"

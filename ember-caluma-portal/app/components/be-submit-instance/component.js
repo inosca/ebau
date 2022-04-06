@@ -1,22 +1,20 @@
 import { assert } from "@ember/debug";
 import { inject as service } from "@ember/service";
-import Component from "@glimmer/component";
 import { dropTask } from "ember-concurrency";
+import DocumentValidityButtonComponent from "ember-ebau-core/components/document-validity-button";
 
-export default class BeSubmitInstanceComponent extends Component {
+export default class BeSubmitInstanceComponent extends DocumentValidityButtonComponent {
   @service intl;
   @service notification;
   @service router;
   @service fetch;
 
-  get invalidFields() {
-    return this.args.field.document.fields.filter(
-      (field) => !field.hidden && !field.optional && field.isInvalid
-    );
-  }
+  validateOnEnter = true;
+  showLoadingHint = true;
+  type = "submit";
 
   @dropTask
-  *submit() {
+  *afterValidate() {
     // mark instance as submitted (optimistic) because after submitting, answer cannot be saved anymore
     this.args.field.answer.value =
       this.args.field.question.raw.multipleChoiceOptions.edges[0].node.slug;
