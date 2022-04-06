@@ -3,12 +3,13 @@ import { inject as service } from "@ember/service";
 
 export default class StatisticsAvgCycleTimeRoute extends Route {
   @service can;
+  @service router;
 
   queryParams = { procedure: { refresh: true } };
 
   redirect() {
     if (this.can.cannot("view statistics", "cycle-time")) {
-      this.replaceWith("statistics.index");
+      this.router.replaceWith("statistics.index");
     }
   }
 
