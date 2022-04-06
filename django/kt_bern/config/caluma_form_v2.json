@@ -1605,21 +1605,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "dokumente-v2.fassaden-ansichten-dokument",
-    "fields": {
-      "created_at": "2021-03-08T13:41:46.662Z",
-      "modified_at": "2021-03-08T13:41:46.662Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "dokumente-v2",
-      "question": "fassaden-ansichten-dokument",
-      "sort": 38
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "dokumente-v2.fassadenplan-reklamestandort-dokument",
     "fields": {
       "created_at": "2021-03-08T13:41:46.841Z",
@@ -2291,21 +2276,6 @@
       "form": "dokumente-v2",
       "question": "uebersichtsplan-dokument",
       "sort": 6
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "dokumente-v2.umgebungsplan-dokument",
-    "fields": {
-      "created_at": "2021-03-08T13:41:46.666Z",
-      "modified_at": "2021-03-08T13:41:46.666Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "dokumente-v2",
-      "question": "umgebungsplan-dokument",
-      "sort": 37
     }
   },
   {
