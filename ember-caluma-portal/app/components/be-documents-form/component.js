@@ -115,7 +115,7 @@ export default class BeDocumentsFormComponent extends Component {
       formData.append("instance", this.args.context.instanceId);
       formData.append("attachment_sections", this.section);
       formData.append("question", bucket);
-      formData.append("path", file.blob, file.name);
+      formData.append("path", file, file.name);
 
       const response = yield this.fetch.fetch("/api/v1/attachments", {
         method: "POST",
