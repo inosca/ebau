@@ -3,7 +3,10 @@ from datetime import date, datetime
 from time import mktime
 
 import pytest
-from caluma.caluma_form import models as caluma_form_models
+from caluma.caluma_form import (
+    factories as caluma_form_factories,
+    models as caluma_form_models,
+)
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.mail import EmailMessage
 from django.core.management import call_command
@@ -642,7 +645,10 @@ def test_notification_placeholders(
             """
                 BASE_URL: {{BASE_URL}}
                 EBAU_NUMBER: {{EBAU_NUMBER}}
-                FORM_NAME: {{FORM_NAME}}
+                FORM_NAME_DE: {{FORM_NAME_DE}}
+                FORM_NAME_FR: {{FORM_NAME_FR}}
+                MUNICIPALITY_DE: {{MUNICIPALITY_DE}}
+                MUNICIPALITY_FR: {{MUNICIPALITY_FR}}
                 INSTANCE_ID: {{INSTANCE_ID}}
                 LEITBEHOERDE_NAME_DE: {{LEITBEHOERDE_NAME_DE}}
                 LEITBEHOERDE_NAME_FR: {{LEITBEHOERDE_NAME_FR}}
@@ -696,6 +702,17 @@ def test_notification_caluma_placeholders(
     multilang,
 ):
     url = reverse("notificationtemplate-sendmail")
+
+    caluma_form_factories.AnswerFactory(
+        document=be_instance.case.document, question_id="gemeinde", value="1"
+    )
+
+    caluma_form_factories.DynamicOptionFactory(
+        question_id="gemeinde",
+        document=be_instance.case.document,
+        slug="1",
+        label={"de": "Bern", "fr": "Berne"},
+    )
 
     STATE_DONE, STATE_WORKING = circulation_state_factory.create_batch(2)
     mocker.patch("camac.constants.kt_bern.CIRCULATION_STATE_DONE", STATE_DONE.pk)
@@ -789,7 +806,10 @@ def test_notification_caluma_placeholders(
         for line in [
             "BASE_URL: http://camac-ng.local",
             "EBAU_NUMBER: 2019-01",
-            "FORM_NAME: Baugesuch",
+            "FORM_NAME_DE: Baugesuch",
+            "FORM_NAME_FR: Demande de permis de construire",
+            "MUNICIPALITY_DE: Gemeinde Bern",
+            "MUNICIPALITY_FR: Municipalité Berne",
             f"INSTANCE_ID: {be_instance.pk}",
             f"LEITBEHOERDE_NAME_DE: {be_instance.responsible_service().get_name('de')}",
             f"LEITBEHOERDE_NAME_FR: {be_instance.responsible_service().get_name('fr')}",
