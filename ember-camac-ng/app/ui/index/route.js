@@ -3,6 +3,7 @@ import { inject as service } from "@ember/service";
 
 export default class IndexRoute extends Route {
   @service shoebox;
+  @service router;
 
   redirect() {
     const { entrypoint = {} } = this.shoebox.content;
@@ -10,6 +11,6 @@ export default class IndexRoute extends Route {
 
     if (!path) return;
 
-    return this.replaceWith(path, ...models, { queryParams });
+    return this.router.replaceWith(path, ...models, { queryParams });
   }
 }
