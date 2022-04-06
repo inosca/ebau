@@ -15,7 +15,7 @@ export default class HistoryEntryModel extends Model {
       case "notification":
         return "envelope";
       case "status-change":
-        return "check-circle";
+        return "circle-check";
       default:
         return null;
     }
