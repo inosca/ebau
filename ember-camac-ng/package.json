@@ -29,7 +29,7 @@
     "@ember/test-helpers": "2.6.0",
     "@faker-js/faker": "6.0.0",
     "@fortawesome/ember-fontawesome": "0.3.2",
-    "@fortawesome/free-solid-svg-icons": "5.15.4",
+    "@fortawesome/free-solid-svg-icons": "6.1.1",
     "@glimmer/component": "1.0.4",
     "@glimmer/tracking": "1.0.4",
     "@projectcaluma/ember-core": "11.0.0-beta.6",
