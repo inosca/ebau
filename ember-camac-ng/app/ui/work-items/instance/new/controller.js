@@ -28,6 +28,7 @@ export default class WorkItemNewController extends Controller {
   @service notifications;
   @service intl;
   @service shoebox;
+  @service router;
 
   @tracked instance = null;
   @tracked case = null;
@@ -142,7 +143,7 @@ export default class WorkItemNewController extends Controller {
 
       this.notifications.success(this.intl.t("workItems.saveSuccess"));
 
-      this.transitionToRoute("work-items.instance.index");
+      this.router.transitionTo("work-items.instance.index");
     } catch (error) {
       this.notifications.error(this.intl.t("workItems.saveError"));
     }
