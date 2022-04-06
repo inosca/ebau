@@ -11,9 +11,8 @@ from caluma.caluma_workflow import models as caluma_workflow_models
 from django.conf import settings
 from django.core.mail import EmailMessage, get_connection
 from django.db.models import Q, Sum
-from django.utils import timezone
+from django.utils import timezone, translation
 from django.utils.text import slugify
-from django.utils.translation import gettext_noop
 from rest_framework import exceptions
 from rest_framework_json_api import serializers
 
@@ -28,6 +27,7 @@ from camac.core.models import (
     WorkflowEntry,
 )
 from camac.core.utils import create_history_entry
+from camac.instance.master_data import MasterData
 from camac.instance.mixins import InstanceEditableMixin
 from camac.instance.models import Instance
 from camac.instance.validators import transform_coordinates
@@ -103,7 +103,10 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     portal_submission = serializers.SerializerMethodField()
     leitbehoerde_name_de = serializers.SerializerMethodField()
     leitbehoerde_name_fr = serializers.SerializerMethodField()
-    form_name = serializers.SerializerMethodField()
+    municipality_de = serializers.SerializerMethodField()
+    municipality_fr = serializers.SerializerMethodField()
+    form_name_de = serializers.SerializerMethodField()
+    form_name_fr = serializers.SerializerMethodField()
     ebau_number = serializers.SerializerMethodField()
     base_url = serializers.SerializerMethodField()
     rejection_feedback = serializers.SerializerMethodField()
@@ -288,6 +291,26 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
         return service.get_name("fr") if service else "-"
 
+    def get_municipality_de(self, instance):
+        """Return municipality in german."""
+        try:
+            master_data = MasterData(instance.case)
+
+            with translation.override("de"):
+                return f"Gemeinde {master_data.municipality.get('label')}"
+        except (KeyError, AttributeError):
+            return ""
+
+    def get_municipality_fr(self, instance):
+        """Return municipality in french."""
+        try:
+            master_data = MasterData(instance.case)
+
+            with translation.override("fr"):
+                return f"Municipalité {master_data.municipality.get('label')}"
+        except (KeyError, AttributeError):
+            return ""
+
     def get_current_service(self, instance):
         """Return current service of the active user."""
         try:
@@ -381,11 +404,11 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
         return self.activation.circulation_answer.get_trans_attr("name", lang=language)
 
-    def get_form_name(self, instance):
-        if settings.APPLICATION["FORM_BACKEND"] == "camac-ng":
-            return instance.form.get_name()
+    def get_form_name_de(self, instance):
+        return CalumaApi().get_form_name(instance).de or ""
 
-        return CalumaApi().get_form_name(instance) or "-"
+    def get_form_name_fr(self, instance):
+        return CalumaApi().get_form_name(instance).fr or ""
 
     def get_ebau_number(self, instance):
         """Dossier number - Kanton Bern."""
@@ -1065,7 +1088,9 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
                 )
 
             if settings.APPLICATION.get("LOG_NOTIFICATIONS"):
-                title = gettext_noop("Notification sent to %(receiver)s (%(subject)s)")
+                title = translation.gettext_noop(
+                    "Notification sent to %(receiver)s (%(subject)s)"
+                )
 
                 if not settings.APPLICATION.get("IS_MULTILINGUAL", False):
                     title = "Notifikation gesendet an {0} ({1})".format(
