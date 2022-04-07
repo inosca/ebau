@@ -172,6 +172,24 @@
   },
   {
     "model": "core.anotification",
+    "pk": 12000003,
+    "fields": {
+      "template": "11-meldung-selbstdeklaration-baukontrolle",
+      "recipient_type": "Notification_Manager_Service",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
+    "pk": 12000004,
+    "fields": {
+      "template": "11-meldung-selbstdeklaration-baukontrolle",
+      "recipient_type": "Notification_Manager_Service",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
     "pk": 15000000,
     "fields": {
       "template": "02-rueckweisung-gemeinde",
@@ -1450,6 +1468,34 @@
   },
   {
     "model": "core.action",
+    "pk": 12000003,
+    "fields": {
+      "available_action": "notification",
+      "button": 1200000,
+      "name": null,
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 3
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000004,
+    "fields": {
+      "available_action": "notification",
+      "button": 1200001,
+      "name": null,
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 3
+    }
+  },
+  {
+    "model": "core.action",
     "pk": 15000000,
     "fields": {
       "available_action": "notification",
@@ -2508,6 +2554,30 @@
       "description": null,
       "success_message": "E-Mail an Leitbehörde gesendet",
       "error_message": "Beim Senden der E-Mail Notifikation an die Leitbehörde ist ein Fehler aufgetreten"
+    }
+  },
+  {
+    "model": "core.actiont",
+    "pk": 12000003,
+    "fields": {
+      "action": 12000003,
+      "language": "de",
+      "name": "SB1 abschliessen, E-Mail an beteiligte Behörden",
+      "description": null,
+      "success_message": null,
+      "error_message": null
+    }
+  },
+  {
+    "model": "core.actiont",
+    "pk": 12000004,
+    "fields": {
+      "action": 12000004,
+      "language": "de",
+      "name": "SB2 abschliessen, E-Mail an beteiligte Behörden",
+      "description": null,
+      "success_message": null,
+      "error_message": null
     }
   },
   {
