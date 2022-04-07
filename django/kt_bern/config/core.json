@@ -42040,6 +42040,16 @@
     }
   },
   {
+    "model": "core.buttont",
+    "pk": 15000001,
+    "fields": {
+      "button": 140000,
+      "language": "fr",
+      "name": "Annuler le renvoi",
+      "description": null
+    }
+  },
+  {
     "model": "core.chapter",
     "pk": 1,
     "fields": {
