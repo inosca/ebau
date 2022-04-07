@@ -79,10 +79,12 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'BOISSONS_ALCOOLIQUES': 'mit',
     'CIRCULATION_COMMUNES': [
         {
+            'ERSTELLT': '13.04.1994',
             'FRIST': '05.09.2021',
             'NAME': 'Victoria Davis'
         },
         {
+            'ERSTELLT': '29.09.2015',
             'FRIST': '27.09.2021',
             'NAME': 'Jill Williams'
         }
@@ -103,16 +105,19 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     ],
     'CIRCULATION_PREF': [
         {
+            'ERSTELLT': '03.02.2009',
             'FRIST': '06.09.2021',
             'NAME': 'Amy Santos'
         },
         {
+            'ERSTELLT': '25.06.2009',
             'FRIST': '16.09.2021',
             'NAME': 'Ashley Wilson'
         }
     ],
     'CIRCULATION_SERVICES': [
         {
+            'ERSTELLT': '24.08.2016',
             'FRIST': '11.09.2021',
             'NAME': 'Theodore Decker'
         }
@@ -202,26 +207,32 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'ETAT': 'David Rangel',
     'FACHSTELLEN_KANTONAL': [
         {
+            'ERSTELLT': '13.04.1994',
             'FRIST': '05.09.2021',
             'NAME': 'Victoria Davis'
         },
         {
+            'ERSTELLT': '10.05.2000',
             'FRIST': '23.09.2021',
             'NAME': 'David Brown'
         },
         {
+            'ERSTELLT': '03.02.2009',
             'FRIST': '06.09.2021',
             'NAME': 'Amy Santos'
         },
         {
+            'ERSTELLT': '25.06.2009',
             'FRIST': '16.09.2021',
             'NAME': 'Ashley Wilson'
         },
         {
+            'ERSTELLT': '29.09.2015',
             'FRIST': '27.09.2021',
             'NAME': 'Jill Williams'
         },
         {
+            'ERSTELLT': '24.08.2016',
             'FRIST': '11.09.2021',
             'NAME': 'Theodore Decker'
         }
@@ -369,26 +380,32 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'OEFFENTLICHKEIT': 'Öffentlich',
     'OFFICES_CANTONAUX': [
         {
+            'ERSTELLT': '13.04.1994',
             'FRIST': '05.09.2021',
             'NAME': 'Victoria Davis'
         },
         {
+            'ERSTELLT': '10.05.2000',
             'FRIST': '23.09.2021',
             'NAME': 'David Brown'
         },
         {
+            'ERSTELLT': '03.02.2009',
             'FRIST': '06.09.2021',
             'NAME': 'Amy Santos'
         },
         {
+            'ERSTELLT': '25.06.2009',
             'FRIST': '16.09.2021',
             'NAME': 'Ashley Wilson'
         },
         {
+            'ERSTELLT': '29.09.2015',
             'FRIST': '27.09.2021',
             'NAME': 'Jill Williams'
         },
         {
+            'ERSTELLT': '24.08.2016',
             'FRIST': '11.09.2021',
             'NAME': 'Theodore Decker'
         }
@@ -522,52 +539,63 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     ],
     'ZIRKULATION_ALLE': [
         {
+            'ERSTELLT': '13.04.1994',
             'FRIST': '05.09.2021',
             'NAME': 'Victoria Davis'
         },
         {
+            'ERSTELLT': '10.05.2000',
             'FRIST': '23.09.2021',
             'NAME': 'David Brown'
         },
         {
+            'ERSTELLT': '03.02.2009',
             'FRIST': '06.09.2021',
             'NAME': 'Amy Santos'
         },
         {
+            'ERSTELLT': '25.06.2009',
             'FRIST': '16.09.2021',
             'NAME': 'Ashley Wilson'
         },
         {
+            'ERSTELLT': '29.09.2015',
             'FRIST': '27.09.2021',
             'NAME': 'Jill Williams'
         },
         {
+            'ERSTELLT': '24.08.2016',
             'FRIST': '11.09.2021',
             'NAME': 'Theodore Decker'
         }
     ],
     'ZIRKULATION_FACHSTELLEN': [
         {
+            'ERSTELLT': '24.08.2016',
             'FRIST': '11.09.2021',
             'NAME': 'Theodore Decker'
         }
     ],
     'ZIRKULATION_GEMEINDEN': [
         {
+            'ERSTELLT': '13.04.1994',
             'FRIST': '05.09.2021',
             'NAME': 'Victoria Davis'
         },
         {
+            'ERSTELLT': '29.09.2015',
             'FRIST': '27.09.2021',
             'NAME': 'Jill Williams'
         }
     ],
     'ZIRKULATION_RSTA': [
         {
+            'ERSTELLT': '03.02.2009',
             'FRIST': '06.09.2021',
             'NAME': 'Amy Santos'
         },
         {
+            'ERSTELLT': '25.06.2009',
             'FRIST': '16.09.2021',
             'NAME': 'Ashley Wilson'
         }
