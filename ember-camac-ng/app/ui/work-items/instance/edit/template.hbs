@@ -33,12 +33,14 @@
       </span>
       {{format-date this.workItem.deadline format="date"}}
     </div>
-    <div class="work-item-attribute">
-      <span class="work-item-attribute__title">
-        {{t "workItems.createdBy"}}
-      </span>
-      {{this.workItem.createdByUser.fullName}}
-    </div>
+    {{#if (eq this.workItem.task.slug "create-manual-workitems")}}
+      <div class="work-item-attribute">
+        <span class="work-item-attribute__title">
+          {{t "workItems.createdBy"}}
+        </span>
+        {{this.workItem.createdByUser.fullName}}
+      </div>
+    {{/if}}
     <div class="work-item-attribute">
       <span class="work-item-attribute__title">
         {{t "workItems.createdAt"}}
