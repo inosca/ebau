@@ -245,7 +245,11 @@ class ActivationsField(serializers.ReadOnlyField):
         self,
         only_own=False,
         filters={},
-        props=[("service", "NAME"), ("deadline", "FRIST")],
+        props=[
+            ("service", "NAME"),
+            ("deadline", "FRIST"),
+            ("creation_date", "ERSTELLT"),
+        ],
         join_by=None,
         **kwargs,
     ):
@@ -279,6 +283,9 @@ class ActivationsField(serializers.ReadOnlyField):
             "service": lambda activation: activation.service.get_name(),
             "service_with_prefix": lambda activation: f"- {activation.service.get_name()}",
             "deadline": lambda activation: activation.deadline_date.strftime(
+                "%d.%m.%Y"
+            ),
+            "creation_date": lambda activation: activation.start_date.strftime(
                 "%d.%m.%Y"
             ),
         }
