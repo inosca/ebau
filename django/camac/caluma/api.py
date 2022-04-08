@@ -58,11 +58,6 @@ class CalumaApi:
         source = caluma_form_models.Document.objects.get(pk=document_id).source
         return getattr(source, field, None) if source else None
 
-    def delete_instance_case(self, instance_id):
-        return caluma_workflow_models.Case.objects.filter(
-            family__instance__pk=instance_id
-        ).delete()
-
     def get_ebau_number(self, instance):
         return instance.case.meta.get("ebau-number", "-")
 
