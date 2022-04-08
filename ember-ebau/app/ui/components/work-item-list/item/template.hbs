@@ -1,0 +1,31 @@
+<tr class={{this.highlightClasses}}>
+  {{#if @highlight}}
+    <td></td>
+  {{/if}}
+  {{#each @columns as |column|}}
+    <td class={{column}}>
+      {{#if (eq column "task")}}
+        <LinkTo @route="cases.detail.work-items.edit" @model={{@workItem.id}}>{{@workItem.name}}</LinkTo>
+      {{else if (eq column "instance")}}
+        {{@workItem.instanceName}}
+      {{else if (eq column "deadline")}}
+        <span title={{format-date @workItem.deadline format="date"}}>
+          {{date-from-now @workItem.deadline}}
+        </span>
+      {{else if (eq column "responsible")}}
+        {{@workItem.responsible}}
+      {{else if (eq column "closedAt")}}
+        {{format-date @workItem.closedAt format="datetime"}}
+      {{else if (eq column "closedBy")}}
+        {{if @workItem.closedByUser @workItem.closedByUser.fullName "-"}}
+      {{else if (eq column "description")}}
+        <span title={{@workItem.instanceDescription}}>{{@workItem.instanceDescription}}</span>
+      {{/if}}
+    </td>
+  {{/each}}
+  <td>
+    {{#if this.actions.length}}
+      <ContextMenu @actions={{this.actions}} />
+    {{/if}}
+  </td>
+</tr>

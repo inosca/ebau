@@ -6,9 +6,9 @@ import calumaQuery from "@projectcaluma/ember-core/caluma-query";
 import { allWorkItems } from "@projectcaluma/ember-core/caluma-query/queries";
 import { queryManager } from "ember-apollo-client";
 import { dropTask, restartableTask } from "ember-concurrency";
+import getProcessData from "ember-ebau-core/utils/work-item";
 
 import getManualWorkItemsCount from "camac-ng/gql/queries/get-manual-work-items-count.graphql";
-import getProcessData from "camac-ng/utils/work-item";
 
 export default class WorkItemsInstanceIndexController extends Controller {
   queryParams = ["role"];
