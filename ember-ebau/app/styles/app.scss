@@ -1,0 +1,53 @@
+@import "ember-uikit";
+@import "power-select";
+
+@import "modules/journal";
+@import "modules/work-items";
+
+@import "components/work-item-list";
+
+$main-nav-height: 80px;
+$sidebar-width: 180px;
+$border-color: darken($global-muted-background, 10%);
+
+tr[role="link"] {
+  cursor: pointer;
+}
+
+.main-navigation {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+  border-bottom: 1px solid $border-color;
+}
+
+.nav-sidebar {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  top: $main-nav-height;
+  width: $sidebar-width;
+  padding: 12px;
+  border-right: 1px solid $border-color;
+  text-transform: uppercase;
+
+  li a {
+    padding: 10px 0;
+  }
+}
+
+.main-content {
+  margin-top: $main-nav-height;
+  padding-top: 1rem;
+}
+
+div.uk-container.with-sidebar {
+  padding-left: $sidebar-width + 48px;
+}
+
+.ca-label {
+  text-transform: uppercase;
+  color: $global-muted-color;
+}

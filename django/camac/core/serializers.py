@@ -109,3 +109,72 @@ class WorkflowEntrySerializer(serializers.ModelSerializer):
             "workflow_item",
             "group",
         )
+
+
+class ResourceSerializer(serializers.ModelSerializer, MultilingualSerializer):
+    description = MultilingualField()
+    link = serializers.SerializerMethodField()
+
+    def get_link(self, obj):
+        resource_type = obj.available_resource_id
+
+        if resource_type == "page":
+            type_mapping = {
+                "/dashboard/faq.phtml": "faq",
+                "/dashboard/help.phtml": "help",
+                "/dashboard/news.phtml": "news",
+            }
+            return f"/dashboard/{type_mapping.get(obj.template)}"
+
+        if resource_type == "calumalist":
+            instance_states = models.RCalumaList.objects.get(
+                pk=obj.pk
+            ).instance_states.split(",")
+            return f"/cases?instance_states={instance_states}"
+
+        if resource_type == "workitemlistall":
+            return "/work-items"
+
+        return None
+
+    class Meta:
+        model = models.Resource
+        fields = (
+            "name",
+            "description",
+            "template",
+            "class_field",
+            "link",
+        )
+
+
+class InstanceResourceSerializer(serializers.ModelSerializer, MultilingualSerializer):
+    description = MultilingualField()
+    link = serializers.SerializerMethodField()
+
+    def get_link(self, obj):
+        ir_type = obj.available_instance_resource_id
+
+        if ir_type == "workitemlistinstance":
+            return "work-items"
+
+        if ir_type == "page":
+            type_mapping = {
+                "/ember/instance.phtml": "form",
+                "/ember-camac-ng/journal.phtml": "journal",
+            }
+            return type_mapping.get(obj.template)
+
+        return None
+
+    class Meta:
+        model = models.InstanceResource
+        fields = (
+            "resource",
+            "name",
+            "description",
+            "template",
+            "class_field",
+            "form_group",
+            "link",
+        )

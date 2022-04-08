@@ -1,0 +1,11 @@
+query GetManualWorkItemsCount($instanceId: GenericScalar!) {
+  allWorkItems(
+    filter: [
+      { caseMetaValue: [{ key: "camac-instance-id", value: $instanceId }] }
+      { status: READY }
+      { task: "create-manual-workitems" }
+    ]
+  ) {
+    totalCount
+  }
+}

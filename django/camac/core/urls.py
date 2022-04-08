@@ -7,5 +7,7 @@ r = SimpleRouter(trailing_slash=False)
 r.register(r"publication-entries", views.PublicationEntryView, "publication")
 r.register(r"authorities", views.AuthorityView, "authority")
 r.register(r"workflow-entries", views.WorkflowEntryView, "workflow-entry")
+r.register(r"resources", views.ResourceView, "resource")
+r.register(r"instance-resources", views.InstanceResourceView, "instance-resource")
 
 urlpatterns = r.urls
