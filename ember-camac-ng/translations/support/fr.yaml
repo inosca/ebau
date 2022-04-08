@@ -36,3 +36,14 @@ support:
 
     confirm: "Êtes-vous sûr de vouloir envoyer la commande ?"
     error: "Erreur lors de la réparation des tâches"
+
+  modification-to-new-dossier:
+    title: ""
+    description: ""
+    convert: ""
+
+    input-label: ""
+    info-text: ""
+    info-text-caution: ""
+
+    conversion-error: ""
