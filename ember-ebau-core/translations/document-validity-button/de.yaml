@@ -1,0 +1,4 @@
+document-validity-button:
+  error: "Folgende Fragen sind noch nicht korrekt ausgefüllt:"
+  success: "Alle Fragen wurden korrekt ausgefüllt!"
+  loading: "Ihr Formular wird geprüft. Bitte haben Sie einen Moment Geduld."
