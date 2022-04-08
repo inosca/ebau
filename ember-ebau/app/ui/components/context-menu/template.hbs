@@ -1,0 +1,27 @@
+<div>
+  <UkButton
+    class="context-menu-trigger"
+    title={{t "global.openMenu"}}
+    @color="link"
+  >
+    <span hidden>{{t "global.openMenu"}}</span>
+    <FaIcon @icon="ellipsis-v" @fixedWidth={{true}} />
+  </UkButton>
+  <div
+    uk-dropdown
+    animation="uk-animation-slide-top-small"
+    duration="300"
+    mode="click"
+    pos="bottom-right"
+  >
+    <ul class="uk-nav uk-dropdown-nav">
+      {{#each @actions as |action|}}
+        <li>
+          <a {{on "click" action.action}}>
+            {{action.title}}
+          </a>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</div>

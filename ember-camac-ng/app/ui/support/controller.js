@@ -4,9 +4,9 @@ import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
 import { dropTask, lastValue } from "ember-concurrency";
+import { confirmTask } from "ember-ebau-core/decorators";
 
 import config from "camac-ng/config/environment";
-import { confirmTask } from "camac-ng/decorators";
 import getFormsQuery from "camac-ng/gql/queries/get-forms.graphql";
 import parseErrors from "camac-ng/utils/parse-errors";
 

@@ -408,3 +408,28 @@ class WorkflowEntryView(ReadOnlyModelViewSet, InstanceQuerysetMixin):
     serializer_class = serializers.WorkflowEntrySerializer
     queryset = models.WorkflowEntry.objects.all()
     filterset_class = filters.WorkflowEntryFilterSet
+
+
+class ResourceView(ReadOnlyModelViewSet):
+    swagger_schema = None
+    serializer_class = serializers.ResourceSerializer
+
+    def get_queryset(self):
+        return models.Resource.objects.filter(
+            hidden=False, role_acls__role=self.request.group.role
+        ).order_by("sort")
+
+
+class InstanceResourceView(ReadOnlyModelViewSet):
+    swagger_schema = None
+    serializer_class = serializers.InstanceResourceSerializer
+    filterset_class = filters.InstanceResourceFilterSet
+
+    def get_queryset(self):
+        return (
+            models.InstanceResource.objects.filter(
+                hidden=False, role_acls__role=self.request.group.role
+            )
+            .distinct()
+            .order_by("sort")
+        )
