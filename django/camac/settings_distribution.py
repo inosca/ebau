@@ -14,6 +14,9 @@ DISTRIBUTION = {
         "INQUIRY_ANSWER_FORM": "inquiry-answer",
         "QUESTIONS": {
             "DEADLINE": "inquiry-deadline",
+            "STATUS": "inquiry-answer-status",
+            "STATEMENT": "inquiry-answer-statement",
+            "ANCILLARY_CLAUSES": "inquiry-answer-ancillary-clauses",
         },
     },
     "kt_bern": {"ENABLED": True},
