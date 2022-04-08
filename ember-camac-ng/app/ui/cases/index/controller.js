@@ -1,8 +1,7 @@
 import Controller from "@ember/controller";
 import { action } from "@ember/object";
 import { tracked } from "@glimmer/tracking";
-
-import { objectFromQueryParams } from "camac-ng/decorators";
+import { objectFromQueryParams } from "ember-ebau-core/decorators";
 
 const filterQueryParams = [
   "instanceId",

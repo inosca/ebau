@@ -1,0 +1,35 @@
+<h3 {{did-insert (perform this.fetchManualWorkItemsCount)}}>
+  {{t "workItems.current"}}
+</h3>
+
+<Filters as |Filter|>
+  <Filter.RadioButtons
+    @name="role"
+    @label={{t "workItems.filters.role"}}
+    @selected={{this.role}}
+    @options={{
+      array
+      (hash value="active" label=(t "workItems.filters.active"))
+      (hash value="control" label=(t "workItems.filters.control"))
+    }}
+    @onChange={{fn this.updateFilter "role"}}
+  />
+</Filters>
+
+<WorkItemList
+  @query={{this.readyWorkItemsQuery}}
+  @columns={{(array "task" "deadline" "responsible")}}
+/>
+
+{{#if this.canCreateManualWorkItem}}
+  <LinkTo @route="cases.detail.work-items.new" class="uk-button uk-button-primary">
+    {{t "workItems.new"}}
+  </LinkTo>
+{{/if}}
+
+<h3>{{t "workItems.finished"}}</h3>
+
+<WorkItemList
+  @query={{this.completedWorkItemsQuery}}
+  @columns={{(array "task" "closedAt" "closedBy")}}
+/>

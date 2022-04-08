@@ -1,0 +1,5 @@
+mutation CompleteWorkItem($id: ID!) {
+  completeWorkItem(input: { id: $id }) {
+    clientMutationId
+  }
+}
