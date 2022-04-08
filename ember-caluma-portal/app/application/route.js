@@ -1,6 +1,7 @@
 import { getOwner } from "@ember/application";
 import Route from "@ember/routing/route";
 import { inject as service } from "@ember/service";
+import DocumentValidityButtonComponent from "ember-ebau-core/components/document-validity-button";
 
 import { isEmbedded } from "caluma-portal/helpers/is-embedded";
 
@@ -86,6 +87,11 @@ export default class ApplicationRoute extends Route {
       label: "eBau Nummer Weiter Button",
       component: "assign-ebau-number-button",
       type: "StaticQuestion",
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Validierungs Button",
+      component: "document-validity-button",
+      componentClass: DocumentValidityButtonComponent,
     });
   }
 }
