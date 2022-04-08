@@ -1,0 +1,37 @@
+<table class="work-item-list uk-table uk-table-striped uk-table-hover" ...attributes>
+  <thead>
+    <tr class={{if this.highlight "highlight"}}>
+      {{#if this.highlight}}
+        <th>
+          <span hidden>{{t "workItems.actions.highlight"}}</span>
+        </th>
+      {{/if}}
+      {{#each @columns as |column|}}
+        <th>{{t (concat "workItems." column)}}</th>
+      {{/each}}
+      <th>
+        <span hidden>{{t "workItems.actions.title"}}</span>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each @query.value as |workItem|}}
+      <WorkItemList::Item @workItem={{workItem}} @columns={{@columns}} @highlight={{this.highlight}} />
+    {{else if (not @query.isLoading)}}
+      <tr>
+        <td class="center" colspan={{this.colspan}}>
+          {{t "global.empty"}}
+        </td>
+      </tr>
+    {{/each}}
+    {{#if @query.isLoading}}
+      <tr>
+        <td class="center" colspan={{this.colspan}}>
+          <UkSpinner />
+        </td>
+      </tr>
+    {{/if}}
+  </tbody>
+</table>
+
+<Pagination @query={{@query}} @onLoadMore={{this.fetchMore}} />

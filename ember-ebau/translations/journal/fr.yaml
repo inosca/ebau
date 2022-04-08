@@ -1,0 +1,12 @@
+journal:
+  title: "Journal"
+  create: "Créer une entrée"
+  edit: "Modifier l'entrée"
+  textareaEdit: "Zone de texte pour l'édition de l'entrée"
+  noEntries: "Aucune entrée de journal disponible"
+
+  visibility: "Visibilité de l'entrée"
+  visibleForAuthorities: "Visible pour tous les participants"
+  visibleForOwnOrganization: "Visible pour sa propre organisation"
+
+  duration: Durée du travail (HH:MM)

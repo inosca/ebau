@@ -4,10 +4,10 @@ import calumaQuery from "@projectcaluma/ember-core/caluma-query";
 import { allWorkItems } from "@projectcaluma/ember-core/caluma-query/queries";
 import { queryManager } from "ember-apollo-client";
 import { dropTask, lastValue } from "ember-concurrency";
+import getProcessData from "ember-ebau-core/utils/work-item";
 
 import completeWorkItem from "camac-ng/gql/mutations/complete-work-item.graphql";
 import saveWorkItem from "camac-ng/gql/mutations/save-workitem.graphql";
-import getProcessData from "camac-ng/utils/work-item";
 
 export default class WorkItemsInstanceEditController extends Controller {
   @queryManager apollo;
