@@ -5,11 +5,13 @@ import qrcode
 from caluma.caluma_form.models import Answer, Question
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
-from django.db.models import Sum
+from django.contrib.postgres.fields import ArrayField
+from django.db.models import Exists, Func, IntegerField, OuterRef, Sum
+from django.db.models.functions import Cast
 from django.utils.translation import get_language, gettext as _
 from rest_framework import serializers
 
-from camac.core.models import Activation, BillingV2Entry
+from camac.core.models import BillingV2Entry
 from camac.user.models import Service
 from camac.utils import build_url
 
@@ -223,68 +225,76 @@ class JointField(serializers.ReadOnlyField):
         )
 
 
-class ActivationsField(serializers.ReadOnlyField):
+class InquiriesField(serializers.ReadOnlyField):
     def __init__(
         self,
         only_own=False,
-        filters={},
         props=[
             ("service", "NAME"),
             ("deadline", "FRIST"),
             ("creation_date", "ERSTELLT"),
         ],
         join_by=None,
+        service_group=None,
+        status=None,
         **kwargs,
     ):
         super().__init__(**kwargs)
 
         self.only_own = only_own
-        self.filters = filters
         self.props = props
         self.join_by = join_by
+        self.service_group = service_group
+        self.status = status
 
-    def get_notice(self, activation, notice_type):
-        notice_types = {"STELLUNGNAHME": 1, "NEBENBESTIMMUNGEN": 20000}
+    def get_answer(self, inquiry, question_slug):
+        try:
+            answer = inquiry.child_case.document.answers.get(question_id=question_slug)
 
-        return (
-            activation.notices.filter(notice_type_id=notice_types.get(notice_type))
-            .values_list("content", flat=True)
-            .first()
-            or ""
-        )
+            if answer.question.type == Question.TYPE_CHOICE:
+                return str(
+                    answer.question.options.filter(pk=answer.value)
+                    .values_list("label", flat=True)
+                    .first()
+                )
+
+            return answer.value
+        except Answer.DoesNotExist:  # pragma: no cover
+            return ""
+
+    def get_service(self, inquiry, type):
+        return Service.objects.get(pk=int(getattr(inquiry, type)[0])).get_name()
 
     def get_prop_key(self, prop):
         return prop[1] if isinstance(prop, tuple) else prop
 
-    def get_prop_value(self, activation, prop):
+    def get_prop_value(self, inquiry, prop):
+        status = settings.DISTRIBUTION["QUESTIONS"]["STATUS"]
+        statement = settings.DISTRIBUTION["QUESTIONS"]["STATEMENT"]
+        ancillary_clauses = settings.DISTRIBUTION["QUESTIONS"]["ANCILLARY_CLAUSES"]
+
         prop_mapping = {
-            "opinion": lambda activation: self.get_notice(activation, "STELLUNGNAHME"),
-            "collateral": lambda activation: self.get_notice(
-                activation, "NEBENBESTIMMUNGEN"
-            ),
-            "answer": lambda activation: activation.circulation_answer.get_name(),
-            "service": lambda activation: activation.service.get_name(),
-            "service_with_prefix": lambda activation: f"- {activation.service.get_name()}",
-            "deadline": lambda activation: activation.deadline_date.strftime(
-                "%d.%m.%Y"
-            ),
-            "creation_date": lambda activation: activation.start_date.strftime(
-                "%d.%m.%Y"
-            ),
+            "opinion": lambda i: self.get_answer(i, statement),
+            "ancillary_clauses": lambda i: self.get_answer(i, ancillary_clauses),
+            "answer": lambda i: self.get_answer(i, status),
+            "service": lambda i: self.get_service(i, "addressed_groups"),
+            "service_with_prefix": lambda i: f"- {self.get_service(i,'addressed_groups')}",
+            "deadline": lambda i: i.deadline.strftime("%d.%m.%Y"),
+            "creation_date": lambda i: i.created_at.strftime("%d.%m.%Y"),
         }
 
         if isinstance(prop, tuple):
             prop = prop[0]
 
-        return prop_mapping.get(prop)(activation)
+        return prop_mapping.get(prop)(inquiry)
 
     def to_representation(self, value):
         mapped = [
             {
-                self.get_prop_key(prop): self.get_prop_value(activation, prop)
+                self.get_prop_key(prop): self.get_prop_value(inquiry, prop)
                 for prop in self.props
             }
-            for activation in value
+            for inquiry in value
         ]
 
         if self.join_by:
@@ -295,12 +305,42 @@ class ActivationsField(serializers.ReadOnlyField):
         return mapped
 
     def get_attribute(self, instance):
-        if self.only_own:
-            self.filters.update({"service": self.context["request"].group.service})
+        queryset = WorkItem.objects.filter(
+            task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
+            case__family__instance=instance,
+            status__in=(
+                [self.status]
+                if self.status
+                else [WorkItem.STATUS_READY, WorkItem.STATUS_COMPLETED]
+            ),
+        )
 
-        return Activation.objects.filter(
-            circulation__instance=instance, **self.filters
-        ).order_by("start_date")
+        if self.only_own:
+            queryset = queryset.filter(
+                addressed_groups__contains=[
+                    str(self.context["request"].group.service.pk)
+                ]
+            )
+        elif self.service_group:
+            queryset = queryset.filter(
+                Exists(
+                    Service.objects.filter(
+                        # Use element = ANY(array) operator to check if
+                        # element is present in ArrayField, which requires
+                        # lhs and rhs of expression to be of same type
+                        pk=Func(
+                            Cast(
+                                OuterRef("addressed_groups"),
+                                output_field=ArrayField(IntegerField()),
+                            ),
+                            function="ANY",
+                        ),
+                        service_group__name=self.service_group,
+                    )
+                )
+            )
+
+        return queryset.order_by("created_at")
 
 
 class MasterDataPersonField(MasterDataField):
