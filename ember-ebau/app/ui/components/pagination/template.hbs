@@ -1,0 +1,14 @@
+{{#if (and @query.value.length (gt @query.pageSize 0))}}
+  <div class="pagination">
+    <div class="pagination__left">
+      {{t "global.paginationInfo" htmlSafe=true count=@query.value.length total=@query.totalCount}}
+    </div>
+    {{#if @query.hasNextPage}}
+      <div class="pagination__right">
+        <a href="#" {{on "click" @onLoadMore}}>
+          {{t "global.loadMore"}}
+        </a>
+      </div>
+    {{/if}}
+  </div>
+{{/if}}

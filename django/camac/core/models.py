@@ -2753,7 +2753,7 @@ class IrRoleAcl(models.Model):
         InstanceResource,
         models.CASCADE,
         db_column="INSTANCE_RESOURCE_ID",
-        related_name="+",
+        related_name="role_acls",
     )
     role = models.ForeignKey(
         "user.Role", models.CASCADE, db_column="ROLE_ID", related_name="+"
@@ -3666,7 +3666,7 @@ class RPage(models.Model):
 class RRoleAcl(models.Model):
     id = models.AutoField(db_column="ID", primary_key=True)
     resource = models.ForeignKey(
-        "Resource", models.CASCADE, db_column="RESOURCE_ID", related_name="+"
+        "Resource", models.CASCADE, db_column="RESOURCE_ID", related_name="role_acls"
     )
     role = models.ForeignKey(
         "user.Role", models.CASCADE, db_column="ROLE_ID", related_name="+"

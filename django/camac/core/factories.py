@@ -6,10 +6,11 @@ from factory import Faker, SubFactory, fuzzy
 from factory.django import DjangoModelFactory
 
 from camac.constants import kt_uri as constants
-from camac.instance.factories import InstanceFactory
+from camac.instance.factories import InstanceFactory, InstanceStateFactory
 from camac.user.factories import (
     GroupFactory,
     LocationFactory,
+    RoleFactory,
     ServiceFactory,
     UserFactory,
 )
@@ -373,3 +374,12 @@ class BuildingAuthorityButtonFactory(DjangoModelFactory):
 
     class Meta:
         model = models.BuildingAuthorityButton
+
+
+class IrRoleAclFactory(DjangoModelFactory):
+    instance_resource = SubFactory(InstanceResourceFactory)
+    role = SubFactory(RoleFactory)
+    instance_state = SubFactory(InstanceStateFactory)
+
+    class Meta:
+        model = models.IrRoleAcl
