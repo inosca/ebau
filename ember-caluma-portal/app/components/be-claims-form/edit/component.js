@@ -92,7 +92,7 @@ export default class BeClaimsFormEditComponent extends Component {
         date: new Date(),
 
         // not relevant for the model
-        blob: file.blob,
+        blob: file,
       })
     );
   }
