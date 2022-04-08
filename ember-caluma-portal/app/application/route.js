@@ -28,7 +28,9 @@ export default class ApplicationRoute extends Route {
       // after the transition remove the query params so we don't persist the
       // language and group info twice (in the URL and in the session)
       transition.then(() => {
-        this.replaceWith({ queryParams: { language: null, group: null } });
+        this.router.replaceWith({
+          queryParams: { language: null, group: null },
+        });
       });
     }
 

@@ -11,6 +11,7 @@ export default class InstancesNewController extends Controller {
   @service fetch;
   @service session;
   @service store;
+  @service router;
 
   @queryManager apollo;
 
@@ -106,7 +107,7 @@ export default class InstancesNewController extends Controller {
       data: { id: instanceId },
     } = yield response.json();
 
-    yield this.transitionToRoute(
+    yield this.router.transitionTo(
       "instances.edit.form",
       instanceId,
       this.selectedForm.slug
@@ -129,6 +130,10 @@ export default class InstancesNewController extends Controller {
     });
     const { data } = yield response.json();
 
-    yield this.transitionToRoute("instances.edit.form", data.id, formName.slug);
+    yield this.router.transitionTo(
+      "instances.edit.form",
+      data.id,
+      formName.slug
+    );
   }
 }
