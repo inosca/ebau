@@ -3,7 +3,8 @@
   "workspaces": [
     "ember-camac-ng",
     "ember-caluma-portal",
-    "ember-ebau-core"
+    "ember-ebau-core",
+    "ember-ebau"
   ],
   "resolutions": {
     "ember-engines": "https://gitpkg.now.sh/ember-engines/ember-engines/packages/ember-engines?4d8a7607ed690053f6e8ab4f35f9dfa543a3697f"

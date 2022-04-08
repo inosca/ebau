@@ -1,0 +1,14 @@
+<div>
+  <label class="uk-display-block">{{@label}}</label>
+  <div class="uk-button-group">
+    {{#each @options as |option|}}
+      <UkButton
+        class="uk-text-nowrap"
+        @color={{if (eq @selected option.value) "primary" "default"}}
+        @onClick={{fn @onChange option.value}}
+      >
+        {{option.label}}
+      </UkButton>
+    {{/each}}
+  </div>
+</div>
