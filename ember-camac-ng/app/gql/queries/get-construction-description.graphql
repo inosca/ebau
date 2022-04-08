@@ -1,0 +1,37 @@
+query GetConstructionDescription($instanceId: GenericScalar!) {
+  allCases(
+    filter: [{ metaValue: { key: "camac-instance-id", value: $instanceId } }]
+  ) {
+    edges {
+      node {
+        id
+        document {
+          id
+          answers(
+            filter: [
+              {
+                questions: [
+                  "beschreibung-bauvorhaben"
+                  "beschreibung-projektaenderung"
+                ]
+              }
+            ]
+          ) {
+            edges {
+              node {
+                id
+                question {
+                  id
+                  slug
+                }
+                ... on StringAnswer {
+                  value
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

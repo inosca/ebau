@@ -175,6 +175,7 @@ class InstanceView(
                 "change_form": serializers.CalumaInstanceChangeFormSerializer,
                 "fix_work_items": serializers.CalumaInstanceFixWorkItemsSerializer,
                 "unlink": serializers.CalumaInstanceUnlinkSerializer,
+                "convert_modification": serializers.CalumaInstanceConvertModificationSerializer,
                 "dms_placeholders": DMSPlaceholdersSerializer,
                 "default": serializers.CalumaInstanceSerializer,
             },
@@ -313,6 +314,19 @@ class InstanceView(
 
     def has_object_unlink_permission(self, instance):
         return self.has_object_link_permission(instance)
+
+    @permission_aware
+    def has_object_convert_modification_permission(self, instance):
+        return False
+
+    def has_object_convert_modification_permission_for_municipality(self, instance):
+        return (
+            instance.responsible_service(filter_type="municipality")
+            == self.request.group.service
+        )
+
+    def has_object_convert_modification_permission_for_support(self, instance):
+        return True
 
     @swagger_auto_schema(auto_schema=None)
     def retrieve(self, request, *args, **kwargs):  # pragma: no cover
@@ -748,6 +762,11 @@ class InstanceView(
     @swagger_auto_schema(auto_schema=None)
     @action(methods=["patch"], detail=True, url_path="unlink")
     def unlink(self, request, pk=None):
+        return self._custom_serializer_action(request, pk)
+
+    @swagger_auto_schema(auto_schema=None)
+    @action(methods=["patch"], detail=True, url_path="convert-modification")
+    def convert_modification(self, request, pk=None):
         return self._custom_serializer_action(request, pk)
 
     @swagger_auto_schema(auto_schema=None)

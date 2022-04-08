@@ -72,6 +72,17 @@
         </div>
       </form>
     </div>
+    {{#if this.instance.isModification}}
+      <div>
+        <p class="uk-text-large">{{t "support.modification-to-new-dossier.title"}}</p>
+        <p>{{t "support.modification-to-new-dossier.description"}}</p>
+        <UkButton
+          @color="primary"
+          @label={{t "support.modification-to-new-dossier.convert"}}
+          @onClick={{perform this.fetchConstructionDescription}}
+        />
+      </div>
+    {{/if}}
 
     {{on-key "ctrl+shift+Space" (fn (mut this.showAdvanced) (not this.showAdvanced))}}
     {{#if (and this.showAdvanced this.shoebox.isSupportRole)}}
@@ -117,3 +128,31 @@
     {{/if}}
   </div>
 {{/if}}
+
+<UkModal @visible={{this.showModal}} as |Modal|>
+  <Modal.body>
+    <p>{{t "support.modification-to-new-dossier.info-text"}}</p>
+    <Textarea
+      class="uk-textarea"
+      @value={{this.constructionDescription}}
+      aria-label={{t "support.modification-to-new-dossier.input-label"}}
+      {{autoresize mode="height"}}
+    />
+    <p>
+      {{t "support.modification-to-new-dossier.info-text-caution" htmlSafe=true}}
+    </p>
+  </Modal.body>
+  <Modal.footer>
+    <div class="uk-align-right uk-margin-top">
+      <UkButton
+        @label={{t "global.cancel"}}
+        @onClick={{this.toggleModal}}
+      />
+      <UkButton
+        @color="primary"
+        @label={{t "support.modification-to-new-dossier.convert"}}
+        @onClick={{perform this.editConstructionDescription}}
+      />
+    </div>
+  </Modal.footer>
+</UkModal>
