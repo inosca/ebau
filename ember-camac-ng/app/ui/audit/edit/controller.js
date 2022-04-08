@@ -5,6 +5,7 @@ import { dropTask } from "ember-concurrency";
 
 export default class AuditEditController extends Controller {
   @service materialExamSwitcher;
+  @service router;
 
   @controller("audit") auditController;
 
@@ -28,7 +29,7 @@ export default class AuditEditController extends Controller {
     event.preventDefault();
 
     yield this.auditController.fetchAudit.perform();
-    yield this.transitionToRoute("audit.index");
+    yield this.router.transitionTo("audit.index");
   }
 
   @action

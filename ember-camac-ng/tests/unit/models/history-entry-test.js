@@ -14,6 +14,6 @@ module("Unit | Model | history entry", function (hooks) {
     assert.strictEqual(model.icon, "envelope");
 
     model.set("historyType", "status-change");
-    assert.strictEqual(model.icon, "check-circle");
+    assert.strictEqual(model.icon, "circle-check");
   });
 });
