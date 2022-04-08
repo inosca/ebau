@@ -668,3 +668,65 @@ def test_caluma_export_bad_request(admin_client, query):
     resp = admin_client.get(url, query)
 
     assert resp.status_code == status.HTTP_400_BAD_REQUEST
+
+
+@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
+@pytest.mark.parametrize(
+    "role__name,expected_status",
+    [
+        ("Municipality", status.HTTP_200_OK),
+        ("Support", status.HTTP_200_OK),
+        ("Applicant", status.HTTP_403_FORBIDDEN),
+    ],
+)
+def test_instance_convert_modification(
+    admin_client,
+    answer_factory,
+    be_instance,
+    expected_status,
+):
+    answer_factory(
+        question_id="beschreibung-bauvorhaben",
+        value="foo",
+        document_id=be_instance.case.document.pk,
+    )
+    answer_factory(
+        question_id="projektaenderung",
+        value="projektaenderung-ja",
+        document_id=be_instance.case.document.pk,
+    )
+    answer_factory(
+        question__slug="beschreibung-projektaenderung",
+        value="bar",
+        document_id=be_instance.case.document.pk,
+    )
+
+    response = admin_client.patch(
+        reverse("instance-convert-modification", args=[be_instance.pk]),
+        {
+            "data": {
+                "type": "instance-convert-modifications",
+                "id": be_instance.pk,
+                "attributes": {"content": "foobar"},
+            }
+        },
+    )
+
+    assert response.status_code == expected_status
+
+    if expected_status == status.HTTP_200_OK:
+        assert (
+            be_instance.case.document.answers.filter(
+                question_id="beschreibung-bauvorhaben"
+            )
+            .first()
+            .value
+            == "foobar"
+        )
+        assert (
+            be_instance.case.document.answers.filter(question_id="projektaenderung")
+            .first()
+            .value
+            == "projektaenderung-nein"
+        )
+        assert be_instance.case.document.source is None

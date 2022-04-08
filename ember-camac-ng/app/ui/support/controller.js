@@ -7,6 +7,7 @@ import { dropTask, lastValue } from "ember-concurrency";
 import { confirmTask } from "ember-ebau-core/decorators";
 
 import config from "camac-ng/config/environment";
+import getConstructionDescriptionQuery from "camac-ng/gql/queries/get-construction-description.graphql";
 import getFormsQuery from "camac-ng/gql/queries/get-forms.graphql";
 import parseErrors from "camac-ng/utils/parse-errors";
 
@@ -26,6 +27,8 @@ export default class SupportController extends Controller {
   @tracked dryRunDone = false;
   @tracked syncCirculation = false;
   @tracked showAdvanced = false;
+  @tracked showModal = false;
+  @tracked constructionDescription;
 
   get form() {
     return this.forms.find((form) => form.value === this._form);
@@ -39,6 +42,59 @@ export default class SupportController extends Controller {
     this.dry = true;
     this.dryRunDone = false;
     this.syncCirculation = value;
+  }
+
+  @action
+  toggleModal() {
+    this.showModal = !this.showModal;
+  }
+
+  @dropTask
+  *fetchConstructionDescription() {
+    this.toggleModal();
+
+    const response = yield this.apollo.query(
+      {
+        query: getConstructionDescriptionQuery,
+        variables: { instanceId: this.model },
+      },
+      "allCases.edges"
+    );
+
+    const answers = response[0].node.document.answers.edges.map(
+      (edge) => edge.node.value
+    );
+
+    this.constructionDescription = answers.join("\r\n");
+  }
+
+  @dropTask
+  *editConstructionDescription() {
+    try {
+      yield this.fetch.fetch(
+        `/api/v1/instances/${this.model}/convert-modification`,
+        {
+          method: "PATCH",
+          body: JSON.stringify({
+            data: {
+              type: "instance-convert-modifications",
+              id: this.model,
+              attributes: {
+                content: this.constructionDescription,
+              },
+            },
+          }),
+        }
+      );
+      this.toggleModal();
+
+      // sadly we need this to have current data on the whole page
+      location.reload();
+    } catch (e) {
+      this.notifications.error(
+        this.intl.t("support.modification-to-new-dossier.conversion-error")
+      );
+    }
   }
 
   @dropTask
