@@ -2,6 +2,7 @@ import csv
 import itertools
 from collections import OrderedDict
 
+from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.utils.timezone import now
 from django.utils.translation import get_language
@@ -177,10 +178,10 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
     eigene_gebuehren_total = fields.BillingEntriesField(own=True, total=True)
     eigene_gebuehren = fields.BillingEntriesField(own=True)
     email = fields.DeprecatedField()
-    fachstellen_kantonal_list = fields.ActivationsField(
+    fachstellen_kantonal_list = fields.InquiriesField(
         props=["service_with_prefix"], join_by="\n"
     )
-    fachstellen_kantonal = fields.ActivationsField()
+    fachstellen_kantonal = fields.InquiriesField()
     form_name = serializers.SerializerMethodField()
     gebaeudeeigentuemer_address_1 = fields.MasterDataPersonField(
         source="building_owners", only_first=True, fields=["address_1"]
@@ -327,11 +328,11 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
     )
     municipality = fields.MunicipalityField(source="get_name", remove_name_prefix=True)
     name = fields.DeprecatedField()
-    nebenbestimmungen_mapped = fields.ActivationsField(
-        only_own=True, props=[("service", "FACHSTELLE"), ("collateral", "TEXT")]
+    nebenbestimmungen_mapped = fields.InquiriesField(
+        only_own=True, props=[("service", "FACHSTELLE"), ("ancillary_clauses", "TEXT")]
     )
-    nebenbestimmungen = fields.ActivationsField(
-        only_own=True, props=["collateral"], join_by="\n\n"
+    nebenbestimmungen = fields.InquiriesField(
+        only_own=True, props=["ancillary_clauses"], join_by="\n\n"
     )
     neighbors = fields.InformationOfNeighborsField(type="neighbors")
     opposing = serializers.SerializerMethodField()
@@ -384,7 +385,7 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
     publikation_text = fields.PublicationField(source="publikation-text")
     sachverhalt = fields.MasterDataField(source="situation")
     status = serializers.SerializerMethodField()
-    stellungnahme = fields.ActivationsField(
+    stellungnahme = fields.InquiriesField(
         only_own=True, props=["opinion"], join_by="\n\n"
     )
     stichworte = serializers.SerializerMethodField()
@@ -403,23 +404,14 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
     vertreter = fields.MasterDataPersonField(
         source="legal_representatives", only_first=True
     )
-    zirkulation_fachstellen = fields.ActivationsField(
-        filters={"service__service_group__name": "service"}
-    )
-    zirkulation_gemeinden = fields.ActivationsField(
-        filters={"service__service_group__name": "municipality"}
-    )
-    zirkulation_rsta = fields.ActivationsField(
-        filters={"service__service_group__name": "district"}
-    )
-    zirkulation_rueckmeldungen = fields.ActivationsField(
-        filters={
-            "circulation_state__name": "DONE",
-            "circulation_answer__isnull": False,
-        },
+    zirkulation_fachstellen = fields.InquiriesField(service_group="service")
+    zirkulation_gemeinden = fields.InquiriesField(service_group="municipality")
+    zirkulation_rsta = fields.InquiriesField(service_group="district")
+    zirkulation_rueckmeldungen = fields.InquiriesField(
+        status=WorkItem.STATUS_COMPLETED,
         props=[
             ("opinion", "STELLUNGNAHME"),
-            ("collateral", "NEBENBESTIMMUNGEN"),
+            ("ancillary_clauses", "NEBENBESTIMMUNGEN"),
             ("answer", "ANTWORT"),
             ("service", "VON"),
         ],

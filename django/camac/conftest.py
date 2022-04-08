@@ -7,6 +7,7 @@ from copy import deepcopy
 from dataclasses import dataclass, field
 from datetime import date
 
+import faker
 import pytest
 from caluma.caluma_core.faker import MultilangProvider
 from caluma.caluma_form import (
@@ -993,6 +994,7 @@ def active_inquiry_factory(instance, service, distribution_settings):
             status=status,
             addressed_groups=[str(addressed_service.pk)],
             controlling_groups=[str(controlling_service.pk)],
+            deadline=faker.Faker().date(),
         )
 
     return factory
