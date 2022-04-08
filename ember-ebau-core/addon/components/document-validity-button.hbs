@@ -1,0 +1,38 @@
+<DocumentValidity @document={{@field.document}} @validateOnEnter={{this.validateOnEnter}} as |isValid validateFn|>
+  {{#if this.invalidFields.length}}
+    <div class="uk-alert uk-alert-danger uk-animation-fade">
+      <div class="uk-flex-inline uk-flex-middle uk-text-bold">
+        <UkIcon @icon="warning" class="uk-margin-small-right" />
+        {{t "document-validity-button.error"}}
+      </div>
+      <ul class="uk-list uk-list-bullet">
+        {{#each this.invalidFields as |invalidField|}}
+          <li>
+            <LinkTo @query={{hash displayedForm=invalidField.fieldset.form.slug}}>{{invalidField.question.raw.label}}</LinkTo>
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+  {{else if (and isValid (gt this.validate.performCount 0) (not this.validate.isRunning))}}
+    <div class="uk-alert uk-alert-success uk-animation-fade">
+      <div class="uk-flex-inline uk-flex-middle uk-text-bold">
+        <UkIcon @icon="check" class="uk-margin-small-right" />
+        {{t "document-validity-button.success"}}
+      </div>
+    </div>
+  {{/if}}
+
+  <UkButton
+    @color="primary"
+    @disabled={{or @disabled (not isValid) this.validate.isRunning}}
+    @label={{@field.question.raw.label}}
+    @loading={{this.validate.isRunning}}
+    @onClick={{perform this.validate validateFn}}
+  />
+
+  {{#if this.showLoadingHint}}
+    {{#if this.validate.isRunning}}
+      <span class="uk-text-muted uk-margin-small-left uk-animation-fade">{{t "document-validity-button.loading"}}</span>
+    {{/if}}
+  {{/if}}
+</DocumentValidity>
