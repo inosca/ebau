@@ -1613,59 +1613,6 @@ def test_instance_name(
             assert "(KoG)" in name
 
 
-@pytest.mark.parametrize("role__name", ["Municipality"])
-def test_change_responsible_service_audit_validation(
-    db,
-    admin_client,
-    admin_user,
-    be_instance,
-    instance_service,
-    notification_template,
-    role,
-    group,
-    service_factory,
-    user_factory,
-    user_group_factory,
-    caluma_audit,
-    application_settings,
-    caluma_admin_user,
-):
-    new_service = service_factory()
-
-    for task_id in ["submit", "ebau-number"]:
-        workflow_api.complete_work_item(
-            work_item=be_instance.case.work_items.get(task_id=task_id),
-            user=caluma_admin_user,
-        )
-
-    audit = be_instance.case.work_items.get(task_id="audit")
-    invalid_document = caluma_form_models.Document.objects.create(form_id="fp-form")
-    table_answer = audit.document.answers.create(
-        question_id="fp-form", value=[str(invalid_document.pk)]
-    )
-    table_answer.documents.add(invalid_document)
-
-    response = admin_client.post(
-        reverse("instance-change-responsible-service", args=[be_instance.pk]),
-        {
-            "data": {
-                "type": "instance-change-responsible-services",
-                "attributes": {"service-type": "municipality"},
-                "relationships": {
-                    "to": {"data": {"id": new_service.pk, "type": "services"}}
-                },
-            }
-        },
-    )
-
-    result = response.json()
-
-    assert response.status_code == status.HTTP_400_BAD_REQUEST
-
-    assert len(result["errors"])
-    assert "Ungültige Prüfung" == result["errors"][0]["detail"]
-
-
 @pytest.mark.parametrize("service_group__name", ["municipality"])
 @pytest.mark.parametrize("instance_state__name", ["new"])
 @pytest.mark.parametrize(

@@ -1413,7 +1413,7 @@ class CalumaInstanceChangeResponsibleServiceSerializer(serializers.Serializer):
     service_type = serializers.CharField()
     to = serializers.ResourceRelatedField(queryset=Service.objects.all())
 
-    def validate_service_type(self, value):  # pragma: todo distribution
+    def validate_service_type(self, value):
         expected = [
             key.lower()
             for key in settings.APPLICATION.get("ACTIVE_SERVICES", {}).keys()
@@ -1442,10 +1442,13 @@ class CalumaInstanceChangeResponsibleServiceSerializer(serializers.Serializer):
 
     def _sync_with_caluma(self, from_service, to_service):
         CalumaApi().reassign_work_items(
-            self.instance.pk, from_service.pk, to_service.pk
+            self.instance,
+            from_service.pk,
+            to_service.pk,
+            self.context["request"].caluma_info.context.user,
         )
 
-    def _send_notification(self):  # pragma: todo distribution
+    def _send_notification(self):
         config = settings.APPLICATION["NOTIFICATIONS"].get("CHANGE_RESPONSIBLE_SERVICE")
 
         if config:

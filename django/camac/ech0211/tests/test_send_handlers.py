@@ -295,6 +295,7 @@ def test_change_responsibility_send_handler(
     caluma_admin_user,
     notification_template_factory,
     ech_snapshot,
+    be_distribution_settings,
 ):
     notification_template_factory(slug="02-benachrichtigung-baubewilligungsbehorde")
 
