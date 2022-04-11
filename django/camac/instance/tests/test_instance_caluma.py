@@ -202,7 +202,7 @@ def test_create_instance_caluma_be(
         new_case = caluma_workflow_models.Case.objects.get(instance__pk=new_instance_id)
 
         if modification:
-            assert new_instance.attachments.count() == 0
+            assert new_instance.attachments.count() == instance.attachments.count()
             assert new_case.document.answers.filter(
                 question_id="projektaenderung", value="projektaenderung-ja"
             ).exists()
@@ -326,7 +326,7 @@ def test_create_instance_caluma_ur(
             )
 
             if modification:
-                assert new_instance.attachments.count() == 0
+                assert new_instance.attachments.count() == instance.attachments.count()
                 assert new_case.document.answers.filter(
                     question_id="projektaenderung", value="projektaenderung-ja"
                 ).exists()
