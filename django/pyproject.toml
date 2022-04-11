@@ -71,8 +71,6 @@ fail_under = 100
 exclude_lines = [
     "pragma: no cover",
     "pragma: todo cover",
-    # TODO: remove this when distribution is done
-    "pragma: todo distribution",
     "def __str__",
     "def __unicode__",
     "def __repr__",

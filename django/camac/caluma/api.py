@@ -7,6 +7,7 @@ from caluma.caluma_workflow import (
     models as caluma_workflow_models,
 )
 from django.conf import settings
+from django.db.models import Q
 
 from camac.user.models import Service
 
@@ -209,41 +210,85 @@ class CalumaApi:
             sb_row = self.copy_document(row.id, family=target_document.family)
             new_table_answer.documents.add(sb_row)
 
-    def reassign_work_items(self, instance_id, from_group_id, to_group_id):
+    def reassign_work_items(self, instance, from_group_id, to_group_id, user):
         from_group_id = str(from_group_id)
         to_group_id = str(to_group_id)
 
-        for groups_type in ["addressed_groups", "controlling_groups"]:
-            for work_item in caluma_workflow_models.WorkItem.objects.filter(
-                **{
-                    f"{groups_type}__contains": [from_group_id],
-                    "status__in": [
-                        caluma_workflow_models.WorkItem.STATUS_READY,
-                        caluma_workflow_models.WorkItem.STATUS_SUSPENDED,
-                    ],
-                    "case__family__instance__pk": instance_id,
-                }
-            ):  # pragma: todo distribution
+        for work_item in (
+            caluma_workflow_models.WorkItem.objects.filter(
+                Q(addressed_groups__contains=[from_group_id])
+                | Q(controlling_groups__contains=[from_group_id])
+            )
+            .filter(
+                status__in=[
+                    caluma_workflow_models.WorkItem.STATUS_READY,
+                    caluma_workflow_models.WorkItem.STATUS_SUSPENDED,
+                ],
+                case__family__instance=instance,
+            )
+            .exclude(
+                task_id__in=[
+                    "create-manual-workitems",
+                    settings.DISTRIBUTION["INQUIRY_TASK"],
+                    settings.DISTRIBUTION["INQUIRY_ANSWER_FILL_TASK"],
+                    settings.DISTRIBUTION["INQUIRY_CREATE_TASK"],
+                    settings.DISTRIBUTION["INQUIRY_CHECK_TASK"],
+                ]
+            )
+        ):
+            for groups_type in ["addressed_groups", "controlling_groups"]:
                 groups = set(getattr(work_item, groups_type))
+
+                if from_group_id not in groups:
+                    continue
+
                 groups.remove(from_group_id)
                 groups.add(to_group_id)
 
                 # If the addressed groups change, we need to filter out all
                 # assigned users that are not member of the new addressed group
                 if len(work_item.assigned_users) and groups_type == "addressed_groups":
-                    work_item.assigned_users = list(
-                        set(
-                            filter(
-                                lambda user: Service.objects.filter(
-                                    pk=int(to_group_id), groups__users__username=user
-                                ).exists(),
-                                work_item.assigned_users,
-                            )
-                        )
-                    )
+                    work_item.assigned_users = [
+                        username
+                        for username in work_item.assigned_users
+                        if Service.objects.filter(
+                            pk=int(to_group_id), groups__users__username=username
+                        ).exists()
+                    ]
 
                 setattr(work_item, groups_type, list(groups))
-                work_item.save()
+
+            work_item.save()
+
+        # If there is no work item to allow creation of an inquiry for the new
+        # service and the distribution is still running, we need to create one
+        distribution = instance.case.work_items.filter(
+            task_id=settings.DISTRIBUTION["DISTRIBUTION_TASK"],
+            status=caluma_workflow_models.WorkItem.STATUS_READY,
+        ).first()
+
+        if (
+            distribution
+            and not distribution.child_case.work_items.filter(
+                task_id=settings.DISTRIBUTION["INQUIRY_CREATE_TASK"],
+                addressed_groups__contains=[to_group_id],
+                status=caluma_workflow_models.WorkItem.STATUS_READY,
+            ).exists()
+        ):
+            task = caluma_workflow_models.Task.objects.get(
+                pk=settings.DISTRIBUTION["INQUIRY_CREATE_TASK"]
+            )
+
+            caluma_workflow_models.WorkItem.objects.create(
+                task=task,
+                name=task.name,
+                addressed_groups=[to_group_id],
+                controlling_groups=[to_group_id],
+                case=distribution.child_case,
+                status=caluma_workflow_models.WorkItem.STATUS_READY,
+                created_by_user=user.username,
+                created_by_group=user.group,
+            )
 
     def validate_existing_audit_documents(self, instance_id, user):
         """Intermediate validation of existing audits.
