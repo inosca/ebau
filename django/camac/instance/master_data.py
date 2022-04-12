@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from operator import attrgetter
 
 from caluma.caluma_form import models as form_models
 from dateutil.parser import ParserError, parse as dateutil_parse
@@ -439,29 +440,21 @@ class MasterData(object):
         ) or None
 
     def instance_property_resolver(self, lookup):
-        """Take a dotted path to the property to return final value.
+        """Take a lookup path to the property to return final value.
 
-        If on the path an intermediary attribute exists but is not set the lookup is aborted
-        and None returned, allowing non-mandatory lookups.
+        '__' separate nested properties
 
-        If an attribute on the path does not exist an AttributeError is raised.
+        If the target hits a MultilingualModel value the name is translated
+        with `get_name`.
+
         """
-
-        def walk_props(inst, props):
-            if not props or not inst:
-                return
-            props = props.split(".")
-            value = getattr(inst, props[0])
-            props = props[1:]
-            if props:
-                return walk_props(value, ".".join(props))
-            return value
+        lookup_attr_of = attrgetter(lookup.replace("__", "."))
 
         try:
-            value = walk_props(self.case.instance, lookup)
-        except AttributeError:
+            value = lookup_attr_of(self.case.instance)
+        except AttributeError as e:
             raise AttributeError(
-                f"Instance property lookup failed for lookup `{lookup}`."
+                f"Instance property lookup failed for lookup `{lookup}` with {e}."
             )
 
         if isinstance(value, MultilingualModel):
