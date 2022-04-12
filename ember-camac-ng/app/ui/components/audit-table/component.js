@@ -6,6 +6,8 @@ import { dropTask } from "ember-concurrency";
 
 import createAuditDocument from "camac-ng/gql/mutations/create-audit-document.graphql";
 import linkAuditDocument from "camac-ng/gql/mutations/link-audit-document.graphql";
+import saveAnswerMutation from "camac-ng/gql/mutations/save-answer.graphql";
+import getMainDocumentAnswerQuery from "camac-ng/gql/queries/get-document-answer.graphql";
 
 export default class AuditTableComponent extends Component {
   @service notifications;
@@ -32,6 +34,38 @@ export default class AuditTableComponent extends Component {
         "saveDocument.document"
       );
       const documentId = decodeId(document.id);
+
+      if (form === "bab-form") {
+        // get the value of the answer "nutzungsart" of the main document
+        const cases = yield this.apollo.query(
+          {
+            query: getMainDocumentAnswerQuery,
+            variables: {
+              instanceId: this.args.workItem.caseData.instanceId,
+              question: "nutzungsart",
+            },
+          },
+          "allCases.edges"
+        );
+        const nutzungsartAnswer =
+          cases[0].node.document.answers.edges[0]?.node.value;
+
+        /**
+         * Write an answer to the hidden question "bab-landwirtschaft-nutzung"
+         * so the question "bab-bestaetigung-landwirtschaft" question is displayed
+         * in the bab form.
+         */
+        if (nutzungsartAnswer?.includes("nutzungsart-landwirtschaft")) {
+          yield this.apollo.mutate({
+            mutation: saveAnswerMutation,
+            variables: {
+              document: documentId,
+              question: "bab-landwirtschaft-nutzung",
+              value: "bab-landwirtschaft-nutzung-ja",
+            },
+          });
+        }
+      }
 
       const value = new Set(this.args.documentData[form] || []);
 
