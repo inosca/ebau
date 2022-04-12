@@ -2,7 +2,7 @@ import logging
 
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
-from django.db.models import Q
+from django.db.models import Exists, OuterRef, Q
 from django.db.models.constants import LOOKUP_SEP
 from django.utils import timezone
 from django.utils.translation import gettext as _
@@ -228,82 +228,37 @@ class InstanceQuerysetMixin(object):
                 "HTTP_X_CAMAC_PUBLIC_ACCESS_KEY"
             )
 
-            if public_access_key:
-                return (
-                    queryset.filter(
-                        **{
-                            self._get_instance_filter_expr(
-                                "case__work_items__task_id"
-                            ): "information-of-neighbors",
-                            self._get_instance_filter_expr(
-                                "case__work_items__document__pk__startswith"
-                            ): public_access_key,
-                            self._get_instance_filter_expr(
-                                "case__work_items__status"
-                            ): WorkItem.STATUS_COMPLETED,
-                            self._get_instance_filter_expr(
-                                "case__work_items__meta__is-published"
-                            ): True,
-                        }
-                    )
-                    .filter(
-                        **{
-                            self._get_instance_filter_expr(
-                                "case__work_items__document__answers__question_id"
-                            ): "information-of-neighbors-start-date",
-                            self._get_instance_filter_expr(
-                                "case__work_items__document__answers__date__lte"
-                            ): timezone.now(),
-                        }
-                    )
-                    .filter(
-                        **{
-                            self._get_instance_filter_expr(
-                                "case__work_items__document__answers__question_id"
-                            ): "information-of-neighbors-end-date",
-                            self._get_instance_filter_expr(
-                                "case__work_items__document__answers__date__gte"
-                            ): timezone.now(),
-                        }
-                    )
-                    .distinct()
-                )
+            filters = {
+                "case": OuterRef(self._get_instance_filter_expr("case__pk")),
+                "task_id": "fill-publication",
+                "meta__is-published": True,
+                "status": WorkItem.STATUS_COMPLETED,
+            }
+            start_question = "publikation-startdatum"
+            end_question = "publikation-ablaufdatum"
 
-            return (
-                queryset.filter(
-                    **{
-                        self._get_instance_filter_expr(
-                            "case__work_items__task_id"
-                        ): "fill-publication",
-                        self._get_instance_filter_expr(
-                            "case__work_items__status"
-                        ): WorkItem.STATUS_COMPLETED,
-                        self._get_instance_filter_expr(
-                            "case__work_items__meta__is-published"
-                        ): True,
+            if public_access_key:
+                filters.update(
+                    {
+                        "task_id": "information-of-neighbors",
+                        "document__pk__startswith": public_access_key,
                     }
                 )
-                .filter(
-                    **{
-                        self._get_instance_filter_expr(
-                            "case__work_items__document__answers__question_id"
-                        ): "publikation-startdatum",
-                        self._get_instance_filter_expr(
-                            "case__work_items__document__answers__date__lte"
-                        ): timezone.now(),
-                    }
+                start_question = "information-of-neighbors-start-date"
+                end_question = "information-of-neighbors-end-date"
+
+            return queryset.filter(
+                Exists(
+                    WorkItem.objects.filter(**filters)
+                    .filter(
+                        document__answers__question_id=start_question,
+                        document__answers__date__lte=timezone.now(),
+                    )
+                    .filter(
+                        document__answers__question_id=end_question,
+                        document__answers__date__gte=timezone.now(),
+                    )
                 )
-                .filter(
-                    **{
-                        self._get_instance_filter_expr(
-                            "case__work_items__document__answers__question_id"
-                        ): "publikation-ablaufdatum",
-                        self._get_instance_filter_expr(
-                            "case__work_items__document__answers__date__gte"
-                        ): timezone.now(),
-                    }
-                )
-                .distinct()
             )
         elif settings.APPLICATION.get("PUBLICATION_BACKEND") == "camac-ng":
             return (
