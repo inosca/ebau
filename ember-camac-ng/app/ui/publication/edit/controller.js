@@ -26,7 +26,7 @@ export default class PublicationEditController extends Controller {
 
   get filters() {
     return [
-      { addressedGroups: [this.shoebox.content.serviceId] },
+      { addressedGroups: [String(this.shoebox.content.serviceId)] },
       {
         caseMetaValue: [
           { key: "camac-instance-id", value: this.model.instanceId },
