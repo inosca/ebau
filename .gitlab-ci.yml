@@ -1,6 +1,10 @@
 ---
 image: tmaier/docker-compose:latest
 
+default:
+  tags:
+    - deployssh
+
 variables:
   LANG: C.UTF-8
   LC_ALL: C.UTF-8
