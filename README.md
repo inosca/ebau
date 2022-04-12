@@ -2,23 +2,97 @@
 
 Electronic building permit application for swiss cantons.
 
-## Table of Content
+## Table of Contents
 
-- [ebau](#ebau)
-  - [Table of Content](#table-of-content)
-  - [Requirements](#requirements)
-  - [Development](#development)
-    - [Basic setup](#basic-setup)
-    - [Working locally with django](#working-locally-with-django)
-      - [Debugging](#debugging)
-    - [Working locally with ember](#working-locally-with-ember)
-      - [Yarn workspace](#yarn-workspace)
-    - [GWR API](#gwr-api)
-        - [Django profiling](#django-profiling)
-        - [Visual Studio Code](#visual-studio-code)
-    - [Predefined credentials](#predefined-credentials)
-    - [Customize api](#customize-api)
-  - [Sending email](#sending-email)
+<!-- vim-markdown-toc GFM -->
+
+- [Overview](#overview)
+  - [Folder structure](#folder-structure)
+  - [Modules](#modules)
+- [Requirements](#requirements)
+- [Development](#development)
+  - [Basic setup](#basic-setup)
+    - [Debugging](#debugging)
+  - [Working locally with ember](#working-locally-with-ember)
+    - [Yarn workspace](#yarn-workspace)
+  - [GWR API](#gwr-api)
+    - [Django profiling](#django-profiling)
+    - [Visual Studio Code](#visual-studio-code)
+  - [Predefined credentials](#predefined-credentials)
+  - [Customize api](#customize-api)
+- [Sending email](#sending-email)
+
+<!-- vim-markdown-toc -->
+
+## Overview
+
+This repository contains the source code for the web applications used to handle electronic building permits and comparable processes in the Swiss cantons of Berne, Schwyz and Uri. The software stack is undergoing a "rolling" modernization process, meaning that the application is built up on multiple technology stacks. The evolution of the framework happenend in roughly the following stages:
+
+1. Base: PHP-based, server-side rendered (legacy, not part of this repository)
+2. a) Introduction of Django (Python)-based model layer, allowing for simpler database management and development of REST APIs,
+   b) Introduction of Vue.js-based frontend modules that interact with REST APIs, embedded in legacy app
+3. Introduction of Ember.js-based "portal" for submitting forms, also based on REST APIs
+4. Introduction of [Caluma](https://github.com/projectcaluma/caluma) as form- and workflow-engine
+5. Embedding of Ember.js-based modules (replacing Vue.js), styled using [UIkit](https://getuikit.com/)
+
+The following image shows a high-level overview of the current architecture:
+
+![Architecture](https://i.imgur.com/dZseZU5.jpg)
+
+While technically only one database is used, two are shown in the diagram to highlight that Caluma is using it's own schema, while the Legacy app and Bridge API share a common schema.
+
+### Folder structure
+
+```
+├── compose                # docker-compose files
+├── db                     # database Dockerfile and utils
+├── django                 # backend code, containing both Bridge API and Caluma
+├── document-merge-service # document generation templates and config
+├── ember                  # Ember.js based portal using REST API, precursor of `ember-caluma-portal`
+├── ember-caluma-portal    # Caluma-based portal
+├── ember-camac-ng         # Ember.js modules used in internal area
+├── ember-ebau-core        # Ember.js addon for code sharing between multiple Ember.js apps
+├── keycloak               # Keycloak configuration for local development
+├── proxy                  # Nginx configuration for local development
+└── tools                  # miscellaneous utilities
+```
+
+### Modules
+
+The following table lists the most important modules in the "internal" part of the application and their respective progress in the modernization based on four steps:
+
+1. **JS / API-driven**: Frontend is based on Vue.js, Backend is a REST or GraphQL API.
+2. **Ember.js**: Frontend is implemented with Ember.js.
+3. **UIkit**: Styling is implemented using UIkit.
+4. **Part of ember-ebau**: This module has been integrated in ember-ebau.
+
+| Module                       | Description                              | JS / API-driven    | Ember.js           | UIkit              | Part of ember-ebau |
+| ---------------------------- | ---------------------------------------- | ------------------ | ------------------ | ------------------ | ------------------ |
+| _Main Nav (resource)_        |                                          |                    |                    |                    |                    |
+| Dossier list                 | Show a list of dossiers                  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Task list                    | Show a list of tasks                     | :heavy_check_mark: | :heavy_check_mark: | :x:                | :x:                |
+| Organization                 | Manage details of own organization       | :heavy_check_mark: | :heavy_check_mark: | :x:                | :x:                |
+| Static content               | Static content, markdown editor          | :heavy_check_mark: | :x:                | :x:                | :x:                |
+| Text components              | Manage snippets for usage in text fields | :heavy_check_mark: | :x:                | :x:                | :x:                |
+| Templates                    | Manage document templates (docx)         | :heavy_check_mark: | :x:                | :x:                | :x:                |
+| Permissions                  | Decentralized permission management      | :x:                | :x:                | :x:                | :x:                |
+| _Subnav (instance resource)_ |                                          |                    |                    |                    |                    |
+| Tasks                        | View and manage tasks                    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Form                         | View and edit main form                  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Journal                      | Collaborative notebook                   | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Responsible                  | Assign responsible users                 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x:                |
+| Audit                        | Perform structured audit                 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x:                |
+| Publication                  | Manage publication in newspaper          | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x:                |
+| History                      | Shows milestones and historical data     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x:                |
+| Documents [1]                | Document management                      | :heavy_check_mark: | :x:                | :x:                | :x:                |
+| Audit-Log                    | Shows form changes                       | :heavy_check_mark: | :x:                | :x:                | :x:                |
+| Template                     | Generate document from template          | :heavy_check_mark: | :x:                | :x:                | :x:                |
+| Claims                       | Ask applicant for additional info        | :heavy_check_mark: | :x:                | :x:                | :x:                |
+| Billing                      | Manage handling fees                     | :x:                | :x:                | :x:                | :x:                |
+| Circulation [2]              | Get feedback from other organizations    | :x:                | :x:                | :x:                | :x:                |
+
+[1] To be replaced with [alexandria](https://github.com/projectcaluma/alexandria).
+[2] To be replaced with [the distribution package in ember-caluma](https://github.com/projectcaluma/ember-caluma/tree/main/packages/distribution).
 
 ## Requirements
 
@@ -74,27 +148,6 @@ For automatic checks during commit (formatting, linting) you can setup a git hoo
 ```bash
 pip install pre-commit
 pre-commit install
-```
-
-### Working locally with django
-
-```bash
-docker-compose up -d django
-cd django
-export APPLICATION={kt_schwyz|kt_uri|kt_bern|demo}  # Also set this when developing locally
-export APPLICATION_ENV=local
-export VISIBILITY_CLASSES=camac.caluma.extensions.visibilities.CustomVisibility
-export PERMISSION_CLASSES=camac.caluma.extensions.permissions.CustomPermission
-export VALIDATION_CLASSES=camac.caluma.extensions.validations.CustomValidation
-export DATA_SOURCE_CLASSES=camac.caluma.extensions.data_sources.Municipalities,camac.caluma.extensions.data_sources.Services
-# Create virtualenv for camac with Python 3.8 - `pyenv virtualenv 3.8.x ebau` or similar
-# Install python dependencies
-make install-dev
-# Load configuration
-./manage.py camac_load
-# some functionality need unoconv to run
-docker-compose --file compose/ci.yml up -d unoconv
-pytest  # run tests
 ```
 
 #### Debugging
