@@ -67,22 +67,25 @@ def add_table_answer(document, question, rows, table_answer=None):
 
 def test_master_data_exceptions(
     db,
+    instance,
+    instance_with_case,
     application_settings,
 ):
     application_settings["MASTER_DATA"] = {
         "bar": ("unconfigured", "bar"),
         "baz": ("case_meta", "baz", {"value_parser": "boolean"}),
-        "dottet_instance_property": ("instance_property", "farm.name"),
+        "an_instance_property": ("instance_property", "case__form"),
     }
-
-    master_data = MasterData(caluma_workflow_factories.CaseFactory(meta={"baz": True}))
+    instance.case = caluma_workflow_factories.CaseFactory(meta={"baz": True})
+    instance.save()
+    master_data = MasterData(instance.case)
 
     with pytest.raises(AttributeError) as e:
         assert master_data.foo
 
     assert (
         str(e.value)
-        == "Key 'foo' is not configured in master data config. Available keys are: bar, baz, dottet_instance_property"
+        == "Key 'foo' is not configured in master data config. Available keys are: bar, baz, an_instance_property"
     )
 
     with pytest.raises(AttributeError) as e:
@@ -99,9 +102,12 @@ def test_master_data_exceptions(
     assert str(e.value) == "Parser 'boolean' is not defined in master data class"
 
     with pytest.raises(AttributeError) as e:
-        assert master_data.dottet_instance_property
+        assert master_data.an_instance_property
 
-    assert str(e.value) == "Instance property lookup failed for lookup `farm.name`."
+    assert (
+        str(e.value)
+        == "Instance property lookup failed for lookup `case__form` with 'Case' object has no attribute 'form'."
+    )
 
 
 def test_master_data_parsers(
