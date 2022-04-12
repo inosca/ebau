@@ -57,6 +57,15 @@ export default class CaseTableComponent extends Component {
           },
         ],
       },
+      dossierNumberSZ: {
+        metaValue: [
+          {
+            key: "dossier-number",
+            lookup: "CONTAINS",
+            value: filter.dossierNumberSZ,
+          },
+        ],
+      },
       createdBefore: {
         metaValue: [
           {
@@ -196,6 +205,7 @@ export default class CaseTableComponent extends Component {
       service: this.args.filter.service || this.args.filter.serviceSZ,
       responsible_service_user: this.args.filter.responsibleServiceUser,
       address_sz: this.args.filter.addressSZ,
+      intent_sz: this.args.filter.intentSZ,
       plot_sz: this.args.filter.plotSZ,
       builder_sz: this.args.filter.builderSZ,
       landowner_sz: this.args.filter.landownerSZ,
