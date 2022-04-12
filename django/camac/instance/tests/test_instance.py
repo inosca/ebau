@@ -292,6 +292,47 @@ def test_instance_address_filter(
 
 @pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
 @pytest.mark.parametrize(
+    "intent,expected_count",
+    [
+        ("a", [1, 1, 0]),
+        ("aa", [0, 0, 0]),
+        ("ous", [1, 0, 0]),
+        ("Large House", [1, 0, 0]),
+        ("garden  ", [0, 1, 0]),
+        ("large  garden", [0, 0, 0]),
+        ("hoouse", [0, 0, 0]),
+        ("Luxury tent", [0, 0, 0]),
+    ],
+)
+@pytest.mark.parametrize(
+    "index,form_field__name,form_field__value,form_field__instance",
+    [
+        (0, "intent1", "Large house", LazyFixture("instance")),
+        (1, "intent2", "Small garden", LazyFixture("instance")),
+        (2, "intent3", "Luxury tent", LazyFixture("instance")),
+    ],
+)
+def test_instance_intent_filter(
+    application_settings,
+    admin_client,
+    instance,
+    intent,
+    expected_count,
+    index,
+    form_field,
+):
+    application_settings["INTENT_FORM_FIELDS"] = ["intent1", "intent2"]
+
+    url = reverse("instance-list")
+    response = admin_client.get(url, {"intent_sz": intent})
+
+    assert response.status_code == status.HTTP_200_OK
+    data = response.json()["data"]
+    assert len(data) == expected_count[index]
+
+
+@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
+@pytest.mark.parametrize(
     "plot,expected_count",
     [
         ("CH9", 2),
