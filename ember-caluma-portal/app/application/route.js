@@ -71,10 +71,6 @@ export default class ApplicationRoute extends Route {
       type: "Form",
     });
     this.calumaOptions.registerComponentOverride({
-      label: "Versteckt",
-      component: "cf-hidden-input",
-    });
-    this.calumaOptions.registerComponentOverride({
       label: "Deaktiviert",
       component: "be-disabled-input",
     });
