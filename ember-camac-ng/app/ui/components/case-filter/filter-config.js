@@ -5,6 +5,9 @@ export default {
   dossierNumber: {
     type: "input",
   },
+  dossierNumberSZ: {
+    type: "input",
+  },
   instanceIdentifier: {
     type: "input",
   },
@@ -86,6 +89,9 @@ export default {
     valueField: "value",
   },
   addressSZ: {
+    type: "input",
+  },
+  intentSZ: {
     type: "input",
   },
   plotSZ: {

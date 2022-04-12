@@ -6,6 +6,7 @@ import { objectFromQueryParams } from "ember-ebau-core/decorators";
 const filterQueryParams = [
   "instanceId",
   "dossierNumber",
+  "dossierNumberSZ",
   "instanceIdentifier",
   "municipality",
   "locationSZ",
@@ -25,6 +26,7 @@ const filterQueryParams = [
   "caseDocumentFormName",
   "responsibleServiceUser",
   "addressSZ",
+  "intentSZ",
   "plotSZ",
   "builderSZ",
   "landownerSZ",
