@@ -562,6 +562,10 @@ APPLICATIONS = {
             "standort-spezialbezeichnung",
             "standort-ort",
         ],
+        "INTENT_FORM_FIELDS": [
+            "bezeichnung",
+            "bezeichnung-override",
+        ],
         "DOSSIER_IMPORT": {
             "WRITER_CLASS": "camac.dossier_import.config.kt_schwyz.KtSchwyzDossierWriter",
             "INSTANCE_STATE_MAPPING": {"SUBMITTED": 2, "APPROVED": 8, "DONE": 10},
