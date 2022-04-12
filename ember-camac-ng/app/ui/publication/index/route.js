@@ -10,7 +10,7 @@ export default class PublicationIndexRoute extends Route {
     next(async () => {
       // eslint-disable-next-line ember/no-controller-access-in-routes
       const publications = await this.controllerFor("publication").publications;
-      const latest = decodeId(publications?.at(-1)?.node.id);
+      const latest = decodeId(publications?.[publications.length - 1]?.node.id);
 
       if (latest) {
         this.router.replaceWith("publication.edit", latest);
