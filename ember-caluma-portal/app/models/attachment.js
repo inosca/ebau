@@ -37,8 +37,9 @@ export default class Attachment extends Model {
 
       const file = yield response.blob();
 
+      const nameParts = this.name.split(".");
       const name = this.context.displayName
-        ? `${this.context.displayName}.${this.name.split(".").at(-1)}`
+        ? `${this.context.displayName}.${nameParts[nameParts.length - 1]}`
         : this.name;
 
       saveAs(file, name, { type: file.type });
