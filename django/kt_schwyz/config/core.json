@@ -97,7 +97,7 @@
     "model": "core.apageredirect",
     "pk": 9,
     "fields": {
-      "resource": 6,
+      "resource": 28,
       "instance_resource": null,
       "air_action_name": null
     }
@@ -106,7 +106,7 @@
     "model": "core.apageredirect",
     "pk": 74,
     "fields": {
-      "resource": 1,
+      "resource": 28,
       "instance_resource": 7,
       "air_action_name": "edit"
     }
@@ -115,7 +115,7 @@
     "model": "core.apageredirect",
     "pk": 77,
     "fields": {
-      "resource": 6,
+      "resource": 28,
       "instance_resource": 18,
       "air_action_name": "edit"
     }
@@ -124,7 +124,7 @@
     "model": "core.apageredirect",
     "pk": 79,
     "fields": {
-      "resource": 6,
+      "resource": 28,
       "instance_resource": 39,
       "air_action_name": "edit"
     }
@@ -133,7 +133,7 @@
     "model": "core.apageredirect",
     "pk": 84,
     "fields": {
-      "resource": 1,
+      "resource": 28,
       "instance_resource": 47,
       "air_action_name": "edit"
     }
@@ -151,7 +151,7 @@
     "model": "core.apageredirect",
     "pk": 149,
     "fields": {
-      "resource": 1,
+      "resource": 28,
       "instance_resource": 7,
       "air_action_name": "edit"
     }
@@ -160,7 +160,7 @@
     "model": "core.apageredirect",
     "pk": 150,
     "fields": {
-      "resource": 1,
+      "resource": 28,
       "instance_resource": 7,
       "air_action_name": "edit"
     }
@@ -169,7 +169,7 @@
     "model": "core.apageredirect",
     "pk": 151,
     "fields": {
-      "resource": 1,
+      "resource": 28,
       "instance_resource": 47,
       "air_action_name": "edit"
     }
@@ -178,7 +178,7 @@
     "model": "core.apageredirect",
     "pk": 152,
     "fields": {
-      "resource": 1,
+      "resource": 28,
       "instance_resource": 47,
       "air_action_name": null
     }
@@ -187,7 +187,7 @@
     "model": "core.apageredirect",
     "pk": 153,
     "fields": {
-      "resource": 1,
+      "resource": 28,
       "instance_resource": 47,
       "air_action_name": "edit"
     }
@@ -214,7 +214,7 @@
     "model": "core.apageredirect",
     "pk": 156,
     "fields": {
-      "resource": 1,
+      "resource": 28,
       "instance_resource": 7,
       "air_action_name": "edit"
     }
@@ -223,7 +223,7 @@
     "model": "core.apageredirect",
     "pk": 157,
     "fields": {
-      "resource": 1,
+      "resource": 28,
       "instance_resource": 49,
       "air_action_name": "index"
     }
@@ -232,7 +232,7 @@
     "model": "core.apageredirect",
     "pk": 158,
     "fields": {
-      "resource": 1,
+      "resource": 28,
       "instance_resource": 49,
       "air_action_name": "index"
     }
@@ -15815,46 +15815,6 @@
     }
   },
   {
-    "model": "core.rapilistcirculationstate",
-    "pk": 25,
-    "fields": {
-      "resource": 6,
-      "circulation_state": 1
-    }
-  },
-  {
-    "model": "core.rapilistcirculationstate",
-    "pk": 26,
-    "fields": {
-      "resource": 6,
-      "circulation_state": 2
-    }
-  },
-  {
-    "model": "core.rapilistcirculationstate",
-    "pk": 27,
-    "fields": {
-      "resource": 6,
-      "circulation_state": 6
-    }
-  },
-  {
-    "model": "core.rapilistcirculationtype",
-    "pk": 1,
-    "fields": {
-      "resource": 2,
-      "circulation_type": 1
-    }
-  },
-  {
-    "model": "core.rapilistcirculationtype",
-    "pk": 4,
-    "fields": {
-      "resource": 4,
-      "circulation_type": 1
-    }
-  },
-  {
     "model": "core.rapilistcirculationtype",
     "pk": 9,
     "fields": {
@@ -15876,38 +15836,6 @@
     "fields": {
       "resource": 15,
       "circulation_type": 1
-    }
-  },
-  {
-    "model": "core.rapilistcirculationtype",
-    "pk": 14,
-    "fields": {
-      "resource": 5,
-      "circulation_type": 1
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 2,
-    "fields": {
-      "resource": 2,
-      "instance_state": 3
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 7,
-    "fields": {
-      "resource": 4,
-      "instance_state": 5
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 8,
-    "fields": {
-      "resource": 4,
-      "instance_state": 7
     }
   },
   {
@@ -15956,30 +15884,6 @@
     "fields": {
       "resource": 7,
       "instance_state": 9
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 36,
-    "fields": {
-      "resource": 1,
-      "instance_state": 2
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 37,
-    "fields": {
-      "resource": 6,
-      "instance_state": 5
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 38,
-    "fields": {
-      "resource": 6,
-      "instance_state": 7
     }
   },
   {
@@ -16127,46 +16031,6 @@
     }
   },
   {
-    "model": "core.rapilistinstancestate",
-    "pk": 67,
-    "fields": {
-      "resource": 1,
-      "instance_state": 12
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 72,
-    "fields": {
-      "resource": 5,
-      "instance_state": 6
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 73,
-    "fields": {
-      "resource": 5,
-      "instance_state": 8
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 74,
-    "fields": {
-      "resource": 5,
-      "instance_state": 13
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 75,
-    "fields": {
-      "resource": 5,
-      "instance_state": 9
-    }
-  },
-  {
     "model": "core.remberlist",
     "pk": 27,
     "fields": {
@@ -16199,46 +16063,6 @@
     "pk": 26,
     "fields": {
       "pdf_class": null
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 1,
-    "fields": {
-      "resource": 1,
-      "role": 3
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 2,
-    "fields": {
-      "resource": 2,
-      "role": 3
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 4,
-    "fields": {
-      "resource": 4,
-      "role": 3
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 5,
-    "fields": {
-      "resource": 5,
-      "role": 3
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 6,
-    "fields": {
-      "resource": 6,
-      "role": 5
     }
   },
   {
@@ -16279,14 +16103,6 @@
     "fields": {
       "resource": 10,
       "role": 8
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 14,
-    "fields": {
-      "resource": 6,
-      "role": 7
     }
   },
   {
@@ -16335,38 +16151,6 @@
     "fields": {
       "resource": 15,
       "role": 10
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 26,
-    "fields": {
-      "resource": 1,
-      "role": 8
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 27,
-    "fields": {
-      "resource": 2,
-      "role": 8
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 28,
-    "fields": {
-      "resource": 4,
-      "role": 8
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 29,
-    "fields": {
-      "resource": 5,
-      "role": 8
     }
   },
   {
@@ -16423,38 +16207,6 @@
     "fields": {
       "resource": 16,
       "role": 3
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 47,
-    "fields": {
-      "resource": 1,
-      "role": 11
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 48,
-    "fields": {
-      "resource": 2,
-      "role": 11
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 49,
-    "fields": {
-      "resource": 4,
-      "role": 11
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 50,
-    "fields": {
-      "resource": 5,
-      "role": 11
     }
   },
   {
@@ -16542,14 +16294,6 @@
     "pk": 62,
     "fields": {
       "resource": 24,
-      "role": 12
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 64,
-    "fields": {
-      "resource": 1,
       "role": 12
     }
   },
@@ -16687,71 +16431,6 @@
     "fields": {
       "resource": 28,
       "role": 12
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 1,
-    "fields": {
-      "available_resource": "apilistinstance",
-      "name": "Neue Gesuche",
-      "description": "Eingereichte Dossiers für die Gemeinde",
-      "template": null,
-      "class_field": null,
-      "hidden": 1,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 2,
-    "fields": {
-      "available_resource": "apilistinstance",
-      "name": "Start Zirkulation",
-      "description": "Pendenzenliste der Gemeinde für neue Dossiers",
-      "template": null,
-      "class_field": null,
-      "hidden": 1,
-      "sort": 2
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 4,
-    "fields": {
-      "available_resource": "apilistinstance",
-      "name": "In Zirkulation",
-      "description": "Zirkulation aus Sicht der Gemeinde",
-      "template": null,
-      "class_field": null,
-      "hidden": 1,
-      "sort": 3
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 5,
-    "fields": {
-      "available_resource": "apilistinstance",
-      "name": "Entscheid",
-      "description": "Abzuschliessende Dossiers für die Gemeinde",
-      "template": null,
-      "class_field": null,
-      "hidden": 1,
-      "sort": 5
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 6,
-    "fields": {
-      "available_resource": "apilistactivation",
-      "name": "In Zirkulation",
-      "description": "Zirkulation aus Sicht der Fachstellen",
-      "template": null,
-      "class_field": null,
-      "hidden": 1,
-      "sort": 4
     }
   },
   {
