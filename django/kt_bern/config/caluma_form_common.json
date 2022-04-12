@@ -2333,7 +2333,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": "cf-hidden-input"
+        "widgetOverride": "cf-field/input/hidden"
       },
       "data_source": null,
       "row_form": null,
