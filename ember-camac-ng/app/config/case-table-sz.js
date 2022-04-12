@@ -11,13 +11,14 @@ export default {
     ],
   },
   activeFilters: {
-    caluma: ["dossierNumber", "intent", "caseStatus", "caseDocumentFormName"],
+    caluma: ["dossierNumberSZ", "intent", "caseStatus", "caseDocumentFormName"],
     "camac-ng": [
       "instanceIdentifier",
       "instanceStateDescription",
       "locationSZ",
       "responsibleServiceUser",
       "addressSZ",
+      "intentSZ",
       "plotSZ",
       "builderSZ",
       "landownerSZ",

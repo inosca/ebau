@@ -251,6 +251,7 @@ class InstanceFilterSet(FilterSet):
     form_name_versioned = NumberFilter(field_name="form__family__pk")
     location = NumberMultiValueFilter()
     address_sz = CharFilter(method="filter_address_sz")
+    intent_sz = CharFilter(method="filter_intent_sz")
     plot_sz = FormFieldListValueFilter(
         form_field_names=["parzellen"], keys=["number", "egrid"]
     )
@@ -311,10 +312,15 @@ class InstanceFilterSet(FilterSet):
         return queryset.filter(**_filter)
 
     def filter_address_sz(self, queryset, name, value):
-
         address_form_fields = settings.APPLICATION.get("ADDRESS_FORM_FIELDS", [])
         return queryset.filter(
             fields__name__in=address_form_fields, fields__value__icontains=value
+        )
+
+    def filter_intent_sz(self, queryset, name, value):
+        intent_form_fields = settings.APPLICATION.get("INTENT_FORM_FIELDS", [])
+        return queryset.filter(
+            fields__name__in=intent_form_fields, fields__value__icontains=value
         )
 
     class Meta:
@@ -336,6 +342,7 @@ class InstanceFilterSet(FilterSet):
             "responsible_service",
             "responsible_service_user",
             "address_sz",
+            "intent_sz",
             "plot_sz",
             "builder_sz",
             "landowner_sz",
