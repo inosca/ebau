@@ -1,4 +1,4 @@
-from datetime import timedelta
+from datetime import date, timedelta
 
 import pytest
 from caluma.caluma_form.factories import (
@@ -29,20 +29,25 @@ def enable_public_urls(application_settings):
 
 
 @pytest.fixture
-def running_caluma_publication(db, caluma_publication, application_settings):
+def create_caluma_publication(db, caluma_publication, application_settings):
     application_settings["PUBLICATION_BACKEND"] = "caluma"
 
-    def wrapper(instance):
+    def wrapper(
+        instance,
+        start=timezone.now() - timedelta(days=1),
+        end=timezone.now() + timedelta(days=12),
+        published=True,
+    ):
         publication_document = DocumentFactory()
         AnswerFactory(
             document=publication_document,
             question_id="publikation-startdatum",
-            date=timezone.now() - timedelta(days=1),
+            date=start,
         )
         AnswerFactory(
             document=publication_document,
             question_id="publikation-ablaufdatum",
-            date=timezone.now() + timedelta(days=12),
+            date=end,
         )
         WorkItemFactory(
             task_id="fill-publication",
@@ -50,7 +55,7 @@ def running_caluma_publication(db, caluma_publication, application_settings):
             document=publication_document,
             case=instance.case,
             closed_by_user="admin",
-            meta={"is-published": True},
+            meta={"is-published": published},
         )
 
         return publication_document
@@ -410,7 +415,7 @@ def test_public_caluma_instance_be(
     be_instance,
     enable_public_urls,
     django_assert_num_queries,
-    running_caluma_publication,
+    create_caluma_publication,
     applicant_factory,
     headers,
     num_queries,
@@ -422,7 +427,7 @@ def test_public_caluma_instance_be(
         "MASTER_DATA"
     ]
 
-    running_caluma_publication(be_instance)
+    create_caluma_publication(be_instance)
 
     be_instance.case.meta["ebau-number"] = "2021-55"
     be_instance.case.save()
@@ -465,7 +470,7 @@ def test_public_caluma_instance_municipality_filter(
     instance_with_case,
     enable_public_urls,
     caluma_workflow_config_be,
-    running_caluma_publication,
+    create_caluma_publication,
 ):
     application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_bern"][
         "MASTER_DATA"
@@ -476,7 +481,7 @@ def test_public_caluma_instance_municipality_filter(
     ]
 
     for instance in instances:
-        running_caluma_publication(instance)
+        create_caluma_publication(instance)
 
     for instance in instances[:3]:
         AnswerFactory(
@@ -507,7 +512,7 @@ def test_public_caluma_instance_form_type_filter(
     instance_factory,
     instance_with_case,
     enable_public_urls,
-    running_caluma_publication,
+    create_caluma_publication,
 ):
     application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_uri"]["MASTER_DATA"]
 
@@ -517,7 +522,7 @@ def test_public_caluma_instance_form_type_filter(
     Question.objects.create(slug="form-type", type=Question.TYPE_CHOICE)
 
     for instance in instances:
-        running_caluma_publication(instance)
+        create_caluma_publication(instance)
 
     for instance in instances[:3]:
         AnswerFactory(
@@ -605,3 +610,35 @@ def test_information_of_neighbors_instance_be(
     assert response.status_code == status.HTTP_200_OK
 
     assert len(response.json()["data"])
+
+
+@pytest.mark.freeze_time("2022-04-12")
+def test_disabled_publication(
+    db,
+    admin_client,
+    be_instance,
+    enable_public_urls,
+    caluma_workflow_config_be,
+    create_caluma_publication,
+):
+    # active date range but disabled
+    create_caluma_publication(
+        instance=be_instance,
+        start=date(2022, 4, 10),
+        end=date(2022, 4, 20),
+        published=False,
+    )
+    # inactive date range but published
+    create_caluma_publication(
+        instance=be_instance,
+        start=date(2022, 4, 14),
+        end=date(2022, 4, 24),
+        published=True,
+    )
+
+    response = admin_client.get(
+        reverse("public-caluma-instance"),
+        HTTP_X_CAMAC_PUBLIC_ACCESS=True,
+    )
+
+    assert len(response.json()["data"]) == 0
