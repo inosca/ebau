@@ -19,7 +19,7 @@
     "start": "ember serve",
     "test": "npm-run-all lint test:*",
     "test:ember": "ember test",
-    "start-proxy": "ember serve --proxy http://camac-ng.local",
+    "start-proxy": "ember serve --proxy http://ebau.local",
     "deploy": "ember deploy"
   },
   "devDependencies": {
