@@ -234,44 +234,72 @@ def test_form_field_list_filtering(
 
 
 @pytest.mark.parametrize(
-    "role__name,instance_state__name,instance__user,form_field__name",
+    "role__name,instance_state__name,instance__user",
+    [("Applicant", "new", LazyFixture("admin_user"))],
+)
+@pytest.mark.parametrize(
+    "has_existing,old_value,new_value,has_history_entry",
     [
-        (
-            "Applicant",
-            "new",
-            LazyFixture("admin_user"),
-            "kategorie-des-vorhabens",
-        ),
+        (False, None, "New", True),
+        (False, None, "", False),
+        (True, "", "", False),
+        (True, "", "New", True),
+        (True, "Old", "", True),
+        (True, "Old", "New", True),
+        (True, "Old", "Old", False),
     ],
 )
 def test_form_field_side_effect_history_entry(
-    admin_client, form_field, application_settings
+    admin_client,
+    instance,
+    form_field_factory,
+    application_settings,
+    has_existing,
+    old_value,
+    new_value,
+    has_history_entry,
 ):
-    application_settings["FORM_FIELD_HISTORY_ENTRY"] = (
-        {"name": "kategorie-des-vorhabens", "title": "testeee"},
-    )
+    form_field_name = "kategorie-des-vorhabens"
 
-    url = reverse("form-field-detail", args=[form_field.pk])
+    application_settings["FORM_FIELD_HISTORY_ENTRY"] = (
+        {"name": form_field_name, "title": "Test"},
+    )
 
     data = {
         "data": {
             "type": "form-fields",
-            "id": form_field.pk,
+            "id": None,
             "attributes": {
-                "name": form_field.name,
-                "value": {"test-name": "test-value"},
+                "name": form_field_name,
+                "value": new_value,
             },
             "relationships": {
-                "instance": {
-                    "data": {"type": "instances", "id": form_field.instance.pk}
-                }
+                "instance": {"data": {"type": "instances", "id": instance.pk}}
             },
         }
     }
 
-    response = admin_client.patch(url, data=data)
-    assert response.status_code == status.HTTP_200_OK
-    assert (
-        models.HistoryEntry.objects.all().first().title
-        == application_settings["FORM_FIELD_HISTORY_ENTRY"][0]["title"]
-    )
+    if has_existing:
+        form_field = form_field_factory(
+            name=form_field_name, value=old_value, instance=instance
+        )
+
+        data["data"]["id"] = form_field.pk
+
+        response = admin_client.patch(
+            reverse("form-field-detail", args=[form_field.pk]), data=data
+        )
+
+        assert response.status_code == status.HTTP_200_OK
+    else:
+        response = admin_client.post(reverse("form-field-list"), data=data)
+
+        assert response.status_code == status.HTTP_201_CREATED
+
+    assert instance.history.exists() == has_history_entry
+
+    if has_history_entry:
+        assert (
+            instance.history.first().title
+            == application_settings["FORM_FIELD_HISTORY_ENTRY"][0]["title"]
+        )
