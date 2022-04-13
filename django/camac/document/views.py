@@ -460,7 +460,8 @@ class TemplateView(ModelViewSet):
                 service.sort,
             )
 
-        data["activations"].sort(key=activation_sort)
+        if len(data["activations"]):
+            data["activations"].sort(key=activation_sort)
 
         for activation in data["activations"]:
             activation["notices"].sort(
