@@ -54,11 +54,17 @@ def test_base_delivery(
     elif form == "vollstaendige vorabklaerung":
         ech_mandatory_answers = ech_mandatory_answers_vollstaendige_vorabklaerung
 
+    configured_base_delivery_formatter = formatters.BaseDeliveryFormatter(
+        config="kt_bern"
+    )
+
     xml = formatters.delivery(
         ech_instance,
         ech_mandatory_answers,
         ECH_BASE_DELIVERY,
-        eventBaseDelivery=formatters.base_delivery(ech_instance, ech_mandatory_answers),
+        eventBaseDelivery=configured_base_delivery_formatter.format_base_delivery(
+            ech_instance, answers=ech_mandatory_answers
+        ),
     )
 
     assert xml
@@ -79,7 +85,9 @@ def test_base_delivery(
 
 def test_office(ech_instance, snapshot, multilang):
     off = formatters.office(
-        ech_instance.responsible_service(filter_type="municipality")
+        ech_instance.responsible_service(filter_type="municipality"),
+        organization_category="ebaube",
+        canton="BE",
     )
     snapshot.assert_match(sort_xml(off.toxml(element_name="office")))
 

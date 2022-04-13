@@ -12,9 +12,6 @@ from camac.constants.kt_bern import (
     ATTACHMENT_SECTION_ALLE_BETEILIGTEN,
     ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN,
     DECISIONS_BEWILLIGT,
-    ECH_JUDGEMENT_APPROVED,
-    ECH_JUDGEMENT_DECLINED,
-    ECH_JUDGEMENT_WRITTEN_OFF,
     INSTANCE_RESOURCE_ZIRKULATION,
     NOTICE_TYPE_NEBENBESTIMMUNG,
     NOTICE_TYPE_STELLUNGNAHME,
@@ -23,6 +20,11 @@ from camac.core.models import Activation, DocxDecision, InstanceService, Notice
 from camac.ech0211.tests.utils import xml_data
 from camac.instance.models import Instance
 
+from ..constants import (
+    ECH_JUDGEMENT_APPROVED,
+    ECH_JUDGEMENT_DECLINED,
+    ECH_JUDGEMENT_WRITTEN_OFF,
+)
 from ..models import Message
 from ..schema.ech_0211_2_0 import CreateFromDocument
 from ..send_handlers import (

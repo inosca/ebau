@@ -624,6 +624,10 @@ APPLICATIONS = {
         },
         "MASTER_DATA": {
             "canton": ("static", "SZ"),
+            "organization_category": (
+                "static",
+                "ebausz",
+            ),  # TODO: change this value 'decisionRulingType'
             "applicants": (
                 "ng_table",
                 ["bauherrschaft", "bauherrschaft-v2", "bauherrschaft-override"],
@@ -1138,6 +1142,12 @@ APPLICATIONS = {
         },
     },
     "kt_bern": {
+        "ECH0211": {
+            "API_ACTIVE": True,
+            "VIEW_PATH": "camac.ech0211.views.kt_bern",
+            "SWAGGER_PATH": "camac.swagger.views.kt_bern",
+            "URLS": "camac.ech0211.urls.kt_bern",
+        },
         "INCLUDE_STATIC_FILES": [("xml", "kt_bern/static/ech0211/xml")],
         "LOG_NOTIFICATIONS": True,
         "SYSTEM_USER": "service-account-camac-admin",
@@ -1516,12 +1526,6 @@ APPLICATIONS = {
                 "DEFAULT": [3, 20004],
             },
             "ALLOWED_SERVICE_GROUPS": {"SB1": [3], "SB2": [3], "DEFAULT": [2, 20000]},
-        },
-        "ECH0211": {
-            "API_ACTIVE": True,
-            "VIEW_PATH": "camac.ech0211.views.kt_bern",
-            "SWAGGER_PATH": "camac.swagger.views.kt_bern",
-            "URLS": "camac.ech0211.urls.kt_bern",
         },
         "DOCUMENT_MERGE_SERVICE": {
             "FORM": {
@@ -2020,6 +2024,8 @@ APPLICATIONS = {
         },
         "MASTER_DATA": {
             "canton": ("static", "BE"),
+            "organisation_category": ("static", "ebaube"),
+            "remark": ("answer", "bemerkungen"),
             "nature_risk_type": (
                 "table",
                 "beschreibung-der-prozessart-tabelle",
