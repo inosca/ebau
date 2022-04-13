@@ -173,6 +173,7 @@ def test_template_merge(
     status_code,
     form_field_factory,
     activation,
+    activation_factory,
     billing_entry,
     publication_entry,
     notice_factory,
@@ -183,11 +184,19 @@ def test_template_merge(
     settings,
     unoconv_pdf_mock,
     unoconv_invalid_mock,
+    service_group,
+    application_settings,
 ):
     call_command(
         "loaddata", settings.ROOT_DIR("kt_schwyz/config/buildingauthority.json")
     )
     call_command("loaddata", settings.ROOT_DIR("kt_schwyz/config/caluma_form.json"))
+
+    application_settings["PLACEHOLDER_ACTIVATION_VISIBILITIES"] = {
+        service_group.pk: [activation.service.service_group.pk],
+    }
+
+    activation_factory(circulation__instance=sz_instance)
 
     notice_type_application = notice_type_factory(name="Antrag")
     notice_type_hint = notice_type_factory(name="Hinweis")
