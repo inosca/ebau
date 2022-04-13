@@ -52,7 +52,7 @@
                 {{t (concat "nav.public-instance-" (application-name))}}
               </UkSubnav::Item>
             {{/if}}
-            {{#if (macroCondition (macroGetOwnConfig "features.faq"))}}
+            {{#if (macroCondition (macroGetOwnConfig "enableFaq"))}}
               {{#if this.session.isAuthenticated}}
                 <UkSubnav::Item @href="/faq">{{t "nav.faq"}}</UkSubnav::Item>
               {{/if}}
