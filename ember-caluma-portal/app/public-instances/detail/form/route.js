@@ -6,7 +6,7 @@ export default class PublicInstancesDetailFormRoute extends Route {
   @service router;
 
   redirectTo() {
-    if (macroCondition(getOwnConfig().features.publication.form)) {
+    if (macroCondition(getOwnConfig().enablePublicationForm)) {
       // do nothing
     } else {
       return this.router.replaceWith("public-instances.detail.index");
