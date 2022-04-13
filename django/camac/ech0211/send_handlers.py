@@ -13,7 +13,6 @@ from django.utils.translation import gettext_noop
 from camac.caluma.api import CalumaApi
 from camac.constants.kt_bern import (
     ATTACHMENT_SECTION_ALLE_BETEILIGTEN,
-    ECH_JUDGEMENT_DECLINED,
     INSTANCE_RESOURCE_ZIRKULATION,
     NOTICE_TYPE_NEBENBESTIMMUNG,
     NOTICE_TYPE_STELLUNGNAHME,
@@ -35,6 +34,7 @@ from camac.instance.serializers import CalumaInstanceChangeResponsibleServiceSer
 from camac.notification.utils import send_mail_without_request
 from camac.user.models import Service
 
+from .constants import ECH_JUDGEMENT_DECLINED
 from .signals import accompanying_report_send, circulation_started, ruling, task_send
 from .utils import judgement_to_decision
 

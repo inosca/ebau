@@ -1,6 +1,7 @@
 import pytest
 from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
+from django.core.management import call_command
 
 from camac.ech0211.data_preparation import slugs_baugesuch, slugs_vorabklaerung_einfach
 from camac.instance.domain_logic import CreateInstanceLogic
@@ -17,6 +18,7 @@ def ech_instance_sz(
     form_factory,
     instance_factory,
     instance_with_case,
+    work_item_factory,
     location,
 ):
 
@@ -36,6 +38,8 @@ def ech_instance_sz(
     instance_with_case(instance_factory(identifier=ech_instance.identifier))
     ech_instance.form = form_factory(name="application_type")
     attachment_factory(instance=ech_instance)
+    call_command("loaddata", "/app/kt_schwyz/config/buildingauthority.json")
+    work_item_factory(task_id="building-authority", case=ech_instance.case)
     ech_instance.location = location
     ech_instance.save()
     return ech_instance

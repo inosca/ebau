@@ -1,8 +1,10 @@
+import datetime
 import json
 import os
 
 import pytest
 from caluma.caluma_form import models as caluma_form_models
+from caluma.caluma_user.models import BaseUser
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
 from django.conf import settings
 from django.urls import reverse
@@ -13,30 +15,40 @@ from camac.constants.kt_bern import (
     ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN,
     DECISION_JUDGEMENT_MAP,
     DECISIONS_ABGESCHRIEBEN,
-    ECH_JUDGEMENT_APPROVED_WITH_RESERVATION,
-    ECH_JUDGEMENT_DECLINED,
-    ECH_JUDGEMENT_WRITTEN_OFF,
     VORABKLAERUNG_DECISIONS_BEWILLIGT_MIT_VORBEHALT,
 )
 from camac.core.models import DocxDecision
 from camac.ech0211.schema.ech_0211_2_0 import CreateFromDocument
 
 from ...dossier_import.config.kt_schwyz import COORDINATES_MAPPING, PARCEL_MAPPING
-from ...dossier_import.dossier_classes import Coordinates, PlotData
-from ...dossier_import.writers import CamacNgListAnswerWriter
-from .. import views
+from ...dossier_import.dossier_classes import Coordinates, Dossier, PlotData
+from ...dossier_import.writers import CalumaAnswerWriter, CamacNgListAnswerWriter
+from ..constants import (
+    ECH_JUDGEMENT_APPROVED_WITH_RESERVATION,
+    ECH_JUDGEMENT_DECLINED,
+    ECH_JUDGEMENT_WRITTEN_OFF,
+)
 from ..event_handlers import EventHandlerException, StatusNotificationEventHandler
 from ..formatters import delivery
 from ..models import Message
 from ..send_handlers import KindOfProceedingsSendHandler, NoticeRulingSendHandler
+from ..views import kt_bern as kt_bern_ech0211views
 from .caluma_document_data import baugesuch_data, vorabklaerung_data
 from .utils import xml_data
 
 
+class TestDossier(Dossier):
+    def __new__(cls, *args, **kwargs):
+        obj = object.__new__(cls)
+        Dossier.__init__(obj, *args, **kwargs)
+        obj._meta = Dossier.Meta(target_state="changeme")
+        return obj
+
+
 @pytest.mark.parametrize(
-    "plot_data,coordinates",
+    "plot_data,coordinates,decision",
     [
-        (None, None),
+        (None, None, None),
         (
             [
                 PlotData(
@@ -44,6 +56,10 @@ from .utils import xml_data
                 )
             ],
             [Coordinates(n=8.5592041911, e=47.0636626694)],
+            {
+                "date": datetime.datetime(2021, 1, 11),
+                "decicion": "accepted",
+            },
         ),
     ],
 )
@@ -52,11 +68,14 @@ def test_application_retrieve_full_sz(
     admin_client,
     ech_instance_sz,
     ech_instance_case,
+    instance_state_factory,
     plot_data,
     coordinates,
+    decision,
     snapshot,
     settings,
     mocker,
+    request,
 ):
     settings.APPLICATION = settings.APPLICATIONS["kt_schwyz"]
     settings.APPLICATION["ECH_API"] = True
@@ -71,6 +90,30 @@ def test_application_retrieve_full_sz(
         CamacNgListAnswerWriter(
             target="punkte", column_mapping=COORDINATES_MAPPING
         ).write(ech_instance_sz, coordinates)
+    dossier = TestDossier(id=ech_instance_sz.identifier, proposal="baubeschrieb")
+    dossier_writer = type(
+        "DossierWriter",
+        (object,),
+        {
+            "_user": BaseUser(),
+            "_group": ech_instance_sz.responsible_service(),
+        },
+    )
+
+    if decision and decision.get("date"):
+        # determinining decision date in SZ requires a value from
+        # the work_item document of task "building-authority"
+        CalumaAnswerWriter(
+            name="tb-datum",
+            target="bewilligungsverfahren-gr-sitzung-bewilligungsdatum",
+            value_key="date",
+            task="building-authority",
+            context={"dossier": dossier},
+            owner=dossier_writer,
+        ).write(ech_instance_sz, decision["date"])
+        ech_instance_sz.instance_state = instance_state_factory(
+            name=decision.get("decision")
+        )
 
     resp = admin_client.get(reverse("application", args=[ech_instance_sz.pk]))
     if os.environ.get("ENV", "").startswith("dev"):  # pragma: no cover
@@ -82,7 +125,7 @@ def test_application_retrieve_full_sz(
 
 
 @pytest.mark.parametrize("is_vorabklaerung", [False, True])
-def test_application_retrieve_full(
+def test_application_retrieve_full_be(
     is_vorabklaerung,
     admin_client,
     mocker,
@@ -94,6 +137,8 @@ def test_application_retrieve_full(
     attachment_section,
     multilang,
 ):
+    settings.APPLICATION = settings.APPLICATIONS["kt_bern"]
+    settings.APPLICATION["ECH_API"] = True
     decision = DECISIONS_ABGESCHRIEBEN
     if is_vorabklaerung:
         decision = VORABKLAERUNG_DECISIONS_BEWILLIGT_MIT_VORBEHALT
@@ -114,9 +159,13 @@ def test_application_retrieve_full(
     url = reverse("application", args=[ech_instance.pk])
 
     if is_vorabklaerung:
-        mocker.patch.object(views, "get_document", return_value=vorabklaerung_data)
+        mocker.patch.object(
+            kt_bern_ech0211views, "get_document", return_value=vorabklaerung_data
+        )
     else:
-        mocker.patch.object(views, "get_document", return_value=baugesuch_data)
+        mocker.patch.object(
+            kt_bern_ech0211views, "get_document", return_value=baugesuch_data
+        )
 
     response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
