@@ -46,7 +46,6 @@ def test_generate_delivery(
     my_schema = xmlschema.XMLSchema(my_dir + "/../xsd/ech_0211_2_0.xsd")
     my_schema.validate(xml_data)
 
-
-# from xml.dom import minidom
-#    pretty_xml = minidom.parseString(xml_data).toprettyxm()
-#    snapshot.update(pretty_xml)
+    # from xml.dom import minidom
+    # pretty_xml = minidom.parseString(xml_data).toprettyxml()
+    # snapshot.update(pretty_xml)
