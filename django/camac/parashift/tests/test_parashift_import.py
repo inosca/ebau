@@ -101,7 +101,7 @@ def test_command(parashift_data, parashift_mock, application_settings):
     # one PDF, split into 4 pieces
     assert instance.attachments.count() == 4
     attachment = instance.attachments.first()
-    assert attachment.path.size == 91779
+    assert attachment.path.size == 91785
 
 
 def test_command_validation_error(requests_mock, capsys):
