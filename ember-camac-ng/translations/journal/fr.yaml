@@ -10,3 +10,6 @@ journal:
   visibleForOwnOrganization: "Visible pour sa propre organisation"
 
   duration: Durée du travail (HH:MM)
+
+  showMore: ""
+  linkToJournal: ""
