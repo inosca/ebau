@@ -25,89 +25,91 @@
           @value={{this.models.caseModel.authority}}
         />
       </tr>
-        <tr>
-          <CaseDashboard::Column @header={{t "cases.tableHeaders.linkedInstances"}}>
-            {{#if this.currentInstance.linkedInstances}}
-              <ul class="uk-list uk-list-collapse">
-                {{#each this.currentInstance.linkedInstances as |linkedInstance|}}
+      <tr>
+        <CaseDashboard::Column @header={{t "cases.tableHeaders.linkedInstances"}}>
+          {{#if this.currentInstance.linkedInstances}}
+            <ul class="uk-list uk-list-collapse">
+              {{#each this.currentInstance.linkedInstances as |linkedInstance|}}
+                <li class="uk-margin-small">
+                  <div class="uk-flex uk-flex-right">
+                    <a class="uk-width-expand" href="/index/redirect-to-instance-resource/instance-id/{{linkedInstance.id}}">
+                      {{linkedInstance.form.name}} ({{linkedInstance.dossierNumber}})
+                    </a>
+                    {{#if (can "link dossiers to instance" this.models.caseModel.instance)}}
+                      <button
+                        class="uk-button-link uk-flex"
+                        ratio="0.8"
+                        uk-icon="trash"
+                        type="button"
+                        title={{t "cases.miscellaneous.unLinkInstance"}}
+                        {{on "click" (perform this.unLinkDossier linkedInstance)}}>
+                      </button>
+                    {{/if}}
+                  </div>
+                </li>
+              {{/each}}
+            </ul>
+          {{/if}}
+          {{#if (can "link dossiers to instance" this.models.caseModel.instance)}}
+            <div>
+              <Input
+                @type="text"
+                @value={{this.dossierNumber}}
+                class="uk-input uk-form-width-medium uk-form-small"
+                aria-label={{t "cases.miscellaneous.linkedInstances"}}
+                placeholder={{t "cases.miscellaneous.enterDossierNumber" }}
+              />
+              <button
+                id={{t "cases.miscellaneous.linkedInstances"}}
+                class="uk-button uk-button-small uk-button-primary"
+                type="button"
+                title={{t "cases.miscellaneous.linkInstance"}}
+                {{on "click" (perform this.searchAndLinkDossier)}}
+              >
+                <UkIcon @icon="plus" />
+              </button>
+            </div>
+          {{/if}}
+        </CaseDashboard::Column>
+        <CaseDashboard::Column @header={{t "cases.tableHeaders.instancesOnSamePlot"}}>
+          {{#if this.instancesOnSamePlot}}
+            <ul class="uk-list uk-list-collapse">
+              {{#each this.instancesOnSamePlot as |instanceOnSamePlot index|}}
+                {{#if (lt index 5)}}
                   <li class="uk-margin-small">
                     <div class="uk-flex uk-flex-right">
-                      <a class="uk-width-expand" href="/index/redirect-to-instance-resource/instance-id/{{linkedInstance.id}}">
-                        {{linkedInstance.form.name}} ({{linkedInstance.dossierNumber}})
+                      <a class="uk-width-expand" href="/index/redirect-to-instance-resource/instance-id/{{instanceOnSamePlot.id}}">
+                        {{instanceOnSamePlot.form.name}} ({{instanceOnSamePlot.dossierNumber}})
                       </a>
                       {{#if (can "link dossiers to instance" this.models.caseModel.instance)}}
-                        <button
-                          class="uk-button-link uk-flex"
-                          ratio="0.8"
-                          uk-icon="trash"
-                          type="button"
-                          title={{t "cases.miscellaneous.unLinkInstance"}}
-                          {{on "click" (perform this.unLinkDossier linkedInstance)}}>
-                        </button>
+                        <LinkInstanceButton
+                          @type={{if (includes instanceOnSamePlot this.linkedAndOnSamePlot) "unlink" "link"}}
+                          @onLink={{this.linkDossier}}
+                          @onUnlink={{this.unLinkDossier}}
+                          @instanceOnSamePlot={{instanceOnSamePlot}}
+                        />
                       {{/if}}
                     </div>
                   </li>
-                {{/each}}
-              </ul>
+                {{/if}}
+              {{/each}}
+            </ul>
+            {{#if (gte this.instancesOnSamePlot.length 5)}}
+              <button
+                class="uk-button uk-button-small uk-button-default"
+                type="button"
+                {{on "click" this.toggleModal}}>
+                  {{t "cases.miscellaneous.showAll"}} ({{this.totalInstancesOnSamePlot}})
+              </button>
             {{/if}}
-            {{#if (can "link dossiers to instance" this.models.caseModel.instance)}}
-              <div>
-                <Input
-                  @type="text"
-                  @value={{this.dossierNumber}}
-                  class="uk-input uk-form-width-medium uk-form-small"
-                  aria-label={{t "cases.miscellaneous.linkedInstances"}}
-                  placeholder={{t "cases.miscellaneous.enterDossierNumber" }}
-                />
-                <button
-                  id={{t "cases.miscellaneous.linkedInstances"}}
-                  class="uk-button uk-button-small uk-button-primary"
-                  type="button"
-                  title={{t "cases.miscellaneous.linkInstance"}}
-                  {{on "click" (perform this.searchAndLinkDossier)}}
-                >
-                  <UkIcon @icon="plus" />
-                </button>
-              </div>
-            {{/if}}
-          </CaseDashboard::Column>
-          <CaseDashboard::Column @header={{t "cases.tableHeaders.instancesOnSamePlot"}}>
-            {{#if this.instancesOnSamePlot}}
-              <ul class="uk-list uk-list-collapse">
-                {{#each this.instancesOnSamePlot as |instanceOnSamePlot index|}}
-                  {{#if (lt index 5)}}
-                    <li class="uk-margin-small">
-                      <div class="uk-flex uk-flex-right">
-                        <a class="uk-width-expand" href="/index/redirect-to-instance-resource/instance-id/{{instanceOnSamePlot.id}}">
-                          {{instanceOnSamePlot.form.name}} ({{instanceOnSamePlot.dossierNumber}})
-                        </a>
-                        {{#if (can "link dossiers to instance" this.models.caseModel.instance)}}
-                          <LinkInstanceButton
-                            @type={{if (includes instanceOnSamePlot this.linkedAndOnSamePlot) "unlink" "link"}}
-                            @onLink={{this.linkDossier}}
-                            @onUnlink={{this.unLinkDossier}}
-                            @instanceOnSamePlot={{instanceOnSamePlot}}
-                          />
-                        {{/if}}
-                      </div>
-                    </li>
-                  {{/if}}
-                {{/each}}
-              </ul>
-              {{#if (gte this.instancesOnSamePlot.length 5)}}
-                <button
-                  class="uk-button uk-button-small uk-button-default"
-                  type="button"
-                  {{on "click" this.toggleModal}}>
-                    {{t "cases.miscellaneous.showAll"}} ({{this.totalInstancesOnSamePlot}})
-                </button>
-              {{/if}}
-            {{/if}}
-          </CaseDashboard::Column>
-        </tr>
+          {{/if}}
+        </CaseDashboard::Column>
+      </tr>
+      <tr>
+        <CaseDashboard::Journal @journalEntries={{this.models.journalEntries}} @header={{t "journal.title"}} @totalJournalEntries={{this.totalJournalEntries}} @instanceId={{@instanceId}} />
+      </tr>
     </CaseDashboard::Section>
     <hr />
-
     <CaseDashboard::Section @sectionTitle={{t "dashboard.personalData"}}>
       <tr>
         <CaseDashboard::Column @header={{t "cases.tableHeaders.applicant"}}>
@@ -239,10 +241,6 @@
         </tr>
       </CaseDashboard::Section>
     {{/if}}
-
-    <hr />
-
-    <CaseDashboard::Journal @journalEntries={{this.models.journalEntries}} />
   {{/if}}
 
   {{!-- render modal in if such that instances table only loads data after opening the modal --}}
