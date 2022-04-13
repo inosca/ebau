@@ -302,6 +302,18 @@ APPLICATIONS = {
                 {"id": "2", "localized": False},
             ],
         },
+        "PLACEHOLDER_ACTIVATION_VISIBILITIES": {
+            # Externe Fachstellen
+            1: [1, 2, 3, 4],
+            # Fachstellen
+            2: [1, 2, 3, 4],
+            # Gemeinde
+            3: [4, 5],
+            # Baugesuchszentrale
+            4: [1, 2, 4],
+            # Fachstellen Gemeinden
+            5: [5],
+        },
         "NOTIFICATIONS": {
             "SUBMIT": "gesuchseingang",
             "APPLICANT": {

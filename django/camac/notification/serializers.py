@@ -90,7 +90,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     location = serializers.StringRelatedField()
     identifier = serializers.CharField()
     activation = serializers.SerializerMethodField()
-    activations = ActivationMergeSerializer(many=True)
+    activations = serializers.SerializerMethodField()
     billing_entries = BillingEntryMergeSerializer(many=True)
     answer_period_date = serializers.SerializerMethodField()
     publication_date = serializers.SerializerMethodField()
@@ -491,6 +491,22 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         return BillingV2Entry.objects.filter(instance=instance).aggregate(
             total=Sum("final_rate")
         )["total"]
+
+    def get_activations(self, instance):
+        visibility_config = settings.APPLICATION.get(
+            "PLACEHOLDER_ACTIVATION_VISIBILITIES"
+        )
+
+        if not visibility_config:  # Kt. UR
+            activations = instance.activations.all()
+        else:  # Kt. SZ
+            activations = instance.activations.filter(
+                service__service_group__in=visibility_config.get(
+                    self.context["request"].group.service.service_group_id, []
+                )
+            )
+
+        return ActivationMergeSerializer(activations, many=True).data
 
     def get_my_activations(self, instance):
         if "request" not in self.context:
