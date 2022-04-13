@@ -5,12 +5,14 @@ import logging
 import re
 
 import pyxb
+from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.urls import reverse
 from django.utils import timezone
 from pyxb import IncompleteElementContentError, UnprocessedElementContentError
 
 from camac import camac_metadata
+from camac.constants.kt_schwyz import DECISION_JUDGEMENT
 from camac.core.models import Answer, DocxDecision
 from camac.instance.models import Instance
 from camac.utils import build_url
@@ -71,7 +73,7 @@ def handle_coordinate_value(value):
     return round(float(value), 3)
 
 
-def authority(service):
+def authority(service, organization_category=None):
     return ns_company_identification.organisationIdentificationType(
         uid=ns_company_identification.uidStructureType(
             # We don't bother with UIDs
@@ -79,7 +81,7 @@ def authority(service):
             uidOrganisationId="123123123",
         ),
         localOrganisationId=ns_company_identification.namedOrganisationIdType(
-            organisationIdCategory="ebaube", organisationId=str(service.pk)
+            organisationIdCategory=organization_category, organisationId=str(service.pk)
         ),
         organisationName=service.get_name(),
         legalForm="0223",
@@ -353,28 +355,89 @@ def get_realestateinformation(answers):
     return re_info
 
 
+def determine_decision_state(instance: Instance):
+    """Retrieve decision state and pertaining modalities.
+
+    eCH defines decision in 3.4 complete with properties
+        - judgement
+        - date
+        - ruling
+        - rulingAuthority
+
+    where no decision module exists these have to be collected
+    from different locations, usually a combination of work-item
+    and history entry.
+
+    rulings are a set of categories such as 'building-permit' and
+    'preliminary-clarification' (or assessment) to which the various
+    form-slugs should be assigned (-v2, ...)
+    """
+    # one of "positive", "conditionally-positive", "negative", "rejected"
+
+    if instance.case.work_items.filter(
+        task_id="reject-form", status=WorkItem.STATUS_COMPLETED
+    ).first():
+        # Get date from history
+        decision_date = (
+            instance.history.filter(
+                # CAVEAT: when changing translation this must be updated to reflect the changes
+                trans__language="de",
+                trans__title="Dossier zurückgewiesen",
+            )
+            .order_by("-created_at")
+            .first()
+            .date
+        )
+        judgement = 3
+        return judgement, decision_date
+
+    decision_task_id = "make-decision"
+    if instance.case.work_items.filter(
+        task_id=decision_task_id, status=WorkItem.STATUS_CANCELED
+    ).first():
+        return DECISION_JUDGEMENT["negative"], MasterData(instance.case).decision_date
+
+    if instance.case.work_items.filter(
+        task_id=decision_task_id, status=WorkItem.STATUS_COMPLETED
+    ).first():
+        return DECISION_JUDGEMENT["positive"], MasterData(instance.case).decision_date
+    return None, None
+
+
 def application_md(instance: Instance):
-    """Create and format an application's properties based on the inststance's MasterData."""
+    """Create and format an application's properties based on the instance's MasterData."""
     md = MasterData(instance.case)
+    if md.decision_date and not isinstance(md.decision_date, datetime.date):
+        raise IncompleteElementContentError("Decision date is not a valid date.")
+
+    judgement, judgement_date = determine_decision_state(instance)
+
+    def format_decision_ruling_type(instance, judgement, judgement_date):
+        md = MasterData(instance.case)
+        ruling = (
+            instance.form.get_name()
+        )  # TODO: is this valid for Entscheid/ruling 3.4.1.2?
+
+        return ns_application.decisionRulingType(
+            judgement=1
+            if instance.form.get_name()
+            else 2,  # TODO: this needs some mapping to integers
+            date=md.decision_date,
+            ruling=ruling.upper(),
+            rulingAuthority=authority(
+                instance.responsible_service(filter_type="municipality"),
+                organization_category=md.organization_category,
+            ),
+        )
+
     realestate_info = [
         ns_application.realestateInformationType(
             realestate=ns_objektwesen.realestateType(  # eCH0129 4.8.1
                 realestateIdentification=ns_objektwesen.realestateIdentificationType(
                     EGRID=plot.get("egrid_number", "unknown"),
                     number=str(plot.get("plot_number", "unknown")),
-                    # numbersuffix minoccurs=0
-                    # subdistrict minoccurs=0
-                    # lot minoccurs=0
                 ),
-                # authority minoccurs=0
-                # date minoccurs=0
-                realestateType="8",  # mapping?
-                # cantonalsubkind minoccurs=0
-                # status minoccurs=0
-                # mutnumber minoccurs=0
-                # identdn minoccurs 0
-                # squaremeasure minoccurs 0
-                # realestateincomplete minoccurs 0
+                realestateType="8",  # mentioned in swagger README
                 coordinates=ns_objektwesen.coordinatesType(
                     LV95=pyxb.BIND(
                         east=handle_coordinate_value(plot.get("coord_east")),
@@ -383,8 +446,7 @@ def application_md(instance: Instance):
                     )
                 )
                 if all(k in plot and plot[k] for k in ["coord_east", "coord_north"])
-                else None
-                # namedmetadata minoccurs 0
+                else None,
             ),
             municipality=ech_0007_6_0.swissMunicipalityType(
                 # municipalityid minoccurs 0
@@ -434,7 +496,7 @@ def application_md(instance: Instance):
         for plot in md.plot_data
     ]
     if not realestate_info:
-        # happens if no parce ls are filled (preliminary clarification)
+        # happens if no parcels are filled (preliminary clarification)
         realestate_info = [
             ns_application.realestateInformationType(
                 realestate=ns_objektwesen.realestateType(
@@ -497,7 +559,7 @@ def application_md(instance: Instance):
         ),  # 3.1.1.6
         profilingDate=None  # TODO: fix master_data for construction_control items returning []
         if not md.profile_approval_date
-        else md.profile_approval_date,  # 3.1.1.7
+        else md.profile_approval_date[0],  # 3.1.1.7
         intendedPurpose=assure_string_length(md.usage_type, max_length=255),  # 3.1.1.8
         constructionCost=md.construction_costs,  # 3.1.1.11
         namedMetaData=[  # Erweiterungsfelder 3.1.1.14  TODO: verify!
@@ -522,13 +584,11 @@ def application_md(instance: Instance):
             permission_application_identification(i) for i in related_instances
         ],  # Referenzierte Baugesuche 3.1.1.22 TODO: verify!
         document=get_documents(instance.attachments.all()),  # 3.2
-        # decisionRuling=[  # TODO: Verfügung 3.4
-        #    decision_ruling(
-        #        instance, decision, "ech-subject", "building-permit"
-        #     )  # TODO: change "building-permit" dynamically to correct caluma-workflow-slug
-        #            for decision in DocxDecision.objects.filter(instance=instance)
-        # ],  # TODO. how does that differ from kt_bern and ask jimmy about ech-subject vs caluma-workflow-slug
-        # entryOffice=None,  # TODO: Eingabestelle 3.5
+        decisionRuling=[
+            format_decision_ruling_type(instance, judgement, judgement_date)
+        ]
+        if judgement_date
+        else [],  # TODO: verify Verfügung 3.4
         zone=[  # TODO: 3.8
             ns_application.zoneType(
                 zoneDesignation=assure_string_length(md.usage_zone, max_length=255)
@@ -629,7 +689,12 @@ def application(instance: Instance, answers: AnswersDict):
         ),
         # directive  minOccurs=0
         decisionRuling=[
-            decision_ruling(instance, decision, answers)
+            decision_ruling(
+                instance,
+                decision,
+                answers["ech-subject"],
+                answers["caluma-workflow-slug"],
+            )
             for decision in DocxDecision.objects.filter(instance=instance)
         ],
         document=get_documents(instance.attachments.all()),
@@ -652,20 +717,23 @@ def decision_ruling(instance, decision, ech_subject, caluma_workflow_slug):
         date=decision.decision_date,
         ruling=ruling,
         rulingAuthority=authority(
-            instance.responsible_service(filter_type="municipality")
+            instance.responsible_service(filter_type="municipality"),
+            organization_category="ebaube",
         ),
     )
 
 
-def office(service):
+def office(service, organization_category=None, canton="BE"):
     return ns_application.entryOfficeType(
-        entryOfficeIdentification=authority(service),
+        entryOfficeIdentification=authority(
+            service, organization_category=organization_category
+        ),
         municipality=ech_0007_6_0.swissMunicipalityType(
             # municipalityId minOccurs 0
             municipalityName=assure_string_length(
                 service.get_trans_attr("city") or "unknown", max_length=40
             ),
-            cantonAbbreviation="BE",
+            cantonAbbreviation=canton,
         ),
     )
 
@@ -710,14 +778,22 @@ class BaseDeliveryFormatter:
          - kt_bern
         """
         municipality = instance.responsible_service(filter_type="municipality")
+        organization_category = "ebaube"  # TODO: put this some better place
+
         return ns_application.eventBaseDeliveryType(
             planningPermissionApplicationInformation=[
                 (
                     pyxb.BIND(
                         planningPermissionApplication=application(instance, answers),
                         relationshipToPerson=get_relationship_to_person(answers),
-                        decisionAuthority=decision_authority(municipality),
-                        entryOffice=office(municipality),
+                        decisionAuthority=decision_authority(
+                            municipality, organization_category=organization_category
+                        ),
+                        entryOffice=office(
+                            municipality,
+                            organization_category=organization_category,
+                            canton="BE",
+                        ),
                     )
                 )
             ]
@@ -732,16 +808,23 @@ class BaseDeliveryFormatter:
         """
         responsible_service = instance.group.service
 
+        md = MasterData(instance.case)
+
         return ns_application.eventBaseDeliveryType(
             planningPermissionApplicationInformation=[
                 (
                     pyxb.BIND(
                         planningPermissionApplication=application_md(instance),
-                        relationshipToPerson=format_relationships_to_persons(
-                            MasterData(instance.case)
+                        relationshipToPerson=format_relationships_to_persons(md),
+                        decisionAuthority=decision_authority(
+                            responsible_service,
+                            organization_category=md.organization_category,
                         ),
-                        decisionAuthority=decision_authority(responsible_service),
-                        entryOffice=office(responsible_service),
+                        entryOffice=office(
+                            responsible_service,
+                            organization_category=md.organization_category,
+                            canton=md.canton,
+                        ),
                     )
                 )
             ]
@@ -765,7 +848,9 @@ def base_delivery(instance: Instance, answers: AnswersDict):
                     planningPermissionApplication=application(instance, answers),
                     relationshipToPerson=get_relationship_to_person(answers),
                     decisionAuthority=decision_authority(municipality),
-                    entryOffice=office(municipality),
+                    entryOffice=office(
+                        municipality, organization_category="ebaube", canton="BE"
+                    ),
                 )
             )
         ]
@@ -1026,8 +1111,12 @@ def change_responsibility(instance: Instance):
         planningPermissionApplicationIdentification=permission_application_identification(
             instance
         ),
-        entryOffice=office(prev_municipality),
-        responsibleDecisionAuthority=decision_authority(municipality),
+        entryOffice=office(
+            prev_municipality, organization_category="ebaube", canton="BE"
+        ),
+        responsibleDecisionAuthority=decision_authority(
+            municipality, organization_category="ebaube"
+        ),
     )
 
 
@@ -1078,10 +1167,12 @@ def delivery(
         raise
 
 
-def decision_authority(service):
+def decision_authority(service, organization_category=None):
     return ns_application.decisionAuthorityInformationType(
         decisionAuthority=ns_objektwesen.buildingAuthorityType(
-            buildingAuthorityIdentificationType=authority(service),
+            buildingAuthorityIdentificationType=authority(
+                service, organization_category=organization_category
+            ),
             # description minOccurs=0
             # shortDescription minOccurs=0
             # contactPerson minOccurs=0

@@ -448,9 +448,8 @@ def if_ech_enabled(func):
     @wraps(func)
     def wrapper(*args, **kwargs):
         instance = kwargs.get("instance")
-
         if (
-            settings.APPLICATION.get("ECH_API")
+            settings.APPLICATION["ECH0211"].get("API_ACTIVE")
             and instance.case.workflow_id not in settings.ECH_EXCLUDED_WORKFLOWS
             and instance.case.document.form_id not in settings.ECH_EXCLUDED_FORMS
         ):

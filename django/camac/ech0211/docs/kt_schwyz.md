@@ -52,8 +52,6 @@ Unter dem Tag [User](#/User) sind die Endpunkte zusammengefasst, die eine Abfrag
 
 - Der Type `planningPermissionAplicationIdentifier` enthält unter `localId` die eBau-Nummer und unter `dossierIdentification` unsere Dossiernummer ("Instance id")
 
-- Der Type `localOrganisationId` enthält unter `organisationId` unsere Service id. Service ids können über den `/ech/v1/public-services/` endpoint abgefragt werden.
-
 - Der eCH-Standard forciert, dass bei den meisten Meldungen ein `document` mitgeschickt wird. Dieses `document` wird (mit Ausnahme von `accompanyingReport`) von eBau ignoriert. Dokumente werden über unsere API hoch- und heruntergeladen. Beim Hochladen werden sie bereits einer `Instance`, sowie einer oder mehreren `AttachmentSection` zugewiesen. Somit sind Dokumente in eCH Meldungen, die von eBau erhalten werden, redundant und werden ignoriert.
 
   Bei ausgehenden Meldungen werden die Dokumente jedoch korrekt abgefüllt. Dabei gilt zu beachten:

@@ -27,7 +27,9 @@ def test_submit_event(
     multilang,
     has_active_service,
     caplog,
+    settings,
 ):
+    settings.APPLICATION = settings.APPLICATIONS["kt_bern"]
     ech_instance = ech_instance_case().instance
 
     if not has_active_service:
@@ -76,7 +78,9 @@ def test_event_handlers(
     group_factory,
     mocker,
     multilang,
+    settings,
 ):
+    settings.APPLICATION = settings.APPLICATIONS["kt_bern"]
     ech_instance = ech_instance_case().instance
 
     if event_type == "FileSubsequently":
@@ -110,7 +114,6 @@ def test_event_handlers(
             name="Leitbehörde Madiswil",
             city="Madiswil",
         )
-
     eh = getattr(event_handlers, f"{event_type}EventHandler")(ech_instance)
     eh.run()
     assert Message.objects.count() == 1
@@ -135,7 +138,10 @@ def test_accompanying_report_event_handler(
     notice_type_factory,
     circulation_answer_factory,
     multilang,
+    settings,
 ):
+
+    settings.APPLICATION = settings.APPLICATIONS["kt_bern"]
     ech_instance = ech_instance_case().instance
 
     parent_service = service_factory()
@@ -231,7 +237,10 @@ def test_task_event_handler_stellungnahme(
     attachment_attachment_section_factory,
     attachment_section_factory,
     admin_user,
+    settings,
 ):
+
+    settings.APPLICATION = settings.APPLICATIONS["kt_bern"]
     asection_gesuch = attachment_section_factory(pk=ATTACHMENT_SECTION_BEILAGEN_GESUCH)
     aas_gesuch = attachment_attachment_section_factory(
         attachment__instance=ech_instance, attachmentsection=asection_gesuch
@@ -277,7 +286,10 @@ def test_task_event_handler_SBs(
     attachment_section_factory,
     service_factory,
     instance_service_factory,
+    settings,
 ):
+
+    settings.APPLICATION = settings.APPLICATIONS["kt_bern"]
     service_baukontrolle = service_factory(
         service_group__name="construction-control",
         name=None,
@@ -316,7 +328,9 @@ def test_task_event_handler_SBs(
     assert xml.eventRequest.document[0].titles.title[0].value() == expected_name
 
 
-def test_file_subsequently_signal(ech_instance_case, mocker, multilang):
+def test_file_subsequently_signal(ech_instance_case, mocker, multilang, settings):
+
+    settings.APPLICATION = settings.APPLICATIONS["kt_bern"]
     mocker.patch.object(event_handlers, "get_document", return_value=baugesuch_data)
     file_subsequently.send(
         sender=None, instance=ech_instance_case().instance, user_pk=None, group_pk=None
