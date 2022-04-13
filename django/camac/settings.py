@@ -2842,11 +2842,11 @@ APPLICATIONS["kt_bern"]["DUMP_CONFIG_GROUPS"] = {
 APPLICATION = APPLICATIONS.get(APPLICATION_NAME, {})
 
 PUBLIC_BASE_URL = build_url(
-    env.str("DJANGO_PUBLIC_BASE_URL", default=default("http://caluma-portal.local"))
+    env.str("DJANGO_PUBLIC_BASE_URL", default=default("http://ebau-portal.local"))
 )
 
 INTERNAL_BASE_URL = build_url(
-    env.str("DJANGO_INTERNAL_BASE_URL", default=default("http://camac-ng.local"))
+    env.str("DJANGO_INTERNAL_BASE_URL", default=default("http://ebau.local"))
 )
 
 PUBLIC_INSTANCE_URL_TEMPLATE = env.str(
@@ -3085,7 +3085,7 @@ CLAMD_ENABLED = env.bool("DJANGO_CLAMD_ENABLED", default=True)
 # Keycloak service
 
 KEYCLOAK_URL = build_url(
-    env.str("KEYCLOAK_URL", default="http://camac-ng-keycloak.local/auth/"),
+    env.str("KEYCLOAK_URL", default="http://ebau-keycloak.local/auth/"),
     trailing=True,
 )
 KEYCLOAK_REALM = env.str("KEYCLOAK_REALM", default="ebau")

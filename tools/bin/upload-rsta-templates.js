@@ -10,7 +10,7 @@ import chalk from "chalk";
 const argv = yargs(hideBin(process.argv)).argv;
 
 const DEFAULT_GROUPS = {
-  "http://camac-ng.local": [
+  "http://ebau.local": [
     22527, 22528, 22529, 22530, 22531, 22532, 22533, 22534, 22535, 22536,
   ],
   "https://ebau-test.sycloud.ch": [
@@ -27,7 +27,7 @@ const getLength = (form) =>
 async function run() {
   const globPattern =
     argv.pattern || "../document-merge-service/kt_bern/rsta_templates/*.docx";
-  const host = argv.host || "http://camac-ng.local";
+  const host = argv.host || "http://ebau.local";
   const groupIds = argv.groups || DEFAULT_GROUPS[host];
   const token = argv.token || process.env.TOKEN;
   const del = Boolean(argv.delete || false);

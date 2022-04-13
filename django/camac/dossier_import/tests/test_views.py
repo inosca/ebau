@@ -394,7 +394,7 @@ def test_transmitting_logic(
     location_required,
 ):
     settings.APPLICATION = settings.APPLICATIONS["kt_bern"]
-    settings.APPLICATION["DOSSIER_IMPORT"]["PROD_URL"] = "http://camac-ng.local"
+    settings.APPLICATION["DOSSIER_IMPORT"]["PROD_URL"] = "http://ebau.local"
     settings.APPLICATION["DOSSIER_IMPORT"]["LOCATION_REQUIRED"] = location_required
     settings.APPLICATION["DOSSIER_IMPORT"][
         "PROD_AUTH_URL"
