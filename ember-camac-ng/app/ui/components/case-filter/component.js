@@ -35,25 +35,33 @@ export default class CaseFilterComponent extends Component {
     this.args.onChange(this._filter);
   }
 
-  get storedGroupFilters() {
-    return JSON.parse(
-      localStorage.getItem(this.shoebox.content.groupId) ?? JSON.stringify({})
-    );
+  get storedFiltersKey() {
+    return [
+      "case-list-filters",
+      "user",
+      this.shoebox.content.userId,
+      "group",
+      this.shoebox.content.groupId,
+      "resource",
+      this.shoebox.content.resourceId,
+    ].join("-");
   }
 
   get storedFilters() {
-    return this.storedGroupFilters[this.shoebox.content.userId] ?? {};
+    try {
+      return JSON.parse(localStorage.getItem(this.storedFiltersKey));
+    } catch (e) {
+      return {};
+    }
   }
 
-  updateStoredFilters(value) {
-    const shoeboxContent = this.shoebox.content;
-    localStorage.setItem(
-      shoeboxContent.groupId,
-      JSON.stringify({
-        ...this.storedGroupFilters,
-        ...{ [shoeboxContent.userId]: value },
-      })
-    );
+  set storedFilters(value) {
+    try {
+      localStorage.setItem(this.storedFiltersKey, JSON.stringify(value));
+    } catch (e) {
+      // If the value is somehow corrupt and can't be saved into the local
+      // storage, we keep the old value stored
+    }
   }
 
   async buildingPermitTypes() {
@@ -182,14 +190,17 @@ export default class CaseFilterComponent extends Component {
 
   @action applyFilter(event) {
     event.preventDefault();
+
     this.args.onChange(this._filter);
-    this.updateStoredFilters(this._filter);
+    this.storedFilters = this._filter;
   }
 
-  @action resetFilter() {
+  @action resetFilter(event) {
+    event.preventDefault();
+
     this._filter = {};
-    this.args.onChange(this._filter);
-    this.updateStoredFilters({});
+    this.args.onChange({});
+    this.storedFilters = {};
   }
 
   get activeCaseFilters() {
