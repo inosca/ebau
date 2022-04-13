@@ -17,13 +17,9 @@ module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
     "@embroider/macros": {
       setOwnConfig: {
-        features: {
-          faq: ENV === "be",
-          publication: {
-            form: ENV === "be",
-            endDate: ENV === "ur",
-          },
-        },
+        enableFaq: ENV === "be",
+        enablePublicationForm: ENV === "be",
+        enablePublicationEndDate: ENV === "ur",
       },
     },
     "ember-simple-auth": {
