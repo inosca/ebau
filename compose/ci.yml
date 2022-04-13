@@ -16,7 +16,7 @@ services:
       - djangomedia:/var/lib/camac/media:ro
       - djangotmpmedia:/tmp/camac/tmpfiles:ro
     networks:
-      - camac-ng.local
+      - ebau.local
 
   db:
     image: acr.run/camac-ng/camac-ng/db:${CI_COMMIT_REF_SLUG:-master}
@@ -31,7 +31,7 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
     networks:
-      - camac-ng.local
+      - ebau.local
 
   django: &django
     image: acr.run/camac-ng/camac-ng/django:${CI_COMMIT_REF_SLUG:-master}
@@ -75,7 +75,7 @@ services:
       - djangomedia:/var/lib/camac/media
       - djangotmpmedia:/tmp/camac/tmpfiles
     networks:
-      - camac-ng.local
+      - ebau.local
 
   django-q:
     <<: *django
@@ -84,7 +84,7 @@ services:
     depends_on:
       - db
     networks:
-      - camac-ng.local
+      - ebau.local
 
   ember:
     image: acr.run/camac-ng/camac-ng/ember:${CI_COMMIT_REF_SLUG:-master}
@@ -98,7 +98,7 @@ services:
     depends_on:
       - django
     networks:
-      - camac-ng.local
+      - ebau.local
     environment:
       - ENV=docker
 
@@ -114,7 +114,7 @@ services:
       - keycloak
       - django
     networks:
-      - camac-ng.local
+      - ebau.local
     environment:
       - ENV=docker
 
@@ -127,7 +127,7 @@ services:
         - acr.run/camac-ng/camac-ng/ember-camac-ng:master
       target: build
     networks:
-      - camac-ng.local
+      - ebau.local
 
   ember-ebau-core:
     image: acr.run/camac-ng/camac-ng/ember-ebau-core:${CI_COMMIT_REF_SLUG:-master}
@@ -159,22 +159,22 @@ services:
       - /var/www/camac/public/public-kt_bern/js
       - /var/www/camac/public/node_modules
     networks:
-      - camac-ng.local
+      - ebau.local
 
   mailhog:
     image: mailhog/mailhog
     networks:
-      - camac-ng.local
+      - ebau.local
 
   unoconv:
     image: zrrrzzt/docker-unoconv-webservice:8.9.4
     networks:
-      - camac-ng.local
+      - ebau.local
 
   clamav:
     image: tiredofit/clamav:2.3.0
     networks:
-      - camac-ng.local
+      - ebau.local
 
   keycloak:
     depends_on:
@@ -190,7 +190,7 @@ services:
     volumes:
       - ../keycloak:/etc/keycloak:ro
     networks:
-      - camac-ng.local
+      - ebau.local
     command:
       [
         "-Dkeycloak.migration.action=import",
@@ -210,7 +210,7 @@ services:
       - ../document-merge-service/templatefiles:/var/lib/document-merge-service/media
       - ../document-merge-service/dump.json:/tmp/document-merge-service/dump.json
     networks:
-      - camac-ng.local
+      - ebau.local
     environment:
       - DATABASE_ENGINE=django.db.backends.postgresql
       - DATABASE_HOST=db
@@ -220,9 +220,9 @@ services:
       - UNOCONV_URL=http://unoconv:3000
       - REQUIRE_AUTHENTICATION=True
       - GROUP_ACCESS_ONLY=True
-      - OIDC_USERINFO_ENDPOINT=http://camac-ng-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
+      - OIDC_USERINFO_ENDPOINT=http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
       - OIDC_BEARER_TOKEN_REVALIDATION_TIME=300
-      - OIDC_GROUPS_API=http://camac-ng.local/api/v1/me?include=service
+      - OIDC_GROUPS_API=http://ebau.local/api/v1/me?include=service
       - OIDC_GROUPS_API_JSONPATH=$$.included[?(@.type=='services')].id
       - OIDC_GROUPS_API_HEADERS=AUTHORIZATION,X-CAMAC-GROUP
 
@@ -233,7 +233,7 @@ services:
     ports:
       - "666:3000"
     networks:
-      - camac-ng.local
+      - ebau.local
     environment:
       - MB_DB_TYPE=postgres
       - MB_DB_DBNAME=metabase
@@ -249,4 +249,4 @@ volumes:
   templatefiles:
 
 networks:
-  camac-ng.local:
+  ebau.local:

@@ -89,7 +89,7 @@ module.exports = function (environment) {
   };
 
   if (environment === "development") {
-    ENV["ember-ebau-core"].gisUrl = "http://camac-ng.local/lisag/ows";
+    ENV["ember-ebau-core"].gisUrl = "http://ebau.local/lisag/ows";
   }
 
   if (environment === "test") {
