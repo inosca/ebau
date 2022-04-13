@@ -1757,21 +1757,31 @@ class FormFieldSerializer(InstanceEditableMixin, serializers.ModelSerializer):
 
         return name
 
-    def save(self):
-        self.save_side_effects(self.validated_data)
-        return super().save()
+    def validate(self, data):
+        validated_data = super().validate(data)
 
-    def save_side_effects(self, data):
-        for form_field in settings.APPLICATION.get("FORM_FIELD_HISTORY_ENTRY", []):
-            if data["name"] == form_field["name"]:
+        for history_field in settings.APPLICATION.get("FORM_FIELD_HISTORY_ENTRY", []):
+            if not validated_data["name"] == history_field["name"]:  # pragma: no cover
+                continue
+
+            if (
+                not self.instance
+                and validated_data["value"]  # field is new and has a value
+            ) or (
+                self.instance
+                and self.instance.value
+                != validated_data["value"]  # field is existing but the value changed
+            ):
                 models.HistoryEntry.objects.create(
-                    instance=data["instance"],
+                    instance=validated_data["instance"],
                     created_at=timezone.now(),
                     user=self.context["request"].user,
                     history_type=HistoryActionConfig.HISTORY_TYPE_NOTIFICATION,
-                    title=form_field["title"],
-                    body=data["value"],
+                    title=history_field["title"],
+                    body=validated_data["value"],
                 )
+
+        return validated_data
 
     class Meta:
         model = models.FormField
