@@ -804,7 +804,7 @@ def test_notification_caluma_placeholders(
     ] == [
         line.strip()
         for line in [
-            "BASE_URL: http://camac-ng.local",
+            "BASE_URL: http://ebau.local",
             "EBAU_NUMBER: 2019-01",
             "FORM_NAME_DE: Baugesuch",
             "FORM_NAME_FR: Demande de permis de construire",
@@ -813,8 +813,8 @@ def test_notification_caluma_placeholders(
             f"INSTANCE_ID: {be_instance.pk}",
             f"LEITBEHOERDE_NAME_DE: {be_instance.responsible_service().get_name('de')}",
             f"LEITBEHOERDE_NAME_FR: {be_instance.responsible_service().get_name('fr')}",
-            f"INTERNAL_DOSSIER_LINK: http://camac-ng.local/index/redirect-to-instance-resource/instance-id/{be_instance.pk}",
-            f"PUBLIC_DOSSIER_LINK: http://caluma-portal.local/instances/{be_instance.pk}",
+            f"INTERNAL_DOSSIER_LINK: http://ebau.local/index/redirect-to-instance-resource/instance-id/{be_instance.pk}",
+            f"PUBLIC_DOSSIER_LINK: http://ebau-portal.local/instances/{be_instance.pk}",
             f"COMPLETED_ACTIVATIONS: {done_activations}",
             f"TOTAL_ACTIVATIONS: {total_activations}",
             f"PENDING_ACTIVATIONS: {total_activations-done_activations}",

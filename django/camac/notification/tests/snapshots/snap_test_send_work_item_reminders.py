@@ -24,7 +24,7 @@ Ihre Organisation (Jeffrey Zhang) hat folgende Aufgaben in eBau, welche Aufmerks
 - 1 ungelesene Aufgabe
 - 0 überfällige Controlling-Aufgaben
 
-http://camac-ng.local
+http://ebau.local
 
 Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
 ''',
@@ -47,7 +47,7 @@ Ihre Organisation (Jason Dickerson) hat folgende Aufgaben in eBau, welche Aufmer
 - 1 ungelesene Aufgabe
 - 0 überfällige Controlling-Aufgaben
 
-http://camac-ng.local
+http://ebau.local
 
 Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
 
@@ -61,7 +61,7 @@ Votre organisation (Derek Wagner) a les tâches suivantes dans eBau qui requièr
 - 1 tâche de contrôle non lue
 - 0 tâches en retard
 
-http://camac-ng.local
+http://ebau.local
 
 Ce message a été généré automatiquement, veuillez ne pas y répondre.
 ''',
@@ -83,7 +83,7 @@ Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
 - 0 überfällige Aufgaben
 - 1 ungelesene Aufgabe
 
-http://camac-ng.local
+http://ebau.local
 
 Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
 ''',
@@ -103,7 +103,7 @@ Ihre Organisation (Jeffrey Zhang) hat folgende Aufgaben in eBau, welche Aufmerks
 - 1 ungelesene Aufgabe
 - 0 überfällige Controlling-Aufgaben
 
-http://camac-ng.local
+http://ebau.local
 
 Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
 ''',
@@ -125,7 +125,7 @@ Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
 - 0 überfällige Aufgaben
 - 1 ungelesene Aufgabe
 
-http://camac-ng.local
+http://ebau.local
 
 Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
 
@@ -138,7 +138,7 @@ Vous avez les tâches suivantes dans eBau qui requièrent votre attention :
 - 0 tâches de contrôle en retard
 - 1 tâche de contrôle non lue
 
-http://camac-ng.local
+http://ebau.local
 
 Ce message a été généré automatiquement, veuillez ne pas y répondre.
 ''',
@@ -158,7 +158,7 @@ Ihre Organisation (Jason Dickerson) hat folgende Aufgaben in eBau, welche Aufmer
 - 1 ungelesene Aufgabe
 - 0 überfällige Controlling-Aufgaben
 
-http://camac-ng.local
+http://ebau.local
 
 Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
 
@@ -172,7 +172,7 @@ Votre organisation (Derek Wagner) a les tâches suivantes dans eBau qui requièr
 - 1 tâche de contrôle non lue
 - 0 tâches en retard
 
-http://camac-ng.local
+http://ebau.local
 
 Ce message a été généré automatiquement, veuillez ne pas y répondre.
 ''',
@@ -194,7 +194,7 @@ Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
 - 1 überfällige Aufgabe
 - 0 ungelesene Aufgaben
 
-http://camac-ng.local
+http://ebau.local
 
 Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
 ''',
@@ -214,7 +214,7 @@ Ihre Organisation (Jeffrey Zhang) hat folgende Aufgaben in eBau, welche Aufmerks
 - 0 ungelesene Aufgaben
 - 0 überfällige Controlling-Aufgaben
 
-http://camac-ng.local
+http://ebau.local
 
 Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
 ''',
@@ -236,7 +236,7 @@ Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
 - 1 überfällige Aufgabe
 - 0 ungelesene Aufgaben
 
-http://camac-ng.local
+http://ebau.local
 
 Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
 
@@ -249,7 +249,7 @@ Vous avez les tâches suivantes dans eBau qui requièrent votre attention :
 - 1 tâche de contrôle en retard
 - 0 tâches de contrôle non lues
 
-http://camac-ng.local
+http://ebau.local
 
 Ce message a été généré automatiquement, veuillez ne pas y répondre.
 ''',
@@ -269,7 +269,7 @@ Ihre Organisation (Jason Dickerson) hat folgende Aufgaben in eBau, welche Aufmer
 - 0 ungelesene Aufgaben
 - 0 überfällige Controlling-Aufgaben
 
-http://camac-ng.local
+http://ebau.local
 
 Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
 
@@ -283,7 +283,7 @@ Votre organisation (Derek Wagner) a les tâches suivantes dans eBau qui requièr
 - 0 tâches de contrôle non lues
 - 0 tâches en retard
 
-http://camac-ng.local
+http://ebau.local
 
 Ce message a été généré automatiquement, veuillez ne pas y répondre.
 ''',
@@ -305,7 +305,7 @@ Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
 - 1 überfällige Aufgabe
 - 1 ungelesene Aufgabe
 
-http://camac-ng.local
+http://ebau.local
 
 Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
 ''',
@@ -325,7 +325,7 @@ Ihre Organisation (Jeffrey Zhang) hat folgende Aufgaben in eBau, welche Aufmerks
 - 1 ungelesene Aufgabe
 - 0 überfällige Controlling-Aufgaben
 
-http://camac-ng.local
+http://ebau.local
 
 Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
 ''',
@@ -347,7 +347,7 @@ Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
 - 1 überfällige Aufgabe
 - 1 ungelesene Aufgabe
 
-http://camac-ng.local
+http://ebau.local
 
 Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
 
@@ -360,7 +360,7 @@ Vous avez les tâches suivantes dans eBau qui requièrent votre attention :
 - 1 tâche de contrôle en retard
 - 1 tâche de contrôle non lue
 
-http://camac-ng.local
+http://ebau.local
 
 Ce message a été généré automatiquement, veuillez ne pas y répondre.
 ''',
@@ -380,7 +380,7 @@ Ihre Organisation (Jason Dickerson) hat folgende Aufgaben in eBau, welche Aufmer
 - 1 ungelesene Aufgabe
 - 0 überfällige Controlling-Aufgaben
 
-http://camac-ng.local
+http://ebau.local
 
 Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
 
@@ -394,7 +394,7 @@ Votre organisation (Derek Wagner) a les tâches suivantes dans eBau qui requièr
 - 1 tâche de contrôle non lue
 - 0 tâches en retard
 
-http://camac-ng.local
+http://ebau.local
 
 Ce message a été généré automatiquement, veuillez ne pas y répondre.
 ''',
@@ -416,7 +416,7 @@ Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
 - 1 überfällige Aufgabe
 - 1 ungelesene Aufgabe
 
-http://camac-ng.local
+http://ebau.local
 
 Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
 ''',
@@ -436,7 +436,7 @@ Ihre Organisation (Jeffrey Zhang) hat folgende Aufgaben in eBau, welche Aufmerks
 - 1 ungelesene Aufgabe
 - 0 überfällige Controlling-Aufgaben
 
-http://camac-ng.local
+http://ebau.local
 
 Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
 ''',
@@ -456,7 +456,7 @@ Ihre Organisation (Maria Fuentes) hat folgende Aufgaben in eBau, welche Aufmerks
 - 0 ungelesene Aufgaben
 - 1 überfällige Controlling-Aufgabe
 
-http://camac-ng.local
+http://ebau.local
 
 Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
 ''',
@@ -478,7 +478,7 @@ Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
 - 1 überfällige Aufgabe
 - 1 ungelesene Aufgabe
 
-http://camac-ng.local
+http://ebau.local
 
 Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
 
@@ -491,7 +491,7 @@ Vous avez les tâches suivantes dans eBau qui requièrent votre attention :
 - 1 tâche de contrôle en retard
 - 1 tâche de contrôle non lue
 
-http://camac-ng.local
+http://ebau.local
 
 Ce message a été généré automatiquement, veuillez ne pas y répondre.
 ''',
@@ -511,7 +511,7 @@ Ihre Organisation (Jason Dickerson) hat folgende Aufgaben in eBau, welche Aufmer
 - 1 ungelesene Aufgabe
 - 0 überfällige Controlling-Aufgaben
 
-http://camac-ng.local
+http://ebau.local
 
 Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
 
@@ -525,7 +525,7 @@ Votre organisation (Derek Wagner) a les tâches suivantes dans eBau qui requièr
 - 1 tâche de contrôle non lue
 - 0 tâches en retard
 
-http://camac-ng.local
+http://ebau.local
 
 Ce message a été généré automatiquement, veuillez ne pas y répondre.
 ''',
@@ -545,7 +545,7 @@ Ihre Organisation (Kayla Ruiz) hat folgende Aufgaben in eBau, welche Aufmerksamk
 - 0 ungelesene Aufgaben
 - 1 überfällige Controlling-Aufgabe
 
-http://camac-ng.local
+http://ebau.local
 
 Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
 
@@ -559,7 +559,7 @@ Votre organisation (Brandi Vargas) a les tâches suivantes dans eBau qui requiè
 - 0 tâches de contrôle non lues
 - 1 tâche en retard
 
-http://camac-ng.local
+http://ebau.local
 
 Ce message a été généré automatiquement, veuillez ne pas y répondre.
 ''',

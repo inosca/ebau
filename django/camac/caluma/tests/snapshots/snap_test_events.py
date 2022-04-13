@@ -14,7 +14,7 @@ snapshots['test_notify_completed_work_item[True-kt_bern] 1'] = [
 
 Die Aufgabe "Ingolf Säuberlich" im Dossier 2020-01 (1) wurde von User Admin (Justin Valdez) abgeschlossen.
 
-http://camac-ng.local/index/redirect-to-instance-resource/instance-id/1
+http://ebau.local/index/redirect-to-instance-resource/instance-id/1
 
 Sie erhalten diese Notifikation, weil Sie beim Erstellen der Aufgabe die Notifikationseinstellung "Bei Abschluss" gewählt haben.
 
@@ -24,7 +24,7 @@ Bonjour,
 
 La tâche "Ingolf Säuberlich" dans le dossier 2020-01 (1) a été terminée par User Admin (Justin Valdez).
 
-http://camac-ng.local/index/redirect-to-instance-resource/instance-id/1
+http://ebau.local/index/redirect-to-instance-resource/instance-id/1
 
 Vous recevez cette notification parce que vous avez sélectionné le paramètre de notification "après achèvement" lorsque vous avez créé la tâche.
 ''',
@@ -40,7 +40,7 @@ Vous recevez cette notification parce que vous avez sélectionné le paramètre 
 
 Die Aufgabe "Ingolf Säuberlich" im Dossier 2020-01 (1) wurde von User Admin (Justin Valdez) abgeschlossen.
 
-http://camac-ng.local/index/redirect-to-instance-resource/instance-id/1
+http://ebau.local/index/redirect-to-instance-resource/instance-id/1
 
 Sie erhalten diese Notifikation, weil Sie beim Erstellen der Aufgabe die Notifikationseinstellung "Bei Abschluss" gewählt haben.
 
@@ -50,7 +50,7 @@ Bonjour,
 
 La tâche "Ingolf Säuberlich" dans le dossier 2020-01 (1) a été terminée par User Admin (Justin Valdez).
 
-http://camac-ng.local/index/redirect-to-instance-resource/instance-id/1
+http://ebau.local/index/redirect-to-instance-resource/instance-id/1
 
 Vous recevez cette notification parce que vous avez sélectionné le paramètre de notification "après achèvement" lorsque vous avez créé la tâche.
 ''',
@@ -66,7 +66,7 @@ Vous recevez cette notification parce que vous avez sélectionné le paramètre 
 
 Die Aufgabe "Ingolf Säuberlich" im Dossier 2020-01 (1) wurde von User Admin (Justin Valdez) abgeschlossen.
 
-http://camac-ng.local/index/redirect-to-instance-resource/instance-id/1
+http://ebau.local/index/redirect-to-instance-resource/instance-id/1
 
 Sie erhalten diese Notifikation, weil Sie beim Erstellen der Aufgabe die Notifikationseinstellung "Bei Abschluss" gewählt haben.
 
@@ -76,7 +76,7 @@ Bonjour,
 
 La tâche "Ingolf Säuberlich" dans le dossier 2020-01 (1) a été terminée par User Admin (Justin Valdez).
 
-http://camac-ng.local/index/redirect-to-instance-resource/instance-id/1
+http://ebau.local/index/redirect-to-instance-resource/instance-id/1
 
 Vous recevez cette notification parce que vous avez sélectionné le paramètre de notification "après achèvement" lorsque vous avez créé la tâche.
 ''',
@@ -95,7 +95,7 @@ snapshots['test_notify_completed_work_item[True-kt_schwyz] 1'] = [
 
 Die Aufgabe "Karin Ehlert B.Eng." im Dossier 72-21-001 wurde von User Admin (Rebecca Gonzalez) abgeschlossen.
 
-http://camac-ng.local/index/redirect-to-instance-resource/instance-id/1
+http://ebau.local/index/redirect-to-instance-resource/instance-id/1
 
 Sie erhalten diese Notifikation, weil Sie beim Erstellen der Aufgabe die Notifikationseinstellung "Bei Abschluss" gewählt haben.
 ''',
@@ -111,7 +111,7 @@ Sie erhalten diese Notifikation, weil Sie beim Erstellen der Aufgabe die Notifik
 
 Die Aufgabe "Karin Ehlert B.Eng." im Dossier 72-21-001 wurde von User Admin (Rebecca Gonzalez) abgeschlossen.
 
-http://camac-ng.local/index/redirect-to-instance-resource/instance-id/1
+http://ebau.local/index/redirect-to-instance-resource/instance-id/1
 
 Sie erhalten diese Notifikation, weil Sie beim Erstellen der Aufgabe die Notifikationseinstellung "Bei Abschluss" gewählt haben.
 ''',
@@ -127,7 +127,7 @@ Sie erhalten diese Notifikation, weil Sie beim Erstellen der Aufgabe die Notifik
 
 Die Aufgabe "Karin Ehlert B.Eng." im Dossier 72-21-001 wurde von User Admin (Rebecca Gonzalez) abgeschlossen.
 
-http://camac-ng.local/index/redirect-to-instance-resource/instance-id/1
+http://ebau.local/index/redirect-to-instance-resource/instance-id/1
 
 Sie erhalten diese Notifikation, weil Sie beim Erstellen der Aufgabe die Notifikationseinstellung "Bei Abschluss" gewählt haben.
 ''',

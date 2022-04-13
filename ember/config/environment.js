@@ -3,7 +3,7 @@
 module.exports = function (environment) {
   const oidcHost =
     process.env.KEYCLOAK_URL ||
-    "http://camac-ng-keycloak.local/auth/realms/ebau/protocol/openid-connect";
+    "http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect";
 
   const ENV = {
     modulePrefix: "citizen-portal",
