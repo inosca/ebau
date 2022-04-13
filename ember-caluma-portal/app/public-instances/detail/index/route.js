@@ -6,7 +6,7 @@ export default class PublicInstancesDetailIndexRoute extends Route {
   @service router;
 
   redirect() {
-    const redirectTo = macroCondition(getOwnConfig().features.publication.form)
+    const redirectTo = macroCondition(getOwnConfig().enablePublicationForm)
       ? "public-instances.detail.form"
       : "public-instances.detail.documents";
 
