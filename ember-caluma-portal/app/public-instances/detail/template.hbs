@@ -3,7 +3,7 @@
   @loading={{this.publicInstance.isRunning}}
   @hasPermission={{this.publicInstance.value}}
 >
-  {{#if (macroCondition (macroGetOwnConfig "features.publication.form"))}}
+  {{#if (macroCondition (macroGetOwnConfig "enablePublicationForm"))}}
     <UkTab as |Tab|>
       <Tab.item @href={{concat "/public-instances/" @model "/form"}} as |active|>
         <AriaHeading @enabled={{active}}>
