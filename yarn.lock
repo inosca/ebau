@@ -1223,7 +1223,7 @@
     "@embroider/shared-internals" "^1.6.0"
     semver "^7.3.5"
 
-"@embroider/macros@1.6.0", "@embroider/macros@^0.50.0 || ^1.0.0", "@embroider/macros@^1.0.0", "@embroider/macros@^1.2.0", "@embroider/macros@^1.3.0", "@embroider/macros@^1.5.0":
+"@embroider/macros@1.6.0", "@embroider/macros@^0.50.0 || ^1.0.0", "@embroider/macros@^1.0.0", "@embroider/macros@^1.2.0", "@embroider/macros@^1.3.0", "@embroider/macros@^1.5.0", "@embroider/macros@^1.6.0":
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/@embroider/macros/-/macros-1.6.0.tgz#2b764f965c645fdcfbf05897c88195368b046ba1"
   integrity sha512-yUEXJGJGP3rjtxorxrbkdxriBFEwnmzOrNk4zK64IXKBfyRjiDZFUHV9DSTrbaYLS29Mw5yK73ZIwi8L13C4Zw==
@@ -1272,7 +1272,7 @@
     lodash "^4.17.21"
     resolve "^1.20.0"
 
-"@embroider/util@^0.39.1 || ^0.40.0 || ^0.41.0 || ^1.0.0", "@embroider/util@^1.0.0", "@embroider/util@^1.2.0", "@embroider/util@^1.5.0":
+"@embroider/util@^0.39.1 || ^0.40.0 || ^0.41.0 || ^1.0.0", "@embroider/util@^1.0.0", "@embroider/util@^1.2.0", "@embroider/util@^1.5.0", "@embroider/util@^1.6.0":
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/@embroider/util/-/util-1.6.0.tgz#6a817dfd5192afaab41e80ebce623d5812b30985"
   integrity sha512-oUQDAMiAATHsiNwEMH/SzNSQ/Z5wDr9f6NImsDIFLvDT6T34/p7cqR4wyfrfMRtcc1EB6PbwhZ6bXYsJ6QPWRA==
@@ -1691,7 +1691,41 @@
     highlightjs-jexl "^0.0.5"
     jexl "^2.3.0"
 
-"@projectcaluma/ember-form@11.0.0-beta.17", "@projectcaluma/ember-form@^11.0.0-beta.17":
+"@projectcaluma/ember-form@11.0.0-beta.18":
+  version "11.0.0-beta.18"
+  resolved "https://registry.yarnpkg.com/@projectcaluma/ember-form/-/ember-form-11.0.0-beta.18.tgz#accce75bf0dd73deac1f1929879e4a53a302f0c2"
+  integrity sha512-AwLm0Z78Bsjdn/ybhFAjp4jFSIKOyEWt3vjYtDmKa4Xn5CnAC2FjFlHuq2HfSo2fhLxscHga+L9/Z1EQqUwogg==
+  dependencies:
+    "@ember/string" "^3.0.0"
+    "@embroider/macros" "^1.6.0"
+    "@embroider/util" "^1.6.0"
+    "@glimmer/component" "^1.1.1"
+    "@glimmer/tracking" "^1.1.1"
+    "@projectcaluma/ember-core" "^11.0.0-beta.6"
+    ember-apollo-client "^4.0.2"
+    ember-auto-import "^2.4.1"
+    ember-autoresize-modifier "^0.5.0"
+    ember-cli-babel "^7.26.11"
+    ember-cli-htmlbars "^6.0.1"
+    ember-cli-showdown "^6.0.1"
+    ember-composable-helpers "^5.0.0"
+    ember-concurrency "^2.2.1"
+    ember-fetch "^8.1.1"
+    ember-in-viewport "^4.0.2"
+    ember-intl "^5.7.2"
+    ember-math-helpers "^2.18.1"
+    ember-pikaday "^4.0.0"
+    ember-power-select "^5.0.4"
+    ember-resources "^4.4.0"
+    ember-uikit "^5.1.1"
+    ember-validators "^4.1.2"
+    graphql "^15.8.0"
+    jexl "^2.3.0"
+    lodash.isequal "^4.5.0"
+    luxon "^2.3.1"
+    tracked-toolbox "^1.2.3"
+
+"@projectcaluma/ember-form@^11.0.0-beta.17":
   version "11.0.0-beta.17"
   resolved "https://registry.yarnpkg.com/@projectcaluma/ember-form/-/ember-form-11.0.0-beta.17.tgz#925de71b0a57142cd0e19fbd47692f8be308f886"
   integrity sha512-slQ8TXTLNAqxlq3YPJVdJHcMSWEj1d18VQm2WPds/BFzHt0uJRDpBqa7GMiHx0h58NX3bf8UsFfINBXjk/5iaQ==
