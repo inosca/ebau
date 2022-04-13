@@ -10,3 +10,6 @@ journal:
   visibleForOwnOrganization: "Sichtbar für eigene Organisation"
 
   duration: Arbeitsdauer (HH:MM)
+
+  showMore: "({total} weitere)"
+  linkToJournal: "/page/index/instance-resource-id/20001/instance-id/{instanceId}#/instances/{instanceId}/journal"
