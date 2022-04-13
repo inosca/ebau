@@ -52,7 +52,7 @@ export default class CaseTableComponent extends Component {
         metaValue: [
           {
             key: "dossier-number",
-            lookup: "CONTAINS",
+            lookup: "ICONTAINS",
             value: filter.dossierNumber,
           },
         ],
@@ -61,7 +61,7 @@ export default class CaseTableComponent extends Component {
         metaValue: [
           {
             key: "dossier-number",
-            lookup: "CONTAINS",
+            lookup: "ICONTAINS",
             value: filter.dossierNumberSZ,
           },
         ],
