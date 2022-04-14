@@ -1,0 +1,16 @@
+cases:
+  filters:
+    address-placeholder: "Adresse, Spezialbezeichnung, Ort"
+    address: "Standort"
+    applicant-placeholder: "Projektverfasser/in"
+    applicant: "Projektverfasser/in"
+    dossierNumber-placeholder: "01-20-001"
+    form-placeholder: "Alle Formulartypen"
+    form: "Formulartyp"
+    intent-placeholder: "Vorhaben"
+    municipality-placeholder: "Alle Leitbehörden"
+    municipality: "Leitbehörde"
+    parcel-placeholder: "1234 / CH1234..."
+    parcel: "Grundstücknummer / EGRID"
+    submitDateAfter: "Einreichedatum von"
+    submitDateBefore: "Einreichedatum bis"

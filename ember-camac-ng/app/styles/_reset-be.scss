@@ -25,8 +25,3 @@ strong {
 a:focus {
   background-color: transparent;
 }
-
-// all buttons should be small for now
-.uk-button {
-  @extend .uk-button-small;
-}

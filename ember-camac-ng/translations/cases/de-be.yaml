@@ -1,0 +1,17 @@
+cases:
+  tableHeaders:
+    dossierNumber: "eBau-Nr."
+    form: "Gesuchstyp"
+    instanceId: "Dossier-Nr."
+    intent: "Bauvorhaben"
+    submitDate: "Eingereicht"
+
+  filters:
+    dossierNumber-placeholder: "2022-123"
+    dossierNumber: "eBau-Nummer"
+    instanceId: "Dossier-Nummer"
+    parcel: "Parzellen-Nr. / Liegenschaftsnummer"
+    responsibleServiceUser-placeholder: "Alle zuständigen Mitarbeiter/innen"
+    responsibleServiceUser: "Zuständige/r. Mitarbeiter/in"
+    submitDateAfter: "Eingereicht (von)"
+    submitDateBefore: "Eingereicht (bis)"

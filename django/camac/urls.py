@@ -45,6 +45,7 @@ urlpatterns = [
     re_path(r"^api/v1/", include("camac.objection.urls")),
     re_path(r"^api/v1/", include("camac.gisbern.urls")),
     re_path(r"^api/v1/", include("camac.responsible.urls")),
+    re_path(r"^api/v1/", include("camac.tags.urls")),
     re_path(r"^api/v1/stats/", include("camac.stats.urls")),
     re_path(r"^django-admin/", admin.site.urls),
     re_path(r"^oidc/", include("mozilla_django_oidc.urls")),

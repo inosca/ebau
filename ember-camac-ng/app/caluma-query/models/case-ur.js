@@ -1,15 +1,11 @@
 import { inject as service } from "@ember/service";
-import { isEmpty } from "@ember/utils";
-import CaseModel from "@projectcaluma/ember-core/caluma-query/models/case";
 import { DateTime } from "luxon";
 
-import caseModelConfig from "camac-ng/config/case-model";
+import CustomCaseBaseModel from "camac-ng/caluma-query/models/-case";
 import getAnswer from "camac-ng/utils/get-answer";
 
-export default class CustomCaseModel extends CaseModel {
-  @service store;
+export default class CustomCaseModel extends CustomCaseBaseModel {
   @service shoebox;
-  @service intl;
 
   getPersonData(question) {
     const answer = getAnswer(this.raw.document, question);
@@ -43,25 +39,6 @@ export default class CustomCaseModel extends CaseModel {
     return null;
   }
 
-  getFormFields(fields) {
-    return this.store
-      .peekAll("form-field")
-      .find(
-        (formField) =>
-          formField.instance.get("id") === String(this.instanceId) &&
-          fields.includes(formField.name) &&
-          !isEmpty(formField.value)
-      );
-  }
-
-  get instanceId() {
-    return this.raw.meta["camac-instance-id"];
-  }
-
-  get instance() {
-    return this.store.peekRecord("instance", this.instanceId);
-  }
-
   get instanceFormDescription() {
     return this.instance?.form.get("description");
   }
@@ -80,21 +57,8 @@ export default class CustomCaseModel extends CaseModel {
     return `${street} ${number}`;
   }
 
-  get intent() {
-    return caseModelConfig.intent?.(this.raw.document);
-  }
-
-  get intentSZ() {
-    return this.getFormFields(["bezeichnung-override", "bezeichnung"])?.value;
-  }
-
-  get authority() {
-    const answer = getAnswer(this.raw.document, "leitbehoerde");
-    return answer?.node.selectedOption?.label;
-  }
-
-  get dossierNr() {
-    return this.raw.meta["dossier-number"] ?? this.instance?.identifier;
+  get dossierNumber() {
+    return this.raw.meta["dossier-number"];
   }
 
   get municipalityNode() {
@@ -110,7 +74,7 @@ export default class CustomCaseModel extends CaseModel {
     return this.municipalityNode?.stringValue;
   }
 
-  get locationSZ() {
+  get location() {
     return this.instance?.location.get("name");
   }
 
@@ -171,31 +135,11 @@ export default class CustomCaseModel extends CaseModel {
     return this.instance?.get("instanceState.uppercaseName");
   }
 
-  get instanceStateDescription() {
-    return this.instance?.get("instanceState.description");
-  }
-
-  get communalFederalNumber() {
-    return this.instance?.get("location.communalFederalNumber");
-  }
-
   get circulationInitializerServices() {
     return this.instance
       ?.get("circulationInitializerServices")
       .map((service) => service.name)
       .join(", ");
-  }
-  get reason() {
-    //TODO camac_legacy: Not yet implemented
-    return null;
-  }
-  get caseStatus() {
-    //TODO camac_legacy: Not yet implemented
-    return this.intl.t(`cases.status.${this.raw.status}`);
-  }
-
-  get caseDocumentFormName() {
-    return this.raw.document.form.name;
   }
 
   get buildingProjectStatus() {
@@ -205,7 +149,7 @@ export default class CustomCaseModel extends CaseModel {
     )?.node.label;
   }
 
-  get parcelNumbers() {
+  get parcel() {
     const answer = getAnswer(this.raw.document, "parcels");
     const tableAnswers = answer?.node.value ?? [];
     return tableAnswers.map(
@@ -229,17 +173,6 @@ export default class CustomCaseModel extends CaseModel {
     return tableAnswers
       .map((answer) => getAnswer(answer, "e-grid")?.node.stringValue)
       .filter(Boolean);
-  }
-
-  get builderSZ() {
-    const row = this.getFormFields([
-      "bauherrschaft-override",
-      "bauherrschaft-v2",
-      "bauherrschaft-v3",
-      "bauherrschaft",
-    ])?.value?.[0];
-
-    return row?.firma || [row?.vorname, row?.name].filter(Boolean).join(" ");
   }
 
   get processingDeadline() {
@@ -310,39 +243,40 @@ export default class CustomCaseModel extends CaseModel {
         name
       }
       answers(
-        filter: [{
-          questions: [
-            "applicant",
-            "landowner",
-            "project-author",
-            "invoice-recipient",
-            "parcel-street",
-            "street-number",
-            "form-type",
-            "proposal-description",
-            "beschreibung-zu-mbv",
-            "bezeichnung",
-            "vorhaben-proposal-description",
-            "veranstaltung-beschrieb",
-            "voranfrage-vorhaben",
-            "municipality",
-            "parcels",
-            "status-bauprojekt",
-            "leitbehoerde",
-            "grundnutzung",
-            "ueberlagerte-nutzungen",
-            "typ-des-verfahrens",
-            "oereb-thema",
-            "teilstatus",
-            "beschreibung-reklame",
-          ]
-        }]
+        filter: [
+          {
+            questions: [
+              "applicant"
+              "landowner"
+              "project-author"
+              "invoice-recipient"
+              "parcel-street"
+              "street-number"
+              "form-type"
+              "proposal-description"
+              "beschreibung-zu-mbv"
+              "bezeichnung"
+              "vorhaben-proposal-description"
+              "veranstaltung-beschrieb"
+              "municipality"
+              "parcels"
+              "status-bauprojekt"
+              "leitbehoerde"
+              "grundnutzung"
+              "ueberlagerte-nutzungen"
+              "typ-des-verfahrens"
+              "oereb-thema"
+              "teilstatus"
+              "beschreibung-reklame"
+            ]
+          }
+        ]
       ) {
         edges {
           node {
             question {
               slug
-              ... on ChoiceQuestion{
+              ... on ChoiceQuestion {
                 options {
                   edges {
                     node {
@@ -352,7 +286,7 @@ export default class CustomCaseModel extends CaseModel {
                   }
                 }
               }
-              ... on MultipleChoiceQuestion{
+              ... on MultipleChoiceQuestion {
                 options {
                   edges {
                     node {
@@ -388,7 +322,7 @@ export default class CustomCaseModel extends CaseModel {
             ... on IntegerAnswer {
               integerValue: value
             }
-            ...on ListAnswer {
+            ... on ListAnswer {
               listValue: value
               selectedOptions {
                 edges {

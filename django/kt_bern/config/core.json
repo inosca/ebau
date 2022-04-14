@@ -38388,6 +38388,15 @@
     }
   },
   {
+    "model": "core.araction",
+    "pk": 15000000,
+    "fields": {
+      "available_resource": "emberlist",
+      "action_name": "index",
+      "hidden": 0
+    }
+  },
+  {
     "model": "core.availableaction",
     "pk": "addhistory",
     "fields": {
@@ -38592,6 +38601,15 @@
       "module_name": "documentmergeservice",
       "controller_name": "documentmergeservice",
       "description": "(Vue) Templates admin"
+    }
+  },
+  {
+    "model": "core.availableresource",
+    "pk": "emberlist",
+    "fields": {
+      "module_name": "emberlist",
+      "controller_name": "emberlist",
+      "description": "(Ember) List of instances"
     }
   },
   {
@@ -108101,28 +108119,28 @@
     }
   },
   {
-    "model": "core.rcalumalist",
+    "model": "core.remberlist",
     "pk": 20006,
     "fields": {
       "instance_states": "1,20000,20003,20004,20005,20010,20011,20013,20014,10000,20007,20009,120000,120001,120002,120003"
     }
   },
   {
-    "model": "core.rcalumalist",
+    "model": "core.remberlist",
     "pk": 20007,
     "fields": {
-      "instance_states": "20004,20005,20010,20011,20013,20014,10000,20009,120000,120001,120002,120003"
+      "instance_states": "20004,20005,20010,20011,20013,20014,10000,20009,120000,120001"
     }
   },
   {
-    "model": "core.rcalumalist",
+    "model": "core.remberlist",
     "pk": 20008,
     "fields": {
       "instance_states": "20011,20013,20014,20009,120000,120003"
     }
   },
   {
-    "model": "core.rcalumalist",
+    "model": "core.remberlist",
     "pk": 150000,
     "fields": {
       "instance_states": "1,20000,20003,20004,20005,20010,20011,20013,20014,10000,20007,20008,20009,120000,120001,120002,120003"
@@ -108728,7 +108746,7 @@
     "model": "core.resource",
     "pk": 20006,
     "fields": {
-      "available_resource": "calumalist",
+      "available_resource": "emberlist",
       "name": null,
       "description": null,
       "template": null,
@@ -108741,7 +108759,7 @@
     "model": "core.resource",
     "pk": 20007,
     "fields": {
-      "available_resource": "calumalist",
+      "available_resource": "emberlist",
       "name": null,
       "description": null,
       "template": null,
@@ -108754,7 +108772,7 @@
     "model": "core.resource",
     "pk": 20008,
     "fields": {
-      "available_resource": "calumalist",
+      "available_resource": "emberlist",
       "name": null,
       "description": null,
       "template": null,
@@ -108806,7 +108824,7 @@
     "model": "core.resource",
     "pk": 150000,
     "fields": {
-      "available_resource": "calumalist",
+      "available_resource": "emberlist",
       "name": null,
       "description": null,
       "template": null,

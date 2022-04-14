@@ -1,6 +1,7 @@
 import re
 from functools import reduce
 
+from caluma.caluma_form.models import Answer
 from caluma.caluma_workflow.models import Case, WorkItem
 from django.conf import settings
 from django.contrib.postgres.fields import ArrayField
@@ -244,6 +245,30 @@ class InstanceSubmitDateFilter(DateFilter):
         )
 
 
+class InstanceDecisionDateFilter(DateFilter):
+    def __init__(self, lookup_expr, *args, **kwargs):
+        super().__init__(lookup_expr, *args, **kwargs)
+        self._lookup_expr = lookup_expr
+
+    def filter(self, qs, value, *args, **kwargs):
+        if value in EMPTY_VALUES:
+            return qs
+
+        return qs.annotate(
+            decision_date=Subquery(
+                Answer.objects.filter(
+                    question_id="decision-date",
+                    document__work_item__task_id="decision",
+                    document__work_item__status__in=[
+                        WorkItem.STATUS_COMPLETED,
+                        WorkItem.STATUS_SKIPPED,
+                    ],
+                    document__work_item__case__instance=OuterRef("pk"),
+                ).values("date")[:1]
+            )
+        ).filter(**{f"decision_date__{self._lookup_expr}": value})
+
+
 class InstanceFilterSet(FilterSet):
     instance_id = NumberMultiValueFilter()
     identifier = CharFilter(field_name="identifier", lookup_expr="icontains")
@@ -308,6 +333,8 @@ class InstanceFilterSet(FilterSet):
     with_cantonal_participation = BooleanFilter(
         method="filter_with_cantonal_participation"
     )
+    decision_date_after = InstanceDecisionDateFilter(lookup_expr="gte")
+    decision_date_before = InstanceDecisionDateFilter(lookup_expr="lte")
 
     def filter_is_applicant(self, queryset, name, value):
         if value:

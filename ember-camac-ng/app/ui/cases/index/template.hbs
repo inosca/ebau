@@ -6,8 +6,10 @@
     @instanceStates={{this.instanceStates}}
   />
 {{/if}}
+
 <CaseTable
   @filter={{this.caseFilter}}
+  @order={{this.order}}
   @hasActivation={{this.hasActivation}}
   @hasPendingBillingEntry={{this.hasPendingBillingEntry}}
   @hasPendingSanction={{this.hasPendingSanction}}
@@ -15,4 +17,5 @@
   @excludeWorkflow={{this.excludeWorkflow}}
   @casesBackend={{this.casesBackend}}
   @instanceStates={{this.instanceStates}}
+  @onSetOrder={{fn (mut this.order)}}
 />

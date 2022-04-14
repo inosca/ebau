@@ -18,7 +18,7 @@ export default class LinkedInstancesTableComponent extends Component {
 
   tableColumns = [
     "instanceId",
-    "dossierNr",
+    "dossierNumber",
     "form",
     "street",
     "intent",
