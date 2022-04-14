@@ -153,11 +153,10 @@ export default class CustomCaseModel extends CaseModel {
       const oerebPartialStateLabel =
         oerebPartialState?.node.selectedOption.label;
 
+      const base = `${topics?.join(", ")} - ${oerebProcedureLabel}`;
       return oerebPartialStateLabel
-        ? `${oerebProcedureLabel} ${topics?.join(
-            ", "
-          )} (${oerebPartialStateLabel})`
-        : `${oerebProcedureLabel} ${topics?.join(", ")}`;
+        ? `${base} (${oerebPartialStateLabel})`
+        : base;
     }
 
     const answer = getAnswer(this.raw.document, "form-type");
