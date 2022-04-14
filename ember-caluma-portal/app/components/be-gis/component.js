@@ -332,58 +332,34 @@ export default class BeGisComponent extends Component {
       }
     });
 
-    // Temporary object to store results, will be converted to an array at the end
-    const parcels = {};
-
-    features[prop].forEach((coords) => {
-      const projectStatus = coords.keyvalue[project_status_index];
-
-      // Keep the value only if the status is "valid"
-      if (["0", "gültig", "valable"].includes(projectStatus)) {
-        let parcel_number = "";
-        let baurecht_number = "";
-
-        // If the value contains the "BR" string, then it is the "Baurecht" number
-        if (coords.keyvalue[parcel_feature_index].includes("BR")) {
-          baurecht_number = coords.keyvalue[parcel_feature_index];
-        } else {
-          parcel_number = coords.keyvalue[parcel_feature_index];
+    this.parcels = features[prop]
+      .map((coords) => {
+        // Keep the value only if the status is "valid"
+        if (
+          !["0", "gültig", "valable"].includes(
+            coords.keyvalue[project_status_index]
+          )
+        ) {
+          return null;
         }
+
+        const identifier = coords.keyvalue[parcel_feature_index];
+        // If the value contains the "BR" string, then it is the "Baurecht" number
+        const isBR = identifier.includes("BR");
 
         const xProp = isSearchResult ? "coord_x" : "xgeo";
         const yProp = isSearchResult ? "coord_y" : "ygeo";
+        const parseCoord = (raw) => parseFloat(parseFloat(raw).toFixed(2));
 
-        // Create the parcel object
-        const parcel = {
-          [KEY_TABLE_PARCEL]: parcel_number,
-          [KEY_TABLE_BAURECHT]: baurecht_number,
+        return {
+          [KEY_TABLE_PARCEL]: isBR ? null : identifier,
+          [KEY_TABLE_BAURECHT]: isBR ? identifier : null,
           [KEY_TABLE_EGRID]: coords.keyvalue[egrid_feature_index],
-          [KEY_TABLE_COORD_EAST]: parseInt(coords[xProp]),
-          [KEY_TABLE_COORD_NORTH]: parseInt(coords[yProp]),
+          [KEY_TABLE_COORD_EAST]: parseCoord(coords[xProp]),
+          [KEY_TABLE_COORD_NORTH]: parseCoord(coords[yProp]),
         };
-
-        const parcel_key = `${coords[xProp]}.${coords[yProp]}`;
-
-        if (parcel_key in parcels) {
-          const oldParcel = parcels[parcel_key];
-
-          if (parcel_number !== "") {
-            // We are currently handling the "Baurecht" parcel, so take only that value
-            parcel[KEY_TABLE_BAURECHT] = oldParcel[KEY_TABLE_BAURECHT];
-          } else {
-            // Take all the other values and overwrite the "Baurecht" ones
-            parcel[KEY_TABLE_PARCEL] = oldParcel[KEY_TABLE_PARCEL];
-            parcel[KEY_TABLE_EGRID] = oldParcel[KEY_TABLE_EGRID];
-            parcel[KEY_TABLE_COORD_EAST] = oldParcel[KEY_TABLE_COORD_EAST];
-            parcel[KEY_TABLE_COORD_NORTH] = oldParcel[KEY_TABLE_COORD_NORTH];
-          }
-        }
-
-        parcels[parcel_key] = parcel;
-      }
-    });
-
-    this.parcels = Object.values(parcels);
+      })
+      .filter(Boolean);
   }
 
   /**
@@ -432,10 +408,9 @@ export default class BeGisComponent extends Component {
 
         await Promise.all(
           fields.map(async (field) => {
-            const { slug } = field.question;
-            const value = String(parcel[slug]);
+            const value = parcel[field.question.slug];
 
-            if (value !== null && value.length > 0) {
+            if (![null, undefined, NaN].includes(value)) {
               field.answer.value = value;
 
               await field.save.perform();
