@@ -38,6 +38,7 @@ export default class CaseDashboardComponent extends Component {
   @tracked dossierNumber;
   @tracked showModal = false;
   @tracked totalInstanceOnSamePlot;
+  @tracked totalJournalEntries;
 
   get isLoading() {
     return this.initialize.isRunning;
@@ -244,10 +245,12 @@ export default class CaseDashboardComponent extends Component {
   *fetchModels() {
     const journalEntries = yield this.store.query("journal-entry", {
       instance: this.args.instanceId,
-      "page[size]": 3,
+      "page[size]": 1,
       include: "user",
       sort: "-creation_date",
     });
+
+    this.totalJournalEntries = journalEntries.meta.pagination.count;
 
     const activations = yield this.store.query("activation", {
       instance: this.args.instanceId,
