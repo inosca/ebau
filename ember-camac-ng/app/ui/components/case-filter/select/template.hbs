@@ -3,9 +3,6 @@
   <CaseFilter::Base @filterName={{@filterName}}>
     <PowerSelect
       id={{concat "case-filter__" @filterName}}
-      class="uk-width-1 case-filter__select"
-      @dropdownClass="case-filter__select"
-      @triggerClass="case-filter__select"
       @searchEnabled={{true}}
       @searchField={{or @labelField "label"}}
       @allowClear={{true}}
