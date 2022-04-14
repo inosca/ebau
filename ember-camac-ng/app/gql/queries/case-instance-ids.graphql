@@ -1,0 +1,10 @@
+query CaseInstanceIds($filter: [CaseFilterSetType]!) {
+  allCases(filter: $filter) {
+    edges {
+      node {
+        id
+        meta
+      }
+    }
+  }
+}

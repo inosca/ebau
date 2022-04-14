@@ -1,3 +1,4 @@
+from datetime import date
 from pathlib import Path
 
 import pytest
@@ -1785,3 +1786,42 @@ def test_create_instance_from_modification(
     assert CalumaApi().is_modification(
         Instance.objects.get(pk=response.json()["data"]["id"])
     )
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize(
+    "filters,expected_count",
+    [
+        ({"decision_date_after": "2022-08-17"}, 2),
+        ({"decision_date_before": "2022-08-17"}, 3),
+    ],
+)
+def test_filter_decision_date(
+    db,
+    admin_client,
+    decision_factory,
+    expected_count,
+    filters,
+    instance_factory,
+    instance_service_factory,
+    instance_with_case,
+    service,
+):
+    for decision_date in [
+        date(2022, 8, 18),
+        date(2022, 8, 17),
+        date(2022, 8, 7),
+        date(2022, 7, 30),
+    ]:
+        instance = instance_with_case(instance=instance_factory())
+        instance_service_factory(instance=instance, service=service)
+
+        decision_factory(
+            instance=instance,
+            decision_date=decision_date,
+        )
+
+    response = admin_client.get(reverse("instance-list"), data=filters)
+
+    assert response.status_code == status.HTTP_200_OK
+    assert len(response.json()["data"]) == expected_count

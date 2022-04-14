@@ -1,30 +1,6 @@
-$ember-power-select-default-border-radius: 0;
-
 @import "ember-power-select";
 
-.ember-power-select-trigger {
-  min-height: 17px;
-  line-height: 17px;
-}
-
-.ember-power-select-dropdown {
-  border-top: none !important;
-}
-
 .ember-power-select-trigger-multiple-input {
-  border: none !important;
-  padding: 0 8px !important;
+  padding-left: 8px !important;
   font-weight: inherit;
-}
-
-.ember-power-select-placeholder,
-.ember-power-select-selected-item {
-  white-space: nowrap;
-  margin-left: 9px !important;
-}
-
-.ember-power-select-option {
-  padding: 2px 5px !important;
-  background-image: none !important;
-  margin-bottom: 0px !important;
 }

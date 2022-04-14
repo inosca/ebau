@@ -37,6 +37,12 @@ export default class InstanceAbility extends Ability {
     );
   }
 
+  get canCreatePaper() {
+    return ["municipality-lead", "municipality-clerk"].includes(
+      this.shoebox.role
+    );
+  }
+
   // UR
   get canLinkDossiers() {
     return (

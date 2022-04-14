@@ -1,3 +1,4 @@
+import { getOwner } from "@ember/application";
 import Route from "@ember/routing/route";
 import { inject as service } from "@ember/service";
 import DocumentValidityButtonComponent from "ember-ebau-core/components/document-validity-button";
@@ -21,9 +22,15 @@ export default class ApplicationRoute extends Route {
     const language = this.shoebox.content.language;
 
     if (language) {
-      const locale = `${language}-ch`;
+      const application =
+        getOwner(this).resolveRegistration("config:environment").APPLICATION
+          .name;
 
-      this.intl.setLocale([locale, language]);
+      this.intl.setLocale([
+        `${language}-ch`,
+        `${language}-${application}`,
+        language,
+      ]);
     }
 
     this.calumaOptions.registerComponentOverride({
