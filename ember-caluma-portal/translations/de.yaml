@@ -144,7 +144,7 @@ gis:
     title: "Daten übernehmen?"
     yes: "Ja"
     no: "Nein"
-  info-text-ur: "Um die Adressdaten automatisch zu übernehmen, klicken Sie bitte auf den roten Punkt des betroffenen Gebäudes."
+  info-text-ur: "Um Daten zu übernehmen, klicken Sie bitte in der Karte auf den entsprechenden Standort."
   oereb: "ÖREB-Kataster:"
 
   notifications:
