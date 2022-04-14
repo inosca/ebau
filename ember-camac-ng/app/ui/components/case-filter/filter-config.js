@@ -1,52 +1,61 @@
+import { macroCondition, getOwnConfig } from "@embroider/macros";
+
 export default {
-  instanceId: {
-    type: "input",
-  },
-  dossierNumber: {
-    type: "input",
-  },
-  dossierNumberSZ: {
-    type: "input",
-  },
-  instanceIdentifier: {
-    type: "input",
-  },
-  applicantName: {
-    type: "input",
-  },
-  street: {
-    type: "input",
-  },
-  municipality: {
-    type: "select-multiple",
-    options: "municipalities",
-    valueField: "id",
-    labelField: "name",
-  },
-  locationSZ: {
-    type: "select",
-    options: "municipalities",
-    valueField: "id",
-    labelField: "name",
-  },
-  parcelNumber: {
-    type: "input",
-  },
+  address: { type: "input" },
+  applicant: { type: "input" },
+  builder: { type: "input" },
+  dossierNumber: { type: "input" },
+  instanceId: { type: "input" },
+  instanceIdentifier: { type: "input" },
+  intent: { type: "input" },
+  landowner: { type: "input" },
+  parcel: { type: "input" },
+  personalDetails: { type: "input" },
+  decisionDateAfter: { type: "date", maxDate: "decisionDateBefore" },
+  decisionDateBefore: { type: "date", minDate: "decisionDateAfter" },
+  submitDateAfter: { type: "date", maxDate: "submitDateBefore" },
+  submitDateBefore: { type: "date", minDate: "submitDateAfter" },
+  withCantonalParticipation: { type: "toggle-switch" },
+
+  municipality: macroCondition(getOwnConfig().application === "be")
+    ? {
+        type: "select",
+        options: "municipalitiesFromCaluma",
+        valueField: "slug",
+        labelField: "label",
+        showWithoutOptions: true,
+      }
+    : macroCondition(getOwnConfig().application === "sz")
+    ? {
+        type: "select",
+        options: "municipalities",
+        valueField: "id",
+        labelField: "name",
+      }
+    : {
+        type: "select-multiple",
+        options: "municipalities",
+        valueField: "id",
+        labelField: "name",
+      },
   instanceState: {
     type: "select-multiple",
     options: "instanceStates",
     valueField: "id",
-    labelField: "uppercaseName",
-  },
-  instanceStateDescription: {
-    type: "select-multiple",
-    options: "instanceStates",
-    valueField: "id",
-    labelField: "description",
+    labelField: macroCondition(getOwnConfig().application === "be")
+      ? "name"
+      : macroCondition(getOwnConfig().application === "sz")
+      ? "description"
+      : "uppercaseName",
+    showWithoutOptions: macroCondition(getOwnConfig().application === "be")
+      ? true
+      : false,
   },
   service: {
     type: "select",
-    options: "services",
+    options: macroCondition(getOwnConfig().application === "sz")
+      ? "servicesSZ"
+      : "services",
     valueField: "id",
     labelField: "name",
   },
@@ -60,74 +69,66 @@ export default {
     type: "select-multiple",
     options: "buildingPermitTypes",
   },
-  createdAfter: {
-    type: "date",
-    maxDate: "createdBefore",
-  },
-  createdBefore: {
-    type: "date",
-    minDate: "createdAfter",
-  },
-  intent: {
-    type: "input",
-  },
-  withCantonalParticipation: {
-    type: "toggle-switch",
-  },
   caseStatus: {
     type: "select",
     options: "caseStatusOptions",
-    optionValues: ["RUNNING", "COMPLETED"],
     valueField: "status",
     labelField: "label",
-  },
-  caseDocumentFormName: {
-    type: "select",
-    options: "formOptions",
-    labelField: "name",
   },
   responsibleServiceUser: {
     type: "select",
     options: "responsibleServiceUsers",
     valueField: "id",
     labelField: "fullName",
+    showWithoutOptions: macroCondition(getOwnConfig().application === "be")
+      ? true
+      : false,
   },
-  addressSZ: {
-    type: "input",
-  },
-  intentSZ: {
-    type: "input",
-  },
-  plotSZ: {
-    type: "input",
-  },
-  builderSZ: {
-    type: "input",
-  },
-  landownerSZ: {
-    type: "input",
-  },
-  applicantSZ: {
-    type: "input",
-  },
-  submitDateAfterSZ: {
-    type: "date",
-    maxDate: "submitDateBeforeSZ",
-  },
-  submitDateBeforeSZ: {
-    type: "date",
-    minDate: "submitDateAfterSZ",
-  },
-  serviceSZ: {
-    type: "select",
-    options: "servicesSZ",
-    valueField: "id",
-    labelField: "name",
-  },
-  formSZ: {
+  type: {
     type: "select",
     options: "formsSZ",
     valueField: "id",
     labelField: "description",
+  },
+  form: macroCondition(getOwnConfig().application === "be")
+    ? {
+        type: "select",
+        options: "forms",
+        valueField: "value",
+        labelField: "name",
+        showWithoutOptions: true,
+      }
+    : {
+        type: "select",
+        options: "formOptions",
+        labelField: "name",
+      },
+  responsibleMunicipality: {
+    type: "select",
+    options: "responsibleMunicipalities",
+    valueField: "id",
+    labelField: "name",
+    showWithoutOptions: true,
+  },
+  tags: {
+    type: "select-multiple",
+    options: "tags",
+    valueField: "name",
+    labelField: "name",
+    showWithoutOptions: true,
+  },
+  paper: {
+    type: "select",
+    options: "paperOptions",
+    valueField: "value",
+    labelField: "label",
+    showWithoutOptions: true,
+  },
+  inquiryState: {
+    type: "select",
+    options: "inquiryStateOptions",
+    valueField: "value",
+    labelField: "label",
+    showWithoutOptions: true,
   },
 };

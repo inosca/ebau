@@ -1,0 +1,16 @@
+{{#if @column.order}}
+  <th>
+    <a href="" class="uk-link-reset uk-text-nowrap {{if this.isActiveOrder "uk-text-bold"}}" {{on "click" this.setOrder}}>
+      {{t (concat "cases.tableHeaders." @column.name)}}
+      {{#if this.isInverted}}
+        <UkIcon @icon="arrow-up" @ratio={{0.8}} />
+      {{else}}
+        <UkIcon @icon="arrow-down" @ratio={{0.8}} />
+      {{/if}}
+    </a>
+  </th>
+{{else}}
+  <th>
+    {{t (concat "cases.tableHeaders." @column.name)}}
+  </th>
+{{/if}}

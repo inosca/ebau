@@ -1,5 +1,5 @@
 {{! template-lint-disable require-input-label }}
-{{#if @filterOptions.length}}
+{{#if (or @filterOptions.length @showWithoutOptions)}}
   <CaseFilter::Base @filterName={{@filterName}}>
     <PowerSelectMultiple
       id={{concat "case-filter__" @filterName}}

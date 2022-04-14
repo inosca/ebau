@@ -13,6 +13,18 @@ import caseFilters from "./filter-config";
 
 import caseTableConfig from "camac-ng/config/case-table";
 import getBuildingPermitQuestion from "camac-ng/gql/queries/get-building-permit-question.graphql";
+import municipalitiesQuery from "camac-ng/gql/queries/municipalities.graphql";
+import rootFormsQuery from "camac-ng/gql/queries/root-forms.graphql";
+
+const getRecursiveSources = (form, forms) => {
+  if (!form.source?.slug) {
+    return [];
+  }
+
+  const source = forms.find((edge) => edge.node.slug === form.source.slug);
+
+  return [source.node.slug, ...getRecursiveSources(source.node, forms)];
+};
 
 export default class CaseFilterComponent extends Component {
   @queryManager apollo;
@@ -44,7 +56,7 @@ export default class CaseFilterComponent extends Component {
   }));
 
   instanceStates = query(this, "instance-state", () => ({
-    instance_state_id: this.args.instanceStates,
+    instance_state_id: this.args.instanceStates.join(","),
   }));
 
   services = query(this, "service", () => ({
@@ -62,6 +74,8 @@ export default class CaseFilterComponent extends Component {
 
   municipalities = findAll(this, "location", () => ({}));
 
+  tags = findAll(this, "tag", () => ({}));
+
   buildingPermitTypes = trackedFunction(this, async () => {
     const response = await this.apollo.query(
       { query: getBuildingPermitQuestion },
@@ -73,29 +87,111 @@ export default class CaseFilterComponent extends Component {
 
   responsibleServices = query(this, "responsible-service", () => ({
     service: this.shoebox.content.serviceId,
-    include: "responsible-user",
   }));
 
-  get responsibleServiceUsers() {
-    const userIds =
-      this.responsibleServices.records?.map((responsibleService) =>
-        responsibleService.get("responsibleUser.id")
-      ) ?? [];
+  responsibleServiceUsers = trackedFunction(this, async () => {
+    await Promise.resolve();
+
+    const users = await this.store.query("user", {
+      responsible_for_instances: true,
+      sort: "name",
+    });
 
     return [
-      ...this.store.peekAll("user").filter((user) => userIds.includes(user.id)),
+      ...users.toArray(),
       {
         id: "nobody",
         fullName: this.intl.t("cases.filters.responsibleServiceUser-nobody"),
       },
     ];
-  }
+  });
 
   get caseStatusOptions() {
-    return caseFilters.caseStatus.optionValues.map((option) => ({
-      status: option,
-      label: this.intl.t(`cases.status.${option}`),
-    }));
+    return [
+      { status: "RUNNING", label: this.intl.t("cases.status.RUNNING") },
+      { status: "COMPLETED", label: this.intl.t("cases.status.COMPLETED") },
+    ];
+  }
+
+  responsibleMunicipalities = query(this, "public-service", () => ({
+    service_group_name: "municipality,district",
+    has_parent: false,
+    sort: "-service_group__name,trans__name",
+  }));
+
+  forms = trackedFunction(this, async () => {
+    const categories = [
+      "preliminary-clarification",
+      "building-permit",
+      "special-procedure",
+      "others",
+    ];
+
+    const rawForms = await this.apollo.query(
+      { query: rootFormsQuery },
+      "allForms.edges"
+    );
+
+    const forms = rawForms
+      .filter((edge) => edge.node.isPublished)
+      .map((edge) => ({
+        name: edge.node.name,
+        value: [edge.node.slug, ...getRecursiveSources(edge.node, rawForms)],
+        category: edge.node.meta.category || "others",
+        order: edge.node.meta.order,
+        isEqual(other) {
+          return this.value.join(",") === other.value.join(",");
+        },
+      }));
+
+    return categories
+      .map((category) => {
+        const options = forms
+          .filter((form) => form.category === category)
+          .sort((a, b) => a.order - b.order);
+
+        return options.length
+          ? {
+              groupName: this.intl.t(`cases.formCategories.${category}`),
+              options,
+            }
+          : null;
+      })
+      .filter(Boolean);
+  });
+
+  municipalitiesFromCaluma = trackedFunction(this, async () => {
+    const response = await this.apollo.query(
+      { query: municipalitiesQuery },
+      "allQuestions.edges"
+    );
+
+    return response[0]?.node.options.edges.map((edge) => edge.node);
+  });
+
+  get paperOptions() {
+    return [
+      { value: "1", label: this.intl.t("cases.paper.only") },
+      { value: "0", label: this.intl.t("cases.paper.none") },
+    ];
+  }
+
+  get inquiryStateOptions() {
+    return [
+      { value: "pending", label: this.intl.t("cases.inquiryState.pending") },
+      {
+        value: "completed",
+        label: this.intl.t("cases.inquiryState.completed"),
+      },
+    ];
+  }
+
+  get presets() {
+    return (
+      caseTableConfig.filterPresets?.[this.shoebox.baseRole] ??
+      caseTableConfig.filterPresets?.default ??
+      []
+    );
   }
 
   @cached
@@ -109,8 +205,9 @@ export default class CaseFilterComponent extends Component {
         activeFiltersConfig.default ??
         [];
 
-    return Object.entries(caseFilters).reduce(
-      (populatedFilters, [key, config]) => {
+    return Object.entries(caseFilters)
+      .sort((a, b) => activeFilters.indexOf(a[0]) - activeFilters.indexOf(b[0]))
+      .reduce((populatedFilters, [key, config]) => {
         const filter = activeFilters.includes(key)
           ? {
               [key]: {
@@ -132,9 +229,7 @@ export default class CaseFilterComponent extends Component {
           ...populatedFilters,
           ...filter,
         };
-      },
-      {}
-    );
+      }, {});
   }
 
   get storedFiltersKey() {
@@ -188,5 +283,13 @@ export default class CaseFilterComponent extends Component {
     this._filter = {};
     this.args.onChange({});
     this.storedFilters = {};
+  }
+
+  @action applyPreset(filters, event) {
+    event.preventDefault();
+
+    this._filter = filters;
+    this.args.onChange(filters);
+    this.storedFilters = filters;
   }
 }

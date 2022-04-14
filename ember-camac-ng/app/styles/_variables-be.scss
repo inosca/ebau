@@ -4,6 +4,7 @@ $global-secondary-background: rgb(30, 30, 30);
 $global-danger-background: $global-primary-background;
 $global-success-background: rgb(0, 153, 0);
 $global-muted-background: rgb(245, 245, 245);
+$global-border: #e5e5e5;
 
 // Font
 $global-font-family: Arial, Helvetica, sans-serif;
@@ -34,7 +35,8 @@ $modal-z-index: 1;
 $button-disabled-background: $global-muted-background;
 
 // Power select
-$ember-power-select-border-color: #ccc;
-$ember-power-select-line-height: 28px;
-$ember-power-select-dropdown-line-height: 28px;
-$ember-power-select-search-input-line-height: 28px;
+$ember-power-select-border-color: $global-border;
+$ember-power-select-focus-border-color: $form-focus-border;
+$ember-power-select-highlighted-background: $global-secondary-background;
+$ember-power-select-selected-background: $global-primary-background;
+$ember-power-select-placeholder-color: $global-muted-color;
