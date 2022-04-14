@@ -72,7 +72,7 @@ export default {
     type: "input",
   },
   withCantonalParticipation: {
-    type: "checkbox",
+    type: "toggle-switch",
   },
   caseStatus: {
     type: "select",
