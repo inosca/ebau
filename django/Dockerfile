@@ -1,5 +1,10 @@
 # Remember to update volume mounts for certificates in kt_uri-prod.yml when updating version
-FROM python:3.8-slim
+FROM python:3.8-slim@sha256:298ac519d91ff7ee494414de5a690ea4fcf33f641002c4aea96513598fe1a5b4
+
+# This is necessary because a recent update of the official python docker image
+# broke that image completely. Revert this and update the image digest as soon
+# as this PR is reverted: https://github.com/docker-library/python/pull/570
+ENV LANG C.UTF-8
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
 	git \
