@@ -6778,9 +6778,9 @@ ember-resources@4.6.3, ember-resources@^4.4.0:
     "@embroider/macros" "^1.2.0"
 
 ember-resources@^4.3.0:
-  version "4.6.0"
-  resolved "https://registry.yarnpkg.com/ember-resources/-/ember-resources-4.6.0.tgz#21d7372822a40ffb96d1e29fa49064000896072c"
-  integrity sha512-9SWzRGzK1h9GledcFzCtmAZwQEpus+nMmvxa6ZtnbIUL3ZbtQUklbz9oVRZZ9HRi7cgTZHWZiaxL9a3PE1oAvg==
+  version "4.6.1"
+  resolved "https://registry.yarnpkg.com/ember-resources/-/ember-resources-4.6.1.tgz#8543ccd1db9b30c21ba15d47ca6cf8f6c010bec9"
+  integrity sha512-rNygTAQY9cDymNcZTbEwDyU+ZHZwe2UtCZiIvy6k5zy1oN4rn9kbF1hKwbD0M6zAz/BN4XP3lFWOtjXgmLkHfg==
   dependencies:
     "@babel/runtime" "^7.17.8"
     "@embroider/addon-shim" "^1.2.0"

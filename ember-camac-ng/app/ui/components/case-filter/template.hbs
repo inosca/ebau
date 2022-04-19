@@ -1,26 +1,24 @@
-<form {{did-insert (perform this.fetchFilterData)}} {{on "submit" this.applyFilter}}>
+<form {{on "submit" this.applyFilter}}>
   <h2>{{t "cases.filter"}}</h2>
   <div class="uk-grid uk-grid-small">
-    {{#each this.activeCaseFilters as |filterName|}}
-      {{#let (get this.caseFilters filterName) as |filterConfig|}}
-        {{#let
-          (component
-            (concat "case-filter/" filterConfig.type)
-          ) as |CaseFilterComponent|
-        }}
-          <CaseFilterComponent
-            @filterName={{filterName}}
-            @value={{get this._filter filterName}}
-            @updateFilter={{fn this.updateFilter filterName}}
-            @filterOptions={{get this.filterData filterConfig.options}}
-            @valueField={{filterConfig.valueField}}
-            @labelField={{filterConfig.labelField}}
-            @maxDate={{get this._filter filterConfig.maxDate}}
-            @minDate={{get this._filter filterConfig.minDate}}
-          />
-        {{/let}}
+    {{#each-in this.caseFilters as |filterName filterConfig|}}
+      {{#let
+        (ensure-safe-component
+          (concat "case-filter/" filterConfig.type)
+        ) as |CaseFilterComponent|
+      }}
+        <CaseFilterComponent
+          @filterName={{filterName}}
+          @value={{get this._filter filterName}}
+          @updateFilter={{fn this.updateFilter filterName}}
+          @filterOptions={{filterConfig.options}}
+          @valueField={{filterConfig.valueField}}
+          @labelField={{filterConfig.labelField}}
+          @maxDate={{get this._filter filterConfig.maxDate}}
+          @minDate={{get this._filter filterConfig.minDate}}
+        />
       {{/let}}
-    {{/each}}
+    {{/each-in}}
   </div>
   <div class="uk-margin-small">
     <button type="submit" class="uk-button uk-button-primary">
