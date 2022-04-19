@@ -1,4 +1,5 @@
 import { inject as service } from "@ember/service";
+import { isEmpty } from "@ember/utils";
 import CaseModel from "@projectcaluma/ember-core/caluma-query/models/case";
 import { DateTime } from "luxon";
 
@@ -49,7 +50,7 @@ export default class CustomCaseModel extends CaseModel {
         (formField) =>
           formField.instance.get("id") === String(this.instanceId) &&
           fields.includes(formField.name) &&
-          formField.value.length
+          !isEmpty(formField.value)
       );
   }
 
@@ -235,7 +236,7 @@ export default class CustomCaseModel extends CaseModel {
       "bauherrschaft",
     ])?.value?.[0];
 
-    return `${row?.vorname} ${row?.name}`;
+    return row?.firma || [row?.vorname, row?.name].filter(Boolean).join(" ");
   }
 
   get processingDeadline() {
