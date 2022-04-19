@@ -89,7 +89,8 @@ export default {
   responsibleServiceUser: {
     type: "select",
     options: "responsibleServiceUsers",
-    valueField: "value",
+    valueField: "id",
+    labelField: "fullName",
   },
   addressSZ: {
     type: "input",
