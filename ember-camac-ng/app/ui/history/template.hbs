@@ -1,80 +1,83 @@
-<table class="history" {{did-insert (perform this.fetchEntries)}}>
-  <thead>
-    <tr>
-      <th></th>
-      <th>
-        {{t "history.event"}}
-      </th>
-      <th>
-        {{t "global.date"}}
-      </th>
-      <th>
-        {{t "global.from"}}
-      </th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#if this.fetchEntries.isRunning}}
+{{#if (and this.entries.isRunning (not this.entries.value))}}
+  <div class="uk-text-center uk-padding">
+    <UkSpinner @ratio={{2}} />
+  </div>
+{{else}}
+  <table class="uk-table uk-table-striped">
+    <thead>
       <tr>
-        <td class="center" colspan="5">
-          <LoadingText />
-        </td>
+        <th></th>
+        <th>{{t "history.event"}}</th>
+        <th>{{t "global.date"}}</th>
+        <th>{{t "global.from"}}</th>
+        <th></th>
       </tr>
-    {{else if this.entries.length}}
-      {{#each this.entries as |entry|}}
-        <tr
-          class="history__row"
-          title={{t (concat "history.types." entry.historyType)}}
-        >
-          <td class="history__row__icon">
-            <FaIcon @icon={{entry.icon}} />
-          </td>
-          <td>
-            {{entry.title}}
-            {{#if (and entry.body entry.expand)}}
-              <div class="history__row__body">
-                {{entry.body}}
+    </thead>
+    <tbody>
+      {{#if this.entries.value.length}}
+        {{#each this.entries.value as |entry|}}
+          <tr data-test-history-row={{entry.id}}>
+            <td>
+              <FaIcon
+                uk-tooltip
+                title={{t (concat "history.types." entry.historyType)}}
+                container=".uk-table"
+                @fixedWidth={{true}}
+                @icon={{entry.icon}}
+              />
+            </td>
+            <td>
+              <div>
+                {{entry.title}}
+                {{#if (and entry.body entry.expand)}}
+                  <hr class="uk-margin-small-top uk-margin-small-bottom">
+                  <span class="uk-text-italic" data-test-history-body>{{entry.body}}</span>
+                {{/if}}
               </div>
-            {{/if}}
-          </td>
-          <td class="history__row__date">
-            {{format-date entry.createdAt format="datetime"}}
-          </td>
-          <td class="history__row__user">
-            {{entry.user.fullName}}
-          </td>
-          <td class="history__row__toggle">
-            {{#if entry.body}}
-              <button
-                class="history__row__toggle__button"
-                type="button"
-                title={{t
-                  (if entry.expand "history.collapse" "history.expand")
-                }}
-                {{on "click" (toggle "expand" entry)}}
-              >
-                <FaIcon @icon="arrow-{{if entry.expand "up" "down"}}" />
-              </button>
-            {{/if}}
-          </td>
-        </tr>
-      {{/each}}
-      {{#if this.hasNextPage}}
+            </td>
+            <td class="uk-text-nowrap">
+              {{format-date entry.createdAt format="datetime"}}
+            </td>
+            <td class="uk-text-nowrap">
+              {{entry.user.fullName}}
+            </td>
+            <td>
+              {{#if entry.body}}
+                <UkButton
+                  @color="link"
+                  @onClick={{toggle "expand" entry}}
+                  title={{t (if entry.expand "history.collapse" "history.expand")}}
+                  class="uk-flex-inline table-controls"
+                  data-test-history-toggle
+                >
+                  <UkIcon @icon="arrow-{{if entry.expand "up" "down"}}" />
+                </UkButton>
+              {{/if}}
+            </td>
+          </tr>
+        {{/each}}
+        {{#if this.entries.isRunning}}
+          <tr>
+            <td class="uk-text-center" colspan="5">
+              <UkSpinner />
+            </td>
+          </tr>
+        {{else if this.hasNextPage}}
+          <tr>
+            <td class="center" colspan="5">
+              <a href="" {{on "click" this.loadMore}}>
+                {{t "global.loadMore"}}
+              </a>
+            </td>
+          </tr>
+        {{/if}}
+      {{else}}
         <tr>
           <td class="center" colspan="5">
-            <a href="#" {{on "click" this.loadMore}}>
-              {{t "global.loadMore"}}
-            </a>
+            {{t "global.empty"}}
           </td>
         </tr>
       {{/if}}
-    {{else}}
-      <tr>
-        <td class="center" colspan="5">
-          {{t "global.empty"}}
-        </td>
-      </tr>
-    {{/if}}
-  </tbody>
-</table>
+    </tbody>
+  </table>
+{{/if}}
