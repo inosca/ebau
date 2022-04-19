@@ -145,6 +145,78 @@ def test_copy_sb_personalien(
         assert sb2_row.answers.get(question_id="name-sb").value == "Test123"
 
 
+def test_copy_municipality_tags_for_sb1(
+    db,
+    be_instance,
+    caluma_admin_user,
+    caluma_workflow_config_be,
+    docx_decision_factory,
+    service_factory,
+    tag_factory,
+    instance_service_factory,
+    instance_state_factory,
+):
+
+    municipality_burgdorf = service_factory(
+        service_group__name="municipality",
+        trans__language="de",
+        trans__name="Leitbehörde Burgdorf",
+    )
+    municipality_kirchberg = service_factory(
+        service_group__name="municipality",
+        trans__language="de",
+        trans__name="Leitbehörde Kirchberg",
+    )
+    construction_control_kirchberg = service_factory(
+        trans__name="Baukontrolle Kirchberg",
+        trans__language="de",
+        service_group__name="construction-control",
+    )
+
+    instance_service_factory(
+        instance=be_instance, service=municipality_burgdorf, active=0
+    )
+    instance_service_factory(
+        instance=be_instance, service=municipality_kirchberg, active=1
+    )
+    instance_service_factory(
+        instance=be_instance, service=construction_control_kirchberg, active=0
+    )
+
+    tag_factory(name="Foobar", instance=be_instance, service=municipality_burgdorf)
+    tag_factory(name="Baz", instance=be_instance, service=municipality_kirchberg)
+
+    docx_decision_factory(decision=DECISIONS_BEWILLIGT, instance=be_instance)
+
+    be_instance.case.document.answers.create(
+        question_id="is-paper", value="is-paper-no"
+    )
+
+    for task_id in [
+        "submit",
+        "ebau-number",
+        "publication",
+        "audit",
+        "init-circulation",
+        "circulation",
+        "start-decision",
+    ]:
+        workflow_api.skip_work_item(
+            work_item=be_instance.case.work_items.get(task_id=task_id),
+            user=caluma_admin_user,
+        )
+    be_instance.instance_state = instance_state_factory(name="sb1")
+    be_instance.save()
+
+    workflow_api.complete_work_item(
+        work_item=be_instance.case.work_items.get(task_id="decision"),
+        user=caluma_admin_user,
+    )
+    assert (
+        len(be_instance.tags.filter(service__trans__name="Baukontrolle Kirchberg")) == 1
+    )
+
+
 @pytest.mark.parametrize(
     "bewilligungspflichtig_hidden,expect_copy", [("true", True), ("false", False)]
 )

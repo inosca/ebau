@@ -119,7 +119,16 @@ def test_dynamic_task_after_decision(
     instance_state_factory(name="sb1")
     instance_state_factory(name="evaluated")
 
-    service = service_factory(service_group__name="construction-control")
+    service_factory(
+        service_group__name="municipality",
+        trans__language="de",
+        trans__name="Leitbehörde Burgdorf",
+    )
+    service = service_factory(
+        service_group__name="construction-control",
+        trans__name="Baukontrolle Burgdorf",
+        trans__language="de",
+    )
     dynamic_option = DynamicOption.objects.create(
         document=case.document,
         question_id="gemeinde",
