@@ -500,10 +500,15 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         if not visibility_config:  # Kt. UR
             activations = instance.activations.all()
         else:  # Kt. SZ
-            activations = instance.activations.filter(
-                service__service_group__in=visibility_config.get(
-                    self.context["request"].group.service.service_group_id, []
+            service = self.context["request"].group.service
+            activations = (
+                instance.activations.filter(
+                    service__service_group__in=visibility_config.get(
+                        service.service_group_id, []
+                    )
                 )
+                if service
+                else instance.activations.none()
             )
 
         return ActivationMergeSerializer(activations, many=True).data
