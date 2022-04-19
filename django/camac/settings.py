@@ -566,8 +566,12 @@ APPLICATIONS = {
         "FORM_FIELD_HISTORY_ENTRY": [
             {
                 "name": "materieller-pruefbericht-bemerkung",
+                "title": "Materieller Prüfbericht (Bemerkung)",
+            },
+            {
+                "name": "materieller-pruefbericht",
                 "title": "Materieller Prüfbericht",
-            }
+            },
         ],
         "ADDRESS_FORM_FIELDS": [
             "ortsbezeichnung-des-vorhabens",
