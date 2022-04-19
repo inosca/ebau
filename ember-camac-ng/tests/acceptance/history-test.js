@@ -41,10 +41,10 @@ module("Acceptance | history", function (hooks) {
 
     await visit(`/instances/${this.instance.id}/history`);
 
-    assert.dom(".history__row__body").doesNotExist();
-    await click(".history__row__toggle__button");
-    assert.dom(".history__row__body").hasText("test");
-    await click(".history__row__toggle__button");
-    assert.dom(".history__row__body").doesNotExist();
+    assert.dom("[data-test-history-body]").doesNotExist();
+    await click("[data-test-history-toggle]");
+    assert.dom("[data-test-history-body]").hasText("test");
+    await click("[data-test-history-toggle]");
+    assert.dom("[data-test-history-body]").doesNotExist();
   });
 });
