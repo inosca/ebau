@@ -59,6 +59,7 @@
     "ember-composable-helpers": "5.0.0",
     "ember-concurrency": "2.2.1",
     "ember-data": "3.28.9",
+    "ember-data-resources": "3.0.5",
     "ember-ebau-core": "0.0.0",
     "ember-ebau-gwr": "4.0.4",
     "ember-engines": "0.8.20",
