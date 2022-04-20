@@ -28043,15 +28043,6 @@
     }
   },
   {
-    "model": "core.ireditcirculationsg",
-    "pk": 271,
-    "fields": {
-      "instance_resource": 753,
-      "service_group": 73,
-      "localized": 1
-    }
-  },
-  {
     "model": "core.ireditformpage",
     "pk": 12000000,
     "fields": {
