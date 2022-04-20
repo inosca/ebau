@@ -25,12 +25,7 @@ export default class InstanceAbility extends Ability {
   }
 
   get canCreatePaper() {
-    return Boolean(
-      this.session.group &&
-        (this.session.groups || []).find(
-          (group) => group.canCreatePaper && group.id === this.session.group
-        )
-    );
+    return this.session.group?.canCreatePaper;
   }
 
   get canCreateExternal() {
@@ -47,18 +42,19 @@ export default class InstanceAbility extends Ability {
 
   get canManageApplicants() {
     const applicants = this.model?.get("involvedApplicants") || [];
-    const userId = parseInt(this.session.user.value?.id);
+    const userId = parseInt(this.session.user?.id);
 
     // must be an applicant or support
     return (
       !this.model.isDestroyed &&
       !this.model.isDestroying &&
       (this.session.isSupport ||
-        Boolean(
-          applicants?.find(
-            (applicant) => parseInt(applicant.get("invitee.id")) === userId
-          )
-        ))
+        (!this.session.isInternal &&
+          Boolean(
+            applicants?.find(
+              (applicant) => parseInt(applicant.get("invitee.id")) === userId
+            )
+          )))
     );
   }
 
@@ -66,7 +62,7 @@ export default class InstanceAbility extends Ability {
     return (
       this.canManageApplicants ||
       parseInt(this.model?.activeService.get("id")) ===
-        parseInt(this.session.currentService?.get("id"))
+        parseInt(this.session.group?.get("service.id"))
     );
   }
 

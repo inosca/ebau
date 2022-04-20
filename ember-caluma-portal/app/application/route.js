@@ -20,12 +20,12 @@ export default class ApplicationRoute extends Route {
 
     await this.session.setup();
 
-    const { language, group } = transition.to?.queryParams ?? {};
+    const { language, group: groupId } = transition.to?.queryParams ?? {};
 
     this.session.language = language ?? this.session.language;
-    this.session.group = group ?? this.session.group;
+    this.session.groupId = groupId ?? this.session.groupId;
 
-    if (language || group) {
+    if (language || groupId) {
       // after the transition remove the query params so we don't persist the
       // language and group info twice (in the URL and in the session)
       transition.then(() => {
