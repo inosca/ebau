@@ -5,12 +5,14 @@ from caluma.caluma_form import (
     factories as caluma_form_factories,
     models as caluma_form_models,
 )
+from caluma.caluma_form.models import Answer
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
 from django.core import mail
 from django.urls import reverse
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
+from camac.caluma.api import CalumaApi
 from camac.conftest import CALUMA_FORM_TYPES_SLUGS
 from camac.constants import kt_bern as be_constants, kt_uri as ur_constants
 from camac.core.models import Chapter, ProposalActivation, Question, QuestionType
@@ -1916,3 +1918,43 @@ def test_instance_create_caluma_sz(
 
     response = admin_client.post(url, data=data)
     assert response.status_code == status.HTTP_201_CREATED
+
+
+@pytest.mark.parametrize(
+    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
+)
+def test_create_instance_from_modification(
+    db,
+    admin_client,
+    be_instance,
+    instance_state_factory,
+    role,
+    mock_nfd_permissions,
+    application_settings,
+):
+    instance_state_factory(name="new")
+
+    application_settings["CALUMA"]["MODIFICATION_ALLOW_FORMS"] = ["main-form"]
+
+    Answer.objects.create(
+        document=be_instance.case.document,
+        question_id="projektaenderung",
+        value="projektaenderung-ja",
+    )
+
+    response = admin_client.post(
+        reverse("instance-list"),
+        {
+            "data": {
+                "type": "instances",
+                "attributes": {
+                    "copy-source": str(be_instance.pk),
+                },
+            }
+        },
+    )
+
+    assert response.status_code == status.HTTP_201_CREATED
+    assert CalumaApi().is_modification(
+        Instance.objects.get(pk=response.json()["data"]["id"])
+    )
