@@ -13,7 +13,7 @@ module("Unit | Service | fetch", function (hooks) {
     const session = this.owner.lookup("service:session");
 
     session.language = "de";
-    session.group = 5;
+    session.groupId = 5;
     Object.defineProperty(session, "refreshAuthentication", {
       value: {
         async perform() {
