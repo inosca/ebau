@@ -1,9 +1,10 @@
-from caluma.caluma_form.models import Answer
+from caluma.caluma_form.models import Answer, QuestionOption
 from django.core.management.base import BaseCommand
 from django.db import transaction
+from django.db.models import Q
 
 from camac.constants import kt_uri as uri_constants
-from camac.instance.models import Instance
+from camac.instance.models import Form, Instance
 
 OLD_BUILDING_PERMIT_IDS = [
     44,  # Baugesuch mit Kanton
@@ -39,27 +40,37 @@ class Command(BaseCommand):
         self.migrate_forms()
         self.migrate_form_types()
 
+        QuestionOption.objects.filter(
+            Q(id="form-type.form-type-building-permit-canton")
+            | Q(id="form-type.form-type-building-permit-municipality")
+            | Q(id="form-type.form-type-preliminary-clarification-canton")
+            | Q(id="form-type.form-type-preliminary-clarification-municipality")
+        ).delete()
+
+        Form.objects.filter(
+            Q(name__contains="mit kantonaler Beteiligung")
+            | Q(name__contains="ohne kantonale Beteiligung")
+        ).delete()
+
         if options["dry"]:
             transaction.savepoint_rollback(sid)
         else:
             transaction.savepoint_commit(sid)
 
     def migrate_forms(self):
-        building_permits = Instance.objects.filter(form_id__in=OLD_BUILDING_PERMIT_IDS)
-        building_permits.update(form_id=uri_constants.FORM_BAUGESUCH)
-
-        preliminary_clarifications = Instance.objects.filter(
-            form_id__in=OLD_PRELIMINARY_CLASSIFICATION_IDS
+        Instance.objects.filter(form_id__in=OLD_BUILDING_PERMIT_IDS).update(
+            form_id=uri_constants.FORM_BAUGESUCH
         )
-        preliminary_clarifications.update(form_id=uri_constants.FORM_VORABKLAERUNG)
+
+        Instance.objects.filter(form_id__in=OLD_PRELIMINARY_CLASSIFICATION_IDS).update(
+            form_id=uri_constants.FORM_VORABKLAERUNG
+        )
 
     def migrate_form_types(self):
-        building_permit_answers = Answer.objects.filter(
-            value__in=OLD_BUILDING_PERMIT_FORM_TYPES
+        Answer.objects.filter(value__in=OLD_BUILDING_PERMIT_FORM_TYPES).update(
+            value="form-type-baubewilligungsverfahren"
         )
-        building_permit_answers.update(value="form-type-baubewilligungsverfahren")
 
-        preliminary_clarifications = Answer.objects.filter(
+        Answer.objects.filter(
             value__in=OLD_PRELIMINARY_CLARIFICATION_FORM_TYPES
-        )
-        preliminary_clarifications.update(value="form-type-baugesuch-vorabklaerung")
+        ).update(value="form-type-baugesuch-vorabklaerung")

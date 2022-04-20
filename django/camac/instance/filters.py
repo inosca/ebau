@@ -19,6 +19,7 @@ from django_filters.rest_framework import (
 )
 from rest_framework.filters import BaseFilterBackend, OrderingFilter
 
+from camac.constants import kt_uri as uri_constants
 from camac.filters import (
     CharMultiValueFilter,
     JSONFieldMultiValueFilter,
@@ -315,7 +316,9 @@ class InstanceFilterSet(FilterSet):
         return queryset.filter(**_filter)
 
     def filter_with_cantonal_participation(self, queryset, name, value):
-        _filter = {"workflowentry__workflow_item_id": 16}
+        _filter = {
+            "workflowentry__workflow_item_id": uri_constants.WORKFLOW_ITEM_FORWARD_TO_KOOR
+        }
 
         if value:
             return queryset.filter(**_filter)
