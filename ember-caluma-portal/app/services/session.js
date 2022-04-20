@@ -1,8 +1,7 @@
 import { getOwner } from "@ember/application";
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
-import { dropTask } from "ember-concurrency";
-import { useTask } from "ember-resources";
+import { trackedFunction } from "ember-resources";
 import { handleUnauthorized } from "ember-simple-auth-oidc";
 import { getConfig } from "ember-simple-auth-oidc/config";
 import Session from "ember-simple-auth-oidc/services/session";
@@ -11,7 +10,11 @@ import { localCopy, cached } from "tracked-toolbox";
 
 import config from "../config/environment";
 
-const { languages, fallbackLanguage } = config;
+const {
+  languages,
+  fallbackLanguage,
+  ebau: { selectableGroups },
+} = config;
 
 const validateLanguage = (language) =>
   languages.find((lang) => lang === language);
@@ -22,54 +25,76 @@ export default class CustomSession extends Session {
   @service intl;
   @service router;
 
-  @tracked groups = [];
   @tracked enforcePublicAccess = false;
 
   @localCopy("data.language") _language;
-  @localCopy("data.group") _group;
+  @localCopy("data.groupId") _groupId;
 
-  user = useTask(this, this.fetchUser, () => [this.isAuthenticated]);
-
-  @dropTask
-  *fetchUser() {
-    yield Promise.resolve();
+  fetchUser = trackedFunction(this, async () => {
+    await Promise.resolve();
 
     if (!this.isAuthenticated) return null;
 
-    const response = yield this.fetch
+    const response = await this.fetch
       .fetch("/api/v1/me")
       .then((res) => res.json());
 
     this.store.push(this.store.normalize("user", response.data));
 
     return this.store.peekRecord("user", response.data.id);
+  });
+
+  fetchGroups = trackedFunction(this, async () => {
+    await Promise.resolve();
+
+    if (!this.isAuthenticated) return [];
+
+    const response = await this.store.query("public-group", {
+      role: selectableGroups.roles.join(","),
+      include: ["service", "service.service_group", "role"].join(","),
+    });
+
+    if (
+      this.groupId &&
+      !response.find((g) => parseInt(g.id) === parseInt(this.groupId))
+    ) {
+      // There's a group saved to the session that is not selectable - we need
+      // to clear it
+      this.groupId = null;
+    }
+
+    return response;
+  });
+
+  get user() {
+    return this.fetchUser.value;
   }
 
-  get currentService() {
-    return this.groups.find((group) => group.id === this.group)?.get("service");
+  get groups() {
+    return this.fetchGroups.value;
   }
 
-  @cached
   get group() {
-    return this._group;
-  }
-
-  set group(value) {
-    // eslint-disable-next-line ember/classic-decorator-no-classic-methods
-    this.set("data.group", value);
-    this._group = value;
-  }
-
-  get showInternalLink() {
-    return Boolean(this.groups.content?.length);
+    return this.groups?.find((g) => parseInt(g.id) === parseInt(this.groupId));
   }
 
   get isInternal() {
-    return Boolean(this.group);
+    return Boolean(this.groupId);
   }
 
   get isSupport() {
-    return config.ebau.supportGroups.includes(parseInt(this.group));
+    return config.ebau.supportGroups.includes(parseInt(this.groupId));
+  }
+
+  @cached
+  get groupId() {
+    return this._groupId;
+  }
+
+  set groupId(value) {
+    // eslint-disable-next-line ember/classic-decorator-no-classic-methods
+    this.set("data.groupId", value);
+    this._groupId = value;
   }
 
   @cached
@@ -108,7 +133,7 @@ export default class CustomSession extends Session {
 
     return {
       ...(token ? { [tokenKey]: `${authPrefix} ${token}` } : {}),
-      ...(this.group ? { "x-camac-group": this.group } : {}),
+      ...(this.groupId ? { "x-camac-group": this.groupId } : {}),
       ...(this.enforcePublicAccess ? { "x-camac-public-access": true } : {}),
       ...(publicAccessKey
         ? { "x-camac-public-access-key": publicAccessKey }
