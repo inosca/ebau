@@ -56524,36 +56524,6 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "form-type.form-type-building-permit-canton",
-    "fields": {
-      "created_at": "2022-03-14T08:11:13.018Z",
-      "modified_at": "2022-03-14T08:11:13.018Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": "admin",
-      "modified_by_group": null,
-      "question": "form-type",
-      "option": "form-type-building-permit-canton",
-      "sort": 22
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "form-type.form-type-building-permit-municipality",
-    "fields": {
-      "created_at": "2022-03-14T08:11:13.008Z",
-      "modified_at": "2022-03-14T08:11:13.008Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": "admin",
-      "modified_by_group": null,
-      "question": "form-type",
-      "option": "form-type-building-permit-municipality",
-      "sort": 19
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-commercial-permit",
     "fields": {
       "created_at": "2022-03-14T08:11:12.975Z",
@@ -57225,36 +57195,6 @@
       "question": "form-type",
       "option": "form-type-pgv-vereinfachtes-verfahren",
       "sort": 49
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "form-type.form-type-preliminary-clarification-canton",
-    "fields": {
-      "created_at": "2022-03-14T08:11:13.005Z",
-      "modified_at": "2022-03-14T08:11:13.005Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": "admin",
-      "modified_by_group": null,
-      "question": "form-type",
-      "option": "form-type-preliminary-clarification-canton",
-      "sort": 18
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "form-type.form-type-preliminary-clarification-municipality",
-    "fields": {
-      "created_at": "2022-03-14T08:11:12.995Z",
-      "modified_at": "2022-03-14T08:11:12.995Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": "admin",
-      "modified_by_group": null,
-      "question": "form-type",
-      "option": "form-type-preliminary-clarification-municipality",
-      "sort": 15
     }
   },
   {
