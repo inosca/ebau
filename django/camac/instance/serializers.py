@@ -843,6 +843,12 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
                 caluma_form = self.initial_data.get("caluma_form")
 
             is_paper = caluma_api.is_paper(source_instance)
+
+            # If the source instance is a project modification, the new
+            # instance must be one as well
+            is_modification = is_modification or caluma_api.is_modification(
+                source_instance
+            )
         else:
             is_modification = False
             caluma_form = self.initial_data.get("caluma_form", None)
