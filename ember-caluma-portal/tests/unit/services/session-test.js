@@ -15,7 +15,7 @@ module("Unit | Service | session", function (hooks) {
     });
 
     service.language = "de";
-    service.group = 5;
+    service.groupId = 5;
 
     assert.deepEqual(service.headers, {
       authorization: "Bearer opensesame",
