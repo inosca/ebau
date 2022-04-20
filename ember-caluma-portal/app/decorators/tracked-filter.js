@@ -12,7 +12,8 @@ import { cached } from "tracked-toolbox";
  *
  * It provides an `_applyFilters` and `_resetFilters` method on the current
  * object as well as a `_filters` tracked object which stores the intermediate
- * filters and a `_filtersConfig` object which holds the filter configuration.
+ * filters including their dirty state and a `_filtersConfig` object which holds
+ * the filter configuration.
  *
  * Usage example:
  *
@@ -54,14 +55,18 @@ export default function trackedFilter({
     if (!Object.prototype.hasOwnProperty.call(target, "_filters")) {
       target._filters = new TrackedObject();
       target._applyFilters = function () {
-        this._filtersConfig.forEach(({ privateKey, publicKey, serialize }) => {
-          this[privateKey] = serialize.call(this, this[publicKey]);
-        });
+        this._filtersConfig.forEach(
+          ({ privateKey, publicKey, dirtyKey, serialize }) => {
+            this[privateKey] = serialize.call(this, this[publicKey]);
+            this._filters[dirtyKey] = false;
+          }
+        );
       };
       target._resetFilters = function () {
         this._filtersConfig.forEach(
-          ({ publicKey, privateKey, defaultValue }) => {
+          ({ publicKey, privateKey, dirtyKey, defaultValue }) => {
             this._filters[publicKey] = defaultValue;
+            this._filters[dirtyKey] = false;
             this[privateKey] = defaultValue;
           }
         );
@@ -69,6 +74,7 @@ export default function trackedFilter({
     }
 
     const privateKey = `_${property}`;
+    const dirtyKey = `${property}Dirty`;
 
     Object.defineProperty(
       target,
@@ -77,9 +83,17 @@ export default function trackedFilter({
     );
 
     target._filters[property] = defaultValue;
+    target._filters[dirtyKey] = false;
     target._filtersConfig = [
       ...(target._filtersConfig ?? []),
-      { privateKey, publicKey: property, serialize, deserialize, defaultValue },
+      {
+        privateKey,
+        publicKey: property,
+        dirtyKey,
+        serialize,
+        deserialize,
+        defaultValue,
+      },
     ];
 
     return cached(target, property, {
@@ -90,7 +104,9 @@ export default function trackedFilter({
         const targetValue = this[privateKey];
 
         const value =
-          filtersValue === defaultValue && targetValue !== defaultValue
+          filtersValue === defaultValue &&
+          targetValue !== defaultValue &&
+          !this._filters[dirtyKey]
             ? targetValue
             : filtersValue;
 
@@ -98,6 +114,7 @@ export default function trackedFilter({
       },
       set(value) {
         this._filters[property] = serialize.call(this, value);
+        this._filters[dirtyKey] = true;
       },
     });
   };
