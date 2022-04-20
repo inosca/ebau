@@ -238,7 +238,7 @@ build-kt_schwyz-production:
     APPLICATION: kt_schwyz
     # TODO We should make kt_schwyz-prod.yml base on kt_schwyz.yml
     COMPOSE: docker-compose -f compose/kt_schwyz-prod.yml
-    CONTAINERS: ember ember-camac-ng django php db
+    CONTAINERS: ember ember-camac-ng django php
   only:
     - production-sz
 
