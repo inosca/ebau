@@ -26,7 +26,7 @@
                 alt={{t "global.title-ur"}}
               />
             {{/if}}
-            {{#if (and this.session.isAuthenticated this.session.showInternalLink)}}
+            {{#if this.session.groups.length}}
               <div class="uk-margin-small-top uk-margin-small-bottom">
                 <a href="{{this.internalLink}}" class="be-navbar-internal-link">
                   {{t "nav.internal"}}
@@ -66,14 +66,14 @@
         <div class="uk-navbar-right">
           <ul class="uk-navbar-nav">
             {{#if this.session.isAuthenticated}}
-              <li {{did-insert (perform this.fetchGroups)}}>
+              <li>
                 <a href="#">
-                  {{this.session.user.value.fullName}}
-                  {{#if this.group}}
-                    ({{this.group.name}})
+                  {{this.session.user.fullName}}
+                  {{#if this.session.group}}
+                    ({{this.session.group.name}})
                   {{/if}}
                 </a>
-                {{#if this.groups.length}}
+                {{#if this.session.groups.length}}
                   <div
                     uk-dropdown
                     animation="uk-animation-slide-top-small"
@@ -82,7 +82,7 @@
                     pos="bottom-right"
                   >
                     <ul class="uk-nav uk-dropdown-nav">
-                      <li class={{unless this.group "uk-active"}}>
+                      <li class={{unless this.session.group "uk-active"}}>
                         <a
                           data-test-no-group
                           href="#"
@@ -92,8 +92,8 @@
                         </a>
                       </li>
                       <li class="uk-nav-divider"></li>
-                      {{#each this.groups as |g|}}
-                        <li class={{if (eq g.id this.group.id) "uk-active"}}>
+                      {{#each this.session.groups as |g|}}
+                        <li class={{if (eq g.id this.session.group.id) "uk-active"}}>
                           <a
                             data-test-group={{g.id}}
                             href="#"
