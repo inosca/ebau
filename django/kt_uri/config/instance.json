@@ -1,16 +1,6 @@
 [
   {
     "model": "instance.form",
-    "pk": 21,
-    "fields": {
-      "form_state": 1,
-      "name": "Baugesuch-Vorabklärung mit kantonaler Beteiligung",
-      "description": "KOOR-ARE-BG;Koordinationsstelle für Baueingaben Amt für Raumentwicklung",
-      "family": null
-    }
-  },
-  {
-    "model": "instance.form",
     "pk": 41,
     "fields": {
       "form_state": 1,
@@ -41,16 +31,6 @@
   },
   {
     "model": "instance.form",
-    "pk": 44,
-    "fields": {
-      "form_state": 1,
-      "name": "Baubewilligungsverfahren mit kantonaler Beteiligung",
-      "description": "KOOR-ARE-BG;Koordinationsstelle für Baueingaben Amt für Raumentwicklung",
-      "family": null
-    }
-  },
-  {
-    "model": "instance.form",
     "pk": 45,
     "fields": {
       "form_state": 1,
@@ -66,26 +46,6 @@
       "form_state": 1,
       "name": "Mitberichtsverfahren / PGV für militärische Bauten",
       "description": "KOOR-ARE-BG;Koordinationsstelle für Baueingaben Amt für Raumentwicklung",
-      "family": null
-    }
-  },
-  {
-    "model": "instance.form",
-    "pk": 47,
-    "fields": {
-      "form_state": 1,
-      "name": "Baubewilligungsverfahren ohne kantonale Beteiligung",
-      "description": "",
-      "family": null
-    }
-  },
-  {
-    "model": "instance.form",
-    "pk": 61,
-    "fields": {
-      "form_state": 1,
-      "name": "Baugesuch-Vorabklärung ohne kantonale Beteiligung",
-      "description": "",
       "family": null
     }
   },
@@ -626,6 +586,26 @@
       "form_state": 1,
       "name": "Meldung Gebäudetechnik",
       "description": "KOOR-ARE-BG;Koordinationsstelle für Baueingaben Amt für Raumentwicklung",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 298,
+    "fields": {
+      "form_state": 1,
+      "name": "Baubewilligungsverfahren",
+      "description": null,
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 299,
+    "fields": {
+      "form_state": 1,
+      "name": "Baugesuch-Vorabklärung",
+      "description": null,
       "family": null
     }
   },

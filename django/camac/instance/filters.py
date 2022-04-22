@@ -19,6 +19,7 @@ from django_filters.rest_framework import (
 )
 from rest_framework.filters import BaseFilterBackend, OrderingFilter
 
+from camac.constants import kt_uri as uri_constants
 from camac.filters import (
     CharMultiValueFilter,
     JSONFieldMultiValueFilter,
@@ -280,6 +281,9 @@ class InstanceFilterSet(FilterSet):
     pending_sanctions_control_instance = NumberFilter(
         method="filter_pending_sanctions_control_instance"
     )
+    with_cantonal_participation = BooleanFilter(
+        method="filter_with_cantonal_participation"
+    )
 
     def filter_is_applicant(self, queryset, name, value):
         if value:
@@ -310,6 +314,15 @@ class InstanceFilterSet(FilterSet):
         }
 
         return queryset.filter(**_filter)
+
+    def filter_with_cantonal_participation(self, queryset, name, value):
+        _filter = {
+            "workflowentry__workflow_item_id": uri_constants.WORKFLOW_ITEM_FORWARD_TO_KOOR
+        }
+
+        if value:
+            return queryset.filter(**_filter)
+        return queryset.exclude(**_filter)
 
     def filter_address_sz(self, queryset, name, value):
         address_form_fields = settings.APPLICATION.get("ADDRESS_FORM_FIELDS", [])
@@ -352,6 +365,7 @@ class InstanceFilterSet(FilterSet):
             "has_pending_billing_entry",
             "has_pending_sanction",
             "pending_sanctions_control_instance",
+            "with_cantonal_participation",
         )
 
 
