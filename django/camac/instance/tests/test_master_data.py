@@ -403,6 +403,15 @@ def ur_master_data_case(db, ur_instance, workflow_entry_factory, camac_answer_fa
         label={"de": "Altdorf"},
     )
 
+    # Authority
+    add_answer(document, "leitbehoerde", "1")
+    caluma_form_factories.DynamicOptionFactory(
+        question_id="leitbehoerde",
+        document=ur_instance.case.document,
+        slug="1",
+        label={"de": "Leitbehörde Altdorf"},
+    )
+
     # Plot
     add_table_answer(
         document,
