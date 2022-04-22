@@ -379,6 +379,42 @@ def test_instance_plot_filter(
     assert len(data) == expected_count
 
 
+@pytest.mark.parametrize(
+    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
+)
+@pytest.mark.parametrize(
+    "with_cantonal_participation,expected_count", [(True, 1), (False, 2)]
+)
+def test_with_cantonal_participation_filter(
+    admin_user,
+    admin_client,
+    ur_instance,
+    instance_with_case,
+    with_cantonal_participation,
+    expected_count,
+    workflow_entry_factory,
+    instance_factory,
+):
+    instance_with_case(instance_factory(user=ur_instance.user))
+    instance_with_case(instance_factory(user=ur_instance.user))
+
+    workflow_entry_factory(
+        instance=ur_instance,
+        workflow_date="2021-07-16 08:00:06+00",
+        group=1,
+        workflow_item__pk=16,
+    )
+
+    url = reverse("instance-list")
+    response = admin_client.get(
+        url, data={"with_cantonal_participation": with_cantonal_participation}
+    )
+
+    assert response.status_code == status.HTTP_200_OK
+    data = response.json()["data"]
+    assert len(data) == expected_count
+
+
 @pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
 @pytest.mark.parametrize(
     "form_field_name,filter_name",
@@ -1662,9 +1698,7 @@ def test_instance_list_organization_readonly(
 
     visible_form = form_factory()
     hidden_form = form_factory()
-    mocker.patch(
-        "camac.constants.kt_uri.FORM_VORABKLAERUNG_MIT_KANTON", visible_form.pk
-    )
+    mocker.patch("camac.constants.kt_uri.FORM_VORABKLAERUNG", visible_form.pk)
 
     instance = instance_factory(
         instance_state__name="new",

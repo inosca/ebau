@@ -71,6 +71,9 @@ export default {
   intent: {
     type: "input",
   },
+  withCantonalParticipation: {
+    type: "checkbox",
+  },
   caseStatus: {
     type: "select",
     options: "caseStatusOptions",
