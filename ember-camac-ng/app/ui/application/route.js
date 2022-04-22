@@ -41,14 +41,14 @@ export default class ApplicationRoute extends Route {
     });
 
     this.calumaOptions.registerComponentOverride({
-      label: "Text input with textcomponents",
-      component: "cf-text-textcomponent",
+      label: "Text input with snippets",
+      component: "cf-snippets-text",
       type: "TextQuestion",
     });
 
     this.calumaOptions.registerComponentOverride({
-      label: "Textarea with textcomponents",
-      component: "cf-textarea-textcomponent",
+      label: "Textarea with snippets",
+      component: "cf-snippets-textarea",
       type: "TextareaQuestion",
     });
 
