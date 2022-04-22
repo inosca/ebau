@@ -28828,7 +28828,7 @@
         "min_length": null
       },
       "meta": {
-        "widgetOverride": "cf-text-textcomponent"
+        "widgetOverride": "cf-snippets-text"
       },
       "data_source": null,
       "row_form": null,
@@ -28864,7 +28864,7 @@
         "min_length": null
       },
       "meta": {
-        "widgetOverride": "cf-textarea-textcomponent"
+        "widgetOverride": "cf-snippets-textarea"
       },
       "data_source": null,
       "row_form": null,
