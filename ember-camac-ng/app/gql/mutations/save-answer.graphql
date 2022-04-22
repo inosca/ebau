@@ -1,0 +1,7 @@
+mutation SaveAnswer($document: ID!, $question: ID!, $value: String!) {
+  saveDocumentStringAnswer(
+    input: { document: $document, question: $question, value: $value }
+  ) {
+    clientMutationId
+  }
+}

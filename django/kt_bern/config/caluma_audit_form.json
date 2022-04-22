@@ -1351,6 +1351,24 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "9e063ce4-ba32-11ec-8422-0242ac120002",
+    "fields": {
+      "created_at": "2022-04-12T13:21:32.558Z",
+      "modified_at": "2022-04-12T13:21:32.558Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "bab-landwirtschaft-nutzung",
+      "value": "bab-landwirtschaft-nutzung-nein",
+      "meta": {},
+      "document": null,
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "9fb79aa9-4be8-4ad4-9078-428576d43dea",
     "fields": {
       "created_at": "2020-11-20T13:21:32.241Z",
@@ -2363,7 +2381,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-01-07-1972-um-und-ausgebaut",
-      "sort": 30
+      "sort": 31
     }
   },
   {
@@ -2378,7 +2396,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-01-07-1972-um-und-ausgebaut-meldung",
-      "sort": 29
+      "sort": 30
     }
   },
   {
@@ -2393,7 +2411,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-angaben-zonenkonform",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -2408,7 +2426,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-anzahl-sak",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -2423,7 +2441,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-anzahl-wohnungen",
-      "sort": 22
+      "sort": 23
     }
   },
   {
@@ -2438,7 +2456,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-anzahl-wohnungen-01-07-1972",
-      "sort": 21
+      "sort": 22
     }
   },
   {
@@ -2453,7 +2471,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-beilagen",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -2468,7 +2486,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-beilagen-titel",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -2483,7 +2501,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-bemerkungen",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -2498,7 +2516,22 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-bemerkungen-titel",
-      "sort": 5
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab-form.bab-bestaetigung-landwirtschaft",
+    "fields": {
+      "created_at": "2022-04-12T06:44:51.681Z",
+      "modified_at": "2022-04-12T06:44:51.681Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab-form",
+      "question": "bab-bestaetigung-landwirtschaft",
+      "sort": 36
     }
   },
   {
@@ -2513,7 +2546,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-bgf",
-      "sort": 17
+      "sort": 18
     }
   },
   {
@@ -2528,7 +2561,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-bgf-01-07-1972",
-      "sort": 16
+      "sort": 17
     }
   },
   {
@@ -2543,7 +2576,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-bgf-heute",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -2558,7 +2591,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-bgf-nach-ausbau",
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -2573,7 +2606,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-erstellung-des-gebaeudes",
-      "sort": 33
+      "sort": 34
     }
   },
   {
@@ -2588,7 +2621,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-erwerbsmaessigen-landwirtschaft",
-      "sort": 32
+      "sort": 33
     }
   },
   {
@@ -2603,7 +2636,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-erwerbsmaessigen-landwirtschaft-jahr",
-      "sort": 31
+      "sort": 32
     }
   },
   {
@@ -2618,7 +2651,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-grossvieheinheiten",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -2633,7 +2666,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-lanat-vorgeprueft",
-      "sort": 28
+      "sort": 29
     }
   },
   {
@@ -2648,7 +2681,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-lanat-vorgeprueft-bemerkungen",
-      "sort": 27
+      "sort": 28
     }
   },
   {
@@ -2663,7 +2696,22 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-land-bewirtschaftet",
-      "sort": 8
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab-form.bab-landwirtschaft-nutzung",
+    "fields": {
+      "created_at": "2022-04-12T07:17:51.875Z",
+      "modified_at": "2022-04-12T07:17:51.876Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab-form",
+      "question": "bab-landwirtschaft-nutzung",
+      "sort": 1
     }
   },
   {
@@ -2678,7 +2726,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-naehe-von-schutzenswerten-gebaeuden",
-      "sort": 26
+      "sort": 27
     }
   },
   {
@@ -2693,7 +2741,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-naehe-von-schutzenswerten-gebaeuden-meldung",
-      "sort": 25
+      "sort": 26
     }
   },
   {
@@ -2708,7 +2756,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-nnf",
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -2723,7 +2771,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-nnf-01-07-1972",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -2738,7 +2786,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-nnf-heute",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -2753,7 +2801,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-nnf-nach-ausbau",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -2768,7 +2816,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-nutzung",
-      "sort": 20
+      "sort": 21
     }
   },
   {
@@ -2783,7 +2831,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-nutzung-01-07-1972",
-      "sort": 19
+      "sort": 20
     }
   },
   {
@@ -2798,7 +2846,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-nutzung-01-07-1972-andere",
-      "sort": 18
+      "sort": 19
     }
   },
   {
@@ -2813,7 +2861,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-ortsschutzperimeter",
-      "sort": 24
+      "sort": 25
     }
   },
   {
@@ -2828,7 +2876,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-ortsschutzperimeter-bemerkungen",
-      "sort": 23
+      "sort": 24
     }
   },
   {
@@ -2843,7 +2891,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-streusiedlungsgebiet",
-      "sort": 34
+      "sort": 35
     }
   },
   {
@@ -2858,7 +2906,7 @@
       "modified_by_group": null,
       "form": "bab-form",
       "question": "bab-validate",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -8520,6 +8568,22 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "bab-bestaetigung-landwirtschaft-ja",
+    "fields": {
+      "created_at": "2022-04-12T12:12:13.820Z",
+      "modified_at": "2022-04-12T12:18:40.412Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Die Gemeinde best\\u00e4tigt die Richtigkeit der Angaben im Spezialformular \\\"Landwirtschaft\\\"\", \"fr\": \"La commune confirme l'exactitude des informations figurant sur le formulaire sp\\u00e9cial \\\"Agriculture\\\"\"}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "bab-erstellung-des-gebaeudes-nach-dem-30-06-1972",
     "fields": {
       "created_at": "2021-12-03T15:42:47.959Z",
@@ -8609,6 +8673,38 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\"}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-landwirtschaft-nutzung-ja",
+    "fields": {
+      "created_at": "2022-04-12T07:17:51.255Z",
+      "modified_at": "2022-04-12T08:37:13.602Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-landwirtschaft-nutzung-nein",
+    "fields": {
+      "created_at": "2022-04-12T07:17:51.317Z",
+      "modified_at": "2022-04-12T08:37:13.597Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -18585,6 +18681,39 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "bab-bestaetigung-landwirtschaft",
+    "fields": {
+      "created_at": "2022-04-12T06:44:51.461Z",
+      "modified_at": "2022-04-12T12:18:41.275Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Die Gemeinde best\\u00e4tigt die Richtigkeit der Angaben im Spezialformular \\\"Landwirtschaft\\\"\", \"fr\": \"La commune confirme l'exactitude des informations figurant sur le formulaire sp\\u00e9cial \\\"Agriculture\\\"\"}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "'bab-landwirtschaft-nutzung'|answer != 'bab-landwirtschaft-nutzung-ja'",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"Falls die Angaben im Spezialformular **Landwirtschaft** fehlen oder nicht korrekt sind, k\\u00f6nnen diese \\u00fcber die Funktion **Dossier korrigieren** angepasst werden.\", \"fr\": \"Si les informations figurant sur le formulaire sp\\u00e9cial **Agriculture** sont manquantes ou incorrectes, elles peuvent \\u00eatre corrig\\u00e9es \\u00e0 l'aide de la fonction **Corriger le dossier**.\"}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "bab-bgf",
     "fields": {
       "created_at": "2020-10-14T07:31:35.966Z",
@@ -19003,6 +19132,40 @@
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bab-landwirtschaft-nutzung",
+    "fields": {
+      "created_at": "2022-04-12T07:17:51.631Z",
+      "modified_at": "2022-04-12T08:37:13.838Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Landwirtschaft Nutzung\", \"fr\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": "cf-field/input/hidden"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": "9e063ce4-ba32-11ec-8422-0242ac120002",
       "calc_expression": null,
       "calc_dependents": "[]"
     }
@@ -31434,6 +31597,21 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "bab-bestaetigung-landwirtschaft.bab-bestaetigung-landwirtschaft-ja",
+    "fields": {
+      "created_at": "2022-04-12T12:18:41.304Z",
+      "modified_at": "2022-04-12T12:18:41.304Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "bab-bestaetigung-landwirtschaft",
+      "option": "bab-bestaetigung-landwirtschaft-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "bab-erstellung-des-gebaeudes.bab-erstellung-des-gebaeudes-nach-dem-30-06-1972",
     "fields": {
       "created_at": "2021-12-03T15:54:50.426Z",
@@ -31519,6 +31697,36 @@
       "modified_by_group": null,
       "question": "bab-lanat-vorgeprueft",
       "option": "bab-lanat-vorgeprueft-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-landwirtschaft-nutzung.bab-landwirtschaft-nutzung-ja",
+    "fields": {
+      "created_at": "2022-04-12T08:37:13.853Z",
+      "modified_at": "2022-04-12T08:37:13.853Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "bab-landwirtschaft-nutzung",
+      "option": "bab-landwirtschaft-nutzung-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-landwirtschaft-nutzung.bab-landwirtschaft-nutzung-nein",
+    "fields": {
+      "created_at": "2022-04-12T08:37:13.847Z",
+      "modified_at": "2022-04-12T08:37:13.847Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "bab-landwirtschaft-nutzung",
+      "option": "bab-landwirtschaft-nutzung-nein",
       "sort": 1
     }
   },
