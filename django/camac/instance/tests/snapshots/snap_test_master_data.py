@@ -494,6 +494,10 @@ snapshots['test_master_data[kt_uri-de-ur_master_data_case-select_related2-prefet
         }
     ],
     'approval_reason': '5031',
+    'authority': {
+        'label': 'Altdorf',
+        'slug': '1'
+    },
     'buildings': [
         {
             'building_category': 1060,
