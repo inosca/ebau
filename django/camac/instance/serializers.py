@@ -1975,6 +1975,7 @@ class PublicCalumaInstanceSerializer(serializers.Serializer):  # pragma: no cove
     legal_state = serializers.SerializerMethodField()
     instance_state = serializers.SerializerMethodField()
     form_type = serializers.SerializerMethodField()
+    authority = serializers.SerializerMethodField()
 
     _master_data_cache = {}
 
@@ -2043,6 +2044,12 @@ class PublicCalumaInstanceSerializer(serializers.Serializer):  # pragma: no cove
     def get_form_type(self, case):
         if settings.APPLICATION.get("USE_OEREB_FIELDS_FOR_PUBLIC_ENDPOINT"):
             return self.get_master_data(case).form_type
+        return ""
+
+    def get_authority(self, case):
+        if settings.APPLICATION.get("USE_OEREB_FIELDS_FOR_PUBLIC_ENDPOINT"):
+            authority = self.get_master_data(case).authority
+            return authority.get("label") if authority else None
         return ""
 
     class Meta:
