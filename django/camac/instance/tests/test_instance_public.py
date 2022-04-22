@@ -6,7 +6,7 @@ from caluma.caluma_form.factories import (
     DocumentFactory,
     DynamicOptionFactory,
 )
-from caluma.caluma_form.models import Question
+from caluma.caluma_form.models import DynamicOption, Question
 from caluma.caluma_workflow.factories import WorkItemFactory
 from django.conf import settings
 from django.urls import clear_url_caches, reverse
@@ -195,6 +195,16 @@ def test_public_caluma_instance_oereb_ur(
     oereb_group = group_factory(role=role)
     user_group_factory(user=admin_client.user, group=oereb_group)
 
+    dynamic_option = DynamicOption.objects.create(
+        document=ur_instance.case.document,
+        question_id="leitbehoerde",
+        slug="1",
+        label="Leitbehörde Altdorf",
+    )
+    ur_instance.case.document.answers.create(
+        question_id="leitbehoerde", value=dynamic_option.slug
+    )
+
     AnswerFactory(
         question=Question.objects.create(
             slug="oereb-thema", type=Question.TYPE_MULTIPLE_CHOICE
@@ -225,6 +235,7 @@ def test_public_caluma_instance_oereb_ur(
         assert result[0]["attributes"]["oereb-topic"] == ["oereb-thema-kpz"]
         assert result[0]["attributes"]["legal-state"] == "typ-des-verfahrens-meldung"
         assert result[0]["attributes"]["dossier-nr"] == "1201-20-001"
+        assert result[0]["attributes"]["authority"] == "Leitbehörde Altdorf"
 
 
 @pytest.mark.parametrize("role__name", ["Applicant"])
