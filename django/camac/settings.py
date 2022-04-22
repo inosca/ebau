@@ -2448,6 +2448,11 @@ APPLICATIONS = {
                 "answer",
                 "form-type",
             ),
+            "authority": (
+                "answer",
+                "leitbehoerde",
+                {"value_parser": "dynamic_option"},
+            ),
             "plot_data": (
                 "table",
                 "parcels",
