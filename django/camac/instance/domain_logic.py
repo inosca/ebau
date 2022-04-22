@@ -269,7 +269,7 @@ class CreateInstanceLogic:
             new_document = caluma_api.copy_document(
                 source_instance.case.document.pk,
                 exclude_form_slugs=(
-                    ["6-dokumente", "7-bestaetigung", "8-freigabequittung"]
+                    ["7-bestaetigung", "8-freigabequittung"]
                     if is_modification
                     else ["8-freigabequittung"]
                 ),
@@ -439,13 +439,14 @@ class CreateInstanceLogic:
                 activation_date=None,
             )
 
-        if source_instance and not is_modification:
+        if source_instance:
             if settings.APPLICATION.get("LINK_INSTANCES_ON_COPY"):
                 link_instances(instance, source_instance)  # pragma: no cover
-            CreateInstanceLogic.copy_applicants(source_instance, instance)
             CreateInstanceLogic.copy_attachments(source_instance, instance)
-            instance.form = source_instance.form
-            instance.save()
+            if not is_modification:
+                CreateInstanceLogic.copy_applicants(source_instance, instance)
+                instance.form = source_instance.form
+                instance.save()
         elif extend_validity_for:
             extend_validity_instance = models.Instance.objects.get(
                 pk=extend_validity_for
