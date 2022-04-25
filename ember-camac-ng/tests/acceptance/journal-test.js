@@ -32,7 +32,7 @@ module("Acceptance | journal", function (hooks) {
 
     await visit(`/instances/${this.instance.id}/journal`);
 
-    assert.dom("article").exists({ count: 5 });
+    assert.dom(".uk-card").exists({ count: 5 });
   });
 
   test("it handles empty state", async function (assert) {
@@ -48,8 +48,8 @@ module("Acceptance | journal", function (hooks) {
     await fillIn("[data-test-textarea]", "Lorem ipsum");
     await click("[data-test-save]");
 
-    assert.dom("article").exists({ count: 1 });
-    assert.dom(".uk-comment-body").hasText("Lorem ipsum");
+    assert.dom(".uk-card").exists({ count: 1 });
+    assert.dom(".journal-entry-text").hasText("Lorem ipsum");
   });
 
   test("it can edit a journal entry", async function (assert) {
@@ -63,10 +63,10 @@ module("Acceptance | journal", function (hooks) {
     await visit(`/instances/${this.instance.id}/journal`);
 
     await click("[data-test-edit-entry]");
-    await fillIn(".uk-comment [data-test-textarea]", "Lorem ipsum");
-    await click(".uk-comment [data-test-save]");
+    await fillIn("[data-test-textarea]", "Lorem ipsum");
+    await click("[data-test-save]");
 
-    assert.dom("article").exists({ count: 1 });
-    assert.dom(".uk-comment-body").hasText("Lorem ipsum");
+    assert.dom(".uk-card").exists({ count: 1 });
+    assert.dom(".journal-entry-text").hasText("Lorem ipsum");
   });
 });

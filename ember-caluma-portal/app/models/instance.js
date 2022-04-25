@@ -6,6 +6,11 @@ import { lastValue, dropTask } from "ember-concurrency";
 import getEbauNumberQuery from "caluma-portal/gql/queries/get-ebau-number.graphql";
 import getFormQuery from "caluma-portal/gql/queries/get-form.graphql";
 
+/**
+ * Portal-specific instance model
+ *
+ * TODO: Consolidate with instance model in ember-ebau-core
+ */
 export default class Instance extends Model {
   @service intl;
   @queryManager apollo;
