@@ -5,9 +5,9 @@ import { inject as service } from "@ember/service";
 import { decodeId } from "@projectcaluma/ember-core/helpers/decode-id";
 import { queryManager } from "ember-apollo-client";
 import { dropTask, lastValue } from "ember-concurrency";
+import getCaseMeta from "ember-ebau-core/gql/queries/get-case-meta.graphql";
 
 import getAudit from "camac-ng/gql/queries/get-audit.graphql";
-import getCaseMeta from "camac-ng/gql/queries/get-case-meta.graphql";
 import Audit from "camac-ng/ui/audit/audit";
 
 export default class AuditController extends Controller {
