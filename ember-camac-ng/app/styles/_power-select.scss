@@ -13,11 +13,14 @@ $ember-power-select-default-border-radius: 0;
 
 .ember-power-select-trigger-multiple-input {
   border: none !important;
+  padding: 0 8px !important;
+  font-weight: inherit;
 }
 
+.ember-power-select-placeholder,
 .ember-power-select-selected-item {
   white-space: nowrap;
-  margin-left: 2px;
+  margin-left: 9px !important;
 }
 
 .ember-power-select-option {
