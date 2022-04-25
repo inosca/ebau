@@ -480,9 +480,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         )["total"]
 
     def get_activations(self, instance):
-        visibility_config = settings.APPLICATION.get(
-            "PLACEHOLDER_ACTIVATION_VISIBILITIES"
-        )
+        visibility_config = settings.APPLICATION.get("INTER_SERVICE_GROUP_VISIBILITIES")
 
         if not visibility_config:  # Kt. UR
             activations = instance.activations.all()
