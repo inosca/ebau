@@ -46,6 +46,15 @@ class PublicServiceFilterSet(FilterSet):
         if not value:
             return queryset  # pragma: no cover
 
+        group = self.request.group.pk
+        service_group_mapping = settings.APPLICATION.get(
+            "SERVICE_GROUPS_FOR_DISTRIBUTION", {}
+        )
+        if group in service_group_mapping.get("groups", {}):
+            return self._available_in_distribution_for_municipality(
+                queryset, name, value
+            )
+
         # Services can invite subservices
         service = self.request.group.service
         return queryset.filter(service_parent=service)
@@ -58,7 +67,10 @@ class PublicServiceFilterSet(FilterSet):
         service_group_mapping = settings.APPLICATION.get(
             "SERVICE_GROUPS_FOR_DISTRIBUTION", {}
         )
-        service_groups = service_group_mapping.get(group.role.name, [])
+
+        groups = service_group_mapping.get("groups", {})
+        roles = service_group_mapping.get("roles", {})
+        service_groups = groups.get(group.pk, []) or roles.get(group.role.name, [])
         filters = []
         for config in service_groups:
             if config["localized"]:
@@ -72,9 +84,6 @@ class PublicServiceFilterSet(FilterSet):
                 filters.append(Q(service_group__pk=config["id"]))
 
         return queryset.filter(reduce(lambda a, b: a | b, filters)).distinct()
-
-    def _available_in_distribution_for_canton(self, queryset, name, value):
-        return self._available_in_distribution_for_municipality(queryset, name, value)
 
     class Meta:
         model = models.Service

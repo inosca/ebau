@@ -247,7 +247,7 @@ class InstanceSubmitDateFilter(DateFilter):
 class InstanceFilterSet(FilterSet):
     instance_id = NumberMultiValueFilter()
     identifier = CharFilter(field_name="identifier", lookup_expr="icontains")
-    service = NumberFilter(field_name="circulations__activations__service")
+    service = NumberFilter(method="filter_circulation_service")
     creation_date_after = DateFilter(
         field_name="creation_date__date", lookup_expr="gte"
     )
@@ -347,6 +347,26 @@ class InstanceFilterSet(FilterSet):
         if value:
             return queryset.filter(**_filter)
         return queryset.exclude(**_filter)
+
+    def filter_circulation_service(self, queryset, name, value):
+        if settings.DISTRIBUTION:
+            return queryset.filter(
+                Exists(
+                    WorkItem.objects.filter(
+                        Q(case__family=OuterRef("case"))
+                        & Q(task__pk=settings.DISTRIBUTION["INQUIRY_TASK"])
+                        & Q(
+                            status__in=[
+                                WorkItem.STATUS_READY,
+                                WorkItem.STATUS_COMPLETED,
+                            ]
+                        )
+                        & Q(addressed_groups__contains=[str(value)])
+                    )
+                )
+            )
+
+        return queryset.filter(circulations__activations__service__pk=value)
 
     def filter_address_sz(self, queryset, name, value):
         address_form_fields = settings.APPLICATION.get("ADDRESS_FORM_FIELDS", [])

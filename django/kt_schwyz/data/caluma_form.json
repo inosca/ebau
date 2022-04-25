@@ -13,7 +13,7 @@
       "id": "785b31a9-f250-4237-aaa3-cb98de462b19",
       "meta": {},
       "family": "785b31a9-f250-4237-aaa3-cb98de462b19",
-      "form": "circulation",
+      "form": "distribution",
       "source": null,
       "history_date": "2020-11-23T14:20:56.429Z",
       "history_change_reason": null,
@@ -34,7 +34,7 @@
       "id": "468a884e-b526-4f4d-9ac9-3aa59fecaf3f",
       "meta": {},
       "family": "468a884e-b526-4f4d-9ac9-3aa59fecaf3f",
-      "form": "circulation",
+      "form": "distribution",
       "source": null,
       "history_date": "2020-11-23T14:14:50.370Z",
       "history_change_reason": null,
@@ -173,7 +173,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "family": "468a884e-b526-4f4d-9ac9-3aa59fecaf3f",
-      "form": "circulation",
+      "form": "distribution",
       "source": null,
       "meta": {}
     }
@@ -189,7 +189,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "family": "785b31a9-f250-4237-aaa3-cb98de462b19",
-      "form": "circulation",
+      "form": "distribution",
       "source": null,
       "meta": {}
     }

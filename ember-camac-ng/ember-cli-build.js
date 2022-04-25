@@ -21,6 +21,11 @@ module.exports = function (defaults) {
     fingerprint: {
       extensions: ["js", "css", "map"],
     },
+    "@embroider/macros": {
+      setOwnConfig: {
+        application: ENV,
+      },
+    },
   });
 
   app.import("node_modules/proj4/dist/proj4.js");

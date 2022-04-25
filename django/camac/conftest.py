@@ -555,8 +555,17 @@ def caluma_workflow_config_sz(db, caluma_config_sz):
     caluma_form_models.Form.objects.create(slug="baugesuch")
     caluma_form_models.Form.objects.create(slug="bauverwaltung")
     caluma_form_models.Form.objects.create(slug="main-form")
-    call_command("loaddata", settings.ROOT_DIR("kt_schwyz/config/caluma_workflow.json"))
-    return caluma_workflow_models.Workflow.objects.all()
+
+    call_command(
+        "loaddata",
+        settings.ROOT_DIR("kt_schwyz/config/caluma_workflow.json"),
+        settings.ROOT_DIR("kt_schwyz/config/caluma_distribution.json"),
+    )
+
+    yield caluma_workflow_models.Workflow.objects.all()
+
+    caluma_workflow_models.Case.objects.all().delete()
+    caluma_workflow_models.Workflow.objects.all().delete()
 
 
 def yes(lang):
@@ -965,7 +974,7 @@ def decision_factory(be_instance, document_factory, work_item_factory):
 
 @pytest.fixture
 def distribution_settings(settings):
-    distribution_dict = copy.deepcopy(DISTRIBUTION["kt_bern"])
+    distribution_dict = copy.deepcopy(DISTRIBUTION["default"])
     settings.DISTRIBUTION = distribution_dict
     return distribution_dict
 
@@ -975,6 +984,7 @@ def active_inquiry_factory(instance, service, distribution_settings):
     def factory(
         for_instance=instance,
         addressed_service=service,
+        controlling_service=service,
         status=caluma_workflow_models.WorkItem.STATUS_READY,
     ):
         return caluma_workflow_factories.WorkItemFactory(
@@ -982,7 +992,7 @@ def active_inquiry_factory(instance, service, distribution_settings):
             task_id=distribution_settings["INQUIRY_TASK"],
             status=status,
             addressed_groups=[str(addressed_service.pk)],
-            controlling_groups=[str(service.pk)],
+            controlling_groups=[str(controlling_service.pk)],
         )
 
     return factory

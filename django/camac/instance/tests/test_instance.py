@@ -615,6 +615,71 @@ def test_instance_identifier_filter(
 
 
 @pytest.mark.parametrize(
+    "instance__user,expected_count",
+    [
+        (LazyFixture("admin_user"), 1),
+    ],
+)
+def test_instance_service_filter_sz(
+    admin_client,
+    caluma_admin_user,
+    instance,
+    expected_count,
+    sz_instance,
+    service,
+    active_inquiry_factory,
+    distribution_settings,
+):
+    url = reverse("instance-list")
+
+    case = sz_instance.case
+    workflow_api.skip_work_item(
+        work_item=case.work_items.get(task_id="submit"), user=caluma_admin_user
+    )
+    workflow_api.skip_work_item(
+        work_item=case.work_items.get(task_id="complete-check"), user=caluma_admin_user
+    )
+
+    inquiry = active_inquiry_factory(sz_instance, service, status="ready")
+
+    inquiry.case = case.work_items.get(task_id="distribution").child_case
+    inquiry.save()
+
+    response = admin_client.get(url, {"service": service.pk})
+
+    assert response.status_code == status.HTTP_200_OK
+    data = response.json()["data"]
+    assert len(data) == expected_count
+
+
+@pytest.mark.parametrize(
+    "instance__user,expected_count",
+    [
+        (LazyFixture("admin_user"), 1),
+    ],
+)
+def test_instance_service_filter_ur(
+    admin_client,
+    instance,
+    expected_count,
+    ur_instance,
+    service,
+    circulation_factory,
+    activation_factory,
+):
+    url = reverse("instance-list")
+
+    circulation_factory(instance=ur_instance)
+    activation_factory(circulation=ur_instance.circulations.first(), service=service)
+
+    response = admin_client.get(url, {"service": service.pk})
+
+    assert response.status_code == status.HTTP_200_OK
+    data = response.json()["data"]
+    assert len(data) == expected_count
+
+
+@pytest.mark.parametrize(
     "role__name,instance__user", [("Municipality", LazyFixture("admin_user"))]
 )
 def test_linked_instances(

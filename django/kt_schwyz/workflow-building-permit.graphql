@@ -41,7 +41,7 @@ mutation CreateFlow3 {
     input: {
       workflow: "building-permit"
       tasks: ["complete-check"]
-      next: "['start-circulation', 'publication']|tasks"
+      next: "['distribution', 'additional-demand', 'publication', 'building-authority']|tasks"
     }
   ) {
     clientMutationId
@@ -52,8 +52,8 @@ mutation CreateFlow4 {
   addWorkflowFlow(
     input: {
       workflow: "building-permit"
-      tasks: ["start-circulation"]
-      next: "['circulation', 'additional-demand']|tasks"
+      tasks: ["distribution"]
+      next: "['make-decision']|tasks"
     }
   ) {
     clientMutationId
@@ -61,54 +61,6 @@ mutation CreateFlow4 {
 }
 
 mutation CreateFlow5 {
-  addWorkflowFlow(
-    input: {
-      workflow: "building-permit"
-      tasks: ["circulation"]
-      next: "['start-additional-circulation', 'check-statements', 'start-decision']|tasks"
-    }
-  ) {
-    clientMutationId
-  }
-}
-
-mutation CreateFlow6 {
-  addWorkflowFlow(
-    input: {
-      workflow: "building-permit"
-      tasks: ["start-additional-circulation"]
-      next: "['circulation']|tasks"
-    }
-  ) {
-    clientMutationId
-  }
-}
-
-mutation CreateFlow7 {
-  addWorkflowFlow(
-    input: {
-      workflow: "building-permit"
-      tasks: ["start-decision"]
-      next: "['make-decision', 'reopen-circulation']|tasks"
-    }
-  ) {
-    clientMutationId
-  }
-}
-
-mutation CreateFlow8 {
-  addWorkflowFlow(
-    input: {
-      workflow: "building-permit"
-      tasks: ["reopen-circulation"]
-      next: "['start-additional-circulation', 'start-decision']|tasks"
-    }
-  ) {
-    clientMutationId
-  }
-}
-
-mutation CreateFlow9 {
   addWorkflowFlow(
     input: {
       workflow: "building-permit"
@@ -120,7 +72,7 @@ mutation CreateFlow9 {
   }
 }
 
-mutation CreateFlow10 {
+mutation CreateFlow6 {
   addWorkflowFlow(
     input: {
       workflow: "building-permit"
