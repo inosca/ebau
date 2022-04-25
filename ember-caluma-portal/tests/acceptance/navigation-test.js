@@ -26,7 +26,7 @@ module("Acceptance | navigation", function (hooks) {
 
     assert
       .dom(".uk-navbar-right ul > li:nth-of-type(1) > a")
-      .hasText("Doe John");
+      .hasText("John Doe");
 
     await click(".uk-navbar-right ul > li:nth-of-type(1) > a");
 
@@ -36,13 +36,13 @@ module("Acceptance | navigation", function (hooks) {
 
     assert
       .dom(".uk-navbar-right ul > li:nth-of-type(1) > a")
-      .hasText("Doe John (Test Group)");
+      .hasText("John Doe (Test Group)");
 
     await click(".uk-dropdown ul > li:nth-of-type(1) > a");
 
     assert
       .dom(".uk-navbar-right ul > li:nth-of-type(1) > a")
-      .hasText("Doe John");
+      .hasText("John Doe");
   });
 
   testIf("be")(
