@@ -192,7 +192,7 @@ def test_template_merge(
     )
     call_command("loaddata", settings.ROOT_DIR("kt_schwyz/config/caluma_form.json"))
 
-    application_settings["PLACEHOLDER_ACTIVATION_VISIBILITIES"] = {
+    application_settings["INTER_SERVICE_GROUP_VISIBILITIES"] = {
         service_group.pk: [activation.service.service_group.pk],
     }
 

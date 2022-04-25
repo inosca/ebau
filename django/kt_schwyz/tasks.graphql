@@ -45,19 +45,6 @@ mutation CreateRejectFormTask {
   }
 }
 
-mutation CreateStartCirculationTask {
-  saveSimpleTask(
-    input: {
-      slug: "start-circulation"
-      name: "Zirkulation starten"
-      addressGroups: "['municipality']|groups"
-      leadTime: 864000 # 10 days
-    }
-  ) {
-    clientMutationId
-  }
-}
-
 mutation CreatePublicationTask {
   saveSimpleTask(
     input: {
@@ -96,96 +83,6 @@ mutation CreateSubmitAdditionalDemandTask {
   }
 }
 
-mutation CreateCirculationTask {
-  saveSimpleTask(
-    input: {
-      slug: "circulation"
-      name: "Zirkulation"
-      addressGroups: "['circulation_service']|groups"
-      isMultipleInstance: true
-    }
-  ) {
-    clientMutationId
-  }
-}
-
-mutation CreateWriteStatementTask {
-  saveSimpleTask(
-    input: {
-      slug: "write-statement"
-      name: "Stellungnahme verfassen"
-      addressGroups: "['activation_service']|groups"
-      controlGroups: "['activation_service_parent']|groups"
-    }
-  ) {
-    clientMutationId
-  }
-}
-
-mutation CreateCheckStatementTask {
-  saveSimpleTask(
-    input: {
-      slug: "check-statement"
-      name: "Stellungnahme prüfen"
-      addressGroups: "['activation_service']|groups"
-      controlGroups: "['activation_service_parent']|groups"
-      leadTime: 259200 # 3 days
-    }
-  ) {
-    clientMutationId
-  }
-}
-
-mutation CreateReviseStatementTask {
-  saveSimpleTask(
-    input: {
-      slug: "revise-statement"
-      name: "Stellungnahme überarbeiten"
-      addressGroups: "['activation_service']|groups"
-    }
-  ) {
-    clientMutationId
-  }
-}
-
-mutation CreateStartAdditionalCirculationTask {
-  saveSimpleTask(
-    input: {
-      slug: "start-additional-circulation"
-      name: "Weitere Zirkulation starten"
-      addressGroups: "['municipality']|groups"
-    }
-  ) {
-    clientMutationId
-  }
-}
-
-mutation CreateCheckStatementsTask {
-  saveSimpleTask(
-    input: {
-      slug: "check-statements"
-      name: "Stellungnahmen prüfen"
-      addressGroups: "['municipality']|groups"
-      leadTime: 864000 # 10 days
-    }
-  ) {
-    clientMutationId
-  }
-}
-
-mutation CreateStartDecisionTask {
-  saveSimpleTask(
-    input: {
-      slug: "start-decision"
-      name: "Entscheid starten"
-      addressGroups: "['municipality']|groups"
-      leadTime: 864000 # 10 days
-    }
-  ) {
-    clientMutationId
-  }
-}
-
 mutation CreateMakeDecisionTask {
   saveSimpleTask(
     input: {
@@ -193,18 +90,6 @@ mutation CreateMakeDecisionTask {
       name: "Entscheid verfügen"
       addressGroups: "['municipality']|groups"
       leadTime: 864000 # 10 days
-    }
-  ) {
-    clientMutationId
-  }
-}
-
-mutation CreateReopenCirculationTask {
-  saveSimpleTask(
-    input: {
-      slug: "reopen-circulation"
-      name: "Zurück in Zirkulation"
-      addressGroups: "['municipality']|groups"
     }
   ) {
     clientMutationId

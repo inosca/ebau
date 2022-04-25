@@ -2,17 +2,16 @@ from datetime import timedelta
 
 import pytest
 from caluma.caluma_core.relay import extract_global_id
-from caluma.caluma_form import (
-    factories as caluma_form_factories,
-    models as caluma_form_models,
-)
+from caluma.caluma_form import factories as caluma_form_factories
 from caluma.caluma_user.models import AnonymousUser, OIDCUser
 from caluma.caluma_workflow import (
     api as workflow_api,
     factories as caluma_workflow_factories,
     models as caluma_workflow_models,
 )
+from caluma.caluma_workflow.api import skip_work_item
 from caluma.schema import schema
+from django.db.models import Q
 from django.utils import timezone
 
 from camac.caluma.extensions.visibilities import CustomVisibility, CustomVisibilitySZ
@@ -94,14 +93,14 @@ def test_document_visibility_filter(
     active_inquiry_factory(
         instance1,
         group.service,
-        caluma_workflow_models.WorkItem.STATUS_READY,
+        status=caluma_workflow_models.WorkItem.STATUS_READY,
     )
 
     instance2 = instance_with_case(instance_factory(group=group))
     active_inquiry_factory(
         instance2,
         group.service,
-        caluma_workflow_models.WorkItem.STATUS_COMPLETED,
+        status=caluma_workflow_models.WorkItem.STATUS_COMPLETED,
     )
 
     request = rf.get(
@@ -143,6 +142,114 @@ def test_document_visibility_filter(
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
+def test_work_item_visibility_sz(
+    db,
+    admin_user,
+    caluma_admin_schema_executor,
+    caluma_admin_user,
+    caluma_workflow_config_sz,
+    distribution_settings,
+    application_settings,
+    instance_with_case,
+    active_inquiry_factory,
+    group_factory,
+    instance_factory,
+    role,
+    mocker,
+):
+
+    mocker.patch(
+        "caluma.caluma_core.types.Node.visibility_classes", [CustomVisibilitySZ]
+    )
+
+    group = admin_user.groups.first()
+    instance = instance_with_case(instance_factory(group=group))
+
+    controlling_group = group
+    addressed_group = group_factory()
+    other_group = group_factory()
+    another_group = group_factory()
+
+    application_settings["INTER_SERVICE_GROUP_VISIBILITIES"] = {
+        controlling_group.service.service_group.pk: [
+            other_group.service.service_group.pk
+        ],
+    }
+
+    visible_workitems = [
+        # visible: the corresponding instance is visible and task != inquiry
+        caluma_workflow_factories.WorkItemFactory(
+            task_id="complete-check", case=instance.case, status="completed"
+        ).pk,
+        # visible: service is in controlling_groups
+        active_inquiry_factory(
+            instance,
+            addressed_service=addressed_group.service,
+            controlling_service=controlling_group.service,
+        ).pk,
+        # visible: service is in addressed_groups
+        active_inquiry_factory(
+            instance,
+            addressed_service=controlling_group.service,
+            controlling_service=other_group.service,
+        ).pk,
+        # visible: service_group of other_group visible to controlling_group
+        active_inquiry_factory(
+            instance,
+            addressed_service=other_group.service,
+            controlling_service=addressed_group.service,
+        ).pk,
+    ] + list(
+        # submit
+        caluma_workflow_models.WorkItem.objects.filter(
+            Q(case__family__instance__pk=instance.pk)
+            & ~Q(task__pk=distribution_settings["INQUIRY_TASK"])
+        ).values_list("id", flat=True)
+    )
+
+    # not visible: the corresponding instance is not visible
+    caluma_workflow_factories.WorkItemFactory(
+        task_id="complete-check",
+        case=instance_with_case(instance_factory()).case,
+        status="completed",
+    )
+    # not visible: service_group of another_group not visible to controlling_group
+    active_inquiry_factory(
+        instance,
+        addressed_service=another_group.service,
+        controlling_service=addressed_group.service,
+    )
+
+    result = caluma_admin_schema_executor(
+        """
+        query {
+            allWorkItems {
+                edges {
+                    node {
+                        id
+                    }
+                }
+            }
+        }
+    """
+    )
+
+    assert not result.errors
+    retrieved_workitems = set(
+        [
+            extract_global_id(edge["node"]["id"])
+            for edge in result.data["allWorkItems"]["edges"]
+        ]
+    )
+
+    assert len(retrieved_workitems) == 5
+
+    assert retrieved_workitems == set(
+        [str(work_item) for work_item in visible_workitems]
+    )
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
 def test_work_item_visibility(
     db,
     active_inquiry_factory,
@@ -153,7 +260,10 @@ def test_work_item_visibility(
     instance_factory,
     instance_with_case,
     role,
+    mocker,
 ):
+    mocker.patch("caluma.caluma_core.types.Node.visibility_classes", [CustomVisibility])
+
     group = admin_user.groups.first()
     visible_instance = instance_with_case(instance_factory(group=group))
     not_visible_instance = instance_with_case(instance_factory())
@@ -514,45 +624,24 @@ def test_form_visibility_sz(
 def test_case_visibility_sz(
     rf,
     expected_count,
-    instance_factory,
     caluma_admin_user,
-    instance,
+    sz_instance,
     caluma_workflow_config_sz,
-    circulation,
     exclude_child_case,
-    work_item_factory,
+    distribution_settings,
     mocker,
 ):
     mocker.patch(
         "caluma.caluma_core.types.Node.visibility_classes", [CustomVisibilitySZ]
     )
 
-    case = workflow_api.start_case(
-        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
-        form=caluma_form_models.Form.objects.get(pk="main-form"),
-        user=caluma_admin_user,
+    case = sz_instance.case
+
+    skip_work_item(
+        work_item=case.work_items.get(task_id="submit"), user=caluma_admin_user
     )
-    instance.case = case
-    instance.save()
-
-    circulation.instance = instance
-    circulation.save()
-
-    child_instance = instance_factory()
-    child_case = workflow_api.start_case(
-        workflow=caluma_workflow_models.Workflow.objects.get(pk="circulation"),
-        form=caluma_form_models.Form.objects.get(pk="main-form"),
-        family=case,
-        user=caluma_admin_user,
-    )
-
-    child_instance.case = child_case
-    child_instance.save()
-
-    work_item_factory(
-        task=caluma_workflow_models.Task.objects.get(pk="circulation"),
-        case=circulation.instance.case,
-        child_case=child_case,
+    skip_work_item(
+        work_item=case.work_items.get(task_id="complete-check"), user=caluma_admin_user
     )
 
     request = rf.get(

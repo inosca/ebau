@@ -338,12 +338,27 @@ class SchwyzInstanceSerializer(InstanceSerializer):
     def get_permissions_for_municipality(self, instance):
         if instance.instance_state.name in ["new", "subm", "arch"]:
             return {"bauverwaltung": {"read"}, "main": {"read"}}
+        elif instance.instance_state.name in ["circ", "nfd"]:
+            return {
+                "bauverwaltung": {"read", "write"},
+                "main": {"read", "write"},
+                "inquiry": {"read", "write"},
+                "inquiry-answer": {"read", "write"},
+            }
         else:
             return {"bauverwaltung": {"read", "write"}, "main": {"read", "write"}}
 
     def get_permissions_for_service(self, instance):
         if instance.instance_state.name in ["internal"]:
             return {"bauverwaltung": {"read"}, "main": {"read", "write"}}
+
+        elif instance.instance_state.name in ["circ", "nfd"]:
+            return {
+                "bauverwaltung": {"read", "write"},
+                "main": {"read", "write"},
+                "inquiry": {"read", "write"},
+                "inquiry-answer": {"read", "write"},
+            }
 
         return {"bauverwaltung": {"read"}}
 

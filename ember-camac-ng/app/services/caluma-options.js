@@ -1,6 +1,19 @@
 import { inject as service } from "@ember/service";
+import { macroCondition, getOwnConfig } from "@embroider/macros";
 import CalumaOptionsService from "@projectcaluma/ember-core/services/caluma-options";
 import { INQUIRY_STATUS } from "@projectcaluma/ember-distribution/config";
+
+const DISTRIBUTION_NEW_INQUIRY_GROUP_TYPES_MAPPING = {
+  roles: {
+    3: ["suggestions", "Baugesuchszentrale", "Fachstellen Gemeinden"], // Gemeinde
+    8: ["suggestions", "Baugesuchszentrale", "Fachstellen Gemeinden"], // Gemeinde Sachbearbeiter
+    11: ["suggestions", "Gemeinde", "Baugesuchszentrale"], // Fachstelle Leitbehörde
+    5: ["suggestions", "subservice"], // Fachstelle
+  },
+  groups: {
+    7: ["suggestions", "Externe Fachstellen", "Fachstellen"], // Baugesuchszentrale
+  },
+};
 
 export default class CustomCalumaOptionsService extends CalumaOptionsService {
   @service shoebox;
@@ -16,6 +29,10 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
 
   get currentInstanceId() {
     return this.shoebox.content.instanceId;
+  }
+
+  get currentRoleId() {
+    return this.shoebox.content.roleId;
   }
 
   async resolveGroups(identifiers) {
@@ -38,10 +55,14 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
 
   async fetchTypedGroups(types, search) {
     return await types.reduce(async (typed, type) => {
-      const filters =
+      let filters =
         type === "subservice"
           ? { service_parent: this.shoebox.content.serviceId }
           : { service_group_name: type, has_parent: false };
+
+      if (macroCondition(getOwnConfig().application === "sz")) {
+        filters = { ...filters, available_in_distribution: true };
+      }
 
       const result = await this.store.query("public-service", {
         search,
@@ -52,45 +73,129 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
     }, Promise.resolve({}));
   }
 
-  distribution = {
-    ui: { stack: true, small: true },
-    inquiry: {
-      answer: {
-        infoQuestions: [
-          "inquiry-answer-statement",
-          "inquiry-answer-ancillary-clauses",
-        ],
-        buttons: {
-          "fill-inquiry": {
-            color: "primary",
-            label: "distribution.send-answer",
+  get distribution() {
+    if (macroCondition(getOwnConfig().application === "be")) {
+      return {
+        ui: { stack: true, small: true },
+        inquiry: {
+          answer: {
+            infoQuestions: [
+              "inquiry-answer-statement",
+              "inquiry-answer-ancillary-clauses",
+            ],
+            buttons: {
+              "fill-inquiry": {
+                color: "primary",
+                label: "distribution.send-answer",
+              },
+            },
+            statusMapping: {
+              "inquiry-answer-status-positive": INQUIRY_STATUS.POSITIVE,
+              "inquiry-answer-status-negative": INQUIRY_STATUS.NEGATIVE,
+              "inquiry-answer-status-claim": INQUIRY_STATUS.NEEDS_INTERACTION,
+              "inquiry-answer-status-not-involved": INQUIRY_STATUS.POSITIVE,
+              "inquiry-answer-status-obligated": INQUIRY_STATUS.NEGATIVE,
+              "inquiry-answer-status-not-obligated": INQUIRY_STATUS.POSITIVE,
+            },
           },
         },
-        statusMapping: {
-          "inquiry-answer-status-positive": INQUIRY_STATUS.POSITIVE,
-          "inquiry-answer-status-negative": INQUIRY_STATUS.NEGATIVE,
-          "inquiry-answer-status-claim": INQUIRY_STATUS.NEEDS_INTERACTION,
-          "inquiry-answer-status-not-involved": INQUIRY_STATUS.POSITIVE,
-          "inquiry-answer-status-obligated": INQUIRY_STATUS.NEGATIVE,
-          "inquiry-answer-status-not-obligated": INQUIRY_STATUS.POSITIVE,
+        new: {
+          types: {
+            district: {
+              label: "distribution.districts",
+            },
+            municipality: {
+              label: "distribution.municipalities",
+            },
+            service: {
+              label: "distribution.services",
+            },
+            subservice: {
+              label: "distribution.subservices",
+            },
+          },
         },
-      },
-    },
-    new: {
-      types: {
-        district: {
-          label: "distribution.districts",
+      };
+    } else if (macroCondition(getOwnConfig().application === "sz")) {
+      const config = {
+        inquiry: {
+          answer: {
+            buttons: {
+              "fill-inquiry": {
+                color: "primary",
+                label: "distribution.release-for-review",
+              },
+              "check-inquiry": {
+                color: "primary",
+                label: "distribution.confirm",
+              },
+              "revise-inquiry": {
+                color: "default",
+                label: "distribution.revise",
+              },
+              "alter-inquiry": {
+                color: "primary",
+                label: "distribution.release-adjustment-for-review",
+              },
+            },
+            statusMapping: {
+              "inquiry-answer-status-further-clarification":
+                INQUIRY_STATUS.NEEDS_INTERACTION,
+              "inquiry-answer-status-not-involved": INQUIRY_STATUS.POSITIVE,
+              "inquiry-answer-status-claim": INQUIRY_STATUS.NEEDS_INTERACTION,
+              "inquiry-answer-status-legal-hearing":
+                INQUIRY_STATUS.NEEDS_INTERACTION,
+              "inquiry-answer-status-claim-legal-hearing":
+                INQUIRY_STATUS.NEEDS_INTERACTION,
+              "inquiry-answer-status-final": INQUIRY_STATUS.POSITIVE,
+              "inquiry-answer-status-opposition": INQUIRY_STATUS.NEGATIVE,
+              "inquiry-answer-status-inspection": INQUIRY_STATUS.POSITIVE,
+            },
+          },
         },
-        municipality: {
-          label: "distribution.municipalities",
+        new: {
+          types: {
+            "Externe Fachstellen": {
+              label: "distribution.external-services",
+            },
+            Fachstellen: {
+              label: "distribution.services-sz",
+            },
+            subservice: {
+              label: "distribution.subservices",
+            },
+            Gemeinde: {
+              label: "distribution.municipalities",
+            },
+            Baugesuchszentrale: {
+              label: "distribution.bgz",
+            },
+            "Fachstellen Gemeinden": {
+              label: "distribution.municipal-services",
+            },
+          },
         },
-        service: {
-          label: "distribution.services",
+      };
+
+      const activeTypes =
+        DISTRIBUTION_NEW_INQUIRY_GROUP_TYPES_MAPPING.groups[
+          this.currentGroupId
+        ] ??
+        DISTRIBUTION_NEW_INQUIRY_GROUP_TYPES_MAPPING.roles[this.currentRoleId];
+
+      return {
+        ...config,
+        new: {
+          types: Object.keys(config.new.types)
+            .filter((key) => (activeTypes ? activeTypes.includes(key) : false))
+            .reduce((obj, key) => {
+              obj[key] = config.new.types[key];
+              return obj;
+            }, {}),
         },
-        subservice: {
-          label: "distribution.subservices",
-        },
-      },
-    },
-  };
+      };
+    }
+
+    return {};
+  }
 }

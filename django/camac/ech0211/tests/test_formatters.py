@@ -131,14 +131,14 @@ def test_get_documents(db, attachment_factory, amount, with_display_name, ech_sn
     "skip,task_id,work_item_action,expected_decision,expected_state",
     [
         (
-            ["submit", "complete-check", "skip-circulation"],
+            ["submit", "complete-check", "distribution"],
             "make-decision",
             cancel_work_item,
             4,  # negative
             "denied",
         ),
         (
-            ["submit", "complete-check", "skip-circulation"],
+            ["submit", "complete-check", "distribution"],
             "make-decision",
             complete_work_item,
             1,  # positive
