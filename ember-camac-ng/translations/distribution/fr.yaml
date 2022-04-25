@@ -4,3 +4,7 @@ distribution:
   services: "Offices cantonaux et offices spécialisés"
   subservices: "Offices régionaux spécialisés"
   send-answer: "Envoyer la réponse"
+  release-for-review: "Valider pour contrôle"
+  release-adjustment-for-review: "Valider la révision pour contrôle"
+  confirm: "Confirmer"
+  revise: "Réviser"

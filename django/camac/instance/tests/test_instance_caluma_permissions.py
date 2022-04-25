@@ -121,6 +121,47 @@ def test_instance_permissions_ur(
     )
 
 
+@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
+@pytest.mark.parametrize(
+    "role__name,instance_state__name,expected_status",
+    [
+        ("Gemeinde", "new", status.HTTP_200_OK),
+        ("Gemeinde", "circ", status.HTTP_200_OK),
+        ("Gemeinde", "redac", status.HTTP_200_OK),
+        ("Gemeinde", "internal", status.HTTP_200_OK),
+        ("Fachstelle", "new", status.HTTP_200_OK),
+        ("Fachstelle", "circ", status.HTTP_200_OK),
+        ("Fachstelle", "redac", status.HTTP_200_OK),
+        ("Fachstelle", "internal", status.HTTP_200_OK),
+        ("Publikation", "new", status.HTTP_404_NOT_FOUND),
+        ("Publikation", "circ", status.HTTP_404_NOT_FOUND),
+        ("Publikation", "redac", status.HTTP_404_NOT_FOUND),
+        ("Publikation", "internal", status.HTTP_404_NOT_FOUND),
+    ],
+)
+def test_instance_permissions_sz(
+    admin_client,
+    sz_instance,
+    instance_state,
+    expected_status,
+    snapshot,
+    application_settings,
+):
+
+    application_settings["ROLE_PERMISSIONS"] = settings.APPLICATIONS["kt_schwyz"][
+        "ROLE_PERMISSIONS"
+    ]
+
+    response = admin_client.get(reverse("instance-detail", args=[sz_instance.pk]))
+
+    assert response.status_code == expected_status
+
+    if expected_status == status.HTTP_200_OK:
+        snapshot.assert_match(
+            sort_permissions(response.json()["data"]["meta"]["permissions"])
+        )
+
+
 @pytest.fixture
 def nfd_form(nfd_table_question):
     form = caluma_form_models.Form.objects.get(slug="nfd")

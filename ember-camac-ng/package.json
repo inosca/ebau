@@ -27,6 +27,7 @@
     "@ember/optional-features": "2.0.0",
     "@ember/render-modifiers": "2.0.4",
     "@ember/test-helpers": "2.8.1",
+    "@embroider/macros": "1.8.0",
     "@embroider/util": "1.8.0",
     "@faker-js/faker": "7.2.0",
     "@fortawesome/ember-fontawesome": "0.3.3",
