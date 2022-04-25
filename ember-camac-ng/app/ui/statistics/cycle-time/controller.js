@@ -7,8 +7,7 @@ import {
   restartableTask,
   timeout,
 } from "ember-concurrency";
-
-import getCaseMetaQuery from "camac-ng/gql/queries/get-case-meta.graphql";
+import getCaseMetaQuery from "ember-ebau-core/gql/queries/get-case-meta.graphql";
 
 export default class StatisticsCycleTimeController extends Controller {
   @service apollo;
