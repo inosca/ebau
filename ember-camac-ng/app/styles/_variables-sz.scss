@@ -1,4 +1,6 @@
 $global-primary-background: rgb(225, 10, 22);
+$global-muted-color: #999;
+$global-border: #e5e5e5;
 
 $global-link-color: darken($global-primary-background, 10%);
 $global-link-hover-color: darken($global-link-color, 10%);
@@ -11,4 +13,5 @@ $base-h3-font-size: 1.17em;
 $form-focus-border: rgb(87, 87, 87);
 
 /* ember-power-select */
-$ember-power-select-border-color: lightgrey;
+$ember-power-select-border-color: $global-border;
+$ember-power-select-placeholder-color: $global-muted-color;

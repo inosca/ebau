@@ -1,35 +1,33 @@
-<div class="uk-margin-bottom" {{did-insert (perform this.fetchFilterData)}}>
-  <h2>
-    {{t "cases.filter"}}
-  </h2>
-  <form {{on "submit" this.applyFilter}}>
-    <div class="uk-grid uk-grid-column-small uk-grid-row-collapse uk-margin-small-bottom">
-      {{#each this.activeCaseFilters as |filterName|}}
-        {{#let (get this.caseFilters filterName) as |filterConfig|}}
-          {{#let
-            (component
-              (concat "case-filter/" filterConfig.type)
-            ) as |CaseFilterComponent|
-          }}
-            <CaseFilterComponent
-              @filterName={{filterName}}
-              @value={{get this._filter filterName}}
-              @updateFilter={{fn this.updateFilter filterName}}
-              @filterOptions={{get this.filterData filterConfig.options}}
-              @valueField={{filterConfig.valueField}}
-              @labelField={{filterConfig.labelField}}
-              @maxDate={{get this._filter filterConfig.maxDate}}
-              @minDate={{get this._filter filterConfig.minDate}}
-            />
-          {{/let}}
-        {{/let}}
-      {{/each}}
-    </div>
-    <button type="submit" class="button">
+<form {{on "submit" this.applyFilter}}>
+  <h2>{{t "cases.filter"}}</h2>
+  <div class="uk-grid uk-grid-small">
+    {{#each-in this.caseFilters as |filterName filterConfig|}}
+      {{#let
+        (ensure-safe-component
+          (concat "case-filter/" filterConfig.type)
+        ) as |CaseFilterComponent|
+      }}
+        <CaseFilterComponent
+          @filterName={{filterName}}
+          @value={{get this._filter filterName}}
+          @updateFilter={{fn this.updateFilter filterName}}
+          @filterOptions={{filterConfig.options}}
+          @valueField={{filterConfig.valueField}}
+          @labelField={{filterConfig.labelField}}
+          @maxDate={{get this._filter filterConfig.maxDate}}
+          @minDate={{get this._filter filterConfig.minDate}}
+        />
+      {{/let}}
+    {{/each-in}}
+  </div>
+  <div class="uk-margin-small">
+    <button type="submit" class="uk-button uk-button-primary">
       {{t "global.search"}}
     </button>
-    <button type="button" class="button" {{on "click" this.resetFilter}}>
+    <button type="button" class="uk-button uk-button-default" {{on "click" this.resetFilter}}>
       {{t "global.reset"}}
     </button>
-  </form>
-</div>
+  </div>
+</form>
+
+<hr>
