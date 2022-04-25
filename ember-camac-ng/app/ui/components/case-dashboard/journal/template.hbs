@@ -21,9 +21,9 @@
       {{t "journal.noEntries"}}
     </span>
   {{/each}}
-  {{#if (gte @journalEntries.length 1)}}
+  {{#if (gt @journalEntries.meta.pagination.count 1)}}
     <a href={{ t "journal.linkToJournal" instanceId=@instanceId}}>
-      {{t "journal.showMore" total=@totalJournalEntries}}
+      {{t "journal.showMore" total=(sub @totalJournalEntries 1)}}
     </a>
   {{/if}}
 </td>
