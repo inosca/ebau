@@ -1202,7 +1202,7 @@
     ember-cli-htmlbars "^5.7.1"
     ember-destroyable-polyfill "^2.0.3"
 
-"@ember/test-waiters@^3.0.0", "@ember/test-waiters@~3.0.1":
+"@ember/test-waiters@^3.0.0", "@ember/test-waiters@^3.0.1", "@ember/test-waiters@~3.0.1":
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/@ember/test-waiters/-/test-waiters-3.0.1.tgz#c3416dd6dcb0e3c0434e815e1de144d848ad74b1"
   integrity sha512-LqV55mMiSuhAAWfbJdJf0bxHc22A/CiG8TKyZwpcSv4A1GJIpdlTvqHCrlcdV6T30+L0/uyj14upC3ayWmV0CQ==
@@ -6355,6 +6355,19 @@ ember-cookies@^0.5.0:
     ember-cli-babel "^7.1.0"
     ember-getowner-polyfill "^1.1.0 || ^2.0.0"
 
+ember-data-resources@3.0.5:
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/ember-data-resources/-/ember-data-resources-3.0.5.tgz#9fdfceabc770c3ebda9e73073d0c502ef22a27df"
+  integrity sha512-JhXO2Ash4HRIJyeuEnozcYxEU+KrmzhwIpAhzxgRymzjcZ73dSlpfy6M/OEaLvtiB8TD4L0OKRWiQabAnNExFQ==
+  dependencies:
+    "@ember/test-waiters" "^3.0.1"
+    "@glimmer/tracking" "^1.0.4"
+    ember-auto-import "^2.4.0"
+    ember-cli-babel "^7.26.11"
+    ember-cli-htmlbars "^6.0.1"
+    ember-cli-typescript "^4.2.1"
+    ember-resources "^4.3.0"
+
 ember-data@3.28.9:
   version "3.28.9"
   resolved "https://registry.yarnpkg.com/ember-data/-/ember-data-3.28.9.tgz#7b7812082d40047905946e99cef05847c650833c"
@@ -6759,6 +6772,15 @@ ember-resources@4.6.3, ember-resources@^4.4.0:
   version "4.6.3"
   resolved "https://registry.yarnpkg.com/ember-resources/-/ember-resources-4.6.3.tgz#971a00a7f1021b20c3f475ec465b19075ecf487d"
   integrity sha512-IggWxSGDU9iWkkt+X+vTa5KDidJuECBCap/9rV/SQ2iNtj6V3oDaWv92223D6HvNh88aad4OrPPiaMRVSeSCyg==
+  dependencies:
+    "@babel/runtime" "^7.17.8"
+    "@embroider/addon-shim" "^1.2.0"
+    "@embroider/macros" "^1.2.0"
+
+ember-resources@^4.3.0:
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/ember-resources/-/ember-resources-4.6.0.tgz#21d7372822a40ffb96d1e29fa49064000896072c"
+  integrity sha512-9SWzRGzK1h9GledcFzCtmAZwQEpus+nMmvxa6ZtnbIUL3ZbtQUklbz9oVRZZ9HRi7cgTZHWZiaxL9a3PE1oAvg==
   dependencies:
     "@babel/runtime" "^7.17.8"
     "@embroider/addon-shim" "^1.2.0"
