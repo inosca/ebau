@@ -27,6 +27,7 @@ export default class MainNavigationComponent extends Component {
 
       return groups;
     } catch (e) {
+      console.error(e);
       if (this.session.group) {
         this.setGroup(null);
       }
