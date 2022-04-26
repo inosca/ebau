@@ -9,6 +9,7 @@ import { gql } from "graphql-tag";
 import { all } from "rsvp";
 
 import CustomCaseModel from "camac-ng/caluma-query/models/case";
+import redirectConfig from "camac-ng/config/redirect";
 import getCaseFromParcelsQuery from "camac-ng/gql/queries/get-case-from-parcels.graphql";
 
 const WORKFLOW_ITEM_IDS = [
@@ -52,6 +53,12 @@ export default class CaseDashboardComponent extends Component {
     return this.currentInstance.linkedInstances.filter((value) =>
       this.instancesOnSamePlot.includes(value)
     );
+  }
+
+  get instanceResourceId() {
+    return redirectConfig.instanceResourceRedirects.journal[
+      this.shoebox.content.roleId
+    ];
   }
 
   @action
