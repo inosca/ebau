@@ -153,5 +153,7 @@ omit = [
     "camac/core/management/commands/migrate_schwyz_instances.py",
     "camac/core/tests/test_migrate_issues.py",
     "camac/core/tests/test_migrate_schwyz_instances.py",
+    # Distribution migration
+    "camac/circulation/management/commands/distribution_*.py",
 ]
 show_missing = true
