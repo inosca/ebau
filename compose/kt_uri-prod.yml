@@ -57,6 +57,7 @@ services:
     environment:
       - APPLICATION_ENV=production
     volumes:
+      - /var/lib/ca-certificates/ca-bundle.pem:/etc/ssl/certs/ca-certificates.crt:ro
       - /etc/camac/php.ini:/usr/local/etc/php/php.ini:ro
       - /etc/camac/application.ini:/var/www/camac/${APPLICATION}/configs/application.local.ini:ro
 
