@@ -1,5 +1,50 @@
 [
   {
+    "model": "caluma_workflow.historicalcase",
+    "pk": "928dc596-09c3-49c2-8805-6a650a9e5726",
+    "fields": {
+      "history_user_id": null,
+      "created_at": "2022-07-06T09:56:30.796Z",
+      "modified_at": "2022-07-06T09:56:30.796Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "id": "4a5cd9c4-dd39-4115-ad03-b2134e65ac1d",
+      "closed_at": "2021-04-06T12:19:18.225Z",
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "status": "completed",
+      "meta": {},
+      "family": "e9197275-36df-460c-b261-ff27f781c5d9",
+      "workflow": "distribution",
+      "document": null,
+      "history_date": "2022-07-06T09:56:30.797Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_workflow.case",
+    "pk": "4a5cd9c4-dd39-4115-ad03-b2134e65ac1d",
+    "fields": {
+      "created_at": "2022-07-06T09:56:30.796Z",
+      "modified_at": "2022-07-06T09:56:30.796Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "family": "e9197275-36df-460c-b261-ff27f781c5d9",
+      "closed_at": "2021-04-06T12:19:18.225Z",
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "workflow": "distribution",
+      "status": "completed",
+      "meta": {},
+      "document": null
+    }
+  },
+  {
     "model": "caluma_workflow.case",
     "pk": "7d2bb3fe-83a1-4abc-a6c8-732c366678b1",
     "fields": {
@@ -70,6 +115,43 @@
         "camac-instance-id": 1
       },
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5"
+    }
+  },
+  {
+    "model": "caluma_workflow.historicalworkitem",
+    "pk": "f6875dc5-d3ef-497c-bfbc-78859fbd8aa4",
+    "fields": {
+      "history_user_id": null,
+      "created_at": "2021-04-06T12:19:18.225Z",
+      "modified_at": "2022-07-06T09:56:30.821Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "id": "d2877a2d-a1a8-4c74-b0d4-0bd601f42b5e",
+      "name": "{\"de\": \"Entscheid verf\\u00fcgen\", \"fr\": \"Rendre la d\\u00e9cision\"}",
+      "description": "{\"de\": null, \"fr\": null}",
+      "closed_at": "2021-04-06T12:19:37.761Z",
+      "closed_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "closed_by_group": "2",
+      "deadline": "2021-04-16T12:19:18.219Z",
+      "status": "completed",
+      "meta": {
+        "not-viewed": false,
+        "notify-deadline": true,
+        "notify-completed": false
+      },
+      "addressed_groups": "[\"2\"]",
+      "controlling_groups": "[]",
+      "assigned_users": "[]",
+      "task": "decision",
+      "case": "e9197275-36df-460c-b261-ff27f781c5d9",
+      "child_case": null,
+      "document": "e101ed70-5cbc-4e7f-a022-c3ed39247c46",
+      "previous_work_item": "bb6a4095-4298-4bc4-9225-9d57cdb585db",
+      "history_date": "2022-07-06T09:56:30.823Z",
+      "history_change_reason": null,
+      "history_type": "~"
     }
   },
   {
@@ -392,6 +474,39 @@
   },
   {
     "model": "caluma_workflow.workitem",
+    "pk": "7221003d-d3f2-4b72-b9f0-5eed8036b4c8",
+    "fields": {
+      "created_at": "2021-04-06T12:19:10.774Z",
+      "modified_at": "2022-07-06T09:56:30.813Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Zirkulation abschliessen\", \"fr\": \"Clore la circulation\"}",
+      "description": "{\"de\": null, \"fr\": null}",
+      "closed_at": "2021-04-06T12:19:18.225Z",
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "deadline": null,
+      "task": "complete-distribution",
+      "status": "completed",
+      "meta": {
+        "not-viewed": true,
+        "migrated-at": "2022-07-06T09:56:29.461748+00:00",
+        "notify-deadline": false,
+        "notify-completed": false
+      },
+      "addressed_groups": "[\"2\"]",
+      "controlling_groups": "[]",
+      "assigned_users": "[]",
+      "case": "4a5cd9c4-dd39-4115-ad03-b2134e65ac1d",
+      "child_case": null,
+      "document": null,
+      "previous_work_item": null
+    }
+  },
+  {
+    "model": "caluma_workflow.workitem",
     "pk": "7701c0e1-cef3-4159-9c01-78955791d104",
     "fields": {
       "created_at": "2021-03-31T13:17:09.801Z",
@@ -420,6 +535,39 @@
       "child_case": null,
       "document": "92d0ff97-f78b-4b0d-953f-3eccc3a9bdad",
       "previous_work_item": "20acda8a-2a9f-4d9d-a422-fb9aaf9b4e0e"
+    }
+  },
+  {
+    "model": "caluma_workflow.workitem",
+    "pk": "784939b0-4dc1-4a33-80ff-54f89855bde1",
+    "fields": {
+      "created_at": "2021-04-06T12:19:10.774Z",
+      "modified_at": "2022-07-06T09:56:30.813Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Zirkulation initialisieren\", \"fr\": \"Initialiser la circulation\"}",
+      "description": "{\"de\": null, \"fr\": null}",
+      "closed_at": "2021-04-06T12:19:18.225Z",
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "deadline": "2021-04-16T00:00:00Z",
+      "task": "init-distribution",
+      "status": "canceled",
+      "meta": {
+        "not-viewed": true,
+        "migrated-at": "2022-07-06T09:56:29.461748+00:00",
+        "notify-deadline": false,
+        "notify-completed": false
+      },
+      "addressed_groups": "[\"2\"]",
+      "controlling_groups": "[\"2\"]",
+      "assigned_users": "[]",
+      "case": "4a5cd9c4-dd39-4115-ad03-b2134e65ac1d",
+      "child_case": null,
+      "document": null,
+      "previous_work_item": null
     }
   },
   {
@@ -552,6 +700,72 @@
   },
   {
     "model": "caluma_workflow.workitem",
+    "pk": "bab3aaaf-3c7b-4c22-a805-a4333b49586a",
+    "fields": {
+      "created_at": "2022-07-06T09:56:30.812Z",
+      "modified_at": "2022-07-06T09:56:30.812Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Stellungnahme erstellen\", \"fr\": \"Cr\\u00e9er un pr\\u00e9avis\"}",
+      "description": "{\"de\": null, \"fr\": null}",
+      "closed_at": null,
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "deadline": null,
+      "task": "create-inquiry",
+      "status": "canceled",
+      "meta": {
+        "not-viewed": true,
+        "migrated-at": "2022-07-06T09:56:29.461748+00:00",
+        "notify-deadline": false,
+        "notify-completed": false
+      },
+      "addressed_groups": "[\"2\"]",
+      "controlling_groups": "[]",
+      "assigned_users": "[]",
+      "case": "4a5cd9c4-dd39-4115-ad03-b2134e65ac1d",
+      "child_case": null,
+      "document": null,
+      "previous_work_item": null
+    }
+  },
+  {
+    "model": "caluma_workflow.workitem",
+    "pk": "bb6a4095-4298-4bc4-9225-9d57cdb585db",
+    "fields": {
+      "created_at": "2021-04-06T12:19:10.774Z",
+      "modified_at": "2022-07-06T09:56:30.812Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Zirkulation\", \"fr\": \"Circulation\"}",
+      "description": "{\"de\": null, \"fr\": null}",
+      "closed_at": "2021-04-06T12:19:18.225Z",
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "deadline": null,
+      "task": "distribution",
+      "status": "completed",
+      "meta": {
+        "not-viewed": true,
+        "migrated-at": "2022-07-06T09:56:29.461748+00:00",
+        "notify-deadline": false,
+        "notify-completed": false
+      },
+      "addressed_groups": "[\"2\"]",
+      "controlling_groups": "[]",
+      "assigned_users": "[]",
+      "case": "e9197275-36df-460c-b261-ff27f781c5d9",
+      "child_case": "4a5cd9c4-dd39-4115-ad03-b2134e65ac1d",
+      "document": null,
+      "previous_work_item": "7701c0e1-cef3-4159-9c01-78955791d104"
+    }
+  },
+  {
+    "model": "caluma_workflow.workitem",
     "pk": "bf6e1416-d2ae-492c-ac9e-d7abc50e2477",
     "fields": {
       "created_at": "2021-04-06T12:19:38.313Z",
@@ -619,7 +833,7 @@
     "pk": "d2877a2d-a1a8-4c74-b0d4-0bd601f42b5e",
     "fields": {
       "created_at": "2021-04-06T12:19:18.225Z",
-      "modified_at": "2022-05-17T16:27:53.314Z",
+      "modified_at": "2022-07-06T09:56:30.821Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "2",
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -642,8 +856,8 @@
       "assigned_users": "[]",
       "case": "e9197275-36df-460c-b261-ff27f781c5d9",
       "child_case": null,
-      "document": null,
-      "previous_work_item": null
+      "document": "e101ed70-5cbc-4e7f-a022-c3ed39247c46",
+      "previous_work_item": "bb6a4095-4298-4bc4-9225-9d57cdb585db"
     }
   },
   {

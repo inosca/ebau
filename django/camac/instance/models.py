@@ -287,6 +287,9 @@ class HistoryEntry(core_models.MultilingualModel, models.Model):
         max_length=20, choices=HistoryActionConfig.HISTORY_TYPES_TUPLE
     )
 
+    def __str__(self):
+        return self.get_trans_attr("title")
+
 
 class HistoryEntryT(models.Model):
     title = models.TextField()
