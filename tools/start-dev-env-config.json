@@ -1,0 +1,25 @@
+{
+    "applications": {
+        "kt_uri": {
+            "compose": "compose/kt_uri.yml:compose/kt_uri-dev.yml",
+            "loadconfig": "make loadconfig"
+        },
+        "kt_schwyz": {
+            "compose": "compose/kt_schwyz.yml:compose/kt_schwyz-dev.yml",
+            "loadconfig": "make loadconfig-camac"
+        },
+        "kt_bern": {
+            "compose": "compose/kt_bern.yml:compose/kt_bern-dev.yml",
+            "loadconfig": "make loadconfig"
+        },
+        "demo": {
+            "compose": "compose/demo.yml",
+            "loadconfig": "make loadconfig"
+        }
+
+    },
+    "env": "UID={}\nAPPLICATION={}\nCOMPOSE_FILE={}\n",
+    "build_cmd": "docker-compose up -d --build",
+    "append_cmd": "echo 127.0.0.1 camac-ng-portal.local camac-ng.local camac-ng-keycloak.local caluma-portal.local | sudo tee -a /etc/hosts"
+
+}
