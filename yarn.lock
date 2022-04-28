@@ -6816,21 +6816,21 @@ ember-set-helper@2.0.1:
   dependencies:
     ember-cli-babel "^7.18.0"
 
-ember-simple-auth-oidc@4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/ember-simple-auth-oidc/-/ember-simple-auth-oidc-4.1.0.tgz#516a07fda6e929b5ea752c9d39a232029afd72da"
-  integrity sha512-MtyoQiytTpvA/QOfaUhHrHdFGN4d891DsY4R0LrkcnaQvOPjFg+CCMSKF2d0bVAN4wv3Jv8iK3havHNsCR0Hzg==
+ember-simple-auth-oidc@4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/ember-simple-auth-oidc/-/ember-simple-auth-oidc-4.1.1.tgz#b5a2820947b480a23a911a9ffb229a424ab7c1f8"
+  integrity sha512-N45KVbKpGq67JPjvN6NaYgLKXCuQIGw3AJZIhyDecrrP9ccCdzZKBHoRtd9pg53dgHpmipnyxhyHgQpCjSkvyg==
   dependencies:
-    "@embroider/macros" "^1.5.0"
-    ember-auto-import "^2.4.0"
+    "@embroider/macros" "^1.6.0"
+    ember-auto-import "^2.4.1"
     ember-cli-babel "^7.26.11"
     ember-concurrency "^2.2.1"
     ember-fetch "^8.1.1"
-    ember-simple-auth "^4.2.1"
+    ember-simple-auth "^4.2.2"
     tracked-built-ins "^2.0.1"
     uuid "^8.3.2"
 
-ember-simple-auth@4.2.2, ember-simple-auth@^4.2.1:
+ember-simple-auth@4.2.2, ember-simple-auth@^4.2.2:
   version "4.2.2"
   resolved "https://registry.yarnpkg.com/ember-simple-auth/-/ember-simple-auth-4.2.2.tgz#5c1de1bb13a75e519e512fb82cba7cc1e277b07c"
   integrity sha512-D7W6OREUvf5OzeB0ePptSNBilccchRYukH4f7mkbL6WT+z6VEqRRAIaQuBZdFM6lrcSFGmzctINLZJwsIpI3wg==
