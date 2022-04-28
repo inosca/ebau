@@ -20,6 +20,7 @@ Router.map(function () {
           this.route("new");
         });
         this.route("journal");
+        this.route("history");
       });
       this.route("new");
     });
