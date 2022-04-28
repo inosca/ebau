@@ -170,7 +170,11 @@ def test_document_merge_service_cover_sheet_with_header_values(
         [
             {
                 "parzellennummer": "123",
-            }
+            },
+            {
+                # This should be excluded since no parcel number is given
+                "egrid": "CH908035124647",
+            },
         ],
     )
 
