@@ -9272,10 +9272,42 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "fp-zustaendige-baubewilligungsbehoerde-agr-or",
+    "fields": {
+      "created_at": "2022-04-28T13:55:05.300Z",
+      "modified_at": "2022-05-06T11:48:13.668Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Amt f\\u00fcr Gemeinden und Raumordnung - Abteilung Orts- und Regionalplanung (KoG)\", \"fr\": \"Unit\\u00e9 francophone de l'OACOT - Service de l'am\\u00e9nagement local et r\\u00e9gional (LCoord)\"}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "fp-zustaendige-baubewilligungsbehoerde-dij",
+    "fields": {
+      "created_at": "2022-04-28T13:55:05.057Z",
+      "modified_at": "2022-05-06T11:48:13.679Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Direktion f\\u00fcr Inneres und Justiz (Art. 102 BauG und KoG)\", \"fr\": \"Direction de l\\u2019int\\u00e9rieur et de la justice (Art. 102 LC et LCoord)\"}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "fp-zustaendige-baubewilligungsbehoerde-gemeinde",
     "fields": {
       "created_at": "2020-10-13T13:55:23.415Z",
-      "modified_at": "2021-04-16T10:46:32.169Z",
+      "modified_at": "2022-05-06T11:48:13.562Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -9291,7 +9323,7 @@
     "pk": "fp-zustaendige-baubewilligungsbehoerde-regierungsstatthalteramt",
     "fields": {
       "created_at": "2020-10-13T13:55:23.404Z",
-      "modified_at": "2021-04-16T10:46:32.237Z",
+      "modified_at": "2022-05-06T11:48:13.690Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -9307,7 +9339,7 @@
     "pk": "fp-zustaendige-baubewilligungsbehoerde-unklar",
     "fields": {
       "created_at": "2020-10-13T13:55:23.455Z",
-      "modified_at": "2021-04-16T10:46:32.265Z",
+      "modified_at": "2022-05-06T11:48:13.653Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -20148,7 +20180,7 @@
     "pk": "fp-zustaendige-baubewilligungsbehoerde",
     "fields": {
       "created_at": "2020-10-13T13:55:23.578Z",
-      "modified_at": "2021-04-16T10:46:32.426Z",
+      "modified_at": "2022-05-06T11:48:14.586Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -20159,8 +20191,8 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": \"[Siehe Schema \\\"Wer ist Baubewilligungsbeh\\u00f6rde\\\"](https://www.jgk.be.ch/jgk/de/index/baubewilligungen/baubewilligungen.assetref/content/dam/documents/JGK/AGR/de/Baubewilligungen/AGR_BAUEN_ERLAEUTERUNG_schema_wer_ist_baubewilligungsbehoerde_de.pdf)\", \"fr\": \"[Voir sch\\u00e9ma \\\"Qui est l'autorit\\u00e9 d'octroi du permis de construire\\\"](https://www.jgk.be.ch/jgk/fr/index/baubewilligungen/baubewilligungen.assetref/content/dam/documents/JGK/AGR/fr/Baubewilligungen/AGR_BAUEN_ERLAEUTERUNG_schema_wer_ist_baubewilligungsbehoerde_fr.pdf)\"}",
-      "hint_text": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"[Siehe Schema \\\"Wer ist Baubewilligungsbeh\\u00f6rde\\\"](https://www.bauen.dij.be.ch/content/dam/bauen_dij/dokumente/de/Formulare-Vorlagen/Hilfsformulare/schema%20wer%20ist%20baubewilligungsbehoerde-de.pdf)\", \"fr\": \"[Voir sch\\u00e9ma \\\"Qui est l'autorit\\u00e9 d'octroi du permis de construire\\\"](https://www.bauen.dij.be.ch/content/dam/bauen_dij/dokumente/fr/formulare-und-vorlagen/hilfsformulare/schema%20wer%20ist%20baubewilligungsbehoerde-fr.pdf)\"}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -20187,7 +20219,7 @@
       "label": "{\"de\": \"\", \"fr\": \"\"}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "!('fp-zustaendige-baubewilligungsbehoerde'|answer in ['fp-zustaendige-baubewilligungsbehoerde-regierungsstatthalteramt', 'fp-zustaendige-baubewilligungsbehoerde-unklar'])",
+      "is_hidden": "'fp-zustaendige-baubewilligungsbehoerde'|answer in [null, 'fp-zustaendige-baubewilligungsbehoerde-gemeinde']",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": null, \"fr\": \"\"}",
@@ -32257,47 +32289,77 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "fp-zustaendige-baubewilligungsbehoerde.fp-zustaendige-baubewilligungsbehoerde-agr-or",
+    "fields": {
+      "created_at": "2022-05-06T11:48:14.640Z",
+      "modified_at": "2022-05-06T11:48:14.640Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "fp-zustaendige-baubewilligungsbehoerde",
+      "option": "fp-zustaendige-baubewilligungsbehoerde-agr-or",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "fp-zustaendige-baubewilligungsbehoerde.fp-zustaendige-baubewilligungsbehoerde-dij",
+    "fields": {
+      "created_at": "2022-05-06T11:48:14.620Z",
+      "modified_at": "2022-05-06T11:48:14.620Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "fp-zustaendige-baubewilligungsbehoerde",
+      "option": "fp-zustaendige-baubewilligungsbehoerde-dij",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "fp-zustaendige-baubewilligungsbehoerde.fp-zustaendige-baubewilligungsbehoerde-gemeinde",
     "fields": {
-      "created_at": "2021-04-16T10:46:32.451Z",
-      "modified_at": "2021-04-16T10:46:32.451Z",
+      "created_at": "2022-05-06T11:48:14.720Z",
+      "modified_at": "2022-05-06T11:48:14.720Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "fp-zustaendige-baubewilligungsbehoerde",
       "option": "fp-zustaendige-baubewilligungsbehoerde-gemeinde",
-      "sort": 3
+      "sort": 5
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "fp-zustaendige-baubewilligungsbehoerde.fp-zustaendige-baubewilligungsbehoerde-regierungsstatthalteramt",
     "fields": {
-      "created_at": "2021-04-16T10:46:32.445Z",
-      "modified_at": "2021-04-16T10:46:32.445Z",
+      "created_at": "2022-05-06T11:48:14.685Z",
+      "modified_at": "2022-05-06T11:48:14.685Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "fp-zustaendige-baubewilligungsbehoerde",
       "option": "fp-zustaendige-baubewilligungsbehoerde-regierungsstatthalteramt",
-      "sort": 2
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "fp-zustaendige-baubewilligungsbehoerde.fp-zustaendige-baubewilligungsbehoerde-unklar",
     "fields": {
-      "created_at": "2021-04-16T10:46:32.438Z",
-      "modified_at": "2021-04-16T10:46:32.438Z",
+      "created_at": "2022-05-06T11:48:14.665Z",
+      "modified_at": "2022-05-06T11:48:14.665Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "fp-zustaendige-baubewilligungsbehoerde",
       "option": "fp-zustaendige-baubewilligungsbehoerde-unklar",
-      "sort": 1
+      "sort": 3
     }
   },
   {
