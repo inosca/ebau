@@ -1,0 +1,78 @@
+#!/usr/bin/env python3
+
+import json
+import os
+import sys
+from pathlib import Path
+
+_tools = Path(__file__).absolute().parent
+_base = _tools.parent
+_config = Path(_tools, "start-dev-env-config.json")
+_django = Path(_base, "django")
+
+_about_append = """
+Would you like to append the domains needed to operate the docker-containers to
+your local /etc/hosts.
+"""
+
+
+def ask(question):
+    print(question)
+    return sys.stdin.readline().strip()
+
+
+def yes_no(question):
+    while True:
+        sys.stdout.write(f"{question} y/n: ")
+        sys.stdout.flush()
+        answer = sys.stdin.readline().strip()
+        if answer in ("y", "n"):
+            return answer == "y"
+        print("")
+
+
+def application(config):
+    question = ["Please select your application"]
+    keys = list(config["applications"].keys())
+    for i, app in enumerate(keys):
+        question.append(f"{i:2d}: {app}")
+    while True:
+        try:
+            n = int(ask("\n".join(question)))
+            key = keys[n]
+            return key, config["applications"][key]
+        except (IndexError, ValueError) as e:
+            print(f"not a valid selection ({e})")
+        finally:
+            print()
+
+
+def write_env(env, path):
+    with Path(path, ".env").open("w", encoding="UTF-8") as f:
+        f.write(env)
+
+
+def run_cmd(cmd):
+    if cmd:
+        if yes_no(f"Run {cmd}"):
+            os.system(cmd)
+        print()
+
+
+def start():
+    with _config.open("r") as f:
+        config = json.load(f)
+    name, app_config = application(config)
+    env = config["env"].format(os.getuid(), name, app_config["compose"])
+    write_env(env, _base)
+    write_env(env, _django)
+    append_cmd = config.get("append_cmd")
+    if app_config:
+        print(_about_append)
+        run_cmd(append_cmd)
+    run_cmd(config.get("build_cmd"))
+    run_cmd(app_config.get("loadconfig"))
+
+
+if __name__ == "__main__":
+    start()
