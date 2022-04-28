@@ -40,7 +40,7 @@ export default class CaseTableComponent extends Component {
           {
             question: "form-type",
             lookup: "IN",
-            value: filter.buildingPermitType?.split(","),
+            value: filter.buildingPermitType,
           },
         ],
       },

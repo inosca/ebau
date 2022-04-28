@@ -18,11 +18,11 @@ export function loadingTask(target, property, desc) {
   return desc;
 }
 
-export function objectFromQueryParams(...fields) {
+export function objectFromQueryParams(filterConfig) {
   // There is no easy way of putting the fields directly into the queryParams array.
   // So you need to set the array yourself.
   return function (target, property, desc) {
-    fields.forEach((field) => {
+    Object.keys(filterConfig).forEach((field) => {
       Object.defineProperty(
         target,
         field,
@@ -42,15 +42,24 @@ export function objectFromQueryParams(...fields) {
     delete desc.enumerable;
 
     desc.get = function () {
-      return Object.assign(
-        ...fields.map((field) => ({
-          [field]: this[field],
-        }))
+      return Object.entries(filterConfig).reduce(
+        (serialized, [key, config]) => {
+          const value = this[key];
+
+          return {
+            ...serialized,
+            [key]:
+              config.type === "select-multiple" ? value?.split(",") : value,
+          };
+        },
+        {}
       );
     };
     desc.set = function (object) {
-      fields.forEach((key) => {
-        this[key] = object[key];
+      Object.entries(filterConfig).forEach(([key, config]) => {
+        const value = object[key];
+        this[key] =
+          config.type === "select-multiple" ? value?.join(",") : value;
       });
     };
     return desc;
