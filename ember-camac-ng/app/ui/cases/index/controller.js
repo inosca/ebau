@@ -3,39 +3,7 @@ import { action } from "@ember/object";
 import { tracked } from "@glimmer/tracking";
 import { objectFromQueryParams } from "ember-ebau-core/decorators";
 
-const filterQueryParams = [
-  "instanceId",
-  "dossierNumber",
-  "dossierNumberSZ",
-  "instanceIdentifier",
-  "municipality",
-  "locationSZ",
-  "parcelNumber",
-  "instanceState",
-  "instanceStateDescription",
-  "buildingPermitType",
-  "createdAfter",
-  "createdBefore",
-  "intent",
-  "applicantName",
-  "street",
-  "service",
-  "serviceSZ",
-  "pendingSanctionsControlInstance",
-  "caseStatus",
-  "caseDocumentFormName",
-  "responsibleServiceUser",
-  "withCantonalParticipation",
-  "addressSZ",
-  "intentSZ",
-  "plotSZ",
-  "builderSZ",
-  "landownerSZ",
-  "applicantSZ",
-  "submitDateAfterSZ",
-  "submitDateBeforeSZ",
-  "formSZ",
-];
+import filterConfig from "camac-ng/ui/components/case-filter/filter-config";
 
 export default class CasesIndexController extends Controller {
   queryParams = [
@@ -47,7 +15,7 @@ export default class CasesIndexController extends Controller {
     "excludeWorkflow",
     "isCaluma",
     "instanceStates",
-    ...filterQueryParams,
+    ...Object.keys(filterConfig),
   ];
 
   @tracked displaySearch = false;
@@ -59,7 +27,7 @@ export default class CasesIndexController extends Controller {
   @tracked isCaluma = null;
   @tracked instanceStates = null;
 
-  @objectFromQueryParams(...filterQueryParams)
+  @objectFromQueryParams(filterConfig)
   caseFilter;
 
   get casesBackend() {
