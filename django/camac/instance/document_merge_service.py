@@ -109,13 +109,18 @@ class DMSHandler:
                     master_data.city,
                     separator=", ",
                 ),
-                "plotsHeader": ", ".join(
-                    [obj["plot_number"] for obj in master_data.plot_data]
+                "plotsHeader": clean_join(
+                    *[obj["plot_number"] for obj in master_data.plot_data],
+                    separator=", ",
                 )
                 if master_data.plot_data
                 else None,
-                "applicantHeader": ", ".join(
-                    [get_person_name(applicant) for applicant in master_data.applicants]
+                "applicantHeader": clean_join(
+                    *[
+                        get_person_name(applicant)
+                        for applicant in master_data.applicants
+                    ],
+                    separator=", ",
                 )
                 if master_data.applicants
                 else None,
