@@ -118,29 +118,17 @@ Ember:
 ### Basic setup
 
 In general Docker can be used to get ebau up and running quickly. Simply
-set `APPLICATION` to the project you want to work on.
+run the following script.
 
 ```bash
-# choose what project you want to start
-# also set this when developing locally
-export APPLICATION={kt_schwyz|kt_uri|kt_bern|demo}
-# setup hostnames, only needed once
-echo "127.0.0.1 camac-ng-portal.local camac-ng.local camac-ng-keycloak.local caluma-portal.local" | sudo tee -a /etc/hosts
-# needed for permission handling, only needs to be run once
-echo UID=$UID > .env
-# set application-specific .env variables
-make $APPLICATION
+make start-dev-env
+```
 
-# finally build images
-docker-compose up -d --build
+In case you want to manually modify /etc/hosts following domains need to point to
+127.0.0.1 (localhost):
 
-# load initial config
-## if APPLICATION is kt_schwyz
-make loadconfig-camac
-
-## else
-make loadconfig
-
+```
+camac-ng-portal.local camac-ng.local camac-ng-keycloak.local caluma-portal.local
 ```
 
 For automatic checks during commit (formatting, linting) you can setup a git hook with the following commands:
