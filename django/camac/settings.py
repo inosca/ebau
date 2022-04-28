@@ -3339,7 +3339,7 @@ OIDC_OP_USER_ENDPOINT = env.str(
 # admin page after completing server-side authentication flow
 LOGIN_REDIRECT_URL = env.str(
     "DJANGO_OIDC_ADMIN_LOGIN_REDIRECT_URL",
-    default=default(f"{INTERNAL_BASE_URL}/django-admin/"),
+    default=f"{INTERNAL_BASE_URL}/django-admin/",
 )
 
 OIDC_RP_SIGN_ALGO = env.str("DJANGO_OIDC_RP_SIGN_ALGO", default="RS256")
