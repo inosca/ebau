@@ -151,6 +151,11 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
                     % {"section": attachment_section.get_name()}
                 )
 
+        if self.instance:
+            self._validate_allowed_mime_types(
+                attachment_sections, self.instance.mime_type
+            )
+
         deleted_attachment_sections = models.AttachmentSection.objects.filter(
             pk__in=existing_section_ids
             - set([section.pk for section in attachment_sections])
@@ -167,12 +172,12 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
 
         return attachment_sections
 
-    def _validate_path_allowed_mime_types(self, path, attachment_sections):
+    def _validate_allowed_mime_types(self, attachment_sections, mime_type):
         for section in attachment_sections:
             # empty allowed_mime_types -> any mime type allowed
             if (
                 not section.allowed_mime_types
-                or path.content_type in section.allowed_mime_types
+                or mime_type in section.allowed_mime_types
             ):
                 continue
 
@@ -192,7 +197,7 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
                 }
             )
 
-        return path
+        return mime_type
 
     @permission_aware
     def _validate_file_infection(self, path):
@@ -246,7 +251,7 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
             )
 
             self._validate_file_infection(path)
-            self._validate_path_allowed_mime_types(path, attachment_sections)
+            self._validate_allowed_mime_types(attachment_sections, path.content_type)
 
             data["size"] = path.size
             data["mime_type"] = path.content_type
