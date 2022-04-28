@@ -652,7 +652,8 @@ def test_attachment_thumbnail(
 
 
 @pytest.mark.parametrize(
-    "role__name,instance__user", [("Canton", LazyFixture("admin_user"))]
+    "role__name,instance__user,attachment_section__allowed_mime_types",
+    [("Canton", LazyFixture("admin_user"), [])],
 )
 @pytest.mark.parametrize(
     "send_path,status_code",
@@ -707,7 +708,9 @@ def test_attachment_update(
 
 
 @pytest.mark.parametrize("instance_state__name", [("finished")])
-@pytest.mark.parametrize("role__name", [("Canton")])
+@pytest.mark.parametrize(
+    "role__name,attachment_section__allowed_mime_types", [("Canton", [])]
+)
 @pytest.mark.parametrize(
     "attachment__context,new_context,permission,status_code,is_active_service",
     [
@@ -1386,26 +1389,30 @@ def test_attachment_delete_custom_admin_modes(
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize(
-    "instance_state__name,attachment__service,status_code,error",
+    "instance_state__name,attachment__service,status_code,error,mime_type",
     [
         (
             "circulation",
             LazyFixture(lambda service_factory: service_factory()),
             status.HTTP_400_BAD_REQUEST,
             "Nicht ausreichend Berechtigungen um eine Datei in den Ordner 'new' hochzuladen.",
+            [],
+        ),
+        (
+            "circulation",
+            LazyFixture("service"),
+            status.HTTP_400_BAD_REQUEST,
+            "Der aktuelle Dateityp kann nicht als Dokument hochgeladen werden. Erlaubte Dateitypen für Abschnitt existing sind: pdf",
+            ["application/pdf"],
         ),
         (
             "finished",
             LazyFixture("service"),
             status.HTTP_400_BAD_REQUEST,
             "Nicht ausreichend Berechtigungen um eine Datei aus dem Ordner 'delete' zu löschen.",
+            [],
         ),
-        (
-            "circulation",
-            LazyFixture("service"),
-            status.HTTP_200_OK,
-            None,
-        ),
+        ("circulation", LazyFixture("service"), status.HTTP_200_OK, None, []),
     ],
 )
 def test_attachment_update_section(
@@ -1419,12 +1426,17 @@ def test_attachment_update_section(
     attachment_attachment_section_factory,
     status_code,
     error,
+    mime_type,
 ):
     application_settings["ATTACHMENT_AFTER_DECISION_STATES"] = ["finished"]
 
-    section_existing = attachment_section_factory(name="existing")
-    section_new = attachment_section_factory(name="new")
-    section_delete = attachment_section_factory(name="delete")
+    section_existing = attachment_section_factory(
+        name="existing", allowed_mime_types=mime_type
+    )
+    section_new = attachment_section_factory(name="new", allowed_mime_types=mime_type)
+    section_delete = attachment_section_factory(
+        name="delete", allowed_mime_types=mime_type
+    )
 
     attachment_attachment_section_factory(
         attachment=attachment, attachmentsection=section_existing
@@ -1516,8 +1528,10 @@ def test_attachment_update_custom_permissions(
 ):
     application_settings["ATTACHMENT_RUNNING_ACTIVATION_STATES"] = ["RUN"]
 
-    existing_section = attachment_section_factory(name="existing")
-    new_section = attachment_section_factory(name="new")
+    existing_section = attachment_section_factory(
+        name="existing", allowed_mime_types=[]
+    )
+    new_section = attachment_section_factory(name="new", allowed_mime_types=[])
 
     attachment_attachment_section_factory(
         attachment=attachment, attachmentsection=existing_section
