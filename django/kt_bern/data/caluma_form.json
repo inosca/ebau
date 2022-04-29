@@ -979,6 +979,22 @@
   },
   {
     "model": "caluma_form.document",
+    "pk": "d9a9a08c-c794-11ec-9d64-0242ac120002",
+    "fields": {
+      "created_at": "2022-01-05T14:52:51.950Z",
+      "modified_at": "2022-01-05T14:52:51.950Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "family": "d9a9a08c-c794-11ec-9d64-0242ac120002",
+      "form": "decision",
+      "source": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "caluma_form.document",
     "pk": "e0c8f56e-5b2c-4800-88cf-380cb9cf5aa4",
     "fields": {
       "created_at": "2020-03-06T11:10:35.892Z",
@@ -989,6 +1005,22 @@
       "modified_by_group": null,
       "family": "961f2def-a94a-435f-b8b4-93390c7b40e5",
       "form": "personalien-tabelle",
+      "source": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "caluma_form.document",
+    "pk": "e101ed70-5cbc-4e7f-a022-c3ed39247c46",
+    "fields": {
+      "created_at": "2022-05-17T16:27:53.330Z",
+      "modified_at": "2022-05-17T16:27:53.330Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "family": "e101ed70-5cbc-4e7f-a022-c3ed39247c46",
+      "form": "decision",
       "source": null,
       "meta": {}
     }
@@ -8179,6 +8211,24 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "1a4fdc06-f2af-4830-8dc0-b8e6399a7db0",
+    "fields": {
+      "created_at": "2022-05-17T16:27:53.328Z",
+      "modified_at": "2022-05-17T16:27:53.328Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "decision-date",
+      "value": null,
+      "meta": {},
+      "document": "e101ed70-5cbc-4e7f-a022-c3ed39247c46",
+      "date": "2021-04-06",
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "1a75d46f-9adc-47c6-8986-9c3219c574b2",
     "fields": {
       "created_at": "2020-03-06T11:13:35.958Z",
@@ -8245,6 +8295,24 @@
       "value": null,
       "meta": {},
       "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "1e8603b8-5fb2-46dd-9e25-8c2765517dd3",
+    "fields": {
+      "created_at": "2022-05-17T16:27:53.328Z",
+      "modified_at": "2022-05-17T16:27:53.328Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "decision-decision-assessment",
+      "value": "decision-decision-assessment-accepted",
+      "meta": {},
+      "document": "e101ed70-5cbc-4e7f-a022-c3ed39247c46",
       "date": null,
       "file": null
     }
@@ -8983,6 +9051,24 @@
       "value": "Architekturbüro Asdf",
       "meta": {},
       "document": "274b4aff-b632-4fa1-8581-1ef47fe1d79c",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "5010ba5e-4611-4777-8c5d-6f1a39054012",
+    "fields": {
+      "created_at": "2022-05-17T16:27:53.328Z",
+      "modified_at": "2022-05-17T16:27:53.328Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "decision-workflow",
+      "value": "building-permit",
+      "meta": {},
+      "document": "e101ed70-5cbc-4e7f-a022-c3ed39247c46",
       "date": null,
       "file": null
     }
@@ -10981,6 +11067,24 @@
       "value": "13",
       "meta": {},
       "document": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "bc8e32a2-709a-4e37-ade6-38e9ff979d65",
+    "fields": {
+      "created_at": "2022-05-17T16:27:53.328Z",
+      "modified_at": "2022-05-17T16:27:53.328Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "decision-approval-type",
+      "value": "decision-approval-type-building-permit",
+      "meta": {},
+      "document": "e101ed70-5cbc-4e7f-a022-c3ed39247c46",
       "date": null,
       "file": null
     }

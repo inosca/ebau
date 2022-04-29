@@ -642,7 +642,7 @@ def sz_master_data_case_gwr_v2(sz_master_data_case, form_field_factory):
             "kt_bern",
             "de",
             pytest.lazy_fixture("be_master_data_case"),
-            ["document", "instance__decision"],
+            ["document"],
             [
                 "document__answers",
                 "document__answers__question__options",
@@ -667,7 +667,7 @@ def sz_master_data_case_gwr_v2(sz_master_data_case, form_field_factory):
             "kt_bern",
             "fr",
             pytest.lazy_fixture("be_master_data_case"),
-            ["document", "instance__decision"],
+            ["document"],
             [
                 "document__answers",
                 "document__answers__question__options",

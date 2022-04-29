@@ -2,10 +2,11 @@ import base64
 from io import BytesIO
 
 import qrcode
+from caluma.caluma_form.models import Answer, Question
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.db.models import Sum
-from django.utils.translation import gettext as _
+from django.utils.translation import get_language, gettext as _
 from rest_framework import serializers
 
 from camac.core.models import Activation, BillingV2Entry
@@ -108,19 +109,6 @@ class ResponsibleUserField(serializers.ReadOnlyField):
             return clean_join(user.surname, user.name)
 
         return getattr(user, self.source)
-
-
-class BooleanCompareField(serializers.ReadOnlyField):
-    def __init__(self, compare_to=None, **kwargs):
-        super().__init__(**kwargs)
-
-        self.compare_to = compare_to
-
-    def get_attribute(self, instance):
-        if isinstance(self.compare_to, list):
-            return super().get_attribute(instance) in self.compare_to
-
-        return super().get_attribute(instance) == self.compare_to
 
 
 class BillingEntriesField(serializers.ReadOnlyField):
@@ -233,11 +221,6 @@ class JointField(serializers.ReadOnlyField):
             ],
             separator=self.separator,
         )
-
-
-class HumanReadableDateField(serializers.ReadOnlyField):
-    def to_representation(self, value):
-        return human_readable_date(value)
 
 
 class ActivationsField(serializers.ReadOnlyField):
@@ -452,3 +435,42 @@ class InformationOfNeighborsField(serializers.ReadOnlyField):
             ]
 
         return value
+
+
+class DecisionField(serializers.ReadOnlyField):
+    def __init__(self, compare_to=None, use_identifier=False, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.compare_to = compare_to
+        self.use_identifier = use_identifier
+
+    def get_attribute(self, instance):
+        try:
+            return Answer.objects.get(
+                question_id=self.source,
+                document__work_item__task_id="decision",
+                document__work_item__status=WorkItem.STATUS_COMPLETED,
+                document__work_item__case__family__instance=instance,
+            )
+        except Answer.DoesNotExist:
+            return None
+
+    def to_representation(self, answer):
+        if self.compare_to:
+            return answer.value in (
+                self.compare_to
+                if isinstance(self.compare_to, list)
+                else [self.compare_to]
+            )
+
+        if answer.question.type == Question.TYPE_DATE:
+            return human_readable_date(answer.date)
+        elif answer.question.type == Question.TYPE_CHOICE:
+            option = answer.selected_options[0]
+
+            if self.use_identifier:
+                return option.meta["identifier"]
+
+            return option.label[get_language()]
+
+        return answer.value  # pragma: no cover

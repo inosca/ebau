@@ -1,7 +1,9 @@
 import reversion
 from caluma.caluma_core.events import on
+from caluma.caluma_form.api import save_answer
+from caluma.caluma_form.models import Question
 from caluma.caluma_workflow.api import skip_work_item
-from caluma.caluma_workflow.events import post_complete_work_item
+from caluma.caluma_workflow.events import post_complete_work_item, post_create_work_item
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.db import transaction
@@ -34,6 +36,18 @@ def copy_municipality_tags(instance, construction_control):
 
     for tag in municipality_tags:
         instance.tags.create(service=construction_control, name=tag.name)
+
+
+@on(post_create_work_item, raise_exception=True)
+@transaction.atomic
+def set_workflow_answer(sender, work_item, user, context, **kwargs):
+    if work_item.task_id == get_caluma_setting("DECISION_TASK"):
+        save_answer(
+            document=work_item.document,
+            question=Question.objects.get(pk="decision-workflow"),
+            value=work_item.case.workflow_id,
+            user=user,
+        )
 
 
 @on(post_complete_work_item, raise_exception=True)

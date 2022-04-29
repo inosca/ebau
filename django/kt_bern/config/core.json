@@ -145,33 +145,6 @@
   },
   {
     "model": "core.anotification",
-    "pk": 12000000,
-    "fields": {
-      "template": "08-entscheid-behoerden",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_Service",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 12000001,
-    "fields": {
-      "template": "08-entscheid-gesuchsteller",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_Applicant",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 12000002,
-    "fields": {
-      "template": "08-entscheid-behoerden",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_Leitbehoerde",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
     "pk": 12000003,
     "fields": {
       "template": "11-meldung-selbstdeklaration-baukontrolle",
@@ -235,19 +208,10 @@
   },
   {
     "model": "core.apageredirect",
-    "pk": 150044,
-    "fields": {
-      "resource": 20006,
-      "instance_resource": 20023,
-      "air_action_name": null
-    }
-  },
-  {
-    "model": "core.apageredirect",
     "pk": 150045,
     "fields": {
       "resource": 20006,
-      "instance_resource": 20023,
+      "instance_resource": 15000002,
       "air_action_name": null
     }
   },
@@ -256,7 +220,7 @@
     "pk": 150046,
     "fields": {
       "resource": 20006,
-      "instance_resource": 20023,
+      "instance_resource": 15000002,
       "air_action_name": null
     }
   },
@@ -1006,20 +970,6 @@
   },
   {
     "model": "core.action",
-    "pk": 150012,
-    "fields": {
-      "available_action": "workitem",
-      "button": 20040,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 150014,
     "fields": {
       "available_action": "workitem",
@@ -1244,20 +1194,6 @@
   },
   {
     "model": "core.action",
-    "pk": 150044,
-    "fields": {
-      "available_action": "pageredirect",
-      "button": 20040,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 150045,
     "fields": {
       "available_action": "pageredirect",
@@ -1422,48 +1358,6 @@
       "error_message": null,
       "execute_always": 0,
       "sort": 4
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 12000000,
-    "fields": {
-      "available_action": "notification",
-      "button": 12000000,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 12000001,
-    "fields": {
-      "available_action": "notification",
-      "button": 12000000,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 12000002,
-    "fields": {
-      "available_action": "notification",
-      "button": 12000000,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 2
     }
   },
   {
@@ -2090,18 +1984,6 @@
   },
   {
     "model": "core.actiont",
-    "pk": 150017,
-    "fields": {
-      "action": 150012,
-      "language": "de",
-      "name": "Aufgabe abschliessen: Entscheid verfügen",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
     "pk": 150019,
     "fields": {
       "action": 150014,
@@ -2287,18 +2169,6 @@
       "action": 150043,
       "language": "de",
       "name": "Resume case",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 150050,
-    "fields": {
-      "action": 150044,
-      "language": "de",
-      "name": "Redirect back to decision",
       "description": null,
       "success_message": null,
       "error_message": null
@@ -2522,42 +2392,6 @@
   },
   {
     "model": "core.actiont",
-    "pk": 12000000,
-    "fields": {
-      "action": 12000000,
-      "language": "de",
-      "name": "Notification: Entscheid verfügen Fachstelle",
-      "description": null,
-      "success_message": "E-Mail an Fachstelle gesendet",
-      "error_message": "Beim Senden der E-Mail Notifikation an die Fachstelle ist ein Fehler aufgetreten"
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 12000001,
-    "fields": {
-      "action": 12000001,
-      "language": "de",
-      "name": "Notification: Entscheid verfügen Gesuchsteller",
-      "description": null,
-      "success_message": "E-Mail an Gesuchstellende gesendet",
-      "error_message": "Beim Senden der E-Mail Notifikation an die Gesuchstellenden ist ein Fehler aufgetreten"
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 12000002,
-    "fields": {
-      "action": 12000002,
-      "language": "de",
-      "name": "Notification: Entscheid verfügen Leitbehörde",
-      "description": null,
-      "success_message": "E-Mail an Leitbehörde gesendet",
-      "error_message": "Beim Senden der E-Mail Notifikation an die Leitbehörde ist ein Fehler aufgetreten"
-    }
-  },
-  {
-    "model": "core.actiont",
     "pk": 12000003,
     "fields": {
       "action": 12000003,
@@ -2610,17 +2444,6 @@
       "tasks": "[\"sb2\"]",
       "process_type": "skip",
       "process_all": true,
-      "is_activation": false,
-      "fail_on_empty": true
-    }
-  },
-  {
-    "model": "core.actionworkitem",
-    "pk": 150012,
-    "fields": {
-      "tasks": "[\"decision\"]",
-      "process_type": "complete",
-      "process_all": false,
       "is_activation": false,
       "fail_on_empty": true
     }
@@ -3197,15 +3020,6 @@
       "available_instance_resource": "decisionnote",
       "action_name": "read",
       "hidden": 1
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 20067,
-    "fields": {
-      "available_instance_resource": "docxdecision",
-      "action_name": "index",
-      "hidden": 0
     }
   },
   {
@@ -40534,15 +40348,6 @@
   },
   {
     "model": "core.availableinstanceresource",
-    "pk": "docxdecision",
-    "fields": {
-      "module_name": "docxdecision",
-      "controller_name": "docxdecision",
-      "description": "Docx-based decision module"
-    }
-  },
-  {
-    "model": "core.availableinstanceresource",
     "pk": "editcirculation",
     "fields": {
       "module_name": "default",
@@ -41323,18 +41128,6 @@
   },
   {
     "model": "core.button",
-    "pk": 20040,
-    "fields": {
-      "instance_resource": 20023,
-      "name": null,
-      "description": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.button",
     "pk": 20044,
     "fields": {
       "instance_resource": 20004,
@@ -41478,18 +41271,6 @@
     }
   },
   {
-    "model": "core.button",
-    "pk": 12000000,
-    "fields": {
-      "instance_resource": 20023,
-      "name": null,
-      "description": null,
-      "class_field": "confirm",
-      "hidden": 0,
-      "sort": 1
-    }
-  },
-  {
     "model": "core.buttont",
     "pk": 20005,
     "fields": {
@@ -41626,16 +41407,6 @@
       "button": 20039,
       "language": "de",
       "name": "Speichern",
-      "description": null
-    }
-  },
-  {
-    "model": "core.buttont",
-    "pk": 20040,
-    "fields": {
-      "button": 20040,
-      "language": "de",
-      "name": "Entscheid verfügen",
       "description": null
     }
   },
@@ -41891,16 +41662,6 @@
   },
   {
     "model": "core.buttont",
-    "pk": 120040,
-    "fields": {
-      "button": 20040,
-      "language": "fr",
-      "name": "Rendre la décision",
-      "description": null
-    }
-  },
-  {
-    "model": "core.buttont",
     "pk": 120041,
     "fields": {
       "button": 20046,
@@ -42016,26 +41777,6 @@
       "button": 1200001,
       "language": "fr",
       "name": "Compléter déclaration spontanée 2",
-      "description": null
-    }
-  },
-  {
-    "model": "core.buttont",
-    "pk": 12000000,
-    "fields": {
-      "button": 12000000,
-      "language": "de",
-      "name": "Entscheid verfügen",
-      "description": null
-    }
-  },
-  {
-    "model": "core.buttont",
-    "pk": 15000000,
-    "fields": {
-      "button": 12000000,
-      "language": "fr",
-      "name": "Rendre la décision",
       "description": null
     }
   },
@@ -49495,7 +49236,7 @@
       "template": null,
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 17,
+      "sort": 18,
       "form_group": 40000
     }
   },
@@ -49510,7 +49251,7 @@
       "template": "/circulation/edit-circulation.phtml",
       "class_field": "menu-category-process menu-group-circulation",
       "hidden": 0,
-      "sort": 8,
+      "sort": 7,
       "form_group": 40000
     }
   },
@@ -49525,7 +49266,7 @@
       "template": "/circulation/index.phtml",
       "class_field": "menu-category-process menu-group-circulation",
       "hidden": 0,
-      "sort": 9,
+      "sort": 8,
       "form_group": 40000
     }
   },
@@ -49585,7 +49326,7 @@
       "template": null,
       "class_field": "menu-category-extraordinary",
       "hidden": 0,
-      "sort": 22,
+      "sort": 23,
       "form_group": 40000
     }
   },
@@ -49651,21 +49392,6 @@
   },
   {
     "model": "core.instanceresource",
-    "pk": 20023,
-    "fields": {
-      "available_instance_resource": "docxdecision",
-      "resource": 20006,
-      "name": null,
-      "description": null,
-      "template": null,
-      "class_field": "menu-category-process",
-      "hidden": 0,
-      "sort": 14,
-      "form_group": 40000
-    }
-  },
-  {
-    "model": "core.instanceresource",
     "pk": 20029,
     "fields": {
       "available_instance_resource": "editformpage",
@@ -49675,7 +49401,7 @@
       "template": "/form/rueckmeldungen.phtml",
       "class_field": "menu-category-extraordinary",
       "hidden": 0,
-      "sort": 21,
+      "sort": 22,
       "form_group": 40000
     }
   },
@@ -49705,7 +49431,7 @@
       "template": "/circulation/list-notice.phtml",
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 13,
+      "sort": 12,
       "form_group": 40000
     }
   },
@@ -49720,7 +49446,7 @@
       "template": "/circulation/edit-circulation.phtml",
       "class_field": "menu-category-process menu-group-subcirculation",
       "hidden": 0,
-      "sort": 10,
+      "sort": 9,
       "form_group": 40000
     }
   },
@@ -49735,7 +49461,7 @@
       "template": "/circulation/index.phtml",
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 12,
+      "sort": 11,
       "form_group": 40000
     }
   },
@@ -49750,7 +49476,7 @@
       "template": "/circulation/index.phtml",
       "class_field": "menu-category-process menu-group-subcirculation",
       "hidden": 0,
-      "sort": 11,
+      "sort": 10,
       "form_group": 40000
     }
   },
@@ -49765,7 +49491,7 @@
       "template": null,
       "class_field": "menu-category-extraordinary",
       "hidden": 0,
-      "sort": 23,
+      "sort": 24,
       "form_group": 40000
     }
   },
@@ -49780,7 +49506,7 @@
       "template": null,
       "class_field": "menu-category-extraordinary",
       "hidden": 0,
-      "sort": 5,
+      "sort": 6,
       "form_group": 40000
     }
   },
@@ -49990,7 +49716,7 @@
       "template": null,
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 19,
+      "sort": 20,
       "form_group": 40000
     }
   },
@@ -50005,7 +49731,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 26,
+      "sort": 27,
       "form_group": 40000
     }
   },
@@ -50020,7 +49746,7 @@
       "template": "/ember-camac-ng/journal.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 24,
+      "sort": 25,
       "form_group": 40000
     }
   },
@@ -50035,7 +49761,7 @@
       "template": "/ember-camac-ng/journal.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 6,
+      "sort": 7,
       "form_group": 40000
     }
   },
@@ -50050,7 +49776,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 8,
+      "sort": 9,
       "form_group": 40000
     }
   },
@@ -50095,7 +49821,7 @@
       "template": null,
       "class_field": "menu-category-extraordinary",
       "hidden": 0,
-      "sort": 20,
+      "sort": 21,
       "form_group": 40000
     }
   },
@@ -50155,7 +49881,7 @@
       "template": null,
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 25,
+      "sort": 26,
       "form_group": 40000
     }
   },
@@ -50170,7 +49896,7 @@
       "template": null,
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 7,
+      "sort": 8,
       "form_group": 40000
     }
   },
@@ -50206,21 +49932,6 @@
   },
   {
     "model": "core.instanceresource",
-    "pk": 150008,
-    "fields": {
-      "available_instance_resource": "docxdecision",
-      "resource": 20008,
-      "name": null,
-      "description": null,
-      "template": null,
-      "class_field": "menu-category-process",
-      "hidden": 0,
-      "sort": 4,
-      "form_group": 40000
-    }
-  },
-  {
-    "model": "core.instanceresource",
     "pk": 150009,
     "fields": {
       "available_instance_resource": "page",
@@ -50230,7 +49941,7 @@
       "template": "/ember-camac-ng/audit.phtml",
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 7,
+      "sort": 6,
       "form_group": 40000
     }
   },
@@ -50275,7 +49986,7 @@
       "template": "/ember-camac-ng/support.phtml",
       "class_field": "menu-category-primary active_leitung_leitbehoerde_only",
       "hidden": 0,
-      "sort": 27,
+      "sort": 28,
       "form_group": 40000
     }
   },
@@ -50290,7 +50001,7 @@
       "template": null,
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 6,
+      "sort": 5,
       "form_group": 40000
     }
   },
@@ -50305,7 +50016,7 @@
       "template": "/ember-camac-ng/gwr.phtml",
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 18,
+      "sort": 19,
       "form_group": 40000
     }
   },
@@ -50336,6 +50047,36 @@
       "class_field": "menu-category-process",
       "hidden": 0,
       "sort": 16,
+      "form_group": 40000
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 15000002,
+    "fields": {
+      "available_instance_resource": "taskform",
+      "resource": 20006,
+      "name": null,
+      "description": null,
+      "template": null,
+      "class_field": "menu-category-process",
+      "hidden": 0,
+      "sort": 14,
+      "form_group": 40000
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 15000003,
+    "fields": {
+      "available_instance_resource": "taskform",
+      "resource": 20008,
+      "name": null,
+      "description": null,
+      "template": null,
+      "class_field": "menu-category-process",
+      "hidden": 0,
+      "sort": 5,
       "form_group": 40000
     }
   },
@@ -51749,14 +51490,6 @@
   },
   {
     "model": "core.instanceresourceaction",
-    "pk": 10063,
-    "fields": {
-      "available_instance_resource": "docxdecision",
-      "available_action": "notification"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
     "pk": 20050,
     "fields": {
       "available_instance_resource": "editformpage",
@@ -52117,22 +51850,6 @@
   },
   {
     "model": "core.instanceresourceaction",
-    "pk": 20144,
-    "fields": {
-      "available_instance_resource": "docxdecision",
-      "available_action": "formtransition"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20147,
-    "fields": {
-      "available_instance_resource": "docxdecision",
-      "available_action": "php"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
     "pk": 40003,
     "fields": {
       "available_instance_resource": "billing",
@@ -52333,14 +52050,6 @@
   },
   {
     "model": "core.instanceresourceaction",
-    "pk": 40038,
-    "fields": {
-      "available_instance_resource": "docxdecision",
-      "available_action": "addhistory"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
     "pk": 40040,
     "fields": {
       "available_instance_resource": "formpage",
@@ -52501,14 +52210,6 @@
   },
   {
     "model": "core.instanceresourceaction",
-    "pk": 150028,
-    "fields": {
-      "available_instance_resource": "docxdecision",
-      "available_action": "workitem"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
     "pk": 150030,
     "fields": {
       "available_instance_resource": "page",
@@ -52640,14 +52341,6 @@
     "pk": 150053,
     "fields": {
       "available_instance_resource": "formwizard",
-      "available_action": "case"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 150054,
-    "fields": {
-      "available_instance_resource": "docxdecision",
       "available_action": "case"
     }
   },
@@ -52788,14 +52481,6 @@
     }
   },
   {
-    "model": "core.instanceresourceaction",
-    "pk": 150080,
-    "fields": {
-      "available_instance_resource": "docxdecision",
-      "available_action": "pageredirect"
-    }
-  },
-  {
     "model": "core.instanceresourcet",
     "pk": 10000,
     "fields": {
@@ -52902,16 +52587,6 @@
       "instance_resource": 20020,
       "language": "de",
       "name": "Zuständigkeit",
-      "description": null
-    }
-  },
-  {
-    "model": "core.instanceresourcet",
-    "pk": 20023,
-    "fields": {
-      "instance_resource": 20023,
-      "language": "de",
-      "name": "Entscheid/Beurteilung",
       "description": null
     }
   },
@@ -53397,16 +53072,6 @@
   },
   {
     "model": "core.instanceresourcet",
-    "pk": 120082,
-    "fields": {
-      "instance_resource": 20023,
-      "language": "fr",
-      "name": "Décision/Evaluation",
-      "description": null
-    }
-  },
-  {
-    "model": "core.instanceresourcet",
     "pk": 120083,
     "fields": {
       "instance_resource": 20082,
@@ -53747,26 +53412,6 @@
   },
   {
     "model": "core.instanceresourcet",
-    "pk": 150021,
-    "fields": {
-      "instance_resource": 150008,
-      "language": "de",
-      "name": "Entscheid/Beurteilung",
-      "description": null
-    }
-  },
-  {
-    "model": "core.instanceresourcet",
-    "pk": 150022,
-    "fields": {
-      "instance_resource": 150008,
-      "language": "fr",
-      "name": "Décision/Evaluation",
-      "description": null
-    }
-  },
-  {
-    "model": "core.instanceresourcet",
     "pk": 150023,
     "fields": {
       "instance_resource": 150009,
@@ -53912,6 +53557,46 @@
       "instance_resource": 15000001,
       "language": "fr",
       "name": "Communication aux voisins et aux voisines",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 15000005,
+    "fields": {
+      "instance_resource": 15000002,
+      "language": "de",
+      "name": "Entscheid / Beurteilung",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 15000006,
+    "fields": {
+      "instance_resource": 15000002,
+      "language": "fr",
+      "name": "Décision / Evaluation",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 15000007,
+    "fields": {
+      "instance_resource": 15000003,
+      "language": "de",
+      "name": "Entscheid / Beurteilung",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 15000008,
+    "fields": {
+      "instance_resource": 15000003,
+      "language": "fr",
+      "name": "Décision / Evaluation",
       "description": null
     }
   },
@@ -54476,15 +54161,6 @@
       "instance_resource": 20020,
       "role": 20000,
       "instance_state": 20004
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 20103,
-    "fields": {
-      "instance_resource": 20023,
-      "role": 3,
-      "instance_state": 20005
     }
   },
   {
@@ -56604,42 +56280,6 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 120054,
-    "fields": {
-      "instance_resource": 20023,
-      "role": 3,
-      "instance_state": 20010
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 120055,
-    "fields": {
-      "instance_resource": 20023,
-      "role": 3,
-      "instance_state": 20011
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 120056,
-    "fields": {
-      "instance_resource": 20023,
-      "role": 3,
-      "instance_state": 20013
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 120057,
-    "fields": {
-      "instance_resource": 20023,
-      "role": 3,
-      "instance_state": 120000
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 120058,
     "fields": {
       "instance_resource": 150000,
@@ -56766,15 +56406,6 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 120076,
-    "fields": {
-      "instance_resource": 20023,
-      "role": 3,
-      "instance_state": 120002
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 120077,
     "fields": {
       "instance_resource": 10000,
@@ -56859,15 +56490,6 @@
     "pk": 120088,
     "fields": {
       "instance_resource": 10000,
-      "role": 3,
-      "instance_state": 120003
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 120090,
-    "fields": {
-      "instance_resource": 20023,
       "role": 3,
       "instance_state": 120003
     }
@@ -58530,15 +58152,6 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 150206,
-    "fields": {
-      "instance_resource": 20023,
-      "role": 3,
-      "instance_state": 20014
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 150207,
     "fields": {
       "instance_resource": 20041,
@@ -58674,42 +58287,6 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 150222,
-    "fields": {
-      "instance_resource": 150008,
-      "role": 5,
-      "instance_state": 20011
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 150223,
-    "fields": {
-      "instance_resource": 150008,
-      "role": 5,
-      "instance_state": 20013
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 150224,
-    "fields": {
-      "instance_resource": 150008,
-      "role": 5,
-      "instance_state": 20014
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 150225,
-    "fields": {
-      "instance_resource": 150008,
-      "role": 5,
-      "instance_state": 120000
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 150226,
     "fields": {
       "instance_resource": 20019,
@@ -58830,15 +58407,6 @@
     "pk": 150239,
     "fields": {
       "instance_resource": 10000,
-      "role": 3,
-      "instance_state": 120001
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 150240,
-    "fields": {
-      "instance_resource": 20023,
       "role": 3,
       "instance_state": 120001
     }
@@ -59745,24 +59313,6 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 12000035,
-    "fields": {
-      "instance_resource": 20023,
-      "role": 20003,
-      "instance_state": 20009
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12000036,
-    "fields": {
-      "instance_resource": 20023,
-      "role": 3,
-      "instance_state": 20009
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 12000037,
     "fields": {
       "instance_resource": 20041,
@@ -59964,24 +59514,6 @@
     "pk": 12000059,
     "fields": {
       "instance_resource": 20077,
-      "role": 5,
-      "instance_state": 20009
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12000060,
-    "fields": {
-      "instance_resource": 150008,
-      "role": 20006,
-      "instance_state": 20009
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12000061,
-    "fields": {
-      "instance_resource": 150008,
       "role": 5,
       "instance_state": 20009
     }
@@ -60335,6 +59867,294 @@
       "instance_resource": 140008,
       "role": 20000,
       "instance_state": 20009
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000101,
+    "fields": {
+      "instance_resource": 15000002,
+      "role": 3,
+      "instance_state": 20005
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000103,
+    "fields": {
+      "instance_resource": 15000003,
+      "role": 5,
+      "instance_state": 20011
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000104,
+    "fields": {
+      "instance_resource": 15000003,
+      "role": 5,
+      "instance_state": 20013
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000105,
+    "fields": {
+      "instance_resource": 15000003,
+      "role": 5,
+      "instance_state": 20014
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000106,
+    "fields": {
+      "instance_resource": 15000003,
+      "role": 5,
+      "instance_state": 20009
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000107,
+    "fields": {
+      "instance_resource": 15000003,
+      "role": 5,
+      "instance_state": 120000
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000108,
+    "fields": {
+      "instance_resource": 15000003,
+      "role": 5,
+      "instance_state": 120003
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000109,
+    "fields": {
+      "instance_resource": 15000003,
+      "role": 20006,
+      "instance_state": 20011
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000110,
+    "fields": {
+      "instance_resource": 15000003,
+      "role": 20006,
+      "instance_state": 20013
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000111,
+    "fields": {
+      "instance_resource": 15000003,
+      "role": 20006,
+      "instance_state": 20014
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000112,
+    "fields": {
+      "instance_resource": 15000003,
+      "role": 20006,
+      "instance_state": 20009
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000113,
+    "fields": {
+      "instance_resource": 15000003,
+      "role": 20006,
+      "instance_state": 120000
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000114,
+    "fields": {
+      "instance_resource": 15000003,
+      "role": 20006,
+      "instance_state": 120003
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000115,
+    "fields": {
+      "instance_resource": 15000002,
+      "role": 3,
+      "instance_state": 20010
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000116,
+    "fields": {
+      "instance_resource": 15000002,
+      "role": 3,
+      "instance_state": 20011
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000117,
+    "fields": {
+      "instance_resource": 15000002,
+      "role": 3,
+      "instance_state": 20013
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000118,
+    "fields": {
+      "instance_resource": 15000002,
+      "role": 3,
+      "instance_state": 20014
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000119,
+    "fields": {
+      "instance_resource": 15000002,
+      "role": 3,
+      "instance_state": 20009
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000120,
+    "fields": {
+      "instance_resource": 15000002,
+      "role": 3,
+      "instance_state": 120000
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000121,
+    "fields": {
+      "instance_resource": 15000002,
+      "role": 3,
+      "instance_state": 120001
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000122,
+    "fields": {
+      "instance_resource": 15000002,
+      "role": 3,
+      "instance_state": 120002
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000123,
+    "fields": {
+      "instance_resource": 15000002,
+      "role": 3,
+      "instance_state": 120003
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000124,
+    "fields": {
+      "instance_resource": 15000002,
+      "role": 20003,
+      "instance_state": 20005
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000125,
+    "fields": {
+      "instance_resource": 15000002,
+      "role": 20003,
+      "instance_state": 20010
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000126,
+    "fields": {
+      "instance_resource": 15000002,
+      "role": 20003,
+      "instance_state": 20011
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000127,
+    "fields": {
+      "instance_resource": 15000002,
+      "role": 20003,
+      "instance_state": 20013
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000128,
+    "fields": {
+      "instance_resource": 15000002,
+      "role": 20003,
+      "instance_state": 20014
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000129,
+    "fields": {
+      "instance_resource": 15000002,
+      "role": 20003,
+      "instance_state": 20009
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000130,
+    "fields": {
+      "instance_resource": 15000002,
+      "role": 20003,
+      "instance_state": 120000
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000131,
+    "fields": {
+      "instance_resource": 15000002,
+      "role": 20003,
+      "instance_state": 120001
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000132,
+    "fields": {
+      "instance_resource": 15000002,
+      "role": 20003,
+      "instance_state": 120002
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000133,
+    "fields": {
+      "instance_resource": 15000002,
+      "role": 20003,
+      "instance_state": 120003
     }
   },
   {
@@ -62058,60 +61878,6 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 15000198,
-    "fields": {
-      "instance_resource": 150008,
-      "role": 5,
-      "instance_state": 120003
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000199,
-    "fields": {
-      "instance_resource": 150008,
-      "role": 20006,
-      "instance_state": 20011
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000200,
-    "fields": {
-      "instance_resource": 150008,
-      "role": 20006,
-      "instance_state": 20013
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000201,
-    "fields": {
-      "instance_resource": 150008,
-      "role": 20006,
-      "instance_state": 20014
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000202,
-    "fields": {
-      "instance_resource": 150008,
-      "role": 20006,
-      "instance_state": 120000
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000203,
-    "fields": {
-      "instance_resource": 150008,
-      "role": 20006,
-      "instance_state": 120003
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 15000204,
     "fields": {
       "instance_resource": 140005,
@@ -62603,87 +62369,6 @@
       "instance_resource": 20041,
       "role": 20003,
       "instance_state": 120000
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000259,
-    "fields": {
-      "instance_resource": 20023,
-      "role": 20003,
-      "instance_state": 20005
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000260,
-    "fields": {
-      "instance_resource": 20023,
-      "role": 20003,
-      "instance_state": 20010
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000261,
-    "fields": {
-      "instance_resource": 20023,
-      "role": 20003,
-      "instance_state": 20011
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000262,
-    "fields": {
-      "instance_resource": 20023,
-      "role": 20003,
-      "instance_state": 20013
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000263,
-    "fields": {
-      "instance_resource": 20023,
-      "role": 20003,
-      "instance_state": 20014
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000264,
-    "fields": {
-      "instance_resource": 20023,
-      "role": 20003,
-      "instance_state": 120000
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000265,
-    "fields": {
-      "instance_resource": 20023,
-      "role": 20003,
-      "instance_state": 120001
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000266,
-    "fields": {
-      "instance_resource": 20023,
-      "role": 20003,
-      "instance_state": 120002
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000267,
-    "fields": {
-      "instance_resource": 20023,
-      "role": 20003,
-      "instance_state": 120003
     }
   },
   {
@@ -63465,6 +63150,20 @@
     "pk": 12000002,
     "fields": {
       "task": "ebau-number"
+    }
+  },
+  {
+    "model": "core.irtaskform",
+    "pk": 15000002,
+    "fields": {
+      "task": "decision"
+    }
+  },
+  {
+    "model": "core.irtaskform",
+    "pk": 15000003,
+    "fields": {
+      "task": "decision"
     }
   },
   {

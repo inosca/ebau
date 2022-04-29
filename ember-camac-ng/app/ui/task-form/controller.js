@@ -1,4 +1,5 @@
 import Controller from "@ember/controller";
+import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { dropTask, lastValue } from "ember-concurrency";
 
@@ -24,5 +25,14 @@ export default class TaskFormController extends Controller {
     });
 
     return response.allWorkItems.edges[0]?.node;
+  }
+
+  @action
+  redirectToWorkItems() {
+    if (this.model.task === "decision") {
+      window.location.replace(
+        `/index/redirect-to-instance-resource/instance-id/${this.model.instance_id}`
+      );
+    }
   }
 }

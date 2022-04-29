@@ -1,21 +1,23 @@
-from datetime import datetime
+from datetime import date
 
-from caluma.caluma_form.models import Document
+from caluma.caluma_form.models import Answer, Document
+from caluma.caluma_workflow.models import WorkItem
 from django.db.models import (
     Avg,
     Case,
     Count,
+    Exists,
     ExpressionWrapper,
     F,
     FloatField,
     Func,
     IntegerField,
+    OuterRef,
     Q,
     QuerySet,
     Sum,
     When,
 )
-from django.utils.timezone import now
 from rest_framework.generics import ListAPIView
 from rest_framework.renderers import JSONRenderer
 from rest_framework.request import Request
@@ -132,9 +134,18 @@ class InstancesCycleTimesView(InstanceQuerysetMixin, ListAPIView):
     swagger_schema = None
     queryset = Instance.objects.filter(
         case__meta__has_keys=["total-cycle-time", "net-cycle-time"]
-    ).exclude(
-        Q(decision__decision_date__lt=datetime(1970, 1, 1))
-        | Q(decision__decision_date__gt=now())
+    ).filter(
+        Exists(
+            Answer.objects.filter(
+                question_id="decision-date",
+                document__work_item__case__instance=OuterRef("pk"),
+            ).exclude(
+                Q(document__work_item__status=WorkItem.STATUS_CANCELED)
+                | Q(date__isnull=True)
+                | Q(date__lt=date(1970, 1, 1))
+                | Q(date__gt=date.today())
+            )
+        )
     )
     serializer_class = InstancesCycleTimeSerializer
     instance_field = None

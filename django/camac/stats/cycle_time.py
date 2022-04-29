@@ -1,11 +1,11 @@
 import datetime
 from typing import Dict, List, Tuple
 
-from caluma.caluma_form.models import Document
-from django.core.exceptions import ObjectDoesNotExist
-from django.db.models import Avg, Count, IntegerField, QuerySet
+from caluma.caluma_form.models import Answer, Document
+from caluma.caluma_workflow.models import WorkItem
+from django.db.models import Avg, Count, IntegerField, OuterRef, QuerySet, Subquery
 from django.db.models.fields.json import KeyTextTransform
-from django.db.models.functions import Cast, ExtractYear
+from django.db.models.functions import Cast
 
 from camac.instance.master_data import MasterData
 from camac.instance.models import Instance
@@ -104,6 +104,14 @@ def _retrieve_waiting_periods(
         family__work_item__task_id="nfd",
         family__work_item__case=instance.case,
     )
+
+    try:
+        decision_date = Answer.objects.get(
+            question_id="decision-date", document__work_item__case__instance=instance
+        ).date
+    except Answer.DoesNotExist:
+        decision_date = None
+
     results = []
     for row in rows.iterator():
         request_answer = row.answers.filter(
@@ -116,7 +124,7 @@ def _retrieve_waiting_periods(
             response_answer and response_answer.date
         ) is None:
             continue
-        if response_answer.date > instance.decision.decision_date:
+        if response_answer.date > decision_date:
             continue
         results.append((request_answer.date, response_answer.date))
     return sorted(results, key=lambda pair: pair[0])
@@ -143,14 +151,12 @@ def _rejected_instances(instance) -> List[Instance]:
 def compute_cycle_time(instance: Instance) -> Dict:
     master_data = MasterData(instance.case)
     cycle_start = master_data.paper_submit_date or master_data.submit_date
+    decision_date = master_data.decision_date
 
-    try:
-        if cycle_start.date() > instance.decision.decision_date:
-            return {}
-    except (ObjectDoesNotExist, AttributeError):
+    if not decision_date or not cycle_start or cycle_start.date() > decision_date:
         return {}
 
-    cumulated_extra_time = (instance.decision.decision_date - cycle_start.date()).days
+    cumulated_extra_time = (decision_date - cycle_start.date()).days
 
     cumulated_idle_time = _compute_total_idle_days(_retrieve_waiting_periods(instance))
 
@@ -168,7 +174,18 @@ def compute_cycle_time(instance: Instance) -> Dict:
 def aggregate_cycle_times(instances: QuerySet) -> Dict:
     # Categorize by year and aggregate (AVG) instances's cycle times.
     return (
-        instances.annotate(year=ExtractYear("decision__decision_date"))
+        instances.annotate(
+            year=Subquery(
+                Answer.objects.filter(
+                    question_id="decision-date",
+                    document__work_item__case__instance=OuterRef("pk"),
+                )
+                .exclude(
+                    document__work_item__status=WorkItem.STATUS_CANCELED,
+                )
+                .values("date__year")[:1]
+            )
+        )
         .values("year")
         .annotate(
             avg_total_cycle_time=Cast(
