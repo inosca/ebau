@@ -13,7 +13,7 @@ from pyxb import IncompleteElementContentError, UnprocessedElementContentError
 
 from camac import camac_metadata
 from camac.constants.kt_schwyz import DECISION_JUDGEMENT
-from camac.core.models import Answer, DocxDecision
+from camac.core.models import Answer
 from camac.instance.models import Instance
 from camac.utils import build_url
 
@@ -394,8 +394,8 @@ def determine_decision_state(instance: Instance):
         - ruling
         - rulingAuthority
 
-    where no decision module exists (such a DocxDecision) these have to be
-    collected from different locations, usually a combination of work-item
+    where no decision module exists (such as the decision form in BE) these have
+    to be collected from different locations, usually a combination of work-item
     and history entry.
 
     rulings are a set of categories such as 'building-permit' and
@@ -661,15 +661,10 @@ def application(instance: Instance, answers: AnswersDict):
             else None,
         ),
         # directive  minOccurs=0
-        decisionRuling=[
-            decision_ruling(
-                instance,
-                decision,
-                answers["ech-subject"],
-                answers["caluma-workflow-slug"],
-            )
-            for decision in DocxDecision.objects.filter(instance=instance)
-        ],
+        decisionRuling=decision_ruling(
+            instance,
+            answers["caluma-workflow-slug"],
+        ),
         document=get_documents(instance.attachments.all()),
         referencedPlanningPermissionApplication=[
             permission_application_identification(i) for i in related_instances
@@ -680,20 +675,36 @@ def application(instance: Instance, answers: AnswersDict):
     )
 
 
-def decision_ruling(instance, decision, ech_subject, caluma_workflow_slug):
+def decision_ruling(instance, caluma_workflow_slug):
+    work_item = instance.case.work_items.filter(
+        task_id="decision",
+        status__in=[WorkItem.STATUS_COMPLETED, WorkItem.STATUS_SKIPPED],
+    ).first()
 
-    ruling = decision.decision_type
-    if ech_subject in ["Einfache Vorabklärung", "Vollständige Vorabklärung"]:
-        ruling = "VORABKLAERUNG"
-    return ns_application.decisionRulingType(
-        judgement=decision_to_judgement(decision.decision, caluma_workflow_slug),
-        date=decision.decision_date,
-        ruling=ruling,
-        rulingAuthority=authority(
-            instance.responsible_service(filter_type="municipality"),
-            organization_category="ebaube",
-        ),
+    if not work_item:
+        return []
+
+    answers = work_item.document.answers.all()
+
+    decision = answers.filter(question_id="decision-decision-assessment").first().value
+    date = answers.filter(question_id="decision-date").first().date
+    ruling = (
+        answers.filter(question_id="decision-approval-type").first().value
+        if caluma_workflow_slug == "building-permit"
+        else "VORABKLAERUNG"
     )
+
+    return [
+        ns_application.decisionRulingType(
+            judgement=decision_to_judgement(decision, caluma_workflow_slug),
+            date=date,
+            ruling=ruling,
+            rulingAuthority=authority(
+                instance.responsible_service(filter_type="municipality"),
+                organization_category="ebaube",
+            ),
+        )
+    ]
 
 
 def office(service, organization_category=None, canton="BE"):

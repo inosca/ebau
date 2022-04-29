@@ -13,7 +13,7 @@ snapshots['test_record_loading_be[dossier_row_patch1-dossier_number-kt_bern] 1']
 
 snapshots['test_record_loading_be[dossier_row_patch10-profile_approval_date-kt_bern] 1'] = GenericRepr('datetime.date(2021, 12, 12)')
 
-snapshots['test_record_loading_be[dossier_row_patch11-decision_date-kt_bern] 1'] = GenericRepr('datetime.datetime(2021, 12, 12, 0, 0)')
+snapshots['test_record_loading_be[dossier_row_patch11-decision_date-kt_bern] 1'] = GenericRepr('datetime.date(2021, 12, 12)')
 
 snapshots['test_record_loading_be[dossier_row_patch12-final_approval_date-kt_bern] 1'] = GenericRepr('datetime.date(2021, 12, 12)')
 

@@ -718,10 +718,20 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
 
     @permission_aware
     def _get_ebau_number_form_permissions(self, instance):
-        return set(["read"])
+        return set()
 
     def _get_ebau_number_form_permissions_for_municipality(self, instance):
         if instance.instance_state.name == "subm":
+            return set(["read", "write"])
+
+        return set(["read"])
+
+    @permission_aware
+    def _get_decision_form_permissions(self, instance):
+        return set()
+
+    def _get_decision_form_permissions_for_municipality(self, instance):
+        if instance.instance_state.name == "coordination" and not self._is_read_only():
             return set(["read", "write"])
 
         return set(["read"])
@@ -731,6 +741,9 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         return set()
 
     def _get_publikation_form_permissions_for_service(self, instance):
+        if instance.instance_state.name in ["new", "subm", "correction"]:
+            return set()
+
         return set(["read"])
 
     def _get_publikation_form_permissions_for_municipality(self, instance):

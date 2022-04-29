@@ -1297,6 +1297,7 @@ APPLICATIONS = {
                 "publikation",
                 "information-of-neighbors",
                 "ebau-number",
+                "decision",
             ],
             "CIRCULATION_WORKFLOW": "circulation",
             "CIRCULATION_TASK": "circulation",
@@ -2001,6 +2002,13 @@ APPLICATIONS = {
                     questions__forms__pk__startswith="solaranlagen"
                 ),
             },
+            "caluma_decision_form": {
+                "caluma_form.Form": Q(pk="decision"),
+                "caluma_form.FormQuestion": Q(form__pk="decision"),
+                "caluma_form.Question": Q(forms__pk="decision"),
+                "caluma_form.QuestionOption": Q(question__forms__pk="decision"),
+                "caluma_form.Option": Q(questions__forms__pk="decision"),
+            },
         },
         "DUMP_CONFIG_EXCLUDED_MODELS": [
             "user.Group",
@@ -2276,9 +2284,12 @@ APPLICATIONS = {
                 {"value_parser": "datetime"},
             ),
             "decision_date": (
-                "caluma_decision_date",
-                "decision_date",
-                {"value_key": "date"},
+                "answer",
+                "decision-date",
+                {
+                    "document_from_work_item": "decision",
+                    "value_key": "date",
+                },
             ),
             "publication_date": ("answer", "datum-publikation", {"value_key": "date"}),
             "construction_start_date": (

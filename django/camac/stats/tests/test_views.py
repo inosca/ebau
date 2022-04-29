@@ -255,7 +255,7 @@ def test_activation_summary(
         ("Applicant", False),
     ],
 )
-def test_instance_cycle_time_view(
+def test_instance_cycle_time_view(  # TODO: fix test
     db,
     group,
     role,
@@ -265,7 +265,7 @@ def test_instance_cycle_time_view(
     instance_with_case,
     admin_user,
     admin_client,
-    docx_decision_factory,
+    decision_factory,
     freezer,
     has_access,
 ):
@@ -274,14 +274,23 @@ def test_instance_cycle_time_view(
     num_years = 3
     years = []
     now = timezone.now()
-    decision_types = [None, "GESAMT", "baubewilligung"]
+    decision_types = [
+        None,
+        "decision-approval-type-overall-building-permit",
+        "decision-approval-type-building-permit",
+    ]
     for year_offset in range(num_years):
         then = now - relativedelta.relativedelta(years=year_offset)
         years.append(then.year)
         freezer.move_to(then)
         cycle_time += cycle_time * year_offset
-        for i in range(len(decision_types)):
-            instance = instance_with_case(instance_factory(user=admin_user))
+        for i, decision_type in enumerate(decision_types):
+            instance = instance_with_case(
+                instance_factory(user=admin_user),
+                workflow="building-permit"
+                if decision_type
+                else "preliminary-clarification",
+            )
             instance_service_factory(instance=instance, service=group.service)
             submitted = instance.creation_date
             instance.case.meta.update(
@@ -294,10 +303,10 @@ def test_instance_cycle_time_view(
                     "net-cycle-time": cycle_time - cycle_time // 3,
                 }
             )
-            docx_decision_factory(
+            decision_factory(
                 instance=instance,
-                decision_type=decision_types[i] and decision_types[i].upper(),
-                decision_date=(submitted + datetime.timedelta(days=(3 * i))).date(),
+                decision_type=decision_type,
+                decision_date=submitted.date() + datetime.timedelta(days=(3 * i)),
             )
 
             instance.case.save()
@@ -316,9 +325,9 @@ def test_instance_cycle_time_view(
                 "net-cycle-time": 11,
             }
         )
-        docx_decision_factory(
+        decision_factory(
             instance=excl_instance,
-            decision_type=decision_types[1] and decision_types[1].upper(),
+            decision_type="decision-approval-type-overall-building-permit",
             decision_date=(submitted + datetime.timedelta(days=3)).date(),
         )
         excl_instance.case.save()
@@ -327,8 +336,8 @@ def test_instance_cycle_time_view(
 
     for procedure in decision_types:
         resp = admin_client.get(
-            url, {"procedure": procedure or "prelim"}
-        ).json()  # "prelim" keyword is used for decisions that have `decision_type=None`
+            url, {"procedure": procedure or "preliminary-clarification"}
+        ).json()
         if has_access:
             assert resp.pop().get("count") is not None
         else:

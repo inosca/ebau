@@ -1,0 +1,20 @@
+query DecisionProcedures {
+  allQuestions(filter: [{ slugs: ["decision-approval-type"] }]) {
+    edges {
+      node {
+        id
+        ... on ChoiceQuestion {
+          options {
+            edges {
+              node {
+                id
+                slug
+                label
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
