@@ -1,5 +1,6 @@
 from typing import List
 
+from caluma.caluma_form import api as form_api
 from caluma.caluma_form.api import save_answer
 from caluma.caluma_form.models import Form as CalumaForm, Question
 from caluma.caluma_form.validators import CustomValidationError
@@ -12,6 +13,11 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.db import transaction
 
 from camac.caluma.extensions.events.general import get_caluma_setting
+from camac.constants.kt_bern import (
+    DECISION_TYPE_UNKNOWN,
+    DECISIONS_BEWILLIGT,
+    DECISIONS_POSITIVE,
+)
 from camac.core.models import InstanceService
 from camac.dossier_import.dossier_classes import Dossier
 from camac.dossier_import.messages import (
@@ -25,7 +31,6 @@ from camac.dossier_import.messages import (
 )
 from camac.dossier_import.writers import (
     CalumaAnswerWriter,
-    CalumaDecisionDateWriter,
     CalumaListAnswerWriter,
     CalumaPlotDataWriter,
     CaseMetaWriter,
@@ -112,7 +117,9 @@ class KtBernDossierWriter(DossierWriter):
     usage = CalumaAnswerWriter(target="nutzungszone")
     application_type = CalumaAnswerWriter(target="geschaeftstyp")
     submit_date = CaseMetaWriter(target="submit-date", formatter="datetime-to-string")
-    decision_date = CalumaDecisionDateWriter(target="datum-baubewilligung")
+    decision_date = CalumaAnswerWriter(
+        target="decision-date", value_key="date", task="decision"
+    )
     publication_date = CalumaAnswerWriter(target="datum-publikation", value_key="date")
     construction_start_date = CalumaAnswerWriter(
         target="datum-baubeginn", value_key="date"
@@ -262,6 +269,14 @@ class KtBernDossierWriter(DossierWriter):
             value=str(self._group.service_id),
             user=BaseUser(username=self._user.username, group=self._group.pk),
         )
+
+        dossier_summary.details += self._create_dossier_attachments(dossier, instance)
+
+        workflow_message = self._set_workflow_state(
+            instance, dossier._meta.target_state, dossier
+        )
+        instance.history.all().delete()
+
         self.write_fields(instance, dossier)
         dossier_summary.details.append(
             Message(
@@ -270,17 +285,6 @@ class KtBernDossierWriter(DossierWriter):
                 detail="Form data written.",
             )
         )
-
-        dossier_summary.details += self._create_dossier_attachments(dossier, instance)
-
-        if dossier._meta.workflow == "BUILDINGPERMIT" and dossier.decision_date:
-            instance.decision.decision_type = "UNKNOWN_IMPORT"
-            instance.decision.save()
-
-        workflow_message = self._set_workflow_state(
-            instance, dossier._meta.target_state, dossier
-        )
-        instance.history.all().delete()
 
         dossier_summary.details.append(
             Message(
@@ -355,6 +359,9 @@ class KtBernDossierWriter(DossierWriter):
                 )
                 continue
 
+            if task_id == "decision":
+                self.write_decision_form(work_item, dossier, workflow_type)
+
             config = get_caluma_setting("PRE_COMPLETE") and get_caluma_setting(
                 "PRE_COMPLETE"
             ).get(work_item.task_id)
@@ -428,3 +435,18 @@ class KtBernDossierWriter(DossierWriter):
                 )
             )
             return
+
+    def write_decision_form(self, decision_work_item, dossier, workflow_type):
+        form_api.save_answer(
+            document=decision_work_item.document,
+            question=Question.objects.get(slug="decision-decision-assessment"),
+            value=DECISIONS_BEWILLIGT
+            if workflow_type == "BUILDINGPERMIT"
+            else DECISIONS_POSITIVE,
+        )
+        if workflow_type == "BUILDINGPERMIT":
+            form_api.save_answer(
+                document=decision_work_item.document,
+                question=Question.objects.get(pk="decision-approval-type"),
+                value=DECISION_TYPE_UNKNOWN,
+            )

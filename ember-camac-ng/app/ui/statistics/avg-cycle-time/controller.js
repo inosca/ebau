@@ -2,29 +2,40 @@ import Controller from "@ember/controller";
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
+import { queryManager } from "ember-apollo-client";
 import { dropTask, lastValue } from "ember-concurrency";
+import { trackedTask } from "ember-resources/util/ember-concurrency";
+
+import decisionProceduresQuery from "camac-ng/gql/queries/decision-procedures.graphql";
 
 export default class StatisticsAvgCycleTimeController extends Controller {
   @service fetch;
+  @service intl;
+
+  @queryManager apollo;
 
   queryParams = ["procedure"];
 
   @tracked procedure = "";
 
-  get procedures() {
+  procedures = trackedTask(this, this.fetchProcedures, () => []);
+
+  @dropTask
+  *fetchProcedures() {
+    const response = yield this.apollo.query(
+      {
+        query: decisionProceduresQuery,
+      },
+      "allQuestions.edges"
+    );
+
     return [
-      "PRELIM",
-      "BAUBEWILLIGUNG",
-      "GESAMT",
-      "KLEIN",
-      "GENERELL",
-      "TEILBAUBEWILLIGUNG",
-      "PROJEKTAENDERUNG",
-      "BAUABSCHLAG_OHNE_WHST",
-      "BAUABSCHLAG_MIT_WHST",
-      "ABSCHREIBUNGSVERFUEGUNG",
-      "BAUBEWILLIGUNGSFREI",
-      "TEILWEISE_BAUBEWILLIGUNG_MIT_TEILWEISEM_BAUABSCHLAG_UND_TEILWEISER_WIEDERHERSTELLUNG",
+      { slug: "", label: this.intl.t("statistics.procedures.all") },
+      {
+        slug: "preliminary-clarification",
+        label: this.intl.t("statistics.procedures.preliminary-clarification"),
+      },
+      ...response[0].node.options.edges.map((edge) => edge.node),
     ];
   }
 

@@ -147,27 +147,6 @@ class CirculationAnswerFactory(DjangoModelFactory):
         model = models.CirculationAnswer
 
 
-class DocxDecisionFactory(DjangoModelFactory):
-    instance = SubFactory(InstanceFactory)
-    decision = fuzzy.FuzzyChoice(["accepted", "denied", "writtenOff"])
-    decision_type = fuzzy.FuzzyChoice(
-        [
-            "BAUBEWILLIGUNG",
-            "GESAMT",
-            "KLEIN",
-            "GENERELL",
-            "TEILBAUBEWILLIGUNG",
-            "PROJEKTAENDERUNG",
-            "BAUABSCHLAG_OHNE_MWST",
-            "BAUABSCHLAG_MIT_MWST",
-        ]
-    )
-    decision_date = timezone.localdate()
-
-    class Meta:
-        model = models.DocxDecision
-
-
 class CirculationStateFactory(DjangoModelFactory):
     name = Faker("name")
     sort = 0

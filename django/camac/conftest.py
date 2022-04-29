@@ -4,6 +4,7 @@ import inspect
 import logging
 from copy import deepcopy
 from dataclasses import dataclass, field
+from datetime import date
 
 import pytest
 from caluma.caluma_core.faker import MultilangProvider
@@ -103,6 +104,7 @@ FORM_QUESTION_MAP_BE = [
     ("sb1", "personalien-sb1-sb2"),
     ("sb2", "is-paper"),
     ("nfd", "is-paper"),
+    ("decision", "decision-workflow"),
 ]
 
 FORM_QUESTION_MAP_UR = [
@@ -280,6 +282,7 @@ def use_caluma_form(application_settings):
 def ech_mandatory_answers_baugesuch():
     return {
         "ech-subject": "Baugesuch",
+        "caluma-workflow-slug": "building-permit",
         "gemeinde": "Testgemeinde",
         "parzelle": [{"parzellennummer": "1586"}],
         "personalien-gesuchstellerin": [
@@ -299,6 +302,7 @@ def ech_mandatory_answers_baugesuch():
 def ech_mandatory_answers_einfache_vorabklaerung():
     return {
         "ech-subject": "Einfache Vorabklärung",
+        "caluma-workflow-slug": "preliminary-clarification",
         "personalien-gesuchstellerin": [
             {
                 "name-gesuchstellerin": "Testname",
@@ -327,6 +331,7 @@ def ech_mandatory_answers_einfache_vorabklaerung():
 def ech_mandatory_answers_vollstaendige_vorabklaerung():
     return {
         "ech-subject": "Vollständige Vorabklärung",
+        "caluma-workflow-slug": "preliminary-clarification",
         "gemeinde": "Testgemeinde",
         "personalien-gesuchstellerin": [
             {
@@ -564,6 +569,7 @@ def caluma_forms_be(settings):
     caluma_form_models.Form.objects.create(slug="publikation")
     caluma_form_models.Form.objects.create(slug="information-of-neighbors")
     caluma_form_models.Form.objects.create(slug="ebau-number")
+    caluma_form_models.Form.objects.create(slug="decision")
 
     # dynamic choice options get cached, so we clear them
     # to ensure the new "gemeinde" options will be valid
@@ -578,6 +584,10 @@ def caluma_forms_be(settings):
     settings.DATA_SOURCE_CLASSES = [
         "camac.caluma.extensions.data_sources.Municipalities"
     ]
+
+    caluma_form_models.Question.objects.create(
+        slug="decision-workflow", type=caluma_form_models.Question.TYPE_TEXT
+    )
 
     for slug, lang in [("is-paper", "en"), ("projektaenderung", "de")]:
         question = caluma_form_models.Question.objects.create(
@@ -892,3 +902,43 @@ def sz_master_data_case(db, sz_instance, form_field_factory, workflow_entry_fact
     )
 
     return sz_instance.case
+
+
+@pytest.fixture
+def decision_factory(be_instance, document_factory, work_item_factory):
+    call_command(
+        "loaddata", settings.ROOT_DIR("kt_bern/config/caluma_decision_form.json")
+    )
+
+    def factory(
+        instance=be_instance,
+        decision="decision-decision-assessment-accepted",
+        decision_type="decision-approval-type-building-permit",
+        decision_date=date.today(),
+    ):
+        work_item = instance.case.work_items.filter(task_id="decision").first()
+
+        if not work_item:
+            work_item = work_item_factory(
+                case=instance.case,
+                task_id="decision",
+                status=caluma_workflow_models.WorkItem.STATUS_COMPLETED,
+                document=document_factory(form_id="decision"),
+            )
+
+        if decision:
+            work_item.document.answers.create(
+                question_id="decision-decision-assessment", value=decision
+            )
+        if decision_type:
+            work_item.document.answers.create(
+                question_id="decision-approval-type", value=decision_type
+            )
+        if decision_date:
+            work_item.document.answers.create(
+                question_id="decision-date", date=decision_date
+            )
+
+        return work_item
+
+    return factory

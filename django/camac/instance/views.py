@@ -35,7 +35,6 @@ from camac.constants import kt_uri as ur_constants
 from camac.core.models import (
     Activation,
     CirculationState,
-    DocxDecision,
     InstanceService,
     PublicationEntry,
     WorkflowEntry,
@@ -575,10 +574,14 @@ class InstanceView(
                 else None
             )
 
-            decision = DocxDecision.objects.filter(instance=instance.pk).first()
+            decision_date_answer = form_models.Answer.objects.filter(
+                question_id="decision-date",
+                document__work_item__status=workflow_models.WorkItem.STATUS_COMPLETED,
+                document__work_item__case__instance=instance,
+            ).first()
             decision_date = (
-                decision.decision_date.strftime(settings.SHORT_DATE_FORMAT)
-                if decision
+                decision_date_answer.date.strftime(settings.SHORT_DATE_FORMAT)
+                if decision_date_answer
                 else None
             )
 

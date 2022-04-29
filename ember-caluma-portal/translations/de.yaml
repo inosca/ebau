@@ -224,6 +224,7 @@ instances:
   rejectionText: "Sie können das ursprünglich eingereichte Dossier
     entsprechend den Rückmeldungen der Leitbehörde bearbeiten und erneut
     einreichen. Für die Korrektur wird eine neue Dossiernummer erstellt."
+  decisionRemarks: "Bemerkungen Entscheid"
 
   extensionPeriodOfValidityTitle: "Verlängerung Geltungsdauer"
   extensionPeriodOfValidityText: "Hier kann eine Verlängerung der Geltungsdauer beantragt werden."

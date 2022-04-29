@@ -11,8 +11,10 @@ from django.urls import reverse
 from rest_framework import status
 
 from camac.constants.kt_bern import (
+    DECISION_TYPE_OVERALL_BUILDING_PERMIT,
     NOTICE_TYPE_NEBENBESTIMMUNG,
     NOTICE_TYPE_STELLUNGNAHME,
+    VORABKLAERUNG_DECISIONS_BEWILLIGT,
 )
 from camac.core.models import NoticeType
 from camac.instance.placeholders.aliases import ALIASES
@@ -33,7 +35,6 @@ def test_dms_placeholders(
     be_instance,
     be_master_data_case,  # noqa
     billing_v2_entry_factory,
-    docx_decision_factory,
     group,
     instance_service,
     multilang,
@@ -45,6 +46,7 @@ def test_dms_placeholders(
     tag_factory,
     objection,
     objection_participant_factory,
+    decision_factory,
 ):
 
     application_settings["MUNICIPALITY_DATA_SHEET"] = settings.ROOT_DIR(
@@ -186,12 +188,12 @@ def test_dms_placeholders(
 
     tag_factory.create_batch(5, service=group.service, instance=be_instance)
     responsible_service_factory(instance=be_instance, service=group.service)
-    docx_decision_factory(
-        instance=be_instance,
-        decision="positive",
-        decision_type="GESAMT",
-        decision_date=date(2021, 8, 30),
+    decision = decision_factory(
+        decision=VORABKLAERUNG_DECISIONS_BEWILLIGT,
+        decision_type=DECISION_TYPE_OVERALL_BUILDING_PERMIT,
     )
+    decision.status = WorkItem.STATUS_COMPLETED
+    decision.save()
     billing_v2_entry_factory.create_batch(2, instance=be_instance)
     billing_v2_entry_factory.create_batch(2, instance=be_instance, group=group)
 
