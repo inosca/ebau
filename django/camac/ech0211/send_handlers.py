@@ -2,6 +2,8 @@ from collections import namedtuple
 from datetime import datetime, time
 from math import trunc
 
+from caluma.caluma_form import api as form_api
+from caluma.caluma_form.models import Question
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
 from caluma.caluma_workflow.events import send_event_with_deprecations
 from caluma.caluma_workflow.utils import create_work_items
@@ -13,6 +15,7 @@ from django.utils.translation import gettext_noop
 from camac.caluma.api import CalumaApi
 from camac.constants.kt_bern import (
     ATTACHMENT_SECTION_ALLE_BETEILIGTEN,
+    DECISION_TYPE_UNKNOWN,
     INSTANCE_RESOURCE_ZIRKULATION,
     NOTICE_TYPE_NEBENBESTIMMUNG,
     NOTICE_TYPE_STELLUNGNAHME,
@@ -22,7 +25,6 @@ from camac.core.models import (
     Circulation,
     CirculationAnswer,
     CirculationState,
-    DocxDecision,
     InstanceService,
     Notice,
     NoticeType,
@@ -180,14 +182,6 @@ class NoticeRulingSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
                 f'"{judgement}" is not a valid judgement for "{workflow_slug}"'
             )
 
-        # TODO: where should we write self.data.eventNotice.decisionRuling.ruling ?
-        DocxDecision.objects.create(
-            instance=self.instance,
-            decision=decision,
-            decision_date=self.data.eventNotice.decisionRuling.date.date(),
-            decision_type="UNKNOWN_ECH",
-        )
-
         if judgement == ECH_JUDGEMENT_DECLINED:
             # reject instance
             self.instance.previous_instance_state = self.instance.instance_state
@@ -210,6 +204,27 @@ class NoticeRulingSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
             self.skip_work_item("start-decision")
             # if we don't have one, skip the whole circulation
             self.skip_work_item("skip-circulation")
+
+            # write the decision document
+            decision_document = case.work_items.get(
+                task_id="decision", status=caluma_workflow_models.WorkItem.STATUS_READY
+            ).document
+            form_api.save_answer(
+                document=decision_document,
+                question=Question.objects.get(slug="decision-decision-assessment"),
+                value=decision,
+            )
+            form_api.save_answer(
+                document=decision_document,
+                question=Question.objects.get(slug="decision-date"),
+                date=self.data.eventNotice.decisionRuling.date.date(),
+            )
+            if workflow_slug == "building-permit":
+                form_api.save_answer(
+                    document=decision_document,
+                    question=Question.objects.get(slug="decision-approval-type"),
+                    value=DECISION_TYPE_UNKNOWN,
+                )
 
             # this handle status changes and assignment of the construction control
             # for "normal" judgements

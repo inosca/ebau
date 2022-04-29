@@ -1,0 +1,23 @@
+query WorkItemCaseInformation($id: ID!) {
+  allWorkItems(filter: [{ id: $id }]) {
+    edges {
+      node {
+        id
+        case {
+          id
+          workflow {
+            id
+            slug
+          }
+          document {
+            id
+            form {
+              id
+              slug
+            }
+          }
+        }
+      }
+    }
+  }
+}

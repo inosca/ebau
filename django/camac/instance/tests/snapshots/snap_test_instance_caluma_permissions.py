@@ -11,10 +11,11 @@ snapshots['test_instance_permissions_be[applicant-None-circulation-instance__use
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
     ],
@@ -35,10 +36,11 @@ snapshots['test_instance_permissions_be[applicant-None-circulation_init-instance
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
     ],
@@ -59,10 +61,11 @@ snapshots['test_instance_permissions_be[applicant-None-conclusion-instance__user
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
     ],
@@ -85,10 +88,11 @@ snapshots['test_instance_permissions_be[applicant-None-coordination-instance__us
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
     ],
@@ -109,10 +113,11 @@ snapshots['test_instance_permissions_be[applicant-None-correction-instance__user
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
     ],
@@ -133,10 +138,11 @@ snapshots['test_instance_permissions_be[applicant-None-evaluated-instance__user0
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
     ],
@@ -157,10 +163,11 @@ snapshots['test_instance_permissions_be[applicant-None-finished-instance__user0]
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
     ],
@@ -181,10 +188,11 @@ snapshots['test_instance_permissions_be[applicant-None-finished_internal-instanc
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
     ],
@@ -205,10 +213,11 @@ snapshots['test_instance_permissions_be[applicant-None-in_progress-instance__use
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
     ],
@@ -229,10 +238,11 @@ snapshots['test_instance_permissions_be[applicant-None-in_progress_internal-inst
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
     ],
@@ -253,10 +263,11 @@ snapshots['test_instance_permissions_be[applicant-None-new-instance__user0] 1'] 
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
     ],
@@ -278,10 +289,11 @@ snapshots['test_instance_permissions_be[applicant-None-rejected-instance__user0]
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
     ],
@@ -302,10 +314,11 @@ snapshots['test_instance_permissions_be[applicant-None-sb1-instance__user0] 1'] 
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
     ],
@@ -328,10 +341,11 @@ snapshots['test_instance_permissions_be[applicant-None-sb2-instance__user0] 1'] 
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
     ],
@@ -355,10 +369,11 @@ snapshots['test_instance_permissions_be[applicant-None-subm-instance__user0] 1']
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
     ],
@@ -379,10 +394,11 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
     ],
@@ -403,10 +419,11 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
     ],
@@ -427,10 +444,11 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
     ],
@@ -453,10 +471,11 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
     ],
@@ -477,10 +496,11 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
     ],
@@ -501,10 +521,11 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
     ],
@@ -525,10 +546,11 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
     ],
@@ -549,10 +571,11 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
     ],
@@ -573,10 +596,11 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
     ],
@@ -597,10 +621,11 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
     ],
@@ -621,10 +646,11 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
     ],
@@ -646,10 +672,11 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
     ],
@@ -670,10 +697,11 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
     ],
@@ -696,10 +724,11 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
     ],
@@ -723,10 +752,11 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
     ],
@@ -745,6 +775,9 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
 
 snapshots['test_instance_permissions_be[construction-control-readonly-construction-control-circulation-instance__user0] 1'] = {
     'case-meta': [
+        'read'
+    ],
+    'decision': [
         'read'
     ],
     'dossierpruefung': [
@@ -775,6 +808,9 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
     'case-meta': [
         'read'
     ],
+    'decision': [
+        'read'
+    ],
     'dossierpruefung': [
         'read'
     ],
@@ -801,6 +837,9 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
 
 snapshots['test_instance_permissions_be[construction-control-readonly-construction-control-conclusion-instance__user0] 1'] = {
     'case-meta': [
+        'read'
+    ],
+    'decision': [
         'read'
     ],
     'dossierpruefung': [
@@ -833,6 +872,9 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
     'case-meta': [
         'read'
     ],
+    'decision': [
+        'read'
+    ],
     'dossierpruefung': [
         'read'
     ],
@@ -861,6 +903,9 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
     'case-meta': [
         'read'
     ],
+    'decision': [
+        'read'
+    ],
     'dossierpruefung': [
         'read'
     ],
@@ -885,6 +930,9 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
 
 snapshots['test_instance_permissions_be[construction-control-readonly-construction-control-evaluated-instance__user0] 1'] = {
     'case-meta': [
+        'read'
+    ],
+    'decision': [
         'read'
     ],
     'dossierpruefung': [
@@ -915,6 +963,9 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
     'case-meta': [
         'read'
     ],
+    'decision': [
+        'read'
+    ],
     'dossierpruefung': [
         'read'
     ],
@@ -941,6 +992,9 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
 
 snapshots['test_instance_permissions_be[construction-control-readonly-construction-control-finished_internal-instance__user0] 1'] = {
     'case-meta': [
+        'read'
+    ],
+    'decision': [
         'read'
     ],
     'dossierpruefung': [
@@ -971,6 +1025,9 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
     'case-meta': [
         'read'
     ],
+    'decision': [
+        'read'
+    ],
     'dossierpruefung': [
         'read'
     ],
@@ -997,6 +1054,9 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
 
 snapshots['test_instance_permissions_be[construction-control-readonly-construction-control-in_progress_internal-instance__user0] 1'] = {
     'case-meta': [
+        'read'
+    ],
+    'decision': [
         'read'
     ],
     'dossierpruefung': [
@@ -1027,6 +1087,9 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
     'case-meta': [
         'read'
     ],
+    'decision': [
+        'read'
+    ],
     'dossierpruefung': [
         'read'
     ],
@@ -1050,6 +1113,9 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
 
 snapshots['test_instance_permissions_be[construction-control-readonly-construction-control-rejected-instance__user0] 1'] = {
     'case-meta': [
+        'read'
+    ],
+    'decision': [
         'read'
     ],
     'dossierpruefung': [
@@ -1080,6 +1146,9 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
     'case-meta': [
         'read'
     ],
+    'decision': [
+        'read'
+    ],
     'dossierpruefung': [
         'read'
     ],
@@ -1106,6 +1175,9 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
 
 snapshots['test_instance_permissions_be[construction-control-readonly-construction-control-sb2-instance__user0] 1'] = {
     'case-meta': [
+        'read'
+    ],
+    'decision': [
         'read'
     ],
     'dossierpruefung': [
@@ -1137,6 +1209,9 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
     'case-meta': [
         'read'
     ],
+    'decision': [
+        'read'
+    ],
     'dossierpruefung': [
         'read'
     ],
@@ -1164,6 +1239,9 @@ snapshots['test_instance_permissions_be[municipality-lead-district-circulation-i
     'case-meta': [
         'read',
         'write'
+    ],
+    'decision': [
+        'read'
     ],
     'dossierpruefung': [
         'read',
@@ -1198,6 +1276,9 @@ snapshots['test_instance_permissions_be[municipality-lead-district-circulation_i
         'read',
         'write'
     ],
+    'decision': [
+        'read'
+    ],
     'dossierpruefung': [
         'read',
         'write'
@@ -1231,6 +1312,9 @@ snapshots['test_instance_permissions_be[municipality-lead-district-conclusion-in
         'read',
         'write'
     ],
+    'decision': [
+        'read'
+    ],
     'dossierpruefung': [
         'read'
     ],
@@ -1259,6 +1343,10 @@ snapshots['test_instance_permissions_be[municipality-lead-district-conclusion-in
 
 snapshots['test_instance_permissions_be[municipality-lead-district-coordination-instance__user0] 1'] = {
     'case-meta': [
+        'read',
+        'write'
+    ],
+    'decision': [
         'read',
         'write'
     ],
@@ -1295,6 +1383,9 @@ snapshots['test_instance_permissions_be[municipality-lead-district-correction-in
         'read',
         'write'
     ],
+    'decision': [
+        'read'
+    ],
     'dossierpruefung': [
         'read'
     ],
@@ -1322,6 +1413,9 @@ snapshots['test_instance_permissions_be[municipality-lead-district-evaluated-ins
     'case-meta': [
         'read',
         'write'
+    ],
+    'decision': [
+        'read'
     ],
     'dossierpruefung': [
         'read'
@@ -1352,6 +1446,9 @@ snapshots['test_instance_permissions_be[municipality-lead-district-finished-inst
         'read',
         'write'
     ],
+    'decision': [
+        'read'
+    ],
     'dossierpruefung': [
         'read'
     ],
@@ -1381,6 +1478,9 @@ snapshots['test_instance_permissions_be[municipality-lead-district-finished_inte
         'read',
         'write'
     ],
+    'decision': [
+        'read'
+    ],
     'dossierpruefung': [
         'read'
     ],
@@ -1409,6 +1509,9 @@ snapshots['test_instance_permissions_be[municipality-lead-district-in_progress-i
     'case-meta': [
         'read',
         'write'
+    ],
+    'decision': [
+        'read'
     ],
     'dossierpruefung': [
         'read'
@@ -1440,6 +1543,9 @@ snapshots['test_instance_permissions_be[municipality-lead-district-in_progress_i
     'case-meta': [
         'read',
         'write'
+    ],
+    'decision': [
+        'read'
     ],
     'dossierpruefung': [
         'read',
@@ -1473,6 +1579,9 @@ snapshots['test_instance_permissions_be[municipality-lead-district-new-instance_
     'case-meta': [
         'read'
     ],
+    'decision': [
+        'read'
+    ],
     'dossierpruefung': [
         'read'
     ],
@@ -1498,6 +1607,9 @@ snapshots['test_instance_permissions_be[municipality-lead-district-rejected-inst
     'case-meta': [
         'read',
         'write'
+    ],
+    'decision': [
+        'read'
     ],
     'dossierpruefung': [
         'read'
@@ -1530,6 +1642,9 @@ snapshots['test_instance_permissions_be[municipality-lead-district-sb1-instance_
         'read',
         'write'
     ],
+    'decision': [
+        'read'
+    ],
     'dossierpruefung': [
         'read'
     ],
@@ -1560,6 +1675,9 @@ snapshots['test_instance_permissions_be[municipality-lead-district-sb2-instance_
     'case-meta': [
         'read',
         'write'
+    ],
+    'decision': [
+        'read'
     ],
     'dossierpruefung': [
         'read'
@@ -1592,6 +1710,9 @@ snapshots['test_instance_permissions_be[municipality-lead-district-subm-instance
         'read',
         'write'
     ],
+    'decision': [
+        'read'
+    ],
     'dossierpruefung': [
         'read'
     ],
@@ -1620,6 +1741,9 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-circulati
     'case-meta': [
         'read',
         'write'
+    ],
+    'decision': [
+        'read'
     ],
     'dossierpruefung': [
         'read',
@@ -1654,6 +1778,9 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-circulati
         'read',
         'write'
     ],
+    'decision': [
+        'read'
+    ],
     'dossierpruefung': [
         'read',
         'write'
@@ -1687,6 +1814,9 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-conclusio
         'read',
         'write'
     ],
+    'decision': [
+        'read'
+    ],
     'dossierpruefung': [
         'read'
     ],
@@ -1715,6 +1845,10 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-conclusio
 
 snapshots['test_instance_permissions_be[municipality-lead-municipality-coordination-instance__user0] 1'] = {
     'case-meta': [
+        'read',
+        'write'
+    ],
+    'decision': [
         'read',
         'write'
     ],
@@ -1751,6 +1885,9 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-correctio
         'read',
         'write'
     ],
+    'decision': [
+        'read'
+    ],
     'dossierpruefung': [
         'read'
     ],
@@ -1778,6 +1915,9 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-evaluated
     'case-meta': [
         'read',
         'write'
+    ],
+    'decision': [
+        'read'
     ],
     'dossierpruefung': [
         'read'
@@ -1808,6 +1948,9 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-finished-
         'read',
         'write'
     ],
+    'decision': [
+        'read'
+    ],
     'dossierpruefung': [
         'read'
     ],
@@ -1837,6 +1980,9 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-finished_
         'read',
         'write'
     ],
+    'decision': [
+        'read'
+    ],
     'dossierpruefung': [
         'read'
     ],
@@ -1865,6 +2011,9 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-in_progre
     'case-meta': [
         'read',
         'write'
+    ],
+    'decision': [
+        'read'
     ],
     'dossierpruefung': [
         'read'
@@ -1896,6 +2045,9 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-in_progre
     'case-meta': [
         'read',
         'write'
+    ],
+    'decision': [
+        'read'
     ],
     'dossierpruefung': [
         'read',
@@ -1929,6 +2081,9 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-new-insta
     'case-meta': [
         'read'
     ],
+    'decision': [
+        'read'
+    ],
     'dossierpruefung': [
         'read'
     ],
@@ -1954,6 +2109,9 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-rejected-
     'case-meta': [
         'read',
         'write'
+    ],
+    'decision': [
+        'read'
     ],
     'dossierpruefung': [
         'read'
@@ -1986,6 +2144,9 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-sb1-insta
         'read',
         'write'
     ],
+    'decision': [
+        'read'
+    ],
     'dossierpruefung': [
         'read'
     ],
@@ -2016,6 +2177,9 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-sb2-insta
     'case-meta': [
         'read',
         'write'
+    ],
+    'decision': [
+        'read'
     ],
     'dossierpruefung': [
         'read'
@@ -2048,6 +2212,9 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-subm-inst
         'read',
         'write'
     ],
+    'decision': [
+        'read'
+    ],
     'dossierpruefung': [
         'read'
     ],
@@ -2074,6 +2241,9 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-subm-inst
 
 snapshots['test_instance_permissions_be[municipality-readonly-district-circulation-instance__user0] 1'] = {
     'case-meta': [
+        'read'
+    ],
+    'decision': [
         'read'
     ],
     'dossierpruefung': [
@@ -2104,6 +2274,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-circulati
     'case-meta': [
         'read'
     ],
+    'decision': [
+        'read'
+    ],
     'dossierpruefung': [
         'read'
     ],
@@ -2130,6 +2303,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-circulati
 
 snapshots['test_instance_permissions_be[municipality-readonly-district-conclusion-instance__user0] 1'] = {
     'case-meta': [
+        'read'
+    ],
+    'decision': [
         'read'
     ],
     'dossierpruefung': [
@@ -2160,6 +2336,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-coordinat
     'case-meta': [
         'read'
     ],
+    'decision': [
+        'read'
+    ],
     'dossierpruefung': [
         'read'
     ],
@@ -2188,6 +2367,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-correctio
     'case-meta': [
         'read'
     ],
+    'decision': [
+        'read'
+    ],
     'dossierpruefung': [
         'read'
     ],
@@ -2212,6 +2394,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-correctio
 
 snapshots['test_instance_permissions_be[municipality-readonly-district-evaluated-instance__user0] 1'] = {
     'case-meta': [
+        'read'
+    ],
+    'decision': [
         'read'
     ],
     'dossierpruefung': [
@@ -2242,6 +2427,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-finished-
     'case-meta': [
         'read'
     ],
+    'decision': [
+        'read'
+    ],
     'dossierpruefung': [
         'read'
     ],
@@ -2268,6 +2456,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-finished-
 
 snapshots['test_instance_permissions_be[municipality-readonly-district-finished_internal-instance__user0] 1'] = {
     'case-meta': [
+        'read'
+    ],
+    'decision': [
         'read'
     ],
     'dossierpruefung': [
@@ -2298,6 +2489,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-in_progre
     'case-meta': [
         'read'
     ],
+    'decision': [
+        'read'
+    ],
     'dossierpruefung': [
         'read'
     ],
@@ -2324,6 +2518,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-in_progre
 
 snapshots['test_instance_permissions_be[municipality-readonly-district-in_progress_internal-instance__user0] 1'] = {
     'case-meta': [
+        'read'
+    ],
+    'decision': [
         'read'
     ],
     'dossierpruefung': [
@@ -2354,6 +2551,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-new-insta
     'case-meta': [
         'read'
     ],
+    'decision': [
+        'read'
+    ],
     'dossierpruefung': [
         'read'
     ],
@@ -2377,6 +2577,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-new-insta
 
 snapshots['test_instance_permissions_be[municipality-readonly-district-rejected-instance__user0] 1'] = {
     'case-meta': [
+        'read'
+    ],
+    'decision': [
         'read'
     ],
     'dossierpruefung': [
@@ -2407,6 +2610,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-sb1-insta
     'case-meta': [
         'read'
     ],
+    'decision': [
+        'read'
+    ],
     'dossierpruefung': [
         'read'
     ],
@@ -2433,6 +2639,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-sb1-insta
 
 snapshots['test_instance_permissions_be[municipality-readonly-district-sb2-instance__user0] 1'] = {
     'case-meta': [
+        'read'
+    ],
+    'decision': [
         'read'
     ],
     'dossierpruefung': [
@@ -2463,6 +2672,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-subm-inst
     'case-meta': [
         'read'
     ],
+    'decision': [
+        'read'
+    ],
     'dossierpruefung': [
         'read'
     ],
@@ -2488,6 +2700,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-subm-inst
 
 snapshots['test_instance_permissions_be[municipality-readonly-municipality-circulation-instance__user0] 1'] = {
     'case-meta': [
+        'read'
+    ],
+    'decision': [
         'read'
     ],
     'dossierpruefung': [
@@ -2518,6 +2733,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-circu
     'case-meta': [
         'read'
     ],
+    'decision': [
+        'read'
+    ],
     'dossierpruefung': [
         'read'
     ],
@@ -2544,6 +2762,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-circu
 
 snapshots['test_instance_permissions_be[municipality-readonly-municipality-conclusion-instance__user0] 1'] = {
     'case-meta': [
+        'read'
+    ],
+    'decision': [
         'read'
     ],
     'dossierpruefung': [
@@ -2574,6 +2795,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-coord
     'case-meta': [
         'read'
     ],
+    'decision': [
+        'read'
+    ],
     'dossierpruefung': [
         'read'
     ],
@@ -2602,6 +2826,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-corre
     'case-meta': [
         'read'
     ],
+    'decision': [
+        'read'
+    ],
     'dossierpruefung': [
         'read'
     ],
@@ -2626,6 +2853,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-corre
 
 snapshots['test_instance_permissions_be[municipality-readonly-municipality-evaluated-instance__user0] 1'] = {
     'case-meta': [
+        'read'
+    ],
+    'decision': [
         'read'
     ],
     'dossierpruefung': [
@@ -2656,6 +2886,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-finis
     'case-meta': [
         'read'
     ],
+    'decision': [
+        'read'
+    ],
     'dossierpruefung': [
         'read'
     ],
@@ -2682,6 +2915,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-finis
 
 snapshots['test_instance_permissions_be[municipality-readonly-municipality-finished_internal-instance__user0] 1'] = {
     'case-meta': [
+        'read'
+    ],
+    'decision': [
         'read'
     ],
     'dossierpruefung': [
@@ -2712,6 +2948,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-in_pr
     'case-meta': [
         'read'
     ],
+    'decision': [
+        'read'
+    ],
     'dossierpruefung': [
         'read'
     ],
@@ -2738,6 +2977,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-in_pr
 
 snapshots['test_instance_permissions_be[municipality-readonly-municipality-in_progress_internal-instance__user0] 1'] = {
     'case-meta': [
+        'read'
+    ],
+    'decision': [
         'read'
     ],
     'dossierpruefung': [
@@ -2768,6 +3010,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-new-i
     'case-meta': [
         'read'
     ],
+    'decision': [
+        'read'
+    ],
     'dossierpruefung': [
         'read'
     ],
@@ -2791,6 +3036,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-new-i
 
 snapshots['test_instance_permissions_be[municipality-readonly-municipality-rejected-instance__user0] 1'] = {
     'case-meta': [
+        'read'
+    ],
+    'decision': [
         'read'
     ],
     'dossierpruefung': [
@@ -2821,6 +3069,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-sb1-i
     'case-meta': [
         'read'
     ],
+    'decision': [
+        'read'
+    ],
     'dossierpruefung': [
         'read'
     ],
@@ -2847,6 +3098,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-sb1-i
 
 snapshots['test_instance_permissions_be[municipality-readonly-municipality-sb2-instance__user0] 1'] = {
     'case-meta': [
+        'read'
+    ],
+    'decision': [
         'read'
     ],
     'dossierpruefung': [
@@ -2877,6 +3131,9 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-subm-
     'case-meta': [
         'read'
     ],
+    'decision': [
+        'read'
+    ],
     'dossierpruefung': [
         'read'
     ],
@@ -2904,11 +3161,12 @@ snapshots['test_instance_permissions_be[service-lead-service-circulation-instanc
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
         'read'
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
         'read'
@@ -2931,11 +3189,12 @@ snapshots['test_instance_permissions_be[service-lead-service-circulation_init-in
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
         'read'
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
         'read'
@@ -2958,11 +3217,12 @@ snapshots['test_instance_permissions_be[service-lead-service-conclusion-instance
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
         'read'
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
         'read'
@@ -2987,11 +3247,12 @@ snapshots['test_instance_permissions_be[service-lead-service-coordination-instan
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
         'read'
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
         'read'
@@ -3014,13 +3275,13 @@ snapshots['test_instance_permissions_be[service-lead-service-correction-instance
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
-        'read'
     ],
     'main': [
         'read'
@@ -3028,7 +3289,6 @@ snapshots['test_instance_permissions_be[service-lead-service-correction-instance
     'nfd': [
     ],
     'publikation': [
-        'read'
     ],
     'sb1': [
     ],
@@ -3040,11 +3300,12 @@ snapshots['test_instance_permissions_be[service-lead-service-evaluated-instance_
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
         'read'
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
         'read'
@@ -3067,11 +3328,12 @@ snapshots['test_instance_permissions_be[service-lead-service-finished-instance__
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
         'read'
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
         'read'
@@ -3094,11 +3356,12 @@ snapshots['test_instance_permissions_be[service-lead-service-finished_internal-i
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
         'read'
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
         'read'
@@ -3121,11 +3384,12 @@ snapshots['test_instance_permissions_be[service-lead-service-in_progress-instanc
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
         'read'
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
         'read'
@@ -3148,11 +3412,12 @@ snapshots['test_instance_permissions_be[service-lead-service-in_progress_interna
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
         'read'
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
         'read'
@@ -3175,20 +3440,19 @@ snapshots['test_instance_permissions_be[service-lead-service-new-instance__user0
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
-        'read'
     ],
     'main': [
     ],
     'nfd': [
     ],
     'publikation': [
-        'read'
     ],
     'sb1': [
     ],
@@ -3200,11 +3464,12 @@ snapshots['test_instance_permissions_be[service-lead-service-rejected-instance__
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
         'read'
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
         'read'
@@ -3227,11 +3492,12 @@ snapshots['test_instance_permissions_be[service-lead-service-sb1-instance__user0
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
         'read'
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
         'read'
@@ -3254,11 +3520,12 @@ snapshots['test_instance_permissions_be[service-lead-service-sb2-instance__user0
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
         'read'
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
         'read'
@@ -3282,13 +3549,13 @@ snapshots['test_instance_permissions_be[service-lead-service-subm-instance__user
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
-        'read'
     ],
     'main': [
         'read'
@@ -3296,7 +3563,6 @@ snapshots['test_instance_permissions_be[service-lead-service-subm-instance__user
     'nfd': [
     ],
     'publikation': [
-        'read'
     ],
     'sb1': [
     ],
@@ -3308,11 +3574,12 @@ snapshots['test_instance_permissions_be[service-readonly-service-circulation-ins
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
         'read'
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
         'read'
@@ -3335,11 +3602,12 @@ snapshots['test_instance_permissions_be[service-readonly-service-circulation_ini
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
         'read'
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
         'read'
@@ -3362,11 +3630,12 @@ snapshots['test_instance_permissions_be[service-readonly-service-conclusion-inst
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
         'read'
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
         'read'
@@ -3391,11 +3660,12 @@ snapshots['test_instance_permissions_be[service-readonly-service-coordination-in
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
         'read'
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
         'read'
@@ -3418,13 +3688,13 @@ snapshots['test_instance_permissions_be[service-readonly-service-correction-inst
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
-        'read'
     ],
     'main': [
         'read'
@@ -3432,7 +3702,6 @@ snapshots['test_instance_permissions_be[service-readonly-service-correction-inst
     'nfd': [
     ],
     'publikation': [
-        'read'
     ],
     'sb1': [
     ],
@@ -3444,11 +3713,12 @@ snapshots['test_instance_permissions_be[service-readonly-service-evaluated-insta
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
         'read'
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
         'read'
@@ -3471,11 +3741,12 @@ snapshots['test_instance_permissions_be[service-readonly-service-finished-instan
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
         'read'
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
         'read'
@@ -3498,11 +3769,12 @@ snapshots['test_instance_permissions_be[service-readonly-service-finished_intern
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
         'read'
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
         'read'
@@ -3525,11 +3797,12 @@ snapshots['test_instance_permissions_be[service-readonly-service-in_progress-ins
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
         'read'
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
         'read'
@@ -3552,11 +3825,12 @@ snapshots['test_instance_permissions_be[service-readonly-service-in_progress_int
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
         'read'
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
         'read'
@@ -3579,20 +3853,19 @@ snapshots['test_instance_permissions_be[service-readonly-service-new-instance__u
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
-        'read'
     ],
     'main': [
     ],
     'nfd': [
     ],
     'publikation': [
-        'read'
     ],
     'sb1': [
     ],
@@ -3604,11 +3877,12 @@ snapshots['test_instance_permissions_be[service-readonly-service-rejected-instan
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
         'read'
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
         'read'
@@ -3631,11 +3905,12 @@ snapshots['test_instance_permissions_be[service-readonly-service-sb1-instance__u
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
         'read'
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
         'read'
@@ -3658,11 +3933,12 @@ snapshots['test_instance_permissions_be[service-readonly-service-sb2-instance__u
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
         'read'
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
         'read'
@@ -3686,13 +3962,13 @@ snapshots['test_instance_permissions_be[service-readonly-service-subm-instance__
     'case-meta': [
         'read'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
-        'read'
     ],
     'main': [
         'read'
@@ -3700,7 +3976,6 @@ snapshots['test_instance_permissions_be[service-readonly-service-subm-instance__
     'nfd': [
     ],
     'publikation': [
-        'read'
     ],
     'sb1': [
     ],
@@ -3713,12 +3988,13 @@ snapshots['test_instance_permissions_be[support-None-circulation-instance__user0
         'read',
         'write'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
         'read',
         'write'
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
         'read',
@@ -3751,12 +4027,13 @@ snapshots['test_instance_permissions_be[support-None-circulation_init-instance__
         'read',
         'write'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
         'read',
         'write'
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
         'read',
@@ -3789,12 +4066,13 @@ snapshots['test_instance_permissions_be[support-None-conclusion-instance__user0]
         'read',
         'write'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
         'read',
         'write'
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
         'read',
@@ -3827,12 +4105,13 @@ snapshots['test_instance_permissions_be[support-None-coordination-instance__user
         'read',
         'write'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
         'read',
         'write'
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
         'read',
@@ -3865,12 +4144,13 @@ snapshots['test_instance_permissions_be[support-None-correction-instance__user0]
         'read',
         'write'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
         'read',
         'write'
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
         'read',
@@ -3903,12 +4183,13 @@ snapshots['test_instance_permissions_be[support-None-evaluated-instance__user0] 
         'read',
         'write'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
         'read',
         'write'
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
         'read',
@@ -3941,12 +4222,13 @@ snapshots['test_instance_permissions_be[support-None-finished-instance__user0] 1
         'read',
         'write'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
         'read',
         'write'
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
         'read',
@@ -3979,12 +4261,13 @@ snapshots['test_instance_permissions_be[support-None-finished_internal-instance_
         'read',
         'write'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
         'read',
         'write'
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
         'read',
@@ -4017,12 +4300,13 @@ snapshots['test_instance_permissions_be[support-None-in_progress-instance__user0
         'read',
         'write'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
         'read',
         'write'
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
         'read',
@@ -4055,12 +4339,13 @@ snapshots['test_instance_permissions_be[support-None-in_progress_internal-instan
         'read',
         'write'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
         'read',
         'write'
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
         'read',
@@ -4093,12 +4378,13 @@ snapshots['test_instance_permissions_be[support-None-new-instance__user0] 1'] = 
         'read',
         'write'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
         'read',
         'write'
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
         'read',
@@ -4131,12 +4417,13 @@ snapshots['test_instance_permissions_be[support-None-rejected-instance__user0] 1
         'read',
         'write'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
         'read',
         'write'
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
         'read',
@@ -4169,12 +4456,13 @@ snapshots['test_instance_permissions_be[support-None-sb1-instance__user0] 1'] = 
         'read',
         'write'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
         'read',
         'write'
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
         'read',
@@ -4207,12 +4495,13 @@ snapshots['test_instance_permissions_be[support-None-sb2-instance__user0] 1'] = 
         'read',
         'write'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
         'read',
         'write'
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
         'read',
@@ -4245,12 +4534,13 @@ snapshots['test_instance_permissions_be[support-None-subm-instance__user0] 1'] =
         'read',
         'write'
     ],
+    'decision': [
+    ],
     'dossierpruefung': [
         'read',
         'write'
     ],
     'ebau-number': [
-        'read'
     ],
     'information-of-neighbors': [
         'read',

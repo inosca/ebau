@@ -103,9 +103,53 @@ export default class CustomCaseModel extends CaseModel {
       .join(", ");
   }
 
+  get decision() {
+    const COLOR_MAPPING = {
+      "decision-decision-assessment-positive": "uk-alert-success",
+      "decision-decision-assessment-negative": "uk-alert-danger",
+      "decision-decision-assessment-positive-with-reservation":
+        "uk-alert-warning",
+      "decision-decision-assessment-retreat": "uk-alert-warning",
+    };
+
+    const decision = this.raw.workItems.edges[0]?.node.document;
+
+    return decision
+      ? {
+          remarks: findAnswer(decision, "decision-remarks"),
+          color:
+            COLOR_MAPPING[findAnswer(decision, "decision-decision-assessment")],
+        }
+      : null;
+  }
+
   static fragment = `{
     id
     meta
+    workItems(filter: [{ task: "decision" }, { status: COMPLETED }]) {
+      edges {
+        node {
+          id
+          document {
+            id
+            answers(questions: ["decision-remarks", "decision-decision-assessment"]) {
+              edges {
+                node {
+                  id
+                  question {
+                    id
+                    slug
+                  }
+                  ...on StringAnswer {
+                    stringValue: value
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
     document {
       id
       form {

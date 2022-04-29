@@ -25,23 +25,15 @@ from camac.instance.models import HistoryEntryT
 @pytest.mark.parametrize("expected_value", ["is-paper-yes", "is-paper-no"])
 def test_copy_papierdossier(
     db,
-    instance,
+    be_instance,
     instance_service,
     caluma_admin_user,
     caluma_workflow_config_be,
     expected_value,
     circulation,
-    docx_decision_factory,
+    decision_factory,
 ):
-    case = workflow_api.start_case(
-        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
-        form=caluma_form_models.Form.objects.get(pk="main-form"),
-        user=caluma_admin_user,
-    )
-    instance.case = case
-    instance.save()
-
-    docx_decision_factory(decision=DECISIONS_BEWILLIGT, instance=instance)
+    case = be_instance.case
 
     case.document.answers.create(question_id="is-paper", value=expected_value)
 
@@ -57,6 +49,9 @@ def test_copy_papierdossier(
         "sb1",
     ]:
         # skip case to sb2
+        if task_id == "decision":
+            decision_factory(decision=DECISIONS_BEWILLIGT)
+
         workflow_api.skip_work_item(
             work_item=case.work_items.get(task_id=task_id), user=caluma_admin_user
         )
@@ -73,23 +68,15 @@ def test_copy_papierdossier(
 @pytest.mark.parametrize("use_fallback", [True, False])
 def test_copy_sb_personalien(
     db,
-    instance,
+    be_instance,
     instance_service,
     caluma_admin_user,
     caluma_workflow_config_be,
     use_fallback,
     circulation,
-    docx_decision_factory,
+    decision_factory,
 ):
-    case = workflow_api.start_case(
-        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
-        form=caluma_form_models.Form.objects.get(pk="main-form"),
-        user=caluma_admin_user,
-    )
-    instance.case = case
-    instance.save()
-
-    docx_decision_factory(decision=DECISIONS_BEWILLIGT, instance=instance)
+    case = be_instance.case
 
     case.document.answers.create(question_id="is-paper", value="is-paper-no")
 
@@ -114,6 +101,9 @@ def test_copy_sb_personalien(
         "start-decision",
         "decision",
     ]:
+        if task_id == "decision":
+            decision_factory(decision=DECISIONS_BEWILLIGT)
+
         workflow_api.skip_work_item(
             work_item=case.work_items.get(task_id=task_id), user=caluma_admin_user
         )
@@ -150,7 +140,7 @@ def test_copy_municipality_tags_for_sb1(
     be_instance,
     caluma_admin_user,
     caluma_workflow_config_be,
-    docx_decision_factory,
+    decision_factory,
     service_factory,
     tag_factory,
     instance_service_factory,
@@ -186,8 +176,6 @@ def test_copy_municipality_tags_for_sb1(
     tag_factory(name="Foobar", instance=be_instance, service=municipality_burgdorf)
     tag_factory(name="Baz", instance=be_instance, service=municipality_kirchberg)
 
-    docx_decision_factory(decision=DECISIONS_BEWILLIGT, instance=be_instance)
-
     be_instance.case.document.answers.create(
         question_id="is-paper", value="is-paper-no"
     )
@@ -208,6 +196,8 @@ def test_copy_municipality_tags_for_sb1(
     be_instance.instance_state = instance_state_factory(name="sb1")
     be_instance.save()
 
+    decision_factory(decision=DECISIONS_BEWILLIGT)
+
     workflow_api.complete_work_item(
         work_item=be_instance.case.work_items.get(task_id="decision"),
         user=caluma_admin_user,
@@ -222,24 +212,16 @@ def test_copy_municipality_tags_for_sb1(
 )
 def test_copy_tank_installation(
     db,
-    instance,
+    be_instance,
     caluma_admin_user,
     caluma_workflow_config_be,
-    docx_decision_factory,
     question_factory,
     form_question_factory,
     bewilligungspflichtig_hidden,
     expect_copy,
+    decision_factory,
 ):
-    case = workflow_api.start_case(
-        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
-        form=caluma_form_models.Form.objects.get(pk="main-form"),
-        user=caluma_admin_user,
-    )
-    instance.case = case
-    instance.save()
-
-    docx_decision_factory(decision=DECISIONS_BEWILLIGT, instance=instance)
+    case = be_instance.case
 
     table_form = caluma_form_models.Form.objects.create(
         slug="lagerung-von-stoffen-tabelle-v2"
@@ -291,6 +273,9 @@ def test_copy_tank_installation(
         "decision",
         "sb1",
     ]:
+        if task_id == "decision":
+            decision_factory(decision=DECISIONS_BEWILLIGT)
+
         workflow_api.skip_work_item(
             work_item=case.work_items.get(task_id=task_id), user=caluma_admin_user
         )
@@ -694,7 +679,6 @@ def test_complete_decision(
     notification_template,
     activation,
     service_factory,
-    docx_decision_factory,
     work_item_factory,
     instance_state_factory,
     workflow,
@@ -704,10 +688,9 @@ def test_complete_decision(
     expected_text,
     multilang,
     use_instance_service,
+    decision_factory,
 ):
-    docx_decision_factory(
-        decision=decision, decision_type=decision_type, instance=be_instance
-    )
+
     instance_state_factory(name=expected_instance_state)
 
     instance_service_factory(
@@ -726,7 +709,7 @@ def test_complete_decision(
         service_group__name="construction-control",
     )
 
-    work_item = work_item_factory(case=be_instance.case)
+    work_item = work_item_factory(case=be_instance.case, task_id="decision")
 
     application_settings["CALUMA"]["DECISION_TASK"] = work_item.task_id
     application_settings["NOTIFICATIONS"] = {
@@ -746,6 +729,8 @@ def test_complete_decision(
 
     be_instance.case.workflow = caluma_workflow_models.Workflow.objects.get(pk=workflow)
     be_instance.case.save()
+
+    decision_factory(decision=decision, decision_type=decision_type)
 
     if workflow == "internal":
         work_item_factory(case=be_instance.case)

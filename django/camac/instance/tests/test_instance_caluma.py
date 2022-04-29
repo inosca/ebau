@@ -957,8 +957,8 @@ def test_instance_report(
     mock_nfd_permissions,
     mock_generate_and_store_pdf,
     caluma_workflow_config_be,
-    docx_decision_factory,
     caluma_admin_user,
+    decision_factory,
 ):
     instance_state_factory(name="coordination")
     instance_state_factory(name="sb2")
@@ -971,14 +971,14 @@ def test_instance_report(
     ]
 
     if instance_state.name == "sb1":
-        docx_decision_factory(
-            decision=be_constants.DECISIONS_BEWILLIGT, instance=be_instance
-        )
 
         service = be_instance.responsible_service()
         construction_control = construction_control_for(service)
 
         for task_id in ["submit", "ebau-number", "skip-circulation", "decision"]:
+            if task_id == "decision":
+                decision_factory(decision=be_constants.DECISIONS_BEWILLIGT)
+
             workflow_api.complete_work_item(
                 work_item=be_instance.case.work_items.get(task_id=task_id),
                 user=caluma_admin_user,
@@ -1030,10 +1030,10 @@ def test_instance_finalize(
     multilang,
     mock_nfd_permissions,
     mock_generate_and_store_pdf,
-    docx_decision_factory,
     caluma_admin_user,
     create_awa_workitem,
     form_question_factory,
+    decision_factory,
 ):
 
     instance_state_factory(name="coordination")
@@ -1056,14 +1056,14 @@ def test_instance_finalize(
     be_instance.case.save()
 
     if instance_state.name == "sb2":
-        docx_decision_factory(
-            decision=be_constants.DECISIONS_BEWILLIGT, instance=be_instance
-        )
 
         service = be_instance.responsible_service()
         construction_control = construction_control_for(service)
 
         for task_id in ["submit", "ebau-number", "skip-circulation", "decision", "sb1"]:
+            if task_id == "decision":
+                decision_factory(decision=be_constants.DECISIONS_BEWILLIGT)
+
             workflow_api.complete_work_item(
                 work_item=be_instance.case.work_items.get(task_id=task_id),
                 user=caluma_admin_user,

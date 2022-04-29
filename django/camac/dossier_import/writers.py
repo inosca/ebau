@@ -16,8 +16,7 @@ from django.db import IntegrityError
 from django.utils import timezone
 from future.moves import itertools
 
-from camac.constants.kt_bern import DECISIONS_BEWILLIGT
-from camac.core.models import DocxDecision, WorkflowEntry
+from camac.core.models import WorkflowEntry
 from camac.document.models import Attachment, AttachmentSection
 from camac.dossier_import.domain_logic import get_or_create_ebau_nr
 from camac.dossier_import.dossier_classes import CalumaPlotData, Dossier
@@ -145,36 +144,6 @@ class WorkflowEntryDateWriter(FieldWriter):
             entry.save()
 
 
-class CalumaDecisionDateWriter(FieldWriter):
-    def write(self, instance, value):
-        if not value:
-            return
-        DocxDecision.objects.create(
-            decision=DECISIONS_BEWILLIGT,
-            decision_date=value,
-            instance=instance,
-        )
-        question = Question.objects.get(slug=self.target)
-        try:
-            form_api.save_answer(
-                question=question,
-                document=instance.case.document,
-                value=value,
-                user=BaseUser(
-                    username=self.owner._user.username, group=self.owner._group.pk
-                ),
-            )
-
-        except CustomValidationError:  # pragma: no cover
-            self.context.get("dossier")._meta.errors.append(
-                Message(
-                    level=LOG_LEVEL_WARNING,
-                    code=MessageCodes.FIELD_VALIDATION_ERROR.value,
-                    detail=f"Failed to write {value} to {self.target} for dossier {instance}",
-                )
-            )
-
-
 class CalumaAnswerWriter(FieldWriter):
     def __init__(self, value_key: str = "value", task: str = None, *args, **kwargs):
         self.value_key = value_key
@@ -189,7 +158,7 @@ class CalumaAnswerWriter(FieldWriter):
             if self.task:
                 work_item = instance.case.work_items.filter(task_id=self.task).first()
 
-                if not work_item:
+                if not work_item:  # pragma: no cover
                     dossier._meta.errors.append(
                         Message(
                             level=LOG_LEVEL_WARNING,
