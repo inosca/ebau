@@ -56,6 +56,10 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
     ui: { stack: true, small: true },
     inquiry: {
       answer: {
+        infoQuestions: [
+          "inquiry-answer-statement",
+          "inquiry-answer-ancillary-clauses",
+        ],
         buttons: {
           "fill-inquiry": {
             color: "primary",
