@@ -16,9 +16,24 @@ from camac.instance.utils import (
 )
 from camac.notification.utils import send_mail_without_request
 from camac.stats.cycle_time import compute_cycle_time
-from camac.user.models import User
+from camac.user.models import Service, User
 
 from .general import get_caluma_setting, get_instance
+
+
+def copy_municipality_tags(instance, construction_control):
+    municipality_tags = instance.tags.filter(
+        service=Service.objects.filter(
+            service_group__name="municipality",
+            trans__language="de",
+            trans__name=construction_control.trans.get(language="de").name.replace(
+                "Baukontrolle", "Leitbehörde"
+            ),
+        ).first()
+    )
+
+    for tag in municipality_tags:
+        instance.tags.create(service=construction_control, name=tag.name)
 
 
 @on(post_complete_work_item, raise_exception=True)
@@ -46,8 +61,11 @@ def post_complete_decision(sender, work_item, user, context, **kwargs):
 
             if should_continue_after_decision(instance):
                 # set the construction control as responsible service
-                set_construction_control(instance)
+                construction_control = set_construction_control(instance)
                 instance_state_name = "sb1"
+
+                # copy municipality tags for sb1
+                copy_municipality_tags(instance, construction_control)
 
         elif workflow == "preliminary-clarification":
             instance_state_name = "evaluated"
