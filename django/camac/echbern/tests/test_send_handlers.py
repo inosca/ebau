@@ -1,8 +1,11 @@
+from datetime import datetime
+
 import pytest
 from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.events import send_event_with_deprecations
 from caluma.caluma_workflow.models import Task, WorkItem
 from caluma.caluma_workflow.utils import create_work_items
+from django.utils.timezone import make_aware
 
 from camac.caluma.api import CalumaApi
 from camac.constants.kt_bern import (
@@ -408,6 +411,9 @@ def test_close_dossier_send_handler(
         assert Message.objects.first().receiver == ech_instance.responsible_service()
 
 
+@pytest.mark.freeze_time(
+    make_aware(datetime(2020, 2, 23, 23, 9, 1, microsecond=123456))
+)
 @pytest.mark.parametrize(
     "circulation_status,has_service,valid_service_id,success",
     [
@@ -558,7 +564,17 @@ def test_task_send_handler(  # noqa: C901
 
         activation = activations.first()
         assert activation.service == service
-        assert activation.deadline_date.strftime("%Y-%m-%d") == "2020-03-23"
+
+        # This should be the current datetime in UTC - since the freezed time is
+        # in the winter it should be 23:09:01 minus one hour (Europe/Zurich with
+        # daylight saving)
+        assert activation.start_date.isoformat() == "2020-02-23T22:09:01+00:00"
+
+        # This should be the end of the day (23:59:00 to be consistent with PHP)
+        # that was given as input (2020-03-23) minus one hour (Europe/Zurich
+        # with daylight saving)
+        assert activation.deadline_date.isoformat() == "2020-03-23T22:59:00+00:00"
+
         assert (
             WorkItem.objects.filter(
                 **{
