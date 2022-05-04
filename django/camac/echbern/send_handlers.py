@@ -1,8 +1,7 @@
 from collections import namedtuple
-from datetime import datetime
+from datetime import datetime, time
 from math import trunc
 
-import pytz
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
 from caluma.caluma_workflow.events import send_event_with_deprecations
 from caluma.caluma_workflow.utils import create_work_items
@@ -464,17 +463,19 @@ class TaskSendHandler(BaseSendHandler):
     def _create_activation(self, circulation, service):
         circulation_state = CirculationState.objects.get(name="RUN")
         try:
-            deadline_date = pytz.utc.localize(
-                datetime.combine(
-                    self.data.eventRequest.directive.deadline.date(),
-                    datetime.min.time(),
-                )
-            )
+            deadline_date = self.data.eventRequest.directive.deadline.date()
         # Fallback for messages with missing `directive`
         except AttributeError:  # pragma: no cover
-            deadline_date = timezone.now()
+            deadline_date = timezone.now().date()
 
-        start_date = timezone.now().replace(hour=4, minute=0, second=0, microsecond=0)
+        # Remove microseconds because PHP can't handle them
+        start_date = timezone.now().replace(microsecond=0)
+
+        # Set deadline to the end of the day (23:59:00 to be consistent with
+        # PHP) and localize the datetime properly
+        deadline_date = timezone.make_aware(
+            datetime.combine(deadline_date, time(23, 59))
+        )
 
         activation = Activation.objects.create(
             circulation=circulation,
