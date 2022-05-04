@@ -355,6 +355,38 @@ def get_realestateinformation(answers):
     return re_info
 
 
+def extract_street_number(string):
+    """Very simple street number extractor.
+
+    Split string at first digit if any.
+    """
+    if not string:
+        return ""
+    split = list(re.split(r"(\d+)", string))
+    if len(split) > 1:
+        return "".join(split[1:])
+    return ""
+
+
+def make_dummy_address_ech0044():
+    return [
+        pyxb.BIND(
+            ownerAdress=ns_address.mailAddressType(
+                person=ns_address.personMailAddressInfoType(
+                    firstName="unknown", lastName="unknown"
+                ),
+                addressInformation=ns_address.addressInformationType(
+                    street="unknown",
+                    houseNumber="0",
+                    town=ns_address.townType("unknown"),
+                    swissZipCode=9999,
+                    country="CH",
+                ),
+            )
+        )
+    ]
+
+
 def determine_decision_state(instance: Instance):
     """Retrieve decision state and pertaining modalities.
 
@@ -364,8 +396,8 @@ def determine_decision_state(instance: Instance):
         - ruling
         - rulingAuthority
 
-    where no decision module exists these have to be collected
-    from different locations, usually a combination of work-item
+    where no decision module exists (such a DocxDecision) these have to be
+    collected from different locations, usually a combination of work-item
     and history entry.
 
     rulings are a set of categories such as 'building-permit' and
@@ -417,7 +449,6 @@ def application_md(instance: Instance):
         ruling = (
             instance.form.get_name()
         )  # TODO: is this valid for Entscheid/ruling 3.4.1.2?
-
         return ns_application.decisionRulingType(
             judgement=1
             if instance.form.get_name()
@@ -453,50 +484,12 @@ def application_md(instance: Instance):
                 municipalityName=assure_string_length(md.municipality, max_length=40),
                 cantonAbbreviation=md.canton,
             ),
-            owner=[
-                pyxb.BIND(
-                    # ownerIdentification minOccurs=0
-                    ownerAdress=ns_address.mailAddressType(
-                        person=ns_address.personMailAddressInfoType(
-                            # mrMrs="1",  # mapping?
-                            # title="Dr Med",
-                            firstName=assure_string_length(
-                                owner.get("first_name", "unknown"), max_length=30
-                            ),
-                            lastName=assure_string_length(
-                                owner.get("last_name", "unknown"), max_length=30
-                            ),
-                        ),
-                        addressInformation=ns_address.addressInformationType(
-                            # not the same as swissAddressInformationType (obv..)
-                            # addressLine1 minOccurs=0
-                            # addressLine2 minOccurs=0
-                            # (street, houseNumber, dwellingNumber) minOccurs=0
-                            # (postOfficeBoxNumber, postOfficeBoxText) minOccurs=0
-                            # locality minOccurs=0
-                            street=assure_string_length(
-                                owner.get("street", "unknown"), max_length=60
-                            ),
-                            houseNumber=assure_string_length(
-                                owner.get("street_number", "unknown"), max_length=12
-                            ),
-                            town=assure_string_length(
-                                ns_address.townType(owner.get("town", "unknown")),
-                                max_length=40,
-                            ),
-                            swissZipCode=get_plz(owner.get("zip", "unknown")),
-                            # foreignZipCode minOccurs=0
-                            country="CH",
-                        ),
-                    )
-                )
-                for owner in md.landowners
-            ],
+            owner=make_dummy_address_ech0044(),
         )
         for plot in md.plot_data
     ]
     if not realestate_info:
-        # happens if no parcels are filled (preliminary clarification)
+        # happens if no parcels are filled (e. g.: application_type: Vorabklärung)
         realestate_info = [
             ns_application.realestateInformationType(
                 realestate=ns_objektwesen.realestateType(
@@ -512,29 +505,7 @@ def application_md(instance: Instance):
                     ),
                     cantonAbbreviation=md.canton,
                 ),
-                #                buildingInformation=[
-                #                    ns_application.buildingInformationType(
-                #                        building=ns_objektwesen.buildingType(
-                #                            buildingCategory=1040  # TODO: map category to GWR categories
-                #                        )
-                #                    )
-                #                ],
-                owner=[
-                    pyxb.BIND(
-                        ownerAdress=ns_address.mailAddressType(
-                            person=ns_address.personMailAddressInfoType(
-                                firstName="unknown", lastName="unknown"
-                            ),
-                            addressInformation=ns_address.addressInformationType(
-                                street="unknown",
-                                houseNumber="0",
-                                town=ns_address.townType("unknown"),
-                                swissZipCode=9999,
-                                country="CH",
-                            ),
-                        )
-                    )
-                ],
+                owner=make_dummy_address_ech0044(),
             )
         ]
     related_instances = Instance.objects.exclude(pk=instance.pk).filter(
@@ -569,7 +540,7 @@ def application_md(instance: Instance):
         ],
         locationAddress=ns_address.swissAddressInformationType(  # 3.1.1.15
             houseNumber=assure_string_length(
-                getattr(md, "street_number", ""),
+                getattr(md, "street", "") and extract_street_number(md.street) or "",
                 max_length=12,  # TODO: split street at first number
             ),
             street=assure_string_length(
@@ -596,9 +567,6 @@ def application_md(instance: Instance):
         ]
         if md.usage_zone
         else [],  # eCH allows for max 225 chars
-        #        person=None,
-        #        relationshipToPersonType=None,
-        #        deputy=None,
     )
     return planning_permission_application_type
 

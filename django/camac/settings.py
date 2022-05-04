@@ -886,7 +886,7 @@ APPLICATIONS = {
             "usage_type": ("ng_answer", "art-der-nutzung"),  # TODO: verify!
             "application_type": (
                 "instance_property",
-                "form.name",
+                "form.description",
             ),  # `proceeding_type` in context of eCH standard
             #  SZ stores this as `instance.form.name`  # TODO: verify!
             "application_type_migrated": (  # not the same as regular application_type that requires predefined choices

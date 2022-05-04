@@ -46,9 +46,9 @@ class TestDossier(Dossier):
 
 
 @pytest.mark.parametrize(
-    "plot_data,coordinates,decision",
+    "plot_data,coordinates,site_address,decision",
     [
-        (None, None, None),
+        (None, None, None, None),
         (
             [
                 PlotData(
@@ -56,6 +56,7 @@ class TestDossier(Dossier):
                 )
             ],
             [Coordinates(n=8.5592041911, e=47.0636626694)],
+            {"street": "Somwhere over the Rainbow 11b"},
             {
                 "date": datetime.datetime(2021, 1, 11),
                 "decicion": "accepted",
@@ -64,13 +65,16 @@ class TestDossier(Dossier):
     ],
 )
 @pytest.mark.freeze_time("2020-02-01")
+@pytest.mark.parametrize("application_type", ["Baugesuch", "Vorabklärung"])
 def test_application_retrieve_full_sz(
     admin_client,
     ech_instance_sz,
     ech_instance_case,
+    application_type,
     instance_state_factory,
     plot_data,
     coordinates,
+    site_address,
     decision,
     snapshot,
     settings,
@@ -78,10 +82,16 @@ def test_application_retrieve_full_sz(
     request,
 ):
     settings.APPLICATION = settings.APPLICATIONS["kt_schwyz"]
-    settings.APPLICATION["ECH_API"] = True
+    ech_instance_sz.form.description = application_type
+    ech_instance_sz.form.save()
     mocker.patch.object(  # make for a deterministic message_id
         delivery, "__defaults__", (None, None, str(ech_instance_sz.pk), None)
     )
+    if site_address.values():
+        addr_field, _ = ech_instance_sz.fields.get_or_create(
+            name="ortsbezeichnung-des-vorhabens",
+            defaults={"value": site_address["street"]},
+        )
     if plot_data:
         CamacNgListAnswerWriter(
             target="parzellen", column_mapping=PARCEL_MAPPING
