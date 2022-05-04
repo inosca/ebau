@@ -1,10 +1,10 @@
-import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { dropTask } from "ember-concurrency";
 import { trackedTask } from "ember-resources/util/ember-concurrency";
 
 export default class SnippetsComponent extends Component {
+  @service fetch;
   @service store;
   @service shoebox;
 
@@ -42,13 +42,16 @@ export default class SnippetsComponent extends Component {
     }, {});
   }
 
-  @action
-  apply(snippet, event) {
+  @dropTask
+  *applySnippet(id, event) {
     event.preventDefault();
 
-    this.args.field.answer.value = [
-      this.args.field.answer.value,
-      snippet.body,
-    ].join("");
+    const response = yield this.fetch.fetch(
+      `/api/v1/notification-templates/${id}/merge?instance=${this.shoebox.content.instanceId}`
+    );
+
+    const { data } = yield response.json();
+
+    this.args.onApply(data.attributes.body);
   }
 }
