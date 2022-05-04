@@ -30,6 +30,7 @@
       "fachthemen.denkmalschutz-und-archaeologie",
       "fachthemen.lebensmittel-und-hygienesicherheit",
       "fachthemen.fischerei",
+      "fachthemen.radon",
       "gesuchsunterlagen"
     ],
     "projektanderung": [
@@ -76,6 +77,7 @@
       "fachthemen.denkmalschutz-und-archaeologie",
       "fachthemen.lebensmittel-und-hygienesicherheit",
       "fachthemen.fischerei",
+      "fachthemen.radon",
       "gesuchsunterlagen"
     ],
     "baugesuch-reklamegesuch-v2": [
@@ -254,6 +256,7 @@
       "fachthemen.denkmalschutz-und-archaeologie",
       "fachthemen.lebensmittel-und-hygienesicherheit",
       "fachthemen.fischerei",
+      "fachthemen.radon",
       "gesuchsunterlagen"
     ],
     "projektanderung-v3": [
@@ -408,6 +411,7 @@
       "fachthemen.denkmalschutz-und-archaeologie",
       "fachthemen.lebensmittel-und-hygienesicherheit",
       "fachthemen.fischerei",
+      "fachthemen.radon",
       "gesuchsunterlagen"
     ],
     "vorabklarung": [
@@ -558,6 +562,7 @@
       "fachthemen.denkmalschutz-und-archaeologie",
       "fachthemen.lebensmittel-und-hygienesicherheit",
       "fachthemen.fischerei",
+      "fachthemen.radon",
       "gesuchsunterlagen",
       "meta"
     ],
@@ -618,6 +623,7 @@
       "fachthemen.denkmalschutz-und-archaeologie",
       "fachthemen.lebensmittel-und-hygienesicherheit",
       "fachthemen.fischerei",
+      "fachthemen.radon",
       "gesuchsunterlagen",
       "meta"
     ],
@@ -786,6 +792,7 @@
       "fachthemen.denkmalschutz-und-archaeologie",
       "fachthemen.lebensmittel-und-hygienesicherheit",
       "fachthemen.fischerei",
+      "fachthemen.radon",
       "gesuchsunterlagen",
       "meta"
     ],
@@ -1248,6 +1255,11 @@
         "fischerei-ufervegetation-beeintrachtigt-info",
         "datenverschnitt-fisch"
       ]
+    },
+    "fachthemen.radon": {
+      "title": "Radon",
+      "parent": "fachthemen",
+      "questions": ["radon-info"]
     },
     "gesuchsunterlagen": {
       "title": "Gesuchsunterlagen",
@@ -5562,6 +5574,16 @@
       "active-expression": "'ms:ch.sz.a012.naturgefahrenkarte.synoptisch' in 'layer'|value|mapby('name') && ('Neubau' in 'vorhaben-mit-baute'|value || 'Anbau / Erweiterung' in 'vorhaben-mit-baute'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value || 'Nutzungsänderung' in 'vorhaben-mit-baute'|value || 'Neubau' in 'vorhaben-mit-anlage'|value || 'Erweiterung' in 'vorhaben-mit-anlage'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-anlage'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-anlage'|value)",
       "config": {
         "options": ["Vorhanden"]
+      }
+    },
+    "radon-info": {
+      "label": "Radongas kann bei ungünstigen Bedingungen in Gebäude gelangen und bei zu hohen Konzentrationen die Gesundheit der Menschen gefährden.<br>Das Bundesamt für Gesundheit (BAG) empfiehlt, sowohl für Neubauten, als auch für Sanierungen und Umbauten, in Bezug auf die Radonbelastung Abklärungen vorzunehmen (<a href='http://www.ch-radon.ch' target='_blank'>www.ch-radon.ch</a>).<br>Machen Sie unter <a href='http://www.radonkarte.ch' target='_blank'>http://www.radonkarte.ch</a> den Radon-Check, falls beim Bauvorhaben Räume betroffen sind, in denen sich Personen mindestens 15 Stunden pro Woche aufhalten.",
+      "hint": "Radon ist ein natürliches radioaktives Edelgas, das beim Zerfall von im Boden vorkommendem Uran entsteht. Vom Boden her kann Radon durch undichte Stellen der Gebäudehülle in Gebäude eindringen, was zu einer Innenluftbelastung führen kann. Nach dem Rauchen ist Radon die zweithäufigste Ursache für Lungenkrebs und führt in der Schweiz jährlich zu 200 bis 300 Todesfällen. Ein Referenzwert von 300 Becquerel pro Kubikmeter (Bq/m³) gilt für Räume, in denen sich Personen mindestens 15 Stunden pro Woche aufhalten.\n\nWeitere Informationen finden Sie auf <www.ch-radon.ch>.",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'Neubau' in 'vorhaben-mit-baute'|value || 'Anbau / Erweiterung' in 'vorhaben-mit-baute'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value || 'Nutzungsänderung' in 'vorhaben-mit-baute'|value",
+      "config": {
+        "options": ["Zur Kenntnis genommen"]
       }
     },
     "dokument-grundstucksangaben": {
