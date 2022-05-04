@@ -67,6 +67,7 @@ Router.map(function () {
           this.route("denkmalschutz-und-archaeologie");
           this.route("lebensmittel-und-hygienesicherheit");
           this.route("fischerei");
+          this.route("radon");
         });
         this.route("geschaeftskontrolle");
         this.route("gesuchsunterlagen");
