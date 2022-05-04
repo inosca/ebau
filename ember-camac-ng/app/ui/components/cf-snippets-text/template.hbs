@@ -1,16 +1,3 @@
-<Snippets @field={{@field}}>
-  <input
-    type="text"
-    readonly={{@disabled}}
-    name={{@field.pk}}
-    id={{@field.pk}}
-    value={{@field.answer.value}}
-    placeholder={{@field.question.raw.placeholder}}
-    class="
-      uk-input
-      {{if @field.isInvalid "uk-form-danger"}}
-      {{if @field.disabled "uk-disabled"}}
-    "
-    {{on "input" this.save}}
-  />
+<Snippets @onApply={{this.applySnippet}} @disabled={{@disabled}}>
+  <CfField::Input::Text @field={{@field}} @onSave={{@onSave}} @disabled={{@disabled}} @context={{@context}}/>
 </Snippets>
