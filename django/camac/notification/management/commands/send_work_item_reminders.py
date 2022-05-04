@@ -114,7 +114,7 @@ class Command(BaseCommand):
         if settings.APPLICATION.get("IS_MULTILINGUAL", False):
             subject = subject + " / Rappel des tâches"
 
-        is_overdue = Q(deadline__lte=date.today())
+        is_overdue = Q(deadline__date__lte=date.today())
         is_not_viewed = Q(**{"meta__not-viewed": True})
 
         # get all work items which are overdue or not viewed
