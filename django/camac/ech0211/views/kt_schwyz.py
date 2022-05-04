@@ -10,6 +10,7 @@ from rest_framework.viewsets import GenericViewSet
 from rest_framework_xml.renderers import XMLRenderer
 
 from ...constants.kt_bern import ECH_BASE_DELIVERY
+from ...constants.kt_schwyz import FORM_DESCRIPTIONS
 from ...document.views import AttachmentSectionView
 from ...instance.models import Instance
 from ...swagger.utils import get_operation_description, group_param
@@ -28,7 +29,7 @@ class ApplicationView(ECHInstanceQuerysetMixin, RetrieveModelMixin, GenericViewS
     instance_field = None
     serializer_class = Serializer
     renderer_classes = (XMLRenderer,)
-    queryset = Instance.objects
+    queryset = Instance.objects.filter(form__description__in=FORM_DESCRIPTIONS)
     instance_field = None
 
     @swagger_auto_schema(
