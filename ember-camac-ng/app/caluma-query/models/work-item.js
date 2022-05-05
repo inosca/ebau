@@ -1,6 +1,7 @@
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import WorkItemModel from "@projectcaluma/ember-core/caluma-query/models/work-item";
+import { decodeId } from "@projectcaluma/ember-core/helpers/decode-id";
 import { queryManager } from "ember-apollo-client";
 
 import saveWorkItemMutation from "camac-ng/gql/mutations/save-workitem.graphql";
@@ -180,8 +181,10 @@ export default class CustomWorkItemModel extends WorkItemModel {
 
     return query
       ? `/index/redirect-to-instance-resource/instance-id/${this.instanceId}?${query}`
-          .replace("{{CIRCULATION_ID}}", this.raw.meta["circulation-id"])
-          .replace("{{ACTIVATION_ID}}", this.raw.meta["activation-id"])
+          .replace("{{UUID}}", this.id)
+          .replace("{{CASE_UUID}}", decodeId(this.raw.case.id))
+          .replace("{{ADDRESSED}}", this.addressedGroups[0])
+          .replace("{{CONTROLLING}}", this.controllingGroups[0])
       : null;
   }
 
