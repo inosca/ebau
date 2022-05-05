@@ -325,6 +325,10 @@ APPLICATIONS = {
         "PUBLICATION_BACKEND": "camac-ng",
         "PUBLICATION_ATTACHMENT_SECTION": [4],
         "ATTACHMENT_INTERNAL_STATES": ["internal"],
+        "ATTACHMENT_DELETEABLE_STATES": [
+            "new",
+            "rejected",
+        ],
         "IS_MULTILINGUAL": False,
         "CIRCULATION_STATE_END": "DONE",
         "FORM_BACKEND": "camac-ng",
