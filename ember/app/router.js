@@ -59,6 +59,7 @@ Router.map(function () {
           this.route("energie");
           this.route("arbeitssicherheit-und-gesundheitsschutz");
           this.route("zivilschutz");
+          this.route("zivilschutz-v2");
           this.route("brandschutz");
           this.route("liegenschaftsentwasserung");
           this.route("gewasserschutz");
