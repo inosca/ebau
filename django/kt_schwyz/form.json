@@ -30,7 +30,6 @@
       "fachthemen.denkmalschutz-und-archaeologie",
       "fachthemen.lebensmittel-und-hygienesicherheit",
       "fachthemen.fischerei",
-      "fachthemen.radon",
       "gesuchsunterlagen"
     ],
     "projektanderung": [
@@ -77,7 +76,6 @@
       "fachthemen.denkmalschutz-und-archaeologie",
       "fachthemen.lebensmittel-und-hygienesicherheit",
       "fachthemen.fischerei",
-      "fachthemen.radon",
       "gesuchsunterlagen"
     ],
     "baugesuch-reklamegesuch-v2": [
@@ -256,7 +254,6 @@
       "fachthemen.denkmalschutz-und-archaeologie",
       "fachthemen.lebensmittel-und-hygienesicherheit",
       "fachthemen.fischerei",
-      "fachthemen.radon",
       "gesuchsunterlagen"
     ],
     "baugesuch-reklamegesuch-v6": [
@@ -445,7 +442,6 @@
       "fachthemen.denkmalschutz-und-archaeologie",
       "fachthemen.lebensmittel-und-hygienesicherheit",
       "fachthemen.fischerei",
-      "fachthemen.radon",
       "gesuchsunterlagen"
     ],
     "vorentscheid-gemass-ss84-pbg-v6": [
@@ -629,7 +625,6 @@
       "fachthemen.denkmalschutz-und-archaeologie",
       "fachthemen.lebensmittel-und-hygienesicherheit",
       "fachthemen.fischerei",
-      "fachthemen.radon",
       "gesuchsunterlagen",
       "meta"
     ],
@@ -721,7 +716,6 @@
       "fachthemen.denkmalschutz-und-archaeologie",
       "fachthemen.lebensmittel-und-hygienesicherheit",
       "fachthemen.fischerei",
-      "fachthemen.radon",
       "gesuchsunterlagen",
       "meta"
     ],
@@ -921,7 +915,6 @@
       "fachthemen.denkmalschutz-und-archaeologie",
       "fachthemen.lebensmittel-und-hygienesicherheit",
       "fachthemen.fischerei",
-      "fachthemen.radon",
       "gesuchsunterlagen",
       "meta"
     ],
@@ -3034,13 +3027,8 @@
           {
             "name": "plz",
             "label": "PLZ",
-            "type": "number",
-            "required": true,
-            "config": {
-              "min": 1000,
-              "max": 9999,
-              "step": 1
-            }
+            "type": "text",
+            "required": true
           },
           {
             "name": "ort",
@@ -3114,13 +3102,8 @@
           {
             "name": "plz",
             "label": "PLZ",
-            "type": "number",
-            "required": true,
-            "config": {
-              "min": 1000,
-              "max": 9999,
-              "step": 1
-            }
+            "type": "text",
+            "required": true
           },
           {
             "name": "ort",
@@ -3194,13 +3177,8 @@
           {
             "name": "plz",
             "label": "PLZ",
-            "type": "number",
-            "required": true,
-            "config": {
-              "min": 1000,
-              "max": 9999,
-              "step": 1
-            }
+            "type": "text",
+            "required": true
           },
           {
             "name": "ort",
@@ -3274,13 +3252,8 @@
           {
             "name": "plz",
             "label": "PLZ",
-            "type": "number",
-            "required": true,
-            "config": {
-              "min": 1000,
-              "max": 9999,
-              "step": 1
-            }
+            "type": "text",
+            "required": true
           },
           {
             "name": "ort",
@@ -3354,13 +3327,8 @@
           {
             "name": "plz",
             "label": "PLZ",
-            "type": "number",
-            "required": true,
-            "config": {
-              "min": 1000,
-              "max": 9999,
-              "step": 1
-            }
+            "type": "text",
+            "required": true
           },
           {
             "name": "ort",
@@ -3434,13 +3402,8 @@
           {
             "name": "plz",
             "label": "PLZ",
-            "type": "number",
-            "required": true,
-            "config": {
-              "min": 1000,
-              "max": 9999,
-              "step": 1
-            }
+            "type": "text",
+            "required": true
           },
           {
             "name": "ort",
@@ -3514,13 +3477,8 @@
           {
             "name": "plz",
             "label": "PLZ",
-            "type": "number",
-            "required": true,
-            "config": {
-              "min": 1000,
-              "max": 9999,
-              "step": 1
-            }
+            "type": "text",
+            "required": true
           },
           {
             "name": "ort",
@@ -3594,13 +3552,8 @@
           {
             "name": "plz",
             "label": "PLZ",
-            "type": "number",
-            "required": true,
-            "config": {
-              "min": 1000,
-              "max": 9999,
-              "step": 1
-            }
+            "type": "text",
+            "required": true
           },
           {
             "name": "ort",
@@ -3674,13 +3627,8 @@
           {
             "name": "plz",
             "label": "PLZ",
-            "type": "number",
-            "required": true,
-            "config": {
-              "min": 1000,
-              "max": 9999,
-              "step": 1
-            }
+            "type": "text",
+            "required": true
           },
           {
             "name": "ort",
@@ -7405,13 +7353,8 @@
           {
             "name": "plz",
             "label": "PLZ",
-            "type": "number",
-            "required": true,
-            "config": {
-              "min": 1000,
-              "max": 9999,
-              "step": 1
-            }
+            "type": "text",
+            "required": true
           },
           {
             "name": "ort",
@@ -7485,13 +7428,8 @@
           {
             "name": "plz",
             "label": "PLZ",
-            "type": "number",
-            "required": true,
-            "config": {
-              "min": 1000,
-              "max": 9999,
-              "step": 1
-            }
+            "type": "text",
+            "required": true
           },
           {
             "name": "ort",
@@ -7565,13 +7503,8 @@
           {
             "name": "plz",
             "label": "PLZ",
-            "type": "number",
-            "required": true,
-            "config": {
-              "min": 1000,
-              "max": 9999,
-              "step": 1
-            }
+            "type": "text",
+            "required": true
           },
           {
             "name": "ort",
