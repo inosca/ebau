@@ -259,6 +259,40 @@
       "fachthemen.radon",
       "gesuchsunterlagen"
     ],
+    "baugesuch-reklamegesuch-v6": [
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "grundinformationen.kategorisierung",
+      "grundinformationen.allgemeine-informationen-zum-vorhaben-v3",
+      "grundinformationen.ausnahmebewilligungen",
+      "grundinformationen.gwr-v2",
+      "personalien",
+      "personalien.grundeigentumerschaft",
+      "personalien.bauherrschaft-v2",
+      "personalien.projektverfasser-planer-v2",
+      "personalien.vertreter-mit-vollmacht",
+      "fachthemen",
+      "fachthemen.landwirtschaft",
+      "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
+      "fachthemen.umweltschutz",
+      "fachthemen.natur-und-landschaftsschutz",
+      "fachthemen.wald",
+      "fachthemen.naturgefahren",
+      "fachthemen.verkehr",
+      "fachthemen.energie",
+      "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
+      "fachthemen.zivilschutz-v2",
+      "fachthemen.brandschutz",
+      "fachthemen.liegenschaftsentwasserung",
+      "fachthemen.gewasserschutz",
+      "fachthemen.grundwasser-und-altlasten",
+      "fachthemen.reklamen",
+      "fachthemen.denkmalschutz-und-archaeologie",
+      "fachthemen.lebensmittel-und-hygienesicherheit",
+      "fachthemen.fischerei",
+      "fachthemen.radon",
+      "gesuchsunterlagen"
+    ],
     "projektanderung-v3": [
       "projektanderung",
       "grundinformationen",
@@ -403,6 +437,39 @@
       "fachthemen.energie",
       "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
       "fachthemen.zivilschutz",
+      "fachthemen.brandschutz",
+      "fachthemen.liegenschaftsentwasserung",
+      "fachthemen.gewasserschutz",
+      "fachthemen.grundwasser-und-altlasten",
+      "fachthemen.reklamen",
+      "fachthemen.denkmalschutz-und-archaeologie",
+      "fachthemen.lebensmittel-und-hygienesicherheit",
+      "fachthemen.fischerei",
+      "fachthemen.radon",
+      "gesuchsunterlagen"
+    ],
+    "vorentscheid-gemass-ss84-pbg-v6": [
+      "vorentscheid",
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "grundinformationen.kategorisierung",
+      "grundinformationen.allgemeine-informationen-zum-vorhaben-v3",
+      "grundinformationen.gwr-v2",
+      "personalien",
+      "personalien.grundeigentumerschaft",
+      "personalien.bauherrschaft-v2",
+      "personalien.projektverfasser-planer-v2",
+      "fachthemen",
+      "fachthemen.landwirtschaft",
+      "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
+      "fachthemen.umweltschutz",
+      "fachthemen.natur-und-landschaftsschutz",
+      "fachthemen.wald",
+      "fachthemen.naturgefahren",
+      "fachthemen.verkehr",
+      "fachthemen.energie",
+      "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
+      "fachthemen.zivilschutz-v2",
       "fachthemen.brandschutz",
       "fachthemen.liegenschaftsentwasserung",
       "fachthemen.gewasserschutz",
@@ -566,6 +633,37 @@
       "gesuchsunterlagen",
       "meta"
     ],
+    "baumeldung-fur-geringfugiges-vorhaben-v5": [
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "baumeldung-fur-geringfugige-vorhaben-v2",
+      "personalien",
+      "personalien.grundeigentumerschaft",
+      "personalien.bauherrschaft-v2",
+      "personalien.projektverfasser-planer-v2",
+      "fachthemen",
+      "fachthemen.landwirtschaft",
+      "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
+      "fachthemen.umweltschutz",
+      "fachthemen.natur-und-landschaftsschutz",
+      "fachthemen.wald",
+      "fachthemen.naturgefahren",
+      "fachthemen.verkehr",
+      "fachthemen.energie",
+      "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
+      "fachthemen.zivilschutz-v2",
+      "fachthemen.brandschutz",
+      "fachthemen.liegenschaftsentwasserung",
+      "fachthemen.gewasserschutz",
+      "fachthemen.grundwasser-und-altlasten",
+      "fachthemen.reklamen",
+      "fachthemen.denkmalschutz-und-archaeologie",
+      "fachthemen.lebensmittel-und-hygienesicherheit",
+      "fachthemen.fischerei",
+      "fachthemen.radon",
+      "gesuchsunterlagen",
+      "meta"
+    ],
     "technische-bewilligung": [
       "technische-bewilligung",
       "grundinformationen",
@@ -615,6 +713,37 @@
       "fachthemen.energie",
       "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
       "fachthemen.zivilschutz",
+      "fachthemen.brandschutz",
+      "fachthemen.liegenschaftsentwasserung",
+      "fachthemen.gewasserschutz",
+      "fachthemen.grundwasser-und-altlasten",
+      "fachthemen.reklamen",
+      "fachthemen.denkmalschutz-und-archaeologie",
+      "fachthemen.lebensmittel-und-hygienesicherheit",
+      "fachthemen.fischerei",
+      "fachthemen.radon",
+      "gesuchsunterlagen",
+      "meta"
+    ],
+    "technische-bewilligung-v3": [
+      "technische-bewilligung",
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "personalien",
+      "personalien.grundeigentumerschaft",
+      "personalien.bauherrschaft-v2",
+      "personalien.projektverfasser-planer-v2",
+      "fachthemen",
+      "fachthemen.landwirtschaft",
+      "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
+      "fachthemen.umweltschutz",
+      "fachthemen.natur-und-landschaftsschutz",
+      "fachthemen.wald",
+      "fachthemen.naturgefahren",
+      "fachthemen.verkehr",
+      "fachthemen.energie",
+      "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
+      "fachthemen.zivilschutz-v2",
       "fachthemen.brandschutz",
       "fachthemen.liegenschaftsentwasserung",
       "fachthemen.gewasserschutz",
@@ -784,6 +913,36 @@
       "fachthemen.energie",
       "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
       "fachthemen.zivilschutz",
+      "fachthemen.brandschutz",
+      "fachthemen.liegenschaftsentwasserung",
+      "fachthemen.gewasserschutz",
+      "fachthemen.grundwasser-und-altlasten",
+      "fachthemen.reklamen",
+      "fachthemen.denkmalschutz-und-archaeologie",
+      "fachthemen.lebensmittel-und-hygienesicherheit",
+      "fachthemen.fischerei",
+      "fachthemen.radon",
+      "gesuchsunterlagen",
+      "meta"
+    ],
+    "projektgenehmigungsgesuch-gemass-ss15-strag-v4": [
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "personalien",
+      "personalien.grundeigentumerschaft",
+      "personalien.bauherrschaft-v2",
+      "personalien.projektverfasser-planer-v2",
+      "fachthemen",
+      "fachthemen.landwirtschaft",
+      "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
+      "fachthemen.umweltschutz",
+      "fachthemen.natur-und-landschaftsschutz",
+      "fachthemen.wald",
+      "fachthemen.naturgefahren",
+      "fachthemen.verkehr",
+      "fachthemen.energie",
+      "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
+      "fachthemen.zivilschutz-v2",
       "fachthemen.brandschutz",
       "fachthemen.liegenschaftsentwasserung",
       "fachthemen.gewasserschutz",
@@ -1177,6 +1336,14 @@
         "zivilschutz-dispens-schutzraumbau"
       ]
     },
+    "fachthemen.zivilschutz-v2": {
+      "title": "Zivilschutz",
+      "parent": "fachthemen",
+      "questions": [
+        "zivilschutz-planung",
+        "zivilschutz-aufhebung"
+      ]
+    },
     "fachthemen.brandschutz": {
       "title": "Brandschutz",
       "parent": "fachthemen",
@@ -1292,6 +1459,7 @@
         "info-energie-dachaufstellung",
         "info-arbeitssicherheit-sicherheitsdatenblatter",
         "info-zivilschutz-elementarschaden",
+        "info-zivilschutz-aufhebung",
         "info-brandschutz-gefahrengut",
         "info-liegenschaftsentwasserung",
         "info-liegenschaftsentwasserung-wassergefahrdende-stoffe-ja",
@@ -2565,7 +2733,7 @@
       "label": "Wird eine bestehende Alarmierungseinrichtung durch das Vorhaben tangiert?",
       "hint": "Alarmierungseinrichtungen sind festmontierte Sirenen (Zivilschutz) auf Gebäuden und dienen zur Warnung der Bevölkerung.",
       "type": "radio",
-      "active-expression": "true == false",
+      "active-expression": "'ch.sz.a105a.sirenen' in 'layer'|value|mapby('name')",
       "required": true,
       "config": {
         "options": ["Ja", "Nein"]
@@ -4582,7 +4750,7 @@
       "hint": "**Platzhalter**: *datenverschnitt-energie*",
       "type": "checkbox",
       "required": false,
-      "active-expression": "'ms:ch.sz.afu.nis.hochspannungsltg' in 'layer'|value|mapby('name') || 'ms:ch.sz.afu.nis.trafostation' in 'layer'|value|mapby('name') || 'ms:ch.sz.afu.nis.unterwerk' in 'layer'|value|mapby('name')",
+      "active-expression": "'ms:ch.sz.afu.nis.hochspannungsltg' in 'layer'|value|mapby('name') || 'ms:ch.sz.afu.nis.trafostation' in 'layer'|value|mapby('name') || 'ms:ch.sz.afu.nis.unterwerk' in 'layer'|value|mapby('name') || 'ms:ch.sz.a135a.nis.hochspannungsleitung' in 'layer'|value|mapby('name')",
       "config": {
         "options": ["Erledigt"]
       }
@@ -5106,6 +5274,26 @@
         "options": ["Ja", "Nein"]
       }
     },
+    "zivilschutz-planung": {
+      "label": "Der Datenverschnitt aufgrund der Lokalisierung Ihres Vorhabens hat ergeben, dass sich innerhalb des relevanten Perimeters eine oder mehrere Zivilschutzbauten befinden.<br>Wurde dies bei der Planung des vorliegenden Vorhabens berücksichtigt?",
+      "hint": "Falls Auswirkungen auf bestehende Zivilschutzbauten bei der Planung ausser Acht gelassen wurden, kann dies dazu führen, dass eine Projektanpassung erforderlich ist. Die Folgen sind eine längere Verfahrensdauer und ein höherer Bearbeitungsaufwand.",
+      "type": "radio",
+      "required": false,
+      "active-expression": "'ms:ch.sz.a082a.schutzbauten.gemeinde_sammelschutzraum' in 'layer'|value|mapby('name') || 'ms:ch.sz.a082a.schutzbauten.kulturgueter_schutzraum' in 'layer'|value|mapby('name') || 'ms:ch.sz.a082a.schutzbauten.oeffentlicher_sammelschutzraum' in 'layer'|value|mapby('name') || 'ms:ch.sz.a082a.schutzbauten.pflicht_schutzraum' in 'layer'|value|mapby('name') || 'ms:ch.sz.a082a.schutzbauten.pflicht_schutzraum_vor_twp' in 'layer'|value|mapby('name') || 'ms:ch.sz.a082a.schutzbauten.schutzanlage' in 'layer'|value|mapby('name')",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "zivilschutz-aufhebung": {
+      "label": "Ist eine Schutzraum-Aufhebung vorgesehen",
+      "hint": "Eine Aufhebung kann nur mit Zustimmung und Vorabklärung des AMFZ erfolgen.\n\nAusnahme: Schutzräume ohne elektrische Ventilationsgeräte (VA 20) oder kleiner 7 Schutzplätze, sowie Schutzräume vor TWP 1966 müssen nicht vorgeprüft werden",
+      "type": "radio",
+      "required": false,
+      "active-expression": "'ms:ch.sz.a082a.schutzbauten.gemeinde_sammelschutzraum' in 'layer'|value|mapby('name') || 'ms:ch.sz.a082a.schutzbauten.kulturgueter_schutzraum' in 'layer'|value|mapby('name') || 'ms:ch.sz.a082a.schutzbauten.oeffentlicher_sammelschutzraum' in 'layer'|value|mapby('name') || 'ms:ch.sz.a082a.schutzbauten.pflicht_schutzraum' in 'layer'|value|mapby('name') || 'ms:ch.sz.a082a.schutzbauten.pflicht_schutzraum_vor_twp' in 'layer'|value|mapby('name') || 'ms:ch.sz.a082a.schutzbauten.schutzanlage' in 'layer'|value|mapby('name')",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
     "brandschutz-gefahrengut": {
       "label": "Um welche Art von brandschutztechnischem Gefahrengut handelt es sich?",
       "hint": "Geben Sie bitte die Stoffe an, welche aus Sicht des Brandschutzes als gefährlich einzustufen sind.",
@@ -5150,7 +5338,7 @@
       "hint": "Dies ist ein Hinweis, welcher sich aus der Lokalisierung Ihres Vorhabens ergibt. Bei Fragen wenden Sie sich bitte an die zuständige Bauverwaltung.\n**Wichtig:** In den Plänen müssen Gewässerraum und -abstand eingetragen sein, um Ihr Vorhaben materiell beurteilen zu können.",
       "type": "checkbox",
       "required": false,
-      "active-expression": "'ms:ch.sz.a006.swisstlm3d.gewaesser.stehendesgewaesser' in 'layer'|value|mapby('name') || 'ms:ch.sz.a154a.referenzgeometrie_standgewaesser.uferlinie' in 'layer'|value|mapby('name') || 'ms:ch.sz.a006.swisstlm3d.gewaesser.fliessgewaesser' in 'layer'|value|mapby('name') || 'ms:ch.sz.a041b.gewaessernetz.mwert.karto' in 'layer'|value|mapby('name') || 'ms:ch.sz.awb.grp.awb_gewaesserraum' in 'layer'|value|mapby('name')",
+      "active-expression": "'ms:ch.sz.a006.swisstlm3d.gewaesser.stehendesgewaesser' in 'layer'|value|mapby('name') || 'ms:ch.sz.a154a.referenzgeometrie_standgewaesser.uferlinie' in 'layer'|value|mapby('name') || 'ms:ch.sz.a006.swisstlm3d.gewaesser.fliessgewaesser' in 'layer'|value|mapby('name') || 'ms:ch.sz.a041b.gewaessernetz.mwert.karto' in 'layer'|value|mapby('name') || 'ms:ch.sz.awb.grp.awb_gewaesserraum' in 'layer'|value|mapby('name') || 'ms:ch.sz.awb.awb_beh_verb_gewaesserraum' in 'layer'|value|mapby('name')",
       "config": {
         "options": ["Erledigt"]
       }
@@ -5542,7 +5730,7 @@
       "hint": "Als Ufervegetation gilt jegliche Vegetation im und am Wasser, die ins Wasser reicht (z. B. Schilf, Äste von Sträuchern und Bäumen oder Grasbüschel) oder die zur Beschattung eines Gewässers beiträgt.",
       "type": "radio",
       "required": false,
-      "active-expression": "'ms:ch.sz.awb.grp.awb_gewaesserraum' in 'layer'|value|mapby('name')",
+      "active-expression": "'ms:ch.sz.awb.grp.awb_gewaesserraum' in 'layer'|value|mapby('name') || 'ms:ch.sz.awb.awb_beh_verb_gewaesserraum' in 'layer'|value|mapby('name')",
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -7621,6 +7809,15 @@
       "type": "checkbox",
       "required": false,
       "active-expression": "'zivilschutz-elementarschaden'|value == 'Ja'",
+      "config": {
+        "options": ["Vorhanden"]
+      }
+    },
+    "info-zivilschutz-aufhebung": {
+      "label": "Für die Schutzraum-Aufhebung sind den Gesuchsunterlagen ein <a href='/assets/documents/Antrag-Schutzraum-Aufhebung.pdf' title='Herunterladen' target='_blank'>Antrag</a> und eine Einverständniserklärung mit Begründung beizulegen. Das <a href='/assets/documents/Merkblatt-Schutzraum-Aufhebung.pdf' title='Herunterladen' target='_blank'>Merkblatt für Schutzraum-Aufhebungsantrag</a> gibt zusätzliche Informationen.",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'zivilschutz-aufhebung'|value == 'Ja'",
       "config": {
         "options": ["Vorhanden"]
       }
