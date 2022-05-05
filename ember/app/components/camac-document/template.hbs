@@ -71,7 +71,7 @@
                   />
                 </div>
               {{/unless}}
-              {{#unless @readonly}}
+              {{#if this.canDelete}}
                 <button
                   data-test-delete-document
                   class="uk-icon-button confirm-delete-{{doc.id}}"
@@ -102,7 +102,7 @@
                     type="button"
                   ></button>
                 </span>
-              {{/unless}}
+              {{/if}}
             </td>
           </tr>
         {{/each}}

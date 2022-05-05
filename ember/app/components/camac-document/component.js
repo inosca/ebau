@@ -40,6 +40,13 @@ export default CamacInputComponent.extend({
     return headers;
   }),
 
+  canDelete: computed("readonly,instance.instanceState.name", function () {
+    return (
+      this.readonly ||
+      ["new", "rejected"].includes(this.get("instance.instanceState.name"))
+    );
+  }),
+
   tokenChanged: observer("token", function () {
     if (this.dropzone) {
       this.dropzone.options.headers.Authorization = `Bearer ${this.token}`;
