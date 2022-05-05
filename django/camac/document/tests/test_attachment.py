@@ -1009,6 +1009,22 @@ def test_attachment_loosen_filter(
             permissions.AdminInternalBusinessControlPermission,
             status.HTTP_403_FORBIDDEN,
         ),
+        (
+            "new",
+            django_file("no-thumbnail.txt"),
+            LazyFixture("service"),
+            None,
+            permissions.AdminDeleteableStatePermission,
+            status.HTTP_204_NO_CONTENT,
+        ),
+        (
+            "nfd",
+            django_file("no-thumbnail.txt"),
+            LazyFixture("service"),
+            None,
+            permissions.AdminDeleteableStatePermission,
+            status.HTTP_403_FORBIDDEN,
+        ),
     ],
 )
 def test_attachment_delete(
@@ -1023,6 +1039,7 @@ def test_attachment_delete(
 ):
 
     application_settings["ATTACHMENT_INTERNAL_STATES"] = ["internal"]
+    application_settings["ATTACHMENT_DELETEABLE_STATES"] = ["new"]
 
     if case_status:
         attachment_attachment_sections.attachment.instance.case = case_factory(

@@ -89,6 +89,24 @@ class AdminBeforeDecisionPermission(AdminPermission):
         )
 
 
+class AdminDeleteableStatePermission(AdminPermission):
+    """Read and write permission, but delete only in certain states."""
+
+    @classmethod
+    def in_deleteable_state(cls, attachment, group) -> bool:
+        return not attachment or (
+            attachment.instance.instance_state.name
+            in settings.APPLICATION.get("ATTACHMENT_DELETEABLE_STATES", [])
+        )
+
+    @classmethod
+    def can_destroy(cls, attachment, group) -> bool:
+        return cls.in_deleteable_state(attachment, group) and super().can_destroy(
+            attachment,
+            group,
+        )
+
+
 class AdminServiceBeforeDecisionPermission(
     AdminBeforeDecisionPermission, AdminServicePermission
 ):
@@ -258,7 +276,7 @@ PERMISSIONS = {
             ),
             AdminInternalBusinessControlPermission: (_is_internal_instance, [12]),
         },
-        "portal": {AdminPermission: [1], ReadPermission: [5, 9, 4]},
+        "portal": {AdminDeleteableStatePermission: [1], ReadPermission: [5, 9, 4]},
         "fachstelle": {
             ReadPermission: (_is_general_instance, [1, 5, 4, 6, 9, 10, 11]),
             AdminInternalPermission: (_is_general_instance, [2]),
