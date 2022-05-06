@@ -400,6 +400,56 @@
     }
   },
   {
+    "model": "instance.form",
+    "pk": 41,
+    "fields": {
+      "form_state": 1,
+      "name": "vorentscheid-gemass-ss84-pbg-v6",
+      "description": "Vorentscheid gemäss § 84 PBG",
+      "family": 3
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 42,
+    "fields": {
+      "form_state": 1,
+      "name": "baugesuch-reklamegesuch-v6",
+      "description": "Baugesuch",
+      "family": 1
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 43,
+    "fields": {
+      "form_state": 1,
+      "name": "baumeldung-fur-geringfugiges-vorhaben-v5",
+      "description": "Baumeldung für geringfügiges Vorhaben",
+      "family": 5
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 44,
+    "fields": {
+      "form_state": 1,
+      "name": "technische-bewilligung-v3",
+      "description": "Gesuch um technische Bewilligung",
+      "family": 6
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 45,
+    "fields": {
+      "form_state": 1,
+      "name": "projektgenehmigungsgesuch-gemass-ss15-strag-v4",
+      "description": "Projektgenehmigungsgesuch gemäss § 15 StraG",
+      "family": 9
+    }
+  },
+  {
     "model": "instance.formstate",
     "pk": 1,
     "fields": {
