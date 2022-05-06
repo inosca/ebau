@@ -1277,7 +1277,7 @@
     lodash "^4.17.21"
     resolve "^1.20.0"
 
-"@embroider/util@^0.39.1 || ^0.40.0 || ^0.41.0 || ^1.0.0", "@embroider/util@^1.0.0", "@embroider/util@^1.2.0", "@embroider/util@^1.5.0", "@embroider/util@^1.6.0":
+"@embroider/util@^0.39.1 || ^0.40.0 || ^0.41.0 || ^1.0.0", "@embroider/util@^1.0.0", "@embroider/util@^1.2.0", "@embroider/util@^1.6.0":
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/@embroider/util/-/util-1.6.0.tgz#6a817dfd5192afaab41e80ebce623d5812b30985"
   integrity sha512-oUQDAMiAATHsiNwEMH/SzNSQ/Z5wDr9f6NImsDIFLvDT6T34/p7cqR4wyfrfMRtcc1EB6PbwhZ6bXYsJ6QPWRA==
@@ -1412,7 +1412,7 @@
     "@glimmer/wire-format" "^0.27.0"
     simple-html-tokenizer "^0.3.0"
 
-"@glimmer/component@1.1.2", "@glimmer/component@^1.0.2", "@glimmer/component@^1.0.4", "@glimmer/component@^1.1.1":
+"@glimmer/component@1.1.2", "@glimmer/component@^1.0.2", "@glimmer/component@^1.0.4", "@glimmer/component@^1.1.1", "@glimmer/component@^1.1.2":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@glimmer/component/-/component-1.1.2.tgz#892ec0c9f0b6b3e41c112be502fde073cf24d17c"
   integrity sha512-XyAsEEa4kWOPy+gIdMjJ8XlzA3qrGH55ZDv6nA16ibalCR17k74BI0CztxuRds+Rm6CtbUVgheCVlcCULuqD7A==
@@ -1494,7 +1494,7 @@
     "@handlebars/parser" "~2.0.0"
     simple-html-tokenizer "^0.5.11"
 
-"@glimmer/tracking@1.1.2", "@glimmer/tracking@^1.0.0", "@glimmer/tracking@^1.0.4", "@glimmer/tracking@^1.1.1":
+"@glimmer/tracking@1.1.2", "@glimmer/tracking@^1.0.0", "@glimmer/tracking@^1.0.4", "@glimmer/tracking@^1.1.1", "@glimmer/tracking@^1.1.2":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@glimmer/tracking/-/tracking-1.1.2.tgz#74e71be07b0a7066518d24044d2665d0cf8281eb"
   integrity sha512-cyV32zsHh+CnftuRX84ALZpd2rpbDrhLhJnTXn9W//QpqdRZ5rdMsxSY9fOsj0CKEc706tmEU299oNnDc0d7tA==
@@ -6681,7 +6681,7 @@ ember-modifier-manager-polyfill@^1.2.0:
     ember-cli-version-checker "^2.1.2"
     ember-compatibility-helpers "^1.2.0"
 
-"ember-modifier@^2.1.2 || ^3.0.0", "ember-modifier@^2.1.2 || ^3.1.0", ember-modifier@^3.0.0, ember-modifier@^3.1.0:
+"ember-modifier@^2.1.2 || ^3.0.0", "ember-modifier@^2.1.2 || ^3.1.0", ember-modifier@^3.0.0, ember-modifier@^3.2.7:
   version "3.2.7"
   resolved "https://registry.yarnpkg.com/ember-modifier/-/ember-modifier-3.2.7.tgz#f2d35b7c867cbfc549e1acd8d8903c5ecd02ea4b"
   integrity sha512-ezcPQhH8jUfcJQbbHji4/ZG/h0yyj1jRDknfYue/ypQS8fM8LrGcCMo0rjDZLzL1Vd11InjNs3BD7BdxFlzGoA==
@@ -6972,26 +6972,26 @@ ember-truth-helpers@3.0.0, "ember-truth-helpers@^2.1.0 || ^3.0.0", ember-truth-h
   dependencies:
     ember-cli-babel "^7.22.1"
 
-ember-uikit@5.1.1, ember-uikit@^5.1.0, ember-uikit@^5.1.1:
-  version "5.1.1"
-  resolved "https://registry.yarnpkg.com/ember-uikit/-/ember-uikit-5.1.1.tgz#0cc7bd965ad5fba3a48b6e4954ae2da38519fe76"
-  integrity sha512-cGaPtkEz637q4eUGGchVyGjZPZyxVF76zfncMzEHxMrZVHIyjaltFHGDh0RUtY3weWe2NcV+4pysFx3+Tg7UVQ==
+ember-uikit@5.1.3, ember-uikit@^5.1.0, ember-uikit@^5.1.1:
+  version "5.1.3"
+  resolved "https://registry.yarnpkg.com/ember-uikit/-/ember-uikit-5.1.3.tgz#64a30b14ec36b9226b047f25751f66075a50efdf"
+  integrity sha512-aJbjxmJR0vJKs3fkRwfgaS2+RP07FCzPFf2iX1BPIv8P2fAeRNKOKMEO1+DtUuTWAU4NMfpa7WpKMdCDb06Szg==
   dependencies:
     "@ember/render-modifiers" "^2.0.4"
     "@ember/string" "^3.0.0"
-    "@embroider/util" "^1.5.0"
-    "@glimmer/component" "^1.0.4"
-    "@glimmer/tracking" "^1.0.4"
+    "@embroider/util" "^1.6.0"
+    "@glimmer/component" "^1.1.2"
+    "@glimmer/tracking" "^1.1.2"
     broccoli-funnel "^3.0.8"
     broccoli-merge-trees "^4.2.0"
     broccoli-stew "^3.0.0"
-    ember-auto-import "^2.4.0"
+    ember-auto-import "^2.4.1"
     ember-cli-babel "^7.26.11"
     ember-cli-htmlbars "^6.0.1"
     ember-focus-trap "^1.0.1"
-    ember-modifier "^3.1.0"
+    ember-modifier "^3.2.7"
     ember-toggle "^9.0.3"
-    uikit "^3.13.1"
+    uikit "^3.14.1"
 
 ember-validated-form@^5.3.0:
   version "5.3.0"
@@ -14153,10 +14153,10 @@ uglify-js@^3.1.4:
   resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.15.4.tgz#fa95c257e88f85614915b906204b9623d4fa340d"
   integrity sha512-vMOPGDuvXecPs34V74qDKk4iJ/SN4vL3Ow/23ixafENYvtrNvtbcgUeugTcUGRGsOF/5fU8/NYSL5Hyb3l1OJA==
 
-uikit@^3.13.1:
-  version "3.13.10"
-  resolved "https://registry.yarnpkg.com/uikit/-/uikit-3.13.10.tgz#cb69a6a734f3442a5861648043dd59476cef8b89"
-  integrity sha512-kxSPDT7HiwiQW3e++V8LfIe7/E1L5viPXH4P2yxyDIaU6CP1gWh2Ggy6skc/ziZNlY3CqI2JJkOU2/5zd+NaVw==
+uikit@^3.14.1:
+  version "3.14.1"
+  resolved "https://registry.yarnpkg.com/uikit/-/uikit-3.14.1.tgz#09ae1a96e96c9a66f94fb024e6948c9968145369"
+  integrity sha512-GVvv60GfnetVEBMNqQ8SoFP18qjtNinSL0ie/mZeJyGT/xESuUMaLpoPq9oA8CuFsih0lC4AQ5fQPRoLkAvTEQ==
 
 unbox-primitive@^1.0.1:
   version "1.0.1"
