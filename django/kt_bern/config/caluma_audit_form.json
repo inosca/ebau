@@ -20533,7 +20533,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Abstand von Strassen SG Art. 80\", \"fr\": \"D\\u00e9cence des routes LR Art. 80\"}",
+      "label": "{\"de\": \"Abstand von Strassen SG Art. 80\", \"fr\": \"Distance des routes LR Art. 80\"}",
       "type": "choice",
       "is_required": "true",
       "is_hidden": "false",
