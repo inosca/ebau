@@ -100,23 +100,28 @@ export default class AuditController extends Controller {
         variables: { ebauNumber },
       });
 
-      try {
-        // populate work items with case data for later
-        const workItems = response.allCases.edges.map((edge) => ({
-          ...edge.node.workItems.edges[0].node,
-          caseData: {
-            instanceId: edge.node.meta["camac-instance-id"],
-            form: edge.node.document.form.name,
-          },
-        }));
+      // populate work items with case data for later
+      const workItems = response.allCases.edges
+        .map((edge) => {
+          return edge.node.workItems.edges[0]?.node
+            ? {
+                ...edge.node.workItems.edges[0].node,
+                caseData: {
+                  instanceId: edge.node.meta["camac-instance-id"],
+                  form: edge.node.document.form.name,
+                },
+              }
+            : null;
+        })
+        .filter(Boolean);
 
-        yield this.fetchAdditionalData.perform(workItems);
-
-        return workItems;
-      } catch (error) {
-        // no audit work item (migration)
+      if (!workItems.length) {
         return null;
       }
+
+      yield this.fetchAdditionalData.perform(workItems);
+
+      return workItems;
     } catch (error) {
       this.notifications.error(this.intl.t("audit.loadingError"));
     }
