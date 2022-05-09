@@ -7,7 +7,7 @@ export default Factory.extend({
   title: () => faker.lorem.sentence(),
   body: () => (Math.random() > 0.5 ? faker.lorem.paragraph() : ""),
   date: () => faker.date.past(),
-  type: () => faker.random.arrayElement(TYPES),
+  type: () => faker.helpers.arrayElement(TYPES),
 
   user: association(),
   instance: association(),
