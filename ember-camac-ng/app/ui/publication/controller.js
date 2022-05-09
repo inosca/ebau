@@ -2,7 +2,7 @@ import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
-import { useTask } from "ember-resources";
+import { trackedTask } from "ember-resources/util/ember-concurrency";
 
 import getPublications from "camac-ng/gql/queries/get-publications.graphql";
 
@@ -12,7 +12,9 @@ export default class PublicationController extends Controller {
 
   @queryManager apollo;
 
-  publications = useTask(this, this.fetchPublications, () => [this.variables]);
+  publications = trackedTask(this, this.fetchPublications, () => [
+    this.variables,
+  ]);
 
   get variables() {
     return {

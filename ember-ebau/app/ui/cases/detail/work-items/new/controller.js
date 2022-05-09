@@ -4,7 +4,7 @@ import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
-import { useTask } from "ember-resources";
+import { trackedTask } from "ember-resources/util/ember-concurrency";
 import { DateTime } from "luxon";
 
 import ENV from "ebau/config/environment";
@@ -76,12 +76,12 @@ export default class CasesDetailWorkItemsNewController extends Controller {
     return services;
   }
 
-  users = useTask(this, this.getUsers, () => [
+  users = trackedTask(this, this.getUsers, () => [
     this.model,
     this.session.service.id,
   ]);
 
-  instance = useTask(this, this.getInstance, () => [
+  instance = trackedTask(this, this.getInstance, () => [
     this.model,
     this.session.service.id,
   ]);
