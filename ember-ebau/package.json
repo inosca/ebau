@@ -34,6 +34,7 @@
     "@projectcaluma/ember-core": "11.0.0-beta.7",
     "@projectcaluma/ember-form": "11.0.0-beta.19",
     "broccoli-asset-rev": "3.0.0",
+    "broccoli-stew": "3.0.0",
     "ember-apollo-client": "4.0.2",
     "ember-auto-import": "2.4.1",
     "ember-can": "4.2.0",
