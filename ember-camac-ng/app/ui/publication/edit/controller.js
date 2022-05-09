@@ -4,7 +4,7 @@ import { inject as service } from "@ember/service";
 import { decodeId } from "@projectcaluma/ember-core/helpers/decode-id";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
-import { useTask } from "ember-resources";
+import { trackedTask } from "ember-resources/util/ember-concurrency";
 import { confirm } from "ember-uikit";
 import { dedupeTracked } from "tracked-toolbox";
 
@@ -35,7 +35,7 @@ export default class PublicationEditController extends Controller {
     ];
   }
 
-  publication = useTask(this, this.fetchPublication, () => [
+  publication = trackedTask(this, this.fetchPublication, () => [
     this.model.workItemId,
   ]);
 

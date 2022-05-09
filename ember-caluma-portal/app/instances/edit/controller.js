@@ -2,7 +2,7 @@ import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
-import { useTask } from "ember-resources";
+import { trackedTask } from "ember-resources/util/ember-concurrency";
 
 import config from "caluma-portal/config/environment";
 
@@ -11,9 +11,13 @@ export default class InstancesEditController extends Controller {
 
   @queryManager apollo;
 
-  instance = useTask(this, this.fetchInstance, () => [this.model]);
-  feedback = useTask(this, this.fetchFeedbackAttachments, () => [this.model]);
-  decision = useTask(this, this.fetchDecisionAttachments, () => [this.model]);
+  instance = trackedTask(this, this.fetchInstance, () => [this.model]);
+  feedback = trackedTask(this, this.fetchFeedbackAttachments, () => [
+    this.model,
+  ]);
+  decision = trackedTask(this, this.fetchDecisionAttachments, () => [
+    this.model,
+  ]);
 
   @dropTask
   *fetchInstance() {
