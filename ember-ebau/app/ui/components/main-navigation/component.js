@@ -55,6 +55,7 @@ export default class MainNavigationComponent extends Component {
     this.session.group = group;
 
     if (macroCondition(isTesting())) {
+      // Don't reload in testing
     } else {
       // Hard reload the whole page so the data is refetched
       window.location.reload();
