@@ -26,7 +26,7 @@ which should not have been called back. That's why we only send reminder mails
 here.
 """
 from collections import namedtuple
-from datetime import timedelta
+from datetime import date, timedelta
 
 from django.conf import settings
 from django.core.management.base import BaseCommand
@@ -96,7 +96,7 @@ def get_overdue_activations():
     excluded_services = settings.APPLICATION.get("NOTIFY_OVERDUE_EXCLUDED_SERVICES", [])
 
     return Activation.objects.filter(
-        Q(circulation_state__name="RUN", deadline_date__lt=timezone.now()),
+        Q(circulation_state__name="RUN", deadline_date__date__lt=date.today()),
         ~Q(service__pk__in=excluded_services),
     )
 
