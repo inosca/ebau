@@ -9,6 +9,8 @@ export default function makeServer(config) {
       this.urlPrefix = "";
       this.timing = 400;
 
+      this.get("/api/v1/history-entries");
+
       this.get("/api/v1/journal-entries");
       this.post("/api/v1/journal-entries");
       this.get("/api/v1/journal-entries/:id");
