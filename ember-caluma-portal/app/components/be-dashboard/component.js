@@ -5,7 +5,7 @@ import { tracked } from "@glimmer/tracking";
 import { decodeId } from "@projectcaluma/ember-core/helpers/decode-id";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
-import { useTask } from "ember-resources";
+import { trackedTask } from "ember-resources/util/ember-concurrency";
 
 import saveDashboardContent from "caluma-portal/gql/mutations/save-dashboard-content.graphql";
 import getDashboardContent from "caluma-portal/gql/queries/get-dashboard-content.graphql";
@@ -20,7 +20,7 @@ export default class BeDashboardComponent extends Component {
   @tracked edit = false;
   @tracked content = "";
 
-  data = useTask(this, this.fetchData, () => [this.slug]);
+  data = trackedTask(this, this.fetchData, () => [this.slug]);
 
   get slug() {
     return `${this.args.page}-${this.session.language}`;

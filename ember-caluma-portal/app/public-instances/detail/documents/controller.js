@@ -1,7 +1,7 @@
 import Controller, { inject as controller } from "@ember/controller";
 import { inject as service } from "@ember/service";
 import { dropTask } from "ember-concurrency";
-import { useTask } from "ember-resources";
+import { trackedTask } from "ember-resources/util/ember-concurrency";
 
 export default class PublicInstancesDetailDocumentsController extends Controller {
   @service store;
@@ -14,7 +14,7 @@ export default class PublicInstancesDetailDocumentsController extends Controller
     return this.detailController.publicInstance.value?.dossierNr;
   }
 
-  attachments = useTask(this, this.fetchAttachments, () => [this.model]);
+  attachments = trackedTask(this, this.fetchAttachments, () => [this.model]);
 
   @dropTask
   *fetchAttachments() {

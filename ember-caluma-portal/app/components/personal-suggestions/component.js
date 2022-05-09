@@ -1,7 +1,7 @@
 import Component from "@glimmer/component";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
-import { useTask } from "ember-resources";
+import { trackedTask } from "ember-resources/util/ember-concurrency";
 
 import config from "caluma-portal/config/environment";
 import getPersonals from "caluma-portal/gql/queries/get-personals.graphql";
@@ -38,7 +38,7 @@ function preparePerson(document) {
 export default class PersonalSuggestionsComponent extends Component {
   @queryManager apollo;
 
-  suggestions = useTask(this, this.fetchSuggestions, () => [
+  suggestions = trackedTask(this, this.fetchSuggestions, () => [
     this.args.instanceId,
   ]);
 
