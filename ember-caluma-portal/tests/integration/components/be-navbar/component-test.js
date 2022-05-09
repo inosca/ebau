@@ -20,9 +20,8 @@ module("Integration | Component | be-navbar", function (hooks) {
     };
 
     this.resetLanguage = async function () {
-      this.owner.lookup("service:session").set("data.language", undefined);
+      this.owner.lookup("service:session").set("language", "de");
       await settled();
-      this.intl.setLocale();
     };
   });
 
