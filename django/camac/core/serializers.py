@@ -158,6 +158,9 @@ class InstanceResourceSerializer(serializers.ModelSerializer, MultilingualSerial
         if ir_type == "workitemlistinstance":
             return "work-items"
 
+        if ir_type == "history":
+            return "history"
+
         if ir_type == "page":
             type_mapping = {
                 "/ember/instance.phtml": "form",
