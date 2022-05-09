@@ -156,7 +156,7 @@ class AttachmentQuerysetMixin:
                     )
                 )
             )
-        )
+        ).distinct()
 
 
 class AttachmentView(
