@@ -105,7 +105,7 @@ export default class CaseFilterComponent extends Component {
 
     const activeFilters = Array.isArray(activeFiltersConfig)
       ? activeFiltersConfig
-      : activeFiltersConfig[this.shoebox.role] ??
+      : activeFiltersConfig[this.shoebox.baseRole] ??
         activeFiltersConfig.default ??
         [];
 
