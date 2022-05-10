@@ -156,12 +156,12 @@ class CreateInstanceLogic:
             elif settings.APPLICATION.get("SHORT_DOSSIER_NUMBER", False):
                 identifier_start = (
                     prefix
-                    and f"{prefix}-{instance.location.communal_federal_number[-2:]}"
-                ) or instance.location.communal_federal_number[-2:]
+                    and f"{prefix}-{str(instance.location.communal_federal_number)[-2:]}"
+                ) or str(instance.location.communal_federal_number)[-2:]
             else:
                 identifier_start = (
                     prefix and f"{prefix}-{instance.location.communal_federal_number}"
-                ) or instance.location.communal_federal_number
+                ) or str(instance.location.communal_federal_number)
 
             start = separator.join([str(identifier_start), str(year).zfill(2)])
 
