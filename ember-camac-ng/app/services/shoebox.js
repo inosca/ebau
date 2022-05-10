@@ -27,8 +27,20 @@ export default class ShoeboxService extends Service {
     return role && role[0];
   }
 
+  get baseRole() {
+    return this.role
+      ?.replace(/-admin$/, "")
+      .replace(/-lead$/, "")
+      .replace(/-clerk$/, "")
+      .replace(/-readonly$/, "")
+      .replace(/-subservice$/, "");
+  }
+
   get isReadOnlyRole() {
-    return this.role?.endsWith("-readonly");
+    return (
+      this.role?.endsWith("-readonly") || // BE
+      this.role === "readonly" // SZ
+    );
   }
 
   get isAdminRole() {

@@ -40,7 +40,7 @@ export default class InstanceAbility extends Ability {
   // UR
   get canLinkDossiers() {
     return (
-      this.shoebox.role === "municipality" ||
+      this.shoebox.baseRole === "municipality" ||
       config.APPLICATION.allowedInstanceLinkingGroups.includes(
         this.shoebox.content.groupId
       )
