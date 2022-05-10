@@ -32,7 +32,7 @@ export default class CaseTableComponent extends Component {
   }));
 
   get isService() {
-    return this.shoebox.role === "service";
+    return this.shoebox.baseRole === "service";
   }
 
   get gqlOrder() {
@@ -260,8 +260,7 @@ export default class CaseTableComponent extends Component {
       return tableColumns;
     }
 
-    const role = this.shoebox.role;
-    return tableColumns[role] ?? tableColumns.default ?? [];
+    return tableColumns[this.shoebox.baseRole] ?? tableColumns.default ?? [];
   }
 
   @action

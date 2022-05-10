@@ -86,7 +86,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
   get distribution() {
     if (macroCondition(getOwnConfig().application === "be")) {
       return {
-        ui: { stack: true, small: true },
+        ui: { stack: true, small: true, readonly: this.shoebox.isReadOnlyRole },
         inquiry: {
           answer: {
             infoQuestions: [
@@ -125,9 +125,16 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
             },
           },
         },
+        permissions: {
+          completeDistribution: () => this.shoebox.isLeadRole,
+          sendInquiry: () => this.shoebox.isLeadRole,
+          withdrawInquiry: () => this.shoebox.isLeadRole,
+          completeInquiryChildWorkItem: () => this.shoebox.isLeadRole,
+        },
       };
     } else if (macroCondition(getOwnConfig().application === "sz")) {
       const config = {
+        ui: { readonly: this.shoebox.isReadOnlyRole },
         inquiry: {
           answer: {
             infoQuestions: [
@@ -191,6 +198,15 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
               label: "distribution.municipal-services",
             },
           },
+        },
+        permissions: {
+          completeDistribution: () => this.shoebox.isLeadRole,
+          createInquiry: () => this.shoebox.isLeadRole,
+          sendInquiry: () => this.shoebox.isLeadRole,
+          withdrawInquiry: () => this.shoebox.isLeadRole,
+          completeInquiryChildWorkItem: (_, task) =>
+            !["check-inquiry", "revise-inquiry"].includes(task) ||
+            this.shoebox.isLeadRole,
         },
       };
 
