@@ -987,6 +987,7 @@ def active_inquiry_factory(instance, service, distribution_settings):
         addressed_service=service,
         controlling_service=service,
         status=caluma_workflow_models.WorkItem.STATUS_READY,
+        deadline=None,
     ):
         return caluma_workflow_factories.WorkItemFactory(
             case=for_instance.case,
@@ -994,7 +995,7 @@ def active_inquiry_factory(instance, service, distribution_settings):
             status=status,
             addressed_groups=[str(addressed_service.pk)],
             controlling_groups=[str(controlling_service.pk)],
-            deadline=faker.Faker().date(),
+            deadline=deadline if deadline else faker.Faker().date(),
         )
 
     return factory
