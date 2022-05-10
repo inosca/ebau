@@ -12,17 +12,18 @@ from camac.instance.serializers import SUBMIT_DATE_FORMAT
 @pytest.fixture
 def ech_instance_sz(
     attachment_factory,
+    caluma_workflow_config_sz,
     ech_instance,
-    ech_instance_case,
     sz_person_factory,
     form_factory,
     instance_factory,
     instance_with_case,
+    caluma_config_sz,
     work_item_factory,
     location,
 ):
 
-    ech_instance.case = ech_instance_case(ech_instance)
+    ech_instance = instance_with_case(ech_instance)
 
     for role in [
         "bauherrschaft",
@@ -51,12 +52,11 @@ def ech_instance(
     admin_user,
     instance_service_factory,
     service_t_factory,
-    caluma_workflow_config_be,
     instance_with_case,
     instance_factory,
     applicant_factory,
 ):
-    instance = instance_with_case(instance_factory(pk=2323))
+    instance = instance_factory(pk=2323)
     inst_serv = instance_service_factory(
         instance__user=admin_user,
         instance=instance,
@@ -78,15 +78,20 @@ def ech_instance(
         city="Burgdorf",
     )
 
-    instance.case.meta["ebau-number"] = "2020-1"
-
     applicant_factory(invitee=admin_user, instance=instance)
 
     return instance
 
 
 @pytest.fixture
-def ech_instance_case(ech_instance, caluma_admin_user):
+def ech_instance_be(ech_instance, instance_with_case, caluma_workflow_config_be):
+    ech_instance = instance_with_case(ech_instance)
+    ech_instance.case.meta["ebau-number"] = "2020-1"
+    return ech_instance
+
+
+@pytest.fixture
+def ech_instance_case(ech_instance_be, caluma_admin_user):
     def wrapper(is_vorabklaerung=False):
         workflow_slug = (
             "preliminary-clarification" if is_vorabklaerung else "building-permit"
@@ -97,15 +102,17 @@ def ech_instance_case(ech_instance, caluma_admin_user):
             form=caluma_form_models.Form.objects.get(slug="main-form"),
             user=caluma_admin_user,
             meta={
-                "submit-date": ech_instance.creation_date.strftime(SUBMIT_DATE_FORMAT),
-                "paper-submit-date": ech_instance.creation_date.strftime(
+                "submit-date": ech_instance_be.creation_date.strftime(
+                    SUBMIT_DATE_FORMAT
+                ),
+                "paper-submit-date": ech_instance_be.creation_date.strftime(
                     SUBMIT_DATE_FORMAT
                 ),
             },
         )
 
-        ech_instance.case = case
-        ech_instance.save()
+        ech_instance_be.case = case
+        ech_instance_be.save()
 
         return case
 

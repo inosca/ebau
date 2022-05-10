@@ -2,7 +2,6 @@ import os.path
 
 import pytest
 import xmlschema
-from django.conf import settings
 from pytest_lazyfixture import lazy_fixture
 
 from camac.constants.kt_bern import ECH_BASE_DELIVERY
@@ -10,20 +9,28 @@ from camac.ech0211 import formatters
 
 
 @pytest.mark.parametrize(
-    "config,camac_instance",
+    "config,appconf,camac_instance",
     [
-        ("kt_bern", lazy_fixture("ech_instance")),
-        ("kt_schwyz", lazy_fixture("ech_instance_sz")),
+        (
+            "kt_bern",
+            lazy_fixture("set_application_be"),
+            lazy_fixture("ech_instance_be"),
+        ),
+        (
+            "kt_schwyz",
+            lazy_fixture("set_application_sz"),
+            lazy_fixture("ech_instance_sz"),
+        ),
     ],
 )
 def test_generate_delivery(
     ech_mandatory_answers_einfache_vorabklaerung,
     camac_instance,
-    multilang,
     config,
+    appconf,
+    multilang,
     snapshot,
 ):
-    settings.APPLICATION = settings.APPLICATIONS[config]
     base_delivery_formatter = formatters.BaseDeliveryFormatter(config)
     camac_instance.fields.create(name="verfahrensart", value="baubewilligung")
     # kt_bern's formatting requires data standardization in AnswersDict.

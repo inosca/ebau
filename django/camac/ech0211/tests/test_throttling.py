@@ -23,6 +23,8 @@ def test_message_throttling(
     admin_user,
     user_group_factory,
     params,
+    set_application_be,
+    override_urls_be,
     status_first,
     status_second,
 ):

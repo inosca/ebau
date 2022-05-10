@@ -71,10 +71,12 @@ def test_import_dossiers_manage_command(
     setup_fixtures_required_by_application_config(config)
     out = StringIO()
     service = service_factory(service_group__name="municipality")
-    construction_control_for(service)
-    dynamic_option_factory(
-        slug=str(service.pk), question_id="gemeinde", document=document_factory()
-    )
+    if config == "kt_bern":
+        construction_control_for(service)
+        dynamic_option_factory(
+            slug=str(service.pk), question_id="gemeinde", document=document_factory()
+        )
+
     group.service = service
     group.save()
     user_factory(username=settings.APPLICATION["DOSSIER_IMPORT"]["USER"])
