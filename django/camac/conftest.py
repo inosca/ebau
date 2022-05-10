@@ -20,7 +20,10 @@ from caluma.caluma_workflow import (
 from django.conf import settings
 from django.core.cache import cache
 from django.core.management import call_command
+from django.test import override_settings
+from django.urls import path
 from django.utils import timezone
+from django.views.generic import RedirectView
 from factory import Faker
 from factory.base import FactoryMetaClass
 from jwt import encode as jwt_encode
@@ -36,6 +39,7 @@ from camac.document import factories as document_factories
 from camac.document.tests.data import django_file
 from camac.dossier_import import factories as dossier_import_factories
 from camac.ech0211 import factories as ech_factories
+from camac.ech0211.urls import BEUrlsConf, SZUrlsConf
 from camac.faker import FreezegunAwareDatetimeProvider
 from camac.instance import factories as instance_factories
 from camac.instance.serializers import SUBMIT_DATE_FORMAT
@@ -43,6 +47,7 @@ from camac.notification import factories as notification_factories
 from camac.objection import factories as objection_factories
 from camac.responsible import factories as responsible_factories
 from camac.tags import factories as tags_factories
+from camac.urls import urlpatterns as app_patterns
 from camac.user import factories as user_factories
 from camac.user.models import Group, User
 from camac.utils import build_url
@@ -204,6 +209,46 @@ def admin_client(db, admin_user, request_mock):
     api_client.force_authenticate(user=admin_user)
     api_client.user = admin_user
     return api_client
+
+
+@pytest.fixture
+def override_urls_be():
+    BEUrlsConf.urlpatterns += app_patterns
+    BEUrlsConf.urlpatterns += [
+        path(f"ech/v1/{key}", RedirectView.as_view(url=url))
+        for key, url in BEUrlsConf.redirects.items()
+    ]
+    with override_settings(ROOT_URLCONF=BEUrlsConf):
+        yield
+
+
+@pytest.fixture
+def override_urls_sz():
+    SZUrlsConf.urlpatterns += app_patterns
+    with override_settings(ROOT_URLCONF=SZUrlsConf):
+        yield
+
+
+@pytest.fixture
+def set_application_be(settings, override_urls_be):
+    application_dict = copy.deepcopy(settings.APPLICATIONS["kt_bern"])
+    settings.APPLICATION = application_dict
+
+    return application_dict
+
+
+@pytest.fixture
+def set_application_sz(settings):
+    application_dict = copy.deepcopy(settings.APPLICATIONS["kt_schwyz"])
+    settings.APPLICATION = application_dict
+    return application_dict
+
+
+@pytest.fixture
+def set_application_ur(settings):
+    application_dict = copy.deepcopy(settings.APPLICATIONS["kt_uri"])
+    settings.APPLICATION = application_dict
+    return application_dict
 
 
 @pytest.fixture
@@ -505,12 +550,11 @@ def caluma_publication(caluma_workflow_config_be):
 
 
 @pytest.fixture
-def caluma_workflow_config_sz(settings, caluma_forms_be, caluma_config_sz):
+def caluma_workflow_config_sz(db, caluma_config_sz):
     caluma_form_models.Form.objects.create(slug="baugesuch")
     caluma_form_models.Form.objects.create(slug="bauverwaltung")
-
+    caluma_form_models.Form.objects.create(slug="main-form")
     call_command("loaddata", settings.ROOT_DIR("kt_schwyz/config/caluma_workflow.json"))
-
     return caluma_workflow_models.Workflow.objects.all()
 
 

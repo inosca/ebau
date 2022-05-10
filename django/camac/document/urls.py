@@ -34,7 +34,6 @@ r.register(
 r.register(r"templates", views.TemplateView)
 r.register(r"attachment-download-history", views.AttachmentDownloadHistoryView)
 
-
 urlpatterns = [
     re_path(
         r"^(?P<path>attachments/files/.+\..+)$",

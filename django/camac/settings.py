@@ -287,9 +287,8 @@ APPLICATIONS = {
         },
         "ECH0211": {
             "API_ACTIVE": True,
-            "SWAGGER_PATH": "camac.swagger.views.kt_schwyz",
             "VIEW_PATH": "camac.ech0211.views.kt_schwyz",
-            "URLS": "camac.ech0211.urls.kt_schwyz",
+            "URLS_CLASS": "camac.ech0211.urls.SZUrlsConf",
         },
         "EXCLUDE_DOCS": [
             "document",
@@ -1146,7 +1145,7 @@ APPLICATIONS = {
             "API_ACTIVE": True,
             "VIEW_PATH": "camac.ech0211.views.kt_bern",
             "SWAGGER_PATH": "camac.swagger.views.kt_bern",
-            "URLS": "camac.ech0211.urls.kt_bern",
+            "URLS_CLASS": "camac.ech0211.urls.BEUrlsConf",
         },
         "INCLUDE_STATIC_FILES": [("xml", "kt_bern/static/ech0211/xml")],
         "LOG_NOTIFICATIONS": True,

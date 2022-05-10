@@ -20,7 +20,8 @@ from .caluma_document_data import baugesuch_data
 
 @pytest.mark.parametrize("has_active_service", [True, False])
 def test_submit_event(
-    ech_instance_case,
+    set_application_be,
+    ech_instance_be,
     role_factory,
     group_factory,
     mocker,
@@ -29,11 +30,8 @@ def test_submit_event(
     caplog,
     settings,
 ):
-    settings.APPLICATION = settings.APPLICATIONS["kt_bern"]
-    ech_instance = ech_instance_case().instance
-
     if not has_active_service:
-        InstanceService.objects.filter(instance_id=ech_instance).update(active=False)
+        InstanceService.objects.filter(instance_id=ech_instance_be).update(active=False)
 
     group_factory(role=role_factory(name="support"))
     mocker.patch.object(event_handlers, "get_document", return_value=baugesuch_data)
@@ -42,7 +40,7 @@ def test_submit_event(
 
     instance_submitted.send(
         sender=None,
-        instance=ech_instance,
+        instance=ech_instance_be,
         auth_header="auth_header",
         user_pk=None,
         group_pk=20003,
@@ -71,6 +69,7 @@ def test_event_handlers(
     event_type,
     expected_receiver,
     ech_instance_case,
+    set_application_be,
     role_factory,
     instance_service_factory,
     service_t_factory,
@@ -78,28 +77,25 @@ def test_event_handlers(
     group_factory,
     mocker,
     multilang,
-    settings,
 ):
-    settings.APPLICATION = settings.APPLICATIONS["kt_bern"]
-    ech_instance = ech_instance_case().instance
-
+    ech_instance_be = ech_instance_case().instance
     if event_type == "FileSubsequently":
         group_factory(role=role_factory(name="support"))
         mocker.patch.object(event_handlers, "get_document", return_value=baugesuch_data)
 
     if event_type == "StatusNotification":
-        ech_instance.instance_state = instance_state_factory(name="circulation_init")
-        ech_instance.save()
+        ech_instance_be.instance_state = instance_state_factory(name="circulation_init")
+        ech_instance_be.save()
 
     if event_type == "ChangeResponsibility":
-        service = ech_instance.responsible_service(filter_type="municipality")
-        instance_service = ech_instance.instance_services.filter(
+        service = ech_instance_be.responsible_service(filter_type="municipality")
+        instance_service = ech_instance_be.instance_services.filter(
             active=1, service=service
         ).first()
         instance_service.active = 0
         instance_service.save()
         inst_serv = instance_service_factory(
-            instance=ech_instance,
+            instance=ech_instance_be,
             service__name=None,
             service__city=None,
             service__zip="3500",
@@ -114,7 +110,7 @@ def test_event_handlers(
             name="Leitbehörde Madiswil",
             city="Madiswil",
         )
-    eh = getattr(event_handlers, f"{event_type}EventHandler")(ech_instance)
+    eh = getattr(event_handlers, f"{event_type}EventHandler")(ech_instance_be)
     eh.run()
     assert Message.objects.count() == 1
     message = Message.objects.first()
@@ -130,6 +126,7 @@ def test_accompanying_report_event_handler(
     user,
     service_factory,
     group_factory,
+    set_application_be,
     ech_instance_case,
     attachment_factory,
     attachment_section_factory,
@@ -138,10 +135,8 @@ def test_accompanying_report_event_handler(
     notice_type_factory,
     circulation_answer_factory,
     multilang,
-    settings,
 ):
 
-    settings.APPLICATION = settings.APPLICATIONS["kt_bern"]
     ech_instance = ech_instance_case().instance
 
     parent_service = service_factory()
@@ -229,7 +224,8 @@ def test_accompanying_report_event_handler(
 
 
 def test_task_event_handler_stellungnahme(
-    ech_instance,
+    set_application_be,
+    ech_instance_be,
     service_factory,
     circulation_factory,
     activation_factory,
@@ -237,33 +233,31 @@ def test_task_event_handler_stellungnahme(
     attachment_attachment_section_factory,
     attachment_section_factory,
     admin_user,
-    settings,
 ):
 
-    settings.APPLICATION = settings.APPLICATIONS["kt_bern"]
     asection_gesuch = attachment_section_factory(pk=ATTACHMENT_SECTION_BEILAGEN_GESUCH)
     aas_gesuch = attachment_attachment_section_factory(
-        attachment__instance=ech_instance, attachmentsection=asection_gesuch
+        attachment__instance=ech_instance_be, attachmentsection=asection_gesuch
     )
     asection_sb1 = attachment_section_factory(pk=ATTACHMENT_SECTION_BEILAGEN_SB1)
     attachment_attachment_section_factory(
-        attachment__instance=ech_instance, attachmentsection=asection_sb1
+        attachment__instance=ech_instance_be, attachmentsection=asection_sb1
     )
 
     expected_name = aas_gesuch.attachment.display_name
 
-    ech_instance.instance_state = instance_state_factory(name="circulation")
-    ech_instance.save()
+    ech_instance_be.instance_state = instance_state_factory(name="circulation")
+    ech_instance_be.save()
     s1 = service_factory(email="s1@example.com")
     s2 = service_factory(email="s2@example.com")
     s3 = service_factory(email="s3@example.com")
 
-    circulation = circulation_factory(instance=ech_instance)
+    circulation = circulation_factory(instance=ech_instance_be)
     activation_factory(circulation=circulation, service=s1, email_sent=0)
     activation_factory(circulation=circulation, service=s2, email_sent=0)
     activation_factory(circulation=circulation, service=s3, ech_msg_created=True)
 
-    eh = event_handlers.TaskEventHandler(ech_instance, user_pk=admin_user.pk)
+    eh = event_handlers.TaskEventHandler(ech_instance_be, user_pk=admin_user.pk)
 
     assert len(eh.run()) == 2
     assert Message.objects.count() == 2
@@ -278,18 +272,17 @@ def test_task_event_handler_stellungnahme(
 
 @pytest.mark.parametrize("instance_state_name", ["sb2", "conclusion"])
 def test_task_event_handler_SBs(
+    ech_instance_be,
+    set_application_be,
     instance_state_name,
-    ech_instance,
     instance_state_factory,
     admin_user,
     attachment_attachment_section_factory,
     attachment_section_factory,
     service_factory,
     instance_service_factory,
-    settings,
 ):
 
-    settings.APPLICATION = settings.APPLICATIONS["kt_bern"]
     service_baukontrolle = service_factory(
         service_group__name="construction-control",
         name=None,
@@ -298,26 +291,26 @@ def test_task_event_handler_SBs(
         trans__language="de",
     )
     instance_service_factory(
-        instance=ech_instance, service=service_baukontrolle, active=1
+        instance=ech_instance_be, service=service_baukontrolle, active=1
     )
 
     asection_sb1 = attachment_section_factory(pk=ATTACHMENT_SECTION_BEILAGEN_SB1)
     aas_sb1 = attachment_attachment_section_factory(
-        attachment__instance=ech_instance, attachmentsection=asection_sb1
+        attachment__instance=ech_instance_be, attachmentsection=asection_sb1
     )
     asection_sb2 = attachment_section_factory(pk=ATTACHMENT_SECTION_BEILAGEN_SB2)
     aas_sb2 = attachment_attachment_section_factory(
-        attachment__instance=ech_instance, attachmentsection=asection_sb2
+        attachment__instance=ech_instance_be, attachmentsection=asection_sb2
     )
 
     expected_name = aas_sb1.attachment.display_name
     if instance_state_name == "conclusion":
         expected_name = aas_sb2.attachment.display_name
 
-    ech_instance.instance_state = instance_state_factory(name=instance_state_name)
-    ech_instance.save()
+    ech_instance_be.instance_state = instance_state_factory(name=instance_state_name)
+    ech_instance_be.save()
 
-    eh = event_handlers.TaskEventHandler(ech_instance, user_pk=admin_user.pk)
+    eh = event_handlers.TaskEventHandler(ech_instance_be, user_pk=admin_user.pk)
 
     assert len(eh.run()) == 1
     assert Message.objects.count() == 1
@@ -328,12 +321,12 @@ def test_task_event_handler_SBs(
     assert xml.eventRequest.document[0].titles.title[0].value() == expected_name
 
 
-def test_file_subsequently_signal(ech_instance_case, mocker, multilang, settings):
-
-    settings.APPLICATION = settings.APPLICATIONS["kt_bern"]
+def test_file_subsequently_signal(
+    ech_instance_be, set_application_be, mocker, multilang
+):
     mocker.patch.object(event_handlers, "get_document", return_value=baugesuch_data)
     file_subsequently.send(
-        sender=None, instance=ech_instance_case().instance, user_pk=None, group_pk=None
+        sender=None, instance=ech_instance_be, user_pk=None, group_pk=None
     )
     assert Message.objects.count() == 1
     message = Message.objects.first()
