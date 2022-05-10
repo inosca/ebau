@@ -35,22 +35,30 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
     return this.shoebox.content.roleId;
   }
 
-  async resolveGroups(identifiers) {
+  async _fetchIfNotCached(modelName, idFilter, identifiers) {
     const cachedIdentifiers = this.store
-      .peekAll("public-service")
-      .map((service) => service.id);
+      .peekAll(modelName)
+      .map((model) => model.id);
 
     const uncachedIdentifiers = identifiers.filter(
       (identifier) => !cachedIdentifiers.includes(String(identifier))
     );
 
     if (uncachedIdentifiers.length) {
-      await this.store.query("public-service", {
-        service_id: String(uncachedIdentifiers),
+      await this.store.query(modelName, {
+        [idFilter]: String(uncachedIdentifiers),
       });
     }
 
-    return this.store.peekAll("public-service");
+    return this.store.peekAll(modelName);
+  }
+
+  resolveUsers(identifiers) {
+    return this._fetchIfNotCached("public-user", "username", identifiers);
+  }
+
+  resolveGroups(identifiers) {
+    return this._fetchIfNotCached("public-service", "service_id", identifiers);
   }
 
   async fetchTypedGroups(types, search) {
