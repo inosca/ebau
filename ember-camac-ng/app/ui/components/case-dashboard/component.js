@@ -46,7 +46,7 @@ export default class CaseDashboardComponent extends Component {
   }
 
   get isService() {
-    return this.shoebox.role === "service";
+    return this.shoebox.baseRole === "service";
   }
 
   get linkedAndOnSamePlot() {

@@ -6,7 +6,7 @@ export default class PublicationAbility extends Ability {
 
   get hasBasePermission() {
     return (
-      this.shoebox.role?.startsWith("municipality") &&
+      this.shoebox.baseRole === "municipality" &&
       (this.model?.addressedGroups ?? []).includes(
         String(this.shoebox.content?.serviceId)
       ) &&
