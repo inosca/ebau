@@ -47,12 +47,15 @@ class ApplicationView(ECHInstanceQuerysetMixin, RetrieveModelMixin, GenericViewS
         qs = self.get_queryset()
         instance = get_object_or_404(qs, pk=instance_id)
         document = get_document(instance.pk)
+        base_delivery_formatter = formatters.BaseDeliveryFormatter(config="kt_bern")
         try:
             xml_data = formatters.delivery(
                 instance,
                 document,
                 message_type=ECH_BASE_DELIVERY,
-                eventBaseDelivery=formatters.base_delivery(instance, document),
+                eventBaseDelivery=base_delivery_formatter.format_base_delivery(
+                    instance, answers=document
+                ),
             ).toxml()
         except (
             IncompleteElementContentError,

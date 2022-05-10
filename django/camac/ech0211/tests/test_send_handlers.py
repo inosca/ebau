@@ -131,7 +131,8 @@ def test_notice_ruling_send_handler(
     active,
     expected_state_name,
     admin_user,
-    ech_instance,
+    set_application_be,
+    ech_instance_be,
     ech_instance_case,
     instance_state_factory,
     attachment_factory,
@@ -142,8 +143,19 @@ def test_notice_ruling_send_handler(
     instance_service_factory,
     multilang,
     caluma_admin_user,
+    notification_template,
+    application_settings,
 ):
-    service_group_gemeinde = ech_instance.responsible_service().service_group
+
+    application_settings["NOTIFICATIONS"] = {
+        "ECH_TASK": [
+            {
+                "template_slug": notification_template.slug,
+                "recipient_types": ["unnotified_service"],
+            }
+        ]
+    }
+    service_group_gemeinde = ech_instance_be.responsible_service().service_group
     service_group_baukontrolle = service_group_factory(name="construction-control")
     service_group_rsta = service_group_factory(name="district")
 
@@ -172,10 +184,12 @@ def test_notice_ruling_send_handler(
     if active == "rsta":
         active_service = service_rsta
         instance_service_factory(
-            active=0, service=service_gemeinde, instance=ech_instance
+            active=0, service=service_gemeinde, instance=ech_instance_be
         )
 
-    ech_instance_service = InstanceService.objects.get(instance=ech_instance, active=1)
+    ech_instance_service = InstanceService.objects.get(
+        instance=ech_instance_be, active=1
+    )
     ech_instance_service.service = active_service
     ech_instance_service.save()
 
@@ -186,7 +200,7 @@ def test_notice_ruling_send_handler(
     attachment = attachment_factory(
         uuid="00000000-0000-0000-0000-000000000000",
         name="myFile.pdf",
-        instance=ech_instance,
+        instance=ech_instance_be,
     )
     attachment.attachment_sections.add(attachment_section_beteiligte_behoerden)
 
@@ -197,11 +211,11 @@ def test_notice_ruling_send_handler(
     data.eventNotice.decisionRuling.judgement = judgement
 
     state = instance_state_factory(name=instance_state_name)
-    ech_instance.instance_state = state
-    ech_instance.save()
+    ech_instance_be.instance_state = state
+    ech_instance_be.save()
 
     group = admin_user.groups.first()
-    group.service = ech_instance.responsible_service()
+    group.service = ech_instance_be.responsible_service()
     group.save()
 
     handler = NoticeRulingSendHandler(
@@ -232,12 +246,12 @@ def test_notice_ruling_send_handler(
     if has_permission:
         expected_state = instance_state_factory(name=expected_state_name)
         handler.apply()
-        ech_instance.refresh_from_db()
-        assert ech_instance.previous_instance_state == state
-        assert ech_instance.instance_state == expected_state
-        assert DocxDecision.objects.get(instance=ech_instance)
+        ech_instance_be.refresh_from_db()
+        assert ech_instance_be.previous_instance_state == state
+        assert ech_instance_be.instance_state == expected_state
+        assert DocxDecision.objects.get(instance=ech_instance_be)
         assert Message.objects.count() == 1
-        assert Message.objects.first().receiver == ech_instance.responsible_service()
+        assert Message.objects.first().receiver == ech_instance_be.responsible_service()
         attachment.refresh_from_db()
         assert attachment.attachment_sections.get(
             pk=ATTACHMENT_SECTION_ALLE_BETEILIGTEN
@@ -248,7 +262,7 @@ def test_notice_ruling_send_handler(
             if is_vorabklaerung or expected_state_name == "rejected"
             else service_baukontrolle
         )
-        assert ech_instance.responsible_service() == expected_service
+        assert ech_instance_be.responsible_service() == expected_service
 
 
 @pytest.mark.parametrize(
@@ -265,13 +279,25 @@ def test_change_responsibility_send_handler(
     has_permission,
     success,
     admin_user,
+    set_application_be,
     instance_state_factory,
     service_factory,
     instance_service_factory,
     ech_instance_case,
     multilang,
     caluma_admin_user,
+    notification_template,
+    application_settings,
 ):
+
+    application_settings["NOTIFICATIONS"] = {
+        "ECH_TASK": [
+            {
+                "template_slug": notification_template.slug,
+                "recipient_types": ["unnotified_service"],
+            }
+        ]
+    }
     ech_instance = ech_instance_case().instance
     instance_state = instance_state_factory(name=instance_state_name)
     ech_instance.instance_state = instance_state
@@ -347,7 +373,8 @@ def test_close_dossier_send_handler(
     requesting_service,
     instance_state_name,
     success,
-    ech_instance,
+    set_application_be,
+    ech_instance_be,
     ech_instance_case,
     admin_user,
     instance_service_factory,
@@ -359,14 +386,14 @@ def test_close_dossier_send_handler(
     instance_state_factory(name="finished")
 
     inst_serv = instance_service_factory(
-        instance=ech_instance, service__name="Baukontrolle Burgdorf", active=1
+        instance=ech_instance_be, service__name="Baukontrolle Burgdorf", active=1
     )
 
-    ech_instance.instance_state = instance_state_factory(name=instance_state_name)
-    ech_instance.save()
+    ech_instance_be.instance_state = instance_state_factory(name=instance_state_name)
+    ech_instance_be.save()
 
-    circulation_factory(instance=ech_instance)
-    docx_decision_factory(decision=DECISIONS_BEWILLIGT, instance=ech_instance)
+    circulation_factory(instance=ech_instance_be)
+    docx_decision_factory(decision=DECISIONS_BEWILLIGT, instance=ech_instance_be)
 
     case = ech_instance_case()
 
@@ -385,7 +412,7 @@ def test_close_dossier_send_handler(
     group = admin_user.groups.first()
 
     if requesting_service == "leitbehörde":
-        group.service = ech_instance.services.first()
+        group.service = ech_instance_be.services.first()
     elif requesting_service == "baukontrolle":
         group.service = inst_serv.service
 
@@ -406,11 +433,11 @@ def test_close_dossier_send_handler(
 
     if success:
         handler.apply()
-        ech_instance.refresh_from_db()
+        ech_instance_be.refresh_from_db()
 
-        assert ech_instance.instance_state.name == "finished"
+        assert ech_instance_be.instance_state.name == "finished"
         assert Message.objects.count() == 1
-        assert Message.objects.first().receiver == ech_instance.responsible_service()
+        assert Message.objects.first().receiver == ech_instance_be.responsible_service()
 
 
 @pytest.mark.freeze_time(
@@ -435,7 +462,8 @@ def test_task_send_handler(  # noqa: C901
     success,
     admin_user,
     circulation_factory,
-    ech_instance,
+    set_application_be,
+    ech_instance_be,
     ech_instance_case,
     instance_state_factory,
     service_factory,
@@ -460,8 +488,8 @@ def test_task_send_handler(  # noqa: C901
     state_run = circulation_state_factory(name="RUN")
     state_done = circulation_state_factory(name="DONE")
     state = instance_state_factory(name="circulation")
-    ech_instance.instance_state = state
-    ech_instance.save()
+    ech_instance_be.instance_state = state
+    ech_instance_be.save()
 
     case = ech_instance_case()
     for task_id in ["submit", "ebau-number"]:
@@ -470,7 +498,7 @@ def test_task_send_handler(  # noqa: C901
         )
 
     group = admin_user.groups.first()
-    group.service = ech_instance.services.first()
+    group.service = ech_instance_be.services.first()
     group.save()
 
     if has_service:
@@ -482,8 +510,8 @@ def test_task_send_handler(  # noqa: C901
         "latest_not_running",
         "none_running",
     ]:
-        dummy_circulation = circulation_factory(instance=ech_instance)
-        latest_circulation = circulation_factory(instance=ech_instance)
+        dummy_circulation = circulation_factory(instance=ech_instance_be)
+        latest_circulation = circulation_factory(instance=ech_instance_be)
 
         # create work item for dummy circulation
         workflow_api.skip_work_item(
@@ -496,7 +524,7 @@ def test_task_send_handler(  # noqa: C901
         context = {"circulation-id": latest_circulation.pk}
         for work_item in create_work_items(
             Task.objects.filter(pk="circulation"),
-            ech_instance.case,
+            ech_instance_be.case,
             caluma_admin_user,
             None,
             context,
@@ -580,7 +608,7 @@ def test_task_send_handler(  # noqa: C901
         assert (
             WorkItem.objects.filter(
                 **{
-                    "case__family": ech_instance.case,
+                    "case__family": ech_instance_be.case,
                     "status": WorkItem.STATUS_READY,
                     "task_id": "activation",
                     "meta__activation-id": activation.pk,
@@ -604,11 +632,11 @@ def test_task_send_handler(  # noqa: C901
 
 def test_task_send_handler_no_permission(
     admin_user,
-    ech_instance,
+    ech_instance_be,
     caluma_admin_user,
 ):
     group = admin_user.groups.first()
-    group.service = ech_instance.services.first()
+    group.service = ech_instance_be.services.first()
     group.save()
 
     data = CreateFromDocument(xml_data("task"))
@@ -630,7 +658,8 @@ def test_kind_of_proceedings_send_handler(
     attachment_section_factory,
     attachment_factory,
     admin_user,
-    ech_instance,
+    set_application_be,
+    ech_instance_be,
     ech_instance_case,
     instance_state_factory,
     instance_resource_factory,
@@ -655,19 +684,19 @@ def test_kind_of_proceedings_send_handler(
     attachment = attachment_factory(
         uuid="00000000-0000-0000-0000-000000000000",
         name="myFile.pdf",
-        instance=ech_instance,
+        instance=ech_instance_be,
     )
     attachment.attachment_sections.add(attachment_section_beteiligte_behoerden)
 
     group = admin_user.groups.first()
-    group.service = ech_instance.services.first()
+    group.service = ech_instance_be.services.first()
     group.save()
 
     state = instance_state_factory(name="subm")
     if has_permission:
         state = instance_state_factory(name="circulation_init")
-    ech_instance.instance_state = state
-    ech_instance.save()
+    ech_instance_be.instance_state = state
+    ech_instance_be.save()
 
     case = ech_instance_case()
 
@@ -693,18 +722,18 @@ def test_kind_of_proceedings_send_handler(
 
     if has_permission:
         handler.apply()
-        assert ech_instance.circulations.exists()
+        assert ech_instance_be.circulations.exists()
         assert (
-            ech_instance.circulations.first().service
-            == ech_instance.responsible_service(filter_type="municipality")
+            ech_instance_be.circulations.first().service
+            == ech_instance_be.responsible_service(filter_type="municipality")
         )
-        ech_instance.refresh_from_db()
-        assert ech_instance.previous_instance_state.name == "circulation_init"
-        assert ech_instance.instance_state.name == "circulation"
+        ech_instance_be.refresh_from_db()
+        assert ech_instance_be.previous_instance_state.name == "circulation_init"
+        assert ech_instance_be.instance_state.name == "circulation"
 
         assert Message.objects.count() == 1
         message = Message.objects.first()
-        assert message.receiver == ech_instance.responsible_service()
+        assert message.receiver == ech_instance_be.responsible_service()
 
         attachment.refresh_from_db()
         assert attachment.attachment_sections.get(
@@ -712,7 +741,8 @@ def test_kind_of_proceedings_send_handler(
         )
 
         assert (
-            ech_instance.involved_applicants.first().invitee.email in mailoutbox[0].to
+            ech_instance_be.involved_applicants.first().invitee.email
+            in mailoutbox[0].to
         )
 
 
@@ -722,7 +752,8 @@ def test_accompanying_report_send_handler(
     has_attachment,
     has_activation,
     admin_user,
-    ech_instance,
+    set_application_be,
+    ech_instance_be,
     ech_instance_case,
     attachment_factory,
     attachment_section_factory,
@@ -754,7 +785,7 @@ def test_accompanying_report_send_handler(
 
     if has_activation:
         activation_factory(
-            circulation__instance=ech_instance,
+            circulation__instance=ech_instance_be,
             circulation_state=circulation_state_factory(pk=1, name="RUN"),
             service=user_group.group.service,
             user=user_group.user,
@@ -766,12 +797,12 @@ def test_accompanying_report_send_handler(
     unknown_answer = circulation_answer_factory(name="unknown")
 
     support_group = admin_user.groups.first()
-    support_group.service = ech_instance.services.first()
+    support_group.service = ech_instance_be.services.first()
     support_group.save()
 
     state = instance_state_factory(name="circulation")
-    ech_instance.instance_state = state
-    ech_instance.save()
+    ech_instance_be.instance_state = state
+    ech_instance_be.save()
     ech_instance_case()
 
     if has_attachment:

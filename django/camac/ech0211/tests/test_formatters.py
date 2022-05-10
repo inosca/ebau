@@ -23,16 +23,18 @@ def sort_xml(string):
 
 
 @pytest.mark.parametrize(
-    "form", ["baugesuch", "einfache vorabklaerung", "vollstaendige vorabklaerung"]
+    "form",
+    ["baugesuch", "einfache vorabklaerung", "vollstaendige vorabklaerung"],
 )
 def test_base_delivery(
     form,
     ech_mandatory_answers_baugesuch,
     ech_mandatory_answers_einfache_vorabklaerung,
     ech_mandatory_answers_vollstaendige_vorabklaerung,
-    ech_instance,
+    ech_instance_be,
     multilang,
 ):
+
     ech_mandatory_answers = ech_mandatory_answers_baugesuch
     if form == "baugesuch":
         ech_mandatory_answers_baugesuch["baukosten-in-chf"] = 999  # too cheap
@@ -59,11 +61,11 @@ def test_base_delivery(
     )
 
     xml = formatters.delivery(
-        ech_instance,
+        ech_instance_be,
         ech_mandatory_answers,
         ECH_BASE_DELIVERY,
         eventBaseDelivery=configured_base_delivery_formatter.format_base_delivery(
-            ech_instance, answers=ech_mandatory_answers
+            ech_instance_be, answers=ech_mandatory_answers
         ),
     )
 
@@ -83,9 +85,9 @@ def test_base_delivery(
     my_schema.validate(xml_data)
 
 
-def test_office(ech_instance, snapshot, multilang):
+def test_office(ech_instance_be, snapshot, multilang):
     off = formatters.office(
-        ech_instance.responsible_service(filter_type="municipality"),
+        ech_instance_be.responsible_service(filter_type="municipality"),
         organization_category="ebaube",
         canton="BE",
     )
