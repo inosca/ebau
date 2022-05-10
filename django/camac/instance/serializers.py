@@ -21,14 +21,13 @@ from rest_framework import exceptions
 from rest_framework_json_api import relations, serializers
 
 from camac.caluma.api import CalumaApi
-from camac.constants import kt_bern as be_constants, kt_uri as uri_constants
+from camac.constants import kt_uri as uri_constants
 from camac.core.models import (
     Answer,
     AuthorityLocation,
     HistoryActionConfig,
     InstanceLocation,
     InstanceService,
-    ProposalActivation,
     WorkflowEntry,
     WorkflowItem,
 )
@@ -1038,33 +1037,6 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             question="dokument-weitere-gesuchsunterlagen",
         )
 
-    def _create_answer_proposals(self, instance):
-        """Create service proposal based on answers.
-
-        Create "action proposals" given some answer values for specific questions:
-        (question, answer, config) -> AProposal
-        """
-
-        # get suggested services
-        service_suggestions = CalumaApi().get_circulation_proposals(instance)
-
-        # create answer proposals
-        today = timezone.now().replace(hour=0, minute=0, second=0, microsecond=0)
-
-        proposals = [
-            ProposalActivation(
-                instance=instance,
-                circulation_type_id=be_constants.CIRCULATION_TYPE_STANDARD,
-                service_id=service_id,
-                circulation_state_id=be_constants.CIRCULATION_STATE_WORKING,
-                deadline_date=today,
-                reason="",
-            )
-            for service_id in service_suggestions
-        ]
-
-        ProposalActivation.objects.bulk_create(proposals)
-
     def _update_rejected_instance(self, instance):
         caluma_api = CalumaApi()
 
@@ -1215,7 +1187,6 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         self._generate_and_store_pdf(instance)
         self._set_submit_date(validated_data)
         self._create_history_entry(gettext_noop("Dossier submitted"))
-        self._create_answer_proposals(instance)
         self._update_rejected_instance(instance)
 
         work_item = self.instance.case.work_items.filter(

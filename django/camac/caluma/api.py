@@ -1,4 +1,3 @@
-from functools import reduce
 from logging import getLogger
 
 from caluma.caluma_form import models as caluma_form_models
@@ -8,7 +7,6 @@ from caluma.caluma_workflow import (
     models as caluma_workflow_models,
 )
 from django.conf import settings
-from django.db.models import Q
 
 from camac.user.models import Service
 
@@ -178,51 +176,6 @@ class CalumaApi:
         option = answer.question.options.get(slug=answer.value)
 
         return (option.slug, option.label)
-
-    def get_circulation_proposals(self, instance):
-        # [(question_id, option, suggested service), ... ]
-        suggestions = settings.APPLICATION.get("SUGGESTIONS", [])
-        if not suggestions:  # pragma: no cover
-            return set()
-
-        suggestion_map = {
-            (q_slug, answer): services for q_slug, answer, services in suggestions
-        }
-
-        document = self._get_main_document(instance)
-        answers = caluma_form_models.Answer.objects.filter(
-            document__family=document.family
-        )
-
-        _filter = reduce(
-            lambda a, b: a | b,
-            [
-                Q(question_id=q_slug, value=answer)
-                | Q(question_id=q_slug, value__contains=answer)
-                for q_slug, answer, _ in suggestions
-            ],
-            Q(pk=None),
-        )
-        answers = answers.filter(_filter)
-
-        suggestions_out = {
-            service
-            for ans in answers.filter(
-                question__type=caluma_form_models.Question.TYPE_MULTIPLE_CHOICE
-            )
-            for choice in ans.value
-            for service in suggestion_map.get((ans.question_id, choice), [])
-        }
-        suggestions_out.update(
-            {
-                service
-                for ans in answers.exclude(
-                    question__type=caluma_form_models.Question.TYPE_MULTIPLE_CHOICE
-                )
-                for service in suggestion_map.get((ans.question_id, ans.value), [])
-            }
-        )
-        return suggestions_out
 
     def copy_table_answer(
         self,

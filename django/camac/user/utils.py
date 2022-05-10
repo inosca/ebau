@@ -1,7 +1,10 @@
 import logging
+from functools import reduce
 
+from caluma.caluma_form.models import Answer, Question
 from django.conf import settings
 from django.contrib.auth.models import AnonymousUser
+from django.db.models import Q
 
 from . import models
 
@@ -89,3 +92,42 @@ def _get_group_for_portal(request):
     return models.Group.objects.select_related("role", "service").get(
         pk=settings.APPLICATION["PORTAL_GROUP"]
     )
+
+
+def get_service_suggestions(instance):
+    # [(question_id, option, suggested service), ... ]
+    suggestions = settings.DISTRIBUTION.get("SUGGESTIONS", [])
+
+    if not suggestions:  # pragma: no cover
+        return set()
+
+    suggestion_map = {
+        (q_slug, answer): services for q_slug, answer, services in suggestions
+    }
+
+    answers = Answer.objects.filter(document__family=instance.case.document).filter(
+        reduce(
+            lambda a, b: a | b,
+            [
+                Q(question_id=q_slug, value=answer)
+                | Q(question_id=q_slug, value__contains=answer)
+                for q_slug, answer, _ in suggestions
+            ],
+            Q(pk=None),
+        )
+    )
+
+    suggestions_out = {
+        service
+        for ans in answers.filter(question__type=Question.TYPE_MULTIPLE_CHOICE)
+        for choice in ans.value
+        for service in suggestion_map.get((ans.question_id, choice), [])
+    }
+    suggestions_out.update(
+        {
+            service
+            for ans in answers.exclude(question__type=Question.TYPE_MULTIPLE_CHOICE)
+            for service in suggestion_map.get((ans.question_id, ans.value), [])
+        }
+    )
+    return suggestions_out
