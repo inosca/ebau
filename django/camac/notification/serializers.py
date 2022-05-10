@@ -2,6 +2,7 @@ import re
 from collections import namedtuple
 from datetime import date, timedelta
 from html import escape
+from itertools import chain
 from logging import getLogger
 
 import inflection
@@ -747,7 +748,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
     SUBMITTER_TYPE_CQI = (103, 257, 1)
     recipient_types = serializers.MultipleChoiceField(
         choices=(
-            "activation_deadline_yesterday",
+            "inquiry_deadline_yesterday",
             "applicant",
             "municipality",
             "caluma_municipality",
@@ -875,17 +876,26 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             if applicant.invitee
         ]
 
-    def _get_recipients_activation_deadline_yesterday(self, instance):
-        """Return recipients of activations for an instance which deadline expired yesterday."""
-        activations = Activation.objects.filter(
-            ~Q(circulation_state__name="DONE"),
-            deadline_date__date=date.today() - timedelta(days=1),
-            circulation__instance__instance_state__name="circulation",
-            circulation__instance=instance,
-        )
-        services = {a.service for a in activations}
+    def _get_recipients_inquiry_deadline_yesterday(self, instance):
+        """Return recipients of inquiries for an instance which deadline expired yesterday."""
+        if not settings.DISTRIBUTION:  # pragma: no cover
+            return []
+
+        addressed_groups = caluma_workflow_models.WorkItem.objects.filter(
+            task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
+            status=caluma_workflow_models.WorkItem.STATUS_READY,
+            deadline__date=date.today() - timedelta(days=1),
+            case__family__instance__instance_state__name="circulation",
+            case__family__instance=instance,
+        ).values_list("addressed_groups", flat=True)
+
         return flatten(
-            [self._get_responsible(instance, service) for service in services]
+            [
+                self._get_responsible(instance, service)
+                for service in Service.objects.filter(
+                    pk__in=list(chain(*addressed_groups))
+                )
+            ]
         )
 
     def _get_responsible(self, instance, service):

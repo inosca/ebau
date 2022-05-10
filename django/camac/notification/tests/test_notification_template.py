@@ -852,7 +852,7 @@ def test_notification_template_merge_without_context(
         application_settings["SYSTEM_USER"] = system_operation_user.username
 
     data = {
-        "recipient_types": ["activation_deadline_yesterday"],
+        "recipient_types": ["inquiry_deadline_yesterday"],
         "notification_template": {
             "type": "notification-templates",
             "id": notification_template.pk,
