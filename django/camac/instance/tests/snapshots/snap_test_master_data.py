@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 
 from snapshottest import GenericRepr, Snapshot
 
+
 snapshots = Snapshot()
 
 snapshots['test_master_data[kt_bern-de-be_master_data_case-select_related0-prefetch_related0-9] 1'] = {
@@ -106,6 +107,7 @@ snapshots['test_master_data[kt_bern-de-be_master_data_case-select_related0-prefe
     },
     'nature_risk_type': [
     ],
+    'organisation_category': 'ebaube',
     'outside_seating': 20,
     'paper_submit_date': GenericRepr('datetime.datetime(2021, 3, 20, 13, 17, 8, tzinfo=tzutc())'),
     'plot_data': [
@@ -151,6 +153,7 @@ snapshots['test_master_data[kt_bern-de-be_master_data_case-select_related0-prefe
         'slug': 'oeffentlichkeit-oeffentlich'
     },
     'publication_date': None,
+    'remark': None,
     'situation': 'Sachverhalt Test',
     'street': 'Musterstrasse',
     'street_number': 4,
@@ -270,6 +273,7 @@ snapshots['test_master_data[kt_bern-fr-be_master_data_case-select_related1-prefe
     },
     'nature_risk_type': [
     ],
+    'organisation_category': 'ebaube',
     'outside_seating': 20,
     'paper_submit_date': GenericRepr('datetime.datetime(2021, 3, 20, 13, 17, 8, tzinfo=tzutc())'),
     'plot_data': [
@@ -315,6 +319,7 @@ snapshots['test_master_data[kt_bern-fr-be_master_data_case-select_related1-prefe
         'slug': 'oeffentlichkeit-oeffentlich'
     },
     'publication_date': None,
+    'remark': None,
     'situation': 'Sachverhalt Test',
     'street': 'Musterstrasse',
     'street_number': 4,
@@ -350,7 +355,7 @@ snapshots['test_master_data[kt_schwyz-de-sz_master_data_case_gwr-select_related3
             'zip': 5678
         }
     ],
-    'application_type': 'David Romero',
+    'application_type': 'Elizabeth Garcia',
     'application_type_migrated': None,
     'building_owners': [
         {
@@ -408,6 +413,7 @@ snapshots['test_master_data[kt_schwyz-de-sz_master_data_case_gwr-select_related3
     'legal_representatives': [
     ],
     'municipality': 'Duncanchester',
+    'organization_category': 'ebausz',
     'plot_data': [
         {
             'egrid_number': 'CH1234567890',
@@ -421,10 +427,11 @@ snapshots['test_master_data[kt_schwyz-de-sz_master_data_case_gwr-select_related3
     ],
     'proposal': 'Grosses Haus',
     'publication_date': None,
+    'remark': None,
     'street': None,
     'submit_date': None,
     'usage_type': None,
-    'usage_zone': 'nutzungszone'
+    'usage_zone': None
 }
 
 snapshots['test_master_data[kt_schwyz-de-sz_master_data_case_gwr_v2-select_related4-prefetch_related4-5] 1'] = {
@@ -443,7 +450,7 @@ snapshots['test_master_data[kt_schwyz-de-sz_master_data_case_gwr_v2-select_relat
             'zip': 5678
         }
     ],
-    'application_type': 'David Romero',
+    'application_type': 'Elizabeth Garcia',
     'application_type_migrated': None,
     'building_owners': [
         {
@@ -509,6 +516,7 @@ snapshots['test_master_data[kt_schwyz-de-sz_master_data_case_gwr_v2-select_relat
     'legal_representatives': [
     ],
     'municipality': 'Duncanchester',
+    'organization_category': 'ebausz',
     'plot_data': [
         {
             'egrid_number': 'CH1234567890',
@@ -522,10 +530,11 @@ snapshots['test_master_data[kt_schwyz-de-sz_master_data_case_gwr_v2-select_relat
     ],
     'proposal': 'Grosses Haus',
     'publication_date': None,
+    'remark': None,
     'street': None,
     'submit_date': None,
     'usage_type': None,
-    'usage_zone': 'nutzungszone'
+    'usage_zone': None
 }
 
 snapshots['test_master_data[kt_uri-de-ur_master_data_case-select_related2-prefetch_related2-8] 1'] = {

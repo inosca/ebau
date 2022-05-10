@@ -54,35 +54,11 @@ urlpatterns = [
     # re_path(r'^api/auth/$', include('keycloak_adapter.urls')),
 ] + r.urls
 
+if settings.APPLICATION["ECH0211"]["API_ACTIVE"]:  # pragma: no cover
+    UrlsConf = import_string(settings.APPLICATION["ECH0211"]["URLS_CLASS"])
+    urlpatterns += [re_path(r"^ech/v1/", include(UrlsConf.urlpatterns))]
+    urlpatterns += [re_path(r"", include(UrlsConf.swagger_urlpatterns))]
 
-if settings.APPLICATION["ECH0211"]["API_ACTIVE"]:
-    urlpatterns += (
-        re_path(r"^ech/v1/", include(settings.APPLICATION["ECH0211"]["URLS"])),
-    )
-    try:
-        SCHEMA_VIEW = import_string(
-            f"{settings.APPLICATION['ECH0211']['SWAGGER_PATH']}.SCHEMA_VIEW"
-        )
-    except ImportError:
-        SCHEMA_VIEW = None
-    if SCHEMA_VIEW:
-        urlpatterns += [
-            re_path(
-                r"^api/swagger(?P<format>\.json|\.yaml)$",
-                SCHEMA_VIEW.without_ui(cache_timeout=0),
-                name="schema-json",
-            ),
-            re_path(
-                r"^api/swagger/$",
-                SCHEMA_VIEW.with_ui("swagger", cache_timeout=0),
-                name="schema-swagger-ui",
-            ),
-            re_path(
-                r"^api/redoc/$",
-                SCHEMA_VIEW.with_ui("redoc", cache_timeout=0),
-                name="schema-redoc",
-            ),
-        ]
 
 if settings.ENABLE_SILK:  # pragma: no cover
     urlpatterns.append(re_path(r"^api/silk/", include("silk.urls", namespace="silk")))

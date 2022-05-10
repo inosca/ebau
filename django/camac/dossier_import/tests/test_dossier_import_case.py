@@ -76,12 +76,13 @@ def test_create_instance_dossier_import_case(
     dossier_import = dossier_import_factory(
         source_file=archive_file(TEST_IMPORT_FILE_NAME),
     )
-    construction_control_for(dossier_import.group.service)
-    dynamic_option_factory(
-        slug=str(dossier_import.group.service.pk),
-        question_id="gemeinde",
-        document=document_factory(),
-    )
+    if config == "kt_bern":
+        construction_control_for(dossier_import.group.service)
+        dynamic_option_factory(
+            slug=str(dossier_import.group.service.pk),
+            question_id="gemeinde",
+            document=document_factory(),
+        )
     writer = make_dossier_writer(config)
     writer._group.service = dossier_import.group.service
     loader = XlsxFileDossierLoader()
