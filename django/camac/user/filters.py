@@ -17,6 +17,7 @@ from camac.responsible.models import ResponsibleService
 
 from . import models
 from .permissions import get_permission_func, permission_aware
+from .utils import get_service_suggestions
 
 
 class LocationFilterSet(FilterSet):
@@ -34,6 +35,7 @@ class PublicServiceFilterSet(FilterSet):
     )
     available_in_distribution = BooleanFilter(method="_available_in_distribution")
     service_group_name = CharMultiValueFilter(field_name="service_group__name")
+    suggestion_for_instance = NumberFilter(method="filter_suggestion_for_instance")
 
     @permission_aware
     def _available_in_distribution(self, queryset, name, value):
@@ -85,6 +87,11 @@ class PublicServiceFilterSet(FilterSet):
 
         return queryset.filter(reduce(lambda a, b: a | b, filters)).distinct()
 
+    def filter_suggestion_for_instance(self, queryset, name, value):
+        return queryset.filter(
+            pk__in=get_service_suggestions(Instance.objects.get(pk=value))
+        )
+
     class Meta:
         model = models.Service
         fields = (
@@ -93,6 +100,7 @@ class PublicServiceFilterSet(FilterSet):
             "available_in_distribution",
             "service_group_name",
             "service_parent",
+            "suggestion_for_instance",
         )
 
 
