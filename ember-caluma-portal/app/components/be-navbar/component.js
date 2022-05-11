@@ -27,7 +27,6 @@ const getInstanceParam = (route) => {
 export default class BeNavbarComponent extends Component {
   @service session;
   @service router;
-  @service intl;
   @service notification;
   @service store;
 
