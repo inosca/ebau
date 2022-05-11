@@ -128,6 +128,13 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
       const config = {
         inquiry: {
           answer: {
+            infoQuestions: [
+              "inquiry-answer-request",
+              "inquiry-answer-ancillary-clauses",
+              "inquiry-answer-reason",
+              "inquiry-answer-recommendation",
+              "inquiry-answer-info",
+            ],
             buttons: {
               "fill-inquiry": {
                 color: "primary",
