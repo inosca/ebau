@@ -2,7 +2,7 @@ import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
-import { useTask } from "ember-resources";
+import { trackedTask } from "ember-resources/util/ember-concurrency";
 
 import municipality from "camac-ng/gql/queries/municipality.graphql";
 
@@ -11,7 +11,7 @@ export default class PublicationInfoComponent extends Component {
 
   @queryManager apollo;
 
-  publicInstancesLink = useTask(this, this.getPublicInstancesLink, () => [
+  publicInstancesLink = trackedTask(this, this.getPublicInstancesLink, () => [
     this.args.instanceId,
   ]);
 

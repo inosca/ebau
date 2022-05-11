@@ -2,14 +2,14 @@ import { action } from "@ember/object";
 import Component from "@glimmer/component";
 import { inject as service } from "@ember/service";
 import { dropTask } from "ember-concurrency";
-import { useTask } from "ember-resources";
+import { trackedTask } from "ember-resources/util/ember-concurrency";
 import { isTesting, macroCondition } from "@embroider/macros";
 
 export default class MainNavigationComponent extends Component {
   @service session;
   @service store;
 
-  groups = useTask(this, this.fetchGroups, () => [this.session.group]);
+  groups = trackedTask(this, this.fetchGroups, () => [this.session.group]);
 
   @dropTask
   *fetchGroups() {
@@ -34,7 +34,9 @@ export default class MainNavigationComponent extends Component {
     }
   }
 
-  resources = useTask(this, this.fetchResources, () => [this.session.group]);
+  resources = trackedTask(this, this.fetchResources, () => [
+    this.session.group,
+  ]);
 
   @dropTask
   *fetchResources() {
@@ -53,6 +55,7 @@ export default class MainNavigationComponent extends Component {
     this.session.group = group;
 
     if (macroCondition(isTesting())) {
+      // Don't reload in testing
     } else {
       // Hard reload the whole page so the data is refetched
       window.location.reload();

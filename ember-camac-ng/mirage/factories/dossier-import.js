@@ -5,7 +5,7 @@ const STATUS = ["verified", "failed"];
 
 export default Factory.extend({
   createdAt: () => faker.date.past(),
-  status: () => faker.random.arrayElement(STATUS),
+  status: () => faker.helpers.arrayElement(STATUS),
 
   user: association(),
 });

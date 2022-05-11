@@ -1,12 +1,12 @@
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { dropTask } from "ember-concurrency";
-import { useTask } from "ember-resources";
+import { trackedTask } from "ember-resources/util/ember-concurrency";
 
 export default class RelatedPublicationsComponent extends Component {
   @service store;
 
-  relatedPublicInstances = useTask(
+  relatedPublicInstances = trackedTask(
     this,
     this.fetchRelatedPublicInstances,
     () => [this.args.dossierNr, this.args.instanceId]

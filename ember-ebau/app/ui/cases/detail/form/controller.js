@@ -1,9 +1,9 @@
-import Controller, { inject as controller } from "@ember/controller";
+import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
-import { useTask } from "ember-resources";
+import { trackedTask } from "ember-resources/util/ember-concurrency";
 
 import getInstanceCaseQuery from "ebau/gql/queries/get-instance-case.graphql";
 
@@ -16,7 +16,7 @@ export default class CasesDetailFormController extends Controller {
 
   @tracked displayedForm = "";
 
-  document = useTask(this, this.fetchDocument, () => [this.model]);
+  document = trackedTask(this, this.fetchDocument, () => [this.model]);
 
   @dropTask()
   *fetchDocument() {

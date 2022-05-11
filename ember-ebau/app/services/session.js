@@ -4,7 +4,7 @@ import { getOwner } from "@ember/application";
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import { dropTask } from "ember-concurrency";
-import { useTask } from "ember-resources";
+import { trackedTask } from "ember-resources/util/ember-concurrency";
 import { handleUnauthorized } from "ember-simple-auth-oidc";
 import { getConfig } from "ember-simple-auth-oidc/config";
 import Session from "ember-simple-auth-oidc/services/session";
@@ -30,7 +30,7 @@ export default class CustomSession extends Session {
   @localCopy("data.language") _language;
   @localCopy("data.group") _group;
 
-  _data = useTask(this, this.fetchUser, () => [this.isAuthenticated]);
+  _data = trackedTask(this, this.fetchUser, () => [this.isAuthenticated]);
 
   @dropTask
   *fetchUser() {
