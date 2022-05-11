@@ -688,6 +688,10 @@ class NotificationTemplateMergeSerializer(
     circulation = serializers.ResourceRelatedField(
         queryset=Circulation.objects.all(), required=False
     )
+    inquiry = serializers.ResourceRelatedField(
+        queryset=caluma_workflow_models.WorkItem.objects.all(),
+        required=False,
+    )
     notification_template = serializers.ResourceRelatedField(
         queryset=models.NotificationTemplate.objects.all()
     )
@@ -748,17 +752,21 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
     SUBMITTER_TYPE_CQI = (103, 257, 1)
     recipient_types = serializers.MultipleChoiceField(
         choices=(
-            "inquiry_deadline_yesterday",
             "applicant",
             "municipality",
             "caluma_municipality",
             "service",
-            "unnotified_service",
             "leitbehoerde",
             "construction_control",
             "email_list",
+            # Old circulation (UR)
+            "unnotified_service",
             "activation_service_parent",
-            "unanswered_activation",
+            # New circulation (BE, SZ)
+            "inquiry_deadline_yesterday",
+            "unanswered_inquiries",
+            "inquiry_addressed",
+            "inquiry_controlling",
             *settings.APPLICATION.get("CUSTOM_NOTIFICATION_TYPES", []),
         )
     )
@@ -876,28 +884,6 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             if applicant.invitee
         ]
 
-    def _get_recipients_inquiry_deadline_yesterday(self, instance):
-        """Return recipients of inquiries for an instance which deadline expired yesterday."""
-        if not settings.DISTRIBUTION:  # pragma: no cover
-            return []
-
-        addressed_groups = caluma_workflow_models.WorkItem.objects.filter(
-            task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-            status=caluma_workflow_models.WorkItem.STATUS_READY,
-            deadline__date=date.today() - timedelta(days=1),
-            case__family__instance__instance_state__name="circulation",
-            case__family__instance=instance,
-        ).values_list("addressed_groups", flat=True)
-
-        return flatten(
-            [
-                self._get_responsible(instance, service)
-                for service in Service.objects.filter(
-                    pk__in=list(chain(*addressed_groups))
-                )
-            ]
-        )
-
     def _get_responsible(self, instance, service):
         if not service.notification:
             return []
@@ -952,16 +938,65 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             [self._get_responsible(instance, service) for service in services]
         )
 
-    def _get_recipients_unanswered_activation(self, instance):
-        services = Service.objects.filter(
-            pk__in=self.validated_data.get("circulation")
-            .activations.values("service")
-            .exclude(circulation_state__name="DONE")
-            .values_list("service__pk", flat=True)
-        )
+    def _get_recipients_inquiry_deadline_yesterday(self, instance):
+        """Return recipients of inquiries for an instance which deadline expired yesterday."""
+        if not settings.DISTRIBUTION:  # pragma: no cover
+            return []
+
+        addressed_groups = caluma_workflow_models.WorkItem.objects.filter(
+            task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
+            status=caluma_workflow_models.WorkItem.STATUS_READY,
+            deadline__date=date.today() - timedelta(days=1),
+            case__family__instance__instance_state__name="circulation",
+            case__family__instance=instance,
+        ).values_list("addressed_groups", flat=True)
 
         return flatten(
-            [self._get_responsible(instance, service) for service in services]
+            [
+                self._get_responsible(instance, service)
+                for service in Service.objects.filter(
+                    pk__in=list(chain(*addressed_groups))
+                )
+            ]
+        )
+
+    def _get_recipients_unanswered_inquiries(self, instance):
+        if not settings.DISTRIBUTION:  # pragma: no cover
+            return []
+
+        addressed_groups = caluma_workflow_models.WorkItem.objects.filter(
+            task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
+            status=caluma_workflow_models.WorkItem.STATUS_SKIPPED,
+            case__family__instance=instance,
+        ).values_list("addressed_groups", flat=True)
+
+        return flatten(
+            [
+                self._get_responsible(instance, service)
+                for service in Service.objects.filter(
+                    pk__in=list(chain(*addressed_groups))
+                )
+            ]
+        )
+
+    def _get_recipients_inquiry_addressed(self, instance):
+        inquiry = self.validated_data.get("inquiry")
+
+        if not settings.DISTRIBUTION or not inquiry:  # pragma: no cover
+            return []
+
+        return self._get_responsible(
+            instance, Service.objects.get(pk=inquiry.addressed_groups[0])
+        )
+
+    def _get_recipients_inquiry_controlling(self, instance):
+        inquiry = self.validated_data.get("inquiry")
+
+        if not settings.DISTRIBUTION or not inquiry:  # pragma: no cover
+            return []
+
+        return self._get_responsible(
+            instance, Service.objects.get(pk=inquiry.controlling_groups[0])
         )
 
     def _get_recipients_construction_control(self, instance):

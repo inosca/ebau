@@ -40,7 +40,11 @@ def inquiry_factory(
     distribution_settings,
     service,
     service_factory,
+    notification_template_factory,
 ):
+    # this is needed so that simple workflow works
+    notification_template_factory(slug="03-verfahrensablauf-gesuchsteller")
+
     def factory(to_service=service_factory(), sent=False):
         complete_work_item(
             work_item=distribution_child_case.work_items.get(
@@ -133,10 +137,26 @@ def test_create_inquiry(
 
 
 @pytest.mark.freeze_time("2022-03-23")
+@pytest.mark.parametrize("user__email", ["applicant@example.com"])
 def test_send_inquiry(
-    db, be_instance, distribution_child_case, distribution_settings, inquiry_factory
+    db,
+    be_instance,
+    distribution_child_case,
+    distribution_settings,
+    inquiry_factory,
+    mailoutbox,
+    notification_template_factory,
+    service_factory,
 ):
-    inquiry = inquiry_factory(sent=True)
+    distribution_settings["NOTIFICATIONS"] = {
+        "INQUIRY_SENT": {
+            "template_slug": notification_template_factory().slug,
+            "recipient_types": ["inquiry_addressed"],
+        }
+    }
+
+    service = service_factory()
+    inquiry = inquiry_factory(to_service=service, sent=True)
 
     assert inquiry.status == WorkItem.STATUS_READY
     assert inquiry.deadline.isoformat() == "2022-04-22T00:00:00+00:00"
@@ -151,16 +171,30 @@ def test_send_inquiry(
         == WorkItem.STATUS_COMPLETED
     )
 
+    assert len(mailoutbox) == 2
+    assert mailoutbox[0].to[0] == "applicant@example.com"
+    assert mailoutbox[1].to[0] == service.email
+
 
 @pytest.mark.freeze_time("2022-03-23")
+@pytest.mark.parametrize("service__email", ["service@example.com"])
 def test_complete_inquiry(
     db,
     caluma_admin_user,
     distribution_child_case,
     distribution_settings,
     inquiry_factory,
+    mailoutbox,
+    notification_template_factory,
     service,
 ):
+    distribution_settings["NOTIFICATIONS"] = {
+        "INQUIRY_ANSWERED": {
+            "template_slug": notification_template_factory().slug,
+            "recipient_types": ["inquiry_controlling"],
+        }
+    }
+
     inquiry = inquiry_factory(sent=True)
 
     for question, value in [
@@ -174,6 +208,8 @@ def test_complete_inquiry(
             value=value,
             user=caluma_admin_user,
         )
+
+    mailoutbox.clear()
 
     complete_work_item(
         work_item=inquiry.child_case.work_items.first(), user=caluma_admin_user
@@ -190,6 +226,9 @@ def test_complete_inquiry(
     assert inquiry.child_case.status == Case.STATUS_COMPLETED
     assert inquiry.status == WorkItem.STATUS_COMPLETED
 
+    assert len(mailoutbox) == 1
+    assert mailoutbox[0].to[0] == "service@example.com"
+
 
 def test_complete_distribution(
     db,
@@ -198,18 +237,32 @@ def test_complete_distribution(
     distribution_child_case,
     distribution_settings,
     inquiry_factory,
+    mailoutbox,
+    notification_template_factory,
+    service_factory,
 ):
-    inquiry_factory(sent=True)
-    inquiry_factory()
+    # this is needed so that simple workflow works
+    notification_template_factory(slug="03-verfahren-vorzeitig-beendet")
 
-    work_items_to_cancel = distribution_child_case.work_items.filter(
-        status__in=[WorkItem.STATUS_READY, WorkItem.STATUS_SUSPENDED]
-    ).exclude(task_id=distribution_settings["DISTRIBUTION_COMPLETE_TASK"])
+    service = service_factory()
 
-    # 2 inquiries and 3 create inquries
-    assert work_items_to_cancel.count() == 5
+    draft_inquiry = inquiry_factory()  # draft - will be canceled
+    sent_inquiry = inquiry_factory(
+        to_service=service, sent=True
+    )  # sent - will be skipped
 
-    ids = list(work_items_to_cancel.values_list("pk", flat=True))
+    assert (
+        distribution_child_case.work_items.filter(status=WorkItem.STATUS_READY).count()
+        == 5  # 1x complete-distribution, 3x create-inquiry, 1x inquiry
+    )
+    assert (
+        distribution_child_case.work_items.filter(
+            status=WorkItem.STATUS_SUSPENDED
+        ).count()
+        == 1  # 1x inquiry
+    )
+
+    mailoutbox.clear()
 
     complete_work_item(
         work_item=distribution_child_case.work_items.get(
@@ -219,9 +272,18 @@ def test_complete_distribution(
         user=caluma_admin_user,
     )
 
-    # all ready or suspended work items should now be canceled
-    for work_item in WorkItem.objects.filter(pk__in=ids):
-        assert work_item.status == WorkItem.STATUS_CANCELED
+    draft_inquiry.refresh_from_db()
+    sent_inquiry.refresh_from_db()
+
+    assert draft_inquiry.status == WorkItem.STATUS_CANCELED
+    assert sent_inquiry.status == WorkItem.STATUS_SKIPPED
+
+    assert (
+        distribution_child_case.work_items.filter(
+            status__in=[WorkItem.STATUS_READY, WorkItem.STATUS_SUSPENDED]
+        ).count()
+        == 0
+    )
 
     distribution_child_case.refresh_from_db()
 
@@ -231,3 +293,6 @@ def test_complete_distribution(
     be_instance.refresh_from_db()
 
     assert be_instance.instance_state.name == "coordination"
+
+    assert len(mailoutbox) == 1
+    assert mailoutbox[0].to[0] == service.email
