@@ -2,7 +2,7 @@ import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import { dropTask } from "ember-concurrency";
-import { useTask } from "ember-resources";
+import { trackedTask } from "ember-resources/util/ember-concurrency";
 
 export default class PublicInstancesDetailController extends Controller {
   @service store;
@@ -13,7 +13,7 @@ export default class PublicInstancesDetailController extends Controller {
 
   @tracked key = null;
 
-  publicInstance = useTask(this, this.fetchPublicInstance, () => [
+  publicInstance = trackedTask(this, this.fetchPublicInstance, () => [
     this.model,
     this.key,
   ]);

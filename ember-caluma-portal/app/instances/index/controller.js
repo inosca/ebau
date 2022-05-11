@@ -7,7 +7,7 @@ import { useCalumaQuery } from "@projectcaluma/ember-core/caluma-query";
 import { allCases } from "@projectcaluma/ember-core/caluma-query/queries";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
-import { useTask } from "ember-resources";
+import { trackedTask } from "ember-resources/util/ember-concurrency";
 import { DateTime } from "luxon";
 import { cached } from "tracked-toolbox";
 
@@ -96,7 +96,7 @@ export default class InstancesIndexController extends Controller {
     },
   }));
 
-  rootForms = useTask(this, this.fetchRootForms, () => {});
+  rootForms = trackedTask(this, this.fetchRootForms, () => {});
 
   get categories() {
     return Object.keys(config.APPLICATION.instanceStateCategories);

@@ -4,7 +4,7 @@ import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
-import { useTask } from "ember-resources";
+import { trackedTask } from "ember-resources/util/ember-concurrency";
 
 import config from "caluma-portal/config/environment";
 import getMunicipalities from "caluma-portal/gql/queries/get-municipalities.graphql";
@@ -28,8 +28,8 @@ export default class PublicInstancesIndexController extends Controller {
 
   queryParams = ["municipality", "dossierNr", "excludeInstance"];
 
-  municipalities = useTask(this, this.fetchMunicipalities, () => []);
-  instances = useTask(this, this.fetchInstances, () => [
+  municipalities = trackedTask(this, this.fetchMunicipalities, () => []);
+  instances = trackedTask(this, this.fetchInstances, () => [
     this.page,
     this.municipality,
     this.excludeInstance,

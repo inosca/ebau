@@ -1,4 +1,5 @@
 import Model, { attr, belongsTo, hasMany } from "@ember-data/model";
+import { inject as service } from "@ember/service";
 import { queryManager } from "ember-apollo-client";
 import { dropTask, lastValue } from "ember-concurrency";
 
@@ -6,6 +7,8 @@ import getCaseMetaQuery from "ember-ebau-core/gql/queries/get-case-meta.graphql"
 
 export default class InstanceModel extends Model {
   @queryManager apollo;
+
+  @service store;
 
   @attr identifier;
   @attr name;

@@ -2,13 +2,13 @@ import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { dropTask } from "ember-concurrency";
-import { useTask } from "ember-resources";
+import { trackedTask } from "ember-resources/util/ember-concurrency";
 
 export default class SnippetsComponent extends Component {
   @service store;
   @service shoebox;
 
-  snippets = useTask(this, this.fetchSnippets, () => [
+  snippets = trackedTask(this, this.fetchSnippets, () => [
     this.shoebox.content.serviceId,
   ]);
 
