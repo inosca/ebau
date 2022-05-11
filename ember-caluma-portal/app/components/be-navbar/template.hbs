@@ -26,7 +26,7 @@
                 alt={{t "global.title-ur"}}
               />
             {{/if}}
-            {{#if this.session.groups.length}}
+            {{#if (and this.session.isAuthenticated this.session.groups.length)}}
               <div class="uk-margin-small-top uk-margin-small-bottom">
                 <a href="{{this.internalLink}}" class="be-navbar-internal-link">
                   {{t "nav.internal"}}
