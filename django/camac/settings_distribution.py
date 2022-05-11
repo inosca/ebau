@@ -18,9 +18,20 @@ DISTRIBUTION = {
             "STATEMENT": "inquiry-answer-statement",
             "ANCILLARY_CLAUSES": "inquiry-answer-ancillary-clauses",
         },
+        "NOTIFICATIONS": {},
     },
     "kt_bern": {
         "ENABLED": True,
+        "NOTIFICATIONS": {
+            "INQUIRY_SENT": {
+                "template_slug": "03-verfahrensablauf-fachstelle",
+                "recipient_types": ["inquiry_addressed"],
+            },
+            "INQUIRY_ANSWERED": {
+                "template_slug": "05-bericht-erstellt",
+                "recipient_types": ["inquiry_controlling"],
+            },
+        },
         "SUGGESTIONS": [
             (
                 "art-versickerung-dach",
@@ -286,5 +297,13 @@ DISTRIBUTION = {
             ),
         ],
     },
-    "kt_schwyz": {"ENABLED": True},
+    "kt_schwyz": {
+        "ENABLED": True,
+        "NOTIFICATIONS": {
+            "INQUIRY_SENT": {
+                "template_slug": "einladung-zur-stellungnahme",
+                "recipient_types": ["inquiry_addressed"],
+            },
+        },
+    },
 }
