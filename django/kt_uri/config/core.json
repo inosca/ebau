@@ -24820,6 +24820,21 @@
   },
   {
     "model": "core.instanceresource",
+    "pk": 2000004,
+    "fields": {
+      "available_instance_resource": "editnotice",
+      "resource": 302,
+      "name": "Rückmeldung Gemeindezirkulation",
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 7,
+      "form_group": 161
+    }
+  },
+  {
+    "model": "core.instanceresource",
     "pk": 12000000,
     "fields": {
       "available_instance_resource": "editformpage",
@@ -28108,6 +28123,18 @@
       "edit_notice_template": null,
       "hide_answered_notices": 0,
       "is_always_editable": 1
+    }
+  },
+  {
+    "model": "core.ireditnotice",
+    "pk": 2000004,
+    "fields": {
+      "circulation_type": 61,
+      "editable_after_deadline": 0,
+      "pdf_class": null,
+      "edit_notice_template": null,
+      "hide_answered_notices": 0,
+      "is_always_editable": 0
     }
   },
   {
@@ -37942,6 +37969,42 @@
   },
   {
     "model": "core.irroleacl",
+    "pk": 2000050,
+    "fields": {
+      "instance_resource": 180010,
+      "role": 1102,
+      "instance_state": 32
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000051,
+    "fields": {
+      "instance_resource": 2000000,
+      "role": 1102,
+      "instance_state": 32
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000052,
+    "fields": {
+      "instance_resource": 367,
+      "role": 1102,
+      "instance_state": 32
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000053,
+    "fields": {
+      "instance_resource": 2000004,
+      "role": 1102,
+      "instance_state": 32
+    }
+  },
+  {
+    "model": "core.irroleacl",
     "pk": 12000000,
     "fields": {
       "instance_resource": 46,
@@ -44199,7 +44262,7 @@
     "model": "core.remberlist",
     "pk": 302,
     "fields": {
-      "instance_states": "23"
+      "instance_states": "32,23"
     }
   },
   {

@@ -15,51 +15,71 @@ def test_migrate_gemeinderat_services(
     attachment_factory,
 ):
 
-    service_extern = service_factory(name="Gemeinderat Altdorf externe Pendenz")
-    service_intern = service_factory(name="Gemeinderat Altdorf interne Pendenz")
-    service_group_extern = service_group_factory(
-        name="Gemeinderat Altdorf externe Pendenzen"
-    )
-    service_group_intern = service_group_factory(
-        name="Gemeinderat Altdorf interne Pendenzen"
-    )
-    group_extern = group_factory(name="Gemeinderat Altdorf externe Pendenz")
-    group_intern = group_factory(name="Gemeinderat Altdorf interne Pendenz")
-    user = user_factory()
-    user_group = user_group_factory(group_id=group_intern.pk, user_id=user.pk)
+    services_extern = []
+    services_intern = []
+    service_groups_extern = []
+    service_groups_intern = []
+    groups_extern = []
+    groups_intern = []
+    for municipality in ["Altdorf", "Andermatt"]:
+        services_extern.append(
+            service_factory(name=f"Gemeinderat {municipality} externe Pendenz")
+        )
+        services_intern.append(
+            service_factory(name=f"Gemeinderat {municipality} interne Pendenz")
+        )
+        service_groups_extern.append(
+            service_group_factory(name=f"Gemeinderat {municipality} externe Pendenzen")
+        )
+        service_groups_intern.append(
+            service_group_factory(name=f"Gemeinderat {municipality} interne Pendenzen")
+        )
+        groups_extern.append(
+            group_factory(name=f"Gemeinderat {municipality} externe Pendenz")
+        )
+        groups_intern.append(
+            group_factory(name=f"Gemeinderat {municipality} interne Pendenz")
+        )
+
+    # test user 1 is in two internal groups
+    user_group = user_group_factory(group=groups_intern[0])
+    user_group_factory(group=groups_intern[1], user=user_group.user)
+    # test user 1 is in internal and external group
+    user_group_2 = user_group_factory(group=groups_intern[0])
+    user_group_factory(group=groups_extern[0], user=user_group_2.user)
     activation = activation_factory(
-        circulation=circulation_factory(), service_id=service_intern.pk
+        circulation=circulation_factory(), service=services_intern[0]
     )
-    attachment = attachment_factory(service_id=service_intern.pk)
+    attachment = attachment_factory(service_id=services_intern[0].pk)
 
     call_command("migrate_gemeinderaete")
 
-    service_extern.refresh_from_db()
-    service_group_extern.refresh_from_db()
-    group_extern.refresh_from_db()
-    user_group.refresh_from_db()
-    activation.refresh_from_db()
-    attachment.refresh_from_db()
-    try:
-        service_intern.refresh_from_db()
-    except Service.DoesNotExist:
-        service_intern = None
-    try:
-        service_group_intern.refresh_from_db()
-    except ServiceGroup.DoesNotExist:
-        service_group_intern = None
-    try:
-        group_intern.refresh_from_db()
-    except Group.DoesNotExist:
-        group_intern = None
+    for obj in (
+        services_extern
+        + service_groups_extern
+        + groups_extern
+        + [user_group, activation, attachment]
+    ):
+        obj.refresh_from_db()
 
-    assert service_extern.name == "Gemeinderat Altdorf Pendenzen"
-    assert service_group_extern.name == "Gemeinderat Altdorf Pendenzen"
-    assert group_extern.name == "Gemeinderat Altdorf Pendenzen"
-    assert user_group.group_id == group_extern.pk
-    assert activation.service_id == service_extern.pk
-    assert attachment.service_id == service_extern.pk
-    assert not service_intern
-    assert not service_group_intern
-    assert not group_intern
-    assert user_group.group.name == "Gemeinderat Altdorf Pendenzen"
+    assert not Service.objects.filter(pk__in=[s.pk for s in services_intern]).exists()
+    assert not ServiceGroup.objects.filter(
+        pk__in=[s.pk for s in service_groups_intern]
+    ).exists()
+    assert not Group.objects.filter(pk__in=[g.pk for g in groups_intern]).exists()
+
+    assert services_extern[0].name == "Gemeinderat Altdorf Pendenzen"
+    assert services_extern[1].name == "Gemeinderat Andermatt Pendenzen"
+
+    assert service_groups_extern[0].name == "Gemeinderat Altdorf Pendenzen"
+    assert groups_extern[0].name == "Gemeinderat Altdorf Pendenzen"
+
+    assert list(user_group.user.groups.values_list("group_id", flat=True)) == [
+        g.pk for g in groups_extern
+    ]
+    assert list(user_group_2.user.groups.values_list("group_id", flat=True)) == [
+        groups_extern[0].pk
+    ]
+
+    assert activation.service_id == services_extern[0].pk
+    assert attachment.service_id == services_extern[0].pk
