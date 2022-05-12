@@ -2,6 +2,7 @@ from django.core.management.base import BaseCommand
 from django.db import transaction
 from django.db.models import Value
 from django.db.models.functions import Replace
+from django.db.utils import IntegrityError
 
 from camac.core.models import Activation
 from camac.document.models import Attachment
@@ -45,16 +46,15 @@ class Command(BaseCommand):
         users = User.objects.filter(groups__name__contains="interne Pendenz")
 
         for user in users:
-            if not user.groups.filter(name__contains="Pendenzen"):
-                group_name = (
-                    user.groups.filter(name__contains="interne Pendenz").first().name
-                )
+            for group in user.groups.filter(name__contains="interne Pendenz"):
                 new_group = Group.objects.get(
-                    name__contains=f"{' '.join(group_name.split(' ', 2)[:2])} Pendenzen"
+                    name__contains=f"{' '.join(group.name.split(' ', 2)[:2])} Pendenzen"
                 )
-                user.groups.through.objects.filter(
-                    group__name__contains="interne Pendenz"
-                ).update(group_id=new_group.pk)
+
+                if not user.groups.filter(group_id=new_group.pk).exists():
+                    user.groups.through.objects.filter(user=user, group=group).update(
+                        group_id=new_group.pk
+                    )
 
         # Assign all existing activations with service intern to new service
         services_intern = Service.objects.filter(name__contains="interne Pendenz")
