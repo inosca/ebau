@@ -43,7 +43,7 @@ export default class DecisionSubmitPartialComponent extends Component {
             type: "notification-template-sendmails",
             attributes: {
               "template-slug": "08-entscheid-behoerden",
-              "recipient-types": ["leitbehoerde", "service"],
+              "recipient-types": ["leitbehoerde", "involved_in_distribution"],
             },
             relationships: {
               instance: {

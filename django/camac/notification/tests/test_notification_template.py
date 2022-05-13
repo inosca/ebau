@@ -345,7 +345,6 @@ def test_notification_template_sendmail(
                     "applicant",
                     "municipality",
                     "leitbehoerde",
-                    "service",
                     "unnotified_service",
                     "activation_service_parent",
                     "caluma_municipality",
@@ -361,7 +360,7 @@ def test_notification_template_sendmail(
     response = admin_client.post(url, data=data)
     assert response.status_code == status_code
     if status_code == status.HTTP_204_NO_CONTENT:
-        assert len(mailoutbox) == 6
+        assert len(mailoutbox) == 5
 
         # recipient types are sorted alphabetically
         assert [(m.to, m.cc) for m in mailoutbox] == [
@@ -382,10 +381,6 @@ def test_notification_template_sendmail(
                 [responsible_email],
                 ["service@example.com", "service2@example.com"],
             ),  # municipality
-            (
-                [responsible_email],
-                ["service@example.com", "service2@example.com"],
-            ),  # service
         ]
         assert (
             mailoutbox[0].subject
@@ -440,14 +435,7 @@ def test_notification_template_sendmail_rsta_forms(
             "attributes": {
                 "template-slug": notification_template.slug,
                 "body": "Test body",
-                "recipient-types": [
-                    "municipality",
-                    "leitbehoerde",
-                    "service",
-                    "unnotified_service",
-                    "activation_service_parent",
-                    "caluma_municipality",
-                ],
+                "recipient-types": ["leitbehoerde"],
             },
             "relationships": {
                 "instance": {
@@ -509,7 +497,7 @@ def test_notification_template_sendmail_koor(
             "attributes": {
                 "template-slug": notification_template.slug,
                 "body": "Test body",
-                "recipient-types": ["service"],
+                "recipient-types": ["municipality"],
             },
             "relationships": {
                 "instance": {"data": {"type": "instances", "id": ur_instance.pk}},
@@ -1082,42 +1070,6 @@ def test_recipient_type_lisag(db, instance, group):
     serializer = serializers.NotificationTemplateSendmailSerializer()
     res = serializer._get_recipients_lisag(instance)
     assert res == [{"to": group.email}]
-
-
-def test_recipient_exclude_uninvolved_service(
-    db,
-    be_instance,
-    activation,
-    group,
-    user,
-    notification_template,
-    service,
-    application_settings,
-):
-    application_settings["CIRCULATION_ANSWER_UNINVOLVED"] = "not_concerned"
-
-    activation.circulation_answer.name = "not_concerned"
-    activation.circulation_answer.save()
-
-    data = {
-        "recipient_types": ["service"],
-        "notification_template": {
-            "type": "notification-templates",
-            "id": notification_template.pk,
-        },
-        "instance": {"id": be_instance.pk, "type": "instances"},
-    }
-    context = {"request": FakeRequest(group=group, user=user)}
-
-    serializer = PermissionlessNotificationTemplateSendmailSerializer(
-        data=data, context=context
-    )
-    serializer.is_valid(raise_exception=True)
-    serializer.save()
-
-    res = serializer._get_recipients_service(be_instance)
-
-    assert res == []
 
 
 @pytest.mark.parametrize(
