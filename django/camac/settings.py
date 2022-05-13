@@ -6,6 +6,7 @@ from datetime import timedelta
 from importlib import import_module
 
 import environ
+from deepmerge import always_merger
 from django.db.models.expressions import Q
 from django.utils.translation import gettext_lazy
 
@@ -1207,13 +1208,19 @@ APPLICATIONS = {
                 },
                 {
                     "template_slug": "11-meldung-selbstdeklaration-baukontrolle",
-                    "recipient_types": ["construction_control", "service"],
+                    "recipient_types": [
+                        "construction_control",
+                        "involved_in_distribution",
+                    ],
                 },
             ],
             "FINALIZE": [
                 {
                     "template_slug": "13-meldung-termine-pflichtkontrollen-baukontrolle",
-                    "recipient_types": ["construction_control", "service"],
+                    "recipient_types": [
+                        "construction_control",
+                        "involved_in_distribution",
+                    ],
                 }
             ],
             "APPLICANT": {
@@ -1231,7 +1238,7 @@ APPLICATIONS = {
                 },
                 {
                     "template_slug": "08-entscheid-behoerden",
-                    "recipient_types": ["leitbehoerde", "service"],
+                    "recipient_types": ["leitbehoerde", "involved_in_distribution"],
                 },
             ],
             "DECISION_PRELIMINARY_CLARIFICATION": [
@@ -1241,7 +1248,7 @@ APPLICATIONS = {
                 },
                 {
                     "template_slug": "08-stellungnahme-zu-voranfrage-behoerden",
-                    "recipient_types": ["leitbehoerde", "service"],
+                    "recipient_types": ["leitbehoerde", "involved_in_distribution"],
                 },
             ],
             "ECH_KIND_OF_PROCEEDINGS": [
@@ -3218,7 +3225,12 @@ def load_module_settings(module_name):
         import_module(f"camac.settings_{module_name.lower()}"), module_name.upper()
     )
     app_config = module.get(APPLICATION_NAME, {})
-    return {**module["default"], **app_config} if app_config.get("ENABLED") else {}
+
+    return (
+        always_merger.merge(module["default"], app_config)
+        if app_config.get("ENABLED")
+        else {}
+    )
 
 
 DISTRIBUTION = load_module_settings("distribution")
