@@ -308,7 +308,7 @@ class FormDataValidator(object):
 
                             names.append(f"{firma}\n{name}")
 
-                            if question["slug"] == "bauherrschaft":
+                            if "bauherrschaft" in question["slug"]:
                                 bauherrschaft["people"].append(
                                     {
                                         "firma": firma,
