@@ -22,19 +22,19 @@ from .test_master_data import add_answer, add_table_answer, be_master_data_case 
 
 
 @pytest.fixture
-def status_question(distribution_settings):
-    return Question.objects.get(pk=distribution_settings["QUESTIONS"]["STATUS"])
+def status_question(be_distribution_settings):
+    return Question.objects.get(pk=be_distribution_settings["QUESTIONS"]["STATUS"])
 
 
 @pytest.fixture
-def stellungnahme_question(distribution_settings):
-    return Question.objects.get(pk=distribution_settings["QUESTIONS"]["STATEMENT"])
+def stellungnahme_question(be_distribution_settings):
+    return Question.objects.get(pk=be_distribution_settings["QUESTIONS"]["STATEMENT"])
 
 
 @pytest.fixture
-def nebenbestimmungen_question(distribution_settings):
+def nebenbestimmungen_question(be_distribution_settings):
     return Question.objects.get(
-        pk=distribution_settings["QUESTIONS"]["ANCILLARY_CLAUSES"]
+        pk=be_distribution_settings["QUESTIONS"]["ANCILLARY_CLAUSES"]
     )
 
 

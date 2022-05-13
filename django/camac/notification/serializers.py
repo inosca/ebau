@@ -11,7 +11,7 @@ from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_workflow import models as caluma_workflow_models
 from django.conf import settings
 from django.core.mail import EmailMessage, get_connection
-from django.db.models import Q, Sum
+from django.db.models import Exists, OuterRef, Q, Sum
 from django.utils import timezone, translation
 from django.utils.text import slugify
 from rest_framework import exceptions
@@ -755,7 +755,6 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             "applicant",
             "municipality",
             "caluma_municipality",
-            "service",
             "leitbehoerde",
             "construction_control",
             "email_list",
@@ -763,6 +762,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             "unnotified_service",
             "activation_service_parent",
             # New circulation (BE, SZ)
+            "involved_in_distribution",
             "inquiry_deadline_yesterday",
             "unanswered_inquiries",
             "inquiry_addressed",
@@ -926,16 +926,45 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             ]
         )
 
-    def _get_recipients_service(self, instance):
-        activations = Activation.objects.filter(circulation__instance=instance).exclude(
-            circulation_answer__name=settings.APPLICATION.get(
-                "CIRCULATION_ANSWER_UNINVOLVED", None
-            )
+    def _get_recipients_involved_in_distribution(self, instance):
+        if not settings.DISTRIBUTION:  # pragma: no cover
+            return []
+
+        inquiries = caluma_workflow_models.WorkItem.objects.filter(
+            task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
+            case__family__instance=instance,
+        ).exclude(
+            status__in=[
+                caluma_workflow_models.WorkItem.STATUS_SUSPENDED,
+                caluma_workflow_models.WorkItem.STATUS_CANCELED,
+            ],
         )
-        services = Service.objects.filter(pk__in=activations.values("service"))
+
+        not_involved_answer = (
+            settings.DISTRIBUTION["ANSWERS"].get("STATUS", {}).get("NOT_INVOLVED")
+        )
+
+        if not_involved_answer:
+            # don't involve services that responded the inquiry with "not involved"
+            inquiries = inquiries.exclude(
+                Exists(
+                    caluma_form_models.Answer.objects.filter(
+                        document__case__parent_work_item=OuterRef("pk"),
+                        question_id=settings.DISTRIBUTION["QUESTIONS"]["STATUS"],
+                        value=not_involved_answer,
+                    )
+                )
+            )
+
+        addressed_groups = inquiries.values_list("addressed_groups", flat=True)
 
         return flatten(
-            [self._get_responsible(instance, service) for service in services]
+            [
+                self._get_responsible(instance, service)
+                for service in Service.objects.filter(
+                    pk__in=list(chain(*addressed_groups))
+                )
+            ]
         )
 
     def _get_recipients_inquiry_deadline_yesterday(self, instance):
