@@ -2691,7 +2691,7 @@
       "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
-        "max_length": 30
+        "max_length": null
       },
       "meta": {},
       "data_source": null,
