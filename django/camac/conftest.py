@@ -20,6 +20,7 @@ from caluma.caluma_workflow import (
     factories as caluma_workflow_factories,
     models as caluma_workflow_models,
 )
+from deepmerge import always_merger
 from django.conf import settings
 from django.core.cache import cache
 from django.core.management import call_command
@@ -976,6 +977,15 @@ def decision_factory(be_instance, document_factory, work_item_factory):
 @pytest.fixture
 def distribution_settings(settings):
     distribution_dict = copy.deepcopy(DISTRIBUTION["default"])
+    settings.DISTRIBUTION = distribution_dict
+    return distribution_dict
+
+
+@pytest.fixture
+def be_distribution_settings(settings, distribution_settings):
+    distribution_dict = copy.deepcopy(
+        always_merger.merge(distribution_settings, DISTRIBUTION["kt_bern"])
+    )
     settings.DISTRIBUTION = distribution_dict
     return distribution_dict
 

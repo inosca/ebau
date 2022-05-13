@@ -15,15 +15,21 @@ DISTRIBUTION = {
         "QUESTIONS": {
             "DEADLINE": "inquiry-deadline",
             "STATUS": "inquiry-answer-status",
-            "STATEMENT": "inquiry-answer-statement",
-            "ANCILLARY_CLAUSES": "inquiry-answer-ancillary-clauses",
         },
+        "ANSWERS": {},
         "NOTIFICATIONS": {},
         "SUGGESTIONS": [],
         "DEFAULT_SUGGESTIONS": [],
     },
     "kt_bern": {
         "ENABLED": True,
+        "QUESTIONS": {
+            "STATEMENT": "inquiry-answer-statement",
+            "ANCILLARY_CLAUSES": "inquiry-answer-ancillary-clauses",
+        },
+        "ANSWERS": {
+            "STATUS": {"NOT_INVOLVED": "inquiry-answer-status-not-involved"},
+        },
         "NOTIFICATIONS": {
             "INQUIRY_SENT": {
                 "template_slug": "03-verfahrensablauf-fachstelle",
