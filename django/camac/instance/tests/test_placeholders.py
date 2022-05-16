@@ -100,6 +100,9 @@ def test_dms_placeholders(
         meta={"is-published": True},
     )
 
+    # Modification
+    add_answer(document, "beschreibung-projektaenderung", "Umbau Haus in Garage")
+
     # Neighbors
     information_of_neighbors_document = DocumentFactory(
         pk="5a498238-6af4-472b-bc3c-83a4848ed6cc"

@@ -40,6 +40,7 @@ snapshots['test_master_data[kt_bern-de-be_master_data_case-select_related0-prefe
     'construction_costs': 199000,
     'construction_start_date': None,
     'decision_date': None,
+    'description_modification': 'Doch eher kleines Haus',
     'development_regulations': 'Überbauung XY',
     'dossier_number': '2021-1',
     'final_approval_date': None,
@@ -76,7 +77,6 @@ snapshots['test_master_data[kt_bern-de-be_master_data_case-select_related0-prefe
             'zip': 3008
         }
     ],
-    'modification': 'Doch eher kleines Haus',
     'monument_contract': {
         'label': 'Ja',
         'slug': 'vertrag-ja'
@@ -202,6 +202,7 @@ snapshots['test_master_data[kt_bern-fr-be_master_data_case-select_related1-prefe
     'construction_costs': 199000,
     'construction_start_date': None,
     'decision_date': None,
+    'description_modification': 'Doch eher kleines Haus',
     'development_regulations': 'Überbauung XY',
     'dossier_number': '2021-1',
     'final_approval_date': None,
@@ -238,7 +239,6 @@ snapshots['test_master_data[kt_bern-fr-be_master_data_case-select_related1-prefe
             'zip': 3008
         }
     ],
-    'modification': 'Doch eher kleines Haus',
     'monument_contract': {
         'label': 'Ja',
         'slug': 'vertrag-ja'

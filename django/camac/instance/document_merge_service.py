@@ -133,7 +133,7 @@ class DMSHandler:
                 "inputDateHeader": master_data.submit_date,
                 "paperInputDateHeader": master_data.paper_submit_date,
                 "descriptionHeader": master_data.proposal,
-                "modificationHeader": master_data.modification,
+                "modificationHeader": master_data.description_modification,
             }
 
             data.update(get_header_labels())
