@@ -22,7 +22,6 @@ from django.core.cache import cache
 from django.core.management import call_command
 from django.test import override_settings
 from django.urls import path
-from django.utils import timezone
 from django.views.generic import RedirectView
 from factory import Faker
 from factory.base import FactoryMetaClass
@@ -407,24 +406,6 @@ def unoconv_invalid_mock(requests_mock):
         "POST",
         build_url(settings.UNOCONV_URL, "/unoconv/invalid"),
         status_code=status.HTTP_400_BAD_REQUEST,
-    )
-
-
-@pytest.fixture
-def nfd_completion_date(
-    activation, camac_question_factory, camac_chapter_factory, activation_answer_factory
-):
-    """Return a sample nfd completion date.
-
-    In Uri the nfd completion date gets set after a service has completed the
-    "Nachforderung" process on an instance with an activation.
-    """
-    return activation_answer_factory(
-        chapter=camac_chapter_factory(pk=41),
-        question=camac_question_factory(pk=243),
-        item=1,
-        activation=activation,
-        answer=timezone.now(),
     )
 
 
