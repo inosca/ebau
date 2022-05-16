@@ -173,7 +173,7 @@ CALUMA_FORM_MAPPING = {
     FORM_PGV_KANTONSSTRASSE: "pgv-kantonsstrasse",
     FORM_PGV_GEMEINDESTRASSE: "pgv-gemeindestrasse",
     FORM_PGV_KORPORATIONSSTRASSE: "pgv-korporationsstrasse",
-    FORM_PGV_NATIONALSTRASSE: "pgv-nationalstrasse",
+    FORM_PGV_NATIONALSTRASSE: "pgv-nationalstrassen",
     FORM_PGV_VEREINFACHT: "pgv-vereinfachtes-verfahren",
     FORM_PGV_OEFFENTLICHE_GEWAESSER: "pgv-oeffentliche-gewaesser",
     FORM_PGV_PRIVATE_GEWAESSER: "pgv-private-gewaesser",
