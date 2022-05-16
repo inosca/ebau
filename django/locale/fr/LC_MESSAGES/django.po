@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-07 18:48+0200\n"
+"POT-Creation-Date: 2022-06-07 18:59+0200\n"
 "PO-Revision-Date: 2021-12-22 17:54+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -239,7 +239,7 @@ msgid "Meta data file in archive is missing required columns %(missing)s."
 msgstr ""
 "Le fichie des metadonnées manque des colonnes obligatoires:  %(missing)s."
 
-#: camac/ech0211/send_handlers.py:576 camac/settings.py:1295
+#: camac/ech0211/send_handlers.py:576 camac/settings.py:1302
 msgid "Circulation started"
 msgstr "Procédure de circulation lancée"
 
@@ -550,7 +550,17 @@ msgstr "Office spécialisé impliquée"
 msgid "Tags"
 msgstr "Mots-clés"
 
-#: camac/notification/serializers.py:1108
+#: camac/notification/serializers.py:382
+#, python-format
+msgid "%(pending)d of %(total)d inquries are still pending."
+msgstr "%(pending)d de %(total)d prises de position sont toujours en attente."
+
+#: camac/notification/serializers.py:385
+#, python-format
+msgid "All %(total)d inquries were received."
+msgstr "Tous les %(total)d prises de position ont été reçues."
+
+#: camac/notification/serializers.py:1135
 #, python-format
 msgid "Notification sent to %(receiver)s (%(subject)s)"
 msgstr "Notification envoyée à %(receiver)s (%(subject)s)"
@@ -567,11 +577,11 @@ msgstr ""
 msgid "Objection %(objection) already has a representative"
 msgstr ""
 
-#: camac/settings.py:1304
+#: camac/settings.py:1311
 msgid "Circulation completed"
 msgstr "Procédure de circulation close"
 
-#: camac/settings.py:1318
+#: camac/settings.py:1325
 msgid "Procedure completed"
 msgstr "Procédure de demande de permis de construire complétée"
 
