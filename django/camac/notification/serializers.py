@@ -18,7 +18,7 @@ from rest_framework import exceptions
 from rest_framework_json_api import serializers
 
 from camac.caluma.api import CalumaApi
-from camac.constants import kt_bern as be_constants, kt_uri as uri_constants
+from camac.constants import kt_uri as uri_constants
 from camac.core.models import (
     Activation,
     Answer,
@@ -126,15 +126,20 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     # TODO: these is currently bern specific, as it depends on instance state
     # identifiers. This will likely need some client-specific switch logic
     # some time in the future
-    total_activations = serializers.SerializerMethodField()
-    completed_activations = serializers.SerializerMethodField()
-    pending_activations = serializers.SerializerMethodField()
-    activation_statement_de = serializers.SerializerMethodField()
-    activation_statement_fr = serializers.SerializerMethodField()
-    activation_answer_de = serializers.SerializerMethodField()
-    activation_answer_fr = serializers.SerializerMethodField()
+    distribution_status_de = serializers.SerializerMethodField()
+    distribution_status_fr = serializers.SerializerMethodField()
+    inquiry_answer_de = serializers.SerializerMethodField()
+    inquiry_answer_fr = serializers.SerializerMethodField()
 
-    def __init__(self, *args, instance=None, activation=None, escape=False, **kwargs):
+    def __init__(
+        self,
+        *args,
+        instance=None,
+        activation=None,
+        inquiry=None,
+        escape=False,
+        **kwargs,
+    ):
         if instance:
             self.escape = escape
 
@@ -151,6 +156,8 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
                 )
 
             instance.activations = Activation.objects.filter(**lookup)
+
+        self.inquiry = inquiry
 
         super().__init__(*args, instance=instance, **kwargs)
 
@@ -341,56 +348,58 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         except KeyError:
             return "-"
 
-    def get_activation_statement_de(self, instance):
-        return self._get_activation_statement(instance, "de")
+    def get_distribution_status_de(self, instance):
+        return self._get_distribution_status(instance, "de")
 
-    def get_activation_statement_fr(self, instance):
-        return self._get_activation_statement(instance, "fr")
+    def get_distribution_status_fr(self, instance):
+        return self._get_distribution_status(instance, "fr")
 
-    def _get_activation_statement(self, instance, language):
-        if not getattr(self, "circulation", None):
+    def _get_distribution_status(self, instance, language):
+        if not settings.DISTRIBUTION or not self.inquiry:
             return ""
 
-        total = self.get_total_activations(instance)
-        pending = self.get_pending_activations(instance)
+        all_inquiries = caluma_workflow_models.WorkItem.objects.filter(
+            task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
+            case__family__instance=instance,
+            controlling_groups=self.inquiry.controlling_groups,
+        ).exclude(
+            status__in=[
+                caluma_workflow_models.WorkItem.STATUS_SUSPENDED,
+                caluma_workflow_models.WorkItem.STATUS_CANCELED,
+            ]
+        )
+        all_inquiries_count = all_inquiries.count()
+        pending_inquiries_count = all_inquiries.filter(
+            status=caluma_workflow_models.WorkItem.STATUS_READY
+        ).count()
 
-        try:
-            created = date.fromtimestamp(int(self.circulation.name)).strftime(
-                "%d.%m.%Y"
-            )
-            circulation_name = {"de": f" vom {created}", "fr": f" du {created}"}
-        except ValueError:  # pragma: no cover
-            circulation_name = {"de": "", "fr": ""}
-
-        if total == 0:  # pragma: no cover (this should never happen)
-            return ""
-        elif pending == 0:
-            message = {
-                "de": f"Alle {total} Stellungnahmen der Zirkulation{circulation_name.get('de')} sind nun eingegangen.",
-                "fr": f"Tous les {total} prises de position de la circulation{circulation_name.get('fr')} ont été reçues.",
-            }
-        else:  # pending > 0:
-            message = {
-                "de": f"{pending} von {total} Stellungnahmen der Zirkulation{circulation_name.get('de')} stehen noch aus.",
-                "fr": f"{pending} de {total} prises de position de la circulation{circulation_name.get('fr')} sont toujours en attente.",
-            }
-
-        return message.get(language)
-
-    def get_activation_answer_de(self, instance):
-        return self._get_activation_answer(instance, "de")
-
-    def get_activation_answer_fr(self, instance):
-        return self._get_activation_answer(instance, "fr")
-
-    def _get_activation_answer(self, instance, language):
-        if (
-            not getattr(self, "activation", None)
-            or not self.activation.circulation_answer
-        ):
+        if not all_inquiries.exists():  # pragma: no cover (this should never happen)
             return ""
 
-        return self.activation.circulation_answer.get_trans_attr("name", lang=language)
+        with translation.override(language):
+            return (
+                translation.gettext(
+                    "%(pending)d of %(total)d inquries are still pending."
+                )
+                if pending_inquiries_count > 0
+                else translation.gettext("All %(total)d inquries were received.")
+            ) % {"total": all_inquiries_count, "pending": pending_inquiries_count}
+
+    def get_inquiry_answer_de(self, instance):
+        return self._get_inquiry_answer("de")
+
+    def get_inquiry_answer_fr(self, instance):
+        return self._get_inquiry_answer("fr")
+
+    def _get_inquiry_answer(self, language):
+        if not self.inquiry or not settings.DISTRIBUTION:
+            return ""
+
+        answer = self.inquiry.child_case.document.answers.filter(
+            question_id=settings.DISTRIBUTION["QUESTIONS"]["STATUS"]
+        ).first()
+
+        return answer.selected_options[0].label.get(language) if answer else ""
 
     def get_form_name_de(self, instance):
         return CalumaApi().get_form_name(instance).de or ""
@@ -531,19 +540,6 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             )
 
         return objections
-
-    def get_total_activations(self, instance):
-        return instance.activations.count()
-
-    def get_completed_activations(self, instance):
-        return instance.activations.filter(
-            circulation_state_id=be_constants.CIRCULATION_STATE_DONE
-        ).count()
-
-    def get_pending_activations(self, instance):
-        return instance.activations.filter(
-            circulation_state_id=be_constants.CIRCULATION_STATE_WORKING
-        ).count()
 
     def _get_answer_value_or_date(self, answer):
         if answer.question.type in [
@@ -698,15 +694,10 @@ class NotificationTemplateMergeSerializer(
     subject = serializers.CharField(required=False)
     body = serializers.CharField(required=False)
 
-    def _merge(self, value, instance, activation=None):
+    def _merge(self, value, data):
         try:
             value_template = jinja2.Template(value)
-            data = InstanceMergeSerializer(
-                instance=instance, context=self.context, activation=activation
-            ).data
 
-            # some cantons use uppercase placeholders. be as compatible as possible
-            data.update({k.upper(): v for k, v in data.items()})
             return value_template.render(data)
         except jinja2.TemplateError as e:
             raise exceptions.ValidationError(str(e))
@@ -714,17 +705,24 @@ class NotificationTemplateMergeSerializer(
     def validate(self, data):
         notification_template = data["notification_template"]
         instance = data["instance"]
-        activation = data.get("activation")
+
+        placeholder_data = InstanceMergeSerializer(
+            instance=instance,
+            context=self.context,
+            activation=data.get("activation"),
+            inquiry=data.get("inquiry"),
+        ).data
+
+        # some cantons use uppercase placeholders. be as compatible as possible
+        placeholder_data.update({k.upper(): v for k, v in placeholder_data.items()})
 
         data["subject"] = self._merge(
             data.get("subject", notification_template.get_trans_attr("subject")),
-            instance,
-            activation=activation,
+            placeholder_data,
         )
         data["body"] = self._merge(
             data.get("body", notification_template.get_trans_attr("body")),
-            instance,
-            activation=activation,
+            placeholder_data,
         )
         data["pk"] = "{0}-{1}".format(notification_template.slug, instance.pk)
 

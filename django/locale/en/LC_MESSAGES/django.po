@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-07 18:48+0200\n"
+"POT-Creation-Date: 2022-06-07 18:59+0200\n"
 "PO-Revision-Date: 2020-02-28 14:55+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -206,7 +206,7 @@ msgstr ""
 msgid "Meta data file in archive is missing required columns %(missing)s."
 msgstr ""
 
-#: camac/ech0211/send_handlers.py:576 camac/settings.py:1295
+#: camac/ech0211/send_handlers.py:576 camac/settings.py:1302
 msgid "Circulation started"
 msgstr ""
 
@@ -514,7 +514,17 @@ msgstr ""
 msgid "Tags"
 msgstr ""
 
-#: camac/notification/serializers.py:1108
+#: camac/notification/serializers.py:382
+#, python-format
+msgid "%(pending)d of %(total)d inquries are still pending."
+msgstr ""
+
+#: camac/notification/serializers.py:385
+#, python-format
+msgid "All %(total)d inquries were received."
+msgstr ""
+
+#: camac/notification/serializers.py:1135
 #, python-format
 msgid "Notification sent to %(receiver)s (%(subject)s)"
 msgstr ""
@@ -531,11 +541,11 @@ msgstr ""
 msgid "Objection %(objection) already has a representative"
 msgstr ""
 
-#: camac/settings.py:1304
+#: camac/settings.py:1311
 msgid "Circulation completed"
 msgstr ""
 
-#: camac/settings.py:1318
+#: camac/settings.py:1325
 msgid "Procedure completed"
 msgstr ""
 
