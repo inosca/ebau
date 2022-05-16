@@ -4861,7 +4861,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 2,
+      "sort": 5,
       "form_group": 1
     }
   },
@@ -4876,7 +4876,7 @@
       "template": "/ember/instance.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 1,
+      "sort": 2,
       "form_group": 1
     }
   },
@@ -4891,7 +4891,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 4,
+      "sort": 11,
       "form_group": 1
     }
   },
@@ -4906,7 +4906,7 @@
       "template": null,
       "class_field": null,
       "hidden": 1,
-      "sort": 11,
+      "sort": 25,
       "form_group": 1
     }
   },
@@ -4921,7 +4921,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 5,
+      "sort": 14,
       "form_group": 1
     }
   },
@@ -4936,7 +4936,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 8,
+      "sort": 19,
       "form_group": 1
     }
   },
@@ -4951,7 +4951,7 @@
       "template": "/ember/instance.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 1,
+      "sort": 3,
       "form_group": 1
     }
   },
@@ -4966,7 +4966,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 2,
+      "sort": 6,
       "form_group": 1
     }
   },
@@ -4981,7 +4981,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 8,
+      "sort": 21,
       "form_group": 1
     }
   },
@@ -5026,7 +5026,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 4,
+      "sort": 12,
       "form_group": 1
     }
   },
@@ -5041,7 +5041,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 7,
+      "sort": 18,
       "form_group": 1
     }
   },
@@ -5056,7 +5056,7 @@
       "template": "/ember-camac-ng/responsible.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 7,
+      "sort": 17,
       "form_group": 1
     }
   },
@@ -5071,7 +5071,7 @@
       "template": "/ember-camac-ng/responsible.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 6,
+      "sort": 15,
       "form_group": 1
     }
   },
@@ -5086,7 +5086,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 14,
+      "sort": 30,
       "form_group": 1
     }
   },
@@ -5101,7 +5101,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 10,
+      "sort": 23,
       "form_group": 1
     }
   },
@@ -5116,7 +5116,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 10,
+      "sort": 24,
       "form_group": 1
     }
   },
@@ -5131,7 +5131,7 @@
       "template": "/ember-camac-ng/journal.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 15,
+      "sort": 32,
       "form_group": 1
     }
   },
@@ -5146,7 +5146,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 17,
+      "sort": 34,
       "form_group": 1
     }
   },
@@ -5191,7 +5191,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 18,
+      "sort": 35,
       "form_group": 1
     }
   },
@@ -5206,7 +5206,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 14,
+      "sort": 31,
       "form_group": 1
     }
   },
@@ -5221,7 +5221,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 3,
+      "sort": 9,
       "form_group": 1
     }
   },
@@ -5230,13 +5230,13 @@
     "pk": 34,
     "fields": {
       "available_instance_resource": "editformpage",
-      "resource": 15,
+      "resource": 28,
       "name": "Formular",
       "description": "Forumlar ansicht für Leserolle",
       "template": "/ember/instance.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 0,
+      "sort": 4,
       "form_group": 1
     }
   },
@@ -5245,13 +5245,13 @@
     "pk": 35,
     "fields": {
       "available_instance_resource": "apidocuments",
-      "resource": 15,
+      "resource": 28,
       "name": "Dokumente",
       "description": "Dokumente für Leserolle",
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 1,
+      "sort": 7,
       "form_group": 1
     }
   },
@@ -5260,13 +5260,13 @@
     "pk": 36,
     "fields": {
       "available_instance_resource": "integritydashboard",
-      "resource": 15,
+      "resource": 28,
       "name": "Vollständigkeitsprüfung",
       "description": "Vollständigkeitsprüfung für Leserolle",
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 2,
+      "sort": 10,
       "form_group": 1
     }
   },
@@ -5275,13 +5275,13 @@
     "pk": 37,
     "fields": {
       "available_instance_resource": "circulation",
-      "resource": 15,
+      "resource": 28,
       "name": "Stellungnahmen",
       "description": "Stellungsnahmen für Leserolle",
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 3,
+      "sort": 20,
       "form_group": 1
     }
   },
@@ -5296,7 +5296,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 5,
+      "sort": 13,
       "form_group": 1
     }
   },
@@ -5311,7 +5311,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 3,
+      "sort": 8,
       "form_group": 1
     }
   },
@@ -5326,7 +5326,7 @@
       "template": "/ember-camac-ng/journal.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 11,
+      "sort": 26,
       "form_group": 1
     }
   },
@@ -5341,7 +5341,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 13,
+      "sort": 29,
       "form_group": 1
     }
   },
@@ -5356,7 +5356,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 9,
+      "sort": 22,
       "form_group": 1
     }
   },
@@ -5371,7 +5371,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 6,
+      "sort": 16,
       "form_group": 1
     }
   },
@@ -5386,7 +5386,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 16,
+      "sort": 33,
       "form_group": 1
     }
   },
@@ -5416,7 +5416,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 0,
+      "sort": 1,
       "form_group": 1
     }
   },
@@ -5431,7 +5431,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 12,
+      "sort": 27,
       "form_group": 1
     }
   },
@@ -5446,7 +5446,7 @@
       "template": "/ember-camac-ng/gwr.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 19,
+      "sort": 36,
       "form_group": 1
     }
   },
@@ -5461,7 +5461,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 13,
+      "sort": 28,
       "form_group": 1
     }
   },
@@ -15981,14 +15981,6 @@
     }
   },
   {
-    "model": "core.rapilistcirculationtype",
-    "pk": 12,
-    "fields": {
-      "resource": 15,
-      "circulation_type": 1
-    }
-  },
-  {
     "model": "core.rapilistinstancestate",
     "pk": 20,
     "fields": {
@@ -16125,62 +16117,6 @@
     }
   },
   {
-    "model": "core.rapilistinstancestate",
-    "pk": 57,
-    "fields": {
-      "resource": 15,
-      "instance_state": 3
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 58,
-    "fields": {
-      "resource": 15,
-      "instance_state": 4
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 59,
-    "fields": {
-      "resource": 15,
-      "instance_state": 5
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 60,
-    "fields": {
-      "resource": 15,
-      "instance_state": 6
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 61,
-    "fields": {
-      "resource": 15,
-      "instance_state": 7
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 62,
-    "fields": {
-      "resource": 15,
-      "instance_state": 8
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 63,
-    "fields": {
-      "resource": 15,
-      "instance_state": 9
-    }
-  },
-  {
     "model": "core.remberlist",
     "pk": 27,
     "fields": {
@@ -16293,14 +16229,6 @@
     "fields": {
       "resource": 13,
       "role": 5
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 25,
-    "fields": {
-      "resource": 15,
-      "role": 10
     }
   },
   {
@@ -16584,6 +16512,14 @@
     }
   },
   {
+    "model": "core.rroleacl",
+    "pk": 88,
+    "fields": {
+      "resource": 28,
+      "role": 10
+    }
+  },
+  {
     "model": "core.resource",
     "pk": 7,
     "fields": {
@@ -16659,19 +16595,6 @@
       "class_field": null,
       "hidden": 0,
       "sort": 15
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 15,
-    "fields": {
-      "available_resource": "apilistinstance",
-      "name": "Gesuche",
-      "description": "Gesuche der Leserolle",
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 16
     }
   },
   {
