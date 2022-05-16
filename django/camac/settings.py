@@ -2483,14 +2483,6 @@ APPLICATIONS = {
                 "EXISTING": "02-gesuchsbearbeitungs-einladung-bestehend",
             },
         },
-        # The following services don't receive notifications if they have
-        # overdue circulation activations.
-        "NOTIFY_OVERDUE_EXCLUDED_SERVICES": [
-            88,  # ARE BaB Kreis 1
-            261,  # ARE BaB Kreis 2
-            262,  # ARE BaB Kreis 3
-            90,  # ARE NP
-        ],
         "HAS_EBAU_NUMBER": False,
         "HAS_GESUCHSNUMMER": False,
         "OIDC_SYNC_USER_ATTRIBUTES": [

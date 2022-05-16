@@ -5,7 +5,6 @@ from django.utils import timezone
 from factory import Faker, SubFactory, fuzzy
 from factory.django import DjangoModelFactory
 
-from camac.constants import kt_uri as constants
 from camac.instance.factories import InstanceFactory, InstanceStateFactory
 from camac.user.factories import (
     GroupFactory,
@@ -320,23 +319,6 @@ class CommissionAssignmentFactory(DjangoModelFactory):
 
     class Meta:
         model = models.CommissionAssignment
-
-
-class ActivationCallbackNoticeFactory(DjangoModelFactory):
-    activation = SubFactory(ActivationFactory)
-    circulation = SubFactory(CirculationFactory)
-    send_date = Faker("past_datetime", tzinfo=pytz.UTC)
-    reason = fuzzy.FuzzyChoice(
-        [
-            constants.NOTIFICATION_TEMPLATE_COMPLETION_DATE_FACHSTELLE,
-            constants.NOTIFICATION_TEMPLATE_COMPLETION_DATE_LEITBEHOERDE,
-            constants.NOTIFICATION_TEMPLATE_DEADLINE_DATE_FACHSTELLE,
-            constants.NOTIFICATION_TEMPLATE_DEADLINE_DATE_LEITBEHOERDE,
-        ]
-    )
-
-    class Meta:
-        model = models.ActivationCallbackNotice
 
 
 class SanctionFactory(DjangoModelFactory):

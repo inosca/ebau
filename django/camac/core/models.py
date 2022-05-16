@@ -1,12 +1,9 @@
 import json
 
-from dateutil.parser import parse
 from django.conf import settings
 from django.contrib.postgres.fields import ArrayField
 from django.db import models
 from django.utils import translation
-
-from camac.constants import kt_uri as constants
 
 
 class MultilingualModel:
@@ -627,28 +624,6 @@ class Activation(models.Model):
     )
     email_sent = models.PositiveSmallIntegerField(db_column="EMAIL_SENT", default=1)
     ech_msg_created = models.BooleanField(default=False)
-
-    @property
-    def nfd_completion_date(self):
-        """Return the nfd completion date.
-
-        In Uri if a dossier lacks the necessary information for a service to
-        give feedback, they can request "Nachforderungen" from the applicant.
-
-        During this period the activation tranistions in to the state "nfd".
-        Once the applicant has provided the necessary information, the service
-        will then mark the "Nachforderung" as completed which sets the
-        completion date.
-        """
-
-        chapter, question, item = constants.CQI_FOR_NFD_COMPLETION_DATE
-        answer = self.activationanswer_set.filter(
-            chapter__pk=chapter, question__pk=question, item=item
-        ).first()
-
-        if answer:
-            return parse(answer.answer)
-        return None
 
     class Meta:
         managed = True

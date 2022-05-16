@@ -241,54 +241,6 @@
   },
   {
     "model": "notification.notificationtemplate",
-    "pk": 1448,
-    "fields": {
-      "slug": "aktivierung-deadline-überzogen-fachstelle",
-      "purpose": "5.3 Info an Fachstelle - 2. Fristablauf 2 WO Aufforderung zur Stellungnahme",
-      "subject": "URec Dossier Nr. {{DOSSIER_NR}} Fristüberschreitung",
-      "body": "URec Info (automatisch generierte E-Mail von URec, bitte nicht darauf antworten)\r\n\r\nREMINDER - AUTOMATISCHER PENDENZENRÜCKRUF\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nIm URec wurde das Dossier Nr. {{DOSSIER_NR}} eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Die Frist (3 Wochen) ist am {{ACTIVATION.deadline_date}} abgelaufen und die Rückmeldung ist seit zwei Wochen überfällig. Wir bitten Sie, das Dossier umgehend zu erledigen. Ohne Rückmeldung innert Wochenfrist wird die Pendenz mit dem Eintrag «Keine Rückmeldung» als erledigt eingetragen und das Dossier abgeschlossen. Die Funktion AKTENNACHFORDERUNG ist deaktiviert.\r\n\r\nBei Fragen schreiben Sie uns bitte eine E-Mail an:\r\nraumplanung@ur.ch",
-      "service": null,
-      "type": "email"
-    }
-  },
-  {
-    "model": "notification.notificationtemplate",
-    "pk": 1449,
-    "fields": {
-      "slug": "aktivierung-nfd-vollständig-überzogen-fachstelle",
-      "purpose": "5.5 Info an Fachstelle - 2. Fristablauf 2 Wo nach Vollständigkeit Aufforderung zur Stellungnahme ",
-      "subject": "URec Dossier Nr. {{DOSSIER_NR}} Fristüberschreitung ",
-      "body": "URec Info (automatisch generierte E-Mail von URec, bitte nicht darauf antworten)\r\n\r\nREMINDER - AUTOMATISCHER PENDENZENRÜCKRUF\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nIm URec wurde das Dossier Nr. {{DOSSIER_NR}} eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Es wurden Unterlagen nachgefordert. Das Dossier ist seit dem {{ACTIVATION.nfd_completion_date}} vollständig und die neue Frist (2 Wochen) ist abgelaufen. Wir bitten Sie, das Dossier umgehend zu erledigen. Ohne Rückmeldung innert Wochenfrist wird die Pendenz mit dem Eintrag «Keine Rückmeldung» als erledigt eingetragen und das Dossier abgeschlossen. Die Funktion AKTENNACHFORDERUNG ist deaktiviert.\r\n\r\nBei Fragen schreiben Sie uns bitte eine E-Mail an:\r\nraumplanung@ur.ch\r\n",
-      "service": null,
-      "type": "email"
-    }
-  },
-  {
-    "model": "notification.notificationtemplate",
-    "pk": 1450,
-    "fields": {
-      "slug": "aktivierung-deadline-überzogen-leitbehoerde",
-      "purpose": "5.2 Info an Fachstelle - 1. Fristablauf 3 WO Aufforderung zur Stellungnahme",
-      "subject": "URec Dossier Nr. {{DOSSIER_NR}} Fristüberschreitung",
-      "body": "URec Info (automatisch generierte E-Mail von URec, bitte nicht darauf antworten)\r\n\r\nREMINDER - ÜEBERFÄLLIGE PENDENZ \r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nDas Dosser Nr. {{DOSSIER_NR}} wurde der Fachstelle {{ACTIVATION.service}} als Pendenz zugewiesen. Die Frist (3 Wochen) ist am {{ACTIVATION.deadline_date}} abgelaufen und die Rückmeldung ist seit drei Wochen überfällig. \r\n\r\nBei Fragen schreiben Sie uns bitte eine E-Mail an:\r\nraumplanung@ur.ch",
-      "service": null,
-      "type": "email"
-    }
-  },
-  {
-    "model": "notification.notificationtemplate",
-    "pk": 1451,
-    "fields": {
-      "slug": "aktivierung-nfd-vollständig-überzogen-leitbehoerde",
-      "purpose": "5.4 Info an Fachstelle - 1. Fristablauf 2 Wo nach Vollständigkeit Aufforderung zur Stellungnahme ",
-      "subject": "URec Dossier Nr. {{DOSSIER_NR}} Fristüberschreitung ",
-      "body": "URec Info (automatisch generierte E-Mail von URec, bitte nicht darauf antworten)\r\n\r\nREMINDER - AUTOMATISCHER PENDENZENRÜCKRUF\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nSie haben Dossier mit Nr. {{DOSSIER_NR}} der Fachstelle {{ACTIVATION.service}} als Pendenz zugewiesen. Es wurden Unterlagen nachgefordert. Das Dossier ist seit dem {{ACTIVATION.nfd_completion_date}} vollständig und die neue Frist ist seit 2 Wochen abgelaufen.\r\n\r\nBei Fragen schreiben Sie uns bitte eine E-Mail an:\r\nraumplanung@ur.ch",
-      "service": null,
-      "type": "email"
-    }
-  },
-  {
-    "model": "notification.notificationtemplate",
     "pk": 1452,
     "fields": {
       "slug": "01-gesuchsbearbeitungs-einladung-neu",
