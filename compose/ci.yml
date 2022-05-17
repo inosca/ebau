@@ -7,7 +7,6 @@ services:
     image: nginx:1.21-alpine
     depends_on:
       - ember
-      - php
       - django
       - keycloak
       - mailhog
@@ -137,29 +136,6 @@ services:
       cache_from:
         - acr.run/camac-ng/camac-ng/ember-ebau-core:master
 
-  php:
-    image: acr.run/camac-ng/camac-ng/php:${CI_COMMIT_REF_SLUG:-master}
-    build:
-      context: ../php
-      cache_from:
-        - acr.run/camac-ng/camac-ng/php:master
-    depends_on:
-      - db
-      - django
-      - cache
-      - keycloak
-      - mailhog
-    environment:
-      - APPLICATION=${APPLICATION}
-    volumes:
-      - djangomedia:/var/www/camac/media
-      - phpsessions:/var/www/camac/sessions
-      - /var/www/camac/vendor
-      - /var/www/camac/public/public-kt_bern/css
-      - /var/www/camac/public/public-kt_bern/js
-      - /var/www/camac/public/node_modules
-    networks:
-      - ebau.local
 
   mailhog:
     image: mailhog/mailhog

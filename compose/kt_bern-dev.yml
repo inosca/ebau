@@ -79,34 +79,6 @@ services:
     networks:
       - ebau.local
 
-  php:
-    image: acr.run/camac-ng/camac-ng/php:master
-    volumes:
-      - ../php/php.ini-development:/usr/local/etc/php/php.ini:ro
-      - ../php/000-default.conf:/etc/apache2/sites-enabled/000-default.conf:ro
-      - ../php:/var/www/camac
-      - /var/www/camac/vendor
-      - /var/www/camac/configuration
-      - /var/www/camac/public/node_modules
-      - /var/www/camac/public/public-kt_uri/js/dist
-      - /var/www/camac/public/public-kt_schwyz/js/dist
-    environment:
-      - APPLICATION_ENV=development
-    networks:
-      - ebau.local
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
-    command: [
-        "/bin/sh",
-        "-c",
-        "cd /var/www/camac \
-        && chown -R www-data:www-data media sessions kt_uri/resources \
-        && rm -f configuration/* \
-        && cd configuration \
-        && ln -sf ../${APPLICATION}/* . \
-        && php -d xdebug.remote_enable=off /var/www/camac/cronjob/clear-cache.php \
-        && apache2-foreground",
-      ]
 
   keycloak:
     ports:
