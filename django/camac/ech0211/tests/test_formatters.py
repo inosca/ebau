@@ -4,11 +4,18 @@ import xml.dom.minidom as minidom
 
 import pytest
 import xmlschema
+from caluma.caluma_workflow.api import (
+    cancel_work_item,
+    complete_work_item,
+    skip_work_item,
+)
+from django.core.management import call_command
 from lxml import etree
 from pyxb import IncompleteElementContentError, UnprocessedElementContentError
 
 from camac.constants.kt_bern import ECH_BASE_DELIVERY
 from camac.ech0211 import formatters
+from camac.ech0211.formatters import determine_decision_state
 
 logger = logging.getLogger(__name__)
 
@@ -130,3 +137,51 @@ def test_get_documents(db, attachment_factory, amount, with_display_name, snapsh
             logger.error(e.details())
             raise
     snapshot.assert_match(xml_documents)
+
+
+@pytest.mark.freeze_time("2022-01-01")
+@pytest.mark.parametrize(
+    "skip,task_id,work_item_action,expected_decision,expected_state",
+    [
+        (
+            ["submit", "complete-check", "skip-circulation"],
+            "make-decision",
+            cancel_work_item,
+            4,  # negative
+            "denied",
+        ),
+        (
+            ["submit", "complete-check", "skip-circulation"],
+            "make-decision",
+            complete_work_item,
+            1,  # positive
+            "accepted",
+        ),
+        (["submit"], "reject-form", complete_work_item, 3, "negative"),
+    ],
+)
+def test_decision_formatter(
+    ech_instance_sz,
+    instance_state_factory,
+    caluma_config_sz,
+    set_application_sz,
+    skip,
+    task_id,
+    work_item_action,
+    expected_decision,
+    expected_state,
+    caluma_admin_user,
+):
+    call_command("loaddata", "/app/kt_schwyz/config/instance.json")
+
+    instance_state_factory(name=expected_state)
+    for task in skip:
+        t = ech_instance_sz.case.work_items.get(task_id=task)
+        skip_work_item(t, caluma_admin_user)
+    work_item_action(
+        ech_instance_sz.case.work_items.get(task_id=task_id),
+        caluma_admin_user,
+        {"no-notification": True},
+    )
+    decision, decision_date = determine_decision_state(ech_instance_sz)
+    assert decision == expected_decision

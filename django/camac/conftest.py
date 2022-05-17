@@ -820,9 +820,9 @@ def construction_control_for(service_factory):
 
 @pytest.fixture
 def sz_person_factory(db, form_field_factory, faker):
-    def wrapper(sz_instance, role):
+    def wrapper(sz_instance, role, title=None):
         new_person = {
-            "anrede": faker.prefix_nonbinary(),
+            "anrede": title or faker.prefix_nonbinary(),
             "vorname": faker.first_name(),
             "name": faker.last_name(),
             "firma": faker.company(),
@@ -833,32 +833,12 @@ def sz_person_factory(db, form_field_factory, faker):
         role_persons, created = sz_instance.fields.get_or_create(
             name=role, defaults={"value": [new_person]}
         )
-        if not created:
+        if not created:  # pragma: no cover
             role_persons.value += new_person
             role_persons.save()
         return role_persons
 
     return wrapper
-
-
-@pytest.fixture
-def sample_form_data_sz(sz_instance, form_field_factory, workkflow_entry_factory):
-
-    form_field_factory(
-        instance=sz_instance,
-        name="bauherrschaft",
-        value=[
-            {
-                "anrede": "Herr",
-                "vorname": "Max",
-                "name": "Mustermann",
-                "firma": "ACME AG",
-                "strasse": "Teststrasse 2",
-                "plz": 1233,
-                "ort": "Musterdorf",
-            }
-        ],
-    )
 
 
 @pytest.fixture
