@@ -21,6 +21,7 @@ Electronic building permit application for swiss cantons.
     - [Visual Studio Code](#visual-studio-code)
   - [Customize api](#customize-api)
 - [Sending email](#sending-email)
+- [License](#license)
 
 <!-- vim-markdown-toc -->
 
@@ -234,3 +235,7 @@ sent out from the development environment.
 
 You can access the Mailhog via http://ebau.local/mailhog . Any email sent out
 will be instantly visible there.
+
+## License
+
+This project is licensed under the EUPL-1.2-or-later. See [LICENSE](./LICENSE) for details.
