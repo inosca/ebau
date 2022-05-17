@@ -70,16 +70,11 @@ class ApplicationsView(ECHInstanceQuerysetMixin, ListModelMixin, GenericViewSet)
     instance_field = None
     filter_backends = []
 
-    def get_queryset(self, group=None):
-        if getattr(self, "swagger_fake_view", False):  # pragma: no cover
-            return Instance.objects.none()
-        return super().get_queryset()
-
     @swagger_auto_schema(
         tags=["ECH"],
         manual_parameters=[group_param],
         operation_summary="Get list of accessible instances",
         operation_description=get_operation_description(),
     )
-    def list(self, request, *args, **kwargs):
+    def list(self, request, *args, **kwargs):  # pragma: no cover
         return super().list(request, *args, **kwargs)

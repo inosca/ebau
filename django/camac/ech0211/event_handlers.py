@@ -188,7 +188,7 @@ class StatusNotificationEventHandler(BaseEventHandler):
             message_type = ECH_STATUS_NOTIFICATION_ABGESCHLOSSEN
         elif self.instance.instance_state.name == "rejected":  # pragma: no cover
             message_type = ECH_STATUS_NOTIFICATION_ZURUECKGEWIESEN
-        elif self.instance.instance_state.name == "coordination":
+        elif self.instance.instance_state.name == "coordination":  # pragma: no cover
             message_type = ECH_STATUS_NOTIFICATION_IN_KOORDINATION
         else:  # pragma: no cover
             raise RuntimeError(

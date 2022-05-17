@@ -360,8 +360,6 @@ def extract_street_number(string):
 
     Split string at first digit if any.
     """
-    if not string:
-        return ""
     split = list(re.split(r"(\d+)", string))
     if len(split) > 1:
         return "".join(split[1:])
@@ -406,8 +404,22 @@ def determine_decision_state(instance: Instance):
     """
     # one of "positive", "conditionally-positive", "negative", "rejected"
 
+    decision_task_id = "make-decision"
     if instance.case.work_items.filter(
-        task_id="reject-form", status=WorkItem.STATUS_COMPLETED
+        task_id=decision_task_id, status=WorkItem.STATUS_CANCELED
+    ).first():
+        return DECISION_JUDGEMENT["denied"], MasterData(instance.case).decision_date
+
+    if instance.case.work_items.filter(
+        task_id=decision_task_id, status=WorkItem.STATUS_COMPLETED
+    ).first():
+        return DECISION_JUDGEMENT["accepted"], MasterData(instance.case).decision_date
+
+    # Rejection should only be considered if no positive decision exists
+    if instance.case.work_items.filter(  # pragma: no cover
+        # TODO: Cover this after confirmation that it's correct
+        task_id="reject-form",
+        status=WorkItem.STATUS_COMPLETED,
     ).first():
         # Get date from history
         decision_date = (
@@ -418,28 +430,19 @@ def determine_decision_state(instance: Instance):
             )
             .order_by("-created_at")
             .first()
-            .date
+            .created_at
         )
         judgement = 3
         return judgement, decision_date
-
-    decision_task_id = "make-decision"
-    if instance.case.work_items.filter(
-        task_id=decision_task_id, status=WorkItem.STATUS_CANCELED
-    ).first():
-        return DECISION_JUDGEMENT["negative"], MasterData(instance.case).decision_date
-
-    if instance.case.work_items.filter(
-        task_id=decision_task_id, status=WorkItem.STATUS_COMPLETED
-    ).first():
-        return DECISION_JUDGEMENT["positive"], MasterData(instance.case).decision_date
     return None, None
 
 
 def application_md(instance: Instance):
     """Create and format an application's properties based on the instance's MasterData."""
     md = MasterData(instance.case)
-    if md.decision_date and not isinstance(md.decision_date, datetime.date):
+    if md.decision_date and not isinstance(
+        md.decision_date, datetime.date
+    ):  # pragma: no cover
         raise IncompleteElementContentError("Decision date is not a valid date.")
 
     judgement, judgement_date = determine_decision_state(instance)
@@ -460,6 +463,10 @@ def application_md(instance: Instance):
                 organization_category=md.organization_category,
             ),
         )
+
+    decision_ruling_type = format_decision_ruling_type(
+        instance, judgement, judgement_date
+    )
 
     realestate_info = [
         ns_application.realestateInformationType(
@@ -555,9 +562,7 @@ def application_md(instance: Instance):
             permission_application_identification(i) for i in related_instances
         ],  # Referenzierte Baugesuche 3.1.1.22 TODO: verify!
         document=get_documents(instance.attachments.all()),  # 3.2
-        decisionRuling=[
-            format_decision_ruling_type(instance, judgement, judgement_date)
-        ]
+        decisionRuling=[decision_ruling_type]
         if judgement_date
         else [],  # TODO: verify Verfügung 3.4
         zone=[  # TODO: 3.8
@@ -806,7 +811,7 @@ class BaseDeliveryFormatter:
         return avaliable_configs[self.config](instance, **kwargs)
 
 
-def base_delivery(instance: Instance, answers: AnswersDict):
+def base_delivery(instance: Instance, answers: AnswersDict):  # pragma: no cover
     municipality = instance.responsible_service(filter_type="municipality")
 
     return ns_application.eventBaseDeliveryType(
