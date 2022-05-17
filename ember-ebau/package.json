@@ -19,7 +19,7 @@
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
     "start": "ember serve",
-    "start-proxy": "ember serve --proxy http://camac-ng.local",
+    "start-proxy": "ember serve --proxy http://ebau.local",
     "test": "npm-run-all lint test:*",
     "test:ember": "ember test"
   },

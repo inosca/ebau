@@ -17,7 +17,7 @@
     "lint:js": "eslint .",
     "precommit": "lint-staged",
     "start": "SW_DISABLED=true ember serve",
-    "start-proxy": "SW_DISABLED=true ember serve --proxy=http://camac-ng-portal.local",
+    "start-proxy": "SW_DISABLED=true ember serve --proxy=http://ebau-rest-portal.local",
     "test": "ember test"
   },
   "lint-staged": {
