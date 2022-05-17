@@ -52,7 +52,6 @@ def test_migrate_portal_workflow_entries(workflow_entry_portal, ur_instance):
         "migrate_workflow_entries_ur",
         stdout=open(os.devnull, "w"),
     )
-
     assert WorkflowEntry.objects.filter(
         instance=ur_instance, workflow_item=WORKFLOW_ITEM_EINGANG_ONLINE
     ).exists()

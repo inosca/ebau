@@ -31,7 +31,10 @@ def ech_instance_sz(
         "grundeigentumerschaft",
         "projektverfasser-planer",
     ]:
-        sz_person_factory(ech_instance, role)
+        title = None
+        if role == "bauherrschaft":
+            title = "Firma"
+        sz_person_factory(ech_instance, role, title=title)
 
     ech_instance.identifier = CreateInstanceLogic.generate_identifier(
         ech_instance, prefix="TEST"
