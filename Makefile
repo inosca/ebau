@@ -18,8 +18,8 @@ endef
 help: ## Show the help messages
 	@grep -h -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort -k 1,1 | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
-.PHONY: start-dev-env  ## Interactive initial setup of dev-environment
-start-dev-env:
+.PHONY: start-dev-env
+start-dev-env:  ## Interactive initial setup of dev-environment
 	./tools/start-dev-env
 
 .PHONY: js
