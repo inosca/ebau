@@ -12,13 +12,13 @@ Electronic building permit application for swiss cantons.
 - [Requirements](#requirements)
 - [Development](#development)
   - [Basic setup](#basic-setup)
+  - [Predefined credentials](#predefined-credentials)
     - [Debugging](#debugging)
   - [Working locally with ember](#working-locally-with-ember)
     - [Yarn workspace](#yarn-workspace)
   - [GWR API](#gwr-api)
     - [Django profiling](#django-profiling)
     - [Visual Studio Code](#visual-studio-code)
-  - [Predefined credentials](#predefined-credentials)
   - [Customize api](#customize-api)
 - [Sending email](#sending-email)
 
@@ -128,7 +128,7 @@ In case you want to manually modify /etc/hosts following domains need to point t
 127.0.0.1 (localhost):
 
 ```
-camac-ng-portal.local camac-ng.local camac-ng-keycloak.local caluma-portal.local
+ebau-portal.local ebau.local ebau-keycloak.local ebau-rest-portal.local
 ```
 
 For automatic checks during commit (formatting, linting) you can setup a git hook with the following commands:
@@ -137,6 +137,26 @@ For automatic checks during commit (formatting, linting) you can setup a git hoo
 pip install pre-commit
 pre-commit install
 ```
+
+After, you should be able to use to the following services:
+
+- [http://ebau.local](ebau.local) - main application used for "internal" users
+- [http://ebau-portal.local](ebau-portal.local) - public-facing portal (Caluma-based, default choice for new projects, used in Kt. BE, UR)
+- [http://ebau-rest-portal.local](ebau-rest-portal.local) - public-facing portal (REST-API-based, precursor of the Caluma-based portal, used in Kt. SZ)
+- [http://ebau-keycloak.local/auth](ebau-keycloak.local/auth) - IAM solution
+
+### Predefined credentials
+
+The following administator accounts are present in Keycloak or the DB,
+respectively:
+
+| _Application_ | _Role_      | _Username_ | _Password_ | _Notes_ |
+| ------------- | ----------- | ---------- | ---------- | ------- |
+| kt_schwyz     | Admin       | admin      | admin      |         |
+|               | Publikation | adsy       | adsy       |         |
+| kt_uri        | Admin       | admin      | admin      |         |
+|               | PortalUser  | portal     | portal     |         |
+| kt_bern       | Admin       | user       | user       |         |
 
 #### Debugging
 
@@ -179,7 +199,7 @@ read the gwr user passwords.**
 
 To enable `django-silk` for profiling, simply add `DJANGO_ENABLE_SILK=True`
 to your `django/.env` file. Then restart the django container and browse to
-http://camac-ng.local/api/silk/.
+http://ebau.local/api/silk/.
 
 ##### Visual Studio Code
 
@@ -193,19 +213,6 @@ To enable debugging in the django container the ptvsd server must be started.
 Since this debug server collides with other setups (PyCharm, PyDev) it will
 only be started if the env var `ENABLE_PTVSD_DEBUGGER` is set to `True` in
 [`django/.env`](django/.env).
-
-### Predefined credentials
-
-The following administator accounts are present in Keycloak or the DB,
-respectively:
-
-| _Application_ | _Role_      | _Username_ | _Password_ | _Notes_ |
-| ------------- | ----------- | ---------- | ---------- | ------- |
-| kt_schwyz     | Admin       | admin      | admin      |         |
-|               | Publikation | adsy       | adsy       |         |
-| kt_uri        | Admin       | admin      | admin      |         |
-|               | PortalUser  | portal     | portal     |         |
-| kt_bern       | Admin       | user       | user       |         |
 
 ### Customize api
 
@@ -225,5 +232,5 @@ In development mode, the application is configured to send all email to a
 Mailhog instance, so unless you specify something else, no email will be
 sent out from the development environment.
 
-You can access the Mailhog via http://camac-ng.local/mailhog . Any email sent out
+You can access the Mailhog via http://ebau.local/mailhog . Any email sent out
 will be instantly visible there.

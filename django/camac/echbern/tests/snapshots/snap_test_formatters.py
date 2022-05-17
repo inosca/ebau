@@ -35,7 +35,7 @@ snapshots['test_get_documents[False-1] 1'] = [
 \t<ns1:status>signed</ns1:status>
 \t<ns1:files>
 \t\t<ns1:file>
-\t\t\t<ns1:pathFileName>http://camac-ng.local/api/v1/attachments/files/?attachments=1</ns1:pathFileName>
+\t\t\t<ns1:pathFileName>http://ebau.local/api/v1/attachments/files/?attachments=1</ns1:pathFileName>
 \t\t\t<ns1:mimeType>application/pdf</ns1:mimeType>
 \t\t</ns1:file>
 \t</ns1:files>
@@ -54,7 +54,7 @@ snapshots['test_get_documents[False-2] 1'] = [
 \t<ns1:status>signed</ns1:status>
 \t<ns1:files>
 \t\t<ns1:file>
-\t\t\t<ns1:pathFileName>http://camac-ng.local/api/v1/attachments/files/?attachments=1</ns1:pathFileName>
+\t\t\t<ns1:pathFileName>http://ebau.local/api/v1/attachments/files/?attachments=1</ns1:pathFileName>
 \t\t\t<ns1:mimeType>application/pdf</ns1:mimeType>
 \t\t</ns1:file>
 \t</ns1:files>
@@ -70,7 +70,7 @@ snapshots['test_get_documents[False-2] 1'] = [
 \t<ns1:status>signed</ns1:status>
 \t<ns1:files>
 \t\t<ns1:file>
-\t\t\t<ns1:pathFileName>http://camac-ng.local/api/v1/attachments/files/?attachments=2</ns1:pathFileName>
+\t\t\t<ns1:pathFileName>http://ebau.local/api/v1/attachments/files/?attachments=2</ns1:pathFileName>
 \t\t\t<ns1:mimeType>application/pdf</ns1:mimeType>
 \t\t</ns1:file>
 \t</ns1:files>
@@ -107,7 +107,7 @@ snapshots['test_get_documents[True-1] 1'] = [
 \t<ns1:status>signed</ns1:status>
 \t<ns1:files>
 \t\t<ns1:file>
-\t\t\t<ns1:pathFileName>http://camac-ng.local/api/v1/attachments/files/?attachments=1</ns1:pathFileName>
+\t\t\t<ns1:pathFileName>http://ebau.local/api/v1/attachments/files/?attachments=1</ns1:pathFileName>
 \t\t\t<ns1:mimeType>application/pdf</ns1:mimeType>
 \t\t</ns1:file>
 \t</ns1:files>
@@ -126,7 +126,7 @@ snapshots['test_get_documents[True-2] 1'] = [
 \t<ns1:status>signed</ns1:status>
 \t<ns1:files>
 \t\t<ns1:file>
-\t\t\t<ns1:pathFileName>http://camac-ng.local/api/v1/attachments/files/?attachments=1</ns1:pathFileName>
+\t\t\t<ns1:pathFileName>http://ebau.local/api/v1/attachments/files/?attachments=1</ns1:pathFileName>
 \t\t\t<ns1:mimeType>application/pdf</ns1:mimeType>
 \t\t</ns1:file>
 \t</ns1:files>
@@ -142,7 +142,7 @@ snapshots['test_get_documents[True-2] 1'] = [
 \t<ns1:status>signed</ns1:status>
 \t<ns1:files>
 \t\t<ns1:file>
-\t\t\t<ns1:pathFileName>http://camac-ng.local/api/v1/attachments/files/?attachments=2</ns1:pathFileName>
+\t\t\t<ns1:pathFileName>http://ebau.local/api/v1/attachments/files/?attachments=2</ns1:pathFileName>
 \t\t\t<ns1:mimeType>application/pdf</ns1:mimeType>
 \t\t</ns1:file>
 \t</ns1:files>

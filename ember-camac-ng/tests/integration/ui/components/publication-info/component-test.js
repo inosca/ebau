@@ -15,7 +15,7 @@ module("Integration | Component | publication-info", function (hooks) {
     Object.defineProperty(this.owner.lookup("service:shoebox"), "content", {
       value: {
         config: {
-          portalURL: "http://caluma-portal.local",
+          portalURL: "http://ebau-portal.local",
         },
       },
     });
@@ -60,7 +60,7 @@ module("Integration | Component | publication-info", function (hooks) {
     assert
       .dom(this.element)
       .hasText(
-        "t:publication.info.note:() t:publication.info.published.public:() http://caluma-portal.local/public-instances?municipality=1"
+        "t:publication.info.note:() t:publication.info.published.public:() http://ebau-portal.local/public-instances?municipality=1"
       );
   });
 

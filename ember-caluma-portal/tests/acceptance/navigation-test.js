@@ -68,7 +68,7 @@ module("Acceptance | navigation", function (hooks) {
 
       assert
         .dom("a.be-navbar-internal-link")
-        .hasAttribute("href", "http://camac-ng.local");
+        .hasAttribute("href", "http://ebau.local");
 
       await visit(`/instances/${instanceId}`);
       await waitFor("a.be-navbar-internal-link");
@@ -77,7 +77,7 @@ module("Acceptance | navigation", function (hooks) {
         .dom("a.be-navbar-internal-link")
         .hasAttribute(
           "href",
-          "http://camac-ng.local/index/redirect-to-instance-resource/instance-id/1"
+          "http://ebau.local/index/redirect-to-instance-resource/instance-id/1"
         );
     }
   );

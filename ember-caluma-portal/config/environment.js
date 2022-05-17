@@ -192,9 +192,8 @@ module.exports = function (environment) {
     },
   }[app];
 
-  const oidcHost =
-    process.env.KEYCLOAK_HOST || "http://camac-ng-keycloak.local";
-  const internalURL = process.env.INTERNAL_URL || "http://camac-ng.local";
+  const oidcHost = process.env.KEYCLOAK_HOST || "http://ebau-keycloak.local";
+  const internalURL = process.env.INTERNAL_URL || "http://ebau.local";
   const beGisUrl = process.env.BE_GIS_URL || "https://www.map.apps.be.ch";
 
   const ENV = {
@@ -277,7 +276,7 @@ module.exports = function (environment) {
   };
 
   if (environment === "development") {
-    ENV["ember-ebau-core"].gisUrl = "http://camac-ng.local/lisag/ows";
+    ENV["ember-ebau-core"].gisUrl = "http://ebau.local/lisag/ows";
     ENV.ebau.beGisUrl = "https://www.map2-test.apps.be.ch";
   }
 

@@ -4,7 +4,7 @@ services:
     ports:
       - "11211:11211"
     networks:
-      - camac-ng.local
+      - ebau.local
 
   proxy:
     volumes:
@@ -12,12 +12,12 @@ services:
     ports:
       - "80:80"
     networks:
-      camac-ng.local:
+      ebau.local:
         aliases:
-          - camac-ng.local
-          - camac-ng-portal.local
-          - caluma-portal.local
-          - camac-ng-keycloak.local
+          - ebau.local
+          - ebau-portal.local
+          - ebau-rest-portal.local
+          - ebau-keycloak.local
 
   db:
     # Workaround, same name of image as cache_from
@@ -32,7 +32,7 @@ services:
     volumes:
       - ../db/init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh:ro
     networks:
-      - camac-ng.local
+      - ebau.local
 
   django: &django
     image: acr.run/camac-ng/camac-ng/django:master
@@ -47,19 +47,19 @@ services:
     environment:
       - ENV=development
       - APPLICATION_ENV=development
-      - KEYCLOAK_URL=http://camac-ng-keycloak.local/auth/
+      - KEYCLOAK_URL=http://ebau-keycloak.local/auth/
       - DATABASE_PASSWORD=camac
       - DATABASE_USER=camac
       - DJANGO_EMAIL_HOST=mailhog
       - DJANGO_EMAIL_PORT=1025
       - OAUTHLIB_INSECURE_TRANSPORT=1
-      - OIDC_USERINFO_ENDPOINT=http://camac-ng-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
+      - OIDC_USERINFO_ENDPOINT=http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
       - PYTHONDONTWRITEBYTECODE=1
       - GWR_FERNET_KEY=GUdwT6yKxqfszrnHC7wyKDmtVZdhjSVQEPnpeJYNLf8=
       - GWR_WSK_ID=351388
       - GWR_HOUSING_STAT_BASE_URI=https://www-r.housing-stat.ch/regbl/api/ech0216/2
     networks:
-      - camac-ng.local
+      - ebau.local
     command: /bin/sh -c "./wait-for-it.sh db:5432 -- ./manage.py migrate && ./manage.py collectstatic --noinput && ./manage.py runserver 0:80 --pythonpath /app/$APPLICATION"
 
   django-q:
@@ -70,14 +70,14 @@ services:
   ember-camac-ng:
     image: acr.run/camac-ng/camac-ng/ember-camac-ng:master
     networks:
-      - camac-ng.local
+      - ebau.local
 
   ember-caluma-portal:
     image: acr.run/camac-ng/camac-ng/ember-caluma-portal:master
     environment:
       - BE_GIS_URL=https://map2-test.apps.be.ch
     networks:
-      - camac-ng.local
+      - ebau.local
 
   php:
     image: acr.run/camac-ng/camac-ng/php:master
@@ -93,7 +93,7 @@ services:
     environment:
       - APPLICATION_ENV=development
     networks:
-      - camac-ng.local
+      - ebau.local
     extra_hosts:
       - "host.docker.internal:host-gateway"
     command: [
@@ -117,7 +117,7 @@ services:
       - DB_PASSWORD=camac
       - KEYCLOAK_PASSWORD=camac
     networks:
-      - camac-ng.local
+      - ebau.local
     # export is a bit tricky: We need to _start_ keycloak with specific arguments to perform an export
     # command: ["-Dkeycloak.migration.action=export", "-Dkeycloak.migration.provider=singleFile", "-Dkeycloak.migration.file=/etc/keycloak/test-config.json", "-b", "0.0.0.0"]
     #
@@ -134,17 +134,17 @@ services:
 
   mailhog:
     networks:
-      - camac-ng.local
+      - ebau.local
     environment:
       - MH_UI_WEB_PATH=mailhog
 
   document-merge-service:
     networks:
-      - camac-ng.local
+      - ebau.local
     environment:
       - ENV=dev
-      - OIDC_USERINFO_ENDPOINT=http://camac-ng-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
-      - OIDC_GROUPS_API=http://camac-ng.local/api/v1/me?include=service,service.service_parent
+      - OIDC_USERINFO_ENDPOINT=http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
+      - OIDC_GROUPS_API=http://ebau.local/api/v1/me?include=service,service.service_parent
     # There appears to be bug where libreoffice can only be started as the root
     # user. The workaround of fixing owner and permissions of ~/.config did not
     # work in our case.
@@ -160,4 +160,4 @@ services:
       ]
 
 networks:
-  camac-ng.local:
+  ebau.local:
