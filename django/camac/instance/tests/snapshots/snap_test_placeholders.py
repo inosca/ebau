@@ -76,6 +76,7 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'BAUENTSCHEID_TYPE': 'GESAMT',
     'BAUVORHABEN': 'Neubau, Grosses Haus',
     'BESCHREIBUNG_BAUVORHABEN': 'Grosses Haus',
+    'BESCHREIBUNG_PROJEKTAENDERUNG': 'Doch eher kleines Haus',
     'BOISSONS_ALCOOLIQUES': 'mit',
     'CIRCULATION_COMMUNES': [
         {
@@ -147,6 +148,7 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'DECISION_REFUS_SANS_RET': False,
     'DECISION_TYPE': 'GESAMT',
     'DEPOT_DEMANDE_DATE': '31. März 2021',
+    'DESCRIPTION_MODIFICATION': 'Doch eher kleines Haus',
     'DISPOSITIONS_ANNEXES': 'Main check their lead as party identify.',
     'DOSSIER_LINK': 'http://ebau.local/index/redirect-to-instance-resource/instance-id/1',
     'DOSSIER_NR': 1,
@@ -681,6 +683,7 @@ snapshots['test_dms_placeholders_empty[Municipality] 1'] = {
     'BAUENTSCHEID_TYPE': '',
     'BAUVORHABEN': '',
     'BESCHREIBUNG_BAUVORHABEN': '',
+    'BESCHREIBUNG_PROJEKTAENDERUNG': '',
     'BOISSONS_ALCOOLIQUES': '',
     'CIRCULATION_COMMUNES': [
     ],
@@ -715,6 +718,7 @@ snapshots['test_dms_placeholders_empty[Municipality] 1'] = {
     'DECISION_REFUS_SANS_RET': False,
     'DECISION_TYPE': '',
     'DEPOT_DEMANDE_DATE': '30. August 2021',
+    'DESCRIPTION_MODIFICATION': '',
     'DISPOSITIONS_ANNEXES': '',
     'DOSSIER_LINK': 'http://ebau.local/index/redirect-to-instance-resource/instance-id/1',
     'DOSSIER_NR': 1,

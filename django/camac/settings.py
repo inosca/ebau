@@ -2112,7 +2112,7 @@ APPLICATIONS = {
             "monument_rrb": ("answer", "rrb", {"value_parser": "option"}),
             "monument_contract": ("answer", "vertrag", {"value_parser": "option"}),
             "proposal": ("answer", "beschreibung-bauvorhaben"),
-            "modification": ("answer", "beschreibung-projektaenderung"),
+            "description_modification": ("answer", "beschreibung-projektaenderung"),
             "street": ("answer", "strasse-flurname"),
             "street_number": ("answer", "nr"),
             "city": ("answer", "ort-grundstueck"),
