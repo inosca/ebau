@@ -1,6 +1,5 @@
 import datetime
 import json
-import os
 
 import pytest
 from caluma.caluma_form import models as caluma_form_models
@@ -545,7 +544,7 @@ def test_send_unknown_instance(admin_client, set_application_be, override_urls_b
 
 
 @pytest.mark.parametrize(
-    "plot_data,coordinates,site_address,decision",
+    "plot_data,coordinates,decision,site_address",
     [
         (None, None, None, None),
         (
@@ -555,12 +554,14 @@ def test_send_unknown_instance(admin_client, set_application_be, override_urls_b
                 )
             ],
             [Coordinates(n=8.5592041911, e=47.0636626694)],
-            {"street": "Somwhere over the Rainbow 11b"},
             {
                 "date": datetime.datetime(2021, 1, 11),
                 "decicion": "accepted",
             },
+            {"street": ""},
         ),
+        (None, None, None, {"street": "Somewhere over the Rainbow 10b"}),
+        (None, None, None, {"street": "Somewhere"}),
     ],
 )
 @pytest.mark.freeze_time("2020-02-01")
@@ -581,8 +582,6 @@ def test_application_retrieve_full_sz(
     request,
 ):
 
-    # this is required to actually really dynamically load the correcto urls as configured
-    #    reload(import_string(settings.ROOT_URLCONF))
     ech_instance_sz.form.description = application_type
     ech_instance_sz.form.save()
     mocker.patch.object(  # make for a deterministic message_id
@@ -627,9 +626,4 @@ def test_application_retrieve_full_sz(
         )
 
     resp = admin_client.get(reverse("application", args=[ech_instance_sz.pk]))
-    if os.environ.get("ENV", "").startswith("dev"):  # pragma: no cover
-        from xml.dom import minidom
-
-        dom = minidom.parseString(resp.content)
-        pretty = dom.toprettyxml()  # noqa
     assert resp.status_code == status.HTTP_200_OK
