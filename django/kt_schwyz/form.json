@@ -2729,7 +2729,7 @@
       "label": "Wird eine bestehende Alarmierungseinrichtung durch das Vorhaben tangiert?",
       "hint": "Alarmierungseinrichtungen sind festmontierte Sirenen (Zivilschutz) auf Gebäuden und dienen zur Warnung der Bevölkerung.",
       "type": "radio",
-      "active-expression": "'ch.sz.a105a.sirenen' in 'layer'|value|mapby('name')",
+      "active-expression": "'ms:ch.sz.a105a.sirenen' in 'layer'|value|mapby('name')",
       "required": true,
       "config": {
         "options": ["Ja", "Nein"]
@@ -7861,7 +7861,7 @@
       "label": "Ihr Bauvorhaben wird durch den belasteten Standort mit KbS-Nr. ........ tangiert.  Es sind die Altlastenuntersuchungen (z.B. historische, technische Untersuchung) einzureichen (vgl. Ablaufschema „Bauen auf belasteten Standorten“).",
       "type": "checkbox",
       "required": false,
-      "active-expression": "true == false",
+      "active-expression": "'ms:ch.sz.a020a.kataster_belasteter_standorte' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020a.kataster_belasteter_standorte_pnt' in 'layer'|value|mapby('name')",
       "config": {
         "options": ["Vorhanden"]
       }
