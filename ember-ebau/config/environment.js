@@ -18,8 +18,7 @@ module.exports = function (environment) {
       realm: "urec",
     },
   }[app];
-  const oidcHost =
-    process.env.KEYCLOAK_HOST || "http://camac-ng-keycloak.local";
+  const oidcHost = process.env.KEYCLOAK_HOST || "http://ebau-keycloak.local";
 
   let ENV = {
     modulePrefix: "ebau",
