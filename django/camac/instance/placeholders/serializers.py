@@ -142,6 +142,7 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
     decision_date = fields.HumanReadableDateField(source="decision.decision_date")
     decision_type = serializers.ReadOnlyField(source="decision.decision_type")
     decision = serializers.ReadOnlyField(source="decision.decision")
+    description_modification = fields.MasterDataField("description_modification")
     dossier_link = serializers.SerializerMethodField()
     ebau_number = fields.MasterDataField(source="dossier_number")
     eigene_gebuehren_total = fields.BillingEntriesField(own=True, total=True)
