@@ -5199,7 +5199,7 @@
       "label": "Ist im Vorhaben ein der Pflicht entsprechender Schutzraum eingeplant?",
       "hint": "Liegt das Bauobjekt in einem Defizitgebiet und hat mehr als 38 Zimmer, ist ein Schutzraum mit einem Fassungsvermögen, das der Baupflicht entspricht, einzuplanen. Unter 38 Zimmern kann das Gesuch um Befreiung von der Schutzraumbaupflicht mit Leistung eines Ersatzbeitrages gestellt werden. Die Baupflicht ergibt sich aus der Anzahl Zimmer und davon 2/3.",
       "type": "radio",
-      "required": false,
+      "required": true,
       "active-expression": "('Wohnen' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value) && 'Neubau' in 'vorhaben-mit-baute'|value",
       "config": {
         "options": ["Ja", "Nein"]
@@ -5209,7 +5209,7 @@
       "label": "Handelt es sich um einen Wiederaufbau nach Elementarschaden?",
       "hint": "Feuer, Sturm und Wasser gelten als Elementarschaden und werden von der Schutzraumbaupflicht befreit. Es ist der Rapport des Schadenereignisses beizulegen.",
       "type": "radio",
-      "required": false,
+      "required": true,
       "active-expression": "('Wohnen' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value) && 'Neubau' in 'vorhaben-mit-baute'|value",
       "config": {
         "options": ["Ja", "Nein"]
@@ -5219,7 +5219,7 @@
       "label": "Wird für das Vorhaben um Dispens für den Schutzraumbau gegen Leistung eines Ersatzbeitrages gemäss den gesetzlichen Möglichkeiten und Bedingungen nachgesucht?",
       "hint": "Anstelle des Baus eines Schutzraumes ist ein Ersatzbeitrag zu leisten, wenn das Bauobjekt in einem Schutzplatzüberangebotsgebiet liegt.",
       "type": "radio",
-      "required": false,
+      "required": true,
       "active-expression": "('Wohnen' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value) && 'Neubau' in 'vorhaben-mit-baute'|value",
       "config": {
         "options": ["Ja", "Nein"]
@@ -5229,7 +5229,7 @@
       "label": "Der Datenverschnitt aufgrund der Lokalisierung Ihres Vorhabens hat ergeben, dass sich innerhalb des relevanten Perimeters eine oder mehrere Zivilschutzbauten befinden.<br>Wurde dies bei der Planung des vorliegenden Vorhabens berücksichtigt?",
       "hint": "Falls Auswirkungen auf bestehende Zivilschutzbauten bei der Planung ausser Acht gelassen wurden, kann dies dazu führen, dass eine Projektanpassung erforderlich ist. Die Folgen sind eine längere Verfahrensdauer und ein höherer Bearbeitungsaufwand.",
       "type": "radio",
-      "required": false,
+      "required": true,
       "active-expression": "'ms:ch.sz.a082a.schutzbauten.gemeinde_sammelschutzraum' in 'layer'|value|mapby('name') || 'ms:ch.sz.a082a.schutzbauten.kulturgueter_schutzraum' in 'layer'|value|mapby('name') || 'ms:ch.sz.a082a.schutzbauten.oeffentlicher_sammelschutzraum' in 'layer'|value|mapby('name') || 'ms:ch.sz.a082a.schutzbauten.pflicht_schutzraum' in 'layer'|value|mapby('name') || 'ms:ch.sz.a082a.schutzbauten.pflicht_schutzraum_vor_twp' in 'layer'|value|mapby('name') || 'ms:ch.sz.a082a.schutzbauten.schutzanlage' in 'layer'|value|mapby('name')",
       "config": {
         "options": ["Ja", "Nein"]
@@ -5239,7 +5239,7 @@
       "label": "Ist eine Schutzraum-Aufhebung vorgesehen",
       "hint": "Eine Aufhebung kann nur mit Zustimmung und Vorabklärung des AMFZ erfolgen.\n\nAusnahme: Schutzräume ohne elektrische Ventilationsgeräte (VA 20) oder kleiner 7 Schutzplätze, sowie Schutzräume vor TWP 1966 müssen nicht vorgeprüft werden",
       "type": "radio",
-      "required": false,
+      "required": true,
       "active-expression": "'ms:ch.sz.a082a.schutzbauten.gemeinde_sammelschutzraum' in 'layer'|value|mapby('name') || 'ms:ch.sz.a082a.schutzbauten.kulturgueter_schutzraum' in 'layer'|value|mapby('name') || 'ms:ch.sz.a082a.schutzbauten.oeffentlicher_sammelschutzraum' in 'layer'|value|mapby('name') || 'ms:ch.sz.a082a.schutzbauten.pflicht_schutzraum' in 'layer'|value|mapby('name') || 'ms:ch.sz.a082a.schutzbauten.pflicht_schutzraum_vor_twp' in 'layer'|value|mapby('name') || 'ms:ch.sz.a082a.schutzbauten.schutzanlage' in 'layer'|value|mapby('name')",
       "config": {
         "options": ["Ja", "Nein"]
@@ -7741,7 +7741,7 @@
       }
     },
     "info-zivilschutz-elementarschaden": {
-      "label": "Das Protokoll resp. die Bestätigung der Gemeinde ist beizulegen.",
+      "label": "Das Protokoll resp. die Bestätigung der Gemeinde zum Wiederaufbau infolge Elementarschaden ist beizulegen.",
       "type": "checkbox",
       "required": false,
       "active-expression": "'zivilschutz-elementarschaden'|value == 'Ja'",
