@@ -121,13 +121,13 @@ def test_attachment_section_special_permissions_ur(
     mocker,
     role,
     group_factory,
+    set_application_ur,
+    settings,
     section_id,
     expected,
     group_key,
-    settings,
 ):
     settings.APPLICATION_NAME = "kt_uri"
-
     group = group_factory(role=role)
 
     if group_key:

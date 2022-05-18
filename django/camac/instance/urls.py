@@ -4,12 +4,23 @@ from rest_framework.routers import SimpleRouter
 
 from . import views
 
+
+class UnswaggeredInstanceView(views.InstanceView):
+    swagger_schema = None
+
+
 r = SimpleRouter(trailing_slash=False)
 urlpatterns = []
 
 r.register(r"instance-states", views.InstanceStateView, "instance-state")
 r.register(r"forms", views.FormView, "form")
-r.register(r"instances", views.InstanceView, "instance")
+r.register(
+    r"instances",
+    UnswaggeredInstanceView
+    if "instance" in settings.APPLICATION.get("EXCLUDE_DOCS", [])
+    else views.InstanceView,
+    "instance",
+)
 r.register(r"form-fields", views.FormFieldView, "form-field")
 r.register(
     r"instance-responsibilities",
