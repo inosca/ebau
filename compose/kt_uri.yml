@@ -7,7 +7,6 @@ services:
     image: nginx:1.21-alpine
     depends_on:
       - ember-caluma-portal
-      - php
       - django
       - keycloak
       - mailhog
@@ -85,26 +84,6 @@ services:
       args:
         - APPLICATION=${APPLICATION}
 
-  php:
-    build:
-      context: ../php
-      cache_from:
-        - acr.run/camac-ng/camac-ng/php:master
-    depends_on:
-      - db
-      - keycloak
-      - django
-      - cache
-      - mailhog
-    environment:
-      - APPLICATION=${APPLICATION}
-    volumes:
-      - djangomedia:/var/www/camac/media
-      - phpsessions:/var/www/camac/sessions
-      - /var/www/camac/vendor
-      - /var/www/camac/public/public-kt_uri/css/dist
-      - /var/www/camac/public/public-kt_uri/js/dist
-      - /var/www/camac/public/node_modules
 
   mailhog:
     image: mailhog/mailhog

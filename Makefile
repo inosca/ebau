@@ -22,6 +22,9 @@ help: ## Show the help messages
 start-dev-env:  ## Interactive initial setup of dev-environment
 	./tools/start-dev-env
 
+.env:
+	touch .env
+
 .PHONY: js
 js:
 	npm run build --prefix ./php/public
