@@ -16,6 +16,3 @@ services:
 
   ember-caluma-portal:
     image: acr.run/camac-ng/camac-ng/ember-caluma-portal:${CI_COMMIT_REF_SLUG}
-
-  php:
-    image: acr.run/camac-ng/camac-ng/php:${CI_COMMIT_REF_SLUG}
