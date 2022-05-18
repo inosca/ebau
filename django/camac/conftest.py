@@ -20,7 +20,10 @@ from caluma.caluma_workflow import (
 from django.conf import settings
 from django.core.cache import cache
 from django.core.management import call_command
+from django.test import override_settings
+from django.urls import path
 from django.utils import timezone
+from django.views.generic import RedirectView
 from factory import Faker
 from factory.base import FactoryMetaClass
 from jwt import encode as jwt_encode
@@ -35,7 +38,8 @@ from camac.core import factories as core_factories
 from camac.document import factories as document_factories
 from camac.document.tests.data import django_file
 from camac.dossier_import import factories as dossier_import_factories
-from camac.echbern import factories as ech_factories
+from camac.ech0211 import factories as ech_factories
+from camac.ech0211.urls import BEUrlsConf, SZUrlsConf
 from camac.faker import FreezegunAwareDatetimeProvider
 from camac.instance import factories as instance_factories
 from camac.instance.serializers import SUBMIT_DATE_FORMAT
@@ -43,6 +47,7 @@ from camac.notification import factories as notification_factories
 from camac.objection import factories as objection_factories
 from camac.responsible import factories as responsible_factories
 from camac.tags import factories as tags_factories
+from camac.urls import urlpatterns as app_patterns
 from camac.user import factories as user_factories
 from camac.user.models import Group, User
 from camac.utils import build_url
@@ -204,6 +209,46 @@ def admin_client(db, admin_user, request_mock):
     api_client.force_authenticate(user=admin_user)
     api_client.user = admin_user
     return api_client
+
+
+@pytest.fixture
+def override_urls_be():
+    BEUrlsConf.urlpatterns += app_patterns
+    BEUrlsConf.urlpatterns += [
+        path(f"ech/v1/{key}", RedirectView.as_view(url=url))
+        for key, url in BEUrlsConf.redirects.items()
+    ]
+    with override_settings(ROOT_URLCONF=BEUrlsConf):
+        yield
+
+
+@pytest.fixture
+def override_urls_sz():
+    SZUrlsConf.urlpatterns += app_patterns
+    with override_settings(ROOT_URLCONF=SZUrlsConf):
+        yield
+
+
+@pytest.fixture
+def set_application_be(settings, override_urls_be):
+    application_dict = copy.deepcopy(settings.APPLICATIONS["kt_bern"])
+    settings.APPLICATION = application_dict
+
+    return application_dict
+
+
+@pytest.fixture
+def set_application_sz(settings):
+    application_dict = copy.deepcopy(settings.APPLICATIONS["kt_schwyz"])
+    settings.APPLICATION = application_dict
+    return application_dict
+
+
+@pytest.fixture
+def set_application_ur(settings):
+    application_dict = copy.deepcopy(settings.APPLICATIONS["kt_uri"])
+    settings.APPLICATION = application_dict
+    return application_dict
 
 
 @pytest.fixture
@@ -505,12 +550,11 @@ def caluma_publication(caluma_workflow_config_be):
 
 
 @pytest.fixture
-def caluma_workflow_config_sz(settings, caluma_forms_be, caluma_config_sz):
+def caluma_workflow_config_sz(db, caluma_config_sz):
     caluma_form_models.Form.objects.create(slug="baugesuch")
     caluma_form_models.Form.objects.create(slug="bauverwaltung")
-
+    caluma_form_models.Form.objects.create(slug="main-form")
     call_command("loaddata", settings.ROOT_DIR("kt_schwyz/config/caluma_workflow.json"))
-
     return caluma_workflow_models.Workflow.objects.all()
 
 
@@ -772,3 +816,98 @@ def construction_control_for(service_factory):
         )
 
     return wrapper
+
+
+@pytest.fixture
+def sz_person_factory(db, form_field_factory, faker):
+    def wrapper(sz_instance, role, title=None):
+        new_person = {
+            "anrede": title or faker.prefix_nonbinary(),
+            "vorname": faker.first_name(),
+            "name": faker.last_name(),
+            "firma": faker.company(),
+            "strasse": faker.street_name(),
+            "plz": faker.pyint(min_value=1000, max_value=9999),
+            "ort": faker.city(),
+        }
+        role_persons, created = sz_instance.fields.get_or_create(
+            name=role, defaults={"value": [new_person]}
+        )
+        if not created:  # pragma: no cover
+            role_persons.value += new_person
+            role_persons.save()
+        return role_persons
+
+    return wrapper
+
+
+@pytest.fixture
+def sz_master_data_case(db, sz_instance, form_field_factory, workflow_entry_factory):
+    # Simple data
+    form_field_factory(instance=sz_instance, name="bezeichnung", value="Grosses Haus")
+    form_field_factory(instance=sz_instance, name="baukosten", value=129000)
+
+    # Applicant
+    form_field_factory(
+        instance=sz_instance,
+        name="bauherrschaft",
+        value=[
+            {
+                "anrede": "Herr",
+                "vorname": "Max",
+                "name": "Mustermann",
+                "firma": "ACME AG",
+                "strasse": "Teststrasse 2",
+                "plz": 1233,
+                "ort": "Musterdorf",
+            }
+        ],
+    )
+
+    # Applicant V2
+    form_field_factory(
+        instance=sz_instance,
+        name="bauherrschaft-v2",
+        value=[
+            {
+                "anrede": "Herr",
+                "vorname": "Max",
+                "name": "Mustermann",
+                "firma": "ACME AG",
+                "strasse": "Teststrasse 2",
+                "plz": 1233,
+                "ort": "Musterdorf",
+            }
+        ],
+    )
+
+    # Applicant override (Vollständigkeitsprüfung)
+    form_field_factory(
+        instance=sz_instance,
+        name="bauherrschaft-override",
+        value=[
+            {
+                "anrede": "Herr",
+                "vorname": "Max",
+                "name": "Mustermann",
+                "firma": "ACME AG",
+                "strasse": "Teststrasse 3",
+                "plz": 5678,
+                "ort": "Musterdorf",
+            }
+        ],
+    )
+
+    # Plot data
+    form_field_factory(
+        instance=sz_instance,
+        name="parzellen",
+        value=[
+            {
+                "number": 1234,
+                "egrid": "CH1234567890",
+            }
+        ],
+    )
+
+    return sz_instance.case

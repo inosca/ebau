@@ -8,7 +8,7 @@ from django.db import transaction
 from django.utils.translation import gettext_noop
 
 from camac.core.utils import create_history_entry
-from camac.echbern.signals import ruling
+from camac.ech0211.signals import ruling
 from camac.instance.models import InstanceState
 from camac.instance.utils import (
     set_construction_control,
