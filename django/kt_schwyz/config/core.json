@@ -170,8 +170,8 @@
     "pk": 151,
     "fields": {
       "resource": 28,
-      "instance_resource": 47,
-      "air_action_name": "edit"
+      "instance_resource": 49,
+      "air_action_name": "index"
     }
   },
   {
@@ -215,8 +215,8 @@
     "pk": 156,
     "fields": {
       "resource": 28,
-      "instance_resource": 7,
-      "air_action_name": "edit"
+      "instance_resource": 49,
+      "air_action_name": "index"
     }
   },
   {
@@ -1391,7 +1391,7 @@
     "fields": {
       "available_action": "pageredirect",
       "button": 44,
-      "name": "Zurück zur Zirkulation",
+      "name": "Zurück zur Aufgabenliste",
       "description": null,
       "success_message": null,
       "error_message": null,
@@ -1461,7 +1461,7 @@
     "fields": {
       "available_action": "pageredirect",
       "button": 23,
-      "name": "Zurück zur Zirkulation",
+      "name": "Zurück zur Aufgabenliste",
       "description": null,
       "success_message": null,
       "error_message": null,
@@ -5413,8 +5413,8 @@
     "pk": 62,
     "fields": {
       "available_instance_resource": "page",
-      "resource": 15,
-      "name": "Zirkluation",
+      "resource": 28,
+      "name": "Zirkulation",
       "description": null,
       "template": "/ember-camac-ng/distribution.phtml",
       "class_field": null,
