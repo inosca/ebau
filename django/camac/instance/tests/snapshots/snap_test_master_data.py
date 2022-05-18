@@ -105,6 +105,9 @@ snapshots['test_master_data[kt_bern-de-be_master_data_case-select_related0-prefe
         'label': 'Bern',
         'slug': '1'
     },
+    'nature_risk_type': [
+    ],
+    'organisation_category': 'ebaube',
     'outside_seating': 20,
     'paper_submit_date': GenericRepr('datetime.datetime(2021, 3, 20, 13, 17, 8, tzinfo=tzutc())'),
     'plot_data': [
@@ -150,6 +153,7 @@ snapshots['test_master_data[kt_bern-de-be_master_data_case-select_related0-prefe
         'slug': 'oeffentlichkeit-oeffentlich'
     },
     'publication_date': None,
+    'remark': None,
     'situation': 'Sachverhalt Test',
     'street': 'Musterstrasse',
     'street_number': 4,
@@ -267,6 +271,9 @@ snapshots['test_master_data[kt_bern-fr-be_master_data_case-select_related1-prefe
         'label': 'Berne',
         'slug': '1'
     },
+    'nature_risk_type': [
+    ],
+    'organisation_category': 'ebaube',
     'outside_seating': 20,
     'paper_submit_date': GenericRepr('datetime.datetime(2021, 3, 20, 13, 17, 8, tzinfo=tzutc())'),
     'plot_data': [
@@ -312,6 +319,7 @@ snapshots['test_master_data[kt_bern-fr-be_master_data_case-select_related1-prefe
         'slug': 'oeffentlichkeit-oeffentlich'
     },
     'publication_date': None,
+    'remark': None,
     'situation': 'Sachverhalt Test',
     'street': 'Musterstrasse',
     'street_number': 4,
@@ -331,7 +339,7 @@ snapshots['test_master_data[kt_bern-fr-be_master_data_case-select_related1-prefe
     ]
 }
 
-snapshots['test_master_data[kt_schwyz-de-sz_master_data_case_gwr-select_related3-prefetch_related3-4] 1'] = {
+snapshots['test_master_data[kt_schwyz-de-sz_master_data_case_gwr-select_related3-prefetch_related3-5] 1'] = {
     'applicants': [
         {
             'company': 'ACME AG',
@@ -347,7 +355,23 @@ snapshots['test_master_data[kt_schwyz-de-sz_master_data_case_gwr-select_related3
             'zip': 5678
         }
     ],
+    'application_type': 'Elizabeth Garcia',
     'application_type_migrated': None,
+    'building_owners': [
+        {
+            'company': 'ACME AG',
+            'country': 'Schweiz',
+            'email': None,
+            'first_name': 'Max',
+            'is_juristic_person': False,
+            'juristic_name': 'ACME AG',
+            'last_name': 'Mustermann',
+            'phone': None,
+            'street': 'Teststrasse 3',
+            'town': 'Musterdorf',
+            'zip': 5678
+        }
+    ],
     'buildings': [
         {
             'building_category': 1060,
@@ -381,27 +405,36 @@ snapshots['test_master_data[kt_schwyz-de-sz_master_data_case_gwr-select_related3
     'coordinates': [
     ],
     'decision_date': None,
+    'dossier_number': None,
     'final_approval_date': [
     ],
     'landowners': [
     ],
+    'legal_representatives': [
+    ],
+    'municipality': 'Duncanchester',
+    'organization_category': 'ebausz',
     'plot_data': [
         {
             'egrid_number': 'CH1234567890',
             'plot_number': 1234
         }
     ],
+    'proceeding_type': None,
     'profile_approval_date': [
     ],
     'project_authors': [
     ],
     'proposal': 'Grosses Haus',
     'publication_date': None,
+    'remark': None,
     'street': None,
-    'submit_date': None
+    'submit_date': None,
+    'usage_type': None,
+    'usage_zone': None
 }
 
-snapshots['test_master_data[kt_schwyz-de-sz_master_data_case_gwr_v2-select_related4-prefetch_related4-4] 1'] = {
+snapshots['test_master_data[kt_schwyz-de-sz_master_data_case_gwr_v2-select_related4-prefetch_related4-5] 1'] = {
     'applicants': [
         {
             'company': 'ACME AG',
@@ -417,7 +450,23 @@ snapshots['test_master_data[kt_schwyz-de-sz_master_data_case_gwr_v2-select_relat
             'zip': 5678
         }
     ],
+    'application_type': 'Elizabeth Garcia',
     'application_type_migrated': None,
+    'building_owners': [
+        {
+            'company': 'ACME AG',
+            'country': 'Schweiz',
+            'email': None,
+            'first_name': 'Max',
+            'is_juristic_person': False,
+            'juristic_name': 'ACME AG',
+            'last_name': 'Mustermann',
+            'phone': None,
+            'street': 'Teststrasse 3',
+            'town': 'Musterdorf',
+            'zip': 5678
+        }
+    ],
     'buildings': [
         {
             'building_category': 1020,
@@ -459,24 +508,33 @@ snapshots['test_master_data[kt_schwyz-de-sz_master_data_case_gwr_v2-select_relat
     'coordinates': [
     ],
     'decision_date': None,
+    'dossier_number': None,
     'final_approval_date': [
     ],
     'landowners': [
     ],
+    'legal_representatives': [
+    ],
+    'municipality': 'Duncanchester',
+    'organization_category': 'ebausz',
     'plot_data': [
         {
             'egrid_number': 'CH1234567890',
             'plot_number': 1234
         }
     ],
+    'proceeding_type': None,
     'profile_approval_date': [
     ],
     'project_authors': [
     ],
     'proposal': 'Grosses Haus',
     'publication_date': None,
+    'remark': None,
     'street': None,
-    'submit_date': None
+    'submit_date': None,
+    'usage_type': None,
+    'usage_zone': None
 }
 
 snapshots['test_master_data[kt_uri-de-ur_master_data_case-select_related2-prefetch_related2-8] 1'] = {

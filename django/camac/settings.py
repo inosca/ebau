@@ -97,7 +97,7 @@ INSTALLED_APPS = [
     "camac.auditlog.apps.DefaultConfig",
     "camac.tags.apps.DefaultConfig",
     "camac.objection.apps.DefaultConfig",
-    "camac.echbern.apps.EchbernConfig",
+    "camac.ech0211.apps.Ech0211Config",
     "camac.migrate_to_caluma.apps.MigrateConfig",
     "camac.stats.apps.StatsConfig",
     "camac.parashift.apps.ParashiftConfig",
@@ -171,6 +171,9 @@ COMMON_FORM_SLUGS_BE = [
 # an application is defined by the customer e.g. uri, schwyz, etc.
 APPLICATIONS = {
     "demo": {
+        "ECH0211": {
+            "API_ACTIVE": False,
+        },
         "LOG_NOTIFICATIONS": True,
         # Mapping between camac role and instance permission.
         "ROLE_PERMISSIONS": {
@@ -229,7 +232,6 @@ APPLICATIONS = {
             "SAVE_DOSSIER_NUMBER_IN_CALUMA": True,
         },
         "STORE_PDF": {"SECTION": 1},
-        "ECH_API": True,
         "INSTANCE_STATE_REJECTION_COMPLETE": "finished",
         "SET_SUBMIT_DATE_CAMAC_ANSWER": True,
         "REJECTION_FEEDBACK_QUESTION": {
@@ -270,6 +272,7 @@ APPLICATIONS = {
         ],
     },
     "kt_schwyz": {
+        "INCLUDE_STATIC_FILES": [("xml", "kt_schwyz/static/ech0211/xml/")],
         "LOG_NOTIFICATIONS": True,
         "ROLE_PERMISSIONS": {
             "Gemeinde": "municipality",
@@ -282,6 +285,15 @@ APPLICATIONS = {
             "Fachstelle Leitbehörde": "municipality",
             "Support": "support",
         },
+        "ECH0211": {
+            "API_ACTIVE": True,
+            "VIEW_PATH": "camac.ech0211.views.kt_schwyz",
+            "URLS_CLASS": "camac.ech0211.urls.SZUrlsConf",
+        },
+        "EXCLUDE_DOCS": [
+            "document",
+            "instance",
+        ],
         "PUBLIC_ROLES": ["Publikation", "Portal"],
         "PORTAL_GROUP": 4,
         "SERVICE_GROUPS_FOR_DISTRIBUTION": {
@@ -611,9 +623,83 @@ APPLICATIONS = {
         },
         "MASTER_DATA": {
             "canton": ("static", "SZ"),
+            "organization_category": (
+                "static",
+                "ebausz",
+            ),  # TODO: change this value 'decisionRulingType'
             "applicants": (
                 "ng_table",
                 ["bauherrschaft", "bauherrschaft-v2", "bauherrschaft-override"],
+                {
+                    "column_mapping": {
+                        "last_name": "name",
+                        "first_name": "vorname",
+                        "street": "strasse",
+                        "zip": "plz",
+                        "town": "ort",
+                        "country": ("static", "Schweiz"),
+                        "is_juristic_person": (
+                            "anrede",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "Herr": False,
+                                            "Frau": False,
+                                            "Firma": True,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                        "juristic_name": "firma",
+                        "company": "firma",
+                        "email": "email",
+                        "phone": "tel",
+                    }
+                },
+            ),
+            "building_owners": (
+                "ng_table",
+                [
+                    "bauherrschaft",
+                    "bauherrschaft-v2",
+                    "bauherrschaft-override",
+                ],  # TODO: hauseigentümerschaft in SZ?
+                {
+                    "column_mapping": {
+                        "last_name": "name",
+                        "first_name": "vorname",
+                        "street": "strasse",
+                        "zip": "plz",
+                        "town": "ort",
+                        "country": ("static", "Schweiz"),
+                        "is_juristic_person": (
+                            "anrede",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "Herr": False,
+                                            "Frau": False,
+                                            "Firma": True,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                        "juristic_name": "firma",
+                        "company": "firma",
+                        "email": "email",
+                        "phone": "tel",
+                    }
+                },
+            ),
+            "legal_representatives": (
+                "ng_table",
+                "vertreter-mit-vollmacht",
                 {
                     "column_mapping": {
                         "last_name": "name",
@@ -778,12 +864,37 @@ APPLICATIONS = {
                     },
                 },
             ),
-            "proposal": ("ng_answer", ["bezeichnung", "bezeichnung-override"]),
-            "construction_costs": ("ng_answer", "baukosten"),
+            "dossier_number": (
+                "instance_property",
+                "identifier",
+            ),  # eCH0211: 3.1.1.1.1, 3.1.1.1.2
+            "municipality": ("instance_property", "location"),
+            "proposal": (
+                "ng_answer",
+                ["bezeichnung", "bezeichnung-override"],
+            ),  # eCH0211: 3.1.1.2
+            "remark": (
+                "ng_answer",
+                "vollstaendigkeitspruefung-bemerkung",
+            ),  # eCH0211: 3.1.1.4
+            "construction_costs": ("ng_answer", "baukosten"),  # eCH0211: 3.1.1.11
+            "usage_zone": (
+                "ng_answer",
+                "betroffene-nutzungszonen",
+            ),  # eCH0211: 3.8.1.3 TODO: verify!
+            "usage_type": ("ng_answer", "art-der-nutzung"),  # TODO: verify!
+            "application_type": (
+                "instance_property",
+                "form.description",
+            ),  # `proceeding_type` in context of eCH standard
+            #  SZ stores this as `instance.form.name`  # TODO: verify!
             "application_type_migrated": (  # not the same as regular application_type that requires predefined choices
                 "ng_answer",
                 "verfahrensart-migriertes-dossier",
             ),
+            "proceeding_type": (  # TODO: verify!
+                ("ng_answer", "verfahrensart")
+            ),  # this is called "Verfahrensart" in context of eCH
             "coordinates": (
                 "ng_table",
                 "punkte",
@@ -1030,6 +1141,13 @@ APPLICATIONS = {
         },
     },
     "kt_bern": {
+        "ECH0211": {
+            "API_ACTIVE": True,
+            "VIEW_PATH": "camac.ech0211.views.kt_bern",
+            "SWAGGER_PATH": "camac.swagger.views.kt_bern",
+            "URLS_CLASS": "camac.ech0211.urls.BEUrlsConf",
+        },
+        "INCLUDE_STATIC_FILES": [("xml", "kt_bern/static/ech0211/xml")],
         "LOG_NOTIFICATIONS": True,
         "SYSTEM_USER": "service-account-camac-admin",
         "ROLE_PERMISSIONS": {
@@ -1180,22 +1298,22 @@ APPLICATIONS = {
             "SIMPLE_WORKFLOW": {
                 "reopen-circulation": {
                     "next_instance_state": "circulation",
-                    "ech_event": "camac.echbern.signals.circulation_started",
+                    "ech_event": "camac.ech0211.signals.circulation_started",
                     "history_text": gettext_lazy("Circulation reopened"),
                 },
                 "skip-circulation": {
                     "next_instance_state": "coordination",
-                    "ech_event": "camac.echbern.signals.circulation_ended",
+                    "ech_event": "camac.ech0211.signals.circulation_ended",
                     "history_text": gettext_lazy("Circulation skipped"),
                 },
                 "start-decision": {
                     "next_instance_state": "coordination",
-                    "ech_event": "camac.echbern.signals.circulation_ended",
+                    "ech_event": "camac.ech0211.signals.circulation_ended",
                     "history_text": gettext_lazy("Circulation completed"),
                 },
                 "complete": {
                     "next_instance_state": "finished",
-                    "ech_event": "camac.echbern.signals.finished",
+                    "ech_event": "camac.ech0211.signals.finished",
                     "history_text": gettext_lazy("Procedure completed"),
                 },
             },
@@ -1408,7 +1526,6 @@ APPLICATIONS = {
             },
             "ALLOWED_SERVICE_GROUPS": {"SB1": [3], "SB2": [3], "DEFAULT": [2, 20000]},
         },
-        "ECH_API": True,
         "DOCUMENT_MERGE_SERVICE": {
             "FORM": {
                 "_base": {
@@ -1906,6 +2023,13 @@ APPLICATIONS = {
         },
         "MASTER_DATA": {
             "canton": ("static", "BE"),
+            "organisation_category": ("static", "ebaube"),
+            "remark": ("answer", "bemerkungen"),
+            "nature_risk_type": (
+                "table",
+                "beschreibung-der-prozessart-tabelle",
+                {"column_mapping": {"risk_type": "prozessart"}},
+            ),
             "applicants": (
                 "table",
                 "personalien-gesuchstellerin",
@@ -2176,6 +2300,9 @@ APPLICATIONS = {
         "PUBLICATION_BACKEND": "caluma",
     },
     "kt_uri": {
+        "ECH0211": {
+            "API_ACTIVE": False,
+        },
         "LOG_NOTIFICATIONS": False,
         "FORM_BACKEND": "caluma",
         "PUBLICATION_DURATION": timedelta(days=20),
@@ -2920,6 +3047,7 @@ TEMPFILE_RETENTION_TIME = env.int(
 )
 
 STATIC_ROOT = ROOT_DIR("staticfiles")
+STATICFILES_DIRS = []  # declare empyt list in order to append config specific dirs
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
@@ -3367,3 +3495,5 @@ OIDC_OP_INTROSPECT_ENDPOINT = env.str(
     "DJANGO_OIDC_OP_INTROSPECT_ENDPOINT",
     default=f"{OIDC_DEFAULT_BASE_URL}/token/introspect",
 )
+
+STATICFILES_DIRS += APPLICATIONS[APPLICATION_NAME].get("INCLUDE_STATIC_FILES", [])

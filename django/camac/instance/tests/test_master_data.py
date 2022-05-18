@@ -67,21 +67,25 @@ def add_table_answer(document, question, rows, table_answer=None):
 
 def test_master_data_exceptions(
     db,
+    instance,
+    instance_with_case,
     application_settings,
 ):
     application_settings["MASTER_DATA"] = {
         "bar": ("unconfigured", "bar"),
         "baz": ("case_meta", "baz", {"value_parser": "boolean"}),
+        "an_instance_property": ("instance_property", "case__form"),
     }
-
-    master_data = MasterData(caluma_workflow_factories.CaseFactory(meta={"baz": True}))
+    instance.case = caluma_workflow_factories.CaseFactory(meta={"baz": True})
+    instance.save()
+    master_data = MasterData(instance.case)
 
     with pytest.raises(AttributeError) as e:
         assert master_data.foo
 
     assert (
         str(e.value)
-        == "Key 'foo' is not configured in master data config. Available keys are: bar, baz"
+        == "Key 'foo' is not configured in master data config. Available keys are: bar, baz, an_instance_property"
     )
 
     with pytest.raises(AttributeError) as e:
@@ -96,6 +100,14 @@ def test_master_data_exceptions(
         assert master_data.baz
 
     assert str(e.value) == "Parser 'boolean' is not defined in master data class"
+
+    with pytest.raises(AttributeError) as e:
+        assert master_data.an_instance_property
+
+    assert (
+        str(e.value)
+        == "Instance property lookup failed for lookup `case__form` with 'Case' object has no attribute 'form'."
+    )
 
 
 def test_master_data_parsers(
@@ -623,78 +635,6 @@ def sz_master_data_case_gwr_v2(sz_master_data_case, form_field_factory):
     return sz_instance.case
 
 
-@pytest.fixture
-def sz_master_data_case(db, sz_instance, form_field_factory, workflow_entry_factory):
-    # Simple data
-    form_field_factory(instance=sz_instance, name="bezeichnung", value="Grosses Haus")
-    form_field_factory(instance=sz_instance, name="baukosten", value=129000)
-
-    # Applicant
-    form_field_factory(
-        instance=sz_instance,
-        name="bauherrschaft",
-        value=[
-            {
-                "anrede": "Herr",
-                "vorname": "Max",
-                "name": "Mustermann",
-                "firma": "ACME AG",
-                "strasse": "Teststrasse 2",
-                "plz": 1233,
-                "ort": "Musterdorf",
-            }
-        ],
-    )
-
-    # Applicant V2
-    form_field_factory(
-        instance=sz_instance,
-        name="bauherrschaft-v2",
-        value=[
-            {
-                "anrede": "Herr",
-                "vorname": "Max",
-                "name": "Mustermann",
-                "firma": "ACME AG",
-                "strasse": "Teststrasse 2",
-                "plz": 1233,
-                "ort": "Musterdorf",
-            }
-        ],
-    )
-
-    # Applicant override (Vollständigkeitsprüfung)
-    form_field_factory(
-        instance=sz_instance,
-        name="bauherrschaft-override",
-        value=[
-            {
-                "anrede": "Herr",
-                "vorname": "Max",
-                "name": "Mustermann",
-                "firma": "ACME AG",
-                "strasse": "Teststrasse 3",
-                "plz": 5678,
-                "ort": "Musterdorf",
-            }
-        ],
-    )
-
-    # Plot data
-    form_field_factory(
-        instance=sz_instance,
-        name="parzellen",
-        value=[
-            {
-                "number": 1234,
-                "egrid": "CH1234567890",
-            }
-        ],
-    )
-
-    return sz_instance.case
-
-
 @pytest.mark.parametrize(
     "application_name,language,case,select_related,prefetch_related,num_queries",
     [
@@ -767,25 +707,27 @@ def sz_master_data_case(db, sz_instance, form_field_factory, workflow_entry_fact
             "kt_schwyz",
             "de",
             pytest.lazy_fixture("sz_master_data_case_gwr"),
-            ["instance"],
+            ["instance", "instance__form"],
             ["instance__fields", "instance__workflowentry_set", "work_items"],
             # 1. Query for fetching case
             # 2. Query for prefetching fields
             # 3. Query for prefetching workflow entries
             # 4. Query for prefetching work_items
-            4,
+            # 5. Query for selecting form
+            5,
         ),
         (
             "kt_schwyz",
             "de",
             pytest.lazy_fixture("sz_master_data_case_gwr_v2"),
-            ["instance"],
+            ["instance", "instance__form"],
             ["instance__fields", "instance__workflowentry_set", "work_items"],
             # 1. Query for fetching case
             # 2. Query for prefetching fields
             # 3. Query for prefetching workflow entries
             # 4. Query for prefetching work_items
-            4,
+            # 5. Query for selecting form
+            5,
         ),
     ],
 )
