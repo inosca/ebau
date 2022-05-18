@@ -41,7 +41,13 @@ def test_me_group(admin_client, admin_user, service):
 
 @pytest.mark.parametrize(
     "role__name,size",
-    [("Applicant", 0), ("Service", 1), ("Canton", 1), ("Municipality", 1)],
+    [
+        ("Applicant", 0),
+        ("Service", 1),
+        ("Canton", 1),
+        ("Municipality", 1),
+        ("Coordination", 1),
+    ],
 )
 def test_user_list(admin_client, size):
     url = reverse("user-list")
