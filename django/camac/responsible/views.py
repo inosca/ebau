@@ -29,6 +29,9 @@ class ResponsibleServiceView(InstanceEditableMixin, ModelViewSet):
     def has_create_permission_for_municipality(self):
         return True
 
+    def has_create_permission_for_coordination(self):
+        return True
+
     @permission_aware
     def has_update_permission(self):
         return False
@@ -37,4 +40,7 @@ class ResponsibleServiceView(InstanceEditableMixin, ModelViewSet):
         return True
 
     def has_update_permission_for_municipality(self):
+        return True
+
+    def has_update_permission_for_coordination(self):
         return True
