@@ -3,7 +3,7 @@ from django.conf import settings
 from django.urls import reverse
 from rest_framework import status
 
-from camac.instance.tests.test_master_data import sz_master_data_case  # noqa
+from camac.conftest import sz_master_data_case  # noqa
 from camac.instance.tests.test_master_data import sz_master_data_case_gwr  # noqa
 from camac.instance.tests.test_master_data import sz_master_data_case_gwr_v2  # noqa
 from camac.instance.tests.test_master_data import ur_master_data_case  # noqa

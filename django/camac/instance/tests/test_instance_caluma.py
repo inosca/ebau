@@ -16,9 +16,9 @@ from camac.caluma.api import CalumaApi
 from camac.conftest import CALUMA_FORM_TYPES_SLUGS
 from camac.constants import kt_bern as be_constants, kt_uri as ur_constants
 from camac.core.models import Chapter, ProposalActivation, Question, QuestionType
-from camac.echbern import event_handlers
-from camac.echbern.data_preparation import DocumentParser
-from camac.echbern.tests.caluma_document_data import baugesuch_data
+from camac.ech0211 import event_handlers
+from camac.ech0211.data_preparation import DocumentParser
+from camac.ech0211.tests.caluma_document_data import baugesuch_data
 from camac.instance.domain_logic import WORKFLOW_ITEM_DOSSIER_IN_UREC_ERFASST_UR
 from camac.instance.models import Instance
 from camac.instance.serializers import (

@@ -4,7 +4,7 @@ from django.core.management.base import BaseCommand
 from django.db import transaction
 from django.db.models import Q
 
-from camac.echbern.models import Message
+from camac.ech0211.models import Message
 from camac.instance.models import Instance
 from camac.user.models import Group, GroupT, Service, ServiceT, User, UserGroup
 

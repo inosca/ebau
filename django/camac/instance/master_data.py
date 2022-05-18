@@ -1,9 +1,12 @@
 from dataclasses import dataclass
+from operator import attrgetter
 
 from caluma.caluma_form import models as form_models
 from dateutil.parser import ParserError, parse as dateutil_parse
 from django.conf import settings
 from django.utils.translation import get_language
+
+from camac.core.models import MultilingualModel
 
 
 @dataclass
@@ -435,6 +438,28 @@ class MasterData(object):
             hasattr(self.case.instance, "decision")
             and self.case.instance.decision.decision_date
         ) or None
+
+    def instance_property_resolver(self, lookup):
+        """Take a lookup path to the property to return final value.
+
+        '__' separate nested properties
+
+        If the target hits a MultilingualModel value the name is translated
+        with `get_name`.
+
+        """
+        lookup_attr_of = attrgetter(lookup.replace("__", "."))
+
+        try:
+            value = lookup_attr_of(self.case.instance)
+        except AttributeError as e:
+            raise AttributeError(
+                f"Instance property lookup failed for lookup `{lookup}` with {e}."
+            )
+
+        if isinstance(value, MultilingualModel):
+            value = value.get_name()
+        return value
 
     def datetime_parser(self, value, default, **kwargs):
         try:

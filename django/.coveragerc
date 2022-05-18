@@ -16,7 +16,7 @@ omit=
     */migrations/*
     */apps.py
     */admin.py
-    camac/echbern/schema/*
+    camac/ech0211/schema/*
     manage.py
     setup.py
     form_json_helper.py
@@ -54,7 +54,7 @@ omit=
     camac/core/management/commands/migrate_ur_submit_date.py
     camac/core/management/commands/fix_einfache_vorabklaerung.py
     camac/core/management/commands/restore_preliminary_clarification.py
-    camac/echbern/management/commands/fix_ech_circulation_answer.py
+    camac/ech0211/management/commands/fix_ech_circulation_answer.py
     camac/core/management/commands/migrate_work_item_controlling.py
     camac/core/management/commands/initialize_information_of_neighbors.py
     camac/core/management/commands/migrate_stockwerk_uri.py

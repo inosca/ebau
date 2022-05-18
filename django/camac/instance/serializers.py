@@ -35,7 +35,7 @@ from camac.core.models import (
 from camac.core.serializers import MultilingualField, MultilingualSerializer
 from camac.core.utils import create_history_entry, generate_ebau_nr
 from camac.document.models import AttachmentSection
-from camac.echbern.signals import (
+from camac.ech0211.signals import (
     change_responsibility,
     instance_submitted,
     sb1_submitted,
