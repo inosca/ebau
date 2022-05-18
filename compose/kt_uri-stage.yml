@@ -46,19 +46,6 @@ services:
       - /etc/camac/document-merge-service.env:/run/secrets/document-merge-service.env:ro
       - /etc/camac/document-merge-service/uwsgi-prod.ini:/app/uwsgi.ini:ro
 
-  php:
-    image: acr.run/camac-ng/camac-ng/php:${CI_COMMIT_REF_SLUG}-${APPLICATION}
-    build:
-      context: ../php
-      cache_from:
-        - acr.run/camac-ng/camac-ng/php:${CI_COMMIT_REF_SLUG}-${APPLICATION}
-    restart: always
-    environment:
-      - APPLICATION_ENV=production
-    volumes:
-      - /etc/camac/php.ini:/usr/local/etc/php/php.ini:ro
-      - /etc/camac/application.ini:/var/www/camac/${APPLICATION}/configs/application.local.ini:ro
-
   ember-camac-ng:
     image: acr.run/camac-ng/camac-ng/ember-camac-ng:${CI_COMMIT_REF_SLUG}-${APPLICATION}
     build:
