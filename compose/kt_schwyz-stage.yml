@@ -66,21 +66,6 @@ services:
         - APPLICATION=${APPLICATION}
     restart: always
 
-  php:
-    image: acr.run/camac-ng/camac-ng/php:${CI_COMMIT_REF_SLUG}-${APPLICATION}
-    build:
-      context: ../php
-      cache_from:
-        - acr.run/camac-ng/camac-ng/php:${CI_COMMIT_REF_SLUG}-${APPLICATION}
-    restart: always
-    environment:
-      - APPLICATION_ENV=production
-    volumes:
-      - /etc/camac/php.ini:/usr/local/etc/php/php.ini:ro
-      - /etc/camac/application.ini:/var/www/camac/${APPLICATION}/configs/application.local.ini:ro
-      # TODO: Implement resource fallback in document module, so this can be removed
-      - phpresources:/var/www/camac/kt_uri/resources
-
   cache:
     restart: always
 
