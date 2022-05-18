@@ -2,7 +2,6 @@ from django.core.management.base import BaseCommand
 from django.db import transaction
 from django.db.models import Value
 from django.db.models.functions import Replace
-from django.db.utils import IntegrityError
 
 from camac.core.models import Activation
 from camac.document.models import Attachment
