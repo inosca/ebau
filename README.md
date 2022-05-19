@@ -1,6 +1,6 @@
-# ebau
+# eBau
 
-Electronic building permit application for swiss cantons.
+Electronic building permit application for Swiss cantons.
 
 ## Table of Contents
 
@@ -19,7 +19,7 @@ Electronic building permit application for swiss cantons.
   - [GWR API](#gwr-api)
     - [Django profiling](#django-profiling)
     - [Visual Studio Code](#visual-studio-code)
-  - [Customize api](#customize-api)
+  - [Customize API](#customize-api)
 - [Sending email](#sending-email)
 - [License](#license)
 
@@ -27,7 +27,7 @@ Electronic building permit application for swiss cantons.
 
 ## Overview
 
-This repository contains the source code for the web applications used to handle electronic building permits and comparable processes in the Swiss cantons of Berne, Schwyz and Uri. The software stack is undergoing a "rolling" modernization process, meaning that the application is built up on multiple technology stacks. The evolution of the framework happenend in roughly the following stages:
+This repository contains the source code for the web applications used to handle electronic building permits and comparable processes in the Swiss cantons of Berne, Schwyz and Uri. The software stack is undergoing a "rolling" modernization process, meaning that the application is built up on multiple technology stacks. The evolution of the framework happened in roughly the following stages:
 
 1. Base: PHP-based, server-side rendered (legacy, not part of this repository)
 2. a) Introduction of Django (Python)-based model layer, allowing for simpler database management and development of REST APIs,
@@ -40,7 +40,7 @@ The following image shows a high-level overview of the current architecture:
 
 ![Architecture](https://i.imgur.com/dZseZU5.jpg)
 
-While technically only one database is used, two are shown in the diagram to highlight that Caluma is using it's own schema, while the Legacy app and Bridge API share a common schema.
+While technically only one database is used, two are shown in the diagram to highlight that Caluma is using its own schema, while the legacy app and bridge API share a common schema.
 
 ### Folder structure
 
@@ -62,10 +62,10 @@ While technically only one database is used, two are shown in the diagram to hig
 
 The following table lists the most important modules in the "internal" part of the application and their respective progress in the modernization based on four steps:
 
-1. **JS / API-driven**: Frontend is based on Vue.js, Backend is a REST or GraphQL API.
-2. **Ember.js**: Frontend is implemented with Ember.js.
-3. **UIkit**: Styling is implemented using UIkit.
-4. **Part of ember-ebau**: This module has been integrated in ember-ebau.
+1. **JS / API-driven**: frontend is based on Vue.js, backend is a REST or GraphQL API
+2. **Ember.js**: frontend is implemented with Ember.js
+3. **UIkit**: styling is implemented using UIkit
+4. **Part of ember-ebau**: this module has been integrated in ember-ebau
 
 | Module                       | Description                              | JS / API-driven    | Ember.js           | UIkit              | Part of ember-ebau |
 | ---------------------------- | ---------------------------------------- | ------------------ | ------------------ | ------------------ | ------------------ |
@@ -118,8 +118,7 @@ Ember:
 
 ### Basic setup
 
-In general Docker can be used to get ebau up and running quickly. Simply
-run the following script.
+Docker can be used to get eBau up and running quickly. Simply run the following script.
 
 ```bash
 make start-dev-env
@@ -148,7 +147,7 @@ After, you should be able to use to the following services:
 
 ### Predefined credentials
 
-The following administator accounts are present in Keycloak or the DB,
+The following administrator accounts are present in Keycloak or the DB,
 respectively:
 
 | _Application_ | _Role_      | _Username_ | _Password_ | _Notes_ |
@@ -193,7 +192,7 @@ If you use the GWR module, you need to generate a Fernet key
 according to the [documentation](https://github.com/adfinis-sygroup/ebau-gwr) of the gwr backend.
 
 You need to set this key in each environment/server in your env file.
-**Generate a seperate key for each environment since this is used to store /
+**Generate a separate key for each environment, since this is used to store /
 read the gwr user passwords.**
 
 ##### Django profiling
@@ -215,17 +214,17 @@ Since this debug server collides with other setups (PyCharm, PyDev) it will
 only be started if the env var `ENABLE_PTVSD_DEBUGGER` is set to `True` in
 [`django/.env`](django/.env).
 
-### Customize api
+### Customize API
 
-The api should be designed the way that it can be used by any ebau project. For needed
-customization following rules apply:
+The API should be designed in a way, that allows it to be used by any eBau project. For needed
+customization, the following rules apply:
 
 - each permission may be mapped to a specific role in the specific project.
   In case a role may have different set of permissions than already available,
   introduce a new one and adjust the different views accordingly.
 - for features which may not be covered by permissions, introduce feature flags.
 
-For different feature flags and permissions see `APPLICATIONS` in settings.py.
+For different feature flags and permissions, see `APPLICATIONS` in settings.py.
 
 ## Sending email
 
