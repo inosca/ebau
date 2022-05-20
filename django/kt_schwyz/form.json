@@ -264,10 +264,10 @@
       "grundinformationen.ausnahmebewilligungen",
       "grundinformationen.gwr-v2",
       "personalien",
-      "personalien.grundeigentumerschaft",
-      "personalien.bauherrschaft-v2",
-      "personalien.projektverfasser-planer-v2",
-      "personalien.vertreter-mit-vollmacht",
+      "personalien.grundeigentumerschaft-v2",
+      "personalien.bauherrschaft-v3",
+      "personalien.projektverfasser-planer-v3",
+      "personalien.vertreter-mit-vollmacht-v2",
       "fachthemen",
       "fachthemen.landwirtschaft",
       "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
@@ -344,6 +344,22 @@
       "personalien.grundeigentumerschaft",
       "personalien.bauherrschaft-v2",
       "personalien.projektverfasser-planer-v2",
+      "fachthemen",
+      "fachthemen.energie",
+      "gesuchsunterlagen"
+    ],
+    "projektanderung-v7": [
+      "projektanderung",
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "grundinformationen.kategorisierung",
+      "grundinformationen.allgemeine-informationen-zum-vorhaben-v3",
+      "grundinformationen.ausnahmebewilligungen",
+      "grundinformationen.gwr-v2",
+      "personalien",
+      "personalien.grundeigentumerschaft-v2",
+      "personalien.bauherrschaft-v3",
+      "personalien.projektverfasser-planer-v3",
       "fachthemen",
       "fachthemen.energie",
       "gesuchsunterlagen"
@@ -452,9 +468,9 @@
       "grundinformationen.allgemeine-informationen-zum-vorhaben-v3",
       "grundinformationen.gwr-v2",
       "personalien",
-      "personalien.grundeigentumerschaft",
-      "personalien.bauherrschaft-v2",
-      "personalien.projektverfasser-planer-v2",
+      "personalien.grundeigentumerschaft-v2",
+      "personalien.bauherrschaft-v3",
+      "personalien.projektverfasser-planer-v3",
       "fachthemen",
       "fachthemen.landwirtschaft",
       "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
@@ -509,6 +525,16 @@
       "personalien.grundeigentumerschaft",
       "personalien.bauherrschaft-v2",
       "personalien.projektverfasser-planer-v2",
+      "gesuchsunterlagen"
+    ],
+    "vorabklarung-v5": [
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "grundinformationen.kategorisierung-vorabklarung",
+      "personalien",
+      "personalien.grundeigentumerschaft-v2",
+      "personalien.bauherrschaft-v3",
+      "personalien.projektverfasser-planer-v3",
       "gesuchsunterlagen"
     ],
     "baumeldung-fur-geringfugiges-vorhaben": [
@@ -633,9 +659,9 @@
       "grundinformationen.lokalisierung",
       "baumeldung-fur-geringfugige-vorhaben-v2",
       "personalien",
-      "personalien.grundeigentumerschaft",
-      "personalien.bauherrschaft-v2",
-      "personalien.projektverfasser-planer-v2",
+      "personalien.grundeigentumerschaft-v2",
+      "personalien.bauherrschaft-v3",
+      "personalien.projektverfasser-planer-v3",
       "fachthemen",
       "fachthemen.landwirtschaft",
       "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
@@ -724,9 +750,9 @@
       "grundinformationen",
       "grundinformationen.lokalisierung",
       "personalien",
-      "personalien.grundeigentumerschaft",
-      "personalien.bauherrschaft-v2",
-      "personalien.projektverfasser-planer-v2",
+      "personalien.grundeigentumerschaft-v2",
+      "personalien.bauherrschaft-v3",
+      "personalien.projektverfasser-planer-v3",
       "fachthemen",
       "fachthemen.landwirtschaft",
       "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
@@ -778,6 +804,16 @@
       "personalien.projektverfasser-planer-v2",
       "gesuchsunterlagen"
     ],
+    "konzession-fur-wasserentnahme-v4": [
+      "konzession-fur-wasserentnahme",
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "personalien",
+      "personalien.grundeigentumerschaft-v2",
+      "personalien.bauherrschaft-v3",
+      "personalien.projektverfasser-planer-v3",
+      "gesuchsunterlagen"
+    ],
     "anlassbewilligungen-verkehrsbewilligungen": [
       "anlassbewilligungen-verkehrsbewilligungen",
       "grundinformationen",
@@ -806,6 +842,16 @@
       "gesuchsunterlagen",
       "meta"
     ],
+    "anlassbewilligungen-verkehrsbewilligungen-v4": [
+      "anlassbewilligungen-verkehrsbewilligungen",
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "personalien",
+      "personalien.bauherrschaft-v3",
+      "personalien.projektverfasser-planer-v3",
+      "gesuchsunterlagen",
+      "meta"
+    ],
     "plangenehmigungsgesuch": [
       "grundinformationen",
       "grundinformationen.lokalisierung",
@@ -831,6 +877,16 @@
       "personalien.grundeigentumerschaft",
       "personalien.bauherrschaft-v2",
       "personalien.projektverfasser-planer-v2",
+      "gesuchsunterlagen",
+      "meta"
+    ],
+    "plangenehmigungsgesuch-v4": [
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "personalien",
+      "personalien.grundeigentumerschaft",
+      "personalien.bauherrschaft-v3",
+      "personalien.projektverfasser-planer-v3",
       "gesuchsunterlagen",
       "meta"
     ],
@@ -922,9 +978,9 @@
       "grundinformationen",
       "grundinformationen.lokalisierung",
       "personalien",
-      "personalien.grundeigentumerschaft",
-      "personalien.bauherrschaft-v2",
-      "personalien.projektverfasser-planer-v2",
+      "personalien.grundeigentumerschaft-v2",
+      "personalien.bauherrschaft-v3",
+      "personalien.projektverfasser-planer-v3",
       "fachthemen",
       "fachthemen.landwirtschaft",
       "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
@@ -1116,6 +1172,11 @@
       "parent": "personalien",
       "questions": ["grundeigentumerschaft"]
     },
+    "personalien.grundeigentumerschaft-v2": {
+      "title": "Grundeigentümerschaft",
+      "parent": "personalien",
+      "questions": ["grundeigentumerschaft-v2"]
+    },
     "personalien.bauherrschaft": {
       "title": "Bauherrschaft / Bewilligungsnehmer",
       "parent": "personalien",
@@ -1125,6 +1186,11 @@
       "title": "Bauherrschaft / Bewilligungsnehmer",
       "parent": "personalien",
       "questions": ["bauherrschaft-v2"]
+    },
+    "personalien.bauherrschaft-v3": {
+      "title": "Bauherrschaft / Bewilligungsnehmer",
+      "parent": "personalien",
+      "questions": ["bauherrschaft-v3"]
     },
     "personalien.projektverfasser-planer": {
       "title": "Projektverfasser / Planer",
@@ -1136,6 +1202,11 @@
       "parent": "personalien",
       "questions": ["projektverfasser-planer-v2"]
     },
+    "personalien.projektverfasser-planer-v3": {
+      "title": "Projektverfasser / Planer",
+      "parent": "personalien",
+      "questions": ["projektverfasser-planer-v3"]
+    },
     "personalien.gesuchsteller": {
       "title": "Gesuchsteller",
       "parent": "personalien",
@@ -1146,12 +1217,22 @@
       "parent": "personalien",
       "questions": ["konzessionsnehmer"]
     },
+    "personalien.konzessionsnehmer-v2": {
+      "title": "Konzessionsnehmer",
+      "parent": "personalien",
+      "questions": ["konzessionsnehmer"]
+    },
     "personalien.bewilligungsnehmer": {
       "title": "Bewilligungsnehmer",
       "parent": "personalien",
       "questions": ["bewilligungsnehmer"]
     },
     "personalien.vertreter-mit-vollmacht": {
+      "title": "Vertreter/in mit Vollmacht",
+      "parent": "personalien",
+      "questions": ["vertreter-mit-vollmacht"]
+    },
+    "personalien.vertreter-mit-vollmacht-v2": {
       "title": "Vertreter/in mit Vollmacht",
       "parent": "personalien",
       "questions": ["vertreter-mit-vollmacht"]
@@ -3030,8 +3111,89 @@
           {
             "name": "plz",
             "label": "PLZ",
+            "type": "number",
+            "required": true,
+            "config": {
+              "min": 1000,
+              "max": 9999,
+              "step": 1
+            }
+          },
+          {
+            "name": "ort",
+            "label": "Ort",
             "type": "text",
-            "required": true
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "email",
+            "label": "E-Mail",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "tel",
+            "label": "Tel. Nr.",
+            "type": "text",
+            "required": false,
+            "config": {}
+          }
+        ]
+      }
+    },
+    "grundeigentumerschaft-v2": {
+      "label": "Grundeigentümerschaft:",
+      "hint": "Es ist die zum Zeitpunkt der Gesuchseingabe im Grundbuch eingetragene Grundeigentümerschaft anzugeben.\nFalls die Grundeigentümerschaft aus mehreren natürlichen oder juristischen Personen besteht, sind diese einzeln zu erfassen.",
+      "type": "table",
+      "required": true,
+      "config": {
+        "columns": [
+          {
+            "name": "anrede",
+            "label": "Anrede",
+            "type": "radio",
+            "required": true,
+            "config": {
+              "options": ["Herr", "Frau", "Firma"]
+            }
+          },
+          {
+            "name": "firma",
+            "label": "Firma/ Körperschaft",
+            "table-label": "Firma",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "name",
+            "label": "Name",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "vorname",
+            "label": "Vorname",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "strasse",
+            "label": "Strasse, Nr.",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "plz",
+            "label": "PLZ",
+            "type": "text",
+            "required": true,
+            "config": {}
           },
           {
             "name": "ort",
@@ -3105,8 +3267,13 @@
           {
             "name": "plz",
             "label": "PLZ",
-            "type": "text",
-            "required": true
+            "type": "number",
+            "required": true,
+            "config": {
+              "min": 1000,
+              "max": 9999,
+              "step": 1
+            }
           },
           {
             "name": "ort",
@@ -3180,8 +3347,89 @@
           {
             "name": "plz",
             "label": "PLZ",
+            "type": "number",
+            "required": true,
+            "config": {
+              "min": 1000,
+              "max": 9999,
+              "step": 1
+            }
+          },
+          {
+            "name": "ort",
+            "label": "Ort",
             "type": "text",
-            "required": true
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "email",
+            "label": "E-Mail",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "tel",
+            "label": "Tel. Nr.",
+            "type": "text",
+            "required": true,
+            "config": {}
+          }
+        ]
+      }
+    },
+    "bauherrschaft-v3": {
+      "label": "Bauherrschaft / Bewilligungsnehmer:",
+      "hint": "Die Bauherrschaft (BH) bezeichnet eine oder mehrere natürliche oder juristische Person(en). Die BH ist für die Finanzierung und Umsetzung des Vorhabens verantwortlich. Die Bewilligung wird auf den Namen der BH ausgestellt. Die BH ist oft, aber nicht immer, identisch mit der Grundeigentümerschaft.\n**Hinweis:** Falls die Bauherrschaft aus mehreren natürlichen oder juristischen Personen besteht, sind diese einzeln zu erfassen.\nDer Bewilligungsnehmer ist die natürliche oder juristische Person, welcher die Bewilligung erteilt wird.",
+      "type": "table",
+      "required": true,
+      "config": {
+        "columns": [
+          {
+            "name": "anrede",
+            "label": "Anrede",
+            "type": "radio",
+            "required": true,
+            "config": {
+              "options": ["Herr", "Frau", "Firma"]
+            }
+          },
+          {
+            "name": "firma",
+            "label": "Firma/ Körperschaft",
+            "table-label": "Firma",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "name",
+            "label": "Name",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "vorname",
+            "label": "Vorname",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "strasse",
+            "label": "Strasse, Nr.",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "plz",
+            "label": "PLZ",
+            "type": "text",
+            "required": true,
+            "config": {}
           },
           {
             "name": "ort",
@@ -3255,8 +3503,13 @@
           {
             "name": "plz",
             "label": "PLZ",
-            "type": "text",
-            "required": true
+            "type": "number",
+            "required": true,
+            "config": {
+              "min": 1000,
+              "max": 9999,
+              "step": 1
+            }
           },
           {
             "name": "ort",
@@ -3330,8 +3583,89 @@
           {
             "name": "plz",
             "label": "PLZ",
+            "type": "number",
+            "required": true,
+            "config": {
+              "min": 1000,
+              "max": 9999,
+              "step": 1
+            }
+          },
+          {
+            "name": "ort",
+            "label": "Ort",
             "type": "text",
-            "required": true
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "email",
+            "label": "E-Mail",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "tel",
+            "label": "Tel. Nr.",
+            "type": "text",
+            "required": true,
+            "config": {}
+          }
+        ]
+      }
+    },
+    "projektverfasser-planer-v3": {
+      "label": "Projektverfasser / Planer:",
+      "hint": "Der Projektverfasser / Planer erarbeitet im Auftrag der Bauherrschaft das Projekt, zu dem das Gesuch eingereicht wird. Allenfalls übernimmt der Projektverfasser / Planer auch die Einreichung des Gesuchs.",
+      "type": "table",
+      "required": true,
+      "config": {
+        "columns": [
+          {
+            "name": "anrede",
+            "label": "Anrede",
+            "type": "radio",
+            "required": true,
+            "config": {
+              "options": ["Herr", "Frau", "Firma"]
+            }
+          },
+          {
+            "name": "firma",
+            "label": "Firma/ Körperschaft",
+            "table-label": "Firma",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "name",
+            "label": "Name",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "vorname",
+            "label": "Vorname",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "strasse",
+            "label": "Strasse, Nr.",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "plz",
+            "label": "PLZ",
+            "type": "text",
+            "required": true,
+            "config": {}
           },
           {
             "name": "ort",
@@ -3405,8 +3739,13 @@
           {
             "name": "plz",
             "label": "PLZ",
-            "type": "text",
-            "required": true
+            "type": "number",
+            "required": true,
+            "config": {
+              "min": 1000,
+              "max": 9999,
+              "step": 1
+            }
           },
           {
             "name": "ort",
@@ -3480,8 +3819,13 @@
           {
             "name": "plz",
             "label": "PLZ",
-            "type": "text",
-            "required": true
+            "type": "number",
+            "required": true,
+            "config": {
+              "min": 1000,
+              "max": 9999,
+              "step": 1
+            }
           },
           {
             "name": "ort",
@@ -3555,8 +3899,13 @@
           {
             "name": "plz",
             "label": "PLZ",
-            "type": "text",
-            "required": true
+            "type": "number",
+            "required": true,
+            "config": {
+              "min": 1000,
+              "max": 9999,
+              "step": 1
+            }
           },
           {
             "name": "ort",
@@ -3630,8 +3979,177 @@
           {
             "name": "plz",
             "label": "PLZ",
+            "type": "number",
+            "required": true,
+            "config": {
+              "min": 1000,
+              "max": 9999,
+              "step": 1
+            }
+          },
+          {
+            "name": "ort",
+            "label": "Ort",
             "type": "text",
-            "required": true
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "email",
+            "label": "E-Mail",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "tel",
+            "label": "Tel. Nr.",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "vollmacht",
+            "label": "Vollmacht",
+            "type": "radio",
+            "required": true,
+            "config": {
+              "options": [
+                "Die Bauherrschaft bestätigt mit beigelegtem, unterschriebenem Dokument, obgenannter Person die Generalvollmacht zu erteilen.",
+                "Die Bauherrschaft bestätigt mit beigelegtem, unterschriebenem Dokument, obgenannter Person die Vollmacht mit beschriebenem Handlungsspielraum zu erteilen."
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "konzessionsnehmer-v2": {
+      "label": "Konzessionsnehmer:",
+      "hint": "Dem Konzessionsnehmer werden die Rechte und Pflichten aus der Konzession zugesprochen.",
+      "type": "table",
+      "required": true,
+      "config": {
+        "columns": [
+          {
+            "name": "anrede",
+            "label": "Anrede",
+            "type": "radio",
+            "required": true,
+            "config": {
+              "options": ["Herr", "Frau", "Firma"]
+            }
+          },
+          {
+            "name": "firma",
+            "label": "Firma/ Körperschaft",
+            "table-label": "Firma",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "name",
+            "label": "Name",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "vorname",
+            "label": "Vorname",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "strasse",
+            "label": "Strasse, Nr.",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "plz",
+            "label": "PLZ",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "ort",
+            "label": "Ort",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "email",
+            "label": "E-Mail",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "tel",
+            "label": "Tel. Nr.",
+            "type": "text",
+            "required": false,
+            "config": {}
+          }
+        ]
+      }
+    },
+    "vertreter-mit-vollmacht-v2": {
+      "label": "Vertreter/in mit Vollmacht",
+      "hint": "",
+      "type": "table",
+      "required": false,
+      "config": {
+        "columns": [
+          {
+            "name": "anrede",
+            "label": "Anrede",
+            "type": "radio",
+            "required": true,
+            "config": {
+              "options": ["Herr", "Frau", "Firma"]
+            }
+          },
+          {
+            "name": "firma",
+            "label": "Firma/ Körperschaft",
+            "table-label": "Firma",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "name",
+            "label": "Name",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "vorname",
+            "label": "Vorname",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "strasse",
+            "label": "Strasse, Nr.",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "plz",
+            "label": "PLZ",
+            "type": "text",
+            "required": true,
+            "config": {}
           },
           {
             "name": "ort",
@@ -7357,7 +7875,8 @@
             "name": "plz",
             "label": "PLZ",
             "type": "text",
-            "required": true
+            "required": true,
+            "config": {}
           },
           {
             "name": "ort",
@@ -7432,7 +7951,8 @@
             "name": "plz",
             "label": "PLZ",
             "type": "text",
-            "required": true
+            "required": true,
+            "config": {}
           },
           {
             "name": "ort",
@@ -7507,7 +8027,8 @@
             "name": "plz",
             "label": "PLZ",
             "type": "text",
-            "required": true
+            "required": true,
+            "config": {}
           },
           {
             "name": "ort",
