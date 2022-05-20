@@ -236,7 +236,7 @@ export default class BeGisComponent extends Component {
       return `${baseURL}/pub/client_mapwidget/default.jsp?${search}`;
     } catch (error) {
       /* eslint-disable-next-line no-console */
-      console.log(error);
+      console.error(error);
       return null;
     }
   }
