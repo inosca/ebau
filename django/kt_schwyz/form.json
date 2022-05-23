@@ -1235,7 +1235,7 @@
     "personalien.vertreter-mit-vollmacht-v2": {
       "title": "Vertreter/in mit Vollmacht",
       "parent": "personalien",
-      "questions": ["vertreter-mit-vollmacht"]
+      "questions": ["vertreter-mit-vollmacht-v2"]
     },
     "fachthemen": {
       "title": "Fachthemen",
