@@ -450,6 +450,56 @@
     }
   },
   {
+    "model": "instance.form",
+    "pk": 46,
+    "fields": {
+      "form_state": 1,
+      "name": "vorabklarung-v5",
+      "description": "Vorabklärung",
+      "family": 4
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 47,
+    "fields": {
+      "form_state": 1,
+      "name": "projektanderung-v7",
+      "description": "Projektänderung zu bewilligtem Baugesuch",
+      "family": 2
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 48,
+    "fields": {
+      "form_state": 1,
+      "name": "konzession-fur-wasserentnahme-v4",
+      "description": "Konzession für Wasserentnahme",
+      "family": 7
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 49,
+    "fields": {
+      "form_state": 1,
+      "name": "anlassbewilligungen-verkehrsbewilligungen-v4",
+      "description": "Anlassbewilligungen / Verkehrsbewilligungen",
+      "family": 10
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 50,
+    "fields": {
+      "form_state": 1,
+      "name": "plangenehmigungsgesuch-v4",
+      "description": "Plangenehmigungsgesuch",
+      "family": 8
+    }
+  },
+  {
     "model": "instance.formstate",
     "pk": 1,
     "fields": {
