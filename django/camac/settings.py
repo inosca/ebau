@@ -357,9 +357,12 @@ APPLICATIONS = {
             "bezeichnung",
             "bauherrschaft",
             "bauherrschaft-v2",
+            "bauherrschaft-v3",
             "projektverfasser-planer",
             "projektverfasser-planer-v2",
+            "projektverfasser-planer-v3",
             "grundeigentumerschaft",
+            "grundeigentumerschaft-v2",
         ],
         "INSTANCE_IDENTIFIER_FORM_ABBR": {
             "geschaeftskontrolle": "IG",
