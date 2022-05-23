@@ -625,7 +625,8 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
         for field in instance.fields.all():
             # remove versioning (-v3) from question names so the placeholders are backwards compatible
-            name = inflection.underscore("field-" + re.sub("(-v\d+$)", "", field.name))
+            name_without_version = re.sub("(-v\d+$)", "", field.name)
+            name = inflection.underscore("field-" + name_without_version)
             value = field.value
 
             if (
@@ -634,7 +635,9 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             ):
                 value = "\n".join(transform_coordinates(value))
             elif field.name in settings.APPLICATION.get("QUESTIONS_WITH_OVERRIDE", []):
-                override = instance.fields.filter(name=f"{name}-override").first()
+                override = instance.fields.filter(
+                    name=f"{name_without_version}-override"
+                ).first()
                 value = override.value if override else value
             elif field.name == settings.APPLICATION.get("LOCATION_NAME_QUESTION", ""):
                 ret["field_standort_adresse"] = value
