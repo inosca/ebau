@@ -551,6 +551,7 @@ APPLICATIONS = {
             "projektanderung-v4",
             "projektanderung-v5",
             "projektanderung-v6",
+            "projektanderung-v7",
             "technische-bewilligung",
             "technische-bewilligung-v2",
             "technische-bewilligung-v3",

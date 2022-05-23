@@ -37,14 +37,19 @@ Router.map(function () {
         this.route("migriertes-dossier");
         this.route("personalien", function () {
           this.route("grundeigentumerschaft");
+          this.route("grundeigentumerschaft-v2");
           this.route("bauherrschaft");
           this.route("bauherrschaft-v2");
+          this.route("bauherrschaft-v3");
           this.route("projektverfasser-planer");
           this.route("projektverfasser-planer-v2");
+          this.route("projektverfasser-planer-v3");
           this.route("gesuchsteller");
           this.route("konzessionsnehmer");
+          this.route("konzessionsnehmer-v2");
           this.route("bewilligungsnehmer");
           this.route("vertreter-mit-vollmacht");
+          this.route("vertreter-mit-vollmacht-v2");
         });
         this.route("fachthemen", function () {
           this.route("landwirtschaft");
