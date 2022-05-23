@@ -1,6 +1,6 @@
 from django.core.management import call_command
 
-from camac.user.models import Group, Service, ServiceGroup
+from camac.user.models import Group, Service
 
 
 def test_migrate_gemeinderat_services(
@@ -62,11 +62,10 @@ def test_migrate_gemeinderat_services(
     ):
         obj.refresh_from_db()
 
-    assert not Service.objects.filter(pk__in=[s.pk for s in services_intern]).exists()
-    assert not ServiceGroup.objects.filter(
-        pk__in=[s.pk for s in service_groups_intern]
-    ).exists()
-    assert not Group.objects.filter(pk__in=[g.pk for g in groups_intern]).exists()
+    for service in Service.objects.filter(pk__in=[s.pk for s in services_intern]):
+        assert service.disabled
+    for group in Group.objects.filter(pk__in=[g.pk for g in groups_intern]):
+        assert group.disabled
 
     assert services_extern[0].name == "Gemeinderat Altdorf Pendenzen"
     assert services_extern[1].name == "Gemeinderat Andermatt Pendenzen"
