@@ -65,14 +65,11 @@ class Command(BaseCommand):
         # Delete attachments with service "Gemeinderat interne Pendenz"
         Attachment.objects.filter(service__in=services_intern).delete()
 
-        # Delete services "Gemeinderat interne Pendenz"
-        services_intern.delete()
+        # Disable services "Gemeinderat interne Pendenz"
+        services_intern.update(disabled=True)
 
-        # Delete service group "Gemeinderat interne Pendenzen"
-        ServiceGroup.objects.filter(name__contains="interne Pendenzen").delete()
-
-        # Delete groups "Gemeinderat interne Pendenz"
-        Group.objects.filter(name__contains="interne Pendenz").delete()
+        # Disable groups "Gemeinderat interne Pendenz"
+        Group.objects.filter(name__contains="interne Pendenz").update(disabled=True)
 
         # Delete user group "Gemeinderat interne Pendenz"
         UserGroup.objects.filter(group__name__contains="interne Pendenz").delete()
