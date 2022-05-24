@@ -5,5 +5,8 @@
     "ember-caluma-portal",
     "ember-ebau-core",
     "ember-ebau"
-  ]
+  ],
+  "devDependencies": {
+    "prettier": "2.6.2"
+  }
 }
