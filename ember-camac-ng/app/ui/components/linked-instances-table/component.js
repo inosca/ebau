@@ -16,7 +16,14 @@ export default class LinkedInstancesTableComponent extends Component {
 
   @calumaQuery({ query: allCases, options: "options" }) casesQuery;
 
-  tableColumns = ["instanceId", "dossierNr", "form", "intent", "instanceState"];
+  tableColumns = [
+    "instanceId",
+    "dossierNr",
+    "form",
+    "street",
+    "intent",
+    "instanceState",
+  ];
 
   get options() {
     return {
