@@ -447,7 +447,7 @@ def test_with_cantonal_participation_filter(
             "melo  ",
             {
                 "bauherrschaft": 1,
-                "grundeigentumerschaft": 0,
+                "grundeigentumerschaft": 1,
                 "projektverfasser-planer": 1,
             },
         ),
@@ -463,7 +463,7 @@ def test_with_cantonal_participation_filter(
             "ious Inc",
             {
                 "bauherrschaft": 1,
-                "grundeigentumerschaft": 0,
+                "grundeigentumerschaft": 1,
                 "projektverfasser-planer": 1,
             },
         ),
@@ -487,7 +487,7 @@ def test_with_cantonal_participation_filter(
             "en me",
             {
                 "bauherrschaft": 1,
-                "grundeigentumerschaft": 0,
+                "grundeigentumerschaft": 1,
                 "projektverfasser-planer": 1,
             },
         ),
