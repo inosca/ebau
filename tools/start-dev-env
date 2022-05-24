@@ -17,7 +17,8 @@ your local /etc/hosts.
 
 
 def ask(question):
-    print(question)
+    sys.stdout.write(question)
+    sys.stdout.flush()
     return sys.stdin.readline().strip()
 
 
@@ -32,10 +33,11 @@ def yes_no(question):
 
 
 def application(config):
-    question = ["Please select your application"]
+    question = []
     keys = list(config["applications"].keys())
     for i, app in enumerate(keys):
         question.append(f"{i:2d}: {app}")
+    question.append("Please select your application: ")
     while True:
         try:
             n = int(ask("\n".join(question)))
@@ -56,7 +58,9 @@ def run_cmd(cmd):
     if cmd:
         if yes_no(f"Run {cmd}"):
             os.system(cmd)
+            return True
         print()
+    return False
 
 
 def start():
@@ -70,7 +74,9 @@ def start():
     if app_config:
         print(_about_append)
         run_cmd(append_cmd)
-    run_cmd(config.get("build_cmd"))
+    print("If you only want to start without building select [n]")
+    if not run_cmd(config.get("build_cmd")):
+        run_cmd(config.get("up_cmd"))
     run_cmd(app_config.get("loadconfig"))
 
 
