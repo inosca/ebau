@@ -1,5 +1,7 @@
 from datetime import timedelta
 
+from camac.utils import is_lead_role
+
 DISTRIBUTION = {
     "default": {
         "ECH_EVENTS": False,
@@ -14,6 +16,7 @@ DISTRIBUTION = {
         "INQUIRY_CHECK_TASK": "check-inquiries",
         "INQUIRY_WORKFLOW": "inquiry",
         "INQUIRY_ANSWER_FORM": "inquiry-answer",
+        "INQUIRY_ANSWER_FILL_TASK": "fill-inquiry",
         "QUESTIONS": {
             "DEADLINE": "inquiry-deadline",
             "REMARK": "inquiry-remark",
@@ -23,11 +26,21 @@ DISTRIBUTION = {
         "NOTIFICATIONS": {},
         "SUGGESTIONS": [],
         "DEFAULT_SUGGESTIONS": [],
+        "PERMISSIONS": {
+            "CompleteWorkItem": {
+                "DISTRIBUTION_COMPLETE_TASK": lambda role: is_lead_role(role),
+            },
+            "ResumeWorkItem": {
+                "INQUIRY_TASK": lambda role: is_lead_role(role),
+            },
+            "CancelWorkItem": {
+                "INQUIRY_TASK": lambda role: is_lead_role(role),
+            },
+        },
     },
     "kt_bern": {
         "ENABLED": True,
         "ECH_EVENTS": True,
-        "INQUIRY_ANSWER_FILL_TASK": "fill-inquiry",
         "QUESTIONS": {
             "STATEMENT": "inquiry-answer-statement",
             "ANCILLARY_CLAUSES": "inquiry-answer-ancillary-clauses",
@@ -315,15 +328,29 @@ DISTRIBUTION = {
                 [20075, 20076, 20077, 20078],
             ),
         ],
+        "PERMISSIONS": {
+            "CompleteWorkItem": {
+                "INQUIRY_ANSWER_FILL_TASK": lambda role: is_lead_role(role),
+            },
+        },
     },
     "kt_schwyz": {
         "ENABLED": True,
         "INQUIRY_ANSWER_CHECK_TASK": "check-inquiry",
+        "INQUIRY_ANSWER_REVISE_TASK": "revise-inquiry",
+        "INQUIRY_ANSWER_ALTER_TASK": "alter-inquiry",
         "DEFAULT_SUGGESTIONS": [7],  # Baugesuchszentrale
         "NOTIFICATIONS": {
             "INQUIRY_SENT": {
                 "template_slug": "einladung-zur-stellungnahme",
                 "recipient_types": ["inquiry_addressed"],
+            },
+        },
+        "PERMISSIONS": {
+            "CompleteWorkItem": {
+                "INQUIRY_CREATE_TASK": lambda role: is_lead_role(role),
+                "INQUIRY_ANSWER_CHECK_TASK": lambda role: is_lead_role(role),
+                "INQUIRY_ANSWER_REVISE_TASK": lambda role: is_lead_role(role),
             },
         },
     },
