@@ -5,9 +5,9 @@ import { INQUIRY_STATUS } from "@projectcaluma/ember-distribution/config";
 
 const DISTRIBUTION_NEW_INQUIRY_GROUP_TYPES_MAPPING = {
   roles: {
-    3: ["suggestions", "Baugesuchszentrale", "Fachstellen Gemeinden"], // Gemeinde
-    8: ["suggestions", "Baugesuchszentrale", "Fachstellen Gemeinden"], // Gemeinde Sachbearbeiter
-    11: ["suggestions", "Gemeinde", "Baugesuchszentrale"], // Fachstelle Leitbehörde
+    3: ["suggestions", "Fachstellen Gemeinden"], // Gemeinde
+    8: ["suggestions", "Fachstellen Gemeinden"], // Gemeinde Sachbearbeiter
+    11: ["suggestions", "Gemeinde"], // Fachstelle Leitbehörde
     5: ["suggestions", "subservice"], // Fachstelle
   },
   groups: {
