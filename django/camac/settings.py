@@ -171,9 +171,7 @@ COMMON_FORM_SLUGS_BE = [
 # an application is defined by the customer e.g. uri, schwyz, etc.
 APPLICATIONS = {
     "demo": {
-        "ECH0211": {
-            "API_ACTIVE": False,
-        },
+        "ECH0211": {"API_ACTIVE": False},
         "LOG_NOTIFICATIONS": True,
         # Mapping between camac role and instance permission.
         "ROLE_PERMISSIONS": {
@@ -234,13 +232,9 @@ APPLICATIONS = {
         "STORE_PDF": {"SECTION": 1},
         "INSTANCE_STATE_REJECTION_COMPLETE": "finished",
         "SET_SUBMIT_DATE_CAMAC_ANSWER": True,
-        "REJECTION_FEEDBACK_QUESTION": {
-            "CHAPTER": 20001,
-            "QUESTION": 20037,
-            "ITEM": 1,
-        },
+        "REJECTION_FEEDBACK_QUESTION": {"CHAPTER": 20001, "QUESTION": 20037, "ITEM": 1},
         "SIDE_EFFECTS": {
-            "document_downloaded": "camac.document.side_effects.create_workflow_entry",
+            "document_downloaded": "camac.document.side_effects.create_workflow_entry"
         },
         "DOSSIER_IMPORT": {
             "REQUIRED_KEYS": [
@@ -290,10 +284,7 @@ APPLICATIONS = {
             "VIEW_PATH": "camac.ech0211.views.kt_schwyz",
             "URLS_CLASS": "camac.ech0211.urls.SZUrlsConf",
         },
-        "EXCLUDE_DOCS": [
-            "document",
-            "instance",
-        ],
+        "EXCLUDE_DOCS": ["document", "instance"],
         "PUBLIC_ROLES": ["Publikation", "Portal"],
         "PORTAL_GROUP": 4,
         "SERVICE_GROUPS_FOR_DISTRIBUTION": {
@@ -337,10 +328,7 @@ APPLICATIONS = {
         "PUBLICATION_BACKEND": "camac-ng",
         "PUBLICATION_ATTACHMENT_SECTION": [4],
         "ATTACHMENT_INTERNAL_STATES": ["internal"],
-        "ATTACHMENT_DELETEABLE_STATES": [
-            "new",
-            "rejected",
-        ],
+        "ATTACHMENT_DELETEABLE_STATES": ["new", "rejected"],
         "IS_MULTILINGUAL": False,
         "CIRCULATION_STATE_END": "DONE",
         "FORM_BACKEND": "camac-ng",
@@ -377,14 +365,8 @@ APPLICATIONS = {
             "vbs": "PV",
             "uebrige": "PU",
         },
-        "INSTANCE_MERGE_CONFIG": {
-            "BAUVERWALTUNG": {
-                "TASK_SLUG": "building-authority",
-            }
-        },
-        "CALUMA_INSTANCE_FORMS": [
-            "geschaeftskontrolle",
-        ],
+        "INSTANCE_MERGE_CONFIG": {"BAUVERWALTUNG": {"TASK_SLUG": "building-authority"}},
+        "CALUMA_INSTANCE_FORMS": ["geschaeftskontrolle"],
         # please also update django/Makefile command when changing apps here
         "SEQUENCE_NAMESPACE_APPS": [],
         "NOTIFICATIONS_EXCLUDED_TASKS": [],
@@ -399,10 +381,7 @@ APPLICATIONS = {
                 "revise-statement",
                 "alter-statement",
             ],
-            "ACTIVATION_RELEVANT_TASKS": [
-                "write-statement",
-                "check-statement",
-            ],
+            "ACTIVATION_RELEVANT_TASKS": ["write-statement", "check-statement"],
             "ACTIVATION_EXCLUDE_ROLES": ["Lesezugriff"],
             "SUBMIT_TASKS": ["submit", "submit-additional-demand", "formal-addition"],
             "REJECTION_TASK": "reject-form",
@@ -421,12 +400,8 @@ APPLICATIONS = {
                 },
                 "reopen-circulation": {"cancel": ["make-decision"]},
                 "make-decision": {
-                    "skip": [
-                        "depreciate-case",
-                    ],
-                    "cancel": [
-                        "reopen-circulation",
-                    ],
+                    "skip": ["depreciate-case"],
+                    "cancel": ["reopen-circulation"],
                 },
                 "check-statement": {"cancel": ["revise-statement"]},
                 "revise-statement": {"cancel": ["check-statement"]},
@@ -451,12 +426,8 @@ APPLICATIONS = {
                     ]
                 },
                 "archive-instance": {
-                    "cancel": [
-                        "create-manual-workitems",
-                    ],
-                    "complete": [
-                        "building-authority",
-                    ],
+                    "cancel": ["create-manual-workitems"],
+                    "complete": ["building-authority"],
                 },
                 "finish-document": {"cancel": ["create-manual-workitems"]},
             },
@@ -465,9 +436,7 @@ APPLICATIONS = {
             "PUBLICATION_TASK_SLUG": "publication",
             "CREATE_IN_PROCESS": True,
             "SIMPLE_WORKFLOW": {
-                "formal-addition": {
-                    "next_instance_state": "subm",
-                },
+                "formal-addition": {"next_instance_state": "subm"},
                 "complete-check": {
                     "next_instance_state": "comm",
                     "history_text": "Dossier angenommen",
@@ -593,20 +562,14 @@ APPLICATIONS = {
                 "name": "materieller-pruefbericht-bemerkung",
                 "title": "Materieller Prüfbericht (Bemerkung)",
             },
-            {
-                "name": "materieller-pruefbericht",
-                "title": "Materieller Prüfbericht",
-            },
+            {"name": "materieller-pruefbericht", "title": "Materieller Prüfbericht"},
         ],
         "ADDRESS_FORM_FIELDS": [
             "ortsbezeichnung-des-vorhabens",
             "standort-spezialbezeichnung",
             "standort-ort",
         ],
-        "INTENT_FORM_FIELDS": [
-            "bezeichnung",
-            "bezeichnung-override",
-        ],
+        "INTENT_FORM_FIELDS": ["bezeichnung", "bezeichnung-override"],
         "DOSSIER_IMPORT": {
             "WRITER_CLASS": "camac.dossier_import.config.kt_schwyz.KtSchwyzDossierWriter",
             "INSTANCE_STATE_MAPPING": {"SUBMITTED": 2, "APPROVED": 8, "DONE": 10},
@@ -633,7 +596,12 @@ APPLICATIONS = {
             ),  # TODO: change this value 'decisionRulingType'
             "applicants": (
                 "ng_table",
-                ["bauherrschaft", "bauherrschaft-v2", "bauherrschaft-override"],
+                [
+                    "bauherrschaft",
+                    "bauherrschaft-v2",
+                    "bauherrschaft-v3",
+                    "bauherrschaft-override",
+                ],
                 {
                     "column_mapping": {
                         "last_name": "name",
@@ -669,6 +637,7 @@ APPLICATIONS = {
                 [
                     "bauherrschaft",
                     "bauherrschaft-v2",
+                    "bauherrschaft-v3",
                     "bauherrschaft-override",
                 ],  # TODO: hauseigentümerschaft in SZ?
                 {
@@ -736,7 +705,11 @@ APPLICATIONS = {
             ),
             "landowners": (
                 "ng_table",
-                ["grundeigentumerschaft", "grundeigentumerschaft-override"],
+                [
+                    "grundeigentumerschaft",
+                    "grundeigentumerschaft-v2",
+                    "grundeigentumerschaft-override",
+                ],
                 {
                     "column_mapping": {
                         "last_name": "name",
@@ -772,6 +745,7 @@ APPLICATIONS = {
                 [
                     "projektverfasser-planer",
                     "projektverfasser-planer-v2",
+                    "projektverfasser-planer-v3",
                     "projektverfasser-planer-override",
                 ],
                 {
@@ -811,10 +785,7 @@ APPLICATIONS = {
             "decision_date": (
                 "answer",
                 "bewilligungsverfahren-gr-sitzung-bewilligungsdatum",
-                {
-                    "document_from_work_item": "building-authority",
-                    "value_key": "date",
-                },
+                {"document_from_work_item": "building-authority", "value_key": "date"},
             ),
             "construction_start_date": (
                 "table",
@@ -907,12 +878,7 @@ APPLICATIONS = {
             "plot_data": (
                 "ng_table",
                 "parzellen",
-                {
-                    "column_mapping": {
-                        "plot_number": "number",
-                        "egrid_number": "egrid",
-                    }
-                },
+                {"column_mapping": {"plot_number": "number", "egrid_number": "egrid"}},
             ),
             "buildings": (
                 "ng_table",
@@ -943,12 +909,7 @@ APPLICATIONS = {
                             {
                                 "value_parser": (
                                     "value_mapping",
-                                    {
-                                        "mapping": {
-                                            "Ja": True,
-                                            "Nein": False,
-                                        }
-                                    },
+                                    {"mapping": {"Ja": True, "Nein": False}},
                                 )
                             },
                         ),
@@ -1171,9 +1132,7 @@ APPLICATIONS = {
             "support": "support",
         },
         "INSTANCE_PERMISSIONS": {"MUNICIPALITY_WRITE": ["correction"]},
-        "CUSTOM_NOTIFICATION_TYPES": [
-            "inactive_municipality",
-        ],
+        "CUSTOM_NOTIFICATION_TYPES": ["inactive_municipality"],
         "CIRCULATION_STATE_END": "DONE",
         "CIRCULATION_ANSWER_UNINVOLVED": "not_concerned",
         "NOTIFICATIONS": {
@@ -1245,7 +1204,7 @@ APPLICATIONS = {
                 {
                     "template_slug": "03-verfahren-vorzeitig-beendet",
                     "recipient_types": ["unanswered_activation"],
-                },
+                }
             ],
             "ECH_KIND_OF_PROCEEDINGS": [
                 {
@@ -1334,11 +1293,7 @@ APPLICATIONS = {
                 "baugesuch-mit-uvp",
                 "baugesuch-mit-uvp-v2",
             ],
-            "MODIFICATION_DISALLOW_STATES": [
-                "new",
-                "finished",
-                "archived",
-            ],
+            "MODIFICATION_DISALLOW_STATES": ["new", "finished", "archived"],
             "COPY_PAPER_ANSWER_TO": ["nfd", "sb1", "sb2"],
             "COPY_PERSONAL": [
                 {
@@ -1365,7 +1320,7 @@ APPLICATIONS = {
                     "SOURCE": "lagerung-von-stoffen-v2",
                     "TARGET": "lagerung-von-stoffen-v2",
                     "FALLBACK": None,
-                },
+                }
             ],
             "PRE_COMPLETE": {
                 "start-decision": {
@@ -1376,11 +1331,7 @@ APPLICATIONS = {
                 "init-circulation": {"cancel": ["skip-circulation"]},
                 "start-circulation": {"cancel": ["check-activation", "start-decision"]},
                 "decision": {
-                    "skip": [
-                        "audit",
-                        "publication",
-                        "fill-publication",
-                    ],
+                    "skip": ["audit", "publication", "fill-publication"],
                     "cancel": [
                         "reopen-circulation",
                         "create-manual-workitems",
@@ -1624,10 +1575,7 @@ APPLICATIONS = {
                         "bab-naehe-von-schutzenswerten-gebaeuden-meldung",
                     ],
                 },
-                "material-exam": {
-                    "forms": ["mp-form"],
-                    "template": "form",
-                },
+                "material-exam": {"forms": ["mp-form"], "template": "form"},
             },
             "ADD_HEADER_DATA": True,
         },
@@ -1643,11 +1591,7 @@ APPLICATIONS = {
         "HAS_GESUCHSNUMMER": False,
         "INSTANCE_STATE_REJECTION_COMPLETE": "finished",
         "SET_SUBMIT_DATE_CAMAC_ANSWER": True,
-        "REJECTION_FEEDBACK_QUESTION": {
-            "CHAPTER": 20001,
-            "QUESTION": 20037,
-            "ITEM": 1,
-        },
+        "REJECTION_FEEDBACK_QUESTION": {"CHAPTER": 20001, "QUESTION": 20037, "ITEM": 1},
         "SUGGESTIONS": [
             (
                 "art-versickerung-dach",
@@ -1949,8 +1893,7 @@ APPLICATIONS = {
                 "caluma_form.QuestionOption": Q(question__pk__endswith="-v2"),
                 "caluma_form.Option": Q(questions__pk__endswith="-v2"),
                 "caluma_form.Answer": Q(
-                    question__forms__pk__endswith="-v2",
-                    document__isnull=True,
+                    question__forms__pk__endswith="-v2", document__isnull=True
                 ),
             },
             "caluma_form_sb2": {
@@ -2016,8 +1959,7 @@ APPLICATIONS = {
             "FORM_ID": 1,
             "ATTACHMENT_SECTION_ID": 4,  # Internal
             "PROD_URL": env.str(
-                "DJANGO_DOSSIER_IMPORT_PROD_URL",
-                "https://ebau.apps.be.ch/",
+                "DJANGO_DOSSIER_IMPORT_PROD_URL", "https://ebau.apps.be.ch/"
             ),
             "PROD_AUTH_URL": env.str(
                 "DJANGO_DOSSIER_IMPORT_PROD_AUTH_URL",
@@ -2212,10 +2154,7 @@ APPLICATIONS = {
                 "ausschankraeume",
                 {"column_mapping": {"total_seats": "sitzplaetze"}},
             ),
-            "outside_seating": (
-                "answer",
-                "sitzplaetze-garten",
-            ),
+            "outside_seating": ("answer", "sitzplaetze-garten"),
             "usage_type": ("answer", "nutzungsart", {"value_parser": "option"}),
             "usage_zone": ("answer", "nutzungszone"),
             "application_type": ("answer", "geschaeftstyp"),
@@ -2304,9 +2243,7 @@ APPLICATIONS = {
         "PUBLICATION_BACKEND": "caluma",
     },
     "kt_uri": {
-        "ECH0211": {
-            "API_ACTIVE": False,
-        },
+        "ECH0211": {"API_ACTIVE": False},
         "LOG_NOTIFICATIONS": False,
         "FORM_BACKEND": "caluma",
         "PUBLICATION_DURATION": timedelta(days=20),
@@ -2343,20 +2280,10 @@ APPLICATIONS = {
             "SAVE_DOSSIER_NUMBER_IN_CALUMA": True,
             "SYNC_FORM_TYPE": True,
             "SUBMIT_TASKS": [],
-            "MODIFICATION_ALLOW_FORMS": [
-                "building-permit",
-            ],
-            "MODIFICATION_DISALLOW_STATES": [
-                "new",
-                "done",
-                "old",
-            ],
+            "MODIFICATION_ALLOW_FORMS": ["building-permit"],
+            "MODIFICATION_DISALLOW_STATES": ["new", "done", "old"],
         },
-        "STORE_PDF": {
-            "SECTION": {
-                "MAIN": {"DEFAULT": 12000000, "PAPER": 12000000},
-            },
-        },
+        "STORE_PDF": {"SECTION": {"MAIN": {"DEFAULT": 12000000, "PAPER": 12000000}}},
         "DOCUMENT_MERGE_SERVICE": {
             "FORM": {
                 "building-permit": {
@@ -2369,11 +2296,7 @@ APPLICATIONS = {
                         "cantonal-territory-usage",
                         "technische-bewilligung",
                     ],
-                    "people_sources": {
-                        "applicant",
-                        "landowner",
-                        "project-author",
-                    },
+                    "people_sources": {"applicant", "landowner", "project-author"},
                     "people_names": {
                         "last-name": "familyName",
                         "first-name": "givenName",
@@ -2392,7 +2315,7 @@ APPLICATIONS = {
                         "allgemeine-informationen-proposal-declaration",
                         "parzellen-oder-baurechtsnummer",
                     ],
-                },
+                }
             },
             "ADD_HEADER_DATA": False,
         },
@@ -2500,9 +2423,7 @@ APPLICATIONS = {
         "OEREB_FORM": 296,
         "INSTANCE_IDENTIFIER_FORM_ABBR": {},
         "DUMP_CONFIG_GROUPS": {
-            "dashboard_document": {
-                "caluma_form.Document": Q(form="dashboard"),
-            },
+            "dashboard_document": {"caluma_form.Document": Q(form="dashboard")}
         },
         "DUMP_CONFIG_EXCLUDED_MODELS": [
             "user.Group",
@@ -2564,27 +2485,11 @@ APPLICATIONS = {
                     "veranstaltung-beschrieb",
                 ],
             ),
-            "veranstaltung_art": (
-                "answer",
-                "veranstaltung-art",
-            ),
-            "oereb_topic": (
-                "answer",
-                "oereb-thema",
-            ),
-            "legal_state": (
-                "answer",
-                "typ-des-verfahrens",
-            ),
-            "form_type": (
-                "answer",
-                "form-type",
-            ),
-            "authority": (
-                "answer",
-                "leitbehoerde",
-                {"value_parser": "dynamic_option"},
-            ),
+            "veranstaltung_art": ("answer", "veranstaltung-art"),
+            "oereb_topic": ("answer", "oereb-thema"),
+            "legal_state": ("answer", "typ-des-verfahrens"),
+            "form_type": ("answer", "form-type"),
+            "authority": ("answer", "leitbehoerde", {"value_parser": "dynamic_option"}),
             "plot_data": (
                 "table",
                 "parcels",
@@ -2675,14 +2580,8 @@ APPLICATIONS = {
             "construction_costs": ("answer", "construction-cost"),
             "submit_date": ("first_workflow_entry", [10, 12]),
             "decision_date": ("last_workflow_entry", [47]),
-            "construction_start_date": (
-                "first_workflow_entry",
-                [55],
-            ),
-            "construction_end_date": (
-                "last_workflow_entry",
-                [67],
-            ),
+            "construction_start_date": ("first_workflow_entry", [55]),
+            "construction_end_date": ("last_workflow_entry", [67]),
             "approval_reason": ("php_answer", 264, {"default": 5000}),
             "type_of_applicant": ("php_answer", 267),
             "energy_devices": (
@@ -2783,7 +2682,7 @@ APPLICATIONS = {
                                 )
                             },
                         ),
-                    },
+                    }
                 },
             ),
             "buildings": (
@@ -2905,7 +2804,7 @@ APPLICATIONS = {
             ),
         },
         "SIDE_EFFECTS": {
-            "document_downloaded": "camac.document.side_effects.create_workflow_entry",
+            "document_downloaded": "camac.document.side_effects.create_workflow_entry"
         },
         "DOSSIER_IMPORT": {
             "REQUIRED_KEYS": [
@@ -3209,8 +3108,7 @@ CLAMD_ENABLED = env.bool("DJANGO_CLAMD_ENABLED", default=True)
 # Keycloak service
 
 KEYCLOAK_URL = build_url(
-    env.str("KEYCLOAK_URL", default="http://ebau-keycloak.local/auth/"),
-    trailing=True,
+    env.str("KEYCLOAK_URL", default="http://ebau-keycloak.local/auth/"), trailing=True
 )
 KEYCLOAK_REALM = env.str("KEYCLOAK_REALM", default="ebau")
 KEYCLOAK_CLIENT = env.str("KEYCLOAK_CLIENT", default="camac")
@@ -3441,13 +3339,12 @@ DOSSIER_IMPORT_CLIENT_ID = env.str(
     "DJANGO_DOSSIER_IMPORT_CLIENT_ID", default="dossier-import"
 )
 DOSSIER_IMPORT_CLIENT_SECRET = env.str(
-    "DJANGO_DOSSIER_IMPORT_CLIENT_SECRET",
-    default="KlYAayhG99lMGIUGKXhm9ha7lUNqQuD4",
+    "DJANGO_DOSSIER_IMPORT_CLIENT_SECRET", default="KlYAayhG99lMGIUGKXhm9ha7lUNqQuD4"
 )
 
 # Django-Admin OIDC
 AUTHENTICATION_BACKENDS = [
-    "camac.user.authentication.DjangoAdminOIDCAuthenticationBackend",
+    "camac.user.authentication.DjangoAdminOIDCAuthenticationBackend"
 ]
 
 OIDC_RP_CLIENT_ID = env.str("DJANGO_OIDC_RP_CLIENT_ID", default="camac")
@@ -3471,8 +3368,7 @@ OIDC_OP_USER_ENDPOINT = env.str(
 
 # admin page after completing server-side authentication flow
 LOGIN_REDIRECT_URL = env.str(
-    "DJANGO_OIDC_ADMIN_LOGIN_REDIRECT_URL",
-    default=f"{INTERNAL_BASE_URL}/django-admin/",
+    "DJANGO_OIDC_ADMIN_LOGIN_REDIRECT_URL", default=f"{INTERNAL_BASE_URL}/django-admin/"
 )
 
 OIDC_RP_SIGN_ALGO = env.str("DJANGO_OIDC_RP_SIGN_ALGO", default="RS256")

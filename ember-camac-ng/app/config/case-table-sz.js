@@ -32,6 +32,7 @@ export default {
   formFields: [
     "bauherrschaft",
     "bauherrschaft-v2",
+    "bauherrschaft-v3",
     "bauherrschaft-override",
     "bezeichnung",
     "bezeichnung-override",
