@@ -57,13 +57,6 @@ class ActivationMergeSerializer(serializers.Serializer):
     reason = serializers.CharField()
     circulation_answer = serializers.StringRelatedField()
     notices = NoticeMergeSerializer(many=True)
-    nfd_completion_date = serializers.SerializerMethodField()
-
-    def get_nfd_completion_date(self, activation):
-        completion_date = activation.nfd_completion_date
-        if completion_date:
-            return completion_date.strftime(settings.MERGE_DATE_FORMAT)
-        return None
 
 
 class BillingEntryMergeSerializer(serializers.Serializer):
@@ -89,7 +82,6 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
     location = serializers.StringRelatedField()
     identifier = serializers.CharField()
-    activation = serializers.SerializerMethodField()
     activations = serializers.SerializerMethodField()
     billing_entries = BillingEntryMergeSerializer(many=True)
     answer_period_date = serializers.SerializerMethodField()
@@ -234,11 +226,6 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
                 ],
             )
         )
-
-    def get_activation(self, instance):
-        if not hasattr(self, "activation"):
-            return None
-        return ActivationMergeSerializer(self.activation).data
 
     def get_rejection_feedback(self, instance):  # pragma: no cover
         rejection_config = settings.APPLICATION["REJECTION_FEEDBACK_QUESTION"]
@@ -772,8 +759,6 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             "construction_control",
             "email_list",
             "activation_service_parent",
-            "circulation_service",
-            "activation_service",
             "unanswered_activation",
             *settings.APPLICATION.get("CUSTOM_NOTIFICATION_TYPES", []),
         )
@@ -970,42 +955,6 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         return flatten(
             [self._get_responsible(instance, service) for service in services]
         )
-
-    def _get_recipients_activation_service(self, instance):
-        """Return mail addresses of an circulation-invited service.
-
-        In detail return all mail addresses of users of whichs default group has
-        the same service as the activation.
-        """
-        activation = self.validated_data.get("activation")
-        if not activation:
-            raise exceptions.ValidationError(
-                f"Recipient type requires you to provide activation for instance {instance.pk}"
-            )
-
-        if activation.service.notification:
-            email = activation.service.email
-            if email and "@" in email:
-                return [{"to": addr} for addr in activation.service.email.split(",")]
-        return []
-
-    def _get_recipients_circulation_service(self, instance):
-        """Return mail address of the service which created a circulation.
-
-        In detail return all mail addresses of users of whichs default group has
-        the same service as the circulation.
-        """
-        activation = self.validated_data.get("activation")
-        if not activation:
-            raise exceptions.ValidationError(
-                f"Recipient type requires you to provide activation for instance {instance.pk}"
-            )
-
-        if activation.service.notification:
-            email = activation.service.email
-            if email and "@" in email:
-                return [{"to": addr} for addr in activation.service.email.split(",")]
-        return []
 
     def _get_recipients_construction_control(self, instance):
         instance_services = core_models.InstanceService.objects.filter(
