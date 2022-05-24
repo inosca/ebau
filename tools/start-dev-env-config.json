@@ -19,5 +19,6 @@
   },
   "env": "UID={}\nAPPLICATION={}\nCOMPOSE_FILE={}\n",
   "build_cmd": "docker-compose up -d --build",
+  "up_cmd": "docker-compose up -d",
   "append_cmd": "echo 127.0.0.1 ebau-portal.local ebau.local ebau-keycloak.local ebau-rest-portal.local | sudo tee -a /etc/hosts"
 }
