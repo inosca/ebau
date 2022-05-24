@@ -633,7 +633,12 @@ APPLICATIONS = {
             ),  # TODO: change this value 'decisionRulingType'
             "applicants": (
                 "ng_table",
-                ["bauherrschaft", "bauherrschaft-v2", "bauherrschaft-override"],
+                [
+                    "bauherrschaft",
+                    "bauherrschaft-v2",
+                    "bauherrschaft-v3",
+                    "bauherrschaft-override",
+                ],
                 {
                     "column_mapping": {
                         "last_name": "name",
@@ -669,6 +674,7 @@ APPLICATIONS = {
                 [
                     "bauherrschaft",
                     "bauherrschaft-v2",
+                    "bauherrschaft-v3",
                     "bauherrschaft-override",
                 ],  # TODO: hauseigentümerschaft in SZ?
                 {
@@ -736,7 +742,11 @@ APPLICATIONS = {
             ),
             "landowners": (
                 "ng_table",
-                ["grundeigentumerschaft", "grundeigentumerschaft-override"],
+                [
+                    "grundeigentumerschaft",
+                    "grundeigentumerschaft-v2",
+                    "grundeigentumerschaft-override",
+                ],
                 {
                     "column_mapping": {
                         "last_name": "name",
@@ -772,6 +782,7 @@ APPLICATIONS = {
                 [
                     "projektverfasser-planer",
                     "projektverfasser-planer-v2",
+                    "projektverfasser-planer-v3",
                     "projektverfasser-planer-override",
                 ],
                 {
