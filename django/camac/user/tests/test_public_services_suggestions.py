@@ -4,17 +4,19 @@ from rest_framework import status
 
 
 @pytest.mark.parametrize(
-    "suggestions,suggestion_answer,expected_services",
+    "suggestions,suggestion_answer,default_suggestions,expected_services",
     [
-        ([], [], []),
+        ([], [], [], []),
         (
             [("non-existing-question", "foo", [0])],
             [("baubeschrieb", ["baubeschrieb-erweiterung-anbau"])],
-            [],
+            [1111],
+            [1111],
         ),
         (
             [("baubeschrieb", "baubeschrieb-erweiterung-anbau", [1234])],
             [("baubeschrieb", ["baubeschrieb-um-ausbau"])],
+            [],
             [],
         ),
         (
@@ -24,7 +26,8 @@ from rest_framework import status
                 ("non-existing-question", "foo", [0]),
             ],
             [("baubeschrieb", ["baubeschrieb-erweiterung-anbau"])],
-            [1234],
+            [1111],
+            [1234, 1111],
         ),
         (
             [
@@ -35,6 +38,7 @@ from rest_framework import status
                 ("baubeschrieb", ["baubeschrieb-erweiterung-anbau"]),
                 ("art-versickerung-dach", "oberflaechengewaesser"),
             ],
+            [],
             [1234, 5678],
         ),
         (
@@ -50,6 +54,7 @@ from rest_framework import status
                 ),
                 ("art-versickerung-dach", "some value"),
             ],
+            [],
             [1234, 5678, 999],
         ),
     ],
@@ -61,8 +66,15 @@ def test_suggestion_for_instance_filter(
     distribution_settings,
     suggestions,
     suggestion_answer,
+    default_suggestions,
     expected_services,
 ):
+
+    if default_suggestions:
+        distribution_settings["DEFAULT_SUGGESTIONS"] = default_suggestions
+        for service_id in default_suggestions:
+            service_factory(pk=service_id)
+
     if suggestions:
         distribution_settings["SUGGESTIONS"] = suggestions
         for config in suggestions:

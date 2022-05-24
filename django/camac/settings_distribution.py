@@ -19,6 +19,8 @@ DISTRIBUTION = {
             "ANCILLARY_CLAUSES": "inquiry-answer-ancillary-clauses",
         },
         "NOTIFICATIONS": {},
+        "SUGGESTIONS": [],
+        "DEFAULT_SUGGESTIONS": [],
     },
     "kt_bern": {
         "ENABLED": True,
@@ -299,6 +301,7 @@ DISTRIBUTION = {
     },
     "kt_schwyz": {
         "ENABLED": True,
+        "DEFAULT_SUGGESTIONS": [7],  # Baugesuchszentrale
         "NOTIFICATIONS": {
             "INQUIRY_SENT": {
                 "template_slug": "einladung-zur-stellungnahme",
