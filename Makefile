@@ -42,10 +42,12 @@ css-watch: ## Watch the sass files and create the css when they change
 .PHONY: dumpconfig
 dumpconfig: ## Dump the current camac and caluma configuration
 	docker-compose exec django python manage.py camac_dump_config
+	@yarn prettier --loglevel silent --write "django/${APPLICATION}/config/*.json"
 
 .PHONY: dumpdata
 dumpdata: ## Dump the current camac and caluma data
 	docker-compose exec django /app/manage.py camac_dump_data
+	@yarn prettier --loglevel silent --write "django/${APPLICATION}/data/*.json"
 
 .PHONY: loadconfig-camac
 loadconfig-camac: ## Load the camac configuration
@@ -89,6 +91,7 @@ format:
 	@yarn --cwd=ember install
 	@yarn --cwd=ember lint:js --fix
 	@black django
+	@yarn prettier --write *.yml
 
 .PHONY: makemigrations
 makemigrations: ## Create schema migrations
