@@ -25,11 +25,6 @@ start-dev-env:  ## Interactive initial setup of dev-environment
 .env:
 	touch .env
 
-.PHONY: js
-js:
-	npm run build --prefix ./php/public
-
-
 .PHONY: js-watch
 js-watch:
 	npm run watch --prefix ./kt_uri/configuration/public
@@ -44,24 +39,17 @@ css: ## Create the css files from the sass files
 css-watch: ## Watch the sass files and create the css when they change
 	@cd camac/configuration/public/css/; make watch
 
-.PHONY: clear-cache
-clear-cache: ## Clear the memcache
-	@docker-compose exec php php -d xdebug.remote_enable=off /var/www/camac/cronjob/clear-cache.php
-
 .PHONY: dumpconfig
 dumpconfig: ## Dump the current camac and caluma configuration
 	docker-compose exec django python manage.py camac_dump_config
-	@yarn --cwd php prettier --loglevel silent --write "../django/${APPLICATION}/config/*.json"
 
 .PHONY: dumpdata
 dumpdata: ## Dump the current camac and caluma data
 	docker-compose exec django /app/manage.py camac_dump_data
-	@yarn --cwd php prettier --loglevel silent --write "../django/${APPLICATION}/data/*.json"
 
 .PHONY: loadconfig-camac
 loadconfig-camac: ## Load the camac configuration
 	@docker-compose exec django ./wait-for-it.sh -t 300 127.0.0.1:80 -- python manage.py camac_load --user $(GIT_USER)
-	@make clear-cache
 
 .PHONY: loadconfig-dms
 loadconfig-dms: ## Load the DMS configuration
@@ -92,35 +80,8 @@ migrate:  ## Migrate schema
 	docker-compose exec django /app/manage.py migrate
 	make sequencenamespace
 
-.PHONY: grunt-build-be
-grunt-build-be: ## Grunt build
-	docker-compose exec php sh -c "cd public && npm run build-be"
-
-.PHONY: grunt-watch-be
-grunt-watch-be: ## Grunt watch
-	docker-compose exec php sh -c "cd public && npm run build-be && npm run watch-be"
-
-.PHONY: grunt-build-sz
-grunt-build-sz: ## Grunt build
-	docker-compose exec php sh -c "cd public && npm run build-sz"
-
-.PHONY: grunt-watch-sz
-grunt-watch-sz: ## Grunt watch
-	docker-compose exec php sh -c "cd public && npm run build-sz && npm run watch-sz"
-
-.PHONY: grunt-build-ur
-grunt-build-ur: ## Grunt build
-	docker-compose exec php sh -c "cd public && npm run build-ur"
-
-.PHONY: grunt-watch-ur
-grunt-watch-ur: ## Grunt watch
-	docker-compose exec php sh -c "cd public && npm run build-ur && npm run watch-ur"
-
 .PHONY: format
 format:
-	@yarn --cwd=php install
-	@yarn --cwd=php lint --fix
-	@yarn --cwd=php prettier-format
 	@yarn --cwd=ember-camac-ng install
 	@yarn --cwd=ember-camac-ng lint:js --fix
 	@yarn --cwd=ember-caluma-portal install
@@ -128,7 +89,6 @@ format:
 	@yarn --cwd=ember install
 	@yarn --cwd=ember lint:js --fix
 	@black django
-	@yarn --cwd php prettier --write ../*.yml
 
 .PHONY: makemigrations
 makemigrations: ## Create schema migrations
@@ -156,10 +116,6 @@ db_restore:  _db_snapshots_dir ## Restore latest DB snapshot created with `make 
 sequencenamespace:  ## Set the Sequence namespace for a given user. GIT_USER is detected from your git repository.
 	@docker-compose exec django make sequencenamespace GIT_USER=$(GIT_USER)
 
-.PHONY: log
-log: ## Show logs of web container
-	@docker-compose logs --follow php
-
 .PHONY: test
 test: ## Run backend tests
 	@docker-compose exec django make test
@@ -186,7 +142,6 @@ clean: ## Remove temporary files / build artefacts etc
 	@find . -name .pytest_cache -type d | xargs rm -rf
 	@find . -name __pycache__ -type d | xargs rm -rf
 	@rm -rf ./django/staticfiles ./django/coverage
-	@rm -rf ./ember/dist ./ember-caluma-portal/dist ./ember-camac-ng/dist ./php/kt_uri/public/js/dist ./php/kt_schwyz/public/js/dist
 	@rm -rf ./ember/tmp ./ember-caluma-portal/tmp ./ember-camac-ng/tmp
 	@rm -rf ./ember/build ./ember-caluma-portal/build ./ember-camac-ng/build
 
@@ -196,7 +151,6 @@ release: ## Draft a new release
 	@echo $(version) > VERSION.txt
 	@sed -i -e 's/"version": ".*",/"version": "$(version)",/g' ember-camac-ng/package.json
 	@sed -i -e 's/"version": ".*",/"version": "$(version)",/g' ember-caluma-portal/package.json
-	@sed -i -e 's/appVersion = ".*"/appVersion = "$(version)"/g' php/kt_bern/configs/application.ini
 	@sed -i -e 's/__version__ = ".*"/__version__ = "$(version)"/g' django/camac/camac_metadata.py
 
 .PHONY: release-folder
@@ -205,7 +159,6 @@ release-folder: ## Add a template for a release folder
 	@mkdir -p "releases/$(version)"
 	@echo "# Neu\n-\n# Korrekturen\n-" >> "releases/$(version)/CHANGELOG.md"
 	@echo "# Änderungen\n## Ansible (Rolle / Variablen)\n-\n## DB\n-\n## Apache\n-" >> "releases/$(version)/MANUAL.md"
-	@yarn --cwd php prettier --loglevel=silent --write "../releases/$(version)/*.md"
 
 .PHONY: django-shell
 django-shell:
