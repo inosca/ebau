@@ -5,12 +5,12 @@ import { info1, info2, info3 } from "citizen-portal/instances/new/info";
 import { dropTask, restartableTask } from "ember-concurrency-decorators";
 
 const specialFormTypes = {
-  "projektgenehmigungsgesuch-gemass-ss15-strag-v3": {
+  "projektgenehmigungsgesuch-gemass-ss15-strag-v4": {
     Gemeindestrassen: "municipality",
     Bezirksstrassen: "district",
     Kantonsstrassen: "canton",
   },
-  "plangenehmigungsgesuch-v3": {
+  "plangenehmigungsgesuch-v4": {
     ASTRA: "astra",
     "BAV (Bahnanlagen)": "bavb",
     "BAV (Schffsanlagen)": "bavs",
@@ -79,8 +79,8 @@ export default class InstancesNewController extends Controller {
   next() {
     if (
       [
-        "projektgenehmigungsgesuch-gemass-ss15-strag-v3",
-        "plangenehmigungsgesuch-v3",
+        "projektgenehmigungsgesuch-gemass-ss15-strag-v4",
+        "plangenehmigungsgesuch-v4",
       ].includes(this.get("model.form.name")) &&
       !this.specialFormType
     ) {
