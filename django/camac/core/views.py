@@ -190,37 +190,35 @@ class PublicationEntryView(ModelViewSet):
             bauzone = bauzone.value
             payload["bauzone"] = bauzone if bauzone != "beides" else "ausserhalb"
 
-        bauherrschaften_field = formFieldQuery.filter(
-            name__in=["bauherrschaft", "bauherrschaft-v2", "bauherrschaft-v3"]
-        ).first()
+        bauherrschaften = formFieldQuery.filter(name="bauherrschaft").first()
+        bauherrschaften_v2 = formFieldQuery.filter(name="bauherrschaft-v2").first()
         bauherrschaften_override = formFieldQuery.filter(
             name="bauherrschaft-override"
         ).first()
-        bauherrschaften = bauherrschaften_override or bauherrschaften_field
+        bauherrschaften = (
+            bauherrschaften_override or bauherrschaften or bauherrschaften_v2
+        )
         if bauherrschaften:
             payload["bauherrschaften"] = self._clean_persons(bauherrschaften.value)
 
-        projektverfasser_field = formFieldQuery.filter(
-            name__in=[
-                "projektverfasser-planer",
-                "projektverfasser-planer-v2",
-                "projektverfasser-planer-v3",
-            ]
+        projektverfasser = formFieldQuery.filter(name="projektverfasser-planer").first()
+        projektverfasser_v2 = formFieldQuery.filter(
+            name="projektverfasser-planer-v2"
         ).first()
         projektverfasser_override = formFieldQuery.filter(
             name="projektverfasser-planer-override"
         ).first()
-        projektverfasser = projektverfasser_override or projektverfasser_field
+        projektverfasser = (
+            projektverfasser_override or projektverfasser or projektverfasser_v2
+        )
         if projektverfasser:
             payload["projektverfasser"] = self._clean_persons(projektverfasser.value)
 
-        grundeigentuemer_field = formFieldQuery.filter(
-            name__in=["grundeigentumerschaft", "grundeigentumerschaft-v2"]
-        ).first()
+        grundeigentuemer = formFieldQuery.filter(name="grundeigentumerschaft").first()
         grundeigentuemer_override = formFieldQuery.filter(
             name="grundeigentumerschaft-override"
         ).first()
-        grundeigentuemer = grundeigentuemer_override or grundeigentuemer_field
+        grundeigentuemer = grundeigentuemer_override or grundeigentuemer
         if grundeigentuemer:
             payload["grundeigentuemer"] = self._clean_persons(
                 grundeigentuemer.value, "grundeigentuemer"
