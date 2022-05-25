@@ -10,6 +10,8 @@ import { localCopy, cached } from "tracked-toolbox";
 
 import config from "../config/environment";
 
+import { isEmbedded } from "caluma-portal/helpers/is-embedded";
+
 const {
   languages,
   fallbackLanguage,
@@ -56,10 +58,11 @@ export default class CustomSession extends Session {
 
     if (
       this.groupId &&
-      !response.find((g) => parseInt(g.id) === parseInt(this.groupId))
+      !response.find((g) => parseInt(g.id) === parseInt(this.groupId)) &&
+      !isEmbedded()
     ) {
       // There's a group saved to the session that is not selectable - we need
-      // to clear it
+      // to clear it if the application is not embedded.
       this.groupId = null;
     }
 
