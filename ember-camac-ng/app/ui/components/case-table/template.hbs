@@ -30,6 +30,7 @@
             class={{
               if (eq tColumn "intent") "uk-text-truncate uk-table-expand"
             }}
+            title={{if (eq tColumn "instanceState") (get node "instanceStateDescription")}}
           >
             {{#if (eq tColumn "applicant")}}
               {{get node (concat tColumn ".name")}}
