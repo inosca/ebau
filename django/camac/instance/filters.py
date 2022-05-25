@@ -182,7 +182,7 @@ class FormFieldListValueFilter(Filter):
                         """,
                         (),
                         ArrayField(TextField()),
-                    )
+                    ),
                 }
             )
 
@@ -260,24 +260,18 @@ class InstanceFilterSet(FilterSet):
         form_field_names=[
             "bauherrschaft",
             "bauherrschaft-v2",
-            "bauherrschaft-v3",
             "bauherrschaft-override",
         ],
         keys=["vorname", "name", "firma"],
     )
     landowner_sz = FormFieldListValueFilter(
-        form_field_names=[
-            "grundeigentumerschaft",
-            "grundeigentumerschaft-v2",
-            "grundeigentumerschaft-override",
-        ],
+        form_field_names=["grundeigentumerschaft", "grundeigentumerschaft-override"],
         keys=["vorname", "name", "firma"],
     )
     applicant_sz = FormFieldListValueFilter(
         form_field_names=[
             "projektverfasser-planer",
             "projektverfasser-planer-v2",
-            "projektverfasser-planer-v3",
             "projektverfasser-planer-override",
         ],
         keys=["vorname", "name", "firma"],
@@ -554,7 +548,8 @@ class PublicCalumaInstanceFilterSet(FilterSet):
     def filter_form_type(self, queryset, name, value):
         """Filter the form type. UR specific."""
         return queryset.filter(
-            document__answers__question_id="form-type", document__answers__value=value
+            document__answers__question_id="form-type",
+            document__answers__value=value,
         )
 
     class Meta:
