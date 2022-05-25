@@ -260,18 +260,24 @@ class InstanceFilterSet(FilterSet):
         form_field_names=[
             "bauherrschaft",
             "bauherrschaft-v2",
+            "bauherrschaft-v3",
             "bauherrschaft-override",
         ],
         keys=["vorname", "name", "firma"],
     )
     landowner_sz = FormFieldListValueFilter(
-        form_field_names=["grundeigentumerschaft", "grundeigentumerschaft-override"],
+        form_field_names=[
+            "grundeigentumerschaft",
+            "grundeigentumerschaft-v2",
+            "grundeigentumerschaft-override",
+        ],
         keys=["vorname", "name", "firma"],
     )
     applicant_sz = FormFieldListValueFilter(
         form_field_names=[
             "projektverfasser-planer",
             "projektverfasser-planer-v2",
+            "projektverfasser-planer-v3",
             "projektverfasser-planer-override",
         ],
         keys=["vorname", "name", "firma"],
