@@ -230,7 +230,6 @@ export default class CustomCaseModel extends CaseModel {
     const row = this.getFormFields([
       "bauherrschaft-override",
       "bauherrschaft-v2",
-      "bauherrschaft-v3",
       "bauherrschaft",
     ])?.value?.[0];
 
