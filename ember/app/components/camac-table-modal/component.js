@@ -2,6 +2,7 @@ import Component from "@ember/component";
 import { set } from "@ember/object";
 import { scheduleOnce } from "@ember/runloop";
 import CamacMultipleQuestionRowMixin from "citizen-portal/mixins/camac-multiple-question-row";
+import { task } from "ember-concurrency";
 import UIkit from "uikit";
 
 import config from "../../config/environment";
@@ -56,9 +57,7 @@ export default Component.extend(CamacMultipleQuestionRowMixin, {
   },
 
   willDestroyElement() {
-    this.columns.forEach((column) => {
-      set(column, "required", this.defaultRequiredValues[column.name]);
-    });
+    this._resetRequiredValues();
     this.modal.hide();
   },
 
@@ -69,6 +68,17 @@ export default Component.extend(CamacMultipleQuestionRowMixin, {
       this.modal.hide();
     }
   },
+
+  _resetRequiredValues() {
+    this.columns.forEach((column) => {
+      set(column, "required", this.defaultRequiredValues[column.name]);
+    });
+  },
+
+  saveModal: task(function* () {
+    this._resetRequiredValues();
+    yield this.save.perform();
+  }),
 
   /*
    * Check if firma is set, to set name and vorname as required or not.
