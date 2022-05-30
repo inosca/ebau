@@ -9,12 +9,19 @@ import config from "../../config/environment";
 export default Component.extend(CamacMultipleQuestionRowMixin, {
   modal: null,
 
+  defaultRequiredValues: null,
+
   init(...args) {
     this._super(...args);
 
     this.set(
       "container",
       document.querySelector(config.APP.rootElement || "body")
+    );
+
+    this.defaultRequiredValues = {};
+    this.columns.forEach(
+      (column) => (this.defaultRequiredValues[column.name] = column.required)
     );
   },
 
@@ -43,11 +50,15 @@ export default Component.extend(CamacMultipleQuestionRowMixin, {
 
   didReceiveAttrs() {
     scheduleOnce("afterRender", this, this.toggleVisibility);
-
-    this.send("checkRequired", "firma", this.get("_value.firma"));
+    if (this.visible) {
+      this.send("checkRequired", "firma", this.get("_value.firma"));
+    }
   },
 
   willDestroyElement() {
+    this.columns.forEach((column) => {
+      set(column, "required", this.defaultRequiredValues[column.name]);
+    });
     this.modal.hide();
   },
 
