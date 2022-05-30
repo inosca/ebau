@@ -44,6 +44,10 @@ class UserView(ReadOnlyModelViewSet):
         queryset = super().get_queryset()
         return queryset.filter(groups__service=self.request.group.service).distinct()
 
+    def get_queryset_for_coordination(self):
+        queryset = super().get_queryset()
+        return queryset.filter(groups__service=self.request.group.service).distinct()
+
     def get_queryset_for_municipality(self):
         queryset = super().get_queryset()
         return queryset.filter(groups__service=self.request.group.service).distinct()
