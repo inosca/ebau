@@ -2318,6 +2318,7 @@ APPLICATIONS = {
         "ECH0211": {
             "API_ACTIVE": False,
         },
+        "ENABLE_PUBLIC_CALUMA": True,
         "LOG_NOTIFICATIONS": False,
         "FORM_BACKEND": "caluma",
         "PUBLICATION_DURATION": timedelta(days=20),
