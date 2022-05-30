@@ -629,7 +629,7 @@
     "fields": {
       "name": "new_comm",
       "sort": 0,
-      "description": ""
+      "description": "Neu Bearbeitung Leitbehörde"
     }
   },
   {
@@ -638,7 +638,7 @@
     "fields": {
       "name": "comm",
       "sort": 1,
-      "description": ""
+      "description": "Bearbeitung Leitbehörde"
     }
   },
   {
@@ -647,7 +647,7 @@
     "fields": {
       "name": "ext",
       "sort": 2,
-      "description": ""
+      "description": "Bearbeitung Koordinationsstelle"
     }
   },
   {
@@ -656,7 +656,7 @@
     "fields": {
       "name": "circ",
       "sort": 4,
-      "description": ""
+      "description": "In Zirkulation"
     }
   },
   {
@@ -665,7 +665,7 @@
     "fields": {
       "name": "redac",
       "sort": 5,
-      "description": ""
+      "description": "Zirkulation beendet"
     }
   },
   {
@@ -674,7 +674,7 @@
     "fields": {
       "name": "done",
       "sort": 6,
-      "description": ""
+      "description": "Zurück bei Gemeinde"
     }
   },
   {
@@ -683,7 +683,7 @@
     "fields": {
       "name": "arch",
       "sort": 8,
-      "description": ""
+      "description": "Archiviert"
     }
   },
   {
@@ -692,7 +692,7 @@
     "fields": {
       "name": "del",
       "sort": 9,
-      "description": ""
+      "description": "Gelöscht"
     }
   },
   {
@@ -701,7 +701,7 @@
     "fields": {
       "name": "new",
       "sort": 10,
-      "description": ""
+      "description": "Neu Erstellt"
     }
   },
   {
@@ -710,7 +710,7 @@
     "fields": {
       "name": "nfd",
       "sort": 11,
-      "description": ""
+      "description": "Nachforderung Dokumente"
     }
   },
   {
@@ -719,7 +719,7 @@
     "fields": {
       "name": "subm",
       "sort": 12,
-      "description": ""
+      "description": "Eingereicht bei Gemeinde"
     }
   },
   {
@@ -728,7 +728,7 @@
     "fields": {
       "name": "rejected",
       "sort": 13,
-      "description": ""
+      "description": "Abgelehnt"
     }
   },
   {
@@ -737,7 +737,7 @@
     "fields": {
       "name": "ext_gem",
       "sort": 3,
-      "description": null
+      "description": "Dossier bleibt bei Gemeindebaubehörde"
     }
   },
   {
@@ -755,7 +755,7 @@
     "fields": {
       "name": "control",
       "sort": 7,
-      "description": null
+      "description": "Bau- und Einspracheentscheid zugestellt"
     }
   },
   {
@@ -839,7 +839,7 @@
     "model": "instance.instancestatedescription",
     "pk": 32,
     "fields": {
-      "description": "Dossiers bleibt bei Gemeindebaubehörde"
+      "description": "Dossier bleibt bei Gemeindebaubehörde"
     }
   },
   {
