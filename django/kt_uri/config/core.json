@@ -56,6 +56,14 @@
     }
   },
   {
+    "model": "core.acirculationtransition",
+    "pk": 12000068,
+    "fields": {
+      "current_circulation_state": null,
+      "next_circulation_state": 2
+    }
+  },
+  {
     "model": "core.aformtransition",
     "pk": 9,
     "fields": {
@@ -1561,6 +1569,13 @@
     "pk": 12000059,
     "fields": {
       "php_class": "EndCirculation"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 12000069,
+    "fields": {
+      "php_class": "MunicipalityCircEnd"
     }
   },
   {
@@ -6111,6 +6126,62 @@
       "error_message": "Statusänderung konnte nicht ausgeführt werden",
       "execute_always": 0,
       "sort": 0
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000066,
+    "fields": {
+      "available_action": "save",
+      "button": 12000020,
+      "name": "Speichern",
+      "description": "Etwas speichern",
+      "success_message": "Speichern erfolgreich",
+      "error_message": "Speichern fehlgeschlagen",
+      "execute_always": 0,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000067,
+    "fields": {
+      "available_action": "save",
+      "button": 12000021,
+      "name": "Speichern",
+      "description": null,
+      "success_message": "Antwort erfolgreich gesendet",
+      "error_message": "Antwort konnte nicht gesendet werden!",
+      "execute_always": 0,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000068,
+    "fields": {
+      "available_action": "circulationtransition",
+      "button": 12000021,
+      "name": "Zirkulation auf OK setzen",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000069,
+    "fields": {
+      "available_action": "php",
+      "button": 12000021,
+      "name": "Gemeindezrkulation Ende",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 2
     }
   },
   {
@@ -19227,6 +19298,30 @@
     }
   },
   {
+    "model": "core.button",
+    "pk": 12000020,
+    "fields": {
+      "instance_resource": 2000004,
+      "name": "Antwort Speichern",
+      "description": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.button",
+    "pk": 12000021,
+    "fields": {
+      "instance_resource": 2000004,
+      "name": "Antwort senden",
+      "description": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 1
+    }
+  },
+  {
     "model": "core.chapter",
     "pk": 1,
     "fields": {
@@ -24820,6 +24915,21 @@
   },
   {
     "model": "core.instanceresource",
+    "pk": 2000004,
+    "fields": {
+      "available_instance_resource": "editnotice",
+      "resource": 302,
+      "name": "Rückmeldung Gemeindezirkulation",
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 7,
+      "form_group": 161
+    }
+  },
+  {
+    "model": "core.instanceresource",
     "pk": 12000000,
     "fields": {
       "available_instance_resource": "editformpage",
@@ -28209,10 +28319,10 @@
   },
   {
     "model": "core.ireditcirculationsg",
-    "pk": 271,
+    "pk": 12000000,
     "fields": {
       "instance_resource": 753,
-      "service_group": 73,
+      "service_group": 41,
       "localized": 1
     }
   },
@@ -28275,6 +28385,18 @@
   {
     "model": "core.ireditnotice",
     "pk": 769,
+    "fields": {
+      "circulation_type": 61,
+      "editable_after_deadline": 1,
+      "pdf_class": null,
+      "edit_notice_template": null,
+      "hide_answered_notices": 0,
+      "is_always_editable": 1
+    }
+  },
+  {
+    "model": "core.ireditnotice",
+    "pk": 2000004,
     "fields": {
       "circulation_type": 61,
       "editable_after_deadline": 1,
@@ -38193,6 +38315,42 @@
   },
   {
     "model": "core.irroleacl",
+    "pk": 2000050,
+    "fields": {
+      "instance_resource": 180010,
+      "role": 1102,
+      "instance_state": 32
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000051,
+    "fields": {
+      "instance_resource": 2000000,
+      "role": 1102,
+      "instance_state": 32
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000052,
+    "fields": {
+      "instance_resource": 367,
+      "role": 1102,
+      "instance_state": 32
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000053,
+    "fields": {
+      "instance_resource": 2000004,
+      "role": 1102,
+      "instance_state": 32
+    }
+  },
+  {
+    "model": "core.irroleacl",
     "pk": 12000000,
     "fields": {
       "instance_resource": 46,
@@ -45512,7 +45670,7 @@
     "model": "core.remberlist",
     "pk": 302,
     "fields": {
-      "instance_states": "23"
+      "instance_states": "32,23"
     }
   },
   {
