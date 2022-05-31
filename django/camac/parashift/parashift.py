@@ -12,6 +12,12 @@ from camac.utils import build_url
 GROUP_KOOR_ARE_BG_ID = 142
 
 
+class PdfFileWriterWithStreamAttribute(PdfFileWriter):
+    def __init__(self):
+        super().__init__()
+        self.stream = io.BytesIO()
+
+
 class ParashiftValidationError(Exception):
     def __init__(self, msg, original_exception=None):
         super().__init__(msg)
@@ -113,7 +119,7 @@ class ParashiftImporter:
             if stop is None:
                 stop = pdf.numPages - 1
 
-            output = PdfFileWriter()
+            output = PdfFileWriterWithStreamAttribute()
 
             for page in range(start, stop + 1):
                 output.addPage(pdf.getPage(page))
