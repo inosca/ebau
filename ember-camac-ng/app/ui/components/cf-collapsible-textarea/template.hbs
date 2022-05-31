@@ -1,37 +1,14 @@
-<label class="uk-form-label" for="{{@field.pk}}">
-  <a
-    href="#"
-    class="uk-link-reset uk-flex uk-flex-between"
-    title={{t (concat "audit." (if this.collapsed "expand" "collapse"))}}
-    {{on "click" this.toggle}}
-  >
-    <span>
-      <span class="uk-text-bold">
-        {{@field.question.raw.label}}
-      </span>
+<a
+  href="#"
+  class="uk-link-reset uk-flex uk-flex-between"
+  title={{t (concat "audit." (if this.collapsed "expand" "collapse"))}}
+  {{on "click" this.toggle}}
+>
+  <CfField::label @field={{@field}} class="pointer" />
 
-      {{#if @field.optional}}
-        <span class="uk-margin-small-left uk-text-muted uk-text-lowercase uk-text-normal">({{t "caluma.form.optional"}})</span>
-      {{/if}}
-    </span>
-
-    <UkIcon @icon={{if this.collapsed "chevron-right" "chevron-down"}} @ratio={{0.75}} />
-  </a>
-</label>
+  <UkIcon @icon={{if this.collapsed "chevron-right" "chevron-down"}} @ratio={{0.75}} />
+</a>
 
 {{#unless this.collapsed}}
-  <textarea
-    readonly={{@disabled}}
-    name={{@field.pk}}
-    id={{@field.pk}}
-    value={{@field.answer.value}}
-    maxlength={{@field.question.raw.textareaMaxLength}}
-    rows="4"
-    class="
-      uk-textarea
-      {{if @field.isInvalid "uk-form-danger"}}
-      {{if @field.disabled "uk-disabled"}}
-    "
-    {{on "input" this.save}}
-  />
+  <CfField::Input::Textarea @field={{@field}} @onSave={{@onSave}} @disabled={{@disabled}} @context={{@context}}/>
 {{/unless}}
