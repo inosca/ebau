@@ -23,6 +23,7 @@
             class={{
               if (eq tColumn "intent") "uk-text-truncate uk-table-expand"
             }}
+            title={{ if (eq tColumn "intent") case.intent }}
           >
             {{#if (eq tColumn "instanceId")}}
               <a href="/index/redirect-to-instance-resource/instance-id/{{case.instanceId}}">
@@ -35,12 +36,14 @@
         {{/each}}
         {{#if @instancesOnSamePlot}}
           {{#if (not-eq this.instanceIdAsInt case.instanceId) }}
+          <td>
             <LinkInstanceButton
               @type={{if (includes case.instanceId this.linkedInstanceIds) "unlink" "link"}}
               @onLink={{@onLink}}
               @onUnlink={{@onUnlink}}
               @instanceOnSamePlot={{case.instance}}
             />
+          </td>
           {{else}}
             <td></td>
           {{/if}}
