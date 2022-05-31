@@ -1,13 +1,15 @@
 import { action } from "@ember/object";
+import { isEmpty } from "@ember/utils";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 
 export default class CfCollapsibleTextareaComponent extends Component {
   @tracked collapsed = true;
 
-  @action
-  save({ target: { value } }) {
-    this.args.onSave(value);
+  constructor(...args) {
+    super(...args);
+
+    this.collapsed = isEmpty(this.args.field.value);
   }
 
   @action
