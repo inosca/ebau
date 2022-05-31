@@ -564,7 +564,7 @@
     "model": "user.servicegroup",
     "pk": 41,
     "fields": {
-      "name": "Gemeinderäte - externe Pendenzen",
+      "name": "Gemeinderäte - Pendenzen",
       "sort": null
     }
   },
@@ -661,14 +661,6 @@
     "pk": 72,
     "fields": {
       "name": "Infrastrukturanlagen Pendenzen von Gemeinden",
-      "sort": null
-    }
-  },
-  {
-    "model": "user.servicegroup",
-    "pk": 73,
-    "fields": {
-      "name": "Gemeinderäte - interne Pendenzen",
       "sort": null
     }
   },
