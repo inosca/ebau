@@ -1,17 +1,4 @@
-<Snippets @field={{@field}}>
-  <textarea
-    readonly={{@disabled}}
-    name={{@field.pk}}
-    id={{@field.pk}}
-    value={{@field.answer.value}}
-    maxlength={{@field.question.raw.textareaMaxLength}}
-    rows="4"
-    class="
-      uk-textarea
-      {{if @field.isInvalid "uk-form-danger"}}
-      {{if @field.disabled "uk-disabled"}}
-    "
-    {{on "input" this.save}}
-  />
+<Snippets @onApply={{this.applySnippet}} @disabled={{@disabled}}>
+  <CfField::Input::Textarea @field={{@field}} @onSave={{@onSave}} @disabled={{@disabled}} @context={{@context}}/>
 </Snippets>
 
