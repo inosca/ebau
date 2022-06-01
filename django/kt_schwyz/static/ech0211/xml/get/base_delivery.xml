@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <ns1:delivery xmlns:ns7="http://www.ech.ch/xmlns/eCH-0039/2" xmlns:ns5="http://www.ech.ch/xmlns/eCH-0007/6" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns8="http://www.ech.ch/xmlns/eCH-0044/4" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0010/6" xmlns:ns6="http://www.ech.ch/xmlns/eCH-0147/T0/1" xmlns:ns9="http://www.ech.ch/xmlns/eCH-0097/2" xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5">
 	<ns1:deliveryHeader>
-		<ns2:senderId>https://ebau.apps.be.ch</ns2:senderId>
+		<ns2:senderId>https://behoerden.ebau-sz.ch</ns2:senderId>
 		<ns2:messageId>140019142625552</ns2:messageId>
 		<ns2:messageType>5200000</ns2:messageType>
 		<ns2:sendingApplication>
@@ -84,7 +84,7 @@
 					<ns6:status>signed</ns6:status>
 					<ns6:files>
 						<ns6:file>
-							<ns6:pathFileName>http://camac-ng.local/api/v1/attachments/files/?attachments=117</ns6:pathFileName>
+							<ns6:pathFileName>http://ebau.local/api/v1/attachments/files/?attachments=117</ns6:pathFileName>
 							<ns6:mimeType>multipart/form-data</ns6:mimeType>
 						</ns6:file>
 					</ns6:files>
@@ -190,7 +190,7 @@
 							<ns9:uidOrganisationId>123123123</ns9:uidOrganisationId>
 						</ns9:uid>
 						<ns9:localOrganisationId>
-							<ns9:organisationIdCategory>ebaube</ns9:organisationIdCategory>
+							<ns9:organisationIdCategory>ebausz</ns9:organisationIdCategory>
 							<ns9:organisationId>473</ns9:organisationId>
 						</ns9:localOrganisationId>
 						<ns9:organisationName>Christine Powers</ns9:organisationName>
@@ -212,7 +212,7 @@
 						<ns9:uidOrganisationId>123123123</ns9:uidOrganisationId>
 					</ns9:uid>
 					<ns9:localOrganisationId>
-						<ns9:organisationIdCategory>ebaube</ns9:organisationIdCategory>
+						<ns9:organisationIdCategory>ebausz</ns9:organisationIdCategory>
 						<ns9:organisationId>473</ns9:organisationId>
 					</ns9:localOrganisationId>
 					<ns9:organisationName>Christine Powers</ns9:organisationName>
