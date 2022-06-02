@@ -27,15 +27,15 @@ from camac.instance.models import HistoryEntryT
         (
             "Applicant",
             LazyFixture("admin_user"),
-            22,
+            21,
             1,
             {"instance", "form", "document"},
         ),
         # reader should see instances from other users but has no editables
-        ("Reader", LazyFixture("user"), 22, 1, set()),
-        ("Canton", LazyFixture("user"), 22, 1, {"form", "document"}),
-        ("Municipality", LazyFixture("user"), 21, 1, {"form", "document"}),
-        ("Service", LazyFixture("user"), 21, 1, {"form", "document"}),
+        ("Reader", LazyFixture("user"), 21, 1, set()),
+        ("Canton", LazyFixture("user"), 21, 1, {"form", "document"}),
+        ("Municipality", LazyFixture("user"), 20, 1, {"form", "document"}),
+        ("Service", LazyFixture("user"), 20, 1, {"form", "document"}),
         ("Public", LazyFixture("user"), 2, 0, {}),
     ],
 )
