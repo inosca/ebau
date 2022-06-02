@@ -52,13 +52,6 @@ Unter dem Tag [User](#/User) sind die Endpunkte zusammengefasst, die eine Abfrag
 
 - Der Type `planningPermissionAplicationIdentifier` enthält unter `localId` die eBau-Nummer und unter `dossierIdentification` unsere Dossiernummer ("Instance id")
 
-- Der eCH-Standard forciert, dass bei den meisten Meldungen ein `document` mitgeschickt wird. Dieses `document` wird (mit Ausnahme von `accompanyingReport`) von eBau ignoriert. Dokumente werden über unsere API hoch- und heruntergeladen. Beim Hochladen werden sie bereits einer `Instance`, sowie einer oder mehreren `AttachmentSection` zugewiesen. Somit sind Dokumente in eCH Meldungen, die von eBau erhalten werden, redundant und werden ignoriert.
-
-  Bei ausgehenden Meldungen werden die Dokumente jedoch korrekt abgefüllt. Dabei gilt zu beachten:
-   - `documentKind` enthält alle `AttachmentSections`, separiert durch `; `
-   - `keywords` enthält alle Tags (zB: `vollmacht-dokument`)
-   - `uuid` enthält eine mit dem `Attachment` assoziierte uuid, diese ist jedoch ansonstenn nicht über die API exposed. `Attachments` werden prinzipiell über ihren PK referenziert
-
 - In einer `application` wird immer der Status `6701` gesetzt. Der korrekte Status aus dem eBau findet sich unter `namedMetaData.status`. Bei einer `statusNotification` wird immer der Status `in progress` gesetzt. Der korrekte Status findet sich im `remark`.
 
 - `buildingCategory` wird immer auf `1040` gesetzt.
