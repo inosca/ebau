@@ -1251,24 +1251,6 @@ APPLICATIONS = {
                     "recipient_types": ["leitbehoerde", "involved_in_distribution"],
                 },
             ],
-            "ECH_KIND_OF_PROCEEDINGS": [
-                {
-                    "template_slug": "03-verfahrensablauf-gesuchsteller",
-                    "recipient_types": ["applicant"],
-                }
-            ],
-            "ECH_TASK": [
-                {
-                    "template_slug": "03-verfahrensablauf-fachstelle",
-                    "recipient_types": ["unnotified_service"],
-                }
-            ],
-            "ECH_ACCOMPANYING_REPORT": [
-                {
-                    "template_slug": "05-bericht-erstellt",
-                    "recipient_types": ["activation_service_parent"],
-                }
-            ],
         },
         "IS_MULTILINGUAL": True,
         "FORM_BACKEND": "caluma",

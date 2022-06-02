@@ -3,8 +3,10 @@ from functools import wraps
 from uuid import uuid4
 
 from django.conf import settings
+from django.db.models import Q
 from django.dispatch import receiver
 from django.utils import timezone
+from django.utils.translation import gettext as _
 from pyxb import (
     IncompleteElementContentError,
     UnprocessedElementContentError,
@@ -31,10 +33,7 @@ from camac.constants.kt_bern import (
     ECH_TASK_SB2_SUBMITTED,
     ECH_TASK_STELLUNGNAHME,
     ECH_WITHDRAW_PLANNING_PERMISSION_APPLICATION,
-    NOTICE_TYPE_NEBENBESTIMMUNG,
-    NOTICE_TYPE_STELLUNGNAHME,
 )
-from camac.core.models import Activation, Notice
 from camac.document.models import Attachment
 from camac.user.models import Service
 
@@ -62,7 +61,6 @@ from .signals import (
     sb2_submitted,
     task_send,
 )
-from .utils import handle_string_values
 
 logger = logging.getLogger(__name__)
 
@@ -72,14 +70,14 @@ class EventHandlerException(BaseException):
 
 
 class BaseEventHandler:
-    def __init__(self, instance, user_pk=None, group_pk=None, context=None):
+    def __init__(self, instance, user_pk=None, group_pk=None):
         self.instance = instance
         self.user_pk = user_pk
         self.group_pk = group_pk
-        self.context = context
 
         self.message_date = timezone.now()
         self.message_id = uuid4()
+        self.message_receiver = self.instance.responsible_service()
 
     def get_data(self):
         return get_document(self.instance.pk)
@@ -87,10 +85,8 @@ class BaseEventHandler:
     def get_xml(self, data, **kwargs):  # pragma: no cover
         raise NotImplementedError()
 
-    def create_message(self, xml, receiver=None):
-        receiver = receiver if receiver else self.instance.responsible_service()
-
-        if not receiver:
+    def create_message(self, xml):
+        if not self.message_receiver:
             # Due to possible misconfiguration of the instance, the
             # fallback to active_service might not work (and return
             # None). This needs to be caught
@@ -101,13 +97,12 @@ class BaseEventHandler:
             )
             return
 
-        message = Message.objects.create(
+        return Message.objects.create(
             body=xml,
-            receiver=receiver,
+            receiver=self.message_receiver,
             created_at=self.message_date,
             id=self.message_id,
         )
-        return message
 
     def run(self):
         data = self.get_data()
@@ -182,7 +177,7 @@ class StatusNotificationEventHandler(BaseEventHandler):
             == "rejected"  # cancel rejection must result in start circulation status notification
         ):
             message_type = ECH_STATUS_NOTIFICATION_ZIRKULATION_GESTARTET
-        elif self.instance.instance_state.name == "sb1":  # pragma: todo distribution
+        elif self.instance.instance_state.name == "sb1":
             message_type = ECH_STATUS_NOTIFICATION_SB1_AUSSTEHEND
         elif self.instance.instance_state.name in ["evaluated", "finished"]:
             message_type = ECH_STATUS_NOTIFICATION_ABGESCHLOSSEN
@@ -252,37 +247,54 @@ class TaskEventHandler(BaseEventHandler):
     task_map = {
         "circulation": {
             "message_type": ECH_TASK_STELLUNGNAHME,
-            "comment": "Anforderung einer Stellungnahme",
+            "comment": _("Inquiry sent"),
             "attachment_section": ATTACHMENT_SECTION_BEILAGEN_GESUCH,
         },
         "sb2": {
             "message_type": ECH_TASK_SB1_SUBMITTED,
-            "comment": "SB1 eingereicht",
+            "comment": _("SB1 submitted"),
             "attachment_section": ATTACHMENT_SECTION_BEILAGEN_SB1,
         },
         "conclusion": {
             "message_type": ECH_TASK_SB2_SUBMITTED,
-            "comment": "SB2 eingereicht",
+            "comment": _("SB2 submitted"),
             "attachment_section": ATTACHMENT_SECTION_BEILAGEN_SB2,
         },
     }
 
+    def __init__(self, instance, user_pk=None, group_pk=None, inquiry=None):
+        super().__init__(instance, user_pk, group_pk)
+
+        self.inquiry = inquiry
+
+        if inquiry:
+            self.message_receiver = Service.objects.get(pk=inquiry.addressed_groups[0])
+
     def get_data(self):
         return {"ech-subject": self.event_type}
 
-    def get_xml(self, data, message_type, comment, deadline=None, attachments=None):
+    def get_xml(self, data):
+        config = self.task_map[
+            "circulation" if self.inquiry else self.instance.instance_state.name
+        ]
+
+        attachments = Attachment.objects.filter(
+            instance=self.instance,
+            attachment_sections__pk=config["attachment_section"],
+        )
+
         try:
             return delivery(
                 self.instance,
                 data,
-                message_type=message_type,
+                message_type=config["message_type"],
                 message_date=self.message_date,
                 message_id=str(self.message_id),
                 eventRequest=request(
                     self.instance,
                     self.event_type,
-                    comment=comment,
-                    deadline=deadline,
+                    comment=config["comment"],
+                    deadline=self.inquiry.deadline if self.inquiry else None,
                     attachments=attachments,
                 ),
             ).toxml()
@@ -293,46 +305,6 @@ class TaskEventHandler(BaseEventHandler):
         ) as e:  # pragma: no cover
             logger.error(e.details())
             raise
-
-    def _handle_activations(self, context, data, attachments):
-        msgs = []
-        for activation in Activation.objects.filter(
-            circulation__instance=self.instance, ech_msg_created=False
-        ):
-            self.message_id = uuid4()
-            xml = self.get_xml(
-                data,
-                message_type=context["message_type"],
-                comment=context["comment"],
-                deadline=activation.deadline_date,
-                attachments=attachments,
-            )
-            msgs.append(self.create_message(xml, activation.service))
-            activation.ech_msg_created = True
-            activation.save()
-
-        return msgs
-
-    def run(self):
-        data = self.get_data()
-        context = self.task_map[self.instance.instance_state.name]
-
-        attachments = Attachment.objects.filter(
-            instance=self.instance,
-            attachment_sections__pk=context["attachment_section"],
-        )
-
-        if self.instance.instance_state.name == "circulation":
-            return self._handle_activations(context, data, attachments)
-
-        xml = self.get_xml(
-            data,
-            message_type=context["message_type"],
-            comment=context["comment"],
-            attachments=attachments,
-        )
-        msg = self.create_message(xml)
-        return [msg]
 
 
 class ClaimEventHandler(WithdrawPlanningPermissionApplicationEventHandler):
@@ -347,47 +319,27 @@ class AccompanyingReportEventHandler(BaseEventHandler):
     event_type = "accompanying report"
     message_type = ECH_ACCOMPANYING_REPORT
 
-    def __init__(self, instance, user_pk=None, group_pk=None, context=None):
-        super().__init__(instance, user_pk, group_pk, context)
-        self.activation = self._get_activation()
+    def __init__(
+        self, instance, inquiry, user_pk=None, group_pk=None, attachments=None
+    ):
+        super().__init__(instance, user_pk, group_pk)
+
+        self.inquiry = inquiry
+        if not attachments:
+            self.attachments = self.instance.attachments.filter(
+                attachment_sections__pk=ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN,
+                group__service__in=Service.objects.filter(
+                    Q(pk=self.inquiry.addressed_groups[0])
+                    | Q(service_parent_id=self.inquiry.addressed_groups[0])
+                ),
+            )
+        else:
+            self.attachments = attachments
 
     def get_data(self):
         return {"ech-subject": self.event_type}
 
-    def _get_activation(self):
-        return Activation.objects.get(pk=self.context["activation-id"])
-
-    def _get_notices(self):
-        def prepare(notice):
-            if notice:
-                return handle_string_values(notice.content)
-            return notice
-
-        stellungnahme = prepare(
-            Notice.objects.filter(
-                activation=self.activation, notice_type__pk=NOTICE_TYPE_STELLUNGNAHME
-            ).first()
-        )
-        nebenbestimmung = prepare(
-            Notice.objects.filter(
-                activation=self.activation, notice_type__pk=NOTICE_TYPE_NEBENBESTIMMUNG
-            ).first()
-        )
-
-        return stellungnahme, nebenbestimmung
-
-    def get_xml(self, data, attachments, stellungnahme, nebenbestimmung):
-        attachments = (
-            attachments
-            if attachments
-            else self.instance.attachments.filter(
-                attachment_sections__pk=ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN,
-                group__service__in=[
-                    self.activation.service,
-                    *Service.objects.filter(service_parent=self.activation.service),
-                ],
-            )
-        )
+    def get_xml(self, data):
         try:
             return delivery(
                 self.instance,
@@ -398,10 +350,8 @@ class AccompanyingReportEventHandler(BaseEventHandler):
                 eventAccompanyingReport=accompanying_report(
                     self.instance,
                     self.event_type,
-                    attachments,
-                    self.activation.circulation_answer,
-                    stellungnahme,
-                    nebenbestimmung,
+                    self.attachments,
+                    self.inquiry,
                 ),
             ).toxml()
         except (
@@ -411,11 +361,6 @@ class AccompanyingReportEventHandler(BaseEventHandler):
         ) as e:  # pragma: no cover
             logger.error(e.details())
             raise
-
-    def run(self, attachments=None):
-        data = self.get_data()
-        xml = self.get_xml(data, attachments, *self._get_notices())
-        return self.create_message(xml)
 
 
 class ChangeResponsibilityEventHandler(BaseEventHandler):
@@ -482,20 +427,29 @@ def send_status_notification(sender, instance, user_pk, group_pk, **kwargs):
 @receiver(sb1_submitted)
 @receiver(sb2_submitted)
 @if_ech_enabled
-def task_callback(sender, instance, user_pk, group_pk, **kwargs):
-    handler = TaskEventHandler(instance, user_pk=user_pk, group_pk=group_pk)
+def task_callback(sender, instance, user_pk, group_pk, inquiry=None, **kwargs):
+    handler = TaskEventHandler(
+        instance,
+        user_pk=user_pk,
+        group_pk=group_pk,
+        inquiry=inquiry,
+    )
     handler.run()
 
 
 @receiver(accompanying_report_send)
 @if_ech_enabled
 def accompanying_report_callback(
-    sender, instance, user_pk, group_pk, context, attachments, **kwargs
+    sender, instance, user_pk, group_pk, inquiry, attachments, **kwargs
 ):
     handler = AccompanyingReportEventHandler(
-        instance, user_pk=user_pk, group_pk=group_pk, context=context
+        instance,
+        user_pk=user_pk,
+        group_pk=group_pk,
+        inquiry=inquiry,
+        attachments=attachments,
     )
-    handler.run(attachments)
+    handler.run()
 
 
 @receiver(file_subsequently)
