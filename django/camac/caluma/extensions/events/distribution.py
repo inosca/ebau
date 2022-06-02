@@ -23,7 +23,9 @@ from django.conf import settings
 from django.db import transaction
 from django.utils.timezone import now
 
+from camac.ech0211.signals import accompanying_report_send, task_send
 from camac.notification.utils import send_mail_without_request
+from camac.user.models import User
 
 
 def send_inquiry_notification(settings_key, inquiry_work_item, user):
@@ -72,14 +74,16 @@ def filter_by_task(settings_keys):
 @on(post_complete_case, raise_exception=True)
 @filter_by_workflow(["INQUIRY_WORKFLOW", "DISTRIBUTION_WORKFLOW"])
 @transaction.atomic
-def post_complete_inquiry_or_distribution_case(sender, case, user, **kwargs):
-    complete_work_item(work_item=case.parent_work_item, user=user)
+def post_complete_inquiry_or_distribution_case(
+    sender, case, user, context=None, **kwargs
+):
+    complete_work_item(work_item=case.parent_work_item, user=user, context=context)
 
 
 @on(post_create_work_item, raise_exception=True)
 @filter_by_task("DISTRIBUTION_TASK")
 @transaction.atomic
-def post_create_distribution(sender, work_item, user, **kwargs):
+def post_create_distribution(sender, work_item, user, context=None, **kwargs):
     # start distribution child case
     start_case(
         workflow=Workflow.objects.get(
@@ -87,15 +91,16 @@ def post_create_distribution(sender, work_item, user, **kwargs):
         ),
         user=user,
         parent_work_item=work_item,
+        context=context,
     )
 
 
 @on(post_create_work_item, raise_exception=True)
 @filter_by_task("INQUIRY_TASK")
 @transaction.atomic
-def post_create_inquiry(sender, work_item, user, **kwargs):
+def post_create_inquiry(sender, work_item, user, context=None, **kwargs):
     # suspend work item so it's a draft
-    suspend_work_item(work_item=work_item, user=user)
+    suspend_work_item(work_item=work_item, user=user, context=context)
 
     # set initial deadline value
     save_answer(
@@ -105,13 +110,14 @@ def post_create_inquiry(sender, work_item, user, **kwargs):
         document=work_item.document,
         value=now().date() + settings.DISTRIBUTION["DEFAULT_DEADLINE_DELTA"],
         user=user,
+        context=context,
     )
 
 
 @on(post_resume_work_item, raise_exception=True)
 @filter_by_task("INQUIRY_TASK")
 @transaction.atomic
-def post_resume_inquiry(sender, work_item, user, **kwargs):
+def post_resume_inquiry(sender, work_item, user, context=None, **kwargs):
     # update work item deadline from form data
     deadline_date = work_item.document.answers.get(
         question_id=Question.objects.get(
@@ -129,7 +135,10 @@ def post_resume_inquiry(sender, work_item, user, **kwargs):
         form=Form.objects.get(pk=settings.DISTRIBUTION["INQUIRY_ANSWER_FORM"]),
         user=user,
         parent_work_item=work_item,
-        context={"addressed_groups": work_item.addressed_groups},
+        context={
+            **(context if context else {}),
+            "addressed_groups": work_item.addressed_groups,
+        },
     )
 
     # complete init distribution work item
@@ -139,32 +148,53 @@ def post_resume_inquiry(sender, work_item, user, **kwargs):
     ).first()
 
     if init_work_item:
-        complete_work_item(work_item=init_work_item, user=user)
+        complete_work_item(work_item=init_work_item, user=user, context=context)
 
     # send notification to addressed service
     send_inquiry_notification("INQUIRY_SENT", work_item, user)
+
+    if settings.DISTRIBUTION["ECH_EVENTS"]:
+        camac_user = User.objects.get(username=user.username)
+        task_send.send(
+            sender="post_resume_inquiry",
+            instance=work_item.case.family.instance,
+            user_pk=camac_user.pk,
+            group_pk=user.camac_group,
+            inquiry=work_item,
+        )
 
 
 @on(post_complete_work_item, raise_exception=True)
 @filter_by_task("INQUIRY_TASK")
 @transaction.atomic
-def post_complete_inquiry(sender, work_item, user, **kwargs):
+def post_complete_inquiry(sender, work_item, user, context=None, **kwargs):
     # send notification to controlling service
     send_inquiry_notification("INQUIRY_ANSWERED", work_item, user)
+
+    if settings.DISTRIBUTION["ECH_EVENTS"]:
+        camac_user = User.objects.get(username=user.username)
+        accompanying_report_send.send(
+            sender="post_complete_inquiry",
+            instance=work_item.case.family.instance,
+            user_pk=camac_user.pk,
+            group_pk=user.camac_group,
+            inquiry=work_item,
+            attachments=context.get("attachments") if context else None,
+        )
 
 
 @on(pre_complete_work_item, raise_exception=True)
 @filter_by_task("DISTRIBUTION_COMPLETE_TASK")
 @transaction.atomic
-def pre_complete_distribution(sender, work_item, user, **kwargs):
+def pre_complete_distribution(sender, work_item, user, context=None, **kwargs):
     for work_item in work_item.case.work_items.filter(
         task_id=settings.DISTRIBUTION["INQUIRY_TASK"], status=WorkItem.STATUS_READY
     ):
         # unanswered inquiries must be skipped
-        skip_work_item(work_item=work_item, user=user)
+        skip_work_item(work_item=work_item, user=user, context=context)
 
     for work_item in work_item.case.work_items.filter(
         status__in=[WorkItem.STATUS_READY, WorkItem.STATUS_SUSPENDED]
     ):
         # everything else canceled
-        cancel_work_item(work_item=work_item, user=user)
+        cancel_work_item(work_item=work_item, user=user, context=context)

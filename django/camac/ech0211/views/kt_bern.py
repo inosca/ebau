@@ -166,7 +166,6 @@ class EventView(ECHInstanceQuerysetMixin, GenericViewSet):
             instance=instance,
             user_pk=request.user.pk,
             group_pk=request.group.pk,
-            context=request.data,
         )
         try:
             eh.run()

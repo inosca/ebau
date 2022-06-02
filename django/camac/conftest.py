@@ -26,6 +26,7 @@ from django.core.cache import cache
 from django.core.management import call_command
 from django.test import override_settings
 from django.urls import path
+from django.utils.timezone import make_aware
 from django.views.generic import RedirectView
 from factory import Faker
 from factory.base import FactoryMetaClass
@@ -991,7 +992,9 @@ def be_distribution_settings(settings, distribution_settings):
 
 
 @pytest.fixture
-def active_inquiry_factory(instance, service, distribution_settings, work_item_factory):
+def active_inquiry_factory(
+    instance, service, distribution_settings, work_item_factory, answer_factory
+):
     def factory(
         for_instance=instance,
         addressed_service=service,
@@ -1013,7 +1016,7 @@ def active_inquiry_factory(instance, service, distribution_settings, work_item_f
 
         assert distribution_work_item.child_case.family == for_instance.case
 
-        return work_item_factory(
+        inquiry = work_item_factory(
             case=distribution_work_item.child_case,
             task_id=distribution_settings["INQUIRY_TASK"],
             addressed_groups=[str(addressed_service.pk)],
@@ -1023,8 +1026,17 @@ def active_inquiry_factory(instance, service, distribution_settings, work_item_f
             child_case__document__form_id=distribution_settings["INQUIRY_ANSWER_FORM"],
             document__form_id=distribution_settings["INQUIRY_FORM"],
             status=kwargs.pop("status", caluma_workflow_models.WorkItem.STATUS_READY),
-            deadline=kwargs.pop("deadline", faker.Faker().date()),
+            deadline=kwargs.pop("deadline", make_aware(faker.Faker().date_time())),
             **kwargs,
         )
+
+        answer_factory(
+            document=inquiry.document,
+            question_id=distribution_settings["QUESTIONS"]["DEADLINE"],
+            value=None,
+            date=inquiry.deadline.date(),
+        )
+
+        return inquiry
 
     return factory

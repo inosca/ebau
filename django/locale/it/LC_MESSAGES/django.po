@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-07 18:59+0200\n"
+"POT-Creation-Date: 2022-06-08 10:12+0200\n"
 "PO-Revision-Date: 2020-02-28 14:55+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -103,7 +103,7 @@ msgstr ""
 msgid "Invalid mime type for template. Allowed types are: docx"
 msgstr ""
 
-#: camac/document/views.py:311
+#: camac/document/views.py:302
 msgid "Specifying an \"attachments\" filter is mandatory!"
 msgstr ""
 
@@ -207,8 +207,16 @@ msgstr ""
 msgid "Meta data file in archive is missing required columns %(missing)s."
 msgstr ""
 
-#: camac/ech0211/send_handlers.py:576 camac/settings.py:1302
-msgid "Circulation started"
+#: camac/ech0211/event_handlers.py:250
+msgid "Inquiry sent"
+msgstr ""
+
+#: camac/ech0211/event_handlers.py:255 camac/instance/serializers.py:1243
+msgid "SB1 submitted"
+msgstr ""
+
+#: camac/ech0211/event_handlers.py:260 camac/instance/serializers.py:1586
+msgid "SB2 submitted"
 msgstr ""
 
 #: camac/instance/document_merge_service.py:65 camac/instance/views.py:625
@@ -228,7 +236,7 @@ msgid "Keywords"
 msgstr ""
 
 #: camac/instance/document_merge_service.py:69
-#: camac/instance/placeholders/fields.py:65 camac/instance/views.py:630
+#: camac/instance/placeholders/fields.py:66 camac/instance/views.py:630
 msgid "Municipality"
 msgstr ""
 
@@ -355,10 +363,6 @@ msgstr ""
 msgid "Dossier submitted"
 msgstr ""
 
-#: camac/instance/serializers.py:1243
-msgid "SB1 submitted"
-msgstr ""
-
 #: camac/instance/serializers.py:1282
 msgid "Archived"
 msgstr ""
@@ -396,10 +400,6 @@ msgstr ""
 #: camac/instance/serializers.py:1494
 #, python-format
 msgid "Responsible service did not change for instance %(instance_id)s"
-msgstr ""
-
-#: camac/instance/serializers.py:1586
-msgid "SB2 submitted"
 msgstr ""
 
 #: camac/instance/serializers.py:1630
@@ -515,17 +515,17 @@ msgstr ""
 msgid "Tags"
 msgstr ""
 
-#: camac/notification/serializers.py:382
+#: camac/notification/serializers.py:387
 #, python-format
 msgid "%(pending)d of %(total)d inquries are still pending."
 msgstr ""
 
-#: camac/notification/serializers.py:385
+#: camac/notification/serializers.py:390
 #, python-format
 msgid "All %(total)d inquries were received."
 msgstr ""
 
-#: camac/notification/serializers.py:1135
+#: camac/notification/serializers.py:1165
 #, python-format
 msgid "Notification sent to %(receiver)s (%(subject)s)"
 msgstr ""
@@ -542,11 +542,15 @@ msgstr ""
 msgid "Objection %(objection) already has a representative"
 msgstr ""
 
-#: camac/settings.py:1311
+#: camac/settings.py:1284
+msgid "Circulation started"
+msgstr ""
+
+#: camac/settings.py:1293
 msgid "Circulation completed"
 msgstr ""
 
-#: camac/settings.py:1325
+#: camac/settings.py:1307
 msgid "Procedure completed"
 msgstr ""
 
