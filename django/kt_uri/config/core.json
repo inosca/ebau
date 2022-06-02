@@ -67,7 +67,7 @@
     "model": "core.aformtransition",
     "pk": 9,
     "fields": {
-      "current_instance_state": 21,
+      "current_instance_state": null,
       "next_instance_state": 22
     }
   },
@@ -1584,7 +1584,7 @@
     "fields": {
       "available_action": "formtransition",
       "button": 4,
-      "name": "Freigeben an Gemeinde COMM - EXT",
+      "name": "Freigeben an Gemeinde COMM oder EXT_GEM - EXT",
       "description": null,
       "success_message": "Dossier erfolgreich freigegeben.",
       "error_message": "Beim Freigeben des Dossiers ist ein Fehler aufgetreten!",
@@ -23434,7 +23434,7 @@
     "fields": {
       "available_instance_resource": "editnotice",
       "resource": 302,
-      "name": "Rückmeldung",
+      "name": "Rückmeldung Kanton",
       "description": "Rückmeldung der Koodinationsstelle",
       "template": null,
       "class_field": null,
@@ -24919,7 +24919,7 @@
     "fields": {
       "available_instance_resource": "editnotice",
       "resource": 302,
-      "name": "Rückmeldung Gemeindezirkulation",
+      "name": "Rückmeldung Gemeinde",
       "description": null,
       "template": null,
       "class_field": null,
@@ -40897,6 +40897,60 @@
     }
   },
   {
+    "model": "core.irroleacl",
+    "pk": 12000375,
+    "fields": {
+      "instance_resource": 180010,
+      "role": 1102,
+      "instance_state": 22
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000376,
+    "fields": {
+      "instance_resource": 2000000,
+      "role": 1102,
+      "instance_state": 22
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000377,
+    "fields": {
+      "instance_resource": 367,
+      "role": 1102,
+      "instance_state": 22
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000378,
+    "fields": {
+      "instance_resource": 2000004,
+      "role": 1102,
+      "instance_state": 22
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000379,
+    "fields": {
+      "instance_resource": 2000004,
+      "role": 1102,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000380,
+    "fields": {
+      "instance_resource": 12000019,
+      "role": 1102,
+      "instance_state": 22
+    }
+  },
+  {
     "model": "core.irserviceacl",
     "pk": 1,
     "fields": {
@@ -45670,7 +45724,7 @@
     "model": "core.remberlist",
     "pk": 302,
     "fields": {
-      "instance_states": "32,23"
+      "instance_states": "22,32,23"
     }
   },
   {
