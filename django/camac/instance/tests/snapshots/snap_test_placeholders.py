@@ -81,46 +81,46 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'CIRCULATION_COMMUNES': [
         {
             'ERSTELLT': '30.08.2021',
-            'FRIST': '29.06.1971',
-            'NAME': 'Ann Meadows'
+            'FRIST': '29.07.1988',
+            'NAME': 'Michael Burton'
         },
         {
             'ERSTELLT': '30.08.2021',
-            'FRIST': '25.10.1994',
-            'NAME': 'Reginald Smith'
+            'FRIST': '07.10.1975',
+            'NAME': 'Jessica Peterson'
         }
     ],
     'CIRCULATION_PREAVIS': [
         {
-            'ANTWORT': 'Negative Rückmeldung',
+            'ANTWORT': 'Nicht baubewilligungspflichtig',
             'NEBENBESTIMMUNGEN': 'Nebenbestimmungen 5',
             'STELLUNGNAHME': 'Stellungnahme 5',
-            'VON': 'Samuel Hall'
+            'VON': 'David Morris'
         },
         {
             'ANTWORT': 'Baubewilligungspflichtig',
             'NEBENBESTIMMUNGEN': 'Nebenbestimmungen 6',
             'STELLUNGNAHME': 'Stellungnahme 6',
-            'VON': 'Catherine Garcia'
+            'VON': 'Jacob Alvarez'
         }
     ],
     'CIRCULATION_PREF': [
         {
             'ERSTELLT': '30.08.2021',
-            'FRIST': '27.08.1972',
+            'FRIST': '04.01.1976',
             'NAME': 'Laura Barnes'
         }
     ],
     'CIRCULATION_SERVICES': [
         {
             'ERSTELLT': '30.08.2021',
-            'FRIST': '07.09.2016',
-            'NAME': 'Samuel Hall'
+            'FRIST': '10.11.1971',
+            'NAME': 'David Morris'
         },
         {
             'ERSTELLT': '30.08.2021',
-            'FRIST': '22.06.1971',
-            'NAME': 'Catherine Garcia'
+            'FRIST': '27.11.2002',
+            'NAME': 'Jacob Alvarez'
         }
     ],
     'COMMUNE': 'Burgdorf',
@@ -161,15 +161,15 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'EBAU_URL': 'http://ebau.local',
     'EIGENE_GEBUEHREN': [
         {
-            'BETRAG': '460.34',
+            'BETRAG': '954.14',
             'POSITION': ''
         },
         {
-            'BETRAG': '373.60',
+            'BETRAG': '13.78',
             'POSITION': ''
         }
     ],
-    'EIGENE_GEBUEHREN_TOTAL': '833.94',
+    'EIGENE_GEBUEHREN_TOTAL': '967.92',
     'EIGENE_NEBENBESTIMMUNGEN': 'Nebenbestimmungen 1',
     'EIGENE_STELLUNGNAHMEN': 'Stellungnahme 1',
     'EINSPRECHENDE': [
@@ -189,68 +189,68 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'EMAIL': '',
     'EMOLUMENTS': [
         {
-            'BETRAG': '296.19',
+            'BETRAG': '887.12',
             'POSITION': ''
         },
         {
-            'BETRAG': '64.51',
+            'BETRAG': '199.40',
             'POSITION': ''
         },
         {
-            'BETRAG': '460.34',
+            'BETRAG': '954.14',
             'POSITION': ''
         },
         {
-            'BETRAG': '373.60',
+            'BETRAG': '13.78',
             'POSITION': ''
         }
     ],
-    'EMOLUMENTS_TOTAL': '1’194.64',
+    'EMOLUMENTS_TOTAL': '2’054.44',
     'ETAT': 'Pamela Horton',
     'FACHSTELLEN_KANTONAL': [
         {
             'ERSTELLT': '30.08.2021',
-            'FRIST': '09.10.1982',
+            'FRIST': '10.10.1982',
             'NAME': 'Matthew Bowen'
         },
         {
             'ERSTELLT': '30.08.2021',
-            'FRIST': '27.08.1972',
+            'FRIST': '04.01.1976',
             'NAME': 'Laura Barnes'
         },
         {
             'ERSTELLT': '30.08.2021',
-            'FRIST': '29.06.1971',
-            'NAME': 'Ann Meadows'
+            'FRIST': '29.07.1988',
+            'NAME': 'Michael Burton'
         },
         {
             'ERSTELLT': '30.08.2021',
-            'FRIST': '25.10.1994',
-            'NAME': 'Reginald Smith'
+            'FRIST': '07.10.1975',
+            'NAME': 'Jessica Peterson'
         },
         {
             'ERSTELLT': '30.08.2021',
-            'FRIST': '07.09.2016',
-            'NAME': 'Samuel Hall'
+            'FRIST': '10.11.1971',
+            'NAME': 'David Morris'
         },
         {
             'ERSTELLT': '30.08.2021',
-            'FRIST': '22.06.1971',
-            'NAME': 'Catherine Garcia'
+            'FRIST': '27.11.2002',
+            'NAME': 'Jacob Alvarez'
         }
     ],
     'FACHSTELLEN_KANTONAL_LIST': '''- Matthew Bowen
 - Laura Barnes
-- Ann Meadows
-- Reginald Smith
-- Samuel Hall
-- Catherine Garcia''',
+- Michael Burton
+- Jessica Peterson
+- David Morris
+- Jacob Alvarez''',
     'FACHSTELLEN_KANTONAL_LISTE': '''- Matthew Bowen
 - Laura Barnes
-- Ann Meadows
-- Reginald Smith
-- Samuel Hall
-- Catherine Garcia''',
+- Michael Burton
+- Jessica Peterson
+- David Morris
+- Jacob Alvarez''',
     'FORM_NAME': 'Baugesuch',
     'GEBAEUDEEIGENTUEMER': 'Peter Meier',
     'GEBAEUDEEIGENTUEMER_ADDRESS_1': 'Thunstrasse 88',
@@ -261,23 +261,23 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'GEBAEUDEEIGENTUEMER_NAME_ADRESSE': 'Peter Meier, Thunstrasse 88, 3002 Bern',
     'GEBUEHREN': [
         {
-            'BETRAG': '296.19',
+            'BETRAG': '887.12',
             'POSITION': ''
         },
         {
-            'BETRAG': '64.51',
+            'BETRAG': '199.40',
             'POSITION': ''
         },
         {
-            'BETRAG': '460.34',
+            'BETRAG': '954.14',
             'POSITION': ''
         },
         {
-            'BETRAG': '373.60',
+            'BETRAG': '13.78',
             'POSITION': ''
         }
     ],
-    'GEBUEHREN_TOTAL': '1’194.64',
+    'GEBUEHREN_TOTAL': '2’054.44',
     'GEMEINDE': 'Burgdorf',
     'GEMEINDE_ADRESSE': 'South Emma',
     'GEMEINDE_ADRESSE_1': '',
@@ -323,7 +323,7 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'LEITBEHOERDE_PHONE': '',
     'LEITBEHOERDE_STADT': 'Jeffreyfort',
     'LEITBEHOERDE_TELEFON': '',
-    'LEITPERSON': 'Sean Moon',
+    'LEITPERSON': 'Jeremiah Armstrong',
     'MEINE_ORGANISATION_ADRESSE_1': '',
     'MEINE_ORGANISATION_ADRESSE_2': 'Jeffreyfort',
     'MEINE_ORGANISATION_EMAIL': 'judithallen@example.com',
@@ -334,15 +334,15 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'MEINE_ORGANISATION_TELEFON': '',
     'MES_EMOLUMENTS': [
         {
-            'BETRAG': '460.34',
+            'BETRAG': '954.14',
             'POSITION': ''
         },
         {
-            'BETRAG': '373.60',
+            'BETRAG': '13.78',
             'POSITION': ''
         }
     ],
-    'MES_EMOLUMENTS_TOTAL': '833.94',
+    'MES_EMOLUMENTS_TOTAL': '967.92',
     'MODIFICATION_DATE': '',
     'MODIFICATION_TIME': '',
     'MON_ORGANISATION_ADRESSE_1': '',
@@ -353,7 +353,7 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'MON_ORGANISATION_NOM_ABR': 'Matthew Bowen',
     'MON_ORGANISATION_NOM_ADRESSE': 'Matthew Bowen, Jeffreyfort',
     'MON_ORGANISATION_TELEPHONE': '',
-    'MOTS_CLES': 'Susan Thomas, Randall Gutierrez, Mark Cole, Elizabeth Perez, Robert Carter',
+    'MOTS_CLES': 'Ryan Oliver, Justin Wagner, Steven Mora, Matthew Sanders, Carl Miller',
     'MUNICIPALITY': 'Burgdorf',
     'MUNICIPALITY_ADDRESS': 'South Emma',
     'NACHBARSCHAFTSORIENTIERUNG_LINK': 'http://ebau-portal.local/public-instances/1/form?key=5a49823',
@@ -383,41 +383,41 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'OFFICES_CANTONAUX': [
         {
             'ERSTELLT': '30.08.2021',
-            'FRIST': '09.10.1982',
+            'FRIST': '10.10.1982',
             'NAME': 'Matthew Bowen'
         },
         {
             'ERSTELLT': '30.08.2021',
-            'FRIST': '27.08.1972',
+            'FRIST': '04.01.1976',
             'NAME': 'Laura Barnes'
         },
         {
             'ERSTELLT': '30.08.2021',
-            'FRIST': '29.06.1971',
-            'NAME': 'Ann Meadows'
+            'FRIST': '29.07.1988',
+            'NAME': 'Michael Burton'
         },
         {
             'ERSTELLT': '30.08.2021',
-            'FRIST': '25.10.1994',
-            'NAME': 'Reginald Smith'
+            'FRIST': '07.10.1975',
+            'NAME': 'Jessica Peterson'
         },
         {
             'ERSTELLT': '30.08.2021',
-            'FRIST': '07.09.2016',
-            'NAME': 'Samuel Hall'
+            'FRIST': '10.11.1971',
+            'NAME': 'David Morris'
         },
         {
             'ERSTELLT': '30.08.2021',
-            'FRIST': '22.06.1971',
-            'NAME': 'Catherine Garcia'
+            'FRIST': '27.11.2002',
+            'NAME': 'Jacob Alvarez'
         }
     ],
     'OFFICES_CANTONAUX_LISTE': '''- Matthew Bowen
 - Laura Barnes
-- Ann Meadows
-- Reginald Smith
-- Samuel Hall
-- Catherine Garcia''',
+- Michael Burton
+- Jessica Peterson
+- David Morris
+- Jacob Alvarez''',
     'OPPOSANTS': [
         {
             'ADDRESS': 'Teststrasse 1, 1234 Testdorf',
@@ -504,9 +504,9 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'REQUERANT_NOM_ADRESSE': 'ACME AG, Max Mustermann, Teststrasse 123, 1234 Testhausen',
     'REQUERANT_TOUS': 'ACME AG, Max Mustermann',
     'REQUERANT_TOUS_NOM_ADRESSE': 'ACME AG, Max Mustermann, Teststrasse 123, 1234 Testhausen',
-    'RESPONSABLE_AUTORITE_DIRECTRICE': 'Sean Moon',
-    'RESPONSABLE_EMAIL': 'courtney87@example.net',
-    'RESPONSABLE_NOM': 'Sean Moon',
+    'RESPONSABLE_AUTORITE_DIRECTRICE': 'Jeremiah Armstrong',
+    'RESPONSABLE_EMAIL': 'kbarker@example.org',
+    'RESPONSABLE_NOM': 'Jeremiah Armstrong',
     'RESPONSABLE_TELEPHONE': '',
     'SACHVERHALT': 'Sachverhalt Test',
     'SCHUTZZONE': 'S1',
@@ -517,7 +517,7 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'SPRACHE': 'de',
     'STATUS': 'Pamela Horton',
     'STELLUNGNAHME': 'Stellungnahme 1',
-    'STICHWORTE': 'Susan Thomas, Randall Gutierrez, Mark Cole, Elizabeth Perez, Robert Carter',
+    'STICHWORTE': 'Ryan Oliver, Justin Wagner, Steven Mora, Matthew Sanders, Carl Miller',
     'TODAY': '30. August 2021',
     'UEBERBAUUNGSORDNUNG': 'Überbauung XY',
     'UVP_JA_NEIN': False,
@@ -542,83 +542,83 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'ZIRKULATION_ALLE': [
         {
             'ERSTELLT': '30.08.2021',
-            'FRIST': '09.10.1982',
+            'FRIST': '10.10.1982',
             'NAME': 'Matthew Bowen'
         },
         {
             'ERSTELLT': '30.08.2021',
-            'FRIST': '27.08.1972',
+            'FRIST': '04.01.1976',
             'NAME': 'Laura Barnes'
         },
         {
             'ERSTELLT': '30.08.2021',
-            'FRIST': '29.06.1971',
-            'NAME': 'Ann Meadows'
+            'FRIST': '29.07.1988',
+            'NAME': 'Michael Burton'
         },
         {
             'ERSTELLT': '30.08.2021',
-            'FRIST': '25.10.1994',
-            'NAME': 'Reginald Smith'
+            'FRIST': '07.10.1975',
+            'NAME': 'Jessica Peterson'
         },
         {
             'ERSTELLT': '30.08.2021',
-            'FRIST': '07.09.2016',
-            'NAME': 'Samuel Hall'
+            'FRIST': '10.11.1971',
+            'NAME': 'David Morris'
         },
         {
             'ERSTELLT': '30.08.2021',
-            'FRIST': '22.06.1971',
-            'NAME': 'Catherine Garcia'
+            'FRIST': '27.11.2002',
+            'NAME': 'Jacob Alvarez'
         }
     ],
     'ZIRKULATION_FACHSTELLEN': [
         {
             'ERSTELLT': '30.08.2021',
-            'FRIST': '07.09.2016',
-            'NAME': 'Samuel Hall'
+            'FRIST': '10.11.1971',
+            'NAME': 'David Morris'
         },
         {
             'ERSTELLT': '30.08.2021',
-            'FRIST': '22.06.1971',
-            'NAME': 'Catherine Garcia'
+            'FRIST': '27.11.2002',
+            'NAME': 'Jacob Alvarez'
         }
     ],
     'ZIRKULATION_GEMEINDEN': [
         {
             'ERSTELLT': '30.08.2021',
-            'FRIST': '29.06.1971',
-            'NAME': 'Ann Meadows'
+            'FRIST': '29.07.1988',
+            'NAME': 'Michael Burton'
         },
         {
             'ERSTELLT': '30.08.2021',
-            'FRIST': '25.10.1994',
-            'NAME': 'Reginald Smith'
+            'FRIST': '07.10.1975',
+            'NAME': 'Jessica Peterson'
         }
     ],
     'ZIRKULATION_RSTA': [
         {
             'ERSTELLT': '30.08.2021',
-            'FRIST': '27.08.1972',
+            'FRIST': '04.01.1976',
             'NAME': 'Laura Barnes'
         }
     ],
     'ZIRKULATION_RUECKMELDUNGEN': [
         {
-            'ANTWORT': 'Negative Rückmeldung',
+            'ANTWORT': 'Nicht baubewilligungspflichtig',
             'NEBENBESTIMMUNGEN': 'Nebenbestimmungen 5',
             'STELLUNGNAHME': 'Stellungnahme 5',
-            'VON': 'Samuel Hall'
+            'VON': 'David Morris'
         },
         {
             'ANTWORT': 'Baubewilligungspflichtig',
             'NEBENBESTIMMUNGEN': 'Nebenbestimmungen 6',
             'STELLUNGNAHME': 'Stellungnahme 6',
-            'VON': 'Catherine Garcia'
+            'VON': 'Jacob Alvarez'
         }
     ],
     'ZONE_PROTEGEE': 'S1',
-    'ZUSTAENDIG_EMAIL': 'courtney87@example.net',
-    'ZUSTAENDIG_NAME': 'Sean Moon',
+    'ZUSTAENDIG_EMAIL': 'kbarker@example.org',
+    'ZUSTAENDIG_NAME': 'Jeremiah Armstrong',
     'ZUSTAENDIG_PHONE': '',
     'ZUSTAENDIG_TELEFON': ''
 }

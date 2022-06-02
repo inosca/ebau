@@ -2,6 +2,7 @@ from datetime import timedelta
 
 DISTRIBUTION = {
     "default": {
+        "ECH_EVENTS": False,
         "DEFAULT_DEADLINE_DELTA": timedelta(days=30),
         "DISTRIBUTION_WORKFLOW": "distribution",
         "DISTRIBUTION_TASK": "distribution",
@@ -25,12 +26,20 @@ DISTRIBUTION = {
     },
     "kt_bern": {
         "ENABLED": True,
+        "ECH_EVENTS": True,
+        "INQUIRY_ANSWER_FILL_TASK": "fill-inquiry",
         "QUESTIONS": {
             "STATEMENT": "inquiry-answer-statement",
             "ANCILLARY_CLAUSES": "inquiry-answer-ancillary-clauses",
         },
         "ANSWERS": {
-            "STATUS": {"NOT_INVOLVED": "inquiry-answer-status-not-involved"},
+            "STATUS": {
+                "POSITIVE": "inquiry-answer-status-positive",
+                "NEGATIVE": "inquiry-answer-status-negative",
+                "NOT_INVOLVED": "inquiry-answer-status-not-involved",
+                "CLAIM": "inquiry-answer-status-claim",
+                "UNKNOWN": "inquiry-answer-status-unknown",
+            },
         },
         "NOTIFICATIONS": {
             "INQUIRY_SENT": {
