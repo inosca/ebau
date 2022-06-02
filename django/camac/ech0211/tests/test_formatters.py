@@ -38,6 +38,7 @@ def test_base_delivery(
     ech_mandatory_answers_baugesuch,
     ech_mandatory_answers_einfache_vorabklaerung,
     ech_mandatory_answers_vollstaendige_vorabklaerung,
+    set_application_be,
     ech_instance_be,
     multilang,
 ):

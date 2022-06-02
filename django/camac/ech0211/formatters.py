@@ -1117,7 +1117,7 @@ def delivery(
     try:
         return ns_application.delivery(
             deliveryHeader=ech_0058_5_0.headerType(
-                senderId="https://ebau.apps.be.ch",
+                senderId=settings.APPLICATION["DOSSIER_IMPORT"]["PROD_URL"],
                 messageId=message_id or str(id(instance)),
                 messageType=message_type,
                 sendingApplication=pyxb.BIND(
