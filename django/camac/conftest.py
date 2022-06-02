@@ -991,21 +991,40 @@ def be_distribution_settings(settings, distribution_settings):
 
 
 @pytest.fixture
-def active_inquiry_factory(instance, service, distribution_settings):
+def active_inquiry_factory(instance, service, distribution_settings, work_item_factory):
     def factory(
         for_instance=instance,
         addressed_service=service,
         controlling_service=service,
-        status=caluma_workflow_models.WorkItem.STATUS_READY,
-        deadline=None,
+        **kwargs,
     ):
-        return caluma_workflow_factories.WorkItemFactory(
-            case=for_instance.case,
+        distribution_work_item = for_instance.case.work_items.filter(
+            task_id=distribution_settings["DISTRIBUTION_TASK"]
+        ).first()
+
+        if not distribution_work_item:
+            distribution_work_item = work_item_factory(
+                task_id=distribution_settings["DISTRIBUTION_TASK"],
+                status=caluma_workflow_models.WorkItem.STATUS_READY,
+                case=for_instance.case,
+                child_case__family=for_instance.case,
+                child_case__workflow_id=distribution_settings["DISTRIBUTION_WORKFLOW"],
+            )
+
+        assert distribution_work_item.child_case.family == for_instance.case
+
+        return work_item_factory(
+            case=distribution_work_item.child_case,
             task_id=distribution_settings["INQUIRY_TASK"],
-            status=status,
             addressed_groups=[str(addressed_service.pk)],
             controlling_groups=[str(controlling_service.pk)],
-            deadline=deadline if deadline else faker.Faker().date(),
+            child_case__family=for_instance.case,
+            child_case__workflow_id=distribution_settings["INQUIRY_WORKFLOW"],
+            child_case__document__form_id=distribution_settings["INQUIRY_ANSWER_FORM"],
+            document__form_id=distribution_settings["INQUIRY_FORM"],
+            status=kwargs.pop("status", caluma_workflow_models.WorkItem.STATUS_READY),
+            deadline=kwargs.pop("deadline", faker.Faker().date()),
+            **kwargs,
         )
 
     return factory

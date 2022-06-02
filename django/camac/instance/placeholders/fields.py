@@ -11,6 +11,7 @@ from django.db.models.functions import Cast
 from django.utils.translation import get_language, gettext as _
 from rest_framework import serializers
 
+from camac.caluma.utils import find_answer
 from camac.core.models import BillingV2Entry
 from camac.user.models import Service
 from camac.utils import build_url
@@ -247,21 +248,6 @@ class InquiriesField(serializers.ReadOnlyField):
         self.service_group = service_group
         self.status = status
 
-    def get_answer(self, inquiry, question_slug):
-        try:
-            answer = inquiry.child_case.document.answers.get(question_id=question_slug)
-
-            if answer.question.type == Question.TYPE_CHOICE:
-                return str(
-                    answer.question.options.filter(pk=answer.value)
-                    .values_list("label", flat=True)
-                    .first()
-                )
-
-            return answer.value
-        except Answer.DoesNotExist:  # pragma: no cover
-            return ""
-
     def get_service(self, inquiry, type):
         return Service.objects.get(pk=int(getattr(inquiry, type)[0])).get_name()
 
@@ -269,14 +255,19 @@ class InquiriesField(serializers.ReadOnlyField):
         return prop[1] if isinstance(prop, tuple) else prop
 
     def get_prop_value(self, inquiry, prop):
-        status = settings.DISTRIBUTION["QUESTIONS"]["STATUS"]
-        statement = settings.DISTRIBUTION["QUESTIONS"]["STATEMENT"]
-        ancillary_clauses = settings.DISTRIBUTION["QUESTIONS"]["ANCILLARY_CLAUSES"]
-
         prop_mapping = {
-            "opinion": lambda i: self.get_answer(i, statement),
-            "ancillary_clauses": lambda i: self.get_answer(i, ancillary_clauses),
-            "answer": lambda i: self.get_answer(i, status),
+            "opinion": lambda i: find_answer(
+                i.child_case.document,
+                settings.DISTRIBUTION["QUESTIONS"]["STATEMENT"],
+            ),
+            "ancillary_clauses": lambda i: find_answer(
+                i.child_case.document,
+                settings.DISTRIBUTION["QUESTIONS"]["ANCILLARY_CLAUSES"],
+            ),
+            "answer": lambda i: find_answer(
+                i.child_case.document,
+                settings.DISTRIBUTION["QUESTIONS"]["STATUS"],
+            ),
             "service": lambda i: self.get_service(i, "addressed_groups"),
             "service_with_prefix": lambda i: f"- {self.get_service(i,'addressed_groups')}",
             "deadline": lambda i: i.deadline.strftime("%d.%m.%Y"),

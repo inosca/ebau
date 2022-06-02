@@ -4,9 +4,11 @@ from datetime import datetime
 from io import BytesIO
 
 import pytest
-import pytz
+from caluma.caluma_form.factories import AnswerFactory
+from caluma.caluma_workflow.models import WorkItem
 from django.core.management import call_command
 from django.urls import reverse
+from django.utils.timezone import make_aware
 from docxtpl import DocxTemplate
 from lxml import etree
 from pytest_factoryboy import LazyFixture
@@ -95,73 +97,34 @@ def test_template_destroy(admin_client, template, status_code):
 
 @pytest.mark.freeze_time("2018-05-28")
 @pytest.mark.parametrize(
-    "publication_entry__publication_date", [datetime(2018, 5, 28, tzinfo=pytz.UTC)]
+    "publication_entry__publication_date", [make_aware(datetime(2018, 5, 28))]
 )
 @pytest.mark.parametrize(
-    "billing_entry__created", [datetime(2018, 5, 28, tzinfo=pytz.UTC)]
+    "billing_entry__created,billing_entry__amount,billing_account__department,billing_account__name",
+    [(make_aware(datetime(2018, 5, 28)), "99.66", "Allgemein", "Gebuehren")],
 )
+@pytest.mark.parametrize("service__name", ["Amt"])
+@pytest.mark.parametrize("template__path", [django_file("template.docx")])
+@pytest.mark.parametrize("form_field__name", ["testname"])
+@pytest.mark.parametrize("location__name", ["Schwyz"])
 @pytest.mark.parametrize(
-    "activation__start_date", [datetime(2018, 3, 15, tzinfo=pytz.UTC)]
-)
-@pytest.mark.parametrize(
-    "activation__end_date", [datetime(2018, 4, 15, tzinfo=pytz.UTC)]
-)
-@pytest.mark.parametrize(
-    "activation__deadline_date", [datetime(2018, 4, 30, tzinfo=pytz.UTC)]
-)
-@pytest.mark.parametrize("billing_entry__amount", ["99.66"])
-@pytest.mark.parametrize(
-    "role__name,template__path,instance__user,status_code,to_type",
+    "instance__identifier,instance__group,instance__user",
     [
         (
-            "Canton",
-            django_file("template.docx"),
+            "11-18-011",
+            LazyFixture(lambda group_factory: group_factory()),
             LazyFixture("user"),
-            status.HTTP_200_OK,
-            "docx",
-        ),
-        (
-            "Canton",
-            django_file("template.docx"),
-            LazyFixture("user"),
-            status.HTTP_200_OK,
-            "pdf",
-        ),
-        (
-            "Canton",
-            django_file("template.docx"),
-            LazyFixture("user"),
-            status.HTTP_400_BAD_REQUEST,
-            "invalid",
-        ),
-        # service is not assigned to instance so not allowed to build document
-        (
-            "Service",
-            django_file("template.docx"),
-            LazyFixture("user"),
-            status.HTTP_400_BAD_REQUEST,
-            "docx",
-        ),
+        )
     ],
 )
 @pytest.mark.parametrize(
-    "service__name,billing_account__department,billing_account__name",
-    [("Amt", "Allgemein", "Gebuehren")],
-)
-@pytest.mark.parametrize(
-    "activation__reason,circulation_state__name,circulation_answer__name",
-    [("Grund", "OK", "Antwort")],
-)
-@pytest.mark.parametrize(
-    "form_field__name,instance__identifier,location__name,activation__service,instance__group",
+    "role__name,status_code,to_type",
     [
-        (
-            "testname",
-            "11-18-011",
-            "Schwyz",
-            LazyFixture(lambda service_factory: service_factory(name="Fachstelle")),
-            LazyFixture(lambda group_factory: group_factory()),
-        )
+        ("Canton", status.HTTP_200_OK, "docx"),
+        ("Canton", status.HTTP_200_OK, "pdf"),
+        ("Canton", status.HTTP_400_BAD_REQUEST, "invalid"),
+        # service is not assigned to instance so not allowed to build document
+        ("Service", status.HTTP_400_BAD_REQUEST, "docx"),
     ],
 )
 def test_template_merge(
@@ -172,12 +135,9 @@ def test_template_merge(
     form_field,
     status_code,
     form_field_factory,
-    activation,
-    activation_factory,
+    active_inquiry_factory,
     billing_entry,
     publication_entry,
-    notice_factory,
-    notice_type_factory,
     work_item_factory,
     document_factory,
     snapshot,
@@ -185,29 +145,54 @@ def test_template_merge(
     unoconv_pdf_mock,
     unoconv_invalid_mock,
     service_group,
+    service,
+    service_factory,
     application_settings,
 ):
     call_command(
-        "loaddata", settings.ROOT_DIR("kt_schwyz/config/buildingauthority.json")
+        "loaddata",
+        settings.ROOT_DIR("kt_schwyz/config/buildingauthority.json"),
+        settings.ROOT_DIR("kt_schwyz/config/caluma_form.json"),
     )
-    call_command("loaddata", settings.ROOT_DIR("kt_schwyz/config/caluma_form.json"))
+
+    inquiry_service = service_factory(name="Fachstelle")
 
     application_settings["INTER_SERVICE_GROUP_VISIBILITIES"] = {
-        service_group.pk: [activation.service.service_group.pk],
+        service_group.pk: [inquiry_service.service_group.pk],
     }
 
-    activation_factory(circulation__instance=sz_instance)
-
-    notice_type_application = notice_type_factory(name="Antrag")
-    notice_type_hint = notice_type_factory(name="Hinweis")
-
-    notice_factory(
-        activation=activation,
-        notice_type=notice_type_application,
-        content="Inhalt Antrag!",
+    inquiry = active_inquiry_factory(
+        addressed_service=inquiry_service,
+        status=WorkItem.STATUS_COMPLETED,
+        deadline=make_aware(datetime(2018, 4, 30)),
+        closed_at=make_aware(datetime(2018, 4, 15)),
     )
-    notice_factory(
-        activation=activation, notice_type=notice_type_hint, content="Inhalt Hinweis!"
+    active_inquiry_factory()
+
+    # This can't be passed on creation but can only be update after the object
+    # already exists since it's an auto field.
+    inquiry.created_at = make_aware(datetime(2018, 3, 15))
+    inquiry.save()
+
+    AnswerFactory(
+        document=inquiry.document,
+        question_id="inquiry-remark",
+        value="Grund",
+    )
+    AnswerFactory(
+        document=inquiry.child_case.document,
+        question_id="inquiry-answer-status",
+        value="inquiry-answer-status-final",
+    )
+    AnswerFactory(
+        document=inquiry.child_case.document,
+        question_id="inquiry-answer-request",
+        value="Inhalt Antrag!",
+    )
+    AnswerFactory(
+        document=inquiry.child_case.document,
+        question_id="inquiry-answer-hint",
+        value="Inhalt Hinweis!",
     )
 
     add_field = functools.partial(form_field_factory, instance=sz_instance)
