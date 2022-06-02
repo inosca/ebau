@@ -616,7 +616,7 @@ APPLICATIONS = {
             "ATTACHMENT_SECTION_ID": 7,  # attachmentsection for imported documents
             "LOCATION_REQUIRED": True,  # this is a workaround to account for differing validation requirements per config
             "TRANSFORM_COORDINATE_SYSTEM": "epsg:4326",  # use world wide coordinates instead of swiss ones
-            "PROD_URL": env.str(
+            "PROD_URL": env.str(  # this is also used in the xml delivery of the ech0211 endpoint
                 "DJANGO_DOSSIER_IMPORT_PROD_URL", "https://behoerden.ebau-sz.ch/"
             ),
             "PROD_AUTH_URL": env.str(
@@ -2026,7 +2026,7 @@ APPLICATIONS = {
             "CALUMA_FORM": "migriertes-dossier",
             "FORM_ID": 1,
             "ATTACHMENT_SECTION_ID": 4,  # Internal
-            "PROD_URL": env.str(
+            "PROD_URL": env.str(  # this is also used in the xml delivery of the ech0211 endpoint
                 "DJANGO_DOSSIER_IMPORT_PROD_URL",
                 "https://ebau.apps.be.ch/",
             ),
