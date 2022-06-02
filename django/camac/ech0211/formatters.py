@@ -3,6 +3,7 @@ import datetime
 import itertools
 import logging
 import re
+from typing import List
 
 import pyxb
 from caluma.caluma_workflow.models import WorkItem
@@ -12,8 +13,10 @@ from django.utils import timezone
 from pyxb import IncompleteElementContentError, UnprocessedElementContentError
 
 from camac import camac_metadata
+from camac.caluma.utils import find_answer
 from camac.constants.kt_schwyz import DECISION_JUDGEMENT
 from camac.core.models import Answer
+from camac.document.models import Attachment
 from camac.instance.models import Instance
 from camac.utils import build_url
 
@@ -30,7 +33,7 @@ from .schema import (
     ech_0147_t2_1 as ns_nachrichten_t2,
     ech_0211_2_0 as ns_application,
 )
-from .utils import decision_to_judgement, strip_whitespace
+from .utils import decision_to_judgement, handle_string_values, strip_whitespace
 
 logger = logging.getLogger(__name__)
 
@@ -1044,18 +1047,26 @@ def request(
 def accompanying_report(
     instance: Instance,
     event_type: str,
-    attachments,
-    circulation_answer,
-    stellungnahme,
-    nebenbestimmung,
+    attachments: List[Attachment],
+    inquiry: WorkItem,
 ):
     judgement_mapping = {
-        "positive": 1,
-        "negative": 4,
-        "not_concerned": 1,
-        "claim": 4,
-        "unknown": None,
+        settings.DISTRIBUTION["ANSWERS"]["STATUS"]["POSITIVE"]: 1,
+        settings.DISTRIBUTION["ANSWERS"]["STATUS"]["NEGATIVE"]: 4,
+        settings.DISTRIBUTION["ANSWERS"]["STATUS"]["NOT_INVOLVED"]: 1,
+        settings.DISTRIBUTION["ANSWERS"]["STATUS"]["CLAIM"]: 4,
+        settings.DISTRIBUTION["ANSWERS"]["STATUS"]["UNKNOWN"]: None,
     }
+
+    status = inquiry.child_case.document.answers.get(
+        question_id=settings.DISTRIBUTION["QUESTIONS"]["STATUS"]
+    )
+
+    def prepare_notice(answer):
+        if not answer:
+            return []
+
+        return [assure_string_length(handle_string_values(answer), max_length=950)]
 
     return ns_application.eventAccompanyingReportType(
         eventType=ns_application.eventTypeType(event_type),
@@ -1063,15 +1074,19 @@ def accompanying_report(
             instance
         ),
         document=get_documents(attachments),
-        remark=[assure_string_length(stellungnahme, max_length=950)]
-        if stellungnahme
-        else [],
-        ancillaryClauses=[assure_string_length(nebenbestimmung, max_length=950)]
-        if nebenbestimmung
-        else [],
-        judgement=judgement_mapping.get(circulation_answer.name)
-        if circulation_answer
-        else None,
+        remark=prepare_notice(
+            find_answer(
+                inquiry.child_case.document,
+                settings.DISTRIBUTION["QUESTIONS"]["STATEMENT"],
+            )
+        ),
+        ancillaryClauses=prepare_notice(
+            find_answer(
+                inquiry.child_case.document,
+                settings.DISTRIBUTION["QUESTIONS"]["ANCILLARY_CLAUSES"],
+            )
+        ),
+        judgement=judgement_mapping.get(status.value),
     )
 
 

@@ -7,7 +7,7 @@ from snapshottest import Snapshot
 
 snapshots = Snapshot()
 
-snapshots['test_accompanying_report_event_handler[False-False] 1'] = '''<?xml version="1.0" ?>
+snapshots['test_accompanying_report_event_handler[False] 1'] = '''<?xml version="1.0" ?>
 <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0147/T0/1" xmlns:ns5="http://www.ech.ch/xmlns/eCH-0039/2">
 \t<ns1:deliveryHeader>
 \t\t<ns2:senderId>https://ebau.apps.be.ch/</ns2:senderId>
@@ -28,11 +28,11 @@ snapshots['test_accompanying_report_event_handler[False-False] 1'] = '''<?xml ve
 \t\t<ns1:planningPermissionApplicationIdentification>
 \t\t\t<ns1:localID>
 \t\t\t\t<ns3:IdCategory>eBauNr</ns3:IdCategory>
-\t\t\t\t<ns3:Id>unknown</ns3:Id>
+\t\t\t\t<ns3:Id>2020-1</ns3:Id>
 \t\t\t</ns1:localID>
 \t\t\t<ns1:otherID>
 \t\t\t\t<ns3:IdCategory>eBauNr</ns3:IdCategory>
-\t\t\t\t<ns3:Id>unknown</ns3:Id>
+\t\t\t\t<ns3:Id>2020-1</ns3:Id>
 \t\t\t</ns1:otherID>
 \t\t\t<ns1:dossierIdentification><!-- INSTANCE_ID --></ns1:dossierIdentification>
 \t\t</ns1:planningPermissionApplicationIdentification>
@@ -68,7 +68,7 @@ snapshots['test_accompanying_report_event_handler[False-False] 1'] = '''<?xml ve
 </ns1:delivery>
 '''
 
-snapshots['test_accompanying_report_event_handler[False-True] 1'] = '''<?xml version="1.0" ?>
+snapshots['test_accompanying_report_event_handler[True] 1'] = '''<?xml version="1.0" ?>
 <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0147/T0/1" xmlns:ns5="http://www.ech.ch/xmlns/eCH-0039/2">
 \t<ns1:deliveryHeader>
 \t\t<ns2:senderId>https://ebau.apps.be.ch/</ns2:senderId>
@@ -89,135 +89,11 @@ snapshots['test_accompanying_report_event_handler[False-True] 1'] = '''<?xml ver
 \t\t<ns1:planningPermissionApplicationIdentification>
 \t\t\t<ns1:localID>
 \t\t\t\t<ns3:IdCategory>eBauNr</ns3:IdCategory>
-\t\t\t\t<ns3:Id>unknown</ns3:Id>
+\t\t\t\t<ns3:Id>2020-1</ns3:Id>
 \t\t\t</ns1:localID>
 \t\t\t<ns1:otherID>
 \t\t\t\t<ns3:IdCategory>eBauNr</ns3:IdCategory>
-\t\t\t\t<ns3:Id>unknown</ns3:Id>
-\t\t\t</ns1:otherID>
-\t\t\t<ns1:dossierIdentification><!-- INSTANCE_ID --></ns1:dossierIdentification>
-\t\t</ns1:planningPermissionApplicationIdentification>
-\t\t<ns1:document>
-\t\t\t<ns4:uuid>663448f0-a6d9-44da-a1d9-8890fdc6912c</ns4:uuid>
-\t\t\t<ns4:titles>
-\t\t\t\t<ns5:title>parent</ns5:title>
-\t\t\t</ns4:titles>
-\t\t\t<ns4:status>signed</ns4:status>
-\t\t\t<ns4:files>
-\t\t\t\t<ns4:file>
-\t\t\t\t\t<ns4:pathFileName>http://ebau.local/api/v1/attachments/files/?attachments=<!-- ATTACHMENT_ID --></ns4:pathFileName>
-\t\t\t\t\t<ns4:mimeType>multipart/related</ns4:mimeType>
-\t\t\t\t</ns4:file>
-\t\t\t</ns4:files>
-\t\t\t<ns4:documentKind>Paul Mitchell</ns4:documentKind>
-\t\t</ns1:document>
-\t\t<ns1:document>
-\t\t\t<ns4:uuid>a21a0d75-7490-4e26-8022-f6665cf7716d</ns4:uuid>
-\t\t\t<ns4:titles>
-\t\t\t\t<ns5:title>child</ns5:title>
-\t\t\t</ns4:titles>
-\t\t\t<ns4:status>signed</ns4:status>
-\t\t\t<ns4:files>
-\t\t\t\t<ns4:file>
-\t\t\t\t\t<ns4:pathFileName>http://ebau.local/api/v1/attachments/files/?attachments=<!-- ATTACHMENT_ID --></ns4:pathFileName>
-\t\t\t\t\t<ns4:mimeType>audio/L24</ns4:mimeType>
-\t\t\t\t</ns4:file>
-\t\t\t</ns4:files>
-\t\t\t<ns4:documentKind>Paul Mitchell</ns4:documentKind>
-\t\t</ns1:document>
-\t\t<ns1:remark>lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum l…</ns1:remark>
-\t\t<ns1:ancillaryClauses>nebenbestimmung&amp;#13;&amp;#10;blablabla&amp;#13;&amp;#10;blu; yeah</ns1:ancillaryClauses>
-\t</ns1:eventAccompanyingReport>
-</ns1:delivery>
-'''
-
-snapshots['test_accompanying_report_event_handler[True-False] 1'] = '''<?xml version="1.0" ?>
-<ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0147/T0/1" xmlns:ns5="http://www.ech.ch/xmlns/eCH-0039/2">
-\t<ns1:deliveryHeader>
-\t\t<ns2:senderId>https://ebau.apps.be.ch/</ns2:senderId>
-\t\t<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
-\t\t<ns2:messageType>5100004</ns2:messageType>
-\t\t<ns2:sendingApplication>
-\t\t\t<ns2:manufacturer>Adfinis AG</ns2:manufacturer>
-\t\t\t<ns2:product>camac</ns2:product>
-\t\t\t<ns2:productVersion><!-- VERSION --></ns2:productVersion>
-\t\t</ns2:sendingApplication>
-\t\t<ns2:subject>accompanying report</ns2:subject>
-\t\t<ns2:messageDate>2022-06-03T00:00:00Z</ns2:messageDate>
-\t\t<ns2:action>1</ns2:action>
-\t\t<ns2:testDeliveryFlag>true</ns2:testDeliveryFlag>
-\t</ns1:deliveryHeader>
-\t<ns1:eventAccompanyingReport>
-\t\t<ns1:eventType>accompanying report</ns1:eventType>
-\t\t<ns1:planningPermissionApplicationIdentification>
-\t\t\t<ns1:localID>
-\t\t\t\t<ns3:IdCategory>eBauNr</ns3:IdCategory>
-\t\t\t\t<ns3:Id>unknown</ns3:Id>
-\t\t\t</ns1:localID>
-\t\t\t<ns1:otherID>
-\t\t\t\t<ns3:IdCategory>eBauNr</ns3:IdCategory>
-\t\t\t\t<ns3:Id>unknown</ns3:Id>
-\t\t\t</ns1:otherID>
-\t\t\t<ns1:dossierIdentification><!-- INSTANCE_ID --></ns1:dossierIdentification>
-\t\t</ns1:planningPermissionApplicationIdentification>
-\t\t<ns1:document>
-\t\t\t<ns4:uuid>663448f0-a6d9-44da-a1d9-8890fdc6912c</ns4:uuid>
-\t\t\t<ns4:titles>
-\t\t\t\t<ns5:title>parent</ns5:title>
-\t\t\t</ns4:titles>
-\t\t\t<ns4:status>signed</ns4:status>
-\t\t\t<ns4:files>
-\t\t\t\t<ns4:file>
-\t\t\t\t\t<ns4:pathFileName>http://ebau.local/api/v1/attachments/files/?attachments=<!-- ATTACHMENT_ID --></ns4:pathFileName>
-\t\t\t\t\t<ns4:mimeType>multipart/related</ns4:mimeType>
-\t\t\t\t</ns4:file>
-\t\t\t</ns4:files>
-\t\t\t<ns4:documentKind>Paul Mitchell</ns4:documentKind>
-\t\t</ns1:document>
-\t\t<ns1:document>
-\t\t\t<ns4:uuid>a21a0d75-7490-4e26-8022-f6665cf7716d</ns4:uuid>
-\t\t\t<ns4:titles>
-\t\t\t\t<ns5:title>child</ns5:title>
-\t\t\t</ns4:titles>
-\t\t\t<ns4:status>signed</ns4:status>
-\t\t\t<ns4:files>
-\t\t\t\t<ns4:file>
-\t\t\t\t\t<ns4:pathFileName>http://ebau.local/api/v1/attachments/files/?attachments=<!-- ATTACHMENT_ID --></ns4:pathFileName>
-\t\t\t\t\t<ns4:mimeType>audio/L24</ns4:mimeType>
-\t\t\t\t</ns4:file>
-\t\t\t</ns4:files>
-\t\t\t<ns4:documentKind>Paul Mitchell</ns4:documentKind>
-\t\t</ns1:document>
-\t</ns1:eventAccompanyingReport>
-</ns1:delivery>
-'''
-
-snapshots['test_accompanying_report_event_handler[True-True] 1'] = '''<?xml version="1.0" ?>
-<ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0147/T0/1" xmlns:ns5="http://www.ech.ch/xmlns/eCH-0039/2">
-\t<ns1:deliveryHeader>
-\t\t<ns2:senderId>https://ebau.apps.be.ch/</ns2:senderId>
-\t\t<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
-\t\t<ns2:messageType>5100004</ns2:messageType>
-\t\t<ns2:sendingApplication>
-\t\t\t<ns2:manufacturer>Adfinis AG</ns2:manufacturer>
-\t\t\t<ns2:product>camac</ns2:product>
-\t\t\t<ns2:productVersion><!-- VERSION --></ns2:productVersion>
-\t\t</ns2:sendingApplication>
-\t\t<ns2:subject>accompanying report</ns2:subject>
-\t\t<ns2:messageDate>2022-06-03T00:00:00Z</ns2:messageDate>
-\t\t<ns2:action>1</ns2:action>
-\t\t<ns2:testDeliveryFlag>true</ns2:testDeliveryFlag>
-\t</ns1:deliveryHeader>
-\t<ns1:eventAccompanyingReport>
-\t\t<ns1:eventType>accompanying report</ns1:eventType>
-\t\t<ns1:planningPermissionApplicationIdentification>
-\t\t\t<ns1:localID>
-\t\t\t\t<ns3:IdCategory>eBauNr</ns3:IdCategory>
-\t\t\t\t<ns3:Id>unknown</ns3:Id>
-\t\t\t</ns1:localID>
-\t\t\t<ns1:otherID>
-\t\t\t\t<ns3:IdCategory>eBauNr</ns3:IdCategory>
-\t\t\t\t<ns3:Id>unknown</ns3:Id>
+\t\t\t\t<ns3:Id>2020-1</ns3:Id>
 \t\t\t</ns1:otherID>
 \t\t\t<ns1:dossierIdentification><!-- INSTANCE_ID --></ns1:dossierIdentification>
 \t\t</ns1:planningPermissionApplicationIdentification>
@@ -1372,63 +1248,7 @@ snapshots['test_task_event_handler_stellungnahme 1'] = '''<?xml version="1.0" ?>
 \t\t\t<uuid>00000000-0000-0000-0000-000000000000</uuid>
 \t\t\t<instruction>process</instruction>
 \t\t\t<priority>undefined</priority>
-\t\t\t<deadline>2022-06-15</deadline>
-\t\t\t<comments>
-\t\t\t\t<ns4:comment>Anforderung einer Stellungnahme</ns4:comment>
-\t\t\t</comments>
-\t\t</ns1:directive>
-\t\t<ns1:document>
-\t\t\t<ns5:uuid>50e761c4-c03e-4757-aa06-9a30e9c269ca</ns5:uuid>
-\t\t\t<ns5:titles>
-\t\t\t\t<ns4:title>buy</ns4:title>
-\t\t\t</ns5:titles>
-\t\t\t<ns5:status>signed</ns5:status>
-\t\t\t<ns5:files>
-\t\t\t\t<ns5:file>
-\t\t\t\t\t<ns5:pathFileName>http://ebau.local/api/v1/attachments/files/?attachments=<!-- ATTACHMENT_ID --></ns5:pathFileName>
-\t\t\t\t\t<ns5:mimeType>message/rfc822</ns5:mimeType>
-\t\t\t\t</ns5:file>
-\t\t\t</ns5:files>
-\t\t\t<ns5:documentKind>Rebecca Gonzalez</ns5:documentKind>
-\t\t</ns1:document>
-\t</ns1:eventRequest>
-</ns1:delivery>
-'''
-
-snapshots['test_task_event_handler_stellungnahme 2'] = '''<?xml version="1.0" ?>
-<ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0039/2" xmlns:ns5="http://www.ech.ch/xmlns/eCH-0147/T0/1">
-\t<ns1:deliveryHeader>
-\t\t<ns2:senderId>https://ebau.apps.be.ch/</ns2:senderId>
-\t\t<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
-\t\t<ns2:messageType>5200007</ns2:messageType>
-\t\t<ns2:sendingApplication>
-\t\t\t<ns2:manufacturer>Adfinis AG</ns2:manufacturer>
-\t\t\t<ns2:product>camac</ns2:product>
-\t\t\t<ns2:productVersion><!-- VERSION --></ns2:productVersion>
-\t\t</ns2:sendingApplication>
-\t\t<ns2:subject>task</ns2:subject>
-\t\t<ns2:messageDate>2022-06-03T00:00:00Z</ns2:messageDate>
-\t\t<ns2:action>1</ns2:action>
-\t\t<ns2:testDeliveryFlag>true</ns2:testDeliveryFlag>
-\t</ns1:deliveryHeader>
-\t<ns1:eventRequest>
-\t\t<ns1:eventType>task</ns1:eventType>
-\t\t<ns1:planningPermissionApplicationIdentification>
-\t\t\t<ns1:localID>
-\t\t\t\t<ns3:IdCategory>eBauNr</ns3:IdCategory>
-\t\t\t\t<ns3:Id>2020-1</ns3:Id>
-\t\t\t</ns1:localID>
-\t\t\t<ns1:otherID>
-\t\t\t\t<ns3:IdCategory>eBauNr</ns3:IdCategory>
-\t\t\t\t<ns3:Id>2020-1</ns3:Id>
-\t\t\t</ns1:otherID>
-\t\t\t<ns1:dossierIdentification><!-- INSTANCE_ID --></ns1:dossierIdentification>
-\t\t</ns1:planningPermissionApplicationIdentification>
-\t\t<ns1:directive>
-\t\t\t<uuid>00000000-0000-0000-0000-000000000000</uuid>
-\t\t\t<instruction>process</instruction>
-\t\t\t<priority>undefined</priority>
-\t\t\t<deadline>2022-07-01</deadline>
+\t\t\t<deadline>1985-06-26</deadline>
 \t\t\t<comments>
 \t\t\t\t<ns4:comment>Anforderung einer Stellungnahme</ns4:comment>
 \t\t\t</comments>

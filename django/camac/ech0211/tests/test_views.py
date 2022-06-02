@@ -451,6 +451,7 @@ def test_send_403_attachment_permissions(
     attachment_factory,
     settings,
     mocker,
+    be_distribution_settings,
 ):
     mocker.patch.object(
         NoticeRulingSendHandler, "has_permission", return_value=(True, None)
