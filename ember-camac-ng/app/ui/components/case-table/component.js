@@ -207,6 +207,11 @@ export default class CaseTableComponent extends Component {
         service: this.shoebox.content.serviceId,
         include: "circulation",
       });
+
+      await this.store.query("responsible-service", {
+        include: "responsible_user",
+        instance: instanceIds.join(","),
+      });
     }
 
     await this.store.query("instance", {

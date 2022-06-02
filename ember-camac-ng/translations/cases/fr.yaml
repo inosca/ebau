@@ -32,6 +32,7 @@ cases:
     processingDeadline: ""
     involvedServices: ""
     parcelPicture: ""
+    responsibility: ""
 
   filter: ""
   filters:
