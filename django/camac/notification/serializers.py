@@ -10,14 +10,17 @@ import jinja2
 from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_workflow import models as caluma_workflow_models
 from django.conf import settings
+from django.contrib.postgres.fields import ArrayField
 from django.core.mail import EmailMessage, get_connection
-from django.db.models import Exists, OuterRef, Q, Sum
+from django.db.models import Exists, Func, IntegerField, OuterRef, Q, Subquery, Sum
+from django.db.models.functions import Cast
 from django.utils import timezone, translation
 from django.utils.text import slugify
 from rest_framework import exceptions
 from rest_framework_json_api import serializers
 
 from camac.caluma.api import CalumaApi
+from camac.caluma.utils import find_answer, get_answer_display_value
 from camac.constants import kt_uri as uri_constants
 from camac.core.models import (
     Activation,
@@ -42,22 +45,66 @@ from . import models
 logger = getLogger(__name__)
 
 
-class NoticeMergeSerializer(serializers.Serializer):
-    service = serializers.StringRelatedField(source="activation.service")
-    notice_type = serializers.StringRelatedField()
-    notice_type_id = serializers.IntegerField(source="notice_type.pk")
-    content = serializers.CharField()
+class InquiryMergeSerializer(serializers.Serializer):
+    deadline_date = serializers.DateTimeField(
+        source="deadline", format=settings.MERGE_DATE_FORMAT
+    )
+    start_date = serializers.DateTimeField(
+        source="created_at", format=settings.MERGE_DATE_FORMAT
+    )
+    end_date = serializers.DateTimeField(
+        source="closed_at", format=settings.MERGE_DATE_FORMAT
+    )
+    circulation_state = serializers.SerializerMethodField()
+    service = serializers.SerializerMethodField()
+    reason = serializers.SerializerMethodField()
+    circulation_answer = serializers.SerializerMethodField()
+    notices = serializers.SerializerMethodField()
 
+    def get_circulation_state(self, inquiry):
+        if inquiry.status == caluma_workflow_models.WorkItem.STATUS_READY:
+            return (
+                "REVIEW"
+                if inquiry.child_case.work_items.filter(
+                    status=caluma_workflow_models.WorkItem.STATUS_READY,
+                    task_id=settings.DISTRIBUTION.get("INQUIRY_ANSWER_CHECK_TASK", ""),
+                ).exists()
+                else "RUN"
+            )
 
-class ActivationMergeSerializer(serializers.Serializer):
-    deadline_date = serializers.DateTimeField(format=settings.MERGE_DATE_FORMAT)
-    start_date = serializers.DateTimeField(format=settings.MERGE_DATE_FORMAT)
-    end_date = serializers.DateTimeField(format=settings.MERGE_DATE_FORMAT)
-    circulation_state = serializers.StringRelatedField()
-    service = serializers.StringRelatedField()
-    reason = serializers.CharField()
-    circulation_answer = serializers.StringRelatedField()
-    notices = NoticeMergeSerializer(many=True)
+        return (
+            "OK"
+            if inquiry.case.parent_work_item.status
+            == caluma_workflow_models.WorkItem.STATUS_READY
+            else "DONE"
+        )
+
+    def get_service(self, inquiry):
+        return Service.objects.get(pk=inquiry.addressed_groups[0]).get_name()
+
+    def get_reason(self, inquiry):
+        return find_answer(
+            inquiry.document, settings.DISTRIBUTION["QUESTIONS"]["REMARK"]
+        )
+
+    def get_circulation_answer(self, inquiry):
+        return find_answer(
+            inquiry.child_case.document,
+            settings.DISTRIBUTION["QUESTIONS"]["STATUS"],
+        )
+
+    def get_notices(self, inquiry):
+        return [
+            {
+                "notice_type": str(answer.question.label),
+                "content": answer.value,
+            }
+            for answer in (
+                inquiry.child_case.document.answers.select_related("question")
+                .filter(question__type=caluma_form_models.Question.TYPE_TEXTAREA)
+                .order_by("-question__formquestion__sort")
+            )
+        ]
 
 
 class BillingEntryMergeSerializer(serializers.Serializer):
@@ -131,35 +178,15 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     inquiry_answer_de = serializers.SerializerMethodField()
     inquiry_answer_fr = serializers.SerializerMethodField()
 
-    def __init__(
-        self,
-        *args,
-        instance=None,
-        activation=None,
-        inquiry=None,
-        escape=False,
-        **kwargs,
-    ):
-        if instance:
-            self.escape = escape
-
-            lookup = {"circulation__instance": instance}
-            if activation:
-                self.activation = activation
-                self.circulation = self.activation.circulation
-
-                lookup.update(
-                    {
-                        "circulation": self.activation.circulation,
-                        "service_parent": self.activation.service_parent,
-                    }
-                )
-
-            instance.activations = Activation.objects.filter(**lookup)
-
+    def __init__(self, instance=None, inquiry=None, escape=False, *args, **kwargs):
+        self.escape = escape
         self.inquiry = inquiry
 
-        super().__init__(*args, instance=instance, **kwargs)
+        super().__init__(instance=instance, *args, **kwargs)
+
+        self.service = (
+            self.context["request"].group.service if "request" in self.context else None
+        )
 
     def _escape(self, data):
         result = data
@@ -308,45 +335,23 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
     def get_current_service(self, instance):
         """Return current service of the active user."""
-        try:
-            service = self.context["request"].group.service
-
-            return service.get_name() if service else "-"
-        except KeyError:
-            return "-"
+        return self.service.get_name() if self.service else "-"
 
     def get_current_service_de(self, instance):
         """Return current service of the active user in german."""
-        try:
-            service = self.context["request"].group.service
-
-            return service.get_name("de") if service else "-"
-        except KeyError:
-            return "-"
+        return self.service.get_name("de") if self.service else "-"
 
     def get_current_service_fr(self, instance):
         """Return current service of the active user in french."""
-        try:
-            service = self.context["request"].group.service
-
-            return service.get_name("fr") if service else "-"
-        except KeyError:
-            return "-"
+        return self.service.get_name("fr") if self.service else "-"
 
     def get_current_service_description(self, instance):
         """Return description of the current service of the active user."""
-        try:
-            service = self.context["request"].group.service
-            description = None
-            service_name = None
-
-            if service:
-                description = service.get_trans_attr("description")
-                service_name = service.get_name()
-
-            return description or service_name or "-"
-        except KeyError:
-            return "-"
+        return (
+            self.service.get_trans_attr("description") or self.service.get_name()
+            if self.service
+            else "-"
+        )
 
     def get_distribution_status_de(self, instance):
         return self._get_distribution_status(instance, "de")
@@ -395,11 +400,11 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         if not self.inquiry or not settings.DISTRIBUTION:
             return ""
 
-        answer = self.inquiry.child_case.document.answers.filter(
-            question_id=settings.DISTRIBUTION["QUESTIONS"]["STATUS"]
-        ).first()
-
-        return answer.selected_options[0].label.get(language) if answer else ""
+        return find_answer(
+            self.inquiry.child_case.document,
+            settings.DISTRIBUTION["QUESTIONS"]["STATUS"],
+            language=language,
+        )
 
     def get_form_name_de(self, instance):
         return CalumaApi().get_form_name(instance).de or ""
@@ -462,11 +467,18 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         )
 
     def get_date_start_zirkulation(self, instance):
-        workitem = caluma_workflow_models.WorkItem.objects.filter(
-            case_id=instance.case.pk, task_id="start-circulation", status="completed"
-        )
-        if workitem:
-            return self.format_date(workitem.first().closed_at)
+        if not settings.DISTRIBUTION:
+            return "---"
+
+        work_item = caluma_workflow_models.WorkItem.objects.filter(
+            case__family__instance=instance,
+            task_id=settings.DISTRIBUTION["DISTRIBUTION_INIT_TASK"],
+            status=caluma_workflow_models.WorkItem.STATUS_COMPLETED,
+        ).first()
+
+        if work_item:
+            return self.format_date(work_item.closed_at)
+
         return "---"
 
     def get_date_bau_einspracheentscheid(self, instance):
@@ -489,40 +501,74 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             total=Sum("final_rate")
         )["total"]
 
-    def get_activations(self, instance):
-        visibility_config = settings.APPLICATION.get("INTER_SERVICE_GROUP_VISIBILITIES")
+    def _get_inquiries(self, instance):
+        if not settings.DISTRIBUTION:
+            return caluma_workflow_models.WorkItem.objects.none()
 
-        if not visibility_config:  # Kt. UR
-            activations = instance.activations.all()
-        else:  # Kt. SZ
-            service = self.context["request"].group.service
-            activations = (
-                instance.activations.filter(
-                    service__service_group__in=visibility_config.get(
-                        service.service_group_id, []
+        service_subquery = Service.objects.filter(
+            # Use element = ANY(array) operator to check if
+            # element is present in ArrayField, which requires
+            # lhs and rhs of expression to be of same type
+            pk=Func(
+                Cast(
+                    OuterRef("addressed_groups"),
+                    output_field=ArrayField(IntegerField()),
+                ),
+                function="ANY",
+            )
+        )
+
+        return (
+            caluma_workflow_models.WorkItem.objects.filter(
+                task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
+                case__family__instance=instance,
+            )
+            .exclude(
+                status__in=[
+                    caluma_workflow_models.WorkItem.STATUS_CANCELED,
+                    caluma_workflow_models.WorkItem.STATUS_SUSPENDED,
+                ]
+            )
+            .annotate(
+                service_group_id=Subquery(
+                    service_subquery.values("service_group_id")[:1]
+                ),
+                service_group_sort=Subquery(
+                    service_subquery.values("service_group__sort")[:1]
+                ),
+                service_sort=Subquery(service_subquery.values("sort")[:1]),
+            )
+            .order_by("service_group_sort", "controlling_groups", "service_sort")
+        )
+
+    def get_activations(self, instance):
+        inquiries = self._get_inquiries(instance)
+
+        visibility_config = settings.APPLICATION.get("INTER_SERVICE_GROUP_VISIBILITIES")
+        if visibility_config:
+            inquiries = (
+                inquiries.filter(
+                    service_group_id__in=visibility_config.get(
+                        self.service.service_group_id, []
                     )
                 )
-                if service
-                else instance.activations.none()
+                if self.service
+                else inquiries.none()
             )
 
-        return ActivationMergeSerializer(activations, many=True).data
+        return InquiryMergeSerializer(inquiries, many=True).data
 
     def get_my_activations(self, instance):
-        if "request" not in self.context:
-            return instance.activations.none()
+        inquiries = self._get_inquiries(instance)
 
-        activations = ActivationMergeSerializer(
-            instance.activations.filter(service=self.context["request"].group.service),
+        return InquiryMergeSerializer(
+            (
+                inquiries.filter(addressed_groups__contains=[str(self.service.pk)])
+                if self.service
+                else inquiries.none()
+            ),
             many=True,
         ).data
-
-        for activation in activations:
-            activation["notices"] = sorted(
-                activation["notices"], key=lambda k: k["notice_type_id"]
-            )
-
-        return activations
 
     def get_objections(self, instance):
         objections = instance.objections.all()
@@ -541,21 +587,6 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
         return objections
 
-    def _get_answer_value_or_date(self, answer):
-        if answer.question.type in [
-            caluma_form_models.Question.TYPE_MULTIPLE_CHOICE,
-            caluma_form_models.Question.TYPE_CHOICE,
-        ] and len(answer.selected_options):
-            return "\n".join(
-                [
-                    str(label)
-                    for label in [option.label for option in answer.selected_options]
-                ]
-            )
-        elif answer.question.type == caluma_form_models.Question.TYPE_DATE:
-            return answer.date.strftime(settings.MERGE_DATE_FORMAT)
-        return answer.value
-
     def get_bauverwaltung(self, instance):
         if not settings.APPLICATION.get("INSTANCE_MERGE_CONFIG"):
             return {}
@@ -571,8 +602,8 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
         document = work_item_qs.first().document
         answers = {
-            inflection.underscore(answer.question.slug): self._get_answer_value_or_date(
-                answer
+            inflection.underscore(answer.question.slug): get_answer_display_value(
+                answer, option_separator="\n"
             )
             for answer in document.answers.filter(
                 Q(value__isnull=False) | Q(date__isnull=False)
@@ -596,7 +627,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
                 for answer in row.document.answers.all():
                     row_answers[
                         inflection.underscore(answer.question.slug)
-                    ] = self._get_answer_value_or_date(answer)
+                    ] = get_answer_display_value(answer, option_separator="\n")
                 question_answers.append(row_answers)
             answers[inflection.underscore(question.slug)] = question_answers
 
@@ -678,12 +709,6 @@ class NotificationTemplateMergeSerializer(
     """
 
     instance = serializers.ResourceRelatedField(queryset=Instance.objects.all())
-    activation = serializers.ResourceRelatedField(
-        queryset=Activation.objects.all(), required=False
-    )
-    circulation = serializers.ResourceRelatedField(
-        queryset=Circulation.objects.all(), required=False
-    )
     inquiry = serializers.ResourceRelatedField(
         queryset=caluma_workflow_models.WorkItem.objects.all(),
         required=False,
@@ -707,10 +732,7 @@ class NotificationTemplateMergeSerializer(
         instance = data["instance"]
 
         placeholder_data = InstanceMergeSerializer(
-            instance=instance,
-            context=self.context,
-            activation=data.get("activation"),
-            inquiry=data.get("inquiry"),
+            instance=instance, context=self.context, inquiry=data.get("inquiry")
         ).data
 
         # some cantons use uppercase placeholders. be as compatible as possible
@@ -741,6 +763,14 @@ class NotificationTemplateMergeSerializer(
 
 
 class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer):
+    # Activation and circulation are only needed for the recipient types
+    activation = serializers.ResourceRelatedField(
+        queryset=Activation.objects.all(), required=False
+    )
+    circulation = serializers.ResourceRelatedField(
+        queryset=Circulation.objects.all(), required=False
+    )
+
     SUBMITTER_TYPE_APPLICANT = "0"
     SUBMITTER_TYPE_PROJECT_AUTHOR = "1"
     SUBMITTER_LIST_CQI_BY_TYPE = {

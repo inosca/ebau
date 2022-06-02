@@ -547,6 +547,7 @@ def test_notification_placeholders(
     objection,
     objection_participant_factory,
     work_item_factory,
+    distribution_settings,
 ):
     settings.APPLICATION["WORKFLOW_ITEMS"]["SUBMIT"] = workflow_entry_factory(
         instance=sz_instance,
@@ -569,8 +570,8 @@ def test_notification_placeholders(
 
     work_item_factory(
         case=sz_instance.case,
-        status="completed",
-        task_id="start-circulation",
+        status=caluma_workflow_models.WorkItem.STATUS_COMPLETED,
+        task_id=distribution_settings["DISTRIBUTION_INIT_TASK"],
         closed_at=timezone.make_aware(datetime(2019, 9, 24, 10)),
     )
 
