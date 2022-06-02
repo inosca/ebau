@@ -248,6 +248,23 @@ export default class CustomCaseModel extends CaseModel {
     return activation?.deadlineDate;
   }
 
+  get responsibility() {
+    const responsibilities = this.store
+      .peekAll("responsible-service")
+      .filter(
+        (responsibility) =>
+          Number(responsibility.get("instance.id")) === this.instanceId &&
+          Number(responsibility.get("service.id")) ===
+            this.shoebox.content.serviceId
+      );
+
+    return responsibilities
+      .map((responsibility) => {
+        return responsibility.responsibleUser.get("fullName");
+      })
+      .join(", ");
+  }
+
   get activationWarning() {
     const activations = this.store.peekAll("activation");
     const activation = activations
