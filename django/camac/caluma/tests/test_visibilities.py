@@ -60,7 +60,7 @@ def test_document_visibility(
     cases_result = caluma_admin_schema_executor(
         """
         query {
-            allCases {
+            allCases(filter: [{ workflow: "building-permit" }]) {
                 edges {
                     node {
                         id
@@ -126,7 +126,7 @@ def test_document_visibility_filter(
 
     cases_query = """
         query {
-            allCases {
+            allCases(filter: [{ workflow: "building-permit" }]) {
                 edges {
                     node {
                         id
@@ -200,7 +200,7 @@ def test_work_item_visibility_sz(
             controlling_service=addressed_group.service,
         ).pk,
     ] + list(
-        # submit
+        # "submit" and "distribution"
         caluma_workflow_models.WorkItem.objects.filter(
             Q(case__family__instance__pk=instance.pk)
             & ~Q(task__pk=distribution_settings["INQUIRY_TASK"])
@@ -242,7 +242,7 @@ def test_work_item_visibility_sz(
         ]
     )
 
-    assert len(retrieved_workitems) == 5
+    assert len(retrieved_workitems) == 6
 
     assert retrieved_workitems == set(
         [str(work_item) for work_item in visible_workitems]
@@ -303,14 +303,14 @@ def test_work_item_visibility(
         ]
     )
     assert (
-        len(visible_workitems) == 5
-    )  # submit, nfd, create-manual-workitem, ebau-number, inquiry
+        len(visible_workitems) == 6
+    )  # submit, nfd, create-manual-workitem, ebau-number, inquiry (incl. distribution)
 
     # should be same as from graphql query
     visible = caluma_workflow_models.WorkItem.objects.filter(
-        case__instance__pk=visible_instance.pk
+        case__family__instance=visible_instance
     )
-    assert visible.count() == 5
+    assert visible.count() == 6
     assert (
         set([str(_id) for _id in visible.values_list("id", flat=True)])
         == visible_workitems

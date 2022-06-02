@@ -1,7 +1,11 @@
 from copy import copy
+from typing import Optional
 
+from caluma.caluma_form.models import Answer, Document, Question
 from caluma.caluma_user.models import AnonymousUser, OIDCUser
+from django.conf import settings
 from django.contrib.auth.models import AnonymousUser as AnonymousCamacUser
+from django.utils.translation import get_language
 from jwt import decode as jwt_decode
 from rest_framework.authentication import get_authorization_header
 
@@ -23,6 +27,53 @@ def extend_user(user, camac_request):
         user.group = camac_request.group.service_id
 
     return user
+
+
+def find_answer(document: Document, question: str, **kwargs) -> str:
+    """
+    Find the answer to a certain question in a document.
+
+    >>> find_answer(
+    ...     document=Document.objects.first(),
+    ...     question="my-question"
+    ... )
+    'The answer to my question'
+    """
+    answer = (
+        document.answers.select_related("question")
+        .prefetch_related("question__options")
+        .filter(question_id=question)
+        .first()
+    )
+
+    if not answer:
+        return ""
+
+    return get_answer_display_value(answer, **kwargs)
+
+
+def get_answer_display_value(
+    answer: Answer,
+    option_separator: Optional[str] = ", ",
+    date_format: Optional[str] = settings.MERGE_DATE_FORMAT,
+    language: Optional[str] = get_language(),
+) -> str:
+    """
+    Get the display value of an answer depending on the question type.
+
+    >>> get_answer_display_value(
+    ...     answer=Answer.objects.get(question_id="date-question")
+    ... )
+    '02.06.2022'
+    """
+    if answer.question.type in [Question.TYPE_MULTIPLE_CHOICE, Question.TYPE_CHOICE]:
+        return option_separator.join(
+            [option.label.get(language) for option in answer.selected_options]
+        )
+    elif answer.question.type == Question.TYPE_DATE:
+        return answer.date.strftime(date_format)
+
+    return answer.value
 
 
 class CamacRequest:

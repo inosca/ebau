@@ -8,12 +8,14 @@ DISTRIBUTION = {
         "DISTRIBUTION_INIT_TASK": "init-distribution",
         "DISTRIBUTION_COMPLETE_TASK": "complete-distribution",
         "INQUIRY_TASK": "inquiry",
+        "INQUIRY_FORM": "inquiry",
         "INQUIRY_CREATE_TASK": "create-inquiry",
         "INQUIRY_CHECK_TASK": "check-inquiries",
         "INQUIRY_WORKFLOW": "inquiry",
         "INQUIRY_ANSWER_FORM": "inquiry-answer",
         "QUESTIONS": {
             "DEADLINE": "inquiry-deadline",
+            "REMARK": "inquiry-remark",
             "STATUS": "inquiry-answer-status",
         },
         "ANSWERS": {},
@@ -307,6 +309,7 @@ DISTRIBUTION = {
     },
     "kt_schwyz": {
         "ENABLED": True,
+        "INQUIRY_ANSWER_CHECK_TASK": "check-inquiry",
         "DEFAULT_SUGGESTIONS": [7],  # Baugesuchszentrale
         "NOTIFICATIONS": {
             "INQUIRY_SENT": {
