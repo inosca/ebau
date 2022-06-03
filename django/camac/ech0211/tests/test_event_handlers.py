@@ -9,7 +9,6 @@ from camac.constants.kt_bern import (
     NOTICE_TYPE_NEBENBESTIMMUNG,
     NOTICE_TYPE_STELLUNGNAHME,
 )
-from camac.ech0211.schema.ech_0211_2_0 import CreateFromDocument
 from camac.ech0211.signals import file_subsequently, instance_submitted
 
 from ...core.models import InstanceService
@@ -18,6 +17,7 @@ from ..models import Message
 from .caluma_document_data import baugesuch_data
 
 
+@pytest.mark.freeze_time("2022-06-03")
 @pytest.mark.parametrize("has_active_service", [True, False])
 def test_submit_event(
     set_application_be,
@@ -29,6 +29,7 @@ def test_submit_event(
     has_active_service,
     caplog,
     settings,
+    ech_snapshot,
 ):
     if not has_active_service:
         InstanceService.objects.filter(instance_id=ech_instance_be).update(active=False)
@@ -49,25 +50,25 @@ def test_submit_event(
         assert Message.objects.count() == 1
         message = Message.objects.first()
         assert message.receiver.get_name() == "Leitbehörde Burgdorf"
-
+        ech_snapshot(message.body)
     else:
         assert not Message.objects.exists()
         assert len(caplog.messages) == 1
 
 
+@pytest.mark.freeze_time("2022-06-03")
 @pytest.mark.parametrize(
-    "event_type,expected_receiver",
+    "event_type",
     [
-        ("FileSubsequently", "Leitbehörde Burgdorf"),
-        ("WithdrawPlanningPermissionApplication", "Leitbehörde Burgdorf"),
-        ("StatusNotification", "Leitbehörde Burgdorf"),
-        ("Claim", "Leitbehörde Burgdorf"),
-        ("ChangeResponsibility", "Leitbehörde Madiswil"),
+        "FileSubsequently",
+        "WithdrawPlanningPermissionApplication",
+        "StatusNotification",
+        "Claim",
+        "ChangeResponsibility",
     ],
 )
 def test_event_handlers(
     event_type,
-    expected_receiver,
     ech_instance_case,
     set_application_be,
     role_factory,
@@ -77,6 +78,7 @@ def test_event_handlers(
     group_factory,
     mocker,
     multilang,
+    ech_snapshot,
 ):
     ech_instance_be = ech_instance_case().instance
     if event_type == "FileSubsequently":
@@ -114,9 +116,14 @@ def test_event_handlers(
     eh.run()
     assert Message.objects.count() == 1
     message = Message.objects.first()
-    assert message.receiver.get_name() == expected_receiver
+    if event_type == "ChangeResponsibility":
+        assert message.receiver.get_name() == "Leitbehörde Madiswil"
+    else:
+        assert message.receiver.get_name() == "Leitbehörde Burgdorf"
+    ech_snapshot(message.body)
 
 
+@pytest.mark.freeze_time("2022-06-03")
 @pytest.mark.parametrize("notices_exists", [True, False])
 @pytest.mark.parametrize("circulation_answer_exists", [True, False])
 def test_accompanying_report_event_handler(
@@ -135,6 +142,7 @@ def test_accompanying_report_event_handler(
     notice_type_factory,
     circulation_answer_factory,
     multilang,
+    ech_snapshot,
 ):
 
     ech_instance = ech_instance_case().instance
@@ -210,19 +218,10 @@ def test_accompanying_report_event_handler(
     assert Message.objects.count() == 1
     message = Message.objects.first()
     assert message.receiver.get_name() == "Leitbehörde Burgdorf"
-
-    xml = CreateFromDocument(message.body)
-
-    assert len(xml.eventAccompanyingReport.document) == 2
-    names = sorted(
-        [
-            xml.eventAccompanyingReport.document[0].titles.title[0].value(),
-            xml.eventAccompanyingReport.document[1].titles.title[0].value(),
-        ]
-    )
-    assert names == [attachment_child.display_name, attachment_parent.display_name]
+    ech_snapshot(message.body)
 
 
+@pytest.mark.freeze_time("2022-06-03")
 def test_task_event_handler_stellungnahme(
     set_application_be,
     ech_instance_be,
@@ -233,18 +232,17 @@ def test_task_event_handler_stellungnahme(
     attachment_attachment_section_factory,
     attachment_section_factory,
     admin_user,
+    ech_snapshot,
 ):
 
     asection_gesuch = attachment_section_factory(pk=ATTACHMENT_SECTION_BEILAGEN_GESUCH)
-    aas_gesuch = attachment_attachment_section_factory(
+    attachment_attachment_section_factory(
         attachment__instance=ech_instance_be, attachmentsection=asection_gesuch
     )
     asection_sb1 = attachment_section_factory(pk=ATTACHMENT_SECTION_BEILAGEN_SB1)
     attachment_attachment_section_factory(
         attachment__instance=ech_instance_be, attachmentsection=asection_sb1
     )
-
-    expected_name = aas_gesuch.attachment.display_name
 
     ech_instance_be.instance_state = instance_state_factory(name="circulation")
     ech_instance_be.save()
@@ -265,11 +263,10 @@ def test_task_event_handler_stellungnahme(
     assert Message.objects.filter(receiver=s2)
     assert not Message.objects.filter(receiver=s3)
     for message in Message.objects.iterator():
-        xml = CreateFromDocument(message.body)
-        assert len(xml.eventRequest.document) == 1
-        assert xml.eventRequest.document[0].titles.title[0].value() == expected_name
+        ech_snapshot(message.body)
 
 
+@pytest.mark.freeze_time("2022-06-03")
 @pytest.mark.parametrize("instance_state_name", ["sb2", "conclusion"])
 def test_task_event_handler_SBs(
     ech_instance_be,
@@ -281,6 +278,7 @@ def test_task_event_handler_SBs(
     attachment_section_factory,
     service_factory,
     instance_service_factory,
+    ech_snapshot,
 ):
 
     service_baukontrolle = service_factory(
@@ -295,17 +293,13 @@ def test_task_event_handler_SBs(
     )
 
     asection_sb1 = attachment_section_factory(pk=ATTACHMENT_SECTION_BEILAGEN_SB1)
-    aas_sb1 = attachment_attachment_section_factory(
+    attachment_attachment_section_factory(
         attachment__instance=ech_instance_be, attachmentsection=asection_sb1
     )
     asection_sb2 = attachment_section_factory(pk=ATTACHMENT_SECTION_BEILAGEN_SB2)
-    aas_sb2 = attachment_attachment_section_factory(
+    attachment_attachment_section_factory(
         attachment__instance=ech_instance_be, attachmentsection=asection_sb2
     )
-
-    expected_name = aas_sb1.attachment.display_name
-    if instance_state_name == "conclusion":
-        expected_name = aas_sb2.attachment.display_name
 
     ech_instance_be.instance_state = instance_state_factory(name=instance_state_name)
     ech_instance_be.save()
@@ -314,15 +308,16 @@ def test_task_event_handler_SBs(
 
     assert len(eh.run()) == 1
     assert Message.objects.count() == 1
-    message = Message.objects.first()
-    xml = CreateFromDocument(message.body)
-
-    assert len(xml.eventRequest.document) == 1
-    assert xml.eventRequest.document[0].titles.title[0].value() == expected_name
+    ech_snapshot(Message.objects.first().body)
 
 
+@pytest.mark.freeze_time("2022-06-03")
 def test_file_subsequently_signal(
-    ech_instance_be, set_application_be, mocker, multilang
+    ech_instance_be,
+    set_application_be,
+    mocker,
+    multilang,
+    ech_snapshot,
 ):
     mocker.patch.object(event_handlers, "get_document", return_value=baugesuch_data)
     file_subsequently.send(
@@ -331,3 +326,4 @@ def test_file_subsequently_signal(
     assert Message.objects.count() == 1
     message = Message.objects.first()
     assert message.receiver.get_name() == "Leitbehörde Burgdorf"
+    ech_snapshot(message.body)

@@ -1,6 +1,5 @@
 import logging
 import os.path
-import xml.dom.minidom as minidom
 
 import pytest
 import xmlschema
@@ -10,7 +9,6 @@ from caluma.caluma_workflow.api import (
     skip_work_item,
 )
 from django.core.management import call_command
-from lxml import etree
 from pyxb import IncompleteElementContentError, UnprocessedElementContentError
 
 from camac.constants.kt_bern import ECH_BASE_DELIVERY
@@ -18,15 +16,6 @@ from camac.ech0211 import formatters
 from camac.ech0211.formatters import determine_decision_state
 
 logger = logging.getLogger(__name__)
-
-
-def sort_xml(string):
-    return minidom.parseString(
-        etree.tostring(
-            etree.fromstring(string),
-            method="c14n",  # c14n forces attributes to be sorted
-        )
-    ).toprettyxml()
 
 
 @pytest.mark.parametrize(
@@ -93,18 +82,18 @@ def test_base_delivery(
     my_schema.validate(xml_data)
 
 
-def test_office(ech_instance_be, snapshot, multilang):
+def test_office(ech_instance_be, ech_snapshot, multilang):
     off = formatters.office(
         ech_instance_be.responsible_service(filter_type="municipality"),
         organization_category="ebaube",
         canton="BE",
     )
-    snapshot.assert_match(sort_xml(off.toxml(element_name="office")))
+    ech_snapshot(off.toxml(element_name="office"))
 
 
 @pytest.mark.parametrize("amount", [0, 1, 2])
 @pytest.mark.parametrize("with_display_name", [True, False])
-def test_get_documents(db, attachment_factory, amount, with_display_name, snapshot):
+def test_get_documents(db, attachment_factory, amount, with_display_name, ech_snapshot):
     context = {}
     if with_display_name:
         context = {"displayName": "baz"}
@@ -126,18 +115,15 @@ def test_get_documents(db, attachment_factory, amount, with_display_name, snapsh
 
     assert xml
 
-    xml_documents = []
-
     for doc in xml:
         try:
-            xml_documents.append(sort_xml(doc.toxml(element_name="doc")))
+            ech_snapshot(doc.toxml(element_name="doc"))
         except (
             IncompleteElementContentError,
             UnprocessedElementContentError,
         ) as e:  # pragma: no cover
             logger.error(e.details())
             raise
-    snapshot.assert_match(xml_documents)
 
 
 @pytest.mark.freeze_time("2022-01-01")
