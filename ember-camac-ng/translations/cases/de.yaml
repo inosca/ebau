@@ -18,7 +18,7 @@ cases:
     instanceState: "Status"
     instanceStateDescription: "Status"
     coordinationShort: "Kurzname Koordinationsstelle"
-    circulationInitializerService: "Absender"
+    circulationInitializerServices: "Absender"
     reason: "Grund"
     caseStatus: "Status"
     caseDocumentFormName: "Formulartyp"
