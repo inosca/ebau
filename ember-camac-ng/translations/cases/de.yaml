@@ -28,9 +28,10 @@ cases:
     submitDate: "Eingereicht am"
     lead: "Leitbehörde"
     dossierCreated: "Dossier angenommen / erfasst"
-    processingDeadline: "Bearbeitungsfrist"
+    processingDeadline: "Frist"
     involvedServices: "Beteiligte Fachstellen"
     parcelPicture: "Parzellenbild"
+    responsibility: "Zuständig"
 
   filter: "Dossier suchen"
   filters:
