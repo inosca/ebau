@@ -19,7 +19,7 @@ cases:
     instanceState: ""
     instanceStateDescription: ""
     coordinationShort: ""
-    circulationInitializerService: ""
+    circulationInitializerServices: ""
     reason: ""
     caseStatus: ""
     caseDocumentFormName: ""
