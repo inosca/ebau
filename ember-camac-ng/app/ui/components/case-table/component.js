@@ -216,7 +216,7 @@ export default class CaseTableComponent extends Component {
 
     await this.store.query("instance", {
       instance_id: instanceIds.join(","),
-      include: "instance_state,user,form,circulation_initializer_service",
+      include: "instance_state,user,form,circulation_initializer_services",
     });
 
     if (this.args.casesBackend === "camac-ng") {

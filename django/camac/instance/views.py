@@ -119,7 +119,7 @@ class InstanceView(
             "circulations__activations",
             "circulations__activations__service",
         ],
-        "circulation_initializer_service": [
+        "circulation_initializer_services": [
             "circulations",
         ],
     }
