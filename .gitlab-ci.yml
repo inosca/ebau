@@ -337,8 +337,6 @@ build-kt_bern-tarball:
     - branches
 
 .deploy:
-  tags:
-    - ssh-deploy
   variables:
     DOCKER_TLS_VERIFY: 1
     # because of https://github.com/docker/compose/issues/2668 tls certs
@@ -404,8 +402,6 @@ deploy-kt_uri-stage:
     - stage-ur
 
 deploy-kt_bern-production:
-  tags:
-    - ssh-deploy
   stage: deploy
   image:
     name: instrumentisto/rsync-ssh
