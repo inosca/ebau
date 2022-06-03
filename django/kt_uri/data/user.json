@@ -1,0 +1,8135 @@
+[
+  {
+    "model": "user.user",
+    "pk": 1,
+    "fields": {
+      "is_superuser": true,
+      "username": "admin",
+      "password": "0f10da7320c3fad6c1bd4e597992fb83",
+      "name": "min",
+      "surname": "Ad",
+      "email": "admin@example.com",
+      "phone": "",
+      "disabled": 0,
+      "language": "de",
+      "last_login": null,
+      "address": "",
+      "city": "",
+      "zip": "",
+      "is_staff": true,
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "user.user",
+    "pk": 2,
+    "fields": {
+      "is_superuser": false,
+      "username": "guest",
+      "password": "0f10da7320c3fad6c1bd4e597992fb83",
+      "name": "guest",
+      "surname": "person",
+      "email": "",
+      "phone": null,
+      "disabled": 0,
+      "language": "de",
+      "last_login": null,
+      "address": null,
+      "city": null,
+      "zip": null,
+      "is_staff": false,
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "user.user",
+    "pk": 1209,
+    "fields": {
+      "is_superuser": false,
+      "username": "portalUser",
+      "password": "0f10da7320c3fad6c1bd4e597992fb83",
+      "name": "portal",
+      "surname": "person",
+      "email": "",
+      "phone": null,
+      "disabled": 0,
+      "language": "de",
+      "last_login": null,
+      "address": null,
+      "city": null,
+      "zip": null,
+      "is_staff": false,
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "user.user",
+    "pk": 1210,
+    "fields": {
+      "is_superuser": false,
+      "username": "service-account-camac-admin",
+      "password": null,
+      "name": "service-account-camac-admin",
+      "surname": "service-account-camac-admin",
+      "email": "service-account-camac-admin@placeholder.org",
+      "phone": null,
+      "disabled": 0,
+      "language": "de",
+      "last_login": null,
+      "address": null,
+      "city": null,
+      "zip": null,
+      "is_staff": false,
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "user.user",
+    "pk": 1211,
+    "fields": {
+      "is_superuser": false,
+      "username": "portal",
+      "password": null,
+      "name": "User",
+      "surname": "Portal",
+      "email": "portal@example.com",
+      "phone": "041564465546, 07712361321",
+      "disabled": 0,
+      "language": "de",
+      "last_login": null,
+      "address": "Giessereiweg 5 Adresszusatz",
+      "city": "Bern",
+      "zip": "3013",
+      "is_staff": false,
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "user.user",
+    "pk": 1212,
+    "fields": {
+      "is_superuser": false,
+      "username": "import@koor-bg.ur.ch",
+      "password": null,
+      "name": "Import",
+      "surname": "KOOR BG",
+      "email": "import@koor-bg.ur.ch",
+      "phone": null,
+      "disabled": 0,
+      "language": "de",
+      "last_login": null,
+      "address": null,
+      "city": null,
+      "zip": null,
+      "is_staff": false,
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "user.user",
+    "pk": 1213,
+    "fields": {
+      "is_superuser": false,
+      "username": "service-account-oereb",
+      "password": null,
+      "name": "service-account-oereb",
+      "surname": "service-account-oereb",
+      "email": "service-account-oereb@example.com",
+      "phone": null,
+      "disabled": 0,
+      "language": "de",
+      "last_login": null,
+      "address": null,
+      "city": null,
+      "zip": null,
+      "is_staff": false,
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 1,
+    "fields": {
+      "role": 1,
+      "service": null,
+      "disabled": 0,
+      "name": "Admin",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 2,
+    "fields": {
+      "role": 2,
+      "service": null,
+      "disabled": 0,
+      "name": "Guest",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 21,
+    "fields": {
+      "role": 1061,
+      "service": 87,
+      "disabled": 0,
+      "name": "KOOR - ARE - NP Koordinationsstelle Nutzungsplanung",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 22,
+    "fields": {
+      "role": 6,
+      "service": 346,
+      "disabled": 0,
+      "name": "Sekretariat Gemeindebaubehörde Altdorf",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 23,
+    "fields": {
+      "role": 4,
+      "service": 21,
+      "disabled": 0,
+      "name": "Amt für Umweltschutz Sachbearbeitung und Koordination",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 24,
+    "fields": {
+      "role": 6,
+      "service": 353,
+      "disabled": 0,
+      "name": "Sekretariat Baukommission Urner Oberland",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 42,
+    "fields": {
+      "role": 4,
+      "service": 2,
+      "disabled": 0,
+      "name": "Amt für Forst und Jagd Sachbearbeitung und Koordination",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 62,
+    "fields": {
+      "role": 7,
+      "service": 342,
+      "disabled": 0,
+      "name": "Baukommission Altdorf",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 82,
+    "fields": {
+      "role": 1021,
+      "service": 21,
+      "disabled": 0,
+      "name": "Amt für Umweltschutz Sachbearbeitung",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 102,
+    "fields": {
+      "role": 1021,
+      "service": 2,
+      "disabled": 0,
+      "name": "Amt für Forst und Jagd Sachbearbeitung",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 122,
+    "fields": {
+      "role": 6,
+      "service": 347,
+      "disabled": 0,
+      "name": "Sekretariat Gemeindebaubehörde Andermatt",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 123,
+    "fields": {
+      "role": 4,
+      "service": 61,
+      "disabled": 0,
+      "name": "Amt für Bevölkerungsschutz und Militär Fachstelle Zivilschutz",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 142,
+    "fields": {
+      "role": 3,
+      "service": 1,
+      "disabled": 0,
+      "name": "KOOR - ARE - BG Koordinationsstelle für Baueingaben",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 143,
+    "fields": {
+      "role": 6,
+      "service": 348,
+      "disabled": 0,
+      "name": "Sekretariat Gemeindebaubehörde Attinghausen",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 144,
+    "fields": {
+      "role": 6,
+      "service": 349,
+      "disabled": 0,
+      "name": "Sekretariat Gemeindebaubehörde Bauen",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 145,
+    "fields": {
+      "role": 6,
+      "service": 351,
+      "disabled": 0,
+      "name": "Sekretariat Gemeindebaubehörde Erstfeld",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 146,
+    "fields": {
+      "role": 6,
+      "service": 350,
+      "disabled": 0,
+      "name": "Sekretariat Gemeindebaubehörde Bürglen",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 147,
+    "fields": {
+      "role": 6,
+      "service": 352,
+      "disabled": 0,
+      "name": "Sekretariat Gemeindebaubehörde Flüelen",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 148,
+    "fields": {
+      "role": 6,
+      "service": 355,
+      "disabled": 0,
+      "name": "Sekretariat Gemeindebaubehörde Isenthal",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 149,
+    "fields": {
+      "role": 6,
+      "service": 356,
+      "disabled": 0,
+      "name": "Sekretariat Gemeindebaubehörde Realp",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 150,
+    "fields": {
+      "role": 6,
+      "service": 357,
+      "disabled": 0,
+      "name": "Sekretariat Gemeindebaubehörde Schattdorf",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 151,
+    "fields": {
+      "role": 6,
+      "service": 358,
+      "disabled": 0,
+      "name": "Sekretariat Gemeindebaubehörde Seedorf",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 152,
+    "fields": {
+      "role": 6,
+      "service": 359,
+      "disabled": 0,
+      "name": "Sekretariat Gemeindebaubehörde Seelisberg",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 153,
+    "fields": {
+      "role": 6,
+      "service": 360,
+      "disabled": 0,
+      "name": "Sekretariat Gemeindebaubehörde Silenen",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 154,
+    "fields": {
+      "role": 6,
+      "service": 361,
+      "disabled": 0,
+      "name": "Sekretariat Gemeindebaubehörde Sisikon",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 155,
+    "fields": {
+      "role": 6,
+      "service": 362,
+      "disabled": 0,
+      "name": "Sekretariat Gemeindebaubehörde Spiringen",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 156,
+    "fields": {
+      "role": 6,
+      "service": 363,
+      "disabled": 0,
+      "name": "Sekretariat Gemeindebaubehörde Unterschächen",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 157,
+    "fields": {
+      "role": 4,
+      "service": 88,
+      "disabled": 0,
+      "name": "ARE - Abteilung Raumplanung - Fachstelle Bauten ausserhalb Bauzone Kreis 1",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 158,
+    "fields": {
+      "role": 4,
+      "service": 89,
+      "disabled": 0,
+      "name": "Justizdirektion Fachstelle Tourismusressort Andermatt",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 159,
+    "fields": {
+      "role": 4,
+      "service": 90,
+      "disabled": 0,
+      "name": "ARE - Abteilung Raumplanung - Fachstelle Nutzungsplanung",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 160,
+    "fields": {
+      "role": 4,
+      "service": 81,
+      "disabled": 0,
+      "name": "Amt für Bevölkerungsschutz und Militär Fachstelle Brandschutz",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 161,
+    "fields": {
+      "role": 4,
+      "service": 3,
+      "disabled": 0,
+      "name": "Amt für Arbeit und Migration",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 162,
+    "fields": {
+      "role": 4,
+      "service": 92,
+      "disabled": 0,
+      "name": "Amt für Steuern",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 163,
+    "fields": {
+      "role": 4,
+      "service": 95,
+      "disabled": 0,
+      "name": "Amt für Wirtschaft und öffentlichen Verkehr",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 164,
+    "fields": {
+      "role": 4,
+      "service": 96,
+      "disabled": 0,
+      "name": "Amt für Landwirtschaft Sachbearbeitung und Koordination",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 165,
+    "fields": {
+      "role": 4,
+      "service": 91,
+      "disabled": 0,
+      "name": "ARE - Abteilung Denkmalpflege und Archäologie - Fachstelle Archäologie",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 166,
+    "fields": {
+      "role": 4,
+      "service": 98,
+      "disabled": 0,
+      "name": "ARE - Abteilung Natur und Landschaft",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 167,
+    "fields": {
+      "role": 4,
+      "service": 99,
+      "disabled": 0,
+      "name": "ARE - Abteilung Raumplanung - Fachbereich Seeufer innerhalb Bauzone",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 168,
+    "fields": {
+      "role": 4,
+      "service": 100,
+      "disabled": 0,
+      "name": "ARE - Wanderweg- und Bikefachstelle",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 169,
+    "fields": {
+      "role": 4,
+      "service": 101,
+      "disabled": 0,
+      "name": "Amt für Strassen- und Schiffsverkehr",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 170,
+    "fields": {
+      "role": 4,
+      "service": 83,
+      "disabled": 0,
+      "name": "Abwasser Uri",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 171,
+    "fields": {
+      "role": 4,
+      "service": 41,
+      "disabled": 0,
+      "name": "Baudirektion DS Sachbearbeitung und Koordination",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 172,
+    "fields": {
+      "role": 4,
+      "service": 306,
+      "disabled": 0,
+      "name": "Baudirektion Amt für Energie - Direkt zugewiesene Pendenzen",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 173,
+    "fields": {
+      "role": 1021,
+      "service": 41,
+      "disabled": 0,
+      "name": "Baudirektion Amt für Tiefbau Abteilung Infrastruktur - Pendenzen Baudirektion",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 174,
+    "fields": {
+      "role": 1021,
+      "service": 41,
+      "disabled": 0,
+      "name": "Baudirektion Amt für Betrieb Nationalstrassen - Pendenzen Baudirektion",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 175,
+    "fields": {
+      "role": 4,
+      "service": 308,
+      "disabled": 0,
+      "name": "Baudirektion Amt für Hochbau - Direkt zugewiesene Pendenzen",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 176,
+    "fields": {
+      "role": 4,
+      "service": 309,
+      "disabled": 0,
+      "name": "ASTRA - Bundesamt für Strassen - direkt zugewiesene Pendenzen",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 177,
+    "fields": {
+      "role": 4,
+      "service": 104,
+      "disabled": 0,
+      "name": "Justizdirektion Uri Beschwerdedienst",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 178,
+    "fields": {
+      "role": 4,
+      "service": 105,
+      "disabled": 0,
+      "name": "Justizdirektion Uri Rechtsdienst",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 179,
+    "fields": {
+      "role": 4,
+      "service": 106,
+      "disabled": 0,
+      "name": "Justizdirektion Uri Direktionssekretariat",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 180,
+    "fields": {
+      "role": 4,
+      "service": 85,
+      "disabled": 0,
+      "name": "Laboratorium der Urkantone Lebensmittelinspektorat",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 181,
+    "fields": {
+      "role": 4,
+      "service": 84,
+      "disabled": 0,
+      "name": "Laboratorium der Urkantone Trinwasserinspektorat",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 182,
+    "fields": {
+      "role": 4,
+      "service": 82,
+      "disabled": 0,
+      "name": "Procap",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 183,
+    "fields": {
+      "role": 7,
+      "service": 344,
+      "disabled": 0,
+      "name": "Baukommission Andermatt",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 184,
+    "fields": {
+      "role": 7,
+      "service": 345,
+      "disabled": 0,
+      "name": "Baukommission Attinghausen",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 185,
+    "fields": {
+      "role": 7,
+      "service": 367,
+      "disabled": 0,
+      "name": "Gemeinderat Bauen",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 186,
+    "fields": {
+      "role": 7,
+      "service": 368,
+      "disabled": 0,
+      "name": "Baukommission Bürglen",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 187,
+    "fields": {
+      "role": 7,
+      "service": 364,
+      "disabled": 0,
+      "name": "Baukommission Erstfeld",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 188,
+    "fields": {
+      "role": 7,
+      "service": 369,
+      "disabled": 0,
+      "name": "Baukommission Flüelen",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 189,
+    "fields": {
+      "role": 7,
+      "service": 343,
+      "disabled": 0,
+      "name": "Baukommission Urner Oberland",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 190,
+    "fields": {
+      "role": 7,
+      "service": 382,
+      "disabled": 0,
+      "name": "Gemeinderat Hospental",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 191,
+    "fields": {
+      "role": 7,
+      "service": 383,
+      "disabled": 0,
+      "name": "Gemeinderat Isenthal",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 192,
+    "fields": {
+      "role": 7,
+      "service": 381,
+      "disabled": 0,
+      "name": "Gemeinderat Realp",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 193,
+    "fields": {
+      "role": 7,
+      "service": 365,
+      "disabled": 0,
+      "name": "Baukommission Schattdorf",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 194,
+    "fields": {
+      "role": 7,
+      "service": 370,
+      "disabled": 0,
+      "name": "Baukommission Seedorf",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 195,
+    "fields": {
+      "role": 7,
+      "service": 371,
+      "disabled": 0,
+      "name": "Baukommission Seelisberg",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 196,
+    "fields": {
+      "role": 7,
+      "service": 372,
+      "disabled": 0,
+      "name": "Baukommission Silenen",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 197,
+    "fields": {
+      "role": 7,
+      "service": 380,
+      "disabled": 0,
+      "name": "Gemeinderat Sisikon",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 198,
+    "fields": {
+      "role": 7,
+      "service": 384,
+      "disabled": 0,
+      "name": "Gemeinderat Spiringen",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 199,
+    "fields": {
+      "role": 7,
+      "service": 385,
+      "disabled": 0,
+      "name": "Gemeinderat Unterschächen",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 200,
+    "fields": {
+      "role": 4,
+      "service": 93,
+      "disabled": 0,
+      "name": "Amt für Kantonspolizei",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 201,
+    "fields": {
+      "role": 4,
+      "service": 94,
+      "disabled": 0,
+      "name": "Amt für Kultur und Sport",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 202,
+    "fields": {
+      "role": 4,
+      "service": 97,
+      "disabled": 0,
+      "name": "Alpiq",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 203,
+    "fields": {
+      "role": 4,
+      "service": 86,
+      "disabled": 0,
+      "name": "Laboratorium der Urkantone Veterinäramt",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 204,
+    "fields": {
+      "role": 1021,
+      "service": 108,
+      "disabled": 0,
+      "name": "Landschaftsschutzverband Vierwaldstättersee",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 205,
+    "fields": {
+      "role": 4,
+      "service": 103,
+      "disabled": 0,
+      "name": "SBB AG Immobilien (Koordinationstelle)",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 206,
+    "fields": {
+      "role": 4,
+      "service": 107,
+      "disabled": 0,
+      "name": "ARE - Abteilung Raumplanung - Fachstelle Baugesuche",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 207,
+    "fields": {
+      "role": 1021,
+      "service": 96,
+      "disabled": 0,
+      "name": "Amt für Landwirtschaft Sachbearbeitung",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 208,
+    "fields": {
+      "role": 6,
+      "service": 354,
+      "disabled": 0,
+      "name": "Sekretariat Gemeindebaubehörde Hospental",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 222,
+    "fields": {
+      "role": 4,
+      "service": 141,
+      "disabled": 0,
+      "name": "Bundesamt für Verkehr",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 242,
+    "fields": {
+      "role": 4,
+      "service": 161,
+      "disabled": 0,
+      "name": "ZAKU Zentralverband Abfallbewirtschaftung Kanton Uri",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 262,
+    "fields": {
+      "role": 1021,
+      "service": 181,
+      "disabled": 0,
+      "name": "Acht Grad Ost AG",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 282,
+    "fields": {
+      "role": 1081,
+      "service": 341,
+      "disabled": 0,
+      "name": "Kommission für Natur- und Heimatschutz NHSK",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 283,
+    "fields": {
+      "role": 4,
+      "service": 201,
+      "disabled": 0,
+      "name": "Lisag",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 302,
+    "fields": {
+      "role": 1021,
+      "service": 221,
+      "disabled": 0,
+      "name": "ZUBI Zentralschweizer Umweltbauinspektorat",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 322,
+    "fields": {
+      "role": 1081,
+      "service": 366,
+      "disabled": 0,
+      "name": "Qualinova",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 342,
+    "fields": {
+      "role": 4,
+      "service": 241,
+      "disabled": 0,
+      "name": "ARE - Abteilung Denkmalpflege und Archäologie - Fachstelle Denkmalpflege",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 362,
+    "fields": {
+      "role": 4,
+      "service": 261,
+      "disabled": 0,
+      "name": "ARE - Abteilung Raumplanung - Fachstelle Bauten ausserhalb Bauzone Kreis 2",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 363,
+    "fields": {
+      "role": 4,
+      "service": 262,
+      "disabled": 0,
+      "name": "ARE - Abteilung Raumplanung - Fachstelle Bauten ausserhalb Bauzone Kreis 3",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 382,
+    "fields": {
+      "role": 6,
+      "service": 353,
+      "disabled": 0,
+      "name": "Gemeindeverwaltung Gurtnellen",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 383,
+    "fields": {
+      "role": 6,
+      "service": 353,
+      "disabled": 0,
+      "name": "Gemeindeverwaltung Wassen",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 402,
+    "fields": {
+      "role": 1102,
+      "service": 281,
+      "disabled": 0,
+      "name": "Gemeinderat Andermatt Pendenzen",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 422,
+    "fields": {
+      "role": 4,
+      "service": 303,
+      "disabled": 0,
+      "name": "Baudirektion Amt für Tiefbau Abteilung Infrastruktur - Direkt zugewiesene Pendenzen",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 442,
+    "fields": {
+      "role": 1021,
+      "service": 41,
+      "disabled": 0,
+      "name": "Baudirektion Amt für Tiefbau Abteilung Projekte - Pendenzen Baudirektion",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 443,
+    "fields": {
+      "role": 4,
+      "service": 305,
+      "disabled": 0,
+      "name": "Baudirektion Betrieb Kantonsstrassen - Direkt zugewiesene Pendenzen",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 444,
+    "fields": {
+      "role": 4,
+      "service": 310,
+      "disabled": 0,
+      "name": "Sicherheitsdirektion Bereitschafts- und Verkehrspolizei",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 462,
+    "fields": {
+      "role": 4,
+      "service": 321,
+      "disabled": 0,
+      "name": "Amt für Landwirtschaft Fachstelle BGBB",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 463,
+    "fields": {
+      "role": 2,
+      "service": null,
+      "disabled": 0,
+      "name": "Kommission Naturgefahren",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 482,
+    "fields": {
+      "role": 1104,
+      "service": 88,
+      "disabled": 0,
+      "name": "Testservice",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 502,
+    "fields": {
+      "role": 1101,
+      "service": 302,
+      "disabled": 0,
+      "name": "KOOR BD - DS - Koordinationsstelle für Bewilligungsverfahren",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 503,
+    "fields": {
+      "role": 1102,
+      "service": 301,
+      "disabled": 0,
+      "name": "Gemeinderat Altdorf Pendenzen",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 504,
+    "fields": {
+      "role": 1102,
+      "service": 329,
+      "disabled": 0,
+      "name": "Gemeinderat Hospental Pendenzen",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 505,
+    "fields": {
+      "role": 1102,
+      "service": 322,
+      "disabled": 0,
+      "name": "Gemeinderat Attinghausen Pendenzen",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 506,
+    "fields": {
+      "role": 1102,
+      "service": 323,
+      "disabled": 0,
+      "name": "Gemeinderat Bauen Pendenzen",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 507,
+    "fields": {
+      "role": 1102,
+      "service": 324,
+      "disabled": 0,
+      "name": "Gemeinderat Bürglen Pendenzen",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 508,
+    "fields": {
+      "role": 1102,
+      "service": 325,
+      "disabled": 0,
+      "name": "Gemeinderat Erstfeld Pendenzen",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 509,
+    "fields": {
+      "role": 1102,
+      "service": 326,
+      "disabled": 0,
+      "name": "Gemeinderat Flüelen Pendenzen",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 510,
+    "fields": {
+      "role": 1102,
+      "service": 328,
+      "disabled": 0,
+      "name": "Gemeinderat Gurtnellen Pendenzen",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 511,
+    "fields": {
+      "role": 1102,
+      "service": 327,
+      "disabled": 0,
+      "name": "Gemeinderat Göschenen Pendenzen",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 512,
+    "fields": {
+      "role": 1102,
+      "service": 330,
+      "disabled": 0,
+      "name": "Gemeinderat Isenthal Pendenzen",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 513,
+    "fields": {
+      "role": 1102,
+      "service": 331,
+      "disabled": 0,
+      "name": "Gemeinderat Realp Pendenzen",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 514,
+    "fields": {
+      "role": 1102,
+      "service": 332,
+      "disabled": 0,
+      "name": "Gemeinderat Schattdorf Pendenzen",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 515,
+    "fields": {
+      "role": 1102,
+      "service": 333,
+      "disabled": 0,
+      "name": "Gemeinderat Seedorf Pendenzen",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 516,
+    "fields": {
+      "role": 1102,
+      "service": 334,
+      "disabled": 0,
+      "name": "Gemeinderat Seelisberg Pendenzen",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 517,
+    "fields": {
+      "role": 1102,
+      "service": 335,
+      "disabled": 0,
+      "name": "Gemeinderat Silenen Pendenzen",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 518,
+    "fields": {
+      "role": 1102,
+      "service": 336,
+      "disabled": 0,
+      "name": "Gemeinderat Sisikon Pendenzen",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 519,
+    "fields": {
+      "role": 1102,
+      "service": 337,
+      "disabled": 0,
+      "name": "Gemeinderat Spiringen Pendenzen",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 520,
+    "fields": {
+      "role": 1102,
+      "service": 338,
+      "disabled": 0,
+      "name": "Gemeinderat Unterschächen Pendenzen",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 521,
+    "fields": {
+      "role": 1102,
+      "service": 339,
+      "disabled": 0,
+      "name": "Gemeinderat Wassen Pendenzen",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 524,
+    "fields": {
+      "role": 1081,
+      "service": 340,
+      "disabled": 0,
+      "name": "Sekretariat ENHK",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 544,
+    "fields": {
+      "role": 4,
+      "service": 304,
+      "disabled": 0,
+      "name": "Baudirektion Amt für Tiefbau Abteilung Projekte - Direkt zugewiesene Pendenzen",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 564,
+    "fields": {
+      "role": 1021,
+      "service": 41,
+      "disabled": 0,
+      "name": "Baudirektion Amt für Energie - Pendenzen Baudirektion",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 565,
+    "fields": {
+      "role": 1021,
+      "service": 41,
+      "disabled": 0,
+      "name": "ASTRA - Bundesamt für Strassen - Pendenzen Baudirektion Uri",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 584,
+    "fields": {
+      "role": 4,
+      "service": 307,
+      "disabled": 0,
+      "name": "Baudirektion Amt für Betrieb Nationalstrassen -Direkt zugewiesene Pendenzen",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 604,
+    "fields": {
+      "role": 1021,
+      "service": 41,
+      "disabled": 0,
+      "name": "Baudirektion Amt für Hochbau - Pendenzen Baudirektion",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 605,
+    "fields": {
+      "role": 1021,
+      "service": 41,
+      "disabled": 0,
+      "name": "Baudirektion Betrieb Kantonsstrassen - Pendenzen Baudirektion",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 624,
+    "fields": {
+      "role": 4,
+      "service": 400,
+      "disabled": 0,
+      "name": "Fachstelle für Gebäudeschätzung",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 644,
+    "fields": {
+      "role": 1021,
+      "service": 420,
+      "disabled": 0,
+      "name": "Amt für das Grundbuch",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 664,
+    "fields": {
+      "role": 4,
+      "service": 440,
+      "disabled": 0,
+      "name": "Amt für Bevölkerungsschutz und Militär",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 684,
+    "fields": {
+      "role": 4,
+      "service": 460,
+      "disabled": 0,
+      "name": "ARE - Amt für Raumentwicklung",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 685,
+    "fields": {
+      "role": 1103,
+      "service": null,
+      "disabled": 0,
+      "name": "Portal User",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 686,
+    "fields": {
+      "role": 4,
+      "service": 461,
+      "disabled": 0,
+      "name": "BAFU - Bundesamt für Umweltschutz",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 706,
+    "fields": {
+      "role": 4,
+      "service": 462,
+      "disabled": 0,
+      "name": "ARE - Bundesamt für Raumentwicklung",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 726,
+    "fields": {
+      "role": 2,
+      "service": 481,
+      "disabled": 0,
+      "name": "Brandschutzprüfung TRA Projekte",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 746,
+    "fields": {
+      "role": 7,
+      "service": 325,
+      "disabled": 0,
+      "name": "Erstfeld Testgruppe",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 766,
+    "fields": {
+      "role": 4,
+      "service": 503,
+      "disabled": 0,
+      "name": "Finanzdirektion Direktionssekretariat",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 767,
+    "fields": {
+      "role": 4,
+      "service": 501,
+      "disabled": 0,
+      "name": "Bildungs- und Kulturdirektion Direktionssekretariat",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 786,
+    "fields": {
+      "role": 4,
+      "service": 504,
+      "disabled": 0,
+      "name": "Amt für Soziales",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 787,
+    "fields": {
+      "role": 4,
+      "service": 502,
+      "disabled": 0,
+      "name": "Fachstelle Statistik",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 806,
+    "fields": {
+      "role": 4,
+      "service": 523,
+      "disabled": 0,
+      "name": "Volkswirtschaftsdirektion Direktionssekretariat",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 807,
+    "fields": {
+      "role": 4,
+      "service": 521,
+      "disabled": 0,
+      "name": "Gesundheits-Sozial-und Umweltdirektion Direktionssekretariat",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 808,
+    "fields": {
+      "role": 4,
+      "service": 522,
+      "disabled": 0,
+      "name": "Sicherheitsdirektion Direktionssekretariat",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 809,
+    "fields": {
+      "role": 4,
+      "service": 547,
+      "disabled": 0,
+      "name": "Laboratorium der Urkantone Badewasserinspektorat",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 810,
+    "fields": {
+      "role": 1105,
+      "service": null,
+      "disabled": 0,
+      "name": "Gemeindewerke Erstfeld als Organisation mit Leserechten",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 811,
+    "fields": {
+      "role": 1105,
+      "service": null,
+      "disabled": 0,
+      "name": "Elektrizitätswerk Ursern",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 812,
+    "fields": {
+      "role": 1105,
+      "service": null,
+      "disabled": 0,
+      "name": "Elektrizitätswerk Altdorf",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 813,
+    "fields": {
+      "role": 1105,
+      "service": null,
+      "disabled": 0,
+      "name": "Kraftwerk Göschenen AG",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 814,
+    "fields": {
+      "role": 1106,
+      "service": 524,
+      "disabled": 0,
+      "name": "KOOR – AfU – Koordinationsstelle Amt für Umweltschutz",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 815,
+    "fields": {
+      "role": 1107,
+      "service": 525,
+      "disabled": 0,
+      "name": "KOOR - ALA - Koordinationsstelle Amt für Landwirtschaft",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 835,
+    "fields": {
+      "role": 1127,
+      "service": 545,
+      "disabled": 0,
+      "name": "KOOR - AfE - Koordinationsstelle Amt für Energie",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 836,
+    "fields": {
+      "role": 1128,
+      "service": 546,
+      "disabled": 0,
+      "name": "KOOR - AFJ - Koordinationsstelle Amt für Forst und Jagd",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 837,
+    "fields": {
+      "role": 1105,
+      "service": 548,
+      "disabled": 0,
+      "name": "Korporation Uri",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 838,
+    "fields": {
+      "role": 1105,
+      "service": 549,
+      "disabled": 0,
+      "name": "Korporation Ursern",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 857,
+    "fields": {
+      "role": 4,
+      "service": 567,
+      "disabled": 0,
+      "name": "Amt für Umweltschutz Abteilung Gewässerschutz Sachbearbeitung und Koordination",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 877,
+    "fields": {
+      "role": 4,
+      "service": 568,
+      "disabled": 0,
+      "name": "Amt für Umweltschutz Abteilung Immissionsschutz Sachbearbeitung und Koordination",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 878,
+    "fields": {
+      "role": 1021,
+      "service": 567,
+      "disabled": 0,
+      "name": "Amt für Umweltschutz Abteilung Gewässerschutz Sachbearbeitung",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 879,
+    "fields": {
+      "role": 1021,
+      "service": 568,
+      "disabled": 0,
+      "name": "Amt für Umweltschutz Abteilung Immissionsschutz Sachbearbeitung",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 897,
+    "fields": {
+      "role": 4,
+      "service": null,
+      "disabled": 0,
+      "name": "Korporation Ursern",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 917,
+    "fields": {
+      "role": 2,
+      "service": null,
+      "disabled": 0,
+      "name": "Test Gruppe",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 937,
+    "fields": {
+      "role": 1105,
+      "service": null,
+      "disabled": 0,
+      "name": "Pro Natura",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 957,
+    "fields": {
+      "role": 1105,
+      "service": null,
+      "disabled": 0,
+      "name": "VCS Sektion Uri",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 977,
+    "fields": {
+      "role": 6,
+      "service": 353,
+      "disabled": 0,
+      "name": "Gemeindeverwaltung Göschenen",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 997,
+    "fields": {
+      "role": 4,
+      "service": 587,
+      "disabled": 0,
+      "name": "Amt für Betrieb Nationalstrassen Baupolizei",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 1017,
+    "fields": {
+      "role": 1105,
+      "service": null,
+      "disabled": 0,
+      "name": "WWF Uri",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 1018,
+    "fields": {
+      "role": 4,
+      "service": 588,
+      "disabled": 0,
+      "name": "Amt für Umweltschutz Sachbearbeitung und Koordination Wärmenutzung",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 1019,
+    "fields": {
+      "role": 1081,
+      "service": null,
+      "disabled": 0,
+      "name": "Monitron (Prüfung von Dossiers im Zusammenhang mit Wärmenutzung)",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 1020,
+    "fields": {
+      "role": 6,
+      "service": null,
+      "disabled": 0,
+      "name": "Diverse Gemeinden",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 1021,
+    "fields": {
+      "role": 6,
+      "service": null,
+      "disabled": 0,
+      "name": "Alle Gemeinden",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 1022,
+    "fields": {
+      "role": 1129,
+      "service": 590,
+      "disabled": 0,
+      "name": "KOOR - SD - Koordinationsstelle Amt für Kantonspolizei (BVP)",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 1023,
+    "fields": {
+      "role": 4,
+      "service": 591,
+      "disabled": 0,
+      "name": "VBS Schiesswesen",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 1024,
+    "fields": {
+      "role": 1105,
+      "service": null,
+      "disabled": 0,
+      "name": "Wasserkommission Seelisberg",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 1025,
+    "fields": {
+      "role": 4,
+      "service": 592,
+      "disabled": 0,
+      "name": "Swissgrid (Koordinationstelle)",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 1026,
+    "fields": {
+      "role": 1104,
+      "service": 593,
+      "disabled": 0,
+      "name": "Gemeindewerke Erstfeld als Vernehmlassungsstelle",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 1027,
+    "fields": {
+      "role": 4,
+      "service": 594,
+      "disabled": 0,
+      "name": "Baudirektion Amt für Tiefbau (Leitung und Administration)",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 1028,
+    "fields": {
+      "role": 1130,
+      "service": 141,
+      "disabled": 0,
+      "name": "Bundesamt als verfahrensleitende Behörde",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 1029,
+    "fields": {
+      "role": 1104,
+      "service": 595,
+      "disabled": 0,
+      "name": "Wasserkommission Altdorf",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 1030,
+    "fields": {
+      "role": 4,
+      "service": 596,
+      "disabled": 0,
+      "name": "MGB (Koordinationstelle)",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 1031,
+    "fields": {
+      "role": 1104,
+      "service": 597,
+      "disabled": 0,
+      "name": "Bauabteilung Altdorf Ortsplanung",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 1032,
+    "fields": {
+      "role": 1104,
+      "service": 598,
+      "disabled": 0,
+      "name": "Bauabteilung Altdorf Tiefbau",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 1033,
+    "fields": {
+      "role": 1104,
+      "service": 599,
+      "disabled": 0,
+      "name": "Feuerwehr Altdorf",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 1034,
+    "fields": {
+      "role": 1104,
+      "service": 600,
+      "disabled": 0,
+      "name": "Bauabteilung Altdorf Liegenschaften",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 1035,
+    "fields": {
+      "role": 4,
+      "service": 601,
+      "disabled": 0,
+      "name": "Armasuisse Immobilien",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 1036,
+    "fields": {
+      "role": 4,
+      "service": 602,
+      "disabled": 0,
+      "name": "Bundesamt für Zivilluftfahrt",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 1037,
+    "fields": {
+      "role": 1081,
+      "service": 603,
+      "disabled": 0,
+      "name": "VCS Sektion Uri (Einsicht in direkt zugewiesene Einzeldossiers)",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 1038,
+    "fields": {
+      "role": 1104,
+      "service": 604,
+      "disabled": 0,
+      "name": "Swissgrid (Gemeinden)",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 1039,
+    "fields": {
+      "role": 1104,
+      "service": 605,
+      "disabled": 0,
+      "name": "MGB (Gemeinde)",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 1060,
+    "fields": {
+      "role": 1104,
+      "service": 626,
+      "disabled": 0,
+      "name": "SBB AG Immobilien (Gemeinde)",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 1061,
+    "fields": {
+      "role": 1081,
+      "service": null,
+      "disabled": 0,
+      "name": "WWF Uri (Einsicht in direkt zugewiesene Einzeldossiers)",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 1062,
+    "fields": {
+      "role": 1081,
+      "service": null,
+      "disabled": 0,
+      "name": "Pro Natura Uri (Einsicht in direkt zugewiesene Einzeldossiers)",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 1063,
+    "fields": {
+      "role": 1104,
+      "service": 629,
+      "disabled": 0,
+      "name": "Wasserversorgungskommission Spiringen",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 1064,
+    "fields": {
+      "role": 4,
+      "service": 630,
+      "disabled": 0,
+      "name": "Amt für Gesundheit",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 1065,
+    "fields": {
+      "role": 1104,
+      "service": 631,
+      "disabled": 0,
+      "name": "Wasserversorgungskommission Urnerboden",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 1066,
+    "fields": {
+      "role": 1081,
+      "service": null,
+      "disabled": 0,
+      "name": "Inventar Historische Verkehrswege IVS",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 1067,
+    "fields": {
+      "role": 4,
+      "service": 633,
+      "disabled": 0,
+      "name": "Armasuisse Wissenschaft und Technologie",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 1068,
+    "fields": {
+      "role": 4,
+      "service": 634,
+      "disabled": 0,
+      "name": "ARE - Abteilung Raumplanung - Fachstelle Agglomerationsprogramm",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 1069,
+    "fields": {
+      "role": 1081,
+      "service": 635,
+      "disabled": 0,
+      "name": "Fachstelle IKSS",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 1070,
+    "fields": {
+      "role": 1131,
+      "service": null,
+      "disabled": 0,
+      "name": "System-Betrieb",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 1,
+    "fields": {
+      "group": 22,
+      "location": 1
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 2,
+    "fields": {
+      "group": 24,
+      "location": 8
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 3,
+    "fields": {
+      "group": 24,
+      "location": 9
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 4,
+    "fields": {
+      "group": 24,
+      "location": 20
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 5,
+    "fields": {
+      "group": 62,
+      "location": 1
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 6,
+    "fields": {
+      "group": 122,
+      "location": 2
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 7,
+    "fields": {
+      "group": 122,
+      "location": 10
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 8,
+    "fields": {
+      "group": 143,
+      "location": 3
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 9,
+    "fields": {
+      "group": 144,
+      "location": 4
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 10,
+    "fields": {
+      "group": 145,
+      "location": 6
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 11,
+    "fields": {
+      "group": 146,
+      "location": 5
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 12,
+    "fields": {
+      "group": 147,
+      "location": 7
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 13,
+    "fields": {
+      "group": 147,
+      "location": 17
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 14,
+    "fields": {
+      "group": 148,
+      "location": 11
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 15,
+    "fields": {
+      "group": 149,
+      "location": 12
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 16,
+    "fields": {
+      "group": 150,
+      "location": 13
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 17,
+    "fields": {
+      "group": 151,
+      "location": 14
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 18,
+    "fields": {
+      "group": 152,
+      "location": 15
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 19,
+    "fields": {
+      "group": 153,
+      "location": 16
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 20,
+    "fields": {
+      "group": 154,
+      "location": 17
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 21,
+    "fields": {
+      "group": 155,
+      "location": 18
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 22,
+    "fields": {
+      "group": 156,
+      "location": 19
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 23,
+    "fields": {
+      "group": 183,
+      "location": 2
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 24,
+    "fields": {
+      "group": 184,
+      "location": 3
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 25,
+    "fields": {
+      "group": 185,
+      "location": 4
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 26,
+    "fields": {
+      "group": 186,
+      "location": 5
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 27,
+    "fields": {
+      "group": 187,
+      "location": 6
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 28,
+    "fields": {
+      "group": 188,
+      "location": 7
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 29,
+    "fields": {
+      "group": 189,
+      "location": 8
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 30,
+    "fields": {
+      "group": 189,
+      "location": 9
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 31,
+    "fields": {
+      "group": 189,
+      "location": 20
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 32,
+    "fields": {
+      "group": 190,
+      "location": 10
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 33,
+    "fields": {
+      "group": 191,
+      "location": 11
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 34,
+    "fields": {
+      "group": 192,
+      "location": 12
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 35,
+    "fields": {
+      "group": 193,
+      "location": 13
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 36,
+    "fields": {
+      "group": 194,
+      "location": 14
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 37,
+    "fields": {
+      "group": 195,
+      "location": 15
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 38,
+    "fields": {
+      "group": 196,
+      "location": 16
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 39,
+    "fields": {
+      "group": 197,
+      "location": 17
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 40,
+    "fields": {
+      "group": 198,
+      "location": 18
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 41,
+    "fields": {
+      "group": 199,
+      "location": 19
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 42,
+    "fields": {
+      "group": 208,
+      "location": 10
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 43,
+    "fields": {
+      "group": 183,
+      "location": 10
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 44,
+    "fields": {
+      "group": 402,
+      "location": 2
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 45,
+    "fields": {
+      "group": 382,
+      "location": 9
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 46,
+    "fields": {
+      "group": 383,
+      "location": 20
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 47,
+    "fields": {
+      "group": 402,
+      "location": 10
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 48,
+    "fields": {
+      "group": 503,
+      "location": 1
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 49,
+    "fields": {
+      "group": 505,
+      "location": 3
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 50,
+    "fields": {
+      "group": 508,
+      "location": 6
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 51,
+    "fields": {
+      "group": 507,
+      "location": 5
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 52,
+    "fields": {
+      "group": 506,
+      "location": 4
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 53,
+    "fields": {
+      "group": 509,
+      "location": 7
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 54,
+    "fields": {
+      "group": 509,
+      "location": 17
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 55,
+    "fields": {
+      "group": 510,
+      "location": 9
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 56,
+    "fields": {
+      "group": 511,
+      "location": 8
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 57,
+    "fields": {
+      "group": 511,
+      "location": 9
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 58,
+    "fields": {
+      "group": 511,
+      "location": 20
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 59,
+    "fields": {
+      "group": 512,
+      "location": 11
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 60,
+    "fields": {
+      "group": 513,
+      "location": 12
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 61,
+    "fields": {
+      "group": 514,
+      "location": 13
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 62,
+    "fields": {
+      "group": 515,
+      "location": 14
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 63,
+    "fields": {
+      "group": 516,
+      "location": 15
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 64,
+    "fields": {
+      "group": 517,
+      "location": 16
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 65,
+    "fields": {
+      "group": 518,
+      "location": 17
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 66,
+    "fields": {
+      "group": 519,
+      "location": 18
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 67,
+    "fields": {
+      "group": 520,
+      "location": 19
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 68,
+    "fields": {
+      "group": 521,
+      "location": 20
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 69,
+    "fields": {
+      "group": 504,
+      "location": 10
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 70,
+    "fields": {
+      "group": 812,
+      "location": 7
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 71,
+    "fields": {
+      "group": 813,
+      "location": 8
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 72,
+    "fields": {
+      "group": 812,
+      "location": 5
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 73,
+    "fields": {
+      "group": 812,
+      "location": 17
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 74,
+    "fields": {
+      "group": 812,
+      "location": 15
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 75,
+    "fields": {
+      "group": 812,
+      "location": 13
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 76,
+    "fields": {
+      "group": 812,
+      "location": 1
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 77,
+    "fields": {
+      "group": 812,
+      "location": 19
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 78,
+    "fields": {
+      "group": 812,
+      "location": 3
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 79,
+    "fields": {
+      "group": 812,
+      "location": 9
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 80,
+    "fields": {
+      "group": 812,
+      "location": 18
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 81,
+    "fields": {
+      "group": 811,
+      "location": 2
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 82,
+    "fields": {
+      "group": 812,
+      "location": 11
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 83,
+    "fields": {
+      "group": 812,
+      "location": 20
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 84,
+    "fields": {
+      "group": 811,
+      "location": 10
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 85,
+    "fields": {
+      "group": 812,
+      "location": 16
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 86,
+    "fields": {
+      "group": 811,
+      "location": 12
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 87,
+    "fields": {
+      "group": 812,
+      "location": 14
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 88,
+    "fields": {
+      "group": 810,
+      "location": 6
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 89,
+    "fields": {
+      "group": 812,
+      "location": 4
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 90,
+    "fields": {
+      "group": 838,
+      "location": 2
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 91,
+    "fields": {
+      "group": 838,
+      "location": 10
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 92,
+    "fields": {
+      "group": 838,
+      "location": 12
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 93,
+    "fields": {
+      "group": 837,
+      "location": 1
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 94,
+    "fields": {
+      "group": 837,
+      "location": 3
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 95,
+    "fields": {
+      "group": 837,
+      "location": 4
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 96,
+    "fields": {
+      "group": 837,
+      "location": 5
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 97,
+    "fields": {
+      "group": 837,
+      "location": 6
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 98,
+    "fields": {
+      "group": 837,
+      "location": 7
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 99,
+    "fields": {
+      "group": 837,
+      "location": 8
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 100,
+    "fields": {
+      "group": 837,
+      "location": 9
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 101,
+    "fields": {
+      "group": 837,
+      "location": 11
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 102,
+    "fields": {
+      "group": 837,
+      "location": 13
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 103,
+    "fields": {
+      "group": 837,
+      "location": 14
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 104,
+    "fields": {
+      "group": 837,
+      "location": 15
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 105,
+    "fields": {
+      "group": 837,
+      "location": 16
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 106,
+    "fields": {
+      "group": 837,
+      "location": 17
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 107,
+    "fields": {
+      "group": 837,
+      "location": 18
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 108,
+    "fields": {
+      "group": 837,
+      "location": 19
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 109,
+    "fields": {
+      "group": 837,
+      "location": 20
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 110,
+    "fields": {
+      "group": 937,
+      "location": 1
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 111,
+    "fields": {
+      "group": 937,
+      "location": 2
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 112,
+    "fields": {
+      "group": 937,
+      "location": 3
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 113,
+    "fields": {
+      "group": 937,
+      "location": 4
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 114,
+    "fields": {
+      "group": 937,
+      "location": 5
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 115,
+    "fields": {
+      "group": 937,
+      "location": 6
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 116,
+    "fields": {
+      "group": 937,
+      "location": 7
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 117,
+    "fields": {
+      "group": 937,
+      "location": 8
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 118,
+    "fields": {
+      "group": 937,
+      "location": 9
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 119,
+    "fields": {
+      "group": 937,
+      "location": 10
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 120,
+    "fields": {
+      "group": 937,
+      "location": 11
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 121,
+    "fields": {
+      "group": 937,
+      "location": 12
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 122,
+    "fields": {
+      "group": 937,
+      "location": 13
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 123,
+    "fields": {
+      "group": 937,
+      "location": 14
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 124,
+    "fields": {
+      "group": 937,
+      "location": 15
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 125,
+    "fields": {
+      "group": 937,
+      "location": 16
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 126,
+    "fields": {
+      "group": 937,
+      "location": 17
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 127,
+    "fields": {
+      "group": 937,
+      "location": 18
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 128,
+    "fields": {
+      "group": 937,
+      "location": 19
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 129,
+    "fields": {
+      "group": 937,
+      "location": 20
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 130,
+    "fields": {
+      "group": 957,
+      "location": 1
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 131,
+    "fields": {
+      "group": 957,
+      "location": 2
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 132,
+    "fields": {
+      "group": 957,
+      "location": 3
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 133,
+    "fields": {
+      "group": 957,
+      "location": 4
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 134,
+    "fields": {
+      "group": 957,
+      "location": 5
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 135,
+    "fields": {
+      "group": 957,
+      "location": 6
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 136,
+    "fields": {
+      "group": 957,
+      "location": 7
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 137,
+    "fields": {
+      "group": 957,
+      "location": 8
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 138,
+    "fields": {
+      "group": 957,
+      "location": 9
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 139,
+    "fields": {
+      "group": 957,
+      "location": 10
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 140,
+    "fields": {
+      "group": 957,
+      "location": 11
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 141,
+    "fields": {
+      "group": 957,
+      "location": 12
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 142,
+    "fields": {
+      "group": 957,
+      "location": 13
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 143,
+    "fields": {
+      "group": 957,
+      "location": 14
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 144,
+    "fields": {
+      "group": 957,
+      "location": 15
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 145,
+    "fields": {
+      "group": 957,
+      "location": 16
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 146,
+    "fields": {
+      "group": 957,
+      "location": 17
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 147,
+    "fields": {
+      "group": 957,
+      "location": 18
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 148,
+    "fields": {
+      "group": 957,
+      "location": 19
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 149,
+    "fields": {
+      "group": 957,
+      "location": 20
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 150,
+    "fields": {
+      "group": 977,
+      "location": 8
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 151,
+    "fields": {
+      "group": 1017,
+      "location": 1
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 152,
+    "fields": {
+      "group": 1017,
+      "location": 2
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 153,
+    "fields": {
+      "group": 1017,
+      "location": 3
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 154,
+    "fields": {
+      "group": 1017,
+      "location": 4
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 155,
+    "fields": {
+      "group": 1017,
+      "location": 5
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 156,
+    "fields": {
+      "group": 1017,
+      "location": 6
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 157,
+    "fields": {
+      "group": 1017,
+      "location": 7
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 158,
+    "fields": {
+      "group": 1017,
+      "location": 8
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 159,
+    "fields": {
+      "group": 1017,
+      "location": 9
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 160,
+    "fields": {
+      "group": 1017,
+      "location": 10
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 161,
+    "fields": {
+      "group": 1017,
+      "location": 11
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 162,
+    "fields": {
+      "group": 1017,
+      "location": 12
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 163,
+    "fields": {
+      "group": 1017,
+      "location": 13
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 164,
+    "fields": {
+      "group": 1017,
+      "location": 14
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 165,
+    "fields": {
+      "group": 1017,
+      "location": 15
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 166,
+    "fields": {
+      "group": 1017,
+      "location": 16
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 167,
+    "fields": {
+      "group": 1017,
+      "location": 17
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 168,
+    "fields": {
+      "group": 1017,
+      "location": 18
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 169,
+    "fields": {
+      "group": 1017,
+      "location": 19
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 170,
+    "fields": {
+      "group": 1017,
+      "location": 20
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 171,
+    "fields": {
+      "group": 1020,
+      "location": 21
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 172,
+    "fields": {
+      "group": 1021,
+      "location": 22
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 173,
+    "fields": {
+      "group": 1024,
+      "location": 15
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 177,
+    "fields": {
+      "group": 812,
+      "location": 2
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 178,
+    "fields": {
+      "group": 812,
+      "location": 6
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 179,
+    "fields": {
+      "group": 812,
+      "location": 8
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 180,
+    "fields": {
+      "group": 1026,
+      "location": 6
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 181,
+    "fields": {
+      "group": 1029,
+      "location": 1
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 182,
+    "fields": {
+      "group": 1030,
+      "location": 2
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 183,
+    "fields": {
+      "group": 1030,
+      "location": 8
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 184,
+    "fields": {
+      "group": 1030,
+      "location": 10
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 185,
+    "fields": {
+      "group": 1030,
+      "location": 12
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 186,
+    "fields": {
+      "group": 1031,
+      "location": 1
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 187,
+    "fields": {
+      "group": 1032,
+      "location": 1
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 188,
+    "fields": {
+      "group": 1033,
+      "location": 1
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 189,
+    "fields": {
+      "group": 1034,
+      "location": 1
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 211,
+    "fields": {
+      "group": 1063,
+      "location": 18
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 212,
+    "fields": {
+      "group": 1065,
+      "location": 18
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 213,
+    "fields": {
+      "group": 151,
+      "location": 4
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "group": 1,
+      "default_group": 1
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 2,
+    "fields": {
+      "user": 2,
+      "group": 2,
+      "default_group": 1
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 3,
+    "fields": {
+      "user": 1209,
+      "group": 685,
+      "default_group": 685
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 4,
+    "fields": {
+      "user": 1,
+      "group": 22,
+      "default_group": 0
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 5,
+    "fields": {
+      "user": 1,
+      "group": 142,
+      "default_group": 0
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 6,
+    "fields": {
+      "user": 1210,
+      "group": 1070,
+      "default_group": 1
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 7,
+    "fields": {
+      "user": 1,
+      "group": 1070,
+      "default_group": 0
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 8,
+    "fields": {
+      "user": 1,
+      "group": 1033,
+      "default_group": 0
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 9,
+    "fields": {
+      "user": 1,
+      "group": 1028,
+      "default_group": 0
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 10,
+    "fields": {
+      "user": 1,
+      "group": 502,
+      "default_group": 0
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 11,
+    "fields": {
+      "user": 1,
+      "group": 283,
+      "default_group": 0
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 12,
+    "fields": {
+      "user": 1211,
+      "group": 685,
+      "default_group": 1
+    }
+  },
+  {
+    "model": "user.usergrouplog",
+    "pk": 1,
+    "fields": {
+      "modification_date": "2020-07-14T11:48:58Z",
+      "user_id": 1,
+      "action": "i",
+      "data": "{\"USER_ID\":1210,\"GROUP_ID\":\"1070\",\"DEFAULT_GROUP\":0}",
+      "id1": 1210,
+      "field1": "USER_ID",
+      "id2": 1070,
+      "field2": "GROUP_ID"
+    }
+  },
+  {
+    "model": "user.usergrouplog",
+    "pk": 2,
+    "fields": {
+      "modification_date": "2020-07-14T11:49:07Z",
+      "user_id": 1,
+      "action": "u",
+      "data": "{\"DEFAULT_GROUP\":1}",
+      "id1": 1210,
+      "field1": "USER_ID",
+      "id2": 1070,
+      "field2": "GROUP_ID"
+    }
+  },
+  {
+    "model": "user.usergrouplog",
+    "pk": 3,
+    "fields": {
+      "modification_date": "2020-07-20T10:21:17Z",
+      "user_id": 1,
+      "action": "i",
+      "data": "{\"USER_ID\":1,\"GROUP_ID\":\"1070\",\"DEFAULT_GROUP\":0}",
+      "id1": 1,
+      "field1": "USER_ID",
+      "id2": 1070,
+      "field2": "GROUP_ID"
+    }
+  },
+  {
+    "model": "user.usergrouplog",
+    "pk": 4,
+    "fields": {
+      "modification_date": "2020-10-19T08:22:57Z",
+      "user_id": 1,
+      "action": "i",
+      "data": "{\"USER_ID\":1,\"GROUP_ID\":\"1033\",\"DEFAULT_GROUP\":0}",
+      "id1": 1,
+      "field1": "USER_ID",
+      "id2": 1033,
+      "field2": "GROUP_ID"
+    }
+  },
+  {
+    "model": "user.usergrouplog",
+    "pk": 5,
+    "fields": {
+      "modification_date": "2020-10-19T08:22:57Z",
+      "user_id": 1,
+      "action": "i",
+      "data": "{\"USER_ID\":1,\"GROUP_ID\":\"1028\",\"DEFAULT_GROUP\":0}",
+      "id1": 1,
+      "field1": "USER_ID",
+      "id2": 1028,
+      "field2": "GROUP_ID"
+    }
+  },
+  {
+    "model": "user.usergrouplog",
+    "pk": 6,
+    "fields": {
+      "modification_date": "2020-10-19T08:22:57Z",
+      "user_id": 1,
+      "action": "i",
+      "data": "{\"USER_ID\":1,\"GROUP_ID\":\"502\",\"DEFAULT_GROUP\":0}",
+      "id1": 1,
+      "field1": "USER_ID",
+      "id2": 502,
+      "field2": "GROUP_ID"
+    }
+  },
+  {
+    "model": "user.usergrouplog",
+    "pk": 7,
+    "fields": {
+      "modification_date": "2020-10-19T08:22:57Z",
+      "user_id": 1,
+      "action": "i",
+      "data": "{\"USER_ID\":1,\"GROUP_ID\":\"283\",\"DEFAULT_GROUP\":0}",
+      "id1": 1,
+      "field1": "USER_ID",
+      "id2": 283,
+      "field2": "GROUP_ID"
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 1,
+    "fields": {
+      "service_group": 1,
+      "service_parent": null,
+      "name": "ARE KOOR BG",
+      "description": "Kantonale Koordinationsstelle für Baueingaben",
+      "sort": 124,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 2,
+    "fields": {
+      "service_group": 63,
+      "service_parent": null,
+      "name": "AFJ",
+      "description": "Amt für Forst und Jagd und Abteilung Naturgefahren",
+      "sort": 50,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 3,
+    "fields": {
+      "service_group": 64,
+      "service_parent": null,
+      "name": "AfAM",
+      "description": "Amt für Arbeit und Migration",
+      "sort": 126,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 21,
+    "fields": {
+      "service_group": 62,
+      "service_parent": null,
+      "name": "AfU",
+      "description": "Gewässerschutz und Immissionsschutz",
+      "sort": 128,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 41,
+    "fields": {
+      "service_group": 2,
+      "service_parent": null,
+      "name": "BD DS",
+      "description": "Baudirektion Uri Direktionssekretariat",
+      "sort": 48,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 61,
+    "fields": {
+      "service_group": 63,
+      "service_parent": null,
+      "name": "ABM ZS",
+      "description": "Amt für Bevölkerungsschutz und Militär Abteilung Zivilschutz",
+      "sort": 88,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 81,
+    "fields": {
+      "service_group": 63,
+      "service_parent": null,
+      "name": "ABM BS",
+      "description": "Amt für Bevölkerungsschutz und Militär Fachstelle Brandschutz",
+      "sort": 87,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 82,
+    "fields": {
+      "service_group": 21,
+      "service_parent": null,
+      "name": "Procap",
+      "description": "Procap Behindertengerechtes Bauen",
+      "sort": 21,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 83,
+    "fields": {
+      "service_group": 21,
+      "service_parent": null,
+      "name": "AWU",
+      "description": "Abwasser Uri",
+      "sort": 26,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 84,
+    "fields": {
+      "service_group": 21,
+      "service_parent": null,
+      "name": "LABT (Trinkwasserinspektorat, ausser Betrieb Umstrukturierung LAB)",
+      "description": "Laboratorium der Urkantone Trinkwasserinspektorat",
+      "sort": 29,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 85,
+    "fields": {
+      "service_group": 21,
+      "service_parent": null,
+      "name": "LABL (Lebensmittelinspektorat)",
+      "description": "Laboratorium der Urkantone Lebensmittelinspektorat",
+      "sort": 30,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 86,
+    "fields": {
+      "service_group": 21,
+      "service_parent": null,
+      "name": "LABV (Veterinärdienst der Urkantone)",
+      "description": "Laboratorium der Urkantone Veterinäramt",
+      "sort": 35,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 87,
+    "fields": {
+      "service_group": 1,
+      "service_parent": null,
+      "name": "ARE KOOR NP",
+      "description": "Koordinationsstelle Nutzungplanung",
+      "sort": 173,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 88,
+    "fields": {
+      "service_group": 61,
+      "service_parent": null,
+      "name": "ARE BaB Kreis 1",
+      "description": "Amt für Raumentwicklung Fachstelle Bauten und Anlagen ausserhalb der Bauzone Kreis 1",
+      "sort": 65,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 89,
+    "fields": {
+      "service_group": 61,
+      "service_parent": null,
+      "name": "TRA",
+      "description": "Fachstelle Tourismusressort Andermatt",
+      "sort": 75,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 90,
+    "fields": {
+      "service_group": 61,
+      "service_parent": null,
+      "name": "ARE NP",
+      "description": "Amt für Raumentwicklung Abteilung Nutzungsplanung",
+      "sort": 69,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 91,
+    "fields": {
+      "service_group": 61,
+      "service_parent": null,
+      "name": "ARE ARCH",
+      "description": "ARE - Abteilung Denkmalpflege und Archäologie - Fachstelle Archäologie",
+      "sort": 76,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 92,
+    "fields": {
+      "service_group": 66,
+      "service_parent": null,
+      "name": "Amt für Steuern",
+      "description": "Amt für Steuern",
+      "sort": 61,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 93,
+    "fields": {
+      "service_group": 63,
+      "service_parent": null,
+      "name": "AfKP",
+      "description": "Amt für Kantonspolizei",
+      "sort": 93,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 94,
+    "fields": {
+      "service_group": 65,
+      "service_parent": null,
+      "name": "AfKS",
+      "description": "Amt für Kultur und Sport",
+      "sort": 58,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 95,
+    "fields": {
+      "service_group": 64,
+      "service_parent": null,
+      "name": "AfWoeV",
+      "description": "Amt für Wirtschaft und öffentlichen Verkehr",
+      "sort": 172,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 96,
+    "fields": {
+      "service_group": 64,
+      "service_parent": null,
+      "name": "ALA",
+      "description": "Amt für Landwirtschaft",
+      "sort": 174,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 97,
+    "fields": {
+      "service_group": 21,
+      "service_parent": null,
+      "name": "Alpiq",
+      "description": "Alpiq Hochspannungsleitung",
+      "sort": 40,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 98,
+    "fields": {
+      "service_group": 61,
+      "service_parent": null,
+      "name": "ARE NL",
+      "description": "ARE - Abteilung Natur und Landschaft",
+      "sort": 78,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 99,
+    "fields": {
+      "service_group": 61,
+      "service_parent": null,
+      "name": "ARE SU",
+      "description": "Amt für Raumentwicklung Fachbereich Seeufer innerhalb Bauzone",
+      "sort": 70,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 100,
+    "fields": {
+      "service_group": 61,
+      "service_parent": null,
+      "name": "ARE WBF",
+      "description": "Amt für Raumentwicklung Wanderweg- und Bikefachstelle",
+      "sort": 74,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 101,
+    "fields": {
+      "service_group": 63,
+      "service_parent": null,
+      "name": "ASSV",
+      "description": "Amt für Strassen- und Schiffsverkehr",
+      "sort": 92,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 102,
+    "fields": {
+      "service_group": 1,
+      "service_parent": null,
+      "name": "Test",
+      "description": "Test",
+      "sort": 183,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 103,
+    "fields": {
+      "service_group": 71,
+      "service_parent": null,
+      "name": "SBB AG (Pendenz von Koordinationstelle)",
+      "description": "SBB AG (Koordinationstelle)",
+      "sort": 17,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 104,
+    "fields": {
+      "service_group": 61,
+      "service_parent": null,
+      "name": "BeDi",
+      "description": "Justizdirektion Beschwerdedienst",
+      "sort": 84,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 105,
+    "fields": {
+      "service_group": 61,
+      "service_parent": null,
+      "name": "ReDi",
+      "description": "Justizdirektion Rechtsdienst",
+      "sort": 83,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 106,
+    "fields": {
+      "service_group": 61,
+      "service_parent": null,
+      "name": "JD DS",
+      "description": "Justizdirektion Direktionssekretariat",
+      "sort": 52,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 107,
+    "fields": {
+      "service_group": 61,
+      "service_parent": null,
+      "name": "ARE BG",
+      "description": "Mitbericht Fachstelle Koordination (proforma Zirkulation)",
+      "sort": 82,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 108,
+    "fields": {
+      "service_group": 74,
+      "service_parent": null,
+      "name": "LSSV (Landschaftsschutzverband Vierwaldstättersee)",
+      "description": "Landschaftsschutzverband Vierwaldstättersee",
+      "sort": 3,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 121,
+    "fields": {
+      "service_group": 1,
+      "service_parent": null,
+      "name": "TEST KOORNP",
+      "description": "Mitbericht Fachstelle Nutzungsplanung (proforma Zirkulation)",
+      "sort": 182,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 141,
+    "fields": {
+      "service_group": 70,
+      "service_parent": null,
+      "name": "BAV",
+      "description": "Bundesamt für Verkehr",
+      "sort": 18,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 161,
+    "fields": {
+      "service_group": 21,
+      "service_parent": null,
+      "name": "ZAKU",
+      "description": "Zentralverband Abfallbewirtschaftung Kanton Uri",
+      "sort": 16,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 181,
+    "fields": {
+      "service_group": 21,
+      "service_parent": null,
+      "name": "AGO (Geometer)",
+      "description": "Geometer Vermessung",
+      "sort": 19,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 201,
+    "fields": {
+      "service_group": 21,
+      "service_parent": null,
+      "name": "Lisag",
+      "description": "LIS Uri Geoinformation",
+      "sort": 13,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 221,
+    "fields": {
+      "service_group": 21,
+      "service_parent": null,
+      "name": "ZUBI",
+      "description": "Zentralschweizer Umweltbauinspektorat",
+      "sort": 15,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 241,
+    "fields": {
+      "service_group": 61,
+      "service_parent": null,
+      "name": "ARE DMP",
+      "description": "ARE - Abteilung Denkmalpflege und Archäologie - Fachstelle Denkmalpflege",
+      "sort": 81,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 261,
+    "fields": {
+      "service_group": 61,
+      "service_parent": null,
+      "name": "ARE BaB Kreis 2",
+      "description": "Amt für Raumentwicklung Fachstelle Bauten ausserhalb der Bauzone Kreis 2",
+      "sort": 67,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 262,
+    "fields": {
+      "service_group": 61,
+      "service_parent": null,
+      "name": "ARE BaB Kreis 3",
+      "description": "Amt für Raumentwicklung Fachstelle Bauten und Anlagen ausserhalb der Bauzone Kreis 3",
+      "sort": 68,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 281,
+    "fields": {
+      "service_group": 41,
+      "service_parent": null,
+      "name": "Gemeinderat Andermatt Pendenzen",
+      "description": "Gemeinderat Andermatt Pendenzen",
+      "sort": 134,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 301,
+    "fields": {
+      "service_group": 41,
+      "service_parent": null,
+      "name": "Gemeinderat Altdorf Pendenzen",
+      "description": "Gemeinderat Altdorf Pendenzen",
+      "sort": 122,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 302,
+    "fields": {
+      "service_group": 1,
+      "service_parent": null,
+      "name": "KOOR BD",
+      "description": "Koordinationsstelle für Bewilligungsverfahren der Baudirektion",
+      "sort": 176,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 303,
+    "fields": {
+      "service_group": 2,
+      "service_parent": null,
+      "name": "AfT Abteilung Infrastruktur",
+      "description": "Baudirektion Amt für Tiefbau Abteilung Infrastruktur",
+      "sort": 51,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 304,
+    "fields": {
+      "service_group": 2,
+      "service_parent": null,
+      "name": "AfT Abteilung Projekte",
+      "description": "Baudirektion Amt für Tiefbau Abteilung Projekte",
+      "sort": 54,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 305,
+    "fields": {
+      "service_group": 2,
+      "service_parent": null,
+      "name": "BK",
+      "description": "Baudirektion Betrieb Kantonsstrassen",
+      "sort": 55,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 306,
+    "fields": {
+      "service_group": 2,
+      "service_parent": null,
+      "name": "AfE",
+      "description": "Baudirektion Amt für Energie",
+      "sort": 57,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 307,
+    "fields": {
+      "service_group": 2,
+      "service_parent": null,
+      "name": "AfBN",
+      "description": "Baudirektion Amt für Betrieb Nationalstrassen",
+      "sort": 59,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 308,
+    "fields": {
+      "service_group": 2,
+      "service_parent": null,
+      "name": "AfH",
+      "description": "Baudirektion Amt für Hochbau",
+      "sort": 63,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 309,
+    "fields": {
+      "service_group": 70,
+      "service_parent": null,
+      "name": "ASTRA",
+      "description": "Bundesamt für Strassen",
+      "sort": 1,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 310,
+    "fields": {
+      "service_group": 63,
+      "service_parent": null,
+      "name": "BVP",
+      "description": "Bereitschafts- und Verkehrspolizei",
+      "sort": 73,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 321,
+    "fields": {
+      "service_group": 64,
+      "service_parent": null,
+      "name": "BGBB",
+      "description": "Bundesgesetz über das bäuerliche Bodenrecht",
+      "sort": 175,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 322,
+    "fields": {
+      "service_group": 41,
+      "service_parent": null,
+      "name": "Gemeinderat Attinghausen Pendenzen",
+      "description": "Gemeinderat Attinghausen Pendenzen",
+      "sort": 136,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 323,
+    "fields": {
+      "service_group": 41,
+      "service_parent": null,
+      "name": "Gemeinderat Bauen Pendenzen",
+      "description": "Gemeinderat Bauen Pendenzen",
+      "sort": 139,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 324,
+    "fields": {
+      "service_group": 41,
+      "service_parent": null,
+      "name": "Gemeinderat Bürglen Pendenzen",
+      "description": "Gemeinderat Bürglen Pendenzen",
+      "sort": 140,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 325,
+    "fields": {
+      "service_group": 41,
+      "service_parent": null,
+      "name": "Gemeinderat Erstfeld Pendenzen",
+      "description": "Gemeinderat Erstfeld Pendenzen",
+      "sort": 143,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 326,
+    "fields": {
+      "service_group": 41,
+      "service_parent": null,
+      "name": "Gemeinderat Flüelen Pendenzen",
+      "description": "Gemeinderat Flüelen Pendenzen",
+      "sort": 145,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 327,
+    "fields": {
+      "service_group": 41,
+      "service_parent": null,
+      "name": "Gemeinderat Göschenen Pendenzen",
+      "description": "Gemeinderat Göschenen Pendenzen",
+      "sort": 146,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 328,
+    "fields": {
+      "service_group": 41,
+      "service_parent": null,
+      "name": "Gemeinderat Gurtnellen Pendenzen",
+      "description": "Gemeinderat Gurtnellen Pendenzen",
+      "sort": 148,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 329,
+    "fields": {
+      "service_group": 41,
+      "service_parent": null,
+      "name": "Gemeinderat Hospental Pendenzen",
+      "description": "Gemeinderat Hospental Pendenzen",
+      "sort": 151,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 330,
+    "fields": {
+      "service_group": 41,
+      "service_parent": null,
+      "name": "Gemeinderat Isenthal Pendenzen",
+      "description": "Gemeinderat Isenthal Pendenzen",
+      "sort": 152,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 331,
+    "fields": {
+      "service_group": 41,
+      "service_parent": null,
+      "name": "Gemeinderat Realp Pendenzen",
+      "description": "Gemeinderat Realp Pendenzen",
+      "sort": 154,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 332,
+    "fields": {
+      "service_group": 41,
+      "service_parent": null,
+      "name": "Gemeinderat Schattdorf Pendenzen",
+      "description": "Gemeinderat Schattdorf Pendenzen",
+      "sort": 157,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 333,
+    "fields": {
+      "service_group": 41,
+      "service_parent": null,
+      "name": "Gemeinderat Seedorf Pendenzen",
+      "description": "Gemeinderat Seedorf Pendenzen",
+      "sort": 158,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 334,
+    "fields": {
+      "service_group": 41,
+      "service_parent": null,
+      "name": "Gemeinderat Seelisberg Pendenzen",
+      "description": "Gemeinderat Seelisberg Pendenzen",
+      "sort": 161,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 335,
+    "fields": {
+      "service_group": 41,
+      "service_parent": null,
+      "name": "Gemeinderat Silenen Pendenzen",
+      "description": "Gemeinderat Silenen Pendenzen",
+      "sort": 163,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 336,
+    "fields": {
+      "service_group": 41,
+      "service_parent": null,
+      "name": "Gemeinderat Sisikon Pendenzen",
+      "description": "Gemeinderat Sisikon Pendenzen",
+      "sort": 165,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 337,
+    "fields": {
+      "service_group": 41,
+      "service_parent": null,
+      "name": "Gemeinderat Spiringen Pendenzen",
+      "description": "Gemeinderat Spiringen Pendenzen",
+      "sort": 166,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 338,
+    "fields": {
+      "service_group": 41,
+      "service_parent": null,
+      "name": "Gemeinderat Unterschächen Pendenzen",
+      "description": "Gemeinderat Unterschächen Pendenzen",
+      "sort": 169,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 339,
+    "fields": {
+      "service_group": 41,
+      "service_parent": null,
+      "name": "Gemeinderat Wassen Pendenzen",
+      "description": "Gemeinderat Wassen Pendenzen",
+      "sort": 170,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 340,
+    "fields": {
+      "service_group": 21,
+      "service_parent": null,
+      "name": "ENHK (bitte keine direkte Zirkulation starten Dossierzuweisung nur via Fachstelle)",
+      "description": "Eidgenössische Natur und Heimatschutzkommission",
+      "sort": 7,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 341,
+    "fields": {
+      "service_group": 21,
+      "service_parent": null,
+      "name": "NHSK (bitte keine direkte Zirkulation starten Dossierzuweisung nur via Fachstelle)",
+      "description": "Kantonale Natur und Heimatschutzkommission",
+      "sort": 5,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 342,
+    "fields": {
+      "service_group": 67,
+      "service_parent": null,
+      "name": "Mitglieder BK Altdorf",
+      "description": "Mitglieder BK Altdorf",
+      "sort": 66,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 343,
+    "fields": {
+      "service_group": 67,
+      "service_parent": null,
+      "name": "Mitglieder BK Urner Oberland",
+      "description": "Mitglieder BK Urner Oberland",
+      "sort": 96,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 344,
+    "fields": {
+      "service_group": 67,
+      "service_parent": null,
+      "name": "Mitglieder BK Andermatt",
+      "description": "Mitglieder BK Andermatt",
+      "sort": 72,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 345,
+    "fields": {
+      "service_group": 67,
+      "service_parent": null,
+      "name": "Miktglieder BK Attinghausen",
+      "description": "Mitglieder BK Attinghausen",
+      "sort": 80,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 346,
+    "fields": {
+      "service_group": 68,
+      "service_parent": null,
+      "name": "GBB Altdorf",
+      "description": "GBB Altdorf",
+      "sort": 79,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 347,
+    "fields": {
+      "service_group": 68,
+      "service_parent": null,
+      "name": "GBB Andermatt",
+      "description": "GBB Andermatt",
+      "sort": 89,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 348,
+    "fields": {
+      "service_group": 68,
+      "service_parent": null,
+      "name": "GBB Attinghausen",
+      "description": "GBB Attinghausen",
+      "sort": 95,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 349,
+    "fields": {
+      "service_group": 68,
+      "service_parent": null,
+      "name": "GBB Bauen",
+      "description": "GBB Bauen",
+      "sort": 98,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 350,
+    "fields": {
+      "service_group": 68,
+      "service_parent": null,
+      "name": "GBB Bürglen",
+      "description": "GBB Bürglen",
+      "sort": 106,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 351,
+    "fields": {
+      "service_group": 68,
+      "service_parent": null,
+      "name": "GBB Erstfeld",
+      "description": "GBB Erstfeld",
+      "sort": 107,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 352,
+    "fields": {
+      "service_group": 68,
+      "service_parent": null,
+      "name": "GBB Flüelen",
+      "description": "GBB Flüelen",
+      "sort": 110,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 353,
+    "fields": {
+      "service_group": 68,
+      "service_parent": null,
+      "name": "GBB Urner Oberland",
+      "description": "GBB Urner Oberland",
+      "sort": 111,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 354,
+    "fields": {
+      "service_group": 68,
+      "service_parent": null,
+      "name": "GBB Hospental",
+      "description": "GBB Hospental",
+      "sort": 112,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 355,
+    "fields": {
+      "service_group": 68,
+      "service_parent": null,
+      "name": "GBB Isenthal",
+      "description": "GBB Isenthal",
+      "sort": 113,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 356,
+    "fields": {
+      "service_group": 68,
+      "service_parent": null,
+      "name": "GBB Realp",
+      "description": "GBB Realp",
+      "sort": 114,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 357,
+    "fields": {
+      "service_group": 68,
+      "service_parent": null,
+      "name": "GBB Schattdorf",
+      "description": "GBB Schattdorf",
+      "sort": 115,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 358,
+    "fields": {
+      "service_group": 68,
+      "service_parent": null,
+      "name": "GBB Seedorf",
+      "description": "GBB Seedorf",
+      "sort": 116,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 359,
+    "fields": {
+      "service_group": 68,
+      "service_parent": null,
+      "name": "GBB Seelisberg",
+      "description": "GBB Seelisberg",
+      "sort": 117,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 360,
+    "fields": {
+      "service_group": 68,
+      "service_parent": null,
+      "name": "GBB Silenen",
+      "description": "GBB Silenen",
+      "sort": 118,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 361,
+    "fields": {
+      "service_group": 68,
+      "service_parent": null,
+      "name": "GBB Sisikon",
+      "description": "GBB Sisikon",
+      "sort": 119,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 362,
+    "fields": {
+      "service_group": 68,
+      "service_parent": null,
+      "name": "GBB Spiringen",
+      "description": "GBB Spiringen",
+      "sort": 120,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 363,
+    "fields": {
+      "service_group": 68,
+      "service_parent": null,
+      "name": "GBB Unterschächen",
+      "description": "GBB Unterschächen",
+      "sort": 121,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 364,
+    "fields": {
+      "service_group": 67,
+      "service_parent": null,
+      "name": "Mitglieder BK Erstfeld",
+      "description": "Mitglieder BK Erstfeld",
+      "sort": 91,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 365,
+    "fields": {
+      "service_group": 67,
+      "service_parent": null,
+      "name": "Mitglieder BK Schattdorf",
+      "description": "Mitglieder BK Schattdorf",
+      "sort": 101,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 366,
+    "fields": {
+      "service_group": 21,
+      "service_parent": null,
+      "name": "Qualinova (Dossierzuweisung nur via Fachstelle, Rubrik Dossier freischalten)",
+      "description": "Qualinova",
+      "sort": 2,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 367,
+    "fields": {
+      "service_group": 67,
+      "service_parent": null,
+      "name": "Mitglieder BK Bauen",
+      "description": "Mitglieder BK Bauen",
+      "sort": 85,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 368,
+    "fields": {
+      "service_group": 67,
+      "service_parent": null,
+      "name": "Mitglieder BK Bürglen",
+      "description": "Mitglieder BK Bürglen",
+      "sort": 90,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 369,
+    "fields": {
+      "service_group": 67,
+      "service_parent": null,
+      "name": "Mitglieder BK Flüelen",
+      "description": "Mitglieder BK Flüelen",
+      "sort": 94,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 370,
+    "fields": {
+      "service_group": 67,
+      "service_parent": null,
+      "name": "Mitglieder BK Seedorf",
+      "description": "Mitglieder BK Seedorf",
+      "sort": 102,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 371,
+    "fields": {
+      "service_group": 67,
+      "service_parent": null,
+      "name": "Mitglieder BK Seelisberg",
+      "description": "Mitglieder BK Seelisberg",
+      "sort": 103,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 372,
+    "fields": {
+      "service_group": 67,
+      "service_parent": null,
+      "name": "Mitglieder BK Silenen",
+      "description": "Mitglieder BK Silenen",
+      "sort": 104,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 380,
+    "fields": {
+      "service_group": 67,
+      "service_parent": null,
+      "name": "Mitglieder BK Sisikon",
+      "description": "Mitglieder BK Sisikon",
+      "sort": 105,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 381,
+    "fields": {
+      "service_group": 67,
+      "service_parent": null,
+      "name": "Mitglieder BK Realp",
+      "description": "Mitglieder BK Realp",
+      "sort": 100,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 382,
+    "fields": {
+      "service_group": 67,
+      "service_parent": null,
+      "name": "Mitglieder BK Hospental",
+      "description": "Mitglieder BK Hospental",
+      "sort": 97,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 383,
+    "fields": {
+      "service_group": 67,
+      "service_parent": null,
+      "name": "Mitglieder BK Isenthal",
+      "description": "Mitglieder BK Isenthal",
+      "sort": 99,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 384,
+    "fields": {
+      "service_group": 67,
+      "service_parent": null,
+      "name": "Mitglieder BK Spiringen",
+      "description": "Mitglieder BK Spiringen",
+      "sort": 108,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 385,
+    "fields": {
+      "service_group": 67,
+      "service_parent": null,
+      "name": "Mitglieder BK Unterschächen",
+      "description": "Mitglieder BK Unterschächen",
+      "sort": 109,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 400,
+    "fields": {
+      "service_group": 21,
+      "service_parent": null,
+      "name": "FGS",
+      "description": "Fachstelle für Gebäudeschätzung",
+      "sort": 0,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 420,
+    "fields": {
+      "service_group": 61,
+      "service_parent": null,
+      "name": "AfdG",
+      "description": "Amt für das Grundbuch",
+      "sort": 86,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 440,
+    "fields": {
+      "service_group": 63,
+      "service_parent": null,
+      "name": "ABM",
+      "description": "Amt für Bevölkerungsschutz und Militär",
+      "sort": 77,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 460,
+    "fields": {
+      "service_group": 61,
+      "service_parent": null,
+      "name": "ARE",
+      "description": "Amt für Raumentwicklung",
+      "sort": 62,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 461,
+    "fields": {
+      "service_group": 70,
+      "service_parent": null,
+      "name": "BAFU (Service noch nicht in Betrieb)",
+      "description": "Bundesamt für Umweltschutz",
+      "sort": 41,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 462,
+    "fields": {
+      "service_group": 70,
+      "service_parent": null,
+      "name": "ARE Bern (Service noch nicht in Betrieb)",
+      "description": "Bundesamt für Raumentwicklung",
+      "sort": 45,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 481,
+    "fields": {
+      "service_group": 21,
+      "service_parent": null,
+      "name": "Brandschutz TRA Andermatt",
+      "description": "Brandschutzprüfung zugewiesener Projekte",
+      "sort": 10,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 501,
+    "fields": {
+      "service_group": 65,
+      "service_parent": null,
+      "name": "BKD DS",
+      "description": "Bildungs- und Kulturdirektion Direktionssekretariat",
+      "sort": 53,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 502,
+    "fields": {
+      "service_group": 66,
+      "service_parent": null,
+      "name": "Fachstelle Statistik",
+      "description": "Fachstelle Statistik",
+      "sort": 64,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 503,
+    "fields": {
+      "service_group": 66,
+      "service_parent": null,
+      "name": "FD DS",
+      "description": "Finanzdirektion Direktionssekretariat",
+      "sort": 56,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 504,
+    "fields": {
+      "service_group": 62,
+      "service_parent": null,
+      "name": "Amt für Soziales",
+      "description": "Amt für Soziales",
+      "sort": 132,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 521,
+    "fields": {
+      "service_group": 62,
+      "service_parent": null,
+      "name": "GSUD DS",
+      "description": "Gesundheits- Sozial- und Umweltdirektion Direktionssekretariat",
+      "sort": 127,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 522,
+    "fields": {
+      "service_group": 63,
+      "service_parent": null,
+      "name": "SID DS",
+      "description": "Sicherheitsdirektion Direktionssekretariat",
+      "sort": 33,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 523,
+    "fields": {
+      "service_group": 64,
+      "service_parent": null,
+      "name": "VD DS",
+      "description": "Volkswirtschaftsdirektion Direktionssekretariat",
+      "sort": 125,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 524,
+    "fields": {
+      "service_group": 1,
+      "service_parent": null,
+      "name": "KOOR AfU",
+      "description": "Kantonale Koordinationsstelle Amt für Umweltschutz",
+      "sort": 177,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 525,
+    "fields": {
+      "service_group": 1,
+      "service_parent": null,
+      "name": "KOOR ALA",
+      "description": "Kantonale Koordinationsstelle für Landwirtschaft",
+      "sort": 178,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 545,
+    "fields": {
+      "service_group": 1,
+      "service_parent": null,
+      "name": "KOOR AfE",
+      "description": "Kantonale Koordinationsstelle für Energie",
+      "sort": 179,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 546,
+    "fields": {
+      "service_group": 1,
+      "service_parent": null,
+      "name": "KOOR AFJ",
+      "description": "Kantonale Koordinationsstelle für Forst und Jagd",
+      "sort": 180,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 547,
+    "fields": {
+      "service_group": 21,
+      "service_parent": null,
+      "name": "LABB (Badewasserinspektorat)",
+      "description": "Badewasserinspektor",
+      "sort": 32,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 548,
+    "fields": {
+      "service_group": 21,
+      "service_parent": null,
+      "name": "Korporation Uri (Service noch nicht in Betrieb)",
+      "description": "Korporation Uri Kanzlei",
+      "sort": 23,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 549,
+    "fields": {
+      "service_group": 21,
+      "service_parent": null,
+      "name": "Korporation Ursern (Service noch nicht in Betrieb)",
+      "description": "Korporation Ursern Kanzlei",
+      "sort": 25,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 567,
+    "fields": {
+      "service_group": 62,
+      "service_parent": null,
+      "name": "AfU GS",
+      "description": "Amt für Umweltschutz Abteilung Gewässerschutz",
+      "sort": 129,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 568,
+    "fields": {
+      "service_group": 62,
+      "service_parent": null,
+      "name": "AfU IS",
+      "description": "Amt für Umweltschutz Abteilung Immissionsschutz",
+      "sort": 131,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 587,
+    "fields": {
+      "service_group": 2,
+      "service_parent": null,
+      "name": "AfBN Baupolizei",
+      "description": "Amt für Betrieb Nationalstrassen Bereich Baupolizei",
+      "sort": 60,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 588,
+    "fields": {
+      "service_group": 62,
+      "service_parent": null,
+      "name": "AfU GS Wärmenutzung",
+      "description": "Amt für Umweltschutz Dossier im Zusammenhang mit Wärmenutzung",
+      "sort": 130,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 589,
+    "fields": {
+      "service_group": 21,
+      "service_parent": null,
+      "name": "Monitron (Dossierzuweisung nur via Fachstelle, Rubrik Dossier freischalten)",
+      "description": "Monitron (prüft Dossiers im Zusammenhang mit Wärmenutzung)",
+      "sort": 36,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 590,
+    "fields": {
+      "service_group": 1,
+      "service_parent": null,
+      "name": "KOOR SD",
+      "description": "KOOR SD",
+      "sort": 181,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 591,
+    "fields": {
+      "service_group": 70,
+      "service_parent": null,
+      "name": "VBS Schiesswesen",
+      "description": "VBS Schiesswesen (Schiessoffizier)",
+      "sort": 42,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 592,
+    "fields": {
+      "service_group": 71,
+      "service_parent": null,
+      "name": "Swissgrid (Pendenz von Koordinationstelle)",
+      "description": "Swissgrid (Koordinationstellen)",
+      "sort": 46,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 593,
+    "fields": {
+      "service_group": 69,
+      "service_parent": null,
+      "name": "Gemeindewerke Erstfeld",
+      "description": "Gemeindewerke Erstfeld",
+      "sort": 34,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 594,
+    "fields": {
+      "service_group": 2,
+      "service_parent": null,
+      "name": "AfT",
+      "description": "Baudirektion Amt für Tiefbau",
+      "sort": 49,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 595,
+    "fields": {
+      "service_group": 69,
+      "service_parent": null,
+      "name": "Wasserkommission Altdorf",
+      "description": "Wasserversorgung Altdorf",
+      "sort": 22,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 596,
+    "fields": {
+      "service_group": 71,
+      "service_parent": null,
+      "name": "MGB (Pendenz von Koordinationstelle)",
+      "description": "MGB (Koordinationstellen)",
+      "sort": 20,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 597,
+    "fields": {
+      "service_group": 69,
+      "service_parent": null,
+      "name": "Bauabteilung Altdorf Ortsplanung",
+      "description": "Bauabteilung",
+      "sort": 24,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 598,
+    "fields": {
+      "service_group": 69,
+      "service_parent": null,
+      "name": "Bauabteilung Altdorf Tiefbau",
+      "description": "Bauabteilung Altdorf",
+      "sort": 27,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 599,
+    "fields": {
+      "service_group": 69,
+      "service_parent": null,
+      "name": "Feuerwehr Altdorf",
+      "description": "Feuerwehr Altdorf",
+      "sort": 28,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 600,
+    "fields": {
+      "service_group": 69,
+      "service_parent": null,
+      "name": "Bauabteilung Altdorf Liegenschaften",
+      "description": "Bauabteilung Liegenschaften",
+      "sort": 31,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 601,
+    "fields": {
+      "service_group": 70,
+      "service_parent": null,
+      "name": "Armasuisse Immobilien",
+      "description": "Immobilienbewirtschaftung Armasuisse",
+      "sort": 43,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 602,
+    "fields": {
+      "service_group": 70,
+      "service_parent": null,
+      "name": "BAZL",
+      "description": "Bundesamt für Zivilluftfahrt",
+      "sort": 47,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 603,
+    "fields": {
+      "service_group": 74,
+      "service_parent": null,
+      "name": "VCS Uri",
+      "description": "VCS Sektion Uri (bitte keine direkte Zirkulation starten Dossierzuweisung nur via Fachstellen)",
+      "sort": 4,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 604,
+    "fields": {
+      "service_group": 72,
+      "service_parent": null,
+      "name": "Swissgrid (Pendenz von Gemeinde)",
+      "description": "Swissgrid (Gemeinde)",
+      "sort": 12,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 605,
+    "fields": {
+      "service_group": 72,
+      "service_parent": null,
+      "name": "MGB (Pendenz von Gemeinde)",
+      "description": "MGB (Gemeinde)",
+      "sort": 14,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 626,
+    "fields": {
+      "service_group": 72,
+      "service_parent": null,
+      "name": "SBB AG (Pendenz von Gemeinde)",
+      "description": "SBB AG (Gemeinde)",
+      "sort": 11,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 627,
+    "fields": {
+      "service_group": 74,
+      "service_parent": null,
+      "name": "WWF Uri",
+      "description": "WWF",
+      "sort": 6,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 628,
+    "fields": {
+      "service_group": 74,
+      "service_parent": null,
+      "name": "Pro Natura Uri",
+      "description": "Pro Natura Uri",
+      "sort": 9,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 629,
+    "fields": {
+      "service_group": 69,
+      "service_parent": null,
+      "name": "Wasserversorgungskommission Spiringen",
+      "description": "Wasserversorgungskommission Spiringen",
+      "sort": 38,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 630,
+    "fields": {
+      "service_group": 62,
+      "service_parent": null,
+      "name": "Amt für Gesundheit",
+      "description": "GSUD",
+      "sort": 133,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 631,
+    "fields": {
+      "service_group": 69,
+      "service_parent": null,
+      "name": "Wasserversorgungskommission Urnerboden",
+      "description": "Wasserversorgungskommission Urnerboden",
+      "sort": 39,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 632,
+    "fields": {
+      "service_group": 21,
+      "service_parent": null,
+      "name": "Inventar Historische Verkehrswege IVS (Dossierzuweisung via Fachstelle)",
+      "description": "IVS",
+      "sort": 8,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 633,
+    "fields": {
+      "service_group": 70,
+      "service_parent": null,
+      "name": "Armasuisse Wissenschaft und Technologie",
+      "description": "Armasuisse Wissenschaft und Technologie",
+      "sort": 44,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 634,
+    "fields": {
+      "service_group": 61,
+      "service_parent": null,
+      "name": "ARE Fachstelle Agglomerationsprogramm",
+      "description": "ARE Abteilung Raumplanung - Fachstelle Agglomerationsprogramm",
+      "sort": 71,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 635,
+    "fields": {
+      "service_group": 21,
+      "service_parent": null,
+      "name": "Fachstelle IKSS (Dossierzuweisung nur via Fachstelle, Rubrik Dossier freischalten)",
+      "description": "Fachstelle IKSS (Überprüfung von Dossiers bei Seilbahnen und Skiliften)",
+      "sort": 37,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  }
+]
