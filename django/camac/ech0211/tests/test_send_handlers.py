@@ -61,6 +61,7 @@ def test_resolve_send_handler(xml_file, expected_send_handler):
         assert resolve_send_handler(data) == expected_send_handler
 
 
+@pytest.mark.freeze_time("2022-06-03")
 @pytest.mark.parametrize("service_group__name", ["municipality"])
 @pytest.mark.parametrize(
     "judgement,instance_state_name,has_permission,is_vorabklaerung,active,expected_state_name",
@@ -145,6 +146,7 @@ def test_notice_ruling_send_handler(
     caluma_admin_user,
     notification_template,
     application_settings,
+    ech_snapshot,
 ):
 
     application_settings["NOTIFICATIONS"] = {
@@ -251,7 +253,9 @@ def test_notice_ruling_send_handler(
         assert ech_instance_be.instance_state == expected_state
         assert DocxDecision.objects.get(instance=ech_instance_be)
         assert Message.objects.count() == 1
-        assert Message.objects.first().receiver == ech_instance_be.responsible_service()
+        message = Message.objects.first()
+        assert message.receiver == ech_instance_be.responsible_service()
+        ech_snapshot(message.body)
         attachment.refresh_from_db()
         assert attachment.attachment_sections.get(
             pk=ATTACHMENT_SECTION_ALLE_BETEILIGTEN
@@ -265,6 +269,7 @@ def test_notice_ruling_send_handler(
         assert ech_instance_be.responsible_service() == expected_service
 
 
+@pytest.mark.freeze_time("2022-06-03")
 @pytest.mark.parametrize(
     "service_exists,instance_state_name,has_permission,success",
     [
@@ -288,6 +293,7 @@ def test_change_responsibility_send_handler(
     caluma_admin_user,
     notification_template,
     application_settings,
+    ech_snapshot,
 ):
 
     application_settings["NOTIFICATIONS"] = {
@@ -354,18 +360,21 @@ def test_change_responsibility_send_handler(
             instance=ech_instance, service=madiswil, active=1
         )
         assert Message.objects.count() == 1
-        assert Message.objects.first().receiver == madiswil
+        message = Message.objects.first()
+        assert message.receiver == madiswil
+        ech_snapshot(message.body)
     else:
         with pytest.raises(SendHandlerException):
             handler.apply()
 
 
+@pytest.mark.freeze_time("2022-06-03")
 @pytest.mark.parametrize(
     "requesting_service,instance_state_name,success",
     [
-        ("leitbehörde", "sb1", True),
+        ("leitbehoerde", "sb1", True),
         ("baukontrolle", "conclusion", True),
-        ("leitbehörde", "coordination", False),
+        ("leitbehoerde", "coordination", False),
         ("nobody", "conclusion", False),
     ],
 )
@@ -382,6 +391,7 @@ def test_close_dossier_send_handler(
     circulation_factory,
     docx_decision_factory,
     caluma_admin_user,
+    ech_snapshot,
 ):
     instance_state_factory(name="finished")
 
@@ -411,7 +421,7 @@ def test_close_dossier_send_handler(
 
     group = admin_user.groups.first()
 
-    if requesting_service == "leitbehörde":
+    if requesting_service == "leitbehoerde":
         group.service = ech_instance_be.services.first()
     elif requesting_service == "baukontrolle":
         group.service = inst_serv.service
@@ -437,7 +447,9 @@ def test_close_dossier_send_handler(
 
         assert ech_instance_be.instance_state.name == "finished"
         assert Message.objects.count() == 1
-        assert Message.objects.first().receiver == ech_instance_be.responsible_service()
+        message = Message.objects.first()
+        assert message.receiver == ech_instance_be.responsible_service()
+        ech_snapshot(message.body)
 
 
 @pytest.mark.freeze_time(
@@ -474,6 +486,7 @@ def test_task_send_handler(  # noqa: C901
     caluma_admin_user,
     application_settings,
     notification_template,
+    ech_snapshot,
 ):
     application_settings["NOTIFICATIONS"] = {
         "ECH_TASK": [
@@ -582,6 +595,7 @@ def test_task_send_handler(  # noqa: C901
         assert Message.objects.count() == 1
         message = Message.objects.first()
         assert message.receiver == service
+        ech_snapshot(message.body)
 
         activations = Activation.objects.exclude(
             circulation_state__name="DONE"
@@ -652,6 +666,7 @@ def test_task_send_handler_no_permission(
     assert handler.has_permission()[0] is False
 
 
+@pytest.mark.freeze_time("2022-06-03")
 @pytest.mark.parametrize("has_permission", [True, False])
 def test_kind_of_proceedings_send_handler(
     has_permission,
@@ -667,6 +682,7 @@ def test_kind_of_proceedings_send_handler(
     notification_template,
     application_settings,
     mailoutbox,
+    ech_snapshot,
 ):
     application_settings["NOTIFICATIONS"] = {
         "ECH_KIND_OF_PROCEEDINGS": [
@@ -734,6 +750,7 @@ def test_kind_of_proceedings_send_handler(
         assert Message.objects.count() == 1
         message = Message.objects.first()
         assert message.receiver == ech_instance_be.responsible_service()
+        ech_snapshot(message.body)
 
         attachment.refresh_from_db()
         assert attachment.attachment_sections.get(
@@ -746,6 +763,7 @@ def test_kind_of_proceedings_send_handler(
         )
 
 
+@pytest.mark.freeze_time("2022-06-03")
 @pytest.mark.parametrize("has_attachment", [True, False])
 @pytest.mark.parametrize("has_activation", [True, False])
 def test_accompanying_report_send_handler(
@@ -768,6 +786,7 @@ def test_accompanying_report_send_handler(
     application_settings,
     service,
     mailoutbox,
+    ech_snapshot,
 ):
     application_settings["NOTIFICATIONS"] = {
         "ECH_ACCOMPANYING_REPORT": [
@@ -833,6 +852,7 @@ def test_accompanying_report_send_handler(
         assert Message.objects.count() == 1
         message = Message.objects.first()
         assert message.receiver == support_group.service
+        ech_snapshot(message.body)
         assert Activation.objects.count() == 1
         activation = Activation.objects.first()
         assert activation.circulation_state == done_state
