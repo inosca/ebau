@@ -34,6 +34,7 @@ export default {
         "applicant",
         "intent",
         "street",
+        "responsibility",
         "processingDeadline",
       ],
       default: [
@@ -62,6 +63,7 @@ export default {
       "createdBefore",
       "intent",
       "withCantonalParticipation",
+      "responsibleServiceUser",
     ],
   },
   activeCirculationStates: [
