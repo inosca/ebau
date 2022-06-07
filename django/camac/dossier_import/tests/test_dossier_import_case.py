@@ -373,6 +373,7 @@ def test_record_loading_be(
     dossier_row_patch,
     expected_target,
     snapshot,
+    work_item_factory,
 ):
     """Load data from import record, make persistant and verify with master_data API."""
 
@@ -393,6 +394,8 @@ def test_record_loading_be(
         foreign_instance = instance_with_case(foreign_instance)
         foreign_instance.case.meta.update({"ebau-number": "2020-2"})
         foreign_instance.case.save()
+    elif expected_target == "decision_date":
+        work_item_factory(task_id="decision", case=be_instance.case)
     loader = XlsxFileDossierLoader()
     dossier_row_sparse.update(dossier_row_patch)
     dossier = loader._load_dossier(dossier_row_sparse)
