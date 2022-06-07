@@ -9586,15 +9586,6 @@
   },
   {
     "model": "core.araction",
-    "pk": 16,
-    "fields": {
-      "available_resource": "simplelist",
-      "action_name": "index",
-      "hidden": 0
-    }
-  },
-  {
-    "model": "core.araction",
     "pk": 17,
     "fields": {
       "available_resource": "extendedsearch",
@@ -12009,15 +12000,6 @@
       "module_name": "default",
       "controller_name": "search",
       "description": "Page with search function"
-    }
-  },
-  {
-    "model": "core.availableresource",
-    "pk": "simplelist",
-    "fields": {
-      "module_name": "core",
-      "controller_name": "simplelist",
-      "description": "Page with a list of instances (new)"
     }
   },
   {
