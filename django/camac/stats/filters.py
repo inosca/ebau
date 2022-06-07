@@ -1,4 +1,5 @@
-from django.db.models import Q
+from caluma.caluma_form.models import Answer
+from django.db.models import Exists, OuterRef, Q
 from django_filters.rest_framework import BaseCSVFilter, CharFilter, FilterSet
 from rest_framework.exceptions import ValidationError
 
@@ -54,9 +55,18 @@ class InstanceCycleTimeFilterSet(FilterSet):
     procedure = CharFilter(method="filter_procedure_types")
 
     def filter_procedure_types(self, queryset, name, value):
-        if value.upper() == "PRELIM":
-            return queryset.filter(decision__decision_type__isnull=True)
-        return queryset.filter(decision__decision_type=value.upper())
+        if value == "preliminary-clarification":
+            return queryset.filter(case__workflow_id="preliminary-clarification")
+
+        return queryset.filter(
+            Exists(
+                Answer.objects.filter(
+                    question_id="decision-approval-type",
+                    value=value,
+                    document__work_item__case__instance=OuterRef("pk"),
+                )
+            )
+        )
 
     class Meta:
         fields = ("procedure",)

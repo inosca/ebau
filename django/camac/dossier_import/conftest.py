@@ -48,6 +48,9 @@ def setup_fixtures_required_by_application_config(
                 call_command(
                     "loaddata", f"/app/{config}/config/caluma_dossier_import_form.json"
                 )
+                call_command(
+                    "loaddata", f"/app/{config}/config/caluma_decision_form.json"
+                )
             if config == "kt_schwyz":
                 call_command("loaddata", f"/app/{config}/config/buildingauthority.json")
 

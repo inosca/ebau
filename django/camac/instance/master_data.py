@@ -433,12 +433,6 @@ class MasterData(object):
             for row in self.ng_answer_resolver(lookup, default=[])
         ]
 
-    def caluma_decision_date_resolver(self, *args, **kwargs):
-        return (
-            hasattr(self.case.instance, "decision")
-            and self.case.instance.decision.decision_date
-        ) or None
-
     def instance_property_resolver(self, lookup):
         """Take a lookup path to the property to return final value.
 

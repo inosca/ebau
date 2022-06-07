@@ -91,28 +91,17 @@ from camac.constants.kt_bern import (
 def test_dynamic_task_after_decision(
     db,
     caluma_admin_user,
-    caluma_publication,
-    docx_decision_factory,
-    instance,
-    workflow_id,
-    decision,
+    decision_factory,
     decision_type,
-    circulation,
+    decision,
     expected_case_status,
     instance_state_factory,
+    instance_with_case,
+    instance,
     service_factory,
+    workflow_id,
 ):
-    docx_decision_factory(
-        decision=decision, decision_type=decision_type, instance=instance
-    )
-
-    case = start_case(
-        workflow=Workflow.objects.get(pk=workflow_id),
-        form=Form.objects.get(pk="main-form"),
-        user=caluma_admin_user,
-    )
-    instance.case = case
-    instance.save()
+    case = instance_with_case(instance=instance, workflow=workflow_id).case
 
     instance_state_factory(name="coordination")
     instance_state_factory(name="finished")
@@ -143,6 +132,9 @@ def test_dynamic_task_after_decision(
         "skip-circulation",
         "decision",
     ]:
+        if task_id == "decision":
+            decision_factory(decision=decision, decision_type=decision_type)
+
         complete_work_item(case.work_items.get(task_id=task_id), caluma_admin_user)
 
     case.refresh_from_db()

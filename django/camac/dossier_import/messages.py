@@ -189,7 +189,7 @@ def compile_message_for_code(code, filtered_summaries):
 
     return _("%(count)i dossiers %(message)s. Affected dossiers:%(entries)s") % dict(
         count=len(filtered_summaries),
-        message=messages[code],
+        message=messages.get(code, ""),
         entries="\n" + ",\n".join(entries),
     )
 

@@ -3,11 +3,11 @@
 {{#if this.workItem.document.id}}
   <CfContent
     @documentId={{decode-id this.workItem.document.id}}
-    @disabled={{cannot "edit task-form" this.workItem}}
+    @disabled={{cannot "edit task-form" this.workItem task=@model.task}}
     @context={{hash
       instanceId=@model.instance_id
       task=@model.task
-      actionButtonOnSuccess=(perform this.fetchWorkItem)
+      actionButtonOnSuccess=(queue (perform this.fetchWorkItem) this.redirectToWorkItems)
     }}
   />
 {{else if this.fetchWorkItem.isRunning}}

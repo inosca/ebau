@@ -19,15 +19,4 @@ statistics:
   empty: 'Keine Statistiken zur Verfahrensart "{type}" gefunden'
   procedures:
     all: "Alle Verfahrensarten"
-    PRELIM: "Vorabklärung"
-    BAUBEWILLIGUNG: "Baubewilligung"
-    GESAMT: "Gesamtbaubewilligung"
-    KLEIN: "Kleine Baubewilligung"
-    GENERELL: "Generelle Baubewilligung"
-    TEILBAUBEWILLIGUNG: "Teilbaubewilligung"
-    PROJEKTAENDERUNG: "Projektänderung"
-    BAUABSCHLAG_OHNE_WHST: "Bauabschlag ohne Wiederherstellung"
-    BAUABSCHLAG_MIT_WHST: "Bauabschlag mit Wiederherstellung"
-    ABSCHREIBUNGSVERFUEGUNG: "Abschreibungsverfügung (Rückzug)"
-    BAUBEWILLIGUNGSFREI: "Baubewilligungsfrei"
-    TEILWEISE_BAUBEWILLIGUNG_MIT_TEILWEISEM_BAUABSCHLAG_UND_TEILWEISER_WIEDERHERSTELLUNG: "Teilweise Baubewilligung mit teilweisem Bauabschlag und teilweiser Wiederherstellung"
+    preliminary-clarification: "Vorabklärung"

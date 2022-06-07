@@ -71,6 +71,12 @@ export default class ApplicationRoute extends Route {
     });
 
     this.calumaOptions.registerComponentOverride({
+      label: "Entscheid verfügen (Teilbaubewilligung)",
+      component: "decision-submit-partial",
+      type: "StaticQuestion",
+    });
+
+    this.calumaOptions.registerComponentOverride({
       label: "Validierungs Button",
       component: "document-validity-button",
       componentClass: DocumentValidityButtonComponent,

@@ -116,18 +116,25 @@ CIRCULATION_STATE_DONE = 2
 CIRCULATION_TYPE_STANDARD = 20000
 
 # decisions
-DECISIONS_BEWILLIGT = "accepted"
-DECISIONS_ABGELEHNT = "denied"
-DECISIONS_ABGESCHRIEBEN = "writtenOff"
-VORABKLAERUNG_DECISIONS_BEWILLIGT = "positive"
-VORABKLAERUNG_DECISIONS_BEWILLIGT_MIT_VORBEHALT = "conditionallyPositive"
-VORABKLAERUNG_DECISIONS_NEGATIVE = "negative"
+DECISIONS_POSITIVE = "decision-decision-assessment-positive"
+DECISIONS_BEWILLIGT = "decision-decision-assessment-accepted"
+DECISIONS_ABGELEHNT = "decision-decision-assessment-denied"
+DECISIONS_ABGESCHRIEBEN = "decision-decision-assessment-depreciated"
+VORABKLAERUNG_DECISIONS_BEWILLIGT = "decision-decision-assessment-positive"
+VORABKLAERUNG_DECISIONS_BEWILLIGT_MIT_VORBEHALT = (
+    "decision-decision-assessment-positive-with-reservation"
+)
+VORABKLAERUNG_DECISIONS_NEGATIVE = "decision-decision-assessment-negative"
 
 # decision type
-DECISION_TYPE_CONSTRUCTION_TEE_WITH_RESTORATION = "BAUABSCHLAG_MIT_WHST"
-DECISION_TYPE_BUILDING_PERMIT = "BAUBEWILLIGUNG"
-DECISION_TYPE_BAUBEWILLIGUNGSFREI = "BAUBEWILLIGUNGSFREI"
-DECISION_TYPE_PARTIAL_PERMIT_WITH_PARTIAL_CONSTRUCTION_TEE_AND_PARTIAL_RESTORATION = "TEILWEISE_BAUBEWILLIGUNG_MIT_TEILWEISEM_BAUABSCHLAG_UND_TEILWEISER_WIEDERHERSTELLUNG"
+DECISION_TYPE_CONSTRUCTION_TEE_WITH_RESTORATION = (
+    "decision-approval-type-construction-tee-with-restoration"
+)
+DECISION_TYPE_BUILDING_PERMIT = "decision-approval-type-building-permit"
+DECISION_TYPE_BAUBEWILLIGUNGSFREI = "decision-approval-type-building-permit-free"
+DECISION_TYPE_PARTIAL_PERMIT_WITH_PARTIAL_CONSTRUCTION_TEE_AND_PARTIAL_RESTORATION = "decision-approval-type-partial-building-permit-partial-construction-tee-partial-restoration"
+DECISION_TYPE_OVERALL_BUILDING_PERMIT = "decision-approval-type-overall-building-permit"
+DECISION_TYPE_UNKNOWN = "decision-approval-type-unknown"
 
 # ECH 211 judgementType
 # Grundsätzliche Beurteilung.
