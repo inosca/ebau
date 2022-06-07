@@ -164,7 +164,7 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
     def get_circulation_initializer_services(self, obj):
         return Service.objects.filter(
             pk__in=obj.circulations.filter(
-                activations__service=self.context["request"].group.service.pk
+                activations__service=self.context["request"].group.service_id
             ).values("service")
         )
 
