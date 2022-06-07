@@ -4,9 +4,8 @@ from collections import OrderedDict
 
 from django.conf import settings
 from django.utils.timezone import now
-from django.utils.translation import get_language, gettext as _
+from django.utils.translation import get_language
 from rest_framework import serializers
-from rest_framework.fields import ReadOnlyField
 
 from camac.caluma.api import CalumaApi
 from camac.objection.models import Objection
@@ -88,47 +87,73 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
     baueingabe_datum = fields.MasterDataField(
         source="submit_date", parser=human_readable_date
     )
-    bauentscheid_abschreibungsverfuegung = fields.BooleanCompareField(
-        source="decision.decision_type", compare_to="ABSCHREIBUNGSVERFUEGUNG"
+    bauentscheid_abschreibungsverfuegung = fields.DecisionField(
+        source="decision-approval-type",
+        compare_to="decision-approval-type-deprecation-order-reatreat",
     )
-    bauentscheid_baubewilligungsfrei = fields.BooleanCompareField(
-        source="decision.decision_type", compare_to="BAUBEWILLIGUNGSFREI"
+    bauentscheid_baubewilligungsfrei = fields.DecisionField(
+        source="decision-approval-type",
+        compare_to="decision-approval-type-building-permit-free",
     )
-    bauentscheid_bauabschlag_mit_whst = fields.BooleanCompareField(
-        source="decision.decision_type", compare_to="BAUABSCHLAG_MIT_WHST"
+    bauentscheid_bauabschlag_mit_whst = fields.DecisionField(
+        source="decision-approval-type",
+        compare_to="decision-approval-type-construction-tee-with-restoration",
     )
-    bauentscheid_bauabschlag_ohne_whst = fields.BooleanCompareField(
-        source="decision.decision_type", compare_to="BAUABSCHLAG_OHNE_WHST"
+    bauentscheid_bauabschlag_ohne_whst = fields.DecisionField(
+        source="decision-approval-type",
+        compare_to="decision-approval-type-construction-tee-without-restoration",
     )
-    bauentscheid_bauabschlag = fields.BooleanCompareField(
-        source="decision.decision_type",
-        compare_to=["BAUABSCHLAG_MIT_WHST", "BAUABSCHLAG_OHNE_WHST"],
+    bauentscheid_bauabschlag = fields.DecisionField(
+        source="decision-approval-type",
+        compare_to=[
+            "decision-approval-type-construction-tee-with-restoration"
+            "decision-approval-type-construction-tee-without-restoration",
+        ],
     )
-    bauentscheid_baubewilligung = fields.BooleanCompareField(
-        source="decision.decision_type", compare_to="BAUBEWILLIGUNG"
+    bauentscheid_baubewilligung = fields.DecisionField(
+        source="decision-approval-type",
+        compare_to="decision-approval-type-building-permit",
     )
-    bauentscheid_generell = fields.BooleanCompareField(
-        source="decision.decision_type", compare_to="GENERELL"
+    bauentscheid_generell = fields.DecisionField(
+        source="decision-approval-type",
+        compare_to="decision-approval-type-general-building-permit",
     )
-    bauentscheid_gesamt = fields.BooleanCompareField(
-        source="decision.decision_type", compare_to="GESAMT"
+    bauentscheid_gesamt = fields.DecisionField(
+        source="decision-approval-type",
+        compare_to="decision-approval-type-overall-building-permit",
     )
-    bauentscheid_klein = fields.BooleanCompareField(
-        source="decision.decision_type", compare_to="KLEIN"
+    bauentscheid_klein = fields.DecisionField(
+        source="decision-approval-type",
+        compare_to="decision-approval-type-small-building-permit",
     )
-    bauentscheid_positiv_teilweise = fields.BooleanCompareField(
-        source="decision.decision",
-        compare_to=["positive", "accepted", "conditionallyPositive"],
+    bauentscheid_positiv_teilweise = fields.DecisionField(
+        source="decision-decision-assessment",
+        compare_to=[
+            "decision-decision-assessment-accepted",
+            "decision-decision-assessment-positive",
+            "decision-decision-assessment-positive-with-reservation",
+        ],
     )
-    bauentscheid_positiv = fields.BooleanCompareField(
-        source="decision.decision", compare_to=["positive", "accepted"]
+    bauentscheid_positiv = fields.DecisionField(
+        source="decision-decision-assessment",
+        compare_to=[
+            "decision-decision-assessment-accepted",
+            "decision-decision-assessment-positive",
+        ],
     )
-    bauentscheid_projektaenderung = fields.DeprecatedField(value=False)
-    bauentscheid_teilbaubewilligung = fields.BooleanCompareField(
-        source="decision.decision_type", compare_to="TEILBAUBEWILLIGUNG"
+    bauentscheid_projektaenderung = fields.DecisionField(
+        source="decision-approval-type",
+        compare_to="decision-approval-type-project-modification",
     )
-    bauentscheid_type = ReadOnlyField(source="decision.decision_type")
-    bauentscheid = serializers.SerializerMethodField()
+    bauentscheid_teilbaubewilligung = fields.DecisionField(
+        source="decision-approval-type",
+        compare_to="decision-approval-type-partial-building-permit",
+    )
+    bauentscheid_type = fields.DecisionField(
+        source="decision-approval-type",
+        use_identifier=True,
+    )
+    bauentscheid = fields.DecisionField(source="decision-decision-assessment")
     bauvorhaben = fields.JointField(
         fields=[
             fields.MasterDataField(
@@ -139,9 +164,13 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         separator=", ",
     )
     beschreibung_bauvorhaben = fields.MasterDataField(source="proposal")
-    decision_date = fields.HumanReadableDateField(source="decision.decision_date")
-    decision_type = serializers.ReadOnlyField(source="decision.decision_type")
-    decision = serializers.ReadOnlyField(source="decision.decision")
+    decision_date = fields.DecisionField(source="decision-date")
+    decision_type = fields.DecisionField(
+        source="decision-approval-type", use_identifier=True
+    )
+    decision = fields.DecisionField(
+        source="decision-decision-assessment", use_identifier=True
+    )
     description_modification = fields.MasterDataField("description_modification")
     dossier_link = serializers.SerializerMethodField()
     ebau_number = fields.MasterDataField(source="dossier_number")
@@ -433,28 +462,6 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
 
     def get_base_url(self, instance):
         return settings.INTERNAL_BASE_URL
-
-    def get_bauentscheid(self, instance):
-        types = {
-            "positive": _("positive"),
-            "negative": _("negative"),
-            "conditionallyPositive": _(
-                "conditionally positive (project needs to be adjusted)"
-            ),
-            "retreat": _("retreat"),
-            "accepted": _("accepted"),
-            "denied": _("denied"),
-            "writtenOff": _("written off"),
-            "obligated": _("requires building permit"),
-            "notObligated": _("does not require building permit"),
-            "other": _("other decision"),
-        }
-
-        return (
-            types.get(instance.decision.decision)
-            if hasattr(instance, "decision")
-            else None
-        )
 
     def get_dossier_link(self, instance):
         return settings.INTERNAL_INSTANCE_URL_TEMPLATE.format(instance_id=instance.pk)

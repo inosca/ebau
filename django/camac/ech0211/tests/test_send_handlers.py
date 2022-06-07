@@ -16,7 +16,7 @@ from camac.constants.kt_bern import (
     NOTICE_TYPE_NEBENBESTIMMUNG,
     NOTICE_TYPE_STELLUNGNAHME,
 )
-from camac.core.models import Activation, DocxDecision, InstanceService, Notice
+from camac.core.models import Activation, InstanceService, Notice
 from camac.ech0211.tests.utils import xml_data
 from camac.instance.models import Instance
 
@@ -147,6 +147,7 @@ def test_notice_ruling_send_handler(
     notification_template,
     application_settings,
     ech_snapshot,
+    decision_factory,
 ):
 
     application_settings["NOTIFICATIONS"] = {
@@ -251,7 +252,6 @@ def test_notice_ruling_send_handler(
         ech_instance_be.refresh_from_db()
         assert ech_instance_be.previous_instance_state == state
         assert ech_instance_be.instance_state == expected_state
-        assert DocxDecision.objects.get(instance=ech_instance_be)
         assert Message.objects.count() == 1
         message = Message.objects.first()
         assert message.receiver == ech_instance_be.responsible_service()
@@ -260,6 +260,14 @@ def test_notice_ruling_send_handler(
         assert attachment.attachment_sections.get(
             pk=ATTACHMENT_SECTION_ALLE_BETEILIGTEN
         )
+
+        if expected_state_name == "rejected":
+            # if the instance is rejected, there should not be a decision work item
+            assert not ech_instance_be.case.work_items.filter(
+                task_id="decision"
+            ).exists()
+        else:
+            assert ech_instance_be.case.work_items.filter(task_id="decision").exists()
 
         expected_service = (
             active_service
@@ -389,7 +397,7 @@ def test_close_dossier_send_handler(
     instance_service_factory,
     instance_state_factory,
     circulation_factory,
-    docx_decision_factory,
+    decision_factory,
     caluma_admin_user,
     ech_snapshot,
 ):
@@ -403,7 +411,6 @@ def test_close_dossier_send_handler(
     ech_instance_be.save()
 
     circulation_factory(instance=ech_instance_be)
-    docx_decision_factory(decision=DECISIONS_BEWILLIGT, instance=ech_instance_be)
 
     case = ech_instance_case()
 
@@ -415,6 +422,9 @@ def test_close_dossier_send_handler(
         "start-decision",
         "decision",
     ]:
+        if task_id == "decision":
+            decision_factory(instance=ech_instance_be, decision=DECISIONS_BEWILLIGT)
+
         workflow_api.skip_work_item(
             work_item=case.work_items.get(task_id=task_id), user=caluma_admin_user
         )

@@ -16,7 +16,6 @@ from camac.constants.kt_bern import (
     DECISIONS_ABGESCHRIEBEN,
     VORABKLAERUNG_DECISIONS_BEWILLIGT_MIT_VORBEHALT,
 )
-from camac.core.models import DocxDecision
 from camac.ech0211.schema.ech_0211_2_0 import CreateFromDocument
 
 from ...dossier_import.config.kt_schwyz import COORDINATES_MAPPING, PARCEL_MAPPING
@@ -53,18 +52,18 @@ def test_application_retrieve_full_be(
     ech_instance_be,
     instance_with_case,
     instance_factory,
-    docx_decision_factory,
     attachment,
     attachment_section,
     multilang,
     override_urls_be,
+    decision_factory,
 ):
     # this is required to actually really dynamically load the correcto urls as configured
     # reload(import_string(settings.ROOT_URLCONF))
     decision = DECISIONS_ABGESCHRIEBEN
     if is_vorabklaerung:
         decision = VORABKLAERUNG_DECISIONS_BEWILLIGT_MIT_VORBEHALT
-    docx_decision_factory(instance=ech_instance_be, decision=decision)
+    decision_factory(instance=ech_instance_be, decision=decision)
 
     i = instance_with_case(instance_factory())
 
@@ -340,7 +339,6 @@ def test_send(
         assert response.status_code == 201
         ech_instance_be.refresh_from_db()
         assert ech_instance_be.instance_state == expected_state
-        assert DocxDecision.objects.get(instance=ech_instance_be)
     else:
         assert response.status_code == 403
 

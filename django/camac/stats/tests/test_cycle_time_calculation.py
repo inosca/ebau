@@ -4,6 +4,10 @@ import pytest
 from caluma.caluma_core.events import send_event
 from caluma.caluma_workflow.events import post_complete_work_item
 
+from camac.constants.kt_bern import (
+    DECISION_TYPE_BAUBEWILLIGUNGSFREI,
+    DECISIONS_BEWILLIGT,
+)
 from camac.instance.serializers import SUBMIT_DATE_FORMAT
 from camac.stats.cycle_time import _compute_total_idle_days, compute_cycle_time
 
@@ -27,19 +31,23 @@ def test_overlapping_nfd_durations(
     db,
     be_instance,
     group,
-    docx_decision_factory,
     nfd_tabelle_table_answer,
     nfd_tabelle_document_row,
     case_cycle_time,
     nfds,
     expected_net_cycle_time,
     freezer,
+    decision_factory,
 ):
-    decision_date = be_instance.creation_date + datetime.timedelta(days=case_cycle_time)
+    decision_date = be_instance.creation_date.date() + datetime.timedelta(
+        days=case_cycle_time
+    )
     freezer.move_to(decision_date)
-    docx_decision_factory(
-        instance=be_instance,
-        decision_date=decision_date.date(),
+
+    decision_factory(
+        decision=DECISIONS_BEWILLIGT,
+        decision_type=DECISION_TYPE_BAUBEWILLIGUNGSFREI,
+        decision_date=decision_date,
     )
     table_answer = nfd_tabelle_table_answer(be_instance)
 
@@ -100,21 +108,21 @@ def test_compute_total_idle_days(sorted_durations, expected):
 def test_total_cycle_time_with_previously_rejected(
     db,
     be_instance,
-    docx_decision_factory,
     instance_with_case,
     nest_rejected_applications,
     freezer,
     case_cycle_time,
     previous_instances,
     expected_total_cycle_time,
+    decision_factory,
 ):
-
-    docx_decision_factory(
-        instance=be_instance,
-        decision_date=(
-            be_instance.creation_date + datetime.timedelta(days=case_cycle_time)
-        ).date(),
+    decision_factory(
+        decision=DECISIONS_BEWILLIGT,
+        decision_type=DECISION_TYPE_BAUBEWILLIGUNGSFREI,
+        decision_date=be_instance.creation_date.date()
+        + datetime.timedelta(days=case_cycle_time),
     )
+
     assert compute_cycle_time(be_instance)["total-cycle-time"] == case_cycle_time
 
     nest_rejected_applications(be_instance, previous_instances)
@@ -130,18 +138,16 @@ def test_decision_completion_computes_cycle_time(
     be_instance,
     instance_service_factory,
     service_factory,
-    work_item_factory,
     caluma_admin_user,
-    docx_decision_factory,
     case_cycle_time,
+    decision_factory,
 ):
-    docx_decision_factory(
-        instance=be_instance,
-        decision_date=(
-            be_instance.creation_date + datetime.timedelta(days=case_cycle_time)
-        ).date(),
+    work_item = decision_factory(
+        decision=DECISIONS_BEWILLIGT,
+        decision_type=DECISION_TYPE_BAUBEWILLIGUNGSFREI,
+        decision_date=be_instance.creation_date.date()
+        + datetime.timedelta(days=case_cycle_time),
     )
-    work_item = work_item_factory(case=be_instance.case, task_id="decision")
     # the following 2 blocks are neccessary for satisfying prerequisites
     # for the `post_complete_decision` signal
     instance_service_factory(
@@ -214,7 +220,6 @@ def test_handles_incomplete_case(db, be_instance):
 def test_exclude_nonstandard_cases(
     db,
     be_instance,
-    docx_decision,
     nfd_tabelle_document_row,
     nfd_tabelle_table_answer,
     submit_date,
@@ -223,6 +228,7 @@ def test_exclude_nonstandard_cases(
     nfd_end,
     exp_net,
     exp_total,
+    decision_factory,
 ):
     # as non standard cases we've had so far cases that result in negative
     # net or total cycle times because
@@ -232,10 +238,13 @@ def test_exclude_nonstandard_cases(
         {"paper-submit-date": submit_date.strftime(SUBMIT_DATE_FORMAT)}
     )
     be_instance.case.save()
-    be_instance.decision = docx_decision
-    be_instance.save()
-    docx_decision.decision_date = decision_date
-    docx_decision.save()
+
+    decision_factory(
+        decision=DECISIONS_BEWILLIGT,
+        decision_type=DECISION_TYPE_BAUBEWILLIGUNGSFREI,
+        decision_date=decision_date,
+    )
+
     if nfd_end and nfd_start:
         table_answer = nfd_tabelle_table_answer(be_instance)
         document = nfd_tabelle_document_row(

@@ -3,12 +3,11 @@
     <div>
       <label class="uk-text-bold" for="procedure">{{t "statistics.procedure"}}</label>
       <select class="uk-select" id="procedure" {{on "change" this.setProcedure}}>
-        <option value="">{{t "statistics.procedures.all"}}</option>
-        {{#each this.procedures as |opt|}}
+        {{#each this.procedures.value as |opt|}}
           <option
-            value={{opt}}
-            selected={{eq opt this.procedure}}
-          >{{t (concat "statistics.procedures." opt)}}</option>
+            value={{opt.slug}}
+            selected={{eq opt.slug this.procedure}}
+          >{{opt.label}}</option>
         {{/each}}
       </select>
     </div>
@@ -40,7 +39,7 @@
       {{else}}
         <tr>
           <td class="uk-text-center uk-text-italic" colspan="4">
-            {{t "statistics.empty" type=(t (concat "statistics.procedures." (or this.procedure "all")))}}
+            {{t "statistics.empty" type=(get (find-by "slug" this.procedure this.procedures.value) "label")}}
           </td>
         </tr>
       {{/each}}
