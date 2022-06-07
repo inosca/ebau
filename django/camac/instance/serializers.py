@@ -2061,3 +2061,29 @@ class PublicCalumaInstanceSerializer(serializers.Serializer):  # pragma: no cove
     class Meta:
         model = workflow_models.Case
         resource_name = "public-caluma-instances"
+
+
+class CalumaInstanceConvertModificationSerializer(serializers.Serializer):
+    content = serializers.CharField(write_only=True)
+
+    @transaction.atomic
+    def update(self, instance, validated_data):
+        instance.case.document.answers.filter(
+            question_id="beschreibung-bauvorhaben"
+        ).update(value=validated_data["content"])
+
+        instance.case.document.answers.filter(
+            question_id="beschreibung-projektaenderung"
+        ).delete()
+
+        instance.case.document.answers.filter(question_id="projektaenderung").update(
+            value="projektaenderung-nein"
+        )
+
+        instance.case.document.source = None
+        instance.case.document.save()
+
+        return instance
+
+    class Meta:
+        resource_name = "instance-convert-modifications"

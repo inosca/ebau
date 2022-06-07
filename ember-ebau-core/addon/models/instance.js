@@ -14,6 +14,7 @@ export default class InstanceModel extends Model {
   @attr name;
   @attr calumaForm;
   @attr meta;
+  @attr isModification;
 
   @belongsTo user;
   @belongsTo form;
