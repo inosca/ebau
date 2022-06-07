@@ -66,6 +66,10 @@ def test_import_dossiers_manage_command(
     camac_instance,
     use_location,
 ):
+    call_command(
+        "loaddata", settings.ROOT_DIR("kt_bern/config/caluma_decision_form.json")
+    )
+
     settings.APPLICATION = settings.APPLICATIONS[config]
     make_workflow_items_for_config(config)
     setup_fixtures_required_by_application_config(config)

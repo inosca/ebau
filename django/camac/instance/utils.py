@@ -1,4 +1,4 @@
-from django.db.models import Q
+from caluma.caluma_form.models import Answer
 from django.utils.translation import gettext as _
 
 from camac.caluma.api import CalumaApi
@@ -8,7 +8,6 @@ from camac.constants.kt_bern import (
     DECISION_TYPE_PARTIAL_PERMIT_WITH_PARTIAL_CONSTRUCTION_TEE_AND_PARTIAL_RESTORATION,
     DECISIONS_BEWILLIGT,
 )
-from camac.core.models import DocxDecision
 from camac.instance.models import Instance
 from camac.user.models import Service
 
@@ -51,17 +50,23 @@ def set_construction_control(instance: Instance) -> Service:
 
 
 def should_continue_after_decision(instance: Instance) -> bool:
+    decision = Answer.objects.get(
+        question_id="decision-decision-assessment",
+        document__work_item__case__instance=instance,
+    ).value
+
+    try:
+        decision_type = Answer.objects.get(
+            question_id="decision-approval-type",
+            document__work_item__case__instance=instance,
+        ).value
+    except Answer.DoesNotExist:
+        decision_type = None
+
     return (
-        DocxDecision.objects.filter(instance=instance)
-        .filter(
-            Q(decision=DECISIONS_BEWILLIGT)
-            | Q(
-                decision_type__in=[
-                    DECISION_TYPE_CONSTRUCTION_TEE_WITH_RESTORATION,
-                    DECISION_TYPE_PARTIAL_PERMIT_WITH_PARTIAL_CONSTRUCTION_TEE_AND_PARTIAL_RESTORATION,
-                ],
-            ),
-        )
-        .exclude(decision_type=DECISION_TYPE_BAUBEWILLIGUNGSFREI)
-        .exists()
-    )
+        decision == DECISIONS_BEWILLIGT
+        and decision_type != DECISION_TYPE_BAUBEWILLIGUNGSFREI
+    ) or decision_type in [
+        DECISION_TYPE_CONSTRUCTION_TEE_WITH_RESTORATION,
+        DECISION_TYPE_PARTIAL_PERMIT_WITH_PARTIAL_CONSTRUCTION_TEE_AND_PARTIAL_RESTORATION,
+    ]

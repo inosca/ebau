@@ -161,15 +161,15 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'EBAU_URL': 'http://ebau.local',
     'EIGENE_GEBUEHREN': [
         {
-            'BETRAG': '837.77',
+            'BETRAG': '633.92',
             'POSITION': ''
         },
         {
-            'BETRAG': '15.33',
+            'BETRAG': '40.26',
             'POSITION': ''
         }
     ],
-    'EIGENE_GEBUEHREN_TOTAL': '853.10',
+    'EIGENE_GEBUEHREN_TOTAL': '674.18',
     'EIGENE_NEBENBESTIMMUNGEN': 'Main check their lead as party identify.',
     'EIGENE_STELLUNGNAHMEN': 'Share peace person together firm evening after drive.',
     'EINSPRECHENDE': [
@@ -189,23 +189,23 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'EMAIL': '',
     'EMOLUMENTS': [
         {
-            'BETRAG': '796.14',
+            'BETRAG': '189.89',
             'POSITION': ''
         },
         {
-            'BETRAG': '984.68',
+            'BETRAG': '569.84',
             'POSITION': ''
         },
         {
-            'BETRAG': '837.77',
+            'BETRAG': '633.92',
             'POSITION': ''
         },
         {
-            'BETRAG': '15.33',
+            'BETRAG': '40.26',
             'POSITION': ''
         }
     ],
-    'EMOLUMENTS_TOTAL': '2’633.92',
+    'EMOLUMENTS_TOTAL': '1’433.91',
     'ETAT': 'David Rangel',
     'FACHSTELLEN_KANTONAL': [
         {
@@ -261,23 +261,23 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'GEBAEUDEEIGENTUEMER_NAME_ADRESSE': 'Peter Meier, Thunstrasse 88, 3002 Bern',
     'GEBUEHREN': [
         {
-            'BETRAG': '796.14',
+            'BETRAG': '189.89',
             'POSITION': ''
         },
         {
-            'BETRAG': '984.68',
+            'BETRAG': '569.84',
             'POSITION': ''
         },
         {
-            'BETRAG': '837.77',
+            'BETRAG': '633.92',
             'POSITION': ''
         },
         {
-            'BETRAG': '15.33',
+            'BETRAG': '40.26',
             'POSITION': ''
         }
     ],
-    'GEBUEHREN_TOTAL': '2’633.92',
+    'GEBUEHREN_TOTAL': '1’433.91',
     'GEMEINDE': 'Burgdorf',
     'GEMEINDE_ADRESSE': 'South Emma',
     'GEMEINDE_ADRESSE_1': '',
@@ -334,15 +334,15 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'MEINE_ORGANISATION_TELEFON': '',
     'MES_EMOLUMENTS': [
         {
-            'BETRAG': '837.77',
+            'BETRAG': '633.92',
             'POSITION': ''
         },
         {
-            'BETRAG': '15.33',
+            'BETRAG': '40.26',
             'POSITION': ''
         }
     ],
-    'MES_EMOLUMENTS_TOTAL': '853.10',
+    'MES_EMOLUMENTS_TOTAL': '674.18',
     'MODIFICATION_DATE': '',
     'MODIFICATION_TIME': '',
     'MON_ORGANISATION_ADRESSE_1': '',
@@ -665,20 +665,20 @@ snapshots['test_dms_placeholders_empty[Municipality] 1'] = {
     'BASE_URL': 'http://ebau.local',
     'BAUEINGABE_DATUM': '30. August 2021',
     'BAUENTSCHEID': '',
-    'BAUENTSCHEID_ABSCHREIBUNGSVERFUEGUNG': False,
-    'BAUENTSCHEID_BAUABSCHLAG': False,
-    'BAUENTSCHEID_BAUABSCHLAG_MIT_WHST': False,
-    'BAUENTSCHEID_BAUABSCHLAG_OHNE_WHST': False,
-    'BAUENTSCHEID_BAUBEWILLIGUNG': False,
-    'BAUENTSCHEID_BAUBEWILLIGUNGSFREI': False,
+    'BAUENTSCHEID_ABSCHREIBUNGSVERFUEGUNG': '',
+    'BAUENTSCHEID_BAUABSCHLAG': '',
+    'BAUENTSCHEID_BAUABSCHLAG_MIT_WHST': '',
+    'BAUENTSCHEID_BAUABSCHLAG_OHNE_WHST': '',
+    'BAUENTSCHEID_BAUBEWILLIGUNG': '',
+    'BAUENTSCHEID_BAUBEWILLIGUNGSFREI': '',
     'BAUENTSCHEID_DATUM': '',
-    'BAUENTSCHEID_GENERELL': False,
-    'BAUENTSCHEID_GESAMT': False,
-    'BAUENTSCHEID_KLEIN': False,
-    'BAUENTSCHEID_POSITIV': False,
-    'BAUENTSCHEID_POSITIV_TEILWEISE': False,
-    'BAUENTSCHEID_PROJEKTAENDERUNG': False,
-    'BAUENTSCHEID_TEILBAUBEWILLIGUNG': False,
+    'BAUENTSCHEID_GENERELL': '',
+    'BAUENTSCHEID_GESAMT': '',
+    'BAUENTSCHEID_KLEIN': '',
+    'BAUENTSCHEID_POSITIV': '',
+    'BAUENTSCHEID_POSITIV_TEILWEISE': '',
+    'BAUENTSCHEID_PROJEKTAENDERUNG': '',
+    'BAUENTSCHEID_TEILBAUBEWILLIGUNG': '',
     'BAUENTSCHEID_TYP': '',
     'BAUENTSCHEID_TYPE': '',
     'BAUVORHABEN': '',
@@ -707,15 +707,15 @@ snapshots['test_dms_placeholders_empty[Municipality] 1'] = {
     'DECISION': '',
     'DECISION_CATEGORIE': '',
     'DECISION_DATE': '',
-    'DECISION_GENERAL': False,
-    'DECISION_GLOBALE': False,
-    'DECISION_MODIF': False,
-    'DECISION_PARTIEL': False,
-    'DECISION_PERMIS': False,
-    'DECISION_PETIT': False,
-    'DECISION_REFUS': False,
-    'DECISION_REFUS_AVEC_RET': False,
-    'DECISION_REFUS_SANS_RET': False,
+    'DECISION_GENERAL': '',
+    'DECISION_GLOBALE': '',
+    'DECISION_MODIF': '',
+    'DECISION_PARTIEL': '',
+    'DECISION_PERMIS': '',
+    'DECISION_PETIT': '',
+    'DECISION_REFUS': '',
+    'DECISION_REFUS_AVEC_RET': '',
+    'DECISION_REFUS_SANS_RET': '',
     'DECISION_TYPE': '',
     'DEPOT_DEMANDE_DATE': '30. August 2021',
     'DESCRIPTION_MODIFICATION': '',

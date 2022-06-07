@@ -230,6 +230,7 @@ instances:
   rejectionText: "Vous pouvez traiter et soumettre à nouveau le dossier
     initialement soumis conformément au retour d'information de l'autorité
     directrice. Un nouveau numéro de dossier sera créé pour la correction."
+  decisionRemarks: "Remarques Décision"
 
   extensionPeriodOfValidityTitle: "Prolongation de la durée de validité du permis de construire"
   extensionPeriodOfValidityText: "Vous pouvez demander une prolongation de la durée de validité du permis de construire."

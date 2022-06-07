@@ -114,14 +114,5 @@
       "active": 1,
       "activation_date": null
     }
-  },
-  {
-    "model": "core.docxdecision",
-    "pk": 3,
-    "fields": {
-      "decision": "accepted",
-      "decision_type": "BAUBEWILLIGUNG",
-      "decision_date": "2021-04-06"
-    }
   }
 ]
