@@ -1,7 +1,11 @@
+import re
+import xml.dom.minidom as minidom
+
 import pytest
 from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
 from django.core.management import call_command
+from lxml import etree
 
 from camac.ech0211.data_preparation import slugs_baugesuch, slugs_vorabklaerung_einfach
 from camac.instance.domain_logic import CreateInstanceLogic
@@ -179,3 +183,47 @@ def baugesuch_filled(
             fill_document_ech(row_answer_doc.document, row)
 
     return document
+
+
+@pytest.fixture
+def ech_snapshot(snapshot):
+    def wrapper(raw_xml):
+        pretty_xml = minidom.parseString(
+            etree.tostring(
+                etree.fromstring(raw_xml),
+                method="c14n",  # c14n forces attributes to be sorted
+            )
+        ).toprettyxml()
+
+        for search, replace in [
+            (
+                r"(<ns\d+:dossierIdentification>).+(</ns\d+:dossierIdentification>)",
+                r"\1<!-- INSTANCE_ID -->\2",
+            ),
+            (
+                r"(<ns\d+:organisationId>).+(</ns\d+:organisationId>)",
+                r"\1<!-- ORGANISATION_ID -->\2",
+            ),
+            (
+                r"(<ns\d+:messageId>).+(</ns\d+:messageId>)",
+                r"\1<!-- MESSAGE_ID -->\2",
+            ),
+            (
+                r"(<ns\d+:productVersion>).+(</ns\d+:productVersion>)",
+                r"\1<!-- VERSION -->\2",
+            ),
+            (
+                r"(<ns\d+:pathFileName>)(.*attachments=)\d+(</ns\d+:pathFileName>)",
+                r"\1\2<!-- ATTACHMENT_ID -->\3",
+            ),
+        ]:
+
+            pretty_xml = re.sub(
+                search,
+                replace,
+                pretty_xml,
+            )
+
+        return snapshot.assert_match(pretty_xml)
+
+    return wrapper

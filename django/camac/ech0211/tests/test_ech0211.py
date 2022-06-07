@@ -8,6 +8,7 @@ from camac.constants.kt_bern import ECH_BASE_DELIVERY
 from camac.ech0211 import formatters
 
 
+@pytest.mark.freeze_time("2022-06-03")
 @pytest.mark.parametrize(
     "config,appconf,camac_instance",
     [
@@ -29,7 +30,7 @@ def test_generate_delivery(
     config,
     appconf,
     multilang,
-    snapshot,
+    ech_snapshot,
 ):
     base_delivery_formatter = formatters.BaseDeliveryFormatter(config)
     camac_instance.fields.create(name="verfahrensart", value="baubewilligung")
@@ -52,3 +53,5 @@ def test_generate_delivery(
     my_dir = os.path.dirname(__file__)
     my_schema = xmlschema.XMLSchema(my_dir + "/../xsd/ech_0211_2_0.xsd")
     my_schema.validate(xml_data)
+
+    ech_snapshot(xml_data)
