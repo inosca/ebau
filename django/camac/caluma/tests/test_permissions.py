@@ -11,15 +11,7 @@ def test_save_work_item_permission(
     service_factory,
     caluma_admin_schema_executor,
     caluma_admin_user,
-    activation_factory,
-    circulation_state_factory,
 ):
-    activation_factory(
-        circulation__instance=be_instance,
-        service=service,
-        circulation_state=circulation_state_factory(),
-    )
-
     workflow_api.complete_work_item(
         work_item=be_instance.case.work_items.get(task_id="submit"),
         user=caluma_admin_user,
