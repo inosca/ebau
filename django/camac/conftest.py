@@ -459,19 +459,7 @@ def use_instance_service(application_settings):
     application_settings["ACTIVE_SERVICES"]["MUNICIPALITY"]["FILTERS"] = {}
     application_settings["ACTIVE_SERVICES"]["CONSTRUCTION_CONTROL"]["FILTERS"] = {}
 
-    def wrap(municipality_id=None, construction_control_id=None):
-        if municipality_id:
-            application_settings["ACTIVE_SERVICES"]["MUNICIPALITY"]["FILTERS"] = {
-                "service__pk": municipality_id
-            }
-        if construction_control_id:
-            application_settings["ACTIVE_SERVICES"]["CONSTRUCTION_CONTROL"][
-                "FILTERS"
-            ] = {"service__pk": construction_control_id}
-
-        return application_settings
-
-    yield wrap
+    yield application_settings
 
     application_settings["USE_INSTANCE_SERVICE"] = False
 
@@ -785,7 +773,7 @@ def instance_with_case(db, caluma_admin_user):
             workflow=caluma_workflow_models.Workflow.objects.get(pk=workflow),
             form=caluma_form_models.Form.objects.get(pk=form),
             user=caluma_admin_user,
-            context=context,
+            context={**context, "instance": instance.pk},
         )
         instance.save()
 
