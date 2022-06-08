@@ -564,7 +564,7 @@
     "model": "user.servicegroup",
     "pk": 41,
     "fields": {
-      "name": "Gemeinderäte - Pendenzen",
+      "name": "Gemeinderäte",
       "sort": null
     }
   },
