@@ -612,7 +612,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
         for field in instance.fields.all():
             # remove versioning (-v3) from question names so the placeholders are backwards compatible
-            name_without_version = re.sub("(-v\d+$)", "", field.name)
+            name_without_version = re.sub(r"(-v\d+$)", "", field.name)
             name = inflection.underscore("field-" + name_without_version)
             value = field.value
 

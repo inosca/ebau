@@ -10,33 +10,34 @@ from . import models
 
 
 class CurrentGroupDefault(object):
-    def set_context(self, serializer_field):
+    requires_context = True
+
+    def __call__(self, serializer_field):
         # When generating the schema with our custom FileUploadSwaggerAutoSchema
         # we don't have access to the request object
-        self.group = None
-        if "request" in serializer_field.context:
-            self.group = serializer_field.context["request"].group
-
-    def __call__(self):
-        return self.group
+        return (
+            serializer_field.context["request"].group
+            if "request" in serializer_field.context
+            else None
+        )
 
     def __repr__(self):
         return "%s()" % self.__class__.__name__
 
 
 class CurrentServiceDefault(object):
-    def set_context(self, serializer_field):
+    requires_context = True
+
+    def __call__(self, serializer_field):
         # When generating the schema with our custom FileUploadSwaggerAutoSchema
         # we don't have access to the request object
-        self.service = None
         request = serializer_field.context.get("request")
-        if not request or isinstance(request.user, AnonymousUser):
-            return models.Service.objects.none()
-        if request:
-            self.service = serializer_field.context["request"].group.service
 
-    def __call__(self):
-        return self.service
+        return (
+            request.group.service
+            if request and not isinstance(request.user, AnonymousUser)
+            else None
+        )
 
     def __repr__(self):
         return "%s()" % self.__class__.__name__

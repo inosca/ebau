@@ -37,7 +37,7 @@ def fix_cases(apps, schema_editor):
         if instance_service:
             user.group = instance_service.service.pk
         else:
-            log.warn(f"No construction control found for instance {instance.pk}")
+            log.warning(f"No construction control found for instance {instance.pk}")
 
         sb1 = case.work_items.filter(task_id="sb1", status=WorkItem.STATUS_READY)
         if sb1.exists():
