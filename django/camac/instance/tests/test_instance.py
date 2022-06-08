@@ -8,6 +8,7 @@ import pytz
 from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
 from django.urls import reverse
+from django.utils.timezone import make_aware
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
@@ -234,7 +235,7 @@ def test_instance_submit_date_filter(
 
     workflow_entry_factory(
         workflow_item=workflow_item_factory(pk=10),
-        workflow_date=datetime.datetime(2021, 3, 3),
+        workflow_date=make_aware(datetime.datetime(2021, 3, 3)),
         instance=instance,
     )
 
@@ -400,7 +401,7 @@ def test_with_cantonal_participation_filter(
 
     workflow_entry_factory(
         instance=ur_instance,
-        workflow_date="2021-07-16 08:00:06+00",
+        workflow_date=make_aware(datetime.datetime(2021, 7, 16, 8, 0, 6)),
         group=1,
         workflow_item__pk=16,
     )

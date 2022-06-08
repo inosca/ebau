@@ -222,7 +222,7 @@ class InstanceSubmitDateFilter(DateFilter):
         return qs.filter(
             **{
                 "workflowentry__workflow_item_id": 10,  # Submit date
-                f"workflowentry__workflow_date__{self._lookup_expr}": value,
+                f"workflowentry__workflow_date__date__{self._lookup_expr}": value,
             }
         )
 

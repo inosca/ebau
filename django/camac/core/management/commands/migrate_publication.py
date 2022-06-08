@@ -9,10 +9,10 @@ from caluma.caluma_workflow.api import (
 )
 from caluma.caluma_workflow.models import Case, Task, WorkItem
 from caluma.caluma_workflow.utils import create_work_items
-from django.contrib.postgres.fields.jsonb import KeyTransform
 from django.core.management.base import BaseCommand
 from django.db import transaction
 from django.db.models import IntegerField
+from django.db.models.fields.json import KeyTransform
 from django.db.models.functions import Cast
 from django.utils.timezone import now
 

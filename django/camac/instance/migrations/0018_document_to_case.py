@@ -296,7 +296,7 @@ def document_to_case(apps, schema_editor):
         **{"meta__camac-instance-id__isnull": False}
     ).exclude(**{"meta__camac-instance-id__in": failed_instances})
 
-    log.warn(f"Deleted {obsolete_documents.count()} obsolete documents")
+    log.warning(f"Deleted {obsolete_documents.count()} obsolete documents")
     obsolete_documents.delete()
 
     if len(failed_instances):
