@@ -24526,7 +24526,7 @@
     "fields": {
       "available_instance_resource": "circulation",
       "resource": 301,
-      "name": "Rückmeldungen Gemeindeservice",
+      "name": "Rückmeldungen",
       "description": "Einsehen von Resultaten der Gemeindezirkulation",
       "template": null,
       "class_field": null,
