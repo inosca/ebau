@@ -1391,7 +1391,7 @@ class PublicCalumaInstanceView(mixins.InstanceQuerysetMixin, ListAPIView):
                 year=Cast(
                     Func(
                         F("dossier_nr"),
-                        Value("-\d+$"),
+                        Value(r"-\d+$"),
                         Value(""),
                         function="regexp_replace",
                     ),
@@ -1400,7 +1400,7 @@ class PublicCalumaInstanceView(mixins.InstanceQuerysetMixin, ListAPIView):
                 nr=Cast(
                     Func(
                         F("dossier_nr"),
-                        Value("^\d+-"),
+                        Value(r"^\d+-"),
                         Value(""),
                         function="regexp_replace",
                     ),
