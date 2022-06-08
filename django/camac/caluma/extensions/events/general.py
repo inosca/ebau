@@ -122,49 +122,15 @@ def copy_paper_answer(sender, work_item, **kwargs):
 @on(post_create_work_item, raise_exception=True)
 @transaction.atomic
 def set_meta_attributes(sender, work_item, user, context, **kwargs):
-    """Set needed meta attributes on the newly created work item.
+    """Set needed meta attributes on the newly created work item."""
 
-    Some attributes just need a default value if they don't exist yet in the
-    meta of the work item. Others will be passed in the context.
-    """
-
-    META_CONFIG = {
-        "not-viewed": {"default": True},
-        "notify-completed": {"default": False},
-        "notify-deadline": {"default": True},
-        "circulation-id": {
-            "from_context": True,
-            "tasks": [get_caluma_setting("CIRCULATION_TASK")],
-        },
-        "activation-id": {
-            "from_context": True,
-            "tasks": get_caluma_setting("ACTIVATION_TASKS"),
-        },
+    META_DEFAULTS = {
+        "not-viewed": True,
+        "notify-completed": False,
+        "notify-deadline": True,
     }
 
-    for attribute, config in META_CONFIG.items():
-        tasks = config.get("tasks")
-        from_context = config.get("from_context")
-
-        if attribute in work_item.meta:
-            # attribute is already set on the meta
-            continue
-
-        if tasks and work_item.task_id not in tasks:
-            # incorrect task
-            continue
-
-        if from_context and (not context or not context.get(attribute)):
-            # context does not contain attribute
-            log.warning(
-                f"Attribute `{attribute}` is not passed in the context: {context}"
-            )
-            continue
-
-        work_item.meta[attribute] = (
-            context.get(attribute) if from_context else config.get("default")
-        )
-
+    work_item.meta = {**META_DEFAULTS, **work_item.meta}
     work_item.save()
 
 
