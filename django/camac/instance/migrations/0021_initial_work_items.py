@@ -160,7 +160,9 @@ def migrate_circulation(models, instance, case):
 
 def migrate(apps, schema_editor):
     if settings.APPLICATION_NAME != "kt_bern":
-        log.warn(f"Migration won't be run for application {settings.APPLICATION_NAME}")
+        log.warning(
+            f"Migration won't be run for application {settings.APPLICATION_NAME}"
+        )
         return
 
     models = namedtuple(
@@ -247,7 +249,7 @@ def migrate(apps, schema_editor):
     if len(_failed_instances):
         failed_ids = ", ".join(map(str, _failed_instances))
 
-        log.warn(f"Failed to migrate the following instances: {failed_ids}")
+        log.warning(f"Failed to migrate the following instances: {failed_ids}")
 
 
 class Migration(migrations.Migration):

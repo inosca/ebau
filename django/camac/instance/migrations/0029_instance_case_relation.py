@@ -1,5 +1,5 @@
 import django.db.models.deletion
-from django.contrib.postgres.fields.jsonb import KeyTransform
+from django.db.models.fields.json import KeyTransform
 from django.db import migrations, models
 
 
