@@ -28,7 +28,6 @@ def test_copy_papierdossier(
     caluma_admin_user,
     caluma_workflow_config_be,
     expected_value,
-    circulation,
     decision_factory,
 ):
     case = be_instance.case
@@ -67,7 +66,6 @@ def test_copy_sb_personalien(
     caluma_admin_user,
     caluma_workflow_config_be,
     use_fallback,
-    circulation,
     decision_factory,
 ):
     case = be_instance.case
@@ -389,34 +387,6 @@ def test_set_is_published(
             {},
             {"not-viewed": False, "notify-deadline": False, "notify-completed": False},
         ),
-        (
-            "circulation",
-            {},
-            {"circulation-id": 123},
-            {
-                "not-viewed": True,
-                "notify-deadline": True,
-                "notify-completed": False,
-                "circulation-id": 123,
-            },
-        ),
-        (
-            "activation",
-            {},
-            {"activation-id": 123},
-            {
-                "not-viewed": True,
-                "notify-deadline": True,
-                "notify-completed": False,
-                "activation-id": 123,
-            },
-        ),
-        (
-            "activation",
-            {},
-            {},
-            {"not-viewed": True, "notify-deadline": True, "notify-completed": False},
-        ),
     ],
 )
 def test_set_meta_attributes(
@@ -430,11 +400,6 @@ def test_set_meta_attributes(
     expected_meta,
     application_settings,
 ):
-    application_settings["CALUMA"] = {
-        "CIRCULATION_TASK": "circulation",
-        "ACTIVATION_TASKS": ["activation"],
-    }
-
     work_item = work_item_factory(task__slug=task_slug, meta=existing_meta)
 
     send_event(
@@ -613,7 +578,6 @@ def test_complete_decision(
     role,
     instance_service_factory,
     notification_template,
-    activation,
     service_factory,
     work_item_factory,
     instance_state_factory,
