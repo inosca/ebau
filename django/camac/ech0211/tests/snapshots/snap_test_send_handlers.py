@@ -410,7 +410,7 @@ snapshots['test_notice_ruling_send_handler[4-circulation_init-True-False-leitbeh
 </ns1:delivery>
 '''
 
-snapshots['test_task_send_handler[latest_empty-True-True-True] 1'] = '''<?xml version="1.0" ?>
+snapshots['test_task_send_handler[latest_empty-True-True-True-True] 1'] = '''<?xml version="1.0" ?>
 <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0039/2">
 \t<ns1:deliveryHeader>
 \t\t<ns2:senderId>https://ebau.apps.be.ch/</ns2:senderId>
@@ -443,7 +443,7 @@ snapshots['test_task_send_handler[latest_empty-True-True-True] 1'] = '''<?xml ve
 \t\t\t<uuid>00000000-0000-0000-0000-000000000000</uuid>
 \t\t\t<instruction>process</instruction>
 \t\t\t<priority>undefined</priority>
-\t\t\t<deadline>2020-03-23</deadline>
+\t\t\t<deadline>2020-03-15</deadline>
 \t\t\t<comments>
 \t\t\t\t<ns4:comment>Anforderung einer Stellungnahme</ns4:comment>
 \t\t\t</comments>
@@ -452,7 +452,7 @@ snapshots['test_task_send_handler[latest_empty-True-True-True] 1'] = '''<?xml ve
 </ns1:delivery>
 '''
 
-snapshots['test_task_send_handler[latest_not_running-True-True-True] 1'] = '''<?xml version="1.0" ?>
+snapshots['test_task_send_handler[latest_not_running-True-True-True-True] 1'] = '''<?xml version="1.0" ?>
 <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0039/2">
 \t<ns1:deliveryHeader>
 \t\t<ns2:senderId>https://ebau.apps.be.ch/</ns2:senderId>
@@ -485,7 +485,7 @@ snapshots['test_task_send_handler[latest_not_running-True-True-True] 1'] = '''<?
 \t\t\t<uuid>00000000-0000-0000-0000-000000000000</uuid>
 \t\t\t<instruction>process</instruction>
 \t\t\t<priority>undefined</priority>
-\t\t\t<deadline>2020-03-23</deadline>
+\t\t\t<deadline>2020-03-15</deadline>
 \t\t\t<comments>
 \t\t\t\t<ns4:comment>Anforderung einer Stellungnahme</ns4:comment>
 \t\t\t</comments>
@@ -494,7 +494,7 @@ snapshots['test_task_send_handler[latest_not_running-True-True-True] 1'] = '''<?
 </ns1:delivery>
 '''
 
-snapshots['test_task_send_handler[latest_running-True-True-True] 1'] = '''<?xml version="1.0" ?>
+snapshots['test_task_send_handler[latest_running-True-True-True-True] 1'] = '''<?xml version="1.0" ?>
 <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0039/2">
 \t<ns1:deliveryHeader>
 \t\t<ns2:senderId>https://ebau.apps.be.ch/</ns2:senderId>
@@ -527,7 +527,7 @@ snapshots['test_task_send_handler[latest_running-True-True-True] 1'] = '''<?xml 
 \t\t\t<uuid>00000000-0000-0000-0000-000000000000</uuid>
 \t\t\t<instruction>process</instruction>
 \t\t\t<priority>undefined</priority>
-\t\t\t<deadline>2020-03-23</deadline>
+\t\t\t<deadline>2020-03-15</deadline>
 \t\t\t<comments>
 \t\t\t\t<ns4:comment>Anforderung einer Stellungnahme</ns4:comment>
 \t\t\t</comments>
@@ -536,7 +536,7 @@ snapshots['test_task_send_handler[latest_running-True-True-True] 1'] = '''<?xml 
 </ns1:delivery>
 '''
 
-snapshots['test_task_send_handler[no_existing-True-True-True] 1'] = '''<?xml version="1.0" ?>
+snapshots['test_task_send_handler[no_existing-False-True-True-True] 1'] = '''<?xml version="1.0" ?>
 <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0039/2">
 \t<ns1:deliveryHeader>
 \t\t<ns2:senderId>https://ebau.apps.be.ch/</ns2:senderId>
@@ -569,7 +569,7 @@ snapshots['test_task_send_handler[no_existing-True-True-True] 1'] = '''<?xml ver
 \t\t\t<uuid>00000000-0000-0000-0000-000000000000</uuid>
 \t\t\t<instruction>process</instruction>
 \t\t\t<priority>undefined</priority>
-\t\t\t<deadline>2020-03-23</deadline>
+\t\t\t<deadline>2020-03-24</deadline>
 \t\t\t<comments>
 \t\t\t\t<ns4:comment>Anforderung einer Stellungnahme</ns4:comment>
 \t\t\t</comments>
@@ -578,7 +578,7 @@ snapshots['test_task_send_handler[no_existing-True-True-True] 1'] = '''<?xml ver
 </ns1:delivery>
 '''
 
-snapshots['test_task_send_handler[none_running-True-True-True] 1'] = '''<?xml version="1.0" ?>
+snapshots['test_task_send_handler[no_existing-True-True-True-True] 1'] = '''<?xml version="1.0" ?>
 <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0039/2">
 \t<ns1:deliveryHeader>
 \t\t<ns2:senderId>https://ebau.apps.be.ch/</ns2:senderId>
@@ -611,7 +611,49 @@ snapshots['test_task_send_handler[none_running-True-True-True] 1'] = '''<?xml ve
 \t\t\t<uuid>00000000-0000-0000-0000-000000000000</uuid>
 \t\t\t<instruction>process</instruction>
 \t\t\t<priority>undefined</priority>
-\t\t\t<deadline>2020-03-23</deadline>
+\t\t\t<deadline>2020-03-15</deadline>
+\t\t\t<comments>
+\t\t\t\t<ns4:comment>Anforderung einer Stellungnahme</ns4:comment>
+\t\t\t</comments>
+\t\t</ns1:directive>
+\t</ns1:eventRequest>
+</ns1:delivery>
+'''
+
+snapshots['test_task_send_handler[none_running-True-True-True-True] 1'] = '''<?xml version="1.0" ?>
+<ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0039/2">
+\t<ns1:deliveryHeader>
+\t\t<ns2:senderId>https://ebau.apps.be.ch/</ns2:senderId>
+\t\t<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
+\t\t<ns2:messageType>5200007</ns2:messageType>
+\t\t<ns2:sendingApplication>
+\t\t\t<ns2:manufacturer>Adfinis AG</ns2:manufacturer>
+\t\t\t<ns2:product>camac</ns2:product>
+\t\t\t<ns2:productVersion><!-- VERSION --></ns2:productVersion>
+\t\t</ns2:sendingApplication>
+\t\t<ns2:subject>task</ns2:subject>
+\t\t<ns2:messageDate>2020-02-23T22:09:01.123456Z</ns2:messageDate>
+\t\t<ns2:action>1</ns2:action>
+\t\t<ns2:testDeliveryFlag>true</ns2:testDeliveryFlag>
+\t</ns1:deliveryHeader>
+\t<ns1:eventRequest>
+\t\t<ns1:eventType>task</ns1:eventType>
+\t\t<ns1:planningPermissionApplicationIdentification>
+\t\t\t<ns1:localID>
+\t\t\t\t<ns3:IdCategory>eBauNr</ns3:IdCategory>
+\t\t\t\t<ns3:Id>unknown</ns3:Id>
+\t\t\t</ns1:localID>
+\t\t\t<ns1:otherID>
+\t\t\t\t<ns3:IdCategory>eBauNr</ns3:IdCategory>
+\t\t\t\t<ns3:Id>unknown</ns3:Id>
+\t\t\t</ns1:otherID>
+\t\t\t<ns1:dossierIdentification><!-- INSTANCE_ID --></ns1:dossierIdentification>
+\t\t</ns1:planningPermissionApplicationIdentification>
+\t\t<ns1:directive>
+\t\t\t<uuid>00000000-0000-0000-0000-000000000000</uuid>
+\t\t\t<instruction>process</instruction>
+\t\t\t<priority>undefined</priority>
+\t\t\t<deadline>2020-03-15</deadline>
 \t\t\t<comments>
 \t\t\t\t<ns4:comment>Anforderung einer Stellungnahme</ns4:comment>
 \t\t\t</comments>
