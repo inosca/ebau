@@ -3,7 +3,7 @@ import math
 
 import requests
 from django.conf import settings
-from PyPDF2 import PdfFileReader, PdfFileWriter
+from PyPDF2 import PdfReader, PdfWriter
 
 from camac.constants import kt_uri as uri_constants
 from camac.core.import_dossiers import import_dossiers
@@ -12,7 +12,7 @@ from camac.utils import build_url
 GROUP_KOOR_ARE_BG_ID = 142
 
 
-class PdfFileWriterWithStreamAttribute(PdfFileWriter):
+class PdfWriterWithStreamAttribute(PdfWriter):
     def __init__(self):
         super().__init__()
         self.stream = io.BytesIO()
@@ -90,7 +90,7 @@ class ParashiftImporter:
         return response
 
     def crop_pdf(self, record):
-        pdf = PdfFileReader(record["document"])
+        pdf = PdfReader(record["document"])
 
         try:
             record["barcodes"].pop(0)
@@ -117,12 +117,12 @@ class ParashiftImporter:
                     break
 
             if stop is None:
-                stop = pdf.numPages - 1
+                stop = len(pdf.pages) - 1
 
-            output = PdfFileWriterWithStreamAttribute()
+            output = PdfWriterWithStreamAttribute()
 
             for page in range(start, stop + 1):
-                output.addPage(pdf.getPage(page))
+                output.add_page(pdf.pages[page])
 
             bytes_file = io.BytesIO()
             output.write(bytes_file)
