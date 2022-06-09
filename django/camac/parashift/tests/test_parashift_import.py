@@ -3,7 +3,7 @@ from pathlib import Path
 
 from django.conf import settings
 from django.core.management import call_command
-from PyPDF2 import PdfFileReader
+from PyPDF2 import PdfReader
 
 from camac.instance.master_data import MasterData
 from camac.parashift.parashift import ParashiftImporter
@@ -222,9 +222,9 @@ def test_pdf_cropping():
         assert doc["name"] == f"{counter}.pdf"
 
     doc1 = documents[0]["data"]
-    pdf = PdfFileReader(doc1)
-    assert pdf.getNumPages() == 2
+    pdf = PdfReader(doc1)
+    assert len(pdf.pages) == 2
 
     doc4 = documents[-1]["data"]
-    pdf = PdfFileReader(doc4)
-    assert pdf.getNumPages() == 4
+    pdf = PdfReader(doc4)
+    assert len(pdf.pages) == 4
