@@ -466,19 +466,22 @@ def test_close_dossier_send_handler(
     make_aware(datetime(2020, 2, 23, 23, 9, 1, microsecond=123456))
 )
 @pytest.mark.parametrize(
-    "circulation_status,has_service,valid_service_id,success",
+    "circulation_status,has_deadline,has_service,valid_service_id,success",
     [
-        ("no_existing", True, True, True),
-        ("latest_empty", True, True, True),
-        ("latest_running", True, True, True),
-        ("latest_not_running", True, True, True),
-        ("none_running", True, True, True),
-        ("no_existing", False, True, False),
-        ("no_existing", True, False, False),
+        ("no_existing", True, True, True, True),
+        ("latest_empty", True, True, True, True),
+        ("latest_running", True, True, True, True),
+        ("latest_not_running", True, True, True, True),
+        ("none_running", True, True, True, True),
+        ("no_existing", True, False, True, False),
+        ("no_existing", True, True, False, False),
+        # No passed deadline
+        ("no_existing", False, True, True, True),
     ],
 )
 def test_task_send_handler(  # noqa: C901
     circulation_status,
+    has_deadline,
     has_service,
     valid_service_id,
     success,
@@ -588,6 +591,9 @@ def test_task_send_handler(  # noqa: C901
     if not valid_service_id:
         xml = xml.replace("<serviceId>23</serviceId>", "<serviceId>string</serviceId>")
 
+    if not has_deadline:
+        xml = xml.replace("<deadline>2020-03-15</deadline>", "")
+
     data = CreateFromDocument(xml)
 
     handler = TaskSendHandler(
@@ -624,10 +630,16 @@ def test_task_send_handler(  # noqa: C901
         # daylight saving)
         assert activation.start_date.isoformat() == "2020-02-23T22:09:01+00:00"
 
-        # This should be the end of the day (23:59:00 to be consistent with PHP)
-        # that was given as input (2020-03-23) minus one hour (Europe/Zurich
-        # with daylight saving)
-        assert activation.deadline_date.isoformat() == "2020-03-23T22:59:00+00:00"
+        if has_deadline:
+            # This should be the end of the day (23:59:00 to be consistent with
+            # PHP) that was given as input (2020-03-15) minus one hour
+            # (Europe/Zurich with daylight saving)
+            assert activation.deadline_date.isoformat() == "2020-03-15T22:59:00+00:00"
+        else:
+            # This should be the end of the current day (2020-02-23 23:59:00 to
+            # be consistent with PHP) minus one hour (Europe/Zurich with
+            # daylight saving) plus 30 days
+            assert activation.deadline_date.isoformat() == "2020-03-24T22:59:00+00:00"
 
         assert (
             WorkItem.objects.filter(
