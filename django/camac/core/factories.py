@@ -305,8 +305,8 @@ class SanctionFactory(DjangoModelFactory):
     service = SubFactory(ServiceFactory)
     user = SubFactory(UserFactory)
     text = Faker("text")
-    start_date = Faker("past_datetime")
-    deadline_date = Faker("future_date")
+    start_date = Faker("past_datetime", tzinfo=pytz.UTC)
+    deadline_date = Faker("future_datetime", tzinfo=pytz.UTC)
     control_instance = SubFactory(ServiceFactory)
     notice = Faker("text")
     is_finished = 0
