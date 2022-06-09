@@ -309,31 +309,35 @@ export default class CustomCaseModel extends CaseModel {
         slug
         name
       }
-      answers(questions: [
-        "applicant",
-        "landowner",
-        "project-author",
-        "invoice-recipient",
-        "parcel-street",
-        "street-number",
-        "form-type",
-        "proposal-description",
-        "beschreibung-zu-mbv",
-        "bezeichnung",
-        "vorhaben-proposal-description",
-        "veranstaltung-beschrieb",
-        "voranfrage-vorhaben",
-        "municipality",
-        "parcels",
-        "status-bauprojekt",
-        "leitbehoerde",
-        "grundnutzung",
-        "ueberlagerte-nutzungen",
-        "typ-des-verfahrens",
-        "oereb-thema",
-        "teilstatus",
-        "beschreibung-reklame",
-      ]) {
+      answers(
+        filter: [{
+          questions: [
+            "applicant",
+            "landowner",
+            "project-author",
+            "invoice-recipient",
+            "parcel-street",
+            "street-number",
+            "form-type",
+            "proposal-description",
+            "beschreibung-zu-mbv",
+            "bezeichnung",
+            "vorhaben-proposal-description",
+            "veranstaltung-beschrieb",
+            "voranfrage-vorhaben",
+            "municipality",
+            "parcels",
+            "status-bauprojekt",
+            "leitbehoerde",
+            "grundnutzung",
+            "ueberlagerte-nutzungen",
+            "typ-des-verfahrens",
+            "oereb-thema",
+            "teilstatus",
+            "beschreibung-reklame",
+          ]
+        }]
+      ) {
         edges {
           node {
             question {
