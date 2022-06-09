@@ -261,7 +261,7 @@ class Transform:
                 return None
 
             new_value = str(factor * float(new_value))
-            return re.sub("\.0*$", "", new_value)
+            return re.sub(r"\.0*$", "", new_value)
         except ValueError:
             log.critical(f"number could not be extracted from : {value}")
             __import__("pdb").set_trace()  # noqa

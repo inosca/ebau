@@ -6,7 +6,7 @@ from caluma.caluma_form import factories as caluma_form_factories
 from caluma.caluma_form.models import Document
 from dateutil import relativedelta
 from django.urls import reverse
-from django.utils import timezone
+from django.utils.timezone import make_aware, now
 from django_filters.rest_framework import DjangoFilterBackend
 from faker import Faker
 
@@ -54,21 +54,15 @@ def test_summary_filter_period(
         work_item_factory(document=claim_doc, case=case)
         instance.save()
 
-    make_instance(
-        "first-with-paper", datetime.datetime(1985, 5, 15).date().isoformat(), None
-    )
-    make_instance(
-        "second-with-paper", datetime.datetime(1992, 5, 15).date().isoformat(), None
-    )
+    make_instance("first-with-paper", datetime.date(1985, 5, 15).isoformat(), None)
+    make_instance("second-with-paper", datetime.date(1992, 5, 15).isoformat(), None)
     make_instance(
         "second-with-paper-late",
-        datetime.datetime(1999, 5, 15).date().isoformat(),
-        datetime.datetime(1995, 5, 15).date().isoformat(),
+        datetime.date(1999, 5, 15).isoformat(),
+        datetime.date(1995, 5, 15).isoformat(),
     )
 
-    make_instance(
-        "third-with-paper", datetime.datetime(2005, 5, 15).date().isoformat(), None
-    )
+    make_instance("third-with-paper", datetime.date(2005, 5, 15).isoformat(), None)
 
     request = namedtuple("request", ["query_params"])(
         query_params={"period": ",".join(filter_params)}
@@ -102,7 +96,6 @@ def test_summary_instances(admin_client, instance_factory, case_factory, freezer
     beginning_of_time = datetime.datetime(1980, 12, 31)
     lower = beginning_of_time + relativedelta.relativedelta(years=period_length)
     upper = lower + relativedelta.relativedelta(years=period_length)
-    now = datetime.datetime.now()
 
     num_instances = 6
     instances = []
@@ -116,7 +109,7 @@ def test_summary_instances(admin_client, instance_factory, case_factory, freezer
         freezer.move_to(fake.date_time_between(start_date=lower, end_date=upper))
         instances.append(instance_factory())
     for _ in range(num_instances):
-        freezer.move_to(fake.date_time_between(start_date=upper, end_date=now))
+        freezer.move_to(fake.date_time_between(start_date=upper, end_date=now()))
         instances.append(instance_factory())
 
     cases = []
@@ -213,29 +206,29 @@ def test_activation_summary(
     activation_factory(
         service=group.service,
         circulation_state__name="DONE",
-        start_date=datetime.datetime(2020, 7, 11),
-        end_date=datetime.datetime(2020, 7, 15),
-        deadline_date=datetime.datetime(2020, 7, 20),
+        start_date=make_aware(datetime.datetime(2020, 7, 11)),
+        end_date=make_aware(datetime.datetime(2020, 7, 15)),
+        deadline_date=make_aware(datetime.datetime(2020, 7, 20)),
     )
     activation_factory(
         service=group.service,
         circulation_state__name="DONE",
-        start_date=datetime.datetime(2020, 7, 11),
-        end_date=datetime.datetime(2020, 7, 25),
-        deadline_date=datetime.datetime(2020, 7, 20),
+        start_date=make_aware(datetime.datetime(2020, 7, 11)),
+        end_date=make_aware(datetime.datetime(2020, 7, 25)),
+        deadline_date=make_aware(datetime.datetime(2020, 7, 20)),
     )
     activation_factory(
         service=service_factory(),
         circulation_state__name="DONE",
-        start_date=datetime.datetime(2020, 7, 11),
-        end_date=datetime.datetime(2020, 7, 14),
-        deadline_date=datetime.datetime(2020, 7, 20),
+        start_date=make_aware(datetime.datetime(2020, 7, 11)),
+        end_date=make_aware(datetime.datetime(2020, 7, 14)),
+        deadline_date=make_aware(datetime.datetime(2020, 7, 20)),
     )
     activation_factory(
         service=service_factory(),
         circulation_state__name="OPEN",
-        start_date=datetime.datetime(2020, 7, 11),
-        deadline_date=datetime.datetime(2020, 7, 15),
+        start_date=make_aware(datetime.datetime(2020, 7, 11)),
+        deadline_date=make_aware(datetime.datetime(2020, 7, 15)),
     )
     with django_assert_num_queries(expected_num_queries):
         response = admin_client.get(reverse("activations-summary"))
@@ -273,14 +266,13 @@ def test_instance_cycle_time_view(  # TODO: fix test
     cycle_time = 4
     num_years = 3
     years = []
-    now = timezone.now()
     decision_types = [
         None,
         "decision-approval-type-overall-building-permit",
         "decision-approval-type-building-permit",
     ]
     for year_offset in range(num_years):
-        then = now - relativedelta.relativedelta(years=year_offset)
+        then = now() - relativedelta.relativedelta(years=year_offset)
         years.append(then.year)
         freezer.move_to(then)
         cycle_time += cycle_time * year_offset
@@ -314,7 +306,7 @@ def test_instance_cycle_time_view(  # TODO: fix test
 
     exclude_years = [1649, 2049]
     for year in exclude_years:
-        freezer.move_to(datetime.datetime(year, 1, 1))
+        freezer.move_to(make_aware(datetime.datetime(year, 1, 1)))
         excl_instance = instance_with_case(instance_factory(user=admin_user))
         instance_service_factory(instance=excl_instance, service=group.service)
         submitted = excl_instance.creation_date
