@@ -390,13 +390,13 @@ def test_transmitting_logic(
     archive_file,
     group,
     settings,
+    application_settings,
     requests_mock,
     location_required,
 ):
-    settings.APPLICATION = settings.APPLICATIONS["kt_bern"]
-    settings.APPLICATION["DOSSIER_IMPORT"]["PROD_URL"] = "http://ebau.local"
-    settings.APPLICATION["DOSSIER_IMPORT"]["LOCATION_REQUIRED"] = location_required
-    settings.APPLICATION["DOSSIER_IMPORT"][
+    application_settings["DOSSIER_IMPORT"]["PROD_URL"] = "http://ebau.local"
+    application_settings["DOSSIER_IMPORT"]["LOCATION_REQUIRED"] = location_required
+    application_settings["DOSSIER_IMPORT"][
         "PROD_AUTH_URL"
     ] = settings.KEYCLOAK_OIDC_TOKEN_URL
 
@@ -439,12 +439,11 @@ def test_transmitting_logic(
     transmit_import(dossier_import)
 
 
-def test_failing_transmission(db, settings, requests_mock, dossier_import):
+def test_failing_transmission(db, application_settings, requests_mock, dossier_import):
     PROD_URL = "http://this-could-be-your-production-url.example.com"
     PROD_AUTH_URL = PROD_URL + "/auth/token"
-    settings.APPLICATION = settings.APPLICATIONS["kt_bern"]
-    settings.APPLICATION["DOSSIER_IMPORT"]["PROD_URL"] = PROD_URL
-    settings.APPLICATION["DOSSIER_IMPORT"]["PROD_AUTH_URL"] = PROD_AUTH_URL
+    application_settings["DOSSIER_IMPORT"]["PROD_URL"] = PROD_URL
+    application_settings["DOSSIER_IMPORT"]["PROD_AUTH_URL"] = PROD_AUTH_URL
     requests_mock.register_uri("POST", PROD_AUTH_URL, status_code=401)
     requests_mock.register_uri(
         "POST", PROD_URL + "/api/v1/dossier-imports", status_code=401
