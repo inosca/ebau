@@ -31,7 +31,7 @@
         <uuid>00000000-0000-0000-0000-000000000000</uuid><!-- wird ignoriert -->
         <instruction>process</instruction><!-- wird ignoriert -->
         <priority>undefined</priority><!-- wird ignoriert -->
-        <deadline>2020-03-23</deadline>
+        <deadline>2020-03-15</deadline>
         <comments>
           <ns10:comment>Anforderung einer Stellungnahme</ns10:comment><!-- wird ignoriert -->
         </comments>
