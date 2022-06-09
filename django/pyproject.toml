@@ -1,5 +1,5 @@
 [tool.black]
-target-version = ["py36"]
+target-version = ["py38"]
 include = '\.pyi?$'
 exclude = '''
 /(
@@ -17,3 +17,139 @@ exclude = '''
   | .*/snapshots
 )/
 '''
+
+[tool.isort]
+skip = [
+    "migrations",
+    "snapshots",
+    "ech0211.schema",
+]
+known_first_party = ["camac"]
+known_third_party = [
+    "django",
+    "keycloak",
+    "pyxb",
+    "drf_yasg",
+    "pyproj",
+    "xmlschema",
+    "oauthlib",
+    "requests_oauthlib",
+    "caluma",
+    "jwt",
+]
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+combine_as_imports = true
+line_length = 88
+
+[tool.pytest.ini_options]
+addopts = "--reuse-db --randomly-seed=1521188766 --randomly-dont-reorganize"
+DJANGO_SETTINGS_MODULE = "camac.settings"
+env = [
+    "DJANGO_CACHE_BACKEND=django.core.cache.backends.locmem.LocMemCache",
+    "APPLICATION=demo",
+    "APPLICATION_ENV=ci",
+    "TEST_SUITE_RUNNING=true",
+]
+filterwarnings = [
+    "error::DeprecationWarning",
+    "error::PendingDeprecationWarning",
+    "error::RuntimeWarning",
+    "ignore:defusedxml.lxml:DeprecationWarning", # Deprecation in wsgidav
+    "ignore:The 'arrayconnection' module is deprecated:DeprecationWarning", # Deprecation in graphene
+    "ignore:No fixture data:RuntimeWarning", # Caused by automatically generated empty fixtures
+    "ignore:No directory at:UserWarning", # Caused by whitenoise in tests
+    "ignore:Duplicate name:UserWarning", # Caused by multiple tests using the same test files
+]
+
+[tool.coverage.run]
+source = ["."]
+
+[report]
+fail_under = 100
+exclude_lines = [
+    "pragma: no cover",
+    "pragma: todo cover",
+    "def __str__",
+    "def __unicode__",
+    "def __repr__",
+]
+omit = [
+    "*/postgresql_dbdefaults/*",
+    "*/migrations/*",
+    "*/apps.py",
+    "*/admin.py",
+    "camac/ech0211/schema/*",
+    "manage.py",
+    "setup.py",
+    "form_json_helper.py",
+    "camac/settings_*.py",
+    "camac/wsgi.py",
+    # TODO: write tests for the following"
+    "camac/core/dataimport.py",
+    "camac/core/management/commands/clean_caluma_config.py",
+    "camac/core/management/commands/importmunis.py",
+    "camac/core/management/commands/importrsta.py",
+    "camac/core/management/commands/importservices.py",
+    "camac/core/management/commands/sequencenamespace.py",
+    "camac/core/management/commands/duplicate-instance.py",
+    "camac/core/management/commands/repair_sz_workflow.py",
+    # Temporary entries for landing !2391 into master
+    "camac/caluma/extensions/permissions.py",
+    "camac/caluma/extensions/validations.py",
+    # Temporary exlusions, remove when publication permission endpoint is reenabled"
+    # revert !2353 to remove"
+    "camac/core/views.py",
+    "camac/core/tests/test_publication_permissions.py",
+    "camac/core/serializers.py",
+    # One off commands
+    "camac/dossier_import/management/commands/fix_identifiers_schuebelbach.py",
+    "camac/dossier_import/management/commands/fix_addresses_schuebelbach.py",
+    "camac/instance/management/commands/fix_work_items.py",
+    "camac/instance/management/commands/clean_deleted_instances.py",
+    "camac/core/management/commands/fix_applicants.py",
+    "camac/data_migration/*",
+    "camac/core/management/commands/migrate_rsta.py",
+    "camac/core/management/commands/migrate_rejected.py",
+    "camac/core/management/commands/migrate_publication.py",
+    "camac/core/management/commands/migrate_einfache_vorabklaerung.py",
+    "camac/core/management/commands/migrate_uri_attachment_sections.py",
+    "camac/core/management/commands/migrate_ur_submit_date.py",
+    "camac/core/management/commands/fix_einfache_vorabklaerung.py",
+    "camac/core/management/commands/restore_preliminary_clarification.py",
+    "camac/ech0211/management/commands/fix_ech_circulation_answer.py",
+    "camac/core/management/commands/migrate_work_item_controlling.py",
+    "camac/core/management/commands/initialize_information_of_neighbors.py",
+    "camac/core/management/commands/migrate_stockwerk_uri.py",
+    "camac/core/management/commands/migrate_oereb_forms.py",
+    "camac/core/management/commands/migrate_oereb_form_types.py",
+    "camac/core/management/commands/migrate_archive_instance_work_items.py",
+    "camac/core/management/commands/migrate_workflow_items_sz.py",
+    "camac/core/management/commands/migrate_workflow_items_sz_v2.py",
+    "camac/core/management/commands/migrate_dossier_numbers_uri.py",
+    "camac/core/management/commands/migrate_is_published.py",
+    "camac/core/management/commands/migrate_ebau_number_form.py",
+    "camac/core/management/commands/migrate_koor_afj_documents.py",
+    "camac/core/management/commands/testsystem_cleanup_be.py",
+    "camac/core/management/commands/migrate_municipality_answer_value.py",
+    "camac/core/management/commands/migrate_uri_leitbehoerde.py",
+    "camac/core/management/commands/migrate_forms_and_form_types.py",
+    "camac/core/management/commands/migrate_decision_form.py",
+    # Audit migration"
+    "camac/core/management/commands/config/",
+    "camac/core/management/commands/migrate_audit.py",
+    # Uri Camac -> Caluma dossier migration"
+    "camac/migrate_to_caluma/management/commands/delete_migrated_cases.py",
+    "camac/migrate_to_caluma/management/commands/migrate_cases.py",
+    "camac/migrate_to_caluma/management/commands/migrate_question.py",
+    "camac/migrate_to_caluma/management/commands/migrate_dynamic_option.py",
+    "camac/migrate_to_caluma/question_map.py",
+    "camac/migrate_to_caluma/transforms.py",
+    # Old migrations and their tests
+    "camac/core/management/commands/migrate_issues.py",
+    "camac/core/management/commands/migrate_schwyz_instances.py",
+    "camac/core/tests/test_migrate_issues.py",
+    "camac/core/tests/test_migrate_schwyz_instances.py",
+]
+show_missing = true

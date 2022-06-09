@@ -9,16 +9,14 @@ from camac.user.permissions import permission_aware
 
 
 class CurrentUserDefault(CurrentUserDefault):
-    def __call__(self, serializer_field=None):
-        if serializer_field and "request" in serializer_field.context:
-            return serializer_field.context["request"].user
-
-    def set_context(self, serializer_field):
+    def __call__(self, serializer_field):
         # When generating the schema with our custom FileUploadSwaggerAutoSchema
         # we don't have access to the request object
-        self.user = None
-        if "request" in serializer_field.context:
-            self.user = serializer_field.context["request"].user
+        return (
+            serializer_field.context["request"].user
+            if "request" in serializer_field.context
+            else None
+        )
 
 
 class CurrentUserResourceRelatedField(ResourceRelatedField):

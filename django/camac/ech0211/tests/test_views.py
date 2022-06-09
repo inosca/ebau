@@ -36,6 +36,8 @@ from .utils import xml_data
 
 
 class TestDossier(Dossier):
+    __test__ = False
+
     def __new__(cls, *args, **kwargs):
         obj = object.__new__(cls)
         Dossier.__init__(obj, *args, **kwargs)
