@@ -2,10 +2,11 @@ from collections import namedtuple
 from datetime import datetime, time, timedelta
 from math import trunc
 
+from caluma.caluma_core.events import send_event
 from caluma.caluma_form import api as form_api
 from caluma.caluma_form.models import Question
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
-from caluma.caluma_workflow.events import send_event_with_deprecations
+from caluma.caluma_workflow.events import post_create_work_item
 from caluma.caluma_workflow.utils import create_work_items
 from django.conf import settings
 from django.db.models import Count, Q
@@ -453,8 +454,8 @@ class TaskSendHandler(BaseSendHandler):
                     None,
                     context,
                 ):
-                    send_event_with_deprecations(
-                        "post_create_work_item",
+                    send_event(
+                        post_create_work_item,
                         sender="case_post_create",
                         work_item=work_item,
                         user=self.caluma_user,

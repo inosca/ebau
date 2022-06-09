@@ -1,5 +1,5 @@
 query GetMunicipalities($municipalityQuestion: String!) {
-  allQuestions(filter: [{ slug: $municipalityQuestion }], first: 1) {
+  allQuestions(filter: [{ slugs: [$municipalityQuestion] }], first: 1) {
     edges {
       node {
         slug

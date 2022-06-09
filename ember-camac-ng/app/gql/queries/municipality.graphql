@@ -8,7 +8,7 @@ query Municipality($instanceId: GenericScalar!) {
         id
         document {
           id
-          answers(question: "gemeinde") {
+          answers(filter: [{ question: "gemeinde" }]) {
             edges {
               node {
                 id
