@@ -26,7 +26,7 @@ query GetPublications(
             id
             name
           }
-          start: answers(question: $startQuestion) {
+          start: answers(filter: [{ question: $startQuestion }]) {
             edges {
               node {
                 id
@@ -36,7 +36,7 @@ query GetPublications(
               }
             }
           }
-          end: answers(question: $endQuestion) {
+          end: answers(filter: [{ question: $endQuestion }]) {
             edges {
               node {
                 id
