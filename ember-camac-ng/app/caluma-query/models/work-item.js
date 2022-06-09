@@ -259,7 +259,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
         form {
           name
         }
-        answers(questions: ["beschreibung-bauvorhaben", "voranfrage-vorhaben"]) {
+        answers(filter: [{ questions: ["beschreibung-bauvorhaben", "voranfrage-vorhaben"] }]) {
           edges {
             node {
               ... on StringAnswer {
@@ -276,7 +276,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
             form {
               name
             }
-            answers(questions: ["beschreibung-bauvorhaben"]) {
+            answers(filter: [{ questions: ["beschreibung-bauvorhaben"] }]) {
               edges {
                 node {
                   ... on StringAnswer {
