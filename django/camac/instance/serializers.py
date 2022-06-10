@@ -858,7 +858,11 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
                 raise exceptions.ValidationError(_("Source instance not found"))
 
             caluma_form = caluma_api.get_form_slug(source_instance)
-            if caluma_form in COMPLETE_PRELIMINARY_CLARIFICATION_SLUGS_BE:
+            if (
+                caluma_form in COMPLETE_PRELIMINARY_CLARIFICATION_SLUGS_BE
+                and self.initial_data.get("caluma_form")
+            ):
+                # Conversion from preliminary clarification to building permit
                 caluma_form = self.initial_data.get("caluma_form")
 
             is_paper = caluma_api.is_paper(source_instance)
