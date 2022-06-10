@@ -1,5 +1,5 @@
 from collections import namedtuple
-from datetime import datetime, time
+from datetime import datetime, time, timedelta
 from math import trunc
 
 from caluma.caluma_form import api as form_api
@@ -480,8 +480,8 @@ class TaskSendHandler(BaseSendHandler):
         try:
             deadline_date = self.data.eventRequest.directive.deadline.date()
         # Fallback for messages with missing `directive`
-        except AttributeError:  # pragma: no cover
-            deadline_date = timezone.now().date()
+        except AttributeError:
+            deadline_date = (timezone.now() + timedelta(days=30)).date()
 
         # Remove microseconds because PHP can't handle them
         start_date = timezone.now().replace(microsecond=0)
