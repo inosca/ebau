@@ -28,7 +28,6 @@ export default class IndexController extends Controller {
     const publications = yield this.store.query("publication-entry", {
       include: "instance,instance.location",
       page: { number: this.page, size: 20 },
-      sort: "instance__location__name",
     });
 
     this.publications = [...this.publications, ...publications.toArray()];
