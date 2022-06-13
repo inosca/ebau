@@ -105,7 +105,8 @@ export default class InstancesIndexController extends Controller.extend(
 
     yield this.store.query("form-field", {
       instance: instances.mapBy("id").join(","),
-      name: "bezeichnung,projektnummer,bauherrschaft, bauherrschaft-v2",
+      name:
+        "bezeichnung,projektnummer,bauherrschaft,bauherrschaft-v2,bauherrschaft-v3",
     });
 
     return instances;
