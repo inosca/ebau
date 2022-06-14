@@ -13,7 +13,7 @@ from camac.constants.kt_bern import DASHBOARD_FORM_SLUG
 from camac.instance.filters import CalumaInstanceFilterSet
 from camac.instance.mixins import InstanceQuerysetMixin
 from camac.user.models import Role
-from camac.utils import filters
+from camac.utils import filters, order
 
 
 class CustomVisibility(Authenticated, InstanceQuerysetMixin):
@@ -229,13 +229,14 @@ class CustomVisibilitySZ(CustomVisibility):
         exclude_child_cases = filters(CamacRequest(info).request).get(
             "exclude_child_cases"
         )
+        order_by = order(CamacRequest(info).request)
 
+        filter = Q(family__instance__pk__in=self._all_visible_instances(info))
         if exclude_child_cases == "true":
-            return queryset.filter(
-                family__instance__pk__in=self._all_visible_instances(info),
-                parent_work_item__isnull=True,
-            )
+            filter = filter & Q(parent_work_item__isnull=True)
 
-        return queryset.filter(
-            family__instance__pk__in=self._all_visible_instances(info),
+        return (
+            queryset.filter(filter).order_by(*order_by)
+            if order_by
+            else queryset.filter(filter)
         )
