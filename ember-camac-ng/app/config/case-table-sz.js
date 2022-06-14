@@ -37,5 +37,8 @@ export default {
     "bezeichnung",
     "bezeichnung-override",
   ],
-  order: [{ meta: "dossier-number" }],
+  order: {
+    caluma: [{ meta: "dossier-number" }],
+    "camac-ng": ["instance__identifier"],
+  },
 };
