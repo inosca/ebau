@@ -90,6 +90,15 @@ def filters(request):
     return dict(parse_qsl(request.META.get("HTTP_X_CAMAC_FILTERS", "")))
 
 
+def order(request):
+    """Extract Camac NG order from request.
+
+    The order is expected to be a comma-separated string of fields (foo,bar).
+    """
+    order = request.META.get("HTTP_X_CAMAC_ORDER", None)
+    return order.split(",") if order else None
+
+
 def headers(info):  # pragma: todo cover
     # TODO: Will be included in coverage again in refactoring of caluma extensions.
     """Extract headers from request."""

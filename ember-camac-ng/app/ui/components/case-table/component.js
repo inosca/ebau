@@ -19,17 +19,40 @@ export default class CaseTableComponent extends Component {
       pageSize: caseTableConfig.pageSize || 15,
       processNew: (cases) => this.processNew(cases),
     },
-    order: caseTableConfig.order,
+    ...this.gqlOrder,
     filter: this.gqlFilter,
     queryOptions: {
       context: {
-        headers: this.camacFilter,
+        headers: {
+          ...this.camacFilter,
+          ...this.camacOrder,
+        },
       },
     },
   }));
 
   get isService() {
     return this.shoebox.role === "service";
+  }
+
+  get gqlOrder() {
+    if (this.args.casesBackend === "caluma") {
+      const order = caseTableConfig.order
+        ? caseTableConfig.order[this.args.casesBackend] ?? caseTableConfig.order
+        : null;
+      return order ? { order } : {};
+    }
+
+    return {};
+  }
+
+  get camacOrder() {
+    if (this.args.casesBackend === "camac-ng") {
+      const order = caseTableConfig.order?.[this.args.casesBackend];
+      return order ? { "x-camac-order": order.join(",") } : {};
+    }
+
+    return {};
   }
 
   get gqlFilter() {
