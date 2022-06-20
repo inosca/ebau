@@ -78,6 +78,11 @@ services:
     networks:
       - ebau.local
 
+  ember-ebau:
+    image: acr.run/camac-ng/camac-ng/ember-ebau:master
+    networks:
+      - ebau.local
+
 
   mailhog:
     networks:
