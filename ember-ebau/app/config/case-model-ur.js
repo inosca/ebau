@@ -1,4 +1,4 @@
-import getAnswer from "camac-ng/utils/get-answer";
+import getAnswer from "ebau/utils/get-answer";
 
 const intentSlugs = [
   "proposal-description",
