@@ -7,7 +7,6 @@ services:
     image: nginx:1.21-alpine
     depends_on:
       - ember-caluma-portal
-      - ember-ebau
       - django
       - keycloak
       - mailhog
@@ -82,15 +81,6 @@ services:
       dockerfile: ./ember-caluma-portal/Dockerfile
       cache_from:
         - acr.run/camac-ng/camac-ng/ember-caluma-portal:master
-      args:
-        - APPLICATION=${APPLICATION}
-
-  ember-ebau:
-    build:
-      context: ../
-      dockerfile: ./ember-ebau/Dockerfile
-      cache_from:
-        - acr.run/camac-ng/camac-ng/ember-ebau:master
       args:
         - APPLICATION=${APPLICATION}
 
