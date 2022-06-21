@@ -132,6 +132,12 @@ class ResourceSerializer(serializers.ModelSerializer, MultilingualSerializer):
             ).instance_states.split(",")
             return f"/cases?instance_states={instance_states}"
 
+        if resource_type == "emberlist":
+            instance_states = models.REmberList.objects.get(
+                pk=obj.pk
+            ).instance_states.split(",")
+            return f"/cases?instance_states={instance_states}"
+
         if resource_type == "workitemlistall":
             return "/work-items"
 
