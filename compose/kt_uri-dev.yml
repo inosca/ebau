@@ -27,6 +27,8 @@ services:
   clamav:
     ports:
       - "3310:3310"
+    environment:
+      - ENABLE_DEFINITIONS_UPDATE=false
     networks:
       - ebau.local
 
