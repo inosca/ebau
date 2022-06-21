@@ -132,7 +132,7 @@ export default class CustomCaseModel extends CaseModel {
           id
           document {
             id
-            answers(questions: ["decision-remarks", "decision-decision-assessment"]) {
+            answers(filter: [{ questions: ["decision-remarks", "decision-decision-assessment"] }]) {
               edges {
                 node {
                   id
@@ -157,14 +157,16 @@ export default class CustomCaseModel extends CaseModel {
         name
       }
       answers(
-        questions: [
-          "${answerSlugs.municipality}"
-          "${answerSlugs.description}"
-          "${answerSlugs.objectStreet}"
-          "${answerSlugs.objectNumber}"
-          "${answerSlugs.objectLocation}"
-          "${answerSlugs.personalDataApplicant}"
-        ]
+        filter: [{
+          questions: [
+            "${answerSlugs.municipality}"
+            "${answerSlugs.description}"
+            "${answerSlugs.objectStreet}"
+            "${answerSlugs.objectNumber}"
+            "${answerSlugs.objectLocation}"
+            "${answerSlugs.personalDataApplicant}"
+          ]
+        }]
       ) {
         edges {
           node {
@@ -185,12 +187,14 @@ export default class CustomCaseModel extends CaseModel {
               tableValue: value {
                 id
                 answers(
-                  questions: [
-                    "${answerSlugs.firstNameApplicant}"
-                    "${answerSlugs.lastNameApplicant}"
-                    "${answerSlugs.juristicNameApplicant}"
-                    "${answerSlugs.isJuristicApplicant}"
-                  ]
+                  filter: [{
+                    questions: [
+                      "${answerSlugs.firstNameApplicant}"
+                      "${answerSlugs.lastNameApplicant}"
+                      "${answerSlugs.juristicNameApplicant}"
+                      "${answerSlugs.isJuristicApplicant}"
+                    ]
+                  }]
                 ) {
                   edges {
                     node {
