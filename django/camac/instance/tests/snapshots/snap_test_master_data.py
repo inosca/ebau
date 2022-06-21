@@ -77,30 +77,6 @@ snapshots['test_master_data[kt_bern-de-be_master_data_case-select_related0-prefe
             'zip': 3008
         }
     ],
-    'monument_contract': {
-        'label': 'Ja',
-        'slug': 'vertrag-ja'
-    },
-    'monument_inventory': {
-        'label': 'Nein',
-        'slug': 'baugruppe-bauinventar-nein'
-    },
-    'monument_k_object': {
-        'label': 'Nein',
-        'slug': 'k-objekt-nein'
-    },
-    'monument_rrb': {
-        'label': 'Ja',
-        'slug': 'rrb-ja'
-    },
-    'monument_worth_preserving': {
-        'label': 'Nein',
-        'slug': 'erhaltenswert-nein'
-    },
-    'monument_worth_protecting': {
-        'label': 'Ja',
-        'slug': 'schuetzenswert-ja'
-    },
     'municipality': {
         'label': 'Bern',
         'slug': '1'
@@ -243,30 +219,6 @@ snapshots['test_master_data[kt_bern-fr-be_master_data_case-select_related1-prefe
             'zip': 3008
         }
     ],
-    'monument_contract': {
-        'label': 'Ja',
-        'slug': 'vertrag-ja'
-    },
-    'monument_inventory': {
-        'label': 'Nein',
-        'slug': 'baugruppe-bauinventar-nein'
-    },
-    'monument_k_object': {
-        'label': 'Nein',
-        'slug': 'k-objekt-nein'
-    },
-    'monument_rrb': {
-        'label': 'Ja',
-        'slug': 'rrb-ja'
-    },
-    'monument_worth_preserving': {
-        'label': 'Nein',
-        'slug': 'erhaltenswert-nein'
-    },
-    'monument_worth_protecting': {
-        'label': 'Ja',
-        'slug': 'schuetzenswert-ja'
-    },
     'municipality': {
         'label': 'Berne',
         'slug': '1'
