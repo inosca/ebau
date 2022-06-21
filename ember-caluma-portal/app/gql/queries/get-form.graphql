@@ -1,5 +1,5 @@
 query GetForm($form: String!) {
-  allForms(filter: [{ slug: $form }]) {
+  allForms(filter: [{ slugs: [$form] }]) {
     edges {
       node {
         slug

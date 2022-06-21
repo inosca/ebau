@@ -169,7 +169,7 @@ export default class CaseDashboardComponent extends Component {
         {
           query: gql`
             query GetCase($metaFilter: [JSONValueFilterType]) {
-              allCases(metaValue: $metaFilter) {
+              allCases(filter: [{ metaValue: $metaFilter }]) {
                 edges {
                   node {
                     ...CaseFragment
@@ -321,7 +321,7 @@ export default class CaseDashboardComponent extends Component {
       {
         query: gql`
           query GetCase($metaFilter: [JSONValueFilterType]) {
-            allCases(metaValue: $metaFilter) {
+            allCases(filter: [{ metaValue: $metaFilter }]) {
               edges {
                 node {
                   ...CaseFragment

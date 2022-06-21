@@ -2,6 +2,7 @@ import copy
 import glob
 import inspect
 import logging
+import sys
 from copy import deepcopy
 from dataclasses import dataclass, field
 from datetime import date
@@ -28,7 +29,7 @@ from factory import Faker
 from factory.base import FactoryMetaClass
 from jwt import encode as jwt_encode
 from pytest_factoryboy import register
-from pytest_factoryboy.fixture import get_model_name
+from pytest_factoryboy.fixture import Box, get_model_name
 from rest_framework import status
 from rest_framework.test import APIClient, APIRequestFactory
 
@@ -54,14 +55,23 @@ from camac.utils import build_url
 
 
 def register_module(module, prefix=""):
-    for name, obj in inspect.getmembers(module):
+    # We need to pass the locals of this file to the register method to make
+    # sure they are injected on the conftest locals instead of the default
+    # locals which would be the locals of this function
+    conftest_locals = Box(sys._getframe(1).f_locals)
+
+    for _, obj in inspect.getmembers(module):
         if isinstance(obj, FactoryMetaClass) and not obj._meta.abstract:
             if prefix:
                 # This prefixes only the model fixtures, not the factories
                 model_name = get_model_name(obj)
-                register(obj, _name=f"{prefix}_{model_name}")
+                register(
+                    obj,
+                    _name=f"{prefix}_{model_name}",
+                    _caller_locals=conftest_locals,
+                )
             else:
-                register(obj)
+                register(obj, _caller_locals=conftest_locals)
 
 
 factory_logger = logging.getLogger("factory")

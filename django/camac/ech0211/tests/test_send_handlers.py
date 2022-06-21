@@ -1,8 +1,9 @@
 from datetime import datetime
 
 import pytest
+from caluma.caluma_core.events import send_event
 from caluma.caluma_workflow import api as workflow_api
-from caluma.caluma_workflow.events import send_event_with_deprecations
+from caluma.caluma_workflow.events import post_create_work_item
 from caluma.caluma_workflow.models import Task, WorkItem
 from caluma.caluma_workflow.utils import create_work_items
 from django.utils.timezone import make_aware
@@ -555,8 +556,8 @@ def test_task_send_handler(  # noqa: C901
             None,
             context,
         ):
-            send_event_with_deprecations(
-                "post_create_work_item",
+            send_event(
+                post_create_work_item,
                 sender="case_post_create",
                 work_item=work_item,
                 user=caluma_admin_user,
