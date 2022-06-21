@@ -12,6 +12,7 @@ from django.core.management import call_command
 from pyxb import IncompleteElementContentError, UnprocessedElementContentError
 
 from camac.constants.kt_bern import ECH_BASE_DELIVERY
+from camac.document.models import Attachment
 from camac.ech0211 import formatters
 from camac.ech0211.formatters import determine_decision_state
 
@@ -101,7 +102,7 @@ def test_get_documents(db, attachment_factory, amount, with_display_name, ech_sn
         "7604864d-fada-4431-b63b-fc9f4915233d",
         "23daf554-c2f5-4aa2-b5f2-734a96ed84d8",
     ]
-    attachments = [
+    for count in range(1, amount + 1):
         attachment_factory(
             name="foo.bar",
             context=context,
@@ -109,9 +110,8 @@ def test_get_documents(db, attachment_factory, amount, with_display_name, ech_sn
             uuid=uuids[count - 1],
             mime_type="application/pdf",
         )
-        for count in range(1, amount + 1)
-    ]
-    xml = formatters.get_documents(attachments)
+
+    xml = formatters.get_documents(Attachment.objects.filter(uuid__in=uuids))
 
     assert xml
 
