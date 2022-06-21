@@ -35,6 +35,7 @@ This repository contains the source code for the web applications used to handle
 3. Introduction of Ember.js-based "portal" for submitting forms, also based on REST APIs
 4. Introduction of [Caluma](https://github.com/projectcaluma/caluma) as form- and workflow-engine
 5. Embedding of Ember.js-based modules (replacing Vue.js), styled using [UIkit](https://getuikit.com/)
+6. Replacing the legacy application frame by an Ember.js app (ember-ebau)
 
 The following image shows a high-level overview of the current architecture:
 
@@ -52,6 +53,7 @@ While technically only one database is used, two are shown in the diagram to hig
 ├── ember                  # Ember.js based portal using REST API, precursor of `ember-caluma-portal`
 ├── ember-caluma-portal    # Caluma-based portal
 ├── ember-camac-ng         # Ember.js modules used in internal area
+├── ember-ebau             # New application container for internal area
 ├── ember-ebau-core        # Ember.js addon for code sharing between multiple Ember.js apps
 ├── keycloak               # Keycloak configuration for local development
 ├── proxy                  # Nginx configuration for local development
@@ -140,10 +142,10 @@ pre-commit install
 
 After, you should be able to use to the following services:
 
-- [http://ebau.local](ebau.local) - main application used for "internal" users
-- [http://ebau-portal.local](ebau-portal.local) - public-facing portal (Caluma-based, default choice for new projects, used in Kt. BE, UR)
-- [http://ebau-rest-portal.local](ebau-rest-portal.local) - public-facing portal (REST-API-based, precursor of the Caluma-based portal, used in Kt. SZ)
-- [http://ebau-keycloak.local/auth](ebau-keycloak.local/auth) - IAM solution
+- [ember-ebau.local](http://ember-ebau.local) - new main application used for "internal" users
+- [ebau-portal.local](http://ebau-portal.local) - public-facing portal (Caluma-based, default choice for new projects, used in Kt. BE, UR)
+- [ebau-rest-portal.local](http://ebau-rest-portal.local) - public-facing portal (REST-API-based, precursor of the Caluma-based portal, used in Kt. SZ)
+- [ebau-keycloak.local/auth](http://ebau-keycloak.local/auth) - IAM solution
 
 ### Predefined credentials
 

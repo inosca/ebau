@@ -17,6 +17,10 @@ module.exports = function (environment) {
       name: "ur",
       realm: "urec",
     },
+    kt_schwyz: {
+      name: "sz",
+      realm: "ebau",
+    },
   }[app];
   const oidcHost = process.env.KEYCLOAK_HOST || "http://ebau-keycloak.local";
 
@@ -28,7 +32,7 @@ module.exports = function (environment) {
     podModulePrefix: "ebau/ui",
     "ember-simple-auth-oidc": {
       host: `${oidcHost}/auth/realms/${appConfig.realm}/protocol/openid-connect`,
-      clientId: "portal",
+      clientId: "camac",
       authEndpoint: "/auth",
       tokenEndpoint: "/token",
       endSessionEndpoint: "/logout",
