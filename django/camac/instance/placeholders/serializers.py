@@ -252,23 +252,7 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
     )
     instance_id = serializers.IntegerField(source="pk")
     interior_seating = fields.MasterDataField(sum_by="total_seats")
-    inventar = fields.JointField(
-        fields=[
-            fields.MasterDataField(
-                source="monument_worth_protecting", parser=get_option_label
-            ),
-            fields.MasterDataField(
-                source="monument_worth_preserving", parser=get_option_label
-            ),
-            fields.MasterDataField(source="monument_k_object", parser=get_option_label),
-            fields.MasterDataField(
-                source="monument_inventory", parser=get_option_label
-            ),
-            fields.MasterDataField(source="monument_rrb", parser=get_option_label),
-            fields.MasterDataField(source="monument_contract", parser=get_option_label),
-        ],
-        separator=", ",
-    )
+    inventar = serializers.SerializerMethodField()
     juristic_name = fields.MasterDataPersonField(
         source="applicants", only_first=True, fields=["juristic_name"]
     )
@@ -469,6 +453,47 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
     def get_form_name(self, instance):
         return instance.case.document.form.name.get(get_language())
 
+    def get_inventar(self, instance):
+        inventory = []
+
+        for question in [
+            "schuetzenswert",
+            "erhaltenswert",
+            "k-objekt",
+            "baugruppe-bauinventar",
+            "rrb",
+            "vertrag",
+        ]:
+            answer = instance.case.document.answers.filter(question_id=question).first()
+
+            if not answer or not answer.value == f"{question}-ja":
+                continue
+
+            if question in ["rrb", "vertrag"]:
+                date_answer = instance.case.document.answers.filter(
+                    question_id=f"{question}-vom"
+                ).first()
+
+                if date_answer:
+                    inventory.append(
+                        f"{date_answer.question.label.get(get_language())} {human_readable_date(date_answer.date)}"
+                    )
+                    continue
+            elif question == "baugruppe-bauinventar":
+                description = instance.case.document.answers.filter(
+                    question_id="bezeichnung-baugruppe"
+                ).first()
+
+                if description:
+                    inventory.append(
+                        f"{answer.question.label.get(get_language())}: {description.value}"
+                    )
+                    continue
+
+            inventory.append(answer.question.label.get(get_language()))
+
+        return ", ".join(inventory)
+
     def get_koordinaten(self, instance):
         return clean_join(
             *[
@@ -476,6 +501,7 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
                     *[
                         f"{int(plot.get(key)):,}".replace(",", "’")
                         for key in ["coord_east", "coord_north"]
+                        if plot.get(key)
                     ],
                     separator=" / ",
                 )
