@@ -17,6 +17,10 @@ module.exports = function (environment) {
       name: "ur",
       realm: "urec",
     },
+    kt_schwyz: {
+      name: "sz",
+      realm: "ebau",
+    },
   }[app];
   const oidcHost = process.env.KEYCLOAK_HOST || "http://ebau-keycloak.local";
 
