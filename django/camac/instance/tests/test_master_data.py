@@ -13,11 +13,14 @@ from django.utils.translation import override
 from ..master_data import MasterData
 
 
-def _question(slug):
+def _question(slug, question_label=None):
     return (
         {"question_id": slug}
         if caluma_form_models.Question.objects.filter(pk=slug).exists()
-        else {"question__pk": slug}
+        else {
+            "question__pk": slug,
+            **({"question__label": question_label} if question_label else {}),
+        }
     )
 
 
@@ -27,9 +30,10 @@ def add_answer(
     value,
     value_key="value",
     label=None,
+    question_label=None,
 ):
     answer = caluma_form_factories.AnswerFactory(
-        document=document, **{value_key: value, **_question(question)}
+        document=document, **{value_key: value, **_question(question, question_label)}
     )
 
     if label:
@@ -254,14 +258,6 @@ def be_master_data_case(
     add_answer(document, "nutzungszone", "Wohnzone W2")
     add_answer(document, "ueberbauungsordnung", "Überbauung XY")
     add_answer(document, "sachverhalt", "Sachverhalt Test")
-    add_answer(document, "schuetzenswert", "schuetzenswert-ja", label="Ja")
-    add_answer(document, "erhaltenswert", "erhaltenswert-nein", label="Nein")
-    add_answer(document, "k-objekt", "k-objekt-nein", label="Nein")
-    add_answer(
-        document, "baugruppe-bauinventar", "baugruppe-bauinventar-nein", label="Nein"
-    )
-    add_answer(document, "rrb", "rrb-ja", label="Ja")
-    add_answer(document, "vertrag", "vertrag-ja", label="Ja")
     add_answer(
         document,
         "grundwasserschutzzonen",
