@@ -42,7 +42,7 @@ snapshots['test_get_documents[False-1] 1'] = '''<?xml version="1.0" ?>
 
 snapshots['test_get_documents[False-2] 1'] = '''<?xml version="1.0" ?>
 <doc xmlns:ns1="http://www.ech.ch/xmlns/eCH-0147/T0/1" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0039/2">
-\t<ns1:uuid>7604864d-fada-4431-b63b-fc9f4915233d</ns1:uuid>
+\t<ns1:uuid>23daf554-c2f5-4aa2-b5f2-734a96ed84d8</ns1:uuid>
 \t<ns1:titles>
 \t\t<ns2:title>foo</ns2:title>
 \t</ns1:titles>
@@ -59,7 +59,7 @@ snapshots['test_get_documents[False-2] 1'] = '''<?xml version="1.0" ?>
 
 snapshots['test_get_documents[False-2] 2'] = '''<?xml version="1.0" ?>
 <doc xmlns:ns1="http://www.ech.ch/xmlns/eCH-0147/T0/1" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0039/2">
-\t<ns1:uuid>23daf554-c2f5-4aa2-b5f2-734a96ed84d8</ns1:uuid>
+\t<ns1:uuid>7604864d-fada-4431-b63b-fc9f4915233d</ns1:uuid>
 \t<ns1:titles>
 \t\t<ns2:title>foo</ns2:title>
 \t</ns1:titles>
@@ -109,7 +109,7 @@ snapshots['test_get_documents[True-1] 1'] = '''<?xml version="1.0" ?>
 
 snapshots['test_get_documents[True-2] 1'] = '''<?xml version="1.0" ?>
 <doc xmlns:ns1="http://www.ech.ch/xmlns/eCH-0147/T0/1" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0039/2">
-\t<ns1:uuid>7604864d-fada-4431-b63b-fc9f4915233d</ns1:uuid>
+\t<ns1:uuid>23daf554-c2f5-4aa2-b5f2-734a96ed84d8</ns1:uuid>
 \t<ns1:titles>
 \t\t<ns2:title>baz</ns2:title>
 \t</ns1:titles>
@@ -126,7 +126,7 @@ snapshots['test_get_documents[True-2] 1'] = '''<?xml version="1.0" ?>
 
 snapshots['test_get_documents[True-2] 2'] = '''<?xml version="1.0" ?>
 <doc xmlns:ns1="http://www.ech.ch/xmlns/eCH-0147/T0/1" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0039/2">
-\t<ns1:uuid>23daf554-c2f5-4aa2-b5f2-734a96ed84d8</ns1:uuid>
+\t<ns1:uuid>7604864d-fada-4431-b63b-fc9f4915233d</ns1:uuid>
 \t<ns1:titles>
 \t\t<ns2:title>baz</ns2:title>
 \t</ns1:titles>
