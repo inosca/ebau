@@ -40,3 +40,4 @@ tools/software/
 *.css.map
 
 node_modules
+.just-a-test
