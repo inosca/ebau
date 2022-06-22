@@ -17591,12 +17591,12 @@
     "model": "core.button",
     "pk": 153,
     "fields": {
-      "instance_resource": 246,
-      "name": "Umwandeln",
-      "description": "",
-      "class_field": "",
+      "instance_resource": 180000,
+      "name": "Verfahren ändern",
+      "description": null,
+      "class_field": "in_form_group:221 change_form_title",
       "hidden": 0,
-      "sort": 0
+      "sort": 9
     }
   },
   {
@@ -23330,21 +23330,6 @@
   },
   {
     "model": "core.instanceresource",
-    "pk": 246,
-    "fields": {
-      "available_instance_resource": "page",
-      "resource": 301,
-      "name": "Verfahren ändern",
-      "description": "",
-      "template": "/change/gem.phtml",
-      "class_field": "",
-      "hidden": 0,
-      "sort": 7,
-      "form_group": 221
-    }
-  },
-  {
-    "model": "core.instanceresource",
     "pk": 265,
     "fields": {
       "available_instance_resource": "publication",
@@ -28469,13 +28454,6 @@
   },
   {
     "model": "core.irpage",
-    "pk": 246,
-    "fields": {
-      "pdf_class": null
-    }
-  },
-  {
-    "model": "core.irpage",
     "pk": 285,
     "fields": {
       "pdf_class": ""
@@ -29319,24 +29297,6 @@
       "instance_resource": 205,
       "role": 3,
       "instance_state": 27
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 89,
-    "fields": {
-      "instance_resource": 246,
-      "role": 6,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 90,
-    "fields": {
-      "instance_resource": 246,
-      "role": 6,
-      "instance_state": 25
     }
   },
   {
@@ -35141,15 +35101,6 @@
     "fields": {
       "instance_resource": 205,
       "role": 3,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 1009,
-    "fields": {
-      "instance_resource": 246,
-      "role": 6,
       "instance_state": 34
     }
   },
