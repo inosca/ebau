@@ -5094,7 +5094,7 @@
       }
     },
     "energie-uberragt-rechter-winkel": {
-      "label": "Überragt die Solaranlage die Dachfläche im rechten Winkel um höchstens 20cm?",
+      "label": "Die Solaranlage darf die Dachfläche im rechten Winkel um maximal 20 cm überragen. Wird diese Anforderung eingehalten?",
       "hint": "Erläuterungen zu dieser Frage können der [Planungshilfe Solaranlagen] (https://www.sz.ch/public/upload/assets/18698/planungshilfe_solaranlagen_02052014_vth_1.pdf) entnommen werden.",
       "type": "radio",
       "required": true,
