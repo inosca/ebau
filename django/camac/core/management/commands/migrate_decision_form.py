@@ -138,8 +138,8 @@ class Command(BaseCommand):
                     WorkItem(
                         task=self.task,
                         name=self.task.name,
-                        addressed_groups=str([service.pk]),
-                        controlling_groups=str([service.pk]),
+                        addressed_groups=[str(service.pk)],
+                        controlling_groups=[str(service.pk)],
                         case=decision.instance.case,
                         status=WorkItem.STATUS_SKIPPED,
                         document=document,
