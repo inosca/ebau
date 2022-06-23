@@ -290,6 +290,40 @@
       "fachthemen.radon",
       "gesuchsunterlagen"
     ],
+    "baugesuch-reklamegesuch-v7": [
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "grundinformationen.kategorisierung-v2",
+      "grundinformationen.allgemeine-informationen-zum-vorhaben-v3",
+      "grundinformationen.ausnahmebewilligungen",
+      "grundinformationen.gwr-v2",
+      "personalien",
+      "personalien.grundeigentumerschaft-v2",
+      "personalien.bauherrschaft-v3",
+      "personalien.projektverfasser-planer-v3",
+      "personalien.vertreter-mit-vollmacht-v2",
+      "fachthemen",
+      "fachthemen.landwirtschaft",
+      "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
+      "fachthemen.umweltschutz",
+      "fachthemen.natur-und-landschaftsschutz",
+      "fachthemen.wald",
+      "fachthemen.naturgefahren",
+      "fachthemen.verkehr",
+      "fachthemen.energie",
+      "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
+      "fachthemen.zivilschutz-v2",
+      "fachthemen.brandschutz",
+      "fachthemen.liegenschaftsentwasserung",
+      "fachthemen.gewasserschutz",
+      "fachthemen.grundwasser-und-altlasten",
+      "fachthemen.reklamen",
+      "fachthemen.denkmalschutz-und-archaeologie",
+      "fachthemen.lebensmittel-und-hygienesicherheit",
+      "fachthemen.fischerei",
+      "fachthemen.radon",
+      "gesuchsunterlagen"
+    ],
     "projektanderung-v3": [
       "projektanderung",
       "grundinformationen",
@@ -353,6 +387,22 @@
       "grundinformationen",
       "grundinformationen.lokalisierung",
       "grundinformationen.kategorisierung",
+      "grundinformationen.allgemeine-informationen-zum-vorhaben-v3",
+      "grundinformationen.ausnahmebewilligungen",
+      "grundinformationen.gwr-v2",
+      "personalien",
+      "personalien.grundeigentumerschaft-v2",
+      "personalien.bauherrschaft-v3",
+      "personalien.projektverfasser-planer-v3",
+      "fachthemen",
+      "fachthemen.energie",
+      "gesuchsunterlagen"
+    ],
+    "projektanderung-v8": [
+      "projektanderung",
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "grundinformationen.kategorisierung-v2",
       "grundinformationen.allgemeine-informationen-zum-vorhaben-v3",
       "grundinformationen.ausnahmebewilligungen",
       "grundinformationen.gwr-v2",
@@ -465,6 +515,39 @@
       "grundinformationen",
       "grundinformationen.lokalisierung",
       "grundinformationen.kategorisierung",
+      "grundinformationen.allgemeine-informationen-zum-vorhaben-v3",
+      "grundinformationen.gwr-v2",
+      "personalien",
+      "personalien.grundeigentumerschaft-v2",
+      "personalien.bauherrschaft-v3",
+      "personalien.projektverfasser-planer-v3",
+      "fachthemen",
+      "fachthemen.landwirtschaft",
+      "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
+      "fachthemen.umweltschutz",
+      "fachthemen.natur-und-landschaftsschutz",
+      "fachthemen.wald",
+      "fachthemen.naturgefahren",
+      "fachthemen.verkehr",
+      "fachthemen.energie",
+      "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
+      "fachthemen.zivilschutz-v2",
+      "fachthemen.brandschutz",
+      "fachthemen.liegenschaftsentwasserung",
+      "fachthemen.gewasserschutz",
+      "fachthemen.grundwasser-und-altlasten",
+      "fachthemen.reklamen",
+      "fachthemen.denkmalschutz-und-archaeologie",
+      "fachthemen.lebensmittel-und-hygienesicherheit",
+      "fachthemen.fischerei",
+      "fachthemen.radon",
+      "gesuchsunterlagen"
+    ],
+    "vorentscheid-gemass-ss84-pbg-v7": [
+      "vorentscheid",
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "grundinformationen.kategorisierung-v2",
       "grundinformationen.allgemeine-informationen-zum-vorhaben-v3",
       "grundinformationen.gwr-v2",
       "personalien",
@@ -1079,6 +1162,53 @@
         "hohe-der-anlage"
       ]
     },
+    "grundinformationen.kategorisierung-v2": {
+      "title": "Kategorisierung",
+      "parent": "grundinformationen",
+      "questions": [
+        "kategorie-des-vorhabens",
+        "art-der-nutzung",
+        "vorhaben-mit-baute",
+        "vorhaben-mit-baute-bisherige-nutzung",
+        "vorhaben-mit-baute-geplante-nutzung",
+        "vorhaben-mit-anlage",
+        "vorhaben-mit-anlage-bisherige-nutzung",
+        "vorhaben-mit-anlage-geplante-nutzung",
+        "art-der-anlage",
+        "art-der-anlage-andere",
+        "art-der-befestigten-flache",
+        "art-der-befestigten-flache-andere",
+        "zweck-der-leitungen",
+        "zweck-der-leitungen-andere",
+        "art-der-warmepumpe",
+        "tangiert-vorhaben-strasse",
+        "pfahlfundation-vorgesehen",
+        "baugrubenumschliessung-vorgesehen",
+        "temporare-grundwasserabsenkung-notig",
+        "anlagen-mit-erheblichen-schadstoffemissionen",
+        "anlagen-mit-erheblichen-schadstoffemissionen-welche",
+        "anlagen-mit-erheblichen-strahlungsemissionen",
+        "anlagen-mit-erheblichen-strahlungsemissionen-welche",
+        "anlagen-mit-erheblichen-larmemissionen",
+        "larmbelastetes-gebiet",
+        "aussenbeleuchtung",
+        "wassergefahrdende-stoffe",
+        "brandschutztechnisch-gefahrliche-stoffe",
+        "bodenbelastungen",
+        "boden-5000m2",
+        "ordendliche-mindestabstande",
+        "auswirkungen-auf-arbeitnehmer",
+        "alarmierungseinrichtung-tangiert",
+        "lebensmittel-umgehen",
+        "trinkwasser-abgeben",
+        "offentlich-duschanlage-oder-bad",
+        "gewerbliche-nutzflachen",
+        "gewerbliche-nutzflachen-grosse",
+        "hohe-der-anlage",
+        "terrain-aufschuettung",
+        "terrain-abgrabung"
+      ]
+    },
     "grundinformationen.kategorisierung-vorabklarung": {
       "title": "Kategorisierung",
       "parent": "grundinformationen",
@@ -1505,6 +1635,11 @@
       "parent": "fachthemen",
       "questions": ["radon-info"]
     },
+    "fachthemen.bauabfaelle": {
+      "title": "Bauabfälle",
+      "parent": "fachthemen",
+      "questions": ["200m3-bauabfalle", "schadstoffe-bauobjekt"]
+    },
     "gesuchsunterlagen": {
       "title": "Gesuchsunterlagen",
       "parent": null,
@@ -1519,6 +1654,7 @@
         "info-anlagen-mit-erheblichen-larmemissionen",
         "info-bodenbelastungen",
         "info-200m3-bauabfalle",
+        "info-schadstoffe-bauobjekt",
         "info-landwirtschaft-formular-tierbestand",
         "info-landwirtschaft-grundriss-stall",
         "info-nlbuaab",
@@ -2638,6 +2774,25 @@
         ]
       }
     },
+    "terrain-aufschuettung": {
+      "label": "Wie gross ist die Terrainveränderung?<br> Volumen der Aufschüttung in m³",
+      "hint": "Veränderungen gegenüber dem bestehenden Terrain sind bezüglich Lage und Volumen in ausreichender Qualität und Quantität darzulegen. Zwecks Angabe der Volumen sind in den entsprechenden Formularfeldern einerseits das Total der Aufschüttung (Material, das hinzukommt) und andererseits das Total der Abgrabung (Material, das weggenommen wird) in Kubikmetern einzutragen. Terrainveränderungen sind in den Plänen zu verorten (Situations-, Umgebungs-, Baupläne etc.) und mit den ungefähren Flächen und Volumen zu deklarieren.",
+      "type": "number",
+      "required": false,
+      "active-expression": "'Terrainveränderung' in 'art-der-anlage'|value",
+      "config": {
+        "min": 0
+      }
+    },
+    "terrain-abgrabung": {
+      "label": "Volumen der Abgrabung in m³",
+      "type": "number",
+      "required": false,
+      "active-expression": "'Terrainveränderung' in 'art-der-anlage'|value",
+      "config": {
+        "min": 0
+      }
+    },
     "tangiert-vorhaben-strasse": {
       "label": "Tangiert das Vorhaben direkt oder indirekt eine Strasse?",
       "hint": "Für Bauvorhaben, welche nicht direkt an einer Hauptstrasse liegen, aber auf der Erschliessungsstrasse im Bereich der Einmündung in die Hauptstrasse einen erheblichen Mehrverkehr erzeugen, muss eine Einfahrtsbewilligung beantragt werden. Bei einer Zunahme von 25 % oder mehr spricht man von erheblichem Mehrverkehr.",
@@ -2762,8 +2917,8 @@
       }
     },
     "bodenbelastungen": {
-      "label": "Sind Bodenbelastungen gemäss „Wegleitung Bodenaushub“ (BAFU 2001) zu erwarten?",
-      "hint": "Bodenaushub z. B. im Nahbereich von Strassen, Eisenbahnlinien, Fabriken der Metallbranche ist mehr oder weniger mit Schadstoffen belastet. Solcher Boden darf nicht unkontrolliert verschoben werden.\nDetaillierte Informationen können der [Wegleitung Bodenaushub] (https://www.bafu.admin.ch/bafu/de/home/themen/boden/publikationen-studien/publikationen/verwertung-ausgehobenem-boden-wegleitung-bodenaushub.html) entnommen werden.",
+      "label": "Sind chemische Bodenbelastungen gemäss Vollzugshilfe «<a href='/assets/documents/Beurteilung-von-Boden-im-Hinblick-auf-Verwertung.pdf' title='Herunterladen' target='_blank'>Beurteilung von Boden im Hinblick auf seine Verwertung</a>» (BAFU 2021) zu erwarten?",
+      "hint": "Chemische Bodenbelastungen entstehen beispielsweise durch Emissionen von Anlagen wie Verkehrsträger (Strassen, Eisenbahnlinien) oder Korrosionsschutzobjekte (Starkstrommasten, Brücken). Solcher Boden darf nicht unkontrolliert verschoben werden.\nDetaillierte Informationen können der Vollzugshilfe «<a href='/assets/documents/Beurteilung-von-Boden-im-Hinblick-auf-Verwertung.pdf' title='Herunterladen' target='_blank'>Beurteilung von Boden im Hinblick auf seine Verwertung</a>» entnommen werden.",
       "type": "radio",
       "required": true,
       "config": {
@@ -2798,8 +2953,18 @@
       }
     },
     "200m3-bauabfalle": {
-      "label": "Fallen mehr als 200 m³ Bauabfälle/Bauschutt an und/oder wurde das Bauobjekt vor 1990 erstellt?",
-      "hint": "Die Baubewilligungsbehörde benötigt für die Beurteilung weitere Angaben, wenn mehr als 200 m3 Bauabfälle (Bauten grösser als Einfamilienhaus) und / oder Schadstoffe zu erwarten sind (Baujahr vor 1990).",
+      "label": "Fallen mehr als 200 m³ Bauabfälle an?",
+      "hint": "Die Baubewilligungsbehörde benötigt für die Beurteilung weitere Angaben, wenn mehr als 200 m3 Bauabfälle (Bauten grösser als Einfamilienhaus) zu erwarten sind.\n\nWeiterführende Informationen finden Sie im Merkblatt <a href='/assets/documents/Bauabfaelle-Schadstoffermittlung-und-Entsorgungskonzept.pdf' title='Herunterladen' target='_blank'>Bauabfälle: Schadstoffermittlung und Entsorgungskonzept</a>",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'Abbruch / Rückbau' in 'vorhaben-mit-baute'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "schadstoffe-bauobjekt": {
+      "label": "Sind Schadstoffe im Bauobjekt zu erwarten? (z.B. Baute vor 1990 erstellt? Industrie-/ Gewerbegebäude?)",
+      "hint": "Die Baubewilligungsbehörde benötigt für die Beurteilung weitere Angaben, wenn Schadstoffe zu erwarten sind. Dies kann insbesondere bei Bauten mit Erstelldatum vor 1990 resp. bei Industrie-/ Gewerbebauten der Fall sein. Weiterführende Informationen finden Sie im Merkblatt <a href='/assets/documents/Bauabfaelle-Schadstoffermittlung-und-Entsorgungskonzept.pdf' title='Herunterladen' target='_blank'>Bauabfälle: Schadstoffermittlung und Entsorgungskonzept</a>.",
       "type": "radio",
       "required": true,
       "active-expression": "'Abbruch / Rückbau' in 'vorhaben-mit-baute'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value",
@@ -8092,7 +8257,7 @@
       }
     },
     "info-bodenbelastungen": {
-      "label": "Bei Verdacht auf Schadstoffe im Boden ist ein kurzer Beschrieb bezüglich dem geplanten Vorgehen zur Untersuchung sowie der Behandlung und Verwertung des Bodens einzureichen.",
+      "label": "Bei Verdacht auf Schadstoffe im Boden ist ein kurzer Beschrieb bezüglich dem geplanten Vorgehen zur Untersuchung sowie der Behandlung und Verwertung des Bodens einzureichen, sofern die Angaben nicht bereits in einem anderen Bericht (z.B. Umweltbericht, technischer Bericht, Angaben zur Entsorgung) erfolgten",
       "type": "checkbox",
       "required": false,
       "active-expression": "'bodenbelastungen'|value == 'Ja'",
@@ -8101,10 +8266,20 @@
       }
     },
     "info-200m3-bauabfalle": {
-      "label": "Es ist ein Entsorgungskonzept beizulegen (Muster unter www.abfall.ch).",
+      "label": "Es ist die <a href='/assets/documents/Entsorgungstabelle-Bauabfaelle.pdf' title='Herunterladen' target='_blank'>Entsorgungstabelle Bauabfälle</a> auszufüllen und beizulegen.",
       "type": "checkbox",
       "required": false,
       "active-expression": "'200m3-bauabfalle'|value == 'Ja'",
+      "config": {
+        "options": ["Vorhanden"]
+      }
+    },
+    "info-schadstoffe-bauobjekt": {
+      "label": "Es ist der Bericht Schadstoffermittlung oder die Selbstdeklaration beizulegen (siehe <a href='/assets/documents/Checkliste-Gebaeudeschadstoffe-mit-Entsorgungskonzept.pdf' title='Herunterladen' target='_blank'>Checkliste Gebäudeschadstoffe mit Entsorgungskonzept</a>).",
+      "hint": "Wenn weniger als 200 m³ Bauabfälle zu erwarten sind, kann die <a href='/assets/documents/Checkliste-Gebaeudeschadstoffe-mit-Entsorgungskonzept.pdf' title='Herunterladen' target='_blank'>Checkliste Gebäudeschadstoffe mit Entsorgungskonzept</a> von einer Baufachperson (z.B. Planer, Architekt) ausgefüllt werden.Werden mehr als 200 m³ Bauabfälle erwartet, ist eine Fachperson für Gebäudeschadstoffe beizuziehen. Fachleute finden Sie unter <a href='https://fages.org/' target='_blank'>fages.org</a>.",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'schadstoffe-bauobjekt'|value == 'Ja'",
       "config": {
         "options": ["Vorhanden"]
       }
@@ -8524,6 +8699,16 @@
       "active-expression": "form == 'vorabklarung' || form == 'vorentscheid-gemass-ss84-pbg' || form == 'baugesuch-reklamegesuch' || form == 'projektanderung' || form == 'baumeldung-fur-geringfugiges-vorhaben'",
       "config": {
         "options": ["zur Kenntnis genommen"]
+      }
+    },
+    "info-terrain": {
+      "label": "Die Terrainveränderungen sind in nachvollziehbarer Art und Weise in den Plänen einzutragen.",
+      "hint": "Terrainveränderungen sind in den Plänen zu verorten (Situations-, Umgebungs-, Baupläne etc.) und mit den ungefähren Flächen und Volumen zu deklarieren.",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'Terrainveränderung' in 'art-der-anlage'|value",
+      "config": {
+        "options": ["Vorhanden"]
       }
     },
     "geschaeftskontrolle-arbeitsschritt": {
