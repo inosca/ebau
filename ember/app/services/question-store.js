@@ -65,7 +65,7 @@ const Question = EmberObject.extend({
     this.jexl.addTransform("value", (question) => {
       const q = this._questions.peek(question, this.get("instance.id"));
 
-      return q && q.value;
+      return q && !q.hidden ? q.value : null;
     });
 
     this.jexl.addTransform(

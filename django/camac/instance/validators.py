@@ -56,12 +56,15 @@ class FormDataValidator(object):
             **attachments,
         }
         self.jexl = JEXL()
-        self.jexl.add_transform("value", lambda name: self.fields.get(name))
+        self.jexl.add_transform("value", self.get_field_value)
         self.jexl.add_transform("mapby", lambda arr, key: [obj[key] for obj in arr])
         self.jexl.add_binary_operator(
             "in", 20, lambda value, arr: value in arr if arr else False
         )
         self.active_question_cache = {}
+
+    def get_field_value(self, name):
+        return self.fields.get(name) if self._check_questions_active([name]) else None
 
     def _validate_question_radio(self, question, question_def, value, module=None):
         if value not in question_def["config"]["options"]:
