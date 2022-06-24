@@ -1,5 +1,5 @@
 Babel==2.9.1
-caluma==8.0.0b8
+caluma==8.0.0b10
 dataclasses-json==0.5.7
 Django==3.2.13
 django-admin-sortable2==1.0.4
