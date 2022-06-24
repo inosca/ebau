@@ -1,3 +1,7 @@
+:root {
+  --uk-position-margin-offset: 0px;
+}
+
 #ember-camac-ng {
   @import "variables";
   &:not(.disable-uikit) {
