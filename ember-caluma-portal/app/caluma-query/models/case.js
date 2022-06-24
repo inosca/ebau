@@ -114,11 +114,18 @@ export default class CustomCaseModel extends CaseModel {
 
     const decision = this.raw.workItems.edges[0]?.node.document;
 
-    return decision
+    if (!decision) return null;
+
+    const remarks = findAnswer(decision, "decision-remarks");
+    const decisionAssessment = findAnswer(
+      decision,
+      "decision-decision-assessment"
+    );
+
+    return remarks
       ? {
-          remarks: findAnswer(decision, "decision-remarks"),
-          color:
-            COLOR_MAPPING[findAnswer(decision, "decision-decision-assessment")],
+          remarks,
+          color: COLOR_MAPPING[decisionAssessment],
         }
       : null;
   }
