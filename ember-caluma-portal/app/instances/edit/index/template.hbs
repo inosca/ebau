@@ -56,9 +56,7 @@
           {{~this.instance.value.rejectionFeedback~}}
         </p>
       </div>
-      {{#if (is-application "ur")}}
-        <p>{{t "instances.rejection-info-text-ur"}}</p>
-      {{/if}}
+      <p class="uk-text-meta">{{t "instances.rejectionInfoText"}}</p>
     </div>
   </div>
 
@@ -94,6 +92,7 @@
     {{#if (can "create copy of instance" this.instance.value)}}
       <h3 class="instance-overview__action-title">
         {{t "instances.rejectionTitle"}}
+        {{t "instances.rejectionTitleSuffix"}}
       </h3>
       <p>
         {{t "instances.rejectionText"}}
