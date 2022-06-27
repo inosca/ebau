@@ -256,7 +256,7 @@ class PublicationEntryView(ModelViewSet):
         standort_koordinaten = formFieldQuery.filter(name="standort-koordinaten")
         coordinates_override = []
         if standort_koordinaten.exists():
-            coordinates = standort_koordinaten.first().value.splitlines()
+            coordinates = standort_koordinaten.first().value.strip().splitlines()
             for coordinate in coordinates:
                 coordinate = [c.strip() for c in coordinate.split(";")]
                 coordinates_override.append(
