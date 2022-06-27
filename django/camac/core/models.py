@@ -3494,57 +3494,6 @@ class QuestionType(models.Model):
         db_table = "QUESTION_TYPE"
 
 
-class RApiListInstanceState(models.Model):
-    resource = models.ForeignKey(
-        "Resource", models.CASCADE, db_column="RESOURCE_ID", related_name="+"
-    )
-    instance_state = models.ForeignKey(
-        "instance.InstanceState",
-        models.CASCADE,
-        db_column="INSTANCE_STATE_ID",
-        related_name="+",
-    )
-
-    class Meta:
-        managed = True
-        db_table = "R_API_LIST_INSTANCE_STATE"
-        unique_together = (("resource", "instance_state"),)
-
-
-class RApiListCirculationState(models.Model):
-    resource = models.ForeignKey(
-        "Resource", models.CASCADE, db_column="RESOURCE_ID", related_name="+"
-    )
-    circulation_state = models.ForeignKey(
-        "CirculationState",
-        models.CASCADE,
-        db_column="CIRCULATION_STATE_ID",
-        related_name="+",
-    )
-
-    class Meta:
-        managed = True
-        db_table = "R_API_LIST_CIRCULATION_STATE"
-        unique_together = (("resource", "circulation_state"),)
-
-
-class RApiListCirculationType(models.Model):
-    resource = models.ForeignKey(
-        "Resource", models.CASCADE, db_column="RESOURCE_ID", related_name="+"
-    )
-    circulation_type = models.ForeignKey(
-        "CirculationType",
-        models.CASCADE,
-        db_column="CIRCULATION_TYPE_ID",
-        related_name="+",
-    )
-
-    class Meta:
-        managed = True
-        db_table = "R_API_LIST_CIRCULATION_TYPE"
-        unique_together = (("resource", "circulation_type"),)
-
-
 class RFormlist(models.Model):
     resource = models.OneToOneField(
         "Resource",
