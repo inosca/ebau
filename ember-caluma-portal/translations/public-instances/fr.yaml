@@ -18,6 +18,7 @@ publicInstancesDetail:
   loadError: "Une erreur s'est produite lors du chargement des données"
   downloadError: "Une erreur s'est produite lors du téléchargement."
   copyrightText: "Les documents affichés ici correspondent à la mise à l'enquête publique sous forme physique (sur papier). Nous attirons votre attention sur le fait que tous les documents déposés ici peuvent être protégés par des droits d'auteur. L'impression, l'enregistrement, la photographie et la réutilisation des documents ne sont autorisés qu'avec l'accord explicite de l'auteur du plan ou du propriétaire intellectuel."
-  privacyText: "Pour des raisons de protection des données, seuls sont publiés ici les documents pertinents pour la procédure d'autorisation de construire qui n'ont pas été explicitement classés par le requérant comme étant dignes de confiance et non accessibles au public. » D'autres documents peuvent être consultés dans le cadre du délai de mise à l'enquête auprès du bureau communal compétent."
+  privacyText: "Pour des raisons de protection des données, seuls sont publiés ici les documents pertinents pour la procédure d'autorisation de construire qui n'ont pas été explicitement classés par le requérant comme étant dignes de confiance et non accessibles au public."
+  privacyTextMore: ""
   empty: "Aucun document mis à l'enquête trouvé"
   related: "{count} {count, plural, =1 {dossier} other {dossiers}} mis à l'enquête avec le même numéro eBau"
