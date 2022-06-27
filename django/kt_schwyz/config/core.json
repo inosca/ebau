@@ -2220,60 +2220,6 @@
   },
   {
     "model": "core.araction",
-    "pk": 1,
-    "fields": {
-      "available_resource": "apilistinstance",
-      "action_name": "indexInstance",
-      "hidden": 0
-    }
-  },
-  {
-    "model": "core.araction",
-    "pk": 2,
-    "fields": {
-      "available_resource": "apilistactivation",
-      "action_name": "indexActivation",
-      "hidden": 0
-    }
-  },
-  {
-    "model": "core.araction",
-    "pk": 3,
-    "fields": {
-      "available_resource": "apilistinstance",
-      "action_name": "exportinstance",
-      "hidden": 1
-    }
-  },
-  {
-    "model": "core.araction",
-    "pk": 4,
-    "fields": {
-      "available_resource": "apilistinstance",
-      "action_name": "exportactivation",
-      "hidden": 1
-    }
-  },
-  {
-    "model": "core.araction",
-    "pk": 5,
-    "fields": {
-      "available_resource": "apilistinstance",
-      "action_name": "index",
-      "hidden": 1
-    }
-  },
-  {
-    "model": "core.araction",
-    "pk": 6,
-    "fields": {
-      "available_resource": "apilistactivation",
-      "action_name": "index",
-      "hidden": 1
-    }
-  },
-  {
-    "model": "core.araction",
     "pk": 7,
     "fields": {
       "available_resource": "templatemanager",
@@ -2387,15 +2333,6 @@
       "available_resource": "workitemlistall",
       "action_name": "index",
       "hidden": 0
-    }
-  },
-  {
-    "model": "core.araction",
-    "pk": 20,
-    "fields": {
-      "available_resource": "apilistactivation",
-      "action_name": "exportactivation",
-      "hidden": 1
     }
   },
   {
@@ -2816,24 +2753,6 @@
       "module_name": "workitem",
       "controller_name": "workitemlistinstance",
       "description": "Display work items of the instance"
-    }
-  },
-  {
-    "model": "core.availableresource",
-    "pk": "apilistactivation",
-    "fields": {
-      "module_name": "apilist",
-      "controller_name": "apilist",
-      "description": "Page with a list of activations received from an API backend"
-    }
-  },
-  {
-    "model": "core.availableresource",
-    "pk": "apilistinstance",
-    "fields": {
-      "module_name": "apilist",
-      "controller_name": "apilist",
-      "description": "Page with a list of instances received from an API backend"
     }
   },
   {
@@ -5027,36 +4946,6 @@
   },
   {
     "model": "core.instanceresource",
-    "pk": 15,
-    "fields": {
-      "available_instance_resource": "editformpage",
-      "resource": 7,
-      "name": "Dossier",
-      "description": null,
-      "template": "/ember/instance.phtml",
-      "class_field": null,
-      "hidden": 0,
-      "sort": 0,
-      "form_group": 1
-    }
-  },
-  {
-    "model": "core.instanceresource",
-    "pk": 16,
-    "fields": {
-      "available_instance_resource": "apidocuments",
-      "resource": 7,
-      "name": "Dokumente",
-      "description": null,
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 1,
-      "form_group": 1
-    }
-  },
-  {
-    "model": "core.instanceresource",
     "pk": 18,
     "fields": {
       "available_instance_resource": "editcirculation",
@@ -5187,36 +5076,6 @@
       "class_field": null,
       "hidden": 0,
       "sort": 34,
-      "form_group": 1
-    }
-  },
-  {
-    "model": "core.instanceresource",
-    "pk": 28,
-    "fields": {
-      "available_instance_resource": "apidocuments",
-      "resource": 12,
-      "name": "Dokumente",
-      "description": null,
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 1,
-      "form_group": 1
-    }
-  },
-  {
-    "model": "core.instanceresource",
-    "pk": 29,
-    "fields": {
-      "available_instance_resource": "editformpage",
-      "resource": 12,
-      "name": "Formular",
-      "description": null,
-      "template": "/ember/instance.phtml",
-      "class_field": null,
-      "hidden": 0,
-      "sort": 0,
       "form_group": 1
     }
   },
@@ -7602,22 +7461,6 @@
   },
   {
     "model": "core.ireditformpage",
-    "pk": 15,
-    "fields": {
-      "page": 1,
-      "pdf_class": null
-    }
-  },
-  {
-    "model": "core.ireditformpage",
-    "pk": 29,
-    "fields": {
-      "page": 1,
-      "pdf_class": null
-    }
-  },
-  {
-    "model": "core.ireditformpage",
     "pk": 34,
     "fields": {
       "page": 1,
@@ -8180,96 +8023,6 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 85,
-    "fields": {
-      "instance_resource": 15,
-      "role": 6,
-      "instance_state": 3
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 86,
-    "fields": {
-      "instance_resource": 15,
-      "role": 6,
-      "instance_state": 5
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 87,
-    "fields": {
-      "instance_resource": 15,
-      "role": 6,
-      "instance_state": 6
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 88,
-    "fields": {
-      "instance_resource": 15,
-      "role": 6,
-      "instance_state": 7
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 89,
-    "fields": {
-      "instance_resource": 15,
-      "role": 6,
-      "instance_state": 8
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 90,
-    "fields": {
-      "instance_resource": 16,
-      "role": 6,
-      "instance_state": 3
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 91,
-    "fields": {
-      "instance_resource": 16,
-      "role": 6,
-      "instance_state": 5
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 92,
-    "fields": {
-      "instance_resource": 16,
-      "role": 6,
-      "instance_state": 6
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 93,
-    "fields": {
-      "instance_resource": 16,
-      "role": 6,
-      "instance_state": 7
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 94,
-    "fields": {
-      "instance_resource": 16,
-      "role": 6,
-      "instance_state": 8
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 103,
     "fields": {
       "instance_resource": 21,
@@ -8814,78 +8567,6 @@
     "fields": {
       "instance_resource": 14,
       "role": 7,
-      "instance_state": 7
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 168,
-    "fields": {
-      "instance_resource": 28,
-      "role": 9,
-      "instance_state": 3
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 169,
-    "fields": {
-      "instance_resource": 28,
-      "role": 9,
-      "instance_state": 5
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 170,
-    "fields": {
-      "instance_resource": 28,
-      "role": 9,
-      "instance_state": 6
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 171,
-    "fields": {
-      "instance_resource": 28,
-      "role": 9,
-      "instance_state": 7
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 172,
-    "fields": {
-      "instance_resource": 29,
-      "role": 9,
-      "instance_state": 3
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 173,
-    "fields": {
-      "instance_resource": 29,
-      "role": 9,
-      "instance_state": 5
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 174,
-    "fields": {
-      "instance_resource": 29,
-      "role": 9,
-      "instance_state": 6
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 175,
-    "fields": {
-      "instance_resource": 29,
-      "role": 9,
       "instance_state": 7
     }
   },
@@ -16115,158 +15796,6 @@
     }
   },
   {
-    "model": "core.rapilistcirculationtype",
-    "pk": 9,
-    "fields": {
-      "resource": 7,
-      "circulation_type": 1
-    }
-  },
-  {
-    "model": "core.rapilistcirculationtype",
-    "pk": 11,
-    "fields": {
-      "resource": 12,
-      "circulation_type": 1
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 20,
-    "fields": {
-      "resource": 7,
-      "instance_state": 3
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 21,
-    "fields": {
-      "resource": 7,
-      "instance_state": 5
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 22,
-    "fields": {
-      "resource": 7,
-      "instance_state": 6
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 23,
-    "fields": {
-      "resource": 7,
-      "instance_state": 7
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 24,
-    "fields": {
-      "resource": 7,
-      "instance_state": 8
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 25,
-    "fields": {
-      "resource": 7,
-      "instance_state": 9
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 39,
-    "fields": {
-      "resource": 12,
-      "instance_state": 3
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 40,
-    "fields": {
-      "resource": 12,
-      "instance_state": 5
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 41,
-    "fields": {
-      "resource": 12,
-      "instance_state": 6
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 42,
-    "fields": {
-      "resource": 12,
-      "instance_state": 7
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 50,
-    "fields": {
-      "resource": 13,
-      "instance_state": 3
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 51,
-    "fields": {
-      "resource": 13,
-      "instance_state": 4
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 52,
-    "fields": {
-      "resource": 13,
-      "instance_state": 5
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 53,
-    "fields": {
-      "resource": 13,
-      "instance_state": 6
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 54,
-    "fields": {
-      "resource": 13,
-      "instance_state": 7
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 55,
-    "fields": {
-      "resource": 13,
-      "instance_state": 8
-    }
-  },
-  {
-    "model": "core.rapilistinstancestate",
-    "pk": 56,
-    "fields": {
-      "resource": 13,
-      "instance_state": 9
-    }
-  },
-  {
     "model": "core.remberlist",
     "pk": 27,
     "fields": {
@@ -16299,14 +15828,6 @@
     "pk": 26,
     "fields": {
       "pdf_class": null
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 8,
-    "fields": {
-      "resource": 7,
-      "role": 6
     }
   },
   {
@@ -16355,14 +15876,6 @@
     "fields": {
       "resource": 11,
       "role": 8
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 17,
-    "fields": {
-      "resource": 12,
-      "role": 9
     }
   },
   {
@@ -16671,19 +16184,6 @@
   },
   {
     "model": "core.resource",
-    "pk": 7,
-    "fields": {
-      "available_resource": "apilistinstance",
-      "name": "Übersicht aktiver Dossiers",
-      "description": "Übersicht aktiver Dossiers für den Kanton",
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 6
-    }
-  },
-  {
-    "model": "core.resource",
     "pk": 9,
     "fields": {
       "available_resource": "templatemanager",
@@ -16719,19 +16219,6 @@
       "class_field": null,
       "hidden": 0,
       "sort": 12
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 12,
-    "fields": {
-      "available_resource": "apilistinstance",
-      "name": "Publikation",
-      "description": null,
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 13
     }
   },
   {

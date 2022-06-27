@@ -351,15 +351,6 @@
     }
   },
   {
-    "model": "core.araction",
-    "pk": 1,
-    "fields": {
-      "available_resource": "apilist",
-      "action_name": "index",
-      "hidden": 0
-    }
-  },
-  {
     "model": "core.availableinstanceresource",
     "pk": "allformpages",
     "fields": {
@@ -492,15 +483,6 @@
       "module_name": "default",
       "controller_name": "page",
       "description": "Page from template"
-    }
-  },
-  {
-    "model": "core.availableresource",
-    "pk": "apilist",
-    "fields": {
-      "module_name": "apilist",
-      "controller_name": "apilist",
-      "description": "Page with a list of instances received from an API backend"
     }
   },
   {
