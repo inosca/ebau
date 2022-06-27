@@ -1562,7 +1562,8 @@
         "info-projektgenehmigung",
         "info-technische-bewilligung",
         "info-vorabklarung",
-        "info-vorentscheid"
+        "info-vorentscheid",
+        "info-oberflaechenabfluss"
       ]
     },
     "anlassbewilligungen-verkehrsbewilligungen": {
@@ -5094,7 +5095,7 @@
       }
     },
     "energie-uberragt-rechter-winkel": {
-      "label": "Überragt die Solaranlage die Dachfläche im rechten Winkel um höchstens 20cm?",
+      "label": "Die Solaranlage darf die Dachfläche im rechten Winkel um maximal 20 cm überragen. Wird diese Anforderung eingehalten?",
       "hint": "Erläuterungen zu dieser Frage können der [Planungshilfe Solaranlagen] (https://www.sz.ch/public/upload/assets/18698/planungshilfe_solaranlagen_02052014_vth_1.pdf) entnommen werden.",
       "type": "radio",
       "required": true,
@@ -8514,6 +8515,15 @@
       "active-expression": "form == 'vorentscheid-gemass-ss84-pbg'",
       "config": {
         "options": ["Vorhanden"]
+      }
+    },
+    "info-oberflaechenabfluss": {
+      "label": "Bitte prüfen Sie, ob Ihr Vorhaben von Oberflächenabfluss betroffen ist. Die entsprechende Karte finden Sie im <a href='https://map.geo.sz.ch/s/iLYc6Z' target='_blank'>WebGIS des Kantons Schwyz</a>. Dieser Hochwasserprozess, welcher nicht in der Naturgefahrenkarte abgebildet ist, führt jährlich zu zahlreichen Schäden. Mit einfachen baulichen Massnahmen können diese verhindert werden. Auf der Internetseite <a href='https://www.schutz-vor-naturgefahren.ch/bauherr/blog/28-vorsicht-starkregen.html' target='_blank'>schutz-vor-naturgefahren.ch</a> finden Sie dazu die wichtigsten Informationen.",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "form == 'vorabklarung' || form == 'vorentscheid-gemass-ss84-pbg' || form == 'baugesuch-reklamegesuch' || form == 'projektanderung' || form == 'baumeldung-fur-geringfugiges-vorhaben'",
+      "config": {
+        "options": ["zur Kenntnis genommen"]
       }
     },
     "geschaeftskontrolle-arbeitsschritt": {
