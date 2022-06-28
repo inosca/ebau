@@ -66,7 +66,7 @@ filterwarnings = [
 [tool.coverage.run]
 source = ["."]
 
-[report]
+[tool.coverage.report]
 fail_under = 100
 exclude_lines = [
     "pragma: no cover",
@@ -136,6 +136,7 @@ omit = [
     "camac/core/management/commands/migrate_uri_leitbehoerde.py",
     "camac/core/management/commands/migrate_forms_and_form_types.py",
     "camac/core/management/commands/migrate_decision_form.py",
+    "camac/user/management/commands/disable_obsolete_groups.py",
     # Audit migration"
     "camac/core/management/commands/config/",
     "camac/core/management/commands/migrate_audit.py",
