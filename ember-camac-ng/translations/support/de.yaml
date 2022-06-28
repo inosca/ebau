@@ -41,9 +41,6 @@ support:
     title: "Projektänderung umwandeln"
     description: "Hier können Sie eine Projektänderung, die fälschlicherweise erfasst wurde in ein neues Dossier umwandeln."
     convert: "Umwandeln"
-
-    input-label: "Änderung Baubeschrieb und Projektänderung"
-    info-text: "Im unteren Textfeld werden die Texte des Baubeschriebs und der Projektänderung angezeigt. Sie können den Text nach Belieben abändern."
-    info-text-caution: "'<strong'>Achtung:'</strong'> Der Text kann nach dem Umwandeln nicht mehr geändert werden."
-
-    conversion-error: "Beim Umwandeln des Dossiers ist ein Fehler aufgetreten"
+    input-label: "Neuer Baubeschrieb"
+    info-text: "Im unteren Textfeld können Sie den neuen Baubeschrieb (bestehend aus dem Baubeschrieb und der Projektänderung) nach Belieben abändern."
+    conversion-error: "Fehler beim Umwandeln des Dossiers"

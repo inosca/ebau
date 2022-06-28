@@ -45,4 +45,9 @@
   </tbody>
 </table>
 <p>{{t "publicInstancesDetail.copyrightText"}}</p>
-<p>{{t "publicInstancesDetail.privacyText"}}</p>
+<p>
+  {{t "publicInstancesDetail.privacyText"}}
+  {{#if (is-application "ur")}}
+    {{t "publicInstancesDetail.privacyTextMore"}}
+  {{/if}}
+</p>
