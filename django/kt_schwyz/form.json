@@ -8380,7 +8380,7 @@
       }
     },
     "info-belastete-standorte": {
-      "label": "Ihr Bauvorhaben wird durch den belasteten Standort mit KbS-Nr. ........ tangiert.  Es sind die Altlastenuntersuchungen (z.B. historische, technische Untersuchung) einzureichen (vgl. Ablaufschema „Bauen auf belasteten Standorten“).",
+      "label": "Ihr Bauvorhaben wird durch einen belasteten Standort tangiert. Es sind die Altlastenuntersuchungen (z.B. historische, technische Untersuchung) einzureichen (vgl. Ablaufschema „<a href=\"/assets/documents/20201029_Ablaufschema_Bauen_auf_belasteten_Standorten.pdf\" title=\"Herunterladen\" target=\"_blank\">Bauen auf belasteten Standorten</a>“).",
       "type": "checkbox",
       "required": false,
       "active-expression": "'ms:ch.sz.a020a.kataster_belasteter_standorte' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020a.kataster_belasteter_standorte_pnt' in 'layer'|value|mapby('name')",
