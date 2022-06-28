@@ -38,12 +38,9 @@ support:
     error: "Erreur lors de la réparation des tâches"
 
   modification-to-new-dossier:
-    title: ""
-    description: ""
-    convert: ""
-
-    input-label: ""
-    info-text: ""
-    info-text-caution: ""
-
-    conversion-error: ""
+    title: "Transformer une modification de projet"
+    description: "Ici, vous pouvez transformer une modification de projet qui a été saisie à tort en un nouveau dossier."
+    convert: "Transformer"
+    input-label: "Nouvelle description de la construction"
+    info-text: "Dans le champ de texte inférieur, vous pouvez modifier à votre guise la nouvelle description du projet (composée de la description du projet et de la modification du projet)."
+    conversion-error: "Erreur lors de la transformation du dossier"
