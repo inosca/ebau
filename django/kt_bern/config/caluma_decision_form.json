@@ -785,7 +785,7 @@
     "pk": "decision-submit",
     "fields": {
       "created_at": "2022-05-02T11:49:19.157Z",
-      "modified_at": "2022-05-03T07:28:42.176Z",
+      "modified_at": "2022-06-28T13:54:19.455Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -796,7 +796,7 @@
       "is_hidden": "'decision-workflow'|answer == 'building-permit' && 'decision-approval-type'|answer == 'decision-approval-type-partial-building-permit'",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": \"Haben Sie den Entscheid im Men\\u00fc \\\"Dokumente\\\" hochgeladen und m\\u00f6chten Sie den Entscheid jetzt verf\\u00fcgen? Dieser Schritt kann nicht r\\u00fcckg\\u00e4ngig gemacht werden.\\n<br><br>\\nAnsonsten k\\u00f6nnen Sie unter Vorlagen den Entscheid generieren. Nachdem der Entscheid unter Dokumente abgelegt wurde, kann dieser verf\\u00fcgt werden.\", \"fr\": \"\"}",
+      "info_text": "{\"de\": \"Haben Sie den Entscheid im Men\\u00fc \\\"Dokumente\\\" hochgeladen und m\\u00f6chten Sie den Entscheid jetzt verf\\u00fcgen? Dieser Schritt kann nicht r\\u00fcckg\\u00e4ngig gemacht werden.\\n<br><br>\\nFalls nicht, k\\u00f6nnen Sie diesen im Menu \\\"Vorlagen\\\" generieren. Nachdem der Entscheid abgelegt wurde, kann dieser verf\\u00fcgt werden.\", \"fr\": \"Est-ce que vous avez t\\u00e9l\\u00e9charg\\u00e9 la d\\u00e9cision dans le menu \\\"Documents\\\" et vous souhaitez disposer de la d\\u00e9cision maintenant ? Cette \\u00e9tape ne peut pas \\u00eatre annul\\u00e9e.\\n<br><br>\\nSi ce n'est pas le cas, vous pouvez la g\\u00e9n\\u00e9rer dans le menu \\\"Mod\\u00e8les\\\". Une fois que la d\\u00e9cision a \\u00e9t\\u00e9 class\\u00e9e, vous pouvez en disposer.\"}",
       "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {

@@ -1,3 +1,4 @@
+import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { dropTask } from "ember-concurrency";
@@ -7,6 +8,8 @@ export default class SnippetsComponent extends Component {
   @service fetch;
   @service store;
   @service shoebox;
+
+  _inputElement = null;
 
   snippets = trackedTask(this, this.fetchSnippets, () => [
     this.shoebox.content.serviceId,
@@ -52,6 +55,13 @@ export default class SnippetsComponent extends Component {
 
     const { data } = yield response.json();
 
-    this.args.onApply(data.attributes.body);
+    this._inputElement.value = this._inputElement.value + data.attributes.body;
+    this._inputElement.dispatchEvent(new Event("input"));
+  }
+
+  @action
+  registerInputElement(element) {
+    this._inputElement =
+      element.querySelector("textarea") ?? element.querySelector("input");
   }
 }
