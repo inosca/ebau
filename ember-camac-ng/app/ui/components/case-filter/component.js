@@ -77,9 +77,10 @@ export default class CaseFilterComponent extends Component {
   }));
 
   get responsibleServiceUsers() {
-    const userIds = this.responsibleServices.records?.map(
-      (responsibleService) => responsibleService.get("responsibleUser.id")
-    );
+    const userIds =
+      this.responsibleServices.records?.map((responsibleService) =>
+        responsibleService.get("responsibleUser.id")
+      ) ?? [];
 
     return [
       ...this.store.peekAll("user").filter((user) => userIds.includes(user.id)),
