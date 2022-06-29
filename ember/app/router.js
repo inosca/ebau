@@ -25,6 +25,7 @@ Router.map(function () {
         this.route("grundinformationen", function () {
           this.route("lokalisierung");
           this.route("kategorisierung");
+          this.route("kategorisierung-v2");
           this.route("kategorisierung-vorabklarung");
           this.route("gwr");
           this.route("gwr-v2");
@@ -67,6 +68,7 @@ Router.map(function () {
           this.route("zivilschutz-v2");
           this.route("brandschutz");
           this.route("liegenschaftsentwasserung");
+          this.route("bauabfaelle");
           this.route("gewasserschutz");
           this.route("grundwasser-und-altlasten");
           this.route("reklamen");
