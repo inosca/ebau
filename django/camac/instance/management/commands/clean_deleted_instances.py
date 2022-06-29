@@ -4,6 +4,8 @@ from django.core.management.base import BaseCommand
 from django.db import transaction
 from django.db.models import F
 
+from camac.instance.models import Instance
+
 
 class Command(BaseCommand):
     def add_arguments(self, parser):
@@ -12,6 +14,15 @@ class Command(BaseCommand):
     @transaction.atomic
     def handle(self, *args, **options):
         tid = transaction.savepoint()
+
+        instances_without_case = Instance.objects.filter(case__isnull=True)
+        if instances_without_case.exists():
+            self.stdout.write(
+                self.style.WARNING(
+                    f"Delete {instances_without_case.count()} instances without a case"
+                )
+            )
+            instances_without_case.delete()
 
         documents_without_family = Document.objects.filter(family__isnull=True)
         if documents_without_family.exists():
