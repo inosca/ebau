@@ -500,6 +500,36 @@
     }
   },
   {
+    "model": "instance.form",
+    "pk": 51,
+    "fields": {
+      "form_state": 1,
+      "name": "projektanderung-v8",
+      "description": "Projektänderung zu bewilligtem Baugesuch",
+      "family": 2
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 52,
+    "fields": {
+      "form_state": 1,
+      "name": "vorentscheid-gemass-ss84-pbg-v7",
+      "description": "Vorentscheid gemäss § 84 PBG",
+      "family": 3
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 53,
+    "fields": {
+      "form_state": 1,
+      "name": "baugesuch-reklamegesuch-v7",
+      "description": "Baugesuch",
+      "family": 1
+    }
+  },
+  {
     "model": "instance.formstate",
     "pk": 1,
     "fields": {
