@@ -2779,7 +2779,7 @@
       }
     },
     "terrain-aufschuettung": {
-      "label": "Wie gross ist die Terrainveränderung?<br> Volumen der Aufschüttung in m³",
+      "label": "Wie gross ist die Terrainveränderung?<br/> Volumen der Aufschüttung in m³",
       "hint": "Veränderungen gegenüber dem bestehenden Terrain sind bezüglich Lage und Volumen in ausreichender Qualität und Quantität darzulegen. Zwecks Angabe der Volumen sind in den entsprechenden Formularfeldern einerseits das Total der Aufschüttung (Material, das hinzukommt) und andererseits das Total der Abgrabung (Material, das weggenommen wird) in Kubikmetern einzutragen. Terrainveränderungen sind in den Plänen zu verorten (Situations-, Umgebungs-, Baupläne etc.) und mit den ungefähren Flächen und Volumen zu deklarieren.",
       "type": "number",
       "required": false,
