@@ -322,6 +322,7 @@
       "fachthemen.lebensmittel-und-hygienesicherheit",
       "fachthemen.fischerei",
       "fachthemen.radon",
+      "fachthemen.bauabfaelle",
       "gesuchsunterlagen"
     ],
     "projektanderung-v3": [
@@ -412,6 +413,7 @@
       "personalien.projektverfasser-planer-v3",
       "fachthemen",
       "fachthemen.energie",
+      "fachthemen.bauabfaelle",
       "gesuchsunterlagen"
     ],
     "vorentscheid-gemass-ss84-pbg-v3": [
@@ -574,6 +576,7 @@
       "fachthemen.lebensmittel-und-hygienesicherheit",
       "fachthemen.fischerei",
       "fachthemen.radon",
+      "fachthemen.bauabfaelle",
       "gesuchsunterlagen"
     ],
     "vorabklarung": [
@@ -1699,7 +1702,8 @@
         "info-technische-bewilligung",
         "info-vorabklarung",
         "info-vorentscheid",
-        "info-oberflaechenabfluss"
+        "info-oberflaechenabfluss",
+        "info-terrain"
       ]
     },
     "anlassbewilligungen-verkehrsbewilligungen": {
