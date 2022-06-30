@@ -13,6 +13,7 @@ from django_filters.rest_framework import (
 from camac.filters import CharMultiValueFilter, NumberMultiValueFilter
 from camac.instance.models import Instance
 from camac.instance.views import InstanceView
+from camac.responsible.models import ResponsibleService
 
 from . import models
 from .permissions import get_permission_func, permission_aware
@@ -104,6 +105,9 @@ class UserFilterSet(FilterSet):
     exclude_primary_role = CharFilter(
         field_name="user_groups", method="_exclude_primary_role"
     )
+    responsible_for_instances = BooleanFilter(
+        method="_filter_responsible_for_instances"
+    )
 
     def _exclude_primary_role(self, queryset, name, value):
         user_groups = models.UserGroup.objects.filter(
@@ -111,9 +115,25 @@ class UserFilterSet(FilterSet):
         )
         return queryset.exclude(user_groups__in=user_groups).distinct()
 
+    def _filter_responsible_for_instances(self, queryset, name, value):
+        responsible = ResponsibleService.objects.filter(
+            service_id=self.request.group.service_id
+        ).values("responsible_user")
+
+        if value:
+            return queryset.filter(pk__in=responsible)
+
+        return queryset.exclude(pk__in=responsible)
+
     class Meta:
         model = get_user_model()
-        fields = ("id", "username", "disabled", "exclude_primary_role")
+        fields = (
+            "id",
+            "username",
+            "disabled",
+            "exclude_primary_role",
+            "responsible_for_instances",
+        )
 
 
 class AccessibleInstanceFilter(NumberFilter):

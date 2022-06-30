@@ -80,3 +80,28 @@ def test_user_role_filter(
     assert response.status_code == status.HTTP_200_OK
     json = response.json()
     assert len(json["data"]) == size
+
+
+@pytest.mark.parametrize("role__name", ["Service"])
+@pytest.mark.parametrize(
+    "responsible_for_instances,expected_count", [(True, 3), (False, 6)]
+)
+def test_user_responsible_in_service_filter(
+    admin_client,
+    service,
+    user_group_factory,
+    responsible_service_factory,
+    responsible_for_instances,
+    expected_count,
+):
+    user_group_factory.create_batch(5, group__service=service)
+
+    for user_group in user_group_factory.create_batch(3, group__service=service):
+        responsible_service_factory(service=service, responsible_user=user_group.user)
+
+    response = admin_client.get(
+        reverse("user-list"), {"responsible_for_instances": responsible_for_instances}
+    )
+
+    assert response.status_code == status.HTTP_200_OK
+    assert len(response.json()["data"]) == expected_count
