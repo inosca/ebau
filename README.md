@@ -145,6 +145,7 @@ After, you should be able to use to the following services:
 - [ember-ebau.local](http://ember-ebau.local) - new main application used for "internal" users
 - [ebau-portal.local](http://ebau-portal.local) - public-facing portal (Caluma-based, default choice for new projects, used in Kt. BE, UR)
 - [ebau-rest-portal.local](http://ebau-rest-portal.local) - public-facing portal (REST-API-based, precursor of the Caluma-based portal, used in Kt. SZ)
+- [ebau.local/django-admin/](http://ebau.local/django-admin/) - Django admin interface
 - [ebau-keycloak.local/auth](http://ebau-keycloak.local/auth) - IAM solution
 
 ### Predefined credentials
