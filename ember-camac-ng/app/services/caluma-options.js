@@ -191,9 +191,6 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
             Gemeinde: {
               label: "distribution.municipalities",
             },
-            Baugesuchszentrale: {
-              label: "distribution.bgz",
-            },
             "Fachstellen Gemeinden": {
               label: "distribution.municipal-services",
             },
