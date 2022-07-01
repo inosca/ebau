@@ -52,6 +52,7 @@ services:
         - acr.run/camac-ng/camac-ng/ember:${CI_COMMIT_REF_SLUG}-${APPLICATION}
       args:
         KEYCLOAK_URL_ARG: ${KEYCLOAK_URL}
+        INTERNAL_HOST_ARG: ${INTERNAL_HOST}
         DEPLOY_TARGET: production
     depends_on:
       - django
