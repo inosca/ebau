@@ -1,0 +1,15 @@
+{
+  "name": "content-security-policy",
+  "keywords": [
+    "ember-addon"
+  ],
+  "ember-addon": {
+    "//": "Needed to make sure the meta tag is as early in the DOM as possible",
+    "before": [
+      "serve-files-middleware",
+      "broccoli-serve-files",
+      "history-support-middleware",
+      "proxy-server-middleware"
+    ]
+  }
+}

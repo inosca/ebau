@@ -4,6 +4,7 @@ module.exports = function (environment) {
   const oidcHost =
     process.env.KEYCLOAK_URL ||
     "http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect";
+  const internalHost = process.env.INTERNAL_HOST || "http://ebau.local";
 
   const ENV = {
     modulePrefix: "citizen-portal",
@@ -27,6 +28,9 @@ module.exports = function (environment) {
     },
 
     APP: {
+      // Hostname of the internal eBau part for CSP
+      internalHost,
+
       // special attachment section mapping
       attachmentSections: { applicant: "1", readOnly: "9", publication: "4" },
 

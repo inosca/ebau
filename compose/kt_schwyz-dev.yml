@@ -84,6 +84,7 @@ services:
     build:
       args:
         KEYCLOAK_URL_ARG: http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect
+        INTERNAL_HOST_ARG: http://ebau.local
         DEPLOY_TARGET: staging
     networks:
       - ebau.local
