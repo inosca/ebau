@@ -2961,7 +2961,7 @@
       "hint": "Die Baubewilligungsbehörde benötigt für die Beurteilung weitere Angaben, wenn mehr als 200 m3 Bauabfälle (Bauten grösser als Einfamilienhaus) zu erwarten sind.\n\nWeiterführende Informationen finden Sie im Merkblatt <a href='/assets/documents/Bauabfaelle-Schadstoffermittlung-und-Entsorgungskonzept.pdf' title='Herunterladen' target='_blank'>Bauabfälle: Schadstoffermittlung und Entsorgungskonzept</a>",
       "type": "radio",
       "required": true,
-      "active-expression": "'Abbruch / Rückbau' in 'vorhaben-mit-baute'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value",
+      "active-expression": "'Abbruch / Rückbau' in 'vorhaben-mit-baute'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value || 'Neubau' in 'vorhaben-mit-baute'|value || 'Anbau / Erweiterung' in 'vorhaben-mit-baute'|value",
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -2971,7 +2971,7 @@
       "hint": "Die Baubewilligungsbehörde benötigt für die Beurteilung weitere Angaben, wenn Schadstoffe zu erwarten sind. Dies kann insbesondere bei Bauten mit Erstelldatum vor 1990 resp. bei Industrie-/ Gewerbebauten der Fall sein. Weiterführende Informationen finden Sie im Merkblatt <a href='/assets/documents/Bauabfaelle-Schadstoffermittlung-und-Entsorgungskonzept.pdf' title='Herunterladen' target='_blank'>Bauabfälle: Schadstoffermittlung und Entsorgungskonzept</a>.",
       "type": "radio",
       "required": true,
-      "active-expression": "'Abbruch / Rückbau' in 'vorhaben-mit-baute'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value",
+      "active-expression": "'Abbruch / Rückbau' in 'vorhaben-mit-baute'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value || 'Neubau' in 'vorhaben-mit-baute'|value || 'Anbau / Erweiterung' in 'vorhaben-mit-baute'|value",
       "config": {
         "options": ["Ja", "Nein"]
       }
