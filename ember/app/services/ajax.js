@@ -22,6 +22,7 @@ export default AjaxService.extend({
 
     if (res instanceof UnauthorizedError) {
       this.session.invalidate();
+      this.router.transitionTo("login");
     }
 
     return res;
