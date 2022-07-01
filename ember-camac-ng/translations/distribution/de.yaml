@@ -6,7 +6,7 @@ distribution:
   subservices: "Unterfachstellen"
   external-services: "Externe Fachstellen"
   municipal-services: "Fachstellen Gemeinden"
-  bgz: "Baugesuchszentrale"
+
   send-answer: "Antwort senden"
   release-for-review: "Zur Kontrolle freigeben"
   release-adjustment-for-review: "Anpassung zur Kontrolle freigeben"
