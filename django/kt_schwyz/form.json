@@ -1201,7 +1201,6 @@
         "boden-5000m2",
         "ordendliche-mindestabstande",
         "auswirkungen-auf-arbeitnehmer",
-        "alarmierungseinrichtung-tangiert",
         "lebensmittel-umgehen",
         "trinkwasser-abgeben",
         "offentlich-duschanlage-oder-bad",
@@ -1551,7 +1550,8 @@
         "zivilschutz-elementarschaden",
         "zivilschutz-dispens-schutzraumbau",
         "zivilschutz-planung",
-        "zivilschutz-aufhebung"
+        "zivilschutz-aufhebung",
+        "alarmierungseinrichtung-tangiert"
       ]
     },
     "fachthemen.brandschutz": {
@@ -2782,7 +2782,7 @@
       "label": "Wie gross ist die Terrainveränderung?<br/> Volumen der Aufschüttung in m³",
       "hint": "Veränderungen gegenüber dem bestehenden Terrain sind bezüglich Lage und Volumen in ausreichender Qualität und Quantität darzulegen. Zwecks Angabe der Volumen sind in den entsprechenden Formularfeldern einerseits das Total der Aufschüttung (Material, das hinzukommt) und andererseits das Total der Abgrabung (Material, das weggenommen wird) in Kubikmetern einzutragen. Terrainveränderungen sind in den Plänen zu verorten (Situations-, Umgebungs-, Baupläne etc.) und mit den ungefähren Flächen und Volumen zu deklarieren.",
       "type": "number",
-      "required": false,
+      "required": true,
       "active-expression": "'Terrainveränderung' in 'art-der-anlage'|value",
       "config": {
         "min": 0
@@ -2791,7 +2791,7 @@
     "terrain-abgrabung": {
       "label": "Volumen der Abgrabung in m³",
       "type": "number",
-      "required": false,
+      "required": true,
       "active-expression": "'Terrainveränderung' in 'art-der-anlage'|value",
       "config": {
         "min": 0
@@ -8261,7 +8261,7 @@
       }
     },
     "info-bodenbelastungen": {
-      "label": "Bei Verdacht auf Schadstoffe im Boden ist ein kurzer Beschrieb bezüglich dem geplanten Vorgehen zur Untersuchung sowie der Behandlung und Verwertung des Bodens einzureichen, sofern die Angaben nicht bereits in einem anderen Bericht (z.B. Umweltbericht, technischer Bericht, Angaben zur Entsorgung) erfolgten",
+      "label": "Bei Verdacht auf Schadstoffe im Boden ist ein kurzer Beschrieb bezüglich dem geplanten Vorgehen zur Untersuchung sowie der Behandlung und Verwertung des Bodens einzureichen, sofern die Angaben nicht bereits in einem anderen Bericht (z. B. Umweltbericht, technischer Bericht, Angaben zur Entsorgung) erfolgten",
       "type": "checkbox",
       "required": false,
       "active-expression": "'bodenbelastungen'|value == 'Ja'",
@@ -8280,7 +8280,7 @@
     },
     "info-schadstoffe-bauobjekt": {
       "label": "Es ist der Bericht Schadstoffermittlung oder die Selbstdeklaration beizulegen (siehe <a href='/assets/documents/Checkliste-Gebaeudeschadstoffe-mit-Entsorgungskonzept.pdf' title='Herunterladen' target='_blank'>Checkliste Gebäudeschadstoffe mit Entsorgungskonzept</a>).",
-      "hint": "Wenn weniger als 200 m³ Bauabfälle zu erwarten sind, kann die <a href='/assets/documents/Checkliste-Gebaeudeschadstoffe-mit-Entsorgungskonzept.pdf' title='Herunterladen' target='_blank'>Checkliste Gebäudeschadstoffe mit Entsorgungskonzept</a> von einer Baufachperson (z.B. Planer, Architekt) ausgefüllt werden.Werden mehr als 200 m³ Bauabfälle erwartet, ist eine Fachperson für Gebäudeschadstoffe beizuziehen. Fachleute finden Sie unter <a href='https://fages.org/' target='_blank'>fages.org</a>.",
+      "hint": "Wenn weniger als 200 m³ Bauabfälle zu erwarten sind, kann die <a href='/assets/documents/Checkliste-Gebaeudeschadstoffe-mit-Entsorgungskonzept.pdf' title='Herunterladen' target='_blank'>Checkliste Gebäudeschadstoffe mit Entsorgungskonzept</a> von einer Baufachperson (z. B. Planer, Architekt) ausgefüllt werden. Werden mehr als 200 m³ Bauabfälle erwartet, ist eine Fachperson für Gebäudeschadstoffe beizuziehen. Fachleute finden Sie unter <a href='https://fages.org/' target='_blank'>www.fages.org</a>.",
       "type": "checkbox",
       "required": false,
       "active-expression": "'schadstoffe-bauobjekt'|value == 'Ja'",
@@ -8559,7 +8559,7 @@
       }
     },
     "info-belastete-standorte": {
-      "label": "Ihr Bauvorhaben wird durch einen belasteten Standort tangiert. Es sind die Altlastenuntersuchungen (z.B. historische, technische Untersuchung) einzureichen (vgl. Ablaufschema „<a href=\"/assets/documents/20201029_Ablaufschema_Bauen_auf_belasteten_Standorten.pdf\" title=\"Herunterladen\" target=\"_blank\">Bauen auf belasteten Standorten</a>“).",
+      "label": "Ihr Bauvorhaben wird durch einen belasteten Standort tangiert. Es sind die Altlastenuntersuchungen (z. B. historische, technische Untersuchung) einzureichen (vgl. Ablaufschema „<a href=\"/assets/documents/20201029_Ablaufschema_Bauen_auf_belasteten_Standorten.pdf\" title=\"Herunterladen\" target=\"_blank\">Bauen auf belasteten Standorten</a>“).",
       "type": "checkbox",
       "required": false,
       "active-expression": "'ms:ch.sz.a020a.kataster_belasteter_standorte' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020a.kataster_belasteter_standorte_pnt' in 'layer'|value|mapby('name')",
