@@ -19,7 +19,7 @@ TRUNCATE TABLE "ACTIVATION_LOG";
 TRUNCATE TABLE "ANSWER_LOG";
 TRUNCATE TABLE "AUDIT_LOG";
 TRUNCATE TABLE document_attachmentdownloadhistory;
-TRUNCATE TABLE echbern_message;
+TRUNCATE TABLE ech0211_message;
 TRUNCATE TABLE reversion_version CASCADE;
 TRUNCATE TABLE reversion_revision CASCADE;
 TRUNCATE TABLE thumbnail_kvstore;
