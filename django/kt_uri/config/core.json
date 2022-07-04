@@ -834,6 +834,15 @@
   },
   {
     "model": "core.anotification",
+    "pk": 1374,
+    "fields": {
+      "template": "zirkulation-gestartet1",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
     "pk": 1375,
     "fields": {
       "template": "zirkulation-gestartet1",
