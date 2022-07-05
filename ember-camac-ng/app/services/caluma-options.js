@@ -142,7 +142,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
               "inquiry-answer-ancillary-clauses",
               "inquiry-answer-reason",
               "inquiry-answer-recommendation",
-              "inquiry-answer-info",
+              "inquiry-answer-hint",
             ],
             buttons: {
               "fill-inquiry": {
