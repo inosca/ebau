@@ -71,7 +71,7 @@ snapshots['test_document_merge_service_cover_sheet_without_header_values 1'] = {
     'tagHeaderLabel': 'Stichworte'
 }
 
-snapshots['test_document_merge_service_snapshot[baugesuch] 1'] = [
+snapshots['test_document_merge_service_snapshot baugesuch'] = [
     {
         'children': [
             {
@@ -1662,7 +1662,7 @@ snapshots['test_document_merge_service_snapshot[baugesuch] 1'] = [
     }
 ]
 
-snapshots['test_document_merge_service_snapshot[mp-form] 1'] = [
+snapshots['test_document_merge_service_snapshot mp-form'] = [
     {
         'children': [
             {
@@ -1719,13 +1719,19 @@ snapshots['test_document_merge_service_snapshot[mp-form] 1'] = [
                         'label': 'Ja'
                     },
                     {
-                        'checked': False,
+                        'checked': True,
                         'label': 'Nein'
                     }
                 ],
                 'label': 'Sind die erforderlichen Beilagen zum Baugesuch vorhanden?',
                 'slug': 'mp-erforderliche-beilagen-vorhanden',
                 'type': 'ChoiceQuestion'
+            },
+            {
+                'label': 'Welche Beilagen fehlen?',
+                'slug': 'mp-welche-beilagen-fehlen',
+                'type': 'TextareaQuestion',
+                'value': 'Alle'
             }
         ],
         'label': 'Abschluss',
@@ -1734,7 +1740,7 @@ snapshots['test_document_merge_service_snapshot[mp-form] 1'] = [
     }
 ]
 
-snapshots['test_document_merge_service_snapshot[sb1] 1'] = [
+snapshots['test_document_merge_service_snapshot sb1'] = [
     {
         'children': [
             {
@@ -1999,7 +2005,7 @@ snapshots['test_document_merge_service_snapshot[sb1] 1'] = [
     }
 ]
 
-snapshots['test_document_merge_service_snapshot[sb2] 1'] = [
+snapshots['test_document_merge_service_snapshot sb2'] = [
     {
         'children': [
             {
