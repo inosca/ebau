@@ -473,7 +473,7 @@ APPLICATIONS = {
                     "next_instance_state": "subm",
                 },
                 "complete-check": {
-                    "next_instance_state": "circ",
+                    "next_instance_state": "comm",
                     "history_text": "Dossier angenommen",
                     "notification": {
                         "template_slug": "bewilligungsprozess-gestartet",
@@ -509,6 +509,7 @@ APPLICATIONS = {
                     },
                 },
                 "init-distribution": {
+                    "next_instance_state": "circ",
                     "history_text": "Zirkulation gestartet",
                 },
                 "complete-distribution": {
