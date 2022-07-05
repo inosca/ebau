@@ -54,7 +54,7 @@ mutation InquiryTask {
   saveCompleteTaskFormTask(
     input: {
       slug: "inquiry"
-      name: "Stellungnahme ausfüllen"
+      name: "Stellungnahme beantworten"
       form: "inquiry"
       addressGroups: "info.context.addressed_groups"
       controlGroups: "info.prev_work_item.addressed_groups"
