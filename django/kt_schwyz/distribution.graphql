@@ -84,6 +84,7 @@ mutation AlterInquiryTask {
       slug: "alter-inquiry"
       name: "Stellungnahme anpassen"
       addressGroups: "info.prev_work_item.addressed_groups"
+      controlGroups: "info.prev_work_item.addressed_groups"
       leadTime: 86400 # 1 day
     }
   ) {
@@ -109,6 +110,7 @@ mutation CheckInquiryTask {
       slug: "check-inquiry"
       name: "Stellungnahme prüfen"
       addressGroups: "info.prev_work_item.addressed_groups"
+      controlGroups: "info.prev_work_item.addressed_groups"
       leadTime: 259200 # 3 days
     }
   ) {
