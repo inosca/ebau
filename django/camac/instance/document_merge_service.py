@@ -3,12 +3,12 @@ import re
 from importlib import import_module
 
 import requests
-from caluma.caluma_form.models import Answer, Document, Form, Question
+from caluma.caluma_form.models import Answer, AnswerDocument, Document, Option, Question
 from caluma.caluma_form.validators import DocumentValidator
 from django.conf import settings
 from django.core.files.base import ContentFile
 from django.core.serializers.json import DjangoJSONEncoder
-from django.db.models import Q
+from django.db.models import Prefetch
 from django.utils.text import slugify
 from django.utils.translation import get_language, gettext as _
 from rest_framework import exceptions, status
@@ -18,6 +18,86 @@ from camac.instance.master_data import MasterData
 from camac.instance.models import Instance
 from camac.instance.placeholders.utils import clean_join, get_person_name
 from camac.utils import build_url
+
+
+def find_in_result(slug, node):
+    for item in node:
+        if item.get("slug") == slug:
+            return item
+
+        result = find_in_result(slug, item.get("children", []))
+
+        if result:
+            return result
+
+    return None
+
+
+def build_document_prefetch_statements(prefix="", prefetch_options=False):
+    """Build needed prefetch statements to performantly fetch a document.
+
+    This is needed to reduce the query count when generating a PDF for a certain
+    document which needs almost all of the form data (forms, questions and
+    options in the right order and down the whole tree).
+    """
+
+    question_queryset = Question.objects.select_related(
+        "sub_form", "row_form"
+    ).order_by("-formquestion__sort")
+
+    if prefetch_options:
+        question_queryset = question_queryset.prefetch_related(
+            Prefetch(
+                "options",
+                queryset=Option.objects.order_by("-questionoption__sort"),
+            )
+        )
+
+    if prefix:
+        prefix += "__"
+
+    return [
+        f"{prefix}answers",
+        Prefetch(
+            f"{prefix}answers__answerdocument_set",
+            queryset=AnswerDocument.objects.select_related("document__form")
+            .prefetch_related("document__answers")
+            .order_by("-sort"),
+        ),
+        Prefetch(
+            # root form -> questions
+            f"{prefix}form__questions",
+            queryset=question_queryset.prefetch_related(
+                Prefetch(
+                    # root form -> row forms -> questions
+                    "row_form__questions",
+                    queryset=question_queryset,
+                ),
+                Prefetch(
+                    # root form -> sub forms -> questions
+                    "sub_form__questions",
+                    queryset=question_queryset.prefetch_related(
+                        Prefetch(
+                            # root form -> sub forms -> row forms -> questions
+                            "row_form__questions",
+                            queryset=question_queryset,
+                        ),
+                        Prefetch(
+                            # root form -> sub forms -> sub forms -> questions
+                            "sub_form__questions",
+                            queryset=question_queryset.prefetch_related(
+                                Prefetch(
+                                    # root form -> sub forms -> sub forms -> row forms -> questions
+                                    "row_form__questions",
+                                    queryset=question_queryset,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+        ),
+    ]
 
 
 def get_form_config():
@@ -141,25 +221,56 @@ class DMSHandler:
 
         return data
 
-    def generate_pdf(self, instance_id, request, form_slug=None, document_id=None):
-        # get caluma document and generate data for document merge service
-        if document_id:
-            _filter = {"pk": document_id}
-        elif form_slug:
-            _filter = {
-                "work_item__case__instance__pk": instance_id,
-                "form_id": form_slug,
-            }
-        else:
-            _filter = {"case__instance__pk": instance_id}
+    def get_instance_and_document(self, instance_id, form_slug=None, document_id=None):
+        use_root_document = not document_id and not form_slug
 
-        try:
-            document = Document.objects.get(**_filter)
-        except (Document.DoesNotExist, Document.MultipleObjectsReturned):
-            raise exceptions.ValidationError(
-                _("None or multiple caluma Documents found for instance: %(instance)s")
-                % {"instance": instance_id}
+        instance = (
+            Instance.objects.select_related(
+                "case", "case__document", "case__document__form"
             )
+            .prefetch_related(
+                "case__document__dynamicoption_set",
+                *build_document_prefetch_statements(
+                    prefix="case__document", prefetch_options=use_root_document
+                ),
+            )
+            .get(pk=instance_id)
+        )
+
+        if use_root_document:
+            document = instance.case.document
+        else:
+            _filter = (
+                {"pk": document_id}
+                if document_id
+                else {
+                    "work_item__case__instance__pk": instance_id,
+                    "form_id": form_slug,
+                }
+            )
+
+            try:
+                document = (
+                    Document.objects.select_related("form")
+                    .prefetch_related(
+                        *build_document_prefetch_statements(prefetch_options=True)
+                    )
+                    .get(**_filter)
+                )
+            except (Document.DoesNotExist, Document.MultipleObjectsReturned):
+                raise exceptions.ValidationError(
+                    _(
+                        "None or multiple caluma Documents found for instance: %(instance)s"
+                    )
+                    % {"instance": instance_id}
+                )
+
+        return (instance, document)
+
+    def generate_pdf(self, instance_id, request, form_slug=None, document_id=None):
+        instance, document = self.get_instance_and_document(
+            instance_id, form_slug, document_id
+        )
 
         template = get_form_type_config(document.form.slug).get("template")
 
@@ -175,7 +286,7 @@ class DMSHandler:
         pdf = dms_client.merge(
             {
                 **self.get_meta_data(
-                    Instance.objects.get(pk=instance_id),
+                    instance,
                     document,
                     request.group.service,
                 ),
@@ -247,7 +358,7 @@ class DMSVisitor:
         visit_func = getattr(self, f"_visit_{cls_name}")
         result = visit_func(node)
 
-        receipt_page = self.prepare_receipt_page()
+        receipt_page = self.prepare_receipt_page(result)
 
         if receipt_page:
             result.append(receipt_page)
@@ -268,7 +379,7 @@ class DMSVisitor:
         if not form:
             form = node.form
 
-        children = form.questions.all().order_by("-formquestion__sort")
+        children = form.questions.all()
 
         visited_children = []
         for child in children:
@@ -324,15 +435,12 @@ class DMSVisitor:
 
     def _visit_table_question(self, node, parent_doc=None, answer=None, **_):
         return {
-            "columns": [
-                str(column.label)
-                for column in node.row_form.questions.all().order_by(
-                    "-formquestion__sort"
-                )
-            ],
+            "columns": [str(column.label) for column in node.row_form.questions.all()],
             "rows": [
-                self._visit_document(doc, flatten=True)
-                for doc in answer.documents.all()
+                self._visit_document(
+                    answer_document.document, form=node.row_form, flatten=True
+                )
+                for answer_document in answer.answerdocument_set.all()
             ]
             if answer
             else [],
@@ -342,10 +450,9 @@ class DMSVisitor:
         self, node, parent_doc=None, answer=None, flatten=False, limit=None, **_
     ):
         answer = answer.value if answer else None
-        options = (
-            node.options.all()
-            .filter(Q(is_archived=False) | Q(slug=answer))
-            .order_by("-questionoption__sort")
+        options = filter(
+            lambda option: not option.is_archived or option.slug == answer,
+            node.options.all(),
         )
 
         if flatten:
@@ -367,10 +474,9 @@ class DMSVisitor:
         self, node, parent_doc=None, answer=None, flatten=False, limit=None, **_
     ):
         answers = answer.value if answer else []
-        options = (
-            node.options.all()
-            .filter(Q(is_archived=False) | Q(slug__in=answers))
-            .order_by("-questionoption__sort")
+        options = filter(
+            lambda option: not option.is_archived or option.slug in answers,
+            node.options.all(),
         )
 
         if flatten:  # pragma: no cover
@@ -447,7 +553,12 @@ class DMSVisitor:
             ),
         }
 
-        answer = parent_doc.answers.filter(question=node).first()
+        answer = next(
+            filter(
+                lambda answer: answer.question_id == node.slug, parent_doc.answers.all()
+            ),
+            None,
+        )
 
         if not answer and node.is_archived:  # pragma: no cover
             return
@@ -470,7 +581,7 @@ class DMSVisitor:
         ret.update(fn(node, parent_doc=parent_doc, answer=answer, flatten=flatten))
         return ret
 
-    def prepare_receipt_page(self):
+    def prepare_receipt_page(self, result):
         if self.template_type not in [
             "baugesuch",
             "selbstdeklaration",
@@ -478,25 +589,16 @@ class DMSVisitor:
         ]:
             return
 
-        slugs = {
+        config = {
             **get_form_config().get("_base", {}),
             **get_form_config().get(self.template_type, {}),
         }
 
-        personalien_form = Form.objects.get(slug=slugs["personalien"])
-
         children = []
-        for question in personalien_form.questions.filter(type=Question.TYPE_TABLE):
-            if not self._is_visible_question(question):  # pragma: no cover
-                continue
+        for slug in config.get("people_sources", []):
+            table = find_in_result(slug, result)
 
-            table = self._visit_question(question, parent_doc=self.root_document)
-
-            if (
-                table["slug"] not in slugs["people_sources"]
-                or "rows" in table
-                and not table["rows"]
-            ):  # pragma: no cover
+            if not table:
                 continue
 
             children.append(
@@ -504,9 +606,9 @@ class DMSVisitor:
                     "label": table["label"],
                     "people": [
                         {
-                            slugs["people_names"][field["slug"]]: field["value"]
+                            config["people_names"][field["slug"]]: field["value"]
                             for field in row
-                            if field["slug"] in slugs["people_names"]
+                            if field["slug"] in config["people_names"]
                         }
                         for row in table["rows"]
                     ],
