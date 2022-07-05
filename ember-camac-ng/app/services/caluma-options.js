@@ -148,18 +148,22 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
               "fill-inquiry": {
                 color: "primary",
                 label: "distribution.release-for-review",
+                status: "distribution.inquiry-answer-status-sz.fill-inquiry",
               },
               "check-inquiry": {
                 color: "primary",
                 label: "distribution.confirm",
+                status: "distribution.inquiry-answer-status-sz.review-inquiry",
               },
               "revise-inquiry": {
                 color: "default",
                 label: "distribution.revise",
+                status: "distribution.inquiry-answer-status-sz.review-inquiry",
               },
               "alter-inquiry": {
                 color: "primary",
                 label: "distribution.release-adjustment-for-review",
+                status: "distribution.inquiry-answer-status-sz.alter-inquiry",
               },
             },
             statusMapping: {
