@@ -1,3 +1,4 @@
+import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
@@ -61,6 +62,15 @@ export default class BeClaimsFormEditComponent extends Component {
         ),
       };
     }, {});
+  }
+
+  @action
+  teardown() {
+    this.store.peekAll("attachment").forEach((attachment) => {
+      if (attachment.isNew) {
+        attachment.unloadRecord();
+      }
+    });
   }
 
   @restartableTask
