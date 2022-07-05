@@ -2103,24 +2103,6 @@
   },
   {
     "model": "core.airaction",
-    "pk": 46,
-    "fields": {
-      "available_instance_resource": "buildingauthority",
-      "action_name": "edit",
-      "hidden": 0
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 47,
-    "fields": {
-      "available_instance_resource": "buildingauthority",
-      "action_name": "notify",
-      "hidden": 1
-    }
-  },
-  {
-    "model": "core.airaction",
     "pk": 49,
     "fields": {
       "available_instance_resource": "billing",
@@ -2546,15 +2528,6 @@
       "module_name": "billing",
       "controller_name": "billing",
       "description": "Edit the billing"
-    }
-  },
-  {
-    "model": "core.availableinstanceresource",
-    "pk": "buildingauthority",
-    "fields": {
-      "module_name": "buildingauthority",
-      "controller_name": "edit",
-      "description": "Edit the building authority entries"
     }
   },
   {
@@ -3463,34 +3436,6 @@
     "fields": {
       "name": "hourly_rate",
       "value": "100"
-    }
-  },
-  {
-    "model": "core.buildingauthoritysection",
-    "pk": 1,
-    "fields": {
-      "name": "Ordentliches Verfahren"
-    }
-  },
-  {
-    "model": "core.buildingauthoritysection",
-    "pk": 2,
-    "fields": {
-      "name": "Rechtsmittelverfahren"
-    }
-  },
-  {
-    "model": "core.buildingauthoritysection",
-    "pk": 3,
-    "fields": {
-      "name": "Realisierungsphase"
-    }
-  },
-  {
-    "model": "core.buildingauthoritysection",
-    "pk": 4,
-    "fields": {
-      "name": "Meldungen / Dokumente"
     }
   },
   {
@@ -7090,14 +7035,6 @@
   },
   {
     "model": "core.instanceresourceaction",
-    "pk": 352,
-    "fields": {
-      "available_instance_resource": "buildingauthority",
-      "available_action": "addhistory"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
     "pk": 354,
     "fields": {
       "available_instance_resource": "formerror",
@@ -7261,14 +7198,6 @@
     "pk": 374,
     "fields": {
       "available_instance_resource": "formpage",
-      "available_action": "workitem"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 375,
-    "fields": {
-      "available_instance_resource": "buildingauthority",
       "available_action": "workitem"
     }
   },
