@@ -995,6 +995,22 @@
   },
   {
     "model": "caluma_form.document",
+    "pk": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+    "fields": {
+      "created_at": "2022-07-05T16:29:35.529Z",
+      "modified_at": "2022-07-05T16:32:10.006Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "family": "9b6ee5ed-87fd-4179-9ce6-86a56092498b",
+      "form": "mp-form",
+      "source": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "caluma_form.document",
     "pk": "e0c8f56e-5b2c-4800-88cf-380cb9cf5aa4",
     "fields": {
       "created_at": "2020-03-06T11:10:35.892Z",
@@ -7851,6 +7867,42 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "006c3478-aea2-4eea-b14c-51d607d22005",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.499Z",
+      "modified_at": "2022-07-05T16:29:36.499Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-schutzraumbau-befreiung",
+      "value": "mp-schutzraumbau-befreiung-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "00753958-6320-44d4-8163-6c9df1fef21f",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.149Z",
+      "modified_at": "2022-07-05T16:29:36.149Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-terrainveraenderungen",
+      "value": "mp-terrainveraenderungen-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "0130dbd7-8828-4c40-91fb-ad7bb4206a8c",
     "fields": {
       "created_at": "2021-03-31T12:44:52.990Z",
@@ -7887,6 +7939,42 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "031c8058-4090-4ec7-95a7-e9879e41fdb2",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.185Z",
+      "modified_at": "2022-07-05T16:29:36.185Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-bauinventar-erhaltenswert",
+      "value": "mp-bauinventar-erhaltenswert-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "03256107-e06f-446f-b2f2-9f1e7301098e",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.543Z",
+      "modified_at": "2022-07-05T16:29:36.543Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-abstellraeume",
+      "value": "mp-abstellraeume-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "05d3206e-3082-4db7-991c-7c5b124a237f",
     "fields": {
       "created_at": "2020-03-06T11:11:34.109Z",
@@ -7899,6 +7987,24 @@
       "value": "handelt-es-sich-um-ein-sensibles-objekt-nein",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "05ea8872-84ea-419e-a6be-540e1e02aa77",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.119Z",
+      "modified_at": "2022-07-05T16:29:36.119Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-gebaeudestellung-im-gelaende",
+      "value": "mp-gebaeudestellung-im-gelaende-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
       "date": null,
       "file": null
     }
@@ -7953,6 +8059,24 @@
       "value": "auto-oder-fahrradabstellplaetze-nein",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "08f4a57e-f822-4f41-a869-f8eb0ac2a6cf",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.101Z",
+      "modified_at": "2022-07-05T16:29:36.101Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-fotodokumentation",
+      "value": "mp-fotodokumentation-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
       "date": null,
       "file": null
     }
@@ -8031,6 +8155,24 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "0b791182-a461-4064-adef-138579930edb",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.551Z",
+      "modified_at": "2022-07-05T16:29:36.551Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-anstellflaeche-fuer-kinderwagen-und-velo",
+      "value": "mp-anstellflaeche-fuer-kinderwagen-und-velo-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "0bdfad88-a14a-4802-a981-5313bd075260",
     "fields": {
       "created_at": "2021-02-23T08:59:18.239Z",
@@ -8085,6 +8227,24 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "0cfed175-ddbd-47d4-aa97-a84d7c519664",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.258Z",
+      "modified_at": "2022-07-05T16:29:36.258Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-moorlandschaft",
+      "value": "mp-moorlandschaft-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "0d6af554-e2e0-47af-87f4-a9be676f7789",
     "fields": {
       "created_at": "2021-03-31T12:33:37.273Z",
@@ -8097,6 +8257,42 @@
       "value": "Muster",
       "meta": {},
       "document": "6f2e85fe-cb99-4cd1-a0ec-53c5dccc888f",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "0e4db996-068a-42b6-9453-134de8f43307",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.269Z",
+      "modified_at": "2022-07-05T16:29:36.269Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-schutzzone",
+      "value": "mp-schutzzone-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "0fb5491b-3fbd-4bda-a888-f7728c7418b0",
+    "fields": {
+      "created_at": "2022-07-05T16:29:35.651Z",
+      "modified_at": "2022-07-05T16:29:35.651Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-bauabstaende-zu-leitungen",
+      "value": "mp-bauabstaende-zu-leitungen-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
       "date": null,
       "file": null
     }
@@ -8175,6 +8371,60 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "13d39fea-3c6b-48db-99c4-69fc3e003191",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.196Z",
+      "modified_at": "2022-07-05T16:29:36.196Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-bauinventar-schuetzenswert",
+      "value": "mp-bauinventar-schuetzenswert-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "152b25dd-54e5-4ad3-a218-c15fe49e4d06",
+    "fields": {
+      "created_at": "2022-07-05T16:29:35.921Z",
+      "modified_at": "2022-07-05T16:29:35.921Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-firsthoehe",
+      "value": "mp-firsthoehe-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "176b6d92-c3ee-4d44-841b-a07d4a94386d",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.393Z",
+      "modified_at": "2022-07-05T16:29:36.393Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-luftreinhaltungsverordnung",
+      "value": "mp-luftreinhaltungsverordnung-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "18e44f93-7b22-4197-9cdb-4138e1658b31",
     "fields": {
       "created_at": "2020-03-06T11:13:17.195Z",
@@ -8205,6 +8455,24 @@
       "value": ["gewaesserschutzbereich-au"],
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "19a992fd-0d9e-4cc9-b4d0-87dc51531c36",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.384Z",
+      "modified_at": "2022-07-05T16:29:36.384Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-laermschutzverordnung",
+      "value": "mp-laermschutzverordnung-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
       "date": null,
       "file": null
     }
@@ -8265,6 +8533,42 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "1bec1933-b559-470b-86e5-283d95a090df",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.206Z",
+      "modified_at": "2022-07-05T16:29:36.206Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-bln",
+      "value": "mp-bln-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "1c24d387-a931-4a31-b975-39feb2444044",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.322Z",
+      "modified_at": "2022-07-05T16:29:36.322Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-schutzvorrichtungen",
+      "value": "mp-schutzvorrichtungen-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "1d1ac7d4-7230-42a0-92f3-df19027e8f9e",
     "fields": {
       "created_at": "2021-02-23T08:59:18.200Z",
@@ -8295,6 +8599,24 @@
       "value": null,
       "meta": {},
       "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "1e777796-3a48-455c-9ad5-f59183a901ea",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.033Z",
+      "modified_at": "2022-07-05T16:29:36.033Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-zonenkonformitaet",
+      "value": "mp-zonenkonformitaet-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
       "date": null,
       "file": null
     }
@@ -8373,6 +8695,24 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "212d4a2c-3f94-4dbf-8d95-a91fc2eac612",
+    "fields": {
+      "created_at": "2022-07-05T16:29:35.865Z",
+      "modified_at": "2022-07-05T16:29:35.865Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-bauweise-offen",
+      "value": "mp-bauweise-offen-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "21ca35da-0100-4032-81e9-f110a85f5fe0",
     "fields": {
       "created_at": "2021-04-06T12:23:00.355Z",
@@ -8403,6 +8743,78 @@
       "value": "wurden-vorabklaerungen-durchgefuehrt-nein",
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "238a4013-0fe7-4684-9333-79c8c38118df",
+    "fields": {
+      "created_at": "2022-07-05T16:34:30.496Z",
+      "modified_at": "2022-07-05T16:34:30.496Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-erforderliche-beilagen-vorhanden",
+      "value": "mp-erforderliche-beilagen-vorhanden-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "23d6dc70-ce4d-4f0b-82a2-e58263d942fc",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.058Z",
+      "modified_at": "2022-07-05T16:29:36.058Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-einfriedungen-stuetzmauern-boeschungen",
+      "value": "mp-einfriedungen-stuetzmauern-boeschungen-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "24b82e46-0c83-453f-952f-624580d69706",
+    "fields": {
+      "created_at": "2022-07-05T16:29:35.622Z",
+      "modified_at": "2022-07-05T16:29:35.622Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-abstand-von-strassen",
+      "value": "mp-abstand-von-strassen-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "2558ed2f-7f0d-49b3-8465-d0c02d66cb07",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.473Z",
+      "modified_at": "2022-07-05T16:29:36.473Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-gesetz-ueber-see-und-flussufer",
+      "value": "mp-gesetz-ueber-see-und-flussufer-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
       "date": null,
       "file": null
     }
@@ -8463,6 +8875,24 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "278df579-ffa6-4b1c-889a-64beebd5f099",
+    "fields": {
+      "created_at": "2022-07-05T16:34:56.722Z",
+      "modified_at": "2022-07-05T16:34:56.723Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-welche-beilagen-fehlen",
+      "value": "Alle",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "27c91d70-1644-48af-8031-f59f7169db9d",
     "fields": {
       "created_at": "2020-03-06T11:12:35.062Z",
@@ -8493,6 +8923,24 @@
       "value": "Testanfrage",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "28693c3f-c6da-4324-a9e1-dc7e5b0e4916",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.507Z",
+      "modified_at": "2022-07-05T16:29:36.507Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-versickerung",
+      "value": "mp-versickerung-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
       "date": null,
       "file": null
     }
@@ -8589,6 +9037,60 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "2c1fccd3-533a-40d0-8adf-d1fda6e74f73",
+    "fields": {
+      "created_at": "2022-07-05T16:29:35.881Z",
+      "modified_at": "2022-07-05T16:29:35.881Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-dachausbau",
+      "value": "mp-dachausbau-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "2c5a208e-ea27-4c5c-8248-2553f1e26e2e",
+    "fields": {
+      "created_at": "2022-07-05T16:29:35.994Z",
+      "modified_at": "2022-07-05T16:29:35.994Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-kniewand",
+      "value": "mp-kniewand-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "2cae1c33-448e-48c9-95c6-83cf3d992364",
+    "fields": {
+      "created_at": "2022-07-05T16:29:35.873Z",
+      "modified_at": "2022-07-05T16:29:35.873Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-dachaufbauten",
+      "value": "mp-dachaufbauten-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "2cd1b231-6ce6-4bc9-ba57-d369fd87c9d7",
     "fields": {
       "created_at": "2021-03-31T12:35:34.191Z",
@@ -8619,6 +9121,24 @@
       "value": "wird-aussenlaerm-erzeugt-nein",
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "2e046ac0-6142-4401-921d-e4cf050dbcb3",
+    "fields": {
+      "created_at": "2022-07-05T16:29:35.692Z",
+      "modified_at": "2022-07-05T16:29:35.692Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-kleiner-grenzabstand-hauptgebaeude-bewohnt",
+      "value": "mp-kleiner-grenzabstand-hauptgebaeude-bewohnt-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
       "date": null,
       "file": null
     }
@@ -8661,6 +9181,24 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "355d262d-f203-4537-89c7-1e67ae556c55",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.003Z",
+      "modified_at": "2022-07-05T16:29:36.003Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-mehrlaengen-und-breitenzuschlag",
+      "value": "mp-mehrlaengen-und-breitenzuschlag-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "35d7e8c7-4ad6-405d-b770-cad499d297df",
     "fields": {
       "created_at": "2020-03-06T11:13:19.088Z",
@@ -8679,6 +9217,24 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "36949ab2-3a83-4c8d-81af-2ad6a8e85680",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.352Z",
+      "modified_at": "2022-07-05T16:29:36.352Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-andere-immissionen",
+      "value": "mp-andere-immissionen-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "36cbe998-6baa-43ed-9e98-87e4ba4830ac",
     "fields": {
       "created_at": "2021-04-06T12:20:37.625Z",
@@ -8691,6 +9247,24 @@
       "value": "schnurgeruest-zur-abnahme-bereit-ja",
       "meta": {},
       "document": "3f697075-a581-43f3-a9b0-81e8b80bd37e",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "373c5d65-032f-43e4-b06f-efd16966a594",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.401Z",
+      "modified_at": "2022-07-05T16:29:36.401Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-schalldaemmung",
+      "value": "mp-schalldaemmung-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
       "date": null,
       "file": null
     }
@@ -8787,6 +9361,24 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "3afd178f-1a3f-4738-83d4-14fb7df1dc7c",
+    "fields": {
+      "created_at": "2022-07-05T16:29:35.601Z",
+      "modified_at": "2022-07-05T16:29:35.601Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-abstand-vom-wald",
+      "value": "mp-abstand-vom-wald-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "3f2548db-0b5a-4443-93c1-6c4ce4e48a8d",
     "fields": {
       "created_at": "2020-03-06T11:10:11.639Z",
@@ -8841,6 +9433,42 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "40094cc7-9e3c-4c02-badd-3f41184a4b33",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.535Z",
+      "modified_at": "2022-07-05T16:29:36.535Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-abstellplaetze-wohnen",
+      "value": "mp-abstellplaetze-wohnen-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "401d7675-c828-4fb4-bbb5-421e15c20ed4",
+    "fields": {
+      "created_at": "2022-07-05T16:29:35.929Z",
+      "modified_at": "2022-07-05T16:29:35.929Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-fixpunkt",
+      "value": "mp-fixpunkt-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "40c61d50-46a8-4fb3-933c-65086bb5e248",
     "fields": {
       "created_at": "2020-03-06T11:12:35.751Z",
@@ -8853,6 +9481,42 @@
       "value": "baugruppe-bauinventar-nein",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "40cb336e-3abf-490c-af2b-976e85398488",
+    "fields": {
+      "created_at": "2022-07-05T16:29:35.612Z",
+      "modified_at": "2022-07-05T16:29:35.612Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-abstand-von-gewaessern",
+      "value": "mp-abstand-von-gewaessern-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "40e4445c-c497-44d3-a383-d8186f6725d8",
+    "fields": {
+      "created_at": "2022-07-05T16:29:35.669Z",
+      "modified_at": "2022-07-05T16:29:35.669Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-gebaeudeabstand",
+      "value": "mp-gebaeudeabstand-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
       "date": null,
       "file": null
     }
@@ -8877,6 +9541,24 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "42b42c36-7b2d-4060-97c0-b5697caec539",
+    "fields": {
+      "created_at": "2022-07-05T16:29:35.660Z",
+      "modified_at": "2022-07-05T16:29:35.660Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-baulinien-plan",
+      "value": "mp-baulinien-plan-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "430ee734-d561-49c5-a087-937fdde14a04",
     "fields": {
       "created_at": "2021-03-31T12:44:31.391Z",
@@ -8889,6 +9571,24 @@
       "value": ["grundriss-dokument-ja"],
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "43143a79-2eec-4789-9c7f-1dc22f453b95",
+    "fields": {
+      "created_at": "2022-07-05T16:29:35.728Z",
+      "modified_at": "2022-07-05T16:29:35.728Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-breite-gefaelle",
+      "value": "mp-breite-gefaelle-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
       "date": null,
       "file": null
     }
@@ -8967,6 +9667,96 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "450cfea1-683e-4743-b37c-f581a60d063a",
+    "fields": {
+      "created_at": "2022-07-05T16:29:35.794Z",
+      "modified_at": "2022-07-05T16:29:35.794Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-raumhoehe-abgeschraegt",
+      "value": "mp-raumhoehe-abgeschraegt-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "45729cf3-3da5-4e43-8947-fee7a898babc",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.111Z",
+      "modified_at": "2022-07-05T16:29:36.111Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-gebaeudeform-proportionen",
+      "value": "mp-gebaeudeform-proportionen-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "461c621d-424d-42d6-94ea-0393ec5a3c11",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.360Z",
+      "modified_at": "2022-07-05T16:29:36.360Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-energiegesetzgebung",
+      "value": "mp-energiegesetzgebung-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "465a3cae-d74b-4cb0-86fc-82a5035cfc27",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.312Z",
+      "modified_at": "2022-07-05T16:29:36.312Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-naturgefahren-gefahrengebiet",
+      "value": "mp-naturgefahren-gefahrengebiet-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "46833799-96a5-447d-9a69-2a925b6183e6",
+    "fields": {
+      "created_at": "2022-07-05T16:29:35.744Z",
+      "modified_at": "2022-07-05T16:29:35.744Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-zufahrt",
+      "value": "mp-zufahrt-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "470f8b61-6bc0-44fd-93aa-aa1aacdbd7cb",
     "fields": {
       "created_at": "2020-03-06T11:11:19.896Z",
@@ -8985,6 +9775,24 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "4748d42a-1f8d-48db-89fc-310e83df2e54",
+    "fields": {
+      "created_at": "2022-07-05T16:29:35.632Z",
+      "modified_at": "2022-07-05T16:29:35.632Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-abstand-von-zonegrenzen",
+      "value": "mp-abstand-von-zonegrenzen-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "47d20565-c345-461a-89ce-4e8076815b21",
     "fields": {
       "created_at": "2021-03-31T12:33:47.671Z",
@@ -8997,6 +9805,24 @@
       "value": "Wiesenweg",
       "meta": {},
       "document": "6f2e85fe-cb99-4cd1-a0ec-53c5dccc888f",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "48444dfa-3abd-4289-bd40-b0a6b3094925",
+    "fields": {
+      "created_at": "2022-07-05T16:29:35.787Z",
+      "modified_at": "2022-07-05T16:29:35.787Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-raumhoehe",
+      "value": "mp-raumhoehe-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
       "date": null,
       "file": null
     }
@@ -9093,6 +9919,24 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "52fcf4f9-f964-42c3-bb17-ba3247cceeb0",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.084Z",
+      "modified_at": "2022-07-05T16:29:36.084Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-fachstellen",
+      "value": "mp-fachstellen-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "532153bf-8b2b-4c01-8628-3e6a82d33b72",
     "fields": {
       "created_at": "2022-01-05T14:52:51.944Z",
@@ -9165,6 +10009,42 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "54f04acc-80da-4c5c-a892-50d1314f9d25",
+    "fields": {
+      "created_at": "2022-07-05T16:29:35.810Z",
+      "modified_at": "2022-07-05T16:29:35.811Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-wohnraeume-im-ug",
+      "value": "mp-wohnraeume-im-ug-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "550a615e-d02f-489f-bf97-15b4752c07f0",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.568Z",
+      "modified_at": "2022-07-05T16:33:26.794Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-bepflanzung",
+      "value": "mp-bepflanzung-ja",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "55591adc-117d-4263-8433-08bfb3cb9a92",
     "fields": {
       "created_at": "2021-04-06T12:20:55.693Z",
@@ -9219,6 +10099,24 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "5b60aa96-2efd-4705-b0f0-120c1ffa18ce",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.586Z",
+      "modified_at": "2022-07-05T16:29:36.586Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-kehrichtplatz",
+      "value": "mp-kehrichtplatz-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "5bda52de-8dca-4980-b48f-b08942808a05",
     "fields": {
       "created_at": "2020-03-06T11:12:12.979Z",
@@ -9231,6 +10129,24 @@
       "value": "belasteter-standort-nein",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "5be8311a-1d99-464e-a40f-01005059117e",
+    "fields": {
+      "created_at": "2022-07-05T16:29:35.898Z",
+      "modified_at": "2022-07-05T16:29:35.898Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-dachneigung",
+      "value": "mp-dachneigung-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
       "date": null,
       "file": null
     }
@@ -9285,6 +10201,24 @@
       "value": "2",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "5e8e1aac-09bd-4808-b775-e8dc940d1136",
+    "fields": {
+      "created_at": "2022-07-05T16:29:35.825Z",
+      "modified_at": "2022-07-05T16:29:35.825Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-az-uez-gz-gruenflaechenziffer",
+      "value": "mp-az-uez-gz-gruenflaechenziffer-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
       "date": null,
       "file": null
     }
@@ -9489,6 +10423,24 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "696add18-40d3-4e96-b8e2-3567ad332d16",
+    "fields": {
+      "created_at": "2022-07-05T16:29:35.841Z",
+      "modified_at": "2022-07-05T16:29:35.841Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-az-uez-gz-ueberbauungsprozente",
+      "value": "mp-az-uez-gz-ueberbauungsprozente-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "69cbe181-e6bb-4b1f-9a66-c948eeb7844e",
     "fields": {
       "created_at": "2021-04-06T12:23:00.282Z",
@@ -9525,6 +10477,24 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "6af9c1e0-d3d3-4c21-b9ca-58204fc78b2e",
+    "fields": {
+      "created_at": "2022-07-05T16:29:35.889Z",
+      "modified_at": "2022-07-05T16:29:35.890Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-dachform",
+      "value": "mp-dachform-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "6ca51572-1675-42cf-87a8-47a9e7c9825d",
     "fields": {
       "created_at": "2020-03-06T11:10:50.008Z",
@@ -9537,6 +10507,24 @@
       "value": "Bern",
       "meta": {},
       "document": "e0c8f56e-5b2c-4800-88cf-380cb9cf5aa4",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "6cb454c1-d36a-4f88-b118-f72dcad4a723",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.048Z",
+      "modified_at": "2022-07-05T16:29:36.048Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-antennen",
+      "value": "mp-antennen-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
       "date": null,
       "file": null
     }
@@ -9561,6 +10549,42 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "6e1d1329-8212-4c20-9ab2-0a9203e59763",
+    "fields": {
+      "created_at": "2022-07-05T16:29:35.905Z",
+      "modified_at": "2022-07-05T16:29:35.905Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-dachvorspruenge",
+      "value": "mp-dachvorspruenge-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "6e4ad957-e6d2-431a-8b93-b1d9e3a85f10",
+    "fields": {
+      "created_at": "2022-07-05T16:33:44.156Z",
+      "modified_at": "2022-07-05T16:33:44.156Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-bepflanzung-ergebnis",
+      "value": "mp-bepflanzung-ergebnis-eingehalten",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "6ea4ffac-4869-4ad2-af02-cdc677c99a3d",
     "fields": {
       "created_at": "2021-03-31T12:42:58.078Z",
@@ -9573,6 +10597,24 @@
       "value": "wildtierschutz-nein",
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "6eefe4f5-0574-4714-bd3c-ade701100024",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.427Z",
+      "modified_at": "2022-07-05T16:29:36.427Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-uvp",
+      "value": "mp-uvp-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
       "date": null,
       "file": null
     }
@@ -9645,6 +10687,42 @@
       "value": 10000,
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "73ca9118-e939-406a-b602-744896451cd9",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.014Z",
+      "modified_at": "2022-07-05T16:32:49.474Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-nutzungsart",
+      "value": "mp-nutzungsart-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "74032b3d-3e04-43c5-9488-ca30b9c98901",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.482Z",
+      "modified_at": "2022-07-05T16:29:36.482Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-kanalisationsanschluss",
+      "value": "mp-kanalisationsanschluss-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
       "date": null,
       "file": null
     }
@@ -9759,6 +10837,24 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "76304711-f0a7-4467-b7c0-05799de35e2b",
+    "fields": {
+      "created_at": "2022-07-05T16:29:35.700Z",
+      "modified_at": "2022-07-05T16:29:35.700Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-kleiner-grenzabstand-hauptgebaeude-unbewohnt",
+      "value": "mp-kleiner-grenzabstand-hauptgebaeude-unbewohnt-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "766a1189-c0c5-47e4-8e18-a7b9100acfb8",
     "fields": {
       "created_at": "2020-03-06T11:11:31.523Z",
@@ -9825,6 +10921,24 @@
       "value": "naturschutz-nein",
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "786da072-89b2-451d-befc-62d147c0a874",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.376Z",
+      "modified_at": "2022-07-05T16:29:36.376Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-kaminhoehe",
+      "value": "mp-kaminhoehe-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
       "date": null,
       "file": null
     }
@@ -9975,6 +11089,24 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "7fe7c9ee-7a98-445c-8060-8b886bacd8c6",
+    "fields": {
+      "created_at": "2022-07-05T16:29:35.677Z",
+      "modified_at": "2022-07-05T16:29:35.677Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-grenzabstand-unterirdischer-bauteile",
+      "value": "mp-grenzabstand-unterirdischer-bauteile-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "80d554a6-e0f9-488a-9c0a-f857b4ae82ef",
     "fields": {
       "created_at": "2020-03-06T11:13:13.541Z",
@@ -10065,6 +11197,24 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "82777003-ff45-4ee8-a574-b6a5334942dc",
+    "fields": {
+      "created_at": "2022-07-05T16:29:35.802Z",
+      "modified_at": "2022-07-05T16:29:35.802Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-sanitaere-einrichtungen",
+      "value": "mp-sanitaere-einrichtungen-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "84f5d0e5-aeec-4d65-a4be-c115f20cfe4e",
     "fields": {
       "created_at": "2020-03-06T11:13:13.595Z",
@@ -10131,6 +11281,42 @@
       "value": "is-paper-no",
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "85f00589-3423-4f32-bc40-4dd7b3a4ad0f",
+    "fields": {
+      "created_at": "2022-07-05T16:29:35.953Z",
+      "modified_at": "2022-07-05T16:29:35.953Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-gebaeudehoehe",
+      "value": "mp-gebaeudehoehe-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "8624ba3f-efa6-4706-89f1-ba68cdbd724d",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.284Z",
+      "modified_at": "2022-07-05T16:29:36.284Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-auzuege",
+      "value": "mp-auzuege-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
       "date": null,
       "file": null
     }
@@ -10209,6 +11395,24 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "8847d1b4-8fd3-4f69-97ef-dc44b3cbffdc",
+    "fields": {
+      "created_at": "2022-07-05T16:29:35.708Z",
+      "modified_at": "2022-07-05T16:29:35.708Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-kleiner-grenzabstand-nebengebaeude-bewohnt",
+      "value": "mp-kleiner-grenzabstand-nebengebaeude-bewohnt-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "88938c69-b412-46d3-90a2-852288882b7e",
     "fields": {
       "created_at": "2021-03-31T12:46:37.696Z",
@@ -10239,6 +11443,24 @@
       "value": ["anforderungen-eingehalten-ja"],
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "88c04124-0fa6-4bb7-a1fd-07b4a9284fab",
+    "fields": {
+      "created_at": "2022-07-05T16:29:35.716Z",
+      "modified_at": "2022-07-05T16:29:35.716Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-kleiner-grenzabstand-nebengebaeude-unbewohnt",
+      "value": "mp-kleiner-grenzabstand-nebengebaeude-unbewohnt-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
       "date": null,
       "file": null
     }
@@ -10335,6 +11557,24 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "8d316dd6-7a32-4128-8aba-87f3a323bb35",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.331Z",
+      "modified_at": "2022-07-05T16:29:36.331Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-sicherheit-im-allgemeinen",
+      "value": "mp-sicherheit-im-allgemeinen-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "8e2cc77c-9135-447e-9180-598c4369cb4a",
     "fields": {
       "created_at": "2021-03-31T12:43:47.709Z",
@@ -10347,6 +11587,24 @@
       "value": "neubau-abwasseranlagen-grundleitungen-nein",
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "8fff2660-bec0-45a3-99d9-064606ac9d0a",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.515Z",
+      "modified_at": "2022-07-05T16:29:36.515Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-wanderweg",
+      "value": "mp-wanderweg-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
       "date": null,
       "file": null
     }
@@ -10407,6 +11665,24 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "91bf88b7-67df-4770-95c2-c6ff2fb187de",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.418Z",
+      "modified_at": "2022-07-05T16:29:36.418Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-umweltschutz-question",
+      "value": "mp-umweltschutz-question-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "9341afc1-fb43-449f-836a-1d8a00e63f5f",
     "fields": {
       "created_at": "2021-03-31T12:44:52.224Z",
@@ -10419,6 +11695,24 @@
       "value": ["keine-tangierung-natur-wild-vogelschutz--ja"],
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "94f79e1e-2de4-434f-8099-a00d3f4361e8",
+    "fields": {
+      "created_at": "2022-07-05T16:29:35.779Z",
+      "modified_at": "2022-07-05T16:29:35.779Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-raumgroesse",
+      "value": "mp-raumgroesse-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
       "date": null,
       "file": null
     }
@@ -10461,6 +11755,24 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "97e4bae0-7089-4869-8dd0-602e8a2c65de",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.024Z",
+      "modified_at": "2022-07-05T16:29:36.024Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-wohnungsanteil",
+      "value": "mp-wohnungsanteil-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "98aebde6-cea9-4c52-a166-e2388d0fdab0",
     "fields": {
       "created_at": "2020-03-06T11:12:53.839Z",
@@ -10479,6 +11791,24 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "98e7fe8e-61b1-44f3-987d-913dc8692e9d",
+    "fields": {
+      "created_at": "2022-07-05T16:29:35.961Z",
+      "modified_at": "2022-07-05T16:29:35.961Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-gebaeudelaenge",
+      "value": "mp-gebaeudelaenge-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "9a228978-8700-4149-9671-f7c23227f9cc",
     "fields": {
       "created_at": "2021-04-06T12:21:33.721Z",
@@ -10491,6 +11821,24 @@
       "value": "Eggistrasse",
       "meta": {},
       "document": "ebf8b58b-4acf-4207-9b36-40a7e1f69ab2",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "9b247cae-1b7f-4941-987a-bb018cdc2e9f",
+    "fields": {
+      "created_at": "2022-07-05T16:29:35.937Z",
+      "modified_at": "2022-07-05T16:29:35.937Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-galerie",
+      "value": "mp-galerie-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
       "date": null,
       "file": null
     }
@@ -10533,6 +11881,42 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "9c6445f6-139f-4ccb-b8c9-72a4ca2abac2",
+    "fields": {
+      "created_at": "2022-07-05T16:34:02.321Z",
+      "modified_at": "2022-07-05T16:34:02.321Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-bepflanzung-bemerkungen",
+      "value": "Test Bepflanzung",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "9c749959-202d-4197-a0a1-e831847e0081",
+    "fields": {
+      "created_at": "2022-07-05T16:29:35.736Z",
+      "modified_at": "2022-07-05T16:29:35.736Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-strassenanschluss",
+      "value": "mp-strassenanschluss-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "9caff77a-893f-422a-831a-972ef94901f9",
     "fields": {
       "created_at": "2021-03-31T12:44:29.779Z",
@@ -10551,6 +11935,60 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "9f7e1cf1-f20a-40cb-9319-a105259d3eaa",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.368Z",
+      "modified_at": "2022-07-05T16:29:36.368Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-entsorgung-abfaelle",
+      "value": "mp-entsorgung-abfaelle-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "9f80d03c-a2a0-44d3-bd5f-53bfb63fcb46",
+    "fields": {
+      "created_at": "2022-07-05T16:29:35.763Z",
+      "modified_at": "2022-07-05T16:29:35.763Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-belichtung-belueftung-und-besonnung",
+      "value": "mp-belichtung-belueftung-und-besonnung-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "9fc686fb-1ec7-41e9-8335-c0fa477aa8f2",
+    "fields": {
+      "created_at": "2022-07-05T16:29:35.913Z",
+      "modified_at": "2022-07-05T16:29:35.913Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-ewap",
+      "value": "mp-ewap-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "a0ec99e7-917f-4bea-8180-924df4b65fc4",
     "fields": {
       "created_at": "2020-03-06T11:12:44.597Z",
@@ -10563,6 +12001,60 @@
       "value": "besondere-brandrisiken-nein",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "a172a1aa-64aa-4df4-826d-aab175d93db3",
+    "fields": {
+      "created_at": "2022-07-05T16:29:35.584Z",
+      "modified_at": "2022-07-05T16:29:35.584Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-besondere-verhaeltnisse",
+      "value": "mp-besondere-verhaeltnisse-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "a1d65280-3a88-4bbe-94e1-f722658c16e6",
+    "fields": {
+      "created_at": "2022-07-05T16:33:05.862Z",
+      "modified_at": "2022-07-05T16:33:05.862Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-nutzungsart-bemerkungen",
+      "value": "Test Nutzungsart",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "a2381ae6-c6b2-45a0-843c-e1ab73f50c07",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.410Z",
+      "modified_at": "2022-07-05T16:29:36.410Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-stoerfallvorsorge",
+      "value": "mp-stoerfallvorsorge-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
       "date": null,
       "file": null
     }
@@ -10641,6 +12133,24 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "a4c9ea47-bb5b-48bf-b6ff-cd1eb237dce0",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.577Z",
+      "modified_at": "2022-07-05T16:29:36.577Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-grosse-spielflaeche",
+      "value": "mp-grosse-spielflaeche-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "a5dc7cf3-5f56-4dc9-b1a8-eb3e5dd015d7",
     "fields": {
       "created_at": "2021-02-23T08:59:18.106Z",
@@ -10653,6 +12163,24 @@
       "value": "Peter",
       "meta": {},
       "document": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "a5ecba79-6ea6-45f2-9b74-4b9f4ee77baa",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.339Z",
+      "modified_at": "2022-07-05T16:29:36.339Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-treppenbreiten",
+      "value": "mp-treppenbreiten-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
       "date": null,
       "file": null
     }
@@ -10695,6 +12223,24 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "a819c594-ebae-4c46-b3fd-1156dcb09008",
+    "fields": {
+      "created_at": "2022-07-05T16:29:35.849Z",
+      "modified_at": "2022-07-05T16:29:35.849Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-bauweise-geschlossen",
+      "value": "mp-bauweise-geschlossen-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "a861c187-8aa3-45ef-ad32-0ac52029f530",
     "fields": {
       "created_at": "2020-03-06T11:12:02.760Z",
@@ -10713,6 +12259,60 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "a8947b35-4cdb-4124-8272-11550faf7e8e",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.490Z",
+      "modified_at": "2022-07-05T16:29:36.490Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-luftreinhaltung-baustelle",
+      "value": "mp-luftreinhaltung-baustelle-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "a9143bdc-dd11-41c4-a477-8f279c3ba6dc",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.216Z",
+      "modified_at": "2022-07-05T16:29:36.216Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-hecken",
+      "value": "mp-hecken-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "a991f9f5-d05c-44ba-94e7-414581e883e8",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.172Z",
+      "modified_at": "2022-07-05T16:29:36.172Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-bauinventar-baugruppe",
+      "value": "mp-bauinventar-baugruppe-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "aa38c5b3-195d-4e16-aba3-1cbd2cfda402",
     "fields": {
       "created_at": "2021-02-23T08:59:18.142Z",
@@ -10725,6 +12325,78 @@
       "value": "juristische-person-gesuchstellerin-nein",
       "meta": {},
       "document": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "aacbad07-9322-4ac5-a9c9-1c6bcc8794f6",
+    "fields": {
+      "created_at": "2022-07-05T16:29:35.833Z",
+      "modified_at": "2022-07-05T16:29:35.833Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-az-uez-gz-nutzungsuebertragung",
+      "value": "mp-az-uez-gz-nutzungsuebertragung-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "ab8c4f6a-1312-4231-9bba-d507c1fd9976",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.076Z",
+      "modified_at": "2022-07-05T16:29:36.076Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-energiekollektoren",
+      "value": "mp-energiekollektoren-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "abcea9f8-b6e4-471f-a49c-141d3837d0b4",
+    "fields": {
+      "created_at": "2022-07-05T16:29:35.771Z",
+      "modified_at": "2022-07-05T16:29:35.771Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-radon",
+      "value": "mp-radon-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "abd716a7-6e47-4ad8-aa40-4a910e3218ff",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.238Z",
+      "modified_at": "2022-07-05T16:29:36.238Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-ivs",
+      "value": "mp-ivs-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
       "date": null,
       "file": null
     }
@@ -10893,6 +12565,24 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "b009342e-a9a0-4aa9-a00c-50f51bbec898",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.439Z",
+      "modified_at": "2022-07-05T16:29:36.439Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-altlasten-verdachtsflaechen",
+      "value": "mp-altlasten-verdachtsflaechen-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "b260e02a-31d7-41fa-aed9-0721201e8783",
     "fields": {
       "created_at": "2021-04-06T12:23:00.228Z",
@@ -11049,6 +12739,42 @@
       "value": 3456,
       "meta": {},
       "document": "ebf8b58b-4acf-4207-9b36-40a7e1f69ab2",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "b8328452-5655-4bb8-a0e8-9b66366c4a01",
+    "fields": {
+      "created_at": "2022-07-05T16:29:35.751Z",
+      "modified_at": "2022-07-05T16:29:35.751Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-zugangsrecht",
+      "value": "mp-zugangsrecht-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "ba2fdd72-e1c9-4ef6-9d99-01bae29a7822",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.129Z",
+      "modified_at": "2022-07-05T16:29:36.129Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-gebaeudestellung-zur-strasse",
+      "value": "mp-gebaeudestellung-zur-strasse-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
       "date": null,
       "file": null
     }
@@ -11217,6 +12943,24 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "c645d3ec-1792-42ed-a0dd-53ad50159114",
+    "fields": {
+      "created_at": "2022-07-05T16:29:35.984Z",
+      "modified_at": "2022-07-05T16:29:35.984Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-geschosszahl",
+      "value": "mp-geschosszahl-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "c7028e12-5395-4f4a-8738-351d23d4f93b",
     "fields": {
       "created_at": "2021-03-31T12:48:06.330Z",
@@ -11271,6 +13015,24 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "c9aff1ce-2a17-4418-945d-77d06657aa6a",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.227Z",
+      "modified_at": "2022-07-05T16:29:36.227Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-isos",
+      "value": "mp-isos-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "c9cba9c9-4175-46fa-8a26-5ebb1f6dd64c",
     "fields": {
       "created_at": "2021-03-31T12:35:32.470Z",
@@ -11283,6 +13045,24 @@
       "value": "gibt-es-bewilligungspflichtige-reklame-nein",
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "cab13a87-cdb6-40b1-a9c3-48cee9453fc1",
+    "fields": {
+      "created_at": "2022-07-05T16:29:35.567Z",
+      "modified_at": "2022-07-05T16:29:35.567Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-bauen-in-der-landwirtschaftszone",
+      "value": "mp-bauen-in-der-landwirtschaftszone-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
       "date": null,
       "file": null
     }
@@ -11355,6 +13135,42 @@
       "value": "0999999999",
       "meta": {},
       "document": "e0c8f56e-5b2c-4800-88cf-380cb9cf5aa4",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "cf26bad0-6980-4dff-9a1d-e2c36c8193ba",
+    "fields": {
+      "created_at": "2022-07-05T16:29:35.971Z",
+      "modified_at": "2022-07-05T16:29:35.971Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-gebaeudeproportionen",
+      "value": "mp-gebaeudeproportionen-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "d038075c-0b8a-4b82-aac0-29977bb0f827",
+    "fields": {
+      "created_at": "2022-07-05T16:32:09.982Z",
+      "modified_at": "2022-07-05T16:32:09.982Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-form",
+      "value": null,
+      "meta": {},
+      "document": "9b6ee5ed-87fd-4179-9ce6-86a56092498b",
       "date": null,
       "file": null
     }
@@ -11523,6 +13339,60 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "d6ee265d-37ab-4173-8377-f597a45c6e87",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.456Z",
+      "modified_at": "2022-07-05T16:29:36.456Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-eisenbahn",
+      "value": "mp-eisenbahn-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "d73e7877-423a-44ef-bc92-18b8411a2169",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.559Z",
+      "modified_at": "2022-07-05T16:29:36.559Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-aufenthaltsbereiche",
+      "value": "mp-aufenthaltsbereiche-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "d7cd22f9-ab62-495b-afbd-33efd0c5dd9f",
+    "fields": {
+      "created_at": "2022-07-05T16:29:35.642Z",
+      "modified_at": "2022-07-05T16:29:35.642Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-auskragung-offener-bauteile",
+      "value": "mp-auskragung-offener-bauteile-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "d88ffe42-688a-4aad-aaea-f3e5e542e114",
     "fields": {
       "created_at": "2020-03-06T11:11:11.221Z",
@@ -11535,6 +13405,24 @@
       "value": ["baubeschrieb-um-ausbau"],
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "d9baa6e2-4dac-4455-9430-474fb7090af0",
+    "fields": {
+      "created_at": "2022-07-05T16:29:35.857Z",
+      "modified_at": "2022-07-05T16:29:35.857Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-bauweise-gestaltungsfreiheit",
+      "value": "mp-bauweise-gestaltungsfreiheit-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
       "date": null,
       "file": null
     }
@@ -11613,6 +13501,24 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "ddc04607-d656-4721-88e7-0cb2b008db19",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.067Z",
+      "modified_at": "2022-07-05T16:29:36.067Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-einordnung-und-gestaltung",
+      "value": "mp-einordnung-und-gestaltung-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "dff1a1f7-256e-4771-9b0c-37770eef81d1",
     "fields": {
       "created_at": "2020-03-06T11:10:43.663Z",
@@ -11625,6 +13531,24 @@
       "value": "Hans",
       "meta": {},
       "document": "e0c8f56e-5b2c-4800-88cf-380cb9cf5aa4",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "dff633ad-3d64-40b8-95d7-24247bdf485d",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.595Z",
+      "modified_at": "2022-07-05T16:29:36.595Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-kinderspielplaetze",
+      "value": "mp-kinderspielplaetze-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
       "date": null,
       "file": null
     }
@@ -11649,6 +13573,24 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "e318e125-00d5-412e-9910-31bd73640532",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.248Z",
+      "modified_at": "2022-07-05T16:29:36.248Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-kantonales-naturschutzgebiet",
+      "value": "mp-kantonales-naturschutzgebiet-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "e3c88e15-e69b-4387-9371-c4bdf05e2304",
     "fields": {
       "created_at": "2020-03-06T11:12:55.832Z",
@@ -11661,6 +13603,24 @@
       "value": "werden-luftemissionen-erzeugt-nein",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "e402ff27-ae2f-4755-bd98-412a4815a48d",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.140Z",
+      "modified_at": "2022-07-05T16:29:36.140Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-material-und-farbwahl",
+      "value": "mp-material-und-farbwahl-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
       "date": null,
       "file": null
     }
@@ -11703,6 +13663,24 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "e8549212-2b2a-4deb-8d26-559b6f7df2d5",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.465Z",
+      "modified_at": "2022-07-05T16:29:36.465Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-entsorgungskonzept",
+      "value": "mp-entsorgungskonzept-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "e88c19c3-cab8-4829-b7a7-f93994fa1f47",
     "fields": {
       "created_at": "2021-03-31T12:36:44.761Z",
@@ -11739,6 +13717,24 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "e927a4ba-89f1-440c-adcb-32b301ea844e",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.448Z",
+      "modified_at": "2022-07-05T16:29:36.448Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-bauten-in-bahnnaehe",
+      "value": "mp-bauten-in-bahnnaehe-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "e97857ee-5282-438c-9041-99ed71927a5e",
     "fields": {
       "created_at": "2021-02-23T09:04:09.576Z",
@@ -11751,6 +13747,24 @@
       "value": "0000000000",
       "meta": {},
       "document": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "eb116364-aaff-4328-961f-834eeb1207d9",
+    "fields": {
+      "created_at": "2022-07-05T16:29:35.945Z",
+      "modified_at": "2022-07-05T16:29:35.945Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-gebaeudebreite",
+      "value": "mp-gebaeudebreite-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
       "date": null,
       "file": null
     }
@@ -11901,6 +13915,24 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "f346dfb9-129b-4aec-ada0-6774ff758eab",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.527Z",
+      "modified_at": "2022-07-05T16:29:36.527Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-abstellplaetze-gewerbe",
+      "value": "mp-abstellplaetze-gewerbe-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "f381fbcd-a02e-4865-9ae6-6f551426c14a",
     "fields": {
       "created_at": "2020-03-06T11:12:53.075Z",
@@ -11937,6 +13969,24 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "f4caf651-e9b5-4d18-9096-c9d2c7ae7738",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.293Z",
+      "modified_at": "2022-07-05T16:29:36.293Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-bauliche-vorkehrungen-fuer-behinderte",
+      "value": "mp-bauliche-vorkehrungen-fuer-behinderte-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "f4d5c306-3f52-43bf-a0c1-d6c486a677a4",
     "fields": {
       "created_at": "2020-03-06T11:11:32.625Z",
@@ -11949,6 +13999,24 @@
       "value": "ist-mit-bauabfaellen-zu-rechnen-nein",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "f52df74c-e11c-4237-889b-dd6bbb260d2c",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.158Z",
+      "modified_at": "2022-07-05T16:29:36.158Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-umgebungsgestaltung",
+      "value": "mp-umgebungsgestaltung-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
       "date": null,
       "file": null
     }
@@ -11973,6 +14041,24 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "f6172b4a-486f-4cd3-b5b1-652e24611c42",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.093Z",
+      "modified_at": "2022-07-05T16:29:36.093Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-firstrichtung",
+      "value": "mp-firstrichtung-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "f66ad24c-e8cd-43fe-8088-1aa9f0309d9f",
     "fields": {
       "created_at": "2021-03-31T12:47:32.837Z",
@@ -11985,6 +14071,42 @@
       "value": "Burgdorf",
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "f879699b-5bcd-4a1b-be9d-fe94dd9a0f94",
+    "fields": {
+      "created_at": "2022-07-05T16:29:35.684Z",
+      "modified_at": "2022-07-05T16:29:35.684Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-grosser-grenzabstand",
+      "value": "mp-grosser-grenzabstand-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "f9f6ca99-227d-4f3e-bd83-f9aaee0d4d8e",
+    "fields": {
+      "created_at": "2022-07-05T16:29:36.302Z",
+      "modified_at": "2022-07-05T16:29:36.302Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "2",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": "2",
+      "question": "mp-hygiene-und-unfallverhütung-auf-bauplätzen",
+      "value": "mp-hygiene-und-unfallverhütung-auf-bauplätzen-nein",
+      "meta": {},
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
       "date": null,
       "file": null
     }
@@ -12219,6 +14341,26 @@
   },
   {
     "model": "caluma_form.historicalanswerdocument",
+    "pk": "ceda110e-6b29-477e-b62a-519a73b14004",
+    "fields": {
+      "history_user_id": null,
+      "created_at": "2022-07-05T16:32:09.996Z",
+      "modified_at": "2022-07-05T16:32:09.996Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "id": "3bafce56-539f-47ea-a63a-e56251be4692",
+      "sort": 1,
+      "answer": "d038075c-0b8a-4b82-aac0-29977bb0f827",
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "history_date": "2022-07-05T16:32:09.996Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswerdocument",
     "pk": "e0fdfad2-cbd5-4da2-9ab1-89b05b388938",
     "fields": {
       "history_user_id": null,
@@ -12255,6 +14397,21 @@
       "history_date": "2021-04-06T12:22:20.383Z",
       "history_change_reason": null,
       "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.answerdocument",
+    "pk": "3bafce56-539f-47ea-a63a-e56251be4692",
+    "fields": {
+      "created_at": "2022-07-05T16:32:09.996Z",
+      "modified_at": "2022-07-05T16:32:09.996Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "answer": "d038075c-0b8a-4b82-aac0-29977bb0f827",
+      "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "sort": 1
     }
   },
   {
