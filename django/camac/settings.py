@@ -1548,7 +1548,7 @@ APPLICATIONS = {
         "DOCUMENT_MERGE_SERVICE": {
             "FORM": {
                 "_base": {
-                    "people_sources": {
+                    "people_sources": [
                         # bulding permit
                         "personalien-gesuchstellerin",
                         "personalien-vertreterin-mit-vollmacht",
@@ -1558,7 +1558,7 @@ APPLICATIONS = {
                         "personalien-sb",
                         # sb1 & sb2
                         "personalien-sb1-sb2",
-                    },
+                    ],
                     "people_names": {
                         "name-gesuchstellerin": "familyName",
                         "vorname-gesuchstellerin": "givenName",
@@ -2377,11 +2377,11 @@ APPLICATIONS = {
                         "cantonal-territory-usage",
                         "technische-bewilligung",
                     ],
-                    "people_sources": {
+                    "people_sources": [
                         "applicant",
                         "landowner",
                         "project-author",
-                    },
+                    ],
                     "people_names": {
                         "last-name": "familyName",
                         "first-name": "givenName",
