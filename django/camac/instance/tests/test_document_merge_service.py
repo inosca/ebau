@@ -1,7 +1,7 @@
 from pathlib import Path
 
 import pytest
-from caluma.caluma_form.models import Document, DynamicOption
+from caluma.caluma_form.models import DynamicOption
 from django.conf import settings
 from django.core.cache import cache
 from django.core.management import call_command
@@ -10,7 +10,7 @@ from rest_framework import exceptions, status
 
 from camac.utils import build_url
 
-from ..document_merge_service import DMSClient, DMSHandler, DMSVisitor
+from ..document_merge_service import DMSClient, DMSHandler
 from .test_master_data import add_answer, add_table_answer
 
 
@@ -18,25 +18,28 @@ from .test_master_data import add_answer, add_table_answer
 def caluma_form_fixture(db):
     kt_bern_path = Path(settings.ROOT_DIR) / "kt_bern"
     paths = [
-        "caluma_form_common.json",
-        "caluma_dossier_import_form.json",
-        "caluma_form.json",
-        "caluma_form_v2.json",
-        "caluma_form_sb2.json",
-        "caluma_audit_form.json",
-        "caluma_publication_form.json",
-        "caluma_information_of_neighbors_form.json",
-        "caluma_ebau_number_form.json",
-        "caluma_solar_plants_form.json",
-        "caluma_decision_form.json",
-        "caluma_workflow.json",
+        "config/user.json",
+        "config/instance.json",
+        "config/caluma_form_common.json",
+        "config/caluma_dossier_import_form.json",
+        "config/caluma_form.json",
+        "config/caluma_form_v2.json",
+        "config/caluma_form_sb2.json",
+        "config/caluma_audit_form.json",
+        "config/caluma_publication_form.json",
+        "config/caluma_information_of_neighbors_form.json",
+        "config/caluma_ebau_number_form.json",
+        "config/caluma_solar_plants_form.json",
+        "config/caluma_decision_form.json",
+        "config/caluma_workflow.json",
+        "data/caluma_form.json",
+        "data/caluma_workflow.json",
+        "data/user.json",
+        "data/instance.json",
     ]
 
-    # for path in sorted((kt_bern_path / "config").glob("caluma_*.json")):
     for path in paths:
-        call_command("loaddata", kt_bern_path / "config" / path)
-
-    call_command("loaddata", kt_bern_path / "data" / "caluma_form.json")
+        call_command("loaddata", kt_bern_path / path)
 
 
 @pytest.fixture
@@ -49,68 +52,23 @@ def dms_settings(application_settings):
     )
 
 
-@pytest.mark.parametrize(
-    "form_slug",
-    [
-        ("baugesuch"),
-        ("sb1"),
-        ("sb2"),
-        ("mp-form"),
-    ],
-)
 def test_document_merge_service_snapshot(
-    db,
-    snapshot,
-    service_factory,
-    service_t_factory,
-    service_group_factory,
-    caluma_form_fixture,
-    form_slug,
-    dms_settings,
-    document_factory,
-    answer_factory,
+    db, snapshot, caluma_form_fixture, dms_settings
 ):
     cache.clear()
-    municipality = service_factory(
-        pk=2,
-        service_group=service_group_factory(name="municipality"),
-    )
-    service_t_factory(service=municipality, name="Leitbehörde Burgdorf", language="de")
-    service_t_factory(service=municipality, name="Municipalité Burgdorf", language="fr")
 
-    if form_slug == "mp-form":
-        document = document_factory(form_id="mp-form")
-
-    root_document = Document.objects.filter(form_id=form_slug).first()
-
-    if form_slug == "mp-form":
-        questions = [
-            ("mp-nutzungsart", "choice", "mp-nutzungsart-nein"),
-            ("mp-nutzungsart-bemerkungen", "textarea", "Test Nutzungsart"),
-            ("mp-bepflanzung", "choice", "mp-bepflanzung-ja"),
-            (
-                "mp-bepflanzung-ergebnis",
-                "choice",
-                "mp-bepflanzung-ergebnis-eingehalten",
-            ),
-            ("mp-bepflanzung-bemerkungen", "textarea", "Test Bepflanzung"),
-            (
-                "mp-erforderliche-beilagen-vorhanden",
-                "choice",
-                "mp-erforderliche-beilagen-vorhanden",
-            ),
-            ("mp-welche-beilagen-fehlen", "textarea", "Alle"),
-        ]
-        for question_slug, question_type, value in questions:
-            if value:
-                answer_factory(
-                    question_id=question_slug,
-                    value=value,
-                    document_id=document.pk,
-                )
-
-    visitor = DMSVisitor()
-    snapshot.assert_match(visitor.visit(root_document))
+    for snapshot_name, kwargs in [
+        ("baugesuch", {"instance_id": 1}),
+        ("sb1", {"instance_id": 3, "form_slug": "sb1"}),
+        ("sb2", {"instance_id": 3, "form_slug": "sb2"}),
+        (
+            "mp-form",
+            {"instance_id": 3, "document_id": "da618b68-b4a8-414f-9d5e-50e0fda43cde"},
+        ),
+    ]:
+        handler = DMSHandler()
+        _, root_document = handler.get_instance_and_document(**kwargs)
+        snapshot.assert_match(handler.visitor.visit(root_document), snapshot_name)
 
 
 def test_document_merge_service_client(db, requests_mock):
