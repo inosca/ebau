@@ -12,8 +12,3 @@ distribution:
   release-adjustment-for-review: "Anpassung zur Kontrolle freigeben"
   confirm: "Bestätigen"
   revise: "Überarbeiten"
-
-  inquiry-answer-status-sz:
-    fill-inquiry: "Entwurf"
-    review-inquiry: "In Prüfung"
-    alter-inquiry: "In Überarbeitung"
