@@ -12,8 +12,3 @@ distribution:
   release-adjustment-for-review: "Valider la révision pour contrôle"
   confirm: "Confirmer"
   revise: "Réviser"
-
-  inquiry-answer-status-sz:
-    fill-inquiry: ""
-    review-inquiry: ""
-    alter-inquiry: ""

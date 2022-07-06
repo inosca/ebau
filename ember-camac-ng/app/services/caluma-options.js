@@ -97,6 +97,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
               "fill-inquiry": {
                 color: "primary",
                 label: "distribution.send-answer",
+                status: "caluma.distribution.answer.buttons.compose.status",
               },
             },
             statusMapping: {
@@ -148,22 +149,21 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
               "fill-inquiry": {
                 color: "primary",
                 label: "distribution.release-for-review",
-                status: "distribution.inquiry-answer-status-sz.fill-inquiry",
+                status: "caluma.distribution.answer.buttons.compose.status",
               },
               "check-inquiry": {
                 color: "primary",
                 label: "distribution.confirm",
-                status: "distribution.inquiry-answer-status-sz.review-inquiry",
+                status: "caluma.distribution.answer.buttons.confirm.status",
               },
               "revise-inquiry": {
                 color: "default",
                 label: "distribution.revise",
-                status: "distribution.inquiry-answer-status-sz.review-inquiry",
               },
               "alter-inquiry": {
                 color: "primary",
                 label: "distribution.release-adjustment-for-review",
-                status: "distribution.inquiry-answer-status-sz.alter-inquiry",
+                status: "caluma.distribution.answer.buttons.adjust.status",
               },
             },
             statusMapping: {
