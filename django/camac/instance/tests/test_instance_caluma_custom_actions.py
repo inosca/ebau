@@ -4,13 +4,11 @@ import pyexcel
 import pytest
 from caluma.caluma_form import api as form_api, models as caluma_form_models
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
-from caluma.caluma_workflow.models import Task
 from django.core import mail
 from django.urls import reverse
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
-from camac.caluma.api import CalumaApi
 from camac.instance.models import HistoryEntry
 
 
@@ -331,90 +329,6 @@ def test_change_form(
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize(
-    "instance_state__name,should_sync", [("circulation", True), ("sb1", False)]
-)
-def test_change_responsible_service_circulations(
-    db,
-    admin_client,
-    role,
-    be_instance,
-    instance_state,
-    service_factory,
-    circulation_factory,
-    activation_factory,
-    work_item_factory,
-    should_sync,
-    caluma_admin_user,
-):
-    old_service = be_instance.responsible_service()
-    sub_service = service_factory(service_parent=old_service)
-    new_service = service_factory()
-    some_service = service_factory()
-
-    c1 = circulation_factory(instance=be_instance, service=old_service)
-    c2 = circulation_factory(instance=be_instance, service=old_service)
-
-    # from the old service to some service, stays
-    a1 = activation_factory(circulation=c1, service_parent=old_service)
-    # from some other service to some other service, stays
-    a2 = activation_factory(circulation=c1, service_parent=some_service)
-    # should be deleted since the new service is now responsible
-    a3 = activation_factory(
-        circulation=c1, service_parent=old_service, service=new_service
-    )
-    # should be deleted since it's to a sub service of the old services
-    activation_factory(circulation=c2, service_parent=old_service, service=sub_service)
-
-    for task_id in ["submit", "ebau-number", "init-circulation"]:
-        workflow_api.complete_work_item(
-            work_item=be_instance.case.work_items.get(task_id=task_id),
-            user=caluma_admin_user,
-        )
-
-    for circulation in [c1, c2]:
-        work_item_factory(
-            case=be_instance.case,
-            child_case=None,  # this will be properly created in the sync method
-            task=Task.objects.get(pk="circulation"),
-            meta={"circulation-id": circulation.pk},
-        )
-
-        CalumaApi().sync_circulation(circulation, caluma_admin_user)
-
-    response = admin_client.post(
-        reverse("instance-change-responsible-service", args=[be_instance.pk]),
-        {
-            "data": {
-                "type": "instance-change-responsible-services",
-                "attributes": {"service-type": "municipality"},
-                "relationships": {
-                    "to": {"data": {"id": new_service.pk, "type": "services"}}
-                },
-            }
-        },
-    )
-
-    assert response.status_code == status.HTTP_204_NO_CONTENT
-
-    if should_sync:
-        assert be_instance.circulations.filter(pk=c1.pk).exists()
-        assert not be_instance.circulations.filter(pk=c2.pk).exists()
-
-        c1.refresh_from_db()
-
-        assert c1.activations.filter(pk=a1.pk).exists()
-        assert c1.activations.filter(pk=a2.pk).exists()
-        assert not c1.activations.filter(pk=a3.pk).exists()
-
-        a1.refresh_from_db()
-        a2.refresh_from_db()
-
-        assert a1.service_parent == new_service
-        assert a2.service_parent == some_service
-
-
-@pytest.mark.parametrize("role__name", ["Municipality"])
-@pytest.mark.parametrize(
     "service_type,expected_status",
     [
         ("municipality", status.HTTP_204_NO_CONTENT),
@@ -437,6 +351,7 @@ def test_change_responsible_service(
     service_type,
     expected_status,
     caluma_admin_user,
+    be_distribution_settings,
 ):
     application_settings["NOTIFICATIONS"]["CHANGE_RESPONSIBLE_SERVICE"] = {
         "template_slug": notification_template.slug,
@@ -463,15 +378,18 @@ def test_change_responsible_service(
     # admin user is a member of the new service
     user_group_factory(user=admin_user, group__service=new_service)
 
-    init_circulation = be_instance.case.work_items.get(task_id="init-circulation")
-    init_circulation.assigned_users = [admin_user.username, other_user.username]
-    init_circulation.save()
+    init_distribution = caluma_workflow_models.WorkItem.objects.get(
+        task_id=be_distribution_settings["DISTRIBUTION_INIT_TASK"],
+        case__family=be_instance.case,
+    )
+    init_distribution.assigned_users = [admin_user.username, other_user.username]
+    init_distribution.save()
 
     assert (
         be_instance.case.work_items.filter(
             status="ready", addressed_groups__contains=[str(old_service.pk)]
         ).count()
-        == 7
+        == 6
     )
     assert (
         be_instance.case.work_items.filter(
@@ -526,13 +444,19 @@ def test_change_responsible_service(
             be_instance.case.work_items.filter(
                 status="ready", addressed_groups__contains=[str(new_service.pk)]
             ).count()
-            == 7
+            == 6
         )
 
+        assert caluma_workflow_models.WorkItem.objects.filter(
+            task_id=be_distribution_settings["INQUIRY_CREATE_TASK"],
+            status=caluma_workflow_models.WorkItem.STATUS_READY,
+            addressed_groups__overlap=[str(new_service.pk)],
+        ).exists()
+
         # assigned users are filtered
-        init_circulation.refresh_from_db()
-        assert admin_user.username in init_circulation.assigned_users
-        assert other_user.username not in init_circulation.assigned_users
+        init_distribution.refresh_from_db()
+        assert admin_user.username in init_distribution.assigned_users
+        assert other_user.username not in init_distribution.assigned_users
     elif expected_status == status.HTTP_400_BAD_REQUEST:
         assert (
             response.data[0]["detail"]
@@ -540,23 +464,70 @@ def test_change_responsible_service(
         )
 
 
+@pytest.mark.parametrize("role__name", ["Municipality"])
+def test_change_responsible_service_audit_validation(
+    db,
+    admin_client,
+    be_instance,
+    instance_service,
+    role,
+    service_factory,
+    caluma_audit,
+    caluma_admin_user,
+):
+    new_service = service_factory()
+
+    for task_id in ["submit", "ebau-number"]:
+        workflow_api.complete_work_item(
+            work_item=be_instance.case.work_items.get(task_id=task_id),
+            user=caluma_admin_user,
+        )
+
+    audit = be_instance.case.work_items.get(task_id="audit")
+    invalid_document = caluma_form_models.Document.objects.create(form_id="fp-form")
+    table_answer = audit.document.answers.create(
+        question_id="fp-form", value=[str(invalid_document.pk)]
+    )
+    table_answer.documents.add(invalid_document)
+
+    response = admin_client.post(
+        reverse("instance-change-responsible-service", args=[be_instance.pk]),
+        {
+            "data": {
+                "type": "instance-change-responsible-services",
+                "attributes": {"service-type": "municipality"},
+                "relationships": {
+                    "to": {"data": {"id": new_service.pk, "type": "services"}}
+                },
+            }
+        },
+    )
+
+    result = response.json()
+
+    assert response.status_code == status.HTTP_400_BAD_REQUEST
+
+    assert len(result["errors"])
+    assert "Ungültige Prüfung" == result["errors"][0]["detail"]
+
+
+@pytest.mark.xfail
 @pytest.mark.parametrize(
     "instance__user,service_group__name", [(LazyFixture("admin_user"), "municipality")]
 )
 @pytest.mark.parametrize("dry", [True, False])
 @pytest.mark.parametrize(
-    "role__name,instance_state__name,sync_circulation,expected_status,expected_work_items",
+    "role__name,instance_state__name,expected_status,expected_work_items",
     [
-        ("Support", "subm", False, status.HTTP_200_OK, ["ebau-number"]),
+        ("Support", "subm", status.HTTP_200_OK, ["ebau-number"]),
         (
             "Support",
             "circulation_init",
-            False,
             status.HTTP_200_OK,
             ["skip-circulation", "init-circulation"],
         ),
-        ("Support", "sb1", False, status.HTTP_200_OK, ["sb1"]),
-        ("Municipality", "subm", False, status.HTTP_403_FORBIDDEN, None),
+        ("Support", "sb1", status.HTTP_200_OK, ["sb1"]),
+        ("Municipality", "subm", status.HTTP_403_FORBIDDEN, None),
     ],
 )
 def test_fix_work_items(
@@ -568,7 +539,6 @@ def test_fix_work_items(
     snapshot,
     role,
     dry,
-    sync_circulation,
     expected_status,
     expected_work_items,
 ):
@@ -580,7 +550,7 @@ def test_fix_work_items(
         {
             "data": {
                 "type": "instance-fix-work-items",
-                "attributes": {"dry": dry, "sync_circulation": sync_circulation},
+                "attributes": {"dry": dry},
             }
         },
     )

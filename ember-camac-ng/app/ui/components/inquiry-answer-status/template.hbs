@@ -1,0 +1,16 @@
+{{! template-lint-disable require-input-label }}
+<select
+  class="uk-select"
+  disabled={{@disabled}}
+  {{on "change" this.change}}
+>
+  <option disabled selected={{not @vield.value}}></option>
+  {{#each this.options as |opt|}}
+    {{#if (and opt.disabled (eq opt.slug @field.value))}}
+      {{! status "unknown" used in eCH }}
+      <option disabled selected>{{opt.label}}</option>
+    {{else if (not opt.disabled)}}
+      <option value={{opt.slug}} selected={{eq opt.slug @field.value}}>{{opt.label}}</option>
+    {{/if}}
+  {{/each}}
+</select>

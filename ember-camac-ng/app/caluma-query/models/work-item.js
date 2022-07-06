@@ -1,6 +1,7 @@
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import WorkItemModel from "@projectcaluma/ember-core/caluma-query/models/work-item";
+import { decodeId } from "@projectcaluma/ember-core/helpers/decode-id";
 import { queryManager } from "ember-apollo-client";
 
 import saveWorkItemMutation from "camac-ng/gql/mutations/save-workitem.graphql";
@@ -112,7 +113,11 @@ export default class CustomWorkItemModel extends WorkItemModel {
   }
 
   get case() {
-    return this.raw.case.parentWorkItem?.case || this.raw.case;
+    return (
+      this.raw.case.parentWorkItem?.case.parentWorkItem?.case ??
+      this.raw.case.parentWorkItem?.case ??
+      this.raw.case
+    );
   }
 
   get instanceId() {
@@ -175,13 +180,31 @@ export default class CustomWorkItemModel extends WorkItemModel {
     return this.can.can("edit work-item", this) && url && `${url}${hash}`;
   }
 
+  _getLinkPlaceholders() {
+    const inquiryWorkItem = [this.raw, this.raw.case.parentWorkItem]
+      .filter(Boolean)
+      .find((workItem) => workItem.task.slug === "inquiry");
+
+    if (!inquiryWorkItem) {
+      return {};
+    }
+
+    return {
+      INQUIRY_UUID: decodeId(inquiryWorkItem.id),
+      INQUIRY_ADDRESSED: inquiryWorkItem.addressedGroups[0],
+      INQUIRY_CONTROLLING: inquiryWorkItem.controllingGroups[0],
+      DISTRIBUTION_CASE_UUID: decodeId(inquiryWorkItem.case.id),
+    };
+  }
+
   _getDirectLinkFor(configKey) {
     const query = this.shoebox.content.config.directLink[configKey];
 
     return query
-      ? `/index/redirect-to-instance-resource/instance-id/${this.instanceId}?${query}`
-          .replace("{{CIRCULATION_ID}}", this.raw.meta["circulation-id"])
-          .replace("{{ACTIVATION_ID}}", this.raw.meta["activation-id"])
+      ? Object.entries(this._getLinkPlaceholders()).reduce(
+          (url, [key, value]) => url.replace(`{{${key}}}`, value),
+          `/index/redirect-to-instance-resource/instance-id/${this.instanceId}?${query}`
+        )
       : null;
   }
 
@@ -252,46 +275,56 @@ export default class CustomWorkItemModel extends WorkItemModel {
     name
     deadline
     description
-    case {
-      id
-      meta
-      document {
-        form {
-          name
-        }
-        answers(filter: [{ questions: ["beschreibung-bauvorhaben", "voranfrage-vorhaben"] }]) {
-          edges {
-            node {
-              ... on StringAnswer {
-                value
-              }
-            }
-          }
-        }
-      }
-      parentWorkItem {
-        case {
-          meta
-          document {
-            form {
-              name
-            }
-            answers(filter: [{ questions: ["beschreibung-bauvorhaben"] }]) {
-              edges {
-                node {
-                  ... on StringAnswer {
-                    value
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
     task {
       slug
       meta
     }
-  }`;
+    case {
+      ...RootCase
+      parentWorkItem {
+        id
+        addressedGroups
+        controllingGroups
+        task {
+          slug
+          meta
+        }
+        case {
+          ...RootCase
+          parentWorkItem {
+            id
+            addressedGroups
+            controllingGroups
+            task {
+              slug
+              meta
+            }
+            case {
+              ...RootCase
+            }
+          }
+        }
+      }
+    }
+  }
+
+  fragment RootCase on Case {
+    id
+    meta
+    document {
+      form {
+        name
+      }
+      answers(filter: [{ questions: ["beschreibung-bauvorhaben", "voranfrage-vorhaben"] }]) {
+        edges {
+          node {
+            ... on StringAnswer {
+              value
+            }
+          }
+        }
+      }
+    }
+  }
+  `;
 }

@@ -17,6 +17,7 @@ from camac.responsible.models import ResponsibleService
 
 from . import models
 from .permissions import get_permission_func, permission_aware
+from .utils import get_service_suggestions
 
 
 class LocationFilterSet(FilterSet):
@@ -33,6 +34,8 @@ class PublicServiceFilterSet(FilterSet):
         field_name="service_parent", lookup_expr="isnull", exclude=True
     )
     available_in_distribution = BooleanFilter(method="_available_in_distribution")
+    service_group_name = CharMultiValueFilter(field_name="service_group__name")
+    suggestion_for_instance = NumberFilter(method="filter_suggestion_for_instance")
 
     @permission_aware
     def _available_in_distribution(self, queryset, name, value):
@@ -44,6 +47,15 @@ class PublicServiceFilterSet(FilterSet):
     def _available_in_distribution_for_service(self, queryset, name, value):
         if not value:
             return queryset  # pragma: no cover
+
+        group = self.request.group.pk
+        service_group_mapping = settings.APPLICATION.get(
+            "SERVICE_GROUPS_FOR_DISTRIBUTION", {}
+        )
+        if group in service_group_mapping.get("groups", {}):
+            return self._available_in_distribution_for_municipality(
+                queryset, name, value
+            )
 
         # Services can invite subservices
         service = self.request.group.service
@@ -57,7 +69,10 @@ class PublicServiceFilterSet(FilterSet):
         service_group_mapping = settings.APPLICATION.get(
             "SERVICE_GROUPS_FOR_DISTRIBUTION", {}
         )
-        service_groups = service_group_mapping.get(group.role.name, [])
+
+        groups = service_group_mapping.get("groups", {})
+        roles = service_group_mapping.get("roles", {})
+        service_groups = groups.get(group.pk, []) or roles.get(group.role.name, [])
         filters = []
         for config in service_groups:
             if config["localized"]:
@@ -72,12 +87,21 @@ class PublicServiceFilterSet(FilterSet):
 
         return queryset.filter(reduce(lambda a, b: a | b, filters)).distinct()
 
-    def _available_in_distribution_for_canton(self, queryset, name, value):
-        return self._available_in_distribution_for_municipality(queryset, name, value)
+    def filter_suggestion_for_instance(self, queryset, name, value):
+        return queryset.filter(
+            pk__in=get_service_suggestions(Instance.objects.get(pk=value))
+        )
 
     class Meta:
         model = models.Service
-        fields = ("service_group", "has_parent", "available_in_distribution")
+        fields = (
+            "service_group",
+            "has_parent",
+            "available_in_distribution",
+            "service_group_name",
+            "service_parent",
+            "suggestion_for_instance",
+        )
 
 
 class ServiceFilterSet(FilterSet):

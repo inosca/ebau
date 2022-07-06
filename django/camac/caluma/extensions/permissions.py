@@ -1,4 +1,5 @@
 import json
+from functools import wraps
 from logging import getLogger
 
 import requests
@@ -19,6 +20,7 @@ from caluma.caluma_workflow.schema import (
     CompleteWorkItem,
     CreateWorkItem,
     ResumeCase,
+    ResumeWorkItem,
     SaveCase,
     SaveWorkItem,
     SkipWorkItem,
@@ -60,6 +62,46 @@ def validate_parameters(valid_parameters, parameters, obj):
         key in valid_parameters or (hasattr(obj, key) and getattr(obj, key) == value)
         for key, value in parameters.items()
     )
+
+
+def role(info):
+    role_name = CamacRequest(info).request.group.role.name
+    role_mapping = settings.APPLICATION.get("GENERALIZED_ROLE_MAPPING")
+    return role_mapping[role_name] if role_mapping else role_name
+
+
+def distribution_permission_for(configured_mutation, work_item_tasks):
+    def decorate(func):
+        @wraps(func)
+        def wrapper(permission, mutation, info, work_item=None, *args, **kwargs):
+            if settings.DISTRIBUTION:
+                configured_mutation_name = configured_mutation.__name__
+                task_name = next(
+                    (
+                        work_item_task
+                        for work_item_task in work_item_tasks
+                        if work_item.task_id
+                        == settings.DISTRIBUTION.get(work_item_task)
+                    ),
+                    None,
+                )
+
+                if task_name and configured_mutation_name == mutation.__name__:
+                    permissions_predicate = (
+                        settings.DISTRIBUTION["PERMISSIONS"]
+                        .get(configured_mutation_name, {})
+                        .get(task_name, lambda _: True)
+                    )
+
+                    return func(
+                        permission, mutation, info, work_item, *args, **kwargs
+                    ) and permissions_predicate(role(info))
+
+            return func(permission, mutation, info, work_item, *args, **kwargs)
+
+        return wrapper
+
+    return decorate
 
 
 class CustomPermission(IsAuthenticated):
@@ -138,10 +180,18 @@ class CustomPermission(IsAuthenticated):
             )
         )
 
-    @permission_for(CancelWorkItem)
+    @distribution_permission_for(
+        CompleteWorkItem,
+        [
+            "INQUIRY_CREATE_TASK",
+            "DISTRIBUTION_COMPLETE_TASK",
+            "INQUIRY_ANSWER_FILL_TASK",
+            "INQUIRY_ANSWER_CHECK_TASK",
+            "INQUIRY_ANSWER_REVISE_TASK",
+        ],
+    )
     @permission_for(CompleteWorkItem)
     @permission_for(SkipWorkItem)
-    @object_permission_for(CancelWorkItem)
     @object_permission_for(CompleteWorkItem)
     @object_permission_for(SkipWorkItem)
     def has_permission_for_process_work_item(self, mutation, info, work_item=None):
@@ -152,6 +202,30 @@ class CustomPermission(IsAuthenticated):
         return is_addressed_to_service(
             work_item, get_current_service_id(info)
         ) or is_addressed_to_applicant(work_item)
+
+    @distribution_permission_for(CancelWorkItem, ["INQUIRY_TASK"])
+    @permission_for(CancelWorkItem)
+    @object_permission_for(CancelWorkItem)
+    def has_permission_for_cancel_work_item(self, mutation, info, work_item=None):
+        if not work_item or self.has_camac_role(info, "support"):
+            # Always allow for support group since our PHP action uses that group
+            return True
+
+        service_id = get_current_service_id(info)
+        return (
+            is_addressed_to_service(work_item, service_id)
+            or is_controlled_by_service(work_item, service_id)
+            or is_addressed_to_applicant(work_item)
+        )
+
+    @distribution_permission_for(ResumeWorkItem, ["INQUIRY_TASK"])
+    @permission_for(ResumeWorkItem)
+    @object_permission_for(ResumeWorkItem)
+    def has_permission_for_resume_work_item(self, mutation, info, work_item=None):
+        if not work_item:
+            return True
+
+        return is_controlled_by_service(work_item, get_current_service_id(info))
 
     # Document
     @permission_for(RemoveDocument)
@@ -243,7 +317,9 @@ class CustomPermission(IsAuthenticated):
             return False
 
         resp = requests.get(
-            build_url(settings.API_HOST, f"/api/v1/instances/{case.instance.pk}"),
+            build_url(
+                settings.API_HOST, f"/api/v1/instances/{case.family.instance.pk}"
+            ),
             headers=headers(info),
         )
 

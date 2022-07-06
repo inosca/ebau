@@ -6,13 +6,15 @@ from caluma.caluma_form import (
 from caluma.caluma_user.visibilities import Authenticated
 from caluma.caluma_workflow import schema as workflow_schema
 from django.conf import settings
-from django.db.models import F, Q
+from django.contrib.postgres.fields import ArrayField
+from django.db.models import Case, Exists, F, Func, IntegerField, OuterRef, Q, When
+from django.db.models.functions import Cast
 
 from camac.caluma.utils import CamacRequest
 from camac.constants.kt_bern import DASHBOARD_FORM_SLUG
 from camac.instance.filters import CalumaInstanceFilterSet
 from camac.instance.mixins import InstanceQuerysetMixin
-from camac.user.models import Role
+from camac.user.models import Role, Service
 from camac.utils import filters, order
 
 
@@ -239,4 +241,43 @@ class CustomVisibilitySZ(CustomVisibility):
             queryset.filter(filter).order_by(*order_by)
             if order_by
             else queryset.filter(filter)
+        )
+
+    @filter_queryset_for(workflow_schema.WorkItem)
+    def filter_queryset_for_work_items(self, node, queryset, info):
+        visibility_config = settings.APPLICATION.get("INTER_SERVICE_GROUP_VISIBILITIES")
+
+        service = CamacRequest(info).request.group.service
+
+        # If the work-item task is "inquiry", check if the current service
+        # is either in the controlling_groups or addressed_groups. If not, then
+        # check if the current service is permitted to see the work-item
+        # according to its service_group
+        return queryset.filter(
+            Case(
+                When(
+                    Q(task_id=settings.DISTRIBUTION["INQUIRY_TASK"])
+                    & ~Q(addressed_groups__contains=[service.pk])
+                    & ~Q(controlling_groups__contains=[service.pk]),
+                    then=Exists(
+                        Service.objects.filter(
+                            # Use element = ANY(array) operator to check if
+                            # element is present in ArrayField, which requires
+                            # lhs and rhs of expression to be of same type
+                            pk=Func(
+                                Cast(
+                                    OuterRef("addressed_groups"),
+                                    output_field=ArrayField(IntegerField()),
+                                ),
+                                function="ANY",
+                            ),
+                            service_group__pk__in=visibility_config.get(
+                                service.service_group_id, []
+                            ),
+                        )
+                    ),
+                ),
+                default=True,
+            ),
+            case__family__instance__pk__in=self._all_visible_instances(info),
         )

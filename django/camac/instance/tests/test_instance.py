@@ -615,6 +615,71 @@ def test_instance_identifier_filter(
 
 
 @pytest.mark.parametrize(
+    "instance__user,expected_count",
+    [
+        (LazyFixture("admin_user"), 1),
+    ],
+)
+def test_instance_service_filter_sz(
+    admin_client,
+    caluma_admin_user,
+    instance,
+    expected_count,
+    sz_instance,
+    service,
+    active_inquiry_factory,
+    distribution_settings,
+):
+    url = reverse("instance-list")
+
+    case = sz_instance.case
+    workflow_api.skip_work_item(
+        work_item=case.work_items.get(task_id="submit"), user=caluma_admin_user
+    )
+    workflow_api.skip_work_item(
+        work_item=case.work_items.get(task_id="complete-check"), user=caluma_admin_user
+    )
+
+    inquiry = active_inquiry_factory(sz_instance, service, status="ready")
+
+    inquiry.case = case.work_items.get(task_id="distribution").child_case
+    inquiry.save()
+
+    response = admin_client.get(url, {"service": service.pk})
+
+    assert response.status_code == status.HTTP_200_OK
+    data = response.json()["data"]
+    assert len(data) == expected_count
+
+
+@pytest.mark.parametrize(
+    "instance__user,expected_count",
+    [
+        (LazyFixture("admin_user"), 1),
+    ],
+)
+def test_instance_service_filter_ur(
+    admin_client,
+    instance,
+    expected_count,
+    ur_instance,
+    service,
+    circulation_factory,
+    activation_factory,
+):
+    url = reverse("instance-list")
+
+    circulation_factory(instance=ur_instance)
+    activation_factory(circulation=ur_instance.circulations.first(), service=service)
+
+    response = admin_client.get(url, {"service": service.pk})
+
+    assert response.status_code == status.HTTP_200_OK
+    data = response.json()["data"]
+    assert len(data) == expected_count
+
+
+@pytest.mark.parametrize(
     "role__name,instance__user", [("Municipality", LazyFixture("admin_user"))]
 )
 def test_linked_instances(
@@ -1878,60 +1943,3 @@ def test_instance_change_form(
         assert caluma_workflow_models.WorkItem.objects.filter(
             task_id="formal-addition"
         ).exists()
-
-
-@pytest.mark.parametrize(
-    "role__name,instance__user", [("Municipality", LazyFixture("admin_user"))]
-)
-def test_end_circulations(
-    admin_client,
-    instance_service,
-    circulation,
-    circulation_factory,
-    activation,
-    caluma_workflow_config_be,
-    caluma_admin_user,
-    activation_factory,
-    circulation_state_factory,
-):
-    new_state = circulation_state_factory(name="DONE")
-
-    case = workflow_api.start_case(
-        workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
-        form=caluma_form_models.Form.objects.get(pk="main-form"),
-        user=caluma_admin_user,
-    )
-    circulation.instance.case = case
-    circulation.instance.save()
-
-    for task_id in ["submit", "ebau-number", "init-circulation"]:
-        workflow_api.skip_work_item(
-            case.work_items.get(task_id=task_id),
-            caluma_admin_user,
-            context={"circulation-id": circulation.pk},
-        )
-
-    second_circulation = circulation_factory(instance=circulation.instance)
-    caluma_workflow_models.WorkItem.objects.create(
-        task_id="circulation",
-        case=case,
-        status=caluma_workflow_models.WorkItem.STATUS_READY,
-        meta={"circulation-id": second_circulation.pk},
-    )
-
-    response = admin_client.patch(
-        reverse("instance-end-circulations", args=[circulation.instance.pk])
-    )
-
-    activation.refresh_from_db()
-
-    assert response.status_code == status.HTTP_204_NO_CONTENT
-    assert activation.circulation_state == new_state
-    assert (
-        case.work_items.get(**{"meta__circulation-id": circulation.pk}).status
-        == caluma_workflow_models.WorkItem.STATUS_SKIPPED
-    )
-    assert (
-        case.work_items.get(**{"meta__circulation-id": second_circulation.pk}).status
-        == caluma_workflow_models.WorkItem.STATUS_SKIPPED
-    )

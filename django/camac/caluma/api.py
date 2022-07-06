@@ -1,18 +1,13 @@
-from functools import reduce
 from logging import getLogger
 
-from caluma.caluma_core.events import send_event
 from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_form.validators import AnswerValidator, DocumentValidator
 from caluma.caluma_workflow import (
     api as caluma_workflow_api,
     models as caluma_workflow_models,
 )
-from caluma.caluma_workflow.events import post_complete_case, post_create_work_item
-from caluma.caluma_workflow.utils import get_jexl_groups
 from django.conf import settings
-from django.db.models import Count, Q
-from django.utils.timezone import now
+from django.db.models import Q
 
 from camac.user.models import Service
 
@@ -183,51 +178,6 @@ class CalumaApi:
 
         return (option.slug, option.label)
 
-    def get_circulation_proposals(self, instance):
-        # [(question_id, option, suggested service), ... ]
-        suggestions = settings.APPLICATION.get("SUGGESTIONS", [])
-        if not suggestions:  # pragma: no cover
-            return set()
-
-        suggestion_map = {
-            (q_slug, answer): services for q_slug, answer, services in suggestions
-        }
-
-        document = self._get_main_document(instance)
-        answers = caluma_form_models.Answer.objects.filter(
-            document__family=document.family
-        )
-
-        _filter = reduce(
-            lambda a, b: a | b,
-            [
-                Q(question_id=q_slug, value=answer)
-                | Q(question_id=q_slug, value__contains=answer)
-                for q_slug, answer, _ in suggestions
-            ],
-            Q(pk=None),
-        )
-        answers = answers.filter(_filter)
-
-        suggestions_out = {
-            service
-            for ans in answers.filter(
-                question__type=caluma_form_models.Question.TYPE_MULTIPLE_CHOICE
-            )
-            for choice in ans.value
-            for service in suggestion_map.get((ans.question_id, choice), [])
-        }
-        suggestions_out.update(
-            {
-                service
-                for ans in answers.exclude(
-                    question__type=caluma_form_models.Question.TYPE_MULTIPLE_CHOICE
-                )
-                for service in suggestion_map.get((ans.question_id, ans.value), [])
-            }
-        )
-        return suggestions_out
-
     def copy_table_answer(
         self,
         source_question,
@@ -260,226 +210,85 @@ class CalumaApi:
             sb_row = self.copy_document(row.id, family=target_document.family)
             new_table_answer.documents.add(sb_row)
 
-    def _clean_activations(self, child_case, activations):
-        caluma_settings = settings.APPLICATION.get("CALUMA", {})
-        existing_ids = list(activations.values_list("pk", flat=True))
-
-        # Delete existing activation work items that don't have an
-        # activation anymore.
-        child_case.work_items.filter(
-            task_id__in=caluma_settings.get("ACTIVATION_TASKS")
-        ).exclude(**{"meta__activation-id__in": existing_ids}).delete()
-
-    def _sync_activations(self, child_case, activations, user):
-        caluma_settings = settings.APPLICATION.get("CALUMA", {})
-        activation_task = caluma_workflow_models.Task.objects.get(
-            pk=caluma_settings.get("ACTIVATION_INIT_TASK")
-        )
-
-        post_sync = set()
-
-        for activation in activations:
-            work_item = child_case.work_items.filter(
-                **{"task": activation_task, "meta__activation-id": activation.pk}
-            ).first()
-
-            update_data = {
-                "description": activation.reason,
-                "deadline": activation.deadline_date,
-                "addressed_groups": get_jexl_groups(
-                    activation_task.address_groups,
-                    activation_task,
-                    child_case,
-                    user,
-                    None,
-                    {"activation-id": activation.pk},
-                ),
-                "controlling_groups": get_jexl_groups(
-                    activation_task.control_groups,
-                    activation_task,
-                    child_case,
-                    user,
-                    None,
-                    {"activation-id": activation.pk},
-                ),
-            }
-
-            if work_item:
-                # Activation work item already exists, synchronize with activation
-                for key, value in update_data.items():
-                    setattr(work_item, key, value)
-
-                work_item.save()
-            else:
-                # Activation work item does not exist yet, create a new one
-                work_item = child_case.work_items.create(
-                    task=activation_task,
-                    status=caluma_workflow_models.WorkItem.STATUS_READY,
-                    created_by_user=user.username,
-                    created_by_group=user.group,
-                    name=activation_task.name,
-                    meta={"activation-id": activation.pk},
-                    **update_data,
-                )
-                send_event(
-                    post_create_work_item,
-                    sender=self.__class__,
-                    work_item=work_item,
-                    user=user,
-                    context={},
-                )
-
-            if (
-                activation.circulation_state.name in ["OK", "DONE"]
-                and work_item.status == caluma_workflow_models.WorkItem.STATUS_READY
-            ):
-                post_sync.add(
-                    (
-                        activation.pk,
-                        # Skip if the activation has an answer and cancel if it
-                        # doesn't, which means that it was force finished
-                        "skip" if activation.circulation_answer else "cancel",
-                    )
-                )
-
-        for activation_id, action in post_sync:
-            fn = getattr(caluma_workflow_api, f"{action}_work_item")
-
-            for task in caluma_settings.get("ACTIVATION_RELEVANT_TASKS", []):
-                work_item = child_case.work_items.filter(
-                    **{
-                        "task_id": task,
-                        "status": caluma_workflow_models.WorkItem.STATUS_READY,
-                        "meta__activation-id": activation_id,
-                    }
-                ).first()
-
-                if work_item:
-                    fn(
-                        work_item=work_item,
-                        user=user,
-                        context={
-                            "activation-id": activation_id,
-                            "circulation-id": activations.first().circulation.pk,
-                        },
-                    )
-
-    def sync_circulation(self, circulation, user):
-        """Synchronize a CAMAC circulation with the Caluma workflow.
-
-        This method completely synchronizes the Caluma workflow with an
-        existing CAMAC circulation. If there are activations in the
-        circulation it creates work items in an existing (or newly created)
-        child case. If there are work items for non existing activations it
-        cancels them. And if there is a child case but no more activations
-        the whole child case will be canceled.
-        """
-
-        caluma_settings = settings.APPLICATION.get("CALUMA", {})
-
-        try:
-            work_item = circulation.instance.case.work_items.get(
-                **{
-                    "task_id": caluma_settings.get("CIRCULATION_TASK"),
-                    "meta__circulation-id": circulation.pk,
-                }
-            )
-        except caluma_workflow_models.WorkItem.DoesNotExist:  # pragma: no cover
-            log.error(f"No work item found for circulation {circulation.pk}")
-            return
-
-        activations = circulation.activations.exclude(circulation_state__name="IDLE")
-
-        excluded_roles = caluma_settings.get("ACTIVATION_EXCLUDE_ROLES", [])
-
-        if excluded_roles:
-            activations = activations.annotate(
-                service_non_excluded_groups_count=Count(
-                    "service__groups",
-                    filter=~Q(service__groups__role__name__in=excluded_roles),
-                )
-            ).exclude(service_non_excluded_groups_count=0)
-
-        if activations.exists():
-            # Get or create a child case for the circulation
-            child_case = work_item.child_case or caluma_workflow_api.start_case(
-                workflow=caluma_workflow_models.Workflow.objects.get(
-                    pk=caluma_settings.get("CIRCULATION_WORKFLOW")
-                ),
-                form=caluma_form_models.Form.objects.get(
-                    pk=caluma_settings.get("CIRCULATION_FORM")
-                ),
-                user=user,
-                parent_work_item=work_item,
-                context={"activation-id": activations.first().pk},
-            )
-
-            self._sync_activations(child_case, activations, user)
-            self._clean_activations(child_case, activations)
-
-            if (
-                not child_case.work_items.filter(
-                    status=caluma_workflow_models.WorkItem.STATUS_READY
-                )
-                and child_case.status == caluma_workflow_models.Case.STATUS_RUNNING
-            ):
-                # Manually close the case since all work items are completed.
-                # This can happen when all activations except one are answered
-                # and the remaining is deleted. Caluma can't react in this case
-                # since that work item is deleted.
-                child_case.status = caluma_workflow_models.Case.STATUS_COMPLETED
-                child_case.closed_at = now()
-                child_case.closed_by_user = user.username
-                child_case.closed_by_group = user.group
-                child_case.save()
-
-                # This will automatically complete the parent work item
-                send_event(
-                    post_complete_case,
-                    sender=self.__class__,
-                    case=child_case,
-                    user=user,
-                    context={},
-                )
-        elif work_item.child_case:
-            # Delete existing child case since there are no more activations
-            work_item.child_case.delete()
-
-    def reassign_work_items(self, instance_id, from_group_id, to_group_id):
+    def reassign_work_items(self, instance, from_group_id, to_group_id, user):
         from_group_id = str(from_group_id)
         to_group_id = str(to_group_id)
 
-        for groups_type in ["addressed_groups", "controlling_groups"]:
-            for work_item in caluma_workflow_models.WorkItem.objects.filter(
-                **{
-                    f"{groups_type}__contains": [from_group_id],
-                    "status__in": [
-                        caluma_workflow_models.WorkItem.STATUS_READY,
-                        caluma_workflow_models.WorkItem.STATUS_SUSPENDED,
-                    ],
-                    "case__family__instance__pk": instance_id,
-                }
-            ):
+        for work_item in (
+            caluma_workflow_models.WorkItem.objects.filter(
+                Q(addressed_groups__contains=[from_group_id])
+                | Q(controlling_groups__contains=[from_group_id])
+            )
+            .filter(
+                status__in=[
+                    caluma_workflow_models.WorkItem.STATUS_READY,
+                    caluma_workflow_models.WorkItem.STATUS_SUSPENDED,
+                ],
+                case__family__instance=instance,
+            )
+            .exclude(
+                task_id__in=[
+                    "create-manual-workitems",
+                    settings.DISTRIBUTION["INQUIRY_TASK"],
+                    settings.DISTRIBUTION["INQUIRY_ANSWER_FILL_TASK"],
+                    settings.DISTRIBUTION["INQUIRY_CREATE_TASK"],
+                    settings.DISTRIBUTION["INQUIRY_CHECK_TASK"],
+                ]
+            )
+        ):
+            for groups_type in ["addressed_groups", "controlling_groups"]:
                 groups = set(getattr(work_item, groups_type))
+
+                if from_group_id not in groups:
+                    continue
+
                 groups.remove(from_group_id)
                 groups.add(to_group_id)
 
                 # If the addressed groups change, we need to filter out all
                 # assigned users that are not member of the new addressed group
                 if len(work_item.assigned_users) and groups_type == "addressed_groups":
-                    work_item.assigned_users = list(
-                        set(
-                            filter(
-                                lambda user: Service.objects.filter(
-                                    pk=int(to_group_id), groups__users__username=user
-                                ).exists(),
-                                work_item.assigned_users,
-                            )
-                        )
-                    )
+                    work_item.assigned_users = [
+                        username
+                        for username in work_item.assigned_users
+                        if Service.objects.filter(
+                            pk=int(to_group_id), groups__users__username=username
+                        ).exists()
+                    ]
 
                 setattr(work_item, groups_type, list(groups))
-                work_item.save()
+
+            work_item.save()
+
+        # If there is no work item to allow creation of an inquiry for the new
+        # service and the distribution is still running, we need to create one
+        distribution = instance.case.work_items.filter(
+            task_id=settings.DISTRIBUTION["DISTRIBUTION_TASK"],
+            status=caluma_workflow_models.WorkItem.STATUS_READY,
+        ).first()
+
+        if (
+            distribution
+            and not distribution.child_case.work_items.filter(
+                task_id=settings.DISTRIBUTION["INQUIRY_CREATE_TASK"],
+                addressed_groups__contains=[to_group_id],
+                status=caluma_workflow_models.WorkItem.STATUS_READY,
+            ).exists()
+        ):
+            task = caluma_workflow_models.Task.objects.get(
+                pk=settings.DISTRIBUTION["INQUIRY_CREATE_TASK"]
+            )
+
+            caluma_workflow_models.WorkItem.objects.create(
+                task=task,
+                name=task.name,
+                addressed_groups=[to_group_id],
+                controlling_groups=[to_group_id],
+                case=distribution.child_case,
+                status=caluma_workflow_models.WorkItem.STATUS_READY,
+                created_by_user=user.username,
+                created_by_group=user.group,
+            )
 
     def validate_existing_audit_documents(self, instance_id, user):
         """Intermediate validation of existing audits.

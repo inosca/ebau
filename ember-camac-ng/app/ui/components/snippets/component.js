@@ -1,35 +1,37 @@
+import { setComponentTemplate } from "@ember/component";
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { dropTask } from "ember-concurrency";
 import { trackedTask } from "ember-resources/util/ember-concurrency";
 
-export default class SnippetsComponent extends Component {
+import template from "./template";
+
+export class SnippetsComponent extends Component {
   @service fetch;
   @service store;
-  @service shoebox;
+  @service calumaOptions;
 
   _inputElement = null;
 
   snippets = trackedTask(this, this.fetchSnippets, () => [
-    this.shoebox.content.serviceId,
+    this.calumaOptions.currentServiceId,
   ]);
 
   @dropTask
-  *fetchSnippets() {
+  *fetchSnippets(serviceId) {
     let snippets = this.store
       .peekAll("notification-template")
       .filter((template) => {
         return (
-          parseInt(template.belongsTo("service").id()) ===
-            this.shoebox.content.serviceId &&
+          parseInt(template.belongsTo("service").id()) === serviceId &&
           template.notificationType === "textcomponent"
         );
       });
 
     if (!snippets.length) {
       snippets = yield this.store.query("notification-template", {
-        service: this.shoebox.content.serviceId,
+        service: serviceId,
         type: "textcomponent",
       });
     }
@@ -50,7 +52,7 @@ export default class SnippetsComponent extends Component {
     event.preventDefault();
 
     const response = yield this.fetch.fetch(
-      `/api/v1/notification-templates/${id}/merge?instance=${this.shoebox.content.instanceId}`
+      `/api/v1/notification-templates/${id}/merge?instance=${this.calumaOptions.currentInstanceId}`
     );
 
     const { data } = yield response.json();
@@ -65,3 +67,6 @@ export default class SnippetsComponent extends Component {
       element.querySelector("textarea") ?? element.querySelector("input");
   }
 }
+
+// this is needed so the engine knows of the correct template because we use pods
+export default setComponentTemplate(template, SnippetsComponent);

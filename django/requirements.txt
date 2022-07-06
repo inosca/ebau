@@ -1,6 +1,7 @@
 Babel==2.10.3
 caluma==8.0.0b11
 dataclasses-json==0.5.7
+deepmerge==1.0.1
 Django==3.2.14
 django-admin-sortable2==1.0.4
 django-clamd==0.4.0
@@ -37,6 +38,7 @@ requests==2.28.1
 requests-toolbelt==0.9.1
 sorl-thumbnail==12.8.0
 tabulate==0.8.10
+tqdm==4.64.0
 uWSGI==2.0.20
 whitenoise==6.2.0
 xmlschema==1.11.3

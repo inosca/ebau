@@ -57,7 +57,7 @@ def post_complete_simple_workflow(sender, work_item, user, context, **kwargs):
         if notification and (not context or not context.get("no-notification")):
             additional_data = (
                 {"body": context.get("notification-body")}
-                if context.get("notification-body")
+                if context and context.get("notification-body")
                 else {}
             )
 

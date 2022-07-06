@@ -1,0 +1,14 @@
+distribution:
+  districts: "Préfectures"
+  municipalities: "Communes"
+  services: "Offices cantonaux et offices spécialisés"
+  services-sz: ""
+  subservices: "Offices régionaux spécialisés"
+  external-services: ""
+  municipal-services: ""
+
+  send-answer: "Envoyer la réponse"
+  release-for-review: "Valider pour contrôle"
+  release-adjustment-for-review: "Valider la révision pour contrôle"
+  confirm: "Confirmer"
+  revise: "Réviser"

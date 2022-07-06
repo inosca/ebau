@@ -38,7 +38,7 @@ export default class extends Ability {
     if (this.shoebox.isSupportRole) {
       return ["imported", "confirmed"].includes(this.model?.status);
     }
-    if (["municipality", "municipality-admin"].includes(this.shoebox.role)) {
+    if (this.shoebox.baseRole === "municipality") {
       return ["imported"].includes(this.model?.status);
     }
     return false;
