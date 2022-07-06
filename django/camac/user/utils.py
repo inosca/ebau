@@ -1,7 +1,13 @@
 import logging
+from functools import reduce
 
+from caluma.caluma_form.models import Answer, Question
 from django.conf import settings
 from django.contrib.auth.models import AnonymousUser
+from django.core.cache import cache
+from django.db.models import Q
+
+from camac.instance.validators import FormDataValidator
 
 from . import models
 
@@ -89,3 +95,103 @@ def _get_group_for_portal(request):
     return models.Group.objects.select_related("role", "service").get(
         pk=settings.APPLICATION["PORTAL_GROUP"]
     )
+
+
+def get_service_suggestions(instance):
+    service_suggestions_cache_key = f"distribution__service_suggestions__{instance.pk}"
+    cached_service_suggestions = cache.get(service_suggestions_cache_key)
+
+    if cached_service_suggestions is not None:  # key exists in cache
+        return set(cached_service_suggestions)
+
+    suggestions = settings.DISTRIBUTION.get("SUGGESTIONS")
+    default_suggestions = settings.DISTRIBUTION.get("DEFAULT_SUGGESTIONS")
+
+    suggested_services = set()
+
+    if default_suggestions:
+        suggested_services.update(default_suggestions)
+
+    if suggestions:
+        form_backend = settings.APPLICATION["FORM_BACKEND"]
+
+        if form_backend == "caluma":
+            # {(question_id, option): [suggested_service, ...], ... }
+            suggested_services.update(
+                get_service_suggestions_caluma(instance, suggestions)
+            )
+        elif form_backend == "camac-ng":
+            # "SUBMODULES": [("module.submodule", [suggested_service, ...]), ...]
+            # "QUESTIONS": [("jexl_expression", [suggested_service, ...]), ...]
+            suggested_services.update(
+                get_service_suggestions_camac_ng(instance, suggestions)
+            )
+
+    cache.set(
+        service_suggestions_cache_key,
+        suggested_services,
+        timeout=60 * 60 * 24 * 7,  # cache for a week
+    )
+
+    return suggested_services
+
+
+def get_service_suggestions_caluma(instance, suggestions):
+    suggested_services = set()
+
+    answers = (
+        Answer.objects.select_related("question")
+        .filter(document__family=instance.case.document)
+        .filter(
+            reduce(
+                lambda a, b: a | b,
+                [
+                    Q(question_id=question, value=answer)
+                    | Q(question_id=question, value__contains=answer)
+                    for question, answer in suggestions.keys()
+                ],
+                Q(pk=None),
+            )
+        )
+    )
+
+    for answer in answers:
+        value = (
+            answer.value
+            if answer.question.type == Question.TYPE_MULTIPLE_CHOICE
+            else [answer.value]
+        )
+
+        for choice in value:
+            suggested_services.update(suggestions.get((answer.question_id, choice), []))
+
+    return suggested_services
+
+
+def get_service_suggestions_camac_ng(instance, suggestions):
+    suggested_services = set()
+    suggestions_submodules = suggestions.get("SUBMODULES")
+    suggestions_questions = suggestions.get("QUESTIONS")
+
+    form_data_validator = FormDataValidator(instance)
+
+    if suggestions_submodules:
+        active_submodules = [
+            submodule["slug"]
+            for module in form_data_validator.get_active_modules_questions()
+            for submodule in module.get("subModules", [])
+            if submodule["questions"]
+        ]
+
+        for submodule, services in suggestions_submodules:
+            if submodule in active_submodules:
+                suggested_services.update(services)
+
+    if suggestions_questions:
+        for expression, services in suggestions_questions:
+            if form_data_validator._check_question_active(
+                None, {"active-expression": expression}
+            ):
+                suggested_services.update(services)
+
+    return suggested_services

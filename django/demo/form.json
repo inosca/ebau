@@ -6,7 +6,9 @@
       "personalien",
       "personalien.grundeigentumerschaft",
       "personalien.bauherrschaft",
-      "freigegebene-unterlagen"
+      "freigegebene-unterlagen",
+      "fachthemen",
+      "fachthemen.wald"
     ],
     "geschaeftskontrolle": [
       "grundinformationen",
@@ -49,7 +51,8 @@
         "zweck-der-warmepumpe",
         "standort-der-warmepumpe",
         "punkte",
-        "meta"
+        "meta",
+        "art-der-nutzung"
       ]
     },
     "personalien": {
@@ -60,21 +63,27 @@
     "personalien.grundeigentumerschaft": {
       "title": "grundeigentumerschaft",
       "parent": "personalien",
-      "questions": [
-        "grundeigentumerschaft"
-      ]
+      "questions": ["grundeigentumerschaft"]
     },
     "personalien.bauherrschaft": {
       "title": "bauherrschaft",
       "parent": "personalien",
-      "questions": [
-        "bauherrschaft"
-      ]
+      "questions": ["bauherrschaft"]
     },
     "freigegebene-unterlagen": {
       "title": "Freigegebene Unterlagen",
       "parent": null,
       "questions": []
+    },
+    "fachthemen": {
+      "title": "Fachthemen",
+      "parent": null,
+      "questions": []
+    },
+    "fachthemen.wald": {
+      "title": "Wald, Flora, Fauna",
+      "parent": "fachthemen",
+      "questions": ["wald-forstlich", "wald-auswirkungen"]
     }
   },
   "questions": {
@@ -458,6 +467,37 @@
       "label": "Meta",
       "type": "text",
       "required": false,
+      "config": {}
+    },
+    "art-der-nutzung": {
+      "label": "Welchem Zweck dient das Vorhaben?",
+      "hint": "Wählen Sie den Zweck aus, der am ehesten auf Ihr Vorhaben zutrifft. Es ist möglich, mehrere Zwecke anzuwählen.\nFalls das Vorhaben beispielsweise der Bau einer Strasse ist, kann der Zweck ganz unterschiedlich ausfallen, je nachdem, welcher Nutzung die Strasse in erster Linie dient.",
+      "type": "checkbox",
+      "required": false,
+      "config": {
+        "options": [
+          "Landwirtschaft",
+          "Öffentliche Nutzung",
+          "Forstwirtschaft"
+        ]
+      }
+    },
+    "wald-forstlich": {
+      "label": "Handelt es sich um ein forstliches Vorhaben?",
+      "hint": "Als forstlich werden solche Vorhaben bezeichnet, die der Bewirtschaftung des Waldes dienen. Typische Beispiele sind Forstwerkhöfe, Waldstrassen sowie gedeckte Energieholzlager. Forstliche Vorhaben dürfen im Wald als zonenkonform bewilligt werden, sofern sie die Voraussetzungen gemäss Art. 13a der Waldverordnung (SR 921.01, WaV) erfüllen.",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'Forstwirtschaft' in 'art-der-nutzung'|value",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "wald-auswirkungen": {
+      "label": "Kann Ihr Vorhaben aufgrund der beanspruchten Fläche und seiner Auswirkungen als nichtforstliche Kleinbaute oder -anlage beurteilt werden?",
+      "hint": "Nichtforstliche Kleinbauten und Kleinanlagen sind Vorhaben im Waldareal, die sich aufgrund ihrer Art und Grösse ins Bestandesgefüge einfügen und die keine Rodungsbewilligung benötigen. Klassische nichtforstliche Kleinbauten und -anlagen sind z. B. bescheidene Rastplätze, Sport- und Lehrpfade, erdverlegte Leitungen oder Kleinantennenanlagen.",
+      "type": "text",
+      "required": false,
+      "active-expression": "1000 < 'baukosten'|value",
       "config": {}
     }
   }

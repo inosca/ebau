@@ -1,0 +1,19 @@
+query CaseFormType($instanceId: GenericScalar!) {
+  allCases(
+    filter: [{ metaValue: { key: "camac-instance-id", value: $instanceId } }]
+    first: 1
+  ) {
+    edges {
+      node {
+        id
+        document {
+          id
+          form {
+            id
+            slug
+          }
+        }
+      }
+    }
+  }
+}

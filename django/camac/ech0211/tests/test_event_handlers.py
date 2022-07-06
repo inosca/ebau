@@ -6,8 +6,6 @@ from camac.constants.kt_bern import (
     ATTACHMENT_SECTION_BEILAGEN_SB1,
     ATTACHMENT_SECTION_BEILAGEN_SB2,
     ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN,
-    NOTICE_TYPE_NEBENBESTIMMUNG,
-    NOTICE_TYPE_STELLUNGNAHME,
 )
 from camac.ech0211.signals import file_subsequently, instance_submitted
 
@@ -125,28 +123,22 @@ def test_event_handlers(
 
 @pytest.mark.freeze_time("2022-06-03")
 @pytest.mark.parametrize("notices_exists", [True, False])
-@pytest.mark.parametrize("circulation_answer_exists", [True, False])
 def test_accompanying_report_event_handler(
     db,
-    notices_exists,
-    circulation_answer_exists,
-    user,
-    service_factory,
-    group_factory,
-    set_application_be,
-    ech_instance_case,
+    active_inquiry_factory,
+    answer_factory,
     attachment_factory,
     attachment_section_factory,
-    activation_factory,
-    notice_factory,
-    notice_type_factory,
-    circulation_answer_factory,
-    multilang,
+    be_distribution_settings,
+    ech_instance_be,
     ech_snapshot,
+    group_factory,
+    multilang,
+    notices_exists,
+    service_factory,
+    set_application_be,
+    user,
 ):
-
-    ech_instance = ech_instance_case().instance
-
     parent_service = service_factory()
     parent_group = group_factory(service=parent_service)
 
@@ -164,55 +156,55 @@ def test_accompanying_report_event_handler(
     )
 
     attachment_parent = attachment_factory(
-        instance=ech_instance, group=parent_group, name="parent.pdf"
+        instance=ech_instance_be, group=parent_group, name="parent.pdf"
     )
     attachment_parent.save()
     attachment_parent.attachment_sections.add(attachment_section_bet_beh)
 
     attachment_child = attachment_factory(
-        instance=ech_instance, group=child_group, name="child.pdf"
+        instance=ech_instance_be, group=child_group, name="child.pdf"
     )
     attachment_child.save()
     attachment_child.attachment_sections.add(attachment_section_bet_beh)
 
     # Should not show up, because it's from another service
     attachment_dummy = attachment_factory(
-        instance=ech_instance, group=dummy_group, name="dummy1.pdf"
+        instance=ech_instance_be, group=dummy_group, name="dummy1.pdf"
     )
     attachment_dummy.save()
     attachment_dummy.attachment_sections.add(attachment_section_bet_beh)
 
     # Should not show up, because it's in a different attachment section
     attachment_dummy2 = attachment_factory(
-        instance=ech_instance, group=parent_group, name="dummy2.pdf"
+        instance=ech_instance_be, group=parent_group, name="dummy2.pdf"
     )
     attachment_dummy2.save()
     attachment_dummy2.attachment_sections.add(attachment_section_alle_bet)
 
-    activation = activation_factory(
-        circulation__instance=ech_instance,
-        circulation_answer=None,
-        service=parent_service,
+    inquiry = active_inquiry_factory(
+        for_instance=ech_instance_be,
+        addressed_service=parent_service,
+    )
+
+    answer_factory(
+        document=inquiry.child_case.document,
+        question_id=be_distribution_settings["QUESTIONS"]["STATUS"],
+        value=be_distribution_settings["ANSWERS"]["STATUS"]["UNKNOWN"],
     )
 
     if notices_exists:
-        notice_factory(
-            activation=activation,
-            notice_type=notice_type_factory(pk=NOTICE_TYPE_STELLUNGNAHME),
-            content="lorem ipsum " * 100,  # 1200 characters
+        answer_factory(
+            document=inquiry.child_case.document,
+            question_id=be_distribution_settings["QUESTIONS"]["STATEMENT"],
+            value="lorem ipsum " * 100,  # 1200 characters
         )
-        notice_factory(
-            activation=activation,
-            notice_type=notice_type_factory(pk=NOTICE_TYPE_NEBENBESTIMMUNG),
-            content="nebenbestimmung\r\nblablabla\r\nblu; yeah ",
+        answer_factory(
+            document=inquiry.child_case.document,
+            question_id=be_distribution_settings["QUESTIONS"]["ANCILLARY_CLAUSES"],
+            value="nebenbestimmung\r\nblablabla\r\nblu; yeah ",
         )
 
-    if circulation_answer_exists:
-        circulation_answer_factory(name="positive")
-
-    eh = event_handlers.AccompanyingReportEventHandler(
-        ech_instance, None, None, context={"activation-id": activation.pk}
-    )
+    eh = event_handlers.AccompanyingReportEventHandler(ech_instance_be, inquiry=inquiry)
     eh.run()
 
     assert Message.objects.count() == 1
@@ -223,18 +215,17 @@ def test_accompanying_report_event_handler(
 
 @pytest.mark.freeze_time("2022-06-03")
 def test_task_event_handler_stellungnahme(
-    set_application_be,
-    ech_instance_be,
-    service_factory,
-    circulation_factory,
-    activation_factory,
-    instance_state_factory,
+    db,
+    active_inquiry_factory,
+    admin_user,
     attachment_attachment_section_factory,
     attachment_section_factory,
-    admin_user,
+    ech_instance_be,
     ech_snapshot,
+    instance_state_factory,
+    service_factory,
+    set_application_be,
 ):
-
     asection_gesuch = attachment_section_factory(pk=ATTACHMENT_SECTION_BEILAGEN_GESUCH)
     attachment_attachment_section_factory(
         attachment__instance=ech_instance_be, attachmentsection=asection_gesuch
@@ -247,23 +238,18 @@ def test_task_event_handler_stellungnahme(
     ech_instance_be.instance_state = instance_state_factory(name="circulation")
     ech_instance_be.save()
     s1 = service_factory(email="s1@example.com")
-    s2 = service_factory(email="s2@example.com")
-    s3 = service_factory(email="s3@example.com")
 
-    circulation = circulation_factory(instance=ech_instance_be)
-    activation_factory(circulation=circulation, service=s1, email_sent=0)
-    activation_factory(circulation=circulation, service=s2, email_sent=0)
-    activation_factory(circulation=circulation, service=s3, ech_msg_created=True)
+    inquiry = active_inquiry_factory(for_instance=ech_instance_be, addressed_service=s1)
 
-    eh = event_handlers.TaskEventHandler(ech_instance_be, user_pk=admin_user.pk)
+    eh = event_handlers.TaskEventHandler(
+        ech_instance_be, user_pk=admin_user.pk, inquiry=inquiry
+    )
+    eh.run()
 
-    assert len(eh.run()) == 2
-    assert Message.objects.count() == 2
-    assert Message.objects.filter(receiver=s1)
-    assert Message.objects.filter(receiver=s2)
-    assert not Message.objects.filter(receiver=s3)
-    for message in Message.objects.iterator():
-        ech_snapshot(message.body)
+    assert Message.objects.count() == 1
+    message = Message.objects.first()
+    assert message.receiver == s1
+    ech_snapshot(message.body)
 
 
 @pytest.mark.freeze_time("2022-06-03")
@@ -280,7 +266,6 @@ def test_task_event_handler_SBs(
     instance_service_factory,
     ech_snapshot,
 ):
-
     service_baukontrolle = service_factory(
         service_group__name="construction-control",
         name=None,
@@ -305,8 +290,8 @@ def test_task_event_handler_SBs(
     ech_instance_be.save()
 
     eh = event_handlers.TaskEventHandler(ech_instance_be, user_pk=admin_user.pk)
+    eh.run()
 
-    assert len(eh.run()) == 1
     assert Message.objects.count() == 1
     ech_snapshot(Message.objects.first().body)
 

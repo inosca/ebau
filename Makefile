@@ -211,3 +211,20 @@ create-be-dump:
 
 update-lockfile:
 	@yarn upgrade && rm -rf node_modules ember-*/node-modules && yarn
+
+link-ember-caluma:
+	@yarn link \
+	@projectcaluma/ember-core \
+	@projectcaluma/ember-form \
+	@projectcaluma/ember-form-builder \
+	@projectcaluma/ember-workflow \
+	@projectcaluma/ember-distribution
+
+unlink-ember-caluma:
+	@yarn unlink \
+	@projectcaluma/ember-core \
+	@projectcaluma/ember-form \
+	@projectcaluma/ember-form-builder \
+	@projectcaluma/ember-workflow \
+	@projectcaluma/ember-distribution
+	@yarn --force

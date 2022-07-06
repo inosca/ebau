@@ -12,7 +12,6 @@ from django.db.models import Count
 from django.db.models.expressions import Q
 from django.utils.timezone import now
 
-from camac.caluma.api import CalumaApi
 from camac.core.models import Activation, Circulation
 from camac.instance.models import Instance, InstanceState
 
@@ -73,9 +72,6 @@ class Command(BaseCommand):
         parser.add_argument("--dry", action="store_true", dest="dry")
         parser.add_argument("--instance", default=None, type=int)
         parser.add_argument(
-            "--sync-circulation", action="store_true", dest="sync_circulation"
-        )
-        parser.add_argument(
             "--premature-decision", action="store_true", dest="premature_decision"
         )
         parser.add_argument(
@@ -98,8 +94,6 @@ class Command(BaseCommand):
         self.fix_wrongly_closed_cases()
         self.fix_suspended_cases()
         self.fix_circulation_addressed_group()
-        if options["sync_circulation"]:
-            self.fix_circulation()
         if options["duplicated_sb1"]:
             self.fix_duplicated_sb1()
         self.fix_required_tasks()
@@ -230,26 +224,6 @@ class Command(BaseCommand):
                 f"Fixed {work_item_count} missing circulation work items"
             )
         )
-
-    def fix_circulation(self):
-        count = 0
-        api = CalumaApi()
-
-        for circulation in Circulation.objects.filter(
-            instance__instance_state__name="circulation",
-            pk__in=list(
-                WorkItem.objects.filter(
-                    task_id="circulation",
-                    status=WorkItem.STATUS_READY,
-                    **self.get_instance_filters("case__meta__camac-instance-id"),
-                ).values_list("meta__circulation-id", flat=True)
-            ),
-            **self.get_instance_filters("instance_id"),
-        ):
-            api.sync_circulation(circulation, self.user)
-            count += 1
-
-        self.stdout.write(self.style.WARNING(f"Synced {count} circulations"))
 
     def fix_circulation_work_items(self):
         work_items = WorkItem.objects.exclude(

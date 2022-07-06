@@ -133,3 +133,7 @@ def get_responsible_koor_service_id(form_id):
     raise RuntimeError(
         f"No responsible KOOR found for form id {form_id}"
     )  # pragma: no cover
+
+
+def is_lead_role(role):
+    return role.endswith("-lead") or role == "service-subservice"

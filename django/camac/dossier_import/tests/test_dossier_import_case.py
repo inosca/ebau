@@ -134,10 +134,8 @@ def test_create_instance_dossier_import_case(
                 ("reject-form", "canceled"),
                 ("complete-check", "skipped"),
                 ("publication", "canceled"),
-                ("start-circulation", "canceled"),
-                ("skip-circulation", "skipped"),
+                ("distribution", "skipped"),
                 ("depreciate-case", "skipped"),
-                ("reopen-circulation", "canceled"),
                 ("make-decision", "skipped"),
                 ("archive-instance", "ready"),
             ],
@@ -151,10 +149,8 @@ def test_create_instance_dossier_import_case(
                 ("reject-form", "canceled"),
                 ("complete-check", "skipped"),
                 ("publication", "canceled"),
-                ("start-circulation", "canceled"),
-                ("skip-circulation", "skipped"),
+                ("distribution", "skipped"),
                 ("depreciate-case", "skipped"),
-                ("reopen-circulation", "canceled"),
                 ("make-decision", "skipped"),
                 ("archive-instance", "skipped"),
             ],
@@ -681,11 +677,9 @@ def test_validation(
                 ("ebau-number", "skipped"),  # "eBau Nummer vergeben"
                 ("nfd", "completed"),  # Nachforderungen
                 ("create-manual-workitems", "canceled"),  # "Manuelle aufgabe erfassen"
-                ("init-circulation", "canceled"),  # "Zirkulation initialisieren"
-                ("reopen-circulation", "canceled"),
+                ("distribution", "skipped"),
                 ("audit", "skipped"),  # "Dossier prüfen"
                 ("publication", "skipped"),  # "Dossier publizieren"
-                ("skip-circulation", "skipped"),  # "Zirkulation überspringen"
                 ("fill-publication", "skipped"),  # "Publikation ausfüllen"
                 ("create-publication", "canceled"),  # "Neue Publikation"
                 ("decision", "skipped"),  # "Entscheid verfügen"
@@ -712,7 +706,7 @@ def test_validation(
             [
                 ("submit", "skipped"),  # "Gesuch ausfüllen"
                 ("ebau-number", "skipped"),  # "eBau Nummer vergeben"
-                ("init-circulation", "ready"),  # "Zirkulation initialisieren"
+                ("distribution", "ready"),  # "Zirkulation"
                 ("publication", "ready"),  # "Dossier publizieren"
                 ("audit", "ready"),  # "Dossier prüfen"
                 ("nfd", "ready"),  # Nachforderungen
@@ -732,11 +726,9 @@ def test_validation(
                     "create-manual-workitems",
                     "canceled",
                 ),  # "Manuelle aufgabe erfassen (Gesuch ausfüllen)"
-                ("init-circulation", "canceled"),  # "Zirkulation initialisieren"
-                ("reopen-circulation", "canceled"),
+                ("distribution", "skipped"),  # "Zirkulation"
                 ("audit", "skipped"),  # "Dossier prüfen"
                 ("publication", "skipped"),  # "Dossier publizieren"
-                ("skip-circulation", "skipped"),  # "Zirkulation überspringen"
                 ("fill-publication", "skipped"),  # "Publikation ausfüllen"
                 ("create-publication", "canceled"),  # "Neue Publikation"
                 ("decision", "skipped"),  # "Entscheid verfügen"
@@ -753,15 +745,13 @@ def test_validation(
                 ("ebau-number", "skipped"),  # "eBau Nummer vergeben"
                 ("nfd", "completed"),  # Nachforderungen
                 ("create-manual-workitems", "canceled"),  # "Manuelle aufgabe erfassen"
-                ("init-circulation", "canceled"),  # "Zirkulation initialisieren"
+                ("distribution", "skipped"),  # "Zirkulation überspringen"
                 ("audit", "skipped"),  # "Dossier prüfen"
                 ("publication", "skipped"),  # "Dossier publizieren"
-                ("skip-circulation", "skipped"),  # "Zirkulation überspringen"
                 ("fill-publication", "skipped"),  # "Publikation ausfüllen"
                 ("create-publication", "canceled"),  # "Neue Publikation"
                 ("decision", "skipped"),  # "Entscheid verfügen"
                 ("information-of-neighbors", "canceled"),  # Nachbarschaftsorientierung
-                ("reopen-circulation", "canceled"),
             ],
             "completed",
         ),
@@ -829,7 +819,7 @@ def test_set_workflow_state_be(
                 task_id=task_id, status=expected_status
             ).exists()
             is True
-        )
+        ), f"Work item for task '{task_id}' is not in status '{expected_status}'"
     if target_state in ["APPROVED", "DONE"]:
         assert (
             be_instance.responsible_service(filter_type="construction_control")

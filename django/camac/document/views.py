@@ -25,7 +25,6 @@ from camac.instance.mixins import InstanceEditableMixin, InstanceQuerysetMixin
 from camac.instance.models import Instance
 from camac.notification.serializers import InstanceMergeSerializer
 from camac.swagger.utils import get_operation_description, group_param
-from camac.user.models import Service
 from camac.user.permissions import (
     DefaultPermission,
     IsApplication,
@@ -35,14 +34,6 @@ from camac.user.permissions import (
 from camac.utils import DocxRenderer
 
 from . import filters, models, permissions, serializers
-
-NOTICE_TYPE_ORDER = {
-    "Antrag": 0,
-    "Nebenbestimmungen": 1,
-    "Begründung": 2,
-    "Empfehlung": 3,
-    "Hinweis": 4,
-}
 
 
 class FileUploadSwaggerAutoSchema(SwaggerAutoSchema):
@@ -450,23 +441,6 @@ class TemplateView(ModelViewSet):
         serializer = self.get_serializer(instance=instance, escape=True)
         serializer.validate_instance(instance)
         data = serializer.data
-
-        def activation_sort(activation):
-            service = Service.objects.get(name=activation["service"])
-            return (
-                service.service_group.sort,
-                service.service_group.name,
-                service.service_parent.pk if service.service_parent else 0,
-                service.sort,
-            )
-
-        if len(data["activations"]):
-            data["activations"].sort(key=activation_sort)
-
-        for activation in data["activations"]:
-            activation["notices"].sort(
-                key=lambda notice: NOTICE_TYPE_ORDER[notice["notice_type"]]
-            )
 
         renderer = DocxRenderer(template.path, data)
         buf = renderer.convert(to_type)

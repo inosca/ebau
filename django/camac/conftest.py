@@ -7,6 +7,7 @@ from copy import deepcopy
 from dataclasses import dataclass, field
 from datetime import date
 
+import faker
 import pytest
 from caluma.caluma_core.faker import MultilangProvider
 from caluma.caluma_form import (
@@ -19,11 +20,13 @@ from caluma.caluma_workflow import (
     factories as caluma_workflow_factories,
     models as caluma_workflow_models,
 )
+from deepmerge import always_merger
 from django.conf import settings
 from django.core.cache import cache
 from django.core.management import call_command
 from django.test import override_settings
 from django.urls import path
+from django.utils.timezone import make_aware
 from django.views.generic import RedirectView
 from factory import Faker
 from factory.base import FactoryMetaClass
@@ -47,6 +50,7 @@ from camac.instance.serializers import SUBMIT_DATE_FORMAT
 from camac.notification import factories as notification_factories
 from camac.objection import factories as objection_factories
 from camac.responsible import factories as responsible_factories
+from camac.settings_distribution import DISTRIBUTION
 from camac.tags import factories as tags_factories
 from camac.urls import urlpatterns as app_patterns
 from camac.user import factories as user_factories
@@ -455,19 +459,7 @@ def use_instance_service(application_settings):
     application_settings["ACTIVE_SERVICES"]["MUNICIPALITY"]["FILTERS"] = {}
     application_settings["ACTIVE_SERVICES"]["CONSTRUCTION_CONTROL"]["FILTERS"] = {}
 
-    def wrap(municipality_id=None, construction_control_id=None):
-        if municipality_id:
-            application_settings["ACTIVE_SERVICES"]["MUNICIPALITY"]["FILTERS"] = {
-                "service__pk": municipality_id
-            }
-        if construction_control_id:
-            application_settings["ACTIVE_SERVICES"]["CONSTRUCTION_CONTROL"][
-                "FILTERS"
-            ] = {"service__pk": construction_control_id}
-
-        return application_settings
-
-    yield wrap
+    yield application_settings
 
     application_settings["USE_INSTANCE_SERVICE"] = False
 
@@ -480,7 +472,11 @@ def caluma_workflow_config_be(
     for slug in CALUMA_FORM_TYPES_SLUGS:
         caluma_form_models.Form.objects.create(slug=slug)
 
-    call_command("loaddata", settings.ROOT_DIR("kt_bern/config/caluma_workflow.json"))
+    call_command(
+        "loaddata",
+        settings.ROOT_DIR("kt_bern/config/caluma_distribution.json"),
+        settings.ROOT_DIR("kt_bern/config/caluma_workflow.json"),
+    )
 
     workflows = caluma_workflow_models.Workflow.objects.all()
     main_form = caluma_form_models.Form.objects.get(pk="main-form")
@@ -550,8 +546,17 @@ def caluma_workflow_config_sz(db, caluma_config_sz):
     caluma_form_models.Form.objects.create(slug="baugesuch")
     caluma_form_models.Form.objects.create(slug="bauverwaltung")
     caluma_form_models.Form.objects.create(slug="main-form")
-    call_command("loaddata", settings.ROOT_DIR("kt_schwyz/config/caluma_workflow.json"))
-    return caluma_workflow_models.Workflow.objects.all()
+
+    call_command(
+        "loaddata",
+        settings.ROOT_DIR("kt_schwyz/config/caluma_workflow.json"),
+        settings.ROOT_DIR("kt_schwyz/config/caluma_distribution.json"),
+    )
+
+    yield caluma_workflow_models.Workflow.objects.all()
+
+    caluma_workflow_models.Case.objects.all().delete()
+    caluma_workflow_models.Workflow.objects.all().delete()
 
 
 def yes(lang):
@@ -573,7 +578,6 @@ def caluma_forms_be(settings):
     caluma_form_models.Form.objects.create(slug="sb1")
     caluma_form_models.Form.objects.create(slug="sb2")
     caluma_form_models.Form.objects.create(slug="nfd")
-    caluma_form_models.Form.objects.create(slug="circulation")
     caluma_form_models.Form.objects.create(slug="migriertes-dossier")
     caluma_form_models.Form.objects.create(slug="dossierpruefung")
     caluma_form_models.Form.objects.create(slug="publikation")
@@ -769,7 +773,7 @@ def instance_with_case(db, caluma_admin_user):
             workflow=caluma_workflow_models.Workflow.objects.get(pk=workflow),
             form=caluma_form_models.Form.objects.get(pk=form),
             user=caluma_admin_user,
-            context=context,
+            context={**context, "instance": instance.pk},
         )
         instance.save()
 
@@ -779,7 +783,12 @@ def instance_with_case(db, caluma_admin_user):
 
 
 @pytest.fixture
-def be_instance(instance_service, caluma_workflow_config_be, instance_with_case):
+def be_instance(
+    instance_service,
+    caluma_workflow_config_be,
+    instance_with_case,
+    distribution_settings,
+):
     instance = instance_with_case(
         instance_service.instance, context={"instance": instance_service.instance}
     )
@@ -950,5 +959,72 @@ def decision_factory(be_instance, document_factory, work_item_factory):
             )
 
         return work_item
+
+    return factory
+
+
+@pytest.fixture
+def distribution_settings(settings):
+    distribution_dict = copy.deepcopy(DISTRIBUTION["default"])
+    settings.DISTRIBUTION = distribution_dict
+    return distribution_dict
+
+
+@pytest.fixture
+def be_distribution_settings(settings, distribution_settings):
+    distribution_dict = copy.deepcopy(
+        always_merger.merge(distribution_settings, DISTRIBUTION["kt_bern"])
+    )
+    settings.DISTRIBUTION = distribution_dict
+    return distribution_dict
+
+
+@pytest.fixture
+def active_inquiry_factory(
+    instance, service, distribution_settings, work_item_factory, answer_factory
+):
+    def factory(
+        for_instance=instance,
+        addressed_service=service,
+        controlling_service=service,
+        **kwargs,
+    ):
+        distribution_work_item = for_instance.case.work_items.filter(
+            task_id=distribution_settings["DISTRIBUTION_TASK"]
+        ).first()
+
+        if not distribution_work_item:
+            distribution_work_item = work_item_factory(
+                task_id=distribution_settings["DISTRIBUTION_TASK"],
+                status=caluma_workflow_models.WorkItem.STATUS_READY,
+                case=for_instance.case,
+                child_case__family=for_instance.case,
+                child_case__workflow_id=distribution_settings["DISTRIBUTION_WORKFLOW"],
+            )
+
+        assert distribution_work_item.child_case.family == for_instance.case
+
+        inquiry = work_item_factory(
+            case=distribution_work_item.child_case,
+            task_id=distribution_settings["INQUIRY_TASK"],
+            addressed_groups=[str(addressed_service.pk)],
+            controlling_groups=[str(controlling_service.pk)],
+            child_case__family=for_instance.case,
+            child_case__workflow_id=distribution_settings["INQUIRY_WORKFLOW"],
+            child_case__document__form_id=distribution_settings["INQUIRY_ANSWER_FORM"],
+            document__form_id=distribution_settings["INQUIRY_FORM"],
+            status=kwargs.pop("status", caluma_workflow_models.WorkItem.STATUS_READY),
+            deadline=kwargs.pop("deadline", make_aware(faker.Faker().date_time())),
+            **kwargs,
+        )
+
+        answer_factory(
+            document=inquiry.document,
+            question_id=distribution_settings["QUESTIONS"]["DEADLINE"],
+            value=None,
+            date=inquiry.deadline.date(),
+        )
+
+        return inquiry
 
     return factory

@@ -1,7 +1,7 @@
 import re
 from functools import reduce
 
-from caluma.caluma_workflow.models import Case
+from caluma.caluma_workflow.models import Case, WorkItem
 from django.conf import settings
 from django.contrib.postgres.fields import ArrayField
 from django.core.validators import EMPTY_VALUES
@@ -86,6 +86,23 @@ class CirculationStateFilter(NumberMultiValueFilter):
                 circulations__activations__service=self.parent.request.group.service,
                 circulations__activations__circulation_state__pk__in=value,
             )
+
+        return super().filter(qs, value)
+
+
+class InquiryStateFilter(CharFilter):
+    def filter(self, qs, value, *args, **kwargs):
+        if value in ["pending", "completed"]:
+            inquiries = WorkItem.objects.filter(
+                task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
+                status__in=(
+                    [WorkItem.STATUS_READY]
+                    if value == "pending"
+                    else [WorkItem.STATUS_COMPLETED, WorkItem.STATUS_SKIPPED]
+                ),
+            )
+
+            return qs.filter(pk__in=inquiries.values("case__family__instance__pk"))
 
         return super().filter(qs, value)
 
@@ -230,7 +247,7 @@ class InstanceSubmitDateFilter(DateFilter):
 class InstanceFilterSet(FilterSet):
     instance_id = NumberMultiValueFilter()
     identifier = CharFilter(field_name="identifier", lookup_expr="icontains")
-    service = NumberFilter(field_name="circulations__activations__service")
+    service = NumberFilter(method="filter_circulation_service")
     creation_date_after = DateFilter(
         field_name="creation_date__date", lookup_expr="gte"
     )
@@ -245,6 +262,7 @@ class InstanceFilterSet(FilterSet):
     responsible_service = ResponsibleServiceFilter()
     responsible_service_user = ResponsibleServiceUserFilter()
     circulation_state = CirculationStateFilter()
+    inquiry_state = InquiryStateFilter()
     is_applicant = BooleanFilter(
         field_name="involved_applicants__invitee", method="filter_is_applicant"
     )
@@ -329,6 +347,26 @@ class InstanceFilterSet(FilterSet):
         if value:
             return queryset.filter(**_filter)
         return queryset.exclude(**_filter)
+
+    def filter_circulation_service(self, queryset, name, value):
+        if settings.DISTRIBUTION:
+            return queryset.filter(
+                Exists(
+                    WorkItem.objects.filter(
+                        Q(case__family=OuterRef("case"))
+                        & Q(task__pk=settings.DISTRIBUTION["INQUIRY_TASK"])
+                        & Q(
+                            status__in=[
+                                WorkItem.STATUS_READY,
+                                WorkItem.STATUS_COMPLETED,
+                            ]
+                        )
+                        & Q(addressed_groups__contains=[str(value)])
+                    )
+                )
+            )
+
+        return queryset.filter(circulations__activations__service__pk=value)
 
     def filter_address_sz(self, queryset, name, value):
         address_form_fields = settings.APPLICATION.get("ADDRESS_FORM_FIELDS", [])

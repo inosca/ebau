@@ -2,6 +2,7 @@ import re
 from collections import namedtuple
 from datetime import date, timedelta
 from html import escape
+from itertools import chain
 from logging import getLogger
 
 import inflection
@@ -9,15 +10,18 @@ import jinja2
 from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_workflow import models as caluma_workflow_models
 from django.conf import settings
+from django.contrib.postgres.fields import ArrayField
 from django.core.mail import EmailMessage, get_connection
-from django.db.models import Q, Sum
+from django.db.models import Exists, Func, IntegerField, OuterRef, Q, Subquery, Sum
+from django.db.models.functions import Cast
 from django.utils import timezone, translation
 from django.utils.text import slugify
 from rest_framework import exceptions
 from rest_framework_json_api import serializers
 
 from camac.caluma.api import CalumaApi
-from camac.constants import kt_bern as be_constants, kt_uri as uri_constants
+from camac.caluma.utils import find_answer, get_answer_display_value
+from camac.constants import kt_uri as uri_constants
 from camac.core.models import (
     Activation,
     Answer,
@@ -41,22 +45,66 @@ from . import models
 logger = getLogger(__name__)
 
 
-class NoticeMergeSerializer(serializers.Serializer):
-    service = serializers.StringRelatedField(source="activation.service")
-    notice_type = serializers.StringRelatedField()
-    notice_type_id = serializers.IntegerField(source="notice_type.pk")
-    content = serializers.CharField()
+class InquiryMergeSerializer(serializers.Serializer):
+    deadline_date = serializers.DateTimeField(
+        source="deadline", format=settings.MERGE_DATE_FORMAT
+    )
+    start_date = serializers.DateTimeField(
+        source="created_at", format=settings.MERGE_DATE_FORMAT
+    )
+    end_date = serializers.DateTimeField(
+        source="closed_at", format=settings.MERGE_DATE_FORMAT
+    )
+    circulation_state = serializers.SerializerMethodField()
+    service = serializers.SerializerMethodField()
+    reason = serializers.SerializerMethodField()
+    circulation_answer = serializers.SerializerMethodField()
+    notices = serializers.SerializerMethodField()
 
+    def get_circulation_state(self, inquiry):
+        if inquiry.status == caluma_workflow_models.WorkItem.STATUS_READY:
+            return (
+                "REVIEW"
+                if inquiry.child_case.work_items.filter(
+                    status=caluma_workflow_models.WorkItem.STATUS_READY,
+                    task_id=settings.DISTRIBUTION.get("INQUIRY_ANSWER_CHECK_TASK", ""),
+                ).exists()
+                else "RUN"
+            )
 
-class ActivationMergeSerializer(serializers.Serializer):
-    deadline_date = serializers.DateTimeField(format=settings.MERGE_DATE_FORMAT)
-    start_date = serializers.DateTimeField(format=settings.MERGE_DATE_FORMAT)
-    end_date = serializers.DateTimeField(format=settings.MERGE_DATE_FORMAT)
-    circulation_state = serializers.StringRelatedField()
-    service = serializers.StringRelatedField()
-    reason = serializers.CharField()
-    circulation_answer = serializers.StringRelatedField()
-    notices = NoticeMergeSerializer(many=True)
+        return (
+            "OK"
+            if inquiry.case.parent_work_item.status
+            == caluma_workflow_models.WorkItem.STATUS_READY
+            else "DONE"
+        )
+
+    def get_service(self, inquiry):
+        return Service.objects.get(pk=inquiry.addressed_groups[0]).get_name()
+
+    def get_reason(self, inquiry):
+        return find_answer(
+            inquiry.document, settings.DISTRIBUTION["QUESTIONS"]["REMARK"]
+        )
+
+    def get_circulation_answer(self, inquiry):
+        return find_answer(
+            inquiry.child_case.document,
+            settings.DISTRIBUTION["QUESTIONS"]["STATUS"],
+        )
+
+    def get_notices(self, inquiry):
+        return [
+            {
+                "notice_type": str(answer.question.label),
+                "content": answer.value,
+            }
+            for answer in (
+                inquiry.child_case.document.answers.select_related("question")
+                .filter(question__type=caluma_form_models.Question.TYPE_TEXTAREA)
+                .order_by("-question__formquestion__sort")
+            )
+        ]
 
 
 class BillingEntryMergeSerializer(serializers.Serializer):
@@ -125,33 +173,20 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     # TODO: these is currently bern specific, as it depends on instance state
     # identifiers. This will likely need some client-specific switch logic
     # some time in the future
-    total_activations = serializers.SerializerMethodField()
-    completed_activations = serializers.SerializerMethodField()
-    pending_activations = serializers.SerializerMethodField()
-    activation_statement_de = serializers.SerializerMethodField()
-    activation_statement_fr = serializers.SerializerMethodField()
-    activation_answer_de = serializers.SerializerMethodField()
-    activation_answer_fr = serializers.SerializerMethodField()
+    distribution_status_de = serializers.SerializerMethodField()
+    distribution_status_fr = serializers.SerializerMethodField()
+    inquiry_answer_de = serializers.SerializerMethodField()
+    inquiry_answer_fr = serializers.SerializerMethodField()
 
-    def __init__(self, *args, instance=None, activation=None, escape=False, **kwargs):
-        if instance:
-            self.escape = escape
+    def __init__(self, instance=None, inquiry=None, escape=False, *args, **kwargs):
+        self.escape = escape
+        self.inquiry = inquiry
 
-            lookup = {"circulation__instance": instance}
-            if activation:
-                self.activation = activation
-                self.circulation = self.activation.circulation
+        super().__init__(instance=instance, *args, **kwargs)
 
-                lookup.update(
-                    {
-                        "circulation": self.activation.circulation,
-                        "service_parent": self.activation.service_parent,
-                    }
-                )
-
-            instance.activations = Activation.objects.filter(**lookup)
-
-        super().__init__(*args, instance=instance, **kwargs)
+        self.service = (
+            self.context["request"].group.service if "request" in self.context else None
+        )
 
     def _escape(self, data):
         result = data
@@ -300,96 +335,76 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
     def get_current_service(self, instance):
         """Return current service of the active user."""
-        try:
-            service = self.context["request"].group.service
-
-            return service.get_name() if service else "-"
-        except KeyError:
-            return "-"
+        return self.service.get_name() if self.service else "-"
 
     def get_current_service_de(self, instance):
         """Return current service of the active user in german."""
-        try:
-            service = self.context["request"].group.service
-
-            return service.get_name("de") if service else "-"
-        except KeyError:
-            return "-"
+        return self.service.get_name("de") if self.service else "-"
 
     def get_current_service_fr(self, instance):
         """Return current service of the active user in french."""
-        try:
-            service = self.context["request"].group.service
-
-            return service.get_name("fr") if service else "-"
-        except KeyError:
-            return "-"
+        return self.service.get_name("fr") if self.service else "-"
 
     def get_current_service_description(self, instance):
         """Return description of the current service of the active user."""
-        try:
-            service = self.context["request"].group.service
-            description = None
-            service_name = None
+        return (
+            self.service.get_trans_attr("description") or self.service.get_name()
+            if self.service
+            else "-"
+        )
 
-            if service:
-                description = service.get_trans_attr("description")
-                service_name = service.get_name()
+    def get_distribution_status_de(self, instance):
+        return self._get_distribution_status(instance, "de")
 
-            return description or service_name or "-"
-        except KeyError:
-            return "-"
+    def get_distribution_status_fr(self, instance):
+        return self._get_distribution_status(instance, "fr")
 
-    def get_activation_statement_de(self, instance):
-        return self._get_activation_statement(instance, "de")
-
-    def get_activation_statement_fr(self, instance):
-        return self._get_activation_statement(instance, "fr")
-
-    def _get_activation_statement(self, instance, language):
-        if not getattr(self, "circulation", None):
+    def _get_distribution_status(self, instance, language):
+        if not settings.DISTRIBUTION or not self.inquiry:
             return ""
 
-        total = self.get_total_activations(instance)
-        pending = self.get_pending_activations(instance)
+        all_inquiries = caluma_workflow_models.WorkItem.objects.filter(
+            task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
+            case__family__instance=instance,
+            controlling_groups=self.inquiry.controlling_groups,
+        ).exclude(
+            status__in=[
+                caluma_workflow_models.WorkItem.STATUS_SUSPENDED,
+                caluma_workflow_models.WorkItem.STATUS_CANCELED,
+            ]
+        )
+        all_inquiries_count = all_inquiries.count()
+        pending_inquiries_count = all_inquiries.filter(
+            status=caluma_workflow_models.WorkItem.STATUS_READY
+        ).count()
 
-        try:
-            created = date.fromtimestamp(int(self.circulation.name)).strftime(
-                "%d.%m.%Y"
-            )
-            circulation_name = {"de": f" vom {created}", "fr": f" du {created}"}
-        except ValueError:  # pragma: no cover
-            circulation_name = {"de": "", "fr": ""}
-
-        if total == 0:  # pragma: no cover (this should never happen)
-            return ""
-        elif pending == 0:
-            message = {
-                "de": f"Alle {total} Stellungnahmen der Zirkulation{circulation_name.get('de')} sind nun eingegangen.",
-                "fr": f"Tous les {total} prises de position de la circulation{circulation_name.get('fr')} ont été reçues.",
-            }
-        else:  # pending > 0:
-            message = {
-                "de": f"{pending} von {total} Stellungnahmen der Zirkulation{circulation_name.get('de')} stehen noch aus.",
-                "fr": f"{pending} de {total} prises de position de la circulation{circulation_name.get('fr')} sont toujours en attente.",
-            }
-
-        return message.get(language)
-
-    def get_activation_answer_de(self, instance):
-        return self._get_activation_answer(instance, "de")
-
-    def get_activation_answer_fr(self, instance):
-        return self._get_activation_answer(instance, "fr")
-
-    def _get_activation_answer(self, instance, language):
-        if (
-            not getattr(self, "activation", None)
-            or not self.activation.circulation_answer
-        ):
+        if not all_inquiries.exists():  # pragma: no cover (this should never happen)
             return ""
 
-        return self.activation.circulation_answer.get_trans_attr("name", lang=language)
+        with translation.override(language):
+            return (
+                translation.gettext(
+                    "%(pending)d of %(total)d inquries are still pending."
+                )
+                if pending_inquiries_count > 0
+                else translation.gettext("All %(total)d inquries were received.")
+            ) % {"total": all_inquiries_count, "pending": pending_inquiries_count}
+
+    def get_inquiry_answer_de(self, instance):
+        return self._get_inquiry_answer("de")
+
+    def get_inquiry_answer_fr(self, instance):
+        return self._get_inquiry_answer("fr")
+
+    def _get_inquiry_answer(self, language):
+        if not self.inquiry or not settings.DISTRIBUTION:
+            return ""
+
+        return find_answer(
+            self.inquiry.child_case.document,
+            settings.DISTRIBUTION["QUESTIONS"]["STATUS"],
+            language=language,
+        )
 
     def get_form_name_de(self, instance):
         return CalumaApi().get_form_name(instance).de or ""
@@ -452,11 +467,18 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         )
 
     def get_date_start_zirkulation(self, instance):
-        workitem = caluma_workflow_models.WorkItem.objects.filter(
-            case_id=instance.case.pk, task_id="start-circulation", status="completed"
-        )
-        if workitem:
-            return self.format_date(workitem.first().closed_at)
+        if not settings.DISTRIBUTION:
+            return "---"
+
+        work_item = caluma_workflow_models.WorkItem.objects.filter(
+            case__family__instance=instance,
+            task_id=settings.DISTRIBUTION["DISTRIBUTION_INIT_TASK"],
+            status=caluma_workflow_models.WorkItem.STATUS_COMPLETED,
+        ).first()
+
+        if work_item:
+            return self.format_date(work_item.closed_at)
+
         return "---"
 
     def get_date_bau_einspracheentscheid(self, instance):
@@ -479,42 +501,74 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             total=Sum("final_rate")
         )["total"]
 
-    def get_activations(self, instance):
-        visibility_config = settings.APPLICATION.get(
-            "PLACEHOLDER_ACTIVATION_VISIBILITIES"
+    def _get_inquiries(self, instance):
+        if not settings.DISTRIBUTION:
+            return caluma_workflow_models.WorkItem.objects.none()
+
+        service_subquery = Service.objects.filter(
+            # Use element = ANY(array) operator to check if
+            # element is present in ArrayField, which requires
+            # lhs and rhs of expression to be of same type
+            pk=Func(
+                Cast(
+                    OuterRef("addressed_groups"),
+                    output_field=ArrayField(IntegerField()),
+                ),
+                function="ANY",
+            )
         )
 
-        if not visibility_config:  # Kt. UR
-            activations = instance.activations.all()
-        else:  # Kt. SZ
-            service = self.context["request"].group.service
-            activations = (
-                instance.activations.filter(
-                    service__service_group__in=visibility_config.get(
-                        service.service_group_id, []
+        return (
+            caluma_workflow_models.WorkItem.objects.filter(
+                task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
+                case__family__instance=instance,
+            )
+            .exclude(
+                status__in=[
+                    caluma_workflow_models.WorkItem.STATUS_CANCELED,
+                    caluma_workflow_models.WorkItem.STATUS_SUSPENDED,
+                ]
+            )
+            .annotate(
+                service_group_id=Subquery(
+                    service_subquery.values("service_group_id")[:1]
+                ),
+                service_group_sort=Subquery(
+                    service_subquery.values("service_group__sort")[:1]
+                ),
+                service_sort=Subquery(service_subquery.values("sort")[:1]),
+            )
+            .order_by("service_group_sort", "controlling_groups", "service_sort")
+        )
+
+    def get_activations(self, instance):
+        inquiries = self._get_inquiries(instance)
+
+        visibility_config = settings.APPLICATION.get("INTER_SERVICE_GROUP_VISIBILITIES")
+        if visibility_config:
+            inquiries = (
+                inquiries.filter(
+                    service_group_id__in=visibility_config.get(
+                        self.service.service_group_id, []
                     )
                 )
-                if service
-                else instance.activations.none()
+                if self.service
+                else inquiries.none()
             )
 
-        return ActivationMergeSerializer(activations, many=True).data
+        return InquiryMergeSerializer(inquiries, many=True).data
 
     def get_my_activations(self, instance):
-        if "request" not in self.context:
-            return instance.activations.none()
+        inquiries = self._get_inquiries(instance)
 
-        activations = ActivationMergeSerializer(
-            instance.activations.filter(service=self.context["request"].group.service),
+        return InquiryMergeSerializer(
+            (
+                inquiries.filter(addressed_groups__contains=[str(self.service.pk)])
+                if self.service
+                else inquiries.none()
+            ),
             many=True,
         ).data
-
-        for activation in activations:
-            activation["notices"] = sorted(
-                activation["notices"], key=lambda k: k["notice_type_id"]
-            )
-
-        return activations
 
     def get_objections(self, instance):
         objections = instance.objections.all()
@@ -533,34 +587,6 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
         return objections
 
-    def get_total_activations(self, instance):
-        return instance.activations.count()
-
-    def get_completed_activations(self, instance):
-        return instance.activations.filter(
-            circulation_state_id=be_constants.CIRCULATION_STATE_DONE
-        ).count()
-
-    def get_pending_activations(self, instance):
-        return instance.activations.filter(
-            circulation_state_id=be_constants.CIRCULATION_STATE_WORKING
-        ).count()
-
-    def _get_answer_value_or_date(self, answer):
-        if answer.question.type in [
-            caluma_form_models.Question.TYPE_MULTIPLE_CHOICE,
-            caluma_form_models.Question.TYPE_CHOICE,
-        ] and len(answer.selected_options):
-            return "\n".join(
-                [
-                    str(label)
-                    for label in [option.label for option in answer.selected_options]
-                ]
-            )
-        elif answer.question.type == caluma_form_models.Question.TYPE_DATE:
-            return answer.date.strftime(settings.MERGE_DATE_FORMAT)
-        return answer.value
-
     def get_bauverwaltung(self, instance):
         if not settings.APPLICATION.get("INSTANCE_MERGE_CONFIG"):
             return {}
@@ -576,8 +602,8 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
         document = work_item_qs.first().document
         answers = {
-            inflection.underscore(answer.question.slug): self._get_answer_value_or_date(
-                answer
+            inflection.underscore(answer.question.slug): get_answer_display_value(
+                answer, option_separator="\n"
             )
             for answer in document.answers.filter(
                 Q(value__isnull=False) | Q(date__isnull=False)
@@ -601,7 +627,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
                 for answer in row.document.answers.all():
                     row_answers[
                         inflection.underscore(answer.question.slug)
-                    ] = self._get_answer_value_or_date(answer)
+                    ] = get_answer_display_value(answer, option_separator="\n")
                 question_answers.append(row_answers)
             answers[inflection.underscore(question.slug)] = question_answers
 
@@ -683,11 +709,9 @@ class NotificationTemplateMergeSerializer(
     """
 
     instance = serializers.ResourceRelatedField(queryset=Instance.objects.all())
-    activation = serializers.ResourceRelatedField(
-        queryset=Activation.objects.all(), required=False
-    )
-    circulation = serializers.ResourceRelatedField(
-        queryset=Circulation.objects.all(), required=False
+    inquiry = serializers.ResourceRelatedField(
+        queryset=caluma_workflow_models.WorkItem.objects.all(),
+        required=False,
     )
     notification_template = serializers.ResourceRelatedField(
         queryset=models.NotificationTemplate.objects.all()
@@ -695,15 +719,10 @@ class NotificationTemplateMergeSerializer(
     subject = serializers.CharField(required=False)
     body = serializers.CharField(required=False)
 
-    def _merge(self, value, instance, activation=None):
+    def _merge(self, value, data):
         try:
             value_template = jinja2.Template(value)
-            data = InstanceMergeSerializer(
-                instance=instance, context=self.context, activation=activation
-            ).data
 
-            # some cantons use uppercase placeholders. be as compatible as possible
-            data.update({k.upper(): v for k, v in data.items()})
             return value_template.render(data)
         except jinja2.TemplateError as e:
             raise exceptions.ValidationError(str(e))
@@ -711,17 +730,21 @@ class NotificationTemplateMergeSerializer(
     def validate(self, data):
         notification_template = data["notification_template"]
         instance = data["instance"]
-        activation = data.get("activation")
+
+        placeholder_data = InstanceMergeSerializer(
+            instance=instance, context=self.context, inquiry=data.get("inquiry")
+        ).data
+
+        # some cantons use uppercase placeholders. be as compatible as possible
+        placeholder_data.update({k.upper(): v for k, v in placeholder_data.items()})
 
         data["subject"] = self._merge(
             data.get("subject", notification_template.get_trans_attr("subject")),
-            instance,
-            activation=activation,
+            placeholder_data,
         )
         data["body"] = self._merge(
             data.get("body", notification_template.get_trans_attr("body")),
-            instance,
-            activation=activation,
+            placeholder_data,
         )
         data["pk"] = "{0}-{1}".format(notification_template.slug, instance.pk)
 
@@ -740,6 +763,14 @@ class NotificationTemplateMergeSerializer(
 
 
 class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer):
+    # Activation and circulation are only needed for the recipient types
+    activation = serializers.ResourceRelatedField(
+        queryset=Activation.objects.all(), required=False
+    )
+    circulation = serializers.ResourceRelatedField(
+        queryset=Circulation.objects.all(), required=False
+    )
+
     SUBMITTER_TYPE_APPLICANT = "0"
     SUBMITTER_TYPE_PROJECT_AUTHOR = "1"
     SUBMITTER_LIST_CQI_BY_TYPE = {
@@ -749,17 +780,21 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
     SUBMITTER_TYPE_CQI = (103, 257, 1)
     recipient_types = serializers.MultipleChoiceField(
         choices=(
-            "activation_deadline_yesterday",
             "applicant",
             "municipality",
             "caluma_municipality",
-            "service",
-            "unnotified_service",
             "leitbehoerde",
             "construction_control",
             "email_list",
+            # Old circulation (UR)
+            "unnotified_service",
             "activation_service_parent",
-            "unanswered_activation",
+            # New circulation (BE, SZ)
+            "involved_in_distribution",
+            "inquiry_deadline_yesterday",
+            "unanswered_inquiries",
+            "inquiry_addressed",
+            "inquiry_controlling",
             *settings.APPLICATION.get("CUSTOM_NOTIFICATION_TYPES", []),
         )
     )
@@ -877,19 +912,6 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             if applicant.invitee
         ]
 
-    def _get_recipients_activation_deadline_yesterday(self, instance):
-        """Return recipients of activations for an instance which deadline expired yesterday."""
-        activations = Activation.objects.filter(
-            ~Q(circulation_state__name="DONE"),
-            deadline_date__date=date.today() - timedelta(days=1),
-            circulation__instance__instance_state__name="circulation",
-            circulation__instance=instance,
-        )
-        services = {a.service for a in activations}
-        return flatten(
-            [self._get_responsible(instance, service) for service in services]
-        )
-
     def _get_responsible(self, instance, service):
         if not service.notification:
             return []
@@ -932,28 +954,106 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             ]
         )
 
-    def _get_recipients_service(self, instance):
-        activations = Activation.objects.filter(circulation__instance=instance).exclude(
-            circulation_answer__name=settings.APPLICATION.get(
-                "CIRCULATION_ANSWER_UNINVOLVED", None
+    def _get_recipients_involved_in_distribution(self, instance):
+        if not settings.DISTRIBUTION:  # pragma: no cover
+            return []
+
+        inquiries = caluma_workflow_models.WorkItem.objects.filter(
+            task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
+            case__family__instance=instance,
+        ).exclude(
+            status__in=[
+                caluma_workflow_models.WorkItem.STATUS_SUSPENDED,
+                caluma_workflow_models.WorkItem.STATUS_CANCELED,
+            ],
+        )
+
+        not_involved_answer = (
+            settings.DISTRIBUTION["ANSWERS"].get("STATUS", {}).get("NOT_INVOLVED")
+        )
+
+        if not_involved_answer:
+            # don't involve services that responded the inquiry with "not involved"
+            inquiries = inquiries.exclude(
+                Exists(
+                    caluma_form_models.Answer.objects.filter(
+                        document__case__parent_work_item=OuterRef("pk"),
+                        question_id=settings.DISTRIBUTION["QUESTIONS"]["STATUS"],
+                        value=not_involved_answer,
+                    )
+                )
             )
-        )
-        services = Service.objects.filter(pk__in=activations.values("service"))
+
+        addressed_groups = inquiries.values_list("addressed_groups", flat=True)
 
         return flatten(
-            [self._get_responsible(instance, service) for service in services]
+            [
+                self._get_responsible(instance, service)
+                for service in Service.objects.filter(
+                    pk__in=list(chain(*addressed_groups))
+                )
+            ]
         )
 
-    def _get_recipients_unanswered_activation(self, instance):
-        services = Service.objects.filter(
-            pk__in=self.validated_data.get("circulation")
-            .activations.values("service")
-            .exclude(circulation_state__name="DONE")
-            .values_list("service__pk", flat=True)
-        )
+    def _get_recipients_inquiry_deadline_yesterday(self, instance):
+        """Return recipients of inquiries for an instance which deadline expired yesterday."""
+        if not settings.DISTRIBUTION:  # pragma: no cover
+            return []
+
+        addressed_groups = caluma_workflow_models.WorkItem.objects.filter(
+            task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
+            status=caluma_workflow_models.WorkItem.STATUS_READY,
+            deadline__date=date.today() - timedelta(days=1),
+            case__family__instance__instance_state__name="circulation",
+            case__family__instance=instance,
+        ).values_list("addressed_groups", flat=True)
 
         return flatten(
-            [self._get_responsible(instance, service) for service in services]
+            [
+                self._get_responsible(instance, service)
+                for service in Service.objects.filter(
+                    pk__in=list(chain(*addressed_groups))
+                )
+            ]
+        )
+
+    def _get_recipients_unanswered_inquiries(self, instance):
+        if not settings.DISTRIBUTION:  # pragma: no cover
+            return []
+
+        addressed_groups = caluma_workflow_models.WorkItem.objects.filter(
+            task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
+            status=caluma_workflow_models.WorkItem.STATUS_SKIPPED,
+            case__family__instance=instance,
+        ).values_list("addressed_groups", flat=True)
+
+        return flatten(
+            [
+                self._get_responsible(instance, service)
+                for service in Service.objects.filter(
+                    pk__in=list(chain(*addressed_groups))
+                )
+            ]
+        )
+
+    def _get_recipients_inquiry_addressed(self, instance):
+        inquiry = self.validated_data.get("inquiry")
+
+        if not settings.DISTRIBUTION or not inquiry:  # pragma: no cover
+            return []
+
+        return self._get_responsible(
+            instance, Service.objects.get(pk=inquiry.addressed_groups[0])
+        )
+
+    def _get_recipients_inquiry_controlling(self, instance):
+        inquiry = self.validated_data.get("inquiry")
+
+        if not settings.DISTRIBUTION or not inquiry:  # pragma: no cover
+            return []
+
+        return self._get_responsible(
+            instance, Service.objects.get(pk=inquiry.controlling_groups[0])
         )
 
     def _get_recipients_construction_control(self, instance):

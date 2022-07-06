@@ -289,7 +289,7 @@ class KtSchwyzDossierWriter(DossierWriter):
         SUBMITTED = ["submit"]
         APPROVED = SUBMITTED + [
             "complete-check",
-            "skip-circulation",
+            "distribution",
             "make-decision",
         ]
         DONE = APPROVED + ["archive-instance"]

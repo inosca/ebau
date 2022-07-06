@@ -21,14 +21,13 @@ from rest_framework import exceptions
 from rest_framework_json_api import relations, serializers
 
 from camac.caluma.api import CalumaApi
-from camac.constants import kt_bern as be_constants, kt_uri as uri_constants
+from camac.constants import kt_uri as uri_constants
 from camac.core.models import (
     Answer,
     AuthorityLocation,
     HistoryActionConfig,
     InstanceLocation,
     InstanceService,
-    ProposalActivation,
     WorkflowEntry,
     WorkflowItem,
 )
@@ -338,12 +337,27 @@ class SchwyzInstanceSerializer(InstanceSerializer):
     def get_permissions_for_municipality(self, instance):
         if instance.instance_state.name in ["new", "subm", "arch"]:
             return {"bauverwaltung": {"read"}, "main": {"read"}}
+        elif instance.instance_state.name in ["circ", "nfd"]:
+            return {
+                "bauverwaltung": {"read", "write"},
+                "main": {"read", "write"},
+                "inquiry": {"read", "write"},
+                "inquiry-answer": {"read", "write"},
+            }
         else:
             return {"bauverwaltung": {"read", "write"}, "main": {"read", "write"}}
 
     def get_permissions_for_service(self, instance):
         if instance.instance_state.name in ["internal"]:
             return {"bauverwaltung": {"read"}, "main": {"read", "write"}}
+
+        elif instance.instance_state.name in ["circ", "nfd"]:
+            return {
+                "bauverwaltung": {"read", "write"},
+                "main": {"read", "write"},
+                "inquiry": {"read", "write"},
+                "inquiry-answer": {"read", "write"},
+            }
 
         return {"bauverwaltung": {"read"}}
 
@@ -1023,33 +1037,6 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             question="dokument-weitere-gesuchsunterlagen",
         )
 
-    def _create_answer_proposals(self, instance):
-        """Create service proposal based on answers.
-
-        Create "action proposals" given some answer values for specific questions:
-        (question, answer, config) -> AProposal
-        """
-
-        # get suggested services
-        service_suggestions = CalumaApi().get_circulation_proposals(instance)
-
-        # create answer proposals
-        today = timezone.now().replace(hour=0, minute=0, second=0, microsecond=0)
-
-        proposals = [
-            ProposalActivation(
-                instance=instance,
-                circulation_type_id=be_constants.CIRCULATION_TYPE_STANDARD,
-                service_id=service_id,
-                circulation_state_id=be_constants.CIRCULATION_STATE_WORKING,
-                deadline_date=today,
-                reason="",
-            )
-            for service_id in service_suggestions
-        ]
-
-        ProposalActivation.objects.bulk_create(proposals)
-
     def _update_rejected_instance(self, instance):
         caluma_api = CalumaApi()
 
@@ -1200,7 +1187,6 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         self._generate_and_store_pdf(instance)
         self._set_submit_date(validated_data)
         self._create_history_entry(gettext_noop("Dossier submitted"))
-        self._create_answer_proposals(instance)
         self._update_rejected_instance(instance)
 
         work_item = self.instance.case.work_items.filter(
@@ -1454,65 +1440,12 @@ class CalumaInstanceChangeResponsibleServiceSerializer(serializers.Serializer):
 
         return super().validate(data)
 
-    def _sync_circulations(self, from_service, to_service):
-        if self.instance.instance_state.name not in [
-            "circulation_init",
-            "circulation",
-            "coordination",
-        ]:
-            return
-
-        caluma_user = self.context["request"].caluma_info.context.user
-
-        for circulation in self.instance.circulations.all():
-            # Get all activations where the old responsible service invited
-            # it's own sub services or the invited service is the newly
-            # responsible service
-            deleted_activations = circulation.activations.filter(
-                Q(service_parent=from_service, service__service_parent=from_service)
-                | Q(service=to_service)
-            )
-
-            if deleted_activations.exists():
-                # Delete said activations
-                deleted_activations.delete()
-                # Sync circulation with caluma
-                CalumaApi().sync_circulation(circulation, caluma_user)
-
-            if not circulation.activations.exists():
-                circulation_work_item = workflow_models.WorkItem.objects.filter(
-                    **{"meta__circulation-id": circulation.pk, "task_id": "circulation"}
-                ).first()
-
-                if circulation_work_item:
-                    if (
-                        circulation_work_item.status
-                        == workflow_models.WorkItem.STATUS_READY
-                    ):
-                        # skip the work item to continue the workflow
-                        workflow_api.skip_work_item(circulation_work_item, caluma_user)
-
-                    # then delete it since the ciruclation will be deleted
-                    circulation_work_item.delete()
-
-                # Delete empty circulation
-                circulation.delete()
-
-                continue
-
-            # Set service parent of remaining activations to the newly responsible service
-            circulation.activations.filter(service_parent=from_service).update(
-                service_parent=to_service
-            )
-
-        # Set service parent of circulations to the newly responsible service
-        self.instance.circulations.filter(service=from_service).update(
-            service=to_service
-        )
-
     def _sync_with_caluma(self, from_service, to_service):
         CalumaApi().reassign_work_items(
-            self.instance.pk, from_service.pk, to_service.pk
+            self.instance,
+            from_service.pk,
+            to_service.pk,
+            self.context["request"].caluma_info.context.user,
         )
 
     def _send_notification(self):
@@ -1571,7 +1504,6 @@ class CalumaInstanceChangeResponsibleServiceSerializer(serializers.Serializer):
             )
 
         # Side effects
-        self._sync_circulations(from_service, to_service)
         self._sync_with_caluma(from_service, to_service)
         self._send_notification()
         self._trigger_ech_message()
@@ -1585,7 +1517,6 @@ class CalumaInstanceChangeResponsibleServiceSerializer(serializers.Serializer):
 
 class CalumaInstanceFixWorkItemsSerializer(serializers.Serializer):
     dry = serializers.BooleanField(default=True)
-    sync_circulation = serializers.BooleanField(default=True)
     output = serializers.CharField()
 
     def update(self, instance, validated_data):
@@ -1599,13 +1530,13 @@ class CalumaInstanceFixWorkItemsSerializer(serializers.Serializer):
             **validated_data,
         )
 
-        Response = namedtuple("Response", ("dry", "sync_circulation", "output", "pk"))
+        Response = namedtuple("Response", ("dry", "output", "pk"))
 
         return Response(**validated_data, output=output.getvalue(), pk=None)
 
     class Meta:
         resource_name = "instance-fix-work-items"
-        fields = ("dry", "sync_circulation", "output")
+        fields = ("dry", "output")
         read_only_fields = ("output",)
 
 

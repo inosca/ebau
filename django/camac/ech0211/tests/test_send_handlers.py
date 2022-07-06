@@ -1,23 +1,13 @@
-from datetime import datetime
-
 import pytest
-from caluma.caluma_core.events import send_event
 from caluma.caluma_workflow import api as workflow_api
-from caluma.caluma_workflow.events import post_create_work_item
-from caluma.caluma_workflow.models import Task, WorkItem
-from caluma.caluma_workflow.utils import create_work_items
-from django.utils.timezone import make_aware
+from caluma.caluma_workflow.models import WorkItem
 
-from camac.caluma.api import CalumaApi
 from camac.constants.kt_bern import (
     ATTACHMENT_SECTION_ALLE_BETEILIGTEN,
     ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN,
     DECISIONS_BEWILLIGT,
-    INSTANCE_RESOURCE_ZIRKULATION,
-    NOTICE_TYPE_NEBENBESTIMMUNG,
-    NOTICE_TYPE_STELLUNGNAHME,
 )
-from camac.core.models import Activation, InstanceService, Notice
+from camac.core.models import InstanceService
 from camac.ech0211.tests.utils import xml_data
 from camac.instance.models import Instance
 
@@ -145,20 +135,20 @@ def test_notice_ruling_send_handler(
     instance_service_factory,
     multilang,
     caluma_admin_user,
-    notification_template,
-    application_settings,
+    notification_template_factory,
+    be_distribution_settings,
     ech_snapshot,
     decision_factory,
 ):
+    if is_vorabklaerung:
+        notification_template_factory(
+            slug="08-stellungnahme-zu-voranfrage-gesuchsteller"
+        )
+        notification_template_factory(slug="08-stellungnahme-zu-voranfrage-behoerden")
+    else:
+        notification_template_factory(slug="08-entscheid-gesuchsteller")
+        notification_template_factory(slug="08-entscheid-behoerden")
 
-    application_settings["NOTIFICATIONS"] = {
-        "ECH_TASK": [
-            {
-                "template_slug": notification_template.slug,
-                "recipient_types": ["unnotified_service"],
-            }
-        ]
-    }
     service_group_gemeinde = ech_instance_be.responsible_service().service_group
     service_group_baukontrolle = service_group_factory(name="construction-control")
     service_group_rsta = service_group_factory(name="district")
@@ -235,16 +225,19 @@ def test_notice_ruling_send_handler(
     # put case in a realistic status
     skip_tasks = ["submit"]
 
-    if instance_state_name == "circulation_init":
+    if instance_state_name in ["circulation_init", "circulation"]:
         skip_tasks.append("ebau-number")
-    elif instance_state_name == "circulation":
-        skip_tasks.extend(["ebau-number", "init-circulation"])
     elif instance_state_name == "coordination":
-        skip_tasks.extend(["ebau-number", "skip-circulation"])
+        skip_tasks.extend(["ebau-number", "distribution"])
 
     for task_id in skip_tasks:
         workflow_api.skip_work_item(
-            work_item=case.work_items.get(task_id=task_id), user=caluma_admin_user
+            work_item=WorkItem.objects.filter(
+                task_id=task_id,
+                case__family=case,
+                status=WorkItem.STATUS_READY,
+            ).first(),
+            user=caluma_admin_user,
         )
 
     if has_permission:
@@ -300,19 +293,12 @@ def test_change_responsibility_send_handler(
     ech_instance_case,
     multilang,
     caluma_admin_user,
-    notification_template,
-    application_settings,
+    notification_template_factory,
     ech_snapshot,
+    be_distribution_settings,
 ):
+    notification_template_factory(slug="02-benachrichtigung-baubewilligungsbehorde")
 
-    application_settings["NOTIFICATIONS"] = {
-        "ECH_TASK": [
-            {
-                "template_slug": notification_template.slug,
-                "recipient_types": ["unnotified_service"],
-            }
-        ]
-    }
     ech_instance = ech_instance_case().instance
     instance_state = instance_state_factory(name=instance_state_name)
     ech_instance.instance_state = instance_state
@@ -418,9 +404,7 @@ def test_close_dossier_send_handler(
     for task_id in [
         "submit",
         "ebau-number",
-        "init-circulation",
-        "circulation",
-        "start-decision",
+        "distribution",
         "decision",
     ]:
         if task_id == "decision":
@@ -463,137 +447,81 @@ def test_close_dossier_send_handler(
         ech_snapshot(message.body)
 
 
-@pytest.mark.freeze_time(
-    make_aware(datetime(2020, 2, 23, 23, 9, 1, microsecond=123456))
-)
+@pytest.mark.freeze_time("2020-02-23")
 @pytest.mark.parametrize(
-    "circulation_status,has_deadline,has_service,valid_service_id,success",
+    "test_case,success",
     [
-        ("no_existing", True, True, True, True),
-        ("latest_empty", True, True, True, True),
-        ("latest_running", True, True, True, True),
-        ("latest_not_running", True, True, True, True),
-        ("none_running", True, True, True, True),
-        ("no_existing", True, False, True, False),
-        ("no_existing", True, True, False, False),
-        # No passed deadline
-        ("no_existing", False, True, True, True),
+        (None, True),
+        ("no_deadline", True),
+        ("no_service", False),
+        ("invalid_service_id", False),
+        ("no_create_inquiry", False),
+        ("multiple_create_inquiry", False),
     ],
 )
-def test_task_send_handler(  # noqa: C901
-    circulation_status,
-    has_deadline,
-    has_service,
-    valid_service_id,
-    success,
+def test_task_send_handler(
+    db,
     admin_user,
-    circulation_factory,
-    set_application_be,
-    ech_instance_be,
-    ech_instance_case,
-    instance_state_factory,
-    service_factory,
-    circulation_state_factory,
-    activation_factory,
-    instance_resource_factory,
-    mailoutbox,
+    be_distribution_settings,
     caluma_admin_user,
-    application_settings,
-    notification_template,
+    ech_instance_be,
     ech_snapshot,
+    test_case,
+    success,
+    instance_state_factory,
+    mailoutbox,
+    notification_template_factory,
+    service_factory,
+    set_application_be,
+    work_item_factory,
 ):
-    application_settings["NOTIFICATIONS"] = {
-        "ECH_TASK": [
-            {
-                "template_slug": notification_template.slug,
-                "recipient_types": ["unnotified_service"],
-            }
-        ]
-    }
+    notification_template_factory(slug="03-verfahrensablauf-fachstelle")
 
-    instance_resource_factory(pk=INSTANCE_RESOURCE_ZIRKULATION)
-    state_run = circulation_state_factory(name="RUN")
-    state_done = circulation_state_factory(name="DONE")
     state = instance_state_factory(name="circulation")
     ech_instance_be.instance_state = state
     ech_instance_be.save()
 
-    case = ech_instance_case()
     for task_id in ["submit", "ebau-number"]:
         workflow_api.skip_work_item(
-            work_item=case.work_items.get(task_id=task_id), user=caluma_admin_user
+            work_item=ech_instance_be.case.work_items.get(task_id=task_id),
+            user=caluma_admin_user,
         )
+
+    distribution_case = ech_instance_be.case.work_items.get(
+        task_id=be_distribution_settings["DISTRIBUTION_TASK"]
+    ).child_case
+
+    # This would be done by the notice kind of proceedings send handler
+    workflow_api.skip_work_item(
+        work_item=distribution_case.work_items.get(
+            task_id=be_distribution_settings["DISTRIBUTION_INIT_TASK"]
+        ),
+        user=caluma_admin_user,
+    )
 
     group = admin_user.groups.first()
     group.service = ech_instance_be.services.first()
     group.save()
 
-    if has_service:
-        service = service_factory(pk=23, email="s1@example.com")
-
-    if circulation_status in [
-        "latest_empty",
-        "latest_running",
-        "latest_not_running",
-        "none_running",
-    ]:
-        dummy_circulation = circulation_factory(instance=ech_instance_be)
-        latest_circulation = circulation_factory(instance=ech_instance_be)
-
-        # create work item for dummy circulation
-        workflow_api.skip_work_item(
-            work_item=case.work_items.get(task_id="init-circulation"),
-            user=caluma_admin_user,
-            context={"circulation-id": dummy_circulation.pk},
-        )
-
-        # create work item for latest circulation
-        context = {"circulation-id": latest_circulation.pk}
-        for work_item in create_work_items(
-            Task.objects.filter(pk="circulation"),
-            ech_instance_be.case,
-            caluma_admin_user,
-            None,
-            context,
-        ):
-            send_event(
-                post_create_work_item,
-                sender="case_post_create",
-                work_item=work_item,
-                user=caluma_admin_user,
-                context=context,
-            )
-
-        if circulation_status == "latest_running":
-            activation_factory(
-                circulation=latest_circulation,
-                circulation_state=state_run,
-                ech_msg_created=True,
-            )
-
-        if circulation_status in ["latest_not_running", "none_running"]:
-            activation_factory(
-                circulation=latest_circulation,
-                circulation_state=state_done,
-                ech_msg_created=True,
-            )
-
-        if circulation_status == "none_running":
-            activation_factory(
-                circulation=dummy_circulation,
-                circulation_state=state_done,
-                ech_msg_created=True,
-            )
-
-        CalumaApi().sync_circulation(dummy_circulation, caluma_admin_user)
-        CalumaApi().sync_circulation(latest_circulation, caluma_admin_user)
-
     xml = xml_data("task")
-    if not valid_service_id:
-        xml = xml.replace("<serviceId>23</serviceId>", "<serviceId>string</serviceId>")
 
-    if not has_deadline:
+    if test_case != "no_service":
+        service = service_factory(pk=23, email="s1@example.com")
+    if test_case == "no_deadline":
         xml = xml.replace("<deadline>2020-03-15</deadline>", "")
+    elif test_case == "invalid_service_id":
+        xml = xml.replace("<serviceId>23</serviceId>", "<serviceId>string</serviceId>")
+    elif test_case == "no_create_inquiry":
+        distribution_case.work_items.filter(
+            task_id=be_distribution_settings["INQUIRY_CREATE_TASK"]
+        ).delete()
+    elif test_case == "multiple_create_inquiry":
+        work_item_factory(
+            task_id=be_distribution_settings["INQUIRY_CREATE_TASK"],
+            status=WorkItem.STATUS_READY,
+            case=distribution_case,
+            addressed_groups=[str(group.service.pk)],
+        )
 
     data = CreateFromDocument(xml)
 
@@ -608,60 +536,34 @@ def test_task_send_handler(  # noqa: C901
     assert handler.has_permission()[0] is True
 
     if success:
+        inquiries = WorkItem.objects.filter(
+            task_id=be_distribution_settings["INQUIRY_TASK"],
+            case__family__instance=ech_instance_be,
+        )
+
+        assert inquiries.count() == 0
+
         handler.apply()
+
         assert Message.objects.count() == 1
         message = Message.objects.first()
         assert message.receiver == service
         ech_snapshot(message.body)
 
-        activations = Activation.objects.exclude(
-            circulation_state__name="DONE"
-        ).order_by("-pk")
+        assert inquiries.count() == 1
 
-        if circulation_status == "latest_running":
-            assert activations.count() == 2
+        inquiry = inquiries.first()
+
+        assert inquiry.addressed_groups == [str(service.pk)]
+        assert inquiry.created_at.isoformat() == "2020-02-23T00:00:00+00:00"
+
+        if test_case == "no_deadline":
+            assert inquiry.deadline.isoformat() == "2020-03-24T00:00:00+00:00"
         else:
-            assert activations.count() == 1
-
-        activation = activations.first()
-        assert activation.service == service
-
-        # This should be the current datetime in UTC - since the freezed time is
-        # in the winter it should be 23:09:01 minus one hour (Europe/Zurich with
-        # daylight saving)
-        assert activation.start_date.isoformat() == "2020-02-23T22:09:01+00:00"
-
-        if has_deadline:
-            # This should be the end of the day (23:59:00 to be consistent with
-            # PHP) that was given as input (2020-03-15) minus one hour
-            # (Europe/Zurich with daylight saving)
-            assert activation.deadline_date.isoformat() == "2020-03-15T22:59:00+00:00"
-        else:
-            # This should be the end of the current day (2020-02-23 23:59:00 to
-            # be consistent with PHP) minus one hour (Europe/Zurich with
-            # daylight saving) plus 30 days
-            assert activation.deadline_date.isoformat() == "2020-03-24T22:59:00+00:00"
-
-        assert (
-            WorkItem.objects.filter(
-                **{
-                    "case__family": ech_instance_be.case,
-                    "status": WorkItem.STATUS_READY,
-                    "task_id": "activation",
-                    "meta__activation-id": activation.pk,
-                }
-            ).count()
-            == 1
-        )
-
-        if circulation_status in ["latest_empty", "latest_running"]:
-            assert activation.circulation == latest_circulation
+            assert inquiry.deadline.isoformat() == "2020-03-15T00:00:00+00:00"
 
         assert len(mailoutbox) == 1
-
-        assert activation.ech_msg_created is True
         assert service.email in mailoutbox[0].to
-
     else:
         with pytest.raises(SendHandlerException):
             handler.apply()
@@ -692,29 +594,21 @@ def test_task_send_handler_no_permission(
 @pytest.mark.freeze_time("2022-06-03")
 @pytest.mark.parametrize("has_permission", [True, False])
 def test_kind_of_proceedings_send_handler(
-    has_permission,
-    attachment_section_factory,
-    attachment_factory,
+    db,
     admin_user,
-    set_application_be,
-    ech_instance_be,
-    ech_instance_case,
-    instance_state_factory,
-    instance_resource_factory,
+    attachment_factory,
+    attachment_section_factory,
+    be_distribution_settings,
     caluma_admin_user,
-    notification_template,
-    application_settings,
-    mailoutbox,
+    ech_instance_be,
     ech_snapshot,
+    has_permission,
+    instance_state_factory,
+    mailoutbox,
+    notification_template_factory,
+    set_application_be,
 ):
-    application_settings["NOTIFICATIONS"] = {
-        "ECH_KIND_OF_PROCEEDINGS": [
-            {
-                "template_slug": notification_template.slug,
-                "recipient_types": ["applicant"],
-            }
-        ]
-    }
+    notification_template_factory(slug="03-verfahrensablauf-gesuchsteller")
 
     attachment_section_beteiligte_behoerden = attachment_section_factory(
         pk=ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN
@@ -731,21 +625,18 @@ def test_kind_of_proceedings_send_handler(
     group.service = ech_instance_be.services.first()
     group.save()
 
+    instance_state_factory(name="circulation")
     state = instance_state_factory(name="subm")
     if has_permission:
         state = instance_state_factory(name="circulation_init")
     ech_instance_be.instance_state = state
     ech_instance_be.save()
 
-    case = ech_instance_case()
-
     for task_id in ["submit", "ebau-number"]:
         workflow_api.skip_work_item(
-            work_item=case.work_items.get(task_id=task_id), user=caluma_admin_user
+            work_item=ech_instance_be.case.work_items.get(task_id=task_id),
+            user=caluma_admin_user,
         )
-
-    instance_state_factory(name="circulation")
-    instance_resource_factory(pk=INSTANCE_RESOURCE_ZIRKULATION)
 
     data = CreateFromDocument(xml_data("kind_of_proceedings"))
 
@@ -760,13 +651,20 @@ def test_kind_of_proceedings_send_handler(
     assert handler.has_permission()[0] is has_permission
 
     if has_permission:
-        handler.apply()
-        assert ech_instance_be.circulations.exists()
-        assert (
-            ech_instance_be.circulations.first().service
-            == ech_instance_be.responsible_service(filter_type="municipality")
+        distribution_init = WorkItem.objects.get(
+            task_id=be_distribution_settings["DISTRIBUTION_INIT_TASK"],
+            case__family__instance=ech_instance_be,
         )
+
+        assert distribution_init.status == WorkItem.STATUS_READY
+
+        handler.apply()
+
+        distribution_init.refresh_from_db()
         ech_instance_be.refresh_from_db()
+        attachment.refresh_from_db()
+
+        assert distribution_init.status == WorkItem.STATUS_COMPLETED
         assert ech_instance_be.previous_instance_state.name == "circulation_init"
         assert ech_instance_be.instance_state.name == "circulation"
 
@@ -775,7 +673,6 @@ def test_kind_of_proceedings_send_handler(
         assert message.receiver == ech_instance_be.responsible_service()
         ech_snapshot(message.body)
 
-        attachment.refresh_from_db()
         assert attachment.attachment_sections.get(
             pk=ATTACHMENT_SECTION_ALLE_BETEILIGTEN
         )
@@ -788,64 +685,46 @@ def test_kind_of_proceedings_send_handler(
 
 @pytest.mark.freeze_time("2022-06-03")
 @pytest.mark.parametrize("has_attachment", [True, False])
-@pytest.mark.parametrize("has_activation", [True, False])
+@pytest.mark.parametrize("has_inquiry", [True, False])
 def test_accompanying_report_send_handler(
-    has_attachment,
-    has_activation,
+    db,
+    active_inquiry_factory,
     admin_user,
-    set_application_be,
-    ech_instance_be,
-    ech_instance_case,
     attachment_factory,
     attachment_section_factory,
-    circulation_state_factory,
-    circulation_answer_factory,
-    instance_state_factory,
-    activation_factory,
-    user_group_factory,
-    notice_type_factory,
+    be_distribution_settings,
     caluma_admin_user,
-    notification_template,
-    application_settings,
-    service,
-    mailoutbox,
+    ech_instance_be,
     ech_snapshot,
+    has_attachment,
+    has_inquiry,
+    mailoutbox,
+    notification_template_factory,
+    service,
+    set_application_be,
+    user_group_factory,
+    work_item_factory,
 ):
-    application_settings["NOTIFICATIONS"] = {
-        "ECH_ACCOMPANYING_REPORT": [
-            {
-                "template_slug": notification_template.slug,
-                "recipient_types": ["activation_service_parent"],
-            }
-        ]
-    }
+    notification_template_factory(slug="05-bericht-erstellt")
 
     user_group = user_group_factory(default_group=1)
 
-    notice_type_factory(pk=NOTICE_TYPE_STELLUNGNAHME)
-    notice_type_factory(pk=NOTICE_TYPE_NEBENBESTIMMUNG)
-
-    if has_activation:
-        activation_factory(
-            circulation__instance=ech_instance_be,
-            circulation_state=circulation_state_factory(pk=1, name="RUN"),
-            service=user_group.group.service,
-            user=user_group.user,
-            circulation_answer=None,
-            service_parent=service,
+    if has_inquiry:
+        existing_inquiry = active_inquiry_factory(
+            for_instance=ech_instance_be,
+            addressed_service=user_group.group.service,
         )
 
-    done_state = circulation_state_factory(pk=2, name="DONE")
-    unknown_answer = circulation_answer_factory(name="unknown")
+        work_item_factory(
+            task_id=be_distribution_settings["INQUIRY_ANSWER_FILL_TASK"],
+            case=existing_inquiry.child_case,
+            child_case=None,
+            status=WorkItem.STATUS_READY,
+        )
 
     support_group = admin_user.groups.first()
     support_group.service = ech_instance_be.services.first()
     support_group.save()
-
-    state = instance_state_factory(name="circulation")
-    ech_instance_be.instance_state = state
-    ech_instance_be.save()
-    ech_instance_case()
 
     if has_attachment:
         attachment = attachment_factory(
@@ -863,7 +742,8 @@ def test_accompanying_report_send_handler(
         auth_header=None,
         caluma_user=caluma_admin_user,
     )
-    if not has_activation:
+
+    if not has_inquiry:
         assert handler.has_permission()[0] is False
         return
 
@@ -876,11 +756,25 @@ def test_accompanying_report_send_handler(
         message = Message.objects.first()
         assert message.receiver == support_group.service
         ech_snapshot(message.body)
-        assert Activation.objects.count() == 1
-        activation = Activation.objects.first()
-        assert activation.circulation_state == done_state
-        assert activation.circulation_answer == unknown_answer
-        assert Notice.objects.count() == 2
+
+        inquiries = WorkItem.objects.filter(
+            task_id=be_distribution_settings["INQUIRY_TASK"],
+            case__family__instance=ech_instance_be,
+        )
+
+        assert inquiries.count() == 1
+        inquiry = inquiries.first()
+        assert inquiry.status == WorkItem.STATUS_COMPLETED
+        assert inquiry.child_case.document.answers.filter(
+            question_id=be_distribution_settings["QUESTIONS"]["STATUS"],
+            value=be_distribution_settings["ANSWERS"]["STATUS"]["UNKNOWN"],
+        ).exists()
+        assert inquiry.child_case.document.answers.filter(
+            question_id=be_distribution_settings["QUESTIONS"]["STATEMENT"]
+        ).exists()
+        assert inquiry.child_case.document.answers.filter(
+            question_id=be_distribution_settings["QUESTIONS"]["ANCILLARY_CLAUSES"]
+        ).exists()
 
         assert service.email in mailoutbox[0].to
 

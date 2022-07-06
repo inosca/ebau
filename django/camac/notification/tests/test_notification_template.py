@@ -1,11 +1,14 @@
 import functools
-from datetime import date, datetime
-from time import mktime
+from datetime import datetime
 
 import pytest
 from caluma.caluma_form import (
     factories as caluma_form_factories,
     models as caluma_form_models,
+)
+from caluma.caluma_workflow import (
+    factories as caluma_workflow_factories,
+    models as caluma_workflow_models,
 )
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.mail import EmailMessage
@@ -167,7 +170,7 @@ def test_notification_template_merge(
     add_answer(
         work_item.document,
         "bewilligungsverfahren-gr-sitzung-datum",
-        datetime.now(),
+        timezone.now(),
         "date",
     )
     add_table_answer(
@@ -345,7 +348,6 @@ def test_notification_template_sendmail(
                     "applicant",
                     "municipality",
                     "leitbehoerde",
-                    "service",
                     "unnotified_service",
                     "activation_service_parent",
                     "caluma_municipality",
@@ -361,7 +363,7 @@ def test_notification_template_sendmail(
     response = admin_client.post(url, data=data)
     assert response.status_code == status_code
     if status_code == status.HTTP_204_NO_CONTENT:
-        assert len(mailoutbox) == 6
+        assert len(mailoutbox) == 5
 
         # recipient types are sorted alphabetically
         assert [(m.to, m.cc) for m in mailoutbox] == [
@@ -382,10 +384,6 @@ def test_notification_template_sendmail(
                 [responsible_email],
                 ["service@example.com", "service2@example.com"],
             ),  # municipality
-            (
-                [responsible_email],
-                ["service@example.com", "service2@example.com"],
-            ),  # service
         ]
         assert (
             mailoutbox[0].subject
@@ -440,14 +438,7 @@ def test_notification_template_sendmail_rsta_forms(
             "attributes": {
                 "template-slug": notification_template.slug,
                 "body": "Test body",
-                "recipient-types": [
-                    "municipality",
-                    "leitbehoerde",
-                    "service",
-                    "unnotified_service",
-                    "activation_service_parent",
-                    "caluma_municipality",
-                ],
+                "recipient-types": ["leitbehoerde"],
             },
             "relationships": {
                 "instance": {
@@ -509,7 +500,7 @@ def test_notification_template_sendmail_koor(
             "attributes": {
                 "template-slug": notification_template.slug,
                 "body": "Test body",
-                "recipient-types": ["service"],
+                "recipient-types": ["municipality"],
             },
             "relationships": {
                 "instance": {"data": {"type": "instances", "id": ur_instance.pk}},
@@ -556,6 +547,7 @@ def test_notification_placeholders(
     objection,
     objection_participant_factory,
     work_item_factory,
+    distribution_settings,
 ):
     settings.APPLICATION["WORKFLOW_ITEMS"]["SUBMIT"] = workflow_entry_factory(
         instance=sz_instance,
@@ -578,8 +570,8 @@ def test_notification_placeholders(
 
     work_item_factory(
         case=sz_instance.case,
-        status="completed",
-        task_id="start-circulation",
+        status=caluma_workflow_models.WorkItem.STATUS_COMPLETED,
+        task_id=distribution_settings["DISTRIBUTION_INIT_TASK"],
         closed_at=timezone.make_aware(datetime(2019, 9, 24, 10)),
     )
 
@@ -637,71 +629,48 @@ def test_notification_placeholders(
 
 
 @pytest.mark.parametrize(
-    "user__email,role__name,notification_template__body",
-    [
-        (
-            "user@example.com",
-            "Municipality",
-            """
-                BASE_URL: {{BASE_URL}}
-                EBAU_NUMBER: {{EBAU_NUMBER}}
-                FORM_NAME_DE: {{FORM_NAME_DE}}
-                FORM_NAME_FR: {{FORM_NAME_FR}}
-                MUNICIPALITY_DE: {{MUNICIPALITY_DE}}
-                MUNICIPALITY_FR: {{MUNICIPALITY_FR}}
-                INSTANCE_ID: {{INSTANCE_ID}}
-                LEITBEHOERDE_NAME_DE: {{LEITBEHOERDE_NAME_DE}}
-                LEITBEHOERDE_NAME_FR: {{LEITBEHOERDE_NAME_FR}}
-                INTERNAL_DOSSIER_LINK: {{INTERNAL_DOSSIER_LINK}}
-                PUBLIC_DOSSIER_LINK: {{PUBLIC_DOSSIER_LINK}}
-                COMPLETED_ACTIVATIONS: {{COMPLETED_ACTIVATIONS}}
-                TOTAL_ACTIVATIONS: {{TOTAL_ACTIVATIONS}}
-                PENDING_ACTIVATIONS: {{PENDING_ACTIVATIONS}}
-                ACTIVATION_STATEMENT_DE: {{ACTIVATION_STATEMENT_DE}}
-                ACTIVATION_STATEMENT_FR: {{ACTIVATION_STATEMENT_FR}}
-                ACTIVATION_ANSWER_DE: {{ACTIVATION_ANSWER_DE}}
-                ACTIVATION_ANSWER_FR: {{ACTIVATION_ANSWER_FR}}
-                CURRENT_SERVICE: {{CURRENT_SERVICE}}
-                CURRENT_SERVICE_DE: {{CURRENT_SERVICE_DE}}
-                CURRENT_SERVICE_FR: {{CURRENT_SERVICE_FR}}
-            """,
-        )
-    ],
+    "user__email,role__name", [("user@example.com", "Municipality")]
 )
-@pytest.mark.parametrize("total_activations,done_activations", [(2, 2), (2, 1)])
-@pytest.mark.parametrize("with_activation", [True, False])
-@pytest.mark.parametrize(
-    "circulation_answer_name",
-    [
-        {
-            "de": "Nicht betroffen / nicht zuständig",
-            "fr": "Non concerné/e / non compétent/e",
-        }
-    ],
-)
+@pytest.mark.parametrize("total_inquiries,done_inquiries", [(2, 2), (2, 1)])
+@pytest.mark.parametrize("with_inquiry", [True, False])
+@pytest.mark.django_db(transaction=True, reset_sequences=True)
 def test_notification_caluma_placeholders(
+    db,
+    active_inquiry_factory,
     admin_client,
-    admin_user,
     be_instance,
-    notification_template,
+    distribution_settings,
+    done_inquiries,
     mailoutbox,
-    activation_factory,
-    settings,
-    requests_mock,
-    use_caluma_form,
-    total_activations,
-    with_activation,
-    circulation_factory,
-    done_activations,
-    circulation_state_factory,
-    circulation_answer_factory,
-    mocker,
-    caluma_workflow_config_be,
-    caluma_admin_user,
-    circulation_answer_name,
     multilang,
+    notification_template,
+    service,
+    service_t_factory,
+    snapshot,
+    total_inquiries,
+    with_inquiry,
 ):
-    url = reverse("notificationtemplate-sendmail")
+    notification_template.body = """
+        BASE_URL: {{BASE_URL}}
+        EBAU_NUMBER: {{EBAU_NUMBER}}
+        FORM_NAME_DE: {{FORM_NAME_DE}}
+        FORM_NAME_FR: {{FORM_NAME_FR}}
+        MUNICIPALITY_DE: {{MUNICIPALITY_DE}}
+        MUNICIPALITY_FR: {{MUNICIPALITY_FR}}
+        INSTANCE_ID: {{INSTANCE_ID}}
+        LEITBEHOERDE_NAME_DE: {{LEITBEHOERDE_NAME_DE}}
+        LEITBEHOERDE_NAME_FR: {{LEITBEHOERDE_NAME_FR}}
+        INTERNAL_DOSSIER_LINK: {{INTERNAL_DOSSIER_LINK}}
+        PUBLIC_DOSSIER_LINK: {{PUBLIC_DOSSIER_LINK}}
+        DISTRIBUTION_STATUS_DE: {{DISTRIBUTION_STATUS_DE}}
+        DISTRIBUTION_STATUS_FR: {{DISTRIBUTION_STATUS_FR}}
+        INQUIRY_ANSWER_DE: {{INQUIRY_ANSWER_DE}}
+        INQUIRY_ANSWER_FR: {{INQUIRY_ANSWER_FR}}
+        CURRENT_SERVICE: {{CURRENT_SERVICE}}
+        CURRENT_SERVICE_DE: {{CURRENT_SERVICE_DE}}
+        CURRENT_SERVICE_FR: {{CURRENT_SERVICE_FR}}
+    """
+    notification_template.save()
 
     caluma_form_factories.AnswerFactory(
         document=be_instance.case.document, question_id="gemeinde", value="1"
@@ -714,40 +683,19 @@ def test_notification_caluma_placeholders(
         label={"de": "Bern", "fr": "Berne"},
     )
 
-    STATE_DONE, STATE_WORKING = circulation_state_factory.create_batch(2)
-    mocker.patch("camac.constants.kt_bern.CIRCULATION_STATE_DONE", STATE_DONE.pk)
-    mocker.patch("camac.constants.kt_bern.CIRCULATION_STATE_WORKING", STATE_WORKING.pk)
+    service.trans.all().delete()
+    service_t_factory(language="de", service=service, name="Leitbehörde Bern")
+    service_t_factory(language="fr", service=service, name="Municipalité Berne")
 
-    circulation_answer = circulation_answer_factory()
-
-    for language, name in circulation_answer_name.items():
-        circulation_answer.trans.create(language=language, name=name)
-
-    assert not len(mailoutbox)
-
-    circulation = circulation_factory(
-        instance=be_instance, name=int(mktime(date(2020, 1, 2).timetuple()))
-    )
-
-    activations = [
-        activation_factory(
-            circulation=circulation,
-            circulation_state=STATE_WORKING,
-            circulation_answer=circulation_answer,
-            service_parent=circulation.service,
-        )
-        for _ in range(total_activations)
+    inquiries = [
+        *[
+            active_inquiry_factory(
+                status=caluma_workflow_models.WorkItem.STATUS_COMPLETED
+            )
+            for _ in range(done_inquiries)
+        ],
+        *[active_inquiry_factory() for _ in range(total_inquiries - done_inquiries)],
     ]
-    for i in range(done_activations):
-        activations[i].circulation_state = STATE_DONE
-        activations[i].save()
-
-    # create "sub activation", which should not be counted
-    activation_factory(
-        circulation=circulation,
-        circulation_state=STATE_WORKING,
-        service_parent=activations[0].service,
-    )
 
     be_instance.case.meta["ebau-number"] = "2019-01"
     be_instance.case.save()
@@ -760,73 +708,44 @@ def test_notification_caluma_placeholders(
                 "recipient-types": ["applicant"],
             },
             "relationships": {
-                "instance": {"data": {"type": "instances", "id": be_instance.pk}}
+                "instance": {"data": {"type": "instances", "id": be_instance.pk}},
             },
         }
     }
 
-    if with_activation:
-        data["data"]["relationships"]["activation"] = {
-            "data": {"type": "activations", "id": activations[0].pk}
+    if with_inquiry:
+        inquiry = inquiries[0]
+
+        document = caluma_form_factories.DocumentFactory()
+        status_option = caluma_form_factories.OptionFactory(
+            label={
+                "de": "Nicht betroffen / nicht zuständig",
+                "fr": "Non concerné/e / non compétent/e",
+            }
+        )
+        answer = caluma_form_factories.AnswerFactory(
+            document=document,
+            value=status_option.slug,
+            question__type=caluma_form_models.Question.TYPE_CHOICE,
+        )
+        answer.question.options.add(status_option)
+        answer.question.save()
+
+        distribution_settings["QUESTIONS"]["STATUS"] = answer.question_id
+
+        inquiry.child_case = caluma_workflow_factories.CaseFactory(document=document)
+        inquiry.save()
+
+        data["data"]["relationships"]["inquiry"] = {
+            "data": {"type": "work-items", "id": inquiry.pk}
         }
-        activation_answer_de = circulation_answer_name["de"]
-        activation_answer_fr = circulation_answer_name["fr"]
 
-        if done_activations == total_activations:
-            activation_statement_de = f"Alle {total_activations} Stellungnahmen der Zirkulation vom 02.01.2020 sind nun eingegangen."
-            activation_statement_fr = f"Tous les {total_activations} prises de position de la circulation du 02.01.2020 ont été reçues."
-        else:
-            pending_activations = total_activations - done_activations
-            activation_statement_de = f"{pending_activations} von {total_activations} Stellungnahmen der Zirkulation vom 02.01.2020 stehen noch aus."
-            activation_statement_fr = f"{pending_activations} de {total_activations} prises de position de la circulation du 02.01.2020 sont toujours en attente."
-
-    else:
-        activation_statement_de = ""
-        activation_statement_fr = ""
-        activation_answer_de = ""
-        activation_answer_fr = ""
-        total_activations += 1
-
-    response = admin_client.post(url, data=data)
+    response = admin_client.post(reverse("notificationtemplate-sendmail"), data=data)
 
     assert response.status_code == status.HTTP_204_NO_CONTENT
 
     assert len(mailoutbox) == 1
-
-    service = admin_user.groups.first().service
-
-    mail = mailoutbox[0]
-    assert [
-        line.strip()
-        for line in mail.body.replace(settings.EMAIL_PREFIX_BODY, "")
-        .strip()
-        .split("\n")
-    ] == [
-        line.strip()
-        for line in [
-            "BASE_URL: http://ebau.local",
-            "EBAU_NUMBER: 2019-01",
-            "FORM_NAME_DE: Baugesuch",
-            "FORM_NAME_FR: Demande de permis de construire",
-            "MUNICIPALITY_DE: Gemeinde Bern",
-            "MUNICIPALITY_FR: Municipalité Berne",
-            f"INSTANCE_ID: {be_instance.pk}",
-            f"LEITBEHOERDE_NAME_DE: {be_instance.responsible_service().get_name('de')}",
-            f"LEITBEHOERDE_NAME_FR: {be_instance.responsible_service().get_name('fr')}",
-            f"INTERNAL_DOSSIER_LINK: http://ebau.local/index/redirect-to-instance-resource/instance-id/{be_instance.pk}",
-            f"PUBLIC_DOSSIER_LINK: http://ebau-portal.local/instances/{be_instance.pk}",
-            f"COMPLETED_ACTIVATIONS: {done_activations}",
-            f"TOTAL_ACTIVATIONS: {total_activations}",
-            f"PENDING_ACTIVATIONS: {total_activations-done_activations}",
-            f"ACTIVATION_STATEMENT_DE: {activation_statement_de}",
-            f"ACTIVATION_STATEMENT_FR: {activation_statement_fr}",
-            f"ACTIVATION_ANSWER_DE: {activation_answer_de}",
-            f"ACTIVATION_ANSWER_FR: {activation_answer_fr}",
-            f"CURRENT_SERVICE: {service.get_name()}",
-            f"CURRENT_SERVICE_DE: {service.get_name('de')}",
-            f"CURRENT_SERVICE_FR: {service.get_name('fr')}",
-        ]
-    ]
+    snapshot.assert_match(mailoutbox[0].body)
 
 
 @pytest.mark.parametrize("use_static_user", [True, False])
@@ -852,7 +771,7 @@ def test_notification_template_merge_without_context(
         application_settings["SYSTEM_USER"] = system_operation_user.username
 
     data = {
-        "recipient_types": ["activation_deadline_yesterday"],
+        "recipient_types": ["inquiry_deadline_yesterday"],
         "notification_template": {
             "type": "notification-templates",
             "id": notification_template.pk,
@@ -1084,42 +1003,6 @@ def test_recipient_type_lisag(db, instance, group):
     assert res == [{"to": group.email}]
 
 
-def test_recipient_exclude_uninvolved_service(
-    db,
-    be_instance,
-    activation,
-    group,
-    user,
-    notification_template,
-    service,
-    application_settings,
-):
-    application_settings["CIRCULATION_ANSWER_UNINVOLVED"] = "not_concerned"
-
-    activation.circulation_answer.name = "not_concerned"
-    activation.circulation_answer.save()
-
-    data = {
-        "recipient_types": ["service"],
-        "notification_template": {
-            "type": "notification-templates",
-            "id": notification_template.pk,
-        },
-        "instance": {"id": be_instance.pk, "type": "instances"},
-    }
-    context = {"request": FakeRequest(group=group, user=user)}
-
-    serializer = PermissionlessNotificationTemplateSendmailSerializer(
-        data=data, context=context
-    )
-    serializer.is_valid(raise_exception=True)
-    serializer.save()
-
-    res = serializer._get_recipients_service(be_instance)
-
-    assert res == []
-
-
 @pytest.mark.parametrize(
     "service_group__name,expected",
     [("district", [{"to": "bauen@example.ch"}]), ("municipality", [])],
@@ -1347,58 +1230,6 @@ def test_notification_template_service_no_notification(
     assert len(mailoutbox) == 0
 
 
-@pytest.mark.parametrize("role__name", ["support"])
-def test_recipient_unanswered_activation(
-    db,
-    be_instance,
-    activation_factory,
-    circulation_factory,
-    notification_template,
-    user_group,
-):
-    circulation = circulation_factory(instance=be_instance)
-    other_circulation = circulation_factory(instance=be_instance)
-
-    activation_factory(circulation=circulation, circulation_state__name="DONE")
-    activation_factory(
-        circulation=circulation,
-        circulation_state__name="RUN",
-        service__email="test@example.com",
-    )
-    # Notifications must be sent to pertaining circulations only, therefore we
-    # setup some extra activations belonging to another circulation. These must not
-    # appear in the recipients' list
-    activation_factory(
-        circulation=other_circulation,
-        circulation__state="RUN",
-        service__email="tist@example",
-    )
-    activation_factory(
-        circulation=other_circulation,
-        circulation__state="RUN",
-        service__email="tust@example",
-    )
-    # to get access to validated data the serializer needs to be setup in full
-    serializer = serializers.NotificationTemplateSendmailSerializer(
-        data={
-            "recipient_types": ["unanswered_activation"],
-            "instance": {"type": "instances", "id": be_instance.pk},
-            "notification_template": {
-                "type": "notification-templates",
-                "id": notification_template.pk,
-            },
-            "circulation": {"type": "circulations", "id": circulation.pk},
-        },
-        # request is needed in context to get access
-        context={"request": FakeRequest(group=user_group.group, user=user_group.user)},
-    )
-    serializer.is_valid()
-
-    assert serializer._get_recipients_unanswered_activation(be_instance) == [
-        {"to": "test@example.com"}
-    ]
-
-
 @pytest.mark.parametrize("role__name", ["Municipality"])
 def test_unnotified_services(
     activation_factory,
@@ -1495,7 +1326,7 @@ def test_notification_bauverwaltung_placeholders(
         "beschwerdeverfahren-weiterzug-durch",
         "beschwerdeverfahren-weiterzug-durch-beschwerdegegner",
     )
-    date = datetime.now()
+    date = timezone.now()
     add_answer(
         work_item.document,
         "bewilligungsverfahren-gr-sitzung-datum",

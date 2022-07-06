@@ -2,8 +2,10 @@ import pathlib
 from datetime import date
 from itertools import chain
 
+import faker
 import pytest
-from caluma.caluma_form.factories import DocumentFactory
+from caluma.caluma_form.factories import AnswerFactory, DocumentFactory
+from caluma.caluma_form.models import Question
 from caluma.caluma_workflow.factories import WorkItemFactory
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
@@ -12,24 +14,38 @@ from rest_framework import status
 
 from camac.constants.kt_bern import (
     DECISION_TYPE_OVERALL_BUILDING_PERMIT,
-    NOTICE_TYPE_NEBENBESTIMMUNG,
-    NOTICE_TYPE_STELLUNGNAHME,
     VORABKLAERUNG_DECISIONS_BEWILLIGT,
 )
-from camac.core.models import NoticeType
 from camac.instance.placeholders.aliases import ALIASES
 
 from .test_master_data import add_answer, add_table_answer, be_master_data_case  # noqa
 
 
-@pytest.mark.freeze_time("2021-08-30")
+@pytest.fixture
+def status_question(be_distribution_settings):
+    return Question.objects.get(pk=be_distribution_settings["QUESTIONS"]["STATUS"])
+
+
+@pytest.fixture
+def stellungnahme_question(be_distribution_settings):
+    return Question.objects.get(pk=be_distribution_settings["QUESTIONS"]["STATEMENT"])
+
+
+@pytest.fixture
+def nebenbestimmungen_question(be_distribution_settings):
+    return Question.objects.get(
+        pk=be_distribution_settings["QUESTIONS"]["ANCILLARY_CLAUSES"]
+    )
+
+
+@pytest.mark.freeze_time("2021-08-30", tick=True)
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.django_db(
     transaction=True, reset_sequences=True
 )  # always reset instance id
 def test_dms_placeholders(
     db,
-    activation_factory,
+    active_inquiry_factory,
     admin_client,
     application_settings,
     be_instance,
@@ -47,6 +63,9 @@ def test_dms_placeholders(
     objection,
     objection_participant_factory,
     decision_factory,
+    status_question,
+    stellungnahme_question,
+    nebenbestimmungen_question,
 ):
 
     application_settings["MUNICIPALITY_DATA_SHEET"] = settings.ROOT_DIR(
@@ -157,34 +176,50 @@ def test_dms_placeholders(
     )
     be_master_data_case.document.dynamicoption_set.update(slug=str(municipality.pk))
 
-    activation_factory.create_batch(
-        2, service__service_group__name="district", circulation__instance=be_instance
-    )
-    activation_factory.create_batch(
-        2,
-        service__service_group__name="municipality",
-        circulation__instance=be_instance,
-    )
-    activations = activation_factory.create_batch(
-        2,
-        service__service_group__name="service",
-        circulation_state__name="DONE",
-        circulation__instance=be_instance,
-    )
+    district_inquiries = [
+        active_inquiry_factory(be_instance, svc)
+        for svc in service_factory.create_batch(2, service_group__name="district")
+    ]
+    municipalities_inquiries = [
+        active_inquiry_factory(be_instance, svc)
+        for svc in service_factory.create_batch(2, service_group__name="municipality")
+    ]
+    service_inquiries = [
+        active_inquiry_factory(
+            be_instance,
+            svc,
+            status=WorkItem.STATUS_COMPLETED,
+        )
+        for svc in service_factory.create_batch(2, service_group__name="service")
+    ]
 
-    for activation in activations:
-        stellungnahme = NoticeType.objects.filter(
-            pk=NOTICE_TYPE_STELLUNGNAHME
-        ).first() or notice_type_factory(pk=NOTICE_TYPE_STELLUNGNAHME)
-        nebenbestimmung = NoticeType.objects.filter(
-            pk=NOTICE_TYPE_NEBENBESTIMMUNG
-        ).first() or notice_type_factory(pk=NOTICE_TYPE_NEBENBESTIMMUNG)
+    inquries = [*district_inquiries, *municipalities_inquiries, *service_inquiries]
 
-        notice_factory(activation=activation, notice_type=stellungnahme)
-        notice_factory(activation=activation, notice_type=nebenbestimmung)
+    for i, inquiry in enumerate(inquries):
+        # add stellungnahme and nebenbestimmungen
+        AnswerFactory(
+            document=inquiry.child_case.document,
+            question=stellungnahme_question,
+            value=f"Stellungnahme {i+1}",
+        )
+        AnswerFactory(
+            document=inquiry.child_case.document,
+            question=nebenbestimmungen_question,
+            value=f"Nebenbestimmungen {i+1}",
+        )
 
-    activations[0].service = group.service
-    activations[0].save()
+    for service_inquiry in service_inquiries:
+        # add status
+        AnswerFactory(
+            document=service_inquiry.child_case.document,
+            question=status_question,
+            value=faker.Faker().word(
+                ext_word_list=status_question.options.values_list("pk", flat=True)
+            ),
+        )
+
+    inquries[0].addressed_groups = [str(group.service.pk)]
+    inquries[0].save()
 
     tag_factory.create_batch(5, service=group.service, instance=be_instance)
     responsible_service_factory(instance=be_instance, service=group.service)

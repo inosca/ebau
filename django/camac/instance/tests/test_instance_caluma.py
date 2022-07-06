@@ -15,7 +15,7 @@ from rest_framework import status
 from camac.caluma.api import CalumaApi
 from camac.conftest import CALUMA_FORM_TYPES_SLUGS
 from camac.constants import kt_bern as be_constants, kt_uri as ur_constants
-from camac.core.models import Chapter, ProposalActivation, Question, QuestionType
+from camac.core.models import Chapter, Question, QuestionType
 from camac.ech0211 import event_handlers
 from camac.ech0211.data_preparation import DocumentParser
 from camac.ech0211.tests.caluma_document_data import baugesuch_data
@@ -416,16 +416,13 @@ def test_copy_without_permission(
 def test_instance_list(
     admin_client,
     be_instance,
-    activation,
-    group,
+    active_inquiry_factory,
     editable,
-    group_location_factory,
     mock_public_status,
-    use_caluma_form,
     multilang,
-    responsible_service,
     mock_nfd_permissions,
 ):
+    active_inquiry_factory(be_instance)
 
     url = reverse("instance-list")
     included = CalumaInstanceSerializer.included_serializers
@@ -975,11 +972,16 @@ def test_instance_report(
         service = be_instance.responsible_service()
         construction_control = construction_control_for(service)
 
-        for task_id in ["submit", "ebau-number", "skip-circulation", "decision"]:
+        for task_id, fn in [
+            ("submit", workflow_api.complete_work_item),
+            ("ebau-number", workflow_api.complete_work_item),
+            ("distribution", workflow_api.skip_work_item),
+            ("decision", workflow_api.complete_work_item),
+        ]:
             if task_id == "decision":
                 decision_factory(decision=be_constants.DECISIONS_BEWILLIGT)
 
-            workflow_api.complete_work_item(
+            fn(
                 work_item=be_instance.case.work_items.get(task_id=task_id),
                 user=caluma_admin_user,
                 context={"group-id": service.pk},
@@ -1060,11 +1062,17 @@ def test_instance_finalize(
         service = be_instance.responsible_service()
         construction_control = construction_control_for(service)
 
-        for task_id in ["submit", "ebau-number", "skip-circulation", "decision", "sb1"]:
+        for task_id, fn in [
+            ("submit", workflow_api.complete_work_item),
+            ("ebau-number", workflow_api.complete_work_item),
+            ("distribution", workflow_api.skip_work_item),
+            ("decision", workflow_api.complete_work_item),
+            ("sb1", workflow_api.complete_work_item),
+        ]:
             if task_id == "decision":
                 decision_factory(decision=be_constants.DECISIONS_BEWILLIGT)
 
-            workflow_api.complete_work_item(
+            fn(
                 work_item=be_instance.case.work_items.get(task_id=task_id),
                 user=caluma_admin_user,
                 context={"group-id": service.pk},
@@ -1453,134 +1461,6 @@ def test_instance_delete(
 
 
 @pytest.mark.parametrize("service_group__name", ["municipality"])
-@pytest.mark.parametrize("instance_state__name", ["new"])
-@pytest.mark.parametrize(
-    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
-)
-@pytest.mark.parametrize("new_instance_state_name", ["subm"])
-@pytest.mark.parametrize(
-    "sugg_config,sugg_answer_values,expected_services",
-    [
-        ([], [], []),
-        (
-            [("non-existing-question", "foo", [0])],
-            [("baubeschrieb", ["baubeschrieb-erweiterung-anbau"])],
-            [],
-        ),
-        (
-            [("baubeschrieb", "baubeschrieb-erweiterung-anbau", [1234])],
-            [("baubeschrieb", ["baubeschrieb-um-ausbau"])],
-            [],
-        ),
-        (
-            [
-                ("baubeschrieb", "baubeschrieb-erweiterung-anbau", [1234]),
-                ("baubeschrieb", "baubeschrieb-um-ausbau", [5678]),
-                ("non-existing-question", "foo", [0]),
-            ],
-            [("baubeschrieb", ["baubeschrieb-erweiterung-anbau"])],
-            [1234],
-        ),
-        (
-            [
-                ("baubeschrieb", "baubeschrieb-erweiterung-anbau", [1234]),
-                ("art-versickerung-dach", "oberflaechengewaesser", [5678]),
-            ],
-            [
-                ("baubeschrieb", ["baubeschrieb-erweiterung-anbau"]),
-                ("art-versickerung-dach", "oberflaechengewaesser"),
-            ],
-            [1234, 5678],
-        ),
-        (
-            [
-                ("baubeschrieb", "baubeschrieb-erweiterung-anbau", [1234, 5678]),
-                ("art-versickerung-dach", "some value", [999]),
-                ("non-existing-question", "foo", [0]),
-            ],
-            [
-                (
-                    "baubeschrieb",
-                    ["baubeschrieb-erweiterung-anbau", "baubeschrieb-um-ausbau"],
-                ),
-                ("art-versickerung-dach", "some value"),
-            ],
-            [1234, 5678, 999],
-        ),
-    ],
-)
-def test_instance_submit_suggestions(
-    mocker,
-    admin_client,
-    role,
-    role_factory,
-    group_factory,
-    be_instance,
-    instance_state_factory,
-    service,
-    service_factory,
-    admin_user,
-    new_instance_state_name,
-    notification_template,
-    submit_date_question,
-    settings,
-    mock_public_status,
-    use_caluma_form,
-    multilang,
-    application_settings,
-    mock_nfd_permissions,
-    mock_generate_and_store_pdf,
-    ech_mandatory_answers_einfache_vorabklaerung,
-    caluma_workflow_config_be,
-    circulation_state_factory,
-    circulation_type_factory,
-    sugg_config,
-    sugg_answer_values,
-    expected_services,
-    caluma_admin_user,
-):
-    circulation_state_factory(
-        circulation_state_id=be_constants.CIRCULATION_STATE_WORKING
-    )
-    circulation_type_factory(circulation_type_id=be_constants.CIRCULATION_TYPE_STANDARD)
-    application_settings["NOTIFICATIONS"]["SUBMIT"] = [
-        {"template_slug": notification_template.slug, "recipient_types": ["applicant"]}
-    ]
-
-    be_instance.case.document.answers.create(
-        value=str(service.pk), question_id="gemeinde"
-    )
-
-    if sugg_config:
-        application_settings["SUGGESTIONS"] = sugg_config
-        for config in sugg_config:
-            for service_id in config[2]:
-                service_factory(pk=service_id)
-
-        for ans in sugg_answer_values:
-            be_instance.case.document.answers.create(question_id=ans[0], value=ans[1])
-
-    group_factory(role=role_factory(name="support"))
-    mocker.patch.object(
-        DocumentParser,
-        "parse_answers",
-        return_value=ech_mandatory_answers_einfache_vorabklaerung,
-    )
-    instance_state_factory(name=new_instance_state_name)
-
-    mocker.patch.object(event_handlers, "get_document", return_value=baugesuch_data)
-
-    response = admin_client.post(reverse("instance-submit", args=[be_instance.pk]))
-
-    assert response.status_code == status.HTTP_200_OK
-
-    assert (
-        list(ProposalActivation.objects.values_list("service_id", flat=True))
-        == expected_services
-    )
-
-
-@pytest.mark.parametrize("service_group__name", ["municipality"])
 def test_rejection(
     db,
     admin_client,
@@ -1731,59 +1611,6 @@ def test_instance_name(
             assert "(Projektänderung)" in name
         if is_kog:
             assert "(KoG)" in name
-
-
-@pytest.mark.parametrize("role__name", ["Municipality"])
-def test_change_responsible_service_audit_validation(
-    db,
-    admin_client,
-    admin_user,
-    be_instance,
-    instance_service,
-    notification_template,
-    role,
-    group,
-    service_factory,
-    user_factory,
-    user_group_factory,
-    caluma_audit,
-    application_settings,
-    caluma_admin_user,
-):
-    new_service = service_factory()
-
-    for task_id in ["submit", "ebau-number"]:
-        workflow_api.complete_work_item(
-            work_item=be_instance.case.work_items.get(task_id=task_id),
-            user=caluma_admin_user,
-        )
-
-    audit = be_instance.case.work_items.get(task_id="audit")
-    invalid_document = caluma_form_models.Document.objects.create(form_id="fp-form")
-    table_answer = audit.document.answers.create(
-        question_id="fp-form", value=[str(invalid_document.pk)]
-    )
-    table_answer.documents.add(invalid_document)
-
-    response = admin_client.post(
-        reverse("instance-change-responsible-service", args=[be_instance.pk]),
-        {
-            "data": {
-                "type": "instance-change-responsible-services",
-                "attributes": {"service-type": "municipality"},
-                "relationships": {
-                    "to": {"data": {"id": new_service.pk, "type": "services"}}
-                },
-            }
-        },
-    )
-
-    result = response.json()
-
-    assert response.status_code == status.HTTP_400_BAD_REQUEST
-
-    assert len(result["errors"])
-    assert "Ungültige Prüfung" == result["errors"][0]["detail"]
 
 
 @pytest.mark.parametrize("service_group__name", ["municipality"])

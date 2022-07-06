@@ -4568,6 +4568,97 @@ snapshots['test_instance_permissions_be[support-None-subm-instance__user0] 1'] =
     ]
 }
 
+snapshots['test_instance_permissions_sz[Fachstelle-circ-200-instance__user0] 1'] = {
+    'bauverwaltung': [
+        'read',
+        'write'
+    ],
+    'inquiry': [
+        'read',
+        'write'
+    ],
+    'inquiry-answer': [
+        'read',
+        'write'
+    ],
+    'main': [
+        'read',
+        'write'
+    ]
+}
+
+snapshots['test_instance_permissions_sz[Fachstelle-internal-200-instance__user0] 1'] = {
+    'bauverwaltung': [
+        'read'
+    ],
+    'main': [
+        'read',
+        'write'
+    ]
+}
+
+snapshots['test_instance_permissions_sz[Fachstelle-new-200-instance__user0] 1'] = {
+    'bauverwaltung': [
+        'read'
+    ]
+}
+
+snapshots['test_instance_permissions_sz[Fachstelle-redac-200-instance__user0] 1'] = {
+    'bauverwaltung': [
+        'read'
+    ]
+}
+
+snapshots['test_instance_permissions_sz[Gemeinde-circ-200-instance__user0] 1'] = {
+    'bauverwaltung': [
+        'read',
+        'write'
+    ],
+    'inquiry': [
+        'read',
+        'write'
+    ],
+    'inquiry-answer': [
+        'read',
+        'write'
+    ],
+    'main': [
+        'read',
+        'write'
+    ]
+}
+
+snapshots['test_instance_permissions_sz[Gemeinde-internal-200-instance__user0] 1'] = {
+    'bauverwaltung': [
+        'read',
+        'write'
+    ],
+    'main': [
+        'read',
+        'write'
+    ]
+}
+
+snapshots['test_instance_permissions_sz[Gemeinde-new-200-instance__user0] 1'] = {
+    'bauverwaltung': [
+        'read'
+    ],
+    'main': [
+        'read'
+    ]
+}
+
+snapshots['test_instance_permissions_sz[Gemeinde-redac-200-instance__user0] 1'] = {
+    'bauverwaltung': [
+        'read',
+        'write'
+    ],
+    'main': [
+        'read',
+        'write'
+    ]
+}
+
 snapshots['test_instance_permissions_ur[circ-Coordination-instance__user0] 1'] = {
     'case-meta': [
         'read'

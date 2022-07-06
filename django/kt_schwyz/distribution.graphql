@@ -1,0 +1,226 @@
+mutation DistributionTask {
+  saveSimpleTask(
+    input: {
+      slug: "distribution"
+      name: "Zirkulation"
+      addressGroups: "['municipality']|groups"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation InitDistributionTask {
+  saveSimpleTask(
+    input: {
+      slug: "init-distribution"
+      name: "Zirkulation starten"
+      addressGroups: "['municipality']|groups"
+      controlGroups: "['municipality']|groups"
+      leadTime: 864000 # 10 days
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation EndDistributionTask {
+  saveSimpleTask(
+    input: {
+      slug: "complete-distribution"
+      name: "Zirkulation abschliessen"
+      addressGroups: "['municipality']|groups"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateInquiryTask {
+  saveSimpleTask(
+    input: {
+      slug: "create-inquiry"
+      name: "Stellungnahme erstellen"
+      addressGroups: "['distribution_create_inquiry']|groups"
+      isMultipleInstance: true
+      continueAsync: true
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation InquiryTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "inquiry"
+      name: "Stellungnahme beantworten"
+      form: "inquiry"
+      addressGroups: "info.context.addressed_groups"
+      controlGroups: "info.prev_work_item.addressed_groups"
+      isMultipleInstance: true
+      continueAsync: true
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation FillInquiryTask {
+  saveCompleteWorkflowFormTask(
+    input: {
+      slug: "fill-inquiry"
+      name: "Stellungnahme verfassen"
+      addressGroups: "info.context.addressed_groups"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation AlterInquiryTask {
+  saveCompleteWorkflowFormTask(
+    input: {
+      slug: "alter-inquiry"
+      name: "Stellungnahme anpassen"
+      addressGroups: "info.prev_work_item.addressed_groups"
+      controlGroups: "info.prev_work_item.addressed_groups"
+      leadTime: 86400 # 1 day
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation ReviseInquiryTask {
+  saveSimpleTask(
+    input: {
+      slug: "revise-inquiry"
+      name: "Stellungnahme überarbeiten"
+      addressGroups: "info.prev_work_item.addressed_groups"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CheckInquiryTask {
+  saveSimpleTask(
+    input: {
+      slug: "check-inquiry"
+      name: "Stellungnahme prüfen"
+      addressGroups: "info.prev_work_item.addressed_groups"
+      controlGroups: "info.prev_work_item.addressed_groups"
+      leadTime: 259200 # 3 days
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CheckInquiriesTask {
+  saveSimpleTask(
+    input: {
+      slug: "check-inquiries"
+      name: "Rückmeldungen abgleichen"
+      addressGroups: "info.prev_work_item.controlling_groups"
+      controlGroups: "info.prev_work_item.controlling_groups"
+      leadTime: 864000 # 10 days
+      meta: "{\"is-manually-completable\":true}"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation DistributionWorkflow {
+  saveWorkflow(
+    input: {
+      slug: "distribution"
+      name: "Zirkulation"
+      startTasks: [
+        "init-distribution"
+        "complete-distribution"
+        "create-inquiry"
+      ]
+      allowForms: ["distribution"]
+      isPublished: true
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation InquiryWorkflow {
+  saveWorkflow(
+    input: {
+      slug: "inquiry"
+      name: "Stellungnahme"
+      startTasks: ["fill-inquiry"]
+      allowForms: ["inquiry-answer"]
+      isPublished: true
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateInquiryFlow {
+  addWorkflowFlow(
+    input: {
+      workflow: "distribution"
+      tasks: ["create-inquiry"]
+      next: "['inquiry', 'create-inquiry']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation InquiryFlow {
+  addWorkflowFlow(
+    input: {
+      workflow: "distribution"
+      tasks: ["inquiry"]
+      next: "['check-inquiries']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation FillInquiryFlow {
+  addWorkflowFlow(
+    input: {
+      workflow: "inquiry"
+      tasks: ["fill-inquiry"]
+      next: "['check-inquiry', 'revise-inquiry']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation ReviseInquiryFlow {
+  addWorkflowFlow(
+    input: {
+      workflow: "inquiry"
+      tasks: ["revise-inquiry"]
+      next: "['alter-inquiry']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation AlterInquiryFlow {
+  addWorkflowFlow(
+    input: {
+      workflow: "inquiry"
+      tasks: ["alter-inquiry"]
+      next: "['check-inquiry', 'revise-inquiry']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
