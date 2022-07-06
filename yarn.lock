@@ -1254,10 +1254,38 @@
     resolve "^1.20.0"
     semver "^7.3.2"
 
+"@embroider/macros@^1.8.3":
+  version "1.8.3"
+  resolved "https://registry.yarnpkg.com/@embroider/macros/-/macros-1.8.3.tgz#2f0961ab8871f6ad819630208031d705b357757e"
+  integrity sha512-gnIOfTL/pUkoD6oI7JyWOqXlVIUgZM+CnbH10/YNtZr2K0hij9eZQMdgjOZZVgN0rKOFw9dIREqc1ygrJHRYQA==
+  dependencies:
+    "@embroider/shared-internals" "1.8.3"
+    assert-never "^1.2.1"
+    babel-import-util "^1.1.0"
+    ember-cli-babel "^7.26.6"
+    find-up "^5.0.0"
+    lodash "^4.17.21"
+    resolve "^1.20.0"
+    semver "^7.3.2"
+
 "@embroider/shared-internals@1.8.0", "@embroider/shared-internals@^1.0.0", "@embroider/shared-internals@^1.8.0":
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/@embroider/shared-internals/-/shared-internals-1.8.0.tgz#4c9b563e5f155410d982a30667b027a227be7312"
   integrity sha512-TsjApG80SDVZ+dxkshO4FtzwzZYupmyl1w3Bnehfbk1429dsv30K+/DhcxDFIlKXPtsvCF9mdQY3mYUs+hoLOg==
+  dependencies:
+    babel-import-util "^1.1.0"
+    ember-rfc176-data "^0.3.17"
+    fs-extra "^9.1.0"
+    js-string-escape "^1.0.1"
+    lodash "^4.17.21"
+    resolve-package-path "^4.0.1"
+    semver "^7.3.5"
+    typescript-memoize "^1.0.1"
+
+"@embroider/shared-internals@1.8.3":
+  version "1.8.3"
+  resolved "https://registry.yarnpkg.com/@embroider/shared-internals/-/shared-internals-1.8.3.tgz#52d868dc80016e9fe983552c0e516f437bf9b9f9"
+  integrity sha512-N5Gho6Qk8z5u+mxLCcMYAoQMbN4MmH+z2jXwQHVs859bxuZTxwF6kKtsybDAASCtd2YGxEmzcc1Ja/wM28824w==
   dependencies:
     babel-import-util "^1.1.0"
     ember-rfc176-data "^0.3.17"
@@ -1897,29 +1925,29 @@
     lodash.clonedeep "^4.5.0"
     slugify "^1.6.5"
 
-"@projectcaluma/ember-distribution@1.0.0-beta.13":
-  version "1.0.0-beta.13"
-  resolved "https://registry.yarnpkg.com/@projectcaluma/ember-distribution/-/ember-distribution-1.0.0-beta.13.tgz#dbcd59f6d5d0449680887bfa0be67b47f4f14af7"
-  integrity sha512-wXiw2RZE3ZhRoE4z7NtBCKlp2+thH7OSp5lsHD/apEYaxHKb90MBfmZDbBdtbbROe1lmvor4pOy8J2vARliZBA==
+"@projectcaluma/ember-distribution@1.0.0-beta.14":
+  version "1.0.0-beta.14"
+  resolved "https://registry.yarnpkg.com/@projectcaluma/ember-distribution/-/ember-distribution-1.0.0-beta.14.tgz#8beed39e08f9e00da1e50efc20ce71a057bcaf68"
+  integrity sha512-mrkouZra1NpOyA5YFoyGgBT5k+rQvDGfDhHzNk0O/SwyrcAh3qT0In8d7aUwY4THt/aqZgr2fGvYFKyTvGz5xg==
   dependencies:
     "@ember/string" "^3.0.0"
-    "@embroider/macros" "^1.7.1"
+    "@embroider/macros" "^1.8.3"
     "@glimmer/component" "^1.1.2"
     "@glimmer/tracking" "^1.1.2"
     "@projectcaluma/ember-core" "^11.0.0-beta.7"
     "@projectcaluma/ember-form" "^11.0.0-beta.21"
     "@projectcaluma/ember-workflow" "^11.0.0-beta.7"
-    ember-apollo-client "^4.0.2"
+    ember-apollo-client "~4.0.2"
     ember-auto-import "^2.4.2"
     ember-can "^4.2.0"
     ember-cli-babel "^7.26.11"
-    ember-cli-htmlbars "^6.0.1"
+    ember-cli-htmlbars "^6.1.0"
     ember-concurrency "^2.2.1"
     ember-engines-router-service "^0.3.0"
     ember-fetch "^8.1.1"
     ember-intl "^5.7.2"
     ember-pikaday "^4.0.0"
-    ember-resources "^4.8.2"
+    ember-resources "^5.0.2"
     ember-svg-jar "^2.3.4"
     ember-test-selectors "^6.0.0"
     ember-uikit "^5.1.3"
@@ -5870,7 +5898,7 @@ elliptic@^6.5.3:
     minimalistic-assert "^1.0.1"
     minimalistic-crypto-utils "^1.0.1"
 
-ember-apollo-client@4.0.2, ember-apollo-client@^4.0.2:
+ember-apollo-client@4.0.2, ember-apollo-client@^4.0.2, ember-apollo-client@~4.0.2:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/ember-apollo-client/-/ember-apollo-client-4.0.2.tgz#2f7ec52fc88c48930cd4090f9d9c1808f33e9d3b"
   integrity sha512-Rhp6Tx6pZPL8h2GFtq6rRGBbnmNUi/dpteDhzPgNNS40MqUb721xHcChX4Td2hb3LlkcRT3d/e5WYxmaG2mu5A==
@@ -6261,6 +6289,26 @@ ember-cli-htmlbars@^5.1.1, ember-cli-htmlbars@^5.2.0, ember-cli-htmlbars@^5.3.1,
     semver "^7.3.4"
     silent-error "^1.1.1"
     strip-bom "^4.0.0"
+    walk-sync "^2.2.0"
+
+ember-cli-htmlbars@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/ember-cli-htmlbars/-/ember-cli-htmlbars-6.1.0.tgz#97150c2a6f9a981475599d74817df66f5d816c2b"
+  integrity sha512-kT+MA2JsNLk10HpxAjpB5HHtR0WCoxZEUwLsy/BBww5lXmsrf34QzmTw7SL6DabZVxs+YCb9RhU9KTmFygGxCg==
+  dependencies:
+    "@ember/edition-utils" "^1.2.0"
+    babel-plugin-ember-template-compilation "^1.0.0"
+    babel-plugin-htmlbars-inline-precompile "^5.3.0"
+    broccoli-debug "^0.6.5"
+    broccoli-persistent-filter "^3.1.2"
+    broccoli-plugin "^4.0.3"
+    ember-cli-version-checker "^5.1.2"
+    fs-tree-diff "^2.0.1"
+    hash-for-dep "^1.5.1"
+    heimdalljs-logger "^0.1.10"
+    js-string-escape "^1.0.1"
+    semver "^7.3.4"
+    silent-error "^1.1.1"
     walk-sync "^2.2.0"
 
 ember-cli-inject-live-reload@2.1.0:
@@ -7095,7 +7143,7 @@ ember-resolver@8.0.3:
     ember-cli-version-checker "^5.1.2"
     resolve "^1.20.0"
 
-ember-resources@4.10.0, ember-resources@^4.3.0, ember-resources@^4.7.1, ember-resources@^4.8.2:
+ember-resources@4.10.0, ember-resources@^4.3.0, ember-resources@^4.7.1, ember-resources@^4.8.2, ember-resources@^5.0.2:
   version "4.10.0"
   resolved "https://registry.yarnpkg.com/ember-resources/-/ember-resources-4.10.0.tgz#8c05c39af2c04f4bf3713d5d585a946fead2d31f"
   integrity sha512-xt/qJLLXUZ0FQZ3u0L4rw2rrV2b+7k9Apwr9X/zkD13bXB2pTpUcG7dlG7Ukb28Vvv83HlpOHEV67FM+os3YKw==
