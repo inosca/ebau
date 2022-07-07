@@ -66,6 +66,8 @@ export default class BeClaimsFormEditComponent extends Component {
 
   @action
   teardown() {
+    if (this.submit.isRunning) return;
+
     this.store.peekAll("attachment").forEach((attachment) => {
       if (attachment.isNew) {
         attachment.unloadRecord();
