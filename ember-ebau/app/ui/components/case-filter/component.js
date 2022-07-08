@@ -46,10 +46,10 @@ export default class CaseFilterComponent extends Component {
   async formOptions() {
     return (
       await this.formsQuery.fetch({
+        order: [{ attribute: "NAME", direction: "ASC" }],
         filter: [
           { isPublished: true },
           { isArchived: false },
-          { orderBy: "NAME_ASC" },
           {
             metaValue: [{ key: "is_creatable", value: true }],
           },
