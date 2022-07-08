@@ -24,10 +24,10 @@ export default class CasesNewController extends Controller {
   @restartableTask
   *fetchForms() {
     yield this.formQuery.fetch({
+      order: [{ attribute: "NAME", direction: "ASC" }],
       filter: [
         { isPublished: true },
         { isArchived: false },
-        { orderBy: "NAME_ASC" },
         // exclude public forms, only include creatable forms
         {
           metaValue: [{ key: "visibility", value: { type: "public" } }],
