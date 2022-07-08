@@ -35,10 +35,10 @@ export default class CaseFilterComponent extends Component {
   }
 
   formOptions = useCalumaQuery(this, allForms, () => ({
+    order: [{ attribute: "NAME", direction: "ASC" }],
     filter: [
       { isPublished: true },
       { isArchived: false },
-      { orderBy: "NAME_ASC" },
       { metaValue: [{ key: "is_creatable", value: true }] },
     ],
   }));
