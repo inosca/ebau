@@ -494,7 +494,7 @@
     "model": "core.circulation",
     "pk": 1,
     "fields": {
-      "instance_resource_id": 7,
+      "instance_resource_id": 61,
       "instance": 3,
       "service": 6,
       "name": "Zirkulation vom 23.11.2020 15:14"
@@ -504,7 +504,7 @@
     "model": "core.circulation",
     "pk": 2,
     "fields": {
-      "instance_resource_id": 7,
+      "instance_resource_id": 61,
       "instance": 1,
       "service": 6,
       "name": "Zirkulation vom 23.11.2020 15:14"
@@ -514,7 +514,7 @@
     "model": "core.circulation",
     "pk": 3,
     "fields": {
-      "instance_resource_id": 7,
+      "instance_resource_id": 61,
       "instance": 4,
       "service": 6,
       "name": "Zirkulation vom 23.11.2020 15:15"

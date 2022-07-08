@@ -1,29 +1,5 @@
 [
   {
-    "model": "core.acirculationtransition",
-    "pk": 20010,
-    "fields": {
-      "current_circulation_state": null,
-      "next_circulation_state": 2
-    }
-  },
-  {
-    "model": "core.acirculationtransition",
-    "pk": 20073,
-    "fields": {
-      "current_circulation_state": null,
-      "next_circulation_state": 2
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 20006,
-    "fields": {
-      "current_instance_state": null,
-      "next_instance_state": 20004
-    }
-  },
-  {
     "model": "core.aformtransition",
     "pk": 20041,
     "fields": {
@@ -73,73 +49,10 @@
   },
   {
     "model": "core.anotification",
-    "pk": 10013,
-    "fields": {
-      "template": "03-verfahrensablauf-fachstelle",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedService",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 10035,
-    "fields": {
-      "template": "03-verfahrensablauf-fachstelle",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedService",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
     "pk": 10036,
     "fields": {
       "template": "02-baugesuch-aufgrund-mangel-abweisen-oder-nicht-eintreten-art-18-bewd",
       "recipient_type": "Custom_Plugin_Notification_Recipient_Applicant",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 10037,
-    "fields": {
-      "template": "03-verfahrensablauf-gesuchsteller",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_Applicant",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 10040,
-    "fields": {
-      "template": "05-bericht-erstellt",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_ActivationServiceParent",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 20090,
-    "fields": {
-      "template": "03-verfahrensablauf-fachstelle",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedService",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 130001,
-    "fields": {
-      "template": "03-verfahrensablauf-fachstelle",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedService",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
-    "pk": 150006,
-    "fields": {
-      "template": "05-bericht-erstellt",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_ActivationServiceParent",
       "processor": "Notification_Processor_SendEmailAPI"
     }
   },
@@ -172,60 +85,6 @@
   },
   {
     "model": "core.apageredirect",
-    "pk": 20014,
-    "fields": {
-      "resource": 20006,
-      "instance_resource": 20004,
-      "air_action_name": "edit"
-    }
-  },
-  {
-    "model": "core.apageredirect",
-    "pk": 20028,
-    "fields": {
-      "resource": 20006,
-      "instance_resource": 20004,
-      "air_action_name": "edit"
-    }
-  },
-  {
-    "model": "core.apageredirect",
-    "pk": 20114,
-    "fields": {
-      "resource": 20006,
-      "instance_resource": 20004,
-      "air_action_name": "edit"
-    }
-  },
-  {
-    "model": "core.apageredirect",
-    "pk": 150008,
-    "fields": {
-      "resource": 20006,
-      "instance_resource": 20004,
-      "air_action_name": "edit"
-    }
-  },
-  {
-    "model": "core.apageredirect",
-    "pk": 150045,
-    "fields": {
-      "resource": 20006,
-      "instance_resource": 15000002,
-      "air_action_name": null
-    }
-  },
-  {
-    "model": "core.apageredirect",
-    "pk": 150046,
-    "fields": {
-      "resource": 20006,
-      "instance_resource": 15000002,
-      "air_action_name": null
-    }
-  },
-  {
-    "model": "core.apageredirect",
     "pk": 150047,
     "fields": {
       "resource": 20008,
@@ -242,128 +101,9 @@
   },
   {
     "model": "core.aphp",
-    "pk": 10050,
-    "fields": {
-      "php_class": "TriggerECH0211StatusNotification"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 10054,
-    "fields": {
-      "php_class": "TriggerECH0211AccompanyingReport"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 10055,
-    "fields": {
-      "php_class": "TriggerECH0211AccompanyingReport"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 10056,
-    "fields": {
-      "php_class": "TriggerECH0211Task"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 10057,
-    "fields": {
-      "php_class": "TriggerECH0211Task"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 20105,
-    "fields": {
-      "php_class": "CreateCirculation"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 20115,
-    "fields": {
-      "php_class": "EndCirculation"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 130003,
-    "fields": {
-      "php_class": "DeleteCirculation"
-    }
-  },
-  {
-    "model": "core.aphp",
     "pk": 140005,
     "fields": {
       "php_class": "TriggerECH0211StatusNotification"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 150020,
-    "fields": {
-      "php_class": "SyncCirculation"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 150021,
-    "fields": {
-      "php_class": "SyncCirculation"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 150023,
-    "fields": {
-      "php_class": "SyncCirculation"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 150025,
-    "fields": {
-      "php_class": "SyncCirculation"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 150048,
-    "fields": {
-      "php_class": "SyncCirculation"
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 10013,
-    "fields": {
-      "available_action": "notification",
-      "button": 20005,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 1,
-      "sort": 3
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 10035,
-    "fields": {
-      "available_action": "notification",
-      "button": 130000,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 3
     }
   },
   {
@@ -382,34 +122,6 @@
   },
   {
     "model": "core.action",
-    "pk": 10037,
-    "fields": {
-      "available_action": "notification",
-      "button": 20005,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 4
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 10040,
-    "fields": {
-      "available_action": "notification",
-      "button": 20007,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 4
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 10049,
     "fields": {
       "available_action": "php",
@@ -420,188 +132,6 @@
       "error_message": null,
       "execute_always": 0,
       "sort": 3
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 10050,
-    "fields": {
-      "available_action": "php",
-      "button": 20005,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 6
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 10054,
-    "fields": {
-      "available_action": "php",
-      "button": 20038,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 4
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 10055,
-    "fields": {
-      "available_action": "php",
-      "button": 20007,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 3
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 10056,
-    "fields": {
-      "available_action": "php",
-      "button": 20005,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 7
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 10057,
-    "fields": {
-      "available_action": "php",
-      "button": 130000,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 2
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 20006,
-    "fields": {
-      "available_action": "formtransition",
-      "button": 20005,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 20007,
-    "fields": {
-      "available_action": "save",
-      "button": 20005,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 20008,
-    "fields": {
-      "available_action": "save",
-      "button": 20006,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 20009,
-    "fields": {
-      "available_action": "save",
-      "button": 20007,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 20010,
-    "fields": {
-      "available_action": "circulationtransition",
-      "button": 20007,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 2
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 20011,
-    "fields": {
-      "available_action": "save",
-      "button": 20008,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 20012,
-    "fields": {
-      "available_action": "save",
-      "button": 20009,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 20014,
-    "fields": {
-      "available_action": "pageredirect",
-      "button": 20005,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 9
     }
   },
   {
@@ -630,20 +160,6 @@
       "error_message": null,
       "execute_always": 0,
       "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 20028,
-    "fields": {
-      "available_action": "pageredirect",
-      "button": 20018,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 4
     }
   },
   {
@@ -690,76 +206,6 @@
   },
   {
     "model": "core.action",
-    "pk": 20071,
-    "fields": {
-      "available_action": "save",
-      "button": 20037,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 20072,
-    "fields": {
-      "available_action": "save",
-      "button": 20038,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 20073,
-    "fields": {
-      "available_action": "circulationtransition",
-      "button": 20038,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 2
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 20074,
-    "fields": {
-      "available_action": "save",
-      "button": 20039,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 20090,
-    "fields": {
-      "available_action": "notification",
-      "button": 20009,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 2
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 20102,
     "fields": {
       "available_action": "formtransition",
@@ -788,80 +234,10 @@
   },
   {
     "model": "core.action",
-    "pk": 20105,
-    "fields": {
-      "available_action": "php",
-      "button": 20049,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 20114,
-    "fields": {
-      "available_action": "pageredirect",
-      "button": 20049,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 2
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 20115,
-    "fields": {
-      "available_action": "php",
-      "button": 20050,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 20116,
     "fields": {
       "available_action": "save",
       "button": 20051,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 130001,
-    "fields": {
-      "available_action": "notification",
-      "button": 20039,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 2
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 130003,
-    "fields": {
-      "available_action": "php",
-      "button": 130001,
       "name": null,
       "description": null,
       "success_message": null,
@@ -900,48 +276,6 @@
   },
   {
     "model": "core.action",
-    "pk": 150001,
-    "fields": {
-      "available_action": "save",
-      "button": 130000,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 150006,
-    "fields": {
-      "available_action": "notification",
-      "button": 20038,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 5
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 150008,
-    "fields": {
-      "available_action": "pageredirect",
-      "button": 130001,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 150009,
     "fields": {
       "available_action": "workitem",
@@ -974,132 +308,6 @@
     "fields": {
       "available_action": "workitem",
       "button": 20048,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 150015,
-    "fields": {
-      "available_action": "workitem",
-      "button": 20018,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 150016,
-    "fields": {
-      "available_action": "workitem",
-      "button": 20016,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 150020,
-    "fields": {
-      "available_action": "php",
-      "button": 130000,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 150021,
-    "fields": {
-      "available_action": "php",
-      "button": 20005,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 2
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 150022,
-    "fields": {
-      "available_action": "workitem",
-      "button": 20038,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 150023,
-    "fields": {
-      "available_action": "php",
-      "button": 20039,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 150025,
-    "fields": {
-      "available_action": "php",
-      "button": 20009,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 150026,
-    "fields": {
-      "available_action": "workitem",
-      "button": 20007,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 150029,
-    "fields": {
-      "available_action": "workitem",
-      "button": 20044,
       "name": null,
       "description": null,
       "success_message": null,
@@ -1194,52 +402,10 @@
   },
   {
     "model": "core.action",
-    "pk": 150045,
-    "fields": {
-      "available_action": "pageredirect",
-      "button": 20044,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 150046,
-    "fields": {
-      "available_action": "pageredirect",
-      "button": 20016,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 150047,
     "fields": {
       "available_action": "pageredirect",
       "button": 20048,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 150048,
-    "fields": {
-      "available_action": "php",
-      "button": 20008,
       "name": null,
       "description": null,
       "success_message": null,
@@ -1288,20 +454,6 @@
       "error_message": null,
       "execute_always": 0,
       "sort": 3
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 1200111,
-    "fields": {
-      "available_action": "addhistory",
-      "button": 20005,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 8
     }
   },
   {
@@ -1432,30 +584,6 @@
   },
   {
     "model": "core.actiont",
-    "pk": 10013,
-    "fields": {
-      "action": 10013,
-      "language": "de",
-      "name": "Behörden in Zirkulation benachrichtigen",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 10035,
-    "fields": {
-      "action": 10035,
-      "language": "de",
-      "name": "Neue Behörden benachrichtigen",
-      "description": "Neue Behörden in der Zirkulation werden benachrichtigt (Nur in laufenden Zirkulationen)",
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
     "pk": 10036,
     "fields": {
       "action": 10036,
@@ -1468,192 +596,12 @@
   },
   {
     "model": "core.actiont",
-    "pk": 10037,
-    "fields": {
-      "action": 10037,
-      "language": "de",
-      "name": "Gesuchsteller über Verlauf informieren",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 10040,
-    "fields": {
-      "action": 10040,
-      "language": "de",
-      "name": "Notification: Bericht erstellt",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
     "pk": 10049,
     "fields": {
       "action": 10049,
       "language": "de",
       "name": "ECH0211 - Status Notification",
       "description": "Notify ECH0211 clients about status change",
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 10050,
-    "fields": {
-      "action": 10050,
-      "language": "de",
-      "name": "ECH0211 - Status Notification",
-      "description": "Notify ECH0211 clients about status change",
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 10054,
-    "fields": {
-      "action": 10054,
-      "language": "de",
-      "name": "Trigger ECH0211 event: Accompanying Report",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 10055,
-    "fields": {
-      "action": 10055,
-      "language": "de",
-      "name": "Trigger ECH0211 event: Accompanying Report",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 10056,
-    "fields": {
-      "action": 10056,
-      "language": "de",
-      "name": "Trigger ECH0211 event: Task",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 10057,
-    "fields": {
-      "action": 10057,
-      "language": "de",
-      "name": "Trigger ECH0211 event: Task",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 20006,
-    "fields": {
-      "action": 20006,
-      "language": "de",
-      "name": "Go to state 6 (circulation)",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 20007,
-    "fields": {
-      "action": 20007,
-      "language": "de",
-      "name": "Save",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 20008,
-    "fields": {
-      "action": 20008,
-      "language": "de",
-      "name": "Save",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 20009,
-    "fields": {
-      "action": 20009,
-      "language": "de",
-      "name": "Save",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 20010,
-    "fields": {
-      "action": 20010,
-      "language": "de",
-      "name": "Mark circulation as done",
-      "description": null,
-      "success_message": "Die Stellungnahme wurde gesendet.",
-      "error_message": "Beim Senden der Stellungnahme ist ein Fehler aufgetreten"
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 20011,
-    "fields": {
-      "action": 20011,
-      "language": "de",
-      "name": "Save",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 20012,
-    "fields": {
-      "action": 20012,
-      "language": "de",
-      "name": "Save",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 20014,
-    "fields": {
-      "action": 20014,
-      "language": "de",
-      "name": "Redirect back to circulation",
-      "description": null,
       "success_message": null,
       "error_message": null
     }
@@ -1680,18 +628,6 @@
       "description": null,
       "success_message": null,
       "error_message": "Beim Speichern ist ein Fehler aufgetreten."
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 20028,
-    "fields": {
-      "action": 20028,
-      "language": "de",
-      "name": "Redirect back to circulation",
-      "description": null,
-      "success_message": null,
-      "error_message": null
     }
   },
   {
@@ -1732,66 +668,6 @@
   },
   {
     "model": "core.actiont",
-    "pk": 20071,
-    "fields": {
-      "action": 20071,
-      "language": "de",
-      "name": "Save",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 20072,
-    "fields": {
-      "action": 20072,
-      "language": "de",
-      "name": "Save",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 20073,
-    "fields": {
-      "action": 20073,
-      "language": "de",
-      "name": "Mark circulation as done",
-      "description": null,
-      "success_message": "Die Stellungnahme wurde gesendet.",
-      "error_message": "Beim Senden der Stellungnahme ist ein Fehler aufgetreten"
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 20074,
-    "fields": {
-      "action": 20074,
-      "language": "de",
-      "name": "Save",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 20090,
-    "fields": {
-      "action": 20090,
-      "language": "de",
-      "name": "Behörden in Zirkulation benachrichtigen",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
     "pk": 20102,
     "fields": {
       "action": 20102,
@@ -1816,42 +692,6 @@
   },
   {
     "model": "core.actiont",
-    "pk": 20105,
-    "fields": {
-      "action": 20105,
-      "language": "de",
-      "name": "Create new circulation",
-      "description": null,
-      "success_message": "Neue Zirkulation erstellt",
-      "error_message": "Die neue Zirkulation konnte nicht erstellt werden"
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 20114,
-    "fields": {
-      "action": 20114,
-      "language": "de",
-      "name": "Redirect to latest circulation",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 20115,
-    "fields": {
-      "action": 20115,
-      "language": "de",
-      "name": "End circulation",
-      "description": null,
-      "success_message": "Zirkulation abgeschlossen",
-      "error_message": "Zirkulation konnte nicht abgeschlossen werden"
-    }
-  },
-  {
-    "model": "core.actiont",
     "pk": 20125,
     "fields": {
       "action": 20116,
@@ -1860,42 +700,6 @@
       "description": null,
       "success_message": null,
       "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 130001,
-    "fields": {
-      "action": 130001,
-      "language": "de",
-      "name": "Unterfachstellen in Zirkulation benachrichtigen",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 130003,
-    "fields": {
-      "action": 130003,
-      "language": "de",
-      "name": "Delete circulation",
-      "description": null,
-      "success_message": "Zirkulation wurde erfolgreich gelöscht.",
-      "error_message": "Zirkulation konnte nicht gelöscht werden. Eine Zirkulation kann nur gelöscht werden, solange noch keine Amts- oder Fachstellen eingeladen wurde."
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 130004,
-    "fields": {
-      "action": 130003,
-      "language": "fr",
-      "name": "DeleteCirculation",
-      "description": null,
-      "success_message": "La circulation a été supprimée avec succès.",
-      "error_message": "La circulation n'a pas pu être supprimée. La circulation ne peut être supprimée que si aucun office ou service spécialisé n'a été invitée."
     }
   },
   {
@@ -1918,42 +722,6 @@
       "language": "de",
       "name": "ECH0211 - Status Notification",
       "description": "Notify ECH0211 clients about status change",
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 150001,
-    "fields": {
-      "action": 150001,
-      "language": "de",
-      "name": "Save",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 150008,
-    "fields": {
-      "action": 150006,
-      "language": "de",
-      "name": "Notification: Bericht erstellt",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 150013,
-    "fields": {
-      "action": 150008,
-      "language": "de",
-      "name": "Redirect back to circulation",
-      "description": null,
       "success_message": null,
       "error_message": null
     }
@@ -1989,114 +757,6 @@
       "action": 150014,
       "language": "de",
       "name": "Aufgabe abschliessen: Verfahren abschliessen",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 150020,
-    "fields": {
-      "action": 150015,
-      "language": "de",
-      "name": "Aufgabe abschliessen: Zirkulation wiedereröffnen",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 150021,
-    "fields": {
-      "action": 150016,
-      "language": "de",
-      "name": "Aufgabe abschliessen: Entscheid starten",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 150026,
-    "fields": {
-      "action": 150020,
-      "language": "de",
-      "name": "Zirkulation mit Caluma synchronisieren",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 150027,
-    "fields": {
-      "action": 150021,
-      "language": "de",
-      "name": "Zirkulation mit Caluma synchronisieren",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 150028,
-    "fields": {
-      "action": 150022,
-      "language": "de",
-      "name": "Aufgabe abschliessen: Stellungnahme verfassen",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 150029,
-    "fields": {
-      "action": 150023,
-      "language": "de",
-      "name": "Zirkulation mit Caluma synchronisieren",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 150031,
-    "fields": {
-      "action": 150025,
-      "language": "de",
-      "name": "Zirkulation mit Caluma synchronisieren",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 150032,
-    "fields": {
-      "action": 150026,
-      "language": "de",
-      "name": "Aufgabe abschliessen: Stellungnahme verfassen",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 150035,
-    "fields": {
-      "action": 150029,
-      "language": "de",
-      "name": "Aufgabe abschliessen: Zirkulation überspringen",
       "description": null,
       "success_message": null,
       "error_message": null
@@ -2176,47 +836,11 @@
   },
   {
     "model": "core.actiont",
-    "pk": 150051,
-    "fields": {
-      "action": 150045,
-      "language": "de",
-      "name": "Redirect to decision",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 150052,
-    "fields": {
-      "action": 150046,
-      "language": "de",
-      "name": "Redirect to decision",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
     "pk": 150053,
     "fields": {
       "action": 150047,
       "language": "de",
       "name": "Redirect to instance",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 150054,
-    "fields": {
-      "action": 150048,
-      "language": "de",
-      "name": "Zirkulation mit Caluma synchronisieren",
       "description": null,
       "success_message": null,
       "error_message": null
@@ -2265,30 +889,6 @@
       "action": 1200108,
       "language": "fr",
       "name": "Entrée de histoire: Corrigé",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 1200117,
-    "fields": {
-      "action": 1200111,
-      "language": "de",
-      "name": "History: Zirkulation gestartet",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 1200118,
-    "fields": {
-      "action": 1200111,
-      "language": "fr",
-      "name": "History: Zirkulation gestartet",
       "description": null,
       "success_message": null,
       "error_message": null
@@ -2433,7 +1033,6 @@
       "tasks": "[\"sb1\"]",
       "process_type": "skip",
       "process_all": true,
-      "is_activation": false,
       "fail_on_empty": true
     }
   },
@@ -2444,7 +1043,6 @@
       "tasks": "[\"sb2\"]",
       "process_type": "skip",
       "process_all": true,
-      "is_activation": false,
       "fail_on_empty": true
     }
   },
@@ -2455,62 +1053,6 @@
       "tasks": "[\"complete\"]",
       "process_type": "complete",
       "process_all": false,
-      "is_activation": false,
-      "fail_on_empty": true
-    }
-  },
-  {
-    "model": "core.actionworkitem",
-    "pk": 150015,
-    "fields": {
-      "tasks": "[\"reopen-circulation\"]",
-      "process_type": "complete",
-      "process_all": false,
-      "is_activation": false,
-      "fail_on_empty": true
-    }
-  },
-  {
-    "model": "core.actionworkitem",
-    "pk": 150016,
-    "fields": {
-      "tasks": "[\"start-decision\"]",
-      "process_type": "complete",
-      "process_all": false,
-      "is_activation": false,
-      "fail_on_empty": true
-    }
-  },
-  {
-    "model": "core.actionworkitem",
-    "pk": 150022,
-    "fields": {
-      "tasks": "[\"activation\"]",
-      "process_type": "complete",
-      "process_all": false,
-      "is_activation": true,
-      "fail_on_empty": true
-    }
-  },
-  {
-    "model": "core.actionworkitem",
-    "pk": 150026,
-    "fields": {
-      "tasks": "[\"activation\"]",
-      "process_type": "complete",
-      "process_all": false,
-      "is_activation": true,
-      "fail_on_empty": true
-    }
-  },
-  {
-    "model": "core.actionworkitem",
-    "pk": 150029,
-    "fields": {
-      "tasks": "[\"skip-circulation\"]",
-      "process_type": "complete",
-      "process_all": false,
-      "is_activation": false,
       "fail_on_empty": true
     }
   },
@@ -2521,7 +1063,6 @@
       "tasks": "[\"check-sb1\"]",
       "process_type": "complete",
       "process_all": false,
-      "is_activation": false,
       "fail_on_empty": false
     }
   },
@@ -2532,17 +1073,7 @@
       "tasks": "[\"check-sb2\"]",
       "process_type": "complete",
       "process_all": false,
-      "is_activation": false,
       "fail_on_empty": false
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 1,
-    "fields": {
-      "available_instance_resource": "newform",
-      "action_name": "new",
-      "hidden": 0
     }
   },
   {
@@ -2565,280 +1096,10 @@
   },
   {
     "model": "core.airaction",
-    "pk": 4,
-    "fields": {
-      "available_instance_resource": "editformpages",
-      "action_name": "edit-pages",
-      "hidden": 0
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 5,
-    "fields": {
-      "available_instance_resource": "editformpages",
-      "action_name": "get-file",
-      "hidden": 1
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 6,
-    "fields": {
-      "available_instance_resource": "formpage",
-      "action_name": "read-page",
-      "hidden": 0
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 7,
-    "fields": {
-      "available_instance_resource": "formpage",
-      "action_name": "get-file",
-      "hidden": 1
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 8,
-    "fields": {
-      "available_instance_resource": "formpages",
-      "action_name": "read-pages",
-      "hidden": 0
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 9,
-    "fields": {
-      "available_instance_resource": "formpages",
-      "action_name": "get-file",
-      "hidden": 1
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 10,
-    "fields": {
-      "available_instance_resource": "allformpages",
-      "action_name": "index",
-      "hidden": 0
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 11,
-    "fields": {
-      "available_instance_resource": "allformpages",
-      "action_name": "get-file",
-      "hidden": 1
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 12,
-    "fields": {
-      "available_instance_resource": "editcirculation",
-      "action_name": "edit",
-      "hidden": 0
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 13,
-    "fields": {
-      "available_instance_resource": "editcirculation",
-      "action_name": "add",
-      "hidden": 1
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 14,
-    "fields": {
-      "available_instance_resource": "editcirculation",
-      "action_name": "add-activation",
-      "hidden": 1
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 15,
-    "fields": {
-      "available_instance_resource": "editcirculation",
-      "action_name": "get-image",
-      "hidden": 1
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 16,
-    "fields": {
-      "available_instance_resource": "circulation",
-      "action_name": "index",
-      "hidden": 0
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 17,
-    "fields": {
-      "available_instance_resource": "circulation",
-      "action_name": "get-image",
-      "hidden": 1
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 18,
-    "fields": {
-      "available_instance_resource": "editnotice",
-      "action_name": "list-notice",
-      "hidden": 0
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 19,
-    "fields": {
-      "available_instance_resource": "editnotice",
-      "action_name": "edit-notice",
-      "hidden": 1
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 20,
-    "fields": {
-      "available_instance_resource": "editnotice",
-      "action_name": "get-image",
-      "hidden": 1
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 21,
-    "fields": {
-      "available_instance_resource": "editnotice",
-      "action_name": "list",
-      "hidden": 1
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 22,
-    "fields": {
-      "available_instance_resource": "editnotice",
-      "action_name": "upload",
-      "hidden": 1
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 23,
-    "fields": {
-      "available_instance_resource": "editcirculation",
-      "action_name": "read-notice",
-      "hidden": 1
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 24,
-    "fields": {
-      "available_instance_resource": "circulation",
-      "action_name": "read-notice",
-      "hidden": 1
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 25,
-    "fields": {
-      "available_instance_resource": "letter",
-      "action_name": "index",
-      "hidden": 0
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 26,
-    "fields": {
-      "available_instance_resource": "letter",
-      "action_name": "get-image",
-      "hidden": 1
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 27,
-    "fields": {
-      "available_instance_resource": "editletter",
-      "action_name": "edit",
-      "hidden": 0
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 28,
-    "fields": {
-      "available_instance_resource": "editletter",
-      "action_name": "get-image",
-      "hidden": 1
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 29,
-    "fields": {
-      "available_instance_resource": "editletter",
-      "action_name": "list",
-      "hidden": 1
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 30,
-    "fields": {
-      "available_instance_resource": "editletter",
-      "action_name": "upload",
-      "hidden": 1
-    }
-  },
-  {
-    "model": "core.airaction",
     "pk": 31,
     "fields": {
       "available_instance_resource": "page",
       "action_name": "index",
-      "hidden": 0
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 32,
-    "fields": {
-      "available_instance_resource": "formwizard",
-      "action_name": "wizard",
-      "hidden": 0
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 33,
-    "fields": {
-      "available_instance_resource": "formwizard",
-      "action_name": "get-file",
-      "hidden": 1
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 34,
-    "fields": {
-      "available_instance_resource": "formerror",
-      "action_name": "form-error",
       "hidden": 0
     }
   },
@@ -2876,159 +1137,6 @@
       "available_instance_resource": "auditlog",
       "action_name": "index",
       "hidden": 0
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 20047,
-    "fields": {
-      "available_instance_resource": "editdecision",
-      "action_name": "index",
-      "hidden": 0
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 20048,
-    "fields": {
-      "available_instance_resource": "editdecision",
-      "action_name": "add",
-      "hidden": 1
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 20049,
-    "fields": {
-      "available_instance_resource": "editdecision",
-      "action_name": "edit",
-      "hidden": 1
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 20050,
-    "fields": {
-      "available_instance_resource": "editdecision",
-      "action_name": "get-image",
-      "hidden": 1
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 20051,
-    "fields": {
-      "available_instance_resource": "editdecision",
-      "action_name": "list",
-      "hidden": 1
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 20052,
-    "fields": {
-      "available_instance_resource": "editdecision",
-      "action_name": "upload",
-      "hidden": 1
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 20053,
-    "fields": {
-      "available_instance_resource": "editdecision",
-      "action_name": "get-file",
-      "hidden": 1
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 20054,
-    "fields": {
-      "available_instance_resource": "decision",
-      "action_name": "decisions",
-      "hidden": 0
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 20055,
-    "fields": {
-      "available_instance_resource": "decision",
-      "action_name": "read",
-      "hidden": 1
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 20056,
-    "fields": {
-      "available_instance_resource": "decision",
-      "action_name": "get-image",
-      "hidden": 1
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 20057,
-    "fields": {
-      "available_instance_resource": "decision",
-      "action_name": "get-file",
-      "hidden": 1
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 20058,
-    "fields": {
-      "available_instance_resource": "editdecisionnote",
-      "action_name": "index",
-      "hidden": 0
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 20059,
-    "fields": {
-      "available_instance_resource": "editdecisionnote",
-      "action_name": "edit",
-      "hidden": 1
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 20060,
-    "fields": {
-      "available_instance_resource": "editdecisionnote",
-      "action_name": "get-image",
-      "hidden": 1
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 20061,
-    "fields": {
-      "available_instance_resource": "decisionnote",
-      "action_name": "notes",
-      "hidden": 0
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 20062,
-    "fields": {
-      "available_instance_resource": "decisionnote",
-      "action_name": "read",
-      "hidden": 1
-    }
-  },
-  {
-    "model": "core.airaction",
-    "pk": 20068,
-    "fields": {
-      "available_instance_resource": "editcirculation",
-      "action_name": "rename",
-      "hidden": 1
     }
   },
   {
@@ -39941,42 +38049,6 @@
   },
   {
     "model": "core.araction",
-    "pk": 2,
-    "fields": {
-      "available_resource": "formlist",
-      "action_name": "list",
-      "hidden": 0
-    }
-  },
-  {
-    "model": "core.araction",
-    "pk": 3,
-    "fields": {
-      "available_resource": "search",
-      "action_name": "index",
-      "hidden": 0
-    }
-  },
-  {
-    "model": "core.araction",
-    "pk": 4,
-    "fields": {
-      "available_resource": "search",
-      "action_name": "result",
-      "hidden": 1
-    }
-  },
-  {
-    "model": "core.araction",
-    "pk": 5,
-    "fields": {
-      "available_resource": "list",
-      "action_name": "index",
-      "hidden": 0
-    }
-  },
-  {
-    "model": "core.araction",
     "pk": 10000,
     "fields": {
       "available_resource": "errormail",
@@ -40049,15 +38121,6 @@
   },
   {
     "model": "core.araction",
-    "pk": 140000,
-    "fields": {
-      "available_resource": "history",
-      "action_name": "index",
-      "hidden": 0
-    }
-  },
-  {
-    "model": "core.araction",
     "pk": 140001,
     "fields": {
       "available_resource": "workitemlistall",
@@ -40100,114 +38163,10 @@
   },
   {
     "model": "core.availableaction",
-    "pk": "circulationemail",
-    "fields": {
-      "module_name": "default",
-      "description": "Send email to activated services"
-    }
-  },
-  {
-    "model": "core.availableaction",
-    "pk": "circulationtransition",
-    "fields": {
-      "module_name": "default",
-      "description": "Change state of the circulation"
-    }
-  },
-  {
-    "model": "core.availableaction",
-    "pk": "copyanswer",
-    "fields": {
-      "module_name": "default",
-      "description": "Copy data from question to question"
-    }
-  },
-  {
-    "model": "core.availableaction",
-    "pk": "copydata",
-    "fields": {
-      "module_name": "default",
-      "description": "Copy data from question to table"
-    }
-  },
-  {
-    "model": "core.availableaction",
-    "pk": "decisiontransition",
-    "fields": {
-      "module_name": "decision",
-      "description": "Change state of the decision"
-    }
-  },
-  {
-    "model": "core.availableaction",
-    "pk": "deletecirculation",
-    "fields": {
-      "module_name": "default",
-      "description": "Delete the circulation"
-    }
-  },
-  {
-    "model": "core.availableaction",
-    "pk": "email",
-    "fields": {
-      "module_name": "default",
-      "description": "Send e-mail"
-    }
-  },
-  {
-    "model": "core.availableaction",
-    "pk": "filecheckcontent",
-    "fields": {
-      "module_name": "file",
-      "description": "Check the required file contents"
-    }
-  },
-  {
-    "model": "core.availableaction",
-    "pk": "filedownload",
-    "fields": {
-      "module_name": "file",
-      "description": "Download a list of contents"
-    }
-  },
-  {
-    "model": "core.availableaction",
-    "pk": "filesavepdf",
-    "fields": {
-      "module_name": "file",
-      "description": "Save PDF from a form in file"
-    }
-  },
-  {
-    "model": "core.availableaction",
-    "pk": "filetransition",
-    "fields": {
-      "module_name": "file",
-      "description": "File complement request transition"
-    }
-  },
-  {
-    "model": "core.availableaction",
     "pk": "formtransition",
     "fields": {
       "module_name": "default",
       "description": "Make a transition"
-    }
-  },
-  {
-    "model": "core.availableaction",
-    "pk": "location",
-    "fields": {
-      "module_name": "default",
-      "description": "Set location of instance"
-    }
-  },
-  {
-    "model": "core.availableaction",
-    "pk": "notice",
-    "fields": {
-      "module_name": "default",
-      "description": "Retrieve notice"
     }
   },
   {
@@ -40236,34 +38195,10 @@
   },
   {
     "model": "core.availableaction",
-    "pk": "proposal",
-    "fields": {
-      "module_name": "default",
-      "description": "Generate proposal activation"
-    }
-  },
-  {
-    "model": "core.availableaction",
     "pk": "save",
     "fields": {
       "module_name": "default",
       "description": "Save"
-    }
-  },
-  {
-    "model": "core.availableaction",
-    "pk": "savepdf",
-    "fields": {
-      "module_name": "default",
-      "description": "Save PDF from a form"
-    }
-  },
-  {
-    "model": "core.availableaction",
-    "pk": "validate",
-    "fields": {
-      "module_name": "default",
-      "description": "Validate the form"
     }
   },
   {
@@ -40276,20 +38211,11 @@
   },
   {
     "model": "core.availableinstanceresource",
-    "pk": "allformpages",
-    "fields": {
-      "module_name": "default",
-      "controller_name": "form",
-      "description": "Read all pages of the form"
-    }
-  },
-  {
-    "model": "core.availableinstanceresource",
     "pk": "apidocuments",
     "fields": {
       "module_name": "apidocuments",
       "controller_name": "list",
-      "description": "List of instance documents (API source)"
+      "description": "(Vue) Documents"
     }
   },
   {
@@ -40298,7 +38224,7 @@
     "fields": {
       "module_name": "auditlog",
       "controller_name": "auditlog",
-      "description": "High Level Audit Log"
+      "description": "(PHP) Audit Log"
     }
   },
   {
@@ -40307,16 +38233,7 @@
     "fields": {
       "module_name": "billing",
       "controller_name": "billing",
-      "description": "Billing module"
-    }
-  },
-  {
-    "model": "core.availableinstanceresource",
-    "pk": "circulation",
-    "fields": {
-      "module_name": "default",
-      "controller_name": "circulation",
-      "description": "Read the circulation"
+      "description": "(PHP) Billing"
     }
   },
   {
@@ -40325,52 +38242,7 @@
     "fields": {
       "module_name": "claim",
       "controller_name": "claim",
-      "description": "Claim management"
-    }
-  },
-  {
-    "model": "core.availableinstanceresource",
-    "pk": "decision",
-    "fields": {
-      "module_name": "decision",
-      "controller_name": "index",
-      "description": "Read decision"
-    }
-  },
-  {
-    "model": "core.availableinstanceresource",
-    "pk": "decisionnote",
-    "fields": {
-      "module_name": "decision",
-      "controller_name": "note",
-      "description": "Read decision note"
-    }
-  },
-  {
-    "model": "core.availableinstanceresource",
-    "pk": "editcirculation",
-    "fields": {
-      "module_name": "default",
-      "controller_name": "circulation",
-      "description": "Edit the circulation"
-    }
-  },
-  {
-    "model": "core.availableinstanceresource",
-    "pk": "editdecision",
-    "fields": {
-      "module_name": "decision",
-      "controller_name": "index",
-      "description": "Edit decision"
-    }
-  },
-  {
-    "model": "core.availableinstanceresource",
-    "pk": "editdecisionnote",
-    "fields": {
-      "module_name": "decision",
-      "controller_name": "note",
-      "description": "Edit decision note"
+      "description": "(Vue) Claims"
     }
   },
   {
@@ -40379,70 +38251,7 @@
     "fields": {
       "module_name": "default",
       "controller_name": "form",
-      "description": "Edit one page of the form"
-    }
-  },
-  {
-    "model": "core.availableinstanceresource",
-    "pk": "editformpages",
-    "fields": {
-      "module_name": "default",
-      "controller_name": "form",
-      "description": "Edit multiple page of the form"
-    }
-  },
-  {
-    "model": "core.availableinstanceresource",
-    "pk": "editletter",
-    "fields": {
-      "module_name": "default",
-      "controller_name": "letter",
-      "description": "Edit letter"
-    }
-  },
-  {
-    "model": "core.availableinstanceresource",
-    "pk": "editnotice",
-    "fields": {
-      "module_name": "default",
-      "controller_name": "circulation",
-      "description": "Edit the notice"
-    }
-  },
-  {
-    "model": "core.availableinstanceresource",
-    "pk": "formerror",
-    "fields": {
-      "module_name": "default",
-      "controller_name": "form",
-      "description": "Page with error list of the form"
-    }
-  },
-  {
-    "model": "core.availableinstanceresource",
-    "pk": "formpage",
-    "fields": {
-      "module_name": "default",
-      "controller_name": "form",
-      "description": "Read one page of the form"
-    }
-  },
-  {
-    "model": "core.availableinstanceresource",
-    "pk": "formpages",
-    "fields": {
-      "module_name": "default",
-      "controller_name": "form",
-      "description": "Read multiple page of the form"
-    }
-  },
-  {
-    "model": "core.availableinstanceresource",
-    "pk": "formwizard",
-    "fields": {
-      "module_name": "default",
-      "controller_name": "form",
-      "description": "Wizard for the creation of a form"
+      "description": "(PHP) Edit one page of the form"
     }
   },
   {
@@ -40451,25 +38260,7 @@
     "fields": {
       "module_name": "history",
       "controller_name": "history",
-      "description": "Show instance history"
-    }
-  },
-  {
-    "model": "core.availableinstanceresource",
-    "pk": "letter",
-    "fields": {
-      "module_name": "default",
-      "controller_name": "letter",
-      "description": "Read letter"
-    }
-  },
-  {
-    "model": "core.availableinstanceresource",
-    "pk": "newform",
-    "fields": {
-      "module_name": "default",
-      "controller_name": "form",
-      "description": "Create the form"
+      "description": "(Ember / PHP) History"
     }
   },
   {
@@ -40478,7 +38269,7 @@
     "fields": {
       "module_name": "notification",
       "controller_name": "notification",
-      "description": "Notification module"
+      "description": "(PHP) Notification"
     }
   },
   {
@@ -40487,7 +38278,7 @@
     "fields": {
       "module_name": "objection",
       "controller_name": "objection",
-      "description": "Instance objections"
+      "description": "(Vue) Objections"
     }
   },
   {
@@ -40496,7 +38287,7 @@
     "fields": {
       "module_name": "default",
       "controller_name": "page",
-      "description": "Page from template"
+      "description": "(PHP) Page from template"
     }
   },
   {
@@ -40505,7 +38296,7 @@
     "fields": {
       "module_name": "revisionhistory",
       "controller_name": "revisionhistory",
-      "description": "Revision history module"
+      "description": "(Vue) Revision history"
     }
   },
   {
@@ -40514,7 +38305,7 @@
     "fields": {
       "module_name": "service",
       "controller_name": "service",
-      "description": "Responsible Service"
+      "description": "(PHP) Responsible service"
     }
   },
   {
@@ -40523,7 +38314,7 @@
     "fields": {
       "module_name": "taskform",
       "controller_name": "taskform",
-      "description": "Render a Caluma form of a given task"
+      "description": "(Ember) Caluma form of a given task"
     }
   },
   {
@@ -40532,7 +38323,7 @@
     "fields": {
       "module_name": "workitem",
       "controller_name": "workitemlistinstance",
-      "description": "Display work items of the instance"
+      "description": "(Ember) Work items of the instance"
     }
   },
   {
@@ -40541,7 +38332,7 @@
     "fields": {
       "module_name": "calumalist",
       "controller_name": "calumalist",
-      "description": "Page with a list of instances (from caluma)"
+      "description": "(Vue) List of instances"
     }
   },
   {
@@ -40550,7 +38341,7 @@
     "fields": {
       "module_name": "documentmergeservice",
       "controller_name": "documentmergeservice",
-      "description": "Module for managing document templates via the document merge service"
+      "description": "(Vue) Templates admin"
     }
   },
   {
@@ -40559,34 +38350,7 @@
     "fields": {
       "module_name": "errormail",
       "controller_name": "decode",
-      "description": "Decode error mail report"
-    }
-  },
-  {
-    "model": "core.availableresource",
-    "pk": "formlist",
-    "fields": {
-      "module_name": "default",
-      "controller_name": "form",
-      "description": "Page with a list of forms"
-    }
-  },
-  {
-    "model": "core.availableresource",
-    "pk": "history",
-    "fields": {
-      "module_name": "history",
-      "controller_name": "history",
-      "description": "Show instance history"
-    }
-  },
-  {
-    "model": "core.availableresource",
-    "pk": "list",
-    "fields": {
-      "module_name": "default",
-      "controller_name": "list",
-      "description": "Page with a list of instances"
+      "description": "(PHP) Decode error mail report"
     }
   },
   {
@@ -40595,16 +38359,7 @@
     "fields": {
       "module_name": "default",
       "controller_name": "index",
-      "description": "Page from template"
-    }
-  },
-  {
-    "model": "core.availableresource",
-    "pk": "search",
-    "fields": {
-      "module_name": "default",
-      "controller_name": "search",
-      "description": "Page with search function"
+      "description": "(PHP) Page from template"
     }
   },
   {
@@ -40613,7 +38368,7 @@
     "fields": {
       "module_name": "textcomponentadmin",
       "controller_name": "textcomponentadmin",
-      "description": "Text component admin module"
+      "description": "(Vue) Text component admin"
     }
   },
   {
@@ -40622,7 +38377,7 @@
     "fields": {
       "module_name": "useradmin",
       "controller_name": "user",
-      "description": "Decentralized user management"
+      "description": "(PHP) Decentralized user management"
     }
   },
   {
@@ -40631,79 +38386,7 @@
     "fields": {
       "module_name": "workitem",
       "controller_name": "workitemlistall",
-      "description": "Display work items"
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 20006,
-    "fields": {
-      "button": 20005,
-      "role": 3,
-      "instance_state": 20003
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 20008,
-    "fields": {
-      "button": 20006,
-      "role": 4,
-      "instance_state": 20004
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 20009,
-    "fields": {
-      "button": 20007,
-      "role": 4,
-      "instance_state": 20004
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 20010,
-    "fields": {
-      "button": 20008,
-      "role": 3,
-      "instance_state": 20003
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 20011,
-    "fields": {
-      "button": 20008,
-      "role": 3,
-      "instance_state": 20004
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 20012,
-    "fields": {
-      "button": 20009,
-      "role": 4,
-      "instance_state": 20004
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 20013,
-    "fields": {
-      "button": 20006,
-      "role": 20000,
-      "instance_state": 20004
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 20014,
-    "fields": {
-      "button": 20007,
-      "role": 20000,
-      "instance_state": 20004
+      "description": "(Ember) Work items"
     }
   },
   {
@@ -40762,38 +38445,11 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 20028,
-    "fields": {
-      "button": 20016,
-      "role": 3,
-      "instance_state": 20004
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 20035,
-    "fields": {
-      "button": 20018,
-      "role": 3,
-      "instance_state": 20005
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 20042,
     "fields": {
       "button": 20013,
       "role": 3,
       "instance_state": 20010
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 20043,
-    "fields": {
-      "button": 20044,
-      "role": 3,
-      "instance_state": 20003
     }
   },
   {
@@ -40816,47 +38472,11 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 20047,
-    "fields": {
-      "button": 20049,
-      "role": 3,
-      "instance_state": 20003
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 20048,
-    "fields": {
-      "button": 20049,
-      "role": 3,
-      "instance_state": 20004
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 20049,
-    "fields": {
-      "button": 20050,
-      "role": 3,
-      "instance_state": 20004
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 20059,
     "fields": {
       "button": 20046,
       "role": 3,
       "instance_state": 20003
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 130000,
-    "fields": {
-      "button": 130000,
-      "role": 3,
-      "instance_state": 20004
     }
   },
   {
@@ -40960,66 +38580,6 @@
   },
   {
     "model": "core.button",
-    "pk": 20005,
-    "fields": {
-      "instance_resource": 20004,
-      "name": null,
-      "description": null,
-      "class_field": "btn buttonstyle leitung_only active_leitbehoerde_only circ_start",
-      "hidden": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.button",
-    "pk": 20006,
-    "fields": {
-      "instance_resource": 20008,
-      "name": null,
-      "description": null,
-      "class_field": "btn buttonstyle success leitung_only",
-      "hidden": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.button",
-    "pk": 20007,
-    "fields": {
-      "instance_resource": 20008,
-      "name": null,
-      "description": null,
-      "class_field": "btn buttonstyle send leitung_only",
-      "hidden": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.button",
-    "pk": 20008,
-    "fields": {
-      "instance_resource": 20004,
-      "name": null,
-      "description": null,
-      "class_field": "btn buttonstyle success active_leitbehoerde_only save",
-      "hidden": 0,
-      "sort": 6
-    }
-  },
-  {
-    "model": "core.button",
-    "pk": 20009,
-    "fields": {
-      "instance_resource": 20009,
-      "name": null,
-      "description": null,
-      "class_field": "leitung_only",
-      "hidden": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.button",
     "pk": 20013,
     "fields": {
       "instance_resource": 20019,
@@ -41044,36 +38604,12 @@
   },
   {
     "model": "core.button",
-    "pk": 20016,
-    "fields": {
-      "instance_resource": 20004,
-      "name": null,
-      "description": null,
-      "class_field": "btn buttonstyle leitung_only decision_start active_leitbehoerde_only",
-      "hidden": 0,
-      "sort": 8
-    }
-  },
-  {
-    "model": "core.button",
-    "pk": 20018,
-    "fields": {
-      "instance_resource": 20004,
-      "name": null,
-      "description": null,
-      "class_field": "btn buttonstyle leitung_only",
-      "hidden": 0,
-      "sort": 9
-    }
-  },
-  {
-    "model": "core.button",
     "pk": 20021,
     "fields": {
       "instance_resource": 20029,
       "name": null,
       "description": null,
-      "class_field": "success active_leitbehoerde_only no_running_circulations no_open_claims",
+      "class_field": "success active_leitbehoerde_only no_running_inquiries no_open_claims",
       "hidden": 0,
       "sort": 0
     }
@@ -41085,57 +38621,9 @@
       "instance_resource": 20029,
       "name": null,
       "description": null,
-      "class_field": "active_leitbehoerde_only no_running_circulations no_open_claims",
+      "class_field": "active_leitbehoerde_only no_running_inquiries no_open_claims",
       "hidden": 0,
       "sort": 1
-    }
-  },
-  {
-    "model": "core.button",
-    "pk": 20037,
-    "fields": {
-      "instance_resource": 20039,
-      "name": null,
-      "description": null,
-      "class_field": "btn buttonstyle success leitung_only",
-      "hidden": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.button",
-    "pk": 20038,
-    "fields": {
-      "instance_resource": 20039,
-      "name": null,
-      "description": null,
-      "class_field": "btn buttonstyle send leitung_only",
-      "hidden": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.button",
-    "pk": 20039,
-    "fields": {
-      "instance_resource": 20040,
-      "name": null,
-      "description": null,
-      "class_field": "leitung_only",
-      "hidden": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.button",
-    "pk": 20044,
-    "fields": {
-      "instance_resource": 20004,
-      "name": null,
-      "description": null,
-      "class_field": "leitung_only active_leitbehoerde_only",
-      "hidden": 0,
-      "sort": 0
     }
   },
   {
@@ -41145,7 +38633,7 @@
       "instance_resource": 20074,
       "name": null,
       "description": null,
-      "class_field": "active_leitbehoerde_only no_running_circulations",
+      "class_field": "active_leitbehoerde_only no_running_inquiries",
       "hidden": 0,
       "sort": 0
     }
@@ -41176,30 +38664,6 @@
   },
   {
     "model": "core.button",
-    "pk": 20049,
-    "fields": {
-      "instance_resource": 20004,
-      "name": null,
-      "description": null,
-      "class_field": "btn buttonstyle create_new_circ active_leitbehoerde_only leitung_only",
-      "hidden": 0,
-      "sort": 3
-    }
-  },
-  {
-    "model": "core.button",
-    "pk": 20050,
-    "fields": {
-      "instance_resource": 20004,
-      "name": null,
-      "description": null,
-      "class_field": "btn buttonstyle leitung_only active_leitbehoerde_only circ_end",
-      "hidden": 0,
-      "sort": 5
-    }
-  },
-  {
-    "model": "core.button",
     "pk": 20051,
     "fields": {
       "instance_resource": 20077,
@@ -41208,30 +38672,6 @@
       "class_field": "success",
       "hidden": 0,
       "sort": 0
-    }
-  },
-  {
-    "model": "core.button",
-    "pk": 130000,
-    "fields": {
-      "instance_resource": 20004,
-      "name": null,
-      "description": null,
-      "class_field": "btn buttonstyle leitung_only active_leitbehoerde_only send_circ",
-      "hidden": 0,
-      "sort": 7
-    }
-  },
-  {
-    "model": "core.button",
-    "pk": 130001,
-    "fields": {
-      "instance_resource": 20004,
-      "name": null,
-      "description": null,
-      "class_field": "circ_delete",
-      "hidden": 0,
-      "sort": 4
     }
   },
   {
@@ -41272,56 +38712,6 @@
   },
   {
     "model": "core.buttont",
-    "pk": 20005,
-    "fields": {
-      "button": 20005,
-      "language": "de",
-      "name": "Zirkulation starten",
-      "description": null
-    }
-  },
-  {
-    "model": "core.buttont",
-    "pk": 20006,
-    "fields": {
-      "button": 20006,
-      "language": "de",
-      "name": "Speichern",
-      "description": null
-    }
-  },
-  {
-    "model": "core.buttont",
-    "pk": 20007,
-    "fields": {
-      "button": 20007,
-      "language": "de",
-      "name": "Antwort senden",
-      "description": null
-    }
-  },
-  {
-    "model": "core.buttont",
-    "pk": 20008,
-    "fields": {
-      "button": 20008,
-      "language": "de",
-      "name": "Speichern",
-      "description": null
-    }
-  },
-  {
-    "model": "core.buttont",
-    "pk": 20009,
-    "fields": {
-      "button": 20009,
-      "language": "de",
-      "name": "Speichern",
-      "description": null
-    }
-  },
-  {
-    "model": "core.buttont",
     "pk": 20013,
     "fields": {
       "button": 20013,
@@ -41342,26 +38732,6 @@
   },
   {
     "model": "core.buttont",
-    "pk": 20016,
-    "fields": {
-      "button": 20016,
-      "language": "de",
-      "name": "Entscheid starten",
-      "description": null
-    }
-  },
-  {
-    "model": "core.buttont",
-    "pk": 20018,
-    "fields": {
-      "button": 20018,
-      "language": "de",
-      "name": "Zirkulation wiedereröffnen",
-      "description": null
-    }
-  },
-  {
-    "model": "core.buttont",
     "pk": 20021,
     "fields": {
       "button": 20021,
@@ -41377,46 +38747,6 @@
       "button": 20022,
       "language": "de",
       "name": "Dossier zurückweisen",
-      "description": null
-    }
-  },
-  {
-    "model": "core.buttont",
-    "pk": 20037,
-    "fields": {
-      "button": 20037,
-      "language": "de",
-      "name": "Speichern",
-      "description": null
-    }
-  },
-  {
-    "model": "core.buttont",
-    "pk": 20038,
-    "fields": {
-      "button": 20038,
-      "language": "de",
-      "name": "Antwort senden",
-      "description": null
-    }
-  },
-  {
-    "model": "core.buttont",
-    "pk": 20039,
-    "fields": {
-      "button": 20039,
-      "language": "de",
-      "name": "Speichern",
-      "description": null
-    }
-  },
-  {
-    "model": "core.buttont",
-    "pk": 20044,
-    "fields": {
-      "button": 20044,
-      "language": "de",
-      "name": "Zirkulation überspringen",
       "description": null
     }
   },
@@ -41462,46 +38792,6 @@
   },
   {
     "model": "core.buttont",
-    "pk": 20050,
-    "fields": {
-      "button": 20049,
-      "language": "de",
-      "name": "Neue Zirkulation erstellen",
-      "description": null
-    }
-  },
-  {
-    "model": "core.buttont",
-    "pk": 20051,
-    "fields": {
-      "button": 20050,
-      "language": "de",
-      "name": "Zirkulation abschliessen",
-      "description": null
-    }
-  },
-  {
-    "model": "core.buttont",
-    "pk": 20052,
-    "fields": {
-      "button": 20049,
-      "language": "fr",
-      "name": "Créer nouvelle circulation",
-      "description": null
-    }
-  },
-  {
-    "model": "core.buttont",
-    "pk": 20053,
-    "fields": {
-      "button": 20050,
-      "language": "fr",
-      "name": "Clore la circulation",
-      "description": null
-    }
-  },
-  {
-    "model": "core.buttont",
     "pk": 20054,
     "fields": {
       "button": 20051,
@@ -41515,56 +38805,6 @@
     "pk": 20055,
     "fields": {
       "button": 20051,
-      "language": "fr",
-      "name": "Enregistrer",
-      "description": null
-    }
-  },
-  {
-    "model": "core.buttont",
-    "pk": 120008,
-    "fields": {
-      "button": 20005,
-      "language": "fr",
-      "name": "Lancer la procédure de circulation",
-      "description": null
-    }
-  },
-  {
-    "model": "core.buttont",
-    "pk": 120009,
-    "fields": {
-      "button": 20006,
-      "language": "fr",
-      "name": "Enregistrer",
-      "description": null
-    }
-  },
-  {
-    "model": "core.buttont",
-    "pk": 120010,
-    "fields": {
-      "button": 20007,
-      "language": "fr",
-      "name": "Envoyer la réponse",
-      "description": null
-    }
-  },
-  {
-    "model": "core.buttont",
-    "pk": 120011,
-    "fields": {
-      "button": 20008,
-      "language": "fr",
-      "name": "Enregistrer",
-      "description": null
-    }
-  },
-  {
-    "model": "core.buttont",
-    "pk": 120012,
-    "fields": {
-      "button": 20009,
       "language": "fr",
       "name": "Enregistrer",
       "description": null
@@ -41592,26 +38832,6 @@
   },
   {
     "model": "core.buttont",
-    "pk": 120018,
-    "fields": {
-      "button": 20016,
-      "language": "fr",
-      "name": "Vers la décision",
-      "description": null
-    }
-  },
-  {
-    "model": "core.buttont",
-    "pk": 120020,
-    "fields": {
-      "button": 20018,
-      "language": "fr",
-      "name": "Rouvrir la procédure de circulation",
-      "description": null
-    }
-  },
-  {
-    "model": "core.buttont",
     "pk": 120022,
     "fields": {
       "button": 20021,
@@ -41627,36 +38847,6 @@
       "button": 20022,
       "language": "fr",
       "name": "Renvoyer le dossier",
-      "description": null
-    }
-  },
-  {
-    "model": "core.buttont",
-    "pk": 120037,
-    "fields": {
-      "button": 20037,
-      "language": "fr",
-      "name": "Enregistrer",
-      "description": null
-    }
-  },
-  {
-    "model": "core.buttont",
-    "pk": 120038,
-    "fields": {
-      "button": 20038,
-      "language": "fr",
-      "name": "Envoyer la réponse",
-      "description": null
-    }
-  },
-  {
-    "model": "core.buttont",
-    "pk": 120039,
-    "fields": {
-      "button": 20039,
-      "language": "fr",
-      "name": "Enregistrer",
       "description": null
     }
   },
@@ -41682,61 +38872,11 @@
   },
   {
     "model": "core.buttont",
-    "pk": 130000,
-    "fields": {
-      "button": 130000,
-      "language": "de",
-      "name": "Zirkulation senden",
-      "description": null
-    }
-  },
-  {
-    "model": "core.buttont",
-    "pk": 130001,
-    "fields": {
-      "button": 130000,
-      "language": "fr",
-      "name": "Envoyer la circulation",
-      "description": null
-    }
-  },
-  {
-    "model": "core.buttont",
-    "pk": 130002,
-    "fields": {
-      "button": 130001,
-      "language": "de",
-      "name": "Zirkulation löschen",
-      "description": "Zirkulationen können gelöscht werden solange noch keine Amts- oder Fachstellen ausgewählt wurde."
-    }
-  },
-  {
-    "model": "core.buttont",
-    "pk": 130003,
-    "fields": {
-      "button": 130001,
-      "language": "fr",
-      "name": "Supprimer la circulation",
-      "description": "Les circulations peuvent être supprimées tant qu'aucun office ou service spécialisé n'a été sélectionné."
-    }
-  },
-  {
-    "model": "core.buttont",
     "pk": 140000,
     "fields": {
       "button": 140000,
       "language": "de",
       "name": "Rückweisung aufheben",
-      "description": null
-    }
-  },
-  {
-    "model": "core.buttont",
-    "pk": 150000,
-    "fields": {
-      "button": 20044,
-      "language": "fr",
-      "name": "Sauter la procédure de circulation",
       "description": null
     }
   },
@@ -48853,22 +45993,6 @@
   },
   {
     "model": "core.grouppermission",
-    "pk": 15,
-    "fields": {
-      "group": 1,
-      "permission_id": "form_service-answer-activation"
-    }
-  },
-  {
-    "model": "core.grouppermission",
-    "pk": 16,
-    "fields": {
-      "group": 1,
-      "permission_id": "form_page-answer-activation"
-    }
-  },
-  {
-    "model": "core.grouppermission",
     "pk": 17,
     "fields": {
       "group": 1,
@@ -48973,62 +46097,6 @@
   },
   {
     "model": "core.grouppermission",
-    "pk": 30,
-    "fields": {
-      "group": 1,
-      "permission_id": "menu_circulation"
-    }
-  },
-  {
-    "model": "core.grouppermission",
-    "pk": 31,
-    "fields": {
-      "group": 1,
-      "permission_id": "circulation_type"
-    }
-  },
-  {
-    "model": "core.grouppermission",
-    "pk": 32,
-    "fields": {
-      "group": 1,
-      "permission_id": "circulation_state"
-    }
-  },
-  {
-    "model": "core.grouppermission",
-    "pk": 33,
-    "fields": {
-      "group": 1,
-      "permission_id": "circulation_answer-type"
-    }
-  },
-  {
-    "model": "core.grouppermission",
-    "pk": 34,
-    "fields": {
-      "group": 1,
-      "permission_id": "circulation_answer"
-    }
-  },
-  {
-    "model": "core.grouppermission",
-    "pk": 35,
-    "fields": {
-      "group": 1,
-      "permission_id": "circulation_reason"
-    }
-  },
-  {
-    "model": "core.grouppermission",
-    "pk": 36,
-    "fields": {
-      "group": 1,
-      "permission_id": "circulation_notice-type"
-    }
-  },
-  {
-    "model": "core.grouppermission",
     "pk": 37,
     "fields": {
       "group": 1,
@@ -49054,15 +46122,6 @@
   {
     "model": "core.historyactionconfig",
     "pk": 1200108,
-    "fields": {
-      "title": null,
-      "body": null,
-      "history_type": "status-change"
-    }
-  },
-  {
-    "model": "core.historyactionconfig",
-    "pk": 1200111,
     "fields": {
       "title": null,
       "body": null,
@@ -49121,26 +46180,6 @@
     "fields": {
       "action": 1200108,
       "title": "Corrigé",
-      "body": null,
-      "language": "fr"
-    }
-  },
-  {
-    "model": "core.historyactionconfigt",
-    "pk": 9,
-    "fields": {
-      "action": 1200111,
-      "title": "Zirkulation gestartet",
-      "body": null,
-      "language": "de"
-    }
-  },
-  {
-    "model": "core.historyactionconfigt",
-    "pk": 10,
-    "fields": {
-      "action": 1200111,
-      "title": "Procédure de circulation lancée",
       "body": null,
       "language": "fr"
     }
@@ -49242,81 +46281,6 @@
   },
   {
     "model": "core.instanceresource",
-    "pk": 20004,
-    "fields": {
-      "available_instance_resource": "editcirculation",
-      "resource": 20006,
-      "name": null,
-      "description": null,
-      "template": "/circulation/edit-circulation.phtml",
-      "class_field": "menu-category-process menu-group-circulation",
-      "hidden": 0,
-      "sort": 8,
-      "form_group": 40000
-    }
-  },
-  {
-    "model": "core.instanceresource",
-    "pk": 20006,
-    "fields": {
-      "available_instance_resource": "circulation",
-      "resource": 20006,
-      "name": null,
-      "description": null,
-      "template": "/circulation/index.phtml",
-      "class_field": "menu-category-process menu-group-circulation",
-      "hidden": 0,
-      "sort": 10,
-      "form_group": 40000
-    }
-  },
-  {
-    "model": "core.instanceresource",
-    "pk": 20008,
-    "fields": {
-      "available_instance_resource": "editnotice",
-      "resource": 20007,
-      "name": null,
-      "description": null,
-      "template": "/circulation/list-notice.phtml",
-      "class_field": "menu-category-process leitung_only",
-      "hidden": 0,
-      "sort": 10,
-      "form_group": 40000
-    }
-  },
-  {
-    "model": "core.instanceresource",
-    "pk": 20009,
-    "fields": {
-      "available_instance_resource": "editcirculation",
-      "resource": 20007,
-      "name": null,
-      "description": null,
-      "template": "/circulation/edit-circulation.phtml",
-      "class_field": "menu-category-process menu-group-subcirculation",
-      "hidden": 0,
-      "sort": 7,
-      "form_group": 40000
-    }
-  },
-  {
-    "model": "core.instanceresource",
-    "pk": 20010,
-    "fields": {
-      "available_instance_resource": "circulation",
-      "resource": 20007,
-      "name": null,
-      "description": null,
-      "template": "/circulation/index.phtml",
-      "class_field": "menu-category-process menu-group-subcirculation",
-      "hidden": 0,
-      "sort": 8,
-      "form_group": 40000
-    }
-  },
-  {
-    "model": "core.instanceresource",
     "pk": 20011,
     "fields": {
       "available_instance_resource": "service",
@@ -49402,81 +46366,6 @@
       "class_field": "menu-category-extraordinary",
       "hidden": 0,
       "sort": 22,
-      "form_group": 40000
-    }
-  },
-  {
-    "model": "core.instanceresource",
-    "pk": 20036,
-    "fields": {
-      "available_instance_resource": "circulation",
-      "resource": 20007,
-      "name": null,
-      "description": null,
-      "template": "/circulation/index.phtml",
-      "class_field": "menu-category-process",
-      "hidden": 0,
-      "sort": 9,
-      "form_group": 40000
-    }
-  },
-  {
-    "model": "core.instanceresource",
-    "pk": 20039,
-    "fields": {
-      "available_instance_resource": "editnotice",
-      "resource": 20006,
-      "name": null,
-      "description": null,
-      "template": "/circulation/list-notice.phtml",
-      "class_field": "menu-category-process",
-      "hidden": 0,
-      "sort": 14,
-      "form_group": 40000
-    }
-  },
-  {
-    "model": "core.instanceresource",
-    "pk": 20040,
-    "fields": {
-      "available_instance_resource": "editcirculation",
-      "resource": 20006,
-      "name": null,
-      "description": null,
-      "template": "/circulation/edit-circulation.phtml",
-      "class_field": "menu-category-process menu-group-subcirculation",
-      "hidden": 0,
-      "sort": 11,
-      "form_group": 40000
-    }
-  },
-  {
-    "model": "core.instanceresource",
-    "pk": 20041,
-    "fields": {
-      "available_instance_resource": "circulation",
-      "resource": 20006,
-      "name": null,
-      "description": null,
-      "template": "/circulation/index.phtml",
-      "class_field": "menu-category-process",
-      "hidden": 0,
-      "sort": 13,
-      "form_group": 40000
-    }
-  },
-  {
-    "model": "core.instanceresource",
-    "pk": 20042,
-    "fields": {
-      "available_instance_resource": "circulation",
-      "resource": 20006,
-      "name": null,
-      "description": null,
-      "template": "/circulation/index.phtml",
-      "class_field": "menu-category-process menu-group-subcirculation",
-      "hidden": 0,
-      "sort": 12,
       "form_group": 40000
     }
   },
@@ -50112,234 +47001,10 @@
   },
   {
     "model": "core.instanceresourceaction",
-    "pk": 1,
-    "fields": {
-      "available_instance_resource": "allformpages",
-      "available_action": "checkquery"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 2,
-    "fields": {
-      "available_instance_resource": "allformpages",
-      "available_action": "copydata"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 3,
-    "fields": {
-      "available_instance_resource": "allformpages",
-      "available_action": "email"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 4,
-    "fields": {
-      "available_instance_resource": "allformpages",
-      "available_action": "formtransition"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 5,
-    "fields": {
-      "available_instance_resource": "allformpages",
-      "available_action": "location"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 6,
-    "fields": {
-      "available_instance_resource": "allformpages",
-      "available_action": "php"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 7,
-    "fields": {
-      "available_instance_resource": "allformpages",
-      "available_action": "proposal"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 8,
-    "fields": {
-      "available_instance_resource": "allformpages",
-      "available_action": "savepdf"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 9,
-    "fields": {
-      "available_instance_resource": "allformpages",
-      "available_action": "validate"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 10,
-    "fields": {
-      "available_instance_resource": "allformpages",
-      "available_action": "copyanswer"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 11,
-    "fields": {
-      "available_instance_resource": "circulation",
-      "available_action": "checkquery"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 12,
-    "fields": {
-      "available_instance_resource": "circulation",
-      "available_action": "email"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 13,
-    "fields": {
-      "available_instance_resource": "circulation",
-      "available_action": "formtransition"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 14,
-    "fields": {
-      "available_instance_resource": "circulation",
-      "available_action": "php"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 15,
-    "fields": {
-      "available_instance_resource": "circulation",
-      "available_action": "proposal"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 16,
-    "fields": {
-      "available_instance_resource": "circulation",
-      "available_action": "savepdf"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 17,
-    "fields": {
-      "available_instance_resource": "circulation",
-      "available_action": "validate"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 18,
-    "fields": {
-      "available_instance_resource": "editcirculation",
-      "available_action": "checkquery"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 19,
-    "fields": {
-      "available_instance_resource": "editcirculation",
-      "available_action": "email"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20,
-    "fields": {
-      "available_instance_resource": "editcirculation",
-      "available_action": "formtransition"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 21,
-    "fields": {
-      "available_instance_resource": "editcirculation",
-      "available_action": "php"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 22,
-    "fields": {
-      "available_instance_resource": "editcirculation",
-      "available_action": "proposal"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 23,
-    "fields": {
-      "available_instance_resource": "editcirculation",
-      "available_action": "save"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 24,
-    "fields": {
-      "available_instance_resource": "editcirculation",
-      "available_action": "savepdf"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 25,
-    "fields": {
-      "available_instance_resource": "editcirculation",
-      "available_action": "validate"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 26,
-    "fields": {
-      "available_instance_resource": "editcirculation",
-      "available_action": "copyanswer"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
     "pk": 27,
     "fields": {
       "available_instance_resource": "editformpage",
       "available_action": "checkquery"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 28,
-    "fields": {
-      "available_instance_resource": "editformpage",
-      "available_action": "copydata"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 29,
-    "fields": {
-      "available_instance_resource": "editformpage",
-      "available_action": "email"
     }
   },
   {
@@ -50352,26 +47017,10 @@
   },
   {
     "model": "core.instanceresourceaction",
-    "pk": 31,
-    "fields": {
-      "available_instance_resource": "editformpage",
-      "available_action": "location"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
     "pk": 32,
     "fields": {
       "available_instance_resource": "editformpage",
       "available_action": "php"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 33,
-    "fields": {
-      "available_instance_resource": "editformpage",
-      "available_action": "proposal"
     }
   },
   {
@@ -50384,618 +47033,10 @@
   },
   {
     "model": "core.instanceresourceaction",
-    "pk": 35,
-    "fields": {
-      "available_instance_resource": "editformpage",
-      "available_action": "savepdf"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 36,
-    "fields": {
-      "available_instance_resource": "editformpage",
-      "available_action": "validate"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 37,
-    "fields": {
-      "available_instance_resource": "editformpage",
-      "available_action": "copyanswer"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 38,
-    "fields": {
-      "available_instance_resource": "editformpages",
-      "available_action": "checkquery"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 39,
-    "fields": {
-      "available_instance_resource": "editformpages",
-      "available_action": "copydata"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 40,
-    "fields": {
-      "available_instance_resource": "editformpages",
-      "available_action": "email"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 41,
-    "fields": {
-      "available_instance_resource": "editformpages",
-      "available_action": "formtransition"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 42,
-    "fields": {
-      "available_instance_resource": "editformpages",
-      "available_action": "location"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 43,
-    "fields": {
-      "available_instance_resource": "editformpages",
-      "available_action": "php"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 44,
-    "fields": {
-      "available_instance_resource": "editformpages",
-      "available_action": "proposal"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 45,
-    "fields": {
-      "available_instance_resource": "editformpages",
-      "available_action": "save"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 46,
-    "fields": {
-      "available_instance_resource": "editformpages",
-      "available_action": "savepdf"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 47,
-    "fields": {
-      "available_instance_resource": "editformpages",
-      "available_action": "validate"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 100,
-    "fields": {
-      "available_instance_resource": "editformpages",
-      "available_action": "copyanswer"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 101,
-    "fields": {
-      "available_instance_resource": "editletter",
-      "available_action": "checkquery"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 102,
-    "fields": {
-      "available_instance_resource": "editletter",
-      "available_action": "email"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 103,
-    "fields": {
-      "available_instance_resource": "editletter",
-      "available_action": "formtransition"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 104,
-    "fields": {
-      "available_instance_resource": "editletter",
-      "available_action": "php"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 105,
-    "fields": {
-      "available_instance_resource": "editletter",
-      "available_action": "save"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 106,
-    "fields": {
-      "available_instance_resource": "editletter",
-      "available_action": "savepdf"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 107,
-    "fields": {
-      "available_instance_resource": "editletter",
-      "available_action": "validate"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 109,
-    "fields": {
-      "available_instance_resource": "editnotice",
-      "available_action": "checkquery"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 110,
-    "fields": {
-      "available_instance_resource": "editnotice",
-      "available_action": "circulationtransition"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 111,
-    "fields": {
-      "available_instance_resource": "editnotice",
-      "available_action": "email"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 112,
-    "fields": {
-      "available_instance_resource": "editnotice",
-      "available_action": "formtransition"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 113,
-    "fields": {
-      "available_instance_resource": "editnotice",
-      "available_action": "notice"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 114,
-    "fields": {
-      "available_instance_resource": "editnotice",
-      "available_action": "php"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 115,
-    "fields": {
-      "available_instance_resource": "editnotice",
-      "available_action": "proposal"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 116,
-    "fields": {
-      "available_instance_resource": "editnotice",
-      "available_action": "save"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 117,
-    "fields": {
-      "available_instance_resource": "editnotice",
-      "available_action": "savepdf"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 118,
-    "fields": {
-      "available_instance_resource": "editnotice",
-      "available_action": "validate"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 120,
-    "fields": {
-      "available_instance_resource": "formpage",
-      "available_action": "checkquery"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 121,
-    "fields": {
-      "available_instance_resource": "formpage",
-      "available_action": "copydata"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 122,
-    "fields": {
-      "available_instance_resource": "formpage",
-      "available_action": "email"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 123,
-    "fields": {
-      "available_instance_resource": "formpage",
-      "available_action": "formtransition"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 124,
-    "fields": {
-      "available_instance_resource": "formpage",
-      "available_action": "location"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 125,
-    "fields": {
-      "available_instance_resource": "formpage",
-      "available_action": "php"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 126,
-    "fields": {
-      "available_instance_resource": "formpage",
-      "available_action": "proposal"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 127,
-    "fields": {
-      "available_instance_resource": "formpage",
-      "available_action": "savepdf"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 128,
-    "fields": {
-      "available_instance_resource": "formpage",
-      "available_action": "validate"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 130,
-    "fields": {
-      "available_instance_resource": "formpage",
-      "available_action": "copyanswer"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 131,
-    "fields": {
-      "available_instance_resource": "formpages",
-      "available_action": "checkquery"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 132,
-    "fields": {
-      "available_instance_resource": "formpages",
-      "available_action": "copydata"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 133,
-    "fields": {
-      "available_instance_resource": "formpages",
-      "available_action": "email"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 134,
-    "fields": {
-      "available_instance_resource": "formpages",
-      "available_action": "formtransition"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 135,
-    "fields": {
-      "available_instance_resource": "formpages",
-      "available_action": "location"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 136,
-    "fields": {
-      "available_instance_resource": "formpages",
-      "available_action": "php"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 137,
-    "fields": {
-      "available_instance_resource": "formpages",
-      "available_action": "proposal"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 138,
-    "fields": {
-      "available_instance_resource": "formpages",
-      "available_action": "savepdf"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 139,
-    "fields": {
-      "available_instance_resource": "formpages",
-      "available_action": "validate"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 141,
-    "fields": {
-      "available_instance_resource": "formpages",
-      "available_action": "copyanswer"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 142,
-    "fields": {
-      "available_instance_resource": "formwizard",
-      "available_action": "checkquery"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 143,
-    "fields": {
-      "available_instance_resource": "formwizard",
-      "available_action": "copydata"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 144,
-    "fields": {
-      "available_instance_resource": "formwizard",
-      "available_action": "email"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 145,
-    "fields": {
-      "available_instance_resource": "formwizard",
-      "available_action": "formtransition"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 146,
-    "fields": {
-      "available_instance_resource": "formwizard",
-      "available_action": "location"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 147,
-    "fields": {
-      "available_instance_resource": "formwizard",
-      "available_action": "php"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 148,
-    "fields": {
-      "available_instance_resource": "formwizard",
-      "available_action": "proposal"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 150,
-    "fields": {
-      "available_instance_resource": "formwizard",
-      "available_action": "copyanswer"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 151,
-    "fields": {
-      "available_instance_resource": "formwizard",
-      "available_action": "save"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 158,
-    "fields": {
-      "available_instance_resource": "letter",
-      "available_action": "checkquery"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 159,
-    "fields": {
-      "available_instance_resource": "letter",
-      "available_action": "email"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 160,
-    "fields": {
-      "available_instance_resource": "letter",
-      "available_action": "formtransition"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 161,
-    "fields": {
-      "available_instance_resource": "letter",
-      "available_action": "php"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 162,
-    "fields": {
-      "available_instance_resource": "letter",
-      "available_action": "savepdf"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 163,
-    "fields": {
-      "available_instance_resource": "letter",
-      "available_action": "validate"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 165,
-    "fields": {
-      "available_instance_resource": "newform",
-      "available_action": "checkquery"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 166,
-    "fields": {
-      "available_instance_resource": "newform",
-      "available_action": "copydata"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 167,
-    "fields": {
-      "available_instance_resource": "newform",
-      "available_action": "email"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 168,
-    "fields": {
-      "available_instance_resource": "newform",
-      "available_action": "location"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 169,
-    "fields": {
-      "available_instance_resource": "newform",
-      "available_action": "php"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 170,
-    "fields": {
-      "available_instance_resource": "newform",
-      "available_action": "proposal"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 171,
-    "fields": {
-      "available_instance_resource": "newform",
-      "available_action": "save"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 172,
-    "fields": {
-      "available_instance_resource": "newform",
-      "available_action": "savepdf"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 174,
-    "fields": {
-      "available_instance_resource": "newform",
-      "available_action": "copyanswer"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
     "pk": 175,
     "fields": {
       "available_instance_resource": "page",
       "available_action": "checkquery"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 176,
-    "fields": {
-      "available_instance_resource": "page",
-      "available_action": "email"
     }
   },
   {
@@ -51016,313 +47057,9 @@
   },
   {
     "model": "core.instanceresourceaction",
-    "pk": 179,
-    "fields": {
-      "available_instance_resource": "page",
-      "available_action": "proposal"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 180,
-    "fields": {
-      "available_instance_resource": "page",
-      "available_action": "savepdf"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 181,
-    "fields": {
-      "available_instance_resource": "page",
-      "available_action": "validate"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 183,
-    "fields": {
-      "available_instance_resource": "editformpage",
-      "available_action": "deletecirculation"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 184,
-    "fields": {
-      "available_instance_resource": "editformpages",
-      "available_action": "deletecirculation"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 185,
-    "fields": {
-      "available_instance_resource": "formpage",
-      "available_action": "deletecirculation"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 186,
-    "fields": {
-      "available_instance_resource": "formpages",
-      "available_action": "deletecirculation"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 187,
-    "fields": {
-      "available_instance_resource": "allformpages",
-      "available_action": "deletecirculation"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 188,
-    "fields": {
-      "available_instance_resource": "formerror",
-      "available_action": "deletecirculation"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 189,
-    "fields": {
-      "available_instance_resource": "formwizard",
-      "available_action": "deletecirculation"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 190,
-    "fields": {
-      "available_instance_resource": "editcirculation",
-      "available_action": "deletecirculation"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 191,
-    "fields": {
-      "available_instance_resource": "circulation",
-      "available_action": "deletecirculation"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 192,
-    "fields": {
-      "available_instance_resource": "editnotice",
-      "available_action": "deletecirculation"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 193,
-    "fields": {
-      "available_instance_resource": "letter",
-      "available_action": "deletecirculation"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 194,
-    "fields": {
-      "available_instance_resource": "editletter",
-      "available_action": "deletecirculation"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 195,
-    "fields": {
-      "available_instance_resource": "page",
-      "available_action": "deletecirculation"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 196,
-    "fields": {
-      "available_instance_resource": "editformpage",
-      "available_action": "circulationemail"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 197,
-    "fields": {
-      "available_instance_resource": "editformpages",
-      "available_action": "circulationemail"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 198,
-    "fields": {
-      "available_instance_resource": "formpage",
-      "available_action": "circulationemail"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 199,
-    "fields": {
-      "available_instance_resource": "formpages",
-      "available_action": "circulationemail"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 200,
-    "fields": {
-      "available_instance_resource": "allformpages",
-      "available_action": "circulationemail"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 201,
-    "fields": {
-      "available_instance_resource": "formerror",
-      "available_action": "circulationemail"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 202,
-    "fields": {
-      "available_instance_resource": "formwizard",
-      "available_action": "circulationemail"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 203,
-    "fields": {
-      "available_instance_resource": "editcirculation",
-      "available_action": "circulationemail"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 204,
-    "fields": {
-      "available_instance_resource": "circulation",
-      "available_action": "circulationemail"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 205,
-    "fields": {
-      "available_instance_resource": "editnotice",
-      "available_action": "circulationemail"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 206,
-    "fields": {
-      "available_instance_resource": "letter",
-      "available_action": "circulationemail"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 207,
-    "fields": {
-      "available_instance_resource": "editletter",
-      "available_action": "circulationemail"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 208,
-    "fields": {
-      "available_instance_resource": "page",
-      "available_action": "circulationemail"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
     "pk": 209,
     "fields": {
       "available_instance_resource": "editformpage",
-      "available_action": "pageredirect"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 210,
-    "fields": {
-      "available_instance_resource": "editformpages",
-      "available_action": "pageredirect"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 211,
-    "fields": {
-      "available_instance_resource": "formpage",
-      "available_action": "pageredirect"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 212,
-    "fields": {
-      "available_instance_resource": "formpages",
-      "available_action": "pageredirect"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 213,
-    "fields": {
-      "available_instance_resource": "allformpages",
-      "available_action": "pageredirect"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 214,
-    "fields": {
-      "available_instance_resource": "editcirculation",
-      "available_action": "pageredirect"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 215,
-    "fields": {
-      "available_instance_resource": "circulation",
-      "available_action": "pageredirect"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 216,
-    "fields": {
-      "available_instance_resource": "editnotice",
-      "available_action": "pageredirect"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 217,
-    "fields": {
-      "available_instance_resource": "letter",
-      "available_action": "pageredirect"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 218,
-    "fields": {
-      "available_instance_resource": "editletter",
       "available_action": "pageredirect"
     }
   },
@@ -51336,46 +47073,6 @@
   },
   {
     "model": "core.instanceresourceaction",
-    "pk": 220,
-    "fields": {
-      "available_instance_resource": "formwizard",
-      "available_action": "pageredirect"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 10023,
-    "fields": {
-      "available_instance_resource": "allformpages",
-      "available_action": "notification"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 10024,
-    "fields": {
-      "available_instance_resource": "editdecision",
-      "available_action": "notification"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 10026,
-    "fields": {
-      "available_instance_resource": "editdecisionnote",
-      "available_action": "notification"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 10028,
-    "fields": {
-      "available_instance_resource": "newform",
-      "available_action": "notification"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
     "pk": 10029,
     "fields": {
       "available_instance_resource": "service",
@@ -51384,73 +47081,9 @@
   },
   {
     "model": "core.instanceresourceaction",
-    "pk": 10030,
-    "fields": {
-      "available_instance_resource": "letter",
-      "available_action": "notification"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 10031,
-    "fields": {
-      "available_instance_resource": "decision",
-      "available_action": "notification"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 10032,
-    "fields": {
-      "available_instance_resource": "editcirculation",
-      "available_action": "notification"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 10033,
-    "fields": {
-      "available_instance_resource": "editnotice",
-      "available_action": "notification"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 10034,
-    "fields": {
-      "available_instance_resource": "formpage",
-      "available_action": "notification"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
     "pk": 10037,
     "fields": {
       "available_instance_resource": "page",
-      "available_action": "notification"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 10040,
-    "fields": {
-      "available_instance_resource": "editformpages",
-      "available_action": "notification"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 10041,
-    "fields": {
-      "available_instance_resource": "decisionnote",
-      "available_action": "notification"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 10043,
-    "fields": {
-      "available_instance_resource": "circulation",
       "available_action": "notification"
     }
   },
@@ -51472,38 +47105,6 @@
   },
   {
     "model": "core.instanceresourceaction",
-    "pk": 10046,
-    "fields": {
-      "available_instance_resource": "editletter",
-      "available_action": "notification"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 10048,
-    "fields": {
-      "available_instance_resource": "formerror",
-      "available_action": "notification"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 10049,
-    "fields": {
-      "available_instance_resource": "formpages",
-      "available_action": "notification"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 10050,
-    "fields": {
-      "available_instance_resource": "formwizard",
-      "available_action": "notification"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
     "pk": 10052,
     "fields": {
       "available_instance_resource": "editformpage",
@@ -51516,366 +47117,6 @@
     "fields": {
       "available_instance_resource": "auditlog",
       "available_action": "notification"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20050,
-    "fields": {
-      "available_instance_resource": "editformpage",
-      "available_action": "filecheckcontent"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20051,
-    "fields": {
-      "available_instance_resource": "editformpages",
-      "available_action": "filecheckcontent"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20052,
-    "fields": {
-      "available_instance_resource": "formpage",
-      "available_action": "filecheckcontent"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20053,
-    "fields": {
-      "available_instance_resource": "formpages",
-      "available_action": "filecheckcontent"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20054,
-    "fields": {
-      "available_instance_resource": "allformpages",
-      "available_action": "filecheckcontent"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20055,
-    "fields": {
-      "available_instance_resource": "editcirculation",
-      "available_action": "filecheckcontent"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20056,
-    "fields": {
-      "available_instance_resource": "circulation",
-      "available_action": "filecheckcontent"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20057,
-    "fields": {
-      "available_instance_resource": "editnotice",
-      "available_action": "filecheckcontent"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20058,
-    "fields": {
-      "available_instance_resource": "letter",
-      "available_action": "filecheckcontent"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20059,
-    "fields": {
-      "available_instance_resource": "editletter",
-      "available_action": "filecheckcontent"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20060,
-    "fields": {
-      "available_instance_resource": "page",
-      "available_action": "filecheckcontent"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20061,
-    "fields": {
-      "available_instance_resource": "formwizard",
-      "available_action": "filecheckcontent"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20067,
-    "fields": {
-      "available_instance_resource": "editformpage",
-      "available_action": "filesavepdf"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20068,
-    "fields": {
-      "available_instance_resource": "editformpages",
-      "available_action": "filesavepdf"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20069,
-    "fields": {
-      "available_instance_resource": "formpage",
-      "available_action": "filesavepdf"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20070,
-    "fields": {
-      "available_instance_resource": "formpages",
-      "available_action": "filesavepdf"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20071,
-    "fields": {
-      "available_instance_resource": "allformpages",
-      "available_action": "filesavepdf"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20072,
-    "fields": {
-      "available_instance_resource": "editcirculation",
-      "available_action": "filesavepdf"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20073,
-    "fields": {
-      "available_instance_resource": "circulation",
-      "available_action": "filesavepdf"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20074,
-    "fields": {
-      "available_instance_resource": "editnotice",
-      "available_action": "filesavepdf"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20075,
-    "fields": {
-      "available_instance_resource": "letter",
-      "available_action": "filesavepdf"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20076,
-    "fields": {
-      "available_instance_resource": "editletter",
-      "available_action": "filesavepdf"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20077,
-    "fields": {
-      "available_instance_resource": "page",
-      "available_action": "filesavepdf"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20078,
-    "fields": {
-      "available_instance_resource": "editdecision",
-      "available_action": "save"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20079,
-    "fields": {
-      "available_instance_resource": "editdecision",
-      "available_action": "email"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20080,
-    "fields": {
-      "available_instance_resource": "editdecision",
-      "available_action": "formtransition"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20081,
-    "fields": {
-      "available_instance_resource": "editdecision",
-      "available_action": "checkquery"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20082,
-    "fields": {
-      "available_instance_resource": "editdecision",
-      "available_action": "php"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20083,
-    "fields": {
-      "available_instance_resource": "editdecision",
-      "available_action": "savepdf"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20084,
-    "fields": {
-      "available_instance_resource": "editdecision",
-      "available_action": "validate"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20085,
-    "fields": {
-      "available_instance_resource": "decision",
-      "available_action": "email"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20086,
-    "fields": {
-      "available_instance_resource": "decision",
-      "available_action": "filecheckcontent"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20087,
-    "fields": {
-      "available_instance_resource": "decision",
-      "available_action": "formtransition"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20088,
-    "fields": {
-      "available_instance_resource": "decision",
-      "available_action": "php"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20089,
-    "fields": {
-      "available_instance_resource": "decision",
-      "available_action": "validate"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20090,
-    "fields": {
-      "available_instance_resource": "editdecisionnote",
-      "available_action": "save"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20091,
-    "fields": {
-      "available_instance_resource": "editdecisionnote",
-      "available_action": "checkquery"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20092,
-    "fields": {
-      "available_instance_resource": "editdecisionnote",
-      "available_action": "email"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20093,
-    "fields": {
-      "available_instance_resource": "editdecisionnote",
-      "available_action": "php"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20094,
-    "fields": {
-      "available_instance_resource": "decisionnote",
-      "available_action": "checkquery"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20095,
-    "fields": {
-      "available_instance_resource": "decisionnote",
-      "available_action": "email"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20096,
-    "fields": {
-      "available_instance_resource": "decisionnote",
-      "available_action": "php"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20097,
-    "fields": {
-      "available_instance_resource": "editdecision",
-      "available_action": "decisiontransition"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20098,
-    "fields": {
-      "available_instance_resource": "editdecisionnote",
-      "available_action": "decisiontransition"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 20099,
-    "fields": {
-      "available_instance_resource": "decisionnote",
-      "available_action": "decisiontransition"
     }
   },
   {
@@ -51896,57 +47137,9 @@
   },
   {
     "model": "core.instanceresourceaction",
-    "pk": 40006,
-    "fields": {
-      "available_instance_resource": "letter",
-      "available_action": "addhistory"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 40007,
-    "fields": {
-      "available_instance_resource": "decision",
-      "available_action": "addhistory"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 40008,
-    "fields": {
-      "available_instance_resource": "editnotice",
-      "available_action": "addhistory"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 40009,
-    "fields": {
-      "available_instance_resource": "decisionnote",
-      "available_action": "addhistory"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 40010,
-    "fields": {
-      "available_instance_resource": "circulation",
-      "available_action": "addhistory"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
     "pk": 40011,
     "fields": {
       "available_instance_resource": "notification",
-      "available_action": "addhistory"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 40012,
-    "fields": {
-      "available_instance_resource": "editletter",
       "available_action": "addhistory"
     }
   },
@@ -51960,57 +47153,9 @@
   },
   {
     "model": "core.instanceresourceaction",
-    "pk": 40016,
-    "fields": {
-      "available_instance_resource": "editdecision",
-      "available_action": "addhistory"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 40018,
-    "fields": {
-      "available_instance_resource": "newform",
-      "available_action": "addhistory"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 40019,
-    "fields": {
-      "available_instance_resource": "editcirculation",
-      "available_action": "addhistory"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
     "pk": 40021,
     "fields": {
       "available_instance_resource": "apidocuments",
-      "available_action": "addhistory"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 40025,
-    "fields": {
-      "available_instance_resource": "formerror",
-      "available_action": "addhistory"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 40026,
-    "fields": {
-      "available_instance_resource": "formpages",
-      "available_action": "addhistory"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 40027,
-    "fields": {
-      "available_instance_resource": "formwizard",
       "available_action": "addhistory"
     }
   },
@@ -52032,22 +47177,6 @@
   },
   {
     "model": "core.instanceresourceaction",
-    "pk": 40031,
-    "fields": {
-      "available_instance_resource": "allformpages",
-      "available_action": "addhistory"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 40032,
-    "fields": {
-      "available_instance_resource": "editdecisionnote",
-      "available_action": "addhistory"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
     "pk": 40033,
     "fields": {
       "available_instance_resource": "service",
@@ -52064,34 +47193,10 @@
   },
   {
     "model": "core.instanceresourceaction",
-    "pk": 40035,
-    "fields": {
-      "available_instance_resource": "editformpages",
-      "available_action": "addhistory"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
     "pk": 40036,
     "fields": {
       "available_instance_resource": "revisionhistory",
       "available_action": "addhistory"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 40040,
-    "fields": {
-      "available_instance_resource": "formpage",
-      "available_action": "addhistory"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 150000,
-    "fields": {
-      "available_instance_resource": "newform",
-      "available_action": "workitem"
     }
   },
   {
@@ -52104,33 +47209,9 @@
   },
   {
     "model": "core.instanceresourceaction",
-    "pk": 150003,
-    "fields": {
-      "available_instance_resource": "decisionnote",
-      "available_action": "workitem"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 150005,
-    "fields": {
-      "available_instance_resource": "editdecisionnote",
-      "available_action": "workitem"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
     "pk": 150006,
     "fields": {
       "available_instance_resource": "claim",
-      "available_action": "workitem"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 150008,
-    "fields": {
-      "available_instance_resource": "formerror",
       "available_action": "workitem"
     }
   },
@@ -52152,57 +47233,9 @@
   },
   {
     "model": "core.instanceresourceaction",
-    "pk": 150012,
-    "fields": {
-      "available_instance_resource": "editdecision",
-      "available_action": "workitem"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 150013,
-    "fields": {
-      "available_instance_resource": "decision",
-      "available_action": "workitem"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 150014,
-    "fields": {
-      "available_instance_resource": "formpages",
-      "available_action": "workitem"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 150015,
-    "fields": {
-      "available_instance_resource": "allformpages",
-      "available_action": "workitem"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 150016,
-    "fields": {
-      "available_instance_resource": "editformpages",
-      "available_action": "workitem"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
     "pk": 150019,
     "fields": {
       "available_instance_resource": "notification",
-      "available_action": "workitem"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 150020,
-    "fields": {
-      "available_instance_resource": "formpage",
       "available_action": "workitem"
     }
   },
@@ -52216,25 +47249,9 @@
   },
   {
     "model": "core.instanceresourceaction",
-    "pk": 150022,
-    "fields": {
-      "available_instance_resource": "editcirculation",
-      "available_action": "workitem"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
     "pk": 150024,
     "fields": {
       "available_instance_resource": "revisionhistory",
-      "available_action": "workitem"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 150026,
-    "fields": {
-      "available_instance_resource": "formwizard",
       "available_action": "workitem"
     }
   },
@@ -52248,41 +47265,9 @@
   },
   {
     "model": "core.instanceresourceaction",
-    "pk": 150032,
-    "fields": {
-      "available_instance_resource": "editletter",
-      "available_action": "workitem"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 150033,
-    "fields": {
-      "available_instance_resource": "editnotice",
-      "available_action": "workitem"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
     "pk": 150034,
     "fields": {
       "available_instance_resource": "billing",
-      "available_action": "workitem"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 150036,
-    "fields": {
-      "available_instance_resource": "letter",
-      "available_action": "workitem"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 150037,
-    "fields": {
-      "available_instance_resource": "circulation",
       "available_action": "workitem"
     }
   },
@@ -52304,41 +47289,9 @@
   },
   {
     "model": "core.instanceresourceaction",
-    "pk": 150041,
-    "fields": {
-      "available_instance_resource": "letter",
-      "available_action": "case"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 150042,
-    "fields": {
-      "available_instance_resource": "circulation",
-      "available_action": "case"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
     "pk": 150043,
     "fields": {
       "available_instance_resource": "editformpage",
-      "available_action": "case"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 150044,
-    "fields": {
-      "available_instance_resource": "editletter",
-      "available_action": "case"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 150045,
-    "fields": {
-      "available_instance_resource": "editnotice",
       "available_action": "case"
     }
   },
@@ -52352,25 +47305,9 @@
   },
   {
     "model": "core.instanceresourceaction",
-    "pk": 150050,
-    "fields": {
-      "available_instance_resource": "editcirculation",
-      "available_action": "case"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
     "pk": 150051,
     "fields": {
       "available_instance_resource": "revisionhistory",
-      "available_action": "case"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 150053,
-    "fields": {
-      "available_instance_resource": "formwizard",
       "available_action": "case"
     }
   },
@@ -52384,57 +47321,9 @@
   },
   {
     "model": "core.instanceresourceaction",
-    "pk": 150059,
-    "fields": {
-      "available_instance_resource": "formpage",
-      "available_action": "case"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
     "pk": 150060,
     "fields": {
       "available_instance_resource": "auditlog",
-      "available_action": "case"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 150061,
-    "fields": {
-      "available_instance_resource": "editdecision",
-      "available_action": "case"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 150062,
-    "fields": {
-      "available_instance_resource": "decision",
-      "available_action": "case"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 150063,
-    "fields": {
-      "available_instance_resource": "formpages",
-      "available_action": "case"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 150064,
-    "fields": {
-      "available_instance_resource": "allformpages",
-      "available_action": "case"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 150065,
-    "fields": {
-      "available_instance_resource": "editformpages",
       "available_action": "case"
     }
   },
@@ -52456,14 +47345,6 @@
   },
   {
     "model": "core.instanceresourceaction",
-    "pk": 150069,
-    "fields": {
-      "available_instance_resource": "formerror",
-      "available_action": "case"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
     "pk": 150070,
     "fields": {
       "available_instance_resource": "service",
@@ -52480,33 +47361,9 @@
   },
   {
     "model": "core.instanceresourceaction",
-    "pk": 150073,
-    "fields": {
-      "available_instance_resource": "newform",
-      "available_action": "case"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
     "pk": 150074,
     "fields": {
       "available_instance_resource": "apidocuments",
-      "available_action": "case"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 150075,
-    "fields": {
-      "available_instance_resource": "decisionnote",
-      "available_action": "case"
-    }
-  },
-  {
-    "model": "core.instanceresourceaction",
-    "pk": 150078,
-    "fields": {
-      "available_instance_resource": "editdecisionnote",
       "available_action": "case"
     }
   },
@@ -52518,56 +47375,6 @@
       "language": "de",
       "name": "Gebühren",
       "description": "billing"
-    }
-  },
-  {
-    "model": "core.instanceresourcet",
-    "pk": 20004,
-    "fields": {
-      "instance_resource": 20004,
-      "language": "de",
-      "name": "Zirkulation",
-      "description": null
-    }
-  },
-  {
-    "model": "core.instanceresourcet",
-    "pk": 20006,
-    "fields": {
-      "instance_resource": 20006,
-      "language": "de",
-      "name": "Stellungnahmen",
-      "description": null
-    }
-  },
-  {
-    "model": "core.instanceresourcet",
-    "pk": 20008,
-    "fields": {
-      "instance_resource": 20008,
-      "language": "de",
-      "name": "Stellungnahme / Nachforderung verfassen",
-      "description": null
-    }
-  },
-  {
-    "model": "core.instanceresourcet",
-    "pk": 20009,
-    "fields": {
-      "instance_resource": 20009,
-      "language": "de",
-      "name": "Subzirkulation",
-      "description": null
-    }
-  },
-  {
-    "model": "core.instanceresourcet",
-    "pk": 20010,
-    "fields": {
-      "instance_resource": 20010,
-      "language": "de",
-      "name": "Eingegangene Stellungnahmen",
-      "description": null
     }
   },
   {
@@ -52627,56 +47434,6 @@
       "instance_resource": 20029,
       "language": "de",
       "name": "Dossier zurückweisen",
-      "description": null
-    }
-  },
-  {
-    "model": "core.instanceresourcet",
-    "pk": 20036,
-    "fields": {
-      "instance_resource": 20036,
-      "language": "de",
-      "name": "Rückmeldungen Fachstellen",
-      "description": null
-    }
-  },
-  {
-    "model": "core.instanceresourcet",
-    "pk": 20039,
-    "fields": {
-      "instance_resource": 20039,
-      "language": "de",
-      "name": "Stellungnahme verfassen",
-      "description": null
-    }
-  },
-  {
-    "model": "core.instanceresourcet",
-    "pk": 20040,
-    "fields": {
-      "instance_resource": 20040,
-      "language": "de",
-      "name": "Subzirkulation",
-      "description": null
-    }
-  },
-  {
-    "model": "core.instanceresourcet",
-    "pk": 20041,
-    "fields": {
-      "instance_resource": 20041,
-      "language": "de",
-      "name": "Stellungnahmen",
-      "description": null
-    }
-  },
-  {
-    "model": "core.instanceresourcet",
-    "pk": 20042,
-    "fields": {
-      "instance_resource": 20042,
-      "language": "de",
-      "name": "Eingegangene Stellungnahmen",
       "description": null
     }
   },
@@ -52852,56 +47609,6 @@
   },
   {
     "model": "core.instanceresourcet",
-    "pk": 120014,
-    "fields": {
-      "instance_resource": 20004,
-      "language": "fr",
-      "name": "Procédure de circulation",
-      "description": null
-    }
-  },
-  {
-    "model": "core.instanceresourcet",
-    "pk": 120015,
-    "fields": {
-      "instance_resource": 20006,
-      "language": "fr",
-      "name": "Prises de position",
-      "description": null
-    }
-  },
-  {
-    "model": "core.instanceresourcet",
-    "pk": 120016,
-    "fields": {
-      "instance_resource": 20008,
-      "language": "fr",
-      "name": "Rédiger préavis / demande de complément",
-      "description": null
-    }
-  },
-  {
-    "model": "core.instanceresourcet",
-    "pk": 120017,
-    "fields": {
-      "instance_resource": 20009,
-      "language": "fr",
-      "name": "Procédure de circulation surbordonnée",
-      "description": null
-    }
-  },
-  {
-    "model": "core.instanceresourcet",
-    "pk": 120018,
-    "fields": {
-      "instance_resource": 20010,
-      "language": "fr",
-      "name": "Prises de position reçues",
-      "description": null
-    }
-  },
-  {
-    "model": "core.instanceresourcet",
     "pk": 120019,
     "fields": {
       "instance_resource": 20011,
@@ -52957,56 +47664,6 @@
       "instance_resource": 20029,
       "language": "fr",
       "name": "Renvoyer le dossier",
-      "description": null
-    }
-  },
-  {
-    "model": "core.instanceresourcet",
-    "pk": 120039,
-    "fields": {
-      "instance_resource": 20036,
-      "language": "fr",
-      "name": "Préavis offices/services spécialisés",
-      "description": null
-    }
-  },
-  {
-    "model": "core.instanceresourcet",
-    "pk": 120042,
-    "fields": {
-      "instance_resource": 20039,
-      "language": "fr",
-      "name": "Rédiger une prise de position",
-      "description": null
-    }
-  },
-  {
-    "model": "core.instanceresourcet",
-    "pk": 120043,
-    "fields": {
-      "instance_resource": 20040,
-      "language": "fr",
-      "name": "Procédure de circulation surbordonnée",
-      "description": null
-    }
-  },
-  {
-    "model": "core.instanceresourcet",
-    "pk": 120044,
-    "fields": {
-      "instance_resource": 20041,
-      "language": "fr",
-      "name": "Prises de position",
-      "description": null
-    }
-  },
-  {
-    "model": "core.instanceresourcet",
-    "pk": 120045,
-    "fields": {
-      "instance_resource": 20042,
-      "language": "fr",
-      "name": "Prises de position reçues",
       "description": null
     }
   },
@@ -53671,218 +48328,11 @@
     }
   },
   {
-    "model": "core.ircirculation",
-    "pk": 20006,
-    "fields": {
-      "circulation_type": 20000,
-      "service": null,
-      "draft_circulation_answer": null,
-      "show_notice": 2,
-      "show_history": 0,
-      "show_all_children": 0,
-      "read_notice_template": "/circulation/read-notice.phtml",
-      "pdf_class": null,
-      "service_to_be_interpreted": "[SERVICE_ID]"
-    }
-  },
-  {
-    "model": "core.ircirculation",
-    "pk": 20010,
-    "fields": {
-      "circulation_type": 20000,
-      "service": null,
-      "draft_circulation_answer": null,
-      "show_notice": 2,
-      "show_history": 0,
-      "show_all_children": 0,
-      "read_notice_template": "/circulation/read-notice.phtml",
-      "pdf_class": null,
-      "service_to_be_interpreted": "[SERVICE_ID]"
-    }
-  },
-  {
-    "model": "core.ircirculation",
-    "pk": 20036,
-    "fields": {
-      "circulation_type": 20000,
-      "service": null,
-      "draft_circulation_answer": 20000,
-      "show_notice": 2,
-      "show_history": 0,
-      "show_all_children": 0,
-      "read_notice_template": "/circulation/read-notice.phtml",
-      "pdf_class": null,
-      "service_to_be_interpreted": "[CIRCULATION_LEITBEHOERDE_ID]"
-    }
-  },
-  {
-    "model": "core.ircirculation",
-    "pk": 20041,
-    "fields": {
-      "circulation_type": 20000,
-      "service": null,
-      "draft_circulation_answer": 20000,
-      "show_notice": 2,
-      "show_history": 0,
-      "show_all_children": 0,
-      "read_notice_template": "/circulation/read-notice.phtml",
-      "pdf_class": null,
-      "service_to_be_interpreted": "[CIRCULATION_LEITBEHOERDE_ID]"
-    }
-  },
-  {
-    "model": "core.ircirculation",
-    "pk": 20042,
-    "fields": {
-      "circulation_type": 20000,
-      "service": null,
-      "draft_circulation_answer": null,
-      "show_notice": 2,
-      "show_history": 0,
-      "show_all_children": 0,
-      "read_notice_template": "/circulation/read-notice.phtml",
-      "pdf_class": null,
-      "service_to_be_interpreted": "[SERVICE_ID]"
-    }
-  },
-  {
-    "model": "core.ireditcirculation",
-    "pk": 20004,
-    "fields": {
-      "circulation_type": 20000,
-      "draft_circulation_answer": null,
-      "show_notice": 0,
-      "add_template": null,
-      "add_activation_template": null,
-      "read_notice_template": null,
-      "pdf_class": null,
-      "default_circulation_name": null,
-      "single_circulation": 0,
-      "inherit_notices": 0,
-      "display_first_circulation": 0,
-      "circulation_email_action_id": null
-    }
-  },
-  {
-    "model": "core.ireditcirculation",
-    "pk": 20009,
-    "fields": {
-      "circulation_type": 20000,
-      "draft_circulation_answer": null,
-      "show_notice": 0,
-      "add_template": null,
-      "add_activation_template": null,
-      "read_notice_template": null,
-      "pdf_class": null,
-      "default_circulation_name": null,
-      "single_circulation": 0,
-      "inherit_notices": 0,
-      "display_first_circulation": 0,
-      "circulation_email_action_id": null
-    }
-  },
-  {
-    "model": "core.ireditcirculation",
-    "pk": 20040,
-    "fields": {
-      "circulation_type": 20000,
-      "draft_circulation_answer": null,
-      "show_notice": 0,
-      "add_template": null,
-      "add_activation_template": null,
-      "read_notice_template": null,
-      "pdf_class": null,
-      "default_circulation_name": null,
-      "single_circulation": 0,
-      "inherit_notices": 0,
-      "display_first_circulation": 0,
-      "circulation_email_action_id": null
-    }
-  },
-  {
-    "model": "core.ireditcirculationsg",
-    "pk": 20000,
-    "fields": {
-      "instance_resource": 20004,
-      "service_group": 1,
-      "localized": 0
-    }
-  },
-  {
-    "model": "core.ireditcirculationsg",
-    "pk": 20006,
-    "fields": {
-      "instance_resource": 20004,
-      "service_group": 2,
-      "localized": 0
-    }
-  },
-  {
-    "model": "core.ireditcirculationsg",
-    "pk": 20007,
-    "fields": {
-      "instance_resource": 20004,
-      "service_group": 20000,
-      "localized": 0
-    }
-  },
-  {
-    "model": "core.ireditcirculationt",
-    "pk": 20000,
-    "fields": {
-      "instance_resource": 20004,
-      "language": "de",
-      "default_circulation_name": "Erste Zirkulation"
-    }
-  },
-  {
-    "model": "core.ireditcirculationt",
-    "pk": 20001,
-    "fields": {
-      "instance_resource": 20009,
-      "language": "de",
-      "default_circulation_name": "Subzirkulation"
-    }
-  },
-  {
-    "model": "core.ireditcirculationt",
-    "pk": 20002,
-    "fields": {
-      "instance_resource": 20040,
-      "language": "de",
-      "default_circulation_name": "Subzirkulation"
-    }
-  },
-  {
     "model": "core.ireditformpage",
     "pk": 20029,
     "fields": {
       "page": 20001,
       "pdf_class": null
-    }
-  },
-  {
-    "model": "core.ireditnotice",
-    "pk": 20008,
-    "fields": {
-      "circulation_type": 20000,
-      "editable_after_deadline": 1,
-      "pdf_class": null,
-      "edit_notice_template": "/circulation/edit-notice.phtml",
-      "hide_answered_notices": 0,
-      "is_always_editable": 0
-    }
-  },
-  {
-    "model": "core.ireditnotice",
-    "pk": 20039,
-    "fields": {
-      "circulation_type": 20000,
-      "editable_after_deadline": 1,
-      "pdf_class": null,
-      "edit_notice_template": "/circulation/edit-notice.phtml",
-      "hide_answered_notices": 0,
-      "is_always_editable": 0
     }
   },
   {
@@ -54078,91 +48528,10 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 20012,
-    "fields": {
-      "instance_resource": 20004,
-      "role": 3,
-      "instance_state": 20003
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 20013,
-    "fields": {
-      "instance_resource": 20004,
-      "role": 3,
-      "instance_state": 20004
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 20015,
-    "fields": {
-      "instance_resource": 20006,
-      "role": 3,
-      "instance_state": 20004
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 20016,
-    "fields": {
-      "instance_resource": 20006,
-      "role": 3,
-      "instance_state": 20005
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 20018,
-    "fields": {
-      "instance_resource": 20008,
-      "role": 4,
-      "instance_state": 20004
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 20021,
-    "fields": {
-      "instance_resource": 20009,
-      "role": 4,
-      "instance_state": 20004
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 20023,
-    "fields": {
-      "instance_resource": 20008,
-      "role": 20000,
-      "instance_state": 20004
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 20024,
-    "fields": {
-      "instance_resource": 20010,
-      "role": 4,
-      "instance_state": 20004
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 20026,
     "fields": {
       "instance_resource": 20012,
       "role": 3,
-      "instance_state": 20005
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 20039,
-    "fields": {
-      "instance_resource": 20010,
-      "role": 4,
       "instance_state": 20005
     }
   },
@@ -54249,24 +48618,6 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 20123,
-    "fields": {
-      "instance_resource": 20004,
-      "role": 3,
-      "instance_state": 20005
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 20136,
-    "fields": {
-      "instance_resource": 20006,
-      "role": 3,
-      "instance_state": 10000
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 20137,
     "fields": {
       "instance_resource": 10000,
@@ -54308,51 +48659,6 @@
       "instance_resource": 20029,
       "role": 3,
       "instance_state": 20003
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 20169,
-    "fields": {
-      "instance_resource": 20036,
-      "role": 4,
-      "instance_state": 20004
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 20170,
-    "fields": {
-      "instance_resource": 20036,
-      "role": 20000,
-      "instance_state": 20004
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 20180,
-    "fields": {
-      "instance_resource": 20006,
-      "role": 20003,
-      "instance_state": 20004
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 20181,
-    "fields": {
-      "instance_resource": 20006,
-      "role": 20003,
-      "instance_state": 20005
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 20182,
-    "fields": {
-      "instance_resource": 20006,
-      "role": 20003,
-      "instance_state": 10000
     }
   },
   {
@@ -54411,78 +48717,6 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 20312,
-    "fields": {
-      "instance_resource": 20036,
-      "role": 4,
-      "instance_state": 20005
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 20313,
-    "fields": {
-      "instance_resource": 20036,
-      "role": 4,
-      "instance_state": 10000
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 20316,
-    "fields": {
-      "instance_resource": 20036,
-      "role": 20000,
-      "instance_state": 20005
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 20317,
-    "fields": {
-      "instance_resource": 20036,
-      "role": 20000,
-      "instance_state": 10000
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 20370,
-    "fields": {
-      "instance_resource": 20010,
-      "role": 4,
-      "instance_state": 10000
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 20373,
-    "fields": {
-      "instance_resource": 20010,
-      "role": 20002,
-      "instance_state": 20004
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 20374,
-    "fields": {
-      "instance_resource": 20010,
-      "role": 20002,
-      "instance_state": 20005
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 20375,
-    "fields": {
-      "instance_resource": 20010,
-      "role": 20002,
-      "instance_state": 10000
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 20378,
     "fields": {
       "instance_resource": 20016,
@@ -54524,96 +48758,6 @@
       "instance_resource": 20020,
       "role": 20000,
       "instance_state": 10000
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 20468,
-    "fields": {
-      "instance_resource": 20039,
-      "role": 3,
-      "instance_state": 20004
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 20469,
-    "fields": {
-      "instance_resource": 20040,
-      "role": 3,
-      "instance_state": 20004
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 20471,
-    "fields": {
-      "instance_resource": 20041,
-      "role": 3,
-      "instance_state": 20004
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 20472,
-    "fields": {
-      "instance_resource": 20041,
-      "role": 3,
-      "instance_state": 20005
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 20473,
-    "fields": {
-      "instance_resource": 20041,
-      "role": 3,
-      "instance_state": 10000
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 20476,
-    "fields": {
-      "instance_resource": 20042,
-      "role": 3,
-      "instance_state": 20004
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 20477,
-    "fields": {
-      "instance_resource": 20042,
-      "role": 3,
-      "instance_state": 20005
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 20478,
-    "fields": {
-      "instance_resource": 20042,
-      "role": 3,
-      "instance_state": 10000
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 20502,
-    "fields": {
-      "instance_resource": 20006,
-      "role": 20003,
-      "instance_state": 20010
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 20503,
-    "fields": {
-      "instance_resource": 20006,
-      "role": 3,
-      "instance_state": 20010
     }
   },
   {
@@ -56252,33 +50396,6 @@
       "instance_resource": 20011,
       "role": 3,
       "instance_state": 20000
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 120042,
-    "fields": {
-      "instance_resource": 20006,
-      "role": 3,
-      "instance_state": 20011
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 120043,
-    "fields": {
-      "instance_resource": 20006,
-      "role": 3,
-      "instance_state": 20013
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 120044,
-    "fields": {
-      "instance_resource": 20006,
-      "role": 3,
-      "instance_state": 120000
     }
   },
   {
@@ -58236,141 +52353,6 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 150207,
-    "fields": {
-      "instance_resource": 20041,
-      "role": 3,
-      "instance_state": 20010
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 150208,
-    "fields": {
-      "instance_resource": 20041,
-      "role": 3,
-      "instance_state": 20011
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 150209,
-    "fields": {
-      "instance_resource": 20041,
-      "role": 3,
-      "instance_state": 20013
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 150210,
-    "fields": {
-      "instance_resource": 20041,
-      "role": 3,
-      "instance_state": 20014
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 150211,
-    "fields": {
-      "instance_resource": 20041,
-      "role": 3,
-      "instance_state": 120000
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 150212,
-    "fields": {
-      "instance_resource": 20042,
-      "role": 3,
-      "instance_state": 20010
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 150213,
-    "fields": {
-      "instance_resource": 20042,
-      "role": 3,
-      "instance_state": 20011
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 150214,
-    "fields": {
-      "instance_resource": 20042,
-      "role": 3,
-      "instance_state": 20013
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 150215,
-    "fields": {
-      "instance_resource": 20042,
-      "role": 3,
-      "instance_state": 20014
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 150216,
-    "fields": {
-      "instance_resource": 20042,
-      "role": 3,
-      "instance_state": 120000
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 150217,
-    "fields": {
-      "instance_resource": 20006,
-      "role": 20003,
-      "instance_state": 20011
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 150218,
-    "fields": {
-      "instance_resource": 20006,
-      "role": 20003,
-      "instance_state": 20013
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 150219,
-    "fields": {
-      "instance_resource": 20006,
-      "role": 20003,
-      "instance_state": 20014
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 150220,
-    "fields": {
-      "instance_resource": 20006,
-      "role": 20003,
-      "instance_state": 120000
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 150221,
-    "fields": {
-      "instance_resource": 20006,
-      "role": 3,
-      "instance_state": 20014
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 150226,
     "fields": {
       "instance_resource": 20019,
@@ -59397,60 +53379,6 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 12000037,
-    "fields": {
-      "instance_resource": 20041,
-      "role": 20003,
-      "instance_state": 20009
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12000038,
-    "fields": {
-      "instance_resource": 20041,
-      "role": 3,
-      "instance_state": 20009
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12000039,
-    "fields": {
-      "instance_resource": 20042,
-      "role": 20003,
-      "instance_state": 20009
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12000040,
-    "fields": {
-      "instance_resource": 20042,
-      "role": 3,
-      "instance_state": 20009
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12000041,
-    "fields": {
-      "instance_resource": 20006,
-      "role": 20003,
-      "instance_state": 20009
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12000042,
-    "fields": {
-      "instance_resource": 20006,
-      "role": 3,
-      "instance_state": 20009
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 12000043,
     "fields": {
       "instance_resource": 150009,
@@ -59796,51 +53724,6 @@
     "pk": 12000083,
     "fields": {
       "instance_resource": 150010,
-      "role": 20000,
-      "instance_state": 20009
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12000084,
-    "fields": {
-      "instance_resource": 20010,
-      "role": 20002,
-      "instance_state": 20009
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12000085,
-    "fields": {
-      "instance_resource": 20010,
-      "role": 4,
-      "instance_state": 20009
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12000086,
-    "fields": {
-      "instance_resource": 20036,
-      "role": 20002,
-      "instance_state": 20009
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12000087,
-    "fields": {
-      "instance_resource": 20036,
-      "role": 4,
-      "instance_state": 20009
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12000088,
-    "fields": {
-      "instance_resource": 20036,
       "role": 20000,
       "instance_state": 20009
     }
@@ -60905,258 +54788,6 @@
       "instance_resource": 150010,
       "role": 20000,
       "instance_state": 120003
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000066,
-    "fields": {
-      "instance_resource": 20010,
-      "role": 20002,
-      "instance_state": 20010
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000067,
-    "fields": {
-      "instance_resource": 20010,
-      "role": 20002,
-      "instance_state": 20011
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000068,
-    "fields": {
-      "instance_resource": 20010,
-      "role": 20002,
-      "instance_state": 20013
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000069,
-    "fields": {
-      "instance_resource": 20010,
-      "role": 20002,
-      "instance_state": 20014
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000070,
-    "fields": {
-      "instance_resource": 20010,
-      "role": 20002,
-      "instance_state": 120000
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000074,
-    "fields": {
-      "instance_resource": 20010,
-      "role": 4,
-      "instance_state": 20010
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000075,
-    "fields": {
-      "instance_resource": 20010,
-      "role": 4,
-      "instance_state": 20011
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000076,
-    "fields": {
-      "instance_resource": 20010,
-      "role": 4,
-      "instance_state": 20013
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000077,
-    "fields": {
-      "instance_resource": 20010,
-      "role": 4,
-      "instance_state": 20014
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000078,
-    "fields": {
-      "instance_resource": 20010,
-      "role": 4,
-      "instance_state": 120000
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000082,
-    "fields": {
-      "instance_resource": 20036,
-      "role": 4,
-      "instance_state": 20010
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000083,
-    "fields": {
-      "instance_resource": 20036,
-      "role": 4,
-      "instance_state": 20011
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000084,
-    "fields": {
-      "instance_resource": 20036,
-      "role": 4,
-      "instance_state": 20013
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000085,
-    "fields": {
-      "instance_resource": 20036,
-      "role": 4,
-      "instance_state": 20014
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000086,
-    "fields": {
-      "instance_resource": 20036,
-      "role": 4,
-      "instance_state": 120000
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000090,
-    "fields": {
-      "instance_resource": 20036,
-      "role": 20000,
-      "instance_state": 20010
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000091,
-    "fields": {
-      "instance_resource": 20036,
-      "role": 20000,
-      "instance_state": 20011
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000092,
-    "fields": {
-      "instance_resource": 20036,
-      "role": 20000,
-      "instance_state": 20013
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000093,
-    "fields": {
-      "instance_resource": 20036,
-      "role": 20000,
-      "instance_state": 20014
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000094,
-    "fields": {
-      "instance_resource": 20036,
-      "role": 20000,
-      "instance_state": 120000
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000098,
-    "fields": {
-      "instance_resource": 20036,
-      "role": 20002,
-      "instance_state": 20004
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000099,
-    "fields": {
-      "instance_resource": 20036,
-      "role": 20002,
-      "instance_state": 20005
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000100,
-    "fields": {
-      "instance_resource": 20036,
-      "role": 20002,
-      "instance_state": 20010
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000101,
-    "fields": {
-      "instance_resource": 20036,
-      "role": 20002,
-      "instance_state": 20011
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000102,
-    "fields": {
-      "instance_resource": 20036,
-      "role": 20002,
-      "instance_state": 20013
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000103,
-    "fields": {
-      "instance_resource": 20036,
-      "role": 20002,
-      "instance_state": 20014
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000104,
-    "fields": {
-      "instance_resource": 20036,
-      "role": 20002,
-      "instance_state": 10000
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000105,
-    "fields": {
-      "instance_resource": 20036,
-      "role": 20002,
-      "instance_state": 120000
     }
   },
   {
@@ -62309,150 +55940,6 @@
       "instance_resource": 150009,
       "role": 20003,
       "instance_state": 120003
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000243,
-    "fields": {
-      "instance_resource": 20042,
-      "role": 20003,
-      "instance_state": 20004
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000244,
-    "fields": {
-      "instance_resource": 20042,
-      "role": 20003,
-      "instance_state": 20005
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000245,
-    "fields": {
-      "instance_resource": 20042,
-      "role": 20003,
-      "instance_state": 20010
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000246,
-    "fields": {
-      "instance_resource": 20042,
-      "role": 20003,
-      "instance_state": 20011
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000247,
-    "fields": {
-      "instance_resource": 20042,
-      "role": 20003,
-      "instance_state": 20013
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000248,
-    "fields": {
-      "instance_resource": 20042,
-      "role": 20003,
-      "instance_state": 20014
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000249,
-    "fields": {
-      "instance_resource": 20042,
-      "role": 20003,
-      "instance_state": 10000
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000250,
-    "fields": {
-      "instance_resource": 20042,
-      "role": 20003,
-      "instance_state": 120000
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000251,
-    "fields": {
-      "instance_resource": 20041,
-      "role": 20003,
-      "instance_state": 20004
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000252,
-    "fields": {
-      "instance_resource": 20041,
-      "role": 20003,
-      "instance_state": 20005
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000253,
-    "fields": {
-      "instance_resource": 20041,
-      "role": 20003,
-      "instance_state": 20010
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000254,
-    "fields": {
-      "instance_resource": 20041,
-      "role": 20003,
-      "instance_state": 20011
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000255,
-    "fields": {
-      "instance_resource": 20041,
-      "role": 20003,
-      "instance_state": 20013
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000256,
-    "fields": {
-      "instance_resource": 20041,
-      "role": 20003,
-      "instance_state": 20014
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000257,
-    "fields": {
-      "instance_resource": 20041,
-      "role": 20003,
-      "instance_state": 10000
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 15000258,
-    "fields": {
-      "instance_resource": 20041,
-      "role": 20003,
-      "instance_state": 120000
     }
   },
   {
