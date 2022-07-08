@@ -69,7 +69,7 @@
     "model": "core.anotification",
     "pk": 12000004,
     "fields": {
-      "template": "11-meldung-selbstdeklaration-baukontrolle",
+      "template": "13-meldung-termine-pflichtkontrollen-baukontrolle",
       "recipient_type": "Notification_Manager_Service",
       "processor": "Notification_Processor_SendEmailAPI"
     }
