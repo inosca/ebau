@@ -945,6 +945,7 @@ class FormFieldView(
                     "canton",
                     "municipality",
                     "service",
+                    "support",
                 ],
             )
         ]
