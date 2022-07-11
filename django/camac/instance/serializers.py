@@ -337,7 +337,7 @@ class SchwyzInstanceSerializer(InstanceSerializer):
     def get_permissions_for_municipality(self, instance):
         if instance.instance_state.name in ["new", "subm", "arch"]:
             return {"bauverwaltung": {"read"}, "main": {"read"}}
-        elif instance.instance_state.name in ["circ", "nfd"]:
+        elif instance.instance_state.name in ["comm", "circ", "nfd"]:
             return {
                 "bauverwaltung": {"read", "write"},
                 "main": {"read", "write"},
@@ -801,6 +801,14 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         return permissions
 
     def _get_case_meta_permissions_for_support(self, instance):
+        return set(["read", "write"])
+
+    @permission_aware
+    def _get_inquiry_form_permissions(self, instance):
+        return set(["read", "write"])
+
+    @permission_aware
+    def _get_inquiry_answer_form_permissions(self, instance):
         return set(["read", "write"])
 
     def get_permissions(self, instance):
