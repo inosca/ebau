@@ -4,7 +4,11 @@ from logging import getLogger
 
 import requests
 from caluma.caluma_core.mutation import Mutation
-from caluma.caluma_core.permissions import object_permission_for, permission_for
+from caluma.caluma_core.permissions import (
+    BasePermission,
+    object_permission_for,
+    permission_for,
+)
 from caluma.caluma_form.models import Document
 from caluma.caluma_form.schema import (
     CopyDocument,
@@ -13,8 +17,7 @@ from caluma.caluma_form.schema import (
     SaveDocument,
     SaveDocumentAnswer,
 )
-from caluma.caluma_user.permissions import IsAuthenticated
-from caluma.caluma_workflow.models import Case
+from caluma.caluma_workflow.models import Case, WorkItem
 from caluma.caluma_workflow.schema import (
     CancelWorkItem,
     CompleteWorkItem,
@@ -64,47 +67,81 @@ def validate_parameters(valid_parameters, parameters, obj):
     )
 
 
-def role(info):
-    role_name = CamacRequest(info).request.group.role.name
-    role_mapping = settings.APPLICATION.get("GENERALIZED_ROLE_MAPPING")
-    return role_mapping[role_name] if role_mapping else role_name
+def resolve_savedocumentanswer_document(mutation, info, answer=None):
+    return (
+        answer.document
+        if answer
+        else Document.objects.filter(
+            pk=mutation.get_params(info)["input"]["document"]
+        ).first()
+    )
 
 
-def distribution_permission_for(configured_mutation, work_item_tasks):
+def distribution_permission_for(
+    configured_mutation, configured_values, configured_resolve_fn=None
+):
     def decorate(func):
         @wraps(func)
-        def wrapper(permission, mutation, info, work_item=None, *args, **kwargs):
-            if settings.DISTRIBUTION:
+        def wrapper(permission, mutation, info, value=None, *args, **kwargs):
+            wrapped_has_permission = (
+                func(permission, mutation, info, value, *args, **kwargs)
+                if value
+                else func(permission, mutation, info, *args, **kwargs)
+            )
+
+            # Include distribution permissions, short-circuit if
+            # wrapped permission method isn't fulfilled
+            if settings.DISTRIBUTION and wrapped_has_permission:
                 configured_mutation_name = configured_mutation.__name__
-                task_name = next(
+
+                if configured_resolve_fn:
+                    value = configured_resolve_fn(mutation, info, value)
+
+                attribute = (
+                    value.task_id
+                    if type(value) == WorkItem
+                    else value.form_id
+                    if type(value) == Document
+                    else None
+                )
+                configured_value_name = next(
                     (
-                        work_item_task
-                        for work_item_task in work_item_tasks
-                        if work_item.task_id
-                        == settings.DISTRIBUTION.get(work_item_task)
+                        configured_value
+                        for configured_value in configured_values
+                        if attribute == settings.DISTRIBUTION.get(configured_value)
                     ),
                     None,
                 )
 
-                if task_name and configured_mutation_name == mutation.__name__:
+                if configured_value_name and issubclass(mutation, configured_mutation):
                     permissions_predicate = (
                         settings.DISTRIBUTION["PERMISSIONS"]
                         .get(configured_mutation_name, {})
-                        .get(task_name, lambda _: True)
+                        .get(configured_value_name, lambda *_: True)
                     )
 
-                    return func(
-                        permission, mutation, info, work_item, *args, **kwargs
-                    ) and permissions_predicate(role(info))
+                    group = CamacRequest(info).request.group
+                    return permissions_predicate(group, value, mutation, info)
 
-            return func(permission, mutation, info, work_item, *args, **kwargs)
+            return wrapped_has_permission
 
         return wrapper
 
     return decorate
 
 
-class CustomPermission(IsAuthenticated):
+class CustomPermission(BasePermission):
+    # Override has_permission of BasePermission to only allow authenticated
+    # users, which also adhere to the permission methods defined by the
+    # CustomPermission class, to execute mutations.
+    # The caluma permission class IsAuthenticated isn't used, because it overrides
+    # has_permission without calling the super has_permission method of its parent
+    # class BasePermission.
+    def has_permission(self, mutation, info):
+        return info.context.user.is_authenticated and super().has_permission(
+            mutation, info
+        )
+
     @permission_for(Mutation)
     def has_permission_default(self, mutation, info):
         log.debug(
@@ -256,6 +293,11 @@ class CustomPermission(IsAuthenticated):
         return self.has_camac_edit_permission(source, info)
 
     # Answer
+    @distribution_permission_for(
+        SaveDocumentAnswer,
+        ["INQUIRY_FORM", "INQUIRY_ANSWER_FORM"],
+        resolve_savedocumentanswer_document,
+    )
     @permission_for(SaveDocumentAnswer)
     def has_permission_for_savedocumentanswer(self, mutation, info):
         try:
@@ -273,6 +315,11 @@ class CustomPermission(IsAuthenticated):
 
         return self.has_camac_edit_permission(document.family, info)
 
+    @distribution_permission_for(
+        SaveDocumentAnswer,
+        ["INQUIRY_FORM", "INQUIRY_ANSWER_FORM"],
+        resolve_savedocumentanswer_document,
+    )
     @object_permission_for(SaveDocumentAnswer)
     def has_object_permission_for_savedocumentanswer(self, mutation, info, answer):
         if answer.document.form.slug == DASHBOARD_FORM_SLUG:
@@ -312,7 +359,12 @@ class CustomPermission(IsAuthenticated):
                 # new table rows
                 return True
 
-            permission_key = "main" if target == case.document else target.form.slug
+            permission_key = (
+                "main"
+                if target == case.document
+                and not (hasattr(case, "parent_work_item") and case.parent_work_item)
+                else target.form.slug
+            )
         else:
             return False
 
