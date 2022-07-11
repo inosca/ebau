@@ -21,6 +21,9 @@ export default class ApplicationAdapter extends BaseAdapter {
       ...(this.session.data.enforcePublicAccess
         ? { "x-camac-public-access": true }
         : {}),
+      ...(this.session.data.ebauGroup
+        ? { "x-camac-group": this.session.data.ebauGroup }
+        : {}),
     };
   }
 }
