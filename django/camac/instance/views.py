@@ -655,7 +655,6 @@ class InstanceView(
 
     def _submit_camac_ng(self, request, pk=None):
         # TODO: move this into the serializer
-
         instance = self.get_object()
 
         # change state of instance
@@ -668,7 +667,6 @@ class InstanceView(
             "previous_instance_state": instance.instance_state.pk,
             "instance_state": new_instance_state,
         }
-
         serializer = self.get_serializer(instance=instance, data=data, partial=True)
         serializer.is_valid(raise_exception=True)
         serializer.save()

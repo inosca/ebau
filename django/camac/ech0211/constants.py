@@ -4,3 +4,7 @@ ECH_JUDGEMENT_APPROVED = 1  # positiver Entscheid
 ECH_JUDGEMENT_APPROVED_WITH_RESERVATION = 2  # positiv mit Bedinungen/Auflagen
 ECH_JUDGEMENT_WRITTEN_OFF = 3  # Nicht-Eintreten
 ECH_JUDGEMENT_DECLINED = 4  # abgelehnt/negativer Enscheid
+
+
+ECH_API_LEVEL_FULL = "full"
+ECH_API_LEVEL_BASIC = "basic"
