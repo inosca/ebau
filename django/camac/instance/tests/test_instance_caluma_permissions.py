@@ -137,6 +137,7 @@ def test_instance_permissions_ur(
         ("Publikation", "circ", status.HTTP_404_NOT_FOUND),
         ("Publikation", "redac", status.HTTP_404_NOT_FOUND),
         ("Publikation", "internal", status.HTTP_404_NOT_FOUND),
+        ("Support", "nfd", status.HTTP_200_OK),
     ],
 )
 def test_instance_permissions_sz(

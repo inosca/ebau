@@ -4659,6 +4659,17 @@ snapshots['test_instance_permissions_sz[Gemeinde-redac-200-instance__user0] 1'] 
     ]
 }
 
+snapshots['test_instance_permissions_sz[Support-nfd-200-instance__user0] 1'] = {
+    'bauverwaltung': [
+        'read',
+        'write'
+    ],
+    'main': [
+        'read',
+        'write'
+    ]
+}
+
 snapshots['test_instance_permissions_ur[circ-Coordination-instance__user0] 1'] = {
     'case-meta': [
         'read'
