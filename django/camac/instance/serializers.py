@@ -364,6 +364,9 @@ class SchwyzInstanceSerializer(InstanceSerializer):
     def get_permissions_for_public(self, instance):
         return {}
 
+    def get_permissions_for_support(self, instance):
+        return {"bauverwaltung": {"read", "write"}, "main": {"read", "write"}}
+
     def get_caluma_form(self, instance):
         return CalumaApi().get_form_slug(instance)
 
@@ -1708,7 +1711,7 @@ class FormFieldSerializer(InstanceEditableMixin, serializers.ModelSerializer):
             )
 
         # per default only applicant may edit a question
-        restrict = question.get("restrict", ["applicant"])
+        restrict = question.get("restrict", ["applicant", "support"])
         if permission not in restrict:
             raise exceptions.ValidationError(
                 _("%(permission)s is not allowed to edit question %(question)s.")
