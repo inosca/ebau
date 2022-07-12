@@ -139,6 +139,9 @@ class InstanceView(
         "instance_state__description",
     )
 
+    if settings.APPLICATION_NAME == "kt_schwyz":  # pragma: no cover
+        swagger_schema = None
+
     @property
     def filter_backends(self):
         filter_backends = api_settings.DEFAULT_FILTER_BACKENDS
