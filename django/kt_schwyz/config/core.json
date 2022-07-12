@@ -432,6 +432,15 @@
   },
   {
     "model": "core.airaction",
+    "pk": 6,
+    "fields": {
+      "available_instance_resource": "formpage",
+      "action_name": "read-page",
+      "hidden": 0
+    }
+  },
+  {
+    "model": "core.airaction",
     "pk": 31,
     "fields": {
       "available_instance_resource": "page",
@@ -801,6 +810,15 @@
       "module_name": "default",
       "controller_name": "form",
       "description": "(PHP) Edit one page of the form"
+    }
+  },
+  {
+    "model": "core.availableinstanceresource",
+    "pk": "formpage",
+    "fields": {
+      "module_name": "default",
+      "controller_name": "form",
+      "description": "Read one page of the form"
     }
   },
   {
