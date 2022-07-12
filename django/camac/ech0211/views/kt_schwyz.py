@@ -11,7 +11,6 @@ from rest_framework_xml.renderers import XMLRenderer
 
 from ...constants.kt_bern import ECH_BASE_DELIVERY
 from ...constants.kt_schwyz import FORM_DESCRIPTIONS
-from ...document.views import AttachmentSectionView
 from ...instance.models import Instance
 from ...swagger.utils import get_operation_description, group_param
 from .. import formatters
@@ -19,10 +18,6 @@ from ..mixins import ECHInstanceQuerysetMixin
 from ..serializers import ApplicationsSerializer
 
 logger = logging.getLogger(__name__)
-
-
-class UnswaggeredAttachmentSectionViews(AttachmentSectionView):
-    swagger_schema = None
 
 
 class ApplicationView(ECHInstanceQuerysetMixin, RetrieveModelMixin, GenericViewSet):
