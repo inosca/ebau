@@ -44,7 +44,7 @@ def verify_source_file(source_file: str) -> str:
             _("No metadata file 'dossiers.xlsx' found in uploaded archive.")
         )
     try:
-        openpyxl.load_workbook(metadata)
+        openpyxl.load_workbook(metadata, data_only=True)
     except zipfile.BadZipfile:
         raise ValidationError(
             _("Metadata file `dossiers.xlsx` is not a valid .xlsx file.")
@@ -100,7 +100,7 @@ def validate_zip_archive_structure(instance_pk, clean_on_fail=True) -> DossierIm
     archive = zipfile.ZipFile(dossier_import.source_file.path, "r")
     data_file = archive.open("dossiers.xlsx")
     try:
-        work_book = openpyxl.load_workbook(data_file)
+        work_book = openpyxl.load_workbook(data_file, data_only=True)
     except zipfile.BadZipfile:
         raise InvalidImportDataError(
             _("Meta data file in archive is corrupt or not a valid .xlsx file.")
