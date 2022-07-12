@@ -852,6 +852,15 @@ def submit(instance: Instance, answers: AnswersDict, event_type: str):
     )
 
 
+def submit_md(instance: Instance, event_type: str = "submit"):
+    # Submit with master data conforming answer processing.
+    return ns_application.eventSubmitPlanningPermissionApplicationType(
+        eventType=ns_application.eventTypeType(event_type),
+        planningPermissionApplication=application_md(instance),
+        relationshipToPerson=format_relationships_to_persons(MasterData(instance.case)),
+    )
+
+
 def person_to_ech0129_personIdentifcationType(person):
     pers_identification = ech_0044_4_1.personIdentificationLightType(
         officialName=assure_string_length(person.get("last_name", ""), max_length=30),

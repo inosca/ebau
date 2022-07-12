@@ -1,11 +1,11 @@
 from django.urls import path, re_path
 from django.views.generic import RedirectView
 
+from camac.ech0211.views.common import MessageView
 from camac.ech0211.views.kt_bern import (
     ApplicationsView as BEApplicationsView,
     ApplicationView as BEApplicationView,
     EventView as BEEventView,
-    MessageView as BEMessageView,
     SendView as BESendView,
 )
 from camac.ech0211.views.kt_schwyz import (
@@ -26,6 +26,7 @@ class SZUrlsConf:
             SZApplicationsView.as_view({"get": "list"}),
             name="applications",
         ),
+        re_path(r"message/$", MessageView.as_view({"get": "retrieve"}), name="message"),
     ]
 
 
@@ -49,9 +50,7 @@ class BEUrlsConf:
             BEApplicationsView.as_view({"get": "list"}),
             name="applications",
         ),
-        re_path(
-            r"message/$", BEMessageView.as_view({"get": "retrieve"}), name="message"
-        ),
+        re_path(r"message/$", MessageView.as_view({"get": "retrieve"}), name="message"),
         re_path(
             r"event/(?P<instance_id>(\d+))/(?P<event_type>(\w+))/?$",
             BEEventView.as_view({"post": "create"}),
