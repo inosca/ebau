@@ -76,7 +76,7 @@ if settings.APPLICATION["ECH0211"]["API_ACTIVE"]:  # pragma: no cover
     UrlsConf = settings.APPLICATION["ECH0211"].get("URLS_CLASS")
     if UrlsConf:
         urlpatterns += [
-            re_path(r"^ech/v1/", include(import_string(UrlsConf.urlpatterns)))
+            re_path(r"^ech/v1/", include(import_string(UrlsConf).urlpatterns))
         ]
 
 if settings.ENABLE_SILK:  # pragma: no cover
