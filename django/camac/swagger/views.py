@@ -32,7 +32,7 @@ GET_TABLE_HEADERS = [
     "Beispiel",
 ]
 
-GET_TABLE_DATA = [
+GET_TABLE_DATA_BASIC = [
     [
         "BaseDelivery",
         "Gesamtdatenlieferung",
@@ -40,6 +40,9 @@ GET_TABLE_DATA = [
         ECH_BASE_DELIVERY,
         f"[base_delivery]({static('xml/get/base_delivery.xml')})",
     ],
+]
+
+GET_TABLE_DATA_FULL = GET_TABLE_DATA_BASIC + [
     [
         "Submit",
         "Baugesuch zustellen",
@@ -216,21 +219,38 @@ POST_TABLE_DATA = [
 
 
 def get_swagger_description():
-    with open(str(settings.ROOT_DIR("camac/ech0211/docs/kt_bern.md")), "r") as myfile:
+    with open(
+        str(settings.ROOT_DIR(f"camac/ech0211/docs/{settings.APPLICATION_NAME}.md")),
+        "r",
+    ) as myfile:
         desc = myfile.read()
 
-    get_messages = tabulate(GET_TABLE_DATA, GET_TABLE_HEADERS, tablefmt="github")
-    post_messages = tabulate(POST_TABLE_DATA, POST_TABLE_HEADERS, tablefmt="github")
+    get_table_data = (
+        GET_TABLE_DATA_BASIC
+        if settings.APPLICATION["ECH0211"].get("API_LEVEL") == "basic"
+        else GET_TABLE_DATA_FULL
+    )
+    post_table_data = (
+        POST_TABLE_DATA
+        if settings.APPLICATION["ECH0211"].get("API_LEVEL") == "full"
+        else None
+    )
+
+    get_messages = tabulate(get_table_data, GET_TABLE_HEADERS, tablefmt="github")
+    post_messages = tabulate(post_table_data, POST_TABLE_HEADERS, tablefmt="github")
     desc = desc.replace("{get_messages}", get_messages).replace(
         "{post_messages}", post_messages
     )
     return desc
 
 
-SCHEMA_VIEW = get_schema_view(
-    openapi.Info(
-        title="Camac API", default_version="v1", description=get_swagger_description()
-    ),
-    public=True,
-    permission_classes=(ViewPermissions,),
-)
+def get_swagger_view():
+    return get_schema_view(
+        openapi.Info(
+            title="Camac API",
+            default_version="v1",
+            description=get_swagger_description(),
+        ),
+        public=True,
+        permission_classes=(ViewPermissions,),
+    )
