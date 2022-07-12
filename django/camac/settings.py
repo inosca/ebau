@@ -316,13 +316,9 @@ APPLICATIONS = {
         },
         "ECH0211": {
             "API_ACTIVE": True,
-            "VIEW_PATH": "camac.ech0211.views.kt_schwyz",
+            "API_LEVEL": "basic",
             "URLS_CLASS": "camac.ech0211.urls.SZUrlsConf",
         },
-        "EXCLUDE_DOCS": [
-            "document",
-            "instance",
-        ],
         "PUBLIC_ROLES": ["Publikation", "Portal"],
         "PORTAL_GROUP": 4,
         "SERVICE_GROUPS_FOR_DISTRIBUTION": {
@@ -1163,7 +1159,7 @@ APPLICATIONS = {
     "kt_bern": {
         "ECH0211": {
             "API_ACTIVE": True,
-            "VIEW_PATH": "camac.ech0211.views.kt_bern",
+            "API_LEVEL": "full",
             "SWAGGER_PATH": "camac.swagger.views.kt_bern",
             "URLS_CLASS": "camac.ech0211.urls.BEUrlsConf",
         },
