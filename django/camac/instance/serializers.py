@@ -1692,6 +1692,16 @@ class InstanceSubmitSerializer(InstanceSerializer):
 
         return data
 
+    def update(self, instance, data):
+        instance = super().update(instance, data)
+        instance_submitted.send(
+            sender=self.__class__,
+            instance=instance,
+            user_pk=self.context["request"].user.pk,
+            group_pk=self.context["request"].group.pk,
+        )
+        return instance
+
 
 class FormFieldSerializer(InstanceEditableMixin, serializers.ModelSerializer):
 

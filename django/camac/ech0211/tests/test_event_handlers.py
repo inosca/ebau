@@ -1,4 +1,5 @@
 import pytest
+from pytest_factoryboy import LazyFixture
 
 from camac.constants.kt_bern import (
     ATTACHMENT_SECTION_ALLE_BETEILIGTEN,
@@ -9,10 +10,77 @@ from camac.constants.kt_bern import (
 )
 from camac.ech0211.signals import file_subsequently, instance_submitted
 
+from ...conftest import FakeRequest
 from ...core.models import InstanceService
+from ...instance.serializers import InstanceSubmitSerializer
 from .. import event_handlers
 from ..models import Message
 from .caluma_document_data import baugesuch_data
+
+
+@pytest.mark.parametrize(
+    "instance__user,location__communal_federal_number,instance_state__name",
+    [(LazyFixture("admin_user"), "1311", "new")],
+)
+@pytest.mark.parametrize(
+    "role__name,instance__location,form__name",
+    [
+        ("Support", LazyFixture("location"), "baugesuch"),
+    ],
+)
+@pytest.mark.freeze_time("2022-07-07")
+@pytest.mark.parametrize("api_level", ("basic", None))
+def test_submit_event_sz(
+    db,
+    set_application_sz,
+    ech_instance_sz,
+    rf,
+    settings,
+    admin_client,
+    role,
+    user_group,
+    instance,
+    instance_state,
+    instance_state_factory,
+    form,
+    form_field_factory,
+    caplog,
+    ech_snapshot,
+    api_level,
+    application_settings,
+):
+    application_settings["ECH0211"]["API_LEVEL"] = api_level
+    instance_state_factory(name="subm")
+    serializer = InstanceSubmitSerializer(
+        context={
+            "request": FakeRequest(
+                user=ech_instance_sz.user,
+                group=user_group.group,
+            )
+        }
+    )
+
+    caplog.clear()
+    serializer.update(
+        ech_instance_sz,
+        data={
+            "data": {
+                "type": "instances",
+                "attributes": {
+                    "copy-source": str(ech_instance_sz.pk),
+                    "is-modification": True,
+                },
+            }
+        },
+    )
+
+    caplog.clear()
+
+    if api_level:
+        assert Message.objects.count() == 1
+        message = Message.objects.first()
+        assert message.receiver.get_name() == ech_instance_sz.group.service.name
+        ech_snapshot(message.body)
 
 
 @pytest.mark.freeze_time("2022-06-03")
