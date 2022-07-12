@@ -296,7 +296,7 @@ class CalumaPlotDataWriter(CalumaListAnswerWriter):
         compiled = []
         dossier = self.context.get("dossier")
         coordinates = dossier.coordinates if dossier else []
-        for plot_data, coordinate in itertools.zip_longest(values, coordinates):
+        for plot_data, coordinate in itertools.zip_longest(values, coordinates or []):
             compiled.append(
                 CalumaPlotData(
                     coord_east=coordinate and float(coordinate.e),
@@ -400,7 +400,7 @@ class DossierWriter:
             f"{settings.MEDIA_ROOT}/attachments/files/{instance.pk}"
         )
 
-        attachments_path = instance_files_path / dossier.id
+        attachments_path = instance_files_path / str(dossier.id)
 
         attachments_path.mkdir(parents=True, exist_ok=True)
 
