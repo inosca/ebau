@@ -1,4 +1,3 @@
-from django.conf import settings
 from django.urls import re_path
 from rest_framework.routers import SimpleRouter
 
@@ -15,18 +14,8 @@ class UnswaggeredAttachmentSectionView(views.AttachmentSectionView):
 
 r = SimpleRouter(trailing_slash=False)
 
-r.register(
-    r"attachments",
-    UnswaggeredAttachmentView
-    if "document" in settings.APPLICATION.get("EXCLUDE_DOCS", [])
-    else views.AttachmentView,
-)
-r.register(
-    r"attachment-sections",
-    UnswaggeredAttachmentSectionView
-    if "document" in settings.APPLICATION.get("EXCLUDE_DOCS", [])
-    else views.AttachmentSectionView,
-)
+r.register(r"attachments", views.AttachmentView)
+r.register(r"attachment-sections", views.AttachmentSectionView)
 r.register(r"templates", views.TemplateView)
 r.register(r"attachment-download-history", views.AttachmentDownloadHistoryView)
 
