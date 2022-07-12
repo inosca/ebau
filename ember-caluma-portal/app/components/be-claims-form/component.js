@@ -68,12 +68,13 @@ export default class BeClaimsFormComponent extends Component {
 
   get allClaims() {
     const table = this.args.fieldset.document.findField("nfd-tabelle-table");
-
-    return table.answer.value.map((document) => {
-      const claim = new Claim(document);
-      setOwner(claim, getOwner(this));
-      return claim;
-    });
+    return (
+      table.answer.value?.map((document) => {
+        const claim = new Claim(document);
+        setOwner(claim, getOwner(this));
+        return claim;
+      }) ?? []
+    );
   }
 
   get claims() {
