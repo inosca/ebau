@@ -19,6 +19,7 @@ export default class InstancesEditRoute extends Route {
       "data.enforcePublicAccess",
       Boolean(this.viewedByPublication)
     );
+    this.session.set("data.ebauGroup", group);
 
     const response = await this.ajax.request(`/api/v1/instances/${id}`, {
       data: {
@@ -106,6 +107,7 @@ export default class InstancesEditRoute extends Route {
       this.store.unloadAll();
       this.questionStore.clear();
       controller.publication = null;
+      this.session.set("data.ebauGroup", undefined);
     }
   }
 }
