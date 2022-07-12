@@ -305,7 +305,7 @@ class XlsxFileDossierLoader:
         archive = zipfile.ZipFile(path_to_archive, "r")
         data_file = archive.open("dossiers.xlsx")
         try:
-            work_book = openpyxl.load_workbook(data_file)
+            work_book = openpyxl.load_workbook(data_file, data_only=True)
         except zipfile.BadZipfile:
             raise InvalidImportDataError(
                 _("Meta data file in archive is corrupt or not a valid .xlsx file.")
