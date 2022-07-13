@@ -107,7 +107,9 @@ def _retrieve_waiting_periods(
 
     try:
         decision_date = Answer.objects.get(
-            question_id="decision-date", document__work_item__case__instance=instance
+            question_id="decision-date",
+            document__work_item__case__instance=instance,
+            document__work_item__status=WorkItem.STATUS_COMPLETED,
         ).date
     except Answer.DoesNotExist:
         decision_date = None
