@@ -73,7 +73,7 @@ def post_complete_decision(sender, work_item, user, context, **kwargs):
         if workflow == "building-permit":
             history_text = gettext_noop("Decision decreed")
 
-            if should_continue_after_decision(instance):
+            if should_continue_after_decision(instance, work_item):
                 # set the construction control as responsible service
                 construction_control = set_construction_control(instance)
                 instance_state_name = "sb1"
