@@ -7,7 +7,7 @@ class CustomDynamicTasks(BaseDynamicTasks):
     @register_dynamic_task("after-decision")
     def resolve_after_decision(self, case, user, prev_work_item, context):
         if case.workflow_id == "building-permit" and should_continue_after_decision(
-            case.instance
+            case.instance, prev_work_item
         ):
             return ["sb1", "create-manual-workitems", "create-publication"]
 
