@@ -1,4 +1,5 @@
 from caluma.caluma_form.models import Answer
+from caluma.caluma_workflow.models import WorkItem
 from django.utils.translation import gettext as _
 
 from camac.caluma.api import CalumaApi
@@ -49,17 +50,12 @@ def set_construction_control(instance: Instance) -> Service:
     return construction_control
 
 
-def should_continue_after_decision(instance: Instance) -> bool:
-    decision = Answer.objects.get(
-        question_id="decision-decision-assessment",
-        document__work_item__case__instance=instance,
-    ).value
+def should_continue_after_decision(instance: Instance, work_item: WorkItem) -> bool:
+    answers = work_item.document.answers
+    decision = answers.get(question_id="decision-decision-assessment").value
 
     try:
-        decision_type = Answer.objects.get(
-            question_id="decision-approval-type",
-            document__work_item__case__instance=instance,
-        ).value
+        decision_type = answers.get(question_id="decision-approval-type").value
     except Answer.DoesNotExist:
         decision_type = None
 
