@@ -118,6 +118,9 @@ def transmit_import(dossier_import):
 
 
 def undo_import(dossier_import):
+    Instance.objects.filter(
+        **{"case__meta__import-id": str(dossier_import.pk)}
+    ).delete()
     Case.objects.filter(**{"meta__import-id": str(dossier_import.pk)}).delete()
     dossier_import.delete()
 
