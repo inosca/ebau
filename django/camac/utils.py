@@ -135,5 +135,39 @@ def get_responsible_koor_service_id(form_id):
     )  # pragma: no cover
 
 
-def is_lead_role(role):
-    return role.endswith("-lead") or role == "service-subservice"
+def is_lead_role(group):
+    role_name = group.role.name
+    role_mapping = settings.APPLICATION.get("GENERALIZED_ROLE_MAPPING")
+    role = role_mapping[role_name] if role_mapping else role_name
+    return role.endswith("-lead") or role == "subservice"
+
+
+def has_permission_for_inquiry_document(group, document):
+    from caluma.caluma_workflow.models import WorkItem
+
+    if not document:
+        return False  # pragma: no cover
+
+    try:
+        return WorkItem.objects.filter(
+            task_id=settings.DISTRIBUTION["INQUIRY_CREATE_TASK"],
+            addressed_groups=[str(group.service.pk)],
+            status=WorkItem.STATUS_READY,
+            case=document.work_item.case,
+        ).exists()
+    except AttributeError:  # pragma: no cover
+        return False
+
+
+def has_permission_for_inquiry_answer_document(group, document):
+    from caluma.caluma_workflow.models import WorkItem
+
+    if not document:
+        return False  # pragma: no cover
+
+    return WorkItem.objects.filter(
+        task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
+        addressed_groups=[str(group.service.pk)],
+        status=WorkItem.STATUS_READY,
+        child_case__document_id=document.pk,
+    ).exists()

@@ -1,10 +1,10 @@
-import pytest
-from caluma.caluma_core.relay import extract_global_id
-from caluma.caluma_form import models as caluma_form_models
-from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
-from django.utils import timezone
+import datetime
+from unittest.mock import Mock
 
-from camac.utils import is_lead_role
+import pytest
+import requests
+from caluma.caluma_core.relay import extract_global_id
+from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
 
 
 @pytest.mark.parametrize("role__name", ["Municipality", "Applicant"])
@@ -106,7 +106,7 @@ def test_save_work_item_permission(
             "municipality-lead",
             "completeWorkItem",
             "DISTRIBUTION_COMPLETE_TASK",
-            "ready",
+            caluma_workflow_models.WorkItem.STATUS_READY,
             True,
             "COMPLETED",
         ),
@@ -114,7 +114,7 @@ def test_save_work_item_permission(
             "municipality-clerk",
             "completeWorkItem",
             "DISTRIBUTION_COMPLETE_TASK",
-            "ready",
+            caluma_workflow_models.WorkItem.STATUS_READY,
             False,
             None,
         ),
@@ -122,16 +122,23 @@ def test_save_work_item_permission(
             "municipality-lead",
             "cancelWorkItem",
             "INQUIRY_TASK",
-            "ready",
+            caluma_workflow_models.WorkItem.STATUS_READY,
             True,
             "CANCELED",
         ),
-        ("municipality-clerk", "cancelWorkItem", "INQUIRY_TASK", "ready", False, None),
+        (
+            "municipality-clerk",
+            "cancelWorkItem",
+            "INQUIRY_TASK",
+            caluma_workflow_models.WorkItem.STATUS_READY,
+            False,
+            None,
+        ),
         (
             "municipality-lead",
             "resumeWorkItem",
             "INQUIRY_TASK",
-            "suspended",
+            caluma_workflow_models.WorkItem.STATUS_SUSPENDED,
             True,
             "READY",
         ),
@@ -145,17 +152,18 @@ def test_save_work_item_permission(
         ),
     ],
 )
-def test_distribution_permission_for(
+def test_distribution_permission_for_task(
     db,
     role,
-    group,
-    instance,
-    case_factory,
-    task_factory,
+    service,
+    be_instance,
     caluma_admin_schema_executor,
     caluma_admin_user,
+    active_inquiry_factory,
+    instance_state_factory,
     work_item_factory,
-    distribution_settings,
+    be_distribution_settings,
+    mocker,
     application_settings,
     mutation,
     task,
@@ -164,39 +172,29 @@ def test_distribution_permission_for(
     expected_status,
 ):
 
-    instance.case = case_factory()
-    instance.save()
-    work_item = work_item_factory(
-        case=instance.case,
-        child_case=None,
-        addressed_groups=[group.service_id],
-        controlling_groups=[group.service_id],
-        task=task_factory(slug=distribution_settings[task]),
+    work_item = active_inquiry_factory(
+        be_instance,
+        controlling_service=service,
+        addressed_service=service,
         status=status,
     )
-
-    # necessary for post_resume_work_item event handler
-    if mutation == "resumeWorkItem":
-        question = caluma_form_models.Question.objects.create(
-            slug=distribution_settings["QUESTIONS"]["DEADLINE"]
-        )
-        caluma_form_models.Answer.objects.create(
-            question=question, document=work_item.document, date=timezone.now()
-        )
-        caluma_form_models.Form.objects.create(
-            slug=distribution_settings["INQUIRY_ANSWER_FORM"]
-        )
-        caluma_workflow_models.Workflow.objects.create(
-            slug=distribution_settings["INQUIRY_WORKFLOW"], allow_all_forms=True
+    if task != "INQUIRY_TASK":
+        work_item = work_item_factory(
+            case=work_item.case,
+            child_case=None,
+            addressed_groups=[service.pk],
+            controlling_groups=[service.pk],
+            task=caluma_workflow_models.Task.objects.get(
+                pk=be_distribution_settings[task]
+            ),
+            status=status,
         )
 
-    application_settings["INTER_SERVICE_GROUP_VISIBILITIES"] = {}
-    mutation_name = mutation[0].capitalize() + mutation[1:]
-    distribution_settings["PERMISSIONS"] = {
-        f"{mutation_name}": {
-            f"{task}": lambda role: is_lead_role(role),
-        },
-    }
+    # necessary for post_resume_work_item post_complete_work_item event handlers
+    instance_state_factory(name="circulation")
+    instance_state_factory(name="coordination")
+
+    mocker.patch("camac.notification.utils.send_mail", return_value=None)
 
     result = caluma_admin_schema_executor(
         """
@@ -225,3 +223,165 @@ def test_distribution_permission_for(
         work_item.pk
     )
     assert result.data[mutation]["workItem"]["status"] == expected_status
+
+
+@pytest.mark.parametrize("is_permitted", [True, False])
+@pytest.mark.parametrize(
+    "role__name,mutation,distribution_form,question,value",
+    [
+        (
+            "municipality-lead",
+            "saveDocumentDateAnswer",
+            "INQUIRY_FORM",
+            "DEADLINE",
+            datetime.date.today(),
+        ),
+        (
+            "service-lead",
+            "saveDocumentStringAnswer",
+            "INQUIRY_FORM",
+            "REMARK",
+            "Test",
+        ),
+        (
+            "subservice",
+            "saveDocumentDateAnswer",
+            "INQUIRY_FORM",
+            "DEADLINE",
+            datetime.date.today(),
+        ),
+        (
+            "municipality-lead",
+            "saveDocumentStringAnswer",
+            "INQUIRY_ANSWER_FORM",
+            "STATUS",
+            "CLAIM",
+        ),
+        (
+            "service-lead",
+            "saveDocumentStringAnswer",
+            "INQUIRY_ANSWER_FORM",
+            "STATEMENT",
+            "Test",
+        ),
+        (
+            "subservice",
+            "saveDocumentStringAnswer",
+            "INQUIRY_ANSWER_FORM",
+            "ANCILLARY_CLAUSES",
+            "Test",
+        ),
+    ],
+)
+def test_distribution_permission_for_answer(
+    db,
+    role,
+    service,
+    be_instance,
+    active_inquiry_factory,
+    service_factory,
+    caluma_admin_schema_executor,
+    caluma_admin_user,
+    work_item_factory,
+    be_distribution_settings,
+    mocker,
+    mutation,
+    distribution_form,
+    question,
+    value,
+    is_permitted,
+):
+    response = Mock(spec=requests.models.Response)
+    response.status_code = 200
+    response.json.return_value = {
+        "data": {
+            "meta": {
+                "permissions": {
+                    "inquiry": {"read", "write"},
+                    "inquiry-answer": {"read", "write"},
+                }
+            }
+        }
+    }
+    mocker.patch.object(requests, "get", return_value=response)
+
+    # Services need to have an invitation to have the instance visibility
+    if distribution_form == "INQUIRY_FORM" and "service" in role.name:
+        active_inquiry_factory(
+            be_instance,
+            addressed_service=service,
+            status=caluma_workflow_models.WorkItem.STATUS_READY,
+        )
+
+    inquiry = active_inquiry_factory(
+        be_instance,
+        controlling_service=service
+        if distribution_form == "INQUIRY_FORM"
+        else service_factory(),
+        addressed_service=service
+        if distribution_form == "INQUIRY_ANSWER_FORM" and is_permitted
+        else service_factory(),
+        status=caluma_workflow_models.WorkItem.STATUS_SUSPENDED
+        if distribution_form == "INQUIRY_FORM"
+        else caluma_workflow_models.WorkItem.STATUS_READY,
+    )
+
+    document = (
+        inquiry.document
+        if distribution_form == "INQUIRY_FORM"
+        else inquiry.child_case.document
+    )
+
+    if distribution_form == "INQUIRY_FORM" and is_permitted:
+        work_item_factory(
+            case=inquiry.case,
+            child_case=None,
+            addressed_groups=[service.pk],
+            task=caluma_workflow_models.Task.objects.get(
+                slug=be_distribution_settings["INQUIRY_CREATE_TASK"]
+            ),
+            status=caluma_workflow_models.WorkItem.STATUS_READY,
+        )
+
+    question_slug = be_distribution_settings["QUESTIONS"][question]
+    value = be_distribution_settings["ANSWERS"].get(question, {}).get(value) or value
+
+    result = caluma_admin_schema_executor(
+        """
+        mutation {mutation} {{
+            {mutation}(
+            input: {{document: "{document}", question: "{question}", value: "{value}"}}
+            ) {{
+                clientMutationId
+                answer {{
+                    id
+                }}
+            }}
+        }}
+        """.format(
+            mutation=mutation,
+            document=document.pk,
+            question=question_slug,
+            value=value,
+        )
+    )
+
+    if not is_permitted:
+        assert result.errors
+        return
+
+    assert not result.errors
+    answer = result.data[mutation]["answer"]
+    assert extract_global_id(answer["id"]) == str(
+        document.answers.filter(question=question_slug)
+        .values_list("pk", flat=True)
+        .first()
+    )
+
+    answer = document.answers.filter(question=question_slug)
+    assert (
+        answer.values_list(
+            "value" if mutation == "saveDocumentStringAnswer" else "date", flat=True
+        ).first()
+        == value
+    )
