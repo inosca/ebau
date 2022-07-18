@@ -33,7 +33,7 @@ export default class ShoeboxService extends Service {
       .replace(/-lead$/, "")
       .replace(/-clerk$/, "")
       .replace(/-readonly$/, "")
-      .replace(/-subservice$/, "");
+      .replace(/^sub/, "");
   }
 
   get isReadOnlyRole() {
@@ -48,7 +48,7 @@ export default class ShoeboxService extends Service {
   }
 
   get isLeadRole() {
-    return this.role?.endsWith("-lead") || this.role === "service-subservice";
+    return this.role?.endsWith("-lead") || this.role === "subservice";
   }
 
   get isSupportRole() {
