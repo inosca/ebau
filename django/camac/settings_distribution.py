@@ -1,6 +1,10 @@
 from datetime import timedelta
 
-from camac.utils import is_lead_role
+from camac.utils import (
+    has_permission_for_inquiry_answer_document,
+    has_permission_for_inquiry_document,
+    is_lead_role,
+)
 
 DISTRIBUTION = {
     "default": {
@@ -28,13 +32,21 @@ DISTRIBUTION = {
         "DEFAULT_SUGGESTIONS": [],
         "PERMISSIONS": {
             "CompleteWorkItem": {
-                "DISTRIBUTION_COMPLETE_TASK": lambda role: is_lead_role(role),
+                "DISTRIBUTION_COMPLETE_TASK": lambda group, *_: is_lead_role(group),
             },
             "ResumeWorkItem": {
-                "INQUIRY_TASK": lambda role: is_lead_role(role),
+                "INQUIRY_TASK": lambda group, *_: is_lead_role(group),
             },
             "CancelWorkItem": {
-                "INQUIRY_TASK": lambda role: is_lead_role(role),
+                "INQUIRY_TASK": lambda group, *_: is_lead_role(group),
+            },
+            "SaveDocumentAnswer": {
+                "INQUIRY_FORM": lambda group, document, *_: has_permission_for_inquiry_document(
+                    group, document
+                ),
+                "INQUIRY_ANSWER_FORM": lambda group, document, *_: has_permission_for_inquiry_answer_document(
+                    group, document
+                ),
             },
         },
     },
@@ -452,7 +464,7 @@ DISTRIBUTION = {
         },
         "PERMISSIONS": {
             "CompleteWorkItem": {
-                "INQUIRY_ANSWER_FILL_TASK": lambda role: is_lead_role(role),
+                "INQUIRY_ANSWER_FILL_TASK": lambda group, *_: is_lead_role(group),
             },
         },
     },
@@ -490,9 +502,9 @@ DISTRIBUTION = {
         },
         "PERMISSIONS": {
             "CompleteWorkItem": {
-                "INQUIRY_CREATE_TASK": lambda role: is_lead_role(role),
-                "INQUIRY_ANSWER_CHECK_TASK": lambda role: is_lead_role(role),
-                "INQUIRY_ANSWER_REVISE_TASK": lambda role: is_lead_role(role),
+                "INQUIRY_CREATE_TASK": lambda group, *_: is_lead_role(group),
+                "INQUIRY_ANSWER_CHECK_TASK": lambda group, *_: is_lead_role(group),
+                "INQUIRY_ANSWER_REVISE_TASK": lambda group, *_: is_lead_role(group),
             },
         },
     },
