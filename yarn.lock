@@ -1925,10 +1925,10 @@
     lodash.clonedeep "^4.5.0"
     slugify "^1.6.5"
 
-"@projectcaluma/ember-distribution@1.0.0-beta.14":
-  version "1.0.0-beta.14"
-  resolved "https://registry.yarnpkg.com/@projectcaluma/ember-distribution/-/ember-distribution-1.0.0-beta.14.tgz#8beed39e08f9e00da1e50efc20ce71a057bcaf68"
-  integrity sha512-mrkouZra1NpOyA5YFoyGgBT5k+rQvDGfDhHzNk0O/SwyrcAh3qT0In8d7aUwY4THt/aqZgr2fGvYFKyTvGz5xg==
+"@projectcaluma/ember-distribution@1.0.0-beta.15":
+  version "1.0.0-beta.15"
+  resolved "https://registry.yarnpkg.com/@projectcaluma/ember-distribution/-/ember-distribution-1.0.0-beta.15.tgz#06dfb05cbae73dfa8e2c077b0be692754c7e4708"
+  integrity sha512-fJpCFG+Abl9y9u876Vvisk1yTP0yVCosT928C3vkr44wPdWunb8cH2MvwaPydkJti2MWycO6xZ6YWRGqhjqSLg==
   dependencies:
     "@ember/string" "^3.0.0"
     "@embroider/macros" "^1.8.3"
