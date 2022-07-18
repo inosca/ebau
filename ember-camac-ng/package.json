@@ -35,7 +35,7 @@
     "@glimmer/component": "1.1.2",
     "@glimmer/tracking": "1.1.2",
     "@projectcaluma/ember-core": "11.0.0-beta.7",
-    "@projectcaluma/ember-distribution": "1.0.0-beta.14",
+    "@projectcaluma/ember-distribution": "1.0.0-beta.15",
     "@projectcaluma/ember-form": "11.0.0-beta.21",
     "@projectcaluma/ember-form-builder": "11.0.0-beta.14",
     "@projectcaluma/ember-testing": "11.0.0-beta.9",
