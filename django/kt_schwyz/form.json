@@ -2960,7 +2960,7 @@
       "label": "Fallen mehr als 200 m³ Bauabfälle an?",
       "hint": "Die Baubewilligungsbehörde benötigt für die Beurteilung weitere Angaben, wenn mehr als 200 m3 Bauabfälle (Bauten grösser als Einfamilienhaus) zu erwarten sind.\n\nWeiterführende Informationen finden Sie im Merkblatt <a href='/assets/documents/Bauabfaelle-Schadstoffermittlung-und-Entsorgungskonzept.pdf' title='Herunterladen' target='_blank'>Bauabfälle: Schadstoffermittlung und Entsorgungskonzept</a>",
       "type": "radio",
-      "required": true,
+      "required": false,
       "active-expression": "'Abbruch / Rückbau' in 'vorhaben-mit-baute'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value || 'Neubau' in 'vorhaben-mit-baute'|value || 'Anbau / Erweiterung' in 'vorhaben-mit-baute'|value",
       "config": {
         "options": ["Ja", "Nein"]
@@ -8562,7 +8562,7 @@
       "label": "Ihr Bauvorhaben wird durch einen belasteten Standort tangiert. Es sind die Altlastenuntersuchungen (z. B. historische, technische Untersuchung) einzureichen (vgl. Ablaufschema „<a href=\"/assets/documents/20201029_Ablaufschema_Bauen_auf_belasteten_Standorten.pdf\" title=\"Herunterladen\" target=\"_blank\">Bauen auf belasteten Standorten</a>“).",
       "type": "checkbox",
       "required": false,
-      "active-expression": "'ms:ch.sz.a020a.kataster_belasteter_standorte' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020a.kataster_belasteter_standorte_pnt' in 'layer'|value|mapby('name')",
+      "active-expression": "'ms:ch.sz.a020a.kataster_belasteter_standorte' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020a.kataster_belasteter_standorte_pnt' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020a.kataster_belasteter_standorte_01' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020a.kataster_belasteter_standorte_pnt_01' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020a.kataster_belasteter_standorte_02' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020a.kataster_belasteter_standorte_pnt_02' in 'layer'|value|mapby('name')",
       "config": {
         "options": ["Vorhanden"]
       }
