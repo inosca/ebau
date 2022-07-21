@@ -181,7 +181,7 @@ class CalumaAnswerWriter(FieldWriter):
                         username=self.owner._user.username, group=self.owner._group.pk
                     ),
                 )
-            except CustomValidationError:
+            except CustomValidationError:  # pragma: no cover
                 dossier._meta.errors.append(
                     Message(
                         level=LOG_LEVEL_WARNING,
