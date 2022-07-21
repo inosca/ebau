@@ -188,6 +188,21 @@
       "sort": 9
     }
   },
+    {
+    "model": "caluma_form.formquestion",
+    "pk": "migriertes-dossier.geschaeftstyp-import",
+    "fields": {
+      "created_at": "2020-09-21T12:38:07.648Z",
+      "modified_at": "2020-09-21T12:38:07.648Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "migriertes-dossier",
+      "question": "geschaeftstyp-import",
+      "sort": 9
+    }
+  },
   {
     "model": "caluma_form.formquestion",
     "pk": "migriertes-dossier.kommunale-gesuchsnummer",
@@ -672,6 +687,37 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Gesch\\u00e4ftstyp\", \"fr\": null}",
       "type": "choice",
+      "is_required": "true",
+      "is_hidden": "true",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+    {
+    "model": "caluma_form.question",
+    "pk": "geschaeftstyp-import",
+    "fields": {
+      "created_at": "2020-09-21T12:38:07.411Z",
+      "modified_at": "2020-10-12T08:01:09.139Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gesch\\u00e4ftstyp Import\", \"fr\": null}",
+      "type": "text",
       "is_required": "true",
       "is_hidden": "true",
       "is_archived": false,

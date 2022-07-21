@@ -8,6 +8,7 @@ from rest_framework.reverse import reverse
 
 from camac.utils import build_url
 
+from ...instance.serializers import CalumaInstanceSerializer
 from ..domain_logic import transmit_import
 from ..models import DossierImport
 from .test_dossier_import_case import TEST_IMPORT_FILE_NAME
@@ -48,6 +49,19 @@ def test_api_get_views(
     dossier_import_factory()
     resp = admin_client.get(reverse("dossier-import-list"))
     assert len(resp.json()["data"]) == result_count
+
+
+@pytest.mark.parametrize("role__name", ["Support"])
+def test_imported_instance_be_get_name(
+    db, be_instance, form_factory, document_factory, question_factory, admin_client
+):
+    # for coverage CalumaInstanceSerializer.get_name()
+    question = question_factory(pk="geschaeftstyp-import")
+    be_instance.case.document = document_factory(form_id="migriertes-dossier")
+    be_instance.case.document.answers.create(question=question, value="geschaeftstyp")
+
+    serializer = CalumaInstanceSerializer()
+    assert serializer.get_name(be_instance).startswith("geschaeftstyp")
 
 
 @pytest.mark.freeze_time("2021-12-12")

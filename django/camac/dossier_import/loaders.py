@@ -79,6 +79,8 @@ class XlsxFileDossierLoader:
         "decision_date",
         "construction_start_date",
         "completion_date",
+        "custom_1",
+        "custom_2",
         "decision_date",
         "final_approval_date",
         "profile_approval_date",
