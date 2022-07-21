@@ -106,7 +106,7 @@
         </CaseDashboard::Column>
       </tr>
       <tr>
-        <CaseDashboard::Journal @journalEntries={{this.models.journalEntries}} @header={{t "journal.title"}} @totalJournalEntries={{this.totalJournalEntries}} @instanceId={{@instanceId}} @instanceResourceId={{this.instanceResourceId}} />
+        <CaseDashboard::Journal @journalEntries={{this.models.journalEntries}} @header={{t "journal.title"}} @totalJournalEntries={{this.totalJournalEntries}} @instanceId={{@instanceId}} @instanceResourceId={{this.journalInstanceResourceId}} />
       </tr>
     </CaseDashboard::Section>
     <hr />
@@ -114,6 +114,13 @@
       <tr>
         <CaseDashboard::Column @header={{t "cases.tableHeaders.applicant"}}>
           <CaseDashboard::Address @contact={{this.models.caseModel.applicant}} />
+          {{#if (gt this.models.caseModel.numberOfApplicants 0)}}
+            <FurtherPeople
+              @instanceId={{@instanceId}}
+              @formInstanceResourceId={{this.formInstanceResourceId}}
+              @numberOfPersons={{this.models.caseModel.numberOfApplicants}}>
+            </FurtherPeople>
+          {{/if}}
         </CaseDashboard::Column>
 
         {{#if this.models.caseModel.projectAuthor}}
@@ -121,6 +128,13 @@
             <CaseDashboard::Address
               @contact={{this.models.caseModel.projectAuthor}}
             />
+            {{#if (gt this.models.caseModel.numberOfProjectAuthors 0)}}
+              <FurtherPeople
+                @instanceId={{@instanceId}}
+                @formInstanceResourceId={{this.formInstanceResourceId}}
+                @numberOfPersons={{this.models.caseModel.numberOfProjectAuthors}}>
+              </FurtherPeople>
+            {{/if}}
           </CaseDashboard::Column>
         {{else}}
           {{! Empty column so the spacing is correct}}
@@ -133,6 +147,13 @@
             <CaseDashboard::Address
               @contact={{this.models.caseModel.landowner}}
             />
+            {{#if (gt this.models.caseModel.numberOfLandowners 0)}}
+              <FurtherPeople
+                @instanceId={{@instanceId}}
+                @formInstanceResourceId={{this.formInstanceResourceId}}
+                @numberOfPersons={{this.models.caseModel.numberOfLandowners}}>
+              </FurtherPeople>
+            {{/if}}
           </CaseDashboard::Column>
         {{else}}
           {{! Empty column so the spacing is correct}}
@@ -143,6 +164,13 @@
             <CaseDashboard::Address
               @contact={{this.models.caseModel.invoiceRecipient}}
             />
+            {{#if (gt this.models.caseModel.numberOfInvoiceRecipients 0)}}
+              <FurtherPeople
+                @instanceId={{@instanceId}}
+                @formInstanceResourceId={{this.formInstanceResourceId}}
+                @numberOfPersons={{this.models.caseModel.numberOfInvoiceRecipients}}>
+              </FurtherPeople>
+            {{/if}}
           </CaseDashboard::Column>
         {{else}}
           {{! Empty column so the spacing is correct}}
@@ -160,8 +188,17 @@
           />
         <CaseDashboard::Column @header={{t "cases.tableHeaders.involvedServices"}}>
           <ul>
-            {{#each this.models.involvedServices as |service|}}
-              <li>{{service}}</li>
+            {{#each this.models.involvedServiceActivations as |activation|}}
+              <li>
+                {{activation.name}}
+                {{#if (eq this.models.caseModel.activationWarning "nfd")}}
+                  <span class="activation-warning nfd" title={{t "dashboard.nfd"}}></span>
+                {{else if (eq this.models.caseModel.activationWarning "expired")}}
+                  <span class="activation-warning expired" title={{t "dashboard.expired"}}></span>
+                {{else if (or activation.endDate activation.suspensionDate)}}
+                  <span class="activation-warning completed" title={{t "dashboard.completed"}}></span>
+                {{/if}}
+              </li>
             {{/each}}
           </ul>
         </CaseDashboard::Column>
