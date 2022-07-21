@@ -262,6 +262,15 @@ def test_set_workflow_state_exceptions(
             "plot_data",
         ),
         (
+            {
+                "COORDINATE-E": "2`710`662",
+                "COORDINATE-N": "1`225`997",
+                "PARCEL": "`123`,2BA",
+                "EGRID": "HK207838123456",
+            },
+            "plot_data",
+        ),
+        (
             {"SUBMIT-DATE": timezone.datetime(2021, 12, 12)},
             "submit_date",
         ),
