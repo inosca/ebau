@@ -1,3 +1,4 @@
+import itertools
 import zipfile
 from dataclasses import fields
 from enum import Enum
@@ -281,7 +282,7 @@ class XlsxFileDossierLoader:
             municipality = dossier_row.get(
                 getattr(XlsxFileDossierLoader.Column, "city").value
             )
-            for number, egrid in zip(plot_numbers, egrids):
+            for number, egrid in itertools.zip_longest(plot_numbers, egrids):
                 out.append(
                     PlotData(
                         number=str(number),
