@@ -45,3 +45,45 @@ tr.activation-warning {
     }
   }
 }
+
+.activation-warning {
+  &.nfd {
+    &::before {
+      content: "";
+      display: inline-flex;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      margin: 1px 0 0 5px;
+      padding: 0;
+      border: 1px solid darken($activation-warning-nfd, 10%);
+      background-color: $activation-warning-nfd;
+    }
+  }
+  &.expired {
+    &::before {
+      content: "";
+      display: inline-flex;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      margin: 1px 0 0 5px;
+      padding: 0;
+      border: 1px solid darken($activation-warning-expired, 10%);
+      background-color: $activation-warning-expired;
+    }
+  }
+  &.completed {
+    &::before {
+      content: "";
+      display: inline-flex;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      margin: 1px 0 0 5px;
+      padding: 0;
+      border: 1px solid darken($activation-warning-completed, 10%);
+      background-color: $activation-warning-completed;
+    }
+  }
+}

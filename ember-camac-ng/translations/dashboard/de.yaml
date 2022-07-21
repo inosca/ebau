@@ -11,3 +11,8 @@ dashboard:
   egrid: "EGRID"
   basicUsage: "Grundnutzung"
   overlayUsage: "Überlagerte Nutzung"
+  furtherPeople: "+ {numberOfPersons} weitere"
+  linkToForm: "/page/index/instance-resource-id/{instanceResourceId}/instance-id/{instanceId}#/instances/{instanceId}/form?displayedForm=personalien"
+  nfd: "Nachforderung"
+  expired: "Abgelaufen"
+  completed: "Erledigt"

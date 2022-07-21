@@ -1,11 +1,15 @@
 import { inject as service } from "@ember/service";
+import { isEmpty } from "@ember/utils";
+import CaseModel from "@projectcaluma/ember-core/caluma-query/models/case";
 import { DateTime } from "luxon";
 
-import CustomCaseBaseModel from "camac-ng/caluma-query/models/-case";
+import caseModelConfig from "camac-ng/config/case-model";
 import getAnswer from "camac-ng/utils/get-answer";
 
-export default class CustomCaseModel extends CustomCaseBaseModel {
+export default class CustomCaseModel extends CaseModel {
+  @service store;
   @service shoebox;
+  @service intl;
 
   getPersonData(question) {
     const answer = getAnswer(this.raw.document, question);
@@ -82,16 +86,32 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
     return this.getPersonData("applicant");
   }
 
+  get numberOfApplicants() {
+    return this.getPersonsCount("applicant") - 1;
+  }
+
   get projectAuthor() {
     return this.getPersonData("project-author");
+  }
+
+  get numberOfProjectAuthors() {
+    return this.getPersonsCount("project-author") - 1;
   }
 
   get landowner() {
     return this.getPersonData("landowner");
   }
 
+  get numberOfLandowners() {
+    return this.getPersonsCount("landowner") - 1;
+  }
+
   get invoiceRecipient() {
     return this.getPersonData("invoice-recipient");
+  }
+
+  get numberOfInvoiceRecipients() {
+    return this.getPersonsCount("invoice-recipient") - 1;
   }
 
   get basicUsage() {
