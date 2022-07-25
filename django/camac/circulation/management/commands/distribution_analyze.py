@@ -332,10 +332,25 @@ class Command(BaseCommand):
             )
         ).exclude(init_distribution_count=0)
 
+        faulty_pre_instances = pre_instances.exclude(
+            init_distribution_count__isnull=False, init_distribution_count=1
+        )
         self._log_analysis_result(
             "There is a ready init distribution work item for instances pre circulation",
-            not pre_instances.exclude(init_distribution_count=1).exists(),
+            not faulty_pre_instances.exists(),
         )
+
+        for instance in Instance.objects.filter(
+            pk__in=faulty_pre_instances.values_list("pk", flat=True)
+        ):
+            init_work_items = [
+                f"{w.task_id} ({w.status})"
+                for w in WorkItem.objects.filter(
+                    case__family__instance=instance.pk,
+                    task_id=settings.DISTRIBUTION["DISTRIBUTION_INIT_TASK"],
+                )
+            ]
+            self._log_instance(instance, ", ".join(init_work_items))
 
         self._log_analysis_result(
             "There are only suspended (unsent) inquiries for instances pre circulation",
