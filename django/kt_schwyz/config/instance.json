@@ -530,6 +530,16 @@
     }
   },
   {
+    "model": "instance.form",
+    "pk": 54,
+    "fields": {
+      "form_state": 1,
+      "name": "plangenehmigungsgesuch-v5",
+      "description": "Plangenehmigungsgesuch",
+      "family": 8
+    }
+  },
+  {
     "model": "instance.formstate",
     "pk": 1,
     "fields": {

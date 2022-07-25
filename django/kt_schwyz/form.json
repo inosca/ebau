@@ -976,6 +976,16 @@
       "gesuchsunterlagen",
       "meta"
     ],
+    "plangenehmigungsgesuch-v5": [
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "personalien",
+      "personalien.grundeigentumerschaft-v2",
+      "personalien.bauherrschaft-v3",
+      "personalien.projektverfasser-planer-v3",
+      "gesuchsunterlagen",
+      "meta"
+    ],
     "projektgenehmigungsgesuch-gemass-ss15-strag": [
       "grundinformationen",
       "grundinformationen.lokalisierung",
