@@ -864,7 +864,7 @@ class Command(BaseCommand):
     def distribution_is_initialized_be(
         self, case, previous_work_item, next_work_item, has_circulations
     ):
-        return case.instance.instance_state not in [
+        return case.instance.instance_state.name not in [
             "circulation_init",
             "correction",
             "rejected",
