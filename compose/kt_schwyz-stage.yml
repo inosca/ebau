@@ -5,6 +5,9 @@ services:
     ports:
       - "80:80"
       - "443:443"
+    depends_on:
+      - mailhog
+      - postfix
     volumes:
       - /etc/letsencrypt:/etc/letsencrypt:ro
       - /etc/camac/nginx:/etc/nginx/conf.d:ro
@@ -32,6 +35,7 @@ services:
     restart: always
     depends_on:
       - postfix
+      - mailhog
     environment:
       - DATABASE_NAME=kt_schwyz_dist
       - DJANGO_ENV_FILE=/run/secrets/django.env
@@ -90,6 +94,12 @@ services:
     environment:
       - POSTFIX_myhostname=camac-schwyz.sycloud.ch
       - POSTFIX_mail_name=noreply@camac-schwyz.sycloud.ch
+
+  mailhog:
+    image: mailhog/mailhog
+    restart: always
+    environment:
+      - MH_UI_WEB_PATH=mailhog
 
   metabase:
     environment:
