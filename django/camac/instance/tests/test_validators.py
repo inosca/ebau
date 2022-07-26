@@ -169,7 +169,7 @@ DEFAULT_FORM_CONFIG = {
 
 
 @pytest.mark.parametrize(
-    "questions,form_fields,is_required,is_active,raises_validation_error",
+    "questions,form_fields,is_required,is_active,instance_state_name,raises_validation_error",
     [
         (
             {
@@ -183,6 +183,7 @@ DEFAULT_FORM_CONFIG = {
             [],
             {"question-0": True},
             {"question-0": True},
+            "new",
             True,  # Is required, but no value
         ),
         (
@@ -197,6 +198,7 @@ DEFAULT_FORM_CONFIG = {
             [("question-0", "No")],
             {"question-0": False},
             {"question-0": True},
+            "new",
             False,
         ),
         (
@@ -211,6 +213,7 @@ DEFAULT_FORM_CONFIG = {
             [("question-0", "test")],
             {"question-0": True},
             {"question-0": True},
+            "new",
             True,  # Validation error, number expected, string received
         ),
         (
@@ -232,6 +235,7 @@ DEFAULT_FORM_CONFIG = {
             [("question-0", 12), ("question-1", "test")],
             {"question-0": True, "question-1": True},
             {"question-0": True, "question-1": True},
+            "new",
             False,
         ),
         (
@@ -260,6 +264,7 @@ DEFAULT_FORM_CONFIG = {
             [("question-0", 12), ("question-1", "Nope.")],
             {"question-0": True, "question-1": True, "question-2": False},
             {"question-0": True, "question-1": True, "question-2": False},
+            "new",
             False,
         ),
         (
@@ -287,7 +292,36 @@ DEFAULT_FORM_CONFIG = {
             [("question-0", "No"), ("question-1", ["One", "Two"])],
             {"question-0": True, "question-1": False, "question-2": True},
             {"question-0": True, "question-1": True, "question-2": True},
+            "new",
             True,  # question-2 required
+        ),
+        (
+            {
+                "question-0": {
+                    "label": "Question 0",
+                    "type": "radio",
+                    "required": True,
+                    "config": {"options": ["Yes", "No"]},
+                },
+                "question-1": {
+                    "label": "Question 1",
+                    "type": "checkbox",
+                    "required": False,
+                    "config": {"options": ["One", "Two", "Three"]},
+                },
+                "question-2": {
+                    "label": "Question 2",
+                    "type": "text",
+                    "required": True,
+                    "active-expression": "'One' in 'question-1'|value || 'Yes' in 'question-0'|value",
+                    "config": {},
+                },
+            },
+            [("question-0", "No"), ("question-1", ["One", "Two"])],
+            {"question-0": True, "question-1": False, "question-2": True},
+            {"question-0": True, "question-1": True, "question-2": True},
+            "nfd",
+            False,  # Since the instance state is nfd no validation is done
         ),
         (
             {
@@ -316,6 +350,7 @@ DEFAULT_FORM_CONFIG = {
             [("question-0", "No"), ("question-1", ["Three"]), ("question-2", "Test")],
             {"question-0": True, "question-1": True, "question-2": False},
             {"question-0": True, "question-1": True, "question-2": False},
+            "new",
             True,  # ValidationError, expects option for question-2, received string
         ),
     ],
@@ -324,12 +359,14 @@ def test_form_data_validator_validation(
     db,
     form_field_factory,
     form_factory,
+    instance_state_factory,
     instance,
     settings,
     questions,
     form_fields,
     is_required,
     is_active,
+    instance_state_name,
     raises_validation_error,
 ):
     form_config = DEFAULT_FORM_CONFIG
@@ -339,6 +376,7 @@ def test_form_data_validator_validation(
     settings.FORM_CONFIG = form_config
 
     instance.form = form_factory(name="form-a")
+    instance.instance_state = instance_state_factory(name=instance_state_name)
     instance.save()
 
     for form_field in form_fields:
