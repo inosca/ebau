@@ -195,7 +195,7 @@
     "model": "notification.notificationtemplate",
     "pk": 18,
     "fields": {
-      "slug": "06-information-uber-eingabe-einsprecher",
+      "slug": "complete-manual-work-item",
       "purpose": null,
       "subject": null,
       "body": null,
@@ -664,11 +664,11 @@
     "pk": 35,
     "fields": {
       "template": 18,
-      "template_slug": "06-information-uber-eingabe-einsprecher",
+      "template_slug": "complete-manual-work-item",
       "language": "de",
-      "purpose": "06 Information über Eingabe (Einsprecher)",
-      "subject": "Information über Ihre Eingabe (eBau Nr. {{EBAU_NUMBER}}) / Information relative à votre envoi (n° eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag \r\n\r\nIhre Eingabe (Einsprache, Rechtsverwahrung, Lastenausgleich) wurde erfolgreich übermittelt. \r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur, \r\n\r\nVotre opposition, réserve de droit ou demande de compensation des charges a été déposée avec succès.\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
+      "purpose": "Manuelle Aufgabe abgeschlossen",
+      "subject": "Aufgabe abgeschlossen (eBau-Nr. {{EBAU_NUMBER}}) / tâche complétée (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nDie Aufgabe \"{{WORK_ITEM_NAME}}\" im Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}, {{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde von {{CURRENT_USER_NAME}} ({{CURRENT_SERVICE_DE}}) abgeschlossen.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nSie erhalten diese Notifikation, weil Sie beim Erstellen der Aufgabe die Notifikationseinstellung \"Bei Abschluss\" gewählt haben.\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n*** version française ***\r\n\r\nBonjour,\r\n\r\nLa tâche \"{{WORK_ITEM_NAME}}\" dans le dossier portant le numéro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}, {{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}) a été terminée par {{CURRENT_USER_NAME}} ({{CURRENT_SERVICE_FR}}).\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nVous recevez cette notification parce que vous avez sélectionné le paramètre de notification \"après achèvement\" lorsque vous avez créé la tâche.\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre."
     }
   },
   {
