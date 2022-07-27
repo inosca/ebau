@@ -76,6 +76,24 @@
   },
   {
     "model": "core.anotification",
+    "pk": 12000005,
+    "fields": {
+      "template": "02-aufhebung-rueckweisung-gesuchsteller",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_Applicant",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
+    "pk": 12000006,
+    "fields": {
+      "template": "02-aufhebung-rueckweisung-gemeinde",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_InactiveMunicipality",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
     "pk": 15000000,
     "fields": {
       "template": "02-rueckweisung-gemeinde",
@@ -538,6 +556,34 @@
       "error_message": null,
       "execute_always": 0,
       "sort": 3
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000005,
+    "fields": {
+      "available_action": "notification",
+      "button": 140000,
+      "name": null,
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 4
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000006,
+    "fields": {
+      "available_action": "notification",
+      "button": 140000,
+      "name": null,
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 5
     }
   },
   {
@@ -1009,6 +1055,30 @@
       "action": 12000004,
       "language": "de",
       "name": "SB2 abschliessen, E-Mail an beteiligte Behörden",
+      "description": null,
+      "success_message": null,
+      "error_message": null
+    }
+  },
+  {
+    "model": "core.actiont",
+    "pk": 12000005,
+    "fields": {
+      "action": 12000005,
+      "language": "de",
+      "name": "Notifikation Gesuchsteller",
+      "description": null,
+      "success_message": "E-Mail an Gesuchstellende gesendet",
+      "error_message": "Beim Senden der E-Mail Notifikation an die Gesuchstellenden ist ein Fehler aufgetreten"
+    }
+  },
+  {
+    "model": "core.actiont",
+    "pk": 12000006,
+    "fields": {
+      "action": 12000006,
+      "language": "de",
+      "name": "Notifikation Gemeinde",
       "description": null,
       "success_message": null,
       "error_message": null
