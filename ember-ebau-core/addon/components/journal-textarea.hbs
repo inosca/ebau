@@ -27,7 +27,7 @@
             value={{or @journalEntry.duration "00:00"}}
             maxlength="5"
             name="duration"
-            class="uk-input duration-input
+            class="uk-input uk-form-width-xsmall
               {{unless this.isValidDuration "uk-form-danger"}}"
             type="text"
             {{on "input" this.validateDuration}}

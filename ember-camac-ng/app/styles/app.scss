@@ -10,11 +10,10 @@
     @import "@projectcaluma/ember-form";
     @import "@projectcaluma/ember-form-builder";
     @import "ember-ebau-gwr";
+    @import "ember-ebau-core";
     @import "reset";
   }
 
-  @import "modules/history";
-  @import "modules/journal";
   @import "modules/work-items";
   @import "modules/dossier-import";
 
@@ -25,8 +24,6 @@
   @import "components/work-item-list";
   @import "components/case-table";
   @import "components/ur-gis";
-  @import "components/journal-textarea";
-  @import "components/journal-entry";
 
   @import "misc";
   @import "power-select";
