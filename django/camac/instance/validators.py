@@ -16,6 +16,8 @@ from . import models
 
 locale.setlocale(locale.LC_ALL, f"{settings.LOCALE_NAME}.UTF-8")
 
+INSTANCE_STATE_NFD = "nfd"
+
 
 def transform_coordinates(coordinates):
     """Convert a list of GPS(EPSG:4326) coordinates to the Schwyz Cooridnate System."""
@@ -211,6 +213,12 @@ class FormDataValidator(object):
         validate_method(question, question_def, value, module)
 
     def validate(self):
+        # In the instance state NFD the applicant can not change any form data,
+        # therefore we skip the form validation to prevent submit errors which
+        # were caused after a successful initial submit.
+        if self.instance.instance_state.name == INSTANCE_STATE_NFD:
+            return
+
         form_def = self.get_form_def(self.instance.form.name)
         for module in form_def:
             for question in self.forms_def["modules"][module]["questions"]:
