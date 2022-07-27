@@ -207,7 +207,7 @@
     "model": "notification.notificationtemplate",
     "pk": 19,
     "fields": {
-      "slug": "07-eingaben-gesuchsteller-gemeinden-fachstellen",
+      "slug": "02-aufhebung-rueckweisung-gemeinde",
       "purpose": null,
       "subject": null,
       "body": null,
@@ -219,7 +219,7 @@
     "model": "notification.notificationtemplate",
     "pk": 20,
     "fields": {
-      "slug": "07-protokoll-amts-und-fachstellen-gesuchsteller-einsprecher",
+      "slug": "02-aufhebung-rueckweisung-gesuchsteller",
       "purpose": null,
       "subject": null,
       "body": null,
@@ -676,11 +676,11 @@
     "pk": 37,
     "fields": {
       "template": 19,
-      "template_slug": "07-eingaben-gesuchsteller-gemeinden-fachstellen",
+      "template_slug": "02-aufhebung-rueckweisung-gemeinde",
       "language": "de",
-      "purpose": "07 Eingaben (Gesuchsteller, Gemeinden, Fachstellen)",
-      "subject": "Information über eingegangene Eingaben (eBau Nr. {{EBAU_NUMBER}}) / Information sur la réception d'envois (n° eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nWährend der öffentlichen Auflage sind Eingaben (Einsprache, Rechtsverwahrung, Lastenausgleich) gemäss Anhang eingegangen. \r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nDes oppositions, réserves de droit ou demandes de compensation des charges ont été émises pendant le dépôt public. Elles sont mentionnées dans l'annexe. \r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
+      "purpose": "02 Aufhebung Rückweisung (Gemeinde)",
+      "subject": "Rückweisung des Dossiers aufgehoben (eBau Nr. {{EBAU_NUMBER}}) / Renvoi du dossier annulé (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nDie Baubewilligungsbehörde {{LEITBEHOERDE_NAME_DE}} hat die Rückweisung des Dossiers mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}, {{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) aufgehoben.\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur, \r\n\r\nL'autorité du permis de construire {{LEITBEHOERDE_NAME_FR}} a annulé le renvoi du dossier avec eBau N° {{EBAU_NUMBER}}. ({{INSTANCE_ID}}, {{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}).\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre."
     }
   },
   {
@@ -688,11 +688,11 @@
     "pk": 39,
     "fields": {
       "template": 20,
-      "template_slug": "07-protokoll-amts-und-fachstellen-gesuchsteller-einsprecher",
+      "template_slug": "02-aufhebung-rueckweisung-gesuchsteller",
       "language": "de",
-      "purpose": "07 Protokoll (Amts- und Fachstellen, Gesuchsteller, Einsprecher)",
-      "subject": "Protokoll Einigungsverhandlung (eBau Nr. {{EBAU_NUMBER}}) / Procès-verbal des pourparlers de conciliation (n° eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nSie erhalten das Protokoll der Einigungsverhandlung zum Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nVeuillez trouver ci-joint le procès-verbal des pourparlers de conciliation relatifs au dossier portant le numéro eBau {{EBAU_NUMBER}} ({{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}).\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\n{{LEITBEHOERDE_NAME_FR}}"
+      "purpose": "02 Aufhebung Rückweisung (Gesuchsteller)",
+      "subject": "Rückweisung des Dossiers aufgehoben  (eBau Nr. {{EBAU_NUMBER}}) / Renvoi du dossier annulé(n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nDie Baubewilligungsbehörde {{LEITBEHOERDE_NAME_DE}} hat die Rückweisung des Dossiers mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}, {{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) aufgehoben. Es sind momentan keine weiteren Aktionen nötig.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur, \r\n\r\nL'autorité du permis de construire {{LEITBEHOERDE_NAME_FR}} a annulé le renvoi du dossier avec eBau N° {{EBAU_NUMBER}}. ({{INSTANCE_ID}}, {{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}).  Aucune autre action n'est nécessaire pour le moment.. \r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre."
     }
   },
   {
