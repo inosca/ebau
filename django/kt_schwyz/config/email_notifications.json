@@ -1,6 +1,18 @@
 [
   {
     "model": "notification.notificationtemplate",
+    "pk": 1,
+    "fields": {
+      "slug": "complete-manual-work-item",
+      "purpose": "Manuelle Aufgabe abgeschlossen",
+      "subject": "Aufgabe abgeschlossen (Gesuchs-Nummer {{identifier}})",
+      "body": "Guten Tag\r\n\r\nDie Aufgabe \"{{work_item_name}}\" im Dossier {{identifier}} wurde von {{current_user_name}} ({{current_service}}) abgeschlossen.\r\n\r\n{{internal_dossier_link}}\r\n\r\nSie erhalten diese Notifikation, weil Sie beim Erstellen der Aufgabe die Notifikationseinstellung \"Bei Abschluss\" gewählt haben.",
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
     "pk": 13,
     "fields": {
       "slug": "ruckweisung",

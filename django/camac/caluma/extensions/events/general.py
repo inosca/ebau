@@ -13,13 +13,12 @@ from caluma.caluma_workflow.events import (
 )
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
-from django.core import mail
 from django.db import transaction
 
 from camac.caluma.api import CalumaApi
 from camac.instance.models import Instance
+from camac.notification.utils import send_mail_without_request
 from camac.user import models as user_models
-from camac.user.utils import unpack_service_emails
 
 log = getLogger()
 
@@ -165,72 +164,20 @@ def notify_completed_work_item(sender, work_item, user, **kwargs):
     if not work_item.meta.get("notify-completed", False):
         return
 
-    # controlling services are notified
-    services = user_models.Service.objects.filter(
-        pk__in=work_item.controlling_groups
-    ).filter(notification=True)
-
-    recipients = unpack_service_emails(services)
-
-    camac_user = user_models.User.objects.filter(username=user.username).first()
-
-    closed_by_service = user_models.Service.objects.filter(pk=user.group).first()
-    service_info_de = (
-        f" ({closed_by_service.get_name('de')})" if closed_by_service else ""
-    )
-    service_info_fr = (
-        f" ({closed_by_service.get_name('fr')})" if closed_by_service else ""
-    )
-
-    instance_id = get_instance_id(work_item)
-
-    dossier_identification = instance_id
-    title = f"Aufgabe abgeschlossen (Dossier-Nr. {dossier_identification})"
-
-    if settings.APPLICATION.get("HAS_EBAU_NUMBER", False) and settings.APPLICATION.get(
-        "IS_MULTILINGUAL", False
+    for notification_config in settings.APPLICATION["NOTIFICATIONS"].get(
+        "COMPLETE_MANUAL_WORK_ITEM", []
     ):
-        dossier_identification = (
-            f"{work_item.case.family.meta.get('ebau-number')} ({instance_id})"
+        send_mail_without_request(
+            notification_config["template_slug"],
+            user.username,
+            user.camac_group,
+            instance={
+                "id": work_item.case.family.instance.pk,
+                "type": "instances",
+            },
+            work_item={"id": work_item.pk, "type": "work-items"},
+            recipient_types=notification_config["recipient_types"],
         )
-        title = f"Aufgabe abgeschlossen (eBau-Nr. {dossier_identification}) / tâche complétée (n° eBau {dossier_identification})"
-
-    if settings.APPLICATION.get("HAS_GESUCHSNUMMER", False):
-        dossier_identification = Instance.objects.get(pk=instance_id).identifier
-        title = f"Aufgabe abgeschlossen (Gesuchs-Nummer {dossier_identification})"
-
-    body = f"""Guten Tag
-
-Die Aufgabe "{work_item.name}" im Dossier {dossier_identification} wurde von {camac_user.get_full_name()}{service_info_de} abgeschlossen.
-
-{settings.INTERNAL_INSTANCE_URL_TEMPLATE.format(instance_id=instance_id)}
-
-Sie erhalten diese Notifikation, weil Sie beim Erstellen der Aufgabe die Notifikationseinstellung "Bei Abschluss" gewählt haben.
-"""
-
-    if settings.APPLICATION.get("IS_MULTILINGUAL", False):
-        body = (
-            body
-            + f"""
-*** version française ***
-
-Bonjour,
-
-La tâche "{work_item.name}" dans le dossier {dossier_identification} a été terminée par {camac_user.get_full_name()}{service_info_fr}.
-
-{settings.INTERNAL_INSTANCE_URL_TEMPLATE.format(instance_id=instance_id)}
-
-Vous recevez cette notification parce que vous avez sélectionné le paramètre de notification "après achèvement" lorsque vous avez créé la tâche.
-"""
-        )
-
-    emails = [
-        mail.EmailMessage(title, body, settings.DEFAULT_FROM_EMAIL, to=[rec])
-        for rec in recipients
-    ]
-
-    connection = mail.get_connection()
-    connection.send_messages(emails)
 
 
 @on([pre_complete_work_item, pre_skip_work_item], raise_exception=True)
