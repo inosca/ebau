@@ -859,8 +859,8 @@
       "template_slug": "08-stellungnahme-zu-voranfrage-behoerden",
       "language": "de",
       "purpose": "08 Stellungnahme zu Voranfrage (Behörden)",
-      "subject": "Stellungnahme zu Voranfrage (eBau Nr. {{EBAU_NUMBER}}) / Observations sur l'enquête préliminaire (n° eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nSie finden die Stellungnahme / Antwort zur Voranfrage mit der eBau Nr. {{EBAU_NUMBER}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) in den eBau-Dokumenten:\r\n\r\n{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=documents\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nVous trouverez la déclaration / réponse à l'enquête préliminaire avec le numéro eBau {{EBAU_NUMBER}} ({{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}) dans les documents eBau :\r\n\r\n{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=documents\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\n{{LEITBEHOERDE_NAME_FR}}"
+      "subject": "Stellungnahme zu Dossier (eBau Nr. {{EBAU_NUMBER}}) / Observations sur le dossier (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nSie finden die Stellungnahme / Antwort zum Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) in den eBau-Dokumenten:\r\n\r\n{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=documents\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nVous trouverez la déclaration / réponse au dossier avec le numéro eBau {{EBAU_NUMBER}} ({{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}) dans les documents eBau :\r\n\r\n{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=documents\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\n{{LEITBEHOERDE_NAME_FR}}"
     }
   },
   {
@@ -907,8 +907,8 @@
       "template_slug": "08-stellungnahme-zu-voranfrage-gesuchsteller",
       "language": "de",
       "purpose": "08 Stellungnahme zu Voranfrage (Gesuchsteller)",
-      "subject": "Stellungnahme zu Voranfrage (eBau Nr. {{EBAU_NUMBER}}) / Observations sur l'enquête préliminaire (n° eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nSie finden die Stellungnahme zur Voranfrage mit der eBau Nr. {{EBAU_NUMBER}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) in den eBau-Dokumenten:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nVous trouverez la déclaration à l'enquête préliminaire avec le numéro eBau {{EBAU_NUMBER}} ({{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}) dans les documents eBau :\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
+      "subject": "Stellungnahme zu Dossier (eBau Nr. {{EBAU_NUMBER}}) / Observations sur le dossier (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nSie finden die Stellungnahme zum Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) in den eBau-Dokumenten:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nVous trouverez la déclaration au dossier avec le numéro eBau {{EBAU_NUMBER}} ({{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}) dans les documents eBau :\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
     }
   },
   {
