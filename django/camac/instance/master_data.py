@@ -1,7 +1,8 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from operator import attrgetter
 
 from caluma.caluma_form import models as form_models
+from caluma.caluma_form.validators import DocumentValidator
 from dateutil.parser import ParserError, parse as dateutil_parse
 from django.conf import settings
 from django.utils.translation import get_language
@@ -12,6 +13,7 @@ from camac.core.models import MultilingualModel
 @dataclass
 class MasterData(object):
     case: object
+    visible_questions: dict = field(default_factory=dict)
 
     def __getattr__(self, lookup_key):
         config = settings.APPLICATION["MASTER_DATA"].get(lookup_key)
@@ -80,6 +82,15 @@ class MasterData(object):
             lookup = lookup_config
 
         return self._parse_value(row.get(lookup), **options)
+
+    def _answer_is_visible(self, answer):
+        visible_questions = self.visible_questions.get(answer.document.pk)
+
+        if visible_questions is None:
+            visible_questions = DocumentValidator().visible_questions(answer.document)
+            self.visible_questions[answer.document.pk] = visible_questions
+
+        return answer.question_id in visible_questions
 
     def static_resolver(self, value):
         """Resolve static value for a master data key.
@@ -162,7 +173,8 @@ class MasterData(object):
 
         answer = next(
             filter(
-                lambda answer: answer.question_id in lookup,
+                lambda answer: answer.question_id in lookup
+                and self._answer_is_visible(answer),
                 document.answers.all() if document else [],
             ),
             None,

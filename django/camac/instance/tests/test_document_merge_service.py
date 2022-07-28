@@ -103,6 +103,7 @@ def test_document_merge_service_cover_sheet_with_header_values(
     user_factory,
     snapshot,
     application_settings,
+    master_data_is_visible_mock,
 ):
     application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_bern"][
         "MASTER_DATA"
