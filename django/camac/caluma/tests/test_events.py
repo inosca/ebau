@@ -320,6 +320,51 @@ def test_notify_completed_work_item(
         assert len(mailoutbox) == 1
 
 
+def test_notify_created_work_item(
+    db,
+    caluma_admin_user,
+    service_factory,
+    instance,
+    work_item_factory,
+    mailoutbox,
+    application_settings,
+    notification_template,
+    task_factory,
+):
+
+    application_settings["NOTIFICATIONS"]["CREATE_MANUAL_WORK_ITEM"] = [
+        {
+            "template_slug": notification_template.slug,
+            "recipient_types": ["work_item_addressed"],
+        }
+    ]
+
+    service = service_factory()
+
+    work_item = work_item_factory(
+        task=task_factory(slug="create-manual-workitems"),
+        status="ready",
+        addressed_groups=[str(service.pk)],
+        child_case=None,
+        deadline=timezone.now(),
+        meta={"ebau-number": "2020-01"},
+    )
+
+    instance.case = work_item.case
+    instance.save()
+
+    send_event(
+        post_create_work_item,
+        sender="test_notify_created_work_item",
+        work_item=work_item,
+        user=caluma_admin_user,
+        context={},
+    )
+
+    assert len(mailoutbox) == 1
+    assert mailoutbox[0].recipients()[0] == service.email
+
+
 def test_set_is_published(
     caluma_admin_user,
     application_settings,

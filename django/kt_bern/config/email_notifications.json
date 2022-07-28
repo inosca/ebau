@@ -159,7 +159,7 @@
     "model": "notification.notificationtemplate",
     "pk": 15,
     "fields": {
-      "slug": "04-elektronischer-versand-fur-anzeigeramtsblatt",
+      "slug": "create-manual-work-item",
       "purpose": null,
       "subject": null,
       "body": null,
@@ -628,11 +628,11 @@
     "pk": 29,
     "fields": {
       "template": 15,
-      "template_slug": "04-elektronischer-versand-fur-anzeigeramtsblatt",
+      "template_slug": "create-manual-work-item",
       "language": "de",
-      "purpose": "04 Elektronischer Versand für Anzeiger/Amtsblatt",
-      "subject": "Elektronischer Versand für Anzeiger/Amtsblatt (eBau Nr. {{EBAU_NUMBER}}) / Envoi électronique à la Feuille officielle/feuille officielle d'avis (n° eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nDas Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) ist gemäss Anhang zu publizieren.\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nNous vous prions de bien vouloir publier le dossier portant le numéro eBau {{EBAU_NUMBER}} ({{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}) conformément à l'annexe.\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\n{{LEITBEHOERDE_NAME_FR}}"
+      "purpose": "Manuelle Aufgabe erstellt",
+      "subject": "Aufgabe erstellt (eBau-Nr. {{EBAU_NUMBER}}) / tâche créée (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nIhnen wurde eine neue Aufgabe \"{{WORK_ITEM_NAME}}\" im Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}, {{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) von {{CURRENT_USER_NAME}} ({{CURRENT_SERVICE_DE}}) zugewiesen.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n*** version française ***\r\n\r\nBonjour,\r\n\r\nLa tâche \"{{WORK_ITEM_NAME}}\" dans le dossier portant le numéro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}, {{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}) a été attribuée par {{CURRENT_USER_NAME}} ({{CURRENT_SERVICE_FR}}).\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre."
     }
   },
   {
