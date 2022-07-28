@@ -1,4 +1,3 @@
-import faker
 import pytest
 from caluma.caluma_core.events import send_event
 from caluma.caluma_form import models as caluma_form_models
@@ -273,8 +272,6 @@ def test_copy_tank_installation(
         assert not sb2_row
 
 
-@pytest.mark.freeze_time("2020-08-11")
-@pytest.mark.parametrize("application_name", ["kt_bern", "kt_schwyz"])
 @pytest.mark.parametrize("notify_completed", [True, False])
 def test_notify_completed_work_item(
     db,
@@ -284,43 +281,23 @@ def test_notify_completed_work_item(
     instance,
     work_item_factory,
     mailoutbox,
-    snapshot,
-    application_name,
     application_settings,
     notify_completed,
+    notification_template,
 ):
-    excluded = set()
 
-    if application_name == "kt_bern":
-        application_settings["IS_MULTILINGUAL"] = True
-        application_settings["HAS_EBAU_NUMBER"] = True
+    application_settings["NOTIFICATIONS"]["COMPLETE_MANUAL_WORK_ITEM"] = [
+        {
+            "template_slug": notification_template.slug,
+            "recipient_types": ["work_item_controlling"],
+        }
+    ]
 
-        services = service_factory.create_batch(6)
-
-        for serv in services[:3]:
-            serv.notification = False
-            serv.save()
-            excluded.add(serv.email)
-
-    if application_name == "kt_schwyz":
-        application_settings["HAS_GESUCHSNUMMER"] = True
-        services = service_factory.create_batch(2)
-        instance.identifier = "72-21-001"
-        instance.save()
-        fake = faker.Faker()
-        for i, serv in enumerate(services):
-            emails = [fake.email() for _ in range(3)]
-            serv.email = ",".join(emails)
-
-            if i == 0:
-                serv.notification = False
-                excluded = set(emails)
-
-            serv.save()
+    service = service_factory()
 
     work_item = work_item_factory(
         status="ready",
-        controlling_groups=[str(service.pk) for service in services],
+        controlling_groups=[str(service.pk)],
         child_case=None,
         deadline=timezone.now(),
         meta={"notify-completed": notify_completed},
@@ -332,22 +309,15 @@ def test_notify_completed_work_item(
     }
     work_item.case.save()
 
-    instance.pk = 1
     instance.case = work_item.case
     instance.save()
-
-    caluma_admin_user.group = str(services[0].pk)
 
     workflow_api.complete_work_item(work_item, user=caluma_admin_user)
 
     if not notify_completed:
         assert len(mailoutbox) == 0
     else:
-        assert len(mailoutbox) == 3
-        assert not excluded.intersection(set(mail.to[0] for mail in mailoutbox))
-        snapshot.assert_match(
-            [(mail.subject, mail.body, mail.to, mail.cc) for mail in mailoutbox]
-        )
+        assert len(mailoutbox) == 1
 
 
 def test_set_is_published(
