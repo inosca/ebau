@@ -1032,3 +1032,10 @@ def active_inquiry_factory(
         return inquiry
 
     return factory
+
+
+@pytest.fixture
+def master_data_is_visible_mock(mocker):
+    mocker.patch(
+        "camac.instance.master_data.MasterData._answer_is_visible", return_value=True
+    )
