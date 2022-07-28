@@ -180,6 +180,37 @@ def notify_completed_work_item(sender, work_item, user, **kwargs):
         )
 
 
+@on(post_create_work_item, raise_exception=True)
+def notify_created_work_item(sender, work_item, user, **kwargs):
+    if not work_item.task_id == "create-manual-workitems":
+        return
+
+    # After the submission of the form and the decision a
+    # "create-manual-workitems" will be created to allow the responsible
+    # service to create a manual work item. For those work items there must not
+    # be sent a notification.
+    # We can identify such work items by checking if there is a previous work
+    # item which would mean that it was created from the workflow and not
+    # manually with the `saveWorkItem` mutation.
+    if work_item.previous_work_item:
+        return
+
+    for notification_config in settings.APPLICATION["NOTIFICATIONS"].get(
+        "CREATE_MANUAL_WORK_ITEM", []
+    ):
+        send_mail_without_request(
+            notification_config["template_slug"],
+            user.username,
+            user.camac_group,
+            instance={
+                "id": work_item.case.family.instance.pk,
+                "type": "instances",
+            },
+            work_item={"id": work_item.pk, "type": "work-items"},
+            recipient_types=notification_config["recipient_types"],
+        )
+
+
 @on([pre_complete_work_item, pre_skip_work_item], raise_exception=True)
 @transaction.atomic
 def mark_as_read(work_item, **kwargs):
