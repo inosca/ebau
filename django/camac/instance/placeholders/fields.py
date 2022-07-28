@@ -2,7 +2,7 @@ import base64
 from io import BytesIO
 
 import qrcode
-from caluma.caluma_form.models import Answer, Question
+from caluma.caluma_form.models import Question
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.contrib.postgres.fields import ArrayField
@@ -476,15 +476,18 @@ class DecisionField(serializers.ReadOnlyField):
         self.use_identifier = use_identifier
 
     def get_attribute(self, instance):
-        try:
-            return Answer.objects.get(
-                question_id=self.source,
-                document__work_item__task_id="decision",
-                document__work_item__status=WorkItem.STATUS_COMPLETED,
-                document__work_item__case__family__instance=instance,
-            )
-        except Answer.DoesNotExist:
-            return None
+        work_item = (
+            WorkItem.objects.filter(task_id="decision", case__family__instance=instance)
+            .exclude(status=WorkItem.STATUS_CANCELED)
+            .order_by("-created_at")
+            .first()
+        )
+
+        return (
+            work_item.document.answers.filter(question_id=self.source).first()
+            if work_item
+            else None
+        )
 
     def to_representation(self, answer):
         if self.compare_to:
