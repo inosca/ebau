@@ -138,6 +138,7 @@ omit = [
     "camac/core/management/commands/migrate_decision_form.py",
     "camac/user/management/commands/disable_obsolete_groups.py",
     "camac/core/management/commands/fix_ur_location_mismatches.py",
+    "camac/core/management/commands/fix_bab_documents.py",
     # Audit migration"
     "camac/core/management/commands/config/",
     "camac/core/management/commands/migrate_audit.py",
