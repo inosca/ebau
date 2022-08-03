@@ -13580,13 +13580,13 @@
     "pk": "anlagetyp-tankanlagen",
     "fields": {
       "created_at": "2020-10-31T20:11:50.153Z",
-      "modified_at": "2022-02-24T13:48:09.233Z",
+      "modified_at": "2022-08-03T14:21:54.887Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "jonas.lehmann@adfinis.com",
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Tankanlagen (Heiz\\u00f6l)\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
