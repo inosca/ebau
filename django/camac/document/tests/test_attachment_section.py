@@ -114,6 +114,12 @@ def test_attachment_section_detail(admin_client, attachment_section, role, mocke
             123,
             {123: permissions.AdminServicePermission},
         ),
+        (
+            "coordination",
+            "KOOR_BG",
+            12000003,
+            {12000003: permissions.AdminServicePermission},
+        ),
     ],
 )
 def test_attachment_section_special_permissions_ur(
