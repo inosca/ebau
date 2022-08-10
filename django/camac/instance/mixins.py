@@ -473,13 +473,12 @@ class InstanceEditableMixin(AttributeMixin):
 
     def validate_instance_for_service(self, instance):
         service = get_request(self).group.service
-        circulations = instance.circulations.all()
         responsible_service = instance.responsible_service()
 
         return self._validate_instance_editablity(
             instance,
             lambda: (
-                circulations.filter(activations__service=service).exists()
+                self.has_activations(instance, service)
                 or responsible_service == service
             ),
         )
@@ -489,3 +488,13 @@ class InstanceEditableMixin(AttributeMixin):
 
     def validate_instance_for_support(self, instance):
         return self._validate_instance_editablity(instance)
+
+    def has_activations(self, instance, service):
+        if settings.DISTRIBUTION:
+            return WorkItem.objects.filter(
+                case__family__instance=instance,
+                task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
+                addressed_groups=[str(service.pk)],
+            ).exclude(status__in=[WorkItem.STATUS_CANCELED, WorkItem.STATUS_SUSPENDED])
+
+        return instance.circulations.filter(activations__service=service).exists()

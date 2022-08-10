@@ -1,9 +1,8 @@
-from caluma.caluma_workflow.models import Case
+from caluma.caluma_workflow.models import Case, WorkItem
 from django.conf import settings
 from django.db.models import Q
 
 from camac.constants import kt_uri as uri_constants
-from camac.core.models import Activation
 from camac.instance.models import Instance
 
 
@@ -121,28 +120,27 @@ class AdminServiceBeforeDecisionPermission(
     pass
 
 
-class AdminServiceRunningActivationPermission(AdminServicePermission):
+class AdminServiceRunningInquiryPermission(AdminServicePermission):
     """Read and write permission, but delete only conditionally.
 
     Deleting is allowed when all of the following conditions are true:
 
     - Attachment is owned by the current service
-    - Service has a running activation
+    - Service has a running inquiry
     """
 
     @classmethod
-    def has_running_activation(cls, instance, group) -> bool:
-        return Activation.objects.filter(
-            service=group.service,
-            circulation__instance=instance,
-            circulation_state__name__in=settings.APPLICATION.get(
-                "ATTACHMENT_RUNNING_ACTIVATION_STATES", []
-            ),
+    def has_running_inquiry(cls, instance, group) -> bool:
+        return WorkItem.objects.filter(
+            task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
+            addressed_groups__contains=[str(group.service_id)],
+            case__family__instance=instance,
+            status=WorkItem.STATUS_READY,
         ).exists()
 
     @classmethod
     def can_destroy(cls, attachment, group) -> bool:
-        return cls.has_running_activation(
+        return cls.has_running_inquiry(
             attachment.instance, group
         ) and super().can_destroy(attachment, group)
 
@@ -150,7 +148,7 @@ class AdminServiceRunningActivationPermission(AdminServicePermission):
     def can_write(cls, attachment, group, instance=None) -> bool:
         # During creation, the attachment doesn't exist yet
         instance = attachment.instance if attachment else instance
-        return cls.has_running_activation(instance, group) and super().can_write(
+        return cls.has_running_inquiry(instance, group) and super().can_write(
             attachment, group, instance
         )
 
@@ -228,12 +226,12 @@ PERMISSIONS = {
         },
         # service
         "service-lead": {
-            AdminServiceRunningActivationPermission: [2],
+            AdminServiceRunningInquiryPermission: [2],
             AdminInternalPermission: [4],
             ReadPermission: [1, 3, 7, 8, 13, 12],
         },
         "service-clerk": {
-            AdminServiceRunningActivationPermission: [2],
+            AdminServiceRunningInquiryPermission: [2],
             AdminInternalPermission: [4],
             ReadPermission: [1, 3, 7, 8, 13, 12],
         },
@@ -242,7 +240,7 @@ PERMISSIONS = {
             ReadInternalPermission: [4],
         },
         "subservice": {
-            AdminServiceRunningActivationPermission: [2],
+            AdminServiceRunningInquiryPermission: [2],
             AdminInternalPermission: [4],
             ReadPermission: [1, 3, 7, 8, 13, 12],
         },
@@ -393,7 +391,7 @@ PERMISSION_ORDERED = [
     WritePermission,
     AdminInternalPermission,
     AdminInternalBusinessControlPermission,
-    AdminServiceRunningActivationPermission,
+    AdminServiceRunningInquiryPermission,
     AdminServiceBeforeDecisionPermission,
     AdminServicePermission,
     AdminBeforeDecisionPermission,
