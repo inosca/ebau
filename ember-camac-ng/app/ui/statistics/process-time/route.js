@@ -10,10 +10,4 @@ export default class StatisticsProcessTimeRoute extends Route {
       this.router.replaceWith("statistics.index");
     }
   }
-
-  setupController(controller, model) {
-    super.setupController(controller, model);
-
-    controller.fetchActivationsSummary.perform();
-  }
 }
