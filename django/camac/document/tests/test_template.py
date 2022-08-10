@@ -167,7 +167,7 @@ def test_template_merge(
         deadline=make_aware(datetime(2018, 4, 30)),
         closed_at=make_aware(datetime(2018, 4, 15)),
     )
-    active_inquiry_factory()
+    active_inquiry_factory(addressed_service=service_factory())
 
     # This can't be passed on creation but can only be update after the object
     # already exists since it's an auto field.
