@@ -139,7 +139,7 @@ services:
       [
         "/bin/sh",
         "-c",
-        "wait-for-it.sh db:5432 -- ./manage.py migrate && uwsgi",
+        "wait-for-it.sh db:5432 -- poetry run python manage.py migrate && poetry run uwsgi",
       ]
 
 networks:
