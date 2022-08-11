@@ -48,6 +48,14 @@
     }
   },
   {
+    "model": "core.aformtransition",
+    "pk": 12000009,
+    "fields": {
+      "current_instance_state": null,
+      "next_instance_state": 120000
+    }
+  },
+  {
     "model": "core.anotification",
     "pk": 10036,
     "fields": {
@@ -588,6 +596,76 @@
   },
   {
     "model": "core.action",
+    "pk": 12000007,
+    "fields": {
+      "available_action": "workitem",
+      "button": 12000000,
+      "name": null,
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000008,
+    "fields": {
+      "available_action": "addhistory",
+      "button": 12000000,
+      "name": null,
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 4
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000009,
+    "fields": {
+      "available_action": "formtransition",
+      "button": 12000000,
+      "name": null,
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 3
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000010,
+    "fields": {
+      "available_action": "workitem",
+      "button": 12000000,
+      "name": null,
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000011,
+    "fields": {
+      "available_action": "workitem",
+      "button": 12000000,
+      "name": null,
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 2
+    }
+  },
+  {
+    "model": "core.action",
     "pk": 15000000,
     "fields": {
       "available_action": "notification",
@@ -1086,6 +1164,78 @@
   },
   {
     "model": "core.actiont",
+    "pk": 12000007,
+    "fields": {
+      "action": 12000007,
+      "language": "de",
+      "name": "Aufgabe überspringen: SB1 ausfüllen",
+      "description": null,
+      "success_message": null,
+      "error_message": null
+    }
+  },
+  {
+    "model": "core.actiont",
+    "pk": 12000008,
+    "fields": {
+      "action": 12000008,
+      "language": "de",
+      "name": "History: Keine Baukontrolle",
+      "description": null,
+      "success_message": null,
+      "error_message": null
+    }
+  },
+  {
+    "model": "core.actiont",
+    "pk": 12000009,
+    "fields": {
+      "action": 12000008,
+      "language": "fr",
+      "name": "History: Pas de contrôle des constructions",
+      "description": null,
+      "success_message": null,
+      "error_message": null
+    }
+  },
+  {
+    "model": "core.actiont",
+    "pk": 12000010,
+    "fields": {
+      "action": 12000009,
+      "language": "de",
+      "name": "Go to state \"Abgeschlossen\"",
+      "description": null,
+      "success_message": null,
+      "error_message": null
+    }
+  },
+  {
+    "model": "core.actiont",
+    "pk": 12000011,
+    "fields": {
+      "action": 12000010,
+      "language": "de",
+      "name": "Aufgabe überspringen: SB2 ausfüllen",
+      "description": null,
+      "success_message": null,
+      "error_message": null
+    }
+  },
+  {
+    "model": "core.actiont",
+    "pk": 12000012,
+    "fields": {
+      "action": 12000011,
+      "language": "de",
+      "name": "Aufgabe abschliessen: Verfahren abschliessen",
+      "description": null,
+      "success_message": null,
+      "error_message": null
+    }
+  },
+  {
+    "model": "core.actiont",
     "pk": 15000000,
     "fields": {
       "action": 15000000,
@@ -1144,6 +1294,36 @@
       "process_type": "complete",
       "process_all": false,
       "fail_on_empty": false
+    }
+  },
+  {
+    "model": "core.actionworkitem",
+    "pk": 12000007,
+    "fields": {
+      "tasks": "[\"sb1\"]",
+      "process_type": "skip",
+      "process_all": true,
+      "fail_on_empty": false
+    }
+  },
+  {
+    "model": "core.actionworkitem",
+    "pk": 12000010,
+    "fields": {
+      "tasks": "[\"sb2\"]",
+      "process_type": "skip",
+      "process_all": true,
+      "fail_on_empty": true
+    }
+  },
+  {
+    "model": "core.actionworkitem",
+    "pk": 12000011,
+    "fields": {
+      "tasks": "[\"complete\"]",
+      "process_type": "complete",
+      "process_all": true,
+      "fail_on_empty": true
     }
   },
   {
@@ -38649,6 +38829,24 @@
     }
   },
   {
+    "model": "core.broleacl",
+    "pk": 12000000,
+    "fields": {
+      "button": 12000000,
+      "role": 5,
+      "instance_state": 20011
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000001,
+    "fields": {
+      "button": 12000000,
+      "role": 5,
+      "instance_state": 20013
+    }
+  },
+  {
     "model": "core.button",
     "pk": 20013,
     "fields": {
@@ -38729,7 +38927,7 @@
       "description": null,
       "class_field": "active_baukontrolle_only leitung_only",
       "hidden": 0,
-      "sort": 3
+      "sort": 2
     }
   },
   {
@@ -38765,7 +38963,7 @@
       "description": null,
       "class_field": "active_baukontrolle_only sb1_modal",
       "hidden": 0,
-      "sort": 1
+      "sort": 0
     }
   },
   {
@@ -38777,7 +38975,19 @@
       "description": null,
       "class_field": "active_baukontrolle_only sb2_modal",
       "hidden": 0,
-      "sort": 2
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.button",
+    "pk": 12000000,
+    "fields": {
+      "instance_resource": 20070,
+      "name": null,
+      "description": null,
+      "class_field": "active_baukontrolle_only no_construction_control_modal",
+      "hidden": 0,
+      "sort": 3
     }
   },
   {
@@ -38987,6 +39197,26 @@
       "button": 1200001,
       "language": "fr",
       "name": "Compléter déclaration spontanée 2",
+      "description": null
+    }
+  },
+  {
+    "model": "core.buttont",
+    "pk": 12000000,
+    "fields": {
+      "button": 12000000,
+      "language": "de",
+      "name": "Keine Baukontrolle",
+      "description": null
+    }
+  },
+  {
+    "model": "core.buttont",
+    "pk": 12000001,
+    "fields": {
+      "button": 12000000,
+      "language": "fr",
+      "name": "Pas de contrôle des constructions",
       "description": null
     }
   },
@@ -46235,6 +46465,15 @@
     }
   },
   {
+    "model": "core.historyactionconfig",
+    "pk": 12000008,
+    "fields": {
+      "title": null,
+      "body": null,
+      "history_type": "status-change"
+    }
+  },
+  {
     "model": "core.historyactionconfigt",
     "pk": 3,
     "fields": {
@@ -46330,6 +46569,26 @@
     "fields": {
       "action": 1200119,
       "title": "DC2 complétée manuellement",
+      "body": null,
+      "language": "fr"
+    }
+  },
+  {
+    "model": "core.historyactionconfigt",
+    "pk": 12000000,
+    "fields": {
+      "action": 12000008,
+      "title": "Das Bauvorhaben wurde nicht ausgeführt. Es fanden keine Baukontrollen statt.",
+      "body": null,
+      "language": "de"
+    }
+  },
+  {
+    "model": "core.historyactionconfigt",
+    "pk": 12000001,
+    "fields": {
+      "action": 12000008,
+      "title": "Le projet de construction n'a pas été exécuté. Aucun contrôle des constructions n'a été effectué.",
       "body": null,
       "language": "fr"
     }
