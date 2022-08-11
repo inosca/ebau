@@ -364,6 +364,12 @@ APPLICATIONS = {
                 "NEW": "gesuchsbearbeitungs-einladung-neu",
                 "EXISTING": "gesuchsbearbeitungs-einladung-bestehend",
             },
+            "COMPLETE_MANUAL_WORK_ITEM": [
+                {
+                    "template_slug": "complete-manual-work-item",
+                    "recipient_types": ["work_item_controlling"],
+                }
+            ],
         },
         "PUBLICATION_DURATION": timedelta(days=20),
         "PUBLICATION_BACKEND": "camac-ng",
@@ -1261,6 +1267,12 @@ APPLICATIONS = {
                     "template_slug": "08-stellungnahme-zu-voranfrage-behoerden",
                     "recipient_types": ["leitbehoerde", "involved_in_distribution"],
                 },
+            ],
+            "COMPLETE_MANUAL_WORK_ITEM": [
+                {
+                    "template_slug": "complete-manual-work-item",
+                    "recipient_types": ["work_item_controlling"],
+                }
             ],
         },
         "IS_MULTILINGUAL": True,
