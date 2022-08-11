@@ -29,6 +29,8 @@ Es dient nur zu Testzwecken und kann ignoriert werden
         CURRENT_SERVICE: Leitbehörde Bern
         CURRENT_SERVICE_DE: Leitbehörde Bern
         CURRENT_SERVICE_FR: Municipalité Berne
+        CURRENT_USER_NAME: User Admin
+        WORK_ITEM_NAME: Gesuch einreichen
     '''
 
 snapshots['test_notification_caluma_placeholders[False-2-2-user@example.com-Municipality] 1'] = '''Hinweis: Diese Nachricht wurde von einem Testsystem versendet.
@@ -53,6 +55,8 @@ Es dient nur zu Testzwecken und kann ignoriert werden
         CURRENT_SERVICE: Leitbehörde Bern
         CURRENT_SERVICE_DE: Leitbehörde Bern
         CURRENT_SERVICE_FR: Municipalité Berne
+        CURRENT_USER_NAME: User Admin
+        WORK_ITEM_NAME: Gesuch einreichen
     '''
 
 snapshots['test_notification_caluma_placeholders[True-2-1-user@example.com-Municipality] 1'] = '''Hinweis: Diese Nachricht wurde von einem Testsystem versendet.
@@ -77,6 +81,8 @@ Es dient nur zu Testzwecken und kann ignoriert werden
         CURRENT_SERVICE: Leitbehörde Bern
         CURRENT_SERVICE_DE: Leitbehörde Bern
         CURRENT_SERVICE_FR: Municipalité Berne
+        CURRENT_USER_NAME: User Admin
+        WORK_ITEM_NAME: Gesuch einreichen
     '''
 
 snapshots['test_notification_caluma_placeholders[True-2-2-user@example.com-Municipality] 1'] = '''Hinweis: Diese Nachricht wurde von einem Testsystem versendet.
@@ -101,4 +107,6 @@ Es dient nur zu Testzwecken und kann ignoriert werden
         CURRENT_SERVICE: Leitbehörde Bern
         CURRENT_SERVICE_DE: Leitbehörde Bern
         CURRENT_SERVICE_FR: Municipalité Berne
+        CURRENT_USER_NAME: User Admin
+        WORK_ITEM_NAME: Gesuch einreichen
     '''

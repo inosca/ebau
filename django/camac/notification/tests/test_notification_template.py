@@ -669,6 +669,8 @@ def test_notification_caluma_placeholders(
         CURRENT_SERVICE: {{CURRENT_SERVICE}}
         CURRENT_SERVICE_DE: {{CURRENT_SERVICE_DE}}
         CURRENT_SERVICE_FR: {{CURRENT_SERVICE_FR}}
+        CURRENT_USER_NAME: {{CURRENT_USER_NAME}}
+        WORK_ITEM_NAME: {{WORK_ITEM_NAME}}
     """
     notification_template.save()
 
@@ -700,6 +702,8 @@ def test_notification_caluma_placeholders(
     be_instance.case.meta["ebau-number"] = "2019-01"
     be_instance.case.save()
 
+    submit_work_item = be_instance.case.work_items.filter(task_id="submit").first()
+
     data = {
         "data": {
             "type": "notification-template-sendmails",
@@ -709,6 +713,9 @@ def test_notification_caluma_placeholders(
             },
             "relationships": {
                 "instance": {"data": {"type": "instances", "id": be_instance.pk}},
+                "work-item": {
+                    "data": {"type": "work-items", "id": submit_work_item.pk}
+                },
             },
         }
     }
@@ -927,6 +934,65 @@ def test_recipient_type_municipality_users(
         assert res == [{"to": "foo@example.org"}]
     else:
         assert res == []
+
+
+def test_recipient_type_work_item_addressed(
+    db, be_instance, service, work_item_factory, notification_template, user_group
+):
+    work_item = work_item_factory(
+        addressed_groups=[str(service.pk)],
+        # controlling_groups=[str(service.pk)],
+    )
+    be_instance.responsible_services.create(
+        service=service, responsible_user=user_group.user
+    )
+
+    serializer = serializers.NotificationTemplateSendmailSerializer(
+        data={
+            "template_slug": notification_template.slug,
+            "recipient_types": ["work_item_addressed"],
+            "notification_template": {
+                "type": "notification-templates",
+                "id": notification_template.pk,
+            },
+            "instance": {"type": "instances", "id": be_instance.pk},
+            "work_item": {"type": "work-items", "id": work_item.pk},
+        },
+        context={"request": FakeRequest(group=user_group.group, user=user_group.user)},
+    )
+    serializer.is_valid()
+    assert not serializer.errors
+
+    assert serializer._get_recipients_work_item_addressed(be_instance) == [
+        {"cc": service.email, "to": user_group.user.email}
+    ]
+
+
+def test_recipient_type_work_item_controlling(
+    db, be_instance, service, work_item_factory, notification_template, user_group
+):
+    be_instance.responsible_services.create(
+        service=service, responsible_user=user_group.user
+    )
+
+    serializer = serializers.NotificationTemplateSendmailSerializer(
+        data={
+            "template_slug": notification_template.slug,
+            "recipient_types": ["work_item_controlling"],
+            "notification_template": {
+                "type": "notification-templates",
+                "id": notification_template.pk,
+            },
+            "instance": {"type": "instances", "id": be_instance.pk},
+        },
+        context={"request": FakeRequest(group=user_group.group, user=user_group.user)},
+    )
+    serializer.is_valid()
+    assert not serializer.errors
+
+    assert serializer._get_responsible(be_instance, service) == [
+        {"cc": service.email, "to": user_group.user.email}
+    ]
 
 
 @pytest.mark.parametrize("service__email", [None, "", "foo@example.org"])
