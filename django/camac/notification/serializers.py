@@ -178,9 +178,15 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     inquiry_answer_de = serializers.SerializerMethodField()
     inquiry_answer_fr = serializers.SerializerMethodField()
 
-    def __init__(self, instance=None, inquiry=None, escape=False, *args, **kwargs):
+    current_user_name = serializers.SerializerMethodField()
+    work_item_name = serializers.SerializerMethodField()
+
+    def __init__(
+        self, instance=None, inquiry=None, work_item=None, escape=False, *args, **kwargs
+    ):
         self.escape = escape
         self.inquiry = inquiry
+        self.work_item = work_item
 
         super().__init__(instance=instance, *args, **kwargs)
 
@@ -633,6 +639,16 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
         return answers
 
+    def get_current_user_name(self, instance):
+        return (
+            self.context["request"].user.get_full_name()
+            if "request" in self.context
+            else None
+        )
+
+    def get_work_item_name(self, instance):
+        return str(self.work_item.name) if self.work_item else None
+
     def to_representation(self, instance):
         ret = super().to_representation(instance)
 
@@ -713,6 +729,10 @@ class NotificationTemplateMergeSerializer(
         queryset=caluma_workflow_models.WorkItem.objects.all(),
         required=False,
     )
+    work_item = serializers.ResourceRelatedField(
+        queryset=caluma_workflow_models.WorkItem.objects.all(),
+        required=False,
+    )
     notification_template = serializers.ResourceRelatedField(
         queryset=models.NotificationTemplate.objects.all()
     )
@@ -732,7 +752,10 @@ class NotificationTemplateMergeSerializer(
         instance = data["instance"]
 
         placeholder_data = InstanceMergeSerializer(
-            instance=instance, context=self.context, inquiry=data.get("inquiry")
+            instance=instance,
+            context=self.context,
+            inquiry=data.get("inquiry"),
+            work_item=data.get("work_item"),
         ).data
 
         # some cantons use uppercase placeholders. be as compatible as possible
@@ -795,6 +818,9 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             "unanswered_inquiries",
             "inquiry_addressed",
             "inquiry_controlling",
+            # Work items
+            "work_item_addressed",
+            "work_item_controlling",
             *settings.APPLICATION.get("CUSTOM_NOTIFICATION_TYPES", []),
         )
     )
@@ -912,22 +938,40 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             if applicant.invitee
         ]
 
-    def _get_responsible(self, instance, service):
+    def _get_responsible(self, instance, service, work_item=None):
         if not service.notification:
             return []
 
-        responsible_old = instance.responsible_services.filter(
-            service=service
-        ).values_list("responsible_user__email", flat=True)
-        responsible_new = instance.responsibilities.filter(service=service).values_list(
-            "user__email", flat=True
-        )
-        responsibles = responsible_new.union(responsible_old)
+        # Responsible user for the instance from various responsibility modules
+        responsible_user = User.objects.filter(
+            pk__in=[
+                *instance.responsible_services.filter(service=service).values_list(
+                    "responsible_user", flat=True
+                ),
+                *instance.responsibilities.filter(service=service).values_list(
+                    "user", flat=True
+                ),
+            ]
+        ).first()
 
-        try:
-            return [{"to": responsibles[0], "cc": service.email}]
-        except IndexError:
-            return [{"to": service.email}]
+        # Assigned user from the work item
+        assigned_user = (
+            User.objects.filter(username__in=work_item.assigned_users).first()
+            if work_item
+            else None
+        )
+
+        if assigned_user or responsible_user:
+            return [
+                {
+                    "to": assigned_user.email
+                    if assigned_user
+                    else responsible_user.email,
+                    "cc": service.email,
+                }
+            ]
+
+        return [{"to": service.email}]
 
     def _get_recipients_leitbehoerde(self, instance):  # pragma: no cover
         return self._get_responsible(
@@ -1079,6 +1123,26 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             return []
 
         return self._get_responsible(instance, activation.service_parent)
+
+    def _get_recipients_work_item_controlling(self, instance):
+        return flatten(
+            [
+                self._get_responsible(instance, service)
+                for service in Service.objects.filter(
+                    pk__in=self.validated_data.get("work_item").controlling_groups
+                )
+            ]
+        )
+
+    def _get_recipients_work_item_addressed(self, instance):
+        work_item = self.validated_data.get("work_item")
+
+        return flatten(
+            [
+                self._get_responsible(instance, service, work_item)
+                for service in Service.objects.filter(pk__in=work_item.addressed_groups)
+            ]
+        )
 
     def _recipient_log(self, recipient):
         return recipient["to"] or "" + (
