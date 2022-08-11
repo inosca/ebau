@@ -8,7 +8,7 @@
         </span>
         {{#if this.displayJournalEntryDuration}}
             <span uk-icon="icon: future; ratio: 0.7" />
-            <span class="uk-margin-small-right journal-entry__space">
+            <span class="uk-margin-small-right inline-icon-margin">
               {{@journalEntry.duration}}
             </span>
         {{/if}}
@@ -46,7 +46,7 @@
         @showJournalEntryDuration={{@showJournalEntryDuration}}
       />
     {{else}}
-      <span class="journal-entry-text">{{@journalEntry.text}}</span>
+      <span class="multi-line-text" data-test-journal-text>{{@journalEntry.text}}</span>
     {{/if}}
   </div>
 </div>

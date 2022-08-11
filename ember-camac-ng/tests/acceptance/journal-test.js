@@ -49,7 +49,7 @@ module("Acceptance | journal", function (hooks) {
     await click("[data-test-save]");
 
     assert.dom(".uk-card").exists({ count: 1 });
-    assert.dom(".journal-entry-text").hasText("Lorem ipsum");
+    assert.dom("[data-test-journal-text]").hasText("Lorem ipsum");
   });
 
   test("it can edit a journal entry", async function (assert) {
@@ -67,6 +67,6 @@ module("Acceptance | journal", function (hooks) {
     await click("[data-test-save]");
 
     assert.dom(".uk-card").exists({ count: 1 });
-    assert.dom(".journal-entry-text").hasText("Lorem ipsum");
+    assert.dom("[data-test-journal-text]").hasText("Lorem ipsum");
   });
 });

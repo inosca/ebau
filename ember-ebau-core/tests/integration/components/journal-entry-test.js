@@ -19,6 +19,6 @@ module("Integration | Component | journal-entry", function (hooks) {
 
     await render(hbs`<JournalEntry @journalEntry={{this.model}}/>`);
 
-    assert.dom(".journal-entry-text").hasText(journal.text);
+    assert.dom("[data-test-journal-text]").hasText(journal.text);
   });
 });
