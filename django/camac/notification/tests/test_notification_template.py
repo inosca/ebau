@@ -1426,3 +1426,54 @@ def test_notification_bauverwaltung_placeholders(
         "78",
         f"{date.strftime(settings.MERGE_DATE_FORMAT)}",
     ]
+
+
+@pytest.mark.parametrize("use_multilang", [True, False])
+@pytest.mark.parametrize(
+    "role__name,notification_template__subject,notification_template__body",
+    [("Support", "Subject", "Body")],
+)
+def test_notification_history_entry(
+    db,
+    be_instance,
+    application_settings,
+    use_multilang,
+    notification_template,
+    settings,
+):
+    application_settings["IS_MULTILINGUAL"] = use_multilang
+    settings.EMAIL_PREFIX_BODY = ""
+    settings.EMAIL_PREFIX_SUBJECT = ""
+
+    serializer = PermissionlessNotificationTemplateSendmailSerializer(
+        data={
+            "recipient_types": ["leitbehoerde"],
+            "notification_template": {
+                "type": "notification-templates",
+                "id": notification_template.pk,
+            },
+            "instance": {"id": be_instance.pk, "type": "instances"},
+        }
+    )
+    serializer.is_valid(raise_exception=True)
+    serializer.save()
+
+    service = be_instance.responsible_service(filter_type="municipality")
+    history_entry = HistoryEntry.objects.filter(instance=be_instance).last()
+
+    if use_multilang:
+        assert (
+            history_entry.get_trans_attr("title", "de")
+            == f"Notifikation gesendet an {service.email} (Leitbehörde) (Subject)"
+        )
+        assert history_entry.get_trans_attr("body", "de") == "Body"
+        assert (
+            history_entry.get_trans_attr("title", "fr")
+            == f"Notification envoyée à {service.email} (Autorité directrice) (Subject)"
+        )
+        assert history_entry.get_trans_attr("body", "fr") == "Body"
+    else:
+        assert (
+            history_entry.title == f"Notifikation gesendet an {service.email} (Subject)"
+        )
+        assert history_entry.body == "Body"
