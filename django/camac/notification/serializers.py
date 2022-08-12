@@ -45,6 +45,24 @@ from . import models
 logger = getLogger(__name__)
 
 
+RECIPIENT_TYPE_NAMES = {
+    "applicant": translation.gettext_noop("Applicant"),
+    "municipality": translation.gettext_noop("Municipality"),
+    "caluma_municipality": translation.gettext_noop("Municipality (from Caluma)"),
+    "leitbehoerde": translation.gettext_noop("Authority"),
+    "construction_control": translation.gettext_noop("Construction control"),
+    "involved_in_distribution": translation.gettext_noop("Involved services"),
+    "inquiry_deadline_yesterday": translation.gettext_noop(
+        "Services with overdue inquiries"
+    ),
+    "unanswered_inquiries": translation.gettext_noop(
+        "Services with unanswered inquiries"
+    ),
+    "inquiry_addressed": translation.gettext_noop("Addressed service of inquiry"),
+    "inquiry_controlling": translation.gettext_noop("Controlling service of inquiry"),
+}
+
+
 class InquiryMergeSerializer(serializers.Serializer):
     deadline_date = serializers.DateTimeField(
         source="deadline", format=settings.MERGE_DATE_FORMAT
@@ -1144,10 +1162,23 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             ]
         )
 
-    def _recipient_log(self, recipient):
-        return recipient["to"] or "" + (
-            f" (CC: {recipient['cc']})" if "cc" in recipient else ""
+    def _recipient_log(self, recipients):
+        return ", ".join(
+            [
+                recipient["to"]
+                or "" + (f" (CC: {recipient['cc']})" if "cc" in recipient else "")
+                for recipient in recipients
+            ]
         )
+
+    def _receiver_type(self, recipient_type, language):
+        receiver_type = RECIPIENT_TYPE_NAMES.get(recipient_type)
+
+        if receiver_type:
+            with translation.override(language):
+                return translation.gettext(receiver_type)
+
+        return None
 
     def _post_send_unnotified_service(self, instance):
         Activation.objects.filter(
@@ -1224,29 +1255,9 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
                     .users.first()
                 )
 
-            if settings.APPLICATION.get("LOG_NOTIFICATIONS"):
-                title = translation.gettext_noop(
-                    "Notification sent to %(receiver)s (%(subject)s)"
-                )
-
-                if not settings.APPLICATION.get("IS_MULTILINGUAL", False):
-                    title = "Notifikation gesendet an {0} ({1})".format(
-                        ", ".join([self._recipient_log(r) for r in recipients]), subject
-                    )
-
-                create_history_entry(
-                    instance,
-                    user,
-                    title,
-                    lambda lang: {
-                        "receiver": ", ".join(
-                            [self._recipient_log(r) for r in recipients]
-                        ),
-                        "subject": subject,
-                    },
-                    HistoryActionConfig.HISTORY_TYPE_NOTIFICATION,
-                    body,
-                )
+            self._create_history_entry(
+                instance, subject, body, recipients, recipient_type, user
+            )
 
         self._send_mails(emails, connection)
 
@@ -1254,6 +1265,39 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             fn(instance)
 
         return len(emails)
+
+    def _create_history_entry(
+        self, instance, subject, body, recipients, recipient_type, user
+    ):
+        if settings.APPLICATION.get("LOG_NOTIFICATIONS"):
+            receiver_emails = self._recipient_log(recipients)
+
+            title = "Notifikation gesendet an {0} ({1})".format(
+                receiver_emails, subject
+            )
+
+            if settings.APPLICATION.get("IS_MULTILINGUAL", False):
+                if receiver_emails:
+                    title = translation.gettext_noop(
+                        "Notification sent to %(receiver_emails)s (%(receiver_type)s) (%(subject)s)"
+                    )
+                else:
+                    title = translation.gettext_noop(
+                        "Notification sent to %(receiver_type)s (no receivers) (%(subject)s)"
+                    )
+
+            create_history_entry(
+                instance,
+                user,
+                title,
+                lambda lang: {
+                    "receiver_emails": receiver_emails,
+                    "receiver_type": self._receiver_type(recipient_type, lang),
+                    "subject": subject,
+                },
+                HistoryActionConfig.HISTORY_TYPE_NOTIFICATION,
+                body,
+            )
 
     def _send_mails(self, emails, connection):
         if emails:
