@@ -148,15 +148,10 @@ def has_permission_for_inquiry_document(group, document):
     if not document:
         return False  # pragma: no cover
 
-    try:
-        return WorkItem.objects.filter(
-            task_id=settings.DISTRIBUTION["INQUIRY_CREATE_TASK"],
-            addressed_groups=[str(group.service.pk)],
-            status=WorkItem.STATUS_READY,
-            case=document.work_item.case,
-        ).exists()
-    except AttributeError:  # pragma: no cover
-        return False
+    return (
+        document.work_item.status == WorkItem.STATUS_SUSPENDED
+        and str(group.service_id) in document.work_item.controlling_groups
+    )
 
 
 def has_permission_for_inquiry_answer_document(group, document):
@@ -165,9 +160,7 @@ def has_permission_for_inquiry_answer_document(group, document):
     if not document:
         return False  # pragma: no cover
 
-    return WorkItem.objects.filter(
-        task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-        addressed_groups=[str(group.service.pk)],
-        status=WorkItem.STATUS_READY,
-        child_case__document_id=document.pk,
-    ).exists()
+    return (
+        document.case.parent_work_item.status == WorkItem.STATUS_READY
+        and str(group.service_id) in document.case.parent_work_item.addressed_groups
+    )
