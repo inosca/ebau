@@ -1,12 +1,15 @@
 from datetime import datetime
+from itertools import chain
 
 import pytz
+import reversion
 from caluma.caluma_core.events import filter_events, on
 from caluma.caluma_form.api import save_answer
 from caluma.caluma_form.models import Form, Question
 from caluma.caluma_workflow.api import (
     cancel_work_item,
     complete_work_item,
+    reopen_case,
     skip_work_item,
     start_case,
     suspend_work_item,
@@ -15,17 +18,21 @@ from caluma.caluma_workflow.events import (
     post_complete_case,
     post_complete_work_item,
     post_create_work_item,
+    post_redo_work_item,
     post_resume_work_item,
     pre_complete_work_item,
 )
-from caluma.caluma_workflow.models import Workflow, WorkItem
+from caluma.caluma_workflow.models import Task, Workflow, WorkItem
 from django.conf import settings
 from django.db import transaction
 from django.utils.timezone import now
 
 from camac.ech0211.signals import accompanying_report_send, task_send
+from camac.instance.models import InstanceState
 from camac.notification.utils import send_mail_without_request
-from camac.user.models import User
+from camac.user.models import Service, User
+
+from .general import get_instance
 
 
 def send_inquiry_notification(settings_key, inquiry_work_item, user):
@@ -93,6 +100,58 @@ def post_create_distribution(sender, work_item, user, context=None, **kwargs):
         parent_work_item=work_item,
         context=context,
     )
+
+
+@on(post_redo_work_item, raise_exception=True)
+@filter_by_task("DISTRIBUTION_TASK")
+@transaction.atomic
+def post_redo_distribution(sender, work_item, user, context=None, **kwargs):
+    reopen_case(
+        case=work_item.child_case,
+        work_items=work_item.child_case.work_items.filter(
+            task_id=settings.DISTRIBUTION["DISTRIBUTION_COMPLETE_TASK"]
+        ),
+        user=user,
+        context=context,
+    )
+
+    services = Service.objects.filter(
+        pk__in=[
+            *work_item.addressed_groups,
+            *chain(
+                *work_item.child_case.work_items.filter(
+                    task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
+                    status__in=[WorkItem.STATUS_COMPLETED, WorkItem.STATUS_SKIPPED],
+                ).values_list("addressed_groups", flat=True)
+            ),
+        ]
+    ).exclude(service_parent__isnull=False)
+
+    create_inquiry_task = Task.objects.get(
+        pk=settings.DISTRIBUTION["INQUIRY_CREATE_TASK"]
+    )
+
+    for service in services:
+        WorkItem.objects.create(
+            task=create_inquiry_task,
+            name=create_inquiry_task.name,
+            addressed_groups=[str(service.pk)],
+            controlling_groups=[str(service.pk)],
+            case=work_item.child_case,
+            status=WorkItem.STATUS_READY,
+            created_by_user=user.username,
+            created_by_group=user.group,
+        )
+
+    with reversion.create_revision():
+        reversion.set_user(User.objects.get(username=user.username))
+
+        instance = get_instance(work_item)
+        instance.previous_instance_state = instance.instance_state
+        instance.instance_state = InstanceState.objects.get(
+            name=settings.DISTRIBUTION["INSTANCE_STATE_DISTRIBUTION"]
+        )
+        instance.save()
 
 
 @on(post_create_work_item, raise_exception=True)

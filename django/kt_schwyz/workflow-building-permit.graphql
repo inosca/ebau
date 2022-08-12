@@ -83,3 +83,16 @@ mutation CreateFlow6 {
     clientMutationId
   }
 }
+
+mutation CreateFlow7 {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["make-decision"]
+      next: "['archive-instance']|tasks"
+      redoable: "'distribution'|task"
+    }
+  ) {
+    clientMutationId
+  }
+}

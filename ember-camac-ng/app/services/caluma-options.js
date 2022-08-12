@@ -129,6 +129,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
         },
         permissions: {
           completeDistribution: () => this.shoebox.isLeadRole,
+          reopenDistribution: () => this.shoebox.isLeadRole,
           sendInquiry: () => this.shoebox.isLeadRole,
           withdrawInquiry: () => this.shoebox.isLeadRole,
           completeInquiryChildWorkItem: () => this.shoebox.isLeadRole,
@@ -203,6 +204,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
         },
         permissions: {
           completeDistribution: () => this.shoebox.isLeadRole,
+          reopenDistribution: () => this.shoebox.isLeadRole,
           createInquiry: () => this.shoebox.isLeadRole,
           sendInquiry: () => this.shoebox.isLeadRole,
           withdrawInquiry: () => this.shoebox.isLeadRole,
