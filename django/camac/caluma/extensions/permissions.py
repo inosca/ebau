@@ -22,6 +22,7 @@ from caluma.caluma_workflow.schema import (
     CancelWorkItem,
     CompleteWorkItem,
     CreateWorkItem,
+    RedoWorkItem,
     ResumeCase,
     ResumeWorkItem,
     SaveCase,
@@ -263,6 +264,15 @@ class CustomPermission(BasePermission):
             return True
 
         return is_controlled_by_service(work_item, get_current_service_id(info))
+
+    @distribution_permission_for(RedoWorkItem, ["DISTRIBUTION_TASK"])
+    @permission_for(RedoWorkItem)
+    @object_permission_for(RedoWorkItem)
+    def has_permission_for_redo_work_item(self, mutation, info, work_item=None):
+        if not work_item:
+            return True
+
+        return is_addressed_to_service(work_item, get_current_service_id(info))
 
     # Document
     @permission_for(RemoveDocument)

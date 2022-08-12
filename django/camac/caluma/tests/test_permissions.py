@@ -146,7 +146,23 @@ def test_save_work_item_permission(
             "municipality-clerk",
             "resumeWorkItem",
             "INQUIRY_TASK",
-            "suspended",
+            caluma_workflow_models.WorkItem.STATUS_SUSPENDED,
+            False,
+            None,
+        ),
+        (
+            "municipality-lead",
+            "redoWorkItem",
+            "DISTRIBUTION_TASK",
+            caluma_workflow_models.WorkItem.STATUS_COMPLETED,
+            True,
+            "READY",
+        ),
+        (
+            "municipality-clerk",
+            "redoWorkItem",
+            "DISTRIBUTION_TASK",
+            caluma_workflow_models.WorkItem.STATUS_COMPLETED,
             False,
             None,
         ),
@@ -154,31 +170,36 @@ def test_save_work_item_permission(
 )
 def test_distribution_permission_for_task(
     db,
-    role,
-    service,
+    active_inquiry_factory,
+    be_distribution_settings,
     be_instance,
     caluma_admin_schema_executor,
     caluma_admin_user,
-    active_inquiry_factory,
-    instance_state_factory,
-    work_item_factory,
-    be_distribution_settings,
-    mocker,
-    application_settings,
-    mutation,
-    task,
-    status,
-    is_permitted,
     expected_status,
+    instance_state_factory,
+    is_permitted,
+    mocker,
+    mutation,
+    service,
+    status,
+    task,
+    work_item_factory,
 ):
-
     work_item = active_inquiry_factory(
         be_instance,
         controlling_service=service,
         addressed_service=service,
         status=status,
     )
-    if task != "INQUIRY_TASK":
+
+    if mutation == "redoWorkItem":
+        work_item = be_instance.case.work_items.get(
+            task_id=be_distribution_settings["DISTRIBUTION_TASK"]
+        )
+        work_item.child_case.status = caluma_workflow_models.Case.STATUS_COMPLETED
+        work_item.child_case.save()
+        workflow_api.complete_work_item(work_item=work_item, user=caluma_admin_user)
+    elif task != "INQUIRY_TASK":
         work_item = work_item_factory(
             case=work_item.case,
             child_case=None,
@@ -316,13 +337,13 @@ def test_distribution_permission_for_answer(
     inquiry = active_inquiry_factory(
         be_instance,
         controlling_service=service
-        if distribution_form == "INQUIRY_FORM"
+        if distribution_form == "INQUIRY_FORM" and is_permitted
         else service_factory(),
         addressed_service=service
         if distribution_form == "INQUIRY_ANSWER_FORM" and is_permitted
         else service_factory(),
         status=caluma_workflow_models.WorkItem.STATUS_SUSPENDED
-        if distribution_form == "INQUIRY_FORM"
+        if distribution_form == "INQUIRY_FORM" and is_permitted
         else caluma_workflow_models.WorkItem.STATUS_READY,
     )
 
@@ -331,17 +352,6 @@ def test_distribution_permission_for_answer(
         if distribution_form == "INQUIRY_FORM"
         else inquiry.child_case.document
     )
-
-    if distribution_form == "INQUIRY_FORM" and is_permitted:
-        work_item_factory(
-            case=inquiry.case,
-            child_case=None,
-            addressed_groups=[service.pk],
-            task=caluma_workflow_models.Task.objects.get(
-                slug=be_distribution_settings["INQUIRY_CREATE_TASK"]
-            ),
-            status=caluma_workflow_models.WorkItem.STATUS_READY,
-        )
 
     question_slug = be_distribution_settings["QUESTIONS"][question]
     value = be_distribution_settings["ANSWERS"].get(question, {}).get(value) or value
