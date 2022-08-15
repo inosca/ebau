@@ -114,6 +114,7 @@ INSTALLED_APPS = [
     # delete the tables of this app
     "camac.file.apps.DefaultConfig",
     "adminsortable2",
+    "manabi_migrations",
 ]
 
 if DEBUG:
