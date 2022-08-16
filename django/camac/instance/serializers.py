@@ -831,7 +831,8 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         name = api.get_form_name(instance)
         parts = []
 
-        migrated = api.is_migrated(instance)
+        migrated = api.is_migrated(instance)  # from RSTA migration
+        imported = api.is_imported(instance)  # from dossier import
         paper = api.is_paper(instance)
         modification = api.is_modification(instance)
         is_kog = instance.instance_services.filter(
@@ -841,6 +842,12 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         if migrated:
             name = api.get_migration_type(instance)[1]
             parts.append(_("migrated"))
+
+        if imported:
+            _type = api.get_import_type(instance)
+            if _type:
+                name = _type
+                parts.append(_("migrated"))
 
         if not migrated and paper:
             parts.append(_("paper"))
