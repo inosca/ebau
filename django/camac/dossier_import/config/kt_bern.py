@@ -115,7 +115,7 @@ class KtBernDossierWriter(DossierWriter):
         target="parzelle", column_mapping=PLOT_DATA_MAPPING
     )
     usage = CalumaAnswerWriter(target="nutzungszone")
-    application_type = CalumaAnswerWriter(target="geschaeftstyp")
+    application_type = CalumaAnswerWriter(target="geschaeftstyp-import")
     submit_date = CaseMetaWriter(target="submit-date", formatter="datetime-to-string")
     decision_date = CalumaAnswerWriter(
         target="decision-date", value_key="date", task="decision"

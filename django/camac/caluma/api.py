@@ -164,7 +164,12 @@ class CalumaApi:
         ).exists()
 
     def is_migrated(self, instance):
+        """Return true if instance was part of RSTA migration."""
         return instance.case.workflow_id == "migrated"
+
+    def is_imported(self, instance):
+        """Return true if instance was imported using dossier import."""
+        return instance.case.document.form_id == "migriertes-dossier"
 
     def get_migration_type(self, instance):
         answer = instance.case.document.answers.filter(
@@ -177,6 +182,16 @@ class CalumaApi:
         option = answer.question.options.get(slug=answer.value)
 
         return (option.slug, option.label)
+
+    def get_import_type(self, instance):
+        answer = instance.case.document.answers.filter(
+            question_id="geschaeftstyp-import"
+        ).first()
+
+        if not answer:  # pragma: no cover
+            return None
+
+        return answer.value
 
     def copy_table_answer(
         self,

@@ -19,7 +19,7 @@ snapshots['test_record_loading_be[dossier_row_patch12-final_approval_date-kt_ber
 
 snapshots['test_record_loading_be[dossier_row_patch13-completion_date-kt_bern] 1'] = GenericRepr('datetime.date(2021, 12, 12)')
 
-snapshots['test_record_loading_be[dossier_row_patch14-application_type-kt_bern] 1'] = 'geschaeftstyp-baubewilligungsverfahren'
+snapshots['test_record_loading_be[dossier_row_patch14-application_type-kt_bern] 1'] = None
 
 snapshots['test_record_loading_be[dossier_row_patch15-applicants-kt_bern] 1'] = [
     {
