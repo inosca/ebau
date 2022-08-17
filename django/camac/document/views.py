@@ -229,7 +229,10 @@ class AttachmentView(
         attachment = self.get_object()
         path = attachment.path
         try:
-            thumbnail = get_thumbnail(path, geometry_string="x300")
+            thumbnail = get_thumbnail(
+                path, geometry_string=settings.APPLICATION.get("THUMBNAIL_SIZE")
+            )
+
         # no proper exception handling in sorl thumbnail when image type is
         # invalid - workaround catching AttributeError
         # ValueError occures if the document holds an empty file
