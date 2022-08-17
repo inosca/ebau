@@ -1,6 +1,10 @@
 from caluma.caluma_core.validations import BaseValidation, validation_for
 from caluma.caluma_form.models import Answer
 from caluma.caluma_form.schema import SaveDocumentStringAnswer
+from caluma.caluma_workflow.models import WorkItem
+from caluma.caluma_workflow.schema import CompleteWorkItem
+from django.conf import settings
+from rest_framework import exceptions
 
 from camac.caluma.utils import CamacRequest
 from camac.ech0211.signals import file_subsequently
@@ -74,5 +78,25 @@ class CustomValidation(BaseValidation):
                     ["leitbehoerde", "inactive_municipality"],
                 )
                 self._send_claim_ech_event(info, instance)
+
+        return data
+
+    @validation_for(CompleteWorkItem)
+    def validate_complete_create_inquiry(self, mutation, data, info):
+        work_item = WorkItem.objects.get(pk=data["id"])
+
+        if (
+            settings.DISTRIBUTION
+            and work_item.task_id == settings.DISTRIBUTION["INQUIRY_CREATE_TASK"]
+        ):
+            service_id = str(info.context.user.group)
+            addressed_groups = info.variable_values["input"]["context"][
+                "addressed_groups"
+            ]
+
+            if service_id in addressed_groups:
+                raise exceptions.ValidationError(
+                    "Services can't create inquiries for themselves!"
+                )
 
         return data
