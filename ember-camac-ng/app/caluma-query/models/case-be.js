@@ -26,19 +26,35 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
     );
   }
 
+  get decisionDocument() {
+    return this.raw.decision.edges[0]?.node.document;
+  }
+
+  get decision() {
+    return this.decisionDocument
+      ? getAnswer(this.decisionDocument, "decision-decision-assessment")?.node
+          .selectedOption?.label
+      : null;
+  }
+
   get decisionDate() {
-    const decisionDate =
-      this.raw.workItems.edges[0]?.node.document.answers.edges[0]?.node.value;
+    const decisionDate = this.decisionDocument
+      ? getAnswer(this.decisionDocument, "decision-date")?.node.value
+      : null;
 
     return decisionDate
-      ? this.intl.formatDate(decisionDate, {
-          format: "date",
-        })
+      ? this.intl.formatDate(decisionDate, { format: "date" })
       : null;
   }
 
   get instanceState() {
-    return this.instance?.get("instanceState.name");
+    const state = this.instance?.get("instanceState.name");
+
+    if (this.decision) {
+      return `${state} (${this.decision})`;
+    }
+
+    return state;
   }
 
   get applicants() {
@@ -70,24 +86,39 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
   static fragment = `{
     meta
     id
-    workItems(
+    decision: workItems(
       filter: [
         { task: "decision" }
         { status: CANCELED, invert: true }
         { status: READY, invert: true }
       ]
+      order: [{ attribute: CREATED_AT, direction: DESC }]
+      first: 1
     ) {
       edges {
         node {
           id
           document {
             id
-            answers(filter: [{ question: "decision-date" }]) {
+            answers(
+              filter: [
+                { questions: ["decision-date", "decision-decision-assessment"] }
+              ]
+            ) {
               edges {
                 node {
                   id
+                  question {
+                    slug
+                  }
                   ... on DateAnswer {
                     value
+                  }
+                  ... on StringAnswer {
+                    selectedOption {
+                      slug
+                      label
+                    }
                   }
                 }
               }

@@ -1825,3 +1825,44 @@ def test_filter_decision_date(
 
     assert response.status_code == status.HTTP_200_OK
     assert len(response.json()["data"]) == expected_count
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize(
+    "filters,expected_count",
+    [
+        ({"decision": ""}, 4),
+        ({"decision": "decision-decision-assessment-accepted"}, 1),
+        (
+            {
+                "decision": "decision-decision-assessment-positive,decision-decision-assessment-negative"
+            },
+            2,
+        ),
+    ],
+)
+def test_filter_decision(
+    db,
+    admin_client,
+    decision_factory,
+    expected_count,
+    filters,
+    instance_factory,
+    instance_service_factory,
+    instance_with_case,
+    service,
+):
+    for decision in [
+        "decision-decision-assessment-accepted",
+        "decision-decision-assessment-negative",
+        "decision-decision-assessment-positive",
+    ]:
+        instance = instance_with_case(instance=instance_factory())
+        instance_service_factory(instance=instance, service=service)
+
+        decision_factory(instance=instance, decision=decision)
+
+    response = admin_client.get(reverse("instance-list"), data=filters)
+
+    assert response.status_code == status.HTTP_200_OK
+    assert len(response.json()["data"]) == expected_count
