@@ -9,6 +9,8 @@ services:
   proxy:
     volumes:
       - ../proxy/kt_uri.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - mailhog
     ports:
       - "80:80"
     networks:
@@ -52,6 +54,8 @@ services:
     build:
       args:
         REQUIREMENTS: requirements-dev.txt
+    depends_on:
+      - mailhog
     ports:
       - "5555:5555"
       - "5678:5678"
@@ -93,6 +97,7 @@ services:
       - ebau.local
 
   mailhog:
+    image: mailhog/mailhog
     networks:
       - ebau.local
     environment:
@@ -101,6 +106,8 @@ services:
   keycloak:
     ports:
       - "8080:8080"
+    depends_on:
+      - mailhog
     volumes:
       - ../keycloak/${APPLICATION}-test-config.json:/etc/keycloak/test-config.json:ro
     environment:
