@@ -1,0 +1,19 @@
+query Decisions {
+  allQuestions(filter: [{ slugs: ["decision-decision-assessment"] }]) {
+    edges {
+      node {
+        slug
+        ... on ChoiceQuestion {
+          options {
+            edges {
+              node {
+                slug
+                label
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

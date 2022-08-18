@@ -56,6 +56,7 @@ export default {
         "decisionDateBefore",
         "tags",
         "instanceState",
+        "decision",
         "paper",
       ],
       default: [
@@ -72,6 +73,7 @@ export default {
         "submitDateBefore",
         "tags",
         "instanceState",
+        "decision",
         "paper",
       ],
     },

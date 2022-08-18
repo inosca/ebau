@@ -11,6 +11,7 @@ from django.db.models.constants import LOOKUP_SEP
 from django.db.models.expressions import RawSQL
 from django.db.models.fields import TextField
 from django_filters.rest_framework import (
+    BaseInFilter,
     BooleanFilter,
     CharFilter,
     DateFilter,
@@ -229,10 +230,6 @@ class FormFieldListValueFilter(Filter):
 
 
 class InstanceSubmitDateFilter(DateFilter):
-    def __init__(self, lookup_expr, *args, **kwargs):
-        super().__init__(lookup_expr, *args, **kwargs)
-        self._lookup_expr = lookup_expr
-
     def filter(self, qs, value, *args, **kwargs):
         if not value:
             return qs
@@ -240,16 +237,12 @@ class InstanceSubmitDateFilter(DateFilter):
         return qs.filter(
             **{
                 "workflowentry__workflow_item_id": 10,  # Submit date
-                f"workflowentry__workflow_date__date__{self._lookup_expr}": value,
+                f"workflowentry__workflow_date__date__{self.lookup_expr}": value,
             }
         )
 
 
 class InstanceDecisionDateFilter(DateFilter):
-    def __init__(self, lookup_expr, *args, **kwargs):
-        super().__init__(lookup_expr, *args, **kwargs)
-        self._lookup_expr = lookup_expr
-
     def filter(self, qs, value, *args, **kwargs):
         if value in EMPTY_VALUES:
             return qs
@@ -266,7 +259,28 @@ class InstanceDecisionDateFilter(DateFilter):
                     document__work_item__case__instance=OuterRef("pk"),
                 ).values("date")[:1]
             )
-        ).filter(**{f"decision_date__{self._lookup_expr}": value})
+        ).filter(**{f"decision_date__{self.lookup_expr}": value})
+
+
+class InstanceDecisionFilter(BaseInFilter):
+    def filter(self, qs, value, *args, **kwargs):
+        if value in EMPTY_VALUES:
+            return qs
+
+        return qs.filter(
+            Exists(
+                Answer.objects.filter(
+                    question_id="decision-decision-assessment",
+                    document__work_item__task_id="decision",
+                    document__work_item__status__in=[
+                        WorkItem.STATUS_COMPLETED,
+                        WorkItem.STATUS_SKIPPED,
+                    ],
+                    document__work_item__case__instance=OuterRef("pk"),
+                    value__in=value,
+                )
+            )
+        )
 
 
 class InstanceFilterSet(FilterSet):
@@ -335,6 +349,7 @@ class InstanceFilterSet(FilterSet):
     )
     decision_date_after = InstanceDecisionDateFilter(lookup_expr="gte")
     decision_date_before = InstanceDecisionDateFilter(lookup_expr="lte")
+    decision = InstanceDecisionFilter()
 
     def filter_is_applicant(self, queryset, name, value):
         if value:
