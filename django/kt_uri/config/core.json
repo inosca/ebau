@@ -20846,7 +20846,7 @@
     "model": "core.formgroup",
     "pk": 12000000,
     "fields": {
-      "name": "Solargesuche, Meldung Vorhaben und Reklamegesuche von der Gemeinde",
+      "name": "Solargesuche, Meldung Vorhaben, Reklamegesuche und Meldung Gebäudetechnik von der Gemeinde",
       "description": "Wird für die Anzeige des Buttons \"Freigabe an Gemeindebaubehörde\" benutzt"
     }
   },
@@ -22888,6 +22888,22 @@
     "fields": {
       "form_group": 254,
       "form": 247
+    }
+  },
+  {
+    "model": "core.formgroupform",
+    "pk": 12000042,
+    "fields": {
+      "form_group": 12000000,
+      "form": 297
+    }
+  },
+  {
+    "model": "core.formgroupform",
+    "pk": 12000043,
+    "fields": {
+      "form_group": 31,
+      "form": 297
     }
   },
   {
