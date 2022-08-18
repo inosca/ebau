@@ -106,6 +106,7 @@ class PublicServiceView(MultilangMixin, ReadOnlyModelViewSet):
     serializer_class = serializers.PublicServiceSerializer
     queryset = models.Service.objects.filter(disabled=False)
     search_fields = ("name", "trans__name")
+    ordering_fields = ("name", "trans__name", "service_group__name")
 
     def get_queryset(self):
         queryset = super().get_queryset()

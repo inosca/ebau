@@ -3,10 +3,19 @@ import Component from "@glimmer/component";
 
 export default class CaseFilterSelectMultipleComponent extends Component {
   get value() {
+    const valueKey = this.args.valueField ?? "slug";
+
+    // flatten option groups
+    const options =
+      this.args.filterOptions?.reduce?.((flattened, option) => {
+        return [...flattened, ...(option.options ? option.options : [option])];
+      }, []) ?? [];
+
     return this.args.value
       ? this.args.value.map((value) =>
-          this.args.filterOptions?.find(
-            (f) => f[this.args.valueField ?? "slug"] === value
+          options.find(
+            (option) =>
+              JSON.stringify(option[valueKey]) === JSON.stringify(value)
           )
         )
       : [];

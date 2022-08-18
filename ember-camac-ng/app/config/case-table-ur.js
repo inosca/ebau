@@ -3,7 +3,7 @@ export default {
     caluma: {
       municipality: [
         "instanceId",
-        "dossierNr",
+        "dossierNumber",
         "form",
         "municipality",
         "user",
@@ -14,7 +14,7 @@ export default {
       ],
       coordination: [
         "instanceId",
-        "dossierNr",
+        "dossierNumber",
         "circulationInitializerServices",
         "form",
         "municipality",
@@ -27,7 +27,7 @@ export default {
       service: [
         "deadlineColor",
         "instanceId",
-        "dossierNr",
+        "dossierNumber",
         "circulationInitializerServices",
         "form",
         "municipality",
@@ -38,12 +38,12 @@ export default {
         "processingDeadline",
       ],
       default: [
-        "dossierNr",
+        "dossierNumber",
         "municipality",
         "applicant",
         "intent",
         "street",
-        "parcelNumbers",
+        "parcel",
       ],
     },
   },
@@ -51,16 +51,16 @@ export default {
     caluma: [
       "instanceId",
       "dossierNumber",
-      "applicantName",
-      "street",
+      "applicant",
+      "address",
       "municipality",
-      "parcelNumber",
+      "parcel",
       "instanceState",
       "service",
       "pendingSanctionsControlInstance",
       "buildingPermitType",
-      "createdAfter",
-      "createdBefore",
+      "submitDateAfter",
+      "submitDateBefore",
       "intent",
       "withCantonalParticipation",
       "responsibleServiceUser",
@@ -83,9 +83,23 @@ export default {
     "41",
     "71",
   ],
-  order: [
-    { documentAnswer: "municipality" },
-    { meta: "dossier-number", direction: "DESC" },
-  ],
+  availableOrderings: {
+    municipality: {
+      caluma: [
+        { documentAnswer: "municipality" },
+        { meta: "dossier-number", direction: "DESC" },
+      ],
+    },
+    instanceState: {
+      "camac-ng": ["instance__instance_state__name"],
+    },
+    instanceId: {
+      caluma: [{ meta: "camac-instance-id" }],
+    },
+    dossierNumber: {
+      caluma: [{ meta: "dossier-number" }],
+    },
+  },
+  defaultOrder: "municipality",
   pageSize: 30,
 };

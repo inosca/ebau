@@ -24,6 +24,9 @@ module.exports = function (defaults) {
     "@embroider/macros": {
       setOwnConfig: {
         application: ENV,
+        isBE: ENV === "be",
+        isSZ: ENV === "sz",
+        isUR: ENV === "ur",
       },
     },
   });

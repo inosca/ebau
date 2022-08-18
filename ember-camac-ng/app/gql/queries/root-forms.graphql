@@ -1,0 +1,18 @@
+query RootForms {
+  allForms(
+    filter: [{ metaValue: [{ key: "is-main-form", value: true }] }]
+    order: [{ attribute: NAME, direction: ASC }]
+  ) {
+    edges {
+      node {
+        slug
+        name
+        meta
+        isPublished
+        source {
+          slug
+        }
+      }
+    }
+  }
+}

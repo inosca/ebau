@@ -1,0 +1,19 @@
+query Municipalities {
+  allQuestions(filter: [{ slugs: ["gemeinde"] }], first: 1) {
+    edges {
+      node {
+        slug
+        ... on DynamicChoiceQuestion {
+          options {
+            edges {
+              node {
+                slug
+                label
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
