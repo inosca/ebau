@@ -3,7 +3,7 @@
     <tr>
       <td class="uk-text-bold">{{t "statistics.avg-process-time"}}</td>
       <td class="uk-text-right">
-        {{#if this.fetchActivationsSummary.isRunning}}
+        {{#if this.inquiriesSummary.isRunning}}
           <UkSpinner ratio={{0.5}} />
         {{else}}
           {{t "statistics.days" count=this.averageProcessingTime}}
@@ -13,7 +13,7 @@
     <tr>
       <td class="uk-text-bold">{{t "statistics.deadline-quota"}}</td>
       <td class="uk-text-right">
-        {{#if this.fetchActivationsSummary.isRunning}}
+        {{#if this.inquiriesSummary.isRunning}}
           <UkSpinner ratio={{0.5}} />
         {{else}}
           {{this.deadlineQuota}}%
