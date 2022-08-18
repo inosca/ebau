@@ -3,6 +3,7 @@ import json
 from datetime import timedelta
 
 import pytest
+from caluma.caluma_workflow.models import WorkItem
 from django.urls import reverse
 from django.utils import timezone
 from PIL import Image
@@ -1304,7 +1305,7 @@ def test_attachment_public_access(
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize(
-    "instance_state__name,attachment__path,attachment__service,acl_mode,has_running_activation,status_code",
+    "instance_state__name,attachment__path,attachment__service,acl_mode,has_running_inquiry,status_code",
     [
         (
             "circulation",
@@ -1350,7 +1351,7 @@ def test_attachment_public_access(
             "circulation",
             django_file("no-thumbnail.txt"),
             LazyFixture("service"),
-            permissions.AdminServiceRunningActivationPermission,
+            permissions.AdminServiceRunningInquiryPermission,
             True,
             status.HTTP_204_NO_CONTENT,
         ),
@@ -1358,7 +1359,7 @@ def test_attachment_public_access(
             "circulation",
             django_file("no-thumbnail.txt"),
             LazyFixture("service"),
-            permissions.AdminServiceRunningActivationPermission,
+            permissions.AdminServiceRunningInquiryPermission,
             False,
             status.HTTP_403_FORBIDDEN,
         ),
@@ -1366,22 +1367,22 @@ def test_attachment_public_access(
 )
 def test_attachment_delete_custom_admin_modes(
     db,
-    activation,
+    acl_mode,
+    active_inquiry_factory,
     admin_client,
     application_settings,
     attachment_attachment_sections,
+    be_distribution_settings,
+    be_instance,
+    has_running_inquiry,
     mocker,
-    acl_mode,
-    has_running_activation,
     status_code,
     use_instance_service,
 ):
     application_settings["ATTACHMENT_AFTER_DECISION_STATES"] = ["finished"]
 
-    if has_running_activation:
-        application_settings["ATTACHMENT_RUNNING_ACTIVATION_STATES"] = [
-            activation.circulation_state.name
-        ]
+    if has_running_inquiry:
+        active_inquiry_factory(status=WorkItem.STATUS_READY)
 
     url = reverse(
         "attachment-detail", args=[attachment_attachment_sections.attachment.pk]
@@ -1528,22 +1529,27 @@ def test_attachment_delete_multiple_sections(
 
 @pytest.mark.parametrize("role__name", ["Service"])
 @pytest.mark.parametrize(
-    "circulation_state__name,status_code",
-    [("RUN", status.HTTP_200_OK), ("DONE", status.HTTP_400_BAD_REQUEST)],
+    "inquiry_status,status_code",
+    [
+        (WorkItem.STATUS_READY, status.HTTP_200_OK),
+        (WorkItem.STATUS_COMPLETED, status.HTTP_400_BAD_REQUEST),
+    ],
 )
 def test_attachment_update_custom_permissions(
     db,
+    active_inquiry_factory,
     admin_client,
-    application_settings,
-    mocker,
-    activation,
-    attachment,
-    attachment_section_factory,
     attachment_attachment_section_factory,
+    attachment_section_factory,
+    attachment,
+    be_distribution_settings,
+    be_instance,
+    inquiry_status,
+    mocker,
     status_code,
     use_instance_service,
 ):
-    application_settings["ATTACHMENT_RUNNING_ACTIVATION_STATES"] = ["RUN"]
+    active_inquiry_factory(for_instance=be_instance, status=inquiry_status)
 
     existing_section = attachment_section_factory(
         name="existing", allowed_mime_types=[]
@@ -1563,9 +1569,7 @@ def test_attachment_update_custom_permissions(
             "demo": {
                 "service": {
                     permissions.AdminPermission: [existing_section.pk],
-                    permissions.AdminServiceRunningActivationPermission: [
-                        new_section.pk
-                    ],
+                    permissions.AdminServiceRunningInquiryPermission: [new_section.pk],
                 }
             }
         },
