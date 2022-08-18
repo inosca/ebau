@@ -324,6 +324,7 @@ export default class CaseTableComponent extends Component {
             inquiry_state: this.args.filter.inquiryState,
             decision_date_before: this.args.filter.decisionDateBefore,
             decision_date_after: this.args.filter.decisionDateAfter,
+            decision: this.args.filter.decision,
           }
         : {}),
     };
