@@ -1,4 +1,5 @@
 import pytest
+from caluma.caluma_workflow.models import WorkItem
 from django.urls import reverse
 from rest_framework import status
 
@@ -225,8 +226,8 @@ def test_attachment_modification_by_activation_involvement(
     application_settings,
     be_instance,
     mocker,
-    circulation,
-    activation_factory,
+    active_inquiry_factory,
+    be_distribution_settings,
     admin_client,
     attachment_section,
     instance_service_factory,
@@ -257,17 +258,12 @@ def test_attachment_modification_by_activation_involvement(
     lead_group = group_factory(role=role, name="Lead group")
     instance_service_factory(instance=be_instance, service=lead_group.service)
 
-    # activate subordinate group by activation
-    activation = activation_factory(
-        circulation=circulation,
-        circulation__instance=be_instance,
-        circulation_state__name="RUN",
-        service=group.service,
+    # activate subordinate group by inquiry
+    inquiry = active_inquiry_factory(
+        for_instance=be_instance,
+        addressed_service=group.service,
+        status=WorkItem.STATUS_READY,
     )
-
-    application_settings["ATTACHMENT_RUNNING_ACTIVATION_STATES"] = [
-        activation.circulation_state.name
-    ]
 
     path = django_file("multiple-pages.pdf")
     create_data = {
@@ -288,7 +284,7 @@ def test_attachment_modification_by_activation_involvement(
                     ]  # disallow the regular lead permission to ensure the problematic fallback does not kick in
                 },
                 "service-lead": {
-                    permissions.AdminServiceRunningActivationPermission: [
+                    permissions.AdminServiceRunningInquiryPermission: [
                         attachment_section.pk
                     ]
                 },
@@ -302,8 +298,8 @@ def test_attachment_modification_by_activation_involvement(
     assert create_res.status_code == status.HTTP_201_CREATED
 
     # finish the current circulation to revoke group's involvement
-    activation.circulation_state.name = "DONE"
-    activation.circulation_state.save()
+    inquiry.status = WorkItem.STATUS_COMPLETED
+    inquiry.save()
 
     # ensure that deletion of the attachment fails
     del_resp = admin_client.delete(

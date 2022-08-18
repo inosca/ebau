@@ -1471,7 +1471,6 @@ APPLICATIONS = {
                 "DEFAULT": be_constants.PUBLIC_INSTANCE_STATE_CREATING,
             },
         },
-        "ATTACHMENT_RUNNING_ACTIVATION_STATES": ["RUN"],
         "ATTACHMENT_AFTER_DECISION_STATES": [
             "rejected",
             "correction",
