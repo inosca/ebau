@@ -76,6 +76,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
 
       const result = await this.store.query("public-service", {
         search,
+        exclude_own_service: true,
         ...filters,
       });
 

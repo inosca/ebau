@@ -402,6 +402,11 @@ class TaskSendHandler(BaseSendHandler):
     def apply(self):
         service = self._get_service()
 
+        if service == self.group.service:
+            raise SendHandlerException(
+                "Services can't create inquiries for themselves!"
+            )
+
         workflow_api.complete_work_item(
             work_item=self._get_create_inquiry(),
             user=self.caluma_user,
