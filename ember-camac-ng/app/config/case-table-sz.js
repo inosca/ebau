@@ -1,32 +1,32 @@
 export default {
   columns: {
-    caluma: ["dossierNr", "caseDocumentFormName", "intent", "caseStatus"],
+    caluma: ["dossierNumber", "caseDocumentFormName", "intent", "caseStatus"],
     "camac-ng": [
-      "dossierNr",
+      "dossierNumber",
       "instanceFormDescription",
-      "locationSZ",
-      "builderSZ",
+      "location",
+      "builder",
       "intentSZ",
       "instanceStateDescription",
     ],
   },
   activeFilters: {
-    caluma: ["dossierNumberSZ", "intent", "caseStatus", "caseDocumentFormName"],
+    caluma: ["dossierNumber", "intent", "caseStatus", "form"],
     "camac-ng": [
       "instanceIdentifier",
-      "instanceStateDescription",
-      "locationSZ",
+      "municipality",
+      "instanceState",
       "responsibleServiceUser",
-      "addressSZ",
-      "intentSZ",
-      "plotSZ",
-      "builderSZ",
-      "landownerSZ",
-      "applicantSZ",
-      "submitDateAfterSZ",
-      "submitDateBeforeSZ",
-      "serviceSZ",
-      "formSZ",
+      "address",
+      "intent",
+      "parcel",
+      "builder",
+      "landowner",
+      "applicant",
+      "submitDateAfter",
+      "submitDateBefore",
+      "service",
+      "type",
     ],
   },
   formFields: [
@@ -37,8 +37,17 @@ export default {
     "bezeichnung",
     "bezeichnung-override",
   ],
-  order: {
-    caluma: [{ meta: "dossier-number" }],
-    "camac-ng": ["instance__identifier"],
+  availableOrderings: {
+    dossierNumber: {
+      caluma: [{ meta: "dossier-number" }],
+      "camac-ng": ["instance__identifier"],
+    },
+    caseStatus: {
+      caluma: [{ attribute: "STATUS" }],
+    },
+    instanceStateDescription: {
+      "camac-ng": ["instance__instance_state__description"],
+    },
   },
+  defaultOrder: "dossierNumber",
 };

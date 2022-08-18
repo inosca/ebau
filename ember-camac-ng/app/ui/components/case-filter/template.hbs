@@ -16,6 +16,7 @@
           @labelField={{filterConfig.labelField}}
           @maxDate={{get this._filter filterConfig.maxDate}}
           @minDate={{get this._filter filterConfig.minDate}}
+          @showWithoutOptions={{filterConfig.showWithoutOptions}}
         />
       {{/let}}
     {{/each-in}}
@@ -27,6 +28,21 @@
     <button type="button" class="uk-button uk-button-default" {{on "click" this.resetFilter}}>
       {{t "global.reset"}}
     </button>
+
+    {{#each-in this.presets as |presetName filters|}}
+      <button type="button" class="uk-button uk-button-default" {{on "click" (fn this.applyPreset filters)}}>
+        {{t (concat "cases.presets." presetName)}}
+      </button>
+    {{/each-in}}
+
+    {{#if (macroCondition (macroGetOwnConfig "isBE"))}}
+      {{#if (can "create paper of instance")}}
+        <a
+          href="{{this.shoebox.content.config.portalURL}}/instances/new?group={{this.shoebox.content.groupId}}&language={{this.shoebox.content.language}}"
+          class="uk-button uk-button-default uk-float-right"
+        >{{t "cases.new.paper"}}</a>
+      {{/if}}
+    {{/if}}
   </div>
 </form>
 

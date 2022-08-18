@@ -126,12 +126,6 @@ class ResourceSerializer(serializers.ModelSerializer, MultilingualSerializer):
             }
             return f"/dashboard/{type_mapping.get(obj.template)}"
 
-        if resource_type == "calumalist":
-            instance_states = models.RCalumaList.objects.get(
-                pk=obj.pk
-            ).instance_states.split(",")
-            return f"/cases?instance_states={instance_states}"
-
         if resource_type == "emberlist":
             instance_states = models.REmberList.objects.get(
                 pk=obj.pk

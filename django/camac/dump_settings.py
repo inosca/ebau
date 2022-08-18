@@ -126,7 +126,6 @@ DUMP_CONFIG_MODELS = [
     "core.RSearchFilter",
     "core.RSearchFilterT",
     "core.RServiceAcl",
-    "core.RCalumaList",
     "core.ServiceAnswerActivation",
     "core.TemplateGenerateAction",
     "core.WorkflowAction",
