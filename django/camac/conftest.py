@@ -1018,6 +1018,10 @@ def active_inquiry_factory(
             **kwargs,
         )
 
+        if kwargs.get("created_at"):
+            inquiry.created_at = kwargs.get("created_at")
+            inquiry.save()
+
         answer_factory(
             document=inquiry.document,
             question_id=distribution_settings["QUESTIONS"]["DEADLINE"],

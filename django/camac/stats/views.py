@@ -2,6 +2,7 @@ from datetime import date
 
 from caluma.caluma_form.models import Answer, Document
 from caluma.caluma_workflow.models import WorkItem
+from django.conf import settings
 from django.db.models import (
     Avg,
     Case,
@@ -23,7 +24,6 @@ from rest_framework.renderers import JSONRenderer
 from rest_framework.request import Request
 from rest_framework.response import Response
 
-from camac.core.models import Activation
 from camac.instance.mixins import InstanceQuerysetMixin
 from camac.instance.models import Instance
 from camac.stats.cycle_time import aggregate_cycle_times
@@ -35,8 +35,8 @@ from camac.stats.filters import (
 from camac.user.permissions import permission_aware
 
 from .serializers import (
-    ActivationSummarySerializer,
     ClaimSummarySerializer,
+    InquiriesSummarySerializer,
     InstancesCycleTimeSerializer,
     InstanceSummarySerializer,
 )
@@ -81,31 +81,41 @@ class InstanceSummaryView(InstanceQuerysetMixin, ListAPIView):
         return Response(self.filter_queryset(self.get_queryset()).count())
 
 
-class ActivationSummaryView(ListAPIView):
+class InquiriesSummaryView(ListAPIView):
     renderer_classes = [JSONRenderer]
     swagger_schema = None
-    queryset = Activation.objects.filter(circulation_state__name="DONE")
-    serializer_class = ActivationSummarySerializer
+    serializer_class = InquiriesSummarySerializer
+
+    def get_base_queryset(self) -> QuerySet:
+        if not settings.DISTRIBUTION:  # pragma: no cover
+            return WorkItem.objects.none()
+
+        return WorkItem.objects.filter(
+            task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
+            status=WorkItem.STATUS_COMPLETED,
+        )
 
     @permission_aware
     def get_queryset(self) -> None:
-        return self.queryset.none()
+        return self.get_base_queryset().none()
 
     def get_queryset_for_support(self) -> QuerySet:
-        return self.queryset
+        return self.get_base_queryset()
 
     def get_queryset_for_service(self) -> QuerySet:
-        return self.queryset.filter(service=self.request.group.service_id)
+        return self.get_base_queryset().filter(
+            addressed_groups__contains=[str(self.request.group.service_id)]
+        )
 
     def get(self, request: Request, *args, **kwargs) -> Response:
         res = (
             self.get_queryset()
             .annotate(
                 processing_duration=Func(
-                    F("end_date"), F("start_date"), function="age"
+                    F("closed_at"), F("created_at"), function="age"
                 ),
                 deadline_met=Case(
-                    When(deadline_date__gt=F("end_date"), then=1),
+                    When(deadline__date__gt=F("closed_at__date"), then=1),
                     output_field=IntegerField(),
                     default=0,
                 ),

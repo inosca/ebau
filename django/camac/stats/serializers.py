@@ -11,9 +11,9 @@ class ClaimSummarySerializer(serializers.Serializer):
         resource_name = "claims-summary"
 
 
-class ActivationSummarySerializer(serializers.Serializer):
+class InquiriesSummarySerializer(serializers.Serializer):
     class Meta:
-        resource_name = "activations-summary"
+        resource_name = "inquiries-summary"
 
 
 class InstancesCycleTimeSerializer(serializers.Serializer):

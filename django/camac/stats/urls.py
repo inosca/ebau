@@ -1,8 +1,8 @@
 from django.urls import re_path
 
 from camac.stats.views import (
-    ActivationSummaryView,
     ClaimSummaryView,
+    InquiriesSummaryView,
     InstancesCycleTimesView,
     InstanceSummaryView,
 )
@@ -13,9 +13,9 @@ urlpatterns = [
     ),
     re_path(r"claims-summary", ClaimSummaryView.as_view(), name="claims-summary"),
     re_path(
-        r"activations-summary",
-        ActivationSummaryView.as_view(),
-        name="activations-summary",
+        r"inquiries-summary",
+        InquiriesSummaryView.as_view(),
+        name="inquiries-summary",
     ),
     re_path(
         r"instances-cycle-times",

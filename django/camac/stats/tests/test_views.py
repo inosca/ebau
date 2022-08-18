@@ -4,6 +4,7 @@ from collections import namedtuple
 import pytest
 from caluma.caluma_form import factories as caluma_form_factories
 from caluma.caluma_form.models import Document
+from caluma.caluma_workflow.models import WorkItem
 from dateutil import relativedelta
 from django.urls import reverse
 from django.utils.timezone import make_aware, now
@@ -191,9 +192,11 @@ def test_summary_claims(
         ("Applicant", None, None, 1),
     ],
 )
-def test_activation_summary(
+def test_inquiries_summary(
     db,
-    activation_factory,
+    active_inquiry_factory,
+    be_distribution_settings,
+    be_instance,
     service_factory,
     role,
     admin_client,
@@ -203,35 +206,39 @@ def test_activation_summary(
     expected_deadline_quota,
     expected_num_queries,
 ):
-    activation_factory(
-        service=group.service,
-        circulation_state__name="DONE",
-        start_date=make_aware(datetime.datetime(2020, 7, 11)),
-        end_date=make_aware(datetime.datetime(2020, 7, 15)),
-        deadline_date=make_aware(datetime.datetime(2020, 7, 20)),
+    active_inquiry_factory(
+        for_instance=be_instance,
+        addressed_service=group.service,
+        status=WorkItem.STATUS_COMPLETED,
+        created_at=make_aware(datetime.datetime(2020, 7, 11)),
+        closed_at=make_aware(datetime.datetime(2020, 7, 15)),
+        deadline=make_aware(datetime.datetime(2020, 7, 20)),
     )
-    activation_factory(
-        service=group.service,
-        circulation_state__name="DONE",
-        start_date=make_aware(datetime.datetime(2020, 7, 11)),
-        end_date=make_aware(datetime.datetime(2020, 7, 25)),
-        deadline_date=make_aware(datetime.datetime(2020, 7, 20)),
+    active_inquiry_factory(
+        for_instance=be_instance,
+        addressed_service=group.service,
+        status=WorkItem.STATUS_COMPLETED,
+        created_at=make_aware(datetime.datetime(2020, 7, 11)),
+        closed_at=make_aware(datetime.datetime(2020, 7, 25)),
+        deadline=make_aware(datetime.datetime(2020, 7, 20)),
     )
-    activation_factory(
-        service=service_factory(),
-        circulation_state__name="DONE",
-        start_date=make_aware(datetime.datetime(2020, 7, 11)),
-        end_date=make_aware(datetime.datetime(2020, 7, 14)),
-        deadline_date=make_aware(datetime.datetime(2020, 7, 20)),
+    active_inquiry_factory(
+        for_instance=be_instance,
+        addressed_service=service_factory(),
+        status=WorkItem.STATUS_COMPLETED,
+        created_at=make_aware(datetime.datetime(2020, 7, 11)),
+        closed_at=make_aware(datetime.datetime(2020, 7, 14)),
+        deadline=make_aware(datetime.datetime(2020, 7, 20)),
     )
-    activation_factory(
-        service=service_factory(),
-        circulation_state__name="OPEN",
-        start_date=make_aware(datetime.datetime(2020, 7, 11)),
-        deadline_date=make_aware(datetime.datetime(2020, 7, 15)),
+    active_inquiry_factory(
+        for_instance=be_instance,
+        addressed_service=service_factory(),
+        status=WorkItem.STATUS_READY,
+        created_at=make_aware(datetime.datetime(2020, 7, 11)),
+        deadline=make_aware(datetime.datetime(2020, 7, 15)),
     )
     with django_assert_num_queries(expected_num_queries):
-        response = admin_client.get(reverse("activations-summary"))
+        response = admin_client.get(reverse("inquiries-summary"))
 
     result = response.json()
     assert result["avg-processing-time"] == expected_proc_time_avg
