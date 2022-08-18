@@ -8,9 +8,11 @@
   <thead>
     <tr>
       {{#each this.tableColumns as |tColumn|}}
-        <th>
-          {{t (concat "cases.tableHeaders." tColumn)}}
-        </th>
+        <CaseTable::Header
+          @column={{tColumn}}
+          @currentOrder={{@order}}
+          @onSetOrder={{@onSetOrder}}
+        />
       {{/each}}
     </tr>
   </thead>
@@ -27,17 +29,18 @@
       >
         {{#each this.tableColumns as |tColumn|}}
           <td
-            class={{
-              if (eq tColumn "intent") "uk-text-truncate uk-table-expand"
-            }}
-            title={{if (eq tColumn "instanceState") (get node "instanceStateDescription")}}
+            class="
+              {{if (eq tColumn.name "intent") "uk-text-truncate uk-table-expand"}}
+              {{if (eq tColumn.name "applicants") "uk-text-break"}}
+            "
+            title={{if (eq tColumn.name "instanceState") (get node "instanceStateDescription")}}
           >
-            {{#if (eq tColumn "applicant")}}
-              {{get node (concat tColumn ".name")}}
-            {{else if (eq tColumn "processingDeadline")}}
-              {{date-from-now (get node tColumn)}}
+            {{#if (eq tColumn.name "applicant")}}
+              {{get node (concat tColumn.name ".name")}}
+            {{else if (eq tColumn.name "processingDeadline")}}
+              {{date-from-now (get node tColumn.name)}}
             {{else}}
-              {{get node tColumn}}
+              {{get node tColumn.name}}
             {{/if}}
           </td>
         {{/each}}
@@ -55,11 +58,15 @@
     {{/each}}
 
     <tr>
-      {{#if (and this.casesQuery.hasNextPage (not this.casesQuery.isLoading))}}
+      {{#if this.casesQuery.hasNextPage}}
         <td colspan={{this.tableColumns.length}} class="uk-text-center">
-          <button type="button" class="uk-button uk-button-link" {{on "click" this.casesQuery.fetchMore}}>
-            {{t "global.loadMore"}}
-          </button>
+          {{#if this.casesQuery.isLoading}}
+            <UkSpinner />
+          {{else}}
+            <button type="button" class="uk-button uk-button-link" {{on "click" this.casesQuery.fetchMore}}>
+              {{t "global.loadMore"}}
+            </button>
+          {{/if}}
         </td>
       {{/if}}
     </tr>
@@ -68,6 +75,12 @@
 
 {{#if this.casesQuery.value.length}}
   <div class="uk-text-right">
+    {{#if (macroCondition (macroGetOwnConfig "isBE"))}}
+      <a href="#" class="uk-link-text uk-margin-small-right" {{on "click" (perform this.export)}}>
+        <UkIcon @icon="file-text" />
+        {{t "cases.export.title"}}
+      </a>
+    {{/if}}
     {{this.paginationInfo}}
   </div>
 {{/if}}
