@@ -457,6 +457,7 @@ def test_close_dossier_send_handler(
         ("invalid_service_id", False),
         ("no_create_inquiry", False),
         ("multiple_create_inquiry", False),
+        ("same_service", False),
     ],
 )
 def test_task_send_handler(
@@ -521,6 +522,10 @@ def test_task_send_handler(
             status=WorkItem.STATUS_READY,
             case=distribution_case,
             addressed_groups=[str(group.service.pk)],
+        )
+    elif test_case == "same_service":
+        xml = xml.replace(
+            "<serviceId>23</serviceId>", f"<serviceId>{group.service.pk}</serviceId>"
         )
 
     data = CreateFromDocument(xml)
