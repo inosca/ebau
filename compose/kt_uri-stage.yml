@@ -8,6 +8,8 @@ services:
     volumes:
       - /etc/letsencrypt:/etc/letsencrypt:ro
       - /etc/camac/nginx:/etc/nginx/conf.d:ro
+    depends_on:
+      - mailhog
 
   db:
     image: acr.run/camac-ng/camac-ng/db:${CI_COMMIT_REF_SLUG}-${APPLICATION}
@@ -30,6 +32,8 @@ services:
       cache_from:
         - acr.run/camac-ng/camac-ng/django:${CI_COMMIT_REF_SLUG}-${APPLICATION}
     restart: always
+    depends_on:
+      - mailhog
     environment:
       - DJANGO_ENV_FILE=/run/secrets/django.env
       - GWR_HOUSING_STAT_BASE_URI=https://www-r.housing-stat.ch/regbl/api/ech0216/2
@@ -69,6 +73,15 @@ services:
         - INTERNAL_URL=${INTERNAL_URL}
     restart: always
 
+  keycloak:
+    volumes:
+      - /etc/camac/keycloak.env:/run/secrets/keycloak.env:ro
+    environment:
+      - ENV_FILE=/run/secrets/keycloak.env
+    restart: always
+    depends_on:
+      - mailhog
+
   cache:
     restart: always
 
@@ -76,14 +89,10 @@ services:
     restart: always
 
   mailhog:
+    image: mailhog/mailhog
     restart: always
-
-  keycloak:
-    volumes:
-      - /etc/camac/keycloak.env:/run/secrets/keycloak.env:ro
     environment:
-      - ENV_FILE=/run/secrets/keycloak.env
-    restart: always
+      - MH_UI_WEB_PATH=mailhog
 
 volumes:
   pgdata:

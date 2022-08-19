@@ -39,6 +39,7 @@ services:
       - /var/lib/ca-certificates/ca-bundle.pem:/usr/local/lib/python3.8/site-packages/certifi/cacert.pem:ro
 
   document-merge-service:
+    restart: always
     environment:
       - ENV_FILE=/run/secrets/document-merge-service.env
     volumes:
@@ -82,9 +83,6 @@ services:
     restart: always
 
   clamav:
-    restart: always
-
-  mailhog:
     restart: always
 
 volumes:
