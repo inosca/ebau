@@ -84,5 +84,5 @@ export default {
     { documentAnswer: "municipality" },
     { meta: "dossier-number", direction: "DESC" },
   ],
-  pageSize: 30,
+  pageSize: 20,
 };
