@@ -9,7 +9,6 @@ services:
       - ember-caluma-portal
       - django
       - keycloak
-      - mailhog
       - ember-camac-ng
     volumes:
       - djangomedia:/var/lib/camac/media:ro
@@ -45,7 +44,6 @@ services:
       - keycloak
       - cache
       - clamav
-      - mailhog
     environment:
       - DATABASE_HOST=db
       - DATABASE_NAME=${APPLICATION}
@@ -84,9 +82,6 @@ services:
       args:
         - APPLICATION=${APPLICATION}
 
-  mailhog:
-    image: mailhog/mailhog
-
   clamav:
     image: tiredofit/clamav:2.3.0
     environment:
@@ -97,7 +92,6 @@ services:
   keycloak:
     depends_on:
       - db
-      - mailhog
     image: acr.run/camac-ng/keycloak-uri/keycloak:16.1.0_theme-v0.3.6
     environment:
       - DB_VENDOR=postgres
