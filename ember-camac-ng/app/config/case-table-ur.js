@@ -101,5 +101,5 @@ export default {
     },
   },
   defaultOrder: "municipality",
-  pageSize: 30,
+  pageSize: 20,
 };
