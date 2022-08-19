@@ -1,8 +1,8 @@
 <div>
-  <a 
-    class="uk-link" 
+  <a
+    class="uk-link"
     href={{t "dashboard.linkToForm" instanceId=@instanceId instanceResourceId=@formInstanceResourceId}}
   >
-    {{ t "dashboard.furtherPeople" numberOfPersons=@numberOfPersons}}
+    {{ t "dashboard.furtherPeople" numberOfPersons=(sub @numberOfPersons 1)}}
   </a>
 </div>
