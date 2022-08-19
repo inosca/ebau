@@ -1,12 +1,10 @@
 import { inject as service } from "@ember/service";
-import { isEmpty } from "@ember/utils";
-import CaseModel from "@projectcaluma/ember-core/caluma-query/models/case";
 import { DateTime } from "luxon";
 
-import caseModelConfig from "camac-ng/config/case-model";
+import CustomCaseBaseModel from "camac-ng/caluma-query/models/-case";
 import getAnswer from "camac-ng/utils/get-answer";
 
-export default class CustomCaseModel extends CaseModel {
+export default class CustomCaseModel extends CustomCaseBaseModel {
   @service store;
   @service shoebox;
   @service intl;
@@ -41,6 +39,10 @@ export default class CustomCaseModel extends CaseModel {
       };
     }
     return null;
+  }
+
+  getPersonsCount(question) {
+    return getAnswer(this.raw.document, question)?.node.value.length;
   }
 
   get instanceFormDescription() {
@@ -87,7 +89,7 @@ export default class CustomCaseModel extends CaseModel {
   }
 
   get numberOfApplicants() {
-    return this.getPersonsCount("applicant") - 1;
+    return this.getPersonsCount("applicant");
   }
 
   get projectAuthor() {
@@ -95,7 +97,7 @@ export default class CustomCaseModel extends CaseModel {
   }
 
   get numberOfProjectAuthors() {
-    return this.getPersonsCount("project-author") - 1;
+    return this.getPersonsCount("project-author");
   }
 
   get landowner() {
@@ -103,7 +105,7 @@ export default class CustomCaseModel extends CaseModel {
   }
 
   get numberOfLandowners() {
-    return this.getPersonsCount("landowner") - 1;
+    return this.getPersonsCount("landowner");
   }
 
   get invoiceRecipient() {
@@ -111,7 +113,7 @@ export default class CustomCaseModel extends CaseModel {
   }
 
   get numberOfInvoiceRecipients() {
-    return this.getPersonsCount("invoice-recipient") - 1;
+    return this.getPersonsCount("invoice-recipient");
   }
 
   get basicUsage() {
