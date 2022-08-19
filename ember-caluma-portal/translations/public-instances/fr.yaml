@@ -7,6 +7,8 @@ publicInstances:
   empty-title-ur: ""
   empty-title-be: "Il n'y a pas de dossiers de demande de permis de construire en cours !"
   emptyText: "Dès que la commune a autorisé la publication d'un dossier, celui-ci apparaît ici dans la liste."
+  publishedWithoutObligation: ""
+  publishedWithObligation: ""
 
 publicInstancesDetail:
   documents: "Documents"
