@@ -7,6 +7,8 @@ publicInstances:
   empty-title-ur: "Es gibt keine laufenden Bauplanauflagen!"
   empty-title-be: "Es gibt keine öffentlich aufgelegten Baugesuche!"
   emptyText: "Sobald die Gemeinde ein Dossier zur Publikation freigegeben hat, wird das Dossier hier in der Liste auftauchen."
+  publishedWithoutObligation: "Unverbindliches Planauflagedokument. Gegen Inhalte in diesem Dokument kann keine Einsprache eingereicht werden."
+  publishedWithObligation: "Verbindliches Planauflagedokument"
 
 publicInstancesDetail:
   documents: "Dokumente"

@@ -140,7 +140,12 @@ class AttachmentQuerysetMixin:
             super()
             .get_base_queryset()
             .filter(
-                Q(context__isPublished=True)
+                Q(
+                    context__isPublished=True,
+                )
+                | Q(
+                    context__isPublishedWithoutObligation=True,
+                )
                 | Q(
                     attachment_sections__pk__in=settings.APPLICATION.get(
                         "PUBLICATION_ATTACHMENT_SECTION", []
