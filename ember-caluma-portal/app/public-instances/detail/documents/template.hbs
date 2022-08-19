@@ -32,6 +32,9 @@
             >
               {{attachment.name}}
             </button>
+            {{#if attachment.context.isPublishedWithoutObligation}}
+              <span uk-icon="icon: info; ratio: 1.2" class="uk-margin-small-left" title={{t "publicInstances.publishedWithoutObligation"}}></span>
+            {{/if}}
           </td>
           <td>{{attachment.filesize}}</td>
           <td>{{format-date attachment.date format="date"}}</td>
