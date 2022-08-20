@@ -32,7 +32,7 @@ def yes_no(question):
         print("")
 
 
-def application(config):
+def ask_application(config):
     question = []
     keys = list(config["applications"].keys())
     for i, app in enumerate(keys):
@@ -43,6 +43,24 @@ def application(config):
             n = int(ask("\n".join(question)))
             key = keys[n]
             return key, config["applications"][key]
+        except (IndexError, ValueError) as e:
+            print(f"not a valid selection ({e})")
+        finally:
+            print()
+
+
+def ask_profile(config):
+    question = []
+    keys = list(config["profiles"].keys())
+    for i, profile in enumerate(keys):
+        comment = config["profiles"][profile]["comment"]
+        question.append(f"{i:2d}: {profile} ({comment})")
+    question.append("Please select your profile: ")
+    while True:
+        try:
+            n = int(ask("\n".join(question)))
+            key = keys[n]
+            return key, config["profiles"][key]
         except (IndexError, ValueError) as e:
             print(f"not a valid selection ({e})")
         finally:
@@ -66,8 +84,16 @@ def run_cmd(cmd):
 def start():
     with _config.open("r") as f:
         config = json.load(f)
-    name, app_config = application(config)
-    env = config["env"].format(os.getuid(), name, app_config["compose"])
+    application, app_config = ask_application(config)
+    profile, profile_config = ask_profile(config)
+
+    env = config["env"].format(
+        os.getuid(),
+        application,
+        app_config["compose"],
+        profile,
+        profile_config["clamd_enabled"],
+    )
     write_env(env, _base)
     write_env(env, _django)
     append_cmd = config.get("append_cmd")
