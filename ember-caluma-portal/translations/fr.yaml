@@ -150,7 +150,8 @@ gis:
     error-additional: "Une erreur s'est produite lors de la demande d'informations supplémentaires. Veuillez réessayer d'accepter les données."
 
 support:
-  title: "Support technique (24/7)"
+  title-support: "Support technique (24/7)"
+  title-questions: "Questions concernant la procédure"
   info: "Pour toute question concernant la procédure, veuillez contacter la municipalité responsable"
   phone: "+41 31 636 99 96"
 
