@@ -176,7 +176,8 @@ services:
       ]
 
   document-merge-service:
-    image: ghcr.io/adfinis/document-merge-service:5.0.1
+    privileged: true
+    image: ghcr.io/adfinis/document-merge-service:5.0.2
     depends_on:
       - db
       - unoconv
