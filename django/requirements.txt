@@ -1,8 +1,8 @@
 Babel==2.10.3
-caluma==8.0.0b11
+caluma==8.0.0b15
 dataclasses-json==0.5.7
 deepmerge==1.0.1
-Django==3.2.14
+Django==3.2.15
 django-admin-sortable2==1.0.4
 django-clamd==0.4.0
 django-environ==0.9.0
@@ -10,12 +10,12 @@ django-excel==0.0.10
 django-extra-fields==3.0.2
 django-filter==22.1
 django-q==1.3.9
-django-reversion==5.0.1
+django-reversion==5.0.2
 djangorestframework==3.13.1
 djangorestframework-jsonapi==5.0.0
 djangorestframework-xml==2.0.0
-docxtpl==0.16.0
-drf-yasg==1.20.0
+docxtpl==0.16.4
+drf-yasg==1.21.3
 ebau_gwr==0.5.2
 Jinja2==3.1.2
 manabi==0.6.6
@@ -27,10 +27,10 @@ pyexcel-io==0.6.6
 pyexcel-webio==0.1.4
 pyexcel-xlsx==0.6.0
 PyJWT==2.4.0
-PyPDF2==2.4.2
+PyPDF2==2.10.3
 pyproj==3.3.1
 python-dateutil==2.8.2
-python-keycloak==1.8.0
+python-keycloak==2.5.0
 python-memcached==1.59
 PyXB-X==1.2.6.1
 qrcode==7.3.1
@@ -41,4 +41,4 @@ tabulate==0.8.10
 tqdm==4.64.0
 uWSGI==2.0.20
 whitenoise==6.2.0
-xmlschema==1.11.3
+xmlschema==2.0.3
