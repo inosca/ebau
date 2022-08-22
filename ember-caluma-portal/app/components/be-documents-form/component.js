@@ -71,6 +71,11 @@ export default class BeDocumentsFormComponent extends Component {
   }
 
   get allAttachments() {
+    const fetchedAttachmentIds =
+      this.fetchAttachments.lastSuccessful?.value.map((attachment) =>
+        attachment.get("id")
+      );
+
     const byInstance = (attachment) =>
       parseInt(attachment.belongsTo("instance").id()) ===
       parseInt(this.args.context.instanceId);
@@ -82,10 +87,15 @@ export default class BeDocumentsFormComponent extends Component {
         .map((id) => parseInt(id))
         .includes(parseInt(this.section));
 
+    const isNewOrInQuery = (attachment) =>
+      attachment.get("isNew") ||
+      fetchedAttachmentIds.includes(attachment.get("id"));
+
     return this.store
       .peekAll("attachment")
       .filter(byInstance)
-      .filter(bySection);
+      .filter(bySection)
+      .filter(isNewOrInQuery);
   }
 
   get attachments() {
