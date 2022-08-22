@@ -100,7 +100,9 @@ services:
       - PROXY_ADDRESS_FORWARDING=true
 
   document-merge-service:
-    image: ghcr.io/adfinis/document-merge-service:5.0.1
+    cap_add:
+      - CAP_SYS_ADMIN
+    image: ghcr.io/adfinis/document-merge-service:5.0.2
     depends_on:
       - db
     volumes:
