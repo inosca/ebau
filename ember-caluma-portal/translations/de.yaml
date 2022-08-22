@@ -142,7 +142,8 @@ gis:
     error-additional: "Bei der Abfrage der zusätzlichen Information ist ein Fehler aufgetreten. Bitte versuchen Sie erneut die Daten zu übernehmen."
 
 support:
-  title: "Technischer Support (24/7)"
+  title-support: "Technischer Support (24/7)"
+  title-questions: "Fachliche Fragen"
   phone: "+41 31 636 99 97"
 
 index:
