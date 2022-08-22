@@ -90,7 +90,7 @@ class CustomValidation(BaseValidation):
             and work_item.task_id == settings.DISTRIBUTION["INQUIRY_CREATE_TASK"]
         ):
             service_id = str(info.context.user.group)
-            addressed_groups = info.variable_values["input"]["context"][
+            addressed_groups = mutation.get_params(info)["input"]["context"][
                 "addressed_groups"
             ]
 
