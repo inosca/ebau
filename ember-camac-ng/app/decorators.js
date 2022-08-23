@@ -2,22 +2,6 @@ import { getOwner } from "@ember/application";
 import { tracked } from "@glimmer/tracking";
 import { confirm } from "ember-uikit";
 
-export function loadingTask(target, property, desc) {
-  const gen = desc.value;
-
-  desc.value = function* (...args) {
-    try {
-      getOwner(this).lookup("controller:application").set("loading", true);
-
-      return yield* gen.apply(this, args);
-    } finally {
-      getOwner(this).lookup("controller:application").set("loading", false);
-    }
-  };
-
-  return desc;
-}
-
 export function objectFromQueryParams(...fields) {
   // There is no easy way of putting the fields directly into the queryParams array.
   // So you need to set the array yourself.
@@ -96,7 +80,6 @@ export function moduleConfig(moduleName, configKey, defaultValue) {
 }
 
 export default {
-  loadingTask,
   confirmTask,
   objectFromQueryParams,
   moduleConfig,

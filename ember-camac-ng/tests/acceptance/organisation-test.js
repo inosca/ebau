@@ -62,9 +62,9 @@ module("Acceptance | organisation", function (hooks) {
       DATA
     );
 
-    assert.dom(".hinweisbox.buttonstyle.success").exists({ count: 1 });
+    assert.dom(".uk-alert.uk-alert-success").exists({ count: 1 });
     assert
-      .dom(".hinweisbox.buttonstyle.success")
-      .hasText("t:organisation.saveSuccess:()");
+      .dom(".uk-alert.uk-alert-success")
+      .containsText("t:organisation.saveSuccess:()");
   });
 });
