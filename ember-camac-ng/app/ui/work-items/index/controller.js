@@ -1,12 +1,12 @@
 import Controller from "@ember/controller";
-import { action, set } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
-import calumaQuery from "@projectcaluma/ember-core/caluma-query";
+import { useCalumaQuery } from "@projectcaluma/ember-core/caluma-query";
 import { allWorkItems } from "@projectcaluma/ember-core/caluma-query/queries";
 import { queryManager } from "ember-apollo-client";
-import { dropTask, restartableTask } from "ember-concurrency";
-import getProcessData from "ember-ebau-core/utils/work-item";
+import getProcessData, {
+  processNewWorkItems,
+} from "ember-ebau-core/utils/work-item";
 
 export default class WorkItemsIndexController extends Controller {
   queryParams = ["order", "responsible", "type", "status", "role"];
@@ -14,8 +14,6 @@ export default class WorkItemsIndexController extends Controller {
   @queryManager apollo;
 
   @service store;
-  @service notifications;
-  @service intl;
   @service shoebox;
 
   // Filters
@@ -25,15 +23,14 @@ export default class WorkItemsIndexController extends Controller {
   @tracked status = "open";
   @tracked role = "active";
 
-  @calumaQuery({ query: allWorkItems, options: "options" })
-  workItemsQuery;
-
-  get options() {
-    return {
+  workItemsQuery = useCalumaQuery(this, allWorkItems, () => ({
+    options: {
       pageSize: 20,
       processNew: (workItems) => this.processNew(workItems),
-    };
-  }
+    },
+    filter: this.gqlFilter,
+    order: this.gqlOrder,
+  }));
 
   get columns() {
     return [
@@ -47,87 +44,52 @@ export default class WorkItemsIndexController extends Controller {
   }
 
   async processNew(workItems) {
-    const { usernames, instanceIds, serviceIds } = getProcessData(workItems);
+    const { usernames, instanceIds } = getProcessData(workItems);
 
-    await this.store.query("public-user", {
-      username: [
-        ...new Set([...usernames, this.shoebox.content.username]),
-      ].join(","),
-    });
+    await processNewWorkItems(this.store, workItems);
 
-    if (instanceIds.length) {
-      await this.store.query("instance", {
-        instance_id: instanceIds.join(","),
-        include: "form",
+    if (!usernames.includes(this.shoebox.content.username)) {
+      await this.store.query("public-user", {
+        username: this.shoebox.content.username,
       });
-
-      if (this.shoebox.content.application === "kt_schwyz") {
-        await this.store.query("form-field", {
-          instance: instanceIds.join(","),
-          name: "bezeichnung,bezeichnung-override",
-        });
-      }
     }
 
-    if (serviceIds.length) {
-      await this.store.query("service", { service_id: serviceIds.join(",") });
+    if (
+      instanceIds.length &&
+      this.shoebox.content.application === "kt_schwyz"
+    ) {
+      await this.store.query("form-field", {
+        instance: instanceIds.join(","),
+        name: "bezeichnung,bezeichnung-override",
+      });
     }
 
     return workItems;
   }
 
-  @restartableTask
-  *fetchWorkItems() {
-    const filter = [{ hasDeadline: true }];
-
-    if (this.responsible === "own") {
-      filter.push({ assignedUsers: [this.shoebox.content.username] });
-    } else {
-      filter.push({ assignedUsers: [] });
-    }
-
-    if (this.type === "unread") {
-      filter.push({ metaValue: [{ key: "not-viewed", value: true }] });
-    }
-
-    if (this.status === "closed") {
-      filter.push({ status: "COMPLETED" });
-    } else {
-      filter.push({ status: "READY" });
-    }
-
-    if (this.role === "control") {
-      filter.push(
-        { controllingGroups: [String(this.shoebox.content.serviceId)] },
-        {
-          addressedGroups: [String(this.shoebox.content.serviceId)],
-          invert: true,
-        }
-      );
-    } else {
-      filter.push({
+  get gqlFilter() {
+    return [
+      { hasDeadline: true },
+      { status: this.status === "closed" ? "COMPLETED" : "READY" },
+      {
         addressedGroups: [String(this.shoebox.content.serviceId)],
-      });
-    }
-
-    const order =
-      this.order === "urgent"
-        ? [{ attribute: "DEADLINE", direction: "ASC" }]
-        : [{ attribute: "CREATED_AT", direction: "DESC" }];
-
-    yield this.workItemsQuery.fetch({ filter, order });
+        invert: this.role === "control",
+      },
+      ...(this.role === "control"
+        ? [{ controllingGroups: [String(this.shoebox.content.serviceId)] }]
+        : []),
+      ...(this.responsible === "own"
+        ? [{ assignedUsers: [this.shoebox.content.username] }]
+        : []),
+      ...(this.type === "unread"
+        ? [{ metaValue: [{ key: "not-viewed", value: true }] }]
+        : []),
+    ];
   }
 
-  @dropTask
-  *fetchMoreWorkItems(event) {
-    event.preventDefault();
-
-    yield this.workItemsQuery.fetchMore();
-  }
-
-  @action
-  updateFilter(type, value) {
-    set(this, type, value);
-    this.fetchWorkItems.perform();
+  get gqlOrder() {
+    return this.order === "urgent"
+      ? [{ attribute: "DEADLINE", direction: "ASC" }]
+      : [{ attribute: "CREATED_AT", direction: "DESC" }];
   }
 }

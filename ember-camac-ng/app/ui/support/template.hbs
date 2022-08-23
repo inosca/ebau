@@ -1,7 +1,5 @@
 <span {{did-insert (perform this.setup)}}></span>
 
-<Notifications @style="uikit" />
-
 {{#if this.setup.isRunning}}
   <div class="uk-text-center"><UkSpinner @ratio={{2}} /></div>
 {{else if this.instance}}

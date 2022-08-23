@@ -1,14 +1,6 @@
-<Notifications />
+<h2 class="uk-margin-remove-top">{{t "workItems.current"}}</h2>
 
-<h3 class="hide-be">
-  {{t "workItems.current"}}
-</h3>
-
-<h2 class="hide-sz" {{did-insert (perform this.fetchManualWorkItemsCount)}}>
-  {{t "workItems.current"}}
-</h2>
-
-<Filters {{did-insert (perform this.fetchWorkItems)}} as |Filter|>
+<Filters as |Filter|>
   <Filter.RadioButtons
     @name="role"
     @label={{t "workItems.filters.role"}}
@@ -18,8 +10,15 @@
       (hash value="active" label=(t "workItems.filters.active"))
       (hash value="control" label=(t "workItems.filters.control"))
     }}
-    @onChange={{fn this.updateFilter "role"}}
+    @onChange={{fn (mut this.role)}}
   />
+  {{#if this.canCreateManualWorkItem}}
+    <div class="uk-width-expand uk-flex uk-flex-right uk-flex-bottom">
+      <LinkTo @route="work-items.instance.new" class="uk-button uk-button-primary">
+        {{t "workItems.new"}}
+      </LinkTo>
+    </div>
+  {{/if}}
 </Filters>
 
 <WorkItemList
@@ -27,19 +26,7 @@
   @columns={{(array "task" "deadline" "responsible")}}
 />
 
-{{#if this.canCreateManualWorkItem}}
-  <LinkTo @route="work-items.instance.new" class="button btn buttonstyle success">
-    {{t "workItems.new"}}
-  </LinkTo>
-{{/if}}
-
-<h3 class="hide-be">
-  {{t "workItems.finished"}}
-</h3>
-
-<h2 class="hide-sz">
-  {{t "workItems.finished"}}
-</h2>
+<h2>{{t "workItems.finished"}}</h2>
 
 <WorkItemList
   @query={{this.completedWorkItemsQuery}}

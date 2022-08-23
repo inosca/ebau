@@ -1,0 +1,5 @@
+{{#if @query.value.length}}
+  <div class="uk-text-right uk-margin" ...attributes>
+    {{t "global.paginationInfo" htmlSafe=true count=(or @query.value.length 0) total=(or @query.totalCount 0)}}
+  </div>
+{{/if}}
