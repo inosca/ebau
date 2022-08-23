@@ -1,10 +1,12 @@
 import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
-import calumaQuery from "@projectcaluma/ember-core/caluma-query";
+import { useCalumaQuery } from "@projectcaluma/ember-core/caluma-query";
 import { allWorkItems } from "@projectcaluma/ember-core/caluma-query/queries";
 import { queryManager } from "ember-apollo-client";
-import { dropTask, lastValue } from "ember-concurrency";
-import getProcessData from "ember-ebau-core/utils/work-item";
+import { dropTask } from "ember-concurrency";
+import { query } from "ember-data-resources";
+import { processNewWorkItems } from "ember-ebau-core/utils/work-item";
+import { cached } from "tracked-toolbox";
 
 import completeWorkItem from "camac-ng/gql/mutations/complete-work-item.graphql";
 import saveWorkItem from "camac-ng/gql/mutations/save-workitem.graphql";
@@ -18,64 +20,23 @@ export default class WorkItemsInstanceEditController extends Controller {
   @service shoebox;
   @service router;
 
-  @calumaQuery({
-    query: allWorkItems,
-    options: "options",
-  })
-  workItemsQuery;
-
-  get options() {
-    return {
+  workItemsQuery = useCalumaQuery(this, allWorkItems, () => ({
+    options: {
       pageSize: 1,
-      processNew: (workItems) => this.processNew(workItems),
-    };
+      processNew: (workItems) => processNewWorkItems(this.store, workItems),
+    },
+    filter: [{ id: this.model }],
+  }));
+
+  @cached
+  get workItem() {
+    return this.workItemsQuery.value[0];
   }
 
-  async processNew(workItems) {
-    const { usernames, instanceIds, serviceIds } = getProcessData(workItems);
-
-    if (usernames.length) {
-      await this.store.query("public-user", { username: usernames.join(",") });
-    }
-
-    if (instanceIds.length) {
-      await this.store.query("instance", {
-        instance_id: instanceIds.join(","),
-        include: "form",
-      });
-    }
-
-    if (serviceIds.length) {
-      await this.store.query("service", { service_id: serviceIds.join(",") });
-    }
-
-    return workItems;
-  }
-
-  @lastValue("fetchWorkItems") workItem;
-  @dropTask
-  *fetchWorkItems() {
-    try {
-      yield this.workItemsQuery.fetch({ filter: [{ id: this.model }] });
-
-      return this.workItemsQuery.value[0];
-    } catch (error) {
-      this.notifications.error(this.intl.t("workItems.fetchError"));
-    }
-  }
-
-  @lastValue("fetchUserChoices") userChoices;
-  @dropTask
-  *fetchUserChoices() {
-    try {
-      return (yield this.store.query("public-user", {
-        service: this.shoebox.content.serviceId,
-        disabled: false,
-      })).toArray();
-    } catch (error) {
-      this.notifications.error(this.intl.t("workItems.fetchError"));
-    }
-  }
+  users = query(this, "public-user", () => ({
+    service: this.shoebox.content.serviceId,
+    disabled: false,
+  }));
 
   @dropTask
   *finishWorkItem(event) {
@@ -123,7 +84,7 @@ export default class WorkItemsInstanceEditController extends Controller {
             description: this.workItem.description,
             deadline: this.workItem.deadline,
             assignedUsers,
-            meta: JSON.stringify(this.workItem?.meta),
+            meta: JSON.stringify(this.workItem.meta),
           },
         },
       });

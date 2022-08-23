@@ -1,6 +1,4 @@
-<Notifications />
-
-<Filters {{did-insert (perform this.fetchWorkItems)}} as |Filter|>
+<Filters as |Filter|>
   <Filter.RadioButtons
     @name="responsible"
     @label={{t "workItems.filters.responsible"}}
@@ -10,7 +8,7 @@
       (hash value="all" label=(t "workItems.filters.all"))
       (hash value="own" label=(t "workItems.filters.own"))
     }}
-    @onChange={{fn this.updateFilter "responsible"}}
+    @onChange={{fn (mut this.responsible)}}
   />
   <Filter.RadioButtons
     @name="type"
@@ -21,7 +19,7 @@
       (hash value="all" label=(t "workItems.filters.all"))
       (hash value="unread" label=(t "workItems.filters.unread"))
     }}
-    @onChange={{fn this.updateFilter "type"}}
+    @onChange={{fn (mut this.type)}}
   />
   <Filter.RadioButtons
     @name="status"
@@ -32,7 +30,7 @@
       (hash value="open" label=(t "workItems.filters.open"))
       (hash value="closed" label=(t "workItems.filters.closed"))
     }}
-    @onChange={{fn this.updateFilter "status"}}
+    @onChange={{fn (mut this.status)}}
   />
   <Filter.RadioButtons
     @name="role"
@@ -43,7 +41,7 @@
       (hash value="active" label=(t "workItems.filters.active"))
       (hash value="control" label=(t "workItems.filters.control"))
     }}
-    @onChange={{fn this.updateFilter "role"}}
+    @onChange={{fn (mut this.role)}}
   />
   <Filter.RadioButtons
     @name="order"
@@ -54,7 +52,7 @@
       (hash value="urgent" label=(t "workItems.filters.urgent"))
       (hash value="new" label=(t "workItems.filters.new"))
     }}
-    @onChange={{fn this.updateFilter "order"}}
+    @onChange={{fn (mut this.order)}}
   />
 </Filters>
 

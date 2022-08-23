@@ -1,6 +1,6 @@
-<table class="work-item-list" ...attributes>
+<table class="uk-table uk-table-divider uk-table-striped" ...attributes>
   <thead>
-    <tr class={{if this.highlight "highlight"}}>
+    <tr>
       {{#if this.highlight}}
         <th>
           <span hidden>{{t "workItems.actions.highlight"}}</span>
@@ -17,21 +17,32 @@
   <tbody>
     {{#each @query.value as |workItem|}}
       <WorkItemList::Item @workItem={{workItem}} @columns={{@columns}} @highlight={{this.highlight}} />
-    {{else if (not @query.isLoading)}}
+    {{else}}
       <tr>
-        <td class="center" colspan={{this.colspan}}>
-          {{t "global.empty"}}
+        <td colspan={{this.colspan}} class="uk-text-center">
+          {{#if @query.isLoading}}
+            <UkSpinner />
+          {{else}}
+            {{t "global.empty"}}
+          {{/if}}
         </td>
       </tr>
     {{/each}}
-    {{#if @query.isLoading}}
+
+    {{#if @query.hasNextPage}}
       <tr>
-        <td class="center" colspan={{this.colspan}}>
-          <LoadingText />
+        <td colspan={{this.colspan}} class="uk-text-center">
+          {{#if @query.isLoading}}
+            <UkSpinner @ratio="0.5" />
+          {{else}}
+            <button type="button" class="uk-button uk-button-link" {{on "click" @query.fetchMore}}>
+              {{t "global.loadMore"}}
+            </button>
+          {{/if}}
         </td>
       </tr>
     {{/if}}
   </tbody>
 </table>
 
-<Pagination @query={{@query}} @onLoadMore={{this.fetchMore}} />
+<PaginationInfo @query={{@query}} />
