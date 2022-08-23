@@ -381,6 +381,10 @@ def special_permissions_uri(group):
         uri_constants.SACHBEARBEITUNG_UND_KOORDINATION_AFJ_GROUP_ID,
     ]:
         return {uri_constants.KOOR_AFJ_ATTACHMENT_SECTION_ID: AdminServicePermission}
+    elif group.group_id in [uri_constants.KOOR_BG_GROUP_ID]:
+        return {
+            uri_constants.MUNICIPALITY_SERVICE_ATTACHMENT_SECTION_ID: AdminServicePermission
+        }
     return {}
 
 
