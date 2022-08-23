@@ -102,7 +102,7 @@ services:
   document-merge-service:
     cap_add:
       - CAP_SYS_ADMIN
-    image: ghcr.io/adfinis/document-merge-service:5.0.2
+    image: ghcr.io/adfinis/document-merge-service:5.0.3
     depends_on:
       - db
     volumes:
