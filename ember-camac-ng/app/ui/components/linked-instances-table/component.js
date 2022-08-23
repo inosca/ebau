@@ -1,6 +1,5 @@
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
-import { htmlSafe } from "@ember/template";
 import Component from "@glimmer/component";
 import calumaQuery from "@projectcaluma/ember-core/caluma-query";
 import { allCases } from "@projectcaluma/ember-core/caluma-query/queries";
@@ -12,7 +11,6 @@ export default class LinkedInstancesTableComponent extends Component {
   @queryManager apollo;
 
   @service store;
-  @service intl;
 
   @calumaQuery({ query: allCases, options: "options" }) casesQuery;
 
@@ -30,15 +28,6 @@ export default class LinkedInstancesTableComponent extends Component {
       pageSize: 15,
       processNew: (cases) => this.processNew(cases),
     };
-  }
-
-  get paginationInfo() {
-    return htmlSafe(
-      this.intl.t("global.paginationInfo", {
-        count: this.casesQuery.value.length,
-        total: this.casesQuery.totalCount,
-      })
-    );
   }
 
   async processNew(cases) {

@@ -1,20 +1,12 @@
-<div>
-  <label>{{@label}}</label>
-  <div class="radio-buttons">
+<div class="uk-margin-small-right uk-flex uk-flex-column">
+  <label class="uk-form-label uk-text-bold">{{@label}}</label>
+  <div class="uk-button-group">
     {{#each @options as |option|}}
-      {{#let (concat @name "-" option.value) as |id|}}
-        <div class="radio-buttons__button">
-          <input
-            id={{id}}
-            type="radio"
-            name={{@name}}
-            value={{option.value}}
-            checked={{eq @selected option.value}}
-            {{on "change" (fn @onChange option.value)}}
-          >
-          <label for={{id}}>{{option.label}}</label>
-        </div>
-      {{/let}}
+      <UkButton
+        @label={{option.label}}
+        @color={{if (eq @selected option.value) "primary" "default"}}
+        @onClick={{fn @onChange option.value}}
+      />
     {{/each}}
   </div>
 </div>
