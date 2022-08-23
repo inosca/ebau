@@ -1,140 +1,116 @@
-<Notifications />
+<Notifications @style="uikit" />
 
-<form
-  class="form form-edit no-dialog"
-  {{on "submit" (perform this.save)}}
-  {{did-insert (perform this.fetchService)}}
->
-  <fieldset>
-    <legend>{{t "organisation.edit"}}</legend>
+<h2 class="uk-margin-remove-top">{{t "organisation.edit"}}</h2>
 
-    <div class="row">
-      <div class="label">
-        <label for="phone">
-          {{t "organisation.phone"}}
-        </label>
-        </div>
-      <div class="column-2">
-        <Input
-          @type="text"
-          @value={{this.service.phone}}
-          maxlength="16"
-          class="text"
-          name="phone"
-          id="phone"
-        />
-      </div>
+<form class="uk-form-stacked" {{on "submit" (perform this.save)}}>
+  <div class="uk-margin">
+    <label class="uk-form-label uk-text-bold" for="phone">
+      {{t "organisation.phone"}}
+    </label>
+    <div class="uk-form-controls">
+      <Input
+        @type="text"
+        @value={{this.service.record.phone}}
+        maxlength="16"
+        class="uk-input"
+        name="phone"
+        id="phone"
+      />
     </div>
-
-    <div class="row">
-      <div class="label">
-        <label for="zip">
-          {{t "organisation.zip"}}
-        </label>
-        </div>
-      <div class="column-2">
-        <Input
-          @type="number"
-          @value={{this.service.zip}}
-          min="1000"
-          max="9999"
-          class="text"
-          name="zip"
-          id="zip"
-        />
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="label">
-        <label for="city">
-          {{t "organisation.city"}} *
-        </label>
-      </div>
-      <div class="column-2">
-        <Input
-          @type="text"
-          @value={{this.service.city}}
-          class="text"
-          name="city"
-          id="city"
-          required
-        />
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="label">
-        <label for="address">
-          {{t "organisation.address"}}
-        </label>
-        </div>
-      <div class="column-2">
-        <Input
-          @type="text"
-          @value={{this.service.address}}
-          class="text"
-          name="address"
-          id="address"
-        />
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="label">
-        <label for="email">
-          {{t "organisation.email"}} *
-        </label>
-      </div>
-      <div class="column-2">
-        <Input
-          @type="email"
-          @value={{this.service.email}}
-          class="text"
-          name="email"
-          id="email"
-          required
-        />
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="label">
-        <label for="website">
-          {{t "organisation.website"}}
-        </label>
-      </div>
-      <div class="column-2">
-        <Input
-          @type="url"
-          @value={{this.service.website}}
-          class="text"
-          name="website"
-          id="website"
-        />
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="label">
-        <label for="notification">
-          {{t "organisation.notification"}}
-        </label>
-      </div>
-      <div class="column-2">
-        <Input
-          @type="checkbox"
-          @checked={{this.service.notification}}
-          class="uk-checkbox"
-          name="notification"
-          id="notification"
-          {{on "change" (fn (mut this.service.notification) (not this.service.notification))}}
-        />
-      </div>
-    </div>
-  </fieldset>
-
-  <div class="row buttons-container">
-    <button type="submit" class="buttonstyle btn success no-loading">{{t "global.save"}}</button>
   </div>
+
+  <div class="uk-margin">
+    <label class="uk-form-label uk-text-bold" for="zip">
+      {{t "organisation.zip"}}
+    </label>
+    <div class="uk-form-controls">
+      <Input
+        @type="number"
+        @value={{this.service.record.zip}}
+        min="1000"
+        max="9999"
+        class="uk-input"
+        name="zip"
+        id="zip"
+      />
+    </div>
+  </div>
+
+  <div class="uk-margin">
+    <label class="uk-form-label uk-text-bold" for="city">
+      {{t "organisation.city"}}
+      <span class="uk-text-danger">*</span>
+    </label>
+    <div class="uk-form-controls">
+      <Input
+        @type="text"
+        @value={{this.service.record.city}}
+        class="uk-input"
+        name="city"
+        id="city"
+        required={{true}}
+      />
+    </div>
+  </div>
+
+  <div class="uk-margin">
+    <label class="uk-form-label uk-text-bold" for="address">
+      {{t "organisation.address"}}
+    </label>
+    <div class="uk-form-controls">
+      <Input
+        @type="text"
+        @value={{this.service.record.address}}
+        class="uk-input"
+        name="address"
+        id="address"
+      />
+    </div>
+  </div>
+
+  <div class="uk-margin">
+    <label class="uk-form-label uk-text-bold" for="email">
+      {{t "organisation.email"}}
+      <span class="uk-text-danger">*</span>
+    </label>
+    <div class="uk-form-controls">
+      <Input
+        @type="email"
+        @value={{this.service.record.email}}
+        class="uk-input"
+        name="email"
+        id="email"
+        required={{true}}
+      />
+    </div>
+  </div>
+
+  <div class="uk-margin">
+    <label class="uk-form-label uk-text-bold" for="website">
+      {{t "organisation.website"}}
+    </label>
+    <div class="uk-form-controls">
+      <Input
+        @type="url"
+        @value={{this.service.record.website}}
+        class="uk-input"
+        name="website"
+        id="website"
+      />
+    </div>
+  </div>
+
+  <div class="uk-margin">
+    <UkToggleSwitch
+      @value={{this.service.record.notification}}
+      @size="small"
+      @name="notification"
+      @onToggle={{fn (mut this.service.record.notification)}}
+      @onLabel={{t "organisation.notification"}}
+      @offLabel=""
+      @showLabels={{true}}
+    />
+  </div>
+
+  <UkButton @type="submit" @color="primary" @label={{t "global.save"}} @loading={{this.save.isRunning}} />
 </form>
