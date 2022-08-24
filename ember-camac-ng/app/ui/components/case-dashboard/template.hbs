@@ -114,13 +114,11 @@
       <tr>
         <CaseDashboard::Column @header={{t "cases.tableHeaders.applicant"}}>
           <CaseDashboard::Address @contact={{this.models.caseModel.applicant}} />
-          {{#if (gt this.models.caseModel.numberOfApplicants 0)}}
-            <FurtherPeople
-              @instanceId={{@instanceId}}
-              @formInstanceResourceId={{this.formInstanceResourceId}}
-              @numberOfPersons={{this.models.caseModel.numberOfApplicants}}>
-            </FurtherPeople>
-          {{/if}}
+          <FurtherPeople
+            @instanceId={{@instanceId}}
+            @formInstanceResourceId={{this.formInstanceResourceId}}
+            @numberOfPersons={{this.models.caseModel.numberOfApplicants}}>
+          </FurtherPeople>
         </CaseDashboard::Column>
 
         {{#if this.models.caseModel.projectAuthor}}
@@ -128,13 +126,11 @@
             <CaseDashboard::Address
               @contact={{this.models.caseModel.projectAuthor}}
             />
-            {{#if (gt this.models.caseModel.numberOfProjectAuthors 0)}}
-              <FurtherPeople
-                @instanceId={{@instanceId}}
-                @formInstanceResourceId={{this.formInstanceResourceId}}
-                @numberOfPersons={{this.models.caseModel.numberOfProjectAuthors}}>
-              </FurtherPeople>
-            {{/if}}
+            <FurtherPeople
+              @instanceId={{@instanceId}}
+              @formInstanceResourceId={{this.formInstanceResourceId}}
+              @numberOfPersons={{this.models.caseModel.numberOfProjectAuthors}}>
+            </FurtherPeople>
           </CaseDashboard::Column>
         {{else}}
           {{! Empty column so the spacing is correct}}
@@ -147,13 +143,11 @@
             <CaseDashboard::Address
               @contact={{this.models.caseModel.landowner}}
             />
-            {{#if (gt this.models.caseModel.numberOfLandowners 0)}}
-              <FurtherPeople
-                @instanceId={{@instanceId}}
-                @formInstanceResourceId={{this.formInstanceResourceId}}
-                @numberOfPersons={{this.models.caseModel.numberOfLandowners}}>
-              </FurtherPeople>
-            {{/if}}
+            <FurtherPeople
+              @instanceId={{@instanceId}}
+              @formInstanceResourceId={{this.formInstanceResourceId}}
+              @numberOfPersons={{this.models.caseModel.numberOfLandowners}}>
+            </FurtherPeople>
           </CaseDashboard::Column>
         {{else}}
           {{! Empty column so the spacing is correct}}
@@ -164,13 +158,11 @@
             <CaseDashboard::Address
               @contact={{this.models.caseModel.invoiceRecipient}}
             />
-            {{#if (gt this.models.caseModel.numberOfInvoiceRecipients 0)}}
-              <FurtherPeople
-                @instanceId={{@instanceId}}
-                @formInstanceResourceId={{this.formInstanceResourceId}}
-                @numberOfPersons={{this.models.caseModel.numberOfInvoiceRecipients}}>
-              </FurtherPeople>
-            {{/if}}
+            <FurtherPeople
+              @instanceId={{@instanceId}}
+              @formInstanceResourceId={{this.formInstanceResourceId}}
+              @numberOfPersons={{this.models.caseModel.numberOfInvoiceRecipients}}>
+            </FurtherPeople>
           </CaseDashboard::Column>
         {{else}}
           {{! Empty column so the spacing is correct}}
