@@ -1,10 +1,18 @@
+import { action } from "@ember/object";
 import Service from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 
 export default class MaterialExamSwitcherService extends Service {
-  @tracked hideIrrelevantFields = false;
+  @tracked showOnlyTestItemFields = false;
+  @tracked showOnlyDefectFields = false;
 
-  toggle() {
-    this.hideIrrelevantFields = !this.hideIrrelevantFields;
+  @action
+  toggleTestItem() {
+    this.showOnlyTestItemFields = !this.showOnlyTestItemFields;
+  }
+
+  @action
+  toggleDefect() {
+    this.showOnlyDefectFields = !this.showOnlyDefectFields;
   }
 }

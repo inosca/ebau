@@ -3,6 +3,7 @@ import { isEmpty } from "@ember/utils";
 import Field from "@projectcaluma/ember-form/lib/field";
 import { dropTask } from "ember-concurrency";
 import { trackedTask } from "ember-resources/util/ember-concurrency";
+import { cached } from "tracked-toolbox";
 
 import workItemCaseInformationQuery from "camac-ng/gql/queries/work-item-case-information.graphql";
 
@@ -16,15 +17,39 @@ const ONLY_WITH_VALUE_SLUGS = ["mp-eigene-pruefgegenstaende"];
 export default class CustomField extends Field {
   @service materialExamSwitcher;
 
+  @cached
   get isInMaterialExam() {
     return this.document.rootForm.slug === "mp-form";
   }
 
-  get baseField() {
-    const slug = this.question.slug;
-    const baseSlug = slug.replace(/-ergebnis|-bemerkungen/, "");
+  @cached
+  get isTestItem() {
+    const testItemQuestion = this.question.slug.replace(
+      /(-ergebnis|-bemerkungen)$/,
+      ""
+    );
 
-    return slug === baseSlug ? this : this.document.findField(baseSlug);
+    const field =
+      this.question.slug === testItemQuestion
+        ? this
+        : this.document.findField(testItemQuestion);
+
+    return field?.value?.endsWith("-ja");
+  }
+
+  @cached
+  get isDefect() {
+    const defectQuestion = `${this.question.slug.replace(
+      /(-ergebnis|-bemerkungen)$/,
+      ""
+    )}-ergebnis`;
+
+    const field =
+      this.question.slug === defectQuestion
+        ? this
+        : this.document.findField(defectQuestion);
+
+    return field?.value?.endsWith("-mangel");
   }
 
   get hidden() {
@@ -32,16 +57,23 @@ export default class CustomField extends Field {
 
     if (
       !hidden &&
-      !EXCLUDED_SLUGS.includes(this.question.slug) &&
       this.question.raw.__typename !== "FormQuestion" &&
-      this.isInMaterialExam &&
-      this.materialExamSwitcher.hideIrrelevantFields
+      this.isInMaterialExam
     ) {
-      if (ONLY_WITH_VALUE_SLUGS.includes(this.question.slug)) {
-        return isEmpty(this.value);
+      if (this.materialExamSwitcher.showOnlyDefectFields) {
+        return !this.isDefect;
+      } else if (this.materialExamSwitcher.showOnlyTestItemFields) {
+        return (
+          // don't hide if question is excluded
+          !EXCLUDED_SLUGS.includes(this.question.slug) &&
+          // don't hide if question must be shown if it has a value and the
+          // value is not empty
+          (!ONLY_WITH_VALUE_SLUGS.includes(this.question.slug) ||
+            isEmpty(this.value)) &&
+          // don't hide if the question is a test item
+          !this.isTestItem
+        );
       }
-
-      return this.baseField.value.endsWith("-nein");
     }
 
     return hidden;
