@@ -61,6 +61,10 @@ filterwarnings = [
     "ignore:No fixture data:RuntimeWarning", # Caused by automatically generated empty fixtures
     "ignore:No directory at:UserWarning", # Caused by whitenoise in tests
     "ignore:Duplicate name:UserWarning", # Caused by multiple tests using the same test files
+    # FIXME: requests-toolbelt uses deprecated urllib3.contrib.pyopenssl
+    # see https://github.com/requests/toolbelt/issues/331
+    # Remove this when requests-toolbelt fixes its use
+    "ignore:'urllib3.contrib.pyopenssl' module is deprecated*:DeprecationWarning",
 ]
 
 [tool.coverage.run]
