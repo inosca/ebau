@@ -37,14 +37,25 @@ as |content|>
         {{#if this.isMaterialExam}}
           <div class="uk-flex uk-flex-column uk-flex-middle uk-margin-top">
             <UkToggleSwitch
-              @value={{this.materialExamSwitcher.hideIrrelevantFields}}
+              @value={{this.materialExamSwitcher.showOnlyTestItemFields}}
               @size="small"
-              @name="toggle-irrelevant-fields"
-              @onToggle={{this.toggleIrrelevant}}
+              @name="toggle-test-item-fields"
+              @onToggle={{this.materialExamSwitcher.toggleTestItem}}
               class="x-small"
             />
-            <label class="uk-text-meta uk-margin-small-top" for="toggle-irrelevant-fields">
+            <label class="uk-text-meta uk-margin-small-top" for="toggle-test-item-fields">
               {{t "audit.onlyExamItems"}}
+            </label>
+
+            <UkToggleSwitch
+              @value={{this.materialExamSwitcher.showOnlyDefectFields}}
+              @size="small"
+              @name="toggle-defect-fields"
+              @onToggle={{this.materialExamSwitcher.toggleDefect}}
+              class="x-small uk-margin-small-top"
+            />
+            <label class="uk-text-meta uk-margin-small-top" for="toggle-defect-fields">
+              {{t "audit.onlyDefectItems"}}
             </label>
           </div>
         {{/if}}
