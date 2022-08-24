@@ -1,11 +1,13 @@
 import { inject as service } from "@ember/service";
-import { DateTime } from "luxon";
 
 import CustomCaseBaseModel from "camac-ng/caluma-query/models/-case";
+import getActivationIndicator from "camac-ng/utils/activation-indicator";
 import getAnswer from "camac-ng/utils/get-answer";
 
 export default class CustomCaseModel extends CustomCaseBaseModel {
+  @service store;
   @service shoebox;
+  @service intl;
 
   getPersonData(question) {
     const answer = getAnswer(this.raw.document, question);
@@ -37,6 +39,10 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
       };
     }
     return null;
+  }
+
+  getPersonsCount(question) {
+    return getAnswer(this.raw.document, question)?.node.value.length;
   }
 
   get instanceFormDescription() {
@@ -82,16 +88,32 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
     return this.getPersonData("applicant");
   }
 
+  get numberOfApplicants() {
+    return this.getPersonsCount("applicant");
+  }
+
   get projectAuthor() {
     return this.getPersonData("project-author");
+  }
+
+  get numberOfProjectAuthors() {
+    return this.getPersonsCount("project-author");
   }
 
   get landowner() {
     return this.getPersonData("landowner");
   }
 
+  get numberOfLandowners() {
+    return this.getPersonsCount("landowner");
+  }
+
   get invoiceRecipient() {
     return this.getPersonData("invoice-recipient");
+  }
+
+  get numberOfInvoiceRecipients() {
+    return this.getPersonsCount("invoice-recipient");
   }
 
   get basicUsage() {
@@ -201,33 +223,15 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
       .join(", ");
   }
 
+  // used in dossier list for services: display state of own activation
   get activationWarning() {
     const activations = this.store.peekAll("activation");
-    const activation = activations
-      .filter(
-        (activation) =>
-          Number(activation.get("circulation.instance.id")) === this.instanceId
-      )
-      .filter(
-        (activation) => activation.state === "NFD" || activation.state === "RUN"
-      )[0];
+    const activation = activations.find(
+      (activation) =>
+        Number(activation.get("circulation.instance.id")) === this.instanceId
+    );
 
-    if (!activation) {
-      return null;
-    }
-
-    const now = DateTime.now();
-    if (activation.state === "NFD") {
-      return "nfd";
-    } else if (DateTime.fromISO(activation.deadlineDate) < now) {
-      return "expired";
-    } else if (
-      DateTime.fromISO(activation.deadlineDate).minus({ days: 5 }) < now
-    ) {
-      return "due-shortly";
-    }
-
-    return null;
+    return getActivationIndicator(activation);
   }
 
   static fragment = `{

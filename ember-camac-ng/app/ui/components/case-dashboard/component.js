@@ -6,7 +6,6 @@ import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
 import { dropTask, lastValue } from "ember-concurrency";
 import { gql } from "graphql-tag";
-import { all } from "rsvp";
 
 import CustomCaseModel from "camac-ng/caluma-query/models/case";
 import redirectConfig from "camac-ng/config/redirect";
@@ -55,7 +54,7 @@ export default class CaseDashboardComponent extends Component {
     );
   }
 
-  get instanceResourceId() {
+  get journalInstanceResourceId() {
     return redirectConfig.instanceResourceRedirects.journal[
       this.shoebox.content.roleId
     ];
@@ -275,14 +274,6 @@ export default class CaseDashboardComponent extends Component {
           we.belongsTo("workflowItem").id() === WORKFLOW_ITEM_IDS[1].toString()
       )?.workflowDate || workflowEntries.firstObject?.workflowDate;
 
-    const serviceList = yield all(
-      activations.toArray().map((activation) => activation.service)
-    );
-
-    const involvedServices = [
-      ...new Set(serviceList.map((service) => service.name)),
-    ];
-
     const ownActivation = activations.find(
       (activation) =>
         parseInt(activation.get("service.id")) ===
@@ -349,7 +340,7 @@ export default class CaseDashboardComponent extends Component {
     return {
       caseModel,
       journalEntries,
-      involvedServices,
+      activations,
       ownActivation,
       acceptDate,
       parcelPicture,
