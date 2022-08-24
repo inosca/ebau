@@ -1,47 +1,78 @@
-tr.activation-warning {
-  &.nfd {
-    td:first-child {
-      &::before {
-        content: "";
-        display: inline-flex;
-        width: 15px;
-        height: 15px;
-        border-radius: 50%;
-        margin: 1px 0 0 5px;
-        padding: 0;
-        border: 1px solid darken($activation-warning-nfd, 10%);
-        background-color: $activation-warning-nfd;
-      }
-    }
+@mixin activation-warning {
+  content: "";
+  display: inline-flex;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin: 1px 0 0 5px;
+  padding: 0;
+  border: 1px solid transparent;
+}
+
+@mixin nfd {
+  border: 1px solid darken($activation-warning-nfd, 10%);
+  background-color: $activation-warning-nfd;
+}
+
+@mixin expired {
+  border: 1px solid darken($activation-warning-expired, 10%);
+  background-color: $activation-warning-expired;
+}
+
+@mixin due-shortly {
+  border: 1px solid darken($activation-warning-due-shortly, 10%);
+  background-color: $activation-warning-due-shortly;
+}
+
+@mixin completed {
+  border: 1px solid darken($activation-warning-completed, 10%);
+  background-color: $activation-warning-completed;
+}
+
+tr.activation-warning-row {
+  td:first-child::before {
+    @include activation-warning;
   }
-  &.expired {
-    td:first-child {
-      &::before {
-        content: "";
-        display: inline-flex;
-        width: 15px;
-        height: 15px;
-        border-radius: 50%;
-        margin: 1px 0 0 5px;
-        padding: 0;
-        border: 1px solid darken($activation-warning-expired, 10%);
-        background-color: $activation-warning-expired;
-      }
-    }
+
+  &.nfd td:first-child::before {
+    @include nfd;
   }
-  &.due-shortly {
-    td:first-child {
-      &::before {
-        content: "";
-        display: inline-flex;
-        width: 15px;
-        height: 15px;
-        border-radius: 50%;
-        margin: 1px 0 0 5px;
-        padding: 0;
-        border: 1px solid darken($activation-warning-due-shortly, 10%);
-        background-color: $activation-warning-due-shortly;
-      }
-    }
+
+  &.expired td:first-child::before {
+    @include expired;
+  }
+
+  &.due-shortly td:first-child::before {
+    @include due-shortly;
+  }
+
+  &.completed td:first-child::before {
+    @include completed;
+  }
+}
+
+.activation-warning {
+  &::before {
+    @include activation-warning;
+  }
+
+  &.nfd::before {
+    border: 1px solid darken($activation-warning-nfd, 10%);
+    background-color: $activation-warning-nfd;
+  }
+
+  &.expired::before {
+    border: 1px solid darken($activation-warning-expired, 10%);
+    background-color: $activation-warning-expired;
+  }
+
+  &.due-shortly::before {
+    border: 1px solid darken($activation-warning-due-shortly, 10%);
+    background-color: $activation-warning-due-shortly;
+  }
+
+  &.completed::before {
+    border: 1px solid darken($activation-warning-completed, 10%);
+    background-color: $activation-warning-completed;
   }
 }
