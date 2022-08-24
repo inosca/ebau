@@ -179,13 +179,11 @@
             @value={{format-date this.models.acceptDate format="date"}}
           />
         <CaseDashboard::Column @header={{t "cases.tableHeaders.involvedServices"}}>
-          <ul>
-            {{#each this.models.involvedServiceActivations as |activation|}}
+          <ul class="uk-list">
+            {{#each this.models.activations as |activation|}}
               <li>
-                {{activation.name}}
-                {{#if this.models.caseModel.activationWarning}}
-                  <span class={{concat "activation-warning " this.models.caseModel.activationWarning}} title={{t (concat "dashboard." this.models.caseModel.activationWarning)}}></span>
-                {{/if}}
+                <ActivationIndicator @activation={{activation}} />
+                {{activation.service.name}}
               </li>
             {{/each}}
           </ul>
