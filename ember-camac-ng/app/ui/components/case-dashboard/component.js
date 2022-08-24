@@ -60,12 +60,6 @@ export default class CaseDashboardComponent extends Component {
     ];
   }
 
-  get formInstanceResourceId() {
-    return redirectConfig.instanceResourceRedirects.form[
-      this.shoebox.content.roleId
-    ];
-  }
-
   @action
   toggleModal() {
     this.showModal = !this.showModal;
