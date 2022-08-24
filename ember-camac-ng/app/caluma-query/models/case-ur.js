@@ -1,7 +1,7 @@
 import { inject as service } from "@ember/service";
-import { DateTime } from "luxon";
 
 import CustomCaseBaseModel from "camac-ng/caluma-query/models/-case";
+import getActivationIndicator from "camac-ng/utils/activation-indicator";
 import getAnswer from "camac-ng/utils/get-answer";
 
 export default class CustomCaseModel extends CustomCaseBaseModel {
@@ -223,33 +223,15 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
       .join(", ");
   }
 
+  // used in dossier list for services: display state of own activation
   get activationWarning() {
     const activations = this.store.peekAll("activation");
-    const activation = activations
-      .filter(
-        (activation) =>
-          Number(activation.get("circulation.instance.id")) === this.instanceId
-      )
-      .filter(
-        (activation) => activation.state === "NFD" || activation.state === "RUN"
-      )[0];
+    const activation = activations.find(
+      (activation) =>
+        Number(activation.get("circulation.instance.id")) === this.instanceId
+    );
 
-    if (!activation) {
-      return null;
-    }
-
-    const now = DateTime.now();
-    if (activation.state === "NFD") {
-      return "nfd";
-    } else if (DateTime.fromISO(activation.deadlineDate) < now) {
-      return "expired";
-    } else if (
-      DateTime.fromISO(activation.deadlineDate).minus({ days: 5 }) < now
-    ) {
-      return "due-shortly";
-    }
-
-    return null;
+    return getActivationIndicator(activation);
   }
 
   static fragment = `{
