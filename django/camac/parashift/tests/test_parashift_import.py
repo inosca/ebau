@@ -76,7 +76,9 @@ def test_import_validation_error(requests_mock, capsys):
     assert capsys.readouterr().out == "138866: parzelle-nr: Must be an integer!\n"
 
 
-def test_command(parashift_data, parashift_mock, application_settings):
+def test_command(
+    parashift_data, parashift_mock, application_settings, master_data_is_visible_mock
+):
     application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_uri"]["MASTER_DATA"]
 
     client = ParashiftImporter()

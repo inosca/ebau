@@ -120,6 +120,7 @@ def test_master_data_parsers(
     snapshot,
     form_field_factory,
     instance,
+    master_data_is_visible_mock,
 ):
     application_settings["MASTER_DATA"] = {
         "date": ("case_meta", "my-date", {"value_parser": "date"}),
@@ -220,11 +221,7 @@ def test_master_data_parsers(
 
 
 @pytest.fixture
-def be_master_data_case(
-    db,
-    be_instance,
-    group,
-):
+def be_master_data_case(db, be_instance, group, master_data_is_visible_mock):
     be_instance.case.meta = {
         "ebau-number": "2021-1",
         "submit-date": "2021-03-31T13:17:08+0000",
@@ -384,7 +381,13 @@ def be_master_data_case(
 
 
 @pytest.fixture
-def ur_master_data_case(db, ur_instance, workflow_entry_factory, camac_answer_factory):
+def ur_master_data_case(
+    db,
+    ur_instance,
+    workflow_entry_factory,
+    camac_answer_factory,
+    master_data_is_visible_mock,
+):
     ur_instance.case.meta = {"dossier-number": "1201-21-003"}
     ur_instance.case.save()
 
