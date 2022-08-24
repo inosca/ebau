@@ -33,10 +33,15 @@
         />
       {{/if}}
       <BeOverviewGridCell
-        @fullWidth={{is-application "be"}}
         @label={{t (concat "instances.description-" (application-name))}}
         @value={{or this.case.description "-"}}
       />
+      {{#if (is-application "be")}}
+        <BeOverviewGridCell
+          @label={{t "instances.applicant"}}
+          @value={{or this.case.applicant "-"}}
+        />
+      {{/if}}
     </div>
   </div>
 </div>
