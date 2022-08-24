@@ -12,6 +12,7 @@ import { cached } from "tracked-toolbox";
 import caseFilters from "./filter-config";
 
 import caseTableConfig from "camac-ng/config/case-table";
+import decisionsQuery from "camac-ng/gql/queries/decisions.graphql";
 import getBuildingPermitQuestion from "camac-ng/gql/queries/get-building-permit-question.graphql";
 import municipalitiesQuery from "camac-ng/gql/queries/municipalities.graphql";
 import rootFormsQuery from "camac-ng/gql/queries/root-forms.graphql";
@@ -185,6 +186,15 @@ export default class CaseFilterComponent extends Component {
       },
     ];
   }
+
+  decisionOptions = trackedFunction(this, async () => {
+    const response = await this.apollo.query(
+      { query: decisionsQuery },
+      "allQuestions.edges"
+    );
+
+    return response[0]?.node.options.edges.map((edge) => edge.node);
+  });
 
   get presets() {
     return (

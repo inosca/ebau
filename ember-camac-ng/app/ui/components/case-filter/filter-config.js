@@ -131,4 +131,10 @@ export default {
     labelField: "label",
     showWithoutOptions: true,
   },
+  decision: {
+    type: "select-multiple",
+    options: "decisionOptions",
+    labelField: "label",
+    showWithoutOptions: true,
+  },
 };
