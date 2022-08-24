@@ -50,6 +50,8 @@ cases:
     caseDocumentFormName: "Formulartyp"
     caseStatus-placeholder: "Alle Status"
     caseStatus: "Status"
+    decision-placeholder: "Alle Entscheide / Beurteilungen"
+    decision: "Entscheid / Beurteilung"
     decisionDateAfter-placeholder: "01.01.2001"
     decisionDateAfter: "Entscheiddatum (von)"
     decisionDateBefore-placeholder: "01.01.2001"
