@@ -106,7 +106,7 @@
         </CaseDashboard::Column>
       </tr>
       <tr>
-        <CaseDashboard::Journal @journalEntries={{this.models.journalEntries}} @header={{t "journal.title"}} @totalJournalEntries={{this.totalJournalEntries}} @instanceId={{@instanceId}} @instanceResourceId={{this.instanceResourceId}} />
+        <CaseDashboard::Journal @journalEntries={{this.models.journalEntries}} @header={{t "journal.title"}} @totalJournalEntries={{this.totalJournalEntries}} @instanceId={{@instanceId}} @instanceResourceId={{this.journalInstanceResourceId}} />
       </tr>
     </CaseDashboard::Section>
     <hr />
@@ -114,6 +114,10 @@
       <tr>
         <CaseDashboard::Column @header={{t "cases.tableHeaders.applicant"}}>
           <CaseDashboard::Address @contact={{this.models.caseModel.applicant}} />
+          <FurtherPeople
+            @instanceId={{@instanceId}}
+            @numberOfPersons={{this.models.caseModel.numberOfApplicants}}>
+          </FurtherPeople>
         </CaseDashboard::Column>
 
         {{#if this.models.caseModel.projectAuthor}}
@@ -121,6 +125,10 @@
             <CaseDashboard::Address
               @contact={{this.models.caseModel.projectAuthor}}
             />
+            <FurtherPeople
+              @instanceId={{@instanceId}}
+              @numberOfPersons={{this.models.caseModel.numberOfProjectAuthors}}>
+            </FurtherPeople>
           </CaseDashboard::Column>
         {{else}}
           {{! Empty column so the spacing is correct}}
@@ -133,6 +141,10 @@
             <CaseDashboard::Address
               @contact={{this.models.caseModel.landowner}}
             />
+            <FurtherPeople
+              @instanceId={{@instanceId}}
+              @numberOfPersons={{this.models.caseModel.numberOfLandowners}}>
+            </FurtherPeople>
           </CaseDashboard::Column>
         {{else}}
           {{! Empty column so the spacing is correct}}
@@ -143,6 +155,10 @@
             <CaseDashboard::Address
               @contact={{this.models.caseModel.invoiceRecipient}}
             />
+            <FurtherPeople
+              @instanceId={{@instanceId}}
+              @numberOfPersons={{this.models.caseModel.numberOfInvoiceRecipients}}>
+            </FurtherPeople>
           </CaseDashboard::Column>
         {{else}}
           {{! Empty column so the spacing is correct}}
@@ -159,9 +175,12 @@
             @value={{format-date this.models.acceptDate format="date"}}
           />
         <CaseDashboard::Column @header={{t "cases.tableHeaders.involvedServices"}}>
-          <ul>
-            {{#each this.models.involvedServices as |service|}}
-              <li>{{service}}</li>
+          <ul class="uk-list">
+            {{#each this.models.activations as |activation|}}
+              <li>
+                <ActivationIndicator @activation={{activation}} />
+                {{activation.service.name}}
+              </li>
             {{/each}}
           </ul>
         </CaseDashboard::Column>

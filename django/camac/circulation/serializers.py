@@ -33,4 +33,12 @@ class ActivationSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Activation
-        fields = ("circulation", "deadline_date", "service", "state", "reason")
+        fields = (
+            "circulation",
+            "deadline_date",
+            "end_date",
+            "suspension_date",
+            "service",
+            "state",
+            "reason",
+        )
