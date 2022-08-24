@@ -188,7 +188,7 @@
       "sort": 9
     }
   },
-    {
+  {
     "model": "caluma_form.formquestion",
     "pk": "migriertes-dossier.geschaeftstyp-import",
     "fields": {
@@ -706,7 +706,7 @@
       "calc_dependents": "[]"
     }
   },
-    {
+  {
     "model": "caluma_form.question",
     "pk": "geschaeftstyp-import",
     "fields": {
