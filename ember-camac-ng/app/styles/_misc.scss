@@ -17,3 +17,7 @@ svg.fa-fw {
 .pointer {
   cursor: pointer;
 }
+
+.x-toggle-component > .toggle-text {
+  text-transform: none !important;
+}
