@@ -666,6 +666,7 @@ def test_notification_caluma_placeholders(
         DISTRIBUTION_STATUS_FR: {{DISTRIBUTION_STATUS_FR}}
         INQUIRY_ANSWER_DE: {{INQUIRY_ANSWER_DE}}
         INQUIRY_ANSWER_FR: {{INQUIRY_ANSWER_FR}}
+        INQUIRY_REMARK: {{INQUIRY_REMARK}}
         CURRENT_SERVICE: {{CURRENT_SERVICE}}
         CURRENT_SERVICE_DE: {{CURRENT_SERVICE_DE}}
         CURRENT_SERVICE_FR: {{CURRENT_SERVICE_FR}}
@@ -737,6 +738,13 @@ def test_notification_caluma_placeholders(
         )
         answer.question.options.add(status_option)
         answer.question.save()
+
+        caluma_form_factories.AnswerFactory(
+            document=inquiry.document,
+            question_id="inquiry-remark",
+            value="Bemerkung Anfrage",
+            question__type=caluma_form_models.Question.TYPE_TEXT,
+        )
 
         distribution_settings["QUESTIONS"]["STATUS"] = answer.question_id
 
