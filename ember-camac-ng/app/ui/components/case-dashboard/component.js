@@ -280,16 +280,14 @@ export default class CaseDashboardComponent extends Component {
           we.belongsTo("workflowItem").id() === WORKFLOW_ITEM_IDS[1].toString()
       )?.workflowDate || workflowEntries.firstObject?.workflowDate;
 
-    const involvedServiceActivations = [
-      activations.toArray().map((activation) => {
-        return {
-          name: activation.service.get("name"),
-          deadlineDate: activation.deadlineDate,
-          endDate: activation.endDate,
-          suspensionDate: activation.suspensionDate,
-        };
-      }),
-    ].flat();
+    const involvedServiceActivations =
+      activations.toArray().map((activation) => ({
+        name: activation.service.get("name"),
+        deadlineDate: activation.deadlineDate,
+        endDate: activation.endDate,
+        suspensionDate: activation.suspensionDate,
+      })
+    );
 
     const ownActivation = activations.find(
       (activation) =>

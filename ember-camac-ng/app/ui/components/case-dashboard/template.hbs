@@ -191,12 +191,8 @@
             {{#each this.models.involvedServiceActivations as |activation|}}
               <li>
                 {{activation.name}}
-                {{#if (eq this.models.caseModel.activationWarning "nfd")}}
-                  <span class="activation-warning nfd" title={{t "dashboard.nfd"}}></span>
-                {{else if (eq this.models.caseModel.activationWarning "expired")}}
-                  <span class="activation-warning expired" title={{t "dashboard.expired"}}></span>
-                {{else if (or activation.endDate activation.suspensionDate)}}
-                  <span class="activation-warning completed" title={{t "dashboard.completed"}}></span>
+                {{#if this.models.caseModel.activationWarning}}
+                  <span class={{concat "activation-warning " this.models.caseModel.activationWarning}} title={{t (concat "dashboard." this.models.caseModel.activationWarning)}}></span>
                 {{/if}}
               </li>
             {{/each}}
