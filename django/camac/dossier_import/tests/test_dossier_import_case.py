@@ -370,6 +370,7 @@ def test_record_loading_be(
     expected_target,
     snapshot,
     work_item_factory,
+    master_data_is_visible_mock,
 ):
     """Load data from import record, make persistant and verify with master_data API."""
 
@@ -547,6 +548,7 @@ def test_record_loading_sz(
     dossier_row_patch,
     target,
     work_item_factory,
+    master_data_is_visible_mock,
 ):
     """Load data from import record, make persistent and verify with master_data API."""
     settings.APPLICATION = settings.APPLICATIONS[config]

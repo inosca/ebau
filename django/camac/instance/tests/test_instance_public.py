@@ -105,6 +105,7 @@ def test_public_caluma_instance_ur(
     headers,
     num_queries,
     num_instances,
+    master_data_is_visible_mock,
 ):
     application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_uri"]["MASTER_DATA"]
     application_settings["PUBLICATION_BACKEND"] = "camac-ng"
@@ -174,6 +175,7 @@ def test_public_caluma_instance_oereb_ur(
     group_factory,
     role,
     is_oereb_form,
+    master_data_is_visible_mock,
 ):
     application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_uri"]["MASTER_DATA"]
     application_settings["INSTANCE_HIDDEN_STATES"] = settings.APPLICATIONS["kt_uri"][
@@ -427,10 +429,10 @@ def test_public_caluma_instance_be(
     enable_public_urls,
     django_assert_num_queries,
     create_caluma_publication,
-    applicant_factory,
     headers,
     num_queries,
     num_instances,
+    master_data_is_visible_mock,
 ):
     be_instance.involved_applicants.first().delete()
 
