@@ -57,7 +57,6 @@ export default class WorkItemListItemComponent extends Component {
   get highlightClasses() {
     if (!this.args.highlight) return "";
 
-    const notViewed = this.args.workItem.notViewed;
     const { days: diff } = DateTime.fromJSDate(this.args.workItem.deadline)
       .diffNow("days")
       .toObject();
@@ -66,7 +65,6 @@ export default class WorkItemListItemComponent extends Component {
       "highlight",
       ...(diff <= 0 ? ["highlight--expired"] : []),
       ...(diff <= 3 && diff > 0 ? ["highlight--expiring"] : []),
-      ...(notViewed ? ["highlight--not-viewed"] : []),
     ].join(" ");
   }
 

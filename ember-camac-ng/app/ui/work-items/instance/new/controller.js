@@ -1,9 +1,9 @@
 import Controller from "@ember/controller";
-import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
+import { findRecord, query } from "ember-data-resources";
 import { DateTime } from "luxon";
 
 import ENV from "camac-ng/config/environment";
@@ -30,10 +30,6 @@ export default class WorkItemNewController extends Controller {
   @service shoebox;
   @service router;
 
-  @tracked instance = null;
-  @tracked case = null;
-  @tracked users = [];
-
   @tracked workItem = new NewWorkItem();
 
   get responsibleService() {
@@ -51,7 +47,7 @@ export default class WorkItemNewController extends Controller {
   }
 
   get responsibleUser() {
-    return this.users.find((user) =>
+    return this.users.records?.find((user) =>
       this.workItem.assignedUsers.includes(user.username)
     );
   }
@@ -67,7 +63,7 @@ export default class WorkItemNewController extends Controller {
   }
 
   get services() {
-    const services = this.instance?.involvedServices.toArray() || [];
+    const services = this.instance.record?.involvedServices.toArray() || [];
 
     if (ENV.APPLICATION.allowApplicantManualWorkItem) {
       services.unshift({
@@ -79,27 +75,15 @@ export default class WorkItemNewController extends Controller {
     return services;
   }
 
-  @dropTask
-  *getData() {
-    this.instance = yield this.store.findRecord("instance", this.model.id, {
-      include: "involved_services",
-      reload: true,
-    });
+  instance = findRecord(this, "instance", () => [
+    this.model.id,
+    { include: "involved_services", reload: true },
+  ]);
 
-    this.users = yield this.store.query("user", {
-      service: this.shoebox.content.serviceId,
-    });
-
-    this.case = yield this.apollo.query(
-      {
-        query: allCases,
-        variables: {
-          metaValueFilter: [{ key: "camac-instance-id", value: this.model.id }],
-        },
-      },
-      "allCases.edges.firstObject.node.id"
-    );
-  }
+  users = query(this, "public-user", () => ({
+    service: this.shoebox.content.serviceId,
+    disabled: false,
+  }));
 
   @dropTask
   *createWorkItem(event) {
@@ -119,11 +103,23 @@ export default class WorkItemNewController extends Controller {
     };
 
     try {
+      const caseId = (yield this.apollo.query(
+        {
+          query: allCases,
+          variables: {
+            metaValueFilter: [
+              { key: "camac-instance-id", value: this.model.id },
+            ],
+          },
+        },
+        "allCases.edges"
+      ))[0].node.id;
+
       yield this.apollo.mutate({
         mutation: createWorkItem,
         variables: {
           input: {
-            case: this.case,
+            case: caseId,
             multipleInstanceTask: "create-manual-workitems",
             name: this.workItem.title,
             description: this.workItem.description,
@@ -147,10 +143,5 @@ export default class WorkItemNewController extends Controller {
     } catch (error) {
       this.notifications.error(this.intl.t("workItems.saveError"));
     }
-  }
-
-  @action
-  setDeadline(value) {
-    this.workItem.deadline = value;
   }
 }
