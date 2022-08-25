@@ -365,6 +365,7 @@ def test_state_transitions(
     status_after,
     case_factory,
     host,
+    mailoutbox,
 ):
     make_workflow_items_for_config(config)
     setup_fixtures_required_by_application_config(config)
@@ -395,6 +396,11 @@ def test_state_transitions(
         else:
             dossier_import.refresh_from_db()
             assert dossier_import.status == status_after
+    if (
+        action == "confirm"
+        and dossier_import.status == DossierImport.IMPORT_STATUS_CONFIRMED
+    ):
+        assert len(mailoutbox) == 1
 
 
 @pytest.mark.parametrize("location_required", [True, False])
