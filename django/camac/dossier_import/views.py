@@ -1,4 +1,6 @@
 from django.conf import settings
+from django.core.mail import mail_admins, send_mail
+from django.utils.translation import gettext_lazy as _
 from django_q.tasks import async_task
 from rest_framework.decorators import action
 from rest_framework.exceptions import ValidationError
@@ -13,6 +15,7 @@ from camac.dossier_import.domain_logic import (
 from camac.dossier_import.models import DossierImport
 from camac.dossier_import.serializers import DossierImportSerializer
 from camac.user.permissions import permission_aware
+from camac.utils import build_url
 
 
 def is_prod():
@@ -74,9 +77,25 @@ class DossierImportView(ModelViewSet):
             raise ValidationError(
                 "Confirming an import is only possible after it has been imported.",
             )
-
-        # TODO send mails
-
+        subject = (
+            _("A dossier import for %s has been approved")
+            % dossier_import.group.get_name()
+        )
+        body = _("The approved dossiers can be viewed here:\n%(import_url)s") % dict(
+            import_url=build_url(
+                settings.INTERNAL_BASE_URL,
+                settings.APPLICATION["DOSSIER_IMPORT"]["RESOURCE_ID_PATH"],
+                str(dossier_import.pk),
+            )
+        )  # resource_id for dossier_import tab
+        mail_admins(subject, message=body)
+        if settings.SUPPORT_EMAIL_ADDRESS:
+            send_mail(
+                subject,
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                message=body,
+                recipient_list=[settings.SUPPORT_EMAIL_ADDRESS],
+            )
         dossier_import.status = DossierImport.IMPORT_STATUS_CONFIRMED
         dossier_import.save()
         return Response()
