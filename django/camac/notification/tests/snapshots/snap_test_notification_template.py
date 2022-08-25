@@ -26,6 +26,7 @@ Es dient nur zu Testzwecken und kann ignoriert werden
         DISTRIBUTION_STATUS_FR: 
         INQUIRY_ANSWER_DE: 
         INQUIRY_ANSWER_FR: 
+        INQUIRY_REMARK: 
         CURRENT_SERVICE: Leitbehörde Bern
         CURRENT_SERVICE_DE: Leitbehörde Bern
         CURRENT_SERVICE_FR: Municipalité Berne
@@ -52,6 +53,7 @@ Es dient nur zu Testzwecken und kann ignoriert werden
         DISTRIBUTION_STATUS_FR: 
         INQUIRY_ANSWER_DE: 
         INQUIRY_ANSWER_FR: 
+        INQUIRY_REMARK: 
         CURRENT_SERVICE: Leitbehörde Bern
         CURRENT_SERVICE_DE: Leitbehörde Bern
         CURRENT_SERVICE_FR: Municipalité Berne
@@ -78,6 +80,7 @@ Es dient nur zu Testzwecken und kann ignoriert werden
         DISTRIBUTION_STATUS_FR: 1 de 2 prises de position sont toujours en attente.
         INQUIRY_ANSWER_DE: Nicht betroffen / nicht zuständig
         INQUIRY_ANSWER_FR: Non concerné/e / non compétent/e
+        INQUIRY_REMARK: Bemerkung Anfrage
         CURRENT_SERVICE: Leitbehörde Bern
         CURRENT_SERVICE_DE: Leitbehörde Bern
         CURRENT_SERVICE_FR: Municipalité Berne
@@ -104,6 +107,7 @@ Es dient nur zu Testzwecken und kann ignoriert werden
         DISTRIBUTION_STATUS_FR: Tous les 2 prises de position ont été reçues.
         INQUIRY_ANSWER_DE: Nicht betroffen / nicht zuständig
         INQUIRY_ANSWER_FR: Non concerné/e / non compétent/e
+        INQUIRY_REMARK: Bemerkung Anfrage
         CURRENT_SERVICE: Leitbehörde Bern
         CURRENT_SERVICE_DE: Leitbehörde Bern
         CURRENT_SERVICE_FR: Municipalité Berne

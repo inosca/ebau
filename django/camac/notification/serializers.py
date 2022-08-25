@@ -195,6 +195,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     distribution_status_fr = serializers.SerializerMethodField()
     inquiry_answer_de = serializers.SerializerMethodField()
     inquiry_answer_fr = serializers.SerializerMethodField()
+    inquiry_remark = serializers.SerializerMethodField()
 
     current_user_name = serializers.SerializerMethodField()
     work_item_name = serializers.SerializerMethodField()
@@ -428,6 +429,14 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             self.inquiry.child_case.document,
             settings.DISTRIBUTION["QUESTIONS"]["STATUS"],
             language=language,
+        )
+
+    def get_inquiry_remark(self, instance):
+        if not self.inquiry or not settings.DISTRIBUTION:
+            return ""
+
+        return find_answer(
+            self.inquiry.document, settings.DISTRIBUTION["QUESTIONS"]["REMARK"]
         )
 
     def get_form_name_de(self, instance):
