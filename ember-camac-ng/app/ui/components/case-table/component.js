@@ -1,6 +1,5 @@
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
-import { htmlSafe } from "@ember/template";
 import { getOwnConfig, macroCondition } from "@embroider/macros";
 import Component from "@glimmer/component";
 import { useCalumaQuery } from "@projectcaluma/ember-core/caluma-query";
@@ -335,15 +334,6 @@ export default class CaseTableComponent extends Component {
         .map((entry) => entry.join("="))
         .join("&"),
     };
-  }
-
-  get paginationInfo() {
-    return htmlSafe(
-      this.intl.t("global.paginationInfo", {
-        count: this.casesQuery.value.length,
-        total: this.casesQuery.totalCount,
-      })
-    );
   }
 
   async processNew(cases) {

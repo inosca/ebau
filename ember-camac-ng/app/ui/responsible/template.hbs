@@ -1,5 +1,3 @@
-<Notifications @style="uikit"/>
-
 <span {{did-insert (perform this.fetchData)}}></span>
 
 {{#if (and this.fetchData.isRunning (not this.fetchData.lastSuccessful))}}

@@ -1,9 +1,3 @@
-{{#if this.casesQuery.value.length}}
-  <div class="uk-text-right">
-    {{this.paginationInfo}}
-  </div>
-{{/if}}
-
 <table class="uk-table uk-table-striped uk-table-hover">
   <thead>
     <tr>
@@ -57,30 +51,32 @@
       </tr>
     {{/each}}
 
-    <tr>
-      {{#if this.casesQuery.hasNextPage}}
+    {{#if this.casesQuery.hasNextPage}}
+      <tr>
         <td colspan={{this.tableColumns.length}} class="uk-text-center">
           {{#if this.casesQuery.isLoading}}
-            <UkSpinner />
+            <UkSpinner @ratio="0.5" />
           {{else}}
             <button type="button" class="uk-button uk-button-link" {{on "click" this.casesQuery.fetchMore}}>
               {{t "global.loadMore"}}
             </button>
           {{/if}}
         </td>
-      {{/if}}
-    </tr>
+      </tr>
+    {{/if}}
   </tbody>
 </table>
 
 {{#if this.casesQuery.value.length}}
-  <div class="uk-text-right">
+  <div class="uk-margin" uk-grid>
     {{#if (macroCondition (macroGetOwnConfig "isBE"))}}
-      <a href="#" class="uk-link-text uk-margin-small-right" {{on "click" (perform this.export)}}>
-        <UkIcon @icon="file-text" />
-        {{t "cases.export.title"}}
-      </a>
+      <div>
+        <a href="" class="uk-link-text uk-margin-small-right" {{on "click" (perform this.export)}}>
+          <UkIcon @icon="file-text" />
+          {{t "cases.export.title"}}
+        </a>
+      </div>
     {{/if}}
-    {{this.paginationInfo}}
+    <PaginationInfo @query={{this.casesQuery}} class="uk-width-expand uk-margin-remove" />
   </div>
 {{/if}}

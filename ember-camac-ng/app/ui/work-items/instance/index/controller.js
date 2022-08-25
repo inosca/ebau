@@ -1,12 +1,11 @@
 import Controller from "@ember/controller";
-import { action, set } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
-import calumaQuery from "@projectcaluma/ember-core/caluma-query";
+import { useCalumaQuery } from "@projectcaluma/ember-core/caluma-query";
 import { allWorkItems } from "@projectcaluma/ember-core/caluma-query/queries";
 import { queryManager } from "ember-apollo-client";
-import { dropTask, restartableTask } from "ember-concurrency";
-import getProcessData from "ember-ebau-core/utils/work-item";
+import { processNewWorkItems } from "ember-ebau-core/utils/work-item";
+import { trackedFunction } from "ember-resources";
 
 import getManualWorkItemsCount from "camac-ng/gql/queries/get-manual-work-items-count.graphql";
 
@@ -21,97 +20,50 @@ export default class WorkItemsInstanceIndexController extends Controller {
   // Filters
   @tracked role = "active";
 
-  @calumaQuery({
-    query: allWorkItems,
-    options: "options",
-  })
-  readyWorkItemsQuery;
+  readyWorkItemsQuery = useCalumaQuery(this, allWorkItems, () => ({
+    options: {
+      processNew: (workItems) => processNewWorkItems(this.store, workItems),
+    },
+    filter: [...this.gqlFilter, { status: "READY" }],
+    order: [{ attribute: "DEADLINE", direction: "ASC" }],
+  }));
 
-  @calumaQuery({
-    query: allWorkItems,
-    options: "options",
-  })
-  completedWorkItemsQuery;
-
-  get options() {
-    return {
-      processNew: (workItems) => this.processNew(workItems),
-    };
-  }
+  completedWorkItemsQuery = useCalumaQuery(this, allWorkItems, () => ({
+    options: {
+      processNew: (workItems) => processNewWorkItems(this.store, workItems),
+    },
+    filter: [...this.gqlFilter, { status: "COMPLETED" }],
+    order: [{ attribute: "CLOSED_AT", direction: "DESC" }],
+  }));
 
   get canCreateManualWorkItem() {
-    return this.fetchManualWorkItemsCount.lastSuccessful?.value > 0;
+    return this.manualWorkItemsCount.value > 0;
   }
 
-  async processNew(workItems) {
-    const { usernames, instanceIds, serviceIds } = getProcessData(workItems);
+  get gqlFilter() {
+    const groups = [String(this.shoebox.content.serviceId)];
 
-    if (usernames.length) {
-      await this.store.query("public-user", { username: usernames.join(",") });
-    }
-
-    if (instanceIds.length) {
-      await this.store.query("instance", {
-        instance_id: instanceIds.join(","),
-        include: "form",
-      });
-    }
-
-    if (serviceIds.length) {
-      await this.store.query("service", { service_id: serviceIds.join(",") });
-    }
-
-    return workItems;
-  }
-
-  @restartableTask
-  *fetchWorkItems() {
-    const filterKey =
-      this.role === "control" ? "controllingGroups" : "addressedGroups";
-
-    const filter = [
+    return [
       { hasDeadline: true },
       {
         rootCaseMetaValue: [
           { key: "camac-instance-id", value: parseInt(this.model.id) },
         ],
       },
-      { [filterKey]: [String(this.shoebox.content.serviceId)] },
+      { addressedGroups: groups, invert: this.role === "control" },
+      ...(this.role === "control" ? [{ controllingGroups: groups }] : []),
     ];
-
-    if (filterKey === "controllingGroups") {
-      filter.push({
-        addressedGroups: [String(this.shoebox.content.serviceId)],
-        invert: true,
-      });
-    }
-
-    yield this.readyWorkItemsQuery.fetch({
-      filter: [...filter, { status: "READY" }],
-      order: [{ attribute: "DEADLINE", direction: "ASC" }],
-    });
-
-    yield this.completedWorkItemsQuery.fetch({
-      filter: [...filter, { status: "COMPLETED" }],
-      order: [{ attribute: "CLOSED_AT", direction: "DESC" }],
-    });
   }
 
-  @dropTask
-  *fetchManualWorkItemsCount() {
-    const response = yield this.apollo.query({
-      query: getManualWorkItemsCount,
-      variables: {
-        instanceId: parseInt(this.model.id),
+  manualWorkItemsCount = trackedFunction(this, async () => {
+    return await this.apollo.query(
+      {
+        query: getManualWorkItemsCount,
+        variables: {
+          instanceId: parseInt(this.model.id),
+        },
       },
-    });
-
-    return response.allWorkItems.totalCount;
-  }
-
-  @action
-  updateFilter(type, value) {
-    set(this, type, value);
-    this.fetchWorkItems.perform();
-  }
+      "allWorkItems.totalCount"
+    );
+  });
 }

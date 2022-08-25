@@ -1,10 +1,12 @@
 {{#if this.notifications.all.length}}
   <div>
     {{#each this.notifications.all as |notification|}}
-      {{component (concat "notifications/" this.style)
-        notification=notification
-        onClick=(fn this.remove notification)
-      }}
+      <div class="uk-alert uk-alert-{{if (eq notification.type "error") "danger" (or notification.type "default")}}">
+        <a href="" class="uk-alert-close" uk-close {{on "click" (fn this.remove notification)}}>
+          <span hidden>{{t "global.close"}}</span>
+        </a>
+        {{notification.message}}
+      </div>
     {{/each}}
   </div>
 {{/if}}
