@@ -25,3 +25,7 @@ strong {
 a:focus {
   background-color: transparent;
 }
+
+.uk-button:not(.uk-button-link) {
+  @extend .uk-button-small;
+}

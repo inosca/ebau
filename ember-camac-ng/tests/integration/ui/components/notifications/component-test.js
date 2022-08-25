@@ -11,24 +11,26 @@ module("Integration | Component | notifications", function (hooks) {
 
     await render(hbs`<Notifications />`);
 
-    assert.dom(".hinweisbox.buttonstyle").doesNotExist();
+    assert.dom(".uk-alert").doesNotExist();
 
     service.error("Test");
     await settled();
 
-    assert.dom(".hinweisbox.buttonstyle.error").exists();
-    assert.dom(".hinweisbox.buttonstyle.error").hasText("Test");
+    assert.dom(".uk-alert.uk-alert-danger").exists();
+    assert.dom(".uk-alert.uk-alert-danger").containsText("Test");
 
     service.success("Test");
     await settled();
 
-    assert.dom(".hinweisbox.buttonstyle.success").exists();
-    assert.dom(".hinweisbox.buttonstyle.success").hasText("Test");
+    assert.dom(".uk-alert.uk-alert-success").exists();
+    assert.dom(".uk-alert.uk-alert-danger").containsText("Test");
 
-    assert.dom(".hinweisbox.buttonstyle").exists({ count: 2 });
+    assert.dom(".uk-alert").exists({ count: 2 });
 
     assert.strictEqual(service.all.length, 2);
-    await click(".hinweisbox.buttonstyle:first-of-type");
+    await click(".uk-alert:first-of-type .uk-close");
     assert.strictEqual(service.all.length, 1);
+
+    assert.dom(".uk-alert").exists({ count: 1 });
   });
 });

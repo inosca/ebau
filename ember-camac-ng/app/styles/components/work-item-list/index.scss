@@ -1,66 +1,27 @@
 $expired-color: #cc0000;
 $expiring-color: #ff8800;
 
-.work-item-list {
-  tr.highlight {
-    th:first-child,
-    td:first-child {
-      padding-left: 0 !important;
-      padding-right: 0 !important;
-    }
+.highlight {
+  width: 20px;
 
-    th:nth-child(2),
-    td:nth-child(2) {
-      border-left: none !important;
-    }
-
-    td:first-child {
-      text-align: center;
-
-      &::before {
-        content: "";
-        display: inline-flex;
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        margin: 0 0 0 5px;
-        padding: 0;
-        border: 1px solid lightgrey;
-      }
-    }
-
-    &--not-viewed {
-      font-weight: 700;
-    }
-
-    &--expired td:first-child::before {
-      background-color: $expired-color;
-      border-color: darken($expired-color, 10%);
-    }
-
-    &--expiring td:first-child::before {
-      background-color: $expiring-color;
-      border-color: darken($expiring-color, 10%);
-    }
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    padding: 0;
+    margin-left: 5px;
+    border: 1px solid lightgrey;
   }
 
-  td:last-child {
-    text-align: center;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+  &--expired::before {
+    background-color: $expired-color;
+    border-color: darken($expired-color, 10%);
   }
 
-  td {
-    white-space: nowrap;
-  }
-
-  td.task,
-  td.responsible,
-  td.description {
-    text-overflow: ellipsis;
-    overflow: hidden;
-    max-width: 200px;
+  &--expiring::before {
+    background-color: $expiring-color;
+    border-color: darken($expiring-color, 10%);
   }
 }
-
-@import "custom";

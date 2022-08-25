@@ -1,6 +1,4 @@
-<div class="uk-text-right">
-  {{this.paginationInfo}}
-</div>
+<PaginationInfo @query={{this.casesQuery}} />
 
 <table {{did-insert this.setup}}>
   <thead>
@@ -72,6 +70,5 @@
     </tr>
   </tbody>
 </table>
-<div class="uk-text-right">
-  {{this.paginationInfo}}
-</div>
+
+<PaginationInfo @query={{this.casesQuery}} />
