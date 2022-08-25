@@ -626,6 +626,7 @@ APPLICATIONS = {
             "CALUMA_FORM": "baugesuch",  # "dummy"-Form
             "ATTACHMENT_SECTION_ID": 7,  # attachmentsection for imported documents
             "LOCATION_REQUIRED": True,  # this is a workaround to account for differing validation requirements per config
+            "RESOURCE_ID_PATH": "/index/template/resource-id/25#/dossier-import/",  # That's required for `reversing` the URL to the dossier-import resource tab in the UI
             "TRANSFORM_COORDINATE_SYSTEM": "epsg:4326",  # use world wide coordinates instead of swiss ones
             "PROD_URL": env.str(  # this is also used in the xml delivery of the ech0211 endpoint
                 "DJANGO_DOSSIER_IMPORT_PROD_URL", "https://behoerden.ebau-sz.ch/"
@@ -1770,6 +1771,7 @@ APPLICATIONS = {
                 "https://sso.be.ch/auth/realms/ebau/protocol/openid-connect/token",
             ),
             "PROD_SUPPORT_GROUP_ID": 10000,
+            "RESOURCE_ID_PATH": "/index/template/resource-id/2000000#/dossier-import/",  # That's required for `reversing` the URL to the dossier-import resource tab in the UI
         },
         "MASTER_DATA": {
             "canton": ("static", "BE"),
@@ -2976,6 +2978,10 @@ OIDC_BOOTSTRAP_BY_EMAIL_FALLBACK = env.str(
 
 DEFAULT_FROM_EMAIL = env.str(
     "DJANGO_DEFAULT_FROM_EMAIL", default("webmaster@localhost")
+)
+
+SUPPORT_EMAIL_ADDRESS = env.str(
+    "SUPPORT_EMAIL_ADDRESS", default("support@example.com", "")
 )
 
 SERVER_EMAIL = env.str("DJANGO_SERVER_EMAIL", default("root@localhost"))
