@@ -9,10 +9,16 @@ include .env
 GIT_USER=$(shell git config user.email)
 DB_CONTAINER=$(shell docker-compose ps -q db)
 
-define set_env
+define set_app
 	sed 's/^\(APPLICATION=\).*$//\1$(1)/' -i .env django/.env
 	sed 's/^\(COMPOSE_FILE=\).*$//\1compose\/$(1).yml:compose\/$(1)-dev.yml/' -i .env django/.env
 endef
+
+define set_profile
+	sed 's/^\(COMPOSE_PROFILES=\).*$//\1$(1)/' -i .env django/.env
+	sed 's/^\(DJANGO_CLAMD_ENABLED=\).*$//\1$(2)/' -i .env django/.env
+endef
+
 
 .PHONY: help
 help: ## Show the help messages
@@ -125,19 +131,27 @@ test: ## Run backend tests
 
 .PHONY: kt_uri
 kt_uri: ## Set APPLICATION to kt_uri
-	$(call set_env,kt_uri)
+	$(call set_app,kt_uri)
 
 .PHONY: kt_schwyz
 kt_schwyz: ## Set APPLICATION to kt_uri
-	$(call set_env,kt_schwyz)
+	$(call set_app,kt_schwyz)
 
 .PHONY: kt_bern
 kt_bern: ## Set APPLICATION to kt_uri
-	$(call set_env,kt_bern)
+	$(call set_app,kt_bern)
 
 .PHONY: demo
 demo: ## Set APPLICATION to kt_uri
-	$(call set_env,demo)
+	$(call set_app,demo)
+
+.PHONY: profile-full
+profile-full: ## Set docker compose profile to "full"
+	$(call set_profile,full,true)
+
+.PHONY: profile-slim
+profile-slim: ## Unset docker compose profile
+	$(call set_profile,"",false)
 
 .PHONY: clean
 clean: ## Remove temporary files / build artefacts etc
