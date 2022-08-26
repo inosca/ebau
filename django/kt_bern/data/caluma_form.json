@@ -1091,7 +1091,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "juristische-person-gesuchstellerin",
       "document": "6f2e85fe-cb99-4cd1-a0ec-53c5dccc888f",
-      "file": null,
       "history_date": "2021-03-31T12:33:35.420Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -1115,7 +1114,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "wird-aussenlaerm-erzeugt",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:48:22.635Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -1139,7 +1137,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "gebiet-mit-archaeologischen-objekten",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:12:13.273Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -1163,7 +1160,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "plz-gesuchstellerin",
       "document": "ebf8b58b-4acf-4207-9b36-40a7e1f69ab2",
-      "file": null,
       "history_date": "2021-04-06T12:21:49.453Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -1187,7 +1183,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "bestaetigung-liegenschaftsentwaesserung",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:49:08.316Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -1211,7 +1206,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "vorname-gesuchstellerin",
       "document": "274b4aff-b632-4fa1-8581-1ef47fe1d79c",
-      "file": null,
       "history_date": "2021-04-06T12:23:00.336Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -1235,7 +1229,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "naturschutz",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:36:54.984Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -1259,7 +1252,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "vorname-gesuchstellerin",
       "document": "6f2e85fe-cb99-4cd1-a0ec-53c5dccc888f",
-      "file": null,
       "history_date": "2021-03-31T12:33:38.621Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -1283,7 +1275,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "gefahrenstufe",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:44:11.471Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -1307,7 +1298,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "beschreibung-bauvorhaben",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:46:52.251Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -1331,7 +1321,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "telefon-oder-mobile-gesuchstellerin",
       "document": "ebf8b58b-4acf-4207-9b36-40a7e1f69ab2",
-      "file": null,
       "history_date": "2021-04-06T12:22:02.934Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -1355,7 +1344,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "nutzungszone",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:12:13.469Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -1379,7 +1367,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "personalien-sb1-sb2",
       "document": "d4603ede-e70c-4ea0-8f5d-aea5f108eaeb",
-      "file": null,
       "history_date": "2021-04-06T12:23:00.169Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -1403,7 +1390,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "sind-belange-des-gewaesserschutzes-betroffen-v2",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:35:27.806Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -1427,7 +1413,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "juristische-person-gesuchstellerin",
       "document": "e0c8f56e-5b2c-4800-88cf-380cb9cf5aa4",
-      "file": null,
       "history_date": "2020-03-06T11:10:38.245Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -1451,7 +1436,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "strasse-gesuchstellerin",
       "document": "ebf8b58b-4acf-4207-9b36-40a7e1f69ab2",
-      "file": null,
       "history_date": "2021-04-06T12:21:33.722Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -1475,7 +1459,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "mit-schadstoffen-belastete-luft-aus-gebaeuden",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:12:53.839Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -1499,7 +1482,6 @@
       "history_user_id": null,
       "question": "parzellennummer",
       "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
-      "file": null,
       "history_date": "2021-02-23T08:59:18.277Z",
       "history_change_reason": null,
       "history_type": "-"
@@ -1523,7 +1505,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "nummer-gesuchstellerin",
       "document": "e0c8f56e-5b2c-4800-88cf-380cb9cf5aa4",
-      "file": null,
       "history_date": "2020-03-06T11:10:47.019Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -1547,7 +1528,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "parzellennummer",
       "document": "af597d0c-c7f5-4724-8002-51360261b0d1",
-      "file": null,
       "history_date": "2021-03-31T12:36:44.375Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -1571,7 +1551,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "auto-oder-fahrradabstellplaetze",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:48:06.331Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -1595,7 +1574,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "is-paper",
       "document": "82986e34-47b4-4793-aec9-49d7cbb5986d",
-      "file": null,
       "history_date": "2020-03-06T11:10:26.149Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -1619,7 +1597,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "sanitaertechnische-anpassungen-liegenschaft",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:43:52.686Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -1643,7 +1620,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "ab-wann-ist-eine-kontrolle-moeglich",
       "document": "3f697075-a581-43f3-a9b0-81e8b80bd37e",
-      "file": null,
       "history_date": "2021-04-06T12:20:41.773Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -1667,7 +1643,6 @@
       "history_user_id": null,
       "question": "nummer-gesuchstellerin",
       "document": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
-      "file": null,
       "history_date": "2021-02-23T08:59:18.121Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -1691,7 +1666,6 @@
       "history_user_id": null,
       "question": "parzelle",
       "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
-      "file": null,
       "history_date": "2021-02-23T08:59:18.240Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -1715,7 +1689,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "handelt-es-sich-um-ein-sensibles-objekt",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:11:34.110Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -1739,7 +1712,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "telefon-oder-mobile-gesuchstellerin",
       "document": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
-      "file": null,
       "history_date": "2021-02-23T09:04:13.635Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -1763,7 +1735,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "plz-gesuchstellerin",
       "document": "6f2e85fe-cb99-4cd1-a0ec-53c5dccc888f",
-      "file": null,
       "history_date": "2021-03-31T12:34:30.159Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -1787,7 +1758,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "e-grid-nr",
       "document": "c72dcd61-91b0-4cf9-a823-658e53d9306f",
-      "file": null,
       "history_date": "2020-03-06T11:12:02.729Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -1811,7 +1781,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "personalien-sb1-sb2",
       "document": "3f697075-a581-43f3-a9b0-81e8b80bd37e",
-      "file": null,
       "history_date": "2021-04-06T12:19:38.366Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -1835,7 +1804,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "wurden-vorabklaerungen-durchgefuehrt",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:33:21.770Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -1859,7 +1827,6 @@
       "history_user_id": null,
       "question": "strasse-gesuchstellerin",
       "document": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
-      "file": null,
       "history_date": "2021-02-23T08:59:18.114Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -1883,7 +1850,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "juristische-person-gesuchstellerin",
       "document": "274b4aff-b632-4fa1-8581-1ef47fe1d79c",
-      "file": null,
       "history_date": "2021-04-06T12:23:00.283Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -1907,7 +1873,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "wurden-vorabklaerungen-durchgefuehrt",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:10:33.443Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -1931,7 +1896,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "e-mail-gesuchstellerin",
       "document": "e0c8f56e-5b2c-4800-88cf-380cb9cf5aa4",
-      "file": null,
       "history_date": "2020-03-06T11:10:57.709Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -1955,7 +1919,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "parzelle",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:12:02.977Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -1979,7 +1942,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "wird-aussenlaerm-erzeugt",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:12:54.594Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -2003,7 +1965,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "nr",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:12:18.703Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -2027,7 +1988,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "vorname-gesuchstellerin",
       "document": "6f2e85fe-cb99-4cd1-a0ec-53c5dccc888f",
-      "file": null,
       "history_date": "2021-03-31T12:33:38.056Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -2051,7 +2011,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "handelt-es-sich-um-ein-baudenkmal",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:12:12.929Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -2075,7 +2034,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "grundriss-angabe-bodenflaeche-dokument",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:13:13.608Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -2099,7 +2057,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "ort-grundstueck",
       "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
-      "file": null,
       "history_date": "2020-03-06T11:13:49.686Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -2123,7 +2080,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "um-was-fuer-ein-gebaeude-handelt-es-sich",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:48:57.045Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -2147,7 +2103,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "ist-durch-das-bauvorhaben-boden-ober-unterboden-betroffen-v2",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:35:42.203Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -2171,7 +2126,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "schnurgeruest-zur-abnahme-bereit",
       "document": "3f697075-a581-43f3-a9b0-81e8b80bd37e",
-      "file": null,
       "history_date": "2021-04-06T12:20:37.626Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -2195,7 +2149,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "plz-gesuchstellerin",
       "document": "ebf8b58b-4acf-4207-9b36-40a7e1f69ab2",
-      "file": null,
       "history_date": "2021-04-06T12:21:46.944Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -2219,7 +2172,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "erhaltenswert",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:12:34.395Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -2243,7 +2195,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "nummer-gesuchstellerin",
       "document": "6f2e85fe-cb99-4cd1-a0ec-53c5dccc888f",
-      "file": null,
       "history_date": "2021-03-31T12:33:48.466Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -2267,7 +2218,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "plz-gesuchstellerin",
       "document": "ebf8b58b-4acf-4207-9b36-40a7e1f69ab2",
-      "file": null,
       "history_date": "2021-04-06T12:21:50.284Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -2291,7 +2241,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "plz-gesuchstellerin",
       "document": "274b4aff-b632-4fa1-8581-1ef47fe1d79c",
-      "file": null,
       "history_date": "2021-04-06T12:23:00.312Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -2315,7 +2264,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "gemeinde",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:37:08.585Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -2339,7 +2287,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "gemeinde",
       "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
-      "file": null,
       "history_date": "2020-03-06T11:13:54.774Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -2363,7 +2310,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "baubeschrieb",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:46:37.698Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -2387,7 +2333,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "vorname-gesuchstellerin",
       "document": "ebf8b58b-4acf-4207-9b36-40a7e1f69ab2",
-      "file": null,
       "history_date": "2021-04-06T12:21:24.361Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -2411,7 +2356,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "plz-gesuchstellerin",
       "document": "ebf8b58b-4acf-4207-9b36-40a7e1f69ab2",
-      "file": null,
       "history_date": "2021-04-06T12:21:45.466Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -2435,7 +2379,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "ort-gesuchstellerin",
       "document": "9030c7f1-4ec1-4895-b386-96b889d37f0e",
-      "file": null,
       "history_date": "2021-04-06T12:19:38.423Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -2459,7 +2402,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "gentechnisch-veraenderte-pathogene-organismen",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:35:29.707Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -2483,7 +2425,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "juristische-person-gesuchstellerin",
       "document": "9030c7f1-4ec1-4895-b386-96b889d37f0e",
-      "file": null,
       "history_date": "2021-04-06T12:19:38.398Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -2507,7 +2448,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "e-mail-gesuchstellerin",
       "document": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
-      "file": null,
       "history_date": "2021-02-23T09:04:19.921Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -2531,7 +2471,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "einreichen-button",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T13:17:00.003Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -2555,7 +2494,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "verantwortliche-person-sb-identisch",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2021-08-05T09:05:00.249Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -2579,7 +2517,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "is-paper",
       "document": "f9f24236-ada9-4363-8ee2-522e58428836",
-      "file": null,
       "history_date": "2020-03-06T11:10:26.162Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -2603,7 +2540,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "bestaetigung-gis",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:36:50.984Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -2627,7 +2563,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "is-paper",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:10:26.127Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -2651,7 +2586,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "telefon-oder-mobile-gesuchstellerin",
       "document": "6f2e85fe-cb99-4cd1-a0ec-53c5dccc888f",
-      "file": null,
       "history_date": "2021-03-31T12:34:44.444Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -2675,7 +2609,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "werden-brandschutzabstaende-unterschritten",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:43:10.056Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -2699,7 +2632,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "lagekoordinaten-nord",
       "document": "c72dcd61-91b0-4cf9-a823-658e53d9306f",
-      "file": null,
       "history_date": "2020-03-06T11:12:02.761Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -2723,7 +2655,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "aenderungen-dachflaechen-zufahrten-plaetzen",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:43:46.111Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -2747,7 +2678,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "einreichen-button",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:45:23.156Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -2771,7 +2701,6 @@
       "history_user_id": null,
       "question": "vorname-gesuchstellerin",
       "document": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
-      "file": null,
       "history_date": "2021-02-23T08:59:18.107Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -2795,7 +2724,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "k-objekt",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:12:35.063Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -2819,7 +2747,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "bestaetigung-mit-unterschrift",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:13:17.196Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -2843,7 +2770,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "name-juristische-person-gesuchstellerin",
       "document": "ebf8b58b-4acf-4207-9b36-40a7e1f69ab2",
-      "file": null,
       "history_date": "2021-04-06T12:21:06.330Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -2867,7 +2793,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "bestaetigung-gis",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:12:11.664Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -2891,7 +2816,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "ort-gesuchstellerin",
       "document": "6f2e85fe-cb99-4cd1-a0ec-53c5dccc888f",
-      "file": null,
       "history_date": "2021-03-31T12:33:52.033Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -2915,7 +2839,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "bestaetigung-liegenschaftsentwaesserung",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:13:18.054Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -2939,7 +2862,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "schutzraum-pflicht",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:11:29.371Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -2963,7 +2885,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "belasteter-standort",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:36:54.903Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -2987,7 +2908,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "werden-luftemissionen-erzeugt",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:48:25.686Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -3011,7 +2931,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "bedingungen-und-auflagen-erfuellt",
       "document": "3f697075-a581-43f3-a9b0-81e8b80bd37e",
-      "file": null,
       "history_date": "2021-04-06T12:20:33.775Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -3035,7 +2954,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "strasse-flurname",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:47:27.986Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -3059,7 +2977,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "lagekoordinaten-ost",
       "document": "c72dcd61-91b0-4cf9-a823-658e53d9306f",
-      "file": null,
       "history_date": "2020-03-06T11:12:02.748Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -3083,7 +3000,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "ort-gesuchstellerin",
       "document": "ebf8b58b-4acf-4207-9b36-40a7e1f69ab2",
-      "file": null,
       "history_date": "2021-04-06T12:21:52.379Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -3107,7 +3023,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "telefon-oder-mobile-gesuchstellerin",
       "document": "6f2e85fe-cb99-4cd1-a0ec-53c5dccc888f",
-      "file": null,
       "history_date": "2021-03-31T12:33:53.581Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -3131,7 +3046,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "bestaetigung-gis",
       "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
-      "file": null,
       "history_date": "2020-03-06T11:14:24.318Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -3155,7 +3069,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "parzellennummer",
       "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
-      "file": null,
       "history_date": "2020-03-06T11:14:13.307Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -3179,7 +3092,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "telefon-oder-mobile-gesuchstellerin",
       "document": "e0c8f56e-5b2c-4800-88cf-380cb9cf5aa4",
-      "file": null,
       "history_date": "2020-03-06T11:10:54.840Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -3203,7 +3115,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "parzellennummer",
       "document": "c72dcd61-91b0-4cf9-a823-658e53d9306f",
-      "file": null,
       "history_date": "2020-03-06T11:12:02.610Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -3227,7 +3138,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "um-was-fuer-ein-gebaeude-handelt-es-sich",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:11:25.366Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -3251,7 +3161,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "nummer-gesuchstellerin",
       "document": "9030c7f1-4ec1-4895-b386-96b889d37f0e",
-      "file": null,
       "history_date": "2021-04-06T12:19:38.410Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -3275,7 +3184,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "strasse-gesuchstellerin",
       "document": "ebf8b58b-4acf-4207-9b36-40a7e1f69ab2",
-      "file": null,
       "history_date": "2021-04-06T12:21:42.166Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -3299,7 +3207,6 @@
       "history_user_id": null,
       "question": "e-grid-nr",
       "document": "36e5efdd-37c8-4d9a-9761-9ff01343f842",
-      "file": null,
       "history_date": "2021-02-23T08:59:18.184Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -3323,7 +3230,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "grundriss-dokument",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:13:13.549Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -3347,7 +3253,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "naturschutz",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:12:13.114Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -3371,7 +3276,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "telefon-oder-mobile-gesuchstellerin",
       "document": "a0288ba4-e413-48c5-b017-fcd7e7eb1412",
-      "file": null,
       "history_date": "2021-04-06T12:23:00.243Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -3395,7 +3299,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "telefon-oder-mobile-gesuchstellerin",
       "document": "e0c8f56e-5b2c-4800-88cf-380cb9cf5aa4",
-      "file": null,
       "history_date": "2020-03-06T11:10:52.668Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -3419,7 +3322,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "is-paper",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:32:54.151Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -3443,7 +3345,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "strasse-flurname",
       "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
-      "file": null,
       "history_date": "2020-03-06T11:13:45.908Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -3467,7 +3368,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "handelt-es-sich-um-ein-baudenkmal",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:36:55.074Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -3491,7 +3391,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "einreichen-button",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:48:42.653Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -3515,7 +3414,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "e-mail-gesuchstellerin",
       "document": "ebf8b58b-4acf-4207-9b36-40a7e1f69ab2",
-      "file": null,
       "history_date": "2021-04-06T12:22:15.448Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -3539,7 +3437,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "vorname-gesuchstellerin",
       "document": "9030c7f1-4ec1-4895-b386-96b889d37f0e",
-      "file": null,
       "history_date": "2021-04-06T12:19:38.433Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -3563,7 +3460,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "lagekoordinaten-ost",
       "document": "af597d0c-c7f5-4724-8002-51360261b0d1",
-      "file": null,
       "history_date": "2021-03-31T12:36:44.426Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -3587,7 +3483,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "name-gesuchstellerin",
       "document": "e0c8f56e-5b2c-4800-88cf-380cb9cf5aa4",
-      "file": null,
       "history_date": "2020-03-06T11:10:40.387Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -3611,7 +3506,6 @@
       "history_user_id": null,
       "question": "e-grid-nr",
       "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
-      "file": null,
       "history_date": "2021-02-23T08:59:18.275Z",
       "history_change_reason": null,
       "history_type": "-"
@@ -3635,7 +3529,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "bauprofile-bleiben-bis-bauentscheid-stehen",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:49:06.872Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -3659,7 +3552,6 @@
       "history_user_id": null,
       "question": "name-gesuchstellerin",
       "document": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
-      "file": null,
       "history_date": "2021-02-23T08:59:18.099Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -3683,7 +3575,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "telefon-oder-mobile-gesuchstellerin",
       "document": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
-      "file": null,
       "history_date": "2021-02-23T09:04:14.880Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -3707,7 +3598,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "ueberbauungsordnung",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:36:54.943Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -3731,7 +3621,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "wildtierschutz",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:12:39.732Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -3755,7 +3644,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "neubau-abwasseranlagen-grundleitungen",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:43:47.710Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -3779,7 +3667,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "schuetzenswert",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:12:33.760Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -3803,7 +3690,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "einreichen-button-sb1",
       "document": "3f697075-a581-43f3-a9b0-81e8b80bd37e",
-      "file": null,
       "history_date": "2021-04-06T12:22:59.703Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -3827,7 +3713,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "nr",
       "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
-      "file": null,
       "history_date": "2020-03-06T11:13:46.619Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -3851,7 +3736,6 @@
       "history_user_id": null,
       "question": "parzellennummer",
       "document": "36e5efdd-37c8-4d9a-9761-9ff01343f842",
-      "file": null,
       "history_date": "2021-02-23T08:59:18.175Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -3875,7 +3759,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "wildtierschutz",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:42:58.079Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -3899,7 +3782,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "ist-mit-bauabfaellen-zu-rechnen",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:11:32.626Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -3923,7 +3805,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "name-juristische-person-gesuchstellerin",
       "document": "274b4aff-b632-4fa1-8581-1ef47fe1d79c",
-      "file": null,
       "history_date": "2021-04-06T12:23:00.297Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -3947,7 +3828,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "telefon-oder-mobile-gesuchstellerin",
       "document": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
-      "file": null,
       "history_date": "2021-02-23T09:04:12.110Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -3971,7 +3851,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "strasse-gesuchstellerin",
       "document": "6f2e85fe-cb99-4cd1-a0ec-53c5dccc888f",
-      "file": null,
       "history_date": "2021-03-31T12:34:21.250Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -3995,7 +3874,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "gebiet-mit-naturgefahren",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:36:54.935Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -4019,7 +3897,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "werden-brandschutzabstaende-unterschritten",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:12:45.190Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -4043,7 +3920,6 @@
       "history_user_id": null,
       "question": "plz-gesuchstellerin",
       "document": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
-      "file": null,
       "history_date": "2021-02-23T08:59:18.128Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -4067,7 +3943,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "nutzungsart",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:47:06.062Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -4091,7 +3966,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "bauten-oder-pfaehlen-im-grundwasser",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:12:32.879Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -4115,7 +3989,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "schnitt-dokument",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:13:13.491Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -4139,7 +4012,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "baubeschrieb",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:11:11.222Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -4163,7 +4035,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "e-mail-gesuchstellerin",
       "document": "a0288ba4-e413-48c5-b017-fcd7e7eb1412",
-      "file": null,
       "history_date": "2021-04-06T12:23:00.191Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -4187,7 +4058,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "situationsplan-dokument",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:44:30.763Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -4211,7 +4081,6 @@
       "history_user_id": null,
       "question": "plz-gesuchstellerin",
       "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
-      "file": null,
       "history_date": "2021-02-23T08:59:18.285Z",
       "history_change_reason": null,
       "history_type": "-"
@@ -4235,7 +4104,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "sind-belange-des-gewasserschutzes-betroffen",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:11:28.691Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -4259,7 +4127,6 @@
       "history_user_id": null,
       "question": "ort-gesuchstellerin",
       "document": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
-      "file": null,
       "history_date": "2021-02-23T08:59:18.135Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -4283,7 +4150,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "handelt-es-sich-um-ein-sensibles-objekt",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:35:37.451Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -4307,7 +4173,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "personalien-sb1-sb2",
       "document": "3f697075-a581-43f3-a9b0-81e8b80bd37e",
-      "file": null,
       "history_date": "2021-04-06T12:22:20.370Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -4331,7 +4196,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "e-mail-gesuchstellerin",
       "document": "6f2e85fe-cb99-4cd1-a0ec-53c5dccc888f",
-      "file": null,
       "history_date": "2021-03-31T12:34:01.223Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -4355,7 +4219,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "plz-gesuchstellerin",
       "document": "ebf8b58b-4acf-4207-9b36-40a7e1f69ab2",
-      "file": null,
       "history_date": "2021-04-06T12:21:44.403Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -4379,7 +4242,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "gefahrenstufe",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:44:01.419Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -4403,7 +4265,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "qss-stufe",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:12:45.830Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -4427,7 +4288,6 @@
       "history_user_id": null,
       "question": "lagekoordinaten-nord",
       "document": "36e5efdd-37c8-4d9a-9761-9ff01343f842",
-      "file": null,
       "history_date": "2021-02-23T08:59:18.232Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -4451,7 +4311,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "name-gesuchstellerin",
       "document": "a0288ba4-e413-48c5-b017-fcd7e7eb1412",
-      "file": null,
       "history_date": "2021-04-06T12:23:00.207Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -4475,7 +4334,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "e-grid-nr",
       "document": "af597d0c-c7f5-4724-8002-51360261b0d1",
-      "file": null,
       "history_date": "2021-03-31T12:36:44.363Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -4499,7 +4357,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "situationsplan-dokument",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:13:13.599Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -4523,7 +4380,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "name-juristische-person-gesuchstellerin",
       "document": "ebf8b58b-4acf-4207-9b36-40a7e1f69ab2",
-      "file": null,
       "history_date": "2021-04-06T12:21:13.903Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -4547,7 +4403,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "gewaesserschutzbereich",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:36:54.910Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -4571,7 +4426,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "einreichen-button",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:45:17.691Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -4595,7 +4449,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "strasse-gesuchstellerin",
       "document": "e0c8f56e-5b2c-4800-88cf-380cb9cf5aa4",
-      "file": null,
       "history_date": "2020-03-06T11:10:46.003Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -4619,7 +4472,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "grundriss-dokument",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:44:31.392Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -4643,7 +4495,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "besondere-brandrisiken",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:12:44.598Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -4667,7 +4518,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "nutzungszone",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:36:55.045Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -4691,7 +4541,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "gewaesserschutzbereich",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:12:13.274Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -4715,7 +4564,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "bestaetigung-berechtigung-bauherrschaft",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2021-08-05T09:05:05.355Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -4739,7 +4587,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "plz-gesuchstellerin",
       "document": "6f2e85fe-cb99-4cd1-a0ec-53c5dccc888f",
-      "file": null,
       "history_date": "2021-03-31T12:34:29.575Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -4763,7 +4610,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "grundriss-angabe-bodenflaeche-dokument",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:44:29.779Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -4787,7 +4633,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "is-paper",
       "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
-      "file": null,
       "history_date": "2020-03-06T11:13:35.921Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -4811,7 +4656,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "is-paper",
       "document": "3f697075-a581-43f3-a9b0-81e8b80bd37e",
-      "file": null,
       "history_date": "2021-04-06T12:19:38.511Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -4835,7 +4679,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "strasse-gesuchstellerin",
       "document": "a0288ba4-e413-48c5-b017-fcd7e7eb1412",
-      "file": null,
       "history_date": "2021-04-06T12:23:00.235Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -4859,7 +4702,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "plz-gesuchstellerin",
       "document": "6f2e85fe-cb99-4cd1-a0ec-53c5dccc888f",
-      "file": null,
       "history_date": "2021-03-31T12:33:50.808Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -4883,7 +4725,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "is-paper",
       "document": "cb3d4d28-86a9-42f9-ba0b-f90876b61976",
-      "file": null,
       "history_date": "2020-03-06T11:13:35.958Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -4907,7 +4748,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "anforderungen-eingehalten",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:13:20.498Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -4931,7 +4771,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "e-mail-gesuchstellerin",
       "document": "ebf8b58b-4acf-4207-9b36-40a7e1f69ab2",
-      "file": null,
       "history_date": "2021-04-06T12:22:11.676Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -4955,7 +4794,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "plz-gesuchstellerin",
       "document": "9030c7f1-4ec1-4895-b386-96b889d37f0e",
-      "file": null,
       "history_date": "2021-04-06T12:19:38.462Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -4979,7 +4817,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "bestaetigung-mit-unterschrift",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:44:52.991Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -5003,7 +4840,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "einreichen-button",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:48:36.475Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -5027,7 +4863,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "bau-im-wald-oder-innerhalb-von-30-m-abstand",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:11:30.805Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -5051,7 +4886,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "strasse-gesuchstellerin",
       "document": "6f2e85fe-cb99-4cd1-a0ec-53c5dccc888f",
-      "file": null,
       "history_date": "2021-03-31T12:33:47.672Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -5075,7 +4909,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "gibt-es-bewilligungspflichtige-reklame",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:11:31.524Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -5099,7 +4932,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "grenzwerte-ueberschritten",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:48:15.261Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -5123,7 +4955,6 @@
       "history_user_id": null,
       "question": "ort-parzelle",
       "document": "36e5efdd-37c8-4d9a-9761-9ff01343f842",
-      "file": null,
       "history_date": "2021-02-23T08:59:18.216Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -5147,7 +4978,6 @@
       "history_user_id": null,
       "question": "lagekoordinaten-ost",
       "document": "36e5efdd-37c8-4d9a-9761-9ff01343f842",
-      "file": null,
       "history_date": "2021-02-23T08:59:18.224Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -5171,7 +5001,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "besondere-brandrisiken",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:43:09.057Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -5195,7 +5024,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "e-grid-nr",
       "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
-      "file": null,
       "history_date": "2020-03-06T11:14:13.296Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -5219,7 +5047,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "name-gesuchstellerin",
       "document": "274b4aff-b632-4fa1-8581-1ef47fe1d79c",
-      "file": null,
       "history_date": "2021-04-06T12:23:00.291Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -5243,7 +5070,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "gebiet-mit-archaeologischen-objekten",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:36:55.064Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -5267,7 +5093,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "is-paper",
       "document": "dd645aba-6efa-4103-b23e-19b0ad1e9625",
-      "file": null,
       "history_date": "2020-03-06T11:13:35.948Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -5291,7 +5116,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "telefon-oder-mobile-gesuchstellerin",
       "document": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
-      "file": null,
       "history_date": "2021-02-23T09:04:09.578Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -5315,7 +5139,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "e-mail-gesuchstellerin",
       "document": "ebf8b58b-4acf-4207-9b36-40a7e1f69ab2",
-      "file": null,
       "history_date": "2021-04-06T12:22:09.978Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -5339,7 +5162,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "ort-gesuchstellerin",
       "document": "ebf8b58b-4acf-4207-9b36-40a7e1f69ab2",
-      "file": null,
       "history_date": "2021-04-06T12:21:53.506Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -5363,7 +5185,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "ort-gesuchstellerin",
       "document": "274b4aff-b632-4fa1-8581-1ef47fe1d79c",
-      "file": null,
       "history_date": "2021-04-06T12:23:00.306Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -5387,7 +5208,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "schutzraum-pflicht",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:35:28.943Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -5411,7 +5231,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "beschreibung-bauvorhaben",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:46:53.057Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -5435,7 +5254,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "vorname-gesuchstellerin",
       "document": "a0288ba4-e413-48c5-b017-fcd7e7eb1412",
-      "file": null,
       "history_date": "2021-04-06T12:23:00.249Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -5459,7 +5277,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "einreichen-button",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:45:07.578Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -5483,7 +5300,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "strasse-flurname",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:47:20.272Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -5507,7 +5323,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "personalien-gesuchstellerin",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:11:03.550Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -5531,7 +5346,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "plz-gesuchstellerin",
       "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
-      "file": null,
       "history_date": "2020-03-06T11:13:48.387Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -5555,7 +5369,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "name-gesuchstellerin",
       "document": "6f2e85fe-cb99-4cd1-a0ec-53c5dccc888f",
-      "file": null,
       "history_date": "2021-03-31T12:34:10.197Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -5579,7 +5392,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "telefon-oder-mobile-gesuchstellerin",
       "document": "ebf8b58b-4acf-4207-9b36-40a7e1f69ab2",
-      "file": null,
       "history_date": "2021-04-06T12:22:04.880Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -5603,7 +5415,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "lagekoordinaten-nord",
       "document": "af597d0c-c7f5-4724-8002-51360261b0d1",
-      "file": null,
       "history_date": "2021-03-31T12:36:44.417Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -5627,7 +5438,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "einhaltung-asbestvorgaben",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:13:18.435Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -5651,7 +5461,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "ist-das-vorhaben-energierelevant",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:11:33.461Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -5675,7 +5484,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "is-paper",
       "document": "4b765394-28a6-4955-b36b-8a0f6a3a4c07",
-      "file": null,
       "history_date": "2021-03-31T13:17:09.843Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -5699,7 +5507,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "strasse-gesuchstellerin",
       "document": "ebf8b58b-4acf-4207-9b36-40a7e1f69ab2",
-      "file": null,
       "history_date": "2021-04-06T12:21:39.362Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -5723,7 +5530,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "name-gesuchstellerin",
       "document": "e0c8f56e-5b2c-4800-88cf-380cb9cf5aa4",
-      "file": null,
       "history_date": "2020-03-06T11:10:42.532Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -5747,7 +5553,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "grenzwerte-ueberschritten",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:12:53.076Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -5771,7 +5576,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "e-mail-gesuchstellerin",
       "document": "ebf8b58b-4acf-4207-9b36-40a7e1f69ab2",
-      "file": null,
       "history_date": "2021-04-06T12:22:12.820Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -5795,7 +5599,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "plz-gesuchstellerin",
       "document": "a0288ba4-e413-48c5-b017-fcd7e7eb1412",
-      "file": null,
       "history_date": "2021-04-06T12:23:00.228Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -5819,7 +5622,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "plz-gesuchstellerin",
       "document": "6f2e85fe-cb99-4cd1-a0ec-53c5dccc888f",
-      "file": null,
       "history_date": "2021-03-31T12:34:36.031Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -5843,7 +5645,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "einreichen-button",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:45:01.829Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -5867,7 +5668,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "nutzungsart",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:11:23.607Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -5891,7 +5691,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "baugruppe-bauinventar",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:12:35.752Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -5915,7 +5714,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "name-gesuchstellerin",
       "document": "6f2e85fe-cb99-4cd1-a0ec-53c5dccc888f",
-      "file": null,
       "history_date": "2021-03-31T12:33:37.274Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -5939,7 +5737,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "qss-stufe",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:43:12.353Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -5963,7 +5760,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "strasse-flurname",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:47:22.361Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -5987,7 +5783,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "projektaenderung",
       "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
-      "file": null,
       "history_date": "2020-03-06T11:13:35.926Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -6011,7 +5806,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "ist-mit-bauabfaellen-zu-rechnen",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:35:34.192Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -6035,7 +5829,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "ort-gesuchstellerin",
       "document": "e0c8f56e-5b2c-4800-88cf-380cb9cf5aa4",
-      "file": null,
       "history_date": "2020-03-06T11:10:50.010Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -6059,7 +5852,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "gefahrenstufe",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:44:12.923Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -6083,7 +5875,6 @@
       "history_user_id": null,
       "question": "nummer-parzelle",
       "document": "36e5efdd-37c8-4d9a-9761-9ff01343f842",
-      "file": null,
       "history_date": "2021-02-23T08:59:18.201Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -6107,7 +5898,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "projektaenderung",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:10:26.141Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -6131,7 +5921,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "gentechnisch-veraenderte-pathogene-organismen",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:11:30.182Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -6155,7 +5944,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "gefahrenstufe",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:12:59.317Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -6179,7 +5967,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "strasse-flurname",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:47:19.145Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -6203,7 +5990,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "vorname-gesuchstellerin",
       "document": "e0c8f56e-5b2c-4800-88cf-380cb9cf5aa4",
-      "file": null,
       "history_date": "2020-03-06T11:10:43.663Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -6227,7 +6013,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "plz-gesuchstellerin",
       "document": "e0c8f56e-5b2c-4800-88cf-380cb9cf5aa4",
-      "file": null,
       "history_date": "2020-03-06T11:10:48.551Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -6251,7 +6036,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "strasse-gesuchstellerin",
       "document": "ebf8b58b-4acf-4207-9b36-40a7e1f69ab2",
-      "file": null,
       "history_date": "2021-04-06T12:21:37.129Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -6275,7 +6059,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "name-juristische-person-gesuchstellerin",
       "document": "ebf8b58b-4acf-4207-9b36-40a7e1f69ab2",
-      "file": null,
       "history_date": "2021-04-06T12:21:02.793Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -6299,7 +6082,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "gefahrenstufe",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:44:08.384Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -6323,7 +6105,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "e-mail-gesuchstellerin",
       "document": "274b4aff-b632-4fa1-8581-1ef47fe1d79c",
-      "file": null,
       "history_date": "2021-04-06T12:23:00.276Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -6347,7 +6128,6 @@
       "history_user_id": null,
       "question": "juristische-person-gesuchstellerin",
       "document": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
-      "file": null,
       "history_date": "2021-02-23T08:59:18.142Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -6371,7 +6151,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "is-paper",
       "document": "6264eb71-3b70-452f-a95c-0f980da8253b",
-      "file": null,
       "history_date": "2020-03-06T11:10:26.169Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -6395,7 +6174,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "name-juristische-person-gesuchstellerin",
       "document": "ebf8b58b-4acf-4207-9b36-40a7e1f69ab2",
-      "file": null,
       "history_date": "2021-04-06T12:21:13.334Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -6419,7 +6197,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "ist-das-vorhaben-energierelevant",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:35:35.926Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -6443,7 +6220,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "einreichen-button",
       "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
-      "file": null,
       "history_date": "2020-03-06T11:14:30.305Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -6467,7 +6243,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "e-mail-gesuchstellerin",
       "document": "ebf8b58b-4acf-4207-9b36-40a7e1f69ab2",
-      "file": null,
       "history_date": "2021-04-06T12:22:10.826Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -6491,7 +6266,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "strasse-flurname",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:12:16.652Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -6515,7 +6289,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "ableitung-haeusliche-abwaesser",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:43:40.530Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -6539,7 +6312,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "ort-gesuchstellerin",
       "document": "a0288ba4-e413-48c5-b017-fcd7e7eb1412",
-      "file": null,
       "history_date": "2021-04-06T12:23:00.222Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -6563,7 +6335,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "mit-schadstoffen-belastete-luft-aus-gebaeuden",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:48:21.392Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -6587,7 +6358,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "einhaltung-radonvorgaben",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:13:19.089Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -6611,7 +6381,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "strasse-gesuchstellerin",
       "document": "274b4aff-b632-4fa1-8581-1ef47fe1d79c",
-      "file": null,
       "history_date": "2021-04-06T12:23:00.320Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -6635,7 +6404,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "name-gesuchstellerin",
       "document": "9030c7f1-4ec1-4895-b386-96b889d37f0e",
-      "file": null,
       "history_date": "2021-04-06T12:19:38.443Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -6659,7 +6427,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "nummer-gesuchstellerin",
       "document": "a0288ba4-e413-48c5-b017-fcd7e7eb1412",
-      "file": null,
       "history_date": "2021-04-06T12:23:00.214Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -6683,7 +6450,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "bauten-oder-pfaehlen-im-grundwasser",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:47:47.121Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -6707,7 +6473,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "gebaeudeversicherungswert-in-chf",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:13:05.425Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -6731,7 +6496,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "ist-eine-schnurgerustabnahme-erforderlich",
       "document": "3f697075-a581-43f3-a9b0-81e8b80bd37e",
-      "file": null,
       "history_date": "2021-04-06T12:20:35.271Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -6755,7 +6519,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "rrb",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:12:36.826Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -6779,7 +6542,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "vertrag",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:12:38.257Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -6803,7 +6565,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "auto-oder-fahrradabstellplaetze",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:12:50.599Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -6827,7 +6588,6 @@
       "history_user_id": null,
       "question": "strasse-parzelle",
       "document": "36e5efdd-37c8-4d9a-9761-9ff01343f842",
-      "file": null,
       "history_date": "2021-02-23T08:59:18.192Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -6851,7 +6611,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "keine-tangierung-natur-wild-vogelschutz",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:13:17.686Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -6875,7 +6634,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "projektaenderung",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:32:54.162Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -6899,7 +6657,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "strasse-flurname",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:47:21.255Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -6923,7 +6680,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "strasse-flurname",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:12:18.235Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -6947,7 +6703,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "bau-im-wald-oder-innerhalb-von-30-m-abstand",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:35:30.940Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -6971,7 +6726,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "telefon-oder-mobile-gesuchstellerin",
       "document": "9030c7f1-4ec1-4895-b386-96b889d37f0e",
-      "file": null,
       "history_date": "2021-04-06T12:19:38.473Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -6995,7 +6749,6 @@
       "history_user_id": null,
       "question": "personalien-gesuchstellerin",
       "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
-      "file": null,
       "history_date": "2021-02-23T08:59:18.149Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -7019,7 +6772,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "is-paper",
       "document": "9e66710f-31ad-4b40-8845-dca1586d9223",
-      "file": null,
       "history_date": "2020-03-06T11:13:35.938Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -7043,7 +6795,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "ableitung-in-guellegrube-v2",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:49:00.599Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -7067,7 +6818,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "ort-grundstueck",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:47:32.837Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -7091,7 +6841,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "parzelle",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:36:44.762Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -7115,7 +6864,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "beschreibung-bauvorhaben",
       "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
-      "file": null,
       "history_date": "2020-03-06T11:14:21.417Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -7139,7 +6887,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "werden-luftemissionen-erzeugt",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:12:55.833Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -7163,7 +6910,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "belasteter-standort",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:12:12.985Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -7187,7 +6933,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "einhaltung-radonvorgaben",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:44:51.593Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -7211,7 +6956,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "juristische-person-gesuchstellerin",
       "document": "a0288ba4-e413-48c5-b017-fcd7e7eb1412",
-      "file": null,
       "history_date": "2021-04-06T12:23:00.198Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -7235,7 +6979,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "baukosten-in-chf",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:35:14.783Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -7259,7 +7002,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "e-mail-gesuchstellerin",
       "document": "6f2e85fe-cb99-4cd1-a0ec-53c5dccc888f",
-      "file": null,
       "history_date": "2021-03-31T12:34:47.915Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -7283,7 +7025,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "e-mail-gesuchstellerin",
       "document": "e0c8f56e-5b2c-4800-88cf-380cb9cf5aa4",
-      "file": null,
       "history_date": "2020-03-06T11:10:59.695Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -7307,7 +7048,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "ableitung-in-guellegrube",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:11:27.951Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -7331,7 +7071,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "baukosten-in-chf",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:11:19.897Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -7355,7 +7094,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "keine-tangierung-natur-wild-vogelschutz",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:44:52.225Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -7379,7 +7117,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "beschreibung-bauvorhaben",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:11:15.201Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -7403,7 +7140,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "telefon-oder-mobile-gesuchstellerin",
       "document": "274b4aff-b632-4fa1-8581-1ef47fe1d79c",
-      "file": null,
       "history_date": "2021-04-06T12:23:00.328Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -7427,7 +7163,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "personalien-gesuchstellerin",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:34:51.250Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -7451,7 +7186,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "schnitt-dokument",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:44:32.102Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -7475,7 +7209,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "e-mail-gesuchstellerin",
       "document": "9030c7f1-4ec1-4895-b386-96b889d37f0e",
-      "file": null,
       "history_date": "2021-04-06T12:19:38.480Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -7499,7 +7232,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "vorname-gesuchstellerin",
       "document": "6f2e85fe-cb99-4cd1-a0ec-53c5dccc888f",
-      "file": null,
       "history_date": "2021-03-31T12:34:08.169Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -7523,7 +7255,6 @@
       "history_user_id": null,
       "question": "plz-parzelle",
       "document": "36e5efdd-37c8-4d9a-9761-9ff01343f842",
-      "file": null,
       "history_date": "2021-02-23T08:59:18.209Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -7547,7 +7278,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "is-paper",
       "document": "d4603ede-e70c-4ea0-8f5d-aea5f108eaeb",
-      "file": null,
       "history_date": "2021-04-06T12:23:00.356Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -7571,7 +7301,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "objekt-des-besonderen-landschaftsschutzes",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:12:13.473Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -7595,7 +7324,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "gefahrenstufe",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:44:05.473Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -7619,7 +7347,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "juristische-person-gesuchstellerin",
       "document": "ebf8b58b-4acf-4207-9b36-40a7e1f69ab2",
-      "file": null,
       "history_date": "2021-04-06T12:20:55.694Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -7643,7 +7370,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "objekt-des-besonderen-landschaftsschutzes",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:36:55.080Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -7667,7 +7393,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "gemeinde",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:12:25.245Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -7691,7 +7416,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "anforderungen-eingehalten",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:44:50.827Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -7715,7 +7439,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "telefon-oder-mobile-gesuchstellerin",
       "document": "6f2e85fe-cb99-4cd1-a0ec-53c5dccc888f",
-      "file": null,
       "history_date": "2021-03-31T12:33:55.121Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -7739,7 +7462,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "strasse-gesuchstellerin",
       "document": "9030c7f1-4ec1-4895-b386-96b889d37f0e",
-      "file": null,
       "history_date": "2021-04-06T12:19:38.453Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -7763,7 +7485,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "ort-grundstueck",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:12:20.496Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -7787,7 +7508,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "gebiet-mit-naturgefahren",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "file": null,
       "history_date": "2020-03-06T11:12:13.064Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -7811,7 +7531,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "gibt-es-bewilligungspflichtige-reklame",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "file": null,
       "history_date": "2021-03-31T12:35:32.471Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -7835,7 +7554,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "ort-gesuchstellerin",
       "document": "ebf8b58b-4acf-4207-9b36-40a7e1f69ab2",
-      "file": null,
       "history_date": "2021-04-06T12:21:56.140Z",
       "history_change_reason": null,
       "history_type": "~"
@@ -7859,7 +7577,6 @@
       "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "question": "name-gesuchstellerin",
       "document": "ebf8b58b-4acf-4207-9b36-40a7e1f69ab2",
-      "file": null,
       "history_date": "2021-04-06T12:21:23.137Z",
       "history_change_reason": null,
       "history_type": "+"
@@ -7879,8 +7596,7 @@
       "value": "mp-schutzraumbau-befreiung-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -7897,8 +7613,7 @@
       "value": "mp-terrainveraenderungen-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -7915,8 +7630,7 @@
       "value": ["bestaetigung-mit-unterschrift-ja"],
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -7933,8 +7647,7 @@
       "value": null,
       "meta": {},
       "document": "3f697075-a581-43f3-a9b0-81e8b80bd37e",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -7951,8 +7664,7 @@
       "value": "mp-bauinventar-erhaltenswert-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -7969,8 +7681,7 @@
       "value": "mp-abstellraeume-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -7987,8 +7698,7 @@
       "value": "handelt-es-sich-um-ein-sensibles-objekt-nein",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8005,8 +7715,7 @@
       "value": "mp-gebaeudestellung-im-gelaende-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8023,8 +7732,7 @@
       "value": "schutzraum-pflicht-nein",
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8041,8 +7749,7 @@
       "value": "Wiesenweg",
       "meta": {},
       "document": "a0288ba4-e413-48c5-b017-fcd7e7eb1412",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8059,8 +7766,7 @@
       "value": "auto-oder-fahrradabstellplaetze-nein",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8077,8 +7783,7 @@
       "value": "mp-fotodokumentation-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8095,8 +7800,7 @@
       "value": 3000,
       "meta": {},
       "document": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8113,8 +7817,7 @@
       "value": "is-paper-no",
       "meta": {},
       "document": "4b765394-28a6-4955-b36b-8a0f6a3a4c07",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8131,8 +7834,7 @@
       "value": "Muster",
       "meta": {},
       "document": "a0288ba4-e413-48c5-b017-fcd7e7eb1412",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8149,8 +7851,7 @@
       "value": "33",
       "meta": {},
       "document": "9030c7f1-4ec1-4895-b386-96b889d37f0e",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8167,8 +7868,7 @@
       "value": "mp-anstellflaeche-fuer-kinderwagen-und-velo-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8185,8 +7885,7 @@
       "value": null,
       "meta": {},
       "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8203,8 +7902,7 @@
       "value": "naturschutz-nein",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8221,8 +7919,7 @@
       "value": "test@example.ch",
       "meta": {},
       "document": "e0c8f56e-5b2c-4800-88cf-380cb9cf5aa4",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8239,8 +7936,7 @@
       "value": "mp-moorlandschaft-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8257,8 +7953,7 @@
       "value": "Muster",
       "meta": {},
       "document": "6f2e85fe-cb99-4cd1-a0ec-53c5dccc888f",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8275,8 +7970,7 @@
       "value": "mp-schutzzone-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8293,8 +7987,7 @@
       "value": "mp-bauabstaende-zu-leitungen-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8311,8 +8004,7 @@
       "value": "objekt-des-besonderen-landschaftsschutzes-nein",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8329,8 +8021,7 @@
       "value": "info@example.com",
       "meta": {},
       "document": "a0288ba4-e413-48c5-b017-fcd7e7eb1412",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8347,8 +8038,7 @@
       "value": "1",
       "meta": {},
       "document": "c72dcd61-91b0-4cf9-a823-658e53d9306f",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8365,8 +8055,7 @@
       "value": "",
       "meta": {},
       "document": "f619bddb-8345-4e6f-89a8-f2305538ad5c",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8383,8 +8072,7 @@
       "value": "mp-bauinventar-schuetzenswert-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8401,8 +8089,7 @@
       "value": "mp-firsthoehe-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8419,8 +8106,7 @@
       "value": "mp-luftreinhaltungsverordnung-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8437,8 +8123,7 @@
       "value": ["bestaetigung-mit-unterschrift-ja"],
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8455,8 +8140,7 @@
       "value": ["gewaesserschutzbereich-au"],
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8473,8 +8157,7 @@
       "value": "mp-laermschutzverordnung-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8491,8 +8174,7 @@
       "value": null,
       "meta": {},
       "document": "e101ed70-5cbc-4e7f-a022-c3ed39247c46",
-      "date": "2021-04-06",
-      "file": null
+      "date": "2021-04-06"
     }
   },
   {
@@ -8509,8 +8191,7 @@
       "value": "is-paper-no",
       "meta": {},
       "document": "cb3d4d28-86a9-42f9-ba0b-f90876b61976",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8527,8 +8208,7 @@
       "value": "werden-brandschutzabstande-unterschritten-nein",
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8545,8 +8225,7 @@
       "value": "mp-bln-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8563,8 +8242,7 @@
       "value": "mp-schutzvorrichtungen-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8581,8 +8259,7 @@
       "value": "13",
       "meta": {},
       "document": "36e5efdd-37c8-4d9a-9761-9ff01343f842",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8599,8 +8276,7 @@
       "value": null,
       "meta": {},
       "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8617,8 +8293,7 @@
       "value": "mp-zonenkonformitaet-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8635,8 +8310,7 @@
       "value": "decision-decision-assessment-accepted",
       "meta": {},
       "document": "e101ed70-5cbc-4e7f-a022-c3ed39247c46",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8653,8 +8327,7 @@
       "value": "01010101",
       "meta": {},
       "document": "ebf8b58b-4acf-4207-9b36-40a7e1f69ab2",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8671,8 +8344,7 @@
       "value": "3776",
       "meta": {},
       "document": "36e5efdd-37c8-4d9a-9761-9ff01343f842",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8689,8 +8361,7 @@
       "value": "handelt-es-sich-um-ein-sensibles-objekt-nein",
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8707,8 +8378,7 @@
       "value": "mp-bauweise-offen-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8725,8 +8395,7 @@
       "value": "is-paper-no",
       "meta": {},
       "document": "d4603ede-e70c-4ea0-8f5d-aea5f108eaeb",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8743,8 +8412,7 @@
       "value": "wurden-vorabklaerungen-durchgefuehrt-nein",
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8761,8 +8429,7 @@
       "value": "mp-erforderliche-beilagen-vorhanden-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8779,8 +8446,7 @@
       "value": "mp-einfriedungen-stuetzmauern-boeschungen-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8797,8 +8463,7 @@
       "value": "mp-abstand-von-strassen-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8815,8 +8480,7 @@
       "value": "mp-gesetz-ueber-see-und-flussufer-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8833,8 +8497,7 @@
       "value": "077777777",
       "meta": {},
       "document": "9030c7f1-4ec1-4895-b386-96b889d37f0e",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8851,8 +8514,7 @@
       "value": "gentechnisch-veraenderte-pathogene-organismen-nein",
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8869,8 +8531,7 @@
       "value": "Bern",
       "meta": {},
       "document": "6f2e85fe-cb99-4cd1-a0ec-53c5dccc888f",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8887,8 +8548,7 @@
       "value": "Alle",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8905,8 +8565,7 @@
       "value": "k-objekt-nein",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8923,8 +8582,7 @@
       "value": "Testanfrage",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8941,8 +8599,7 @@
       "value": "mp-versickerung-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8959,8 +8616,7 @@
       "value": "gebiet-mit-archaeologischen-objekten-nein",
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8977,8 +8633,7 @@
       "value": "3",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -8995,8 +8650,7 @@
       "value": "077777777",
       "meta": {},
       "document": "6f2e85fe-cb99-4cd1-a0ec-53c5dccc888f",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9013,8 +8667,7 @@
       "value": "13",
       "meta": {},
       "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9031,8 +8684,7 @@
       "value": 3007,
       "meta": {},
       "document": "9030c7f1-4ec1-4895-b386-96b889d37f0e",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9049,8 +8701,7 @@
       "value": "mp-dachausbau-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9067,8 +8718,7 @@
       "value": "mp-kniewand-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9085,8 +8735,7 @@
       "value": "mp-dachaufbauten-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9103,8 +8752,7 @@
       "value": "ist-mit-bauabfaellen-zu-rechnen-nein",
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9121,8 +8769,7 @@
       "value": "wird-aussenlaerm-erzeugt-nein",
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9139,8 +8786,7 @@
       "value": "mp-kleiner-grenzabstand-hauptgebaeude-bewohnt-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9157,8 +8803,7 @@
       "value": "Ebersecken",
       "meta": {},
       "document": "ebf8b58b-4acf-4207-9b36-40a7e1f69ab2",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9175,8 +8820,7 @@
       "value": "rrb-nein",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9193,8 +8837,7 @@
       "value": "mp-mehrlaengen-und-breitenzuschlag-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9211,8 +8854,7 @@
       "value": ["einhaltung-radonvorgaben-ja"],
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9229,8 +8871,7 @@
       "value": "mp-andere-immissionen-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9247,8 +8888,7 @@
       "value": "schnurgeruest-zur-abnahme-bereit-ja",
       "meta": {},
       "document": "3f697075-a581-43f3-a9b0-81e8b80bd37e",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9265,8 +8905,7 @@
       "value": "mp-schalldaemmung-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9283,8 +8922,7 @@
       "value": "33",
       "meta": {},
       "document": "6f2e85fe-cb99-4cd1-a0ec-53c5dccc888f",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9301,8 +8939,7 @@
       "value": ["bestaetigung-gis-ja"],
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9319,8 +8956,7 @@
       "value": ["schnitt-dokument-ja"],
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9337,8 +8973,7 @@
       "value": "01010101",
       "meta": {},
       "document": "274b4aff-b632-4fa1-8581-1ef47fe1d79c",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9355,8 +8990,7 @@
       "value": ["um-was-fuer-ein-gebaeude-handelt-es-sich-efh"],
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9373,8 +9007,7 @@
       "value": "mp-abstand-vom-wald-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9391,8 +9024,7 @@
       "value": "",
       "meta": {},
       "document": "f619bddb-8345-4e6f-89a8-f2305538ad5c",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9409,8 +9041,7 @@
       "value": ["bestaetigung-gis-ja"],
       "meta": {},
       "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9427,8 +9058,7 @@
       "value": "ist-durch-das-bauvorhaben-boden-ober-unterboden-betroffen-v2-nein",
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9445,8 +9075,7 @@
       "value": "mp-abstellplaetze-wohnen-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9463,8 +9092,7 @@
       "value": "mp-fixpunkt-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9481,8 +9109,7 @@
       "value": "baugruppe-bauinventar-nein",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9499,8 +9126,7 @@
       "value": "mp-abstand-von-gewaessern-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9517,8 +9143,7 @@
       "value": "mp-gebaeudeabstand-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9535,8 +9160,7 @@
       "value": ["bauprofile-bleiben-bis-bauentscheid-stehen-ja"],
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9553,8 +9177,7 @@
       "value": "mp-baulinien-plan-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9571,8 +9194,7 @@
       "value": ["grundriss-dokument-ja"],
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9589,8 +9211,7 @@
       "value": "mp-breite-gefaelle-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9607,8 +9228,7 @@
       "value": "Egger",
       "meta": {},
       "document": "274b4aff-b632-4fa1-8581-1ef47fe1d79c",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9625,8 +9245,7 @@
       "value": "werden-luftemissionen-erzeugt-nein",
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9643,8 +9262,7 @@
       "value": "2",
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9661,8 +9279,7 @@
       "value": "bedingungen-und-auflagen-erfuellt-ja",
       "meta": {},
       "document": "3f697075-a581-43f3-a9b0-81e8b80bd37e",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9679,8 +9296,7 @@
       "value": "mp-raumhoehe-abgeschraegt-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9697,8 +9313,7 @@
       "value": "mp-gebaeudeform-proportionen-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9715,8 +9330,7 @@
       "value": "mp-energiegesetzgebung-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9733,8 +9347,7 @@
       "value": "mp-naturgefahren-gefahrengebiet-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9751,8 +9364,7 @@
       "value": "mp-zufahrt-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9769,8 +9381,7 @@
       "value": 10000,
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9787,8 +9398,7 @@
       "value": "mp-abstand-von-zonegrenzen-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9805,8 +9415,7 @@
       "value": "Wiesenweg",
       "meta": {},
       "document": "6f2e85fe-cb99-4cd1-a0ec-53c5dccc888f",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9823,8 +9432,7 @@
       "value": "mp-raumhoehe-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9841,8 +9449,7 @@
       "value": "projektaenderung-nein",
       "meta": {},
       "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9859,8 +9466,7 @@
       "value": "info@example.com",
       "meta": {},
       "document": "9030c7f1-4ec1-4895-b386-96b889d37f0e",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9877,8 +9483,7 @@
       "value": "Architekturbüro Asdf",
       "meta": {},
       "document": "274b4aff-b632-4fa1-8581-1ef47fe1d79c",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9895,8 +9500,7 @@
       "value": "building-permit",
       "meta": {},
       "document": "e101ed70-5cbc-4e7f-a022-c3ed39247c46",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9913,8 +9517,7 @@
       "value": 3456,
       "meta": {},
       "document": "274b4aff-b632-4fa1-8581-1ef47fe1d79c",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9931,8 +9534,7 @@
       "value": "mp-fachstellen-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9949,8 +9551,7 @@
       "value": "2021-1",
       "meta": {},
       "document": "92d0ff97-f78b-4b0d-953f-3eccc3a9bdad",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9967,8 +9568,7 @@
       "value": "Meier",
       "meta": {},
       "document": "e0c8f56e-5b2c-4800-88cf-380cb9cf5aa4",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -9985,8 +9585,7 @@
       "value": "",
       "meta": {},
       "document": "f619bddb-8345-4e6f-89a8-f2305538ad5c",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10003,8 +9602,7 @@
       "value": 2614285.0,
       "meta": {},
       "document": "36e5efdd-37c8-4d9a-9761-9ff01343f842",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10021,8 +9619,7 @@
       "value": "mp-wohnraeume-im-ug-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10039,8 +9636,7 @@
       "value": "mp-bepflanzung-ja",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10057,8 +9653,7 @@
       "value": "juristische-person-gesuchstellerin-ja",
       "meta": {},
       "document": "ebf8b58b-4acf-4207-9b36-40a7e1f69ab2",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10075,8 +9670,7 @@
       "value": "projektaenderung-nein",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10093,8 +9687,7 @@
       "value": "Bern",
       "meta": {},
       "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10111,8 +9704,7 @@
       "value": "mp-kehrichtplatz-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10129,8 +9721,7 @@
       "value": "belasteter-standort-nein",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10147,8 +9738,7 @@
       "value": "mp-dachneigung-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10165,8 +9755,7 @@
       "value": "Bern",
       "meta": {},
       "document": "9030c7f1-4ec1-4895-b386-96b889d37f0e",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10183,8 +9772,7 @@
       "value": "Bern",
       "meta": {},
       "document": "a0288ba4-e413-48c5-b017-fcd7e7eb1412",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10201,8 +9789,7 @@
       "value": "2",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10219,8 +9806,7 @@
       "value": "mp-az-uez-gz-gruenflaechenziffer-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10237,8 +9823,7 @@
       "value": 1211900.0,
       "meta": {},
       "document": "af597d0c-c7f5-4724-8002-51360261b0d1",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10255,8 +9840,7 @@
       "value": ["nutzungsart-wohnen"],
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10273,8 +9857,7 @@
       "value": ["qss-stufe-1"],
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10291,8 +9874,7 @@
       "value": "sind-belange-des-gewaesserschutzes-betroffen-v2-nein",
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10309,8 +9891,7 @@
       "value": ["situationsplan-dokument-ja"],
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10327,8 +9908,7 @@
       "value": ["bestaetigung-berechtigung-bauherrschaft-ja"],
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10345,8 +9925,7 @@
       "value": "Neubad",
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10363,8 +9942,7 @@
       "value": null,
       "meta": {},
       "document": "d4603ede-e70c-4ea0-8f5d-aea5f108eaeb",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10381,8 +9959,7 @@
       "value": "Wiesenweg",
       "meta": {},
       "document": "9030c7f1-4ec1-4895-b386-96b889d37f0e",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10399,8 +9976,7 @@
       "value": "juristische-person-gesuchstellerin-nein",
       "meta": {},
       "document": "9030c7f1-4ec1-4895-b386-96b889d37f0e",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10417,8 +9993,7 @@
       "value": "bau-im-wald-oder-innerhalb-von-30-m-abstand-nein",
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10435,8 +10010,7 @@
       "value": "mp-az-uez-gz-ueberbauungsprozente-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10453,8 +10027,7 @@
       "value": "juristische-person-gesuchstellerin-ja",
       "meta": {},
       "document": "274b4aff-b632-4fa1-8581-1ef47fe1d79c",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10471,8 +10044,7 @@
       "value": "besondere-brandrisiken-nein",
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10489,8 +10061,7 @@
       "value": "mp-dachform-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10507,8 +10078,7 @@
       "value": "Bern",
       "meta": {},
       "document": "e0c8f56e-5b2c-4800-88cf-380cb9cf5aa4",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10525,8 +10095,7 @@
       "value": "mp-antennen-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10543,8 +10112,7 @@
       "value": "Architekturbüro Asdf",
       "meta": {},
       "document": "ebf8b58b-4acf-4207-9b36-40a7e1f69ab2",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10561,8 +10129,7 @@
       "value": "mp-dachvorspruenge-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10579,8 +10146,7 @@
       "value": "mp-bepflanzung-ergebnis-eingehalten",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10597,8 +10163,7 @@
       "value": "wildtierschutz-nein",
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10615,8 +10180,7 @@
       "value": "mp-uvp-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10633,8 +10197,7 @@
       "value": "Weg",
       "meta": {},
       "document": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10651,8 +10214,7 @@
       "value": "Eggistrasse",
       "meta": {},
       "document": "274b4aff-b632-4fa1-8581-1ef47fe1d79c",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10669,8 +10231,7 @@
       "value": "Egger",
       "meta": {},
       "document": "ebf8b58b-4acf-4207-9b36-40a7e1f69ab2",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10687,8 +10248,7 @@
       "value": 10000,
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10705,8 +10265,7 @@
       "value": "mp-nutzungsart-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10723,8 +10282,7 @@
       "value": "mp-kanalisationsanschluss-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10741,8 +10299,7 @@
       "value": 1212209.0,
       "meta": {},
       "document": "36e5efdd-37c8-4d9a-9761-9ff01343f842",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10759,8 +10316,7 @@
       "value": "sanitaertechnische-anpassungen-liegenschaft-ja",
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10777,8 +10333,7 @@
       "value": ["gewaesserschutzbereich-au"],
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10795,8 +10350,7 @@
       "value": ["anforderungen-eingehalten-ja"],
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10813,8 +10367,7 @@
       "value": null,
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10831,8 +10384,7 @@
       "value": ["schnitt-dokument-ja"],
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10849,8 +10401,7 @@
       "value": "mp-kleiner-grenzabstand-hauptgebaeude-unbewohnt-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10867,8 +10418,7 @@
       "value": "gibt-es-bewilligungspflichtige-reklame-nein",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10885,8 +10435,7 @@
       "value": "erhaltenswert-nein",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10903,8 +10452,7 @@
       "value": "ist-das-vorhaben-energierelevant-nein",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10921,8 +10469,7 @@
       "value": "naturschutz-nein",
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10939,8 +10486,7 @@
       "value": "mp-kaminhoehe-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10957,8 +10503,7 @@
       "value": "is-paper-no",
       "meta": {},
       "document": "3f697075-a581-43f3-a9b0-81e8b80bd37e",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10975,8 +10520,7 @@
       "value": "2",
       "meta": {},
       "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -10993,8 +10537,7 @@
       "value": "3",
       "meta": {},
       "document": "af597d0c-c7f5-4724-8002-51360261b0d1",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11011,8 +10554,7 @@
       "value": "ableitung-in-guellegrube-nein",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11029,8 +10571,7 @@
       "value": "Max",
       "meta": {},
       "document": "a0288ba4-e413-48c5-b017-fcd7e7eb1412",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11047,8 +10588,7 @@
       "value": 3007,
       "meta": {},
       "document": "6f2e85fe-cb99-4cd1-a0ec-53c5dccc888f",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11065,8 +10605,7 @@
       "value": "wildtierschutz-nein",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11083,8 +10622,7 @@
       "value": "handelt-es-sich-um-ein-baudenkmal-ja",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11101,8 +10639,7 @@
       "value": "mp-grenzabstand-unterirdischer-bauteile-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11119,8 +10656,7 @@
       "value": ["grundriss-dokument-ja"],
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11137,8 +10673,7 @@
       "value": "sind-belange-des-gewasserschutzes-betroffen-nein",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11155,8 +10690,7 @@
       "value": null,
       "meta": {},
       "document": "3f697075-a581-43f3-a9b0-81e8b80bd37e",
-      "date": "2021-04-07",
-      "file": null
+      "date": "2021-04-07"
     }
   },
   {
@@ -11173,8 +10707,7 @@
       "value": "ebau-number-has-existing-no",
       "meta": {},
       "document": "92d0ff97-f78b-4b0d-953f-3eccc3a9bdad",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11191,8 +10724,7 @@
       "value": ["bestaetigung-liegenschaftsentwaesserung-ja"],
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11209,8 +10741,7 @@
       "value": "mp-sanitaere-einrichtungen-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11227,8 +10758,7 @@
       "value": ["situationsplan-dokument-ja"],
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11245,8 +10775,7 @@
       "value": "Strasse",
       "meta": {},
       "document": "e0c8f56e-5b2c-4800-88cf-380cb9cf5aa4",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11263,8 +10792,7 @@
       "value": ["qss-stufe-1"],
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11281,8 +10809,7 @@
       "value": "is-paper-no",
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11299,8 +10826,7 @@
       "value": "mp-gebaeudehoehe-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11317,8 +10843,7 @@
       "value": "mp-auzuege-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11335,8 +10860,7 @@
       "value": "CH634688355278",
       "meta": {},
       "document": "af597d0c-c7f5-4724-8002-51360261b0d1",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11353,8 +10877,7 @@
       "value": "Test Vorabklärung",
       "meta": {},
       "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11371,8 +10894,7 @@
       "value": "i@e.org",
       "meta": {},
       "document": "274b4aff-b632-4fa1-8581-1ef47fe1d79c",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11389,8 +10911,7 @@
       "value": "i@e.org",
       "meta": {},
       "document": "ebf8b58b-4acf-4207-9b36-40a7e1f69ab2",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11407,8 +10928,7 @@
       "value": "mp-kleiner-grenzabstand-nebengebaeude-bewohnt-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11425,8 +10945,7 @@
       "value": ["baubeschrieb-neubau"],
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11443,8 +10962,7 @@
       "value": ["anforderungen-eingehalten-ja"],
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11461,8 +10979,7 @@
       "value": "mp-kleiner-grenzabstand-nebengebaeude-unbewohnt-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11479,8 +10996,7 @@
       "value": "",
       "meta": {},
       "document": "f619bddb-8345-4e6f-89a8-f2305538ad5c",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11497,8 +11013,7 @@
       "value": 999999,
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11515,8 +11030,7 @@
       "value": "juristische-person-gesuchstellerin-nein",
       "meta": {},
       "document": "6f2e85fe-cb99-4cd1-a0ec-53c5dccc888f",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11533,8 +11047,7 @@
       "value": "",
       "meta": {},
       "document": "f619bddb-8345-4e6f-89a8-f2305538ad5c",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11551,8 +11064,7 @@
       "value": ["einhaltung-asbestvorgaben-ja"],
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11569,8 +11081,7 @@
       "value": "mp-sicherheit-im-allgemeinen-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11587,8 +11098,7 @@
       "value": "neubau-abwasseranlagen-grundleitungen-nein",
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11605,8 +11115,7 @@
       "value": "mp-wanderweg-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11623,8 +11132,7 @@
       "value": "ist-eine-schnurgerustabnahme-erforderlich-ja",
       "meta": {},
       "document": "3f697075-a581-43f3-a9b0-81e8b80bd37e",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11641,8 +11149,7 @@
       "value": "mit-schadstoffen-belastete-luft-aus-gebaeuden-nein",
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11659,8 +11166,7 @@
       "value": "wird-aussenlaerm-erzeugt-nein",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11677,8 +11183,7 @@
       "value": "mp-umweltschutz-question-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11695,8 +11200,7 @@
       "value": ["keine-tangierung-natur-wild-vogelschutz--ja"],
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11713,8 +11217,7 @@
       "value": "mp-raumgroesse-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11731,8 +11234,7 @@
       "value": 3000,
       "meta": {},
       "document": "e0c8f56e-5b2c-4800-88cf-380cb9cf5aa4",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11749,8 +11251,7 @@
       "value": "ableitung-in-guellegrube-v2-nein",
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11767,8 +11268,7 @@
       "value": "mp-wohnungsanteil-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11785,8 +11285,7 @@
       "value": "mit-schadstoffen-belastete-luft-aus-gebaeuden-nein",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11803,8 +11302,7 @@
       "value": "mp-gebaeudelaenge-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11821,8 +11319,7 @@
       "value": "Eggistrasse",
       "meta": {},
       "document": "ebf8b58b-4acf-4207-9b36-40a7e1f69ab2",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11839,8 +11336,7 @@
       "value": "mp-galerie-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11857,8 +11353,7 @@
       "value": "bauten-oder-pfaehlen-im-grundwasser-nein",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11875,8 +11370,7 @@
       "value": "33",
       "meta": {},
       "document": "e0c8f56e-5b2c-4800-88cf-380cb9cf5aa4",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11893,8 +11387,7 @@
       "value": "Test Bepflanzung",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11911,8 +11404,7 @@
       "value": "mp-strassenanschluss-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11929,8 +11421,7 @@
       "value": ["grundriss-angabe-bodenflaeche-dokument-ja"],
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11947,8 +11438,7 @@
       "value": "mp-entsorgung-abfaelle-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11965,8 +11455,7 @@
       "value": "mp-belichtung-belueftung-und-besonnung-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -11983,8 +11472,7 @@
       "value": "mp-ewap-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12001,8 +11489,7 @@
       "value": "besondere-brandrisiken-nein",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12019,8 +11506,7 @@
       "value": "mp-besondere-verhaeltnisse-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12037,8 +11523,7 @@
       "value": "Test Nutzungsart",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12055,8 +11540,7 @@
       "value": "mp-stoerfallvorsorge-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12073,8 +11557,7 @@
       "value": "juristische-person-gesuchstellerin-nein",
       "meta": {},
       "document": "e0c8f56e-5b2c-4800-88cf-380cb9cf5aa4",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12091,8 +11574,7 @@
       "value": "belasteter-standort-nein",
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12109,8 +11591,7 @@
       "value": "CH908035124647",
       "meta": {},
       "document": "36e5efdd-37c8-4d9a-9761-9ff01343f842",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12127,8 +11608,7 @@
       "value": ["einreichen-button-sb1-eingereicht"],
       "meta": {},
       "document": "3f697075-a581-43f3-a9b0-81e8b80bd37e",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12145,8 +11625,7 @@
       "value": "mp-grosse-spielflaeche-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12163,8 +11642,7 @@
       "value": "Peter",
       "meta": {},
       "document": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12181,8 +11659,7 @@
       "value": "mp-treppenbreiten-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12199,8 +11676,7 @@
       "value": "gebiet-mit-naturgefahren-ja",
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12217,8 +11693,7 @@
       "value": ["gefahrenstufe-unbestimmt"],
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12235,8 +11710,7 @@
       "value": "mp-bauweise-geschlossen-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12253,8 +11727,7 @@
       "value": 1211926.0,
       "meta": {},
       "document": "c72dcd61-91b0-4cf9-a823-658e53d9306f",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12271,8 +11744,7 @@
       "value": "mp-luftreinhaltung-baustelle-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12289,8 +11761,7 @@
       "value": "mp-hecken-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12307,8 +11778,7 @@
       "value": "mp-bauinventar-baugruppe-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12325,8 +11795,7 @@
       "value": "juristische-person-gesuchstellerin-nein",
       "meta": {},
       "document": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12343,8 +11812,7 @@
       "value": "mp-az-uez-gz-nutzungsuebertragung-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12361,8 +11829,7 @@
       "value": "mp-energiekollektoren-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12379,8 +11846,7 @@
       "value": "mp-radon-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12397,8 +11863,7 @@
       "value": "mp-ivs-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12415,8 +11880,7 @@
       "value": "Muster",
       "meta": {},
       "document": "9030c7f1-4ec1-4895-b386-96b889d37f0e",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12433,8 +11897,7 @@
       "value": ["einhaltung-radonvorgaben-ja"],
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12451,8 +11914,7 @@
       "value": "Wiesenweg",
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12469,8 +11931,7 @@
       "value": ["um-was-fuer-ein-gebaeude-handelt-es-sich-mfh"],
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12487,8 +11948,7 @@
       "value": ["bestaetigung-gis-ja"],
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12505,8 +11965,7 @@
       "value": null,
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12523,8 +11982,7 @@
       "value": "grenzwerte-ueberschritten-nein",
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12541,8 +11999,7 @@
       "value": "Bern",
       "meta": {},
       "document": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12559,8 +12016,7 @@
       "value": ["gefahrenstufe-unbestimmt"],
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12577,8 +12033,7 @@
       "value": "mp-altlasten-verdachtsflaechen-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12595,8 +12050,7 @@
       "value": 3007,
       "meta": {},
       "document": "a0288ba4-e413-48c5-b017-fcd7e7eb1412",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12613,8 +12067,7 @@
       "value": "bau-im-wald-oder-innerhalb-von-30-m-abstand-nein",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12631,8 +12084,7 @@
       "value": "gentechnisch-veraenderte-pathogene-organismen-nein",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12649,8 +12101,7 @@
       "value": "bauten-oder-pfaehlen-im-grundwasser-nein",
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12667,8 +12118,7 @@
       "value": 2614296.0,
       "meta": {},
       "document": "af597d0c-c7f5-4724-8002-51360261b0d1",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12685,8 +12135,7 @@
       "value": "Max",
       "meta": {},
       "document": "6f2e85fe-cb99-4cd1-a0ec-53c5dccc888f",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12703,8 +12152,7 @@
       "value": "gebiet-mit-archaeologischen-objekten-nein",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12721,8 +12169,7 @@
       "value": "vertrag-nein",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12739,8 +12186,7 @@
       "value": 3456,
       "meta": {},
       "document": "ebf8b58b-4acf-4207-9b36-40a7e1f69ab2",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12757,8 +12203,7 @@
       "value": "mp-zugangsrecht-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12775,8 +12220,7 @@
       "value": "mp-gebaeudestellung-zur-strasse-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12793,8 +12237,7 @@
       "value": "13",
       "meta": {},
       "document": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12811,8 +12254,7 @@
       "value": "decision-approval-type-building-permit",
       "meta": {},
       "document": "e101ed70-5cbc-4e7f-a022-c3ed39247c46",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12829,8 +12271,7 @@
       "value": "",
       "meta": {},
       "document": "f619bddb-8345-4e6f-89a8-f2305538ad5c",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12847,8 +12288,7 @@
       "value": "juristische-person-gesuchstellerin-nein",
       "meta": {},
       "document": "a0288ba4-e413-48c5-b017-fcd7e7eb1412",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12865,8 +12305,7 @@
       "value": "aenderungen-dachflaechen-zufahrten-plaetzen-nein",
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12883,8 +12322,7 @@
       "value": "ist-das-vorhaben-energierelevant-nein",
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12901,8 +12339,7 @@
       "value": ["einreichen-button-eingereicht"],
       "meta": {},
       "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12919,8 +12356,7 @@
       "value": null,
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12937,8 +12373,7 @@
       "value": "33",
       "meta": {},
       "document": "a0288ba4-e413-48c5-b017-fcd7e7eb1412",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12955,8 +12390,7 @@
       "value": "mp-geschosszahl-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12973,8 +12407,7 @@
       "value": "auto-oder-fahrradabstellplaetze-nein",
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -12991,8 +12424,7 @@
       "value": ["grundriss-angabe-bodenflaeche-dokument-ja"],
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13009,8 +12441,7 @@
       "value": ["keine-tangierung-natur-wild-vogelschutz--ja"],
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13027,8 +12458,7 @@
       "value": "mp-isos-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13045,8 +12475,7 @@
       "value": "gibt-es-bewilligungspflichtige-reklame-nein",
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13063,8 +12492,7 @@
       "value": "mp-bauen-in-der-landwirtschaftszone-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13081,8 +12509,7 @@
       "value": "test@example.com",
       "meta": {},
       "document": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13099,8 +12526,7 @@
       "value": "",
       "meta": {},
       "document": "f619bddb-8345-4e6f-89a8-f2305538ad5c",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13117,8 +12543,7 @@
       "value": "Max",
       "meta": {},
       "document": "9030c7f1-4ec1-4895-b386-96b889d37f0e",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13135,8 +12560,7 @@
       "value": "0999999999",
       "meta": {},
       "document": "e0c8f56e-5b2c-4800-88cf-380cb9cf5aa4",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13153,8 +12577,7 @@
       "value": "mp-gebaeudeproportionen-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13171,8 +12594,7 @@
       "value": null,
       "meta": {},
       "document": "9b6ee5ed-87fd-4179-9ce6-86a56092498b",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13189,8 +12611,7 @@
       "value": "Mischzone Altstadt Wohnen MAW",
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13207,8 +12628,7 @@
       "value": "Burgdorf",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13225,8 +12645,7 @@
       "value": "Ensembleschutzzone ",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13243,8 +12662,7 @@
       "value": "Ebersecken",
       "meta": {},
       "document": "274b4aff-b632-4fa1-8581-1ef47fe1d79c",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13261,8 +12679,7 @@
       "value": "",
       "meta": {},
       "document": "f619bddb-8345-4e6f-89a8-f2305538ad5c",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13279,8 +12696,7 @@
       "value": "handelt-es-sich-um-ein-baudenkmal-nein",
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13297,8 +12713,7 @@
       "value": "schutzraum-pflicht-nein",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13315,8 +12730,7 @@
       "value": "wurden-vorabklaerungen-durchgefuehrt-nein",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13333,8 +12747,7 @@
       "value": ["einreichen-button-eingereicht"],
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13351,8 +12764,7 @@
       "value": "mp-eisenbahn-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13369,8 +12781,7 @@
       "value": "mp-aufenthaltsbereiche-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13387,8 +12798,7 @@
       "value": "mp-auskragung-offener-bauteile-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13405,8 +12815,7 @@
       "value": ["baubeschrieb-um-ausbau"],
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13423,8 +12832,7 @@
       "value": "mp-bauweise-gestaltungsfreiheit-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13441,8 +12849,7 @@
       "value": "info@example.com",
       "meta": {},
       "document": "6f2e85fe-cb99-4cd1-a0ec-53c5dccc888f",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13459,8 +12866,7 @@
       "value": ["bestaetigung-liegenschaftsentwaesserung-ja"],
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13477,8 +12883,7 @@
       "value": "Müller",
       "meta": {},
       "document": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13495,8 +12900,7 @@
       "value": "UEO Nr. XV Kornhausgasse 20.7.2001 XV",
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13513,8 +12917,7 @@
       "value": "mp-einordnung-und-gestaltung-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13531,8 +12934,7 @@
       "value": "Hans",
       "meta": {},
       "document": "e0c8f56e-5b2c-4800-88cf-380cb9cf5aa4",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13549,8 +12951,7 @@
       "value": "mp-kinderspielplaetze-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13567,8 +12968,7 @@
       "value": 2614314.0,
       "meta": {},
       "document": "c72dcd61-91b0-4cf9-a823-658e53d9306f",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13585,8 +12985,7 @@
       "value": "mp-kantonales-naturschutzgebiet-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13603,8 +13002,7 @@
       "value": "werden-luftemissionen-erzeugt-nein",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13621,8 +13019,7 @@
       "value": "mp-material-und-farbwahl-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13639,8 +13036,7 @@
       "value": "gebiet-mit-naturgefahren-ja",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13657,8 +13053,7 @@
       "value": 3000,
       "meta": {},
       "document": "36e5efdd-37c8-4d9a-9761-9ff01343f842",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13675,8 +13070,7 @@
       "value": "mp-entsorgungskonzept-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13693,8 +13087,7 @@
       "value": null,
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13711,8 +13104,7 @@
       "value": ["ableitung-haeusliche-abwaesser-ara"],
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13729,8 +13121,7 @@
       "value": "mp-bauten-in-bahnnaehe-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13747,8 +13138,7 @@
       "value": "0000000000",
       "meta": {},
       "document": "4c46fe1e-c7dd-4710-ab82-c069de337c0e",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13765,8 +13155,7 @@
       "value": "mp-gebaeudebreite-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13783,8 +13172,7 @@
       "value": "Ernst",
       "meta": {},
       "document": "ebf8b58b-4acf-4207-9b36-40a7e1f69ab2",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13801,8 +13189,7 @@
       "value": "077777777",
       "meta": {},
       "document": "a0288ba4-e413-48c5-b017-fcd7e7eb1412",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13819,8 +13206,7 @@
       "value": "objekt-des-besonderen-landschaftsschutzes-nein",
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13837,8 +13223,7 @@
       "value": "is-paper-no",
       "meta": {},
       "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13855,8 +13240,7 @@
       "value": "CH273589324696",
       "meta": {},
       "document": "c72dcd61-91b0-4cf9-a823-658e53d9306f",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13873,8 +13257,7 @@
       "value": "projektaenderung-nein",
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13891,8 +13274,7 @@
       "value": ["nutzungsart-wohnen"],
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13909,8 +13291,7 @@
       "value": "Weg",
       "meta": {},
       "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13927,8 +13308,7 @@
       "value": "mp-abstellplaetze-gewerbe-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13945,8 +13325,7 @@
       "value": "grenzwerte-ueberschritten-nein",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13963,8 +13342,7 @@
       "value": "Bern",
       "meta": {},
       "document": "36e5efdd-37c8-4d9a-9761-9ff01343f842",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13981,8 +13359,7 @@
       "value": "mp-bauliche-vorkehrungen-fuer-behinderte-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -13999,8 +13376,7 @@
       "value": "ist-mit-bauabfaellen-zu-rechnen-nein",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -14017,8 +13393,7 @@
       "value": "mp-umgebungsgestaltung-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -14035,8 +13410,7 @@
       "value": "schuetzenswert-nein",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -14053,8 +13427,7 @@
       "value": "mp-firstrichtung-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -14071,8 +13444,7 @@
       "value": "Burgdorf",
       "meta": {},
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -14089,8 +13461,7 @@
       "value": "mp-grosser-grenzabstand-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -14107,8 +13478,7 @@
       "value": "mp-hygiene-und-unfallverhütung-auf-bauplätzen-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -14125,8 +13495,7 @@
       "value": "verantwortliche-person-sb-identisch-ja",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -14143,8 +13512,7 @@
       "value": "is-paper-no",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -14161,8 +13529,7 @@
       "value": "Teststrasse",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -14179,8 +13546,7 @@
       "value": "werden-brandschutzabstande-unterschritten-nein",
       "meta": {},
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -14197,8 +13563,7 @@
       "value": "Weg",
       "meta": {},
       "document": "36e5efdd-37c8-4d9a-9761-9ff01343f842",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -14215,8 +13580,7 @@
       "value": "Ernst",
       "meta": {},
       "document": "274b4aff-b632-4fa1-8581-1ef47fe1d79c",
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
