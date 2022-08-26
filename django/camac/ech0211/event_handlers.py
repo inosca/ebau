@@ -37,6 +37,7 @@ from camac.constants.kt_bern import (
 from camac.document.models import Attachment
 from camac.user.models import Service
 
+from .constants import ECH_API_LEVEL_BASIC, ECH_API_LEVEL_FULL
 from .data_preparation import get_document
 from .formatters import (
     accompanying_report,
@@ -45,6 +46,7 @@ from .formatters import (
     request,
     status_notification,
     submit,
+    submit_md,
 )
 from .models import Message
 from .signals import (
@@ -134,6 +136,34 @@ class SubmitEventHandler(BaseEventHandler):
         ) as e:  # pragma: no cover
             logger.error(e.details())
             raise
+
+
+class SubmitMDEventHandler(BaseEventHandler):
+    event_type = "submit"
+    message_type = ECH_SUBMIT
+
+    def get_xml(self):
+        try:
+            return delivery(
+                self.instance,
+                answers={"ech-subject": self.instance.form.get_name()},
+                message_type=self.message_type,
+                message_date=self.message_date,
+                message_id=str(self.message_id),
+                eventSubmitPlanningPermissionApplication=submit_md(
+                    self.instance, self.event_type
+                ),
+            ).toxml()
+        except (
+            IncompleteElementContentError,
+            UnprocessedElementContentError,
+            UnprocessedKeywordContentError,
+        ) as e:  # pragma: no cover
+            logger.error(e.details())
+            raise
+
+    def run(self):
+        return self.create_message(self.get_xml())
 
 
 class FileSubsequentlyEventHandler(BaseEventHandler):
@@ -406,7 +436,16 @@ def if_ech_enabled(func):
 @receiver(instance_submitted)
 @if_ech_enabled
 def submit_callback(sender, instance, user_pk, group_pk, **kwargs):
-    handler = SubmitEventHandler(instance, user_pk=user_pk, group_pk=group_pk)
+    ech_api_level = settings.APPLICATION["ECH0211"].get("API_LEVEL")
+    if ech_api_level not in [
+        ECH_API_LEVEL_FULL,
+        ECH_API_LEVEL_BASIC,
+    ]:
+        return
+    if ech_api_level == ECH_API_LEVEL_FULL:
+        handler = SubmitEventHandler(instance, user_pk=user_pk, group_pk=group_pk)
+    if ech_api_level == ECH_API_LEVEL_BASIC:
+        handler = SubmitMDEventHandler(instance, user_pk=user_pk, group_pk=group_pk)
     handler.run()
 
 
