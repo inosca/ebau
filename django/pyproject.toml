@@ -61,6 +61,7 @@ filterwarnings = [
     "ignore:No fixture data:RuntimeWarning", # Caused by automatically generated empty fixtures
     "ignore:No directory at:UserWarning", # Caused by whitenoise in tests
     "ignore:Duplicate name:UserWarning", # Caused by multiple tests using the same test files
+    "ignore:'django_extensions' defines default_app_config:PendingDeprecationWarning", # https://github.com/django-extensions/django-extensions/issues/1757
     # FIXME: requests-toolbelt uses deprecated urllib3.contrib.pyopenssl
     # see https://github.com/requests/toolbelt/issues/331
     # Remove this when requests-toolbelt fixes its use
