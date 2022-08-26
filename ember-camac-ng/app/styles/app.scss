@@ -4,15 +4,13 @@
 
 #ember-camac-ng {
   @import "variables";
-  &:not(.disable-uikit) {
-    @import "ember-uikit";
-    @import "@projectcaluma/ember-distribution";
-    @import "@projectcaluma/ember-form";
-    @import "@projectcaluma/ember-form-builder";
-    @import "ember-ebau-gwr";
-    @import "ember-ebau-core";
-    @import "reset";
-  }
+  @import "ember-uikit";
+  @import "@projectcaluma/ember-distribution";
+  @import "@projectcaluma/ember-form";
+  @import "@projectcaluma/ember-form-builder";
+  @import "ember-ebau-gwr";
+  @import "ember-ebau-core";
+  @import "reset";
 
   @import "modules/dossier-import";
 
