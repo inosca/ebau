@@ -13,8 +13,7 @@
       "value": "mp-raumhoehe-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -31,8 +30,7 @@
       "value": "mp-naturgefahren-gefahrengebiet-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -49,8 +47,7 @@
       "value": "mp-breite-gefaelle-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -67,8 +64,7 @@
       "value": "mp-dachform-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -85,8 +81,7 @@
       "value": "mp-gebaeudebreite-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -103,8 +98,7 @@
       "value": "mp-hygiene-und-unfallverhütung-auf-bauplätzen-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -121,8 +115,7 @@
       "value": "mp-bauweise-geschlossen-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -139,8 +132,7 @@
       "value": "mp-uvp-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -157,8 +149,7 @@
       "value": "mp-dachvorspruenge-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -175,8 +166,7 @@
       "value": "mp-abstellraeume-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -193,8 +183,7 @@
       "value": "mp-schutzraumbau-befreiung-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -211,8 +200,7 @@
       "value": "mp-abstand-von-zonegrenzen-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -229,8 +217,7 @@
       "value": "mp-kleiner-grenzabstand-hauptgebaeude-bewohnt-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -247,8 +234,7 @@
       "value": "mp-entsorgungskonzept-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -265,8 +251,7 @@
       "value": "mp-ewap-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -283,8 +268,7 @@
       "value": "mp-schutzzone-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -301,8 +285,7 @@
       "value": "mp-treppenbreiten-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -319,8 +302,7 @@
       "value": "mp-bauweise-offen-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -337,8 +319,7 @@
       "value": "mp-bauten-in-bahnnaehe-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -355,8 +336,7 @@
       "value": "mp-laermschutzverordnung-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -373,8 +353,7 @@
       "value": "mp-kinderspielplaetze-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -391,8 +370,7 @@
       "value": "mp-auskragung-offener-bauteile-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -409,8 +387,7 @@
       "value": "mp-az-uez-gz-ueberbauungsprozente-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -427,8 +404,7 @@
       "value": "mp-raumgroesse-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -445,8 +421,7 @@
       "value": "mp-material-und-farbwahl-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -463,8 +438,7 @@
       "value": "mp-einordnung-und-gestaltung-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -481,8 +455,7 @@
       "value": "mp-umgebungsgestaltung-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -499,8 +472,7 @@
       "value": "mp-strassenanschluss-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -517,8 +489,7 @@
       "value": "mp-gebaeudelaenge-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -535,8 +506,7 @@
       "value": "mp-versickerung-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -553,8 +523,7 @@
       "value": "mp-firsthoehe-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -571,8 +540,7 @@
       "value": "mp-andere-immissionen-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -589,8 +557,7 @@
       "value": "mp-bauinventar-baugruppe-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -607,8 +574,7 @@
       "value": "mp-wohnraeume-im-ug-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -625,8 +591,7 @@
       "value": "mp-abstellplaetze-gewerbe-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -643,8 +608,7 @@
       "value": "mp-abstand-von-gewaessern-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -661,8 +625,7 @@
       "value": "mp-sicherheit-im-allgemeinen-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -679,8 +642,7 @@
       "value": "mp-bauen-in-der-landwirtschaftszone-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -697,8 +659,7 @@
       "value": "mp-gebaeudestellung-zur-strasse-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -715,8 +676,7 @@
       "value": "mp-schutzvorrichtungen-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -733,8 +693,7 @@
       "value": "mp-az-uez-gz-gruenflaechenziffer-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -751,8 +710,7 @@
       "value": "mp-kantonales-naturschutzgebiet-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -769,8 +727,7 @@
       "value": "mp-gesetz-ueber-see-und-flussufer-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -787,8 +744,7 @@
       "value": "mp-kanalisationsanschluss-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -805,8 +761,7 @@
       "value": "mp-altlasten-verdachtsflaechen-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -823,8 +778,7 @@
       "value": "mp-bauweise-gestaltungsfreiheit-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -841,8 +795,7 @@
       "value": "mp-entsorgung-abfaelle-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -859,8 +812,7 @@
       "value": "mp-raumhoehe-abgeschraegt-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -877,8 +829,7 @@
       "value": "mp-antennen-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -895,8 +846,7 @@
       "value": "mp-abstand-vom-wald-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -913,8 +863,7 @@
       "value": "mp-anstellflaeche-fuer-kinderwagen-und-velo-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -931,8 +880,7 @@
       "value": "mp-einfriedungen-stuetzmauern-boeschungen-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -949,8 +897,7 @@
       "value": "mp-kaminhoehe-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -967,8 +914,7 @@
       "value": "mp-gebaeudestellung-im-gelaende-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -985,8 +931,7 @@
       "value": "mp-moorlandschaft-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1003,8 +948,7 @@
       "value": "mp-galerie-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1021,8 +965,7 @@
       "value": "mp-dachaufbauten-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1039,8 +982,7 @@
       "value": "mp-hecken-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1057,8 +999,7 @@
       "value": "mp-isos-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1075,8 +1016,7 @@
       "value": "mp-energiekollektoren-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1093,8 +1033,7 @@
       "value": "mp-sanitaere-einrichtungen-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1111,8 +1050,7 @@
       "value": "mp-grenzabstand-unterirdischer-bauteile-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1129,8 +1067,7 @@
       "value": "mp-abstellplaetze-wohnen-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1147,8 +1084,7 @@
       "value": "mp-belichtung-belueftung-und-besonnung-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1165,8 +1101,7 @@
       "value": "mp-terrainveraenderungen-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1183,8 +1118,7 @@
       "value": "mp-kleiner-grenzabstand-nebengebaeude-bewohnt-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1201,8 +1135,7 @@
       "value": "mp-ivs-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1219,8 +1152,7 @@
       "value": "mp-energiegesetzgebung-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1237,8 +1169,7 @@
       "value": "mp-umweltschutz-question-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1255,8 +1186,7 @@
       "value": "mp-wohnungsanteil-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1273,8 +1203,7 @@
       "value": "mp-zufahrt-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1291,8 +1220,7 @@
       "value": "mp-bauinventar-erhaltenswert-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1309,8 +1237,7 @@
       "value": "mp-gebaeudehoehe-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1327,8 +1254,7 @@
       "value": "mp-grosse-spielflaeche-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1345,8 +1271,7 @@
       "value": "mp-schalldaemmung-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1363,8 +1288,7 @@
       "value": "bab-landwirtschaft-nutzung-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1381,8 +1305,7 @@
       "value": "mp-az-uez-gz-nutzungsuebertragung-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1399,8 +1322,7 @@
       "value": "mp-besondere-verhaeltnisse-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1417,8 +1339,7 @@
       "value": "mp-bepflanzung-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1435,8 +1356,7 @@
       "value": "mp-nutzungsart-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1453,8 +1373,7 @@
       "value": "mp-kniewand-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1471,8 +1390,7 @@
       "value": "mp-gebaeudeform-proportionen-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1489,8 +1407,7 @@
       "value": "mp-eisenbahn-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1507,8 +1424,7 @@
       "value": "mp-stoerfallvorsorge-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1525,8 +1441,7 @@
       "value": "mp-zugangsrecht-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1543,8 +1458,7 @@
       "value": "mp-gebaeudeproportionen-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1561,8 +1475,7 @@
       "value": "mp-aufenthaltsbereiche-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1579,8 +1492,7 @@
       "value": "mp-abstand-von-strassen-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1597,8 +1509,7 @@
       "value": "mp-fachstellen-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1615,8 +1526,7 @@
       "value": "mp-geschosszahl-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1633,8 +1543,7 @@
       "value": "mp-bauliche-vorkehrungen-fuer-behinderte-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1651,8 +1560,7 @@
       "value": "mp-wanderweg-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1669,8 +1577,7 @@
       "value": "mp-dachneigung-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1687,8 +1594,7 @@
       "value": "mp-firstrichtung-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1705,8 +1611,7 @@
       "value": "mp-kleiner-grenzabstand-nebengebaeude-unbewohnt-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1723,8 +1628,7 @@
       "value": "mp-fixpunkt-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1741,8 +1645,7 @@
       "value": "mp-zonenkonformitaet-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1759,8 +1662,7 @@
       "value": "mp-bauabstaende-zu-leitungen-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1777,8 +1679,7 @@
       "value": "mp-auzuege-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1795,8 +1696,7 @@
       "value": "mp-bln-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1813,8 +1713,7 @@
       "value": "mp-fotodokumentation-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1831,8 +1730,7 @@
       "value": "mp-radon-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1849,8 +1747,7 @@
       "value": "mp-luftreinhaltungsverordnung-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1867,8 +1764,7 @@
       "value": "mp-mehrlaengen-und-breitenzuschlag-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1885,8 +1781,7 @@
       "value": "mp-bauinventar-schuetzenswert-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1903,8 +1798,7 @@
       "value": "mp-gebaeudeabstand-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1921,8 +1815,7 @@
       "value": "mp-kleiner-grenzabstand-hauptgebaeude-unbewohnt-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1939,8 +1832,7 @@
       "value": "mp-kehrichtplatz-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1957,8 +1849,7 @@
       "value": "mp-grosser-grenzabstand-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1975,8 +1866,7 @@
       "value": "mp-dachausbau-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -1993,8 +1883,7 @@
       "value": "mp-baulinien-plan-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
@@ -2011,8 +1900,7 @@
       "value": "mp-luftreinhaltung-baustelle-nein",
       "meta": {},
       "document": null,
-      "date": null,
-      "file": null
+      "date": null
     }
   },
   {
