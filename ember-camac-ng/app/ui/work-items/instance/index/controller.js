@@ -5,7 +5,7 @@ import { useCalumaQuery } from "@projectcaluma/ember-core/caluma-query";
 import { allWorkItems } from "@projectcaluma/ember-core/caluma-query/queries";
 import { queryManager } from "ember-apollo-client";
 import { processNewWorkItems } from "ember-ebau-core/utils/work-item";
-import { trackedFunction } from "ember-resources";
+import { trackedFunction } from "ember-resources/util/function";
 
 import getManualWorkItemsCount from "camac-ng/gql/queries/get-manual-work-items-count.graphql";
 

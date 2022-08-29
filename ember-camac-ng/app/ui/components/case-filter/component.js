@@ -6,7 +6,7 @@ import { useCalumaQuery } from "@projectcaluma/ember-core/caluma-query";
 import { allForms } from "@projectcaluma/ember-core/caluma-query/queries";
 import { queryManager } from "ember-apollo-client";
 import { findAll, query } from "ember-data-resources";
-import { trackedFunction } from "ember-resources";
+import { trackedFunction } from "ember-resources/util/function";
 import { cached } from "tracked-toolbox";
 
 import caseFilters from "./filter-config";
