@@ -980,6 +980,15 @@ def be_distribution_settings(settings, distribution_settings):
 
 
 @pytest.fixture
+def sz_distribution_settings(settings, distribution_settings):
+    distribution_dict = copy.deepcopy(
+        always_merger.merge(distribution_settings, DISTRIBUTION["kt_schwyz"])
+    )
+    settings.DISTRIBUTION = distribution_dict
+    return distribution_dict
+
+
+@pytest.fixture
 def active_inquiry_factory(
     instance, service, distribution_settings, work_item_factory, answer_factory
 ):
