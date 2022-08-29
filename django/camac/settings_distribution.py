@@ -40,6 +40,9 @@ DISTRIBUTION = {
             "CancelWorkItem": {
                 "INQUIRY_TASK": lambda group, *_: is_lead_role(group),
             },
+            "RedoWorkItem": {
+                "DISTRIBUTION_TASK": lambda group, *_: is_lead_role(group),
+            },
             "SaveDocumentAnswer": {
                 "INQUIRY_FORM": lambda group, document, *_: has_permission_for_inquiry_document(
                     group, document
@@ -53,6 +56,7 @@ DISTRIBUTION = {
     "kt_bern": {
         "ENABLED": True,
         "ECH_EVENTS": True,
+        "INSTANCE_STATE_DISTRIBUTION": "circulation",
         "QUESTIONS": {
             "STATEMENT": "inquiry-answer-statement",
             "ANCILLARY_CLAUSES": "inquiry-answer-ancillary-clauses",
@@ -470,6 +474,7 @@ DISTRIBUTION = {
     },
     "kt_schwyz": {
         "ENABLED": True,
+        "INSTANCE_STATE_DISTRIBUTION": "circ",
         "INQUIRY_ANSWER_CHECK_TASK": "check-inquiry",
         "INQUIRY_ANSWER_REVISE_TASK": "revise-inquiry",
         "INQUIRY_ANSWER_ALTER_TASK": "alter-inquiry",

@@ -170,6 +170,19 @@
   },
   {
     "model": "caluma_workflow.flow",
+    "pk": "85f93ed7-0ec4-4c6a-9b1f-c4ee2aaf5458",
+    "fields": {
+      "created_at": "2022-08-25T07:35:41.056Z",
+      "modified_at": "2022-08-25T07:35:41.057Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "[]|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
     "pk": "8a5c5a85-4d01-413c-8a29-ffd8cfb0de90",
     "fields": {
       "created_at": "2022-01-28T15:38:53.525Z",
@@ -786,7 +799,7 @@
       "workflow": "building-permit",
       "task": "decision",
       "flow": "d8dd513b-ea02-43ba-96cd-568457d21744",
-      "redoable": null
+      "redoable": "'distribution'|task"
     }
   },
   {
@@ -915,6 +928,22 @@
       "task": "sb1",
       "flow": "3826b971-fded-4ecd-a7d5-0ca604424ccf",
       "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "9bc4477e-91d8-4209-bddf-b1be9c6f414a",
+    "fields": {
+      "created_at": "2022-08-25T07:35:41.063Z",
+      "modified_at": "2022-08-25T07:35:41.063Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "preliminary-clarification",
+      "task": "decision",
+      "flow": "85f93ed7-0ec4-4c6a-9b1f-c4ee2aaf5458",
+      "redoable": "'distribution'|task"
     }
   },
   {

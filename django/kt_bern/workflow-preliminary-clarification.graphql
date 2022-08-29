@@ -94,9 +94,22 @@ mutation CreateFlow6 {
 mutation CreateFlow7 {
   addWorkflowFlow(
     input: {
-      workflow: "building-permit"
+      workflow: "preliminary-clarification"
       tasks: ["create-information-of-neighbors"]
       next: "'information-of-neighbors'|task"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFlow8 {
+  addWorkflowFlow(
+    input: {
+      workflow: "preliminary-clarification"
+      tasks: ["decision"]
+      next: "[]|tasks"
+      redoable: "'distribution'|task"
     }
   ) {
     clientMutationId

@@ -433,7 +433,7 @@
       "workflow": "building-permit",
       "task": "make-decision",
       "flow": "83f2c279-bc8c-4cf4-97e1-8068fa85e8fa",
-      "redoable": null
+      "redoable": "'distribution'|task"
     }
   },
   {
