@@ -3,6 +3,7 @@ from caluma.caluma_form.api import save_answer
 from caluma.caluma_form.models import Question
 from caluma.caluma_workflow.api import (
     complete_work_item,
+    redo_work_item,
     resume_work_item,
     skip_work_item,
 )
@@ -296,3 +297,104 @@ def test_complete_distribution(
 
     assert len(mailoutbox) == 1
     assert mailoutbox[0].to[0] == service.email
+
+
+def test_reopen_distribution(
+    db,
+    be_instance,
+    caluma_admin_user,
+    distribution_child_case,
+    distribution_settings,
+    inquiry_factory,
+    notification_template_factory,
+    service_factory,
+    service,
+    instance_state_factory,
+):
+    instance_state_distribution = instance_state_factory()
+
+    distribution_settings[
+        "INSTANCE_STATE_DISTRIBUTION"
+    ] = instance_state_distribution.name
+
+    # this is needed so that simple workflow works
+    notification_template_factory(slug="03-verfahren-vorzeitig-beendet")
+
+    service_with_sent_inquiry = service_factory()
+    service_with_unsent_inquiry = service_factory()
+    subservice_with_sent_inquiry = service_factory(
+        service_parent=service_with_sent_inquiry
+    )
+
+    inquiry_factory(to_service=service_with_sent_inquiry, sent=True)
+    inquiry_factory(to_service=service_with_unsent_inquiry)
+    inquiry_factory(to_service=subservice_with_sent_inquiry, sent=True)
+
+    complete_distribution = distribution_child_case.work_items.get(
+        task_id=distribution_settings["DISTRIBUTION_COMPLETE_TASK"]
+    )
+
+    # complete distribution to create proper workflow status for reopening the
+    # distribution again
+    complete_work_item(work_item=complete_distribution, user=caluma_admin_user)
+
+    distribution_child_case.refresh_from_db()
+    be_instance.refresh_from_db()
+
+    distribution = be_instance.case.work_items.get(
+        task_id=distribution_settings["DISTRIBUTION_TASK"]
+    )
+    decision = be_instance.case.work_items.get(task_id="decision")
+
+    assert distribution_child_case.status == Case.STATUS_COMPLETED
+    assert distribution.status == WorkItem.STATUS_COMPLETED
+    assert decision.status == WorkItem.STATUS_READY
+    assert be_instance.instance_state.name == "coordination"
+
+    # redo distribution
+    redo_work_item(work_item=distribution, user=caluma_admin_user)
+
+    distribution_child_case.refresh_from_db()
+    distribution.refresh_from_db()
+    complete_distribution.refresh_from_db()
+    decision.refresh_from_db()
+    be_instance.refresh_from_db()
+
+    assert distribution_child_case.status == Case.STATUS_RUNNING
+    assert distribution.status == WorkItem.STATUS_READY
+    assert complete_distribution.status == WorkItem.STATUS_READY
+    assert decision.status == WorkItem.STATUS_REDO
+    assert be_instance.instance_state == instance_state_distribution
+
+    # the service that reopened the distribution should have a work item to
+    # create a new inquiry
+    assert distribution_child_case.work_items.filter(
+        task_id=distribution_settings["INQUIRY_CREATE_TASK"],
+        addressed_groups__contains=[str(service.pk)],
+        status=WorkItem.STATUS_READY,
+    ).exists()
+
+    # the service that had an inquiry in the previous distribution run should
+    # have a work item to create a new inquiry
+    assert distribution_child_case.work_items.filter(
+        task_id=distribution_settings["INQUIRY_CREATE_TASK"],
+        addressed_groups__contains=[str(service_with_sent_inquiry.pk)],
+        status=WorkItem.STATUS_READY,
+    ).exists()
+
+    # the service that had an inquiry that was unsent in the previous
+    # distribution run should **not** have a work item to create a new inquiry
+    # since the previous inquiry was canceled on completion of the distribution
+    assert not distribution_child_case.work_items.filter(
+        task_id=distribution_settings["INQUIRY_CREATE_TASK"],
+        addressed_groups__contains=[str(service_with_unsent_inquiry.pk)],
+        status=WorkItem.STATUS_READY,
+    ).exists()
+
+    # the subservice that had a sent inquiry should **not** have a work item to
+    # create a new inquiry
+    assert not distribution_child_case.work_items.filter(
+        task_id=distribution_settings["INQUIRY_CREATE_TASK"],
+        addressed_groups__contains=[str(subservice_with_sent_inquiry.pk)],
+        status=WorkItem.STATUS_READY,
+    ).exists()

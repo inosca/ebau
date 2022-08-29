@@ -85,6 +85,7 @@ mutation CreateFlow6 {
       workflow: "building-permit"
       tasks: ["decision"]
       next: "'sb1'|task"
+      redoable: "'distribution'|task"
     }
   ) {
     clientMutationId

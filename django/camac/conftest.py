@@ -998,6 +998,7 @@ def active_inquiry_factory(
                 task_id=distribution_settings["DISTRIBUTION_TASK"],
                 status=caluma_workflow_models.WorkItem.STATUS_READY,
                 case=for_instance.case,
+                addressed_groups=[str(service.pk)],
                 child_case__family=for_instance.case,
                 child_case__workflow_id=distribution_settings["DISTRIBUTION_WORKFLOW"],
             )
