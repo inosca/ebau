@@ -52,6 +52,7 @@ def get_config(application_name):
         "CREATE_INQUIRY_TASK": settings.DISTRIBUTION["INQUIRY_CREATE_TASK"],
         "CHECK_INQUIRIES_TASK": settings.DISTRIBUTION["INQUIRY_CHECK_TASK"],
         "FILL_INQUIRY_TASK": settings.DISTRIBUTION["INQUIRY_ANSWER_FILL_TASK"],
+        "REDO_INQUIRY_TASK": "redo-inquiry",
         "DISTRIBUTION_COMPLETE_TASK": settings.DISTRIBUTION[
             "DISTRIBUTION_COMPLETE_TASK"
         ],
@@ -736,6 +737,24 @@ class Command(BaseCommand):
                             value=notice.content,
                         )
                     )
+
+            if self.activation_is_completed(activation) or self.activation_is_skipped(
+                activation
+            ):
+                work_items.append(
+                    WorkItem(
+                        task=self.config.REDO_INQUIRY_TASK,
+                        name=self.config.REDO_INQUIRY_TASK.name,
+                        previous_work_item=work_item,
+                        addressed_groups=[str(activation.service_id)],
+                        controlling_groups=[],
+                        case=distribution_case,
+                        meta=self.config.META,
+                        status=distribution_case.parent_work_item.status,
+                        deadline=None,
+                        closed_at=distribution_case.parent_work_item.closed_at,
+                    )
+                )
 
             work_items.append(work_item)
 
