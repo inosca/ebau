@@ -6663,18 +6663,18 @@ ember-cookies@^0.5.0:
     ember-cli-babel "^7.1.0"
     ember-getowner-polyfill "^1.1.0 || ^2.0.0"
 
-ember-data-resources@3.0.5:
-  version "3.0.5"
-  resolved "https://registry.yarnpkg.com/ember-data-resources/-/ember-data-resources-3.0.5.tgz#9fdfceabc770c3ebda9e73073d0c502ef22a27df"
-  integrity sha512-JhXO2Ash4HRIJyeuEnozcYxEU+KrmzhwIpAhzxgRymzjcZ73dSlpfy6M/OEaLvtiB8TD4L0OKRWiQabAnNExFQ==
+ember-data-resources@4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/ember-data-resources/-/ember-data-resources-4.0.0.tgz#9a9d8918bbdf2ee6f230f48ff8e0a5559ec5d292"
+  integrity sha512-U7EW101S+qWVCMjDtcPGc+Qzryzu1tcVjM6TNjmxlsq9G+YQ/IxI+oSz/tXe9dV7XDW7cmA5kQH4CDfivmuR5A==
   dependencies:
     "@ember/test-waiters" "^3.0.1"
     "@glimmer/tracking" "^1.0.4"
     ember-auto-import "^2.4.0"
     ember-cli-babel "^7.26.11"
     ember-cli-htmlbars "^6.0.1"
-    ember-cli-typescript "^4.2.1"
-    ember-resources "^4.3.0"
+    ember-cli-typescript "^5.1.0"
+    ember-resources "^5.0.0"
 
 ember-data@3.28.10:
   version "3.28.10"
@@ -7101,10 +7101,10 @@ ember-resolver@8.0.3:
     ember-cli-version-checker "^5.1.2"
     resolve "^1.20.0"
 
-ember-resources@4.10.0, ember-resources@^4.3.0, ember-resources@^5.2.1:
-  version "4.10.0"
-  resolved "https://registry.yarnpkg.com/ember-resources/-/ember-resources-4.10.0.tgz#8c05c39af2c04f4bf3713d5d585a946fead2d31f"
-  integrity sha512-xt/qJLLXUZ0FQZ3u0L4rw2rrV2b+7k9Apwr9X/zkD13bXB2pTpUcG7dlG7Ukb28Vvv83HlpOHEV67FM+os3YKw==
+ember-resources@5.3.0, ember-resources@^5.0.0, ember-resources@^5.2.1:
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/ember-resources/-/ember-resources-5.3.0.tgz#0d0149e3288ee200a31ad58d2c6c98d27fd5526d"
+  integrity sha512-MYFMIAZ8SjcoKxv7cMR8u22xBzyDw+Dw4L5a9/zYeGOiCjnxcFgQsNXnzyD2FmvWZ/9SJoyydQsYGdT7FKrELw==
   dependencies:
     "@babel/runtime" "^7.17.8"
     "@embroider/addon-shim" "^1.2.0"
@@ -10781,10 +10781,10 @@ lru-cache@^7.4.4, lru-cache@^7.5.1, lru-cache@^7.7.1:
   resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-7.14.0.tgz#21be64954a4680e303a09e9468f880b98a0b3c7f"
   integrity sha512-EIRtP1GrSJny0dqb50QXRUNBxHJhcpxHC++M5tD7RYbvLLn5KVWKsbyswSSqDuU15UFi3bgTQIY8nhDMeF6aDQ==
 
-luxon@3.0.1, luxon@^2.4.0, luxon@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/luxon/-/luxon-3.0.1.tgz#6901111d10ad06fd267ad4e4128a84bef8a77299"
-  integrity sha512-hF3kv0e5gwHQZKz4wtm4c+inDtyc7elkanAsBq+fundaCdUBNJB1dHEGUZIM6SfSBUlbVFduPwEtNjFK8wLtcw==
+luxon@3.0.2, luxon@^2.4.0, luxon@^3.0.1:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/luxon/-/luxon-3.0.2.tgz#88f7b31dadb524af9dee87a9dd9d6124a8fdcc73"
+  integrity sha512-pfgTG/TMWzVKZ2XC4RBq3jNcidG3wxUt7ztC98Vpo5qy16uUhZrRPx8/AfVfX3LCj6I2YFSpY+vaVVVgWaDkXA==
 
 magic-string@^0.24.0:
   version "0.24.1"
