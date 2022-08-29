@@ -32624,7 +32624,7 @@
       "label": "{\"de\": \"Beschreibung der W\\u00e4rmenutzung\", \"fr\": null}",
       "type": "text",
       "is_required": "false",
-      "is_hidden": "!(\"nutzung-andere\" in \"nutzung\"|answer)",
+      "is_hidden": "!(\"nutzung-andere\" == \"nutzung\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
