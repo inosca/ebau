@@ -472,11 +472,6 @@ def test_instance_list(
     Ihr/e {{FORM_NAME}} mit der Dossier-Nr. {{INSTANCE_ID}} wurde erfolgreich übermittelt. Das Verfahren wird nun ausgelöst. Sie werden über Statusänderungen informiert.
 
     {{DOSSIER_LINK}}
-
-    Gerne möchten wir erfahren wie einfach die elektronische Eingabe eines Gesuches war. Wir bitten Sie daher, sich 2 - 3 Minuten Zeit zu nehmen und den folgenden Fragebogen zu beantworten. Besten Dank.
-
-    https://www.onlineumfragen.com/login.cfm?umfrage=87201
-
     """,
     ],
 )
@@ -560,11 +555,6 @@ def test_instance_submit_be(
     Ihr/e {{FORM_NAME}} mit der Dossier-Nr. {{INSTANCE_ID}} wurde erfolgreich übermittelt. Das Verfahren wird nun ausgelöst. Sie werden über Statusänderungen informiert.
 
     {{DOSSIER_LINK}}
-
-    Gerne möchten wir erfahren wie einfach die elektronische Eingabe eines Gesuches war. Wir bitten Sie daher, sich 2 - 3 Minuten Zeit zu nehmen und den folgenden Fragebogen zu beantworten. Besten Dank.
-
-    https://www.onlineumfragen.com/login.cfm?umfrage=87201
-
     """,
     ],
 )
