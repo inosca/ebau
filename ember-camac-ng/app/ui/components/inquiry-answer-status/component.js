@@ -3,8 +3,7 @@ import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { queryManager } from "ember-apollo-client";
-import { dropTask } from "ember-concurrency";
-import { useTask } from "ember-resources";
+import { trackedFunction } from "ember-resources/util/function";
 
 import template from "./template";
 
@@ -21,27 +20,20 @@ export class InquiryAnswerStatusComponent extends Component {
 
   @queryManager apollo;
 
-  _formType = useTask(this, this.fetchFormType, () => [
-    this.calumaOptions.currentInstanceId,
-  ]);
-
-  @dropTask
-  *fetchFormType(instanceId) {
-    return yield this.apollo.watchQuery(
+  formType = trackedFunction(this, async () => {
+    const response = await this.apollo.watchQuery(
       {
         query: caseFormTypeQuery,
-        variables: { instanceId },
+        variables: { instanceId: this.calumaOptions.currentInstanceId },
       },
       "allCases.edges"
     );
-  }
 
-  get formType() {
-    return this._formType.value?.[0]?.node.document.form.slug;
-  }
+    return response[0].node.document.form.slug;
+  });
 
   get options() {
-    const isObligationForm = this.formType === OBLIGATION_FORM_SLUG;
+    const isObligationForm = this.formType.value === OBLIGATION_FORM_SLUG;
 
     return this.args.field.options.filter(
       (option) => isObligationForm === OBLIGATION_ANSWERS.includes(option.slug)
