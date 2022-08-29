@@ -9,9 +9,8 @@
   "devDependencies": {
     "prettier": "2.7.1"
   },
-  "//": "ember-data-resources need to be updated to ember-resources v5",
+  "//": "luxon needs to be updated in ember-ebau-gwr",
   "resolutions": {
-    "ember-resources": "4.10.0",
-    "luxon": "3.0.1"
+    "luxon": "3.0.2"
   }
 }

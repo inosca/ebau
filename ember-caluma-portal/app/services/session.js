@@ -1,7 +1,7 @@
 import { getOwner } from "@ember/application";
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
-import { trackedFunction } from "ember-resources";
+import { trackedFunction } from "ember-resources/util/function";
 import { handleUnauthorized } from "ember-simple-auth-oidc";
 import { getConfig } from "ember-simple-auth-oidc/config";
 import Session from "ember-simple-auth-oidc/services/session";
