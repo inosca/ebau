@@ -133,6 +133,18 @@ mutation CheckInquiriesTask {
   }
 }
 
+mutation RedoInquiryTask {
+  saveSimpleTask(
+    input: {
+      slug: "redo-inquiry"
+      name: "Stellungnahme wiedereröffnen"
+      addressGroups: "info.prev_work_item.addressed_groups"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
 mutation DistributionWorkflow {
   saveWorkflow(
     input: {
@@ -182,7 +194,7 @@ mutation InquiryFlow {
     input: {
       workflow: "distribution"
       tasks: ["inquiry"]
-      next: "['check-inquiries']|tasks"
+      next: "['check-inquiries', 'redo-inquiry']|tasks"
     }
   ) {
     clientMutationId
@@ -219,6 +231,19 @@ mutation AlterInquiryFlow {
       workflow: "inquiry"
       tasks: ["alter-inquiry"]
       next: "['check-inquiry', 'revise-inquiry']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation RedoInquiryFlow {
+  addWorkflowFlow(
+    input: {
+      workflow: "distribution"
+      tasks: ["redo-inquiry"]
+      next: "[]|tasks"
+      redoable: "'inquiry'|task"
     }
   ) {
     clientMutationId
