@@ -904,6 +904,9 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             is_modification = is_modification or caluma_api.is_modification(
                 source_instance
             )
+
+            # when making copies, the form ID remains the same
+            validated_data["form"] = source_instance.form
         else:
             is_modification = False
             caluma_form = self.initial_data.get("caluma_form", None)
