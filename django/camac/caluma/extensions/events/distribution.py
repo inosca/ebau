@@ -15,6 +15,7 @@ from caluma.caluma_workflow.api import (
     suspend_work_item,
 )
 from caluma.caluma_workflow.events import (
+    post_cancel_work_item,
     post_complete_case,
     post_complete_work_item,
     post_create_work_item,
@@ -279,3 +280,44 @@ def pre_complete_distribution(sender, work_item, user, context=None, **kwargs):
     ):
         # everything else canceled
         cancel_work_item(work_item=work_item, user=user, context=context)
+
+
+@on(post_cancel_work_item, raise_exception=True)
+@filter_by_task("INQUIRY_TASK")
+@transaction.atomic
+def post_cancel_inquiry(sender, work_item, user, context=None, **kwargs):
+    service_inquiries = work_item.case.work_items.filter(
+        task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
+        addressed_groups=work_item.addressed_groups,
+    ).exclude(status=WorkItem.STATUS_CANCELED)
+
+    if not service_inquiries.exists():
+        # Cancel the create inquiry work item if no other inquiry for this
+        # service exists
+        try:
+            create_inquiry_work_item = work_item.case.work_items.get(
+                task_id=settings.DISTRIBUTION["INQUIRY_CREATE_TASK"],
+                addressed_groups=work_item.addressed_groups,
+                status=WorkItem.STATUS_READY,
+            )
+
+            cancel_work_item(
+                work_item=create_inquiry_work_item, user=user, context=context
+            )
+        except WorkItem.DoesNotExist:
+            # This is expected for subservices which must not have a create
+            # inquiry work item
+            pass
+        except WorkItem.MultipleObjectsReturned:
+            # If this happens, there must be some kind of issue in the workflow
+            # since no service should ever have multiple ready create inquiry
+            # work items
+            service = Service.objects.get(pk=work_item.addressed_groups[0])
+
+            raise RuntimeError(
+                (
+                    f'Service "{service.get_name()}" has multiple '
+                    f'"{settings.DISTRIBUTION["INQUIRY_CREATE_TASK"]}" work '
+                    f"items on instance {work_item.case.family.instance.pk}"
+                )
+            )
