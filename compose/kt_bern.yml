@@ -101,7 +101,7 @@ services:
       - PROXY_ADDRESS_FORWARDING=true
 
   document-merge-service:
-    image: ghcr.io/adfinis/document-merge-service:5.0.4
+    image: ghcr.io/adfinis/document-merge-service:5.0.5
     depends_on:
       - db
     volumes:
