@@ -333,7 +333,7 @@ module.exports = function (environment) {
           forms: [
             "mitbericht-kanton",
             "oereb",
-            "meldung-vorhaben",
+            "proposal-declaration",
             "archivdossier",
           ],
         },
