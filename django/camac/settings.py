@@ -2066,7 +2066,7 @@ APPLICATIONS = {
             "FORM_PERMISSIONS": ["main"],
             "FILL_PUBLICATION_TASK": None,
             "HAS_PROJECT_CHANGE": True,
-            "CREATE_IN_PROCESS": True,
+            "CREATE_IN_PROCESS": False,
             "GENERATE_IDENTIFIER": True,
             "USE_LOCATION": True,
             "KOOR_SD_SLUGS": [
@@ -2102,6 +2102,9 @@ APPLICATIONS = {
                         "solar-declaration",
                         "cantonal-territory-usage",
                         "technische-bewilligung",
+                        "oereb",
+                        "mitbericht-kanton",
+                        "mitbericht-bund",
                     ],
                     "people_sources": [
                         "applicant",
@@ -2124,6 +2127,10 @@ APPLICATIONS = {
                         "allgemeine-informationen-baugesuch-vorabklaerung",
                         "allgemeine-informationen-meldung-solaranlage",
                         "allgemeine-informationen-proposal-declaration",
+                        "allgemeine-informationen-cantonal-territory-usage",
+                        "allgemeine-informationen-mitbericht-kanton",
+                        "allgemeine-informationen-oereb-verfahren",
+                        "allgemeine-informationen-mitberichtsverfahren-bund",
                         "parzellen-oder-baurechtsnummer",
                     ],
                 },
@@ -2137,6 +2144,12 @@ APPLICATIONS = {
                     3,  # KOOR BG
                     6,  # Sekretariat Gemeindebaubehörde
                     1061,  # KOOR NP
+                    1101,  # KOOR BD
+                    1106,  # KOOR AfU
+                    1107,  # KOOR ALA
+                    1127,  # KOOR AfE
+                    1128,  # KOOR AFJ
+                    1129,  # KOOR SD
                 ]
             },
             "ALLOWED_SERVICE_GROUPS": {
@@ -2174,7 +2187,7 @@ APPLICATIONS = {
         "ROLE_INHERITANCE": {"trusted_service": "service"},
         "INSTANCE_HIDDEN_STATES": {
             "municipality": ["del"],
-            "coordination": ["new", "new_portal", "del", "rejected"],
+            "coordination": ["new_portal", "del", "rejected"],
             "trusted_service": ["new", "new_portal", "del", "rejected"],
             "oereb_api": ["new", "new_portal", "del", "rejected"],
         },
@@ -2301,6 +2314,10 @@ APPLICATIONS = {
             "veranstaltung_art": (
                 "answer",
                 "veranstaltung-art",
+            ),
+            "leitbehoerde_internal_form": (
+                "answer",
+                "leitbehoerde-internal-form",
             ),
             "oereb_topic": (
                 "answer",

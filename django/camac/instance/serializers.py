@@ -542,11 +542,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         return permissions
 
     def _get_main_form_permissions_for_coordination(self, instance):
-        state = instance.instance_state.name
-
-        if state != "new":
-            return set(["read", "write"])
-        return set()  # pragma: no cover
+        return set(["read", "write"])
 
     def _get_main_form_permissions_for_service(self, instance):
         if instance.instance_state.name == "new":
@@ -1086,7 +1082,22 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                 gettext_noop("Dossier completed by resubmission"),
             )
 
+    @permission_aware
+    def _internal_submission(self, instance, group):
+        """Run side effects when instance is submitted by internal role."""
+        pass
+
+    def _internal_submission_for_municipality(self, instance, group):
+        instance.instance_state = models.InstanceState.objects.get(name="comm")
+
+    def _internal_submission_for_coordination(self, instance, group):
+        instance.instance_state = models.InstanceState.objects.get(name="ext")
+        instance.group = group
+
     def _prepare_cantonal_territory_usage(self, instance):
+        if instance.case.document.form.slug != "cantonal-territory-usage":
+            return
+
         instance.instance_state = models.InstanceState.objects.get(name="ext")
 
         self._update_instance_location(instance)
@@ -1128,15 +1139,25 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         if not settings.APPLICATION["CALUMA"].get("USE_LOCATION", False):
             return
 
-        authority_location = AuthorityLocation.objects.filter(
-            location_id=instance.location_id
+        # in internal forms, KOORs can set a custom authority by answering a specific question
+        # this takes precedence over the default authority given by the location
+        authority_from_form = self.get_master_data(
+            instance.case
+        ).leitbehoerde_internal_form
+
+        authority_location = (
+            AuthorityLocation.objects.filter(
+                location_id=authority_from_form or instance.location_id
+            )
+            .first()
+            .authority_id
         )
 
         if authority_location:
             caluma_api.update_or_create_answer(
                 instance.case.document,
                 "leitbehoerde",
-                str(authority_location.first().authority_id),
+                str(authority_location),
                 user=self.context["request"].caluma_info.context.user,
             )
 
@@ -1170,10 +1191,8 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
 
             self._update_instance_location(instance)
 
-        if (
-            settings.APPLICATION_NAME == "kt_uri"
-            and instance.case.document.form.slug == "cantonal-territory-usage"
-        ):
+        if settings.APPLICATION_NAME == "kt_uri":
+            self._internal_submission(instance, self.context["request"].group)
             self._prepare_cantonal_territory_usage(instance)
 
         instance.save()

@@ -10,7 +10,7 @@
   {{/if}}
 
   {{#let (can "create paper instance") as |isPaper|}}
-    {{#if isPaper}}
+    {{#if (and isPaper (is-application "be"))}}
       <div class="uk-flex uk-flex-center uk-margin-large-top">
         <div class="uk-alert uk-alert-warning uk-width-large">
           <strong>{{t "paper.noteTitle"}}</strong> {{t "paper.noteBody"}}
@@ -24,9 +24,9 @@
           {{#let (get this.forms category) as |forms|}}
             <div class="uk-text-center">
               <p class="uk-flex-inline uk-text-large uk-flex-middle">
-                {{t (concat "instances.new." category ".title-" (application-name))}}
-                {{#if (t (concat "instances.new." category ".info-" (application-name)))}}
-                  <CfField::info @text={{t (concat "instances.new." category ".info-" (application-name))}} />
+                {{t (concat "instances.new." category ".title")}}
+                {{#if (t (concat "instances.new." category ".info"))}}
+                  <CfField::info @text={{t (concat "instances.new." category ".info")}} />
                 {{/if}}
               </p>
               {{#each forms as |form|}}

@@ -7,11 +7,11 @@
   <div class="uk-width-2-3">
     <div class="uk-width-1-1 uk-grid-small" uk-grid>
       <BeOverviewGridCell
-        @label={{t (concat "instances.special-id-" (application-name))}}
+        @label={{t "instances.special-id"}}
         @value={{or this.case.specialId "-"}}
       />
       <BeOverviewGridCell
-        @label={{t (concat "instances.address-" (application-name))}}
+        @label={{t "instances.address"}}
         @value={{or this.case.address "-"}}
       />
       <BeOverviewGridCell
@@ -33,7 +33,7 @@
         />
       {{/if}}
       <BeOverviewGridCell
-        @label={{t (concat "instances.description-" (application-name))}}
+        @label={{t "instances.description"}}
         @value={{or this.case.description "-"}}
       />
       {{#if (is-application "be")}}

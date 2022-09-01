@@ -128,16 +128,20 @@ class InstanceQuerysetMixin(object):
         form_field = self._get_instance_filter_expr("form", "in")
 
         instances_created_by_group = self._instances_created_by(group)
+        state_field = self._get_instance_filter_expr("instance_state__name")
 
         return queryset.filter(
             (
                 Q(**{instance_field: instances_created_by_group})
-                | Q(
-                    **{
-                        form_field: uri_constants.RESPONSIBLE_KOORS.get(
-                            group.service_id, []
-                        )
-                    }
+                | (
+                    Q(
+                        **{
+                            form_field: uri_constants.RESPONSIBLE_KOORS.get(
+                                group.service_id, []
+                            )
+                        }
+                    )
+                    & ~Q(**{state_field: "new"})
                 )
             )
         )

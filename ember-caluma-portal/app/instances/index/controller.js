@@ -106,22 +106,22 @@ export default class InstancesIndexController extends Controller {
     return [
       {
         value: "camac-instance-id:desc",
-        label: `instances.instance-id-${config.APPLICATION.name}`,
+        label: "instances.instance-id",
         direction: "instances.desc",
       },
       {
         value: "camac-instance-id:asc",
-        label: `instances.instance-id-${config.APPLICATION.name}`,
+        label: "instances.instance-id",
         direction: "instances.asc",
       },
       {
         value: `${answerSlugs.specialId}:desc`,
-        label: `instances.special-id-${config.APPLICATION.name}`,
+        label: "instances.special-id",
         direction: "instances.desc",
       },
       {
         value: `${answerSlugs.specialId}:asc`,
-        label: `instances.special-id-${config.APPLICATION.name}`,
+        label: "instances.special-id",
         direction: "instances.asc",
       },
       {
@@ -157,9 +157,7 @@ export default class InstancesIndexController extends Controller {
 
         return options.length
           ? {
-              groupName: this.intl.t(
-                `instances.new.${category}.title-${config.APPLICATION.name}`
-              ),
+              groupName: this.intl.t(`instances.new.${category}.title`),
               options,
             }
           : null;
@@ -168,9 +166,16 @@ export default class InstancesIndexController extends Controller {
   }
 
   get forms() {
-    const raw = (this.rootForms.value ?? []).filter(
-      (edge) =>
-        this.isInternal || !config.ebau.internalForms.includes(edge.node.slug)
+    const permissions = config.APPLICATION.formCreationPermissions.filter(
+      (perm) =>
+        perm.roles.includes(parseInt(this.session.group?.role.get("id"))) ||
+        (perm.roles.includes("internal") && this.session.isInternal) ||
+        (perm.roles.includes("public") && !this.session.isInternal)
+    );
+    const raw = (this.rootForms.value ?? []).filter((edge) =>
+      permissions.find((perm) =>
+        perm.forms.includes(edge.node.slug.replace(/-v\d/, ""))
+      )
     );
 
     return raw

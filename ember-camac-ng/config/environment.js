@@ -80,6 +80,20 @@ module.exports = function (environment) {
           142, // KOOR BG
           21, // KOOR NP
         ],
+        submittedStates: [
+          21, // comm
+          22, // ext
+          23, // circ
+          24, // redac
+          25, // done
+          26, // arch
+          29, // nfd
+          30, // subm
+          31, // rejected
+          32, // ext_gem
+          33, // old
+          34, // control
+        ],
       },
     },
 
