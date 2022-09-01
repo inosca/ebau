@@ -111,10 +111,11 @@ module("Unit | Ability | instance", function (hooks) {
         id: 1,
         service: {
           serviceGroup: {
-            id: config.ebau.paperInstances.allowedGroups.serviceGroups[0],
+            id: config.APPLICATION.paperInstances.allowedGroups
+              .serviceGroups[0],
           },
         },
-        role: { id: config.ebau.paperInstances.allowedGroups.roles[0] },
+        role: { id: config.APPLICATION.paperInstances.allowedGroups.roles[0] },
         canCreatePaper: true,
       },
     });

@@ -3,11 +3,6 @@ caluma:
     optional: "falls nötig"
 
 global:
-  title-be: "eBau Bern"
-  title-ur: "Kanton Uri"
-  page-title-be: "Portal eBau-BE"
-  page-title-ur: "URec Portal"
-  urec: "URec"
   versionPrefix: "v"
   continue: "Weiter"
   delete: "Löschen"
@@ -15,8 +10,6 @@ global:
   back: "Zurück"
   save: "Speichern"
   ok: "Ok"
-  setConfidential: "Als vertraulich markieren"
-  setNonConfidential: "Vertraulich Markierung entfernen"
 
 nav:
   form: "Formular"
@@ -24,8 +17,6 @@ nav:
   decision: "Entscheiddokumente"
   index: "Startseite"
   support: "Support"
-  public-instance-ur: "Bauplanauflage"
-  public-instance-be: "Bekanntmachung / Auflage"
   logout: "Ausloggen"
   login: "Einloggen"
   applicants: "Berechtigungen"
@@ -75,7 +66,6 @@ documents:
       Gesuchsunterlagen."
 
   download: "Datei herunterladen"
-  confidential: "(vertraulich)"
 
   drag: "Ziehen Sie eine Datei in diesen Bereich oder"
   click: "drücken sie hier um eine Datei hochzuladen"
@@ -144,7 +134,6 @@ gis:
     title: "Daten übernehmen?"
     yes: "Ja"
     no: "Nein"
-  info-text-ur: "Um Daten zu übernehmen, klicken Sie bitte in der Karte auf den entsprechenden Standort."
   oereb: "ÖREB-Kataster:"
 
   notifications:
@@ -154,36 +143,19 @@ gis:
 
 support:
   title: "Technischer Support (24/7)"
-  info-be: "Für fachliche Fragen wenden Sie sich bitte an die zuständige Gemeinde."
-  info-ur: "Im Falle von Problemen oder Fragen, welche durch die hinterlegten Hilfestellungen nicht geklärt werden, können Sie sich entweder an <b>die zuständige Bauverwaltung der entsprechenden Gemeinde</b> oder an <b>das Amt für Raumentwicklung</b> wenden."
   phone: "+41 31 636 99 97"
-  email-ur: "urec@ur.ch"
-  subject-ur: "URec - Supportanfrage"
 
 index:
-  welcome-be: "Willkommen im eBau-Portal des Kantons Bern"
-  welcome-ur: "Willkommen im Portal für elektronische Verfahrenskoordination des Kantons Uri"
   nextStep: "Was möchten Sie als Nächstes machen?"
 
 instances:
   title: "Meine Dossiers"
-  instance-id-be: "Dossier-Nr."
-  instance-id-ur: "ID"
-  special-id-be: "eBau-Nr."
-  special-id-ur: "Dossier-Nr."
   type: "Gesuchstyp"
   submitDate: "Einreichedatum"
   submitDateFrom: "Einreichedatum von"
   submitDateTo: "Einreichedatum bis"
-  description-be: "Bauvorhaben"
-  description-ur: "Vorhaben"
   municipality: "Gemeinde"
-  address-be: "Adresse"
-  address-ur: "Strasse / Flurname"
   applicant: "Gesuchsteller/in"
-  parcel-be: "Parzellennummer / Liegenschaftsnummer"
-  parcel-ur: "Parzellen"
-  objectionPeriod: "Einsprachefrist"
   filter: "Filtern"
   reset: "Zurücksetzen"
   pageInfo: "Dossiers '<strong'>1 - {length}'</strong'> von {total}"
@@ -196,8 +168,6 @@ instances:
   asc: "aufsteigend"
   masterData: "Stammdaten"
   lead: "Leitbehörde"
-  building-specification-be: "Baubeschrieb"
-  building-specification-ur: "Vorhaben"
   actions: "Aktionen"
   activateFurtherPersons: "Weitere Personen freischalten"
   activateFurtherPersonsText: "Im Menü Berechtigungen können weitere Personen für die Bearbeitung dieses Dossiers freigeschalten werden."
@@ -234,13 +204,8 @@ instances:
   createBuildingPermitTitle: "Baugesuch erstellen"
   createBuildingPermitText: "Hier haben Sie die Möglichkeit die bereits ausgefüllten Daten der vollständigen Vorabklärung in ein neues Baugesuch zu übernehmen."
   createBuildingPermitButton: "Baugesuch erstellen"
-  messageBuildingServicesTitle: "Meldung für Gebäudetechnik (Anlagen und Nachweise)"
-  messageBuildingServicesText: "Bitte verwenden Sie für die Meldung von gebäudetechnischen Anlagen und für die Einreichung von Nachweisen im Zusammenhang mit einen laufenden Baubewilligungsverfahren (z.B. wärmetechnische Anlagen, Brandschutz-, Energie-, oder Lärmschutznachweis) das Formular „MELDUNG GEBÄUDETECHNIK“ in der Übersicht."
-  messageBuildingServicesButton: "Meldung für Gebäudetechnik einreichen"
 
   categories:
-    notSubmitted: "Neu"
-    submitted: "Eingereicht"
     pending: "Offen"
     sb: "Selbstdeklaration"
     done: "Abgeschlossen"
@@ -250,144 +215,11 @@ instances:
     kind: "Um welche Art von Dossier handelt es sich?"
     convertFromInfo: "Sie erstellen ein neues Dossier aus den bereits bestehenden Daten der vollständigen Vorabklärung {dossierId}{ebauNr}."
 
-    preliminary-clarification:
-      title-be: "Vorabklärung"
-      info-be: "Bei unklaren Ausgangslagen (insbesondere bei komplizierten und
-      komplexen Bauvorhaben oder bei unklarer Rechtslage) ist es
-      empfehlenswert, vor Eingabe eines Baugesuchs die baurechtlichen
-      Rahmenbedingungen mittels einer Vorabklärung prüfen zu lassen. Je
-      früher die Interessen der betroffenen Beteiligten untereinander
-      abgestimmt werden, umso reibungsloser gestaltet sich in der Regel die
-      Durchführung eines Baubewilligungsverfahrens.\n\n Die **einfache
-      Vorabklärung** ist ein Instrument für jegliche Fragen welche
-      insbesondere die Standortgemeinde als zuständige Behörde direkt
-      beurteilen und beantworten kann (Beispiel: Neubau Carport, Ausbau
-      Dachgeschoss, Grenzabstände).\n\n Mit der **vollständigen Vorabklärung**
-      können auch umfassende Bauvorhaben, in welchen auch kantonale, bundes-
-      oder andere externe Stellen betroffen sind, einbezogen und koordiniert
-      werden (Beispiel: Bauvorhaben in der Landwirtschaftszone, Bauvorhaben
-      mit einem Neuanschluss an eine Kantonsstrasse)."
-
-    building-permit:
-      title-be: "Gesuch"
-      title-ur: "Baubewilligungsverfahren"
-      info-be: "Der häufigste Fall ist die Eingabe eines **Baugesuchs**
-      (Beispiel: Anbau Garage, Neubau Einfamilienhaus, Einbau
-      Dachflächenfenster).\n\n Generelle Baugesuche oder Baugesuche mit einer
-      Umweltverträglichkeitsprüfung (UVP) sind in den allermeisten Fällen mit
-      den Behörden vorbesprochen und waren idealerweise bereits Gegenstand
-      einer vollständigen Vorabklärung.\n\n Das **generelle Baugesuch** wird
-      bei Grossprojekten gewählt, wenn noch nicht alle Details ausgearbeitet
-      sind und vorab geklärt werden soll, ob überhaupt eine Bewilligung
-      erreicht werden kann (Beispiel: Einkaufszentrum bei dem z.B. die
-      Lüftung und der Brandschutz erst später erarbeitet werden und vorab das
-      Volumen, die Nutzung und die Parkplätze geklärt werden sollen).\n\n
-      Das **Baugesuch mit UVP** ist zu wählen, wenn das Bauvorhaben eine
-      Umweltverträglichkeitsprüfung benötigt. Eine Auflistung der pflichtigen
-      Bauten ist im Anhang zur eidgenössischen UVP-Verordnung (UVPV)
-      abschliessend festgelegt (Beispiel: Neubau eines Logistikzentrums mit
-      einer Lagerfläche von mehr als 20'000 m² oder ein Bauvorhaben das mehr
-      als 500 Autoabstellplätze beinhaltet)."
-      info-ur: "**Baugesuch-Vorabklärung:** Eine Baugesuch Vorabklärung ist dann sinnvoll,
-      wenn die Bewilligungsfähigkeit Ihres Vorhabens in Frage gestellt ist bzw. Sie
-      sich über die grundsätzliche Bewilligungsfähigkeit eines Vorhabens Klarheit
-      verschaffen wollen. Die Vorprüfung eines Vorhabens durch die kantonalen
-      Fachstellen kann dazu beitragen, allenfalls notwendige Projektanpassungen und
-      No Go's frühzeitig zu erkennen und zusätzliche Planungskosten zu vermeiden. Eine
-      Vorabklärung wird in der Regel mit einem unverbindlichen Antwortschreiben ohne
-      Rechtsmittel beantwortet.\n\n **Baugesuch:** Dieses Formular ist für alle Vorhaben zu
-      wählen, die gestützt auf die kommunalen und kantonalen Bauvorschriften und auch
-      gestützt auf die allgemeine Bewilligungspraxis der Gemeinden baubewilligungspflichtig
-      sind. Dies trifft insbesondere bei der Erstellung von neuen Bauten und Anlagen, bei
-      der baulichen Änderung bestehender Bauten und Anlagen sowie bei Nutzungsänderungen
-      bestehender Bauten zu. Die Gemeindebaubehörde entscheidet über die Baubewilligungspflicht.\n\n
-      Hinweis: Falls für ein Vorhaben, welches Sie mit dem Formular „Baugesuch“ einreichen,
-      wider Erwarten keine Baubewilligung erforderlich wäre, wird Ihnen das die
-      Gemeindebaubehörde mitteilen. Es entstehen Ihnen dadurch keine Nachteile.\n\n **Baumeldung
-      für geringfügiges Bauvorhaben:** Baumeldungen sollen hauptsächlich für geringfügige
-      Vorhaben innerhalb der Bauzonen verwendet werden. Ein Vorhaben welches innerhalb der
-      Bauzone von der Gemeindebaubehörde allenfalls als geringfügig und damit als
-      baubewilligungsbefreit eingestuft wird, kann ausserhalb der Bauzone je nach Lage
-      durchaus baubewilligungspflichtig sein. Es gilt die kantonale Praxis bei der
-      Beurteilung von Bauten und Anlagen ausserhalb der Bauzone. In jedem Fall müssen
-      bauliche Veränderungen an Bauten und Anlagen sowie Änderungen der Nutzung der
-      Gemeindebaubehörde gemeldet werden. Die Gemeindebaubehörde entscheidet über die
-      Baubewilligungspflicht.\n\n **Meldung Gebäudetechnik (Anlagen und Nachweise):** Dieses
-      Formular können Sie einerseits für die Nachlieferung zusätzlicher Angaben zu einem
-      bereits laufenden Baubewilligungsverfahren verwenden. Zum Beispiel für die Nachlieferung von
-      Nachweisen (Brandschutz-, Energie-, oder Lärmschutznachweis) oder für die Meldung von
-      gebäudetechnischen Anlagen (zum Beispiel die definitiven Angaben betreffend Heizung, Tankanlagen,
-      Gasanlagen usw.). Ebenfalls können Sie hier auch eine Konformitätserklärung für eine
-      wärmetechnische Anlage oder für eine Abgasanlage melden.\n\n Andererseits können Sie mit dem
-      Formular „Meldung Gebäudetechnik“, unabhängig davon ob bereits ein Baubewilligungsverfahren
-      läuft, auch die Installation (Ersatz, Änderung, Neuinstallation) einer gebäudetechnischen Anlage
-      wie zum Beispiel den Ersatz einer Heizung, das Aufstellen einer Betankungsanlage oder die
-      Installation einer Lüftungsanlage usw. melden. Die Gemeindebaubehörde entscheidet in jedem Fall,
-      ob allenfalls ein Baubewilligungsverfahren erforderlich ist. Dies kann insbesondere dann der
-      Fall sein, wenn das äussere Erscheinungsbild einer Baute oder Anlage verändert wird (zum
-      Beispiel bei der Installation einer neuen Abgasanlage)."
-
-    special-procedure:
-      title-be: "Spezialverfahren"
-      title-ur: "Weitere Verfahren"
-      info-be: ""
-      info-ur: "**Benützung Kantonsgebiet:** Dieses Formular wählen Sie, wenn Sie eine Veranstaltung
-      planen, zum Beispiel einen Sportanlass oder einen Umzug, oder wenn Sie eine Einrichtung
-      (z.B. Baustellengerüst, temporärer Verkaufs- oder Informationsstand, temporäre
-      Zwischenlagerung von Baumaterial usw.) erstellen möchten und dadurch eine öffentliche
-      Strasse oder ein öffentlicher Platz betroffen ist bzw. benützt wird.\n\n Nutzungen von
-      öffentlichen Strassen und Plätzen, die über den Gemeingebrauch hinausgehen, sind
-      bewilligungspflichtig. Gemäss Artikel 3 der Verordnung über den Strassenverkehr erteilt
-      die Baudirektion, bzw. je nach Art der Beanspruchung, die Sicherheitsdirektion, die
-      Zustimmung, wenn dem Vorhaben keine überwiegenden Interessen entgegenstehen.\n\n **Meldung
-      Solaranlage:** Mit diesem Formular können Sie der Gemeindebaubehörde die geplante
-      Installation einer voraussichtlich baubewilligungsbefreiten Solaranlage melden. Das
-      Formular ist so aufgebaut, dass je nach Art und Lage der Anlage und unter der
-      Voraussetzung, dass die Fragen korrekt beantwortet werden, bereits im Formular geklärt
-      wird, ob eine Baubewilligung notwendig ist. Wenn dies der Fall ist, werden Sie im Formular
-      darauf hingewiesen, für die Meldung der Solaranlage das Formular „Baugesuch“ zu verwenden.\n\n
-      **Reklamegesuch:** Dieses Formular wählen Sie, wenn Sie eine Reklametafel, eine Werbeschrift
-      oder ein Plakat oder Ähnliches anbringen wollen und dazu keine baulichen Massnahmen
-      erforderlich sind (z.B. politische Wahlplakate oder die Neubeschriftung eines Restaurants).
-      Für eigentliche Reklamebauten in deren Zusammenhang bauliche Massnahmen notwendig sind
-      zum Beispiel die Erstellung von Fundamenten und Stahlkonstruktionen) ist in der Regel ein
-      Baugesuch erforderlich. Wenn Sie nicht sicher sind, welches Verfahren Sie wählen sollen,
-      empfehlen wir Ihnen, die Frage der Baubewilligungspflicht mit der Gemeindebaubehörde zu
-      klären."
-
     others:
-      title-be: "Andere"
-      title-ur: "Andere"
+      title: "Andere"
 
   status:
     title: "Status"
-    # Uri states
-    comm: "Bearbeitung Leitbehörde"
-    ext: "Bearbeitung Koordinationsstelle"
-    circ: "In Zirkulation"
-    redac: "Zirkulation bei Gemeinde"
-    arch: "Archiviert"
-    del: "Gelöscht"
-    new: "Neu Erstellt"
-    nfd: "Nachforderung Dokumente"
-    subm: "Eingereicht bei Gemeinde"
-    ext_gem: "Dossiers bleibt bei Gemeindebaubehörde"
-    old: "Archivdossier"
-    control: "Bau- und Einspracheentscheid zugestellt"
-
-
-
-    # Bern states
-    creation: "Neu"
-    receiving: "Empfang Gemeinde"
-    communal: "Bearbeitung Gemeinde"
-    in-progress: "Verfahrensprogramm"
-    sb1: "Selbstdeklaration 1"
-    sb2: "Selbstdeklaration 2"
-    finished: "Beurteilung abgeschlossen"
-    rejected: "Zurückgewiesen"
-    archived: "Archiviert"
-    done: "Abgeschlossen"
 
   forms:
     nfd: "Nachforderungen"
@@ -442,7 +274,6 @@ notfound:
   home: "Startseite"
 
 paper:
-  type: "Papier"
   noteTitle: "Hinweis:"
   noteBody: 'Sie erstellen ein Dossier, welches in Ihrer Gemeinde in Papierform
     eingereicht wurde (Papierdossier). Falls Sie ein normales Dossier als
