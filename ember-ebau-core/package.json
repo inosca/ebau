@@ -29,13 +29,13 @@
     "potentially also related to missing transform-3d support, but details remain unclear"
   ],
   "dependencies": {
-    "@faker-js/faker": "7.4.0",
+    "@faker-js/faker": "7.5.0",
     "@fortawesome/ember-fontawesome": "0.4.0",
     "@fortawesome/free-solid-svg-icons": "6.1.2",
     "@glimmer/component": "1.1.2",
     "@glimmer/tracking": "1.1.2",
-    "@projectcaluma/ember-core": "11.0.0-beta.25",
-    "@projectcaluma/ember-form": "11.0.0-beta.25",
+    "@projectcaluma/ember-core": "11.0.0-beta.26",
+    "@projectcaluma/ember-form": "11.0.0-beta.26",
     "ember-apollo-client": "4.0.2",
     "ember-auto-import": "2.4.2",
     "ember-can": "4.2.0",
@@ -55,7 +55,7 @@
     "graphql": "15.7.2",
     "html2canvas": "1.0.0-rc.6",
     "leaflet": "1.8.0",
-    "luxon": "3.0.2",
+    "luxon": "3.0.3",
     "proj4leaflet": "1.0.2"
   },
   "devDependencies": {
