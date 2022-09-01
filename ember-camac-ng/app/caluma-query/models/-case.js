@@ -1,8 +1,8 @@
 import { inject as service } from "@ember/service";
 import CaseModel from "@projectcaluma/ember-core/caluma-query/models/case";
+import { getAnswer } from "ember-ebau-core/utils/get-answer";
 
 import caseModelConfig from "camac-ng/config/case-model";
-import getAnswer from "camac-ng/utils/get-answer";
 
 export default class CustomCaseBaseModel extends CaseModel {
   @service store;

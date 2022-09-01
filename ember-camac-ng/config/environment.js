@@ -49,6 +49,21 @@ module.exports = function (environment) {
           ["baugesuch", "baugesuch-generell", "baugesuch-mit-uvp"],
           ["baugesuch-v2", "baugesuch-generell-v2", "baugesuch-mit-uvp-v2"],
         ],
+        answerSlugs: {
+          objectStreet: "strasse-flurname",
+          objectNumber: "nr",
+          objectLocation: "ort-grundstueck",
+          description: "beschreibung-bauvorhaben",
+          municipality: "gemeinde",
+          specialId: "ebau-number",
+          parcelNumber: "parzellennummer",
+          firstNameApplicant: "vorname-gesuchstellerin",
+          lastNameApplicant: "name-gesuchstellerin",
+          juristicNameApplicant: "name-juristische-person-gesuchstellerin",
+          isJuristicApplicant: "juristische-person-gesuchstellerin",
+          isJuristicApplicantYes: "juristische-person-gesuchstellerin-ja",
+          personalDataApplicant: "personalien-gesuchstellerin",
+        },
       },
       kt_schwyz: {
         name: "sz",
@@ -94,6 +109,21 @@ module.exports = function (environment) {
           33, // old
           34, // control
         ],
+        answerSlugs: {
+          objectStreet: "parcel-street",
+          objectNumber: "street-number",
+          objectLocation: "parcel-city",
+          applicantZip: "zip",
+          description: "proposal-description",
+          municipality: "municipality",
+          specialId: "dossier-number",
+          parcelNumber: "parcel-number",
+          oerebProcedure: "typ-des-verfahrens",
+          oerebTopics: "oereb-thema",
+          oerebPartialState: "teilstatus",
+          procedureCanton: "mbv-type",
+          procedureConfederation: "mbv-bund-type",
+        },
       },
     },
 
