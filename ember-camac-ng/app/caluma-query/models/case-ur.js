@@ -1,8 +1,10 @@
 import { inject as service } from "@ember/service";
+import getFormTitle from "ember-ebau-core/utils/form-title";
+import { getAnswer } from "ember-ebau-core/utils/get-answer";
 
 import CustomCaseBaseModel from "camac-ng/caluma-query/models/-case";
+import config from "camac-ng/config/environment";
 import getActivationIndicator from "camac-ng/utils/activation-indicator";
-import getAnswer from "camac-ng/utils/get-answer";
 
 export default class CustomCaseModel extends CustomCaseBaseModel {
   @service store;
@@ -132,39 +134,15 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
   }
 
   get form() {
-    const oerebProcedure = getAnswer(this.raw.document, "typ-des-verfahrens");
-    const oerebTopic = getAnswer(this.raw.document, "oereb-thema");
-    const oerebPartialState = getAnswer(this.raw.document, "teilstatus");
-    const procedureCanton = getAnswer(this.raw.document, "mbv-type");
-    const procedureConfederation = getAnswer(
-      this.raw.document,
-      "mbv-bund-type"
-    );
+    let label = getFormTitle(this.raw.document, config.APPLICATION.answerSlugs);
 
-    let label;
-    if (oerebProcedure && oerebTopic) {
-      const topics = oerebTopic?.node.selectedOptions.edges.map(
-        (item) => item.node.label
-      );
-      const oerebProcedureLabel = oerebProcedure?.node.selectedOption.label;
-      const oerebPartialStateLabel =
-        oerebPartialState?.node.selectedOption.label;
+    if (!label) {
+      const answer = getAnswer(this.raw.document, "form-type");
 
-      const base = `${topics?.join(", ")} - ${oerebProcedureLabel}`;
-      label = oerebPartialStateLabel
-        ? `${base} (${oerebPartialStateLabel})`
-        : base;
-    } else if (procedureCanton) {
-      label = procedureCanton?.node.selectedOption.label;
-    } else if (procedureConfederation) {
-      label = procedureConfederation?.node.selectedOption.label;
+      label = answer?.node.question.options.edges.find(
+        (edge) => edge.node.slug === answer?.node.stringValue
+      )?.node.label;
     }
-
-    const answer = getAnswer(this.raw.document, "form-type");
-
-    label = answer?.node.question.options.edges.find(
-      (edge) => edge.node.slug === answer?.node.stringValue
-    )?.node.label;
 
     return this.isPaper
       ? `${label} (${this.intl.t("cases.filters.paper")})`

@@ -1,9 +1,9 @@
 import { inject as service } from "@ember/service";
 import CaseModel from "@projectcaluma/ember-core/caluma-query/models/case";
+import { getAnswer } from "ember-ebau-core/utils/get-answer";
 import { DateTime } from "luxon";
 
 import caseModelConfig from "ebau/config/case-model";
-import getAnswer from "ebau/utils/get-answer";
 
 export default class CustomCaseModel extends CaseModel {
   @service store;
