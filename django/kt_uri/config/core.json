@@ -996,15 +996,6 @@
   },
   {
     "model": "core.apageredirect",
-    "pk": 1158,
-    "fields": {
-      "resource": 289,
-      "instance_resource": 1,
-      "air_action_name": null
-    }
-  },
-  {
-    "model": "core.apageredirect",
     "pk": 1210,
     "fields": {
       "resource": 296,
@@ -1396,13 +1387,6 @@
     "pk": 1455,
     "fields": {
       "php_class": "MunicipalityCircEnd"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 1457,
-    "fields": {
-      "php_class": "CreateInstanceNG"
     }
   },
   {
@@ -5125,20 +5109,6 @@
       "description": "Ändert den Statusdes Dossiers",
       "success_message": "Stausänderung erfolgreich ausgeführt",
       "error_message": "Stausänderung konnte nicht ausgeführt werden",
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 1457,
-    "fields": {
-      "available_action": "php",
-      "button": 2,
-      "name": "CreateInstanceNG",
-      "description": null,
-      "success_message": null,
-      "error_message": "Dossier konnte nicht erstellt werden (NG API call failed)",
       "execute_always": 0,
       "sort": 0
     }
@@ -17502,18 +17472,6 @@
   },
   {
     "model": "core.button",
-    "pk": 2,
-    "fields": {
-      "instance_resource": 1,
-      "name": "Erstellen",
-      "description": "",
-      "class_field": "",
-      "hidden": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.button",
     "pk": 4,
     "fields": {
       "instance_resource": 180000,
@@ -22907,6 +22865,118 @@
     }
   },
   {
+    "model": "core.formgroupform",
+    "pk": 12000044,
+    "fields": {
+      "form_group": 32,
+      "form": 300
+    }
+  },
+  {
+    "model": "core.formgroupform",
+    "pk": 12000045,
+    "fields": {
+      "form_group": 241,
+      "form": 300
+    }
+  },
+  {
+    "model": "core.formgroupform",
+    "pk": 12000046,
+    "fields": {
+      "form_group": 242,
+      "form": 300
+    }
+  },
+  {
+    "model": "core.formgroupform",
+    "pk": 12000047,
+    "fields": {
+      "form_group": 244,
+      "form": 300
+    }
+  },
+  {
+    "model": "core.formgroupform",
+    "pk": 12000048,
+    "fields": {
+      "form_group": 245,
+      "form": 300
+    }
+  },
+  {
+    "model": "core.formgroupform",
+    "pk": 12000049,
+    "fields": {
+      "form_group": 246,
+      "form": 300
+    }
+  },
+  {
+    "model": "core.formgroupform",
+    "pk": 12000050,
+    "fields": {
+      "form_group": 249,
+      "form": 300
+    }
+  },
+  {
+    "model": "core.formgroupform",
+    "pk": 12000051,
+    "fields": {
+      "form_group": 250,
+      "form": 300
+    }
+  },
+  {
+    "model": "core.formgroupform",
+    "pk": 12000052,
+    "fields": {
+      "form_group": 251,
+      "form": 300
+    }
+  },
+  {
+    "model": "core.formgroupform",
+    "pk": 12000053,
+    "fields": {
+      "form_group": 252,
+      "form": 300
+    }
+  },
+  {
+    "model": "core.formgroupform",
+    "pk": 12000054,
+    "fields": {
+      "form_group": 254,
+      "form": 300
+    }
+  },
+  {
+    "model": "core.formgroupform",
+    "pk": 12000055,
+    "fields": {
+      "form_group": 255,
+      "form": 300
+    }
+  },
+  {
+    "model": "core.formgroupform",
+    "pk": 12000056,
+    "fields": {
+      "form_group": 161,
+      "form": 300
+    }
+  },
+  {
+    "model": "core.formgroupform",
+    "pk": 12000057,
+    "fields": {
+      "form_group": 30,
+      "form": 300
+    }
+  },
+  {
     "model": "core.grouppermission",
     "pk": 130195,
     "fields": {
@@ -23216,21 +23286,6 @@
     "fields": {
       "group": 1,
       "permission_id": "module_data-loader"
-    }
-  },
-  {
-    "model": "core.instanceresource",
-    "pk": 1,
-    "fields": {
-      "available_instance_resource": "newform",
-      "resource": 22,
-      "name": "Dossier erstellen",
-      "description": null,
-      "template": null,
-      "class_field": null,
-      "hidden": 1,
-      "sort": 0,
-      "form_group": 161
     }
   },
   {
@@ -28463,14 +28518,6 @@
     }
   },
   {
-    "model": "core.irnewform",
-    "pk": 1,
-    "fields": {
-      "instance_state": 21,
-      "page_form_group": null
-    }
-  },
-  {
     "model": "core.irpage",
     "pk": 4,
     "fields": {
@@ -28755,15 +28802,6 @@
     "pk": 14000000,
     "fields": {
       "pdf_class": null
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 1,
-    "fields": {
-      "instance_resource": 1,
-      "role": 6,
-      "instance_state": 1
     }
   },
   {
@@ -36688,92 +36726,11 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 20078,
-    "fields": {
-      "instance_resource": 1,
-      "role": 1128,
-      "instance_state": 1
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 20079,
     "fields": {
       "instance_resource": 180008,
       "role": 1128,
       "instance_state": 33
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 20080,
-    "fields": {
-      "instance_resource": 1,
-      "role": 3,
-      "instance_state": 1
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 20081,
-    "fields": {
-      "instance_resource": 1,
-      "role": 1101,
-      "instance_state": 1
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 20082,
-    "fields": {
-      "instance_resource": 1,
-      "role": 1107,
-      "instance_state": 1
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 20083,
-    "fields": {
-      "instance_resource": 1,
-      "role": 1061,
-      "instance_state": 1
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 20084,
-    "fields": {
-      "instance_resource": 1,
-      "role": 1127,
-      "instance_state": 1
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 20085,
-    "fields": {
-      "instance_resource": 1,
-      "role": 1129,
-      "instance_state": 1
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 20086,
-    "fields": {
-      "instance_resource": 1,
-      "role": 1106,
-      "instance_state": 1
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 20087,
-    "fields": {
-      "instance_resource": 1,
-      "role": 1130,
-      "instance_state": 1
     }
   },
   {
@@ -42649,6 +42606,28 @@
     }
   },
   {
+    "model": "core.pageform",
+    "pk": 12000022,
+    "fields": {
+      "page": 1,
+      "form": 300,
+      "page_form_mode": 1,
+      "page_form_group": 1,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.pageform",
+    "pk": 12000023,
+    "fields": {
+      "page": 41,
+      "form": 300,
+      "page_form_mode": 1,
+      "page_form_group": 1,
+      "sort": 1
+    }
+  },
+  {
     "model": "core.pageformgroup",
     "pk": 1,
     "fields": {
@@ -45869,13 +45848,6 @@
   },
   {
     "model": "core.rpage",
-    "pk": 22,
-    "fields": {
-      "pdf_class": null
-    }
-  },
-  {
-    "model": "core.rpage",
     "pk": 251,
     "fields": {
       "pdf_class": null
@@ -45884,6 +45856,13 @@
   {
     "model": "core.rpage",
     "pk": 20000,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.rpage",
+    "pk": 12000001,
     "fields": {
       "pdf_class": null
     }
@@ -45906,42 +45885,10 @@
   },
   {
     "model": "core.rroleacl",
-    "pk": 4,
-    "fields": {
-      "resource": 22,
-      "role": 3
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 5,
-    "fields": {
-      "resource": 22,
-      "role": 6
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 6,
-    "fields": {
-      "resource": 22,
-      "role": 1061
-    }
-  },
-  {
-    "model": "core.rroleacl",
     "pk": 7,
     "fields": {
       "resource": 287,
       "role": 1106
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 8,
-    "fields": {
-      "resource": 22,
-      "role": 1127
     }
   },
   {
@@ -46074,14 +46021,6 @@
   },
   {
     "model": "core.rroleacl",
-    "pk": 25,
-    "fields": {
-      "resource": 22,
-      "role": 1101
-    }
-  },
-  {
-    "model": "core.rroleacl",
     "pk": 26,
     "fields": {
       "resource": 266,
@@ -46118,14 +46057,6 @@
     "fields": {
       "resource": 42,
       "role": 1106
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 33,
-    "fields": {
-      "resource": 22,
-      "role": 1128
     }
   },
   {
@@ -46234,14 +46165,6 @@
   },
   {
     "model": "core.rroleacl",
-    "pk": 49,
-    "fields": {
-      "resource": 22,
-      "role": 1106
-    }
-  },
-  {
-    "model": "core.rroleacl",
     "pk": 50,
     "fields": {
       "resource": 287,
@@ -46278,14 +46201,6 @@
     "fields": {
       "resource": 42,
       "role": 1127
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 55,
-    "fields": {
-      "resource": 22,
-      "role": 1107
     }
   },
   {
@@ -46450,14 +46365,6 @@
   },
   {
     "model": "core.rroleacl",
-    "pk": 78,
-    "fields": {
-      "resource": 22,
-      "role": 1129
-    }
-  },
-  {
-    "model": "core.rroleacl",
     "pk": 79,
     "fields": {
       "resource": 266,
@@ -46486,14 +46393,6 @@
     "fields": {
       "resource": 295,
       "role": 1127
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 86,
-    "fields": {
-      "resource": 22,
-      "role": 1130
     }
   },
   {
@@ -46694,6 +46593,86 @@
     "fields": {
       "resource": 42,
       "role": 1131
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 12000002,
+    "fields": {
+      "resource": 12000001,
+      "role": 1130
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 12000003,
+    "fields": {
+      "resource": 12000001,
+      "role": 1101
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 12000004,
+    "fields": {
+      "resource": 12000001,
+      "role": 3
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 12000005,
+    "fields": {
+      "resource": 12000001,
+      "role": 1127
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 12000006,
+    "fields": {
+      "resource": 12000001,
+      "role": 1128
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 12000007,
+    "fields": {
+      "resource": 12000001,
+      "role": 1107
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 12000008,
+    "fields": {
+      "resource": 12000001,
+      "role": 1061
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 12000009,
+    "fields": {
+      "resource": 12000001,
+      "role": 1129
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 12000010,
+    "fields": {
+      "resource": 12000001,
+      "role": 1106
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 12000011,
+    "fields": {
+      "resource": 12000001,
+      "role": 6
     }
   },
   {
@@ -47162,19 +47141,6 @@
   },
   {
     "model": "core.resource",
-    "pk": 22,
-    "fields": {
-      "available_resource": "page",
-      "name": "Neues Dossier erstellen",
-      "description": "Dossier erstellen-Seite",
-      "template": "/global/home.phtml",
-      "class_field": null,
-      "hidden": 0,
-      "sort": 30
-    }
-  },
-  {
-    "model": "core.resource",
     "pk": 42,
     "fields": {
       "available_resource": "emberlist",
@@ -47587,6 +47553,19 @@
       "class_field": null,
       "hidden": 0,
       "sort": 9
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 12000001,
+    "fields": {
+      "available_resource": "page",
+      "name": "Neues Dossier erstellen",
+      "description": null,
+      "template": "/global/home.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 30
     }
   },
   {

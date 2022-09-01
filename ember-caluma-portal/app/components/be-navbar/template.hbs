@@ -8,7 +8,7 @@
               <img
                 class="uk-height-1-1"
                 src="/assets/images/logo-ebau-bern-1-{{this.session.language}}.svg"
-                alt={{t "global.title-be"}}
+                alt={{t "global.title"}}
               />
             {{else if (is-application "ur")}}
               <img
@@ -23,7 +23,7 @@
               <img
                 class="uk-height-1-1 secondary-logo"
                 src="/assets/images/logo-kanton-uri.svg"
-                alt={{t "global.title-ur"}}
+                alt={{t "global.title"}}
               />
             {{/if}}
             {{#if (and this.session.isAuthenticated this.session.groups.length)}}
@@ -49,7 +49,7 @@
             {{/if}}
             {{#if (or this.session.isAuthenticated (is-application "ur"))}}
               <UkSubnav::Item @href="/public-instances">
-                {{t (concat "nav.public-instance-" (application-name))}}
+                {{t "nav.public-instance"}}
               </UkSubnav::Item>
             {{/if}}
             {{#if (macroCondition (macroGetOwnConfig "enableFaq"))}}

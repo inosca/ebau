@@ -50,7 +50,7 @@
   <div>
     <UkButton
       class="uk-margin-small-top"
-      @title={{unless this.parcels (t "gis.info-text-ur")}}
+      @title={{unless this.parcels (t "gis.info-text")}}
       @disabled={{not this.parcels}}
       @loading={{or this.getFeatures.isRunning this.applySelection.isRunning}}
       @onClick={{perform this.applySelection}}

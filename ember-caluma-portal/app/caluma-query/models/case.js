@@ -2,32 +2,16 @@ import { inject as service } from "@ember/service";
 import CaseModel from "@projectcaluma/ember-core/caluma-query/models/case";
 
 import config from "caluma-portal/config/environment";
+import getFormTitle from "caluma-portal/utils/form-title";
+import { getAnswerDisplayValue } from "caluma-portal/utils/get-answer";
 
 const { answerSlugs } = config.APPLICATION;
-
-function findAnswer(document, slug) {
-  const answer = document.answers.edges
-    .map(({ node }) => node)
-    .find((answer) => answer.question.slug === slug);
-
-  if (!answer) {
-    return null;
-  }
-
-  if (answer.selectedOption) {
-    return answer.selectedOption.label;
-  }
-
-  const valueKey = Object.keys(answer).find((key) => /^\w+Value$/.test(key));
-
-  return answer[valueKey];
-}
 
 export default class CustomCaseModel extends CaseModel {
   @service store;
 
-  _findAnswer(slug) {
-    return findAnswer(this.raw.document, slug);
+  _getAnswerDisplayValue(slug) {
+    return getAnswerDisplayValue(this.raw.document, slug);
   }
 
   get instanceId() {
@@ -43,7 +27,7 @@ export default class CustomCaseModel extends CaseModel {
   }
 
   get type() {
-    return this.raw.document.form.name;
+    return getFormTitle(this.raw.document) || this.raw.document.form.name;
   }
 
   get status() {
@@ -59,7 +43,7 @@ export default class CustomCaseModel extends CaseModel {
   }
 
   get municipality() {
-    return this._findAnswer(answerSlugs.municipality);
+    return this._getAnswerDisplayValue(answerSlugs.municipality);
   }
 
   get submitDate() {
@@ -67,37 +51,39 @@ export default class CustomCaseModel extends CaseModel {
   }
 
   get description() {
-    return this._findAnswer(answerSlugs.description);
+    return this._getAnswerDisplayValue(answerSlugs.description);
   }
 
   get address() {
     const streetAndNr = [
-      this._findAnswer(answerSlugs.objectStreet),
-      this._findAnswer(answerSlugs.objectNumber),
+      this._getAnswerDisplayValue(answerSlugs.objectStreet),
+      this._getAnswerDisplayValue(answerSlugs.objectNumber),
     ]
       .filter(Boolean)
       .join(" ")
       .trim();
-    const city = this._findAnswer(answerSlugs.objectLocation)?.trim();
+    const city = this._getAnswerDisplayValue(
+      answerSlugs.objectLocation
+    )?.trim();
 
     return [streetAndNr, city].filter(Boolean).join(", ").trim();
   }
 
   get applicant() {
-    const rows = this._findAnswer(answerSlugs.personalDataApplicant);
+    const rows = this._getAnswerDisplayValue(answerSlugs.personalDataApplicant);
 
     return (rows ?? [])
       .map((row) => {
-        const isJuristicPerson = findAnswer(
+        const isJuristicPerson = getAnswerDisplayValue(
           row,
           answerSlugs.isJuristicApplicant
         );
         if (isJuristicPerson === answerSlugs.isJuristicApplicantYes) {
-          return findAnswer(row, answerSlugs.juristicNameApplicant);
+          return getAnswerDisplayValue(row, answerSlugs.juristicNameApplicant);
         }
         return [
-          findAnswer(row, answerSlugs.firstNameApplicant),
-          findAnswer(row, answerSlugs.lastNameApplicant),
+          getAnswerDisplayValue(row, answerSlugs.firstNameApplicant),
+          getAnswerDisplayValue(row, answerSlugs.lastNameApplicant),
         ].join(" ");
       })
       .join(", ");
@@ -116,8 +102,8 @@ export default class CustomCaseModel extends CaseModel {
 
     if (!decision) return null;
 
-    const remarks = findAnswer(decision, "decision-remarks");
-    const decisionAssessment = findAnswer(
+    const remarks = getAnswerDisplayValue(decision, "decision-remarks");
+    const decisionAssessment = getAnswerDisplayValue(
       decision,
       "decision-decision-assessment"
     );
@@ -164,7 +150,7 @@ export default class CustomCaseModel extends CaseModel {
         name
       }
       answers(
-        filter: [{
+	filter: [{
           questions: [
             "${answerSlugs.municipality}"
             "${answerSlugs.description}"
@@ -172,14 +158,38 @@ export default class CustomCaseModel extends CaseModel {
             "${answerSlugs.objectNumber}"
             "${answerSlugs.objectLocation}"
             "${answerSlugs.personalDataApplicant}"
+            "${answerSlugs.oerebProcedure}"
+            "${answerSlugs.oerebTopics}"
+            "${answerSlugs.procedureCanton}"
+            "${answerSlugs.procedureConfederation}"
           ]
-        }]
+	}]
       ) {
         edges {
           node {
             id
             question {
               slug
+              ... on ChoiceQuestion{
+                options {
+                  edges {
+                    node {
+                      slug
+                      label
+                    }
+                  }
+                }
+              }
+              ... on MultipleChoiceQuestion{
+                options {
+                  edges {
+                    node {
+                      slug
+                      label
+                    }
+                  }
+                }
+              }
             }
             ...on StringAnswer {
               stringValue: value
@@ -189,6 +199,16 @@ export default class CustomCaseModel extends CaseModel {
             }
             ...on IntegerAnswer {
               integerValue: value
+            }
+            ...on ListAnswer {
+              listValue: value
+              selectedOptions {
+                edges {
+                  node {
+                    label
+                  }
+                }
+              }
             }
             ... on TableAnswer {
               tableValue: value {

@@ -127,11 +127,21 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
     );
   }
 
+  get isPaper() {
+    return this.instance.isPaper;
+  }
+
   get form() {
     const oerebProcedure = getAnswer(this.raw.document, "typ-des-verfahrens");
     const oerebTopic = getAnswer(this.raw.document, "oereb-thema");
     const oerebPartialState = getAnswer(this.raw.document, "teilstatus");
+    const procedureCanton = getAnswer(this.raw.document, "mbv-type");
+    const procedureConfederation = getAnswer(
+      this.raw.document,
+      "mbv-bund-type"
+    );
 
+    let label;
     if (oerebProcedure && oerebTopic) {
       const topics = oerebTopic?.node.selectedOptions.edges.map(
         (item) => item.node.label
@@ -141,16 +151,24 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
         oerebPartialState?.node.selectedOption.label;
 
       const base = `${topics?.join(", ")} - ${oerebProcedureLabel}`;
-      return oerebPartialStateLabel
+      label = oerebPartialStateLabel
         ? `${base} (${oerebPartialStateLabel})`
         : base;
+    } else if (procedureCanton) {
+      label = procedureCanton?.node.selectedOption.label;
+    } else if (procedureConfederation) {
+      label = procedureConfederation?.node.selectedOption.label;
     }
 
     const answer = getAnswer(this.raw.document, "form-type");
 
-    return answer?.node.question.options.edges.find(
+    label = answer?.node.question.options.edges.find(
       (edge) => edge.node.slug === answer?.node.stringValue
     )?.node.label;
+
+    return this.isPaper
+      ? `${label} (${this.intl.t("cases.filters.paper")})`
+      : label;
   }
 
   get instanceState() {
@@ -272,6 +290,8 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
               "oereb-thema"
               "teilstatus"
               "beschreibung-reklame"
+              "mbv-type",
+              "mbv-bund-type",
             ]
           }
         ]
