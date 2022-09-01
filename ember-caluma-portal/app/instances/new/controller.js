@@ -49,21 +49,28 @@ export default class InstancesNewController extends Controller {
     }
   }
 
-  @lastValue("fetchForms") forms;
-
+  @lastValue("fetchForms") allForms;
   @restartableTask
   *fetchForms() {
-    const forms = yield this.apollo.query(
+    return yield this.apollo.query(
       { query: getRootFormsQuery },
       "allForms.edges"
     );
+  }
 
-    return forms
+  get forms() {
+    const permissions = config.APPLICATION.formCreationPermissions.filter(
+      (perm) =>
+        perm.roles.includes(parseInt(this.session.group?.role.get("id"))) ||
+        (perm.roles.includes("internal") && this.session.isInternal) ||
+        (perm.roles.includes("public") && !this.session.isInternal)
+    );
+    return (this.allForms || [])
       .filter(({ node }) => node.meta["is-creatable"] && node.isPublished)
-      .filter(
-        (form) =>
-          this.session.isInternal ||
-          !config.ebau.internalForms.includes(form.node.slug)
+      .filter((form) =>
+        permissions.find((perm) =>
+          perm.forms.includes(form.node.slug.replace(/-v\d/, ""))
+        )
       )
       .reduce(
         (grouped, { node: form }) => ({

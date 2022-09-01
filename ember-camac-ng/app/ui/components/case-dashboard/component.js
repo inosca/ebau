@@ -8,6 +8,7 @@ import { dropTask, lastValue } from "ember-concurrency";
 import { gql } from "graphql-tag";
 
 import CustomCaseModel from "camac-ng/caluma-query/models/case";
+import config from "camac-ng/config/environment";
 import redirectConfig from "camac-ng/config/redirect";
 import getCaseFromParcelsQuery from "camac-ng/gql/queries/get-case-from-parcels.graphql";
 
@@ -15,7 +16,6 @@ const WORKFLOW_ITEM_IDS = [
   12, // Dossier erfasst
   14, // Dossier angenommen
 ];
-
 function convertToBase64(blob) {
   return new Promise((resolve) => {
     const fr = new FileReader();
@@ -151,6 +151,7 @@ export default class CaseDashboardComponent extends Component {
 
       const instances = yield this.store.query("instance", {
         instance_id: instanceIds.join(","),
+        instance_state: config.APPLICATION.submittedStates.join(","),
       });
 
       instances.forEach((instance) => instance.fetchCaseMeta.perform());

@@ -1,4 +1,4 @@
-<h1>{{t (concat "publicInstances.title-" (application-name))}}</h1>
+<h1>{{t "publicInstances.title"}}</h1>
 <div>
   <label class="uk-form-label" for="type">{{t "instances.municipality"}}</label>
   <div class="uk-form-controls">
@@ -23,12 +23,12 @@
   <table class="uk-table uk-table-striped uk-table-hover uk-table-responsive">
     <thead>
       <tr>
-        <th class="uk-text-nowrap">{{t (concat "instances.special-id-" (application-name))}}</th>
+        <th class="uk-text-nowrap">{{t "instances.special-id"}}</th>
         <th class="uk-text-nowrap">{{t "instances.municipality"}}</th>
         <th class="uk-text-nowrap">{{t "publicInstances.applicant"}}</th>
-        <th class="uk-text-nowrap">{{t (concat "instances.description-" (application-name))}}</th>
-        <th class="uk-text-nowrap">{{t (concat "instances.address-" (application-name))}}</th>
-        <th class="uk-text-nowrap">{{t (concat "instances.parcel-" (application-name))}}</th>
+        <th class="uk-text-nowrap">{{t "instances.description"}}</th>
+        <th class="uk-text-nowrap">{{t "instances.address"}}</th>
+        <th class="uk-text-nowrap">{{t "instances.parcel"}}</th>
         {{#if (macroCondition (macroGetOwnConfig "enablePublicationEndDate"))}}
           <th class="uk-text-nowrap">{{t "instances.objectionPeriod"}}</th>
         {{/if}}
@@ -73,10 +73,10 @@
   <UkFlex @horizontal="center" @vertical="middle" @direction="column">
     <div class="uk-text-center uk-width-large">
       <object data="/assets/images/stamp-document.svg" class="uk-width-medium">
-        {{t (concat "publicInstances.empty-title-" (application-name))}}
+        {{t "publicInstances.empty-title"}}
       </object>
       <p class="uk-margin-remove-top uk-text-large">
-        {{t (concat "publicInstances.empty-title-" (application-name))}}
+        {{t "publicInstances.empty-title"}}
       </p>
       <p>{{t "publicInstances.emptyText"}}</p>
     </div>
