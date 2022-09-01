@@ -3,11 +3,8 @@ caluma:
     optional: "si nécessaire"
 
 global:
-  title-be: "eBau Berne"
-  title-ur: ""
-  page-title-be: "Portail eBau-BE"
-  page-title-ur: ""
-  urec: ""
+  title: "eBau Berne"
+  page-title: "Portail eBau-BE"
   versionPrefix: "v"
   continue: "Suivante"
   delete: "Effacer"
@@ -15,8 +12,6 @@ global:
   back: "Retour"
   save: "Enregistrer"
   ok: "Ok"
-  setConfidential: ""
-  setNonConfidential: ""
 
 nav:
   form: "Formulaire"
@@ -24,8 +19,7 @@ nav:
   decision: "Documents de décision"
   index: "Page principale"
   support: "Support"
-  public-instance-ur: ""
-  public-instance-be: "Publication / dépôt public"
+  public-instance: "Publication / dépôt public"
   logout: "Déconnexion"
   login: "Connexion"
   applicants: "Autorisation"
@@ -79,9 +73,7 @@ documents:
       installations d'eau et d'eaux usées et des autres pièces de la
       demande."
 
-
   download: "Télécharger le fichier"
-  confidential: ""
 
   drag: "Glisser un fichier dans cette zone, ou"
   click: "cliquez ici pour télécharger un fichier"
@@ -150,7 +142,6 @@ gis:
     title: "Reprendre les données"
     yes: "Oui"
     no: "Non"
-  info-text-ur: ""
   oereb: "Cadastre RDPPF :"
 
   notifications:
@@ -160,36 +151,26 @@ gis:
 
 support:
   title: "Support technique (24/7)"
-  info-be: "Pour toute question concernant la procédure, veuillez contacter la municipalité responsable"
-  info-ur: ""
+  info: "Pour toute question concernant la procédure, veuillez contacter la municipalité responsable"
   phone: "+41 31 636 99 96"
-  email-ur: ""
-  subject-ur: ""
 
 index:
-  welcome-be: "Bienvenue sur le portail eBau du canton de Berne"
-  welcome-ur: ""
+  welcome: "Bienvenue sur le portail eBau du canton de Berne"
   nextStep: "Que voulez-vous faire ensuite?"
 
 instances:
   title: "Mes dossiers"
-  instance-id-be: "Numéro de dossier"
-  instance-id-ur: ""
-  special-id-be: "Numéro eBau"
-  special-id-ur: ""
+  instance-id: "Numéro de dossier"
+  special-id: "Numéro eBau"
   type: "Type de demande"
   submitDate: "Date de soumission"
   submitDateFrom: "Date de soumission de"
   submitDateTo: "Date de soumission à"
-  description-be: "Description"
-  description-ur: ""
+  description: "Description"
   municipality: "Commune"
-  address-be: "Adresse"
-  address-ur: ""
+  address: "Adresse"
   applicant: "Requérant/e"
-  parcel-be: "N° de parcelle / de bien-fonds"
-  parcel-ur: ""
-  objectionPeriod: ""
+  parcel: "N° de parcelle / de bien-fonds"
   filter: "Cherche"
   reset: "Remise à l'état initial"
   pageInfo: "Dossiers '<strong'>1 - {length}'</strong'> de {total}"
@@ -202,8 +183,7 @@ instances:
   asc: "descendant"
   masterData: "Donées de base"
   lead: "l'autorité directrice"
-  building-specification-be: "Spécifications du bâtiment"
-  building-specification-ur: ""
+  building-specification: "Spécifications du bâtiment"
   actions: "Actions"
   activateFurtherPersons: "Activer d'autres personnes"
   activateFurtherPersonsText: "Dans le menu Autorisations, vous pouvez permettre à d'autres personnes de modifier ce dossier."
@@ -240,13 +220,8 @@ instances:
   createBuildingPermitTitle: "Créer une demande de permis de construire"
   createBuildingPermitText: "Vous avez ici la possibilité de transférer les données de la demande préalable complète vers une nouvelle demande de permis de construire."
   createBuildingPermitButton: "Créer une demande de permis de construire"
-  messageBuildingServicesTitle: ""
-  messageBuildingServicesText: ""
-  messageBuildingServicesButton: ""
 
   categories:
-    notSubmitted: ""
-    submitted: ""
     pending: "Pendante"
     sb: "Déclaration spontanée"
     done: "Finalisé"
@@ -257,8 +232,8 @@ instances:
     convertFromInfo: "Vous créez un nouveau dossier basé sur les données déjà existantes de la demande préalable complète {dossierId}{ebauNr}."
 
     preliminary-clarification:
-      title-be: "Demande préalable"
-      info-be: "Si la situation initiale n'est pas claire (notamment dans le cas
+      title: "Demande préalable"
+      info: "Si la situation initiale n'est pas claire (notamment dans le cas
       de projets de construction complexes et compliqués ou si la situation
       juridique n'est pas clarifiée), il est conseillé de faire vérifier les
       conditions générales du droit de la construction au moyen d'une demande
@@ -277,9 +252,8 @@ instances:
       avec un nouveau raccordement à une route cantonale)."
 
     building-permit:
-      title-be: "Requête"
-      title-ur: ""
-      info-be: "Le cas le plus courant est la présentation d'une **demande de
+      title: "Requête"
+      info: "Le cas le plus courant est la présentation d'une **demande de
       permis de construire** (exemple : agrandissement d'un garage,
       construction d'une maison individuelle neuve, installation de fenêtres
       en pente).\n\n Les demandes de permis de construire générales ou avec
@@ -300,35 +274,16 @@ instances:
       nouveau centre logistique d'une surface de stockage de plus de 20.000
       m² ou un projet de construction comprenant plus de 500 places de
       stationnement)."
-      info-ur: ""
 
     special-procedure:
-      title-be: "Procédure spéciale"
-      title-ur: ""
-      info-be: ""
-      info-ur: ""
+      title: "Procédure spéciale"
+      info: ""
 
     others:
-      title-be: "Autres"
-      title-ur: ""
+      title: "Autres"
 
   status:
     title: "État"
-    # Uri states
-    comm: ""
-    ext: ""
-    circ: ""
-    redac: ""
-    arch: ""
-    del: ""
-    new: ""
-    nfd: ""
-    subm: ""
-    ext_gem: ""
-    old: ""
-    control: ""
-
-    # Bern states
     creation: "Nouveau"
     receiving: "Communauté d'accueil"
     communal: "Traitement communautaire"

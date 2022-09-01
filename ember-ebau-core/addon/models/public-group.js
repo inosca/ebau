@@ -18,8 +18,10 @@ export default class PublicGroup extends Model {
     const serviceGroupId = parseInt(get(this, "service.serviceGroup.id"));
 
     return (
-      this.config.ebau?.paperInstances.allowedGroups.roles.includes(roleId) &&
-      this.config.ebau?.paperInstances.allowedGroups.serviceGroups.includes(
+      this.config.APPLICATION?.paperInstances.allowedGroups.roles.includes(
+        roleId
+      ) &&
+      this.config.APPLICATION?.paperInstances.allowedGroups.serviceGroups.includes(
         serviceGroupId
       )
     );

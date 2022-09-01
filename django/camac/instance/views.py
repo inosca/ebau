@@ -208,6 +208,9 @@ class InstanceView(
             ).exists()
         )
 
+    def has_base_permission_for_coordination(self, instance):
+        return self.has_base_permission_for_municipality(instance)
+
     def has_object_destroy_permission(self, instance):
         deletable_states = ["new"]
         if settings.APPLICATION["CALUMA"].get("CREATE_IN_PROCESS", False):

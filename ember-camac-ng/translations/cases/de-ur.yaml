@@ -1,3 +1,4 @@
 cases:
   filters:
     address: "Strasse / Flurname / Ort"
+    paper: "intern erfasst"

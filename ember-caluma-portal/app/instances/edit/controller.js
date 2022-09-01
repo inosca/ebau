@@ -34,6 +34,9 @@ export default class InstancesEditController extends Controller {
     });
 
     yield instance.getMainForm.perform();
+    if (config.APPLICATION.name === "ur") {
+      yield instance.getSpecialFormName.perform();
+    }
 
     return instance;
   }
