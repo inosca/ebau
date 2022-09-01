@@ -265,7 +265,7 @@ class CustomPermission(BasePermission):
 
         return is_controlled_by_service(work_item, get_current_service_id(info))
 
-    @distribution_permission_for(RedoWorkItem, ["DISTRIBUTION_TASK"])
+    @distribution_permission_for(RedoWorkItem, ["DISTRIBUTION_TASK", "INQUIRY_TASK"])
     @permission_for(RedoWorkItem)
     @object_permission_for(RedoWorkItem)
     def has_permission_for_redo_work_item(self, mutation, info, work_item=None):
