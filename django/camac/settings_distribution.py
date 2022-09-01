@@ -21,6 +21,7 @@ DISTRIBUTION = {
         "INQUIRY_WORKFLOW": "inquiry",
         "INQUIRY_ANSWER_FORM": "inquiry-answer",
         "INQUIRY_ANSWER_FILL_TASK": "fill-inquiry",
+        "REDO_INQUIRY": {},
         "QUESTIONS": {
             "DEADLINE": "inquiry-deadline",
             "REMARK": "inquiry-remark",
@@ -42,6 +43,7 @@ DISTRIBUTION = {
             },
             "RedoWorkItem": {
                 "DISTRIBUTION_TASK": lambda group, *_: is_lead_role(group),
+                "INQUIRY_TASK": lambda group, *_: is_lead_role(group),
             },
             "SaveDocumentAnswer": {
                 "INQUIRY_FORM": lambda group, document, *_: has_permission_for_inquiry_document(
@@ -57,6 +59,9 @@ DISTRIBUTION = {
         "ENABLED": True,
         "ECH_EVENTS": True,
         "INSTANCE_STATE_DISTRIBUTION": "circulation",
+        "REDO_INQUIRY": {
+            "REOPEN_TASKS": ["fill-inquiry"],
+        },
         "QUESTIONS": {
             "STATEMENT": "inquiry-answer-statement",
             "ANCILLARY_CLAUSES": "inquiry-answer-ancillary-clauses",
@@ -478,6 +483,10 @@ DISTRIBUTION = {
         "INQUIRY_ANSWER_CHECK_TASK": "check-inquiry",
         "INQUIRY_ANSWER_REVISE_TASK": "revise-inquiry",
         "INQUIRY_ANSWER_ALTER_TASK": "alter-inquiry",
+        "REDO_INQUIRY": {
+            "REOPEN_TASKS": ["check-inquiry", "revise-inquiry"],
+            "COMPLETE_TASKS": ["revise-inquiry"],
+        },
         "DEFAULT_SUGGESTIONS": [7],  # Baugesuchszentrale
         "SUGGESTIONS": {
             "SUBMODULES": [

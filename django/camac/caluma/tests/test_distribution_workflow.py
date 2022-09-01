@@ -10,83 +10,154 @@ from caluma.caluma_workflow.api import (
 from caluma.caluma_workflow.models import Case, WorkItem
 
 
+def _inquiry_factory(
+    to_service,
+    from_service,
+    sent,
+    user,
+    distribution_child_case,
+    distribution_settings,
+):
+    complete_work_item(
+        work_item=distribution_child_case.work_items.get(
+            task_id=distribution_settings["INQUIRY_CREATE_TASK"],
+            addressed_groups=[str(from_service.pk)],
+            status=WorkItem.STATUS_READY,
+        ),
+        user=user,
+        context={"addressed_groups": [str(to_service.pk)]},
+    )
+
+    work_item = distribution_child_case.work_items.filter(
+        addressed_groups=[str(to_service.pk)],
+        controlling_groups=[str(from_service.pk)],
+        status=WorkItem.STATUS_SUSPENDED,
+    ).first()
+
+    if sent:
+        resume_work_item(work_item=work_item, user=user)
+        work_item.refresh_from_db()
+
+    return work_item
+
+
 @pytest.fixture
-def distribution_case(be_instance, caluma_admin_user, instance_state_factory):
+def distribution_case_be(
+    be_instance,
+    caluma_admin_user,
+    instance_state_factory,
+    be_distribution_settings,
+    notification_template_factory,
+):
+    # this is needed so that simple workflow works
+    notification_template_factory(slug="05-bericht-erstellt")
+    notification_template_factory(slug="03-verfahrensablauf-fachstelle")
+    notification_template_factory(slug="03-verfahrensablauf-gesuchsteller")
+    notification_template_factory(slug="03-verfahren-vorzeitig-beendet")
     instance_state_factory(name="circulation")
     instance_state_factory(name="coordination")
 
     case = be_instance.case
 
-    skip_work_item(
-        work_item=case.work_items.get(task_id="submit"), user=caluma_admin_user
-    )
-    skip_work_item(
-        work_item=case.work_items.get(task_id="ebau-number"), user=caluma_admin_user
-    )
+    for task in ["submit", "ebau-number"]:
+        skip_work_item(
+            work_item=case.work_items.get(task_id=task), user=caluma_admin_user
+        )
 
     return case
 
 
 @pytest.fixture
-def distribution_child_case(distribution_case, distribution_settings):
-    return distribution_case.work_items.get(
-        task_id=distribution_settings["DISTRIBUTION_TASK"]
+def distribution_case_sz(
+    sz_instance,
+    caluma_admin_user,
+    instance_state_factory,
+    sz_distribution_settings,
+    notification_template_factory,
+):
+    notification_template_factory(slug="einladung-zur-stellungnahme")
+
+    instance_state_factory(name="circ")
+    instance_state_factory(name="redac")
+
+    case = sz_instance.case
+
+    for task in ["submit", "complete-check"]:
+        skip_work_item(
+            work_item=case.work_items.get(task_id=task), user=caluma_admin_user
+        )
+
+    return case
+
+
+@pytest.fixture
+def distribution_child_case_be(distribution_case_be, be_distribution_settings):
+    return distribution_case_be.work_items.get(
+        task_id=be_distribution_settings["DISTRIBUTION_TASK"]
     ).child_case
 
 
 @pytest.fixture
-def inquiry_factory(
+def distribution_child_case_sz(distribution_case_sz, sz_distribution_settings):
+    return distribution_case_sz.work_items.get(
+        task_id=sz_distribution_settings["DISTRIBUTION_TASK"]
+    ).child_case
+
+
+@pytest.fixture
+def inquiry_factory_be(
     caluma_admin_user,
-    distribution_child_case,
-    distribution_settings,
+    distribution_child_case_be,
+    be_distribution_settings,
     service,
     service_factory,
-    notification_template_factory,
 ):
-    # this is needed so that simple workflow works
-    notification_template_factory(slug="03-verfahrensablauf-gesuchsteller")
-
     def factory(to_service=service_factory(), sent=False):
-        complete_work_item(
-            work_item=distribution_child_case.work_items.get(
-                task_id=distribution_settings["INQUIRY_CREATE_TASK"],
-                addressed_groups=[str(service.pk)],
-                status=WorkItem.STATUS_READY,
-            ),
+        return _inquiry_factory(
+            to_service=to_service,
+            from_service=service,
+            sent=sent,
             user=caluma_admin_user,
-            context={"addressed_groups": [str(to_service.pk)]},
+            distribution_child_case=distribution_child_case_be,
+            distribution_settings=be_distribution_settings,
         )
 
-        work_item = distribution_child_case.work_items.filter(
-            addressed_groups=[str(to_service.pk)],
-            controlling_groups=[str(service.pk)],
-            status=WorkItem.STATUS_SUSPENDED,
-        ).first()
+    return factory
 
-        if sent:
-            resume_work_item(
-                work_item=work_item,
-                user=caluma_admin_user,
-            )
-            work_item.refresh_from_db()
 
-        return work_item
+@pytest.fixture
+def inquiry_factory_sz(
+    caluma_admin_user,
+    distribution_child_case_sz,
+    sz_distribution_settings,
+    service,
+    service_factory,
+):
+    def factory(to_service=service_factory(), sent=False):
+        return _inquiry_factory(
+            to_service=to_service,
+            from_service=service,
+            sent=sent,
+            user=caluma_admin_user,
+            distribution_child_case=distribution_child_case_sz,
+            distribution_settings=sz_distribution_settings,
+        )
 
     return factory
 
 
 @pytest.mark.freeze_time("2022-03-23")
 def test_distribution_initial_state(
-    db, distribution_child_case, distribution_settings, service
+    db, distribution_child_case_be, be_distribution_settings, service
 ):
-    create_inquiry = distribution_child_case.work_items.get(
-        task_id=distribution_settings["INQUIRY_CREATE_TASK"]
+    create_inquiry = distribution_child_case_be.work_items.get(
+        task_id=be_distribution_settings["INQUIRY_CREATE_TASK"]
     )
-    end_distribution = distribution_child_case.work_items.get(
-        task_id=distribution_settings["DISTRIBUTION_COMPLETE_TASK"]
+    end_distribution = distribution_child_case_be.work_items.get(
+        task_id=be_distribution_settings["DISTRIBUTION_COMPLETE_TASK"]
     )
-    init_distribution = distribution_child_case.work_items.get(
-        task_id=distribution_settings["DISTRIBUTION_INIT_TASK"]
+    init_distribution = distribution_child_case_be.work_items.get(
+        task_id=be_distribution_settings["DISTRIBUTION_INIT_TASK"]
     )
 
     for work_item in [create_inquiry, end_distribution, init_distribution]:
@@ -102,36 +173,36 @@ def test_distribution_initial_state(
 @pytest.mark.freeze_time("2022-03-23")
 def test_create_inquiry(
     db,
-    distribution_child_case,
-    distribution_settings,
-    inquiry_factory,
+    distribution_child_case_be,
+    be_distribution_settings,
+    inquiry_factory_be,
     service,
     service_factory,
 ):
     invited_service = service_factory()
     invited_subservice = service_factory(service_parent=service)
 
-    service_inquiry = inquiry_factory(invited_service)
-    subservice_inquiry = inquiry_factory(invited_subservice)
+    service_inquiry = inquiry_factory_be(invited_service)
+    subservice_inquiry = inquiry_factory_be(invited_subservice)
 
     for work_item in [service_inquiry, subservice_inquiry]:
         assert work_item.status == WorkItem.STATUS_SUSPENDED
         assert work_item.deadline is None
 
-    assert distribution_child_case.work_items.filter(
-        task_id=distribution_settings["INQUIRY_CREATE_TASK"],
+    assert distribution_child_case_be.work_items.filter(
+        task_id=be_distribution_settings["INQUIRY_CREATE_TASK"],
         status=WorkItem.STATUS_READY,
         addressed_groups=[str(invited_service.pk)],
     ).exists()
-    assert distribution_child_case.work_items.filter(
-        task_id=distribution_settings["INQUIRY_CREATE_TASK"],
+    assert distribution_child_case_be.work_items.filter(
+        task_id=be_distribution_settings["INQUIRY_CREATE_TASK"],
         status=WorkItem.STATUS_READY,
         addressed_groups=[str(service.pk)],
     ).exists()
 
     # invited subservice should not have a create-inquiry work item
-    assert not distribution_child_case.work_items.filter(
-        task_id=distribution_settings["INQUIRY_CREATE_TASK"],
+    assert not distribution_child_case_be.work_items.filter(
+        task_id=be_distribution_settings["INQUIRY_CREATE_TASK"],
         status=WorkItem.STATUS_READY,
         addressed_groups=[str(invited_subservice.pk)],
     ).exists()
@@ -142,22 +213,14 @@ def test_create_inquiry(
 def test_send_inquiry(
     db,
     be_instance,
-    distribution_child_case,
-    distribution_settings,
-    inquiry_factory,
+    distribution_child_case_be,
+    be_distribution_settings,
+    inquiry_factory_be,
     mailoutbox,
-    notification_template_factory,
     service_factory,
 ):
-    distribution_settings["NOTIFICATIONS"] = {
-        "INQUIRY_SENT": {
-            "template_slug": notification_template_factory().slug,
-            "recipient_types": ["inquiry_addressed"],
-        }
-    }
-
     service = service_factory()
-    inquiry = inquiry_factory(to_service=service, sent=True)
+    inquiry = inquiry_factory_be(to_service=service, sent=True)
 
     assert inquiry.status == WorkItem.STATUS_READY
     assert inquiry.deadline.isoformat() == "2022-04-22T00:00:00+00:00"
@@ -166,8 +229,8 @@ def test_send_inquiry(
 
     assert be_instance.instance_state.name == "circulation"
     assert (
-        distribution_child_case.work_items.get(
-            task_id=distribution_settings["DISTRIBUTION_INIT_TASK"],
+        distribution_child_case_be.work_items.get(
+            task_id=be_distribution_settings["DISTRIBUTION_INIT_TASK"],
         ).status
         == WorkItem.STATUS_COMPLETED
     )
@@ -182,21 +245,13 @@ def test_send_inquiry(
 def test_complete_inquiry(
     db,
     caluma_admin_user,
-    distribution_child_case,
-    distribution_settings,
-    inquiry_factory,
+    distribution_child_case_be,
+    be_distribution_settings,
+    inquiry_factory_be,
     mailoutbox,
-    notification_template_factory,
     service,
 ):
-    distribution_settings["NOTIFICATIONS"] = {
-        "INQUIRY_ANSWERED": {
-            "template_slug": notification_template_factory().slug,
-            "recipient_types": ["inquiry_controlling"],
-        }
-    }
-
-    inquiry = inquiry_factory(sent=True)
+    inquiry = inquiry_factory_be(sent=True)
 
     for question, value in [
         ("inquiry-answer-status", "inquiry-answer-status-positive"),
@@ -218,8 +273,8 @@ def test_complete_inquiry(
 
     inquiry.refresh_from_db()
 
-    assert distribution_child_case.work_items.filter(
-        task_id=distribution_settings["INQUIRY_CHECK_TASK"],
+    assert distribution_child_case_be.work_items.filter(
+        task_id=be_distribution_settings["INQUIRY_CHECK_TASK"],
         status=WorkItem.STATUS_READY,
         addressed_groups=[str(service.pk)],
     ).exists()
@@ -235,29 +290,27 @@ def test_complete_distribution(
     db,
     be_instance,
     caluma_admin_user,
-    distribution_child_case,
-    distribution_settings,
-    inquiry_factory,
+    distribution_child_case_be,
+    be_distribution_settings,
+    inquiry_factory_be,
     mailoutbox,
-    notification_template_factory,
     service_factory,
 ):
-    # this is needed so that simple workflow works
-    notification_template_factory(slug="03-verfahren-vorzeitig-beendet")
-
     service = service_factory()
 
-    draft_inquiry = inquiry_factory()  # draft - will be canceled
-    sent_inquiry = inquiry_factory(
+    draft_inquiry = inquiry_factory_be()  # draft - will be canceled
+    sent_inquiry = inquiry_factory_be(
         to_service=service, sent=True
     )  # sent - will be skipped
 
     assert (
-        distribution_child_case.work_items.filter(status=WorkItem.STATUS_READY).count()
+        distribution_child_case_be.work_items.filter(
+            status=WorkItem.STATUS_READY
+        ).count()
         == 5  # 1x complete-distribution, 3x create-inquiry, 1x inquiry
     )
     assert (
-        distribution_child_case.work_items.filter(
+        distribution_child_case_be.work_items.filter(
             status=WorkItem.STATUS_SUSPENDED
         ).count()
         == 1  # 1x inquiry
@@ -266,8 +319,8 @@ def test_complete_distribution(
     mailoutbox.clear()
 
     complete_work_item(
-        work_item=distribution_child_case.work_items.get(
-            task_id=distribution_settings["DISTRIBUTION_COMPLETE_TASK"],
+        work_item=distribution_child_case_be.work_items.get(
+            task_id=be_distribution_settings["DISTRIBUTION_COMPLETE_TASK"],
             status=WorkItem.STATUS_READY,
         ),
         user=caluma_admin_user,
@@ -280,16 +333,18 @@ def test_complete_distribution(
     assert sent_inquiry.status == WorkItem.STATUS_SKIPPED
 
     assert (
-        distribution_child_case.work_items.filter(
+        distribution_child_case_be.work_items.filter(
             status__in=[WorkItem.STATUS_READY, WorkItem.STATUS_SUSPENDED]
         ).count()
         == 0
     )
 
-    distribution_child_case.refresh_from_db()
+    distribution_child_case_be.refresh_from_db()
 
-    assert distribution_child_case.status == Case.STATUS_COMPLETED
-    assert distribution_child_case.parent_work_item.status == WorkItem.STATUS_COMPLETED
+    assert distribution_child_case_be.status == Case.STATUS_COMPLETED
+    assert (
+        distribution_child_case_be.parent_work_item.status == WorkItem.STATUS_COMPLETED
+    )
 
     be_instance.refresh_from_db()
 
@@ -303,22 +358,18 @@ def test_reopen_distribution(
     db,
     be_instance,
     caluma_admin_user,
-    distribution_child_case,
-    distribution_settings,
-    inquiry_factory,
-    notification_template_factory,
+    distribution_child_case_be,
+    be_distribution_settings,
+    inquiry_factory_be,
     service_factory,
     service,
     instance_state_factory,
 ):
     instance_state_distribution = instance_state_factory()
 
-    distribution_settings[
+    be_distribution_settings[
         "INSTANCE_STATE_DISTRIBUTION"
     ] = instance_state_distribution.name
-
-    # this is needed so that simple workflow works
-    notification_template_factory(slug="03-verfahren-vorzeitig-beendet")
 
     service_with_sent_inquiry = service_factory()
     service_with_unsent_inquiry = service_factory()
@@ -326,27 +377,27 @@ def test_reopen_distribution(
         service_parent=service_with_sent_inquiry
     )
 
-    inquiry_factory(to_service=service_with_sent_inquiry, sent=True)
-    inquiry_factory(to_service=service_with_unsent_inquiry)
-    inquiry_factory(to_service=subservice_with_sent_inquiry, sent=True)
+    inquiry_factory_be(to_service=service_with_sent_inquiry, sent=True)
+    inquiry_factory_be(to_service=service_with_unsent_inquiry)
+    inquiry_factory_be(to_service=subservice_with_sent_inquiry, sent=True)
 
-    complete_distribution = distribution_child_case.work_items.get(
-        task_id=distribution_settings["DISTRIBUTION_COMPLETE_TASK"]
+    complete_distribution = distribution_child_case_be.work_items.get(
+        task_id=be_distribution_settings["DISTRIBUTION_COMPLETE_TASK"]
     )
 
     # complete distribution to create proper workflow status for reopening the
     # distribution again
     complete_work_item(work_item=complete_distribution, user=caluma_admin_user)
 
-    distribution_child_case.refresh_from_db()
+    distribution_child_case_be.refresh_from_db()
     be_instance.refresh_from_db()
 
     distribution = be_instance.case.work_items.get(
-        task_id=distribution_settings["DISTRIBUTION_TASK"]
+        task_id=be_distribution_settings["DISTRIBUTION_TASK"]
     )
     decision = be_instance.case.work_items.get(task_id="decision")
 
-    assert distribution_child_case.status == Case.STATUS_COMPLETED
+    assert distribution_child_case_be.status == Case.STATUS_COMPLETED
     assert distribution.status == WorkItem.STATUS_COMPLETED
     assert decision.status == WorkItem.STATUS_READY
     assert be_instance.instance_state.name == "coordination"
@@ -354,13 +405,13 @@ def test_reopen_distribution(
     # redo distribution
     redo_work_item(work_item=distribution, user=caluma_admin_user)
 
-    distribution_child_case.refresh_from_db()
+    distribution_child_case_be.refresh_from_db()
     distribution.refresh_from_db()
     complete_distribution.refresh_from_db()
     decision.refresh_from_db()
     be_instance.refresh_from_db()
 
-    assert distribution_child_case.status == Case.STATUS_RUNNING
+    assert distribution_child_case_be.status == Case.STATUS_RUNNING
     assert distribution.status == WorkItem.STATUS_READY
     assert complete_distribution.status == WorkItem.STATUS_READY
     assert decision.status == WorkItem.STATUS_REDO
@@ -368,16 +419,16 @@ def test_reopen_distribution(
 
     # the service that reopened the distribution should have a work item to
     # create a new inquiry
-    assert distribution_child_case.work_items.filter(
-        task_id=distribution_settings["INQUIRY_CREATE_TASK"],
+    assert distribution_child_case_be.work_items.filter(
+        task_id=be_distribution_settings["INQUIRY_CREATE_TASK"],
         addressed_groups__contains=[str(service.pk)],
         status=WorkItem.STATUS_READY,
     ).exists()
 
     # the service that had an inquiry in the previous distribution run should
     # have a work item to create a new inquiry
-    assert distribution_child_case.work_items.filter(
-        task_id=distribution_settings["INQUIRY_CREATE_TASK"],
+    assert distribution_child_case_be.work_items.filter(
+        task_id=be_distribution_settings["INQUIRY_CREATE_TASK"],
         addressed_groups__contains=[str(service_with_sent_inquiry.pk)],
         status=WorkItem.STATUS_READY,
     ).exists()
@@ -385,16 +436,70 @@ def test_reopen_distribution(
     # the service that had an inquiry that was unsent in the previous
     # distribution run should **not** have a work item to create a new inquiry
     # since the previous inquiry was canceled on completion of the distribution
-    assert not distribution_child_case.work_items.filter(
-        task_id=distribution_settings["INQUIRY_CREATE_TASK"],
+    assert not distribution_child_case_be.work_items.filter(
+        task_id=be_distribution_settings["INQUIRY_CREATE_TASK"],
         addressed_groups__contains=[str(service_with_unsent_inquiry.pk)],
         status=WorkItem.STATUS_READY,
     ).exists()
 
     # the subservice that had a sent inquiry should **not** have a work item to
     # create a new inquiry
-    assert not distribution_child_case.work_items.filter(
-        task_id=distribution_settings["INQUIRY_CREATE_TASK"],
+    assert not distribution_child_case_be.work_items.filter(
+        task_id=be_distribution_settings["INQUIRY_CREATE_TASK"],
         addressed_groups__contains=[str(subservice_with_sent_inquiry.pk)],
         status=WorkItem.STATUS_READY,
     ).exists()
+
+
+def test_reopen_inquiry(
+    db,
+    caluma_admin_user,
+    sz_distribution_settings,
+    inquiry_factory_sz,
+):
+    inquiry = inquiry_factory_sz(sent=True)
+
+    skip_work_item(
+        work_item=inquiry.child_case.work_items.get(
+            task_id=sz_distribution_settings["INQUIRY_ANSWER_FILL_TASK"]
+        ),
+        user=caluma_admin_user,
+    )
+    complete_work_item(
+        work_item=inquiry.child_case.work_items.get(
+            task_id=sz_distribution_settings["INQUIRY_ANSWER_CHECK_TASK"]
+        ),
+        user=caluma_admin_user,
+    )
+
+    inquiry.refresh_from_db()
+
+    assert inquiry.status == WorkItem.STATUS_COMPLETED
+
+    # redo inquiry
+    redo_work_item(work_item=inquiry, user=caluma_admin_user)
+
+    inquiry.refresh_from_db()
+
+    assert inquiry.status == WorkItem.STATUS_READY
+
+    assert (
+        inquiry.child_case.work_items.get(
+            task_id=sz_distribution_settings["INQUIRY_ANSWER_CHECK_TASK"]
+        ).status
+        == WorkItem.STATUS_CANCELED
+    )
+
+    assert (
+        inquiry.child_case.work_items.get(
+            task_id=sz_distribution_settings["INQUIRY_ANSWER_REVISE_TASK"]
+        ).status
+        == WorkItem.STATUS_COMPLETED
+    )
+
+    assert (
+        inquiry.child_case.work_items.get(
+            task_id=sz_distribution_settings["INQUIRY_ANSWER_ALTER_TASK"]
+        ).status
+        == WorkItem.STATUS_READY
+    )
