@@ -1276,6 +1276,12 @@ APPLICATIONS = {
                     "recipient_types": ["work_item_controlling"],
                 }
             ],
+            "CREATE_MANUAL_WORK_ITEM": [
+                {
+                    "template_slug": "create-manual-work-item",
+                    "recipient_types": ["work_item_addressed"],
+                }
+            ],
         },
         "IS_MULTILINGUAL": True,
         "FORM_BACKEND": "caluma",
