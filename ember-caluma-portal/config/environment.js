@@ -118,6 +118,42 @@ module.exports = function (environment) {
         juristicNameRegexp: "^name-juristische-person.*$",
         emailRegexp: "^e-mail-.*$",
       },
+      paperInstances: {
+        allowedGroups: {
+          roles: [
+            3, // Leitung Leitbehörde
+            20004, // Sachbearbeiter Leitbehörde
+          ],
+          serviceGroups: [
+            2, // Gemeinde
+            20000, // Regierungsstatthalteramt
+          ],
+        },
+      },
+      // Who can create which forms. Roles can be given by ID, or magic key ("internal" or "public")
+      formCreationPermissions: [
+        {
+          roles: ["public", "internal"],
+          forms: [
+            "vorabklaerung-einfach",
+            "vorabklaerung-vollstaendig",
+            "baugesuch",
+            "baugesuch-mit-uvp",
+            "baugesuch-generell",
+            "hecken-feldgehoelze-baeume",
+            "solaranlagen-meldung",
+          ],
+        },
+        {
+          roles: ["internal"],
+          forms: [
+            "migriertes-dossier",
+            "baupolizeiliches-verfahren",
+            "zutrittsermaechtigung",
+            "klaerung-baubewilligungspflicht",
+          ],
+        },
+      ],
     },
     kt_uri: {
       name: "ur",
@@ -127,6 +163,15 @@ module.exports = function (environment) {
       completePreliminaryClarificationSlugs: [],
       selectableGroups: {
         roles: [
+          6, // Sekretariat der Gemeindebaubehörde
+          3, // KOOR BG
+          1061, // KOOR NP
+          1101, // KOOR BD
+          1106, // KOOR AfU
+          1107, // KOOR ALA
+          1127, // KOOR AfE
+          1128, // KOOR AFJ
+          1129, // KOOR SD
           1131, // Support
         ],
       },
@@ -176,6 +221,11 @@ module.exports = function (environment) {
         municipality: "municipality",
         specialId: "dossier-number",
         parcelNumber: "parcel-number",
+        oerebProcedure: "typ-des-verfahrens",
+        oerebTopics: "oereb-thema",
+        oerebPartialState: "teilstatus",
+        procedureCanton: "mbv-type",
+        procedureConfederation: "mbv-bund-type",
       },
       personalSuggestions: {
         tableQuestions: [
@@ -189,6 +239,110 @@ module.exports = function (environment) {
         juristicNameRegexp: "^juristic-person-name$",
         emailRegexp: "^e-mail$",
       },
+      paperInstances: {
+        allowedGroups: {
+          roles: [
+            6, // Sekretariat der Gemeindebaubehörde
+            3, // KOOR BG
+            1061, // KOOR NP
+            1101, // KOOR BD
+            1106, // KOOR AfU
+            1107, // KOOR ALA
+            1127, // KOOR AfE
+            1128, // KOOR AFJ
+            1129, // KOOR SD
+            1131, // Support
+          ],
+          serviceGroups: [
+            1, // Koordinationsstellen
+            68, // Sekretariate Gemeindebaubehörden
+          ],
+        },
+      },
+      // Who can create which forms. Roles can be given by ID, or magic key ("internal" or "public")
+      formCreationPermissions: [
+        {
+          roles: ["public"],
+          forms: [
+            "preliminary-clarification",
+            "building-permit",
+            "technische-bewilligung",
+            "cantonal-territory-usage",
+            "commercial-permit",
+            "solar-declaration",
+            "proposal-declaration",
+          ],
+        },
+        {
+          // Sekretariat der Gemeindebaubehörde
+          roles: [6],
+          forms: [
+            "solar-declaration",
+            "preliminary-clarification",
+            "oereb",
+            "commercial-permit",
+            "building-permit",
+            "proposal-declaration",
+            "archivdossier",
+          ],
+        },
+        {
+          // KOOR BG
+          roles: [3],
+          forms: [
+            "mitbericht-kanton",
+            "mitbericht-bund",
+            "bgbb",
+            "archivdossier",
+          ],
+        },
+        {
+          // KOOR NP
+          roles: [1061],
+          forms: ["mitbericht-kanton", "mitbericht-bund", "oereb"],
+        },
+        {
+          // KOOR BD
+          roles: [1101],
+          forms: [
+            "mitbericht-kanton",
+            "mitbericht-bund",
+            "cantonal-territory-usage",
+            "commercial-permit",
+            "oereb",
+          ],
+        },
+        {
+          // KOOR AfU
+          roles: [1106],
+          forms: ["mitbericht-kanton", "oereb"],
+        },
+        {
+          // KOOR ALA
+          roles: [1107],
+          forms: ["mitbericht-kanton", "bgbb"],
+        },
+        {
+          // KOOR AfE
+          roles: [1127],
+          forms: ["mitbericht-kanton"],
+        },
+        {
+          // KOOR AfJ
+          roles: [1128],
+          forms: [
+            "mitbericht-kanton",
+            "oereb",
+            "meldung-vorhaben",
+            "archivdossier",
+          ],
+        },
+        {
+          // KOOR SD
+          roles: [1129],
+          forms: ["mitbericht-kanton", "cantonal-territory-usage"],
+        },
+      ],
     },
   }[app];
 
@@ -254,24 +408,6 @@ module.exports = function (environment) {
       },
       supportGroups: appConfig.supportGroups,
       selectableGroups: appConfig.selectableGroups,
-      paperInstances: {
-        allowedGroups: {
-          roles: [
-            3, // Leitung Leitbehörde
-            20004, // Sachbearbeiter Leitbehörde
-          ],
-          serviceGroups: [
-            2, // Gemeinde
-            20000, // Regierungsstatthalteramt
-          ],
-        },
-      },
-      internalForms: [
-        "migriertes-dossier",
-        "baupolizeiliches-verfahren",
-        "zutrittsermaechtigung",
-        "klaerung-baubewilligungspflicht",
-      ],
     },
   };
 

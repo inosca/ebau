@@ -4,7 +4,7 @@
     "pk": 41,
     "fields": {
       "form_state": 1,
-      "name": "Verfahren nach BGBB / und Apparzellierungsverfahren",
+      "name": "Verfahren nach BGBB / und Abparzellierungsverfahren",
       "description": "KOOR-ARE-BG;Koordinationsstelle für Baueingaben Amt für Raumentwicklung",
       "family": null
     }
@@ -605,6 +605,16 @@
     "fields": {
       "form_state": 1,
       "name": "Baugesuch-Vorabklärung",
+      "description": null,
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 300,
+    "fields": {
+      "form_state": 1,
+      "name": "Mitberichtsverfahren Kanton",
       "description": null,
       "family": null
     }

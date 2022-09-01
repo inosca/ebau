@@ -110,7 +110,6 @@ def test_create_instance_caluma_be(
     instance_state_factory(name="old")
 
     application_settings["CALUMA"]["MODIFICATION_ALLOW_FORMS"] = ["main-form"]
-    application_settings["ARCHIVE_FORMS"] = [form.pk]
 
     location = Location.objects.first()
     body = {
@@ -185,10 +184,11 @@ def test_create_instance_caluma_be(
             instance=instance, service=admin_client.user.groups.first().service
         )
 
-        if not modification:
-            old_instance = instance
-            old_instance.instance_state = instance_state_factory(name="rejected")
-            old_instance.save()
+        old_instance = instance
+        old_instance.instance_state = instance_state_factory(
+            name="subm" if modification else "rejected"
+        )
+        old_instance.save()
 
         data["data"]["attributes"].update(
             {"copy-source": str(instance_id), "is-modification": modification}
@@ -217,13 +217,13 @@ def test_create_instance_caluma_be(
 
 @pytest.mark.freeze_time("2019-05-02")
 @pytest.mark.parametrize("service_group__name", ["municipality"])
-@pytest.mark.parametrize("instance_state__name", ["new"])
 @pytest.mark.parametrize("archive", [False, True])
+@pytest.mark.parametrize("paper", [False, True])
 @pytest.mark.parametrize(
     "copy,modification", [(False, False), (True, False), (True, True)]
 )
 @pytest.mark.parametrize("role__name", ["Municipality", "Coordination"])
-def test_create_instance_caluma_ur(
+def test_create_instance_caluma_ur(  # noqa: C901
     db,
     admin_client,
     instance_state,
@@ -243,16 +243,28 @@ def test_create_instance_caluma_ur(
     workflow_item_factory,
     authority_factory,
     settings,
+    paper,
 ):
+    headers = {}
+
+    if paper:
+        application_settings["PAPER"] = {
+            "ALLOWED_ROLES": {"DEFAULT": [group.role.pk]},
+            "ALLOWED_SERVICE_GROUPS": {"DEFAULT": [group.service.service_group.pk]},
+        }
+        headers.update({"x-camac-group": group.pk})
+
     settings.APPLICATION_NAME = "kt_uri"
     # Uri states
-    instance_state_factory(name="comm")
+    state_comm = instance_state_factory(name="comm")
     instance_state_factory(name="old")
     instance_state_factory(name="ext")
+    instance_state_factory(name="new")
 
     application_settings["CALUMA"]["MODIFICATION_ALLOW_FORMS"] = ["main-form"]
     application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
     application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = True
+    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_uri"]["MASTER_DATA"]
 
     role = admin_client.user.groups.first().role
     if role.name == "Municipality":
@@ -290,7 +302,12 @@ def test_create_instance_caluma_ur(
     instance = Instance.objects.get(pk=instance_id)
     assert instance.location == admin_client.user.groups.first().locations.first()
 
-    assert "dossier-number" in case.meta
+    assert (
+        case.document.answers.filter(
+            question_id="is-paper", value="is-paper-yes"
+        ).exists()
+        == paper
+    )
 
     assert instance.instance_state.name == "old" if archive else "new"
 
@@ -304,19 +321,18 @@ def test_create_instance_caluma_ur(
             instance=instance, service=admin_client.user.groups.first().service
         )
 
-        if not modification and not admin_client.user.groups.filter(
-            role__name="Coordination"
-        ):
-            old_instance = instance
-            old_instance.instance_state = instance_state_factory(name="rejected")
-            old_instance.save()
+        old_instance = instance
+        old_instance.instance_state = (
+            state_comm if modification else instance_state_factory(name="rejected")
+        )
+        old_instance.save()
 
         data["data"]["attributes"].update(
             {"copy-source": str(instance_id), "is-modification": modification}
         )
 
         if not archive:
-            copy_resp = admin_client.post(reverse("instance-list"), data)
+            copy_resp = admin_client.post(reverse("instance-list"), data, **headers)
 
             assert copy_resp.status_code == status.HTTP_201_CREATED, create_resp.content
             new_instance_id = int(copy_resp.json()["data"]["id"])
@@ -528,10 +544,15 @@ def test_instance_submit_be(
     assert mail.outbox[0].subject.startswith("[eBau Test]: ")
 
 
-@pytest.mark.parametrize("service_group__name", ["municipality"])
+@pytest.mark.parametrize("service_group__name", ["municipality", "coordination"])
 @pytest.mark.parametrize("instance_state__name", ["new"])
 @pytest.mark.parametrize(
-    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
+    "role__name,instance__user",
+    [
+        ("Applicant", LazyFixture("admin_user")),
+        ("Coordination", LazyFixture("admin_user")),
+        ("Municipality", LazyFixture("admin_user")),
+    ],
 )
 @pytest.mark.parametrize("new_instance_state_name", ["subm"])
 @pytest.mark.parametrize("has_personalien_gesuchstellerin", [True, False])
@@ -566,6 +587,7 @@ def test_instance_submit_ur(
     group_factory,
     ur_instance,
     instance_state_factory,
+    instance_service_factory,
     service,
     admin_user,
     new_instance_state_name,
@@ -590,6 +612,22 @@ def test_instance_submit_ur(
     ]
     application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = True
     application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
+    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_uri"]["MASTER_DATA"]
+    application_settings["PAPER"]["ALLOWED_SERVICE_GROUPS"]["DEFAULT"] = [
+        ur_instance.group.service.service_group_id
+    ]
+    application_settings["PAPER"]["ALLOWED_ROLES"]["DEFAULT"] = [
+        ur_instance.group.role.pk
+    ]
+
+    instance_state_factory(name="ext")
+    instance_state_factory(name="comm")
+
+    instance_service_factory(
+        active=1, instance=ur_instance, service=ur_instance.group.service
+    )
+
+    settings.APPLICATION_NAME = "kt_uri"
 
     workflow_item_factory(workflow_item_id=WORKFLOW_ITEM_EINGANG_ONLINE_UR)
 
@@ -600,6 +638,11 @@ def test_instance_submit_ur(
     )
 
     authority_location_factory(location=location)
+
+    if ur_instance.group.role.name in ["Municipality", "Coordination"]:
+        ur_instance.case.document.answers.create(
+            question_id="is-paper", value="is-paper-yes"
+        )
 
     group_factory(role=role_factory(name="support"))
     mocker.patch.object(
@@ -622,7 +665,12 @@ def test_instance_submit_ur(
 
     assert mail.outbox[0].subject.startswith("[eBau Test]: ")
 
-    assert ur_instance.instance_state.name == "subm"
+    if ur_instance.group.role.name == "Coordination":
+        assert ur_instance.instance_state.name == "ext"
+    elif ur_instance.group.role.name == "Municipality":
+        assert ur_instance.instance_state.name == "comm"
+    else:
+        assert ur_instance.instance_state.name == "subm"
 
 
 @pytest.mark.parametrize("service_group__name", ["coordination"])
@@ -658,6 +706,10 @@ def test_instance_submit_cantonal_territory_usage_ur(
         "veranstaltung_art": (
             "answer",
             "veranstaltung-art",
+        ),
+        "leitbehoerde_internal_form": (
+            "answer",
+            "leitbehoerde-internal-form",
         ),
     }
 
@@ -748,18 +800,19 @@ def test_instance_submit_message_building_services_ur(
     mock_generate_and_store_pdf,
     ech_mandatory_answers_einfache_vorabklaerung,
     workflow_item_factory,
-    location_factory,
     group_factory,
     role_factory,
     instance_state_factory,
     service_factory,
     instance_factory,
+    authority_location,
 ):
     settings.APPLICATION_NAME = "kt_uri"
     application_settings["CALUMA"]["USE_LOCATION"] = True
     application_settings["CALUMA"]["GENERATE_IDENTIFIER"] = False
     application_settings["USE_INSTANCE_SERVICE"] = False
     application_settings["NOTIFICATIONS"] = {"SUBMIT": []}
+    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_uri"]["MASTER_DATA"]
 
     message_building_services_form = caluma_form_factories.FormFactory(
         slug="technische-bewilligung"
@@ -784,10 +837,9 @@ def test_instance_submit_message_building_services_ur(
 
     workflow_item_factory(workflow_item_id=WORKFLOW_ITEM_EINGANG_ONLINE_UR)
 
-    location = location_factory(location_id="1")
-
     ur_instance.case.document.answers.create(
-        value=str(location.communal_federal_number), question_id="municipality"
+        value=str(authority_location.location.communal_federal_number),
+        question_id="municipality",
     )
 
     mocker.patch.object(
@@ -806,7 +858,7 @@ def test_instance_submit_message_building_services_ur(
     assert response.status_code == status.HTTP_200_OK
 
     assert ur_instance.instance_state.name == "subm"
-    assert ur_instance.location_id == 1
+    assert ur_instance.location == authority_location.location
     assert ur_instance.instance_group == source_instance.instance_group
 
 

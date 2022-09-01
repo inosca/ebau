@@ -61,9 +61,6 @@ class CreateInstanceLogic:
 
     @classmethod
     def validate_for_municipality(cls, data, group):
-        if settings.APPLICATION["CALUMA"].get("CREATE_IN_PROCESS"):
-            data["instance_state"] = models.InstanceState.objects.get(name="comm")
-
         if settings.APPLICATION["CALUMA"].get("USE_LOCATION"):
             if (
                 data.get("location", False)
@@ -202,19 +199,6 @@ class CreateInstanceLogic:
 
         return identifier
 
-    @classmethod
-    @permission_aware
-    def should_generate_identifier(cls, group):
-        return False
-
-    @classmethod
-    def should_generate_identifier_for_municipality(cls, group):
-        return settings.APPLICATION["CALUMA"].get("GENERATE_IDENTIFIER")
-
-    @classmethod
-    def should_generate_identifier_for_coordination(cls, group):
-        return settings.APPLICATION["CALUMA"].get("GENERATE_IDENTIFIER")
-
     @staticmethod
     def set_creation_date(instance, validated_data):
         perms = settings.APPLICATION.get("ROLE_PERMISSIONS", {})
@@ -335,11 +319,14 @@ class CreateInstanceLogic:
             # prefill municipality question if possible
             value = str(group.service.pk)
             source = Municipalities()
+            municipality_slug = settings.APPLICATION["MASTER_DATA"]["municipality"][1]
 
-            if source.validate_answer_value(value, case.document, "gemeinde", None):
+            if source.validate_answer_value(
+                value, case.document, municipality_slug, None
+            ):
                 caluma_api.update_or_create_answer(
                     case.document,
-                    "gemeinde",
+                    municipality_slug,
                     value,
                     user,
                 )
@@ -488,7 +475,7 @@ class CreateInstanceLogic:
         if form and form.pk in settings.APPLICATION.get("ARCHIVE_FORMS", []):
             data["instance_state"] = models.InstanceState.objects.get(name="old")
 
-        year = data.pop("year", None)
+        data.pop("year", None)
 
         if (
             settings.APPLICATION["CALUMA"].get("USE_LOCATION") and source_instance
@@ -522,12 +509,6 @@ class CreateInstanceLogic:
             )
 
         case_meta = {"camac-instance-id": instance.pk}
-
-        if CreateInstanceLogic.should_generate_identifier(group=group):
-            # Give dossier a unique dossier number
-            case_meta["dossier-number"] = CreateInstanceLogic.generate_identifier(
-                instance, year
-            )
 
         case = workflow_api.start_case(
             workflow=workflow,

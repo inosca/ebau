@@ -1,0 +1,9 @@
+publicInstances:
+  title: "Übersicht laufende Bauplanauflagen"
+  load-error: "Fehler beim Laden der Bauplanauflagen"
+  empty-title: "Es gibt keine laufenden Bauplanauflagen!"
+  publishedWithoutObligation: "Unverbindliches Planauflagedokument. Gegen Inhalte in diesem Dokument kann keine Einsprache eingereicht werden."
+  publishedWithObligation: "Verbindliches Planauflagedokument"
+
+publicInstancesDetail:
+  privacyTextMore: "Weitere Dokumente können im Rahmen der Auflagefrist bei der zuständigen Gemeindekanzlei eingesehen werden."

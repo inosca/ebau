@@ -571,6 +571,7 @@ snapshots['test_master_data[kt_uri-de-ur_master_data_case-select_related2-prefet
     'legal_state': [
         'typ-des-verfahrens-genehmigung'
     ],
+    'leitbehoerde_internal_form': None,
     'municipality': {
         'label': 'Altdorf',
         'slug': '1'
