@@ -154,6 +154,28 @@ def post_redo_distribution(sender, work_item, user, context=None, **kwargs):
         instance.save()
 
 
+@on(post_redo_work_item, raise_exception=True)
+@filter_by_task("INQUIRY_TASK")
+@transaction.atomic
+def post_redo_inquiry(sender, work_item, user, context=None, **kwargs):
+    reopen_case(
+        case=work_item.child_case,
+        work_items=work_item.child_case.work_items.filter(
+            task_id__in=settings.DISTRIBUTION["REDO_INQUIRY"].get("REOPEN_TASKS", [])
+        ),
+        user=user,
+        context=context,
+    )
+
+    work_items_to_complete = work_item.child_case.work_items.filter(
+        task_id__in=settings.DISTRIBUTION["REDO_INQUIRY"].get("COMPLETE_TASKS", []),
+        status=WorkItem.STATUS_READY,
+    )
+
+    for work_item_to_complete in work_items_to_complete:
+        complete_work_item(work_item=work_item_to_complete, user=user, context=context)
+
+
 @on(post_create_work_item, raise_exception=True)
 @filter_by_task("INQUIRY_TASK")
 @transaction.atomic
