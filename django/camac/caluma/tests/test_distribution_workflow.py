@@ -2,6 +2,7 @@ import pytest
 from caluma.caluma_form.api import save_answer
 from caluma.caluma_form.models import Question
 from caluma.caluma_workflow.api import (
+    cancel_work_item,
     complete_work_item,
     redo_work_item,
     resume_work_item,
@@ -18,21 +19,25 @@ def _inquiry_factory(
     distribution_child_case,
     distribution_settings,
 ):
+    create_work_item = distribution_child_case.work_items.get(
+        task_id=distribution_settings["INQUIRY_CREATE_TASK"],
+        addressed_groups=[str(from_service.pk)],
+        status=WorkItem.STATUS_READY,
+    )
+
     complete_work_item(
-        work_item=distribution_child_case.work_items.get(
-            task_id=distribution_settings["INQUIRY_CREATE_TASK"],
-            addressed_groups=[str(from_service.pk)],
-            status=WorkItem.STATUS_READY,
-        ),
+        work_item=create_work_item,
         user=user,
         context={"addressed_groups": [str(to_service.pk)]},
     )
 
-    work_item = distribution_child_case.work_items.filter(
+    create_work_item.refresh_from_db()
+
+    work_item = create_work_item.succeeding_work_items.get(
         addressed_groups=[str(to_service.pk)],
         controlling_groups=[str(from_service.pk)],
         status=WorkItem.STATUS_SUSPENDED,
-    ).first()
+    )
 
     if sent:
         resume_work_item(work_item=work_item, user=user)
@@ -503,3 +508,74 @@ def test_reopen_inquiry(
         ).status
         == WorkItem.STATUS_READY
     )
+
+
+@pytest.mark.parametrize(
+    "is_subservice,inquiry_count,has_multiple_create_work_items",
+    [
+        # Service has only one inquiry, create-inquiry should be canceled
+        # immediately.
+        (False, 1, False),
+        # Service has two inquiries, create-inquiry should be canceled after the
+        # last inquiry is canceled.
+        (False, 2, False),
+        # Subservice has only one inquiry, no create-inquiry work item should
+        # exist since those don't get created for subservices.
+        (True, 1, False),
+        # Service has only one inquiry but more than one create-inquiry work
+        # items. This should raise an error since this should technically not
+        # happen.
+        (False, 1, True),
+    ],
+)
+def test_cancel_inquiry(
+    db,
+    caluma_admin_user,
+    distribution_child_case_be,
+    be_distribution_settings,
+    inquiry_factory_be,
+    service_factory,
+    work_item_factory,
+    is_subservice,
+    inquiry_count,
+    has_multiple_create_work_items,
+):
+    service = service_factory(
+        service_parent=service_factory() if is_subservice else None
+    )
+
+    inquiries = [inquiry_factory_be(to_service=service) for x in range(inquiry_count)]
+
+    create_inquiry_work_items = distribution_child_case_be.work_items.filter(
+        task_id=be_distribution_settings["INQUIRY_CREATE_TASK"],
+        addressed_groups=[str(service.pk)],
+    )
+
+    if is_subservice:
+        assert not create_inquiry_work_items.exists()
+    else:
+        assert create_inquiry_work_items.filter(status=WorkItem.STATUS_READY).exists()
+
+    # provoke error
+    if has_multiple_create_work_items:
+        work_item_factory(
+            case=distribution_child_case_be,
+            addressed_groups=[str(service.pk)],
+            task_id=be_distribution_settings["INQUIRY_CREATE_TASK"],
+        )
+
+    for i, inquiry in enumerate(inquiries, start=1):
+        if has_multiple_create_work_items:
+            with pytest.raises(RuntimeError):
+                cancel_work_item(work_item=inquiry, user=caluma_admin_user)
+        else:
+            cancel_work_item(work_item=inquiry, user=caluma_admin_user)
+
+            if is_subservice:
+                assert not create_inquiry_work_items.exists()
+            else:
+                assert create_inquiry_work_items.filter(
+                    status=WorkItem.STATUS_CANCELED
+                    if i == len(inquiries)
+                    else WorkItem.STATUS_READY
+                ).exists()
