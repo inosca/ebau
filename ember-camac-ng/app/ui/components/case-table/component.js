@@ -324,6 +324,11 @@ export default class CaseTableComponent extends Component {
             decision_date_before: this.args.filter.decisionDateBefore,
             decision_date_after: this.args.filter.decisionDateAfter,
             decision: this.args.filter.decision,
+            inquiry_created_before: this.args.filter.inquiryCreatedBefore,
+            inquiry_created_after: this.args.filter.inquiryCreatedAfter,
+            inquiry_completed_before: this.args.filter.inquiryCompletedBefore,
+            inquiry_completed_after: this.args.filter.inquiryCompletedAfter,
+            inquiry_answer: this.args.filter.inquiryAnswer,
           }
         : {}),
     };

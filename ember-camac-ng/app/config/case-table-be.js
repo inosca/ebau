@@ -1,6 +1,16 @@
 export default {
   columns: {
     caluma: {
+      service: [
+        "instanceId",
+        "dossierNumber",
+        "form",
+        "address",
+        "inquiryCreated",
+        "instanceState",
+        "intent",
+        "applicants",
+      ],
       "construction-control": [
         "instanceId",
         "dossierNumber",
@@ -32,12 +42,15 @@ export default {
         "municipality",
         "responsibleMunicipality",
         "responsibleServiceUser",
-        "inquiryState",
         "address",
         "parcel",
         "personalDetails",
-        "submitDateAfter",
-        "submitDateBefore",
+        "inquiryState",
+        "inquiryAnswer",
+        "inquiryCreatedAfter",
+        "inquiryCreatedBefore",
+        "inquiryCompletedAfter",
+        "inquiryCompletedBefore",
         "tags",
         "instanceState",
         "paper",
