@@ -100,6 +100,6 @@ export default {
       caluma: [{ meta: "dossier-number" }],
     },
   },
-  defaultOrder: "municipality",
+  defaultOrder: "-municipality",
   pageSize: 20,
 };
