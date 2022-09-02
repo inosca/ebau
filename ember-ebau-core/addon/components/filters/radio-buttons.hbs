@@ -1,0 +1,12 @@
+<div class="uk-margin-small-right uk-flex uk-flex-column">
+  <label class="uk-form-label uk-text-bold">{{@label}}</label>
+  <div class="uk-button-group">
+    {{#each @options as |option|}}
+      <UkButton
+        @label={{option.label}}
+        @color={{if (eq @selected option.value) "primary" "default"}}
+        @onClick={{fn @onChange @name option.value}}
+      />
+    {{/each}}
+  </div>
+</div>

@@ -1,63 +1,11 @@
-<Filters as |Filter|>
-  <Filter.RadioButtons
-    @name="responsible"
-    @label={{t "workItems.filters.responsible"}}
-    @selected={{this.responsible}}
-    @options={{
-      array
-      (hash value="all" label=(t "workItems.filters.all"))
-      (hash value="own" label=(t "workItems.filters.own"))
-    }}
-    @onChange={{fn (mut this.responsible)}}
-  />
-  <Filter.RadioButtons
-    @name="type"
-    @label={{t "workItems.filters.type"}}
-    @selected={{this.type}}
-    @options={{
-      array
-      (hash value="all" label=(t "workItems.filters.all"))
-      (hash value="unread" label=(t "workItems.filters.unread"))
-    }}
-    @onChange={{fn (mut this.type)}}
-  />
-  <Filter.RadioButtons
-    @name="status"
-    @label={{t "workItems.filters.status"}}
-    @selected={{this.status}}
-    @options={{
-      array
-      (hash value="open" label=(t "workItems.filters.open"))
-      (hash value="closed" label=(t "workItems.filters.closed"))
-    }}
-    @onChange={{fn (mut this.status)}}
-  />
-  <Filter.RadioButtons
-    @name="role"
-    @label={{t "workItems.filters.role"}}
-    @selected={{this.role}}
-    @options={{
-      array
-      (hash value="active" label=(t "workItems.filters.active"))
-      (hash value="control" label=(t "workItems.filters.control"))
-    }}
-    @onChange={{fn (mut this.role)}}
-  />
-  <Filter.RadioButtons
-    @name="order"
-    @label={{t "workItems.filters.order"}}
-    @selected={{this.order}}
-    @options={{
-      array
-      (hash value="urgent" label=(t "workItems.filters.urgent"))
-      (hash value="new" label=(t "workItems.filters.new"))
-    }}
-    @onChange={{fn (mut this.order)}}
-  />
-</Filters>
-
-<WorkItemList
-  @query={{this.workItemsQuery}}
-  @columns={{this.columns}}
-  @highlight={{not-eq this.status "closed"}}
+<WorkItemListWrapper
+  @order={{this.order}}
+  @responsible={{this.responsible}}
+  @type={{this.type}}
+  @status={{this.status}}
+  @role={{this.role}}
+  @username={{this.shoebox.content.username}}
+  @application={{this.shoebox.content.application}}
+  @serviceId={{this.shoebox.content.serviceId}}
+  @setFilter={{this.setFilter}}
 />
