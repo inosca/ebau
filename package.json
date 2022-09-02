@@ -8,10 +8,5 @@
   ],
   "devDependencies": {
     "prettier": "2.7.1"
-  },
-  "//": "luxon and ember-uikit need to be updated in ember-ebau-gwr",
-  "resolutions": {
-    "luxon": "^3.0.2",
-    "ember-uikit": "^6.0.0"
   }
 }
