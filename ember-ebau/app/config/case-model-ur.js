@@ -1,4 +1,4 @@
-import getAnswer from "ebau/utils/get-answer";
+import { getAnswer } from "ember-ebau-core/utils/get-answer";
 
 const intentSlugs = [
   "proposal-description",

@@ -1,5 +1,6 @@
+import { getAnswer } from "ember-ebau-core/utils/get-answer";
+
 import CustomCaseBaseModel from "camac-ng/caluma-query/models/-case";
-import getAnswer from "camac-ng/utils/get-answer";
 
 export default class CustomCaseModel extends CustomCaseBaseModel {
   get dossierNumber() {
