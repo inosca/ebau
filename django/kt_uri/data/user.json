@@ -1032,7 +1032,7 @@
     "fields": {
       "role": 7,
       "service": 367,
-      "disabled": 0,
+      "disabled": 1,
       "name": "Gemeinderat Bauen",
       "phone": null,
       "zip": null,
@@ -1801,7 +1801,7 @@
       "role": 1102,
       "service": 323,
       "disabled": 0,
-      "name": "Gemeinderat Bauen Pendenzen",
+      "name": "Gemeinderat Seedorf (Ortsteil Bauen) Pendenzen",
       "phone": null,
       "zip": null,
       "city": null,
@@ -6086,8 +6086,8 @@
     "fields": {
       "service_group": 41,
       "service_parent": null,
-      "name": "Gemeinderat Bauen Pendenzen",
-      "description": "Gemeinderat Bauen Pendenzen",
+      "name": "Gemeinderat Seedorf (Ortsteil Bauen) Pendenzen",
+      "description": "Gemeinderat Seedorf (Ortsteil Bauen) Pendenzen",
       "sort": 139,
       "phone": null,
       "zip": null,
@@ -6589,7 +6589,7 @@
       "address": null,
       "email": "email@example.com",
       "website": null,
-      "disabled": 0,
+      "disabled": 1,
       "notification": 1
     }
   },
@@ -6931,7 +6931,7 @@
       "address": null,
       "email": "email@example.com",
       "website": null,
-      "disabled": 0,
+      "disabled": 1,
       "notification": 1
     }
   },
