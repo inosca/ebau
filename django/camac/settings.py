@@ -2115,6 +2115,8 @@ APPLICATIONS = {
                         "oereb",
                         "mitbericht-kanton",
                         "mitbericht-bund",
+                        "bgbb",
+                        "archivdossier",
                     ],
                     "people_sources": [
                         "applicant",
