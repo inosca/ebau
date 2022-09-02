@@ -234,6 +234,7 @@ instances:
     email: "E-Mail"
     unregistered: "noch nicht registriert"
     noSuggestions: "Keine Personalien gefunden"
+    noApplicants: "Es wurden noch keine Berechtigungen vergeben"
 
     add: "Einladen"
 
