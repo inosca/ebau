@@ -38,6 +38,12 @@
             </td>
           {{/if}}
         </tr>
+      {{else}}
+        <tr>
+          <td class="uk-text-center" colspan="3">
+            {{t "instances.applicants.noApplicants"}}
+          </td>
+        </tr>
       {{/each}}
     </tbody>
   </table>
