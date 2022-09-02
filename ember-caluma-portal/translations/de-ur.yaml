@@ -123,6 +123,7 @@ instances:
     ext_gem: "Dossiers bleibt bei Gemeindebaubehörde"
     old: "Archivdossier"
     control: "Bau- und Einspracheentscheid zugestellt"
+    done: "Zurück bei Gemeinde"
 
 paper:
   type: "intern erfasst"
