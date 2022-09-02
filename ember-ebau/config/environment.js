@@ -12,14 +12,17 @@ module.exports = function (environment) {
     kt_bern: {
       name: "be",
       realm: "ebau",
+      allowApplicantManualWorkItem: false,
     },
     kt_uri: {
       name: "ur",
       realm: "urec",
+      allowApplicantManualWorkItem: false,
     },
     kt_schwyz: {
       name: "sz",
       realm: "ebau",
+      allowApplicantManualWorkItem: true,
     },
   }[app];
   const oidcHost = process.env.KEYCLOAK_HOST || "http://ebau-keycloak.local";

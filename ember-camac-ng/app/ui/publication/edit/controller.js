@@ -4,11 +4,11 @@ import { inject as service } from "@ember/service";
 import { decodeId } from "@projectcaluma/ember-core/helpers/decode-id";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
+import saveWorkItemMutation from "ember-ebau-core/gql/mutations/save-workitem.graphql";
 import { trackedTask } from "ember-resources/util/ember-concurrency";
 import { confirm } from "ember-uikit";
 import { dedupeTracked } from "tracked-toolbox";
 
-import saveWorkItemMutation from "camac-ng/gql/mutations/save-workitem.graphql";
 import getPublication from "camac-ng/gql/queries/get-publication.graphql";
 import getPublications from "camac-ng/gql/queries/get-publications.graphql";
 
