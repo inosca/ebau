@@ -60,13 +60,14 @@ from .placeholders.serializers import DMSPlaceholdersSerializer
 
 
 class InstanceStateView(ReadOnlyModelViewSet):
+    group_required = False
     swagger_schema = None
     serializer_class = serializers.InstanceStateSerializer
     filterset_class = filters.InstanceStateFilterSet
     ordering = ("sort", "name")
 
     def get_queryset(self):
-        return models.InstanceState.objects.all()
+        return models.InstanceState.objects.prefetch_related("trans").all()
 
 
 class FormView(ReadOnlyModelViewSet):
