@@ -57,6 +57,11 @@ FORM_TYPE_MAPPING = {
     290: "form-type-project-announcement",
 }
 
+ANSWER_MITBERICHT_BUND_MAPPING = {
+    244: "mbv-bund-type-pgv-eisenbahn",
+    250: "mbv-bund-type-pgv-seilbahn",
+}
+
 
 class Command(BaseCommand):
     help = """Migrate the old forms to new ones."""
@@ -80,6 +85,23 @@ class Command(BaseCommand):
             self.stdout.write(
                 f"The form for instance {instance.instance_id} has changed from {old_form} to {new_form}"
             )
+
+            if new_form.pk == 300:  # Mitberichtsverfahren Kanton
+                special_cases = {
+                    43: 42,  # Int. Genehmigungsverf. -> Int. Mitbericht
+                }
+                value = special_cases.get(old_form.form_id, old_form.form_id)
+                Answer.objects.create(
+                    value=str(value),
+                    document=instance.case.document,
+                    question=Question.objects.get(slug="mbv-type"),
+                )
+            elif new_form.pk == 292:  # Mitberichtsverfahren Bundesstelle
+                Answer.objects.create(
+                    value=ANSWER_MITBERICHT_BUND_MAPPING[old_form.form_id],
+                    document=instance.case.document,
+                    question=Question.objects.get(slug="mbv-bund-type"),
+                )
 
             try:
                 answer = instance.case.document.answers.filter(
