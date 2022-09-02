@@ -365,6 +365,7 @@ module.exports = function (environment) {
       userinfoEndpoint: "/userinfo",
       afterLogoutUri: "/login",
       loginHintName: "kc_idp_hint",
+      enablePkce: true,
     },
     "ember-ebau-core": {
       gisUrl: "/lisag/ows",
