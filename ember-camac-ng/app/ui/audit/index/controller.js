@@ -5,8 +5,8 @@ import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
 import { confirmTask } from "ember-ebau-core/decorators";
+import completeWorkItem from "ember-ebau-core/gql/mutations/complete-work-item.graphql";
 
-import completeWorkItem from "camac-ng/gql/mutations/complete-work-item.graphql";
 import skipWorkItem from "camac-ng/gql/mutations/skip-work-item.graphql";
 
 export default class AuditIndexController extends Controller {

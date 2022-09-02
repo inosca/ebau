@@ -3,8 +3,7 @@ import { tracked } from "@glimmer/tracking";
 import WorkItemModel from "@projectcaluma/ember-core/caluma-query/models/work-item";
 import { decodeId } from "@projectcaluma/ember-core/helpers/decode-id";
 import { queryManager } from "ember-apollo-client";
-
-import saveWorkItemMutation from "camac-ng/gql/mutations/save-workitem.graphql";
+import saveWorkItemMutation from "ember-ebau-core/gql/mutations/save-workitem.graphql";
 
 export default class CustomWorkItemModel extends WorkItemModel {
   @queryManager apollo;

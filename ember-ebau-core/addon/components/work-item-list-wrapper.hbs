@@ -1,0 +1,65 @@
+<Filters as |Filter|>
+  <Filter.RadioButtons
+    @name="responsible"
+    @label={{t "workItems.filters.responsible"}}
+    @selected={{@responsible}}
+    @options={{
+      array
+      (hash value="all" label=(t "workItems.filters.all"))
+      (hash value="own" label=(t "workItems.filters.own"))
+    }}
+    @onChange={{@setFilter}}
+  />
+  <Filter.RadioButtons
+    @name="type"
+    @label={{t "workItems.filters.type"}}
+    @selected={{@type}}
+    @options={{
+      array
+      (hash value="all" label=(t "workItems.filters.all"))
+      (hash value="unread" label=(t "workItems.filters.unread"))
+    }}
+    @onChange={{@setFilter}}
+  />
+  <Filter.RadioButtons
+    @name="status"
+    @label={{t "workItems.filters.status"}}
+    @selected={{@status}}
+    @options={{
+      array
+      (hash value="open" label=(t "workItems.filters.open"))
+      (hash value="closed" label=(t "workItems.filters.closed"))
+    }}
+    @onChange={{@setFilter}}
+  />
+  <Filter.RadioButtons
+    @name="role"
+    @label={{t "workItems.filters.role"}}
+    @selected={{@role}}
+    @options={{
+      array
+      (hash value="active" label=(t "workItems.filters.active"))
+      (hash value="control" label=(t "workItems.filters.control"))
+    }}
+    @onChange={{@setFilter}}
+  />
+  <Filter.RadioButtons
+    @name="order"
+    @label={{t "workItems.filters.order"}}
+    @selected={{@order}}
+    @options={{
+      array
+      (hash value="urgent" label=(t "workItems.filters.urgent"))
+      (hash value="new" label=(t "workItems.filters.new"))
+    }}
+    @onChange={{@setFilter}}
+  />
+</Filters>
+
+<WorkItemList
+  @query={{this.workItemsQuery}}
+  @columns={{this.columns}}
+  @highlight={{not-eq this.status "closed"}}
+  @useLinkTo={{@useLinkTo}}
+  @baseRoute={{@baseRoute}}
+/>

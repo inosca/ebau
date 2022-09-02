@@ -73,7 +73,7 @@ The following table lists the most important modules in the "internal" part of t
 | ---------------------------- | ---------------------------------------- | ------------------ | ------------------ | ------------------ | ------------------ |
 | _Main Nav (resource)_        |                                          |                    |                    |                    |                    |
 | Dossier list                 | Show a list of dossiers                  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Task list                    | Show a list of tasks                     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x:                |
+| Task list                    | Show a list of tasks                     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Organization                 | Manage details of own organization       | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x:                |
 | Static content               | Static content, markdown editor          | :heavy_check_mark: | :x:                | :x:                | :x:                |
 | Text components              | Manage snippets for usage in text fields | :heavy_check_mark: | :x:                | :x:                | :x:                |
