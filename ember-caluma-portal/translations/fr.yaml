@@ -308,6 +308,7 @@ instances:
     email: "e-mail"
     unregistered: "pas encore enregistré"
     noSuggestions: "Aucune donnée personnelle trouvée"
+    noApplicants: "Aucune autorisation n'a encore été attribuée"
 
     add: "Inviter"
 
