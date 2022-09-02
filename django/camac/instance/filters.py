@@ -304,7 +304,9 @@ class InquiryDateFilter(DateFilter):
                 inquiries.order_by("created_at").values("created_at__date")[:1]
             ),
             last_inquiry_closed_at=Subquery(
-                inquiries.order_by("-closed_at").values("closed_at__date")[:1]
+                inquiries.exclude(closed_at__isnull=True)
+                .order_by("-closed_at")
+                .values("closed_at__date")[:1]
             ),
         ).filter(**{self.lookup_expr: value})
 
@@ -319,12 +321,10 @@ class InquiryAnswerFilter(BaseInFilter):
                 Answer.objects.filter(
                     question_id=settings.DISTRIBUTION["QUESTIONS"]["STATUS"],
                     value__in=value,
+                    document__case__family__instance=OuterRef("pk"),
                     document__case__parent_work_item__task_id=settings.DISTRIBUTION[
                         "INQUIRY_TASK"
                     ],
-                    document__case__parent_work_item__case__family__instance=OuterRef(
-                        "pk"
-                    ),
                     document__case__parent_work_item__addressed_groups__contains=[
                         str(self.parent.request.group.service_id)
                     ],
