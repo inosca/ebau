@@ -1,9 +1,6 @@
-import config from "caluma-portal/config/environment";
-import { getAnswerDisplayValue } from "caluma-portal/utils/get-answer";
+import { getAnswerDisplayValue } from "ember-ebau-core/utils/get-answer";
 
-const { answerSlugs } = config.APPLICATION;
-
-export default function getFormTitle(document) {
+export default function getFormTitle(document, answerSlugs) {
   const oerebProcedure = getAnswerDisplayValue(
     document,
     answerSlugs.oerebProcedure
