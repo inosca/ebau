@@ -324,6 +324,10 @@ APPLICATIONS = {
             "URLS_CLASS": "camac.ech0211.urls.SZUrlsConf",
         },
         "PUBLIC_ROLES": ["Publikation", "Portal"],
+        "INSTANCE_HIDDEN_STATES": {
+            "municipality": ["new"],
+            "service": ["new"],
+        },
         "PORTAL_GROUP": 4,
         "SERVICE_GROUPS_FOR_DISTRIBUTION": {
             "roles": {
