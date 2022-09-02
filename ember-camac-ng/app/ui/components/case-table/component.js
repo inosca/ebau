@@ -345,24 +345,35 @@ export default class CaseTableComponent extends Component {
     if (!cases.length) {
       return [];
     }
+
     const instanceIds = cases.map((_case) => _case.meta["camac-instance-id"]);
 
-    if (this.isService) {
-      await this.store.query("activation", {
-        instance: instanceIds.join(","),
-        service: this.shoebox.content.serviceId,
-        include: "circulation",
-      });
+    if (macroCondition(getOwnConfig().application === "ur")) {
+      if (this.isService) {
+        await this.store.query("activation", {
+          instance: instanceIds.join(","),
+          service: this.shoebox.content.serviceId,
+          include: "circulation",
+        });
 
-      await this.store.query("responsible-service", {
-        include: "responsible_user",
-        instance: instanceIds.join(","),
-      });
+        await this.store.query("responsible-service", {
+          include: "responsible_user",
+          instance: instanceIds.join(","),
+        });
+      }
     }
 
     await this.store.query("instance", {
       instance_id: instanceIds.join(","),
-      include: "instance_state,user,form,circulation_initializer_services",
+      include: [
+        "instance_state",
+        ...(macroCondition(getOwnConfig().application === "ur")
+          ? ["circulation_initializer_services", "user"]
+          : []),
+        ...(macroCondition(getOwnConfig().application === "sz")
+          ? ["form", "user"]
+          : []),
+      ],
     });
 
     if (this.args.casesBackend === "camac-ng") {
