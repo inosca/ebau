@@ -1,9 +1,9 @@
 import { inject as service } from "@ember/service";
 import CaseModel from "@projectcaluma/ember-core/caluma-query/models/case";
+import { getAnswerDisplayValue } from "ember-ebau-core/utils/get-answer";
 
 import config from "caluma-portal/config/environment";
 import getFormTitle from "caluma-portal/utils/form-title";
-import { getAnswerDisplayValue } from "caluma-portal/utils/get-answer";
 
 const { answerSlugs } = config.APPLICATION;
 
@@ -27,7 +27,10 @@ export default class CustomCaseModel extends CaseModel {
   }
 
   get type() {
-    return getFormTitle(this.raw.document) || this.raw.document.form.name;
+    return (
+      getFormTitle(this.raw.document, config.APPLICATION.answerSlugs) ||
+      this.raw.document.form.name
+    );
   }
 
   get status() {
