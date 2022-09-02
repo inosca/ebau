@@ -1,0 +1,118 @@
+<h2>{{t "workItems.new"}}</h2>
+
+<form
+  class="uk-form-stacked"
+  {{on "submit" (perform this.createWorkItem)}}
+>
+  <div class="uk-margin">
+    <label class="uk-form-label uk-text-bold">
+      {{t "workItems.responsible"}}
+      <span class="uk-text-danger">*</span>
+    </label>
+    <div class="uk-form-controls">
+      <PowerSelect
+        @required={{true}}
+        @searchEnabled={{true}}
+        @searchField="name"
+        @renderInPlace={{true}}
+        @options={{this.services}}
+        @selected={{this.responsibleService}}
+        @noMatchesMessage={{t "global.noMatch"}}
+        @onChange={{fn (mut this.responsibleService)}} as |service|
+      >
+        {{service.name}}
+      </PowerSelect>
+    </div>
+  </div>
+
+  {{#if this.selectedOwnService}}
+    <div class="uk-margin">
+      <label class="uk-form-label uk-text-bold">
+        {{t "workItems.assignedUser"}}
+      </label>
+    </div>
+    <div class="uk-form-controls">
+      <PowerSelect
+        @searchEnabled={{true}}
+        @searchField="fullName"
+        @renderInPlace={{true}}
+        @options={{this.users.records}}
+        @selected={{this.responsibleUser}}
+        @noMatchesMessage={{t "global.noMatch"}}
+        @onChange={{fn (mut this.responsibleUser)}} as |user|
+      >
+        {{user.fullName}}
+      </PowerSelect>
+    </div>
+  {{/if}}
+
+  <div class="uk-margin">
+    <label class="uk-form-label uk-text-bold">
+      {{t "workItems.title"}}
+      <span class="uk-text-danger">*</span>
+    </label>
+    <div class="uk-form-controls">
+      <Input @type="text" @value={{mut this.workItem.title}} name="title" id="title" required={{true}} class="uk-input" />
+    </div>
+  </div>
+
+  <div class="uk-margin">
+    <label class="uk-form-label uk-text-bold">
+      {{t "workItems.description"}}
+    </label>
+    <div class="uk-form-controls">
+      <Textarea @value={{this.workItem.description}} name="description" id="description" class="uk-textarea" {{autoresize mode="height"}} />
+    </div>
+  </div>
+
+  <div class="uk-margin">
+    <label class="uk-form-label uk-text-bold">
+      {{t "workItems.deadline"}}
+      <span class="uk-text-danger">*</span>
+    </label>
+    <div class="uk-form-controls">
+      <input
+        id="deadline"
+        type="text"
+        class="uk-input"
+        {{pikaday value=this.workItem.deadline onSelect=(fn (mut this.workItem.deadline))}}
+        required
+      />
+    </div>
+  </div>
+
+  <div class="uk-margin">
+    <label class="uk-form-label uk-text-bold">
+      {{t "workItems.notifications"}}
+    </label>
+    <div class="uk-form-controls">
+      <label>
+        <Input
+          @type="checkbox"
+          @checked={{this.workItem.notificationCompleted}}
+          class="uk-checkbox"
+        />
+        {{t "workItems.notifyCompleted"}}
+      </label>
+      <br />
+      <label>
+        <Input
+          @type="checkbox"
+          @checked={{this.workItem.notificationDeadline}}
+          class="uk-checkbox"
+        />
+        {{t "workItems.notifyDeadline"}}
+      </label>
+    </div>
+  </div>
+
+  <div>
+    <LinkTo @route={{concat @baseRoute ".index"}} class="uk-button uk-button-default">
+      {{t "global.cancel"}}
+    </LinkTo>
+
+    <button class="uk-button uk-button-primary" type="submit">
+      {{t "global.save"}}
+    </button>
+  </div>
+</form>
