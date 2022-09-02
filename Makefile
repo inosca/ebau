@@ -67,8 +67,14 @@ loadconfig-dms: ## Load the DMS configuration
 		docker-compose exec document-merge-service poetry run python manage.py loaddata /tmp/document-merge-service/dump.json; \
 	fi
 
+.PHONY: loadconfig-keycloak
+loadconfig-keycloak: ## Load the keycloak configuration
+	@if [ "${APPLICATION}" = "kt_bern" ] || [ "${APPLICATION}" = "demo" ]; then \
+		docker-compose exec keycloak /opt/keycloak/bin/kc.sh import --override true --file /opt/keycloak/data/import/test-config.json >/dev/null 2>&1 || true; \
+	fi
+
 .PHONY: loadconfig
-loadconfig: loadconfig-camac loadconfig-dms ## Load the DMS and camac configuration
+loadconfig: loadconfig-camac loadconfig-dms loadconfig-keycloak ## Load all configuration
 
 .PHONY: dbshell
 dbshell: ## Start a psql shell
