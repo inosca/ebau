@@ -1,0 +1,55 @@
+<tr class={{if (and @highlight @workItem.notViewed) "uk-text-bold"}}>
+  {{#if @highlight}}
+    <td class="uk-table-middle uk-padding-remove-right {{this.highlightClasses}}"></td>
+  {{/if}}
+
+  {{#each @columns as |column|}}
+    <td
+      class={{if (includes column (array "responsible" "description" "closedBy")) "uk-text-truncate"}}
+      title="
+        {{if (eq column "responsible") @workItem.responsible}}
+        {{if (eq column "description") @workItem.instanceDescription}}
+        {{if (eq column "closedBy") @workItem.closedByUser.fullName}}
+        {{if (eq column "deadline") (format-date @workItem.deadline format="date")}}
+      "
+    >
+      {{#if (eq column "task")}}
+        {{#if @useLinkTo}}
+          <LinkTo @route={{concat @baseRoute ".edit"}} @models={{array @workItem.instance.id @workItem.id}}>{{@workItem.name}}</LinkTo>
+        {{else if @workItem.directLink}}
+          <a href="{{@workItem.directLink}}">{{@workItem.name}}</a>
+        {{else}}
+          {{@workItem.name}}
+        {{/if}}
+      {{else if (eq column "instance")}}
+        {{@workItem.instanceName}}
+      {{else if (eq column "deadline")}}
+        {{date-from-now @workItem.deadline}}
+      {{else if (eq column "responsible")}}
+        {{@workItem.responsible}}
+      {{else if (eq column "closedAt")}}
+        {{format-date @workItem.closedAt format="datetime"}}
+      {{else if (eq column "closedBy")}}
+        {{if @workItem.closedByUser @workItem.closedByUser.fullName "-"}}
+      {{else if (eq column "description")}}
+        {{@workItem.instanceDescription}}
+      {{/if}}
+    </td>
+  {{/each}}
+  <td class="uk-text-right">
+    {{#if this.actions.length}}
+      <button type="button" class="uk-button uk-button-link">
+        <UkIcon @icon="more-vertical" @ratio="0.8" />
+      </button>
+      <div uk-dropdown mode="click" pos="bottom-right">
+        <ul class="uk-nav uk-dropdown-nav uk-text-normal">
+          {{#each this.actions as |action|}}
+            <li>
+              <a href="" {{on "click" action.action}}>{{action.title}}</a>
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+    {{/if}}
+  </td>
+</tr>

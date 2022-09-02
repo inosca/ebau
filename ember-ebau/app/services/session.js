@@ -43,20 +43,25 @@ export default class CustomSession extends Session {
       .then((res) => res.json());
 
     this.store.push(this.store.normalize("user", response.data));
-    // NEW: get groups, roles and services to replace shoebox service
-    response.included
-      .filter(({ type }) => type === "groups")
-      .forEach((entry) =>
-        this.store.push(this.store.normalize("group", entry))
-      );
-    response.included
-      .filter(({ type }) => type === "roles")
-      .forEach((entry) => this.store.push(this.store.normalize("role", entry)));
-    response.included
-      .filter(({ type }) => type === "services")
-      .forEach((entry) =>
-        this.store.push(this.store.normalize("service", entry))
-      );
+
+    if (response.included) {
+      // NEW: get groups, roles and services to replace shoebox service
+      response.included
+        .filter(({ type }) => type === "groups")
+        .forEach((entry) =>
+          this.store.push(this.store.normalize("group", entry))
+        );
+      response.included
+        .filter(({ type }) => type === "roles")
+        .forEach((entry) =>
+          this.store.push(this.store.normalize("role", entry))
+        );
+      response.included
+        .filter(({ type }) => type === "services")
+        .forEach((entry) =>
+          this.store.push(this.store.normalize("service", entry))
+        );
+    }
 
     const group = this.group && this.store.peekRecord("group", this.group);
     return {

@@ -1,0 +1,16 @@
+{{page-title "WorkItems"}}
+<div class="uk-container main-content">
+  <WorkItemListWrapper
+    @order={{this.order}}
+    @responsible={{this.responsible}}
+    @type={{this.type}}
+    @status={{this.status}}
+    @role={{this.role}}
+    @username={{this.session.user.username}}
+    @application={{this.session.application}}
+    @serviceId={{this.session.service.id}}
+    @setFilter={{this.setFilter}}
+    @useLinkTo={{true}}
+    @baseRoute="cases.detail.work-items"
+  />
+</div>

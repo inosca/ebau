@@ -3706,7 +3706,7 @@
         ],
         "webOrigins": [
           "http://ebau.local",
-          "http://localhost",
+          "http://localhost:4200",
           "http://ember-ebau.local",
           "http://ebau-portal.local"
         ],
