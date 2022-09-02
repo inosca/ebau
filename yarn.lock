@@ -3533,7 +3533,7 @@ base64-arraybuffer@^0.2.0:
   resolved "https://registry.yarnpkg.com/base64-arraybuffer/-/base64-arraybuffer-0.2.0.tgz#4b944fac0191aa5907afe2d8c999ccc57ce80f45"
   integrity sha512-7emyCsu1/xiBXgQZrscw/8KPRT44I4Yq9Pe6EGs3aPRTsWuggML1/1DTuZUuIaJPIm1FTDUVXl4x/yW8s0kQDQ==
 
-base64-js@^1.0.2, base64-js@^1.3.1:
+base64-js@^1.0.2, base64-js@^1.3.1, base64-js@^1.5.1:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/base64-js/-/base64-js-1.5.1.tgz#1b1b440160a5bf7ad40b650f095963481903930a"
   integrity sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==
@@ -6788,7 +6788,7 @@ ember-factory-for-polyfill@^1.3.1:
   dependencies:
     ember-cli-version-checker "^2.1.0"
 
-ember-fetch@8.1.2, ember-fetch@^8.1.1, ember-fetch@^8.1.2:
+ember-fetch@8.1.2, ember-fetch@^8.1.2:
   version "8.1.2"
   resolved "https://registry.yarnpkg.com/ember-fetch/-/ember-fetch-8.1.2.tgz#651839780519319309127054786bf35cd4b84543"
   integrity sha512-TVx24/jrvDIuPL296DV0hBwp7BWLcSMf0I8464KGz01sPytAB+ZAePbc9ooBTJDkKZEGFgatJa4nj3yF1S9Bpw==
@@ -7140,18 +7140,20 @@ ember-set-helper@2.0.1:
   dependencies:
     ember-cli-babel "^7.18.0"
 
-ember-simple-auth-oidc@4.1.1:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/ember-simple-auth-oidc/-/ember-simple-auth-oidc-4.1.1.tgz#b5a2820947b480a23a911a9ffb229a424ab7c1f8"
-  integrity sha512-N45KVbKpGq67JPjvN6NaYgLKXCuQIGw3AJZIhyDecrrP9ccCdzZKBHoRtd9pg53dgHpmipnyxhyHgQpCjSkvyg==
+ember-simple-auth-oidc@5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/ember-simple-auth-oidc/-/ember-simple-auth-oidc-5.0.0.tgz#3d061bb221ddd793d2d4917f7ea62471ffd61d94"
+  integrity sha512-exq/CVE8q8/wWHrvtorst+b3bs3DAsfrfagyzXIMjpW5GAu3BoEvhIPRTuop2B95zTtsaWLtDbB0l15GyKHRWg==
   dependencies:
-    "@embroider/macros" "^1.6.0"
-    ember-auto-import "^2.4.1"
+    "@embroider/macros" "^1.8.3"
+    base64-js "^1.5.1"
+    ember-auto-import "^2.4.2"
     ember-cli-babel "^7.26.11"
-    ember-concurrency "^2.2.1"
-    ember-fetch "^8.1.1"
+    ember-concurrency "^2.3.2"
+    ember-fetch "^8.1.2"
     ember-simple-auth "^4.2.2"
-    tracked-built-ins "^2.0.1"
+    js-sha256 "^0.9.0"
+    tracked-built-ins "^3.1.0"
     uuid "^8.3.2"
 
 ember-simple-auth@4.2.2, ember-simple-auth@^4.2.2:
@@ -9967,6 +9969,11 @@ jquery@^3.5.1:
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.6.0.tgz#c72a09f15c1bdce142f49dbf1170bdf8adac2470"
   integrity sha512-JVzAR/AjBvVt2BmYhxRCSYysDsPcssdmTFnzyLEts9qNwmjmu4JTAMYubEfwVOSwpQ1I1sKKFcxhZCI2buerfw==
+
+js-sha256@^0.9.0:
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/js-sha256/-/js-sha256-0.9.0.tgz#0b89ac166583e91ef9123644bd3c5334ce9d0966"
+  integrity sha512-sga3MHh9sgQN2+pJ9VYZ+1LPwXOxuBJBA5nrR5/ofPfuiJBE2hnjsaN8se8JznOmGLN2p49Pe5U/ttafcs/apA==
 
 js-string-escape@^1.0.1:
   version "1.0.1"
@@ -14516,7 +14523,7 @@ tr46@~0.0.3:
   resolved "https://registry.yarnpkg.com/tr46/-/tr46-0.0.3.tgz#8184fd347dac9cdc185992f3a6622e14b9d9ab6a"
   integrity sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==
 
-tracked-built-ins@2.0.1, tracked-built-ins@^2.0.1:
+tracked-built-ins@2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/tracked-built-ins/-/tracked-built-ins-2.0.1.tgz#9d6d0db29ad187e8533591f0e891e15b7a2259c5"
   integrity sha512-v0DwPVNm3zA4cmJLpcBJxJfKefN6ldhkc8l5YA+cWHq7kI8WMUcXjIXgl/AIxmt1SoO1bwPdpikPRHHrIBDtFQ==
@@ -14526,7 +14533,7 @@ tracked-built-ins@2.0.1, tracked-built-ins@^2.0.1:
     ember-tracked-storage-polyfill "^1.0.0"
     tracked-maps-and-sets "^3.0.2"
 
-tracked-built-ins@^3.0.0:
+tracked-built-ins@^3.0.0, tracked-built-ins@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/tracked-built-ins/-/tracked-built-ins-3.1.0.tgz#827703e8e8857e45ac449dfc41e8706e0d6da309"
   integrity sha512-yPEZV1aYaw7xFWdoEluvdwNxIJIA834HaBQaMATjNAYPwd1fRqIJ46YnuRo6+9mRRWu6nM6sJqrVVa5H6UhFuw==

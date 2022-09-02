@@ -39,6 +39,7 @@ module.exports = function (environment) {
       userinfoEndpoint: "/userinfo",
       afterLogoutUri: "/login",
       loginHintName: "kc_idp_hint",
+      enablePkce: true,
     },
     apollo: {
       apiURL: "/graphql/",
