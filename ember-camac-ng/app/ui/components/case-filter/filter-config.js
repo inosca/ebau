@@ -13,6 +13,10 @@ export default {
   personalDetails: { type: "input" },
   decisionDateAfter: { type: "date", maxDate: "decisionDateBefore" },
   decisionDateBefore: { type: "date", minDate: "decisionDateAfter" },
+  inquiryCompletedAfter: { type: "date", maxDate: "inquiryCompletedBefore" },
+  inquiryCompletedBefore: { type: "date", minDate: "inquiryCompletedAfter" },
+  inquiryCreatedAfter: { type: "date", maxDate: "inquiryCreatedBefore" },
+  inquiryCreatedBefore: { type: "date", minDate: "inquiryCreatedAfter" },
   submitDateAfter: { type: "date", maxDate: "submitDateBefore" },
   submitDateBefore: { type: "date", minDate: "submitDateAfter" },
   withCantonalParticipation: { type: "toggle-switch" },
@@ -134,6 +138,12 @@ export default {
   decision: {
     type: "select-multiple",
     options: "decisionOptions",
+    labelField: "label",
+    showWithoutOptions: true,
+  },
+  inquiryAnswer: {
+    type: "select-multiple",
+    options: "inquiryAnswerOptions",
     labelField: "label",
     showWithoutOptions: true,
   },

@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import date, datetime
 from pathlib import Path
 
 import pytest
@@ -10,6 +10,7 @@ from caluma.caluma_form.models import Answer
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
 from django.core import mail
 from django.urls import reverse
+from django.utils.timezone import make_aware
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
@@ -1848,19 +1849,10 @@ def test_create_instance_from_modification(
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
-@pytest.mark.parametrize(
-    "filters,expected_count",
-    [
-        ({"decision_date_after": "2022-08-17"}, 2),
-        ({"decision_date_before": "2022-08-17"}, 3),
-    ],
-)
 def test_filter_decision_date(
     db,
     admin_client,
     decision_factory,
-    expected_count,
-    filters,
     instance_factory,
     instance_service_factory,
     instance_with_case,
@@ -1880,32 +1872,21 @@ def test_filter_decision_date(
             decision_date=decision_date,
         )
 
-    response = admin_client.get(reverse("instance-list"), data=filters)
+    for filters, expected_count in [
+        ({"decision_date_after": "2022-08-17"}, 2),
+        ({"decision_date_before": "2022-08-17"}, 3),
+    ]:
+        response = admin_client.get(reverse("instance-list"), data=filters)
 
-    assert response.status_code == status.HTTP_200_OK
-    assert len(response.json()["data"]) == expected_count
+        assert response.status_code == status.HTTP_200_OK
+        assert len(response.json()["data"]) == expected_count
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
-@pytest.mark.parametrize(
-    "filters,expected_count",
-    [
-        ({"decision": ""}, 4),
-        ({"decision": "decision-decision-assessment-accepted"}, 1),
-        (
-            {
-                "decision": "decision-decision-assessment-positive,decision-decision-assessment-negative"
-            },
-            2,
-        ),
-    ],
-)
 def test_filter_decision(
     db,
     admin_client,
     decision_factory,
-    expected_count,
-    filters,
     instance_factory,
     instance_service_factory,
     instance_with_case,
@@ -1921,7 +1902,91 @@ def test_filter_decision(
 
         decision_factory(instance=instance, decision=decision)
 
-    response = admin_client.get(reverse("instance-list"), data=filters)
+    for filters, expected_count in [
+        ({"decision": ""}, 4),
+        ({"decision": "decision-decision-assessment-accepted"}, 1),
+        (
+            {
+                "decision": "decision-decision-assessment-positive,decision-decision-assessment-negative"
+            },
+            2,
+        ),
+    ]:
+        response = admin_client.get(reverse("instance-list"), data=filters)
 
-    assert response.status_code == status.HTTP_200_OK
-    assert len(response.json()["data"]) == expected_count
+        assert response.status_code == status.HTTP_200_OK
+        assert len(response.json()["data"]) == expected_count
+
+
+@pytest.mark.parametrize("role__name", ["Service"])
+def test_filter_inquiry_dates(db, active_inquiry_factory, admin_client, be_instance):
+    active_inquiry_factory(
+        for_instance=be_instance,
+        created_at=make_aware(datetime(2022, 9, 1)),
+        closed_at=make_aware(datetime(2022, 9, 10)),
+    )
+    active_inquiry_factory(
+        for_instance=be_instance,
+        created_at=make_aware(datetime(2022, 9, 2)),
+        closed_at=make_aware(datetime(2022, 9, 9)),
+    )
+
+    for filters, expected_count in [
+        ({"inquiry_created_after": "2022-09-03"}, 0),
+        ({"inquiry_created_before": "2022-08-31"}, 0),
+        ({"inquiry_created_after": "2022-09-01"}, 1),
+        ({"inquiry_created_before": "2022-09-01"}, 1),
+        ({"inquiry_completed_after": "2022-09-11"}, 0),
+        ({"inquiry_completed_before": "2022-09-08"}, 0),
+        ({"inquiry_completed_after": "2022-09-10"}, 1),
+        ({"inquiry_completed_before": "2022-09-10"}, 1),
+    ]:
+        response = admin_client.get(reverse("instance-list"), data=filters)
+
+        assert response.status_code == status.HTTP_200_OK
+        assert len(response.json()["data"]) == expected_count
+
+
+@pytest.mark.parametrize("role__name", ["Service"])
+def test_filter_inquiry_answer(
+    db,
+    be_instance,
+    admin_client,
+    active_inquiry_factory,
+    instance_factory,
+    instance_service_factory,
+    instance_with_case,
+    service,
+    distribution_settings,
+    answer_factory,
+):
+    for inquiry_answer in [
+        "inquiry-answer-status-claim",
+        "inquiry-answer-status-negative",
+        "inquiry-answer-status-positive",
+    ]:
+        instance = instance_with_case(instance=instance_factory())
+        instance_service_factory(instance=instance, service=service)
+
+        inquiry = active_inquiry_factory(for_instance=instance)
+
+        answer_factory(
+            document=inquiry.child_case.document,
+            question_id=distribution_settings["QUESTIONS"]["STATUS"],
+            value=inquiry_answer,
+        )
+
+    for filters, expected_count in [
+        ({"inquiry_answer": ""}, 3),
+        ({"inquiry_answer": "inquiry-answer-status-positive"}, 1),
+        (
+            {
+                "inquiry_answer": "inquiry-answer-status-positive,inquiry-answer-status-negative"
+            },
+            2,
+        ),
+    ]:
+        response = admin_client.get(reverse("instance-list"), data=filters)
+
+        assert response.status_code == status.HTTP_200_OK
+        assert len(response.json()["data"]) == expected_count
