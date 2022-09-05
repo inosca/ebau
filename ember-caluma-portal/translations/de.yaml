@@ -3,6 +3,8 @@ caluma:
     optional: "falls nötig"
 
 global:
+  title: "eBau Bern"
+  page-title: "Portal eBau-BE"
   versionPrefix: "v"
   continue: "Weiter"
   delete: "Löschen"
@@ -10,6 +12,7 @@ global:
   back: "Zurück"
   save: "Speichern"
   ok: "Ok"
+  urec: "URec"
 
 nav:
   form: "Formular"
@@ -17,6 +20,7 @@ nav:
   decision: "Entscheiddokumente"
   index: "Startseite"
   support: "Support"
+  public-instance: "Bekanntmachung / Auflage"
   logout: "Ausloggen"
   login: "Einloggen"
   applicants: "Berechtigungen"
@@ -33,6 +37,9 @@ feedback:
   info: "Sie haben momentan keine Rückmeldungen. Sobald das Dossier eingereicht wurde, werden Ihnen hier mögliche Rückmeldungen der Leitbehörde oder Fachstellen angezeigt."
 
 documents:
+  confidential: "(vertraulich)"
+  setConfidential: "Als vertraulich markieren"
+  setNonConfidential: "Vertraulich Markierung entfernen"
   confirm: "Hiermit bestätige ich, dass ich {count, plural, =1 {den folgenden Pflichtinhalt} other {die folgenden # Pflichtinhalte}} hochgeladen habe:"
   buckets:
     dokument-grundstucksangaben: "Grundstücksangaben und Projektbeschrieb"
@@ -129,6 +136,7 @@ gis:
   no-map:
     message: "Wird die Karte nicht richtig dargestellt?"
     link: "Neu laden"
+  info-text: "Um Daten zu übernehmen, klicken Sie bitte in der Karte auf den entsprechenden Standort."
   info-override: "Beim übernehmen der Daten, werden die bisherigen Einträge gelöscht und neu angelegt. Alle manuell ergänzten Informationen gehen dabei verloren."
   additional:
     title: "Daten übernehmen?"
@@ -144,19 +152,28 @@ gis:
 support:
   title-support: "Technischer Support (24/7)"
   title-questions: "Fachliche Fragen"
+  info: "Für fachliche Fragen wenden Sie sich bitte an die zuständige Gemeinde."
   phone: "+41 31 636 99 97"
+  email: "urec@ur.ch"
+  subject: "URec - Supportanfrage"
 
 index:
+  welcome: "Willkommen im eBau-Portal des Kantons Bern"
   nextStep: "Was möchten Sie als Nächstes machen?"
 
 instances:
   title: "Meine Dossiers"
+  instance-id: "Dossier-Nr."
+  special-id: "eBau-Nr."
   type: "Gesuchstyp"
   submitDate: "Einreichedatum"
   submitDateFrom: "Einreichedatum von"
   submitDateTo: "Einreichedatum bis"
+  description: "Bauvorhaben"
   municipality: "Gemeinde"
+  address: "Adresse"
   applicant: "Gesuchsteller/in"
+  parcel: "Parzellennummer / Liegenschaftsnummer"
   filter: "Filtern"
   reset: "Zurücksetzen"
   pageInfo: "Dossiers '<strong'>1 - {length}'</strong'> von {total}"
@@ -169,6 +186,7 @@ instances:
   asc: "aufsteigend"
   masterData: "Stammdaten"
   lead: "Leitbehörde"
+  building-specification: "Baubeschrieb"
   actions: "Aktionen"
   activateFurtherPersons: "Weitere Personen freischalten"
   activateFurtherPersonsText: "Im Menü Berechtigungen können weitere Personen für die Bearbeitung dieses Dossiers freigeschalten werden."
@@ -206,21 +224,102 @@ instances:
   createBuildingPermitText: "Hier haben Sie die Möglichkeit die bereits ausgefüllten Daten der vollständigen Vorabklärung in ein neues Baugesuch zu übernehmen."
   createBuildingPermitButton: "Baugesuch erstellen"
 
+  objectionPeriod: "Einsprachefrist"
+  messageBuildingServicesTitle: "Meldung für Gebäudetechnik (Anlagen und Nachweise)"
+  messageBuildingServicesText: "Bitte verwenden Sie für die Meldung von gebäudetechnischen Anlagen und für die Einreichung von Nachweisen im Zusammenhang mit einen laufenden Baubewilligungsverfahren (z.B. wärmetechnische Anlagen, Brandschutz-, Energie-, oder Lärmschutznachweis) das Formular „MELDUNG GEBÄUDETECHNIK“ in der Übersicht."
+  messageBuildingServicesButton: "Meldung für Gebäudetechnik einreichen"
+
   categories:
     pending: "Offen"
     sb: "Selbstdeklaration"
     done: "Abgeschlossen"
+    notSubmitted: "Neu"
+    submitted: "Eingereicht"
 
   new:
     title: "Neues Dossier"
     kind: "Um welche Art von Dossier handelt es sich?"
     convertFromInfo: "Sie erstellen ein neues Dossier aus den bereits bestehenden Daten der vollständigen Vorabklärung {dossierId}{ebauNr}."
 
+    preliminary-clarification:
+      title: "Vorabklärung"
+      info: "Bei unklaren Ausgangslagen (insbesondere bei komplizierten und
+      komplexen Bauvorhaben oder bei unklarer Rechtslage) ist es
+      empfehlenswert, vor Eingabe eines Baugesuchs die baurechtlichen
+      Rahmenbedingungen mittels einer Vorabklärung prüfen zu lassen. Je
+      früher die Interessen der betroffenen Beteiligten untereinander
+      abgestimmt werden, umso reibungsloser gestaltet sich in der Regel die
+      Durchführung eines Baubewilligungsverfahrens.\n\n Die **einfache
+      Vorabklärung** ist ein Instrument für jegliche Fragen welche
+      insbesondere die Standortgemeinde als zuständige Behörde direkt
+      beurteilen und beantworten kann (Beispiel: Neubau Carport, Ausbau
+      Dachgeschoss, Grenzabstände).\n\n Mit der **vollständigen Vorabklärung**
+      können auch umfassende Bauvorhaben, in welchen auch kantonale, bundes-
+      oder andere externe Stellen betroffen sind, einbezogen und koordiniert
+      werden (Beispiel: Bauvorhaben in der Landwirtschaftszone, Bauvorhaben
+      mit einem Neuanschluss an eine Kantonsstrasse)."
+
+    building-permit:
+      title: "Gesuch"
+      info: "Der häufigste Fall ist die Eingabe eines **Baugesuchs**
+      (Beispiel: Anbau Garage, Neubau Einfamilienhaus, Einbau
+      Dachflächenfenster).\n\n Generelle Baugesuche oder Baugesuche mit einer
+      Umweltverträglichkeitsprüfung (UVP) sind in den allermeisten Fällen mit
+      den Behörden vorbesprochen und waren idealerweise bereits Gegenstand
+      einer vollständigen Vorabklärung.\n\n Das **generelle Baugesuch** wird
+      bei Grossprojekten gewählt, wenn noch nicht alle Details ausgearbeitet
+      sind und vorab geklärt werden soll, ob überhaupt eine Bewilligung
+      erreicht werden kann (Beispiel: Einkaufszentrum bei dem z.B. die
+      Lüftung und der Brandschutz erst später erarbeitet werden und vorab das
+      Volumen, die Nutzung und die Parkplätze geklärt werden sollen).\n\n
+      Das **Baugesuch mit UVP** ist zu wählen, wenn das Bauvorhaben eine
+      Umweltverträglichkeitsprüfung benötigt. Eine Auflistung der pflichtigen
+      Bauten ist im Anhang zur eidgenössischen UVP-Verordnung (UVPV)
+      abschliessend festgelegt (Beispiel: Neubau eines Logistikzentrums mit
+      einer Lagerfläche von mehr als 20'000 m² oder ein Bauvorhaben das mehr
+      als 500 Autoabstellplätze beinhaltet)."
+
+    special-procedure:
+      title: "Spezialverfahren"
+      info: ""
+
+    internal-procedure-canton:
+      title: "Interne kantonale Verfahren"
+      info: "Dieses Gesuch fasst folgende Gesuche zusammen:\n\n<ul><li>Internes Genehmigungsverfahren</li>\n\n <li>Internes Mitberichtsverfahren</li>\n\n <li>Mitberichtsverfahren / PGV für militärische Bauten</li>\n\n <li>Mitberichtsverfahren / PGV nach Luftfahrtgesetz</li>\n\n <li>Internes Mitberichtsverfahren AFJ</li>\n\n <li>Internes Mitberichtsverfahren ALA</li>\n\n <li>Internes Mitberichtsverfahren ALA (Korporationsstrassen mit Subventionierung)</li>\n\n <li>Internes Mitberichtsverfahren AfE</li>\n\n <li>Konzessionsverfahren Regierungsrat für Anlagen bis 1000 kW (Artikel 18 GNG)</li>\n\n <li>Konzessionsverfahren Landrat für Anlagen ab 1000 kW (Artikel 18 GNG)</li>\n\n <li>Konzessionsverfahren Baudirektion für Wärmeentnahmen (Artikel 40 GNG)</li>\n\n <li>Konzessionsverfahren Korporationsgewässer mit Genehmigung durch Regierungsrat (Artikel 15 GNG)</li>\n\n <li>Internes Mitberichtsverfahren SD AfKP</li>\n\n <li>Internes Mitberichtsverfahren SD</li>\n\n <li>PGV Kantonsstrasse (Artikel 30 StrG)</li>\n\n <li>PGV Gemeindestrasse (Artikel 30 StrG)</li>\n\n <li>PGV Korporationsstrasse (Artikel 30 StrG)</li>\n\n <li>PGV vereinfachtes Verfahren (Artikel 31 StrG)</li>\n\n <li>PGV öffentliche Gewässer (Artikel 12 WBG)</li>\n\n <li>PGV private Gewässer (Artikel 19 WBG)</li>\n\n <li>Mitberichtsverfahren / PGV nach Starkstromverordnung (EleG)</li>\n\n <li>Mitberichtsverfahren / PGV nach Nationalstrassengesetz (NSG)</li>\n\n <li>Konzessionsverfahren Baudirektion Beanspruchung Kantonsgewässer bis 500 m2 (Artikel 3 ORR)</li>\n\n <li>Internes Mitberichtsverfahren BD</li>\n\n <li>Land- und Rechtserweb</li>\n\n <li>Internes Mitberichtsverfahren AfU</li>\n\n <li>Internes Mitberichtsverfahren nach Artikel 30 BG Umweltschutz</li>\n\n <li>Internes Mitberichtsverfahren / Bewilligungsverfahren gemäss UVP</li></ul>"
+
     others:
       title: "Andere"
 
   status:
     title: "Status"
+
+    # BE
+    creation: "Neu"
+    receiving: "Empfang Gemeinde"
+    communal: "Bearbeitung Gemeinde"
+    in-progress: "Verfahrensprogramm"
+    sb1: "Selbstdeklaration 1"
+    sb2: "Selbstdeklaration 2"
+    finished: "Beurteilung abgeschlossen"
+    rejected: "Zurückgewiesen"
+    archived: "Archiviert"
+
+    # UR
+    comm: "Bearbeitung Leitbehörde"
+    ext: "Bearbeitung Koordinationsstelle"
+    circ: "In Zirkulation"
+    redac: "Zirkulation bei Gemeinde"
+    arch: "Archiviert"
+    del: "Gelöscht"
+    new: "Neu Erstellt"
+    nfd: "Nachforderung Dokumente"
+    subm: "Eingereicht bei Gemeinde"
+    ext_gem: "Dossiers bleibt bei Gemeindebaubehörde"
+    old: "Archivdossier"
+    control: "Bau- und Einspracheentscheid zugestellt"
+
+    # Shared
+    done: "Abgeschlossen"
 
   forms:
     nfd: "Nachforderungen"
@@ -276,6 +375,7 @@ notfound:
   home: "Startseite"
 
 paper:
+  type: "Papier"
   noteTitle: "Hinweis:"
   noteBody: 'Sie erstellen ein Dossier, welches in Ihrer Gemeinde in Papierform
     eingereicht wurde (Papierdossier). Falls Sie ein normales Dossier als
