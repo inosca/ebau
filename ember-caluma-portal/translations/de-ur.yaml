@@ -1,42 +1,23 @@
 global:
   title: "Kanton Uri"
   page-title: "URec Portal"
-  urec: "URec"
-  setConfidential: "Als vertraulich markieren"
-  setNonConfidential: "Vertraulich Markierung entfernen"
 
 nav:
   public-instance: "Bauplanauflage"
 
-documents:
-  confidential: "(vertraulich)"
-
-gis:
-  info-text: "Um Daten zu übernehmen, klicken Sie bitte in der Karte auf den entsprechenden Standort."
-
 support:
   info: "Im Falle von Problemen oder Fragen, welche durch die hinterlegten Hilfestellungen nicht geklärt werden, können Sie sich entweder an <b>die zuständige Bauverwaltung der entsprechenden Gemeinde</b> oder an <b>das Amt für Raumentwicklung</b> wenden."
-  email: "urec@ur.ch"
-  subject: "URec - Supportanfrage"
 
 index:
   welcome: "Willkommen im Portal für elektronische Verfahrenskoordination des Kantons Uri"
 
 instances:
-  objectionPeriod: "Einsprachefrist"
   instance-id: "ID"
   special-id: "Dossier-Nr."
   description: "Vorhaben"
   address: "Strasse / Flurname"
   parcel: "Parzellen"
   building-specification: "Vorhaben"
-  messageBuildingServicesTitle: "Meldung für Gebäudetechnik (Anlagen und Nachweise)"
-  messageBuildingServicesText: "Bitte verwenden Sie für die Meldung von gebäudetechnischen Anlagen und für die Einreichung von Nachweisen im Zusammenhang mit einen laufenden Baubewilligungsverfahren (z.B. wärmetechnische Anlagen, Brandschutz-, Energie-, oder Lärmschutznachweis) das Formular „MELDUNG GEBÄUDETECHNIK“ in der Übersicht."
-  messageBuildingServicesButton: "Meldung für Gebäudetechnik einreichen"
-
-  categories:
-    notSubmitted: "Neu"
-    submitted: "Eingereicht"
 
   new:
     building-permit:
@@ -106,23 +87,7 @@ instances:
       empfehlen wir Ihnen, die Frage der Baubewilligungspflicht mit der Gemeindebaubehörde zu
       klären."
 
-    internal-procedure-canton:
-      title: "Interne kantonale Verfahren"
-      info: "Dieses Gesuch fasst folgende Gesuche zusammen:\n\n<ul><li>Internes Genehmigungsverfahren</li>\n\n <li>Internes Mitberichtsverfahren</li>\n\n <li>Mitberichtsverfahren / PGV für militärische Bauten</li>\n\n <li>Mitberichtsverfahren / PGV nach Luftfahrtgesetz</li>\n\n <li>Internes Mitberichtsverfahren AFJ</li>\n\n <li>Internes Mitberichtsverfahren ALA</li>\n\n <li>Internes Mitberichtsverfahren ALA (Korporationsstrassen mit Subventionierung)</li>\n\n <li>Internes Mitberichtsverfahren AfE</li>\n\n <li>Konzessionsverfahren Regierungsrat für Anlagen bis 1000 kW (Artikel 18 GNG)</li>\n\n <li>Konzessionsverfahren Landrat für Anlagen ab 1000 kW (Artikel 18 GNG)</li>\n\n <li>Konzessionsverfahren Baudirektion für Wärmeentnahmen (Artikel 40 GNG)</li>\n\n <li>Konzessionsverfahren Korporationsgewässer mit Genehmigung durch Regierungsrat (Artikel 15 GNG)</li>\n\n <li>Internes Mitberichtsverfahren SD AfKP</li>\n\n <li>Internes Mitberichtsverfahren SD</li>\n\n <li>PGV Kantonsstrasse (Artikel 30 StrG)</li>\n\n <li>PGV Gemeindestrasse (Artikel 30 StrG)</li>\n\n <li>PGV Korporationsstrasse (Artikel 30 StrG)</li>\n\n <li>PGV vereinfachtes Verfahren (Artikel 31 StrG)</li>\n\n <li>PGV öffentliche Gewässer (Artikel 12 WBG)</li>\n\n <li>PGV private Gewässer (Artikel 19 WBG)</li>\n\n <li>Mitberichtsverfahren / PGV nach Starkstromverordnung (EleG)</li>\n\n <li>Mitberichtsverfahren / PGV nach Nationalstrassengesetz (NSG)</li>\n\n <li>Konzessionsverfahren Baudirektion Beanspruchung Kantonsgewässer bis 500 m2 (Artikel 3 ORR)</li>\n\n <li>Internes Mitberichtsverfahren BD</li>\n\n <li>Land- und Rechtserweb</li>\n\n <li>Internes Mitberichtsverfahren AfU</li>\n\n <li>Internes Mitberichtsverfahren nach Artikel 30 BG Umweltschutz</li>\n\n <li>Internes Mitberichtsverfahren / Bewilligungsverfahren gemäss UVP</li></ul>"
-
   status:
-    comm: "Bearbeitung Leitbehörde"
-    ext: "Bearbeitung Koordinationsstelle"
-    circ: "In Zirkulation"
-    redac: "Zirkulation bei Gemeinde"
-    arch: "Archiviert"
-    del: "Gelöscht"
-    new: "Neu Erstellt"
-    nfd: "Nachforderung Dokumente"
-    subm: "Eingereicht bei Gemeinde"
-    ext_gem: "Dossiers bleibt bei Gemeindebaubehörde"
-    old: "Archivdossier"
-    control: "Bau- und Einspracheentscheid zugestellt"
     done: "Zurück bei Gemeinde"
 
 paper:
