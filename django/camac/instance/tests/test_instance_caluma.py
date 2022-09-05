@@ -556,6 +556,7 @@ def test_instance_submit_be(
 )
 @pytest.mark.parametrize("new_instance_state_name", ["subm"])
 @pytest.mark.parametrize("has_personalien_gesuchstellerin", [True, False])
+@pytest.mark.parametrize("is_paper", [True, False])
 @pytest.mark.parametrize(
     "notification_template__body",
     [
@@ -606,6 +607,8 @@ def test_instance_submit_ur(
     location_factory,
     workflow_item_factory,
     authority_location_factory,
+    authority,
+    is_paper,
 ):
     application_settings["NOTIFICATIONS"]["SUBMIT"] = [
         {"template_slug": notification_template.slug, "recipient_types": ["applicant"]}
@@ -636,8 +639,12 @@ def test_instance_submit_ur(
     ur_instance.case.document.answers.create(
         value=str(location.communal_federal_number), question_id="municipality"
     )
-
-    authority_location_factory(location=location)
+    authority_location = authority_location_factory(location=location)
+    if is_paper:
+        ur_instance.case.document.answers.create(
+            value=str(authority.pk),
+            question_id="leitbehoerde-internal-form",
+        )
 
     if ur_instance.group.role.name in ["Municipality", "Coordination"]:
         ur_instance.case.document.answers.create(
@@ -664,6 +671,15 @@ def test_instance_submit_ur(
     assert ur_instance.user.email in mail.outbox[0].recipients()
 
     assert mail.outbox[0].subject.startswith("[eBau Test]: ")
+
+    assert (
+        ur_instance.case.document.answers.filter(question_id="leitbehoerde")
+        .first()
+        .value
+        == str(authority.pk)
+        if is_paper
+        else str(authority_location.authority.pk)
+    )
 
     if ur_instance.group.role.name == "Coordination":
         assert ur_instance.instance_state.name == "ext"
