@@ -125,6 +125,7 @@ FORM_QUESTION_MAP_UR = [
     ("main-form", "is-paper"),
     ("main-form", "municipality"),
     ("main-form", "leitbehoerde"),
+    ("main-form", "leitbehoerde-internal-form"),
 ]
 
 CALUMA_FORM_TYPES_SLUGS = [
@@ -714,6 +715,10 @@ def caluma_forms_ur(settings):
     caluma_form_models.Question.objects.create(
         slug="leitbehoerde",
         type=caluma_form_models.Question.TYPE_TEXT,
+    )
+    caluma_form_models.Question.objects.create(
+        slug="leitbehoerde-internal-form",
+        type=caluma_form_models.Question.TYPE_DYNAMIC_CHOICE,
     )
     form_type_question = caluma_form_models.Question.objects.create(
         slug="form-type",
