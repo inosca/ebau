@@ -1,5 +1,7 @@
 import { action } from "@ember/object";
+import { next } from "@ember/runloop";
 import { inject as service } from "@ember/service";
+import { ensureSafeComponent } from "@embroider/util";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { useCalumaQuery } from "@projectcaluma/ember-core/caluma-query";
@@ -16,6 +18,19 @@ import decisionsQuery from "camac-ng/gql/queries/decisions.graphql";
 import getBuildingPermitQuestion from "camac-ng/gql/queries/get-building-permit-question.graphql";
 import municipalitiesQuery from "camac-ng/gql/queries/municipalities.graphql";
 import rootFormsQuery from "camac-ng/gql/queries/root-forms.graphql";
+import DateComponent from "camac-ng/ui/components/case-filter/date/component";
+import InputComponent from "camac-ng/ui/components/case-filter/input/component";
+import SelectMultipleComponent from "camac-ng/ui/components/case-filter/select-multiple/component";
+import SelectComponent from "camac-ng/ui/components/case-filter/select/component";
+import ToggleSwitchComponent from "camac-ng/ui/components/case-filter/toggle-switch/component";
+
+const COMPONENT_MAPPING = {
+  date: DateComponent,
+  input: InputComponent,
+  select: SelectComponent,
+  "select-multiple": SelectMultipleComponent,
+  "toggle-switch": ToggleSwitchComponent,
+};
 
 const getRecursiveSources = (form, forms) => {
   if (!form.source?.slug) {
@@ -44,7 +59,7 @@ export default class CaseFilterComponent extends Component {
       ...this.storedFilters,
     };
 
-    this.args.onChange(this._filter);
+    next(this.args, "onChange", this._filter);
   }
 
   formOptions = useCalumaQuery(this, allForms, () => ({
@@ -222,23 +237,15 @@ export default class CaseFilterComponent extends Component {
           ? {
               [key]: {
                 ...config,
-                ...(config.options
-                  ? {
-                      options:
-                        this[config.options]?.records ??
-                        this[config.options]?.value ??
-                        this[config.options] ??
-                        [],
-                    }
-                  : {}),
+                component: ensureSafeComponent(
+                  COMPONENT_MAPPING[config.type],
+                  this
+                ),
               },
             }
           : {};
 
-        return {
-          ...populatedFilters,
-          ...filter,
-        };
+        return { ...populatedFilters, ...filter };
       }, {});
   }
 
