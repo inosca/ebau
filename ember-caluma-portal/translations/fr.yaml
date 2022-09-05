@@ -12,6 +12,7 @@ global:
   back: "Retour"
   save: "Enregistrer"
   ok: "Ok"
+  urec: ""
 
 nav:
   form: "Formulaire"
@@ -36,6 +37,9 @@ feedback:
   info: "Vous n'avez pas de commentaires pour le moment. Dès que le dossier aura été soumis, les réactions éventuelles de l'autorité chef de file ou des agences spécialisées seront affichées ici."
 
 documents:
+  confidential: ""
+  setConfidential: ""
+  setNonConfidential: ""
   confirm: "Je confirme par la présente que j'ai téléchargé {count, plural, =1 {le contenu obligatoire} other {les # contenus obligatoires}} suivants."
   buckets:
     dokument-grundstucksangaben: "Indications relatives à l'immeuble et description du projet"
@@ -137,6 +141,7 @@ gis:
   no-map:
     message: "La carte ne s'affiche pas correctement?"
     link: "Recharger"
+  info-text: ""
   info-override: "Lorsque les données sont transférées, les entrées précédentes sont supprimées et nouvellement créées. Toutes les informations complétées manuellement seront perdues."
   additional:
     title: "Reprendre les données"
@@ -154,6 +159,8 @@ support:
   title-questions: "Questions concernant la procédure"
   info: "Pour toute question concernant la procédure, veuillez contacter la municipalité responsable"
   phone: "+41 31 636 99 96"
+  email: ""
+  subject: ""
 
 index:
   welcome: "Bienvenue sur le portail eBau du canton de Berne"
@@ -222,10 +229,17 @@ instances:
   createBuildingPermitText: "Vous avez ici la possibilité de transférer les données de la demande préalable complète vers une nouvelle demande de permis de construire."
   createBuildingPermitButton: "Créer une demande de permis de construire"
 
+  objectionPeriod: ""
+  messageBuildingServicesTitle: ""
+  messageBuildingServicesText: ""
+  messageBuildingServicesButton: ""
+
   categories:
     pending: "Pendante"
     sb: "Déclaration spontanée"
     done: "Finalisé"
+    notSubmitted: ""
+    submitted: ""
 
   new:
     title: "Nouveau dossier"
@@ -280,11 +294,17 @@ instances:
       title: "Procédure spéciale"
       info: ""
 
+    internal-procedure-canton:
+      title: ""
+      info: ""
+
     others:
       title: "Autres"
 
   status:
     title: "État"
+
+    # BE
     creation: "Nouveau"
     receiving: "Communauté d'accueil"
     communal: "Traitement communautaire"
@@ -294,6 +314,22 @@ instances:
     finished: "Décision finalisé"
     rejected: "Repoussé"
     archived: "Archivé"
+
+    # UR
+    comm: ""
+    ext: ""
+    circ: ""
+    redac: ""
+    arch: ""
+    del: ""
+    new: ""
+    nfd: ""
+    subm: ""
+    ext_gem: ""
+    old: ""
+    control: ""
+
+    # Shared
     done: "Finalisé"
 
   forms:

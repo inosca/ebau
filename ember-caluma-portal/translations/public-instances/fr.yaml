@@ -1,9 +1,11 @@
 publicInstances:
-  title-be: "Aperçu des dossiers de demande de permis de construire en cours"
+  title: "Aperçu des dossiers de demande de permis de construire en cours"
   applicant: "Requérant/e"
-  load-error-be: "Erreur lors du téléchargement du dossier de demande de permis de construire"
-  empty-title-be: "Il n'y a pas de dossiers de demande de permis de construire en cours !"
+  load-error: "Erreur lors du téléchargement du dossier de demande de permis de construire"
+  empty-title: "Il n'y a pas de dossiers de demande de permis de construire en cours !"
   emptyText: "Dès que la commune a autorisé la publication d'un dossier, celui-ci apparaît ici dans la liste."
+  publishedWithoutObligation: ""
+  publishedWithObligation: ""
 
 publicInstancesDetail:
   documents: "Documents"
@@ -14,7 +16,15 @@ publicInstancesDetail:
   download: "Télécharger le fichier"
   loadError: "Une erreur s'est produite lors du chargement des données"
   downloadError: "Une erreur s'est produite lors du téléchargement."
-  copyrightText: "Les documents affichés ici correspondent à la mise à l'enquête publique sous forme physique (sur papier) à la commune. Nous attirons votre attention sur le fait que tous les documents déposés ici peuvent être protégés par des droits d'auteur. L'impression, l'enregistrement, la photographie et la réutilisation des documents ne sont autorisés qu'avec l'accord explicite de l'auteur du plan ou du propriétaire intellectuel."
-  privacyText: "Pour des raisons de protection des données, seuls sont publiés ici les documents pertinents pour la procédure d'autorisation de construire qui n'ont pas été explicitement classés par le requérant comme étant dignes de confiance et non accessibles au public."
+  copyrightText: "Les documents affichés ici correspondent à la mise à l'enquête
+  publique sous forme physique (sur papier) à la commune. Nous attirons votre
+  attention sur le fait que tous les documents déposés ici peuvent être protégés
+  par des droits d'auteur. La réutilisation des documents ne sont autorisés
+  qu'avec l'accord explicite de l'auteur du plan ou du propriétaire
+  intellectuel."
+  privacyText: "Pour des raisons de protection des données, seuls sont publiés
+  ici les documents pertinents pour la procédure d'autorisation de construire
+  qui n'ont pas été explicitement classés par le requérant comme étant dignes de
+  confiance et non accessibles au public."
   empty: "Aucun document mis à l'enquête trouvé"
   related: "{count} {count, plural, =1 {dossier} other {dossiers}} mis à l'enquête avec le même numéro eBau"
