@@ -2562,7 +2562,7 @@
     "fields": {
       "available_instance_resource": "page",
       "resource": 28,
-      "name": "GWR",
+      "name": "Verknüpfte GWR-Bauprojekte",
       "description": null,
       "template": "/ember-camac-ng/gwr.phtml",
       "class_field": null,
@@ -10999,6 +10999,13 @@
     }
   },
   {
+    "model": "core.rpage",
+    "pk": 29,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
     "model": "core.rroleacl",
     "pk": 10,
     "fields": {
@@ -11351,6 +11358,30 @@
     }
   },
   {
+    "model": "core.rroleacl",
+    "pk": 89,
+    "fields": {
+      "resource": 29,
+      "role": 3
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 90,
+    "fields": {
+      "resource": 29,
+      "role": 8
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 91,
+    "fields": {
+      "resource": 29,
+      "role": 11
+    }
+  },
+  {
     "model": "core.resource",
     "pk": 9,
     "fields": {
@@ -11360,7 +11391,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 9
+      "sort": 3
     }
   },
   {
@@ -11373,7 +11404,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 11
+      "sort": 5
     }
   },
   {
@@ -11386,7 +11417,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 12
+      "sort": 6
     }
   },
   {
@@ -11399,7 +11430,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 15
+      "sort": 8
     }
   },
   {
@@ -11412,7 +11443,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 10
+      "sort": 4
     }
   },
   {
@@ -11438,7 +11469,7 @@
       "template": "/ember-camac-ng/formbuilder.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 19
+      "sort": 11
     }
   },
   {
@@ -11451,7 +11482,7 @@
       "template": "/ember-camac-ng/dossierimport.phtml",
       "class_field": null,
       "hidden": 1,
-      "sort": 14
+      "sort": 7
     }
   },
   {
@@ -11464,7 +11495,7 @@
       "template": "/ember-camac-ng/bussinesscontrol-create.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 17
+      "sort": 9
     }
   },
   {
@@ -11477,7 +11508,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 18
+      "sort": 10
     }
   },
   {
@@ -11490,7 +11521,20 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 8
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 29,
+    "fields": {
+      "available_resource": "page",
+      "name": "GWR",
+      "description": null,
+      "template": "/ember-camac-ng/gwr-global.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 2
     }
   },
   {

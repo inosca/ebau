@@ -8,6 +8,7 @@ export default class GwrConfigService extends Service {
 
   gwrAPI = "/housing-stat/regbl/api/ech0216/2";
   isTestEnvironment = ENV.appEnv !== "production";
+  pageSize = 10;
 
   get modalContainer() {
     return ENV.APPLICATION.gwr.modalContainer ?? "#ember-camac-ng";
