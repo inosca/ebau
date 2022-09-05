@@ -119,7 +119,19 @@
           </div>
         </div>
       </div>
-      <div class="uk-button-group uk-width-1-2 uk-flex uk-flex-left uk-flex-bottom">
+      {{# if this.session.isInternal}}
+        <div class="uk-width-1-1">
+          <label class="uk-form-label">{{t "instances.onlyPaperDossiers"}}</label>
+          <div class="uk-form-controls">
+            <UkToggleSwitch
+              @value={{this.onlyPaper}}
+              @onToggle={{fn (mut this.onlyPaper)}}
+              @size="small"
+            />
+          </div>
+        </div>
+      {{/if}}
+      <div class="uk-button-group uk-flex uk-flex-left uk-flex-bottom uk-width-1-2">
         {{#each this.categories as |c|}}
           <UkButton
             @label={{t (concat "instances.categories." c)}}
@@ -128,7 +140,7 @@
           />
         {{/each}}
       </div>
-      <div class="uk-width-1-2 uk-flex uk-flex-right uk-flex-bottom">
+      <div class="uk-flex uk-flex-right uk-flex-bottom uk-width-1-2">
         <UkButton
           class="uk-margin-small-right"
           @type="reset"

@@ -216,6 +216,7 @@ instances:
     Dossiernummer erstellt."
   rejectionInfoText: "Bitte öffnen Sie das Formular mittels «Dossier neu einreichen» erneut und ergänzen Sie die fehlenden Angaben."
   decisionRemarks: "Bemerkungen Entscheid"
+  onlyPaperDossiers: "Nur Papierdossiers"
 
   extensionPeriodOfValidityTitle: "Verlängerung Geltungsdauer"
   extensionPeriodOfValidityText: "Hier kann eine Verlängerung der Geltungsdauer beantragt werden."
