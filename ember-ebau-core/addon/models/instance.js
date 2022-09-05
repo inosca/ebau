@@ -26,7 +26,7 @@ export default class InstanceModel extends Model {
   @hasMany circulations;
   @hasMany services;
   @hasMany("service") involvedServices;
-  @hasMany("instance") linkedInstances;
+  @hasMany("instance", { inverse: null }) linkedInstances;
 
   @lastValue("fetchCaseMeta") _caseMeta = null;
   @dropTask
