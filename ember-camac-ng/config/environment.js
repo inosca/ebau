@@ -30,6 +30,7 @@ module.exports = function (environment) {
     APP: {
       rootElement: "#ember-camac-ng",
     },
+    "changeset-validations": { rawOutput: true },
 
     APPLICATIONS: {
       kt_bern: {
