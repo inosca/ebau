@@ -1,7 +1,10 @@
+import { setComponentTemplate } from "@ember/component";
 import { action } from "@ember/object";
 import Component from "@glimmer/component";
 
-export default class CaseFilterSelectComponent extends Component {
+import template from "./template";
+
+export class CaseFilterSelectComponent extends Component {
   get value() {
     const valueKey = this.args.valueField ?? "slug";
 
@@ -27,3 +30,5 @@ export default class CaseFilterSelectComponent extends Component {
     });
   }
 }
+
+export default setComponentTemplate(template, CaseFilterSelectComponent);
