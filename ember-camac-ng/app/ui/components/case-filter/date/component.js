@@ -1,10 +1,13 @@
+import { setComponentTemplate } from "@ember/component";
 import { action } from "@ember/object";
 import Component from "@glimmer/component";
 import { DateTime } from "luxon";
 
+import template from "./template";
+
 const isEmpty = (val) => [undefined, null, ""].includes(val);
 
-export default class CaseFilterDateComponent extends Component {
+export class CaseFilterDateComponent extends Component {
   get value() {
     return this.args.value;
   }
@@ -33,3 +36,5 @@ export default class CaseFilterDateComponent extends Component {
     }
   }
 }
+
+export default setComponentTemplate(template, CaseFilterDateComponent);
