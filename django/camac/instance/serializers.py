@@ -1141,23 +1141,20 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
 
         # in internal forms, KOORs can set a custom authority by answering a specific question
         # this takes precedence over the default authority given by the location
-        authority_from_form = self.get_master_data(
-            instance.case
-        ).leitbehoerde_internal_form
+        authority = self.get_master_data(instance.case).leitbehoerde_internal_form
 
-        authority_location = (
-            AuthorityLocation.objects.filter(
-                location_id=authority_from_form or instance.location_id
+        if not authority:
+            authority = (
+                AuthorityLocation.objects.filter(location_id=instance.location_id)
+                .first()
+                .authority_id
             )
-            .first()
-            .authority_id
-        )
 
-        if authority_location:
+        if authority:
             caluma_api.update_or_create_answer(
                 instance.case.document,
                 "leitbehoerde",
-                str(authority_location),
+                str(authority),
                 user=self.context["request"].caluma_info.context.user,
             )
 
