@@ -72,7 +72,11 @@
     {{#if (macroCondition (macroGetOwnConfig "isBE"))}}
       <div>
         <a href="" class="uk-link-text uk-margin-small-right" {{on "click" (perform this.export)}}>
-          <UkIcon @icon="file-text" />
+          {{#if this.export.isRunning}}
+            <UkSpinner @ratio="0.5" />
+          {{else}}
+            <UkIcon @icon="file-text" />
+          {{/if}}
           {{t "cases.export.title"}}
         </a>
       </div>
