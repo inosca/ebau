@@ -48540,7 +48540,7 @@
     "fields": {
       "instance_resource": 14000000,
       "language": "de",
-      "name": "GWR",
+      "name": "Verknüpfte GWR-Bauprojekte",
       "description": null
     }
   },
@@ -108207,6 +108207,13 @@
     }
   },
   {
+    "model": "core.rpage",
+    "pk": 15000002,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
     "model": "core.rroleacl",
     "pk": 10000,
     "fields": {
@@ -108735,6 +108742,14 @@
     }
   },
   {
+    "model": "core.rroleacl",
+    "pk": 15000019,
+    "fields": {
+      "resource": 15000002,
+      "role": 3
+    }
+  },
+  {
     "model": "core.resource",
     "pk": 10000,
     "fields": {
@@ -108744,7 +108759,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -108757,7 +108772,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -108809,7 +108824,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -108822,7 +108837,7 @@
       "template": "/dashboard/help.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -108848,7 +108863,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -108874,7 +108889,7 @@
       "template": "/ember-camac-ng/organisation.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -108887,7 +108902,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 13
+      "sort": 15
     }
   },
   {
@@ -108900,7 +108915,7 @@
       "template": "/ember-camac-ng/dossierimport.phtml",
       "class_field": null,
       "hidden": 1,
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -108913,7 +108928,7 @@
       "template": "/ember-camac-ng/statistics.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -108926,7 +108941,20 @@
       "template": "/dashboard/faq.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 11
+      "sort": 12
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 15000002,
+    "fields": {
+      "available_resource": "page",
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/gwr-global.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 5
     }
   },
   {
@@ -109226,6 +109254,26 @@
       "resource": 15000001,
       "language": "fr",
       "name": "FAQ",
+      "description": null
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 15000004,
+    "fields": {
+      "resource": 15000002,
+      "language": "fr",
+      "name": "RegBL",
+      "description": null
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 15000005,
+    "fields": {
+      "resource": 15000002,
+      "language": "de",
+      "name": "GWR",
       "description": null
     }
   },
