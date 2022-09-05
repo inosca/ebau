@@ -37,7 +37,7 @@
                     type="button"
                     class="uk-icon-button"
                     uk-icon={{if attachment.context.isConfidential "lock" "unlock"}}
-                    title={{if attachment.context.isConfidential (t "global.setNonConfidential") (t "global.setConfidential")}}
+                    title={{if attachment.context.isConfidential (t "documents.setNonConfidential") (t "documents.setConfidential")}}
                     {{on "click" (perform @onConfidential attachment)}}>
                   </button>
                 {{/if}}

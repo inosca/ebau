@@ -1,6 +1,11 @@
 publicInstances:
+  title: "Öffentlich aufgelegte Baugesuche"
   applicant: "Gesuchsteller/in"
+  load-error: "Fehler beim Laden der öffentlich aufgelegten Baugesuche"
+  empty-title: "Es gibt keine öffentlich aufgelegten Baugesuche!"
   emptyText: "Sobald die Gemeinde ein Dossier zur Publikation freigegeben hat, wird das Dossier hier in der Liste auftauchen."
+  publishedWithoutObligation: "Unverbindliches Planauflagedokument. Gegen Inhalte in diesem Dokument kann keine Einsprache eingereicht werden."
+  publishedWithObligation: "Verbindliches Planauflagedokument"
 
 publicInstancesDetail:
   documents: "Dokumente"
@@ -11,7 +16,14 @@ publicInstancesDetail:
   download: "Dokument herunterladen"
   loadError: "Fehler beim Laden der Dokumente"
   downloadError: "Fehler beim Herunterladen des Dokuments"
-  copyrightText: "Die hier angezeigten Dokumente entsprechen den Unterlagen der physischen öffentlichen Auflage auf der Gemeinde. Wir machen Sie darauf aufmerksam, dass alle hier hinterlegten Dokumente urheberrechtlich geschützt sein können. Das Ausdrucken, Speichern, Fotografieren und Weiterverwenden der Dokumente ist nur mit ausdrücklicher Zustimmung des Planerstellers bzw. des geistigen Eigentümers gestattet."
-  privacyText: "Aus Gründen des Datenschutzes werden hier nur die für das Baubewilligungsverfahren relevanten Dokumente publiziert, die vom Gesuchsteller nicht explizit als vertrauenswürdig und nicht öffentlich zugänglich eingestuft wurden."
+  copyrightText: "Die hier angezeigten Dokumente entsprechen den Unterlagen der
+  physischen öffentlichen Auflage auf der Gemeinde. Wir machen Sie darauf
+  aufmerksam, dass alle hier hinterlegten Dokumente urheberrechtlich geschützt
+  sein können. Das Weiterverwenden der Dokumente ist nur mit ausdrücklicher
+  Zustimmung des Planerstellers bzw. des geistigen Eigentümers gestattet."
+  privacyText: "Aus Gründen des Datenschutzes werden hier nur die für das
+  Baubewilligungsverfahren relevanten Dokumente publiziert, die vom
+  Gesuchsteller nicht explizit als vertrauenswürdig und nicht öffentlich
+  zugänglich eingestuft wurden."
   empty: "Keine Auflagedokumente gefunden"
   related: "{count} {count, plural, =1 {aufgelegtes Dossier} other {aufgelegte Dossiers}} mit gleicher eBau-Nummer"
