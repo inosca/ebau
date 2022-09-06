@@ -2,6 +2,7 @@ import { inject as service } from "@ember/service";
 import { macroCondition, getOwnConfig } from "@embroider/macros";
 import CalumaOptionsService from "@projectcaluma/ember-core/services/caluma-options";
 import { INQUIRY_STATUS } from "@projectcaluma/ember-distribution/config";
+import { cached } from "tracked-toolbox";
 
 const DISTRIBUTION_NEW_INQUIRY_GROUP_TYPES_MAPPING = {
   roles: {
@@ -18,6 +19,7 @@ const DISTRIBUTION_NEW_INQUIRY_GROUP_TYPES_MAPPING = {
 export default class CustomCalumaOptionsService extends CalumaOptionsService {
   @service shoebox;
   @service store;
+  @service fetch;
 
   get currentServiceId() {
     return this.shoebox.content.serviceId;
@@ -39,6 +41,36 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
     location.assign(
       `/index/redirect-to-instance-resource/instance-id/${this.currentInstanceId}`
     );
+  }
+
+  async sendReminderDistributionInquiry(inquiryId) {
+    if (!this.distribution.inquiryReminderNotificationTemplateSlug) {
+      return;
+    }
+
+    await this.fetch.fetch(`/api/v1/notification-templates/sendmail`, {
+      method: "POST",
+      headers: {
+        accept: "application/vnd.api+json",
+        "content-type": "application/vnd.api+json",
+      },
+      body: JSON.stringify({
+        data: {
+          type: "notification-template-sendmails",
+          attributes: {
+            "template-slug":
+              this.distribution.inquiryReminderNotificationTemplateSlug,
+            "recipient-types": ["inquiry_addressed"],
+          },
+          relationships: {
+            instance: {
+              data: { type: "instances", id: this.currentInstanceId },
+            },
+            inquiry: { data: { type: "work-items", id: inquiryId } },
+          },
+        },
+      }),
+    });
   }
 
   async _fetchIfNotCached(modelName, idFilter, identifiers) {
@@ -90,6 +122,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
     }, Promise.resolve({}));
   }
 
+  @cached
   get distribution() {
     const permissions = {
       completeDistribution: () => this.shoebox.isLeadRole,
@@ -143,6 +176,8 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
           },
         },
         permissions,
+        inquiryReminderNotificationTemplateSlug:
+          "05-meldung-fristuberschreitung-fachstelle",
       };
     } else if (macroCondition(getOwnConfig().application === "sz")) {
       const config = {
@@ -217,6 +252,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
             !["check-inquiry", "revise-inquiry"].includes(task) ||
             this.shoebox.isLeadRole,
         },
+        inquiryReminderNotificationTemplateSlug: "fristueberschreitung",
       };
 
       const activeTypes =
