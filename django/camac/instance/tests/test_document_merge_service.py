@@ -2,6 +2,7 @@ from pathlib import Path
 
 import pytest
 from caluma.caluma_form.models import DynamicOption
+from caluma.caluma_user.models import BaseUser
 from django.conf import settings
 from django.core.cache import cache
 from django.core.management import call_command
@@ -10,7 +11,7 @@ from rest_framework import exceptions, status
 
 from camac.utils import build_url
 
-from ..document_merge_service import DMSClient, DMSHandler
+from ..document_merge_service import DMSClient, DMSHandler, DMSVisitor
 from .test_master_data import add_answer, add_table_answer
 
 
@@ -82,7 +83,21 @@ def test_document_merge_service_snapshot(
         with django_assert_num_queries(expected_queries):
             handler = DMSHandler()
             _, root_document = handler.get_instance_and_document(**kwargs)
-            snapshot.assert_match(handler.visitor.visit(root_document), snapshot_name)
+
+            visitor = DMSVisitor(root_document, BaseUser())
+            snapshot.assert_match(visitor.visit(root_document), snapshot_name)
+
+
+def test_document_merge_service_is_valid(db, caluma_form_fixture, dms_settings):
+    cache.clear()
+
+    _, root_document = DMSHandler().get_instance_and_document(instance_id=1)
+
+    assert DMSVisitor(root_document, BaseUser()).is_valid()
+
+    root_document.answers.all().delete()
+
+    assert not DMSVisitor(root_document, BaseUser()).is_valid()
 
 
 def test_document_merge_service_client(db, requests_mock):
