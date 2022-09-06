@@ -10,6 +10,7 @@ from django.core.files.base import ContentFile
 from django.core.serializers.json import DjangoJSONEncoder
 from django.db.models import Prefetch
 from django.utils.text import slugify
+from django.utils.timezone import localtime
 from django.utils.translation import get_language, gettext as _
 from rest_framework import exceptions, status
 from rest_framework.authentication import get_authorization_header
@@ -158,6 +159,7 @@ def get_header_labels():
 class DMSHandler:
     def get_meta_data(self, instance, document, service):
         master_data = MasterData(instance.case)
+        created_at = localtime()
 
         data = {
             "caseId": instance.pk,
@@ -172,6 +174,11 @@ class DMSHandler:
             "signatureSectionTitle": _("Signatures"),
             "signatureTitle": _("Signature"),
             "signatureMetadata": _("Place and date"),
+            "createdAt": _("Created %(date)s at %(time)s")
+            % {
+                "date": created_at.strftime("%d.%m.%Y"),
+                "time": created_at.strftime("%H:%M"),
+            },
         }
 
         if settings.APPLICATION.get("DOCUMENT_MERGE_SERVICE", {}).get(
