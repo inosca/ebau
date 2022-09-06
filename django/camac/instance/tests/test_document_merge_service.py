@@ -120,6 +120,7 @@ def test_document_merge_service_client(db, requests_mock):
     assert result == expected
 
 
+@pytest.mark.freeze_time("2022-09-06 13:37")
 @pytest.mark.django_db(transaction=True, reset_sequences=True)
 def test_document_merge_service_cover_sheet_with_header_values(
     db,
@@ -223,6 +224,7 @@ def test_document_merge_service_cover_sheet_with_header_values(
     )
 
 
+@pytest.mark.freeze_time("2022-09-06 13:37")
 @pytest.mark.django_db(transaction=True, reset_sequences=True)
 def test_document_merge_service_cover_sheet_without_header_values(
     db,
