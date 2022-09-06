@@ -12,6 +12,7 @@
         @placeholder
         (t (concat "cases.filters." @filterName "-placeholder"))
       }}
+      @noMatchesMessage={{t "global.noMatch"}}
       @onChange={{this.onChange}} as |filterOption|
     >
       {{if @labelField (get filterOption @labelField) filterOption.label}}

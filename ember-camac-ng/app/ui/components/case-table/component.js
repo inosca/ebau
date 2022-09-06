@@ -194,11 +194,11 @@ export default class CaseTableComponent extends Component {
           }
         : macroCondition(getOwnConfig().application === "be")
         ? {
-            ebauNumber: {
+            dossierNumber: {
               metaValue: [
                 {
                   key: "ebau-number",
-                  value: filter.ebauNumber,
+                  value: filter.dossierNumber,
                 },
               ],
             },
@@ -226,7 +226,7 @@ export default class CaseTableComponent extends Component {
               ],
             },
             form: {
-              documentForms: filter.form,
+              documentForms: filter.form?.split(","),
             },
             municipality: {
               hasAnswer: [
@@ -287,7 +287,7 @@ export default class CaseTableComponent extends Component {
         this.args.filter.instanceState || this.args.instanceStates || "",
       service: this.args.filter.service || this.args.filter.serviceSZ,
       responsible_service_user: this.args.filter.responsibleServiceUser,
-      responsible_service: this.args.responsibleMunicipality,
+      responsible_service: this.args.filter.responsibleMunicipality,
       exclude_child_cases: true,
       location: this.args.filter.municipality,
       ...(macroCondition(getOwnConfig().application === "sz")
