@@ -152,12 +152,12 @@ export default class CaseFilterComponent extends Component {
       .filter((edge) => edge.node.isPublished)
       .map((edge) => ({
         name: edge.node.name,
-        value: [edge.node.slug, ...getRecursiveSources(edge.node, rawForms)],
+        value: [
+          edge.node.slug,
+          ...getRecursiveSources(edge.node, rawForms),
+        ].join(","),
         category: edge.node.meta.category || "others",
         order: edge.node.meta.order,
-        isEqual(other) {
-          return this.value.join(",") === other.value.join(",");
-        },
       }));
 
     return categories

@@ -27,12 +27,21 @@ export default class CasesIndexController extends Controller {
 
   @tracked order = caseTableConfig.defaultOrder;
 
+  @tracked isReady = false;
+
   get casesBackend() {
     return this.isCaluma ?? true ? "caluma" : "camac-ng";
   }
 
   @action
   setCaseFilter(filter) {
+    // This will be called from the constructor of the case-filter component to
+    // apply filters stored in the localstorage. To avoid multiple queries, we
+    // only render the table once readiness was declared.
+    if (!this.isReady) {
+      this.isReady = true;
+    }
+
     this.caseFilter = filter;
   }
 }
