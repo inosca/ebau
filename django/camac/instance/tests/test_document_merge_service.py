@@ -39,8 +39,7 @@ def caluma_form_fixture(db):
         "data/instance.json",
     ]
 
-    for path in paths:
-        call_command("loaddata", kt_bern_path / path)
+    call_command("loaddata", *[kt_bern_path / path for path in paths])
 
 
 @pytest.fixture
@@ -54,22 +53,36 @@ def dms_settings(application_settings):
 
 
 def test_document_merge_service_snapshot(
-    db, snapshot, caluma_form_fixture, dms_settings
+    db, snapshot, caluma_form_fixture, dms_settings, django_assert_num_queries
 ):
     cache.clear()
 
-    for snapshot_name, kwargs in [
-        ("baugesuch", {"instance_id": 1}),
-        ("sb1", {"instance_id": 3, "form_slug": "sb1"}),
-        ("sb2", {"instance_id": 3, "form_slug": "sb2"}),
+    for snapshot_name, kwargs, expected_queries in [
+        (
+            "baugesuch",
+            {"instance_id": 1},
+            15,
+        ),
+        (
+            "sb1",
+            {"instance_id": 3, "form_slug": "sb1"},
+            19,
+        ),
+        (
+            "sb2",
+            {"instance_id": 3, "form_slug": "sb2"},
+            19,
+        ),
         (
             "mp-form",
             {"instance_id": 3, "document_id": "da618b68-b4a8-414f-9d5e-50e0fda43cde"},
+            18,
         ),
     ]:
-        handler = DMSHandler()
-        _, root_document = handler.get_instance_and_document(**kwargs)
-        snapshot.assert_match(handler.visitor.visit(root_document), snapshot_name)
+        with django_assert_num_queries(expected_queries):
+            handler = DMSHandler()
+            _, root_document = handler.get_instance_and_document(**kwargs)
+            snapshot.assert_match(handler.visitor.visit(root_document), snapshot_name)
 
 
 def test_document_merge_service_client(db, requests_mock):

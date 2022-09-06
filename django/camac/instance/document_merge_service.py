@@ -3,7 +3,7 @@ import re
 from importlib import import_module
 
 import requests
-from caluma.caluma_form.models import Answer, AnswerDocument, Document, Option, Question
+from caluma.caluma_form.models import AnswerDocument, Document, Option, Question
 from caluma.caluma_form.validators import DocumentValidator
 from django.conf import settings
 from django.core.files.base import ContentFile
@@ -399,9 +399,13 @@ class DMSVisitor:
                 base_question_slug = re.sub(
                     r"(-bemerkungen|-ergebnis)$", "", child.slug
                 )
-                base_answer = Answer.objects.filter(
-                    question_id=base_question_slug, document_id=node.id
-                ).first()
+                base_answer = next(
+                    filter(
+                        lambda answer: answer.question_id == base_question_slug,
+                        node.answers.all(),
+                    ),
+                    None,
+                )
                 if (
                     not base_answer
                     or not base_answer.value
