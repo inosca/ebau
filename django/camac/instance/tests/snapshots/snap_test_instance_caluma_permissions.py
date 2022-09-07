@@ -1935,7 +1935,8 @@ snapshots['test_instance_permissions_be[municipality-lead-district-in_progress-i
         'write'
     ],
     'decision': [
-        'read'
+        'read',
+        'write'
     ],
     'dossierpruefung': [
         'read'
@@ -1977,7 +1978,8 @@ snapshots['test_instance_permissions_be[municipality-lead-district-in_progress_i
         'write'
     ],
     'decision': [
-        'read'
+        'read',
+        'write'
     ],
     'dossierpruefung': [
         'read',
@@ -2557,7 +2559,8 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-in_progre
         'write'
     ],
     'decision': [
-        'read'
+        'read',
+        'write'
     ],
     'dossierpruefung': [
         'read'
@@ -2599,7 +2602,8 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-in_progre
         'write'
     ],
     'decision': [
-        'read'
+        'read',
+        'write'
     ],
     'dossierpruefung': [
         'read',
