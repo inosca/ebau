@@ -159,11 +159,18 @@ def post_redo_distribution(sender, work_item, user, context=None, **kwargs):
 @filter_by_task("INQUIRY_TASK")
 @transaction.atomic
 def post_redo_inquiry(sender, work_item, user, context=None, **kwargs):
+    # Get the last closed child work item of each task defined in `REDO_INQUIRY`
+    reopen_work_items = [
+        work_item.child_case.work_items.filter(task_id=task_id)
+        .order_by("-closed_at")
+        .values_list("pk", flat=True)
+        .first()
+        for task_id in settings.DISTRIBUTION["REDO_INQUIRY"].get("REOPEN_TASKS", [])
+    ]
+
     reopen_case(
         case=work_item.child_case,
-        work_items=work_item.child_case.work_items.filter(
-            task_id__in=settings.DISTRIBUTION["REDO_INQUIRY"].get("REOPEN_TASKS", [])
-        ),
+        work_items=work_item.child_case.work_items.filter(pk__in=reopen_work_items),
         user=user,
         context=context,
     )
