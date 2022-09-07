@@ -2,6 +2,7 @@ import Controller from "@ember/controller";
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { isEmpty } from "@ember/utils";
+import { getOwnConfig } from "@embroider/macros";
 import { tracked } from "@glimmer/tracking";
 import { useCalumaQuery } from "@projectcaluma/ember-core/caluma-query";
 import { allCases } from "@projectcaluma/ember-core/caluma-query/queries";
@@ -81,6 +82,8 @@ export default class InstancesIndexController extends Controller {
   @trackedFilter({ defaultValue: "" }) applicant;
   @trackedFilter({ ...dateFilter, defaultValue: null }) submitFrom;
   @trackedFilter({ ...dateFilter, defaultValue: null }) submitTo;
+  @trackedFilter({ defaultValue: getOwnConfig().instancePaperFilterDefault })
+  onlyPaper;
 
   cases = useCalumaQuery(this, allCases, () => ({
     options: {
@@ -259,6 +262,7 @@ export default class InstancesIndexController extends Controller {
   @cached
   get serializedHeaders() {
     const camacFilters = {
+      is_paper: (this._onlyPaper && this.session.isInternal) || null,
       instance_state: config.APPLICATION.instanceStateCategories[this.category],
       ...(this.session.group
         ? {}
