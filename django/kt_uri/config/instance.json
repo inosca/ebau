@@ -524,7 +524,7 @@
     "pk": 290,
     "fields": {
       "form_state": 1,
-      "name": "Meldung Vorhaben",
+      "name": "Baumeldung für geringfügige Vorhaben",
       "description": "KOOR-ARE-BG;Koordinationsstelle für Baueingaben Amt für Raumentwicklung",
       "family": null
     }
