@@ -86,6 +86,11 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
     return this.instance?.location.get("name");
   }
 
+  get authority() {
+    const answer = getAnswer(this.raw.document, "leitbehoerde");
+    return answer?.node.selectedOption?.label;
+  }
+
   get applicant() {
     return this.getPersonData("applicant");
   }
