@@ -94,3 +94,7 @@ instances:
 paper:
   type: "intern erfasst"
 
+documents:
+  tags:
+    weitere-unterlagen: ""
+
