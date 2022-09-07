@@ -330,12 +330,7 @@ module.exports = function (environment) {
         {
           // KOOR AfJ
           roles: [1128],
-          forms: [
-            "mitbericht-kanton",
-            "oereb",
-            "proposal-declaration",
-            "archivdossier",
-          ],
+          forms: ["mitbericht-kanton", "oereb", "archivdossier"],
         },
         {
           // KOOR SD
