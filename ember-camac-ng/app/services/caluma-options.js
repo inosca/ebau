@@ -35,6 +35,12 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
     return this.shoebox.content.roleId;
   }
 
+  redirectToInstanceResource() {
+    location.assign(
+      `/index/redirect-to-instance-resource/instance-id/${this.currentInstanceId}`
+    );
+  }
+
   async _fetchIfNotCached(modelName, idFilter, identifiers) {
     const cachedIdentifiers = this.store
       .peekAll(modelName)
@@ -228,6 +234,9 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
               obj[key] = config.new.types[key];
               return obj;
             }, {}),
+        },
+        hooks: {
+          postCompleteDistribution: () => this.redirectToInstanceResource(),
         },
       };
     }
