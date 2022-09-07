@@ -18,6 +18,7 @@ instances:
   address: "Strasse / Flurname"
   parcel: "Parzellen"
   building-specification: "Vorhaben"
+  onlyPaperDossiers: "Nur intern erfasste Dossiers anzeigen"
 
   new:
     building-permit:
