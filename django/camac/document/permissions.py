@@ -373,7 +373,7 @@ LOOSEN_FILTERS = {
 
 
 def special_permissions_uri(group):
-    if group.group_id in [uri_constants.LISAG_GROUP_ID, uri_constants.KOOR_NP_GROUP_ID]:
+    if group.group_id in [uri_constants.LISAG_GROUP_ID]:
         return {uri_constants.LISAG_ATTACHMENT_SECTION_ID: AdminServicePermission}
     elif group.group_id in [
         uri_constants.KOOR_AFJ_GROUP_ID,
@@ -384,6 +384,11 @@ def special_permissions_uri(group):
     elif group.group_id in [uri_constants.KOOR_BG_GROUP_ID]:
         return {
             uri_constants.MUNICIPALITY_SERVICE_ATTACHMENT_SECTION_ID: AdminServicePermission
+        }
+    elif group.group_id in [uri_constants.KOOR_NP_GROUP_ID]:
+        return {
+            uri_constants.MUNICIPALITY_SERVICE_ATTACHMENT_SECTION_ID: AdminServicePermission,
+            uri_constants.LISAG_ATTACHMENT_SECTION_ID: AdminServicePermission,
         }
     return {}
 
