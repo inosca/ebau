@@ -47188,7 +47188,7 @@
       "template": "/global/search.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 29
+      "sort": 30
     }
   },
   {
@@ -47201,7 +47201,7 @@
       "template": "/buildom/search.phtml",
       "class_field": "",
       "hidden": 1,
-      "sort": 27
+      "sort": 28
     }
   },
   {
@@ -47227,7 +47227,7 @@
       "template": "/portal/notfound.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 32
+      "sort": 33
     }
   },
   {
@@ -47513,7 +47513,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 30
+      "sort": 31
     }
   },
   {
@@ -47565,7 +47565,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 28
+      "sort": 29
     }
   },
   {
@@ -47578,7 +47578,7 @@
       "template": "/ember/form-builder.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 33
+      "sort": 34
     }
   },
   {
@@ -47604,7 +47604,7 @@
       "template": "/global/home.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 31
+      "sort": 32
     }
   },
   {
@@ -47617,7 +47617,7 @@
       "template": "/ember-camac-ng/gwr-global.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 19
+      "sort": 27
     }
   },
   {
