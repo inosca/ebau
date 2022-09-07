@@ -545,7 +545,7 @@
     "fields": {
       "form_state": 1,
       "name": "Archivdossier",
-      "description": null,
+      "description": "KOOR-ARE-BG;Koordinationsstelle für Baueingaben Amt für Raumentwicklung",
       "family": null
     }
   },
@@ -555,7 +555,7 @@
     "fields": {
       "form_state": 1,
       "name": "Archivdossier AFJ",
-      "description": null,
+      "description": "KOOR-AFJ;Koordinationsstelle Amt für Forst und Jagd",
       "family": null
     }
   },
@@ -565,7 +565,7 @@
     "fields": {
       "form_state": 1,
       "name": "Meldung Vorhaben AFJ",
-      "description": null,
+      "description": "KOOR-AFJ;Koordinationsstelle Amt für Forst und Jagd",
       "family": null
     }
   },
@@ -595,7 +595,7 @@
     "fields": {
       "form_state": 1,
       "name": "Baubewilligungsverfahren",
-      "description": null,
+      "description": "KOOR-ARE-BG;Koordinationsstelle für Baueingaben Amt für Raumentwicklung",
       "family": null
     }
   },
@@ -605,7 +605,7 @@
     "fields": {
       "form_state": 1,
       "name": "Baugesuch-Vorabklärung",
-      "description": null,
+      "description": "KOOR-ARE-BG;Koordinationsstelle für Baueingaben Amt für Raumentwicklung",
       "family": null
     }
   },
