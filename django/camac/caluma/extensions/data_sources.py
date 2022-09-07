@@ -115,7 +115,7 @@ class Locations(BaseDataSource):
         )
 
 
-mapping = {
+form_mapping_by_koor = {
     "Koordinationsstelle Baugesuche BG": [
         [42, "Internes Mitberichtsverfahren / Genehmigungsverfahren"],
         [46, "Mitberichtverfahren zu Plangenehmigungsverfahren Militär (PGV Militär)"],
@@ -204,7 +204,7 @@ class Mitberichtsverfahren(BaseDataSource):
     def get_data(self, user):
         if not hasattr(user, "camac_role"):  # pragma: no cover
             return []
-        return mapping.get(user.camac_role, [])
+        return form_mapping_by_koor.get(user.camac_role, [])
 
 
 class Services(BaseDataSource):
