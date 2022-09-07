@@ -3954,7 +3954,22 @@
       "modified_by_group": null,
       "form": "cantonal-territory-usage",
       "question": "allgemeine-informationen-cantonal-territory-usage",
-      "sort": 5
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "cantonal-territory-usage.dokumente-spezialgesuch",
+    "fields": {
+      "created_at": "2022-09-07T09:23:02.445Z",
+      "modified_at": "2022-09-07T09:23:02.445Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "cantonal-territory-usage",
+      "question": "dokumente-spezialgesuch",
+      "sort": 2
     }
   },
   {
@@ -3984,7 +3999,7 @@
       "modified_by_group": null,
       "form": "cantonal-territory-usage",
       "question": "lokalisierung",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -3999,7 +4014,7 @@
       "modified_by_group": null,
       "form": "cantonal-territory-usage",
       "question": "personalien",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -4014,7 +4029,7 @@
       "modified_by_group": null,
       "form": "cantonal-territory-usage",
       "question": "veranstaltung-form",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -8004,7 +8019,22 @@
       "modified_by_group": null,
       "form": "mitbericht-bund",
       "question": "allgemeine-informationen-mitberichtsverfahren-bund",
-      "sort": 5
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "mitbericht-bund.dokumente-spezialgesuch",
+    "fields": {
+      "created_at": "2022-09-07T09:21:48.250Z",
+      "modified_at": "2022-09-07T09:21:48.250Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "mitbericht-bund",
+      "question": "dokumente-spezialgesuch",
+      "sort": 2
     }
   },
   {
@@ -8034,7 +8064,7 @@
       "modified_by_group": null,
       "form": "mitbericht-bund",
       "question": "lokalisierung",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -8049,7 +8079,7 @@
       "modified_by_group": null,
       "form": "mitbericht-bund",
       "question": "mitberichtsverfahren-bund",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -8064,7 +8094,7 @@
       "modified_by_group": null,
       "form": "mitbericht-bund",
       "question": "personalien",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -8079,7 +8109,22 @@
       "modified_by_group": null,
       "form": "mitbericht-kanton",
       "question": "allgemeine-informationen-mitbericht-kanton",
-      "sort": 5
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "mitbericht-kanton.dokumente-spezialgesuch",
+    "fields": {
+      "created_at": "2022-09-07T09:05:05.411Z",
+      "modified_at": "2022-09-07T09:05:05.411Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "mitbericht-kanton",
+      "question": "dokumente-spezialgesuch",
+      "sort": 2
     }
   },
   {
@@ -8109,7 +8154,7 @@
       "modified_by_group": null,
       "form": "mitbericht-kanton",
       "question": "lokalisierung",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -8124,7 +8169,7 @@
       "modified_by_group": null,
       "form": "mitbericht-kanton",
       "question": "mitberichtsverfahren-koor-bg",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -8139,7 +8184,7 @@
       "modified_by_group": null,
       "form": "mitbericht-kanton",
       "question": "personalien",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -8469,7 +8514,22 @@
       "modified_by_group": null,
       "form": "oereb",
       "question": "allgemeine-informationen-oereb",
-      "sort": 5
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "oereb.dokumente-spezialgesuch",
+    "fields": {
+      "created_at": "2022-09-07T09:22:31.653Z",
+      "modified_at": "2022-09-07T09:22:31.653Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "oereb",
+      "question": "dokumente-spezialgesuch",
+      "sort": 2
     }
   },
   {
@@ -8499,7 +8559,7 @@
       "modified_by_group": null,
       "form": "oereb",
       "question": "lokalisierung",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -8514,7 +8574,7 @@
       "modified_by_group": null,
       "form": "oereb",
       "question": "oereb-verfahren",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -8529,7 +8589,7 @@
       "modified_by_group": null,
       "form": "oereb",
       "question": "personalien",
-      "sort": 2
+      "sort": 3
     }
   },
   {
