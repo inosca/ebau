@@ -744,7 +744,11 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         return set()
 
     def _get_decision_form_permissions_for_municipality(self, instance):
-        if instance.instance_state.name == "coordination" and not self._is_read_only():
+        if (
+            instance.instance_state.name
+            in ["coordination", "in_progress", "in_progress_internal"]
+            and not self._is_read_only()
+        ):
             return set(["read", "write"])
 
         return set(["read"])
