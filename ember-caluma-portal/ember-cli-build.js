@@ -20,6 +20,7 @@ module.exports = function (defaults) {
         enableFaq: ENV === "be",
         enablePublicationForm: ENV === "be",
         enablePublicationEndDate: ENV === "ur",
+        instancePaperFilterDefault: ENV === "ur",
       },
     },
     "ember-simple-auth": {
