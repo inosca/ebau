@@ -4,10 +4,10 @@ export default class InstancesEditFeedbackController extends Controller {
   @controller("instances.edit") editController;
 
   get loading() {
-    return this.editController.feeback.isRunning;
+    return this.editController.feeback?.isRunning;
   }
 
   get feedback() {
-    return this.editController.feedback.value;
+    return this.editController.feedback?.value;
   }
 }
