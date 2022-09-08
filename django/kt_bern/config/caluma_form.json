@@ -43075,7 +43075,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null}",
+      "hint_text": "{\"de\": \"Im Format +41 12 123 12 12 (inkl. Vorwahl)\", \"fr\": \"Au format +41 12 123 12 12 (indicatif inclus)\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null
@@ -43108,7 +43108,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": null, \"fr\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null}",
+      "hint_text": "{\"de\": \"Im Format +41 12 123 12 12 (inkl. Vorwahl)\", \"fr\": \"Au format +41 12 123 12 12 (indicatif inclus)\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null
@@ -43141,7 +43141,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": null, \"fr\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null}",
+      "hint_text": "{\"de\": \"Im Format +41 12 123 12 12 (inkl. Vorwahl)\", \"fr\": \"Au format +41 12 123 12 12 (indicatif inclus)\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null
@@ -43174,7 +43174,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": null, \"fr\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null}",
+      "hint_text": "{\"de\": \"Im Format +41 12 123 12 12 (inkl. Vorwahl)\", \"fr\": \"Au format +41 12 123 12 12 (indicatif inclus)\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null
@@ -43207,7 +43207,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null}",
+      "hint_text": "{\"de\": \"Im Format +41 12 123 12 12 (inkl. Vorwahl)\", \"fr\": \"Au format +41 12 123 12 12 (indicatif inclus)\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null
@@ -43240,7 +43240,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null}",
+      "hint_text": "{\"de\": \"Im Format +41 12 123 12 12 (inkl. Vorwahl)\", \"fr\": \"Au format +41 12 123 12 12 (indicatif inclus)\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null
@@ -43273,7 +43273,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": null, \"fr\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null}",
+      "hint_text": "{\"de\": \"Im Format +41 12 123 12 12 (inkl. Vorwahl)\", \"fr\": \"Au format +41 12 123 12 12 (indicatif inclus)\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
         "max_length": null
