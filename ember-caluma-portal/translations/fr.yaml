@@ -213,6 +213,14 @@ instances:
   modificationText: "Y a-t-il eu des changements dans votre projet de
     construction ? Ici, vous pouvez modifier le projet sans avoir à saisir à
     nouveau les données existantes."
+  modificationConfirm: "'<strong'>Vous démarrez maintenant le procédé de
+  soumission d'une modification de projet (art. 43 DPC)'</strong'>'<br'>'<br'>
+  Il n'est pas nécessaire de soumettre une modification de projet pour répondre
+  à une '<u'>demande de complément d'information'</u'> ou pour redéposer un
+  '<u'>dossier renvoyé'</u'>. Pour ce faire, veuillez utiliser les fonctions
+  respectives de eBau (répondre à une demande de complément et/ou redéposer un
+  dossier).'<br'>'<br'>'<strong'>Souhaitez-vous poursuivre la soumission d'une
+  modification de projet ?'</strong'>"
   rejectionTitle: "Soumettre à nouveau le dossier"
   rejectionTitleSuffix: "(Motifs de rejet)"
   rejectionText: "Vous pouvez traiter et soumettre à nouveau le dossier
