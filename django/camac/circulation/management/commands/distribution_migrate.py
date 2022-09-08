@@ -739,7 +739,7 @@ class Command(BaseCommand):
                     )
 
             if self.activation_is_completed(activation) or self.activation_is_skipped(
-                activation
+                activation, instance
             ):
                 work_items.append(
                     WorkItem(
@@ -750,7 +750,13 @@ class Command(BaseCommand):
                         controlling_groups=[],
                         case=distribution_case,
                         meta=self.config.META,
-                        status=distribution_case.parent_work_item.status,
+                        status=WorkItem.STATUS_CANCELED
+                        if self.activation_is_skipped(activation, instance)
+                        or (
+                            distribution_case.parent_work_item.status
+                            == WorkItem.STATUS_COMPLETED
+                        )
+                        else distribution_case.parent_work_item.status,
                         deadline=None,
                         closed_at=distribution_case.parent_work_item.closed_at,
                     )
