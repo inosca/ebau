@@ -23,7 +23,7 @@ ROOT_DIR = environ.Path(__file__) - 2
 
 ENV_FILE = env.str("DJANGO_ENV_FILE", default=ROOT_DIR(".env"))
 if os.path.exists(ENV_FILE):  # pragma: no cover
-    environ.Env.read_env(ENV_FILE)
+    environ.Env.read_env(ENV_FILE, True)
 
 # We need to import the caluma settings after we merge os.environ with our
 # local .env file otherwise caluma tries to get it's settings from it's own env
