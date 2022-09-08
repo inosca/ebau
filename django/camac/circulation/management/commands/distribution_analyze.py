@@ -51,6 +51,7 @@ class Command(BaseCommand):
             self._check_check_inquiries_services()
             self._check_inquiry_answer_distribution_completed()
             self._check_inquiry_answer()
+            self._check_inquiry_redo()
 
         if len(self.faulty_instances):
             self.stdout.write()
@@ -715,6 +716,39 @@ class Command(BaseCommand):
                     )
                 ]
                 self._log_instance(instance, ", ".join(active_work_items))
+
+    def _check_inquiry_redo(self):
+        inquiries_without_redo = WorkItem.objects.filter(
+            ~Exists(
+                WorkItem.objects.filter(
+                    task_id="redo-inquiry",
+                    previous_work_item=OuterRef("pk"),
+                    addressed_groups=OuterRef("addressed_groups"),
+                )
+            ),
+            task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
+            status__in=[WorkItem.STATUS_COMPLETED, WorkItem.STATUS_SKIPPED],
+        )
+
+        inquiries_without_redo_exists = inquiries_without_redo.exists()
+        self._log_analysis_result(
+            "Every completed or skipped inquiry has a redo-inquiry work-item",
+            not inquiries_without_redo_exists,
+        )
+
+        if inquiries_without_redo_exists:
+            instances = Instance.objects.filter(
+                pk__in=inquiries_without_redo.values("case__family__instance__pk")
+            )
+
+            for instance in instances:
+                work_items = [
+                    f"{i.pk} {i.task_id} ({i.status})"
+                    for i in inquiries_without_redo.filter(
+                        case__family__instance__pk=instance.pk
+                    )
+                ]
+                self._log_instance(instance, ", ".join(work_items))
 
     def _get_edge_case_samples(self):
         self.stdout.write(self.style.WARNING("Edge case samples:"))
