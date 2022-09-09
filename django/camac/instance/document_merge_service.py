@@ -3,8 +3,8 @@ import re
 from importlib import import_module
 
 import requests
-from caluma.caluma_form.models import Answer, AnswerDocument, Document, Option, Question
-from caluma.caluma_form.validators import DocumentValidator
+from caluma.caluma_form.models import AnswerDocument, Document, Option, Question
+from caluma.caluma_form.validators import CustomValidationError, DocumentValidator
 from django.conf import settings
 from django.core.files.base import ContentFile
 from django.core.serializers.json import DjangoJSONEncoder
@@ -156,9 +156,6 @@ def get_header_labels():
 
 
 class DMSHandler:
-    def __init__(self):
-        self.visitor = DMSVisitor()
-
     def get_meta_data(self, instance, document, service):
         master_data = MasterData(instance.case)
 
@@ -283,6 +280,7 @@ class DMSHandler:
         # merge pdf and store as attachment
         auth = get_authorization_header(request)
         dms_client = DMSClient(auth)
+        visitor = DMSVisitor(document, request.caluma_info.context.user)
         pdf = dms_client.merge(
             {
                 **self.get_meta_data(
@@ -290,7 +288,8 @@ class DMSHandler:
                     document,
                     request.group.service,
                 ),
-                "sections": self.visitor.visit(document),
+                "draft": "" if visitor.is_valid() else _("Draft"),
+                "sections": visitor.visit(document),
             },
             template,
         )
@@ -330,28 +329,26 @@ class DMSClient:
 
 
 class DMSVisitor:
-    def __init__(self, exclude_slugs=None):
-        self._exclude_slugs = exclude_slugs if exclude_slugs else []
-        self.root_document = None
-        self.visible_questions = []
-        self._template_type = None
+    def __init__(self, document, user):
+        self.root_document = document
+        self.user = user
 
-    @property
-    def template_type(self):
-        """Group similar forms as they use the same template."""
-        if not self._template_type:
-            self._template_type = get_form_type_key(self.root_document.form.slug)
+        self.validator = DocumentValidator()
+        self.validation_context = self.validator._validation_context(document)
 
-        return self._template_type
+        self.template_type = get_form_type_key(document.form.slug)
+        self.exclude_slugs = get_form_type_config(self.template_type).get(
+            "exclude_slugs", []
+        )
 
-    @property
-    def exclude_slugs(self):
-        if not self._exclude_slugs:
-            self._exclude_slugs = get_form_type_config(self.template_type).get(
-                "exclude_slugs", []
+    def is_valid(self):
+        try:
+            self.validator.validate(
+                self.root_document, self.user, self.validation_context
             )
-
-        return self._exclude_slugs
+            return True
+        except CustomValidationError:
+            return False
 
     def visit(self, node):
         cls_name = type(node).__name__.lower()
@@ -366,16 +363,9 @@ class DMSVisitor:
         return result
 
     def _is_visible_question(self, node):
-        if not self.visible_questions:
-            validator = DocumentValidator()
-            self.visible_questions = validator.visible_questions(self.root_document)
-
-        return node.slug in self.visible_questions
+        return node.slug in self.validation_context["visible_questions"]
 
     def _visit_document(self, node, form=None, flatten=False, **kwargs):
-        if self.root_document is None:
-            self.root_document = node
-
         if not form:
             form = node.form
 
@@ -399,9 +389,13 @@ class DMSVisitor:
                 base_question_slug = re.sub(
                     r"(-bemerkungen|-ergebnis)$", "", child.slug
                 )
-                base_answer = Answer.objects.filter(
-                    question_id=base_question_slug, document_id=node.id
-                ).first()
+                base_answer = next(
+                    filter(
+                        lambda answer: answer.question_id == base_question_slug,
+                        node.answers.all(),
+                    ),
+                    None,
+                )
                 if (
                     not base_answer
                     or not base_answer.value
