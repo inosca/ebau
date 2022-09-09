@@ -13,6 +13,18 @@
   },
   {
     "model": "notification.notificationtemplate",
+    "pk": 2,
+    "fields": {
+      "slug": "fristueberschreitung",
+      "purpose": "Fristüberschreitung",
+      "subject": "Gesuch {{identifier}}: Fristüberschreitung",
+      "body": "Die Frist zur materiellen Beurteilung / Stellungnahme zum Gesuch {{identifier}}, {{location}} ist abgelaufen. Sie werden hiermit aufgefordert, diese umgehend einzugeben.",
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
     "pk": 13,
     "fields": {
       "slug": "ruckweisung",
