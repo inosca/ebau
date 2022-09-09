@@ -34,6 +34,14 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
         self.user = None
         self.request = None
 
+    def filter_queryset(self, node, queryset, info):
+        if not getattr(info.context, "camac_request", None):
+            info.context.camac_request = CamacRequest(info).request
+
+        self.request = info.context.camac_request
+
+        return super().filter_queryset(node, queryset, info)
+
     @filter_queryset_for(form_schema.Question)
     @filter_queryset_for(form_schema.Form)
     @filter_queryset_for(form_schema.Option)
@@ -73,10 +81,8 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
         # Child cases are used for instances in circulation but
         # shouldn't be returned for cases list (marked by the
         # exclude_child_cases)
-        exclude_child_cases = filters(CamacRequest(info).request).get(
-            "exclude_child_cases"
-        )
-        order_by = order(CamacRequest(info).request)
+        exclude_child_cases = filters(self.request).get("exclude_child_cases")
+        order_by = order(self.request)
 
         filter = Q(family__instance__pk__in=self._all_visible_instances(info))
         if exclude_child_cases == "true":
@@ -105,8 +111,6 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
         result = getattr(info.context, "_visibility_instances_cache", None)
         if result is not None:  # pragma: no cover
             return result
-
-        self.request = CamacRequest(info).request
 
         filtered = CalumaInstanceFilterSet(
             data=filters(self.request),
@@ -197,10 +201,8 @@ class CustomVisibilitySZ(CustomVisibility):
 
     @filter_queryset_for(form_schema.Form)
     def filter_queryset_for_form(self, node, queryset, info):
-
-        camac_request = CamacRequest(info).request
-        camac_role = camac_request.group.role.role_id
-        camac_service = camac_request.group.service_id
+        camac_role = self.request.group.role.role_id
+        camac_service = self.request.group.service_id
 
         # public filter: visible to all
         public_filter = Q(meta__visibility__type="public")
@@ -241,7 +243,7 @@ class CustomVisibilitySZ(CustomVisibility):
     def filter_queryset_for_work_items(self, node, queryset, info):
         visibility_config = settings.APPLICATION.get("INTER_SERVICE_GROUP_VISIBILITIES")
 
-        service = CamacRequest(info).request.group.service
+        service = self.request.group.service
 
         # If the work-item task is "inquiry", check if the current service
         # is either in the controlling_groups or addressed_groups. If not, then
