@@ -29,6 +29,14 @@ export default class CasesIndexController extends Controller {
 
   @tracked isReady = false;
 
+  constructor(...args) {
+    super(...args);
+
+    if (!this.displaySearch) {
+      this.isReady = true;
+    }
+  }
+
   get casesBackend() {
     return this.isCaluma ?? true ? "caluma" : "camac-ng";
   }
