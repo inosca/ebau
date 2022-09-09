@@ -191,7 +191,7 @@ def notify_created_work_item(sender, work_item, user, **kwargs):
     # be sent a notification.
     # We can identify such work items by checking if there is a previous work
     # item which would mean that it was created from the workflow and not
-    # manually with the `saveWorkItem` mutation.
+    # manually with the `createWorkItem` mutation.
     if work_item.previous_work_item:
         return
 
