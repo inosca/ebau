@@ -373,7 +373,7 @@ export default class CaseTableComponent extends Component {
         ...(macroCondition(getOwnConfig().application === "sz")
           ? ["form", "user"]
           : []),
-      ],
+      ].join(","),
     });
 
     if (this.args.casesBackend === "camac-ng") {
