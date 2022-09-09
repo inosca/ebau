@@ -16,6 +16,7 @@ import caseFilters from "./filter-config";
 import caseTableConfig from "camac-ng/config/case-table";
 import decisionsQuery from "camac-ng/gql/queries/decisions.graphql";
 import getBuildingPermitQuestion from "camac-ng/gql/queries/get-building-permit-question.graphql";
+import inquiryAnswersQuery from "camac-ng/gql/queries/inquiry-answers.graphql";
 import municipalitiesQuery from "camac-ng/gql/queries/municipalities.graphql";
 import rootFormsQuery from "camac-ng/gql/queries/root-forms.graphql";
 import DateComponent from "camac-ng/ui/components/case-filter/date/component";
@@ -205,6 +206,15 @@ export default class CaseFilterComponent extends Component {
   decisionOptions = trackedFunction(this, async () => {
     const response = await this.apollo.query(
       { query: decisionsQuery },
+      "allQuestions.edges"
+    );
+
+    return response[0]?.node.options.edges.map((edge) => edge.node);
+  });
+
+  inquiryAnswerOptions = trackedFunction(this, async () => {
+    const response = await this.apollo.query(
+      { query: inquiryAnswersQuery },
       "allQuestions.edges"
     );
 
