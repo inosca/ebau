@@ -1236,6 +1236,7 @@ def test_generate_and_store_pdf(
     )
     context["request"].user = admin_user
     context["request"].group = group
+    context["request"].caluma_info.context.user = caluma_admin_user
     mocker.patch("rest_framework.authentication.get_authorization_header")
 
     serializer = CalumaInstanceSubmitSerializer()
