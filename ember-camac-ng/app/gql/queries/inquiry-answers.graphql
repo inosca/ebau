@@ -1,0 +1,19 @@
+query InquiryAnswer {
+  allQuestions(filter: [{ slugs: ["inquiry-answer-status"] }]) {
+    edges {
+      node {
+        slug
+        ... on ChoiceQuestion {
+          options {
+            edges {
+              node {
+                slug
+                label
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

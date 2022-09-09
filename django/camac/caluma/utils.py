@@ -86,17 +86,19 @@ class CamacRequest:
 
     def __init__(self, info):
         self.request = copy(info.context)
-        oidc_user = self.request.user
-        self.request.user = self._get_camac_user(oidc_user)
-        self.request.auth = (
-            jwt_decode(oidc_user.token, options={"verify_signature": False})
-            if oidc_user.token
-            else None
-        )
-        camac_group = get_group(self.request)
-        self.request.group = camac_group
-        self.request.oidc_user = oidc_user
         self.request.query_params = self.request.GET
+
+        if getattr(info.context, "user", None):
+            oidc_user = self.request.user
+
+            self.request.user = self._get_camac_user(oidc_user)
+            self.request.auth = (
+                jwt_decode(oidc_user.token, options={"verify_signature": False})
+                if oidc_user.token
+                else None
+            )
+            self.request.group = get_group(self.request)
+            self.request.oidc_user = oidc_user
 
     def _get_camac_user(self, oidc_user):
         if isinstance(oidc_user, AnonymousUser):

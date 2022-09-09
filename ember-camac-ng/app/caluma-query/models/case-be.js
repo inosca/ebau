@@ -48,6 +48,16 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
       : null;
   }
 
+  get inquiryCreated() {
+    const inquiryCreated =
+      this.raw.distribution.edges[0]?.node.childCase?.workItems.edges[0]?.node
+        .createdAt;
+
+    return inquiryCreated
+      ? this.intl.formatDate(inquiryCreated, { format: "date" })
+      : null;
+  }
+
   get instanceState() {
     const state = this.instance?.get("instanceState.name");
 
@@ -121,6 +131,32 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
                       label
                     }
                   }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    distribution: workItems(filter: [{ task: "distribution" }]) {
+      edges {
+        node {
+          id
+          childCase {
+            id
+            workItems(
+              filter: [
+                { task: "inquiry" }
+                { status: SUSPENDED, invert: true }
+                { status: CANCELED, invert: true }
+              ]
+              order: [{ attribute: CREATED_AT, direction: ASC }]
+              first: 1
+            ) {
+              edges {
+                node {
+                  id
+                  createdAt
                 }
               }
             }
