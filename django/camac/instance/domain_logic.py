@@ -57,6 +57,8 @@ class CreateInstanceLogic:
     @classmethod
     @permission_aware
     def validate(cls, data, group):
+        if data.get("generate_identifier"):
+            raise ValidationError("You don't have permission to generate an identifier")
         return data
 
     @classmethod
@@ -470,12 +472,13 @@ class CreateInstanceLogic:
         are skipped here and performed in the serializer instead.
         """
         extend_validity_for = data.pop("extend_validity_for", None)
+        generate_identifier = data.pop("generate_identifier", None)
 
         form = data.get("form")
         if form and form.pk in settings.APPLICATION.get("ARCHIVE_FORMS", []):
             data["instance_state"] = models.InstanceState.objects.get(name="old")
 
-        data.pop("year", None)
+        year = data.pop("year", None)
 
         if (
             settings.APPLICATION["CALUMA"].get("USE_LOCATION") and source_instance
@@ -509,6 +512,12 @@ class CreateInstanceLogic:
             )
 
         case_meta = {"camac-instance-id": instance.pk}
+
+        if generate_identifier:
+            # Give dossier a unique dossier number
+            case_meta["dossier-number"] = CreateInstanceLogic.generate_identifier(
+                instance, year
+            )
 
         case = workflow_api.start_case(
             workflow=workflow,

@@ -221,7 +221,13 @@ def test_create_instance_caluma_be(
 @pytest.mark.parametrize("archive", [False, True])
 @pytest.mark.parametrize("paper", [False, True])
 @pytest.mark.parametrize(
-    "copy,modification", [(False, False), (True, False), (True, True)]
+    "copy,modification,generate_identifier",
+    [
+        (False, False, False),
+        (True, False, False),
+        (True, True, False),
+        (True, False, True),
+    ],
 )
 @pytest.mark.parametrize("role__name", ["Municipality", "Coordination"])
 def test_create_instance_caluma_ur(  # noqa: C901
@@ -238,6 +244,7 @@ def test_create_instance_caluma_ur(  # noqa: C901
     copy,
     archive,
     modification,
+    generate_identifier,
     user_factory,
     instance_service_factory,
     mocker,
@@ -329,7 +336,11 @@ def test_create_instance_caluma_ur(  # noqa: C901
         old_instance.save()
 
         data["data"]["attributes"].update(
-            {"copy-source": str(instance_id), "is-modification": modification}
+            {
+                "copy-source": str(instance_id),
+                "is-modification": modification,
+                "generate_identifier": generate_identifier,
+            }
         )
 
         if not archive:
@@ -359,6 +370,8 @@ def test_create_instance_caluma_ur(  # noqa: C901
                     assert new_instance.instance_state.name == "comm"
                 elif role.name == "Coordination":
                     assert new_instance.instance_state.name == "ext"
+
+            assert ("dossier-number" in new_case.meta) == generate_identifier
 
 
 @pytest.mark.parametrize("service_group__name", ["municipality"])
@@ -411,6 +424,30 @@ def test_copy_without_permission(
             "attributes": {
                 "copy-source": str(instance.instance_id),
                 "caluma-form": "main-form",
+            },
+        }
+    }
+
+    copy_resp = admin_client.post(reverse("instance-list"), data)
+    assert copy_resp.status_code == status.HTTP_400_BAD_REQUEST
+
+
+@pytest.mark.parametrize("instance_state__name", ["new"])
+def test_create_identifier_without_permisssion(
+    admin_client,
+    instance_state,
+    caluma_workflow_config_ur,
+    instance_factory,
+    group_factory,
+):
+    instance = instance_factory(group=group_factory())
+
+    data = {
+        "data": {
+            "type": "instances",
+            "attributes": {
+                "copy-source": str(instance.instance_id),
+                "generate-identifier": True,
             },
         }
     }
