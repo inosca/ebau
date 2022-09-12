@@ -609,16 +609,12 @@ def test_form_visibility_sz(
 
 
 @pytest.mark.parametrize(
-    "role__name,exclude_child_case,expected_count",
+    "role__name,expected_count",
     [
-        ("Support", "true", 1),
-        ("Support", "false", 2),
-        ("Service", "true", 1),
-        ("Service", "false", 2),
-        ("Municipality", "true", 1),
-        ("Municipality", "false", 2),
-        ("Applicant", "true", 0),
-        ("Applicant", "false", 0),
+        ("Support", 1),
+        ("Service", 1),
+        ("Municipality", 1),
+        ("Applicant", 0),
     ],
 )
 def test_case_visibility_sz(
@@ -627,7 +623,6 @@ def test_case_visibility_sz(
     caluma_admin_user,
     sz_instance,
     caluma_workflow_config_sz,
-    exclude_child_case,
     distribution_settings,
     mocker,
 ):
@@ -644,15 +639,12 @@ def test_case_visibility_sz(
         work_item=case.work_items.get(task_id="complete-check"), user=caluma_admin_user
     )
 
-    request = rf.get(
-        "/graphql",
-        **{"HTTP_X_CAMAC_FILTERS": f"exclude_child_cases={exclude_child_case}"},
-    )
+    request = rf.get("/graphql")
     request.user = caluma_admin_user
 
     query = """
         query {
-            allCases {
+            allCases(filter: [{ excludeChildCases: true }]) {
                 edges {
                     node {
                         id
