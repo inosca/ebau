@@ -475,6 +475,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
     is_modification = serializers.SerializerMethodField()  # "Projektänderung"
     copy_source = serializers.CharField(required=False, write_only=True)
     extend_validity_for = serializers.IntegerField(required=False, write_only=True)
+    generate_identifier = serializers.BooleanField(required=False, write_only=True)
     year = serializers.IntegerField(required=False, write_only=True)
 
     public_status = serializers.SerializerMethodField()
@@ -971,6 +972,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             "involved_applicants",
             "rejection_feedback",
             "name",
+            "generate_identifier",
         )
         read_only_fields = InstanceSerializer.Meta.read_only_fields + (
             "caluma_form",
