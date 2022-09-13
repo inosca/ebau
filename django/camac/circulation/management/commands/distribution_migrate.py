@@ -746,7 +746,7 @@ class Command(BaseCommand):
                         task=self.config.REDO_INQUIRY_TASK,
                         name=self.config.REDO_INQUIRY_TASK.name,
                         previous_work_item=work_item,
-                        addressed_groups=[str(activation.service_id)],
+                        addressed_groups=[str(activation.service_parent_id)],
                         controlling_groups=[],
                         case=distribution_case,
                         meta=self.config.META,

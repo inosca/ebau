@@ -98,7 +98,7 @@ mutation RedoInquiryTask {
     input: {
       slug: "redo-inquiry"
       name: "Stellungnahme wiedereröffnen"
-      addressGroups: "info.prev_work_item.addressed_groups"
+      addressGroups: "info.prev_work_item.controlling_groups"
     }
   ) {
     clientMutationId
