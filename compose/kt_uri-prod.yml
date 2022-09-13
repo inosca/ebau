@@ -46,7 +46,7 @@ services:
       - /etc/camac/document-merge-service.env:/run/secrets/document-merge-service.env:ro
       - /etc/camac/document-merge-service/uwsgi-prod.ini:/app/uwsgi.ini:ro
       - /var/lib/ca-certificates/ca-bundle.pem:/etc/ssl/certs/ca-certificates.crt:ro
-      - /var/lib/ca-certificates/ca-bundle.pem:/usr/local/lib/python3.7/site-packages/certifi/cacert.pem:ro
+      - /var/lib/ca-certificates/ca-bundle.pem:/home/document-merge-service/.cache/pypoetry/virtualenvs/document-merge-service-9TtSrW0h-py3.8/lib/python3.8/site-packages/certifi/cacert.pem
 
   ember-camac-ng:
     image: acr.run/camac-ng/camac-ng/ember-camac-ng:${CI_COMMIT_REF_SLUG}-${APPLICATION}
