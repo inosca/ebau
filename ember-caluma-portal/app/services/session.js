@@ -8,8 +8,7 @@ import Session from "ember-simple-auth-oidc/services/session";
 import { getUserLocales } from "get-user-locale";
 import { localCopy, cached } from "tracked-toolbox";
 
-import config from "../config/environment";
-
+import config from "caluma-portal/config/environment";
 import { isEmbedded } from "caluma-portal/helpers/is-embedded";
 
 const {

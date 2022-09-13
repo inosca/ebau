@@ -9,7 +9,7 @@ import { module, test } from "qunit";
 import {
   OBLIGATION_ANSWERS,
   OBLIGATION_FORM_SLUG,
-} from "camac-ng/ui/components/inquiry-answer-status/component";
+} from "camac-ng/components/inquiry-answer-status";
 
 module("Integration | Component | inquiry-answer-status", function (hooks) {
   setupRenderingTest(hooks);

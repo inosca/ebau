@@ -2,8 +2,7 @@ import { get } from "@ember/object";
 import { setupTest } from "ember-qunit";
 import { module, test } from "qunit";
 
-import config from "../../../config/environment";
-
+import config from "caluma-portal/config/environment";
 import testIf from "caluma-portal/tests/helpers/test-if";
 
 module("Unit | Ability | instance", function (hooks) {
