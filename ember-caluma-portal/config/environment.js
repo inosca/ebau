@@ -172,6 +172,7 @@ module.exports = function (environment) {
           1127, // KOOR AfE
           1128, // KOOR AFJ
           1129, // KOOR SD
+          1130, // Bundesstelle
           1131, // Support
         ],
       },
@@ -251,11 +252,13 @@ module.exports = function (environment) {
             1127, // KOOR AfE
             1128, // KOOR AFJ
             1129, // KOOR SD
+            1130, // Bundesstelle
             1131, // Support
           ],
           serviceGroups: [
             1, // Koordinationsstellen
             68, // Sekretariate Gemeindebaubehörden
+            70, // Bundesstellen
           ],
         },
       },
@@ -336,6 +339,11 @@ module.exports = function (environment) {
           // KOOR SD
           roles: [1129],
           forms: ["mitbericht-kanton", "cantonal-territory-usage"],
+        },
+        {
+          // Bundesstelle
+          roles: [1130],
+          forms: ["mitbericht-bund"],
         },
       ],
     },
