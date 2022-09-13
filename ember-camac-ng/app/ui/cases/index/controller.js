@@ -4,9 +4,9 @@ import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import { objectFromQueryParams } from "ember-ebau-core/decorators";
 
+import filterConfig from "camac-ng/components/case-filter/filter-config";
 import caseTableConfig from "camac-ng/config/case-table";
 import { moduleConfig } from "camac-ng/decorators";
-import filterConfig from "camac-ng/ui/components/case-filter/filter-config";
 
 export default class CasesIndexController extends Controller {
   @service shoebox;

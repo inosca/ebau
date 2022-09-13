@@ -1,4 +1,4 @@
-import ApplicationAdapter from "./application";
+import ApplicationAdapter from "camac-ng/adapters/application";
 
 export default class InstanceAdapter extends ApplicationAdapter {
   unlink(model) {
