@@ -723,7 +723,7 @@ class Command(BaseCommand):
                 WorkItem.objects.filter(
                     task_id="redo-inquiry",
                     previous_work_item=OuterRef("pk"),
-                    addressed_groups=OuterRef("addressed_groups"),
+                    addressed_groups=OuterRef("controlling_groups"),
                 )
             ),
             task_id=settings.DISTRIBUTION["INQUIRY_TASK"],

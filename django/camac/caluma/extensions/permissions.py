@@ -272,7 +272,12 @@ class CustomPermission(BasePermission):
         if not work_item:
             return True
 
-        return is_addressed_to_service(work_item, get_current_service_id(info))
+        service = get_current_service_id(info)
+
+        if work_item.task_id == settings.DISTRIBUTION["INQUIRY_TASK"]:
+            return is_controlled_by_service(work_item, service)
+
+        return is_addressed_to_service(work_item, service)
 
     # Document
     @permission_for(RemoveDocument)
