@@ -2692,6 +2692,51 @@ APPLICATIONS = {
             "USER": "import@koor-bg.ur.ch",
         },
     },
+    "future-demo": {
+        "ECH0211": {
+            "API_ACTIVE": False,
+        },
+        "LOG_NOTIFICATIONS": True,
+        # Mapping between camac role and instance permission.
+        "ROLE_PERMISSIONS": {
+            "Admin": None,
+        },
+        "IS_MULTILINGUAL": False,
+        "NOTIFICATIONS": {"SUBMIT": None, "APPLICANT": {"NEW": None, "EXISTING": None}},
+        "PUBLICATION_BACKEND": "camac-ng",
+        "FORM_BACKEND": "camac-ng",
+        "WORKFLOW_ITEMS": {
+            "SUBMIT": None,
+            "INSTANCE_COMPLETE": None,
+            "PUBLICATION": None,
+            "START_CIRC": None,
+            "DECISION": None,
+        },
+        "GROUP_RENAME_ON_SERVICE_RENAME": True,
+        # please also update django/Makefile command when changing apps here
+        "SEQUENCE_NAMESPACE_APPS": ["core", "responsible", "document"],
+        "NOTIFICATIONS_EXCLUDED_TASKS": [],
+        "OIDC_SYNC_USER_ATTRIBUTES": [
+            "language",
+            "email",
+            "username",
+            "name",
+            "surname",
+        ],
+        "PORTAL_GROUP": None,
+        "CALUMA": {
+            "FORM_PERMISSIONS": ["main", "inquiry", "inquiry-answer"],
+            "HAS_PROJECT_CHANGE": False,
+            "CREATE_IN_PROCESS": False,
+            "GENERATE_IDENTIFIER": False,
+            "USE_LOCATION": False,
+            "SAVE_DOSSIER_NUMBER_IN_CALUMA": True,
+        },
+        "STORE_PDF": {"SECTION": 1},
+        "INSTANCE_STATE_REJECTION_COMPLETE": "finished",
+        "SET_SUBMIT_DATE_CAMAC_ANSWER": True,
+
+    },
 }
 
 APPLICATIONS["kt_bern"]["DUMP_CONFIG_GROUPS"] = {

@@ -1,1 +1,60 @@
-[]
+[
+  {
+    "model": "caluma_form.form",
+    "pk": "decision",
+    "fields": {
+      "created_at": "2022-04-29T06:24:21.909Z",
+      "modified_at": "2022-05-17T15:00:54.504Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Entscheid\", \"fr\": \"D\\u00e9cision\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\"}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "dossierpruefung",
+    "fields": {
+      "created_at": "2020-10-13T11:53:41.201Z",
+      "modified_at": "2020-10-14T15:09:32.672Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Dossierpr\\u00fcfung\", \"fr\": \"Examen du dossier\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\"}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "baugesuch",
+    "fields": {
+      "created_at": "2021-02-12T13:03:45.382Z",
+      "modified_at": "2021-03-08T13:45:52.178Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Baugesuch\", \"fr\": \"Demande de permis de construire\"}",
+      "description": "{\"de\": \"Baugesuch\", \"fr\": \"Demande de permis de construire\"}",
+      "meta": {
+        "order": 1,
+        "category": "building-permit",
+        "is-creatable": true,
+        "is-main-form": true
+      },
+      "is_published": true,
+      "is_archived": false
+    }
+  }
+]

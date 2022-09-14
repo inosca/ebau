@@ -1,0 +1,146 @@
+version: "3.4"
+services:
+  cache:
+    ports:
+      - "11211:11211"
+    networks:
+      - ebau.local
+
+  proxy:
+    volumes:
+      - ../proxy/kt_bern.conf:/etc/nginx/conf.d/default.conf:ro
+    ports:
+      - "80:80"
+    networks:
+      ebau.local:
+        aliases:
+          - ebau.local
+          - ember-ebau.local
+          - ebau-portal.local
+          - ebau-rest-portal.local
+          - ebau-keycloak.local
+
+  db:
+    # Workaround, same name of image as cache_from
+    # better be named differently once following is fixed:
+    # https://github.com/docker/compose/issues/5458
+    # see also other services below
+    image: acr.run/camac-ng/camac-ng/db:master
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=camac
+    volumes:
+      - ../db/init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh:ro
+    networks:
+      - ebau.local
+
+  django: &django
+    image: acr.run/camac-ng/camac-ng/django:master
+    build:
+      args:
+        REQUIREMENTS: requirements-dev.txt
+    ports:
+      - "5555:5555"
+      - "5678:5678"
+    volumes:
+      - ../django:/app
+    environment:
+      - ENV=development
+      - APPLICATION_ENV=development
+      - KEYCLOAK_URL=http://ebau-keycloak.local/auth/
+      - DATABASE_PASSWORD=camac
+      - DATABASE_USER=camac
+      - DJANGO_EMAIL_HOST=mailhog
+      - DJANGO_EMAIL_PORT=1025
+      - OAUTHLIB_INSECURE_TRANSPORT=1
+      - OIDC_USERINFO_ENDPOINT=http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
+      - PYTHONDONTWRITEBYTECODE=1
+      - GWR_FERNET_KEY=GUdwT6yKxqfszrnHC7wyKDmtVZdhjSVQEPnpeJYNLf8=
+      - GWR_HOUSING_STAT_BASE_URI=https://www-r.housing-stat.ch/regbl/api/ech0216/2
+    networks:
+      - ebau.local
+    command: /bin/sh -c "./wait-for-it.sh db:5432 -- ./manage.py migrate && ./manage.py collectstatic --noinput && ./manage.py runserver 0:80 --pythonpath /app/$APPLICATION"
+
+  django-q:
+    <<: *django
+    command: /bin/sh -c "./wait-for-it.sh db:5431 -- ./manage.py qcluster --pythonpath /app/$APPLICATION"
+    ports: []
+
+  ember-camac-ng:
+    image: acr.run/camac-ng/camac-ng/ember-camac-ng:master
+    networks:
+      - ebau.local
+
+  ember-caluma-portal:
+    image: acr.run/camac-ng/camac-ng/ember-caluma-portal:master
+    environment:
+      - BE_GIS_URL=https://map2-test.apps.be.ch
+    networks:
+      - ebau.local
+
+  ember-ebau:
+    image: acr.run/camac-ng/camac-ng/ember-ebau:master
+    build:
+      context: ../
+      dockerfile: ./ember-ebau/Dockerfile
+      cache_from:
+        - acr.run/camac-ng/camac-ng/ember-ebau:master
+      args:
+        - APPLICATION=${APPLICATION}
+    networks:
+      - ebau.local
+
+  keycloak:
+    ports:
+      - "8080:8080"
+    volumes:
+      - ../keycloak/${APPLICATION}-test-config.json:/etc/keycloak/test-config.json:ro
+    environment:
+      - DB_PASSWORD=camac
+      - KEYCLOAK_PASSWORD=camac
+    networks:
+      - ebau.local
+    # export is a bit tricky: We need to _start_ keycloak with specific arguments to perform an export
+    # command: ["-Dkeycloak.migration.action=export", "-Dkeycloak.migration.provider=singleFile", "-Dkeycloak.migration.file=/etc/keycloak/test-config.json", "-b", "0.0.0.0"]
+    #
+    # https://www.keycloak.org/docs/latest/server_admin/#assembly-exporting-importing_server_administration_guide
+    command:
+      [
+        "-Dkeycloak.migration.action=import",
+        "-Dkeycloak.migration.provider=singleFile",
+        "-Dkeycloak.migration.file=/etc/keycloak/test-config.json",
+        "-Dkeycloak.migration.strategy=OVERWRITE_EXISTING",
+        "-b",
+        "0.0.0.0",
+      ]
+
+  mailhog:
+    networks:
+      - ebau.local
+    environment:
+      - MH_UI_WEB_PATH=mailhog
+
+  document-merge-service:
+    networks:
+      - ebau.local
+    environment:
+      - ENV=dev
+      - OIDC_USERINFO_ENDPOINT=http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
+      - OIDC_GROUPS_API=http://ebau.local/api/v1/me?include=service,service.service_parent
+    # There appears to be bug where libreoffice can only be started as the root
+    # user. The workaround of fixing owner and permissions of ~/.config did not
+    # work in our case.
+    #
+    # https://github.com/unoconv/unoconv/issues/241#issuecomment-549434601
+    # https://superuser.com/questions/564534/only-root-user-is-able-to-open-libreoffice
+    # user: "${UID:?Set UID env variable to your user id}"
+    command:
+      [
+        "/bin/sh",
+        "-c",
+        "wait-for-it.sh db:5432 -- poetry run python manage.py migrate && poetry run uwsgi",
+      ]
+
+networks:
+  ebau.local:

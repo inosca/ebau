@@ -378,6 +378,28 @@
     }
   },
   {
+    "model": "core.resource",
+    "pk": 20005,
+    "fields": {
+      "available_resource": "useradmin",
+      "name": null,
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 7
+    }
+  },
+  {
+    "model": "core.availableresource",
+    "pk": "useradmin",
+    "fields": {
+      "module_name": "useradmin",
+      "controller_name": "user",
+      "description": "(PHP) Decentralized user management"
+    }
+  },
+  {
     "model": "core.availableinstanceresource",
     "pk": "editcirculation",
     "fields": {
