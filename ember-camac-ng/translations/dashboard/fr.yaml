@@ -17,3 +17,4 @@ dashboard:
   nfd: ""
   expired: ""
   completed: ""
+  due-shortly: ""
