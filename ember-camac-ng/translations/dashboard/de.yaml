@@ -16,3 +16,4 @@ dashboard:
   nfd: "Nachforderung"
   expired: "Abgelaufen"
   completed: "Erledigt"
+  due-shortly: "In Kürze fällig"
