@@ -129,11 +129,17 @@ class InstanceQuerysetMixin(object):
 
         instances_created_by_group = self._instances_created_by(group)
         state_field = self._get_instance_filter_expr("instance_state__name")
+        service_group_field = self._get_instance_filter_expr(
+            "group__service__service_group"
+        )
 
         return queryset.filter(
             (
+                # KOORs see self-created instances
                 Q(**{instance_field: instances_created_by_group})
                 | (
+                    # and they also see instances they are responsible for,
+                    # as long as they have not been created by other KOOR
                     Q(
                         **{
                             form_field: uri_constants.RESPONSIBLE_KOORS.get(
@@ -141,6 +147,7 @@ class InstanceQuerysetMixin(object):
                             )
                         }
                     )
+                    & ~Q(**{service_group_field: uri_constants.SERVICE_GROUP_KOOR})
                     & ~Q(**{state_field: "new"})
                 )
             )
