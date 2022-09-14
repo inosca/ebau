@@ -8,7 +8,7 @@ export default function getActivationIndicator(activation) {
   const now = DateTime.now();
   if (activation.state === "NFD") {
     return "nfd";
-  } else if (activation.endDate || activation.suspensionDate) {
+  } else if (activation.state === "OK") {
     return "completed";
   } else if (DateTime.fromISO(activation.deadlineDate) < now) {
     return "expired";
