@@ -9,6 +9,10 @@ module.exports = function (environment) {
   );
   const app = process.env.APPLICATION || "kt_bern";
   const appConfig = {
+    demo: {
+      name: "demo",
+      realm: "ebau"
+    },
     kt_bern: {
       name: "be",
       realm: "ebau",

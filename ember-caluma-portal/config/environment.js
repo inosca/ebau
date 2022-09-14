@@ -350,6 +350,15 @@ module.exports = function (environment) {
         },
       ],
     },
+    demo: {
+      name: "demo",
+      realm: "ebau",
+      answerSlugs: {},
+      supportGroups: [],
+      selectableGroups: {
+        roles: [],
+      },
+    },
   }[app];
 
   const oidcHost = process.env.KEYCLOAK_HOST || "http://ebau-keycloak.local";

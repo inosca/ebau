@@ -8,6 +8,8 @@
       "name": "super",
       "surname": "admin",
       "email": "",
+      "is_staff": true,
+      "is_superuser": true,
       "phone": null,
       "disabled": 0,
       "language": "de",
