@@ -48015,7 +48015,7 @@
     "pk": 12,
     "fields": {
       "position": 2,
-      "name": "Dossier in URec erfasst",
+      "name": "Dossier erfasst",
       "automatical": 1,
       "different_color": 0,
       "is_workflow": 1,
