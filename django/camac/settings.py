@@ -2166,12 +2166,14 @@ APPLICATIONS = {
                     1127,  # KOOR AfE
                     1128,  # KOOR AFJ
                     1129,  # KOOR SD
+                    1130,  # Bundesstelle
                 ]
             },
             "ALLOWED_SERVICE_GROUPS": {
                 "DEFAULT": [
                     1,  # Koordinationsstellen
                     68,  # Sekretariate Gemeindebaubehörden
+                    70,  # Bundesstellen
                 ]
             },
         },
