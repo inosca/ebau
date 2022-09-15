@@ -100,6 +100,9 @@ services:
     restart: always
     environment:
       - MH_UI_WEB_PATH=mailhog
+      - MH_AUTH_FILE=/run/secrets/mailhog_auth
+    volumes:
+      - /etc/camac/mailhog_auth:/run/secrets/mailhog_auth:ro
 
   metabase:
     environment:

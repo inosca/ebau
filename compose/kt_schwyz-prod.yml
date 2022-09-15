@@ -100,6 +100,15 @@ services:
       - POSTFIX_myhostname=ebau-sz.ch
       - POSTFIX_mail_name=noreply@ebau-sz.ch
 
+  mailhog:
+    image: mailhog/mailhog
+    restart: always
+    environment:
+      - MH_UI_WEB_PATH=mailhog
+      - MH_AUTH_FILE=/run/secrets/mailhog_auth
+    volumes:
+      - /etc/camac/mailhog_auth:/run/secrets/mailhog_auth:ro
+
   metabase:
     image: metabase/metabase:v0.43.2
     ports:
