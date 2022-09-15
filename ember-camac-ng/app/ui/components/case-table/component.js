@@ -314,6 +314,7 @@ export default class CaseTableComponent extends Component {
               this.args.filter.pendingSanctionsControlInstance,
             with_cantonal_participation:
               this.args.filter.withCantonalParticipation,
+            is_paper: this.args.filter.paper,
           }
         : macroCondition(getOwnConfig().application === "be")
         ? {

@@ -64,6 +64,7 @@ export default {
       "intent",
       "withCantonalParticipation",
       "responsibleServiceUser",
+      "paper",
     ],
   },
   activeCirculationStates: [
