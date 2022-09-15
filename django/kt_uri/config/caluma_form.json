@@ -11064,7 +11064,22 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "24d-rpg",
-      "sort": 7
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-tabelle.abstand-oberkante-anlage-dachrand",
+    "fields": {
+      "created_at": "2022-09-15T07:11:33.298Z",
+      "modified_at": "2022-09-15T07:11:33.298Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-tabelle",
+      "question": "abstand-oberkante-anlage-dachrand",
+      "sort": 4
     }
   },
   {
@@ -11079,7 +11094,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "anlage-ragt-nicht-ueber-dachflaeche-hinaus",
-      "sort": 4
+      "sort": 6
     }
   },
   {
@@ -11094,7 +11109,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "anlagedaten",
-      "sort": 21
+      "sort": 24
     }
   },
   {
@@ -11109,7 +11124,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "art-der-kollektoren",
-      "sort": 19
+      "sort": 22
     }
   },
   {
@@ -11124,7 +11139,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "beschreibung-der-warmenutzung",
-      "sort": 17
+      "sort": 20
     }
   },
   {
@@ -11139,7 +11154,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "erwartete-stromproduktion",
-      "sort": 14
+      "sort": 17
     }
   },
   {
@@ -11154,7 +11169,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "gesamtkosten",
-      "sort": 13
+      "sort": 16
     }
   },
   {
@@ -11169,7 +11184,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "gesetzliche-vorgaben",
-      "sort": 6
+      "sort": 9
     }
   },
   {
@@ -11189,6 +11204,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-tabelle.installation-flachdach",
+    "fields": {
+      "created_at": "2022-09-15T07:03:18.862Z",
+      "modified_at": "2022-09-15T07:03:18.862Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-tabelle",
+      "question": "installation-flachdach",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "solaranlagen-tabelle.isos",
     "fields": {
       "created_at": "2020-10-27T10:38:25.786Z",
@@ -11199,7 +11229,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "isos",
-      "sort": 9
+      "sort": 12
     }
   },
   {
@@ -11214,7 +11244,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "kompakte-flaeche",
-      "sort": 3
+      "sort": 5
     }
   },
   {
@@ -11229,7 +11259,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "kulturobjekt",
-      "sort": 11
+      "sort": 14
     }
   },
   {
@@ -11244,7 +11274,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "neben-kulturobjekt",
-      "sort": 10
+      "sort": 13
     }
   },
   {
@@ -11259,7 +11289,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "nutzung",
-      "sort": 18
+      "sort": 21
     }
   },
   {
@@ -11289,7 +11319,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "solar-gesamtflaeche-m2",
-      "sort": 16
+      "sort": 19
     }
   },
   {
@@ -11304,7 +11334,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "solar-gesamtleistung-kw",
-      "sort": 15
+      "sort": 18
     }
   },
   {
@@ -11319,7 +11349,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "solaranlagen-auf-kulturobjekten",
-      "sort": 12
+      "sort": 15
     }
   },
   {
@@ -11334,7 +11364,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "standort-kernzone",
-      "sort": 8
+      "sort": 11
     }
   },
   {
@@ -11349,7 +11379,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "typ-der-solaranlage",
-      "sort": 20
+      "sort": 23
     }
   },
   {
@@ -11364,7 +11394,22 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "ueberragt-dachflaeche",
-      "sort": 5
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-tabelle.winkel-45-grad",
+    "fields": {
+      "created_at": "2022-09-15T07:13:45.733Z",
+      "modified_at": "2022-09-15T07:13:45.733Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-tabelle",
+      "question": "winkel-45-grad",
+      "sort": 3
     }
   },
   {
@@ -13415,6 +13460,38 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "abstand-oberkante-anlage-dachrand-ja",
+    "fields": {
+      "created_at": "2022-09-15T07:11:33.064Z",
+      "modified_at": "2022-09-15T09:36:15.278Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "abstand-oberkante-anlage-dachrand-nein",
+    "fields": {
+      "created_at": "2022-09-15T07:11:32.474Z",
+      "modified_at": "2022-09-15T09:36:15.284Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "angaben-dieselbetankungsanlagen-andere-entwaesserung",
     "fields": {
       "created_at": "2021-11-25T12:44:40.622Z",
@@ -13594,10 +13671,10 @@
     "pk": "anlage-ragt-nicht-ueber-dachflaeche-hinaus-ja",
     "fields": {
       "created_at": "2020-10-21T12:23:55.477Z",
-      "modified_at": "2020-10-27T11:36:45.852Z",
+      "modified_at": "2022-09-15T07:23:14.127Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "christian.zosel@adfinis.com",
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null}",
       "is_archived": false,
@@ -13610,10 +13687,10 @@
     "pk": "anlage-ragt-nicht-ueber-dachflaeche-hinaus-nein",
     "fields": {
       "created_at": "2020-10-21T12:23:55.480Z",
-      "modified_at": "2020-10-27T11:36:45.852Z",
+      "modified_at": "2022-09-15T07:23:14.132Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "christian.zosel@adfinis.com",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null}",
       "is_archived": false,
@@ -20599,6 +20676,38 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "installation-flachdach-ja",
+    "fields": {
+      "created_at": "2022-09-15T07:03:18.651Z",
+      "modified_at": "2022-09-15T07:24:37.023Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "christian.zosel@adfinis.com",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "installation-flachdach-nein",
+    "fields": {
+      "created_at": "2022-09-15T07:03:18.666Z",
+      "modified_at": "2022-09-15T07:24:37.023Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "christian.zosel@adfinis.com",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "installationsart-andere",
     "fields": {
       "created_at": "2021-11-26T07:51:23.344Z",
@@ -21162,10 +21271,10 @@
     "pk": "kompakte-flaeche-ja",
     "fields": {
       "created_at": "2020-10-21T12:24:23.965Z",
-      "modified_at": "2020-10-27T11:36:48.902Z",
+      "modified_at": "2022-09-15T07:23:47.004Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "christian.zosel@adfinis.com",
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null}",
       "is_archived": false,
@@ -21178,10 +21287,10 @@
     "pk": "kompakte-flaeche-nein",
     "fields": {
       "created_at": "2020-10-21T12:24:23.971Z",
-      "modified_at": "2020-10-27T11:36:48.903Z",
+      "modified_at": "2022-09-15T07:23:47.004Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "christian.zosel@adfinis.com",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null}",
       "is_archived": false,
@@ -25930,10 +26039,10 @@
     "pk": "ueberragt-dachflaeche-ja",
     "fields": {
       "created_at": "2020-10-21T12:23:12.475Z",
-      "modified_at": "2020-10-27T11:36:42.563Z",
+      "modified_at": "2022-09-15T07:23:05.868Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "christian.zosel@adfinis.com",
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null}",
       "is_archived": false,
@@ -25946,10 +26055,10 @@
     "pk": "ueberragt-dachflaeche-nein",
     "fields": {
       "created_at": "2020-10-21T12:23:12.476Z",
-      "modified_at": "2020-10-27T11:36:42.560Z",
+      "modified_at": "2022-09-15T07:23:05.877Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "christian.zosel@adfinis.com",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null}",
       "is_archived": false,
@@ -27431,6 +27540,38 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "winkel-45-grad-ja",
+    "fields": {
+      "created_at": "2022-09-15T07:13:45.526Z",
+      "modified_at": "2022-09-15T07:22:15.877Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "christian.zosel@adfinis.com",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "winkel-45-grad-nein",
+    "fields": {
+      "created_at": "2022-09-15T07:13:45.519Z",
+      "modified_at": "2022-09-15T07:22:15.893Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "christian.zosel@adfinis.com",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "wuenschen-sie-zum-thema-artenschutz-bei-neubauten-eine-beratung-ja",
     "fields": {
       "created_at": "2020-11-24T11:15:17.128Z",
@@ -28064,6 +28205,37 @@
       "info_text": "{\"de\": null, \"fr\": null}",
       "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"###Bezugsbewilligung / Verfahrensabschluss\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "abstand-oberkante-anlage-dachrand",
+    "fields": {
+      "created_at": "2022-09-15T07:11:33.203Z",
+      "modified_at": "2022-09-15T09:36:15.537Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Betr\\u00e4gt der Abstand vom Dachrand bis zur Oberkante der Anlage h\\u00f6chstens 1 Meter?\", \"fr\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "!(\"installation-flachdach-ja\" == \"installation-flachdach\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -29169,19 +29341,19 @@
     "pk": "anlage-ragt-nicht-ueber-dachflaeche-hinaus",
     "fields": {
       "created_at": "2020-10-21T12:23:55.587Z",
-      "modified_at": "2020-10-27T11:36:46.007Z",
+      "modified_at": "2022-09-15T07:23:14.211Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "christian.zosel@adfinis.com",
       "modified_by_group": null,
-      "label": "{\"de\": \"Die Anlage ragt von vorne und von oben gesehen nicht \\u00fcber die Dachfl\\u00e4che hinaus\", \"fr\": null}",
+      "label": "{\"de\": \"Ragt die Anlage von oben gesehen \\u00fcber die Dachfl\\u00e4che hinaus?\", \"fr\": null}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "false",
+      "is_hidden": "!(\"installation-flachdach-nein\" == \"installation-flachdach\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -39036,7 +39208,7 @@
     "pk": "gesetzliche-vorgaben",
     "fields": {
       "created_at": "2022-02-24T15:15:42.451Z",
-      "modified_at": "2022-02-25T08:32:06.599Z",
+      "modified_at": "2022-09-15T07:06:45.181Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -39047,7 +39219,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": \"Raumplanungsverordnung\\nArt. 32a Bewilligungsfreie Solaranlagen\\n\\n1 Solaranlagen gelten als auf einem Dach gen\\u00fcgend angepasst (Art. 18a Abs. 1 RPG), wenn sie:\\n\\na. die Dachfl\\u00e4che im rechten Winkel um h\\u00f6chstens 20 cm \\u00fcberragen;\\nb. von vorne und von oben gesehen nicht \\u00fcber die Dachfl\\u00e4che hinausragen;\\nc. nach dem Stand der Technik reflexionsarm ausgef\\u00fchrt werden; und\\nd. als kompakte Fl\\u00e4che zusammenh\\u00e4ngen.\\n\\n2 Konkrete Gestaltungsvorschriften des kantonalen Rechts sind anwendbar, wenn sie zur Wahrung berechtigter Schutzanliegen verh\\u00e4ltnism\\u00e4ssig sind und die Nutzung der Sonnenenergie nicht st\\u00e4rker einschr\\u00e4nken als Absatz 1.\\n\\n3 Bewilligungsfreie Vorhaben sind vor Baubeginn der Baubewilligungsbeh\\u00f6rde oder einer anderen vom kantonalen Recht f\\u00fcr zust\\u00e4ndig erkl\\u00e4rten Beh\\u00f6rde zu melden. Das kantonale Recht legt die Frist sowie die Pl\\u00e4ne und Unterlagen, die der Meldung beizulegen sind, fest.\", \"fr\": null}",
+      "info_text": "{\"de\": \"Raumplanungsverordnung\\nArt. 32a Bewilligungsfreie Solaranlagen\\n\\n1 Solaranlagen gelten als auf einem Dach gen\\u00fcgend angepasst (Art. 18a Abs. 1 RPG), wenn sie:\\n\\na. die Dachfl\\u00e4che im rechten Winkel um h\\u00f6chstens 20 cm \\u00fcberragen;\\nb. von oben gesehen nicht \\u00fcber die Dachfl\\u00e4che hinausragen;\\nc. nach dem Stand der Technik reflexionsarm ausgef\\u00fchrt werden; und\\nd. kompakt angeordnet sind; technisch bedingte Auslassungen oder eine versetzte Anordnung aufgrund der verf\\u00fcgbaren Fl\\u00e4che sind zul\\u00e4ssig.\\n\\n1bis Solaranlagen auf einem Flachdach gelten auch dann als gen\\u00fcgend angepasst, wenn sie anstelle der Voraussetzungen nach Absatz 1:\\n\\na. die Oberkante des Dachrandes um h\\u00f6chstens einen Meter \\u00fcberragen\\nb. von der Dachkante so weit zur\\u00fcckversetzt sind, dass sie, von unten in einem Winkel von 45 Grad betrachtet, nicht sichtbar sind; und\\nc. nach dem Stand der Technik reflexionsarm ausgef\\u00fchrt werden.\\n\\n2 Konkrete Gestaltungsvorschriften des kantonalen Rechts sind anwendbar, wenn sie zur Wahrung berechtigter Schutzanliegen verh\\u00e4ltnism\\u00e4ssig sind und die Nutzung der Sonnenenergie nicht st\\u00e4rker einschr\\u00e4nken als Absatz 1.\\n\\n3 Bewilligungsfreie Vorhaben sind vor Baubeginn der Baubewilligungsbeh\\u00f6rde oder einer anderen vom kantonalen Recht f\\u00fcr zust\\u00e4ndig erkl\\u00e4rten Beh\\u00f6rde zu melden. Das kantonale Recht legt die Frist sowie die Pl\\u00e4ne und Unterlagen, die der Meldung beizulegen sind, fest.\", \"fr\": null}",
       "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"####Bundesrecht - Gesetzliche Vorgaben f\\u00fcr baubewilligungsbefreite Solaranlagen\\n(Artikel 32a Raumplanungsverordnung RPV)\", \"fr\": \"\"}",
       "configuration": {},
@@ -41010,6 +41182,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "installation-flachdach",
+    "fields": {
+      "created_at": "2022-09-15T07:03:18.765Z",
+      "modified_at": "2022-09-15T07:24:37.113Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "christian.zosel@adfinis.com",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wird die Anlage auf einem Flachdach installiert?\", \"fr\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "installationsanzeige-wta",
     "fields": {
       "created_at": "2021-11-09T09:16:26.958Z",
@@ -41582,19 +41785,19 @@
     "pk": "kompakte-flaeche",
     "fields": {
       "created_at": "2020-10-21T12:24:24.072Z",
-      "modified_at": "2020-10-27T11:36:49.046Z",
+      "modified_at": "2022-09-15T07:23:47.126Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "christian.zosel@adfinis.com",
       "modified_by_group": null,
-      "label": "{\"de\": \"Die Anlage wird als kompakte zusammenh\\u00e4ngende Fl\\u00e4che installiert\", \"fr\": null}",
+      "label": "{\"de\": \"Wird die Anlage kompakt angeordnet? (die Unterteilung der Anlage in mehrere Fl\\u00e4chen aufgrund von technischen Hindernissen wie Abluftrohre, Dachfenster und dgl. sind zul\\u00e4ssig)\", \"fr\": null}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "false",
+      "is_hidden": "!(\"installation-flachdach-nein\" == \"installation-flachdach\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -50184,19 +50387,19 @@
     "pk": "ueberragt-dachflaeche",
     "fields": {
       "created_at": "2020-10-21T12:23:12.593Z",
-      "modified_at": "2020-10-27T11:36:42.665Z",
+      "modified_at": "2022-09-15T07:23:05.974Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "christian.zosel@adfinis.com",
       "modified_by_group": null,
-      "label": "{\"de\": \"Die Anlage \\u00fcberragt die Dachfl\\u00e4che im rechten Winkel um h\\u00f6chstens 20cm\", \"fr\": null}",
+      "label": "{\"de\": \"\\u00dcberragt die Anlage die Dachfl\\u00e4che im rechten Winkel um h\\u00f6chstens 20 cm?\", \"fr\": null}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "false",
+      "is_hidden": "!(\"installation-flachdach-nein\" == \"installation-flachdach\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -52020,6 +52223,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "winkel-45-grad",
+    "fields": {
+      "created_at": "2022-09-15T07:13:45.638Z",
+      "modified_at": "2022-09-15T07:22:15.997Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "christian.zosel@adfinis.com",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ist die Anlage von unten in einem Winkel von 45 Grad betrachtet sichtbar?\", \"fr\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "!(\"installation-flachdach-ja\" == \"installation-flachdach\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "wohnungen",
     "fields": {
       "created_at": "2020-11-09T12:42:59.148Z",
@@ -52641,6 +52875,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "abstand-oberkante-anlage-dachrand.abstand-oberkante-anlage-dachrand-ja",
+    "fields": {
+      "created_at": "2022-09-15T09:36:15.564Z",
+      "modified_at": "2022-09-15T09:36:15.564Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "abstand-oberkante-anlage-dachrand",
+      "option": "abstand-oberkante-anlage-dachrand-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "abstand-oberkante-anlage-dachrand.abstand-oberkante-anlage-dachrand-nein",
+    "fields": {
+      "created_at": "2022-09-15T09:36:15.558Z",
+      "modified_at": "2022-09-15T09:36:15.558Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "abstand-oberkante-anlage-dachrand",
+      "option": "abstand-oberkante-anlage-dachrand-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "angaben-dieselbetankungsanlagen.angaben-dieselbetankungsanlagen-andere-entwaesserung",
     "fields": {
       "created_at": "2021-11-29T10:58:12.156Z",
@@ -52808,11 +53072,11 @@
     "model": "caluma_form.questionoption",
     "pk": "anlage-ragt-nicht-ueber-dachflaeche-hinaus.anlage-ragt-nicht-ueber-dachflaeche-hinaus-ja",
     "fields": {
-      "created_at": "2020-10-27T11:36:46.021Z",
-      "modified_at": "2020-10-27T11:36:46.021Z",
+      "created_at": "2022-09-15T07:23:14.218Z",
+      "modified_at": "2022-09-15T07:23:14.218Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "christian.zosel@adfinis.com",
       "modified_by_group": null,
       "question": "anlage-ragt-nicht-ueber-dachflaeche-hinaus",
       "option": "anlage-ragt-nicht-ueber-dachflaeche-hinaus-ja",
@@ -52823,11 +53087,11 @@
     "model": "caluma_form.questionoption",
     "pk": "anlage-ragt-nicht-ueber-dachflaeche-hinaus.anlage-ragt-nicht-ueber-dachflaeche-hinaus-nein",
     "fields": {
-      "created_at": "2020-10-27T11:36:46.017Z",
-      "modified_at": "2020-10-27T11:36:46.017Z",
+      "created_at": "2022-09-15T07:23:14.215Z",
+      "modified_at": "2022-09-15T07:23:14.215Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "christian.zosel@adfinis.com",
       "modified_by_group": null,
       "question": "anlage-ragt-nicht-ueber-dachflaeche-hinaus",
       "option": "anlage-ragt-nicht-ueber-dachflaeche-hinaus-nein",
@@ -59391,6 +59655,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "installation-flachdach.installation-flachdach-ja",
+    "fields": {
+      "created_at": "2022-09-15T07:24:37.119Z",
+      "modified_at": "2022-09-15T07:24:37.119Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": "christian.zosel@adfinis.com",
+      "modified_by_group": null,
+      "question": "installation-flachdach",
+      "option": "installation-flachdach-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "installation-flachdach.installation-flachdach-nein",
+    "fields": {
+      "created_at": "2022-09-15T07:24:37.117Z",
+      "modified_at": "2022-09-15T07:24:37.117Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": "christian.zosel@adfinis.com",
+      "modified_by_group": null,
+      "question": "installation-flachdach",
+      "option": "installation-flachdach-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "installationsart-tank.installationsart-tank-andere",
     "fields": {
       "created_at": "2021-11-29T11:09:15.795Z",
@@ -59798,11 +60092,11 @@
     "model": "caluma_form.questionoption",
     "pk": "kompakte-flaeche.kompakte-flaeche-ja",
     "fields": {
-      "created_at": "2020-10-27T11:36:49.056Z",
-      "modified_at": "2020-10-27T11:36:49.056Z",
+      "created_at": "2022-09-15T07:23:47.134Z",
+      "modified_at": "2022-09-15T07:23:47.134Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "christian.zosel@adfinis.com",
       "modified_by_group": null,
       "question": "kompakte-flaeche",
       "option": "kompakte-flaeche-ja",
@@ -59813,11 +60107,11 @@
     "model": "caluma_form.questionoption",
     "pk": "kompakte-flaeche.kompakte-flaeche-nein",
     "fields": {
-      "created_at": "2020-10-27T11:36:49.053Z",
-      "modified_at": "2020-10-27T11:36:49.053Z",
+      "created_at": "2022-09-15T07:23:47.131Z",
+      "modified_at": "2022-09-15T07:23:47.131Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "christian.zosel@adfinis.com",
       "modified_by_group": null,
       "question": "kompakte-flaeche",
       "option": "kompakte-flaeche-nein",
@@ -64148,11 +64442,11 @@
     "model": "caluma_form.questionoption",
     "pk": "ueberragt-dachflaeche.ueberragt-dachflaeche-ja",
     "fields": {
-      "created_at": "2020-10-27T11:36:42.675Z",
-      "modified_at": "2020-10-27T11:36:42.675Z",
+      "created_at": "2022-09-15T07:23:05.981Z",
+      "modified_at": "2022-09-15T07:23:05.981Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "christian.zosel@adfinis.com",
       "modified_by_group": null,
       "question": "ueberragt-dachflaeche",
       "option": "ueberragt-dachflaeche-ja",
@@ -64163,11 +64457,11 @@
     "model": "caluma_form.questionoption",
     "pk": "ueberragt-dachflaeche.ueberragt-dachflaeche-nein",
     "fields": {
-      "created_at": "2020-10-27T11:36:42.671Z",
-      "modified_at": "2020-10-27T11:36:42.671Z",
+      "created_at": "2022-09-15T07:23:05.978Z",
+      "modified_at": "2022-09-15T07:23:05.978Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "christian.zosel@adfinis.com",
       "modified_by_group": null,
       "question": "ueberragt-dachflaeche",
       "option": "ueberragt-dachflaeche-nein",
@@ -65551,6 +65845,36 @@
       "modified_by_group": null,
       "question": "werkleitungsplan",
       "option": "werkleitungsplan-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "winkel-45-grad.winkel-45-grad-ja",
+    "fields": {
+      "created_at": "2022-09-15T07:22:16.003Z",
+      "modified_at": "2022-09-15T07:22:16.003Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": "christian.zosel@adfinis.com",
+      "modified_by_group": null,
+      "question": "winkel-45-grad",
+      "option": "winkel-45-grad-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "winkel-45-grad.winkel-45-grad-nein",
+    "fields": {
+      "created_at": "2022-09-15T07:22:16.001Z",
+      "modified_at": "2022-09-15T07:22:16.001Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": "christian.zosel@adfinis.com",
+      "modified_by_group": null,
+      "question": "winkel-45-grad",
+      "option": "winkel-45-grad-nein",
       "sort": 1
     }
   },
