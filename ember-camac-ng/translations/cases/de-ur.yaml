@@ -2,3 +2,6 @@ cases:
   filters:
     address: "Strasse / Flurname / Ort"
     paper: "intern erfasst"
+  paper:
+    only: "Nur intern erfasste Dossiers"
+    none: "keine intern erfassten Dossiers"
