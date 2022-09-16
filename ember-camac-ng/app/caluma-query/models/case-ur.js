@@ -142,7 +142,10 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
     let label = getFormTitle(this.raw.document, config.APPLICATION.answerSlugs);
 
     if (!label) {
-      const answer = getAnswer(this.raw.document, "form-type");
+      const answer =
+        getAnswer(this.raw.document, "solaranlage-art-des-gesuchs") ||
+        getAnswer(this.raw.document, "gebaeudetechnik-art-des-gesuchs") ||
+        getAnswer(this.raw.document, "form-type");
 
       label = answer?.node.question.options.edges.find(
         (edge) => edge.node.slug === answer?.node.stringValue
@@ -275,6 +278,8 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
               "beschreibung-reklame"
               "mbv-type",
               "mbv-bund-type",
+              "solaranlage-art-des-gesuchs",
+              "gebaeudetechnik-art-des-gesuchs",
             ]
           }
         ]

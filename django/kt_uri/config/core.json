@@ -1572,6 +1572,13 @@
     }
   },
   {
+    "model": "core.aphp",
+    "pk": 12000070,
+    "fields": {
+      "php_class": "ChangeDossierName"
+    }
+  },
+  {
     "model": "core.action",
     "pk": 9,
     "fields": {
@@ -6161,6 +6168,20 @@
       "error_message": null,
       "execute_always": 0,
       "sort": 2
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000070,
+    "fields": {
+      "available_action": "php",
+      "button": 12000022,
+      "name": "Dossier Name wechseln",
+      "description": null,
+      "success_message": "Dossier erfolgreich umgewandelt",
+      "error_message": "Dossier konnte nicht umgewandelt werden!",
+      "execute_always": 1,
+      "sort": 0
     }
   },
   {
@@ -17112,6 +17133,33 @@
     }
   },
   {
+    "model": "core.broleacl",
+    "pk": 12000108,
+    "fields": {
+      "button": 12000022,
+      "role": 6,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000109,
+    "fields": {
+      "button": 12000022,
+      "role": 6,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000110,
+    "fields": {
+      "button": 12000022,
+      "role": 6,
+      "instance_state": 34
+    }
+  },
+  {
     "model": "core.billingconfig",
     "pk": 1,
     "fields": {
@@ -17559,8 +17607,8 @@
     "pk": 153,
     "fields": {
       "instance_resource": 180000,
-      "name": "Verfahren ändern",
-      "description": null,
+      "name": "Umwandeln in Baugesuch",
+      "description": "Vorabklärung - Baugesuch",
       "class_field": "in_form_group:221 change_form_title",
       "hidden": 0,
       "sort": 9
@@ -19271,6 +19319,18 @@
     }
   },
   {
+    "model": "core.button",
+    "pk": 12000022,
+    "fields": {
+      "instance_resource": 180000,
+      "name": "Umwandeln in Baugesuch",
+      "description": "Solar / Gebäudetechnik - Baugesuch",
+      "class_field": "in_form_group:12000002 change_form_title",
+      "hidden": 0,
+      "sort": 10
+    }
+  },
+  {
     "model": "core.chapter",
     "pk": 1,
     "fields": {
@@ -20804,7 +20864,7 @@
     "model": "core.formgroup",
     "pk": 12000000,
     "fields": {
-      "name": "Solargesuche, Meldung Vorhaben, Reklamegesuche und Meldung Gebäudetechnik von der Gemeinde",
+      "name": "Solargesuche, Meldung Vorhaben, Reklamegesuche und Gebäudetechnik von der Gemeinde",
       "description": "Wird für die Anzeige des Buttons \"Freigabe an Gemeindebaubehörde\" benutzt"
     }
   },
@@ -20814,6 +20874,14 @@
     "fields": {
       "name": "Dossier kopieren",
       "description": "Forms die kopiert werden können"
+    }
+  },
+  {
+    "model": "core.formgroup",
+    "pk": 12000002,
+    "fields": {
+      "name": "Solar und Gebäudetechnik Dossiers von der Gemeinde die in Baugesuch umgewandelt werden können",
+      "description": "Solar und Gebäudetechnik Dossiers von der Gemeinde die in Baugesuch umgewandelt werden können"
     }
   },
   {
@@ -22998,6 +23066,38 @@
     "fields": {
       "form_group": 141,
       "form": 300
+    }
+  },
+  {
+    "model": "core.formgroupform",
+    "pk": 12000063,
+    "fields": {
+      "form_group": 12000002,
+      "form": 297
+    }
+  },
+  {
+    "model": "core.formgroupform",
+    "pk": 12000064,
+    "fields": {
+      "form_group": 12000002,
+      "form": 141
+    }
+  },
+  {
+    "model": "core.formgroupform",
+    "pk": 12000065,
+    "fields": {
+      "form_group": 257,
+      "form": 297
+    }
+  },
+  {
+    "model": "core.formgroupform",
+    "pk": 12000066,
+    "fields": {
+      "form_group": 257,
+      "form": 141
     }
   },
   {
