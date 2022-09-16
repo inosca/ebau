@@ -10,7 +10,7 @@
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "name": "{\"de\": \"Allgemeine Informationen\", \"fr\": null}",
-      "description": "{\"de\": \"Meldung Geb\\u00e4udetechnik\", \"fr\": null}",
+      "description": "{\"de\": \"Geb\\u00e4udetechnik\", \"fr\": null}",
       "meta": {},
       "is_published": true,
       "is_archived": false,
@@ -709,7 +709,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "name": "{\"de\": \"Allgemeine Informationen\", \"fr\": null}",
-      "description": "{\"de\": \"Meldung Solaranlage\", \"fr\": null}",
+      "description": "{\"de\": \"Solaranlage\", \"fr\": null}",
       "meta": {},
       "is_published": true,
       "is_archived": false,
@@ -1340,7 +1340,7 @@
       "created_by_group": null,
       "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
-      "name": "{\"de\": \"Meldung Geb\\u00e4udetechnik\", \"fr\": null}",
+      "name": "{\"de\": \"Geb\\u00e4udetechnik\", \"fr\": null}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {
         "category": "building-permit",
@@ -5084,6 +5084,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "form-gebaeudetechnik.gebaeudetechnik-art-des-gesuchs",
+    "fields": {
+      "created_at": "2022-09-12T13:03:09.732Z",
+      "modified_at": "2022-09-12T13:03:09.732Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "form-gebaeudetechnik",
+      "question": "gebaeudetechnik-art-des-gesuchs",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "form-gebaeudetechnik.gebaeudetechnik-tabelle",
     "fields": {
       "created_at": "2021-11-24T12:26:07.901Z",
@@ -5124,7 +5139,7 @@
       "modified_by_group": null,
       "form": "form-gebaeudetechnik",
       "question": "hinweis-dokumente-hochladen-bs",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -11035,6 +11050,21 @@
       "form": "solaranlage",
       "question": "hinweis-baubewilligungspflicht",
       "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlage.solaranlage-art-des-gesuchs",
+    "fields": {
+      "created_at": "2022-09-12T13:01:27.688Z",
+      "modified_at": "2022-09-12T13:01:27.688Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlage",
+      "question": "solaranlage-art-des-gesuchs",
+      "sort": 1
     }
   },
   {
@@ -18988,7 +19018,7 @@
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
-      "label": "{\"de\": \"Meldung Solaranlage\", \"fr\": null}",
+      "label": "{\"de\": \"Solaranlage\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -19004,7 +19034,7 @@
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
-      "label": "{\"de\": \"Meldung Geb\\u00e4udetechnik\", \"fr\": null}",
+      "label": "{\"de\": \"Geb\\u00e4udetechnik\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -19341,6 +19371,38 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Geb\\u00e4ude mit teilweiser Wohnnutzung\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "gebaeudetechnik-art-des-gesuchs-gebaeudetechnik",
+    "fields": {
+      "created_at": "2022-09-12T13:03:09.423Z",
+      "modified_at": "2022-09-12T13:03:09.423Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Geb\\u00e4udetechik\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "gebaeudetechnik-art-des-gesuchs-gebaeudetechnik-baubewilligungspflichtig",
+    "fields": {
+      "created_at": "2022-09-12T13:03:09.429Z",
+      "modified_at": "2022-09-12T13:03:09.429Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Geb\\u00e4udetechnik (baubewilligungspflichtig)\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -24084,6 +24146,38 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "solaranlage-art-des-gesuchs-solaranlage",
+    "fields": {
+      "created_at": "2022-09-12T13:01:27.282Z",
+      "modified_at": "2022-09-12T13:01:27.282Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Solaranlage\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "solaranlage-art-des-gesuchs-solaranlage-baubewilligungspflichtig",
+    "fields": {
+      "created_at": "2022-09-12T13:01:27.299Z",
+      "modified_at": "2022-09-12T13:01:27.300Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Solaranlage (baubewilligungspflichtig)\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "spezielle-bauen-freiluftbaeder",
     "fields": {
       "created_at": "2020-11-02T10:14:09.932Z",
@@ -28661,7 +28755,7 @@
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Allgemeine Informationen Meldung Gebaeudetechnik\", \"fr\": null}",
+      "label": "{\"de\": \"Allgemeine Informationen Gebaeudetechnik\", \"fr\": null}",
       "type": "form",
       "is_required": "false",
       "is_hidden": "false",
@@ -36490,7 +36584,7 @@
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "hint_text": "{\"de\": null, \"fr\": null}",
-      "static_content": "{\"de\": \"**Hinweis**\\nDer Energienachweis wird in der Regel auf der Basis von Detailpl\\u00e4nen erstellt. Da diese zum Zeitpunkt der Baueingabe oftmals noch nicht vorliegen, kann der Energienachweis im Rahmen des laufenden Bewilligungsverfahrens auch nachtr\\u00e4glich eingereicht werden. Dies muss jedoch sp\\u00e4testens und rechtzeitig vor Baubeginn erfolgen. Bitte verwenden Sie dazu das Formular \\\"Meldung Geb\\u00e4udetechnik\\\". Die Baufreigabe erfolgt erst nach positiver Pr\\u00fcfung des Energienachweises.\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"**Hinweis**\\nDer Energienachweis wird in der Regel auf der Basis von Detailpl\\u00e4nen erstellt. Da diese zum Zeitpunkt der Baueingabe oftmals noch nicht vorliegen, kann der Energienachweis im Rahmen des laufenden Bewilligungsverfahrens auch nachtr\\u00e4glich eingereicht werden. Dies muss jedoch sp\\u00e4testens und rechtzeitig vor Baubeginn erfolgen. Bitte verwenden Sie dazu das Formular \\\"Geb\\u00e4udetechnik\\\". Die Baufreigabe erfolgt erst nach positiver Pr\\u00fcfung des Energienachweises.\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -38703,6 +38797,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "gebaeudetechnik-art-des-gesuchs",
+    "fields": {
+      "created_at": "2022-09-12T13:03:09.578Z",
+      "modified_at": "2022-09-12T13:03:09.578Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Art des Gesuchs\", \"fr\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": "cf-field/input/hidden"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "gebaeudetechnik-tabelle",
     "fields": {
       "created_at": "2021-11-24T12:26:07.842Z",
@@ -39836,7 +39964,7 @@
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "hint_text": "{\"de\": null, \"fr\": null}",
-      "static_content": "{\"de\": \"**Geb\\u00e4udetechnik**\\n\\nDie Angaben zur W\\u00e4rmequelle und zum W\\u00e4rmeerzeuger f\\u00fcr Heizung und Warmwasser sind je nach Art des Vorhabens zwingender Bestantteil einer Baueingabe. **Bitte erfassen Sie f\\u00fcr alle geb\\u00e4udetechnischen Anlagen jeweils einen separaten Datensatz** (z.B. f\\u00fcr die W\\u00e4rmequelle der Hauptheizung, f\\u00fcr die W\\u00e4rmequelle der Zusatzheizung und, falls vorgesehen auch f\\u00fcr die Solaranlage usw.).\\n\\nF\\u00fcr die nachtr\\u00e4gliche Erfassung bzw. Meldung von geb\\u00e4udetechnischen Angaben verwenden Sie bitte das Formular \\\"MELDUNG GEBAUEDETECHNIK\\\".\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"**Geb\\u00e4udetechnik**\\n\\nDie Angaben zur W\\u00e4rmequelle und zum W\\u00e4rmeerzeuger f\\u00fcr Heizung und Warmwasser sind je nach Art des Vorhabens zwingender Bestantteil einer Baueingabe. **Bitte erfassen Sie f\\u00fcr alle geb\\u00e4udetechnischen Anlagen jeweils einen separaten Datensatz** (z.B. f\\u00fcr die W\\u00e4rmequelle der Hauptheizung, f\\u00fcr die W\\u00e4rmequelle der Zusatzheizung und, falls vorgesehen auch f\\u00fcr die Solaranlage usw.).\\n\\nF\\u00fcr die nachtr\\u00e4gliche Erfassung bzw. Meldung von geb\\u00e4udetechnischen Angaben verwenden Sie bitte das Formular \\\"GEBAUEDETECHNIK\\\".\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -39905,7 +40033,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": \"Werden geb\\u00e4udetechnische Anlagen wie die Heizung usw. erst im Laufe des Baufortschritts bestimmt, sind diese mit einer separaten Eingabe via URec \\\"Meldung Geb\\u00e4udetechnik\\\" der zust\\u00e4ndigen kommunalen Brandschutzbeh\\u00f6rde zu melden.\", \"fr\": null}",
+      "info_text": "{\"de\": \"Werden geb\\u00e4udetechnische Anlagen wie die Heizung usw. erst im Laufe des Baufortschritts bestimmt, sind diese mit einer separaten Eingabe via URec \\\"Geb\\u00e4udetechnik\\\" der zust\\u00e4ndigen kommunalen Brandschutzbeh\\u00f6rde zu melden.\", \"fr\": null}",
       "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
@@ -40225,7 +40353,7 @@
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "hint_text": "{\"de\": null, \"fr\": null}",
-      "static_content": "{\"de\": \"**BITTE BEACHTEN** Die Voraussetzungen f\\u00fcr die Befreiung von der Baubewilligungspflicht sind voraussichtlich nicht erf\\u00fcllt. Es ist Ihnen freigestellt die geplante Solaranlage trotzdem vorerst der Gemeinde mit dem Formular \\\"Meldung Solaranlage\\\" zu melden. Wir m\\u00f6chten Sie darauf hinweisen, dass ein allf\\u00e4lliger Verfahrenswechsel mit einem zus\\u00e4tzlichen Zeitverlust verbunden ist.\\n\\nUm einen unn\\u00f6tigen Zeitverlust zu vermeiden, empfehlen wir Ihnen, das Formular \\\"Baugesuch\\\" zu verwenden und ein Baugesuch einzureichen.\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"**BITTE BEACHTEN** Die Voraussetzungen f\\u00fcr die Befreiung von der Baubewilligungspflicht sind voraussichtlich nicht erf\\u00fcllt. Es ist Ihnen freigestellt die geplante Solaranlage trotzdem vorerst der Gemeinde mit dem Formular \\\"Solaranlage\\\" zu melden. Wir m\\u00f6chten Sie darauf hinweisen, dass ein allf\\u00e4lliger Verfahrenswechsel mit einem zus\\u00e4tzlichen Zeitverlust verbunden ist.\\n\\nUm einen unn\\u00f6tigen Zeitverlust zu vermeiden, empfehlen wir Ihnen, das Formular \\\"Baugesuch\\\" zu verwenden und ein Baugesuch einzureichen.\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -40349,7 +40477,7 @@
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "hint_text": "{\"de\": null, \"fr\": null}",
-      "static_content": "{\"de\": \"**Hinweis zur Meldung von Solaranlagen**\\nBitte verwenden Sie f\\u00fcr die Meldung einer thermischen oder photovoltaischen Solaranlage das separate Formular \\\"MELDUNG SOLARANLAGE\\\".\\n\\nDas Formular \\\"MELDUNG SOLARANLAGE\\\" ist so aufgebaut, dass je nach Art und Lage der Anlage und unter der Voraussetzung, dass die Fragen korrekt beantwortet werden, bereits im Formular gekl\\u00e4rt wird, ob eine Baubewilligung notwendig ist. Wenn dies der Fall ist, werden Sie im Formular darauf hingewiesen, f\\u00fcr die Meldung der Solaranlage das Formular \\u201eBaugesuch\\u201c zu verwenden.\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"**Hinweis zur Meldung von Solaranlagen**\\nBitte verwenden Sie f\\u00fcr die Meldung einer thermischen oder photovoltaischen Solaranlage das separate Formular \\\"SOLARANLAGE\\\".\\n\\nDas Formular \\\"SOLARANLAGE\\\" ist so aufgebaut, dass je nach Art und Lage der Anlage und unter der Voraussetzung, dass die Fragen korrekt beantwortet werden, bereits im Formular gekl\\u00e4rt wird, ob eine Baubewilligung notwendig ist. Wenn dies der Fall ist, werden Sie im Formular darauf hingewiesen, f\\u00fcr die Meldung der Solaranlage das Formular \\u201eBaugesuch\\u201c zu verwenden.\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -48044,6 +48172,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "solaranlage-art-des-gesuchs",
+    "fields": {
+      "created_at": "2022-09-12T13:01:27.496Z",
+      "modified_at": "2022-09-12T13:01:27.496Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Art des Gesuchs\", \"fr\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": "cf-field/input/hidden"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "solaranlagen",
     "fields": {
       "created_at": "2020-10-21T12:26:44.313Z",
@@ -52208,7 +52370,7 @@
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "hint_text": "{\"de\": null, \"fr\": null}",
-      "static_content": "{\"de\": \"**Wichtiger Hinweis**\\nDie Gemeindebaubeh\\u00f6rde entscheidet bei separat eingereichten Meldungen betreffend die \\u00c4nderung oder Neuinstallation von Geb\\u00e4udetechnik, bei denen kein Baubewilligungsverfahren l\\u00e4uft bzw. wenn dieses allenfalls bereits abgeschlossen ist, ob f\\u00fcr die Bewilligung der geplanten Anlage ein ordentliches Baubewilligungsverfahren durchzuf\\u00fchren ist. Dies kann zum Beispiel dann der Fall sein, wenn durch die Installation einer neuen Abgasanlage das \\u00e4ussere Erscheinungsbild einer Baute ver\\u00e4ndert wird.\\n\\n**Meldung Solaranlage** f\\u00fcr die Meldung einer photovoltaischen oder thermischen Solaranlage verwenden Sie bitte das Formular \\\"Meldung Solaranlage\\\"\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"**Wichtiger Hinweis**\\nDie Gemeindebaubeh\\u00f6rde entscheidet bei separat eingereichten Meldungen betreffend die \\u00c4nderung oder Neuinstallation von Geb\\u00e4udetechnik, bei denen kein Baubewilligungsverfahren l\\u00e4uft bzw. wenn dieses allenfalls bereits abgeschlossen ist, ob f\\u00fcr die Bewilligung der geplanten Anlage ein ordentliches Baubewilligungsverfahren durchzuf\\u00fchren ist. Dies kann zum Beispiel dann der Fall sein, wenn durch die Installation einer neuen Abgasanlage das \\u00e4ussere Erscheinungsbild einer Baute ver\\u00e4ndert wird.\\n\\n**Solaranlage** f\\u00fcr die Meldung einer photovoltaischen oder thermischen Solaranlage verwenden Sie bitte das Formular \\\"Solaranlage\\\"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -58380,6 +58542,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "gebaeudetechnik-art-des-gesuchs.gebaeudetechnik-art-des-gesuchs-gebaeudetechnik",
+    "fields": {
+      "created_at": "2022-09-12T13:03:09.590Z",
+      "modified_at": "2022-09-12T13:03:09.590Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "gebaeudetechnik-art-des-gesuchs",
+      "option": "gebaeudetechnik-art-des-gesuchs-gebaeudetechnik",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "gebaeudetechnik-art-des-gesuchs.gebaeudetechnik-art-des-gesuchs-gebaeudetechnik-baubewilligungspflichtig",
+    "fields": {
+      "created_at": "2022-09-12T13:03:09.586Z",
+      "modified_at": "2022-09-12T13:03:09.586Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "gebaeudetechnik-art-des-gesuchs",
+      "option": "gebaeudetechnik-art-des-gesuchs-gebaeudetechnik-baubewilligungspflichtig",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "gebaeudetyp.gebaeudetyp-bestehendes-gebaeude",
     "fields": {
       "created_at": "2022-01-10T15:53:53.793Z",
@@ -62605,6 +62797,36 @@
       "modified_by_group": null,
       "question": "situationsplan-1-500",
       "option": "situationsplan-1-500-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "solaranlage-art-des-gesuchs.art-des-gesuchs-solaranlage",
+    "fields": {
+      "created_at": "2022-09-12T13:01:27.513Z",
+      "modified_at": "2022-09-12T13:01:27.513Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "solaranlage-art-des-gesuchs",
+      "option": "solaranlage-art-des-gesuchs-solaranlage",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "solaranlage-art-des-gesuchs.solaranlage-art-des-gesuchs-solaranlage-baubewilligungspflichtig",
+    "fields": {
+      "created_at": "2022-09-12T13:01:27.506Z",
+      "modified_at": "2022-09-12T13:01:27.506Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "solaranlage-art-des-gesuchs",
+      "option": "solaranlage-art-des-gesuchs-solaranlage-baubewilligungspflichtig",
       "sort": 1
     }
   },
