@@ -19,6 +19,10 @@ Router.map(function () {
     this.route("work-items", { resetNamespace });
     this.route("cases", { resetNamespace }, function () {
       this.route("detail", { path: "/:case_id" }, function () {
+        this.mount("ember-alexandria", {
+          as: "alexandria",
+          path: "/documents",
+        });
         this.route("form");
         this.route("work-items", function () {
           this.route("edit", { path: "/:work_item_id" });

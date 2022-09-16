@@ -19,7 +19,7 @@
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
     "start": "ember serve",
-    "start-proxy": "ember serve --proxy http://ebau.local",
+    "start-proxy": "ember serve --proxy http://ember-ebau.local",
     "test": "npm-run-all lint test:*",
     "test:ember": "ember test",
     "deploy": "ember deploy"
@@ -38,6 +38,7 @@
     "@projectcaluma/ember-form": "11.0.0-beta.32",
     "broccoli-asset-rev": "3.0.0",
     "broccoli-stew": "3.0.0",
+    "ember-alexandria": "velrest/ember-alexandria#d54fc3271cfe0eb65150883256b59e81dc6cc7cd",
     "ember-apollo-client": "4.0.2",
     "ember-auto-import": "2.4.3",
     "ember-can": "4.2.0",

@@ -1,7 +1,13 @@
 <SubNavigation @instanceId={{@model}} />
 
-<div class="uk-container main-content with-sidebar">
-  <h2>Dossier {{@model}}</h2>
+{{#if this.isAlexandria}}
+  <div class="alexandria">
+    {{outlet}}
+  </div>
+{{else}}
+  <div class="uk-container main-content with-sidebar">
+    <h2>Dossier {{@model}}</h2>
 
-  {{outlet}}
-</div>
+    {{outlet}}
+  </div>
+{{/if}}

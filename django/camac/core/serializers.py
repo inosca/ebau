@@ -171,6 +171,9 @@ class InstanceResourceSerializer(serializers.ModelSerializer, MultilingualSerial
             }
             return type_mapping.get(obj.template)
 
+        if ir_type == "apidocuments":
+            return "documents"
+
         return None
 
     class Meta:
