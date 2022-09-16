@@ -99,5 +99,6 @@ services:
     environment:
       - MH_UI_WEB_PATH=mailhog
 
+
 networks:
   ebau.local:
