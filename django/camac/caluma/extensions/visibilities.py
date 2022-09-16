@@ -78,21 +78,13 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
 
     @filter_queryset_for(workflow_schema.Case)
     def filter_queryset_for_case(self, node, queryset, info):
-        # Child cases are used for instances in circulation but
-        # shouldn't be returned for cases list (marked by the
-        # exclude_child_cases)
-        exclude_child_cases = filters(self.request).get("exclude_child_cases")
         order_by = order(self.request)
 
-        filter = Q(family__instance__pk__in=self._all_visible_instances(info))
-        if exclude_child_cases == "true":
-            filter = filter & Q(parent_work_item__isnull=True)
-
-        return (
-            queryset.filter(filter).order_by(*order_by)
-            if order_by
-            else queryset.filter(filter)
+        queryset = queryset.filter(
+            family__instance__pk__in=self._all_visible_instances(info)
         )
+
+        return queryset.order_by(*order_by) if order_by else queryset
 
     @filter_queryset_for(workflow_schema.WorkItem)
     def filter_queryset_for_work_items(self, node, queryset, info):
