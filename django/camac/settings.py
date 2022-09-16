@@ -299,6 +299,10 @@ APPLICATIONS = {
             "koor_sd_users",
             "responsible_koor",
         ],
+        "DUMP_CONFIG_GROUPS": {
+            # Distribution
+            **DISTRIBUTION_DUMP_CONFIG,
+        },
         "ATTACHMENT_SECTION_INTERNAL": 4,
     },
     "kt_schwyz": {
@@ -2735,7 +2739,6 @@ APPLICATIONS = {
         "STORE_PDF": {"SECTION": 1},
         "INSTANCE_STATE_REJECTION_COMPLETE": "finished",
         "SET_SUBMIT_DATE_CAMAC_ANSWER": True,
-
     },
 }
 
