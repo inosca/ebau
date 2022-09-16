@@ -608,6 +608,7 @@ def test_invalid_attachment_download(admin_client, filter, status_code):
     assert response.status_code == status_code
 
 
+@pytest.mark.parametrize("thumbnail_size", [("x300"), ("x500")])
 @pytest.mark.parametrize(
     "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
 )
@@ -625,7 +626,11 @@ def test_attachment_thumbnail(
     attachment_attachment_section_factory,
     status_code,
     mocker,
+    thumbnail_size,
+    application_settings,
 ):
+    application_settings["THUMBNAIL_SIZE"] = thumbnail_size
+
     aasa = attachment_attachment_sections.attachment
     attachment_attachment_section_factory(attachment=aasa)
     url = reverse("attachment-thumbnail", args=[aasa.pk])
@@ -649,7 +654,7 @@ def test_attachment_thumbnail(
     if status_code == status.HTTP_200_OK:
         assert response["Content-Type"] == "image/jpeg"
         image = Image.open(io.BytesIO(response.content))
-        assert image.height == 300
+        assert image.height == int(thumbnail_size.replace("x", ""))
 
 
 @pytest.mark.parametrize(
