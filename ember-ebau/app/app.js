@@ -22,6 +22,17 @@ export default class App extends Application {
         ],
       },
     },
+    "ember-alexandria": {
+      dependencies: {
+        services: [
+          "session",
+          "intl",
+          "notification",
+          "router",
+          { config: "alexandria-config" },
+        ],
+      },
+    },
   };
 }
 
