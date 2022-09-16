@@ -12,6 +12,7 @@ services:
       - mailhog
       - php
       - document-merge-service
+      - ember-ebau
     volumes:
       - djangomedia:/var/lib/camac/media:ro
       - djangotmpmedia:/tmp/camac/tmpfiles:ro
@@ -70,6 +71,15 @@ services:
       args:
         - APPLICATION=${APPLICATION}
 
+  ember-ebau:
+    build:
+      context: ../
+      dockerfile: ./ember-ebau/Dockerfile
+      cache_from:
+        - acr.run/camac-ng/camac-ng/ember-ebau:master
+      args:
+        - APPLICATION=${APPLICATION}
+
   mailhog:
     image: mailhog/mailhog
 
@@ -100,8 +110,31 @@ services:
       - OIDC_GROUPS_API_JSONPATH=$$.included[?(@.type=='services')].id
       - OIDC_GROUPS_API_HEADERS=AUTHORIZATION,X-CAMAC-GROUP
 
+  alexandria:
+    image: ghcr.io/projectcaluma/alexandria
+    depends_on:
+      - db
+      - minio
+    environment:
+      - DATABASE_HOST=db
+      - DATABASE_USER=camac
+      - LANGUAGES=de-ch,en
+
+  minio:
+    image: minio/minio:latest@sha256:7f84f4d07cf0d3562911c6b072e1183436fbc3cad8ccef8157ec5c27456ed452
+    volumes:
+      - minio_data:/data
+    environment:
+      - MINIO_ACCESS_KEY=minio
+      - MINIO_SECRET_KEY=minio123
+      - MINIO_NOTIFY_WEBHOOK_ENABLE_ALEXANDRIA=on
+      - MINIO_NOTIFY_WEBHOOK_ENDPOINT_ALEXANDRIA=http://alexandria:8000/api/v1/hook
+    command: server data
+
+
 volumes:
   pgdata:
   djangomedia:
   djangotmpmedia:
   phpsessions:
+  minio_data:
