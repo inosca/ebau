@@ -25,8 +25,8 @@ module.exports = function (environment) {
     old: 33,
   };
   const appConfig = {
-    kt_bern: {
-      name: "be",
+    demo: {
+      name: "demo",
       realm: "ebau",
       supportGroups: [10000],
       useConfidential: false,
@@ -72,6 +72,89 @@ module.exports = function (environment) {
       documents: {
         feedbackSection: 3,
         excludeFromDocuments: ["dokumente-platzhalter"],
+      },
+      instanceStates: instanceStatesBe,
+      modification: {
+        allowForms: ["baugesuch"],
+        disallowStates: [
+          instanceStatesBe.new,
+          instanceStatesBe.archived,
+          instanceStatesBe.finished,
+        ],
+      },
+      answerSlugs: {
+        objectStreet: "strasse-flurname",
+        objectNumber: "nr",
+        objectLocation: "ort-grundstueck",
+        description: "beschreibung-bauvorhaben",
+        municipality: "gemeinde",
+        specialId: "ebau-number",
+        parcelNumber: "parzellennummer",
+        firstNameApplicant: "vorname-gesuchstellerin",
+        lastNameApplicant: "name-gesuchstellerin",
+        juristicNameApplicant: "name-juristische-person-gesuchstellerin",
+        isJuristicApplicant: "juristische-person-gesuchstellerin",
+        isJuristicApplicantYes: "juristische-person-gesuchstellerin-ja",
+        personalDataApplicant: "personalien-gesuchstellerin",
+      },
+      personalSuggestions: {
+        tableQuestions: [
+          "personalien-gesuchstellerin",
+          "personalien-vertreterin-mit-vollmacht",
+          "personalien-grundeigentumerin",
+          "personalien-projektverfasserin",
+          "personalien-gebaudeeigentumerin",
+          "personalien-sb",
+        ],
+        firstNameRegexp: "^vorname-.*$",
+        lastNameRegexp: "^name-.*$",
+        juristicNameRegexp: "^name-juristische-person.*$",
+        emailRegexp: "^e-mail-.*$",
+      },
+      paperInstances: {
+        allowedGroups: {
+          roles: [
+            3, // Leitung Leitbehörde
+          ],
+          serviceGroups: [
+            2, // Gemeinde
+          ],
+        },
+      },
+      // Who can create which forms. Roles can be given by ID, or magic key ("internal" or "public")
+      formCreationPermissions: [
+        {
+          roles: ["public", "internal"],
+          forms: ["baugesuch"],
+        },
+      ],
+    },
+    kt_bern: {
+      name: "be",
+      realm: "ebau",
+      supportGroups: [10000],
+      useConfidential: false,
+      defaultInstanceStateCategory: "pending",
+      instanceStateCategories: {
+        pending: [
+          1, // new
+          20003, // circulation_init
+          20004, // circulation
+          20005, // coordination
+        ],
+        done: [
+          120000, // finished
+        ],
+      },
+      completePreliminaryClarificationSlugs: [],
+      selectableGroups: {
+        roles: [
+          3, // Leitung Leitbehörde
+          10000, // System-Betrieb
+        ],
+      },
+      documents: {
+        excludeFromDocuments: [],
       },
       instanceStates: instanceStatesBe,
       modification: {
@@ -349,15 +432,6 @@ module.exports = function (environment) {
           forms: ["mitbericht-bund"],
         },
       ],
-    },
-    demo: {
-      name: "demo",
-      realm: "ebau",
-      answerSlugs: {},
-      supportGroups: [],
-      selectableGroups: {
-        roles: [],
-      },
     },
   }[app];
 

@@ -33,6 +33,22 @@
   },
   {
     "model": "user.group",
+    "pk": 10000,
+    "fields": {
+      "role": 10000,
+      "service": null,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
     "pk": 20003,
     "fields": {
       "role": 3,
@@ -144,6 +160,16 @@
     }
   },
   {
+    "model": "user.groupt",
+    "pk": 26534,
+    "fields": {
+      "group": 10000,
+      "language": "de",
+      "name": "Support",
+      "city": null
+    }
+  },
+  {
     "model": "user.role",
     "pk": 1,
     "fields": {
@@ -176,6 +202,15 @@
     "fields": {
       "role_parent": null,
       "name": "service-lead",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 10000,
+    "fields": {
+      "role_parent": null,
+      "name": "Support",
       "group_prefix": null
     }
   },
@@ -277,6 +312,16 @@
       "language": "fr",
       "name": "Direction: service",
       "group_prefix": "Direction:"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20028,
+    "fields": {
+      "role": 10000,
+      "language": "de",
+      "name": "Support",
+      "group_prefix": null
     }
   },
   {
