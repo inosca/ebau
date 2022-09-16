@@ -128,6 +128,7 @@ export default class CaseTableComponent extends Component {
     const workflow = this.args.workflow;
     const excludeWorkflow = this.args.excludeWorkflow;
     return [
+      { excludeChildCases: true },
       ...searchFilters,
       ...(workflow ? [{ workflow }] : []),
       ...(excludeWorkflow ? [{ workflow: excludeWorkflow, invert: true }] : []),
@@ -211,7 +212,6 @@ export default class CaseTableComponent extends Component {
       pending_sanctions_control_instance:
         this.args.filter.pendingSanctionsControlInstance,
       identifier: this.args.filter.instanceIdentifier || "",
-      exclude_child_cases: true,
     };
 
     this.casesQuery.fetch({

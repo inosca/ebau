@@ -275,6 +275,7 @@ export default class CaseTableComponent extends Component {
     const workflow = this.args.workflow;
     const excludeWorkflow = this.args.excludeWorkflow;
     return [
+      { excludeChildCases: true },
       ...searchFilters,
       ...(workflow ? [{ workflow }] : []),
       ...(excludeWorkflow ? [{ workflow: excludeWorkflow, invert: true }] : []),
@@ -288,7 +289,6 @@ export default class CaseTableComponent extends Component {
       service: this.args.filter.service || this.args.filter.serviceSZ,
       responsible_service_user: this.args.filter.responsibleServiceUser,
       responsible_service: this.args.filter.responsibleMunicipality,
-      exclude_child_cases: true,
       location: this.args.filter.municipality,
       ...(macroCondition(getOwnConfig().application === "sz")
         ? {
