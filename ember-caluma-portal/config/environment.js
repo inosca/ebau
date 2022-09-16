@@ -297,6 +297,9 @@ module.exports = function (environment) {
             "mitbericht-bund",
             "bgbb",
             "archivdossier",
+            "bauverwaltung",
+            "bohrbewilligung-waermeentnahme",
+            "konzession-waermeentnahme",
           ],
         },
         {
