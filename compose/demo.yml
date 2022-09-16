@@ -7,11 +7,10 @@ services:
     image: nginx:1.21-alpine
     depends_on:
       - ember-caluma-portal
-      - ember-camac-ng
       - django
       - keycloak
       - mailhog
-      - document-merge-service
+      - php
     volumes:
       - djangomedia:/var/lib/camac/media:ro
       - djangotmpmedia:/tmp/camac/tmpfiles:ro
@@ -61,19 +60,6 @@ services:
       - djangomedia:/var/lib/camac/media
       - djangotmpmedia:/tmp/camac/tmpfiles
 
-  django-q:
-    <<: *django
-    command: /bin/sh -c "./wait-for-it.sh db:5431 -- ./manage.py qcluster --pythonpath /app/$APPLICATION"
-
-  ember-camac-ng:
-    build:
-      context: ../
-      dockerfile: ./ember-camac-ng/Dockerfile
-      cache_from:
-        - acr.run/camac-ng/camac-ng/ember-camac-ng:master
-      args:
-        - APPLICATION=${APPLICATION}
-
   ember-caluma-portal:
     build:
       context: ../
@@ -94,28 +80,8 @@ services:
       cache_from:
         - acr.run/camac-ng/camac-ng/keycloak-${APPLICATION}:master
 
-  document-merge-service:
-    image: ghcr.io/adfinis/document-merge-service:5.0.5
-    depends_on:
-      - db
-    volumes:
-      - ../document-merge-service/uwsgi.ini:/app/uwsgi.ini:ro
-      - ../document-merge-service/kt_bern/templatefiles:/var/lib/document-merge-service/media
-      - ../document-merge-service/kt_bern/dump.json:/tmp/document-merge-service/dump.json
-    environment:
-      - DATABASE_ENGINE=django.db.backends.postgresql
-      - DATABASE_HOST=db
-      - DATABASE_NAME=kt_bern
-      - DATABASE_USER=camac
-      - DATABASE_PASSWORD=camac
-      - REQUIRE_AUTHENTICATION=True
-      - GROUP_ACCESS_ONLY=True
-      - OIDC_GROUPS_API_JSONPATH=$$.included[?(@.type=='services')].id
-      - OIDC_GROUPS_API_HEADERS=AUTHORIZATION,X-CAMAC-GROUP
-
 volumes:
   pgdata:
   djangomedia:
   djangotmpmedia:
   phpsessions:
-  templatefiles:
