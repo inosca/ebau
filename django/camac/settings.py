@@ -221,7 +221,7 @@ APPLICATIONS = {
         },
         "ADMIN_GROUP": 1,
         "ROLE_INHERITANCE": {"trusted_service": "service"},
-        "IS_MULTILINGUAL": False,
+        "IS_MULTILINGUAL": True,
         "NOTIFICATIONS": {"SUBMIT": None, "APPLICANT": {"NEW": None, "EXISTING": None}},
         "PUBLICATION_BACKEND": "camac-ng",
         "FORM_BACKEND": "camac-ng",
@@ -300,10 +300,6 @@ APPLICATIONS = {
             "responsible_koor",
         ],
         "DUMP_CONFIG_GROUPS": {
-            "email_notifications": {
-                "notification.NotificationTemplate": Q(type="email"),
-                "notification.NotificationTemplateT": Q(template__type="email"),
-            },
             # required by several form-questions
             "caluma_form_common": {
                 "caluma_form.Form": Q(pk__in=COMMON_FORM_SLUGS_BE),
