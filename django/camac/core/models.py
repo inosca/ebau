@@ -35,8 +35,8 @@ class MultilingualModel:
             )
         return match
 
-    # def __str__(self):
-    #     return self.get_name()
+    def __str__(self):
+        return self.get_name()
 
 
 class ACheckquery(models.Model):

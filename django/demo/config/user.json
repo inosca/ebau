@@ -33,22 +33,6 @@
   },
   {
     "model": "user.group",
-    "pk": 10000,
-    "fields": {
-      "role": 10000,
-      "service": null,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 20003,
     "fields": {
       "role": 3,
@@ -65,105 +49,9 @@
   },
   {
     "model": "user.group",
-    "pk": 20004,
-    "fields": {
-      "role": 20004,
-      "service": 2,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 20005,
-    "fields": {
-      "role": 20003,
-      "service": 2,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 20096,
     "fields": {
       "role": 4,
-      "service": 20032,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 20097,
-    "fields": {
-      "role": 20001,
-      "service": 20032,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 20098,
-    "fields": {
-      "role": 20002,
-      "service": 20032,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 22507,
-    "fields": {
-      "role": 20007,
-      "service": 2,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 22538,
-    "fields": {
-      "role": 20008,
       "service": 20032,
       "disabled": 0,
       "name": null,
@@ -197,41 +85,11 @@
   },
   {
     "model": "user.groupt",
-    "pk": 10000,
-    "fields": {
-      "group": 10000,
-      "language": "de",
-      "name": "System-Betrieb",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 20003,
     "fields": {
       "group": 20003,
       "language": "de",
-      "name": "Leitung Leitbehörde Burgdorf",
-      "city": "Burgdorf"
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 20004,
-    "fields": {
-      "group": 20004,
-      "language": "de",
-      "name": "Sachbearbeiter Leitbehörde Burgdorf",
-      "city": "Burgdorf"
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 20005,
-    "fields": {
-      "group": 20005,
-      "language": "de",
-      "name": "Einsichtsberechtigte Leitbehörde Burgdorf",
+      "name": "Leitbehörde Burgdorf",
       "city": "Burgdorf"
     }
   },
@@ -241,27 +99,7 @@
     "fields": {
       "group": 20096,
       "language": "de",
-      "name": "Leitung Amt für Gemeinden und Raumordnung - Abteilung Bauen",
-      "city": "Bern"
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 20106,
-    "fields": {
-      "group": 20097,
-      "language": "de",
-      "name": "Sachbearbeiter Amt für Gemeinden und Raumordnung - Abteilung Bauen",
-      "city": "Bern"
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 20107,
-    "fields": {
-      "group": 20098,
-      "language": "de",
-      "name": "Einsichtsberechtigte Amt für Gemeinden und Raumordnung - Abteilung Bauen",
+      "name": "Amt für Gemeinden und Raumordnung",
       "city": "Bern"
     }
   },
@@ -272,26 +110,6 @@
       "group": 20003,
       "language": "fr",
       "name": "Responsable autorité directrice Burgdorf",
-      "city": "Burgdorf"
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 21534,
-    "fields": {
-      "group": 20004,
-      "language": "fr",
-      "name": "Collaborateur autorité directrice Burgdorf",
-      "city": "Burgdorf"
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 21535,
-    "fields": {
-      "group": 20005,
-      "language": "fr",
-      "name": "Personne autorisée à consulter autorité directrice Burgdorf",
       "city": "Burgdorf"
     }
   },
@@ -317,81 +135,11 @@
   },
   {
     "model": "user.groupt",
-    "pk": 24855,
-    "fields": {
-      "group": 10000,
-      "language": "fr",
-      "name": "System-Betrieb",
-      "city": ""
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 24880,
     "fields": {
       "group": 20096,
       "language": "fr",
       "name": "Responsable Amt für Gemeinden und Raumordnung - Abteilung Bauen",
-      "city": "Bern"
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 24881,
-    "fields": {
-      "group": 20097,
-      "language": "fr",
-      "name": "Collaborateur Amt für Gemeinden und Raumordnung - Abteilung Bauen",
-      "city": "Bern"
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 24882,
-    "fields": {
-      "group": 20098,
-      "language": "fr",
-      "name": "Personne autorisée à consulter Amt für Gemeinden und Raumordnung - Abteilung Bauen",
-      "city": "Bern"
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 25005,
-    "fields": {
-      "group": 22507,
-      "language": "de",
-      "name": "Administration Leitbehörde Burgdorf",
-      "city": "Burgdorf"
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 25006,
-    "fields": {
-      "group": 22507,
-      "language": "fr",
-      "name": "Administration: Autorité directrice Burgdorf",
-      "city": "Burgdorf"
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 25067,
-    "fields": {
-      "group": 22538,
-      "language": "de",
-      "name": "Administration Amt für Gemeinden und Raumordnung - Abteilung Bauen",
-      "city": "Bern"
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 25068,
-    "fields": {
-      "group": 22538,
-      "language": "fr",
-      "name": "Administration: Amt für Gemeinden und Raumordnung - Abteilung Bauen",
       "city": "Bern"
     }
   },
@@ -428,123 +176,6 @@
     "fields": {
       "role_parent": null,
       "name": "service-lead",
-      "group_prefix": null
-    }
-  },
-  {
-    "model": "user.role",
-    "pk": 5,
-    "fields": {
-      "role_parent": null,
-      "name": "construction-control-lead",
-      "group_prefix": null
-    }
-  },
-  {
-    "model": "user.role",
-    "pk": 6,
-    "fields": {
-      "role_parent": null,
-      "name": "applicant",
-      "group_prefix": null
-    }
-  },
-  {
-    "model": "user.role",
-    "pk": 10000,
-    "fields": {
-      "role_parent": null,
-      "name": "support",
-      "group_prefix": null
-    }
-  },
-  {
-    "model": "user.role",
-    "pk": 20000,
-    "fields": {
-      "role_parent": null,
-      "name": "subservice",
-      "group_prefix": null
-    }
-  },
-  {
-    "model": "user.role",
-    "pk": 20001,
-    "fields": {
-      "role_parent": 4,
-      "name": "service-clerk",
-      "group_prefix": null
-    }
-  },
-  {
-    "model": "user.role",
-    "pk": 20002,
-    "fields": {
-      "role_parent": null,
-      "name": "service-readonly",
-      "group_prefix": null
-    }
-  },
-  {
-    "model": "user.role",
-    "pk": 20003,
-    "fields": {
-      "role_parent": null,
-      "name": "municipality-readonly",
-      "group_prefix": null
-    }
-  },
-  {
-    "model": "user.role",
-    "pk": 20004,
-    "fields": {
-      "role_parent": 3,
-      "name": "municipality-clerk",
-      "group_prefix": null
-    }
-  },
-  {
-    "model": "user.role",
-    "pk": 20005,
-    "fields": {
-      "role_parent": 5,
-      "name": "construction-control-clerk",
-      "group_prefix": null
-    }
-  },
-  {
-    "model": "user.role",
-    "pk": 20006,
-    "fields": {
-      "role_parent": null,
-      "name": "construction-control-readonly",
-      "group_prefix": null
-    }
-  },
-  {
-    "model": "user.role",
-    "pk": 20007,
-    "fields": {
-      "role_parent": null,
-      "name": "municipality-admin",
-      "group_prefix": null
-    }
-  },
-  {
-    "model": "user.role",
-    "pk": 20008,
-    "fields": {
-      "role_parent": null,
-      "name": "service-admin",
-      "group_prefix": null
-    }
-  },
-  {
-    "model": "user.role",
-    "pk": 20009,
-    "fields": {
-      "role_parent": null,
-      "name": "construction-control-admin",
       "group_prefix": null
     }
   },
@@ -594,7 +225,7 @@
     "fields": {
       "role": 3,
       "language": "de",
-      "name": "Leitung Leitbehörde",
+      "name": "Leitbehörde",
       "group_prefix": "Leitung"
     }
   },
@@ -604,108 +235,8 @@
     "fields": {
       "role": 4,
       "language": "de",
-      "name": "Leitung Fachstelle",
+      "name": "Fachstelle",
       "group_prefix": "Leitung"
-    }
-  },
-  {
-    "model": "user.rolet",
-    "pk": 7,
-    "fields": {
-      "role": 5,
-      "language": "de",
-      "name": "Leitung Baukontrolle",
-      "group_prefix": "Leitung"
-    }
-  },
-  {
-    "model": "user.rolet",
-    "pk": 8,
-    "fields": {
-      "role": 6,
-      "language": "de",
-      "name": "Gesuchsteller",
-      "group_prefix": null
-    }
-  },
-  {
-    "model": "user.rolet",
-    "pk": 10001,
-    "fields": {
-      "role": 10000,
-      "language": "de",
-      "name": "System-Betrieb",
-      "group_prefix": null
-    }
-  },
-  {
-    "model": "user.rolet",
-    "pk": 20000,
-    "fields": {
-      "role": 20000,
-      "language": "de",
-      "name": "Unterfachstelle",
-      "group_prefix": null
-    }
-  },
-  {
-    "model": "user.rolet",
-    "pk": 20001,
-    "fields": {
-      "role": 20001,
-      "language": "de",
-      "name": "Sachbearbeiter Fachstelle",
-      "group_prefix": "Sachbearbeiter"
-    }
-  },
-  {
-    "model": "user.rolet",
-    "pk": 20002,
-    "fields": {
-      "role": 20002,
-      "language": "de",
-      "name": "Einsichtsberechtigte Fachstelle",
-      "group_prefix": "Einsichtsberechtigte"
-    }
-  },
-  {
-    "model": "user.rolet",
-    "pk": 20003,
-    "fields": {
-      "role": 20003,
-      "language": "de",
-      "name": "Einsichtsberechtigte Leitbehörde",
-      "group_prefix": "Einsichtsberechtigte"
-    }
-  },
-  {
-    "model": "user.rolet",
-    "pk": 20004,
-    "fields": {
-      "role": 20004,
-      "language": "de",
-      "name": "Sachbearbeiter Leitbehörde",
-      "group_prefix": "Sachbearbeiter"
-    }
-  },
-  {
-    "model": "user.rolet",
-    "pk": 20005,
-    "fields": {
-      "role": 20005,
-      "language": "de",
-      "name": "Sachbearbeiter Baukontrolle",
-      "group_prefix": "Sachbearbeiter"
-    }
-  },
-  {
-    "model": "user.rolet",
-    "pk": 20006,
-    "fields": {
-      "role": 20006,
-      "language": "de",
-      "name": "Einsichtsberechtigte Baukontrolle",
-      "group_prefix": "Einsichtsberechtigte"
     }
   },
   {
@@ -746,166 +277,6 @@
       "language": "fr",
       "name": "Direction: service",
       "group_prefix": "Direction:"
-    }
-  },
-  {
-    "model": "user.rolet",
-    "pk": 20011,
-    "fields": {
-      "role": 5,
-      "language": "fr",
-      "name": "Direction: contrôle des constructions",
-      "group_prefix": "Direction:"
-    }
-  },
-  {
-    "model": "user.rolet",
-    "pk": 20012,
-    "fields": {
-      "role": 6,
-      "language": "fr",
-      "name": "Requérant/e",
-      "group_prefix": null
-    }
-  },
-  {
-    "model": "user.rolet",
-    "pk": 20013,
-    "fields": {
-      "role": 10000,
-      "language": "fr",
-      "name": "Exploitation du système",
-      "group_prefix": null
-    }
-  },
-  {
-    "model": "user.rolet",
-    "pk": 20014,
-    "fields": {
-      "role": 20000,
-      "language": "fr",
-      "name": "Unité d'un service spécialisé",
-      "group_prefix": null
-    }
-  },
-  {
-    "model": "user.rolet",
-    "pk": 20015,
-    "fields": {
-      "role": 20001,
-      "language": "fr",
-      "name": "Collaborateur/collaboratrice d'un service spécialisé",
-      "group_prefix": "Collaborateur/collaboratrice:"
-    }
-  },
-  {
-    "model": "user.rolet",
-    "pk": 20016,
-    "fields": {
-      "role": 20002,
-      "language": "fr",
-      "name": "Droit de consulter le dossier: service",
-      "group_prefix": "Droit de consulter le dossier:"
-    }
-  },
-  {
-    "model": "user.rolet",
-    "pk": 20017,
-    "fields": {
-      "role": 20003,
-      "language": "fr",
-      "name": "Droit de consulter le dossier: autorité directrice",
-      "group_prefix": "Droit de consulter le dossier:"
-    }
-  },
-  {
-    "model": "user.rolet",
-    "pk": 20018,
-    "fields": {
-      "role": 20004,
-      "language": "fr",
-      "name": "Collaborateur/collaboratrice de l'autorité directrice",
-      "group_prefix": "Collaborateur/collaboratrice:"
-    }
-  },
-  {
-    "model": "user.rolet",
-    "pk": 20019,
-    "fields": {
-      "role": 20005,
-      "language": "fr",
-      "name": "Collaborateur/collaboratrice du contrôle des constructions",
-      "group_prefix": "Collaborateur/collaboratrice:"
-    }
-  },
-  {
-    "model": "user.rolet",
-    "pk": 20020,
-    "fields": {
-      "role": 20006,
-      "language": "fr",
-      "name": "Droit de consulter le dossier: contrôle des constructions",
-      "group_prefix": "Droit de consulter le dossier:"
-    }
-  },
-  {
-    "model": "user.rolet",
-    "pk": 20021,
-    "fields": {
-      "role": 20007,
-      "language": "de",
-      "name": "Administration Leitbehörde",
-      "group_prefix": "Administration"
-    }
-  },
-  {
-    "model": "user.rolet",
-    "pk": 20022,
-    "fields": {
-      "role": 20008,
-      "language": "de",
-      "name": "Administration Fachstelle",
-      "group_prefix": "Administration"
-    }
-  },
-  {
-    "model": "user.rolet",
-    "pk": 20023,
-    "fields": {
-      "role": 20009,
-      "language": "de",
-      "name": "Administration Baukontrolle",
-      "group_prefix": "Administration"
-    }
-  },
-  {
-    "model": "user.rolet",
-    "pk": 20024,
-    "fields": {
-      "role": 20009,
-      "language": "fr",
-      "name": "Administration: contrôle des constructions",
-      "group_prefix": "Administration:"
-    }
-  },
-  {
-    "model": "user.rolet",
-    "pk": 20025,
-    "fields": {
-      "role": 20008,
-      "language": "fr",
-      "name": "Administration: service",
-      "group_prefix": "Administration:"
-    }
-  },
-  {
-    "model": "user.rolet",
-    "pk": 20026,
-    "fields": {
-      "role": 20007,
-      "language": "fr",
-      "name": "Administration: autorité directrice",
-      "group_prefix": "Administration:"
     }
   },
   {
