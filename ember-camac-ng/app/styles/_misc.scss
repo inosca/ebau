@@ -21,3 +21,15 @@ svg.fa-fw {
 .x-toggle-component > .toggle-text {
   text-transform: none !important;
 }
+
+.ebau-gwr {
+  .ember-ebau-gwr-title-card {
+    svg {
+      height: 1em;
+    }
+  }
+
+  .title-card-text {
+    font-size: $global-large-font-size;
+  }
+}
