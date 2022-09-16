@@ -225,6 +225,7 @@ APPLICATIONS = {
         "NOTIFICATIONS": {"SUBMIT": None, "APPLICANT": {"NEW": None, "EXISTING": None}},
         "PUBLICATION_BACKEND": "camac-ng",
         "FORM_BACKEND": "camac-ng",
+        "THUMBNAIL_SIZE": "x300",
         "WORKFLOW_ITEMS": {
             "SUBMIT": None,
             "INSTANCE_COMPLETE": None,
@@ -645,6 +646,7 @@ APPLICATIONS = {
             ),
             "PROD_SUPPORT_GROUP_ID": 486,
         },
+        "THUMBNAIL_SIZE": "x300",
         "MASTER_DATA": {
             "canton": ("static", "SZ"),
             "organization_category": (
@@ -1207,6 +1209,7 @@ APPLICATIONS = {
         ],
         "CIRCULATION_STATE_END": "DONE",
         "CIRCULATION_ANSWER_UNINVOLVED": "not_concerned",
+        "THUMBNAIL_SIZE": "x300",
         "NOTIFICATIONS": {
             "SUBMIT": [
                 {
@@ -2064,6 +2067,7 @@ APPLICATIONS = {
         "CIRCULATION_STATE_END": "OK",
         "APPLICANT_GROUP_ID": 685,  # We reuse the Portal User group
         "SEQUENCE_NAMESPACE_APPS": ["core", "document", "responsible"],
+        "THUMBNAIL_SIZE": "x600",
         "CUSTOM_NOTIFICATION_TYPES": [
             "submitter_list",
             "municipality_users",
