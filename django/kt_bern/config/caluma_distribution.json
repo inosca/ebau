@@ -733,7 +733,7 @@
       "description": "{\"de\": null, \"fr\": null}",
       "type": "simple",
       "meta": {},
-      "address_groups": "info.prev_work_item.addressed_groups",
+      "address_groups": "info.prev_work_item.controlling_groups",
       "control_groups": null,
       "is_archived": false,
       "form": null,
