@@ -1,5 +1,6 @@
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
+import { tracked } from "@glimmer/tracking";
 import { task, dropTask, restartableTask } from "ember-concurrency";
 
 import config from "caluma-portal/config/environment";
@@ -11,6 +12,8 @@ export default class BeDocumentsFormComponent extends Component {
   @service fetch;
   @service notification;
   @service store;
+
+  @tracked uploadedAttachmentIds = [];
 
   get buckets() {
     return config.ebau.attachments.buckets;
@@ -87,15 +90,15 @@ export default class BeDocumentsFormComponent extends Component {
         .map((id) => parseInt(id))
         .includes(parseInt(this.section));
 
-    const isNewOrInQuery = (attachment) =>
-      attachment.get("isNew") ||
+    const isUploadedOrInQuery = (attachment) =>
+      this.uploadedAttachmentIds.includes(attachment.get("id")) ||
       fetchedAttachmentIds.includes(attachment.get("id"));
 
     return this.store
       .peekAll("attachment")
       .filter(byInstance)
       .filter(bySection)
-      .filter(isNewOrInQuery);
+      .filter(isUploadedOrInQuery);
   }
 
   get attachments() {
@@ -135,7 +138,13 @@ export default class BeDocumentsFormComponent extends Component {
 
       if (!response.ok) throw new Error();
 
-      this.store.pushPayload(yield response.json());
+      const data = yield response.json();
+
+      this.store.pushPayload(data);
+      this.uploadedAttachmentIds = [
+        ...this.uploadedAttachmentIds,
+        data.data.id,
+      ];
 
       this.notification.success(this.intl.t("documents.uploadSuccess"));
     } catch (error) {
