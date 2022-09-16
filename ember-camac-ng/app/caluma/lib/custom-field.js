@@ -108,7 +108,7 @@ export default class CustomField extends Field {
         ];
       }
 
-      // Vorabklärungen, Hecken / Feldgehölze / Bäume, Meldung Solaranlagen
+      // Vorabklärungen, Hecken / Feldgehölze / Bäume, Solaranlagen
       return [
         "decision-decision-assessment-positive",
         "decision-decision-assessment-negative",
