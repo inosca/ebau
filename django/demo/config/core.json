@@ -859,6 +859,32 @@
     }
   },
   {
+    "model": "core.formgroup",
+    "pk": 2000000,
+    "fields": {
+      "name": null,
+      "description": null
+    }
+  },
+  {
+    "model": "core.formgroupform",
+    "pk": 2000000,
+    "fields": {
+      "form_group": 2000000,
+      "form": 1
+    }
+  },
+  {
+    "model": "core.formgroupt",
+    "pk": 2000000,
+    "fields": {
+      "form_group": 2000000,
+      "language": "de",
+      "name": "All forms",
+      "description": null
+    }
+  },
+  {
     "model": "core.grouppermission",
     "pk": 1,
     "fields": {
@@ -1096,6 +1122,36 @@
     "fields": {
       "group": 1,
       "permission_id": "module_data-loader"
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 2000000,
+    "fields": {
+      "available_instance_resource": "workitemlistinstance",
+      "resource": 20006,
+      "name": null,
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 0,
+      "form_group": 2000000
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 2000001,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 20006,
+      "name": null,
+      "description": null,
+      "template": "/ember/instance.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 1,
+      "form_group": 2000000
     }
   },
   {
@@ -1467,6 +1523,42 @@
     }
   },
   {
+    "model": "core.instanceresourcet",
+    "pk": 2000000,
+    "fields": {
+      "instance_resource": 2000000,
+      "language": "de",
+      "name": "Aufgaben",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 2000001,
+    "fields": {
+      "instance_resource": 2000001,
+      "language": "de",
+      "name": "Formular",
+      "description": null
+    }
+  },
+  {
+    "model": "core.irpage",
+    "pk": 2000001,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000006,
+    "fields": {
+      "instance_resource": 2000000,
+      "role": 3,
+      "instance_state": 1
+    }
+  },
+  {
     "model": "core.noticetype",
     "pk": 1,
     "fields": {
@@ -1650,73 +1742,9 @@
   },
   {
     "model": "core.remberlist",
-    "pk": 20008,
-    "fields": {
-      "instance_states": "20011,20013,20014,20009,120000,120003"
-    }
-  },
-  {
-    "model": "core.remberlist",
     "pk": 150000,
     "fields": {
       "instance_states": "1,20000,20003,20004,20005,20010,20011,20013,20014,10000,20007,20008,20009,120000,120001,120002,120003"
-    }
-  },
-  {
-    "model": "core.rpage",
-    "pk": 20010,
-    "fields": {
-      "pdf_class": null
-    }
-  },
-  {
-    "model": "core.rpage",
-    "pk": 150001,
-    "fields": {
-      "pdf_class": null
-    }
-  },
-  {
-    "model": "core.rpage",
-    "pk": 150002,
-    "fields": {
-      "pdf_class": null
-    }
-  },
-  {
-    "model": "core.rpage",
-    "pk": 2000000,
-    "fields": {
-      "pdf_class": null
-    }
-  },
-  {
-    "model": "core.rpage",
-    "pk": 15000000,
-    "fields": {
-      "pdf_class": null
-    }
-  },
-  {
-    "model": "core.rpage",
-    "pk": 15000001,
-    "fields": {
-      "pdf_class": null
-    }
-  },
-  {
-    "model": "core.rpage",
-    "pk": 15000002,
-    "fields": {
-      "pdf_class": null
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 10000,
-    "fields": {
-      "resource": 10000,
-      "role": 10000
     }
   },
   {
@@ -1737,102 +1765,6 @@
   },
   {
     "model": "core.rroleacl",
-    "pk": 20017,
-    "fields": {
-      "resource": 20007,
-      "role": 20000
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 20018,
-    "fields": {
-      "resource": 20007,
-      "role": 20002
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 20019,
-    "fields": {
-      "resource": 20006,
-      "role": 20003
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 20020,
-    "fields": {
-      "resource": 20008,
-      "role": 20006
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 20021,
-    "fields": {
-      "resource": 20008,
-      "role": 5
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 20024,
-    "fields": {
-      "resource": 20010,
-      "role": 5
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 20025,
-    "fields": {
-      "resource": 20010,
-      "role": 4
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 20026,
-    "fields": {
-      "resource": 20010,
-      "role": 3
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 20027,
-    "fields": {
-      "resource": 20010,
-      "role": 20006
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 20028,
-    "fields": {
-      "resource": 20010,
-      "role": 20002
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 20029,
-    "fields": {
-      "resource": 20010,
-      "role": 20003
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 20030,
-    "fields": {
-      "resource": 20010,
-      "role": 10000
-    }
-  },
-  {
-    "model": "core.rroleacl",
     "pk": 140000,
     "fields": {
       "resource": 140000,
@@ -1841,436 +1773,10 @@
   },
   {
     "model": "core.rroleacl",
-    "pk": 150000,
-    "fields": {
-      "resource": 150000,
-      "role": 10000
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 150001,
-    "fields": {
-      "resource": 150001,
-      "role": 4
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 150002,
-    "fields": {
-      "resource": 150001,
-      "role": 3
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 150003,
-    "fields": {
-      "resource": 150001,
-      "role": 20000
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 150004,
-    "fields": {
-      "resource": 150001,
-      "role": 10000
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 150005,
-    "fields": {
-      "resource": 150001,
-      "role": 5
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 150006,
-    "fields": {
-      "resource": 150001,
-      "role": 20006
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 150007,
-    "fields": {
-      "resource": 150001,
-      "role": 20002
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 150008,
-    "fields": {
-      "resource": 150001,
-      "role": 20003
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 150009,
-    "fields": {
-      "resource": 150001,
-      "role": 20005
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 150010,
-    "fields": {
-      "resource": 150001,
-      "role": 20001
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 150011,
-    "fields": {
-      "resource": 150001,
-      "role": 20004
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 150012,
-    "fields": {
-      "resource": 20005,
-      "role": 20009
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 150013,
-    "fields": {
-      "resource": 20005,
-      "role": 20008
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 150014,
-    "fields": {
-      "resource": 20005,
-      "role": 20007
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 150015,
-    "fields": {
-      "resource": 20009,
-      "role": 20008
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 150016,
-    "fields": {
-      "resource": 20009,
-      "role": 20007
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 150017,
-    "fields": {
-      "resource": 20010,
-      "role": 20001
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 150018,
-    "fields": {
-      "resource": 20010,
-      "role": 20004
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 150019,
-    "fields": {
-      "resource": 20010,
-      "role": 20005
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 150020,
-    "fields": {
-      "resource": 20010,
-      "role": 20000
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 150021,
-    "fields": {
-      "resource": 150002,
-      "role": 20009
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 150022,
-    "fields": {
-      "resource": 150002,
-      "role": 20008
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 150023,
-    "fields": {
-      "resource": 150002,
-      "role": 20007
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 150024,
-    "fields": {
-      "resource": 150003,
-      "role": 20009
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 150025,
-    "fields": {
-      "resource": 150003,
-      "role": 20008
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 150026,
-    "fields": {
-      "resource": 150003,
-      "role": 20007
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 150027,
-    "fields": {
-      "resource": 140000,
-      "role": 20005
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 150030,
-    "fields": {
-      "resource": 140000,
-      "role": 5
-    }
-  },
-  {
-    "model": "core.rroleacl",
     "pk": 150031,
     "fields": {
       "resource": 140000,
       "role": 4
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 150032,
-    "fields": {
-      "resource": 140000,
-      "role": 20001
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 150033,
-    "fields": {
-      "resource": 140000,
-      "role": 20004
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 150034,
-    "fields": {
-      "resource": 140000,
-      "role": 20000
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 2000000,
-    "fields": {
-      "resource": 2000000,
-      "role": 20007
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 2000001,
-    "fields": {
-      "resource": 2000000,
-      "role": 10000
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 15000000,
-    "fields": {
-      "resource": 15000000,
-      "role": 10000
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 15000005,
-    "fields": {
-      "resource": 15000000,
-      "role": 20009
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 15000006,
-    "fields": {
-      "resource": 15000000,
-      "role": 20008
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 15000007,
-    "fields": {
-      "resource": 15000000,
-      "role": 20007
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 15000008,
-    "fields": {
-      "resource": 15000001,
-      "role": 20006
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 15000009,
-    "fields": {
-      "resource": 15000001,
-      "role": 20002
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 15000010,
-    "fields": {
-      "resource": 15000001,
-      "role": 20003
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 15000011,
-    "fields": {
-      "resource": 15000001,
-      "role": 5
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 15000012,
-    "fields": {
-      "resource": 15000001,
-      "role": 4
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 15000013,
-    "fields": {
-      "resource": 15000001,
-      "role": 3
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 15000014,
-    "fields": {
-      "resource": 15000001,
-      "role": 20005
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 15000015,
-    "fields": {
-      "resource": 15000001,
-      "role": 20001
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 15000016,
-    "fields": {
-      "resource": 15000001,
-      "role": 20004
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 15000017,
-    "fields": {
-      "resource": 15000001,
-      "role": 10000
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 15000018,
-    "fields": {
-      "resource": 15000001,
-      "role": 20000
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 15000019,
-    "fields": {
-      "resource": 15000002,
-      "role": 3
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 10000,
-    "fields": {
-      "available_resource": "errormail",
-      "name": null,
-      "description": null,
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 13
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 20005,
-    "fields": {
-      "available_resource": "useradmin",
-      "name": null,
-      "description": null,
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 8
     }
   },
   {
@@ -2296,46 +1802,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 4
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 20008,
-    "fields": {
-      "available_resource": "emberlist",
-      "name": null,
-      "description": null,
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
       "sort": 3
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 20009,
-    "fields": {
-      "available_resource": "documentmergeservice",
-      "name": null,
-      "description": null,
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 9
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 20010,
-    "fields": {
-      "available_resource": "page",
-      "name": null,
-      "description": null,
-      "template": "/dashboard/help.phtml",
-      "class_field": null,
-      "hidden": 0,
-      "sort": 11
     }
   },
   {
@@ -2348,7 +1815,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 1
+      "sort": 0
     }
   },
   {
@@ -2361,118 +1828,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 6
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 150001,
-    "fields": {
-      "available_resource": "page",
-      "name": null,
-      "description": null,
-      "template": "/dashboard/news.phtml",
-      "class_field": null,
-      "hidden": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 150002,
-    "fields": {
-      "available_resource": "page",
-      "name": null,
-      "description": null,
-      "template": "/ember-camac-ng/organisation.phtml",
-      "class_field": null,
-      "hidden": 0,
-      "sort": 10
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 150003,
-    "fields": {
-      "available_resource": "textcomponentadmin",
-      "name": "Textbausteine",
-      "description": null,
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 15
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 2000000,
-    "fields": {
-      "available_resource": "page",
-      "name": null,
-      "description": null,
-      "template": "/ember-camac-ng/dossierimport.phtml",
-      "class_field": null,
-      "hidden": 1,
-      "sort": 14
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 15000000,
-    "fields": {
-      "available_resource": "page",
-      "name": null,
-      "description": null,
-      "template": "/ember-camac-ng/statistics.phtml",
-      "class_field": null,
-      "hidden": 0,
-      "sort": 7
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 15000001,
-    "fields": {
-      "available_resource": "page",
-      "name": null,
-      "description": null,
-      "template": "/dashboard/faq.phtml",
-      "class_field": null,
-      "hidden": 0,
-      "sort": 12
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 15000002,
-    "fields": {
-      "available_resource": "page",
-      "name": null,
-      "description": null,
-      "template": "/ember-camac-ng/gwr-global.phtml",
-      "class_field": null,
-      "hidden": 0,
-      "sort": 5
-    }
-  },
-  {
-    "model": "core.resourcet",
-    "pk": 10000,
-    "fields": {
-      "resource": 10000,
-      "language": "de",
-      "name": "Fehler-Mails",
-      "description": "Fehler-Mails entschlüsseln und anzeigen"
-    }
-  },
-  {
-    "model": "core.resourcet",
-    "pk": 20005,
-    "fields": {
-      "resource": 20005,
-      "language": "de",
-      "name": "Berechtigungen",
-      "description": null
+      "sort": 4
     }
   },
   {
@@ -2497,66 +1853,6 @@
   },
   {
     "model": "core.resourcet",
-    "pk": 20008,
-    "fields": {
-      "resource": 20008,
-      "language": "de",
-      "name": "Meine Dossiers",
-      "description": "Dossier list for Baukontrolle (Caluma)"
-    }
-  },
-  {
-    "model": "core.resourcet",
-    "pk": 20009,
-    "fields": {
-      "resource": 20009,
-      "language": "de",
-      "name": "Vorlagen",
-      "description": null
-    }
-  },
-  {
-    "model": "core.resourcet",
-    "pk": 20010,
-    "fields": {
-      "resource": 20010,
-      "language": "de",
-      "name": "Hilfe",
-      "description": null
-    }
-  },
-  {
-    "model": "core.resourcet",
-    "pk": 20011,
-    "fields": {
-      "resource": 20010,
-      "language": "fr",
-      "name": "Aide",
-      "description": null
-    }
-  },
-  {
-    "model": "core.resourcet",
-    "pk": 120004,
-    "fields": {
-      "resource": 10000,
-      "language": "fr",
-      "name": "Courriels d'erreur",
-      "description": null
-    }
-  },
-  {
-    "model": "core.resourcet",
-    "pk": 120008,
-    "fields": {
-      "resource": 20005,
-      "language": "fr",
-      "name": "Droits d'accès",
-      "description": null
-    }
-  },
-  {
-    "model": "core.resourcet",
     "pk": 120009,
     "fields": {
       "resource": 20006,
@@ -2570,16 +1866,6 @@
     "pk": 120010,
     "fields": {
       "resource": 20007,
-      "language": "fr",
-      "name": "Mes dossiers",
-      "description": null
-    }
-  },
-  {
-    "model": "core.resourcet",
-    "pk": 120011,
-    "fields": {
-      "resource": 20008,
       "language": "fr",
       "name": "Mes dossiers",
       "description": null
@@ -2617,161 +1903,11 @@
   },
   {
     "model": "core.resourcet",
-    "pk": 150002,
-    "fields": {
-      "resource": 20009,
-      "language": "fr",
-      "name": "Modèles",
-      "description": null
-    }
-  },
-  {
-    "model": "core.resourcet",
-    "pk": 150003,
-    "fields": {
-      "resource": 150001,
-      "language": "de",
-      "name": "News",
-      "description": null
-    }
-  },
-  {
-    "model": "core.resourcet",
-    "pk": 150004,
-    "fields": {
-      "resource": 150001,
-      "language": "fr",
-      "name": "Actualités",
-      "description": null
-    }
-  },
-  {
-    "model": "core.resourcet",
-    "pk": 150005,
-    "fields": {
-      "resource": 150002,
-      "language": "de",
-      "name": "Organisation",
-      "description": null
-    }
-  },
-  {
-    "model": "core.resourcet",
-    "pk": 150006,
-    "fields": {
-      "resource": 150002,
-      "language": "fr",
-      "name": "Organisation",
-      "description": null
-    }
-  },
-  {
-    "model": "core.resourcet",
-    "pk": 150007,
-    "fields": {
-      "resource": 150003,
-      "language": "fr",
-      "name": "Modules de texte",
-      "description": null
-    }
-  },
-  {
-    "model": "core.resourcet",
-    "pk": 150008,
-    "fields": {
-      "resource": 150003,
-      "language": "de",
-      "name": "Textbausteine",
-      "description": null
-    }
-  },
-  {
-    "model": "core.resourcet",
     "pk": 150009,
     "fields": {
       "resource": 140000,
       "language": "fr",
       "name": "Tâches",
-      "description": null
-    }
-  },
-  {
-    "model": "core.resourcet",
-    "pk": 2000000,
-    "fields": {
-      "resource": 2000000,
-      "language": "de",
-      "name": "Dossierimport",
-      "description": null
-    }
-  },
-  {
-    "model": "core.resourcet",
-    "pk": 2000001,
-    "fields": {
-      "resource": 2000000,
-      "language": "fr",
-      "name": "Importation de dossiers",
-      "description": null
-    }
-  },
-  {
-    "model": "core.resourcet",
-    "pk": 15000000,
-    "fields": {
-      "resource": 15000000,
-      "language": "de",
-      "name": "Statistiken",
-      "description": null
-    }
-  },
-  {
-    "model": "core.resourcet",
-    "pk": 15000001,
-    "fields": {
-      "resource": 15000000,
-      "language": "fr",
-      "name": "Statistiques",
-      "description": null
-    }
-  },
-  {
-    "model": "core.resourcet",
-    "pk": 15000002,
-    "fields": {
-      "resource": 15000001,
-      "language": "de",
-      "name": "FAQ",
-      "description": null
-    }
-  },
-  {
-    "model": "core.resourcet",
-    "pk": 15000003,
-    "fields": {
-      "resource": 15000001,
-      "language": "fr",
-      "name": "FAQ",
-      "description": null
-    }
-  },
-  {
-    "model": "core.resourcet",
-    "pk": 15000004,
-    "fields": {
-      "resource": 15000002,
-      "language": "fr",
-      "name": "RegBL",
-      "description": null
-    }
-  },
-  {
-    "model": "core.resourcet",
-    "pk": 15000005,
-    "fields": {
-      "resource": 15000002,
-      "language": "de",
-      "name": "GWR",
       "description": null
     }
   }
