@@ -17,7 +17,9 @@
       <PowerSelect
         @options={{this.locations}}
         @selected={{(or this.selectedLocation this.locations.firstObject)}}
-        @onChange={{this.updateLocation}} as |location|
+        @onChange={{this.updateLocation}}
+        @renderInPlace={{true}}
+        as |location|
       >
         <span>
           {{location.communalFederalNumber}}
