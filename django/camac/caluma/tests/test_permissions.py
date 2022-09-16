@@ -166,6 +166,22 @@ def test_save_work_item_permission(
             False,
             None,
         ),
+        (
+            "municipality-lead",
+            "redoWorkItem",
+            "INQUIRY_TASK",
+            caluma_workflow_models.WorkItem.STATUS_COMPLETED,
+            True,
+            "READY",
+        ),
+        (
+            "municipality-clerk",
+            "redoWorkItem",
+            "INQUIRY_TASK",
+            caluma_workflow_models.WorkItem.STATUS_COMPLETED,
+            False,
+            None,
+        ),
     ],
 )
 def test_distribution_permission_for_task(
@@ -193,11 +209,22 @@ def test_distribution_permission_for_task(
     )
 
     if mutation == "redoWorkItem":
-        work_item = be_instance.case.work_items.get(
-            task_id=be_distribution_settings["DISTRIBUTION_TASK"]
-        )
+        if task == "DISTRIBUTION_TASK":
+            work_item = be_instance.case.work_items.get(
+                task_id=be_distribution_settings["DISTRIBUTION_TASK"]
+            )
+        elif task == "INQUIRY_TASK":
+            work_item.status = caluma_workflow_models.WorkItem.STATUS_READY
+            work_item.save()
+
+            mocker.patch(
+                "camac.caluma.extensions.events.distribution.send_inquiry_notification",
+                return_value=None,
+            )
+
         work_item.child_case.status = caluma_workflow_models.Case.STATUS_COMPLETED
         work_item.child_case.save()
+
         workflow_api.complete_work_item(work_item=work_item, user=caluma_admin_user)
     elif task != "INQUIRY_TASK":
         work_item = work_item_factory(
@@ -205,9 +232,7 @@ def test_distribution_permission_for_task(
             child_case=None,
             addressed_groups=[service.pk],
             controlling_groups=[service.pk],
-            task=caluma_workflow_models.Task.objects.get(
-                pk=be_distribution_settings[task]
-            ),
+            task_id=be_distribution_settings[task],
             status=status,
         )
 
