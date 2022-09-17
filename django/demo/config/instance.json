@@ -43,6 +43,15 @@
     }
   },
   {
+    "model": "instance.instancestate",
+    "pk": 120004,
+    "fields": {
+      "name": "subm",
+      "sort": 1,
+      "description": null
+    }
+  },
+  {
     "model": "instance.instancestatet",
     "pk": 1,
     "fields": {
@@ -60,6 +69,16 @@
       "language": "fr",
       "name": "Nouveau",
       "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120034,
+    "fields": {
+      "instance_state": 120004,
+      "language": "de",
+      "name": "Eingereicht",
+      "description": "Eingereicht bei Gemeinde"
     }
   }
 ]
