@@ -2197,171 +2197,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.anschluss-sammelkanaele-vorfluter-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:33.674Z",
-      "modified_at": "2019-09-25T10:19:33.674Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "anschluss-sammelkanaele-vorfluter-dokument",
-      "sort": 60
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.ausnahmegesuch-energie-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:34.444Z",
-      "modified_at": "2019-09-25T10:19:34.444Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "ausnahmegesuch-energie-dokument",
-      "sort": 16
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.ausnuetzung-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:33.613Z",
-      "modified_at": "2019-09-25T10:19:33.613Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "ausnuetzung-dokument",
-      "sort": 67
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.baugrunduntersuchung-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:34.266Z",
-      "modified_at": "2019-09-25T10:19:34.266Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "baugrunduntersuchung-dokument",
-      "sort": 20
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.berechnungen-abstellplaetze-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:33.595Z",
-      "modified_at": "2019-09-25T10:19:33.595Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "berechnungen-abstellplaetze-dokument",
-      "sort": 68
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.beschrieb-der-lueftung-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:33.828Z",
-      "modified_at": "2019-09-25T10:19:33.828Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "beschrieb-der-lueftung-dokument",
-      "sort": 45
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.bestaetigung-hydrogeo-begleitung-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:34.155Z",
-      "modified_at": "2019-09-25T10:19:34.155Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "bestaetigung-hydrogeo-begleitung-dokument",
-      "sort": 23
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.betriebskonzept-gastgewerbe-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:33.820Z",
-      "modified_at": "2019-09-25T10:19:33.820Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "betriebskonzept-gastgewerbe-dokument",
-      "sort": 46
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.bodenschutzkonzept-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:34.944Z",
-      "modified_at": "2019-09-25T10:19:34.944Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "bodenschutzkonzept-dokument",
-      "sort": 11
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.brandschutzkonzept-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:33.709Z",
-      "modified_at": "2019-09-25T10:19:33.709Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "brandschutzkonzept-dokument",
-      "sort": 57
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.brandschutzplan-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:33.715Z",
-      "modified_at": "2019-09-25T10:19:33.715Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "brandschutzplan-dokument",
-      "sort": 56
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "6-dokumente.dokumente-platzhalter",
     "fields": {
       "created_at": "2021-06-07T09:16:02.688Z",
@@ -2373,261 +2208,6 @@
       "form": "6-dokumente",
       "question": "dokumente-platzhalter",
       "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.energiedokumente-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:34.345Z",
-      "modified_at": "2019-09-25T10:19:34.345Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "energiedokumente-dokument",
-      "sort": 18
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.entsorgungskonzept-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:34.699Z",
-      "modified_at": "2019-09-25T10:19:34.699Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "entsorgungskonzept-dokument",
-      "sort": 12
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.entwaesserung-oberflaechengewaesser-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:34.085Z",
-      "modified_at": "2019-09-25T10:19:34.085Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "entwaesserung-oberflaechengewaesser-dokument",
-      "sort": 28
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.entwaesserung-ueber-mischwasserkanal-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:34.093Z",
-      "modified_at": "2019-09-25T10:19:34.093Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "entwaesserung-ueber-mischwasserkanal-dokument",
-      "sort": 27
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.entwaesserung-ueber-regenwasserkanal-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:34.058Z",
-      "modified_at": "2019-09-25T10:19:34.058Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "entwaesserung-ueber-regenwasserkanal-dokument",
-      "sort": 29
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.erdwaermensondendimensionierung-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:33.751Z",
-      "modified_at": "2019-09-25T10:19:33.751Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "erdwaermensondendimensionierung-dokument",
-      "sort": 51
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.fassaden-ansichten-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:33.919Z",
-      "modified_at": "2019-09-25T10:19:33.919Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "fassaden-ansichten-dokument",
-      "sort": 38
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.fassadenplan-reklamestandort-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:37.415Z",
-      "modified_at": "2019-09-25T10:19:37.415Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "fassadenplan-reklamestandort-dokument",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.formular-andere-thermoaktive-elemente-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:33.737Z",
-      "modified_at": "2019-09-25T10:19:33.737Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "formular-andere-thermoaktive-elemente-dokument",
-      "sort": 53
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.gefahrengutachten-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:36.208Z",
-      "modified_at": "2019-09-25T10:19:36.208Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "gefahrengutachten-dokument",
-      "sort": 4
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.geschossflaechen-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:33.642Z",
-      "modified_at": "2019-09-25T10:19:33.642Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "geschossflaechen-dokument",
-      "sort": 64
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.gesuch-ausnahmebewilligung-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:34.290Z",
-      "modified_at": "2019-09-25T10:19:34.290Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "gesuch-ausnahmebewilligung-dokument",
-      "sort": 19
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.gesuch-erleichterung-waermeschutz-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:34.372Z",
-      "modified_at": "2019-09-25T10:19:34.372Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "gesuch-erleichterung-waermeschutz-dokument",
-      "sort": 17
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.gesuch-zur-ausnahme-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:34.477Z",
-      "modified_at": "2019-09-25T10:19:34.477Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "gesuch-zur-ausnahme-dokument",
-      "sort": 15
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.gewaesserschutz-landwirtschaft-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:34.148Z",
-      "modified_at": "2019-09-25T10:19:34.148Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "gewaesserschutz-landwirtschaft-dokument",
-      "sort": 24
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.gruenflaeche-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:33.621Z",
-      "modified_at": "2019-09-25T10:19:33.621Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "gruenflaeche-dokument",
-      "sort": 66
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.grundriss-angabe-bodenflaeche-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:33.836Z",
-      "modified_at": "2019-09-25T10:19:33.836Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "grundriss-angabe-bodenflaeche-dokument",
-      "sort": 44
     }
   },
   {
@@ -2647,321 +2227,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.grundstuecksentwaesserungsplan-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:33.557Z",
-      "modified_at": "2019-09-25T10:19:33.557Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "grundstuecksentwaesserungsplan-dokument",
-      "sort": 72
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.hydrogeo-gutachten-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:33.785Z",
-      "modified_at": "2019-09-25T10:19:33.785Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "hydrogeo-gutachten-dokument",
-      "sort": 49
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.hydrogeologische-begleitung-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:33.761Z",
-      "modified_at": "2019-09-25T10:19:33.761Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "hydrogeologische-begleitung-dokument",
-      "sort": 50
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.inanspruchnahme-boden-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:33.667Z",
-      "modified_at": "2019-09-25T10:19:33.667Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "inanspruchnahme-boden-dokument",
-      "sort": 61
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.kanalisationskatasterplan-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:34.110Z",
-      "modified_at": "2019-09-25T10:19:34.110Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "kanalisationskatasterplan-dokument",
-      "sort": 26
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.kurzbericht-gemaess-stfv-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:34.011Z",
-      "modified_at": "2019-09-25T10:19:34.011Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "kurzbericht-gemaess-stfv-dokument",
-      "sort": 33
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.meldeblatt-terrainveraenderungen-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:35.170Z",
-      "modified_at": "2019-09-25T10:19:35.170Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "meldeblatt-terrainveraenderungen-dokument",
-      "sort": 9
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.meldeblatt-zur-fruchtfolgeflaeche-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:34.980Z",
-      "modified_at": "2019-09-25T10:19:34.980Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "meldeblatt-zur-fruchtfolgeflaeche-dokument",
-      "sort": 10
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.nachweis-anforderungen-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:34.523Z",
-      "modified_at": "2019-09-25T10:19:34.523Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "nachweis-anforderungen-dokument",
-      "sort": 14
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.plaene-fumoir-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:33.851Z",
-      "modified_at": "2019-09-25T10:19:33.851Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "plaene-fumoir-dokument",
-      "sort": 42
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.plaene-gewaesserschutz-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:34.225Z",
-      "modified_at": "2019-09-25T10:19:34.225Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "plaene-gewaesserschutz-dokument",
-      "sort": 21
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.plaene-schleusen-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:33.969Z",
-      "modified_at": "2019-09-25T10:19:33.969Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "plaene-schleusen-dokument",
-      "sort": 36
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.plaene-unterdruck-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:33.984Z",
-      "modified_at": "2019-09-25T10:19:33.984Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "plaene-unterdruck-dokument",
-      "sort": 35
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.plane-gastgewerbebetrieb-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:33.843Z",
-      "modified_at": "2019-09-25T10:19:33.843Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "plane-gastgewerbebetrieb-dokument",
-      "sort": 43
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.qs-verantwortlicher-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:33.702Z",
-      "modified_at": "2019-09-25T10:19:33.702Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "qs-verantwortlicher-dokument",
-      "sort": 58
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.qualitaetssicherungskonzept-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:33.723Z",
-      "modified_at": "2019-09-25T10:19:33.723Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "qualitaetssicherungskonzept-dokument",
-      "sort": 55
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.regierungsratsbeschluss-bauinventar-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:33.651Z",
-      "modified_at": "2019-09-25T10:19:33.651Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "regierungsratsbeschluss-bauinventar-dokument",
-      "sort": 63
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.risikoermittlung-gemaess-stfv-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:34.025Z",
-      "modified_at": "2019-09-25T10:19:34.025Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "risikoermittlung-gemaess-stfv-dokument",
-      "sort": 32
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.rodungs-und-ersatzaufforstungsplan-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:36.075Z",
-      "modified_at": "2019-09-25T10:19:36.075Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "rodungs-und-ersatzaufforstungsplan-dokument",
-      "sort": 5
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.rodungsgesuchsformular-bafu-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:35.615Z",
-      "modified_at": "2019-09-25T10:19:35.615Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "rodungsgesuchsformular-bafu-dokument",
-      "sort": 7
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.rueckbau-checkliste-selbstdeklaration-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:34.644Z",
-      "modified_at": "2019-09-25T10:19:34.644Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "rueckbau-checkliste-selbstdeklaration-dokument",
-      "sort": 13
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "6-dokumente.schnitt-dokument",
     "fields": {
       "created_at": "2019-09-25T10:19:33.892Z",
@@ -2977,81 +2242,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.schnittplan-gewaesserschutz-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:34.180Z",
-      "modified_at": "2019-09-25T10:19:34.180Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "schnittplan-gewaesserschutz-dokument",
-      "sort": 22
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.schutzraum-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:33.804Z",
-      "modified_at": "2019-09-25T10:19:33.804Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "schutzraum-dokument",
-      "sort": 47
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.sicherheitsdaten-stoerfallvorsorge-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:34.048Z",
-      "modified_at": "2019-09-25T10:19:34.048Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "sicherheitsdaten-stoerfallvorsorge-dokument",
-      "sort": 30
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.sicherungsleistung-befreit-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:33.796Z",
-      "modified_at": "2019-09-25T10:19:33.796Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "sicherungsleistung-befreit-dokument",
-      "sort": 48
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.sicherungsmassnahme-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:33.587Z",
-      "modified_at": "2019-09-25T10:19:33.587Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "sicherungsmassnahme-dokument",
-      "sort": 69
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "6-dokumente.situationsplan-dokument",
     "fields": {
       "created_at": "2019-09-25T10:19:33.859Z",
@@ -3063,216 +2253,6 @@
       "form": "6-dokumente",
       "question": "situationsplan-dokument",
       "sort": 41
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.skizze-der-reklame-mit-farbangaben-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:37.729Z",
-      "modified_at": "2019-09-25T10:19:37.729Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "skizze-der-reklame-mit-farbangaben-dokument",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.sondenmodell-mit-datenblatt-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:33.744Z",
-      "modified_at": "2019-09-25T10:19:33.744Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "sondenmodell-mit-datenblatt-dokument",
-      "sort": 52
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.sterilisation-abwasser-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:33.997Z",
-      "modified_at": "2019-09-25T10:19:33.997Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "sterilisation-abwasser-dokument",
-      "sort": 34
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.stoffliste-stoerfallvorsorge-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:34.033Z",
-      "modified_at": "2019-09-25T10:19:34.033Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "stoffliste-stoerfallvorsorge-dokument",
-      "sort": 31
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.ueberbauung-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:33.632Z",
-      "modified_at": "2019-09-25T10:19:33.632Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "ueberbauung-dokument",
-      "sort": 65
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.uebersichtsplan-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:35.763Z",
-      "modified_at": "2019-09-25T10:19:35.763Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "uebersichtsplan-dokument",
-      "sort": 6
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.umgebungsplan-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:33.927Z",
-      "modified_at": "2019-09-25T10:19:33.927Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "umgebungsplan-dokument",
-      "sort": 37
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.versickerungsanlagen-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:34.126Z",
-      "modified_at": "2019-09-25T10:19:34.126Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "versickerungsanlagen-dokument",
-      "sort": 25
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.vertrag-zum-bauinventar-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:33.659Z",
-      "modified_at": "2019-09-25T10:19:33.659Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "vertrag-zum-bauinventar-dokument",
-      "sort": 62
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.verwertung-abgetragenem-boden-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:35.269Z",
-      "modified_at": "2019-09-25T10:19:35.269Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "verwertung-abgetragenem-boden-dokument",
-      "sort": 8
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.vollmacht-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:33.568Z",
-      "modified_at": "2019-09-25T10:19:33.568Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "vollmacht-dokument",
-      "sort": 71
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.vorabklaerung-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:33.578Z",
-      "modified_at": "2019-09-25T10:19:33.578Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "vorabklaerung-dokument",
-      "sort": 70
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.weitere-angaben-regeneration-ews-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:33.730Z",
-      "modified_at": "2019-09-25T10:19:33.730Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "weitere-angaben-regeneration-ews-dokument",
-      "sort": 54
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "6-dokumente.zustimmung-der-anstoesser-dokument",
-    "fields": {
-      "created_at": "2019-09-25T10:19:33.682Z",
-      "modified_at": "2019-09-25T10:19:33.682Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "6-dokumente",
-      "question": "zustimmung-der-anstoesser-dokument",
-      "sort": 59
     }
   },
   {
@@ -3982,21 +2962,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "allgemeine-angaben.be-gid",
-    "fields": {
-      "created_at": "2019-09-25T10:19:36.766Z",
-      "modified_at": "2019-09-25T10:19:36.766Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "allgemeine-angaben",
-      "question": "be-gid",
-      "sort": 9
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "allgemeine-angaben.gemeinde",
     "fields": {
       "created_at": "2019-09-25T10:19:36.224Z",
@@ -4008,21 +2973,6 @@
       "form": "allgemeine-angaben",
       "question": "gemeinde",
       "sort": 11
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "allgemeine-angaben.gwr-egid",
-    "fields": {
-      "created_at": "2019-09-25T10:19:37.275Z",
-      "modified_at": "2019-09-25T10:19:37.275Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "allgemeine-angaben",
-      "question": "gwr-egid",
-      "sort": 8
     }
   },
   {
@@ -4083,21 +3033,6 @@
       "form": "allgemeine-angaben",
       "question": "parzelle",
       "sort": 10
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "allgemeine-angaben.projektaenderung",
-    "fields": {
-      "created_at": "2020-03-03T13:26:47.990Z",
-      "modified_at": "2020-03-03T13:26:47.990Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "allgemeine-angaben",
-      "question": "projektaenderung",
-      "sort": 1
     }
   },
   {
@@ -24102,7 +23037,7 @@
     "pk": "grundriss-dokument-ja",
     "fields": {
       "created_at": "2019-04-10T11:41:29.253Z",
-      "modified_at": "2021-07-08T13:01:19.018Z",
+      "modified_at": "2022-09-17T08:01:18.255Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -36582,7 +35517,7 @@
     "pk": "schnitt-dokument-ja",
     "fields": {
       "created_at": "2019-04-10T11:41:29.253Z",
-      "modified_at": "2021-07-08T13:03:02.775Z",
+      "modified_at": "2022-09-17T08:01:29.896Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -37126,10 +36061,10 @@
     "pk": "situationsplan-dokument-ja",
     "fields": {
       "created_at": "2019-04-10T11:41:29.253Z",
-      "modified_at": "2020-10-05T09:54:59.835Z",
+      "modified_at": "2022-09-17T08:00:45.638Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
-      "modified_by_user": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Situationsplan\", \"fr\": \"Plan de situation\"}",
       "is_archived": false,
@@ -51916,19 +50851,19 @@
     "pk": "grundriss-dokument",
     "fields": {
       "created_at": "2019-05-13T11:48:09.635Z",
-      "modified_at": "2021-07-08T13:01:19.152Z",
+      "modified_at": "2022-09-17T08:01:18.323Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Grundriss\", \"fr\": \"Vue en plan\"}",
       "type": "multiple_choice",
-      "is_required": "!((\n  'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' &&\n    'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-erschliessungsanlagen\"]' &&\n    'baubeschrieb'|answer|stringify == '[\"baubeschrieb-tiefbauanlage\"]'\n) ||\n(\n  'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' &&\n  'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-reklamevorhaben\"]' &&\n  'baubeschrieb'|answer|stringify == '[\"baubeschrieb-reklame\"]'\n))",
-      "is_hidden": "'vorabklaerung' in form ||\n'is-paper'|answer == 'is-paper-yes' ||\n(\n  'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' &&\n  'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-weitere\"]' &&\n  'baubeschrieb'|answer|stringify == '[\"baubeschrieb-andere\"]'\n)",
+      "is_required": "true",
+      "is_hidden": "'vorabklaerung' in form ||\n'is-paper'|answer == 'is-paper-yes'",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {
@@ -70549,19 +69484,19 @@
     "pk": "schnitt-dokument",
     "fields": {
       "created_at": "2019-05-13T11:48:50.150Z",
-      "modified_at": "2021-07-08T13:03:02.933Z",
+      "modified_at": "2022-09-17T08:01:29.961Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Schnitt\", \"fr\": \"Coupe\"}",
       "type": "multiple_choice",
-      "is_required": "!((\n  'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' &&\n    'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-erschliessungsanlagen\"]' &&\n    'baubeschrieb'|answer|stringify == '[\"baubeschrieb-tiefbauanlage\"]'\n) ||\n(\n  'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' &&\n  'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-reklamevorhaben\"]' &&\n  'baubeschrieb'|answer|stringify == '[\"baubeschrieb-reklame\"]'\n))",
-      "is_hidden": "'vorabklaerung' in form ||\n'is-paper'|answer == 'is-paper-yes' ||\n(\n  'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' &&\n  'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-weitere\"]' &&\n  'baubeschrieb'|answer|stringify == '[\"baubeschrieb-andere\"]'\n)",
+      "is_required": "true",
+      "is_hidden": "'vorabklaerung' in form ||\n'is-paper'|answer == 'is-paper-yes'",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {
@@ -71287,10 +70222,10 @@
     "pk": "situationsplan-dokument",
     "fields": {
       "created_at": "2019-05-13T11:47:54.988Z",
-      "modified_at": "2019-06-06T15:32:54.196Z",
+      "modified_at": "2022-09-17T08:00:45.716Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
-      "modified_by_user": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Situationsplan\", \"fr\": \"Plan de situation\"}",
       "type": "multiple_choice",
@@ -71299,7 +70234,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {
@@ -80730,8 +79665,8 @@
     "model": "caluma_form.questionoption",
     "pk": "grundriss-dokument.grundriss-dokument-ja",
     "fields": {
-      "created_at": "2021-07-08T13:01:19.164Z",
-      "modified_at": "2021-07-08T13:01:19.164Z",
+      "created_at": "2022-09-17T08:01:18.327Z",
+      "modified_at": "2022-09-17T08:01:18.327Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -92430,8 +91365,8 @@
     "model": "caluma_form.questionoption",
     "pk": "schnitt-dokument.schnitt-dokument-ja",
     "fields": {
-      "created_at": "2021-07-08T13:03:02.944Z",
-      "modified_at": "2021-07-08T13:03:02.944Z",
+      "created_at": "2022-09-17T08:01:29.964Z",
+      "modified_at": "2022-09-17T08:01:29.964Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -92940,11 +91875,11 @@
     "model": "caluma_form.questionoption",
     "pk": "situationsplan-dokument.situationsplan-dokument-ja",
     "fields": {
-      "created_at": "2019-06-06T15:32:54.200Z",
-      "modified_at": "2019-06-06T15:32:54.200Z",
+      "created_at": "2022-09-17T08:00:45.719Z",
+      "modified_at": "2022-09-17T08:00:45.719Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "situationsplan-dokument",
       "option": "situationsplan-dokument-ja",

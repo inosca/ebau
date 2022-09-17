@@ -1039,6 +1039,9 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         )
 
     def _generate_and_store_pdf(self, instance, form_slug=None):
+        if not settings.APPLICATION["CALUMA"].get("STORE_PDF", False):
+            return
+
         request = self.context["request"]
 
         pdf = document_merge_service.DMSHandler().generate_pdf(
