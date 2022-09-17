@@ -99,6 +99,27 @@ services:
     environment:
       - MH_UI_WEB_PATH=mailhog
 
+  document-merge-service:
+    networks:
+      - ebau.local
+    environment:
+      - ENV=dev
+      - OIDC_USERINFO_ENDPOINT=http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
+      - OIDC_GROUPS_API=http://ebau.local/api/v1/me?include=service,service.service_parent
+    # There appears to be bug where libreoffice can only be started as the root
+    # user. The workaround of fixing owner and permissions of ~/.config did not
+    # work in our case.
+    #
+    # https://github.com/unoconv/unoconv/issues/241#issuecomment-549434601
+    # https://superuser.com/questions/564534/only-root-user-is-able-to-open-libreoffice
+    # user: "${UID:?Set UID env variable to your user id}"
+    command:
+      [
+        "/bin/sh",
+        "-c",
+        "wait-for-it.sh db:5432 -- poetry run python manage.py migrate && poetry run uwsgi",
+      ]
+
 
 networks:
   ebau.local:

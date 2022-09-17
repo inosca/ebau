@@ -192,7 +192,7 @@
     "pk": 3,
     "fields": {
       "role_parent": null,
-      "name": "municipality-lead",
+      "name": "municipality",
       "group_prefix": null
     }
   },
@@ -201,7 +201,7 @@
     "pk": 4,
     "fields": {
       "role_parent": null,
-      "name": "service-lead",
+      "name": "service",
       "group_prefix": null
     }
   },
@@ -210,7 +210,7 @@
     "pk": 10000,
     "fields": {
       "role_parent": null,
-      "name": "Support",
+      "name": "support",
       "group_prefix": null
     }
   },
@@ -300,7 +300,7 @@
     "fields": {
       "role": 3,
       "language": "fr",
-      "name": "Direction: autorité directrice",
+      "name": "Autorité directrice",
       "group_prefix": "Direction:"
     }
   },
@@ -310,7 +310,7 @@
     "fields": {
       "role": 4,
       "language": "fr",
-      "name": "Direction: service",
+      "name": "Service",
       "group_prefix": "Direction:"
     }
   },
@@ -320,6 +320,16 @@
     "fields": {
       "role": 10000,
       "language": "de",
+      "name": "Support",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20029,
+    "fields": {
+      "role": 10000,
+      "language": "fr",
       "name": "Support",
       "group_prefix": null
     }
