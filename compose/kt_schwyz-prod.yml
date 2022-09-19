@@ -118,9 +118,9 @@ services:
       - MB_DB_TYPE=postgres
       - MB_DB_DBNAME=metabase
       - MB_DB_PORT=5432
-      - MB_DB_USER=metabase
+      - MB_DB_USER=${METABASE_DB_USER_PROD}
       - MB_DB_PASS=${METABASE_DB_PASS_PROD}
-      - MB_DB_HOST=vm-kantonsz-db-vip.cust.adfinis-sygroup.ch
+      - MB_DB_HOST=${METABASE_DB_HOST_PROD}
     restart: always
 
 volumes:
