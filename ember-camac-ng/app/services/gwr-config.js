@@ -42,9 +42,9 @@ export default class GwrConfigService extends Service {
       instance_id: [...new Set(localIds)].join(","),
     });
 
-    return instances.map(({ id, identifier }) => ({
+    return instances.map(({ id, identifier, dossierNumber }) => ({
       localId: id,
-      identifier,
+      identifier: identifier ?? dossierNumber,
       hostLink: `/index/redirect-to-instance-resource/instance-id/${id}?instance-resource-name=gwr&ember-hash=/gwr/${id}`,
     }));
   }
