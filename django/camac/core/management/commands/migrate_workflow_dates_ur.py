@@ -49,14 +49,15 @@ class Command(BaseCommand):
 
             if not dossier_erfasst.exists():
                 self.stdout.write(
-                    f"For the instance {instance.pk} the workflow entry {workflow_entry.pk} was chnanged from workflow item 'Eingang online' to workflow item 'Dossier erfasst'"
+                    f"{instance.pk}: workflow entry {workflow_entry.pk} was changed from 'Eingang online' to 'Dossier erfasst'"
                 )
                 workflow_entry.workflow_item_id = WORKFLOW_ITEM_DOSSIER_ERFASST
                 workflow_entry.save()
             else:
                 self.stdout.write(
-                    f"Skipping {instance.pk} {workflow_entry.pk} {workflow_entry.workflow_date} {dossier_erfasst.first().workflow_date}"
+                    f"{instance.pk}: deleting workflow entry {workflow_entry.pk} ({workflow_entry.workflow_date}) because dossier erfasst exists ({dossier_erfasst.first().workflow_date})"
                 )
+                workflow_entry.delete()
 
         # Delete Worfklow Item "Eingang Online"
         self.stdout.write("Deleting workflow item 'Eingang Online'")
