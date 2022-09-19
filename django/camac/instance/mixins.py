@@ -132,14 +132,6 @@ class InstanceQuerysetMixin(object):
         service_group_field = self._get_instance_filter_expr(
             "group__service__service_group"
         )
-        pgv_answer_field = self._get_instance_filter_expr(
-            "case__document__answers__value"
-        )
-
-        MITBERICHT_BUNDESSTELLE_RESPONSIBILITIES = {
-            uri_constants.ROLE_KOOR_BG: "mbv-bund-type-pgv-seilbahn",
-            uri_constants.ROLE_KOOR_BD: "mbv-bund-type-pgv-eisenbahn",
-        }
 
         # KOORs see self-created instances
         # and they also see instances they are responsible for,
@@ -149,15 +141,22 @@ class InstanceQuerysetMixin(object):
             & ~Q(**{service_group_field: uri_constants.SERVICE_GROUP_KOOR})
             & ~Q(**{state_field: "new"})
         )
-        if MITBERICHT_BUNDESSTELLE_RESPONSIBILITIES.get(group.role.pk):
+
+        responsible_pgv_answer = {
+            uri_constants.ROLE_KOOR_BG: "mbv-bund-type-pgv-seilbahn",
+            uri_constants.ROLE_KOOR_BD: "mbv-bund-type-pgv-eisenbahn",
+        }.get(group.role.pk)
+
+        if responsible_pgv_answer:
             # and they also see the form "Mitbericht Bundesstelle", if the
             # selected "form type" matches their KOOR
+            pgv_instances = Instance.objects.filter(
+                case__document__answers__value=responsible_pgv_answer
+            ).values("instance_id")
             filter = filter | Q(
                 **{
                     form_field: [uri_constants.FORM_MITBERICHT_BUNDESSTELLE],
-                    pgv_answer_field: MITBERICHT_BUNDESSTELLE_RESPONSIBILITIES.get(
-                        group.role.pk
-                    ),
+                    instance_field: pgv_instances,
                 }
             )
 
