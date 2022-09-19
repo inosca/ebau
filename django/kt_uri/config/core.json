@@ -4968,20 +4968,6 @@
   },
   {
     "model": "core.action",
-    "pk": 1439,
-    "fields": {
-      "available_action": "save",
-      "button": 943,
-      "name": "Speichern",
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 1443,
     "fields": {
       "available_action": "formtransition",
@@ -48104,14 +48090,6 @@
     "pk": 1419,
     "fields": {
       "workflow_item": 62,
-      "multi_value": 0
-    }
-  },
-  {
-    "model": "core.workflowaction",
-    "pk": 1439,
-    "fields": {
-      "workflow_item": 16,
       "multi_value": 0
     }
   },

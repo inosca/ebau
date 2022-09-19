@@ -77,14 +77,8 @@ class CreateInstanceLogic:
         return data
 
     @classmethod
-    def validate_for_coordination(cls, data, group):  # pragma: no cover
-        if settings.APPLICATION["CALUMA"].get("CREATE_IN_PROCESS"):
-            # FIXME: Bundesstelle has role "coordination, but is
-            # actually more like a municipality (dossiers start in COMM)
-            is_federal = group.service.pk == ur_constants.BUNDESSTELLE_SERVICE_ID
-            state = "comm" if is_federal else "ext"
-            data["instance_state"] = models.InstanceState.objects.get(name=state)
-
+    def validate_for_coordination(cls, data, group):
+        """Coordination role is allowed to generate identifiers."""
         return data
 
     @staticmethod
