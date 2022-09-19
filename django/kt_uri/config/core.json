@@ -49007,21 +49007,6 @@
     }
   },
   {
-    "model": "core.workflowitem",
-    "pk": 12000000,
-    "fields": {
-      "position": 1,
-      "name": "Eingang Online",
-      "automatical": 1,
-      "different_color": 0,
-      "is_workflow": 1,
-      "is_building_authority": 0,
-      "workflow_section": 1,
-      "caluma_task": null,
-      "caluma_question": null
-    }
-  },
-  {
     "model": "core.workflowrole",
     "pk": 1,
     "fields": {
