@@ -86,6 +86,44 @@ def test_instance_list(
 
 
 @pytest.mark.parametrize(
+    "role__name,instance__user", [("Coordination", LazyFixture("user"))]
+)
+@pytest.mark.parametrize(
+    "answer,koor_role,expected_count",
+    [
+        ("mbv-bund-type-pgv-seilbahn", "camac.constants.kt_uri.ROLE_KOOR_BG", 1),
+        ("mbv-bund-type-pgv-eisenbahn", "camac.constants.kt_uri.ROLE_KOOR_BG", 0),
+        ("mbv-bund-type-pgv-eisenbahn", "camac.constants.kt_uri.ROLE_KOOR_BD", 1),
+        ("mbv-bund-type-pgv-seilbahn", "camac.constants.kt_uri.ROLE_KOOR_BD", 0),
+    ],
+)
+def test_instance_list_for_coordination_ur(
+    admin_client,
+    ur_instance,
+    mocker,
+    group,
+    group_factory,
+    answer,
+    answer_factory,
+    koor_role,
+    expected_count,
+):
+    mocker.patch(
+        "camac.constants.kt_uri.FORM_MITBERICHT_BUNDESSTELLE", ur_instance.form.pk
+    )
+    ur_instance.group = group_factory()  # dossier should be created by other group
+    ur_instance.save()
+    answer_factory(document=ur_instance.case.document, value=answer)
+    mocker.patch(koor_role, group.role.pk)
+    url = reverse("instance-list")
+
+    response = admin_client.get(url)
+
+    assert response.status_code == status.HTTP_200_OK
+    assert len(response.json()["data"]) == expected_count
+
+
+@pytest.mark.parametrize(
     "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
 )
 def test_instance_detail(admin_client, instance):
