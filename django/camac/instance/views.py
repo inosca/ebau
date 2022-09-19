@@ -689,16 +689,6 @@ class InstanceView(
                 workflow_date=camac_now,
             )
 
-        # send notification email when configured
-        notification_template = settings.APPLICATION["NOTIFICATIONS"].get("SUBMIT")
-        if notification_template and instance.group.service.notification:
-            send_mail(
-                notification_template,
-                self.get_serializer_context(),
-                recipient_types=["municipality"],
-                instance={"id": pk, "type": "instances"},
-            )
-
         filename = "{0}_{1:%d.%m.%Y}.pdf".format(
             instance.form.description, timezone.now()
         )
@@ -729,6 +719,16 @@ class InstanceView(
             ),
             user=request.caluma_info.context.user,
         )
+
+        # send notification email when configured
+        notification_template = settings.APPLICATION["NOTIFICATIONS"].get("SUBMIT")
+        if notification_template and instance.group.service.notification:
+            send_mail(
+                notification_template,
+                self.get_serializer_context(),
+                recipient_types=["municipality"],
+                instance={"id": pk, "type": "instances"},
+            )
 
         return response.Response(data=serializer.data)
 
