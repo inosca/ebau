@@ -1097,7 +1097,11 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         instance.instance_state = models.InstanceState.objects.get(name="comm")
 
     def _internal_submission_for_coordination(self, instance, group):
-        instance.instance_state = models.InstanceState.objects.get(name="ext")
+        is_federal = group.service.pk == uri_constants.BUNDESSTELLE_SERVICE_ID
+        instance.instance_state = models.InstanceState.objects.get(
+            name="comm" if is_federal else "ext"
+        )
+
         instance.group = group
 
     def _prepare_cantonal_territory_usage(self, instance):
