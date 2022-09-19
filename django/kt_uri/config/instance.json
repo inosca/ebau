@@ -620,6 +620,36 @@
     }
   },
   {
+    "model": "instance.form",
+    "pk": 301,
+    "fields": {
+      "form_state": 1,
+      "name": "Bauverwaltung",
+      "description": "KOOR-ARE-BG;Koordinationsstelle für Baueingaben Amt für Raumentwicklung",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 302,
+    "fields": {
+      "form_state": 1,
+      "name": "Gesuch um Bohrbewilligung zur Wasser- oder Wärmeentnahme",
+      "description": "KOOR-ARE-BG;Koordinationsstelle für Baueingaben Amt für Raumentwicklung",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 303,
+    "fields": {
+      "form_state": 1,
+      "name": "Gesuch um Konzession zur Wasser-oder Wärmeentnahme",
+      "description": "KOOR-ARE-BG;Koordinationsstelle für Baueingaben Amt für Raumentwicklung",
+      "family": null
+    }
+  },
+  {
     "model": "instance.formstate",
     "pk": 1,
     "fields": {
