@@ -29,7 +29,6 @@ from camac.core.models import (
     InstanceLocation,
     InstanceService,
     WorkflowEntry,
-    WorkflowItem,
 )
 from camac.core.serializers import MultilingualField, MultilingualSerializer
 from camac.core.utils import create_history_entry, generate_ebau_nr
@@ -60,7 +59,6 @@ from . import document_merge_service, domain_logic, models, validators
 SUBMIT_DATE_CHAPTER = 100001
 SUBMIT_DATE_QUESTION_ID = 20036
 SUBMIT_DATE_FORMAT = "%Y-%m-%dT%H:%M:%S%z"
-WORKFLOW_ITEM_EINGANG_ONLINE_UR = 12000000
 COMPLETE_PRELIMINARY_CLARIFICATION_SLUGS_BE = [
     "vorabklaerung-vollstaendig",
     "vorabklaerung-vollstaendig-v2",
@@ -1024,12 +1022,10 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                 defaults={"answer": submit_date},
             )
         elif settings.APPLICATION.get("SET_SUBMIT_DATE_CAMAC_WORKFLOW"):
-            workflow_item = WorkflowItem.objects.get(pk=WORKFLOW_ITEM_EINGANG_ONLINE_UR)
-
             WorkflowEntry.objects.create(
                 workflow_date=submit_date,
                 instance=self.instance,
-                workflow_item=workflow_item,
+                workflow_item_id=uri_constants.WORKFLOW_ITEM_DOSSIER_ERFASST,
                 group=1,
             )
 
