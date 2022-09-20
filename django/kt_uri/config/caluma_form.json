@@ -9537,7 +9537,7 @@
       "modified_by_group": null,
       "form": "personalien",
       "question": "applicant",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -9553,6 +9553,21 @@
       "form": "personalien",
       "question": "form-type",
       "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien.hinweis-benuetzung-kantonsgebiet",
+    "fields": {
+      "created_at": "2022-09-20T10:10:06.996Z",
+      "modified_at": "2022-09-20T10:10:06.996Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "personalien",
+      "question": "hinweis-benuetzung-kantonsgebiet",
+      "sort": 9
     }
   },
   {
@@ -9642,7 +9657,7 @@
       "modified_by_group": null,
       "form": "personalien",
       "question": "personendaten",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -40421,6 +40436,37 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"**BITTE BEACHTEN** Die Voraussetzungen f\\u00fcr die Befreiung von der Baubewilligungspflicht sind voraussichtlich nicht erf\\u00fcllt. Es ist Ihnen freigestellt die geplante Solaranlage trotzdem vorerst der Gemeinde mit dem Formular \\\"Solaranlage\\\" zu melden. Wir m\\u00f6chten Sie darauf hinweisen, dass ein allf\\u00e4lliger Verfahrenswechsel mit einem zus\\u00e4tzlichen Zeitverlust verbunden ist.\\n\\nUm einen unn\\u00f6tigen Zeitverlust zu vermeiden, empfehlen wir Ihnen, das Formular \\\"Baugesuch\\\" zu verwenden und ein Baugesuch einzureichen.\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-benuetzung-kantonsgebiet",
+    "fields": {
+      "created_at": "2022-09-20T10:10:06.933Z",
+      "modified_at": "2022-09-20T10:11:15.048Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis Ben\\u00fctzung Kantonsgebiet\", \"fr\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(form == \"cantonal-territory-usage\")",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"**Hinweis:** Der Kanton Uri als Grundeigent\\u00fcmer muss nicht gesondert erfasst werden.\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
