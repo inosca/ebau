@@ -14,19 +14,13 @@ from rest_framework.exceptions import ValidationError
 from camac.caluma.api import CalumaApi
 from camac.caluma.extensions.data_sources import Municipalities
 from camac.constants import kt_uri as ur_constants
-from camac.core.models import (
-    InstanceLocation,
-    InstanceService,
-    WorkflowEntry,
-    WorkflowItem,
-)
+from camac.core.models import InstanceLocation, InstanceService
 from camac.instance.models import Instance, InstanceGroup
 from camac.user.permissions import permission_aware
 
 from . import models
 
 SUBMIT_DATE_FORMAT = "%Y-%m-%dT%H:%M:%S%z"
-WORKFLOW_ITEM_DOSSIER_IN_UREC_ERFASST_UR = 12
 
 caluma_api = CalumaApi()
 
@@ -194,26 +188,6 @@ class CreateInstanceLogic:
             )
 
         return identifier
-
-    @staticmethod
-    def set_creation_date(instance, validated_data):
-        perms = settings.APPLICATION.get("ROLE_PERMISSIONS", {})
-        if perms.get(validated_data["group"].role.name) in [
-            "coordination",
-            "municipality",
-        ]:
-            creation_date = timezone.now().strftime(SUBMIT_DATE_FORMAT)
-            workflow_item = WorkflowItem.objects.get(
-                pk=WORKFLOW_ITEM_DOSSIER_IN_UREC_ERFASST_UR
-            )
-
-            WorkflowEntry.objects.create(
-                workflow_date=creation_date,
-                instance=instance,
-                workflow_item=workflow_item,
-                group=1,
-            )
-            CalumaApi().set_submit_date(instance.pk, creation_date)
 
     @staticmethod
     def change_instance_state_for_copy(
@@ -523,10 +497,6 @@ class CreateInstanceLogic:
 
         instance.case = case
         instance.save()
-
-        # Reuse the SET_SUBMIT_DATE_CAMAC_WORKFLOW flag because since this defines the workflow date usage
-        if settings.APPLICATION.get("SET_SUBMIT_DATE_CAMAC_WORKFLOW") and group:
-            CreateInstanceLogic.set_creation_date(instance, data)
 
         if start_caluma:
             CreateInstanceLogic.initialize_caluma(
