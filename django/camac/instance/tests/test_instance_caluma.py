@@ -21,13 +21,11 @@ from camac.core.models import Chapter, Question, QuestionType
 from camac.ech0211 import event_handlers
 from camac.ech0211.data_preparation import DocumentParser
 from camac.ech0211.tests.caluma_document_data import baugesuch_data
-from camac.instance.domain_logic import WORKFLOW_ITEM_DOSSIER_IN_UREC_ERFASST_UR
 from camac.instance.models import Instance
 from camac.instance.serializers import (
     SUBMIT_DATE_CHAPTER,
     SUBMIT_DATE_FORMAT,
     SUBMIT_DATE_QUESTION_ID,
-    WORKFLOW_ITEM_EINGANG_ONLINE_UR,
     CalumaInstanceSerializer,
     CalumaInstanceSubmitSerializer,
 )
@@ -282,8 +280,7 @@ def test_create_instance_caluma_ur(  # noqa: C901
 
     authority_factory(name="Foo")
 
-    workflow_item_factory(workflow_item_id=WORKFLOW_ITEM_EINGANG_ONLINE_UR)
-    workflow_item_factory(workflow_item_id=WORKFLOW_ITEM_DOSSIER_IN_UREC_ERFASST_UR)
+    workflow_item_factory(workflow_item_id=ur_constants.WORKFLOW_ITEM_DOSSIER_ERFASST)
 
     if archive:
         application_settings["ARCHIVE_FORMS"] = [form.pk]
@@ -670,7 +667,7 @@ def test_instance_submit_ur(
 
     settings.APPLICATION_NAME = "kt_uri"
 
-    workflow_item_factory(workflow_item_id=WORKFLOW_ITEM_EINGANG_ONLINE_UR)
+    workflow_item_factory(workflow_item_id=ur_constants.WORKFLOW_ITEM_DOSSIER_ERFASST)
 
     location = location_factory()
 
@@ -807,7 +804,7 @@ def test_instance_submit_cantonal_territory_usage_ur(
     application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = True
     application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
 
-    workflow_item_factory(workflow_item_id=WORKFLOW_ITEM_EINGANG_ONLINE_UR)
+    workflow_item_factory(workflow_item_id=ur_constants.WORKFLOW_ITEM_DOSSIER_ERFASST)
 
     location = location_factory()
 
@@ -889,7 +886,7 @@ def test_instance_submit_message_building_services_ur(
     application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = True
     application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
 
-    workflow_item_factory(workflow_item_id=WORKFLOW_ITEM_EINGANG_ONLINE_UR)
+    workflow_item_factory(workflow_item_id=ur_constants.WORKFLOW_ITEM_DOSSIER_ERFASST)
 
     ur_instance.case.document.answers.create(
         value=str(authority_location.location.communal_federal_number),
