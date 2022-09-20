@@ -12,6 +12,17 @@ export default {
         "street",
         "instanceState",
       ],
+      federal: [
+        "instanceId",
+        "dossierNumber",
+        "form",
+        "municipality",
+        "user",
+        "applicant",
+        "intent",
+        "street",
+        "instanceState",
+      ],
       coordination: [
         "instanceId",
         "dossierNumber",
