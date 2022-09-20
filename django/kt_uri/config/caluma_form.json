@@ -26904,7 +26904,7 @@
     "pk": "veranstaltung-art-andere",
     "fields": {
       "created_at": "2020-10-21T12:56:14.633Z",
-      "modified_at": "2021-10-06T09:31:54.824Z",
+      "modified_at": "2022-09-20T09:57:16.385Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -26920,12 +26920,12 @@
     "pk": "veranstaltung-art-baustelleninstallation",
     "fields": {
       "created_at": "2020-10-21T12:56:14.535Z",
-      "modified_at": "2021-10-06T09:31:54.646Z",
+      "modified_at": "2022-09-20T09:57:16.293Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
-      "label": "{\"de\": \"Tempor\\u00e4re Baustelleninstallation (z.B. Bauger\\u00fcst, Mulden, Abschrankungen, Materialdepot)\", \"fr\": null}",
+      "label": "{\"de\": \"Befristete Installation (z.B. Bauger\\u00fcst, Mulden, Abschrankungen, Materialdepot)\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -26936,7 +26936,7 @@
     "pk": "veranstaltung-art-foto-und-filmaufnahmen",
     "fields": {
       "created_at": "2021-10-06T09:25:38.286Z",
-      "modified_at": "2021-10-06T09:31:54.921Z",
+      "modified_at": "2022-09-20T09:57:16.421Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -26952,7 +26952,7 @@
     "pk": "veranstaltung-art-ideelle-oder-politische-aktion",
     "fields": {
       "created_at": "2021-10-06T09:26:33.567Z",
-      "modified_at": "2021-10-06T09:31:54.894Z",
+      "modified_at": "2022-09-20T09:57:16.262Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -26968,7 +26968,7 @@
     "pk": "veranstaltung-art-parkieren",
     "fields": {
       "created_at": "2020-10-21T12:56:14.501Z",
-      "modified_at": "2021-10-06T09:31:54.503Z",
+      "modified_at": "2022-09-20T09:57:16.285Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -26984,7 +26984,7 @@
     "pk": "veranstaltung-art-sportanlass",
     "fields": {
       "created_at": "2020-10-21T12:56:14.589Z",
-      "modified_at": "2021-10-06T09:31:54.802Z",
+      "modified_at": "2022-09-20T09:57:16.406Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -27000,7 +27000,7 @@
     "pk": "veranstaltung-art-standaktion",
     "fields": {
       "created_at": "2020-10-21T12:56:14.608Z",
-      "modified_at": "2021-10-06T09:31:54.614Z",
+      "modified_at": "2022-09-20T09:57:16.278Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -27016,7 +27016,7 @@
     "pk": "veranstaltung-art-strassenverkauf",
     "fields": {
       "created_at": "2020-10-21T12:56:14.596Z",
-      "modified_at": "2021-10-06T09:31:54.652Z",
+      "modified_at": "2022-09-20T09:57:16.420Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -27032,7 +27032,7 @@
     "pk": "veranstaltung-art-trottoirparkieren",
     "fields": {
       "created_at": "2020-10-21T12:56:14.518Z",
-      "modified_at": "2021-10-06T09:31:54.765Z",
+      "modified_at": "2022-09-20T09:57:16.410Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -27048,7 +27048,7 @@
     "pk": "veranstaltung-art-umzug",
     "fields": {
       "created_at": "2020-10-21T12:56:14.507Z",
-      "modified_at": "2021-10-06T09:31:54.570Z",
+      "modified_at": "2022-09-20T09:57:16.277Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -27061,10 +27061,26 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "veranstaltung-art-urnersee",
+    "fields": {
+      "created_at": "2022-09-20T09:57:07.040Z",
+      "modified_at": "2022-09-20T09:57:16.288Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ben\\u00fctzung Urnersee\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "veranstaltung-art-zwischenlagern-von-material",
     "fields": {
       "created_at": "2020-10-21T12:56:14.628Z",
-      "modified_at": "2021-10-06T09:31:54.633Z",
+      "modified_at": "2022-09-20T09:57:16.416Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -51012,7 +51028,7 @@
     "pk": "veranstaltung-art",
     "fields": {
       "created_at": "2020-10-21T12:56:14.806Z",
-      "modified_at": "2021-10-06T09:31:55.132Z",
+      "modified_at": "2022-09-20T09:57:16.495Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -51024,7 +51040,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -65435,8 +65451,8 @@
     "model": "caluma_form.questionoption",
     "pk": "veranstaltung-art.veranstaltung-art-andere",
     "fields": {
-      "created_at": "2021-10-06T09:31:55.155Z",
-      "modified_at": "2021-10-06T09:31:55.155Z",
+      "created_at": "2022-09-20T09:57:16.502Z",
+      "modified_at": "2022-09-20T09:57:16.502Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -65450,23 +65466,23 @@
     "model": "caluma_form.questionoption",
     "pk": "veranstaltung-art.veranstaltung-art-baustelleninstallation",
     "fields": {
-      "created_at": "2021-10-06T09:31:55.184Z",
-      "modified_at": "2021-10-06T09:31:55.184Z",
+      "created_at": "2022-09-20T09:57:16.513Z",
+      "modified_at": "2022-09-20T09:57:16.513Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "veranstaltung-art",
       "option": "veranstaltung-art-baustelleninstallation",
-      "sort": 10
+      "sort": 11
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "veranstaltung-art.veranstaltung-art-foto-und-filmaufnahmen",
     "fields": {
-      "created_at": "2021-10-06T09:31:55.149Z",
-      "modified_at": "2021-10-06T09:31:55.149Z",
+      "created_at": "2022-09-20T09:57:16.503Z",
+      "modified_at": "2022-09-20T09:57:16.503Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -65480,38 +65496,38 @@
     "model": "caluma_form.questionoption",
     "pk": "veranstaltung-art.veranstaltung-art-ideelle-oder-politische-aktion",
     "fields": {
-      "created_at": "2021-10-06T09:31:55.143Z",
-      "modified_at": "2021-10-06T09:31:55.143Z",
+      "created_at": "2022-09-20T09:57:16.510Z",
+      "modified_at": "2022-09-20T09:57:16.510Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "veranstaltung-art",
       "option": "veranstaltung-art-ideelle-oder-politische-aktion",
-      "sort": 8
+      "sort": 9
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "veranstaltung-art.veranstaltung-art-parkieren",
     "fields": {
-      "created_at": "2021-10-06T09:31:55.202Z",
-      "modified_at": "2021-10-06T09:31:55.202Z",
+      "created_at": "2022-09-20T09:57:16.512Z",
+      "modified_at": "2022-09-20T09:57:16.512Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "veranstaltung-art",
       "option": "veranstaltung-art-parkieren",
-      "sort": 9
+      "sort": 10
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "veranstaltung-art.veranstaltung-art-sportanlass",
     "fields": {
-      "created_at": "2021-10-06T09:31:55.167Z",
-      "modified_at": "2021-10-06T09:31:55.167Z",
+      "created_at": "2022-09-20T09:57:16.505Z",
+      "modified_at": "2022-09-20T09:57:16.505Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -65525,23 +65541,23 @@
     "model": "caluma_form.questionoption",
     "pk": "veranstaltung-art.veranstaltung-art-standaktion",
     "fields": {
-      "created_at": "2021-10-06T09:31:55.173Z",
-      "modified_at": "2021-10-06T09:31:55.173Z",
+      "created_at": "2022-09-20T09:57:16.508Z",
+      "modified_at": "2022-09-20T09:57:16.508Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "veranstaltung-art",
       "option": "veranstaltung-art-standaktion",
-      "sort": 7
+      "sort": 8
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "veranstaltung-art.veranstaltung-art-strassenverkauf",
     "fields": {
-      "created_at": "2021-10-06T09:31:55.178Z",
-      "modified_at": "2021-10-06T09:31:55.178Z",
+      "created_at": "2022-09-20T09:57:16.499Z",
+      "modified_at": "2022-09-20T09:57:16.499Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -65555,8 +65571,8 @@
     "model": "caluma_form.questionoption",
     "pk": "veranstaltung-art.veranstaltung-art-trottoirparkieren",
     "fields": {
-      "created_at": "2021-10-06T09:31:55.196Z",
-      "modified_at": "2021-10-06T09:31:55.196Z",
+      "created_at": "2022-09-20T09:57:16.501Z",
+      "modified_at": "2022-09-20T09:57:16.501Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -65570,23 +65586,38 @@
     "model": "caluma_form.questionoption",
     "pk": "veranstaltung-art.veranstaltung-art-umzug",
     "fields": {
-      "created_at": "2021-10-06T09:31:55.190Z",
-      "modified_at": "2021-10-06T09:31:55.190Z",
+      "created_at": "2022-09-20T09:57:16.514Z",
+      "modified_at": "2022-09-20T09:57:16.515Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "veranstaltung-art",
       "option": "veranstaltung-art-umzug",
-      "sort": 11
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "veranstaltung-art.veranstaltung-art-urnersee",
+    "fields": {
+      "created_at": "2022-09-20T09:57:16.506Z",
+      "modified_at": "2022-09-20T09:57:16.506Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "veranstaltung-art",
+      "option": "veranstaltung-art-urnersee",
+      "sort": 7
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "veranstaltung-art.veranstaltung-art-zwischenlagern-von-material",
     "fields": {
-      "created_at": "2021-10-06T09:31:55.162Z",
-      "modified_at": "2021-10-06T09:31:55.162Z",
+      "created_at": "2022-09-20T09:57:16.498Z",
+      "modified_at": "2022-09-20T09:57:16.498Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
