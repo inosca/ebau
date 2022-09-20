@@ -45985,14 +45985,14 @@
     "model": "core.remberlist",
     "pk": 309,
     "fields": {
-      "instance_states": "23,34"
+      "instance_states": "23"
     }
   },
   {
     "model": "core.remberlist",
     "pk": 310,
     "fields": {
-      "instance_states": "24,25,26"
+      "instance_states": "24,25,34,26"
     }
   },
   {
@@ -47747,7 +47747,7 @@
       "available_resource": "emberlist",
       "name": "Erledigte Dossiers",
       "description": "Erledigte Dossiers für die Kommissionsmitglieder",
-      "template": "",
+      "template": null,
       "class_field": "show_list_count",
       "hidden": 0,
       "sort": 2
