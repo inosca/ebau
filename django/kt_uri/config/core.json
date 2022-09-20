@@ -1433,6 +1433,20 @@
   },
   {
     "model": "core.aphp",
+    "pk": 2000006,
+    "fields": {
+      "php_class": "SetCircService"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 2000008,
+    "fields": {
+      "php_class": "EndCirculation"
+    }
+  },
+  {
+    "model": "core.aphp",
     "pk": 12000011,
     "fields": {
       "php_class": "CopyInstance"
@@ -1968,20 +1982,6 @@
       "error_message": "",
       "execute_always": 0,
       "sort": 2
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 507,
-    "fields": {
-      "available_action": "save",
-      "button": 324,
-      "name": "Speichern",
-      "description": "",
-      "success_message": "Zirkulation erfolgreich gestartet.",
-      "error_message": "Zirkulation konnte nicht gestartet werden!",
-      "execute_always": 0,
-      "sort": 0
     }
   },
   {
@@ -5183,6 +5183,48 @@
       "available_action": "php",
       "button": 826,
       "name": "SetCircService",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 2000006,
+    "fields": {
+      "available_action": "php",
+      "button": 934,
+      "name": "Service setzen",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 2000007,
+    "fields": {
+      "available_action": "save",
+      "button": 2000000,
+      "name": "Speichern",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 2000008,
+    "fields": {
+      "available_action": "php",
+      "button": 2000000,
+      "name": "RUN auf OK setzen",
       "description": null,
       "success_message": null,
       "error_message": null,
@@ -12404,15 +12446,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 68,
-    "fields": {
-      "button": 324,
-      "role": 4,
-      "instance_state": 23
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 69,
     "fields": {
       "button": 325,
@@ -17698,18 +17731,6 @@
   },
   {
     "model": "core.button",
-    "pk": 324,
-    "fields": {
-      "instance_resource": 387,
-      "name": "Zirkulation starten",
-      "description": "",
-      "class_field": "",
-      "hidden": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.button",
     "pk": 325,
     "fields": {
       "instance_resource": 389,
@@ -18941,7 +18962,7 @@
       "description": null,
       "class_field": "reopen_button",
       "hidden": 0,
-      "sort": 4
+      "sort": 3
     }
   },
   {
@@ -19038,6 +19059,18 @@
       "class_field": " in_form_group:141",
       "hidden": 0,
       "sort": 6
+    }
+  },
+  {
+    "model": "core.button",
+    "pk": 2000000,
+    "fields": {
+      "instance_resource": 763,
+      "name": "Zirkulation abschliessen",
+      "description": null,
+      "class_field": "circ_end",
+      "hidden": 0,
+      "sort": 4
     }
   },
   {
@@ -22612,6 +22645,14 @@
     "fields": {
       "form_group": 250,
       "form": 41
+    }
+  },
+  {
+    "model": "core.formgroupform",
+    "pk": 2000001,
+    "fields": {
+      "form_group": 241,
+      "form": 292
     }
   },
   {
@@ -45944,14 +45985,14 @@
     "model": "core.remberlist",
     "pk": 309,
     "fields": {
-      "instance_states": "23,34"
+      "instance_states": "23"
     }
   },
   {
     "model": "core.remberlist",
     "pk": 310,
     "fields": {
-      "instance_states": "24,25,26"
+      "instance_states": "24,25,34,26"
     }
   },
   {
@@ -47706,7 +47747,7 @@
       "available_resource": "emberlist",
       "name": "Erledigte Dossiers",
       "description": "Erledigte Dossiers für die Kommissionsmitglieder",
-      "template": "",
+      "template": null,
       "class_field": "show_list_count",
       "hidden": 0,
       "sort": 2
