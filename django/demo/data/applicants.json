@@ -31,5 +31,27 @@
       "created": "2021-03-31T12:32:53.893Z",
       "email": "email@example.ch"
     }
+  },
+  {
+    "model": "applicants.applicant",
+    "pk": 5,
+    "fields": {
+      "instance": 5,
+      "user": 8,
+      "invitee": 8,
+      "created": "2022-09-19T07:21:42.266Z",
+      "email": "email@example.ch"
+    }
+  },
+  {
+    "model": "applicants.applicant",
+    "pk": 6,
+    "fields": {
+      "instance": 2,
+      "user": 8,
+      "invitee": null,
+      "created": "2022-09-19T08:09:35.372Z",
+      "email": "christian@zosel.ch"
+    }
   }
 ]
