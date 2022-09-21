@@ -145,6 +145,7 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
       const answer =
         getAnswer(this.raw.document, "solaranlage-art-des-gesuchs") ||
         getAnswer(this.raw.document, "gebaeudetechnik-art-des-gesuchs") ||
+        getAnswer(this.raw.document, "reklame-art-des-gesuchs") ||
         getAnswer(this.raw.document, "form-type");
 
       label = answer?.node.question.options.edges.find(
@@ -280,6 +281,7 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
               "mbv-bund-type",
               "solaranlage-art-des-gesuchs",
               "gebaeudetechnik-art-des-gesuchs",
+              "reklame-art-des-gesuchs",
             ]
           }
         ]
