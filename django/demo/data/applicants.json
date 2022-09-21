@@ -1,34 +1,12 @@
 [
   {
     "model": "applicants.applicant",
-    "pk": 1,
+    "pk": 4,
     "fields": {
-      "instance": 1,
+      "instance": 4,
       "user": 8,
       "invitee": 8,
-      "created": "2020-03-06T11:10:26.112Z",
-      "email": "email@example.ch"
-    }
-  },
-  {
-    "model": "applicants.applicant",
-    "pk": 2,
-    "fields": {
-      "instance": 2,
-      "user": 8,
-      "invitee": 8,
-      "created": "2020-03-06T11:13:35.909Z",
-      "email": "email@example.ch"
-    }
-  },
-  {
-    "model": "applicants.applicant",
-    "pk": 3,
-    "fields": {
-      "instance": 3,
-      "user": 8,
-      "invitee": 8,
-      "created": "2021-03-31T12:32:53.893Z",
+      "created": "2022-09-16T22:11:16.474Z",
       "email": "email@example.ch"
     }
   },
@@ -39,7 +17,7 @@
       "instance": 5,
       "user": 8,
       "invitee": 8,
-      "created": "2022-09-19T07:21:42.266Z",
+      "created": "2022-09-17T07:30:20.746Z",
       "email": "email@example.ch"
     }
   },
@@ -47,11 +25,22 @@
     "model": "applicants.applicant",
     "pk": 6,
     "fields": {
-      "instance": 2,
+      "instance": 6,
       "user": 8,
-      "invitee": null,
-      "created": "2022-09-19T08:09:35.372Z",
-      "email": "christian@zosel.ch"
+      "invitee": 8,
+      "created": "2022-09-17T07:39:32.060Z",
+      "email": "email@example.ch"
+    }
+  },
+  {
+    "model": "applicants.applicant",
+    "pk": 7,
+    "fields": {
+      "instance": 7,
+      "user": 8,
+      "invitee": 8,
+      "created": "2022-09-17T08:04:41.969Z",
+      "email": "email@example.ch"
     }
   }
 ]

@@ -1,60 +1,5 @@
 [
   {
-    "model": "core.answer",
-    "pk": 150000,
-    "fields": {
-      "instance": 2,
-      "question": 20036,
-      "chapter": 100001,
-      "item": 1,
-      "answer": "2020-03-06T11:14:33+0000"
-    }
-  },
-  {
-    "model": "core.answer",
-    "pk": 2000000,
-    "fields": {
-      "instance": 4,
-      "question": 20036,
-      "chapter": 100001,
-      "item": 1,
-      "answer": "2022-09-19T06:45:59+0000"
-    }
-  },
-  {
-    "model": "core.answer",
-    "pk": 17000003,
-    "fields": {
-      "instance": 3,
-      "question": 20036,
-      "chapter": 100001,
-      "item": 1,
-      "answer": "2021-03-31T13:17:08+0000"
-    }
-  },
-  {
-    "model": "core.answer",
-    "pk": 17000004,
-    "fields": {
-      "instance": 3,
-      "question": 20034,
-      "chapter": 20000,
-      "item": 1,
-      "answer": "no"
-    }
-  },
-  {
-    "model": "core.answer",
-    "pk": 17000005,
-    "fields": {
-      "instance": 3,
-      "question": 20035,
-      "chapter": 20000,
-      "item": 1,
-      "answer": "2021-1"
-    }
-  },
-  {
     "model": "core.answerlog",
     "pk": 17000000,
     "fields": {
@@ -73,107 +18,13 @@
     }
   },
   {
-    "model": "core.proposalactivation",
-    "pk": 17000004,
-    "fields": {
-      "instance": 3,
-      "circulation_type": 20000,
-      "service": 20049,
-      "circulation_state": 1,
-      "deadline_date": "2021-03-31T00:00:00Z",
-      "reason": ""
-    }
-  },
-  {
-    "model": "core.proposalactivation",
-    "pk": 17000005,
-    "fields": {
-      "instance": 3,
-      "circulation_type": 20000,
-      "service": 20055,
-      "circulation_state": 1,
-      "deadline_date": "2021-03-31T00:00:00Z",
-      "reason": ""
-    }
-  },
-  {
     "model": "core.instanceservice",
-    "pk": 150000,
-    "fields": {
-      "instance": 2,
-      "service": 2,
-      "active": 1,
-      "activation_date": null
-    }
-  },
-  {
-    "model": "core.instanceservice",
-    "pk": 2000000,
-    "fields": {
-      "instance": 4,
-      "service": 2,
-      "active": 1,
-      "activation_date": null
-    }
-  },
-  {
-    "model": "core.instanceservice",
-    "pk": 17000003,
-    "fields": {
-      "instance": 3,
-      "service": 2,
-      "active": 1,
-      "activation_date": null
-    }
-  },
-  {
-    "model": "core.instanceservice",
-    "pk": 17000004,
-    "fields": {
-      "instance": 3,
-      "service": 3,
-      "active": 1,
-      "activation_date": null
-    }
-  },
-  {
-    "model": "core.billingv2entry",
-    "pk": 2000000,
-    "fields": {
-      "instance": 4,
-      "group": 20003,
-      "user": 8,
-      "text": "Testgebühr",
-      "date_added": "2022-09-19",
-      "tax_mode": "exempt",
-      "calculation": "flat",
-      "tax_rate": "0.00",
-      "hours": "0.00",
-      "hourly_rate": "0.00",
-      "percentage": "0.00",
-      "total_cost": "50.00",
-      "final_rate": "50.00",
-      "organization": null
-    }
-  },
-  {
-    "model": "core.billingv2entry",
     "pk": 2000001,
     "fields": {
-      "instance": 4,
-      "group": 20003,
-      "user": 8,
-      "text": "Zweite Testgebühr",
-      "date_added": "2022-09-19",
-      "tax_mode": "exempt",
-      "calculation": "hourly",
-      "tax_rate": "0.00",
-      "hours": "5.00",
-      "hourly_rate": "150.00",
-      "percentage": "0.00",
-      "total_cost": "0.00",
-      "final_rate": "750.00",
-      "organization": null
+      "instance": 7,
+      "service": 2,
+      "active": 1,
+      "activation_date": null
     }
   }
 ]

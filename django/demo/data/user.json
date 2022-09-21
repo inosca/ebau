@@ -10,7 +10,7 @@
       "email": "",
       "phone": null,
       "disabled": 0,
-      "language": "en",
+      "language": "de",
       "last_login": "2018-02-23T14:24:06Z",
       "address": null,
       "city": null,
@@ -49,7 +49,7 @@
       "name": "Er",
       "surname": "Us",
       "email": "email@example.ch",
-      "phone": "",
+      "phone": null,
       "disabled": 0,
       "language": "de",
       "last_login": "2018-02-23T14:27:27Z",
@@ -212,15 +212,6 @@
   },
   {
     "model": "user.usergroup",
-    "pk": 20001,
-    "fields": {
-      "user": 8,
-      "group": 6,
-      "default_group": 0
-    }
-  },
-  {
-    "model": "user.usergroup",
     "pk": 20099,
     "fields": {
       "user": 8,
@@ -230,37 +221,10 @@
   },
   {
     "model": "user.usergroup",
-    "pk": 20103,
-    "fields": {
-      "user": 8,
-      "group": 20004,
-      "default_group": 0
-    }
-  },
-  {
-    "model": "user.usergroup",
-    "pk": 20104,
-    "fields": {
-      "user": 8,
-      "group": 20069,
-      "default_group": 0
-    }
-  },
-  {
-    "model": "user.usergroup",
     "pk": 20108,
     "fields": {
       "user": 8,
       "group": 20003,
-      "default_group": 1
-    }
-  },
-  {
-    "model": "user.usergroup",
-    "pk": 20109,
-    "fields": {
-      "user": 8,
-      "group": 10000,
       "default_group": 0
     }
   },
@@ -270,7 +234,7 @@
     "fields": {
       "user": 8,
       "group": 1,
-      "default_group": 0
+      "default_group": 1
     }
   },
   {
@@ -284,19 +248,10 @@
   },
   {
     "model": "user.usergroup",
-    "pk": 20122,
-    "fields": {
-      "user": 10,
-      "group": 10000,
-      "default_group": 1
-    }
-  },
-  {
-    "model": "user.usergroup",
-    "pk": 20124,
+    "pk": 20131,
     "fields": {
       "user": 8,
-      "group": 22507,
+      "group": 10000,
       "default_group": 0
     }
   },
@@ -374,13 +329,13 @@
     "model": "user.usergrouplog",
     "pk": 6,
     "fields": {
-      "modification_date": "2022-09-19T06:50:09Z",
+      "modification_date": "2022-09-16T16:09:25Z",
       "user_id": 8,
       "action": "u",
-      "data": "{\"DEFAULT_GROUP\":1}",
+      "data": "{\"DEFAULT_GROUP\":0}",
       "id1": 8,
       "field1": "USER_ID",
-      "id2": 1,
+      "id2": 20003,
       "field2": "GROUP_ID"
     }
   },
@@ -388,13 +343,13 @@
     "model": "user.usergrouplog",
     "pk": 7,
     "fields": {
-      "modification_date": "2022-09-19T06:50:09Z",
+      "modification_date": "2022-09-16T16:09:25Z",
       "user_id": 8,
       "action": "u",
-      "data": "{\"DEFAULT_GROUP\":0}",
+      "data": "{\"DEFAULT_GROUP\":1}",
       "id1": 8,
       "field1": "USER_ID",
-      "id2": 20003,
+      "id2": 1,
       "field2": "GROUP_ID"
     }
   },
@@ -402,13 +357,13 @@
     "model": "user.usergrouplog",
     "pk": 8,
     "fields": {
-      "modification_date": "2022-09-19T06:50:35Z",
-      "user_id": 8,
-      "action": "d",
-      "data": "{\"ID\":20106,\"DEFAULT_GROUP\":0}",
+      "modification_date": "2022-09-16T21:52:00Z",
+      "user_id": 1,
+      "action": "i",
+      "data": "{\"USER_ID\":\"8\",\"GROUP_ID\":23273,\"DEFAULT_GROUP\":0}",
       "id1": 8,
       "field1": "USER_ID",
-      "id2": 20009,
+      "id2": 23273,
       "field2": "GROUP_ID"
     }
   },
@@ -416,13 +371,13 @@
     "model": "user.usergrouplog",
     "pk": 9,
     "fields": {
-      "modification_date": "2022-09-19T06:50:35Z",
-      "user_id": 8,
+      "modification_date": "2022-09-16T21:52:54Z",
+      "user_id": 1,
       "action": "d",
-      "data": "{\"ID\":20129,\"DEFAULT_GROUP\":0}",
+      "data": "{\"ID\":20130,\"DEFAULT_GROUP\":0}",
       "id1": 8,
       "field1": "USER_ID",
-      "id2": 20365,
+      "id2": 23273,
       "field2": "GROUP_ID"
     }
   },
@@ -430,671 +385,13 @@
     "model": "user.usergrouplog",
     "pk": 10,
     "fields": {
-      "modification_date": "2022-09-19T06:50:35Z",
-      "user_id": 8,
-      "action": "d",
-      "data": "{\"ID\":20126,\"DEFAULT_GROUP\":0}",
+      "modification_date": "2022-09-16T21:53:34Z",
+      "user_id": 1,
+      "action": "i",
+      "data": "{\"USER_ID\":\"8\",\"GROUP_ID\":10000,\"DEFAULT_GROUP\":0}",
       "id1": 8,
       "field1": "USER_ID",
-      "id2": 22509,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 11,
-    "fields": {
-      "modification_date": "2022-09-19T06:50:35Z",
-      "user_id": 8,
-      "action": "d",
-      "data": "{\"ID\":20128,\"DEFAULT_GROUP\":0}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 22538,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 12,
-    "fields": {
-      "modification_date": "2022-09-19T06:51:07Z",
-      "user_id": 8,
-      "action": "d",
-      "data": "{\"ID\":20102,\"DEFAULT_GROUP\":0}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 20005,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 13,
-    "fields": {
-      "modification_date": "2022-09-19T06:51:07Z",
-      "user_id": 8,
-      "action": "d",
-      "data": "{\"ID\":20107,\"DEFAULT_GROUP\":0}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 20006,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 14,
-    "fields": {
-      "modification_date": "2022-09-19T06:51:18Z",
-      "user_id": 8,
-      "action": "d",
-      "data": "{\"ID\":20100,\"DEFAULT_GROUP\":0}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 20098,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 15,
-    "fields": {
-      "modification_date": "2022-09-19T06:51:18Z",
-      "user_id": 8,
-      "action": "d",
-      "data": "{\"ID\":20101,\"DEFAULT_GROUP\":0}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 20097,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 16,
-    "fields": {
-      "modification_date": "2022-09-19T06:51:31Z",
-      "user_id": 8,
-      "action": "d",
-      "data": "{\"ID\":20127,\"DEFAULT_GROUP\":0}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 22529,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 17,
-    "fields": {
-      "modification_date": "2022-09-19T06:51:41Z",
-      "user_id": 8,
-      "action": "d",
-      "data": "{\"ID\":20125,\"DEFAULT_GROUP\":0}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 22508,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 18,
-    "fields": {
-      "modification_date": "2022-09-19T06:52:06Z",
-      "user_id": 8,
-      "action": "u",
-      "data": "{\"DEFAULT_GROUP\":0}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 1,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 19,
-    "fields": {
-      "modification_date": "2022-09-19T06:52:06Z",
-      "user_id": 8,
-      "action": "u",
-      "data": "{\"DEFAULT_GROUP\":1}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 22507,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 20,
-    "fields": {
-      "modification_date": "2022-09-19T06:54:45Z",
-      "user_id": 8,
-      "action": "u",
-      "data": "{\"DEFAULT_GROUP\":1}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 20003,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 21,
-    "fields": {
-      "modification_date": "2022-09-19T06:54:45Z",
-      "user_id": 8,
-      "action": "u",
-      "data": "{\"DEFAULT_GROUP\":0}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 22507,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 22,
-    "fields": {
-      "modification_date": "2022-09-19T07:32:06Z",
-      "user_id": 8,
-      "action": "u",
-      "data": "{\"DEFAULT_GROUP\":0}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 20003,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 23,
-    "fields": {
-      "modification_date": "2022-09-19T07:32:06Z",
-      "user_id": 8,
-      "action": "u",
-      "data": "{\"DEFAULT_GROUP\":1}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 20096,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 24,
-    "fields": {
-      "modification_date": "2022-09-19T07:34:13Z",
-      "user_id": 8,
-      "action": "u",
-      "data": "{\"DEFAULT_GROUP\":1}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 20003,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 25,
-    "fields": {
-      "modification_date": "2022-09-19T07:34:13Z",
-      "user_id": 8,
-      "action": "u",
-      "data": "{\"DEFAULT_GROUP\":0}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 20096,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 26,
-    "fields": {
-      "modification_date": "2022-09-19T07:38:48Z",
-      "user_id": 8,
-      "action": "u",
-      "data": "{\"DEFAULT_GROUP\":0}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 20003,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 27,
-    "fields": {
-      "modification_date": "2022-09-19T07:38:48Z",
-      "user_id": 8,
-      "action": "u",
-      "data": "{\"DEFAULT_GROUP\":1}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 22507,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 28,
-    "fields": {
-      "modification_date": "2022-09-19T07:41:44Z",
-      "user_id": 8,
-      "action": "u",
-      "data": "{\"DEFAULT_GROUP\":1}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 20003,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 29,
-    "fields": {
-      "modification_date": "2022-09-19T07:41:44Z",
-      "user_id": 8,
-      "action": "u",
-      "data": "{\"DEFAULT_GROUP\":0}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 22507,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 30,
-    "fields": {
-      "modification_date": "2022-09-19T07:43:23Z",
-      "user_id": 8,
-      "action": "u",
-      "data": "{\"DEFAULT_GROUP\":0}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 20003,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 31,
-    "fields": {
-      "modification_date": "2022-09-19T07:43:23Z",
-      "user_id": 8,
-      "action": "u",
-      "data": "{\"DEFAULT_GROUP\":1}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 22507,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 32,
-    "fields": {
-      "modification_date": "2022-09-19T07:44:04Z",
-      "user_id": 8,
-      "action": "u",
-      "data": "{\"DEFAULT_GROUP\":1}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 20003,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 33,
-    "fields": {
-      "modification_date": "2022-09-19T07:44:04Z",
-      "user_id": 8,
-      "action": "u",
-      "data": "{\"DEFAULT_GROUP\":0}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 22507,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 34,
-    "fields": {
-      "modification_date": "2022-09-19T07:45:19Z",
-      "user_id": 8,
-      "action": "u",
-      "data": "{\"DEFAULT_GROUP\":0}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 20003,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 35,
-    "fields": {
-      "modification_date": "2022-09-19T07:45:19Z",
-      "user_id": 8,
-      "action": "u",
-      "data": "{\"DEFAULT_GROUP\":1}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 22507,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 36,
-    "fields": {
-      "modification_date": "2022-09-19T07:48:21Z",
-      "user_id": 8,
-      "action": "u",
-      "data": "{\"DEFAULT_GROUP\":1}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 20003,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 37,
-    "fields": {
-      "modification_date": "2022-09-19T07:48:21Z",
-      "user_id": 8,
-      "action": "u",
-      "data": "{\"DEFAULT_GROUP\":0}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 22507,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 38,
-    "fields": {
-      "modification_date": "2022-09-19T08:07:21Z",
-      "user_id": 8,
-      "action": "u",
-      "data": "{\"DEFAULT_GROUP\":0}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 20003,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 39,
-    "fields": {
-      "modification_date": "2022-09-19T08:07:21Z",
-      "user_id": 8,
-      "action": "u",
-      "data": "{\"DEFAULT_GROUP\":1}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 22507,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 40,
-    "fields": {
-      "modification_date": "2022-09-19T08:22:03Z",
-      "user_id": 8,
-      "action": "u",
-      "data": "{\"DEFAULT_GROUP\":1}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 20003,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 41,
-    "fields": {
-      "modification_date": "2022-09-19T08:22:03Z",
-      "user_id": 8,
-      "action": "u",
-      "data": "{\"DEFAULT_GROUP\":0}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 22507,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 42,
-    "fields": {
-      "modification_date": "2022-09-19T08:25:36Z",
-      "user_id": 8,
-      "action": "u",
-      "data": "{\"DEFAULT_GROUP\":0}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 20003,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 43,
-    "fields": {
-      "modification_date": "2022-09-19T08:25:36Z",
-      "user_id": 8,
-      "action": "u",
-      "data": "{\"DEFAULT_GROUP\":1}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 22507,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 44,
-    "fields": {
-      "modification_date": "2022-09-19T08:26:33Z",
-      "user_id": 8,
-      "action": "u",
-      "data": "{\"DEFAULT_GROUP\":1}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 20003,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 45,
-    "fields": {
-      "modification_date": "2022-09-19T08:26:33Z",
-      "user_id": 8,
-      "action": "u",
-      "data": "{\"DEFAULT_GROUP\":0}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 22507,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 46,
-    "fields": {
-      "modification_date": "2022-09-20T12:12:58Z",
-      "user_id": 8,
-      "action": "u",
-      "data": "{\"DEFAULT_GROUP\":0}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 20003,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 47,
-    "fields": {
-      "modification_date": "2022-09-20T12:12:58Z",
-      "user_id": 8,
-      "action": "u",
-      "data": "{\"DEFAULT_GROUP\":1}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 20096,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 48,
-    "fields": {
-      "modification_date": "2022-09-20T12:13:13Z",
-      "user_id": 8,
-      "action": "u",
-      "data": "{\"DEFAULT_GROUP\":1}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 1,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 49,
-    "fields": {
-      "modification_date": "2022-09-20T12:13:13Z",
-      "user_id": 8,
-      "action": "u",
-      "data": "{\"DEFAULT_GROUP\":0}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 20096,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 50,
-    "fields": {
-      "modification_date": "2022-09-20T12:23:45Z",
-      "user_id": 8,
-      "action": "u",
-      "data": "{\"DEFAULT_GROUP\":0}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 1,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 51,
-    "fields": {
-      "modification_date": "2022-09-20T12:23:45Z",
-      "user_id": 8,
-      "action": "u",
-      "data": "{\"DEFAULT_GROUP\":1}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 20003,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 52,
-    "fields": {
-      "modification_date": "2022-09-20T12:24:58Z",
-      "user_id": 8,
-      "action": "u",
-      "data": "{\"DEFAULT_GROUP\":0}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 20003,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 53,
-    "fields": {
-      "modification_date": "2022-09-20T12:24:58Z",
-      "user_id": 8,
-      "action": "u",
-      "data": "{\"DEFAULT_GROUP\":1}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 20096,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 54,
-    "fields": {
-      "modification_date": "2022-09-20T14:40:21Z",
-      "user_id": 8,
-      "action": "u",
-      "data": "{\"DEFAULT_GROUP\":0}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 20096,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 55,
-    "fields": {
-      "modification_date": "2022-09-20T14:40:21Z",
-      "user_id": 8,
-      "action": "u",
-      "data": "{\"DEFAULT_GROUP\":1}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 22507,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 56,
-    "fields": {
-      "modification_date": "2022-09-20T14:40:31Z",
-      "user_id": 8,
-      "action": "u",
-      "data": "{\"DEFAULT_GROUP\":1}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 20003,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 57,
-    "fields": {
-      "modification_date": "2022-09-20T14:40:31Z",
-      "user_id": 8,
-      "action": "u",
-      "data": "{\"DEFAULT_GROUP\":0}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 22507,
+      "id2": 10000,
       "field2": "GROUP_ID"
     }
   }
