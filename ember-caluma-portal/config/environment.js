@@ -34,26 +34,9 @@ module.exports = function (environment) {
       instanceStateCategories: {
         pending: [
           1, // new
-          20000, // subm
-          20003, // circulation_init
-          20004, // circulation
-          20005, // coordination
-          10000, // rejected
-          120001, // in_progress
-          120002, // in_progress_internal
-          20007, // correction
-          20008, // corrected
-        ],
-        sb: [
-          20011, // sb1
-          20013, // sb2
         ],
         done: [
-          120000, // finished
-          120003, // finished_internal
-          20009, // archived
-          20010, // evaluated
-          20014, // conclusion
+          120004, // finished
         ],
       },
       completePreliminaryClarificationSlugs: [
@@ -82,21 +65,7 @@ module.exports = function (environment) {
           instanceStatesBe.finished,
         ],
       },
-      answerSlugs: {
-        objectStreet: "strasse-flurname",
-        objectNumber: "nr",
-        objectLocation: "ort-grundstueck",
-        description: "beschreibung-bauvorhaben",
-        municipality: "gemeinde",
-        specialId: "ebau-number",
-        parcelNumber: "parzellennummer",
-        firstNameApplicant: "vorname-gesuchstellerin",
-        lastNameApplicant: "name-gesuchstellerin",
-        juristicNameApplicant: "name-juristische-person-gesuchstellerin",
-        isJuristicApplicant: "juristische-person-gesuchstellerin",
-        isJuristicApplicantYes: "juristische-person-gesuchstellerin-ja",
-        personalDataApplicant: "personalien-gesuchstellerin",
-      },
+      answerSlugs: {},
       personalSuggestions: {
         tableQuestions: [
           "personalien-gesuchstellerin",
@@ -110,16 +79,6 @@ module.exports = function (environment) {
         lastNameRegexp: "^name-.*$",
         juristicNameRegexp: "^name-juristische-person.*$",
         emailRegexp: "^e-mail-.*$",
-      },
-      paperInstances: {
-        allowedGroups: {
-          roles: [
-            3, // Leitung Leitbehörde
-          ],
-          serviceGroups: [
-            2, // Gemeinde
-          ],
-        },
       },
       // Who can create which forms. Roles can be given by ID, or magic key ("internal" or "public")
       formCreationPermissions: [

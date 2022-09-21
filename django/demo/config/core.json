@@ -1155,6 +1155,66 @@
     }
   },
   {
+    "model": "core.instanceresource",
+    "pk": 14000001,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 20007,
+      "name": null,
+      "description": null,
+      "template": "/ember/instance.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 2,
+      "form_group": 2000000
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 14000002,
+    "fields": {
+      "available_instance_resource": "workitemlistinstance",
+      "resource": 20007,
+      "name": null,
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 1,
+      "form_group": 2000000
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 14000003,
+    "fields": {
+      "available_instance_resource": "workitemlistinstance",
+      "resource": 150000,
+      "name": null,
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 0,
+      "form_group": 2000000
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 14000004,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 150000,
+      "name": null,
+      "description": null,
+      "template": "/ember/instance.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 1,
+      "form_group": 2000000
+    }
+  },
+  {
     "model": "core.instanceresourceaction",
     "pk": 27,
     "fields": {
@@ -1543,8 +1603,62 @@
     }
   },
   {
+    "model": "core.instanceresourcet",
+    "pk": 14000001,
+    "fields": {
+      "instance_resource": 14000001,
+      "language": "de",
+      "name": "Formular",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 14000002,
+    "fields": {
+      "instance_resource": 14000002,
+      "language": "de",
+      "name": "Aufgaben",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 14000003,
+    "fields": {
+      "instance_resource": 14000003,
+      "language": "de",
+      "name": "Aufgaben",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 14000004,
+    "fields": {
+      "instance_resource": 14000004,
+      "language": "de",
+      "name": "Formular",
+      "description": null
+    }
+  },
+  {
     "model": "core.irpage",
     "pk": 2000001,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
+    "pk": 14000001,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
+    "pk": 14000004,
     "fields": {
       "pdf_class": null
     }
@@ -1556,6 +1670,87 @@
       "instance_resource": 2000000,
       "role": 3,
       "instance_state": 1
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 14000000,
+    "fields": {
+      "instance_resource": 14000002,
+      "role": 4,
+      "instance_state": 1
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 14000001,
+    "fields": {
+      "instance_resource": 2000001,
+      "role": 3,
+      "instance_state": 1
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 14000002,
+    "fields": {
+      "instance_resource": 2000001,
+      "role": 3,
+      "instance_state": 120004
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 14000003,
+    "fields": {
+      "instance_resource": 14000001,
+      "role": 4,
+      "instance_state": 1
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 14000004,
+    "fields": {
+      "instance_resource": 14000001,
+      "role": 4,
+      "instance_state": 120004
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 14000005,
+    "fields": {
+      "instance_resource": 14000003,
+      "role": 10000,
+      "instance_state": 1
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 14000006,
+    "fields": {
+      "instance_resource": 14000003,
+      "role": 10000,
+      "instance_state": 120004
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 14000007,
+    "fields": {
+      "instance_resource": 14000004,
+      "role": 10000,
+      "instance_state": 1
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 14000008,
+    "fields": {
+      "instance_resource": 14000004,
+      "role": 10000,
+      "instance_state": 120004
     }
   },
   {
@@ -1744,7 +1939,7 @@
     "model": "core.remberlist",
     "pk": 150000,
     "fields": {
-      "instance_states": "1,20000,20003,20004,20005,20010,20011,20013,20014,10000,20007,20008,20009,120000,120001,120002,120003"
+      "instance_states": "1,120004"
     }
   },
   {
@@ -1777,6 +1972,14 @@
     "fields": {
       "resource": 140000,
       "role": 4
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 14000000,
+    "fields": {
+      "resource": 150000,
+      "role": 10000
     }
   },
   {
@@ -1898,7 +2101,7 @@
       "resource": 150000,
       "language": "de",
       "name": "Alle Dossiers",
-      "description": "Admin-List for Support"
+      "description": "Admin-Liste für Support"
     }
   },
   {

@@ -30,7 +30,10 @@ export default class CustomSession extends Session {
   @localCopy("data.language") _language;
   @localCopy("data.group") _group;
 
-  _data = trackedTask(this, this.fetchUser, () => [this.isAuthenticated]);
+  _data = trackedTask(this, this.fetchUser, () => [
+    this.isAuthenticated,
+    this.group,
+  ]);
 
   @dropTask
   *fetchUser() {

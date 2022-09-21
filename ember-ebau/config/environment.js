@@ -11,7 +11,7 @@ module.exports = function (environment) {
   const appConfig = {
     demo: {
       name: "demo",
-      realm: "ebau"
+      realm: "ebau",
     },
     kt_bern: {
       name: "be",
