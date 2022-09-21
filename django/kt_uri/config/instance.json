@@ -134,7 +134,7 @@
     "pk": 121,
     "fields": {
       "form_state": 1,
-      "name": "Reklame-Gesuch (eingereicht via Gemeinde)",
+      "name": "Reklamegesuch",
       "description": "KOOR-ARE-BG;Koordinationsstelle für Baueingaben Amt für Raumentwicklung",
       "family": null
     }
@@ -314,7 +314,7 @@
     "pk": 249,
     "fields": {
       "form_state": 1,
-      "name": "Reklame-Gesuch (eingereicht via Baudirektion)",
+      "name": "Reklamegesuch (eingereicht via Baudirektion)",
       "description": "KOOR-BD;Koordinationsstelle für Bewilligungsverfahren Baudirektion",
       "family": null
     }
