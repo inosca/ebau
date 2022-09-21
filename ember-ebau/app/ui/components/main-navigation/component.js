@@ -4,10 +4,12 @@ import { isTesting, macroCondition } from "@embroider/macros";
 import Component from "@glimmer/component";
 import { dropTask } from "ember-concurrency";
 import { trackedTask } from "ember-resources/util/ember-concurrency";
+import UIkit from "uikit";
 
 export default class MainNavigationComponent extends Component {
   @service session;
   @service store;
+  @service router;
 
   groups = trackedTask(this, this.fetchGroups, () => [this.session.group]);
 
@@ -54,11 +56,11 @@ export default class MainNavigationComponent extends Component {
 
     this.session.group = group;
 
+    UIkit.dropdown("#group-dropdown").hide();
     if (macroCondition(isTesting())) {
       // Don't reload in testing
     } else {
-      // Hard reload the whole page so the data is refetched
-      window.location.reload();
+      this.router.transitionTo("dashboard");
     }
   }
 

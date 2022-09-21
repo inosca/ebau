@@ -1,27 +1,9 @@
 [
   {
-    "model": "core.answerlog",
-    "pk": 17000000,
-    "fields": {
-      "modification_date": "2021-04-06T12:19:10Z",
-      "user_id": 8,
-      "action": "i",
-      "data": "{\"INSTANCE_ID\":3,\"QUESTION_ID\":20034,\"CHAPTER_ID\":20000,\"ITEM\":1,\"ANSWER\":\"no\"}",
-      "id1": 3,
-      "field1": "INSTANCE_ID",
-      "id2": 20034,
-      "field2": "QUESTION_ID",
-      "id3": 20000,
-      "field3": "CHAPTER_ID",
-      "id4": 1,
-      "field4": "ITEM"
-    }
-  },
-  {
     "model": "core.instanceservice",
-    "pk": 2000001,
+    "pk": 14000000,
     "fields": {
-      "instance": 7,
+      "instance": 1,
       "service": 2,
       "active": 1,
       "activation_date": null

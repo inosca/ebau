@@ -45,151 +45,19 @@
     "fields": {
       "is_superuser": false,
       "username": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "password": "77b7675371ce6d9548683775a6245837",
+      "password": null,
       "name": "Er",
       "surname": "Us",
       "email": "email@example.ch",
       "phone": null,
       "disabled": 0,
       "language": "de",
-      "last_login": "2018-02-23T14:27:27Z",
+      "last_login": null,
       "address": null,
       "city": null,
       "zip": null,
       "is_staff": false,
       "user_permissions": []
-    }
-  },
-  {
-    "model": "user.user",
-    "pk": 9,
-    "fields": {
-      "is_superuser": false,
-      "username": "service-account-test-gemeinde",
-      "password": null,
-      "name": "service-account-test-gemeinde",
-      "surname": "service-account-test-gemeinde",
-      "email": "service-account-test-gemeinde@placeholder.org",
-      "phone": null,
-      "disabled": 0,
-      "language": "de",
-      "last_login": "2018-02-23T14:27:27Z",
-      "address": null,
-      "city": null,
-      "zip": null,
-      "is_staff": false,
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "user.user",
-    "pk": 10,
-    "fields": {
-      "is_superuser": false,
-      "username": "service-account-camac-admin",
-      "password": null,
-      "name": "camac-admin",
-      "surname": "camac-admin",
-      "email": "service-account-camac-admin@placeholder.org",
-      "phone": null,
-      "disabled": 0,
-      "language": "de",
-      "last_login": "2018-02-23T14:27:27Z",
-      "address": null,
-      "city": null,
-      "zip": null,
-      "is_staff": false,
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "user.usert",
-    "pk": 1,
-    "fields": {
-      "user": 2,
-      "language": "en",
-      "city": "Geneva"
-    }
-  },
-  {
-    "model": "user.usert",
-    "pk": 2,
-    "fields": {
-      "user": 2,
-      "language": "fr",
-      "city": "Geneve"
-    }
-  },
-  {
-    "model": "user.usert",
-    "pk": 3,
-    "fields": {
-      "user": 1,
-      "language": "en",
-      "city": "Luzern"
-    }
-  },
-  {
-    "model": "user.usert",
-    "pk": 4,
-    "fields": {
-      "user": 1,
-      "language": "fr",
-      "city": "Lucerne"
-    }
-  },
-  {
-    "model": "user.usert",
-    "pk": 5,
-    "fields": {
-      "user": 8,
-      "language": "en",
-      "city": "Bern"
-    }
-  },
-  {
-    "model": "user.usert",
-    "pk": 6,
-    "fields": {
-      "user": 8,
-      "language": "fr",
-      "city": "Berne"
-    }
-  },
-  {
-    "model": "user.usert",
-    "pk": 7,
-    "fields": {
-      "user": 9,
-      "language": "en",
-      "city": "Bern"
-    }
-  },
-  {
-    "model": "user.usert",
-    "pk": 8,
-    "fields": {
-      "user": 9,
-      "language": "fr",
-      "city": "Berne"
-    }
-  },
-  {
-    "model": "user.usert",
-    "pk": 9,
-    "fields": {
-      "user": 10,
-      "language": "en",
-      "city": "Bern"
-    }
-  },
-  {
-    "model": "user.usert",
-    "pk": 10,
-    "fields": {
-      "user": 10,
-      "language": "fr",
-      "city": "Berne"
     }
   },
   {
@@ -205,52 +73,25 @@
     "model": "user.usergroup",
     "pk": 2,
     "fields": {
-      "user": 2,
-      "group": 2,
-      "default_group": 1
-    }
-  },
-  {
-    "model": "user.usergroup",
-    "pk": 20099,
-    "fields": {
-      "user": 8,
+      "user": 1,
       "group": 20096,
       "default_group": 0
     }
   },
   {
     "model": "user.usergroup",
-    "pk": 20108,
+    "pk": 3,
     "fields": {
-      "user": 8,
+      "user": 1,
       "group": 20003,
       "default_group": 0
     }
   },
   {
     "model": "user.usergroup",
-    "pk": 20110,
+    "pk": 4,
     "fields": {
-      "user": 8,
-      "group": 1,
-      "default_group": 1
-    }
-  },
-  {
-    "model": "user.usergroup",
-    "pk": 20120,
-    "fields": {
-      "user": 9,
-      "group": 20003,
-      "default_group": 1
-    }
-  },
-  {
-    "model": "user.usergroup",
-    "pk": 20131,
-    "fields": {
-      "user": 8,
+      "user": 1,
       "group": 10000,
       "default_group": 0
     }
@@ -259,13 +100,13 @@
     "model": "user.usergrouplog",
     "pk": 1,
     "fields": {
-      "modification_date": "2019-12-19T16:26:41Z",
-      "user_id": 8,
-      "action": "u",
-      "data": "{\"DEFAULT_GROUP\":0}",
-      "id1": 8,
+      "modification_date": "2022-09-21T12:55:45Z",
+      "user_id": 1,
+      "action": "i",
+      "data": "{\"USER_ID\":1,\"GROUP_ID\":\"20096\",\"DEFAULT_GROUP\":0}",
+      "id1": 1,
       "field1": "USER_ID",
-      "id2": 6,
+      "id2": 20096,
       "field2": "GROUP_ID"
     }
   },
@@ -273,67 +114,11 @@
     "model": "user.usergrouplog",
     "pk": 2,
     "fields": {
-      "modification_date": "2019-12-19T16:26:41Z",
-      "user_id": 8,
-      "action": "u",
-      "data": "{\"DEFAULT_GROUP\":1}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 22507,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 3,
-    "fields": {
-      "modification_date": "2020-01-08T08:20:40Z",
-      "user_id": 8,
-      "action": "u",
-      "data": "{\"DEFAULT_GROUP\":1}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 22508,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 4,
-    "fields": {
-      "modification_date": "2020-01-08T08:22:46Z",
-      "user_id": 8,
-      "action": "u",
-      "data": "{\"DEFAULT_GROUP\":1}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 1,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 5,
-    "fields": {
-      "modification_date": "2020-01-08T08:22:46Z",
-      "user_id": 8,
-      "action": "u",
-      "data": "{\"DEFAULT_GROUP\":0}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 22508,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 6,
-    "fields": {
-      "modification_date": "2022-09-16T16:09:25Z",
-      "user_id": 8,
-      "action": "u",
-      "data": "{\"DEFAULT_GROUP\":0}",
-      "id1": 8,
+      "modification_date": "2022-09-21T12:55:45Z",
+      "user_id": 1,
+      "action": "i",
+      "data": "{\"USER_ID\":1,\"GROUP_ID\":\"20003\",\"DEFAULT_GROUP\":0}",
+      "id1": 1,
       "field1": "USER_ID",
       "id2": 20003,
       "field2": "GROUP_ID"
@@ -341,55 +126,13 @@
   },
   {
     "model": "user.usergrouplog",
-    "pk": 7,
+    "pk": 3,
     "fields": {
-      "modification_date": "2022-09-16T16:09:25Z",
-      "user_id": 8,
-      "action": "u",
-      "data": "{\"DEFAULT_GROUP\":1}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 1,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 8,
-    "fields": {
-      "modification_date": "2022-09-16T21:52:00Z",
+      "modification_date": "2022-09-21T12:55:45Z",
       "user_id": 1,
       "action": "i",
-      "data": "{\"USER_ID\":\"8\",\"GROUP_ID\":23273,\"DEFAULT_GROUP\":0}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 23273,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 9,
-    "fields": {
-      "modification_date": "2022-09-16T21:52:54Z",
-      "user_id": 1,
-      "action": "d",
-      "data": "{\"ID\":20130,\"DEFAULT_GROUP\":0}",
-      "id1": 8,
-      "field1": "USER_ID",
-      "id2": 23273,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 10,
-    "fields": {
-      "modification_date": "2022-09-16T21:53:34Z",
-      "user_id": 1,
-      "action": "i",
-      "data": "{\"USER_ID\":\"8\",\"GROUP_ID\":10000,\"DEFAULT_GROUP\":0}",
-      "id1": 8,
+      "data": "{\"USER_ID\":1,\"GROUP_ID\":\"10000\",\"DEFAULT_GROUP\":0}",
+      "id1": 1,
       "field1": "USER_ID",
       "id2": 10000,
       "field2": "GROUP_ID"
