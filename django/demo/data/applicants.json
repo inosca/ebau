@@ -1,45 +1,12 @@
 [
   {
     "model": "applicants.applicant",
-    "pk": 4,
+    "pk": 1,
     "fields": {
-      "instance": 4,
-      "user": 8,
-      "invitee": 8,
-      "created": "2022-09-16T22:11:16.474Z",
-      "email": "email@example.ch"
-    }
-  },
-  {
-    "model": "applicants.applicant",
-    "pk": 5,
-    "fields": {
-      "instance": 5,
-      "user": 8,
-      "invitee": 8,
-      "created": "2022-09-17T07:30:20.746Z",
-      "email": "email@example.ch"
-    }
-  },
-  {
-    "model": "applicants.applicant",
-    "pk": 6,
-    "fields": {
-      "instance": 6,
-      "user": 8,
-      "invitee": 8,
-      "created": "2022-09-17T07:39:32.060Z",
-      "email": "email@example.ch"
-    }
-  },
-  {
-    "model": "applicants.applicant",
-    "pk": 7,
-    "fields": {
-      "instance": 7,
-      "user": 8,
-      "invitee": 8,
-      "created": "2022-09-17T08:04:41.969Z",
+      "instance": 1,
+      "user": 1,
+      "invitee": 1,
+      "created": "2022-09-21T12:53:11.179Z",
       "email": "email@example.ch"
     }
   }
