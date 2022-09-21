@@ -1,69 +1,18 @@
 [
   {
     "model": "instance.instance",
-    "pk": 1,
+    "pk": 4,
     "fields": {
       "instance_state": 1,
       "form": 1,
       "user": 8,
-      "group": 6,
-      "creation_date": "2020-03-06T11:10:26.099Z",
-      "modification_date": "2020-03-06T11:10:26.099Z",
+      "group": 1,
+      "creation_date": "2022-09-16T22:11:16.457Z",
+      "modification_date": "2022-09-16T22:11:16.457Z",
       "previous_instance_state": 1,
       "identifier": null,
       "location": null,
-      "case": "edf81bff-4f33-48d6-b8de-2aee7643a97e",
-      "instance_group": null
-    }
-  },
-  {
-    "model": "instance.instance",
-    "pk": 2,
-    "fields": {
-      "instance_state": 20000,
-      "form": 1,
-      "user": 8,
-      "group": 6,
-      "creation_date": "2020-03-06T11:13:35.906Z",
-      "modification_date": "2020-03-06T11:13:35.906Z",
-      "previous_instance_state": 1,
-      "identifier": null,
-      "location": null,
-      "case": "7d2bb3fe-83a1-4abc-a6c8-732c366678b1",
-      "instance_group": null
-    }
-  },
-  {
-    "model": "instance.instance",
-    "pk": 3,
-    "fields": {
-      "instance_state": 20013,
-      "form": 1,
-      "user": 8,
-      "group": 6,
-      "creation_date": "2021-03-31T12:32:53.885Z",
-      "modification_date": "2021-03-31T12:32:53.885Z",
-      "previous_instance_state": 20011,
-      "identifier": null,
-      "location": null,
-      "case": "e9197275-36df-460c-b261-ff27f781c5d9",
-      "instance_group": null
-    }
-  },
-  {
-    "model": "instance.instance",
-    "pk": 4,
-    "fields": {
-      "instance_state": 20004,
-      "form": 1,
-      "user": 8,
-      "group": 20003,
-      "creation_date": "2022-09-19T06:43:23.041Z",
-      "modification_date": "2022-09-19T06:43:23.041Z",
-      "previous_instance_state": 20003,
-      "identifier": null,
-      "location": null,
-      "case": "e1ba67a0-24c1-4b08-9620-34bd0a9e4888",
+      "case": "c8763253-a906-4430-a6f9-3a2c6c5a71cf",
       "instance_group": null
     }
   },
@@ -74,324 +23,71 @@
       "instance_state": 1,
       "form": 1,
       "user": 8,
-      "group": 6,
-      "creation_date": "2022-09-19T07:21:42.264Z",
-      "modification_date": "2022-09-19T07:21:42.264Z",
+      "group": 1,
+      "creation_date": "2022-09-17T07:30:20.744Z",
+      "modification_date": "2022-09-17T07:30:20.744Z",
       "previous_instance_state": 1,
       "identifier": null,
       "location": null,
-      "case": "ebb53974-ecb6-467e-9142-27a96aa49daa",
+      "case": "71adbfee-ef68-4b08-acc4-e29bf7d8eb4a",
       "instance_group": null
     }
   },
   {
-    "model": "instance.journalentry",
-    "pk": 1,
-    "fields": {
-      "instance": 4,
-      "service": 2,
-      "user": 8,
-      "text": "Test",
-      "creation_date": "2022-09-19T08:32:22.027Z",
-      "modification_date": "2022-09-19T08:32:22.027Z",
-      "visibility": "own_organization",
-      "duration": null
-    }
-  },
-  {
-    "model": "instance.historyentry",
-    "pk": 4,
-    "fields": {
-      "instance": 3,
-      "service": null,
-      "user": 8,
-      "created_at": "2021-03-31T13:17:08.797Z",
-      "title": null,
-      "body": null,
-      "history_type": "status-change"
-    }
-  },
-  {
-    "model": "instance.historyentry",
-    "pk": 5,
-    "fields": {
-      "instance": 3,
-      "service": null,
-      "user": 8,
-      "created_at": "2021-03-31T13:17:10.577Z",
-      "title": null,
-      "body": null,
-      "history_type": "notification"
-    }
-  },
-  {
-    "model": "instance.historyentry",
+    "model": "instance.instance",
     "pk": 6,
     "fields": {
-      "instance": 3,
-      "service": null,
+      "instance_state": 1,
+      "form": 1,
       "user": 8,
-      "created_at": "2021-03-31T13:17:10.702Z",
-      "title": null,
-      "body": null,
-      "history_type": "notification"
+      "group": 1,
+      "creation_date": "2022-09-17T07:39:32.052Z",
+      "modification_date": "2022-09-17T07:39:32.052Z",
+      "previous_instance_state": 1,
+      "identifier": null,
+      "location": null,
+      "case": "c08bdf77-d8f1-4756-9875-2a539f598608",
+      "instance_group": null
     }
   },
   {
-    "model": "instance.historyentry",
+    "model": "instance.instance",
     "pk": 7,
     "fields": {
-      "instance": 3,
-      "service": null,
+      "instance_state": 120004,
+      "form": 1,
       "user": 8,
-      "created_at": "2021-04-06T12:19:10.835Z",
-      "title": null,
-      "body": null,
-      "history_type": "status-change"
-    }
-  },
-  {
-    "model": "instance.historyentry",
-    "pk": 8,
-    "fields": {
-      "instance": 3,
-      "service": null,
-      "user": 8,
-      "created_at": "2021-04-06T12:19:18.183Z",
-      "title": null,
-      "body": null,
-      "history_type": "status-change"
-    }
-  },
-  {
-    "model": "instance.historyentry",
-    "pk": 9,
-    "fields": {
-      "instance": 3,
-      "service": null,
-      "user": 8,
-      "created_at": "2021-04-06T12:19:37.552Z",
-      "title": null,
-      "body": null,
-      "history_type": "status-change"
-    }
-  },
-  {
-    "model": "instance.historyentry",
-    "pk": 10,
-    "fields": {
-      "instance": 3,
-      "service": null,
-      "user": 8,
-      "created_at": "2021-04-06T12:19:37.931Z",
-      "title": null,
-      "body": null,
-      "history_type": "notification"
-    }
-  },
-  {
-    "model": "instance.historyentry",
-    "pk": 11,
-    "fields": {
-      "instance": 3,
-      "service": null,
-      "user": 8,
-      "created_at": "2021-04-06T12:19:38.073Z",
-      "title": null,
-      "body": null,
-      "history_type": "notification"
-    }
-  },
-  {
-    "model": "instance.historyentry",
-    "pk": 12,
-    "fields": {
-      "instance": 3,
-      "service": null,
-      "user": 8,
-      "created_at": "2021-04-06T12:19:38.219Z",
-      "title": null,
-      "body": null,
-      "history_type": "notification"
-    }
-  },
-  {
-    "model": "instance.historyentry",
-    "pk": 13,
-    "fields": {
-      "instance": 3,
-      "service": null,
-      "user": 8,
-      "created_at": "2021-04-06T12:19:38.222Z",
-      "title": null,
-      "body": null,
-      "history_type": "status-change"
-    }
-  },
-  {
-    "model": "instance.historyentry",
-    "pk": 14,
-    "fields": {
-      "instance": 3,
-      "service": null,
-      "user": 8,
-      "created_at": "2021-04-06T12:23:10.117Z",
-      "title": null,
-      "body": null,
-      "history_type": "status-change"
-    }
-  },
-  {
-    "model": "instance.historyentry",
-    "pk": 15,
-    "fields": {
-      "instance": 3,
-      "service": null,
-      "user": 8,
-      "created_at": "2021-04-06T12:23:10.287Z",
-      "title": null,
-      "body": null,
-      "history_type": "notification"
-    }
-  },
-  {
-    "model": "instance.historyentry",
-    "pk": 16,
-    "fields": {
-      "instance": 3,
-      "service": null,
-      "user": 8,
-      "created_at": "2021-04-06T12:23:10.409Z",
-      "title": null,
-      "body": null,
-      "history_type": "notification"
-    }
-  },
-  {
-    "model": "instance.historyentry",
-    "pk": 17,
-    "fields": {
-      "instance": 4,
-      "service": null,
-      "user": 8,
-      "created_at": "2022-09-19T06:45:59.998Z",
-      "title": null,
-      "body": null,
-      "history_type": "status-change"
-    }
-  },
-  {
-    "model": "instance.historyentry",
-    "pk": 18,
-    "fields": {
-      "instance": 4,
-      "service": null,
-      "user": 8,
-      "created_at": "2022-09-19T06:46:01.298Z",
-      "title": null,
-      "body": null,
-      "history_type": "notification"
-    }
-  },
-  {
-    "model": "instance.historyentry",
-    "pk": 19,
-    "fields": {
-      "instance": 4,
-      "service": null,
-      "user": 8,
-      "created_at": "2022-09-19T06:46:01.818Z",
-      "title": null,
-      "body": null,
-      "history_type": "notification"
-    }
-  },
-  {
-    "model": "instance.historyentry",
-    "pk": 20,
-    "fields": {
-      "instance": 4,
-      "service": null,
-      "user": 8,
-      "created_at": "2022-09-19T07:29:42.449Z",
-      "title": null,
-      "body": null,
-      "history_type": "status-change"
-    }
-  },
-  {
-    "model": "instance.historyentry",
-    "pk": 21,
-    "fields": {
-      "instance": 4,
-      "service": null,
-      "user": 8,
-      "created_at": "2022-09-19T07:31:23.311Z",
-      "title": null,
-      "body": null,
-      "history_type": "status-change"
-    }
-  },
-  {
-    "model": "instance.historyentry",
-    "pk": 22,
-    "fields": {
-      "instance": 4,
-      "service": null,
-      "user": 8,
-      "created_at": "2022-09-19T07:31:23.874Z",
-      "title": null,
-      "body": null,
-      "history_type": "notification"
-    }
-  },
-  {
-    "model": "instance.historyentry",
-    "pk": 23,
-    "fields": {
-      "instance": 4,
-      "service": null,
-      "user": 8,
-      "created_at": "2022-09-19T07:31:24.459Z",
-      "title": null,
-      "body": null,
-      "history_type": "notification"
-    }
-  },
-  {
-    "model": "instance.historyentry",
-    "pk": 24,
-    "fields": {
-      "instance": 4,
-      "service": null,
-      "user": 8,
-      "created_at": "2022-09-19T07:34:06.739Z",
-      "title": null,
-      "body": null,
-      "history_type": "notification"
+      "group": 1,
+      "creation_date": "2022-09-17T08:04:41.955Z",
+      "modification_date": "2022-09-17T08:04:41.955Z",
+      "previous_instance_state": 1,
+      "identifier": null,
+      "location": null,
+      "case": "f81cd456-d193-48f8-ae3c-d841ba011fbc",
+      "instance_group": null
     }
   },
   {
     "model": "instance.historyentry",
     "pk": 25,
     "fields": {
-      "instance": 2,
+      "instance": 7,
       "service": null,
       "user": 8,
-      "created_at": "2022-09-19T08:09:35.499Z",
+      "created_at": "2022-09-17T09:07:59.723Z",
       "title": null,
       "body": null,
-      "history_type": "notification"
+      "history_type": "status-change"
     }
   },
   {
     "model": "instance.historyentry",
     "pk": 26,
     "fields": {
-      "instance": 4,
+      "instance": 7,
       "service": null,
       "user": 8,
-      "created_at": "2022-09-20T12:31:50.535Z",
+      "created_at": "2022-09-17T09:08:00.231Z",
       "title": null,
       "body": null,
       "history_type": "notification"
@@ -401,467 +97,21 @@
     "model": "instance.historyentry",
     "pk": 27,
     "fields": {
-      "instance": 4,
+      "instance": 7,
       "service": null,
       "user": 8,
-      "created_at": "2022-09-20T12:31:51.121Z",
+      "created_at": "2022-09-17T09:08:00.354Z",
       "title": null,
       "body": null,
       "history_type": "notification"
-    }
-  },
-  {
-    "model": "instance.historyentry",
-    "pk": 28,
-    "fields": {
-      "instance": 4,
-      "service": null,
-      "user": 8,
-      "created_at": "2022-09-20T12:33:11.036Z",
-      "title": null,
-      "body": null,
-      "history_type": "notification"
-    }
-  },
-  {
-    "model": "instance.historyentry",
-    "pk": 29,
-    "fields": {
-      "instance": 4,
-      "service": null,
-      "user": 8,
-      "created_at": "2022-09-20T12:33:11.044Z",
-      "title": null,
-      "body": null,
-      "history_type": "notification"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 7,
-    "fields": {
-      "title": "Dossier eingereicht",
-      "body": "",
-      "history_entry": 4,
-      "language": "de"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 8,
-    "fields": {
-      "title": "Dossier envoyé",
-      "body": "",
-      "history_entry": 4,
-      "language": "fr"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 9,
-    "fields": {
-      "title": "Notifikation gesendet an email@example.ch ([eBau Test]: Erfolgreiche Einreichung / Formulaire déposé avec succès)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nIhr Dossier mit der Dossier-Nr. 3 wurde erfolgreich übermittelt. Alle auf eBau hochgeladenen Pläne und Dokumente müssen unterschrieben, datiert und in mindestens zweifacher Ausfertigung mit dem Gesuchsformular bei der zuständigen Gemeinde eingereicht werden. Das Dossier wird erst bearbeitet, wenn die Gemeinde das Papierdossier erhalten hat.\n\nhttp://caluma-portal.local/instances/3\n\nFreundliche Grüsse\nLeitbehörde Burgdorf\n\n*** version française ***\n\nMadame, Monsieur,\n\nVotre dossier portant le numéro de dossier 3 a été déposé/e avec succès. Tous les plans et documents téléchargés sur eBau doivent être signés, datés et envoyés en au moins deux exemplaires avec le formulaire de demande de permis de construire à la commune responsable. Le dossier ne sera traité que lorsque la commune aura reçu le dossier papier.\n\nhttp://caluma-portal.local/instances/3\n\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\nLeitbehörde Burgdorf",
-      "history_entry": 5,
-      "language": "de"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 10,
-    "fields": {
-      "title": "Notification envoyée à email@example.ch ([eBau Test]: Erfolgreiche Einreichung / Formulaire déposé avec succès)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nIhr Dossier mit der Dossier-Nr. 3 wurde erfolgreich übermittelt. Alle auf eBau hochgeladenen Pläne und Dokumente müssen unterschrieben, datiert und in mindestens zweifacher Ausfertigung mit dem Gesuchsformular bei der zuständigen Gemeinde eingereicht werden. Das Dossier wird erst bearbeitet, wenn die Gemeinde das Papierdossier erhalten hat.\n\nhttp://caluma-portal.local/instances/3\n\nFreundliche Grüsse\nLeitbehörde Burgdorf\n\n*** version française ***\n\nMadame, Monsieur,\n\nVotre dossier portant le numéro de dossier 3 a été déposé/e avec succès. Tous les plans et documents téléchargés sur eBau doivent être signés, datés et envoyés en au moins deux exemplaires avec le formulaire de demande de permis de construire à la commune responsable. Le dossier ne sera traité que lorsque la commune aura reçu le dossier papier.\n\nhttp://caluma-portal.local/instances/3\n\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\nLeitbehörde Burgdorf",
-      "history_entry": 5,
-      "language": "fr"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 11,
-    "fields": {
-      "title": "Notifikation gesendet an baudirektion@burgdorf.ch ([eBau Test]: Neu eingegangen / Nouvelle entrée)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. 3.\n\nhttp://camac-ng.local/index/redirect-to-instance-resource/instance-id/3\n\neBau\n\n*** version française ***\n\nMadame, Monsieur,\n\neBau a enregistré une nouvelle entrée de type Baugesuch portant le numéro de dossier 3.\n\nhttp://camac-ng.local/index/redirect-to-instance-resource/instance-id/3\n\neBau",
-      "history_entry": 6,
-      "language": "de"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 12,
-    "fields": {
-      "title": "Notification envoyée à baudirektion@burgdorf.ch ([eBau Test]: Neu eingegangen / Nouvelle entrée)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. 3.\n\nhttp://camac-ng.local/index/redirect-to-instance-resource/instance-id/3\n\neBau\n\n*** version française ***\n\nMadame, Monsieur,\n\neBau a enregistré une nouvelle entrée de type Baugesuch portant le numéro de dossier 3.\n\nhttp://camac-ng.local/index/redirect-to-instance-resource/instance-id/3\n\neBau",
-      "history_entry": 6,
-      "language": "fr"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 13,
-    "fields": {
-      "title": "eBau-Nr. vergeben",
-      "body": "",
-      "history_entry": 7,
-      "language": "de"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 14,
-    "fields": {
-      "title": "Attribution d'un numéro eBau",
-      "body": "",
-      "history_entry": 7,
-      "language": "fr"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 15,
-    "fields": {
-      "title": "Zirkulation übersprungen",
-      "body": "",
-      "history_entry": 8,
-      "language": "de"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 16,
-    "fields": {
-      "title": "Sans procédure de circulation",
-      "body": "",
-      "history_entry": 8,
-      "language": "fr"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 17,
-    "fields": {
-      "title": "Dossierprüfung übersprungen",
-      "body": "",
-      "history_entry": 9,
-      "language": "de"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 18,
-    "fields": {
-      "title": "Examen sauté",
-      "body": "",
-      "history_entry": 9,
-      "language": "fr"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 19,
-    "fields": {
-      "title": "Notifikation gesendet an email@example.ch ([eBau Test]: Information über Entscheid (eBau Nr. 2021-1) / Information sur le prononcé de la décision (n° eBau 2021-1))",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nDer Bauentscheid zum Dossier mit der eBau Nr. 2021-1 wurde gefällt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\n\nhttp://caluma-portal.local/instances/3/feedback\n\nFreundliche Grüsse\nLeitbehörde Burgdorf\n\n*** version française ***\n\nMadame, Monsieur,\n\nLa décision relative au dossier portant le numéro eBau 2021-1 a été rendue. Elle est jointe en annexe, accompagnée de l'indication des voies de droit.\n\nhttp://caluma-portal.local/instances/3/feedback\n\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\nLeitbehörde Burgdorf",
-      "history_entry": 10,
-      "language": "de"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 20,
-    "fields": {
-      "title": "Notification envoyée à email@example.ch ([eBau Test]: Information über Entscheid (eBau Nr. 2021-1) / Information sur le prononcé de la décision (n° eBau 2021-1))",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nDer Bauentscheid zum Dossier mit der eBau Nr. 2021-1 wurde gefällt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\n\nhttp://caluma-portal.local/instances/3/feedback\n\nFreundliche Grüsse\nLeitbehörde Burgdorf\n\n*** version française ***\n\nMadame, Monsieur,\n\nLa décision relative au dossier portant le numéro eBau 2021-1 a été rendue. Elle est jointe en annexe, accompagnée de l'indication des voies de droit.\n\nhttp://caluma-portal.local/instances/3/feedback\n\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\nLeitbehörde Burgdorf",
-      "history_entry": 10,
-      "language": "fr"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 21,
-    "fields": {
-      "title": "Notifikation gesendet an baudirektion@burgdorf.ch ([eBau Test]: Information über Entscheid (eBau Nr. 2021-1) / Information sur le prononcé de la décision (n° eBau 2021-1))",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nDer Bauentscheid zum Dossier mit der eBau Nr. 2021-1 wurde gefällt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\n\nhttp://camac-ng.local/apidocuments/list/list/instance-resource-id/20068/instance-id/3\n\nLeitbehörde Burgdorf\n\n*** version française ***\n\nMadame, Monsieur,\n\nLa décision relative au dossier portant le numéro eBau 2021-1 a été rendue. Elle est jointe en annexe, accompagnée de l'indication des voies de droit.\n\nhttp://camac-ng.local/apidocuments/list/list/instance-resource-id/20068/instance-id/3\n\nLeitbehörde Burgdorf",
-      "history_entry": 11,
-      "language": "de"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 22,
-    "fields": {
-      "title": "Notification envoyée à baudirektion@burgdorf.ch ([eBau Test]: Information über Entscheid (eBau Nr. 2021-1) / Information sur le prononcé de la décision (n° eBau 2021-1))",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nDer Bauentscheid zum Dossier mit der eBau Nr. 2021-1 wurde gefällt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\n\nhttp://camac-ng.local/apidocuments/list/list/instance-resource-id/20068/instance-id/3\n\nLeitbehörde Burgdorf\n\n*** version française ***\n\nMadame, Monsieur,\n\nLa décision relative au dossier portant le numéro eBau 2021-1 a été rendue. Elle est jointe en annexe, accompagnée de l'indication des voies de droit.\n\nhttp://camac-ng.local/apidocuments/list/list/instance-resource-id/20068/instance-id/3\n\nLeitbehörde Burgdorf",
-      "history_entry": 11,
-      "language": "fr"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 23,
-    "fields": {
-      "title": "Notifikation gesendet an  ([eBau Test]: Information über Entscheid (eBau Nr. 2021-1) / Information sur le prononcé de la décision (n° eBau 2021-1))",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nDer Bauentscheid zum Dossier mit der eBau Nr. 2021-1 wurde gefällt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\n\nhttp://camac-ng.local/apidocuments/list/list/instance-resource-id/20069/instance-id/3\n\nFreundliche Grüsse\nLeitbehörde Burgdorf\n\n*** version française ***\n\nMadame, Monsieur,\n\nLa décision relative à l'affaire portant le numéro eBau 2021-1 a été rendue et vous la trouverez en annexe.\n\nhttp://camac-ng.local/apidocuments/list/list/instance-resource-id/20069/instance-id/3\n\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\nLeitbehörde Burgdorf",
-      "history_entry": 12,
-      "language": "de"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 24,
-    "fields": {
-      "title": "Notification envoyée à  ([eBau Test]: Information über Entscheid (eBau Nr. 2021-1) / Information sur le prononcé de la décision (n° eBau 2021-1))",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nDer Bauentscheid zum Dossier mit der eBau Nr. 2021-1 wurde gefällt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\n\nhttp://camac-ng.local/apidocuments/list/list/instance-resource-id/20069/instance-id/3\n\nFreundliche Grüsse\nLeitbehörde Burgdorf\n\n*** version française ***\n\nMadame, Monsieur,\n\nLa décision relative à l'affaire portant le numéro eBau 2021-1 a été rendue et vous la trouverez en annexe.\n\nhttp://camac-ng.local/apidocuments/list/list/instance-resource-id/20069/instance-id/3\n\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\nLeitbehörde Burgdorf",
-      "history_entry": 12,
-      "language": "fr"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 25,
-    "fields": {
-      "title": "Bauentscheid verfügt",
-      "body": "",
-      "history_entry": 13,
-      "language": "de"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 26,
-    "fields": {
-      "title": "Décision relative à la demande de permis de construire rendue",
-      "body": "",
-      "history_entry": 13,
-      "language": "fr"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 27,
-    "fields": {
-      "title": "SB1 eingereicht",
-      "body": "",
-      "history_entry": 14,
-      "language": "de"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 28,
-    "fields": {
-      "title": "DC1 envoyé",
-      "body": "",
-      "history_entry": 14,
-      "language": "fr"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 29,
-    "fields": {
-      "title": "Notifikation gesendet an email@example.ch ([eBau Test]: Meldung Selbstdeklaration (eBau Nr. 2021-1) / Avis concernant la déclaration spontanée (n° eBau 2021-1))",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nDie Meldung der Selbstdeklariation Baukontrolle 1 (SB1) wurde erfolgreich versendet. Die zuständige Baupolizeibehörde wird falls notwendig die nächsten Schritte einleiten.\n\nWeitere Informationen finden Sie unter:\nhttps://www.jgk.be.ch/jgk/de/index/baubewilligungen/baubewilligungen.assetref/content/dam/documents/JGK/AGR/de/Baubewilligungen/AGR_BAUEN_ERLAUETERUNG_bsig_selbstdeklaration_bei_der_baukontrolle_de.pdf\n\n\nFreundliche Grüsse \nLeitbehörde Burgdorf\n\n*** version française ***\n\nMadame, Monsieur,\n\nL'avis relatif à la déclaration spontanée en matière de contrôle des constructions a été envoyé avec succès. L'autorité de police des constructions compétente va entreprendre les démarches nécessaires.\n\nVous trouverez de plus amples informations sous:\nhttps://www.jgk.be.ch/jgk/de/index/baubewilligungen/baubewilligungen.assetref/content/dam/documents/JGK/AGR/de/Baubewilligungen/AGR_BAUEN_ERLAUETERUNG_bsig_selbstdeklaration_bei_der_baukontrolle_de.pdf\n\n\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures. \nLeitbehörde Burgdorf",
-      "history_entry": 15,
-      "language": "de"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 30,
-    "fields": {
-      "title": "Notification envoyée à email@example.ch ([eBau Test]: Meldung Selbstdeklaration (eBau Nr. 2021-1) / Avis concernant la déclaration spontanée (n° eBau 2021-1))",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nDie Meldung der Selbstdeklariation Baukontrolle 1 (SB1) wurde erfolgreich versendet. Die zuständige Baupolizeibehörde wird falls notwendig die nächsten Schritte einleiten.\n\nWeitere Informationen finden Sie unter:\nhttps://www.jgk.be.ch/jgk/de/index/baubewilligungen/baubewilligungen.assetref/content/dam/documents/JGK/AGR/de/Baubewilligungen/AGR_BAUEN_ERLAUETERUNG_bsig_selbstdeklaration_bei_der_baukontrolle_de.pdf\n\n\nFreundliche Grüsse \nLeitbehörde Burgdorf\n\n*** version française ***\n\nMadame, Monsieur,\n\nL'avis relatif à la déclaration spontanée en matière de contrôle des constructions a été envoyé avec succès. L'autorité de police des constructions compétente va entreprendre les démarches nécessaires.\n\nVous trouverez de plus amples informations sous:\nhttps://www.jgk.be.ch/jgk/de/index/baubewilligungen/baubewilligungen.assetref/content/dam/documents/JGK/AGR/de/Baubewilligungen/AGR_BAUEN_ERLAUETERUNG_bsig_selbstdeklaration_bei_der_baukontrolle_de.pdf\n\n\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures. \nLeitbehörde Burgdorf",
-      "history_entry": 15,
-      "language": "fr"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 31,
-    "fields": {
-      "title": "Notifikation gesendet an baudirektion@burgdorf.ch ([eBau Test]: Meldung Selbstdeklaration - eBau Nr. 2021-1 (3) / Avis concernant la déclaration spontanée (n° eBau 2021-1) (3))",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\n Guten Tag\n\nDie Meldung zur Selbstdeklaration Baukontrolle 1 (SB1) vom Dossier mit der eBau-Nummer 2021-1 (3) ist eingetroffen.\n\neBau\n\n*** version française ***\n\nMadame, Monsieur,\n\nLe message à l'autodéclaration de Building Control 1 (SB1) du fichier avec le numéro eBau 2021-1 (3) est arrivé.\n\neBau",
-      "history_entry": 16,
-      "language": "de"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 32,
-    "fields": {
-      "title": "Notification envoyée à baudirektion@burgdorf.ch ([eBau Test]: Meldung Selbstdeklaration - eBau Nr. 2021-1 (3) / Avis concernant la déclaration spontanée (n° eBau 2021-1) (3))",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\n Guten Tag\n\nDie Meldung zur Selbstdeklaration Baukontrolle 1 (SB1) vom Dossier mit der eBau-Nummer 2021-1 (3) ist eingetroffen.\n\neBau\n\n*** version française ***\n\nMadame, Monsieur,\n\nLe message à l'autodéclaration de Building Control 1 (SB1) du fichier avec le numéro eBau 2021-1 (3) est arrivé.\n\neBau",
-      "history_entry": 16,
-      "language": "fr"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 33,
-    "fields": {
-      "title": "Dossier eingereicht",
-      "body": "",
-      "history_entry": 17,
-      "language": "de"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 34,
-    "fields": {
-      "title": "Dossier envoyé",
-      "body": "",
-      "history_entry": 17,
-      "language": "fr"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 35,
-    "fields": {
-      "title": "Notifikation gesendet an Gesuchsteller/in (keine Empfänger) ([eBau Test]: Erfolgreiche Einreichung / Formulaire déposé avec succès)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nIhr Dossier mit der Dossier-Nr. 4 (Baugesuch, Gemeinde Burgdorf)  wurde erfolgreich übermittelt. Alle auf eBau hochgeladenen Pläne und Dokumente müssen unterschrieben, datiert und in mindestens zweifacher Ausfertigung mit dem Gesuchsformular bei der zuständigen Gemeinde eingereicht werden. Das Dossier wird erst bearbeitet, wenn die Gemeinde das Papierdossier erhalten hat.\n\nhttp://ebau-portal.local/instances/4\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\nLeitbehörde Burgdorf\n\n*** version française ***\n\nMadame, Monsieur,\n\nVotre dossier portant le numéro de dossier 4 (Demande de permis de construire, Municipalité Burgdorf) a été déposé/e avec succès. Tous les plans et documents téléchargés sur eBau doivent être signés, datés et envoyés en au moins deux exemplaires avec le formulaire de demande de permis de construire à la commune responsable. Le dossier ne sera traité que lorsque la commune aura reçu le dossier papier.\n\nhttp://ebau-portal.local/instances/4\n\nCe message a été généré automatiquement, veuillez ne pas y répondre.\n\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\nAutorité directrice Burgdorf",
-      "history_entry": 18,
-      "language": "de"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 36,
-    "fields": {
-      "title": "Notification envoyée à Requérant/e (aucun destinataire) ([eBau Test]: Erfolgreiche Einreichung / Formulaire déposé avec succès)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nIhr Dossier mit der Dossier-Nr. 4 (Baugesuch, Gemeinde Burgdorf)  wurde erfolgreich übermittelt. Alle auf eBau hochgeladenen Pläne und Dokumente müssen unterschrieben, datiert und in mindestens zweifacher Ausfertigung mit dem Gesuchsformular bei der zuständigen Gemeinde eingereicht werden. Das Dossier wird erst bearbeitet, wenn die Gemeinde das Papierdossier erhalten hat.\n\nhttp://ebau-portal.local/instances/4\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\nLeitbehörde Burgdorf\n\n*** version française ***\n\nMadame, Monsieur,\n\nVotre dossier portant le numéro de dossier 4 (Demande de permis de construire, Municipalité Burgdorf) a été déposé/e avec succès. Tous les plans et documents téléchargés sur eBau doivent être signés, datés et envoyés en au moins deux exemplaires avec le formulaire de demande de permis de construire à la commune responsable. Le dossier ne sera traité que lorsque la commune aura reçu le dossier papier.\n\nhttp://ebau-portal.local/instances/4\n\nCe message a été généré automatiquement, veuillez ne pas y répondre.\n\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\nAutorité directrice Burgdorf",
-      "history_entry": 18,
-      "language": "fr"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 37,
-    "fields": {
-      "title": "Notifikation gesendet an email@example.com (Leitbehörde) ([eBau Test]: Neu eingegangen / Nouvelle entrée)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. 4 (Baugesuch, Gemeinde Burgdorf).\n\nhttp://ebau.local/index/redirect-to-instance-resource/instance-id/4\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\neBau\n\n*** version française ***\n\nMadame, Monsieur,\n\neBau a enregistré une nouvelle entrée portant le numéro de dossier 4 (Demande de permis de construire, Municipalité Burgdorf).\n\nhttp://ebau.local/index/redirect-to-instance-resource/instance-id/4\n\nCe message a été généré automatiquement, veuillez ne pas y répondre.\n\neBau",
-      "history_entry": 19,
-      "language": "de"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 38,
-    "fields": {
-      "title": "Notification envoyée à email@example.com (Autorité directrice) ([eBau Test]: Neu eingegangen / Nouvelle entrée)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. 4 (Baugesuch, Gemeinde Burgdorf).\n\nhttp://ebau.local/index/redirect-to-instance-resource/instance-id/4\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\neBau\n\n*** version française ***\n\nMadame, Monsieur,\n\neBau a enregistré une nouvelle entrée portant le numéro de dossier 4 (Demande de permis de construire, Municipalité Burgdorf).\n\nhttp://ebau.local/index/redirect-to-instance-resource/instance-id/4\n\nCe message a été généré automatiquement, veuillez ne pas y répondre.\n\neBau",
-      "history_entry": 19,
-      "language": "fr"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 39,
-    "fields": {
-      "title": "eBau-Nr. vergeben",
-      "body": "",
-      "history_entry": 20,
-      "language": "de"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 40,
-    "fields": {
-      "title": "Attribution d'un numéro eBau",
-      "body": "",
-      "history_entry": 20,
-      "language": "fr"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 41,
-    "fields": {
-      "title": "Zirkulation gestartet",
-      "body": "",
-      "history_entry": 21,
-      "language": "de"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 42,
-    "fields": {
-      "title": "Procédure de circulation lancée",
-      "body": "",
-      "history_entry": 21,
-      "language": "fr"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 43,
-    "fields": {
-      "title": "Notifikation gesendet an Gesuchsteller/in (keine Empfänger) ([eBau Test]: Hinweis zum Verfahrensablauf (eBau Nr. 2022-1) / Précision sur le déroulement de la procédure (n° eBau 2022-1))",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nDie/das Dossier mit der eBau Nr. 2022-1 (Baugesuch, Gemeinde Burgdorf) wurde geprüft und das Verfahren ausgelöst. Entnehmen Sie die Verfahrensdaten den eBau-Dokumenten:\n\nhttp://ebau-portal.local/instances/4/feedback\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\nLeitbehörde Burgdorf\n\n*** version française ***\n\nMadame, Monsieur,\n\nLe dossier avec le numéro d'eBau 2022-1 (Demande de permis de construire, Municipalité Burgdorf) a été vérifié. La procédure directrice a été lancée et vous trouverez les précisions y relatives dans le document ci-joint.\n\nhttp://ebau-portal.local/instances/4/feedback\n\nCe message a été généré automatiquement, veuillez ne pas y répondre.\n\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\nAutorité directrice Burgdorf",
-      "history_entry": 22,
-      "language": "de"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 44,
-    "fields": {
-      "title": "Notification envoyée à Requérant/e (aucun destinataire) ([eBau Test]: Hinweis zum Verfahrensablauf (eBau Nr. 2022-1) / Précision sur le déroulement de la procédure (n° eBau 2022-1))",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nDie/das Dossier mit der eBau Nr. 2022-1 (Baugesuch, Gemeinde Burgdorf) wurde geprüft und das Verfahren ausgelöst. Entnehmen Sie die Verfahrensdaten den eBau-Dokumenten:\n\nhttp://ebau-portal.local/instances/4/feedback\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\nLeitbehörde Burgdorf\n\n*** version française ***\n\nMadame, Monsieur,\n\nLe dossier avec le numéro d'eBau 2022-1 (Demande de permis de construire, Municipalité Burgdorf) a été vérifié. La procédure directrice a été lancée et vous trouverez les précisions y relatives dans le document ci-joint.\n\nhttp://ebau-portal.local/instances/4/feedback\n\nCe message a été généré automatiquement, veuillez ne pas y répondre.\n\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\nAutorité directrice Burgdorf",
-      "history_entry": 22,
-      "language": "fr"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 45,
-    "fields": {
-      "title": "Notifikation gesendet an email@example.com (Eingeladene Fachstelle der Stellungnahme) ([eBau Test]: Hinweis zum Verfahrensablauf (eBau Nr. 2022-1) / Précision sur le déroulement de la procédure (n° eBau 2022-1))",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nSie erhalten das Dossier mit der eBau Nr. 2022-1 (4, Baugesuch, Gemeinde Burgdorf) zur Ausarbeitung einer Stellungnahme, eines Amts-/ Fachberichtes oder einer Verfügung gemäss Verfahrensprogramm.\n\nBemerkung: Bitte auf X achten\n\nhttp://ebau.local/index/redirect-to-instance-resource/instance-id/4\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nLeitbehörde Burgdorf\n\n*** version française ***\n\nMadame, Monsieur,\n\nVeuillez trouver ci-joint le dossier eBau n° 2022-1 (4, Demande de permis de construire, Municipalité Burgdorf) pour la préparation d'une prise de position, d'un rapport officiel/ technique ou d'une décision conformément au programme de procédure.\n\nRemarque: Bitte auf X achten\n\nhttp://ebau.local/index/redirect-to-instance-resource/instance-id/4\n\nCe message a été généré automatiquement, veuillez ne pas y répondre.\n\nAutorité directrice Burgdorf",
-      "history_entry": 23,
-      "language": "de"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 46,
-    "fields": {
-      "title": "Notification envoyée à email@example.com (Office spécialisé invité de l'avis) ([eBau Test]: Hinweis zum Verfahrensablauf (eBau Nr. 2022-1) / Précision sur le déroulement de la procédure (n° eBau 2022-1))",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nSie erhalten das Dossier mit der eBau Nr. 2022-1 (4, Baugesuch, Gemeinde Burgdorf) zur Ausarbeitung einer Stellungnahme, eines Amts-/ Fachberichtes oder einer Verfügung gemäss Verfahrensprogramm.\n\nBemerkung: Bitte auf X achten\n\nhttp://ebau.local/index/redirect-to-instance-resource/instance-id/4\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nLeitbehörde Burgdorf\n\n*** version française ***\n\nMadame, Monsieur,\n\nVeuillez trouver ci-joint le dossier eBau n° 2022-1 (4, Demande de permis de construire, Municipalité Burgdorf) pour la préparation d'une prise de position, d'un rapport officiel/ technique ou d'une décision conformément au programme de procédure.\n\nRemarque: Bitte auf X achten\n\nhttp://ebau.local/index/redirect-to-instance-resource/instance-id/4\n\nCe message a été généré automatiquement, veuillez ne pas y répondre.\n\nAutorité directrice Burgdorf",
-      "history_entry": 23,
-      "language": "fr"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 47,
-    "fields": {
-      "title": "Notifikation gesendet an email@example.com (Auslösende Fachstelle der Stellungnahme) ([eBau Test]: Bericht erstellt (eBau-Nr. 2022-1) / Rapport créé (n° eBau 2022-1))",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nFür das Dossier mit der eBau-Nr. 2022-1 (Baugesuch, Gemeinde Burgdorf) wurden die gemäss Leitverfahren eingeforderten\nStellungnahmen, Amts- und Fachberichte und Verfügungen erstellt: Positive Rückmeldung.\n\nhttp://ebau.local/index/redirect-to-instance-resource/instance-id/4\n\nAlle 1 Stellungnahmen sind nun eingegangen.\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nAmt für Gemeinden und Raumordnung - Abteilung Bauen\n\n*** version française ***\n\nMadame, Monsieur,\n\nEn ce qui concerne le dossier eBau n° 2022-1 (Demande de permis de construire, Municipalité Burgdorf), les prises de position, les rapports officiels et techniques et/ou les décisions requis\nconformément à la procédure directrice ont été établis : Préavis positif.\n\nhttp://ebau.local/index/redirect-to-instance-resource/instance-id/4\n\nTous les 1 prises de position ont été reçues.\n\nCe message a été généré automatiquement, veuillez ne pas y répondre.\n\nAmt für Gemeinden und Raumordnung - Abteilung Bauen",
-      "history_entry": 24,
-      "language": "de"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 48,
-    "fields": {
-      "title": "Notification envoyée à email@example.com (Office spécialisé à l'origine de l'avis) ([eBau Test]: Bericht erstellt (eBau-Nr. 2022-1) / Rapport créé (n° eBau 2022-1))",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nFür das Dossier mit der eBau-Nr. 2022-1 (Baugesuch, Gemeinde Burgdorf) wurden die gemäss Leitverfahren eingeforderten\nStellungnahmen, Amts- und Fachberichte und Verfügungen erstellt: Positive Rückmeldung.\n\nhttp://ebau.local/index/redirect-to-instance-resource/instance-id/4\n\nAlle 1 Stellungnahmen sind nun eingegangen.\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nAmt für Gemeinden und Raumordnung - Abteilung Bauen\n\n*** version française ***\n\nMadame, Monsieur,\n\nEn ce qui concerne le dossier eBau n° 2022-1 (Demande de permis de construire, Municipalité Burgdorf), les prises de position, les rapports officiels et techniques et/ou les décisions requis\nconformément à la procédure directrice ont été établis : Préavis positif.\n\nhttp://ebau.local/index/redirect-to-instance-resource/instance-id/4\n\nTous les 1 prises de position ont été reçues.\n\nCe message a été généré automatiquement, veuillez ne pas y répondre.\n\nAmt für Gemeinden und Raumordnung - Abteilung Bauen",
-      "history_entry": 24,
-      "language": "fr"
     }
   },
   {
     "model": "instance.historyentryt",
     "pk": 49,
     "fields": {
-      "title": "Notifikation gesendet an christian@zosel.ch (None) ([eBau Test]: Einsicht respektive Mitarbeit in Dossier (Nr. 2) / Consultation du ou participation au dossier (n° 2))",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nSie haben vom/von der Gesuchsteller/in den Zugriff auf das Dossier-Nr. 2 (Einfache Vorabklärung, Gemeinde Burgdorf, http://ebau-portal.local/instances/2) erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten.\n\nUm das Dossier einsehen respektive mitbearbeiten zu können, ist eine Registrierung auf dem eBau Portal des Kantons Bern erforderlich.\n\nUnter folgendem Link können Sie sich registrieren: http://ebau-keycloak.local/auth/realms/ebau/login-actions/registration?client_id=camac\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\n\n*** version française ***\n\nBonjour\n\nLe/la requérant(e) vous a donné accès au dossier n° 2 (Demandes préalables simples, Municipalité None, http://ebau-portal.local/instances/2). Cela vous permettra de le consulter ou de l’éditer.\n\nL'enregistrement sur le portail eBau du canton de Berne est nécessaire pour consulter et éditer le dossier.\n\nVous pouvez vous inscrire en cliquant sur le lien suivant : http://ebau-keycloak.local/auth/realms/ebau/login-actions/registration?client_id=camac\n\nCe message a été généré automatiquement, veuillez ne pas y répondre.\n\nMeilleures salutations",
+      "title": "Dossier eingereicht",
+      "body": "",
       "history_entry": 25,
       "language": "de"
     }
@@ -870,8 +120,8 @@
     "model": "instance.historyentryt",
     "pk": 50,
     "fields": {
-      "title": "Notification envoyée à christian@zosel.ch (None) ([eBau Test]: Einsicht respektive Mitarbeit in Dossier (Nr. 2) / Consultation du ou participation au dossier (n° 2))",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nSie haben vom/von der Gesuchsteller/in den Zugriff auf das Dossier-Nr. 2 (Einfache Vorabklärung, Gemeinde Burgdorf, http://ebau-portal.local/instances/2) erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten.\n\nUm das Dossier einsehen respektive mitbearbeiten zu können, ist eine Registrierung auf dem eBau Portal des Kantons Bern erforderlich.\n\nUnter folgendem Link können Sie sich registrieren: http://ebau-keycloak.local/auth/realms/ebau/login-actions/registration?client_id=camac\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\n\n*** version française ***\n\nBonjour\n\nLe/la requérant(e) vous a donné accès au dossier n° 2 (Demandes préalables simples, Municipalité None, http://ebau-portal.local/instances/2). Cela vous permettra de le consulter ou de l’éditer.\n\nL'enregistrement sur le portail eBau du canton de Berne est nécessaire pour consulter et éditer le dossier.\n\nVous pouvez vous inscrire en cliquant sur le lien suivant : http://ebau-keycloak.local/auth/realms/ebau/login-actions/registration?client_id=camac\n\nCe message a été généré automatiquement, veuillez ne pas y répondre.\n\nMeilleures salutations",
+      "title": "Dossier envoyé",
+      "body": "",
       "history_entry": 25,
       "language": "fr"
     }
@@ -880,8 +130,8 @@
     "model": "instance.historyentryt",
     "pk": 51,
     "fields": {
-      "title": "Notifikation gesendet an Gesuchsteller/in (keine Empfänger) ([eBau Test]: Zusätzliche Unterlagen notwendig (eBau Nr. 2022-1) / Documents complémentaires requis (n° eBau 2022-1))",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nDie Prüfung hat ergeben, dass für die Beurteilung des Dossiers mit der eBau Nr. 2022-1 (4, Baugesuch, Gemeinde Burgdorf) noch weitere Unterlagen / Dokumente notwendig sind. Bitte öffnen Sie das Menü \"Nachforderungen\" unter folgendem Link:\n\nhttp://ebau-portal.local/instances/4/nfd\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\nLeitbehörde Burgdorf\n\n*** version française ***\n\nMadame, Monsieur,\n\nIl ressort d'un premier examen que d'autres documents / indications (selon le document annexé) sont nécessaires à l'appréciation du dossier portant le numéro eBau 2022-1 (4, Demande de permis de construire, Municipalité Burgdorf). Veuillez ouvrir le menu \"Demande de complément d'information\" au moyen du lien suivant:\n\nhttp://ebau-portal.local/instances/4/nfd\n\nCe message a été généré automatiquement, veuillez ne pas y répondre.\n\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\nAutorité directrice Burgdorf",
+      "title": "Notifikation gesendet an email@example.ch (Gesuchsteller/in) ([eBau Test]: Erfolgreiche Einreichung / Formulaire déposé avec succès)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nIhr Dossier mit der Dossier-Nr. 7 (Baugesuch, Gemeinde Burgdorf)  wurde erfolgreich übermittelt. Alle auf eBau hochgeladenen Pläne und Dokumente müssen unterschrieben, datiert und in mindestens zweifacher Ausfertigung mit dem Gesuchsformular bei der zuständigen Gemeinde eingereicht werden. Das Dossier wird erst bearbeitet, wenn die Gemeinde das Papierdossier erhalten hat.\n\nhttp://ebau-portal.local/instances/7\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\nLeitbehörde Burgdorf\n\n*** version française ***\n\nMadame, Monsieur,\n\nVotre dossier portant le numéro de dossier 7 (Demande de permis de construire, Municipalité Burgdorf) a été déposé/e avec succès. Tous les plans et documents téléchargés sur eBau doivent être signés, datés et envoyés en au moins deux exemplaires avec le formulaire de demande de permis de construire à la commune responsable. Le dossier ne sera traité que lorsque la commune aura reçu le dossier papier.\n\nhttp://ebau-portal.local/instances/7\n\nCe message a été généré automatiquement, veuillez ne pas y répondre.\n\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\nAutorité directrice Burgdorf",
       "history_entry": 26,
       "language": "de"
     }
@@ -890,8 +140,8 @@
     "model": "instance.historyentryt",
     "pk": 52,
     "fields": {
-      "title": "Notification envoyée à Requérant/e (aucun destinataire) ([eBau Test]: Zusätzliche Unterlagen notwendig (eBau Nr. 2022-1) / Documents complémentaires requis (n° eBau 2022-1))",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nDie Prüfung hat ergeben, dass für die Beurteilung des Dossiers mit der eBau Nr. 2022-1 (4, Baugesuch, Gemeinde Burgdorf) noch weitere Unterlagen / Dokumente notwendig sind. Bitte öffnen Sie das Menü \"Nachforderungen\" unter folgendem Link:\n\nhttp://ebau-portal.local/instances/4/nfd\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\nLeitbehörde Burgdorf\n\n*** version française ***\n\nMadame, Monsieur,\n\nIl ressort d'un premier examen que d'autres documents / indications (selon le document annexé) sont nécessaires à l'appréciation du dossier portant le numéro eBau 2022-1 (4, Demande de permis de construire, Municipalité Burgdorf). Veuillez ouvrir le menu \"Demande de complément d'information\" au moyen du lien suivant:\n\nhttp://ebau-portal.local/instances/4/nfd\n\nCe message a été généré automatiquement, veuillez ne pas y répondre.\n\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\nAutorité directrice Burgdorf",
+      "title": "Notification envoyée à email@example.ch (Requérant/e) ([eBau Test]: Erfolgreiche Einreichung / Formulaire déposé avec succès)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nIhr Dossier mit der Dossier-Nr. 7 (Baugesuch, Gemeinde Burgdorf)  wurde erfolgreich übermittelt. Alle auf eBau hochgeladenen Pläne und Dokumente müssen unterschrieben, datiert und in mindestens zweifacher Ausfertigung mit dem Gesuchsformular bei der zuständigen Gemeinde eingereicht werden. Das Dossier wird erst bearbeitet, wenn die Gemeinde das Papierdossier erhalten hat.\n\nhttp://ebau-portal.local/instances/7\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\nLeitbehörde Burgdorf\n\n*** version française ***\n\nMadame, Monsieur,\n\nVotre dossier portant le numéro de dossier 7 (Demande de permis de construire, Municipalité Burgdorf) a été déposé/e avec succès. Tous les plans et documents téléchargés sur eBau doivent être signés, datés et envoyés en au moins deux exemplaires avec le formulaire de demande de permis de construire à la commune responsable. Le dossier ne sera traité que lorsque la commune aura reçu le dossier papier.\n\nhttp://ebau-portal.local/instances/7\n\nCe message a été généré automatiquement, veuillez ne pas y répondre.\n\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\nAutorité directrice Burgdorf",
       "history_entry": 26,
       "language": "fr"
     }
@@ -900,8 +150,8 @@
     "model": "instance.historyentryt",
     "pk": 53,
     "fields": {
-      "title": "Notifikation gesendet an None (keine Empfänger) ([eBau Test]: Zusätzliche Unterlagen notwendig (eBau Nr. 2022-1) / Documents complémentaires requis (n° eBau 2022-1))",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nDie Prüfung hat ergeben, dass für die Beurteilung des Dossiers mit der eBau Nr. 2022-1 (4, Baugesuch, Gemeinde Burgdorf) noch weitere Unterlagen / Dokumente notwendig sind.\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\n*** version française ***\n\nMadame, Monsieur,\n\nIl ressort d'un premier examen que d'autres documents / indications (selon le document annexé) sont nécessaires à l'appréciation du dossier portant le numéro eBau 2022-1 (4, Demande de permis de construire, Municipalité Burgdorf).\n\nCe message a été généré automatiquement, veuillez ne pas y répondre.",
+      "title": "Notifikation gesendet an email@example.com (Leitbehörde) ([eBau Test]: Neu eingegangen / Nouvelle entrée)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. 7 (Baugesuch, Gemeinde Burgdorf).\n\nhttp://ebau.local/index/redirect-to-instance-resource/instance-id/7\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\neBau\n\n*** version française ***\n\nMadame, Monsieur,\n\neBau a enregistré une nouvelle entrée portant le numéro de dossier 7 (Demande de permis de construire, Municipalité Burgdorf).\n\nhttp://ebau.local/index/redirect-to-instance-resource/instance-id/7\n\nCe message a été généré automatiquement, veuillez ne pas y répondre.\n\neBau",
       "history_entry": 27,
       "language": "de"
     }
@@ -910,49 +160,9 @@
     "model": "instance.historyentryt",
     "pk": 54,
     "fields": {
-      "title": "Notification envoyée à None (aucun destinataire) ([eBau Test]: Zusätzliche Unterlagen notwendig (eBau Nr. 2022-1) / Documents complémentaires requis (n° eBau 2022-1))",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nDie Prüfung hat ergeben, dass für die Beurteilung des Dossiers mit der eBau Nr. 2022-1 (4, Baugesuch, Gemeinde Burgdorf) noch weitere Unterlagen / Dokumente notwendig sind.\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\n*** version française ***\n\nMadame, Monsieur,\n\nIl ressort d'un premier examen que d'autres documents / indications (selon le document annexé) sont nécessaires à l'appréciation du dossier portant le numéro eBau 2022-1 (4, Demande de permis de construire, Municipalité Burgdorf).\n\nCe message a été généré automatiquement, veuillez ne pas y répondre.",
+      "title": "Notification envoyée à email@example.com (Autorité directrice) ([eBau Test]: Neu eingegangen / Nouvelle entrée)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. 7 (Baugesuch, Gemeinde Burgdorf).\n\nhttp://ebau.local/index/redirect-to-instance-resource/instance-id/7\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\neBau\n\n*** version française ***\n\nMadame, Monsieur,\n\neBau a enregistré une nouvelle entrée portant le numéro de dossier 7 (Demande de permis de construire, Municipalité Burgdorf).\n\nhttp://ebau.local/index/redirect-to-instance-resource/instance-id/7\n\nCe message a été généré automatiquement, veuillez ne pas y répondre.\n\neBau",
       "history_entry": 27,
-      "language": "fr"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 55,
-    "fields": {
-      "title": "Notifikation gesendet an None (keine Empfänger) ([eBau Test]: Nachforderung beantwortet (eBau Nr. 2022-1) / Complément d'information fourni (n° eBau 2022-1))",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nEine Nachforderung zum Dossier mit der eBau Nr. 2022-1 (4, Baugesuch, Gemeinde Burgdorf) wurde beantwortet. \n\nhttp://ebau.local/index/redirect-to-instance-resource/instance-id/4\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\n*** version française ***\n\nMadame, Monsieur,\n\nLe complément d'information sollicité au sujet du dossier portant le numéro eBau 2022-1 (4, Demande de permis de construire, Municipalité Burgdorf) a été fourni. \n\nhttp://ebau.local/index/redirect-to-instance-resource/instance-id/4\n\nCe message a été généré automatiquement, veuillez ne pas y répondre.",
-      "history_entry": 28,
-      "language": "de"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 56,
-    "fields": {
-      "title": "Notification envoyée à None (aucun destinataire) ([eBau Test]: Nachforderung beantwortet (eBau Nr. 2022-1) / Complément d'information fourni (n° eBau 2022-1))",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nEine Nachforderung zum Dossier mit der eBau Nr. 2022-1 (4, Baugesuch, Gemeinde Burgdorf) wurde beantwortet. \n\nhttp://ebau.local/index/redirect-to-instance-resource/instance-id/4\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\n*** version française ***\n\nMadame, Monsieur,\n\nLe complément d'information sollicité au sujet du dossier portant le numéro eBau 2022-1 (4, Demande de permis de construire, Municipalité Burgdorf) a été fourni. \n\nhttp://ebau.local/index/redirect-to-instance-resource/instance-id/4\n\nCe message a été généré automatiquement, veuillez ne pas y répondre.",
-      "history_entry": 28,
-      "language": "fr"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 57,
-    "fields": {
-      "title": "Notifikation gesendet an email@example.com (Leitbehörde) ([eBau Test]: Nachforderung beantwortet (eBau Nr. 2022-1) / Complément d'information fourni (n° eBau 2022-1))",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nEine Nachforderung zum Dossier mit der eBau Nr. 2022-1 (4, Baugesuch, Gemeinde Burgdorf) wurde beantwortet. \n\nhttp://ebau.local/index/redirect-to-instance-resource/instance-id/4\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\n*** version française ***\n\nMadame, Monsieur,\n\nLe complément d'information sollicité au sujet du dossier portant le numéro eBau 2022-1 (4, Demande de permis de construire, Municipalité Burgdorf) a été fourni. \n\nhttp://ebau.local/index/redirect-to-instance-resource/instance-id/4\n\nCe message a été généré automatiquement, veuillez ne pas y répondre.",
-      "history_entry": 29,
-      "language": "de"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 58,
-    "fields": {
-      "title": "Notification envoyée à email@example.com (Autorité directrice) ([eBau Test]: Nachforderung beantwortet (eBau Nr. 2022-1) / Complément d'information fourni (n° eBau 2022-1))",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nEine Nachforderung zum Dossier mit der eBau Nr. 2022-1 (4, Baugesuch, Gemeinde Burgdorf) wurde beantwortet. \n\nhttp://ebau.local/index/redirect-to-instance-resource/instance-id/4\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\n*** version française ***\n\nMadame, Monsieur,\n\nLe complément d'information sollicité au sujet du dossier portant le numéro eBau 2022-1 (4, Demande de permis de construire, Municipalité Burgdorf) a été fourni. \n\nhttp://ebau.local/index/redirect-to-instance-resource/instance-id/4\n\nCe message a été généré automatiquement, veuillez ne pas y répondre.",
-      "history_entry": 29,
       "language": "fr"
     }
   }
