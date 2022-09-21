@@ -20740,7 +20740,7 @@
     "pk": 221,
     "fields": {
       "name": "Alle Dossiers von der Gemeinde umwandelbar",
-      "description": "Betrifft z.B. Reklame-Gesuche und Meldungen Solaranlagen"
+      "description": "Betrifft z.B. Reklamegesuche und Meldungen Solaranlagen"
     }
   },
   {
@@ -20899,8 +20899,8 @@
     "model": "core.formgroup",
     "pk": 12000002,
     "fields": {
-      "name": "Solar und Gebäudetechnik Dossiers von der Gemeinde die in Baugesuch umgewandelt werden können",
-      "description": "Solar und Gebäudetechnik Dossiers von der Gemeinde die in Baugesuch umgewandelt werden können"
+      "name": "Solar, Gebäudetechnik und Reklame Dossiers von der Gemeinde die in Baugesuch umgewandelt werden können",
+      "description": "Solar, Gebäudetechnik und Reklame Dossiers von der Gemeinde die in Baugesuch umgewandelt werden können"
     }
   },
   {
@@ -23149,6 +23149,30 @@
     "fields": {
       "form_group": 257,
       "form": 141
+    }
+  },
+  {
+    "model": "core.formgroupform",
+    "pk": 12000068,
+    "fields": {
+      "form_group": 241,
+      "form": 121
+    }
+  },
+  {
+    "model": "core.formgroupform",
+    "pk": 12000069,
+    "fields": {
+      "form_group": 257,
+      "form": 121
+    }
+  },
+  {
+    "model": "core.formgroupform",
+    "pk": 12000070,
+    "fields": {
+      "form_group": 12000002,
+      "form": 121
     }
   },
   {
