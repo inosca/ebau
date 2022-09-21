@@ -16,6 +16,7 @@ export default class InstanceModel extends Model {
   @attr meta;
   @attr isModification;
   @attr isPaper;
+  @attr dossierNumber;
 
   @belongsTo user;
   @belongsTo form;
@@ -42,10 +43,6 @@ export default class InstanceModel extends Model {
 
   get ebauNumber() {
     return this._caseMeta?.["ebau-number"];
-  }
-
-  get dossierNumber() {
-    return this._caseMeta?.["dossier-number"];
   }
 
   unlink() {
