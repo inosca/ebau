@@ -134,6 +134,10 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
     );
   }
 
+  get communalFederalNumber() {
+    return this.instance?.get("location.communalFederalNumber");
+  }
+
   get isPaper() {
     return this.instance.isPaper;
   }
