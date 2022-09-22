@@ -1,0 +1,22 @@
+{{yield}}
+<div
+  uk-dropdown
+  mode="hover"
+  pos="bottom-left"
+  class="uk-padding-small"
+  {{did-insert this.registerBeforeShowHandler}}
+  {{will-destroy this.unregisterBeforeShowHandler}}
+>
+  <div class="uk-flex uk-flex-center uk-flex-middle">
+    {{#if this.loadThumbnail.isRunning}}
+      <UkSpinner />
+    {{else if this.loadThumbnail.lastSuccessful.value}}
+      <img src={{this.loadThumbnail.lastSuccessful.value}} alt={{t "publicInstancesDetail.documentPreview"}} />
+    {{else}}
+      <div>
+        <UkIcon @icon="warning" class="uk-flex uk-flex-center uk-text-danger" />
+        <p>{{t "publicInstancesDetail.documentPreviewError"}}</p>
+      </div>
+    {{/if}}
+  </div>
+</div>

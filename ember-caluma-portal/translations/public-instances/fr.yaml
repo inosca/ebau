@@ -28,3 +28,5 @@ publicInstancesDetail:
   confiance et non accessibles au public."
   empty: "Aucun document mis à l'enquête trouvé"
   related: "{count} {count, plural, =1 {dossier} other {dossiers}} mis à l'enquête avec le même numéro eBau"
+  documentPreview: "Aperçu du document"
+  documentPreviewError: "Une erreur s'est produite lors du chargement de l'aperçu du document"

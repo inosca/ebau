@@ -27,3 +27,5 @@ publicInstancesDetail:
   zugänglich eingestuft wurden."
   empty: "Keine Auflagedokumente gefunden"
   related: "{count} {count, plural, =1 {aufgelegtes Dossier} other {aufgelegte Dossiers}} mit gleicher eBau-Nummer"
+  documentPreview: Dokumentenvorschau
+  documentPreviewError: "Fehler beim Laden der Dokumentenvorschau"
