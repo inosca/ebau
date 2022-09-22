@@ -207,6 +207,7 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         # support can upload without infection scan on their own risk
         return None
 
+    @permission_aware
     def validate_context(self, context):
         # don't validate if context is new or unchanged
         if not self.instance or context == self.instance.context:
@@ -230,6 +231,9 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
                     "Changing decision document mark after decision is enacted is not allowed."
                 )
             )
+        return context
+
+    def validate_context_for_support(self, context):
         return context
 
     def validate(self, data):
