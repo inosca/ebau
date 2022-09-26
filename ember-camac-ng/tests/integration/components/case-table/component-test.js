@@ -2,8 +2,9 @@ import Service from "@ember/service";
 import { render } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
 import { setupIntl } from "ember-intl/test-support";
-import { setupRenderingTest } from "ember-qunit";
 import { module, skip } from "qunit";
+
+import { setupRenderingTest } from "camac-ng/tests/helpers";
 
 class FakeShoebox extends Service {
   get content() {

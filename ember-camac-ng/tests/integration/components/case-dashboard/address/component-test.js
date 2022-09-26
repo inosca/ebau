@@ -1,7 +1,8 @@
 import { render } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
-import { setupRenderingTest } from "ember-qunit";
 import { module, todo } from "qunit";
+
+import { setupRenderingTest } from "camac-ng/tests/helpers";
 
 module("Integration | Component | case-dashboard/address", function (hooks) {
   setupRenderingTest(hooks);

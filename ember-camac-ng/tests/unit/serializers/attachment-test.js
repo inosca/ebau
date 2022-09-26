@@ -1,5 +1,6 @@
-import { setupTest } from "ember-qunit";
 import { module, test } from "qunit";
+
+import { setupTest } from "camac-ng/tests/helpers";
 
 module("Unit | Serializer | attachment", function (hooks) {
   setupTest(hooks);

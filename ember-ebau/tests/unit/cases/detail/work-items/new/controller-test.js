@@ -1,5 +1,6 @@
-import { setupTest } from "ember-qunit";
 import { module, test } from "qunit";
+
+import { setupTest } from "ebau/tests/helpers";
 
 module("Unit | Controller | cases/detail/work-items/new", function (hooks) {
   setupTest(hooks);
