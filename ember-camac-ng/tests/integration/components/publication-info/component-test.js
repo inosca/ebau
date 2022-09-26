@@ -3,8 +3,9 @@ import { faker } from "@faker-js/faker";
 import { hbs } from "ember-cli-htmlbars";
 import { setupMirage } from "ember-cli-mirage/test-support";
 import { setupIntl } from "ember-intl/test-support";
-import { setupRenderingTest } from "ember-qunit";
 import { module, test } from "qunit";
+
+import { setupRenderingTest } from "camac-ng/tests/helpers";
 
 module("Integration | Component | publication-info", function (hooks) {
   setupRenderingTest(hooks);

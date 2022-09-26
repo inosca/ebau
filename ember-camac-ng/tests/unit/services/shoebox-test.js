@@ -1,6 +1,7 @@
 import Service from "@ember/service";
-import { setupTest } from "ember-qunit";
 import { module, test } from "qunit";
+
+import { setupTest } from "camac-ng/tests/helpers";
 
 const SHOEBOX_CONTENT = { foo: "bar" };
 

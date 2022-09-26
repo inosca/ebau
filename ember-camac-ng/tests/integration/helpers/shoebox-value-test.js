@@ -1,8 +1,9 @@
 import Service from "@ember/service";
 import { render } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
-import { setupRenderingTest } from "ember-qunit";
 import { module, test } from "qunit";
+
+import { setupRenderingTest } from "camac-ng/tests/helpers";
 
 module("Integration | Helper | shoebox-value", function (hooks) {
   setupRenderingTest(hooks);

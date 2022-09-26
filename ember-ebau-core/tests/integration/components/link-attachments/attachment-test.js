@@ -1,8 +1,9 @@
 import { render, click } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
 import { task } from "ember-concurrency";
-import { setupRenderingTest } from "ember-qunit";
 import { module, test } from "qunit";
+
+import { setupRenderingTest } from "dummy/tests/helpers";
 
 module(
   "Integration | Component | link-attachments/attachment",

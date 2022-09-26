@@ -3,13 +3,13 @@ import { render } from "@ember/test-helpers";
 import { faker } from "@faker-js/faker";
 import { hbs } from "ember-cli-htmlbars";
 import { setupMirage } from "ember-cli-mirage/test-support";
-import { setupRenderingTest } from "ember-qunit";
 import { module, test } from "qunit";
 
 import {
   OBLIGATION_ANSWERS,
   OBLIGATION_FORM_SLUG,
 } from "camac-ng/components/inquiry-answer-status";
+import { setupRenderingTest } from "camac-ng/tests/helpers";
 
 module("Integration | Component | inquiry-answer-status", function (hooks) {
   setupRenderingTest(hooks);

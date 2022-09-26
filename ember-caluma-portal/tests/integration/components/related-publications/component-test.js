@@ -1,7 +1,8 @@
 import { render } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
-import { setupRenderingTest } from "ember-qunit";
 import { module, todo } from "qunit";
+
+import { setupRenderingTest } from "caluma-portal/tests/helpers";
 
 module("Integration | Component | related-publications", function (hooks) {
   setupRenderingTest(hooks);

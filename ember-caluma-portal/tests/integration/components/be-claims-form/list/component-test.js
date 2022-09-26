@@ -1,7 +1,8 @@
 import { render } from "@ember/test-helpers";
-import { setupRenderingTest } from "ember-qunit";
 import hbs from "htmlbars-inline-precompile";
 import { module, skip } from "qunit";
+
+import { setupRenderingTest } from "caluma-portal/tests/helpers";
 
 module("Integration | Component | be-claims-form/list", function (hooks) {
   setupRenderingTest(hooks);

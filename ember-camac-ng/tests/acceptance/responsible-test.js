@@ -3,9 +3,10 @@ import { visit, click } from "@ember/test-helpers";
 import { setupMirage } from "ember-cli-mirage/test-support";
 import { setupIntl } from "ember-intl/test-support";
 import { selectChoose } from "ember-power-select/test-support";
-import { setupApplicationTest } from "ember-qunit";
 import { authenticateSession } from "ember-simple-auth/test-support";
 import { module, test } from "qunit";
+
+import { setupApplicationTest } from "camac-ng/tests/helpers";
 
 const SERVICE_ID = 1;
 
