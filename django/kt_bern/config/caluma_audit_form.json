@@ -24199,7 +24199,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Eisenbahn EBG Art. 18a\", \"fr\": \"Voies ferr\\u00e9es LCdF Art. 18a\"}",
+      "label": "{\"de\": \"Eisenbahn EBG Art. 18 ff\", \"fr\": \"Voies ferr\\u00e9es LCdF Art. 18 ss\"}",
       "type": "choice",
       "is_required": "true",
       "is_hidden": "false",
