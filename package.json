@@ -8,5 +8,8 @@
   ],
   "devDependencies": {
     "prettier": "2.8.1"
+  },
+  "resolutions": {
+    "tracked-maps-and-sets": "3.0.2"
   }
 }

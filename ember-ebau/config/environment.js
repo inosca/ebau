@@ -40,7 +40,7 @@ module.exports = function (environment) {
     modulePrefix: "ebau",
     environment,
     rootURL: "/",
-    locationType: "auto",
+    locationType: "history",
     "ember-simple-auth-oidc": {
       host: `${oidcHost}/auth/realms/${appConfig.realm}/protocol/openid-connect`,
       clientId: "camac",
