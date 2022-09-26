@@ -502,7 +502,7 @@ module.exports = function (environment) {
     modulePrefix: "caluma-portal",
     environment,
     rootURL: "/",
-    locationType: "auto",
+    locationType: "history",
     historySupportMiddleware: true,
     "ember-simple-auth-oidc": {
       host: `${oidcHost}/auth/realms/${appConfig.realm}/protocol/openid-connect`,
