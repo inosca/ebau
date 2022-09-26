@@ -24,14 +24,16 @@
             {{this.dossierNr}}
           </td>
           <td>
-            <button
-              class="uk-button uk-button-link"
-              title="{{t "publicInstancesDetail.download"}}"
-              type="button"
-              {{on "click" (perform attachment.download)}}
-            >
-              {{attachment.name}}
-            </button>
+            <Thumbnail @attachmentId={{attachment.id}}>
+              <button
+                class="uk-button uk-button-link"
+                title="{{t "publicInstancesDetail.download"}}"
+                type="button"
+                {{on "click" (perform attachment.download)}}
+              >
+                {{attachment.name}}
+              </button>
+            </Thumbnail>
             {{#if attachment.context.isPublishedWithoutObligation}}
               <span uk-icon="icon: info; ratio: 1.2" class="uk-margin-small-left" title={{t "publicInstances.publishedWithoutObligation"}}></span>
             {{/if}}
