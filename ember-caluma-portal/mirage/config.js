@@ -17,6 +17,11 @@ export default function makeServer(config) {
 
       this.get("/api/v1/attachments");
 
+      this.get(
+        "/api/v1/attachments/:id/thumbnail",
+        () => new File(["Filename"], { type: "image/jpeg" })
+      );
+
       this.get("/api/v1/instances");
       this.get("/api/v1/instances/:id", function ({ instances }, request) {
         const instance = instances.find(request.params.id);
