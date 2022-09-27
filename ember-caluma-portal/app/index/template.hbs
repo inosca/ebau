@@ -1,4 +1,4 @@
-<div class="uk-width-2-3 uk-margin-auto">
+<div class="uk-width-2-3@l uk-width-1-1 uk-margin-auto">
   <h1 class="uk-text-center uk-margin-medium-bottom">
     {{t "index.welcome"}}
   </h1>
@@ -11,10 +11,10 @@
     {{t "index.nextStep"}}
   </p>
 
-  <div class="uk-flex uk-flex-center">
+  <div class="uk-flex uk-flex-center uk-flex-wrap">
     {{#if (can "create instance")}}
       <div
-        class="uk-flex uk-flex-middle uk-margin-small-left uk-margin-small-right"
+        class="uk-flex uk-flex-middle uk-margin-small-left uk-margin-small-right uk-margin-bottom"
       >
         <LinkTo
           @route="instances.new"
@@ -27,7 +27,7 @@
     {{/if}}
 
     <div
-      class="uk-flex uk-flex-middle uk-margin-small-left uk-margin-small-right"
+      class="uk-flex uk-flex-middle uk-margin-small-left uk-margin-small-right uk-margin-bottom"
     >
       <LinkTo
         @route="instances.index"
