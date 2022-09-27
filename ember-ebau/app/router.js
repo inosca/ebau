@@ -13,6 +13,7 @@ const resetNamespace = true;
 Router.map(function () {
   this.route("login");
   this.route("protected", { path: "/" }, function () {
+    this.route("index", { path: "/", resetNamespace });
     this.route("dashboard", { path: "/dashboard/:type", resetNamespace });
     this.route("work-items", { resetNamespace });
     this.route("cases", { resetNamespace }, function () {
