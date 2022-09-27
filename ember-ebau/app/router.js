@@ -1,4 +1,5 @@
 import EmberRouter from "@ember/routing/router";
+
 import config from "ebau/config/environment";
 
 export default class Router extends EmberRouter {
@@ -8,6 +9,7 @@ export default class Router extends EmberRouter {
 
 const resetNamespace = true;
 
+/* eslint-disable-next-line array-callback-return */
 Router.map(function () {
   this.route("login");
   this.route("protected", { path: "/" }, function () {

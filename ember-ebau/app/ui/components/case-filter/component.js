@@ -4,13 +4,12 @@ import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import calumaQuery from "@projectcaluma/ember-core/caluma-query";
 import { allForms } from "@projectcaluma/ember-core/caluma-query/queries";
+import config from "camac-ng/config/environment";
+import getBuildingPermitQuestion from "camac-ng/gql/queries/get-building-permit-question.graphql";
 import { queryManager } from "ember-apollo-client";
 import { restartableTask, lastValue } from "ember-concurrency";
 
 import caseFilters from "./filter-config";
-
-import config from "camac-ng/config/environment";
-import getBuildingPermitQuestion from "camac-ng/gql/queries/get-building-permit-question.graphql";
 
 export default class CaseFilterComponent extends Component {
   @queryManager apollo;
