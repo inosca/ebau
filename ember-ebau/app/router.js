@@ -13,6 +13,7 @@ const resetNamespace = true;
 Router.map(function () {
   this.route("login");
   this.route("protected", { path: "/" }, function () {
+    // this is needed to resolve ambiguity between the global index and protected index routes
     this.route("index", { path: "/", resetNamespace });
     this.route("dashboard", { path: "/dashboard/:type", resetNamespace });
     this.route("work-items", { resetNamespace });
