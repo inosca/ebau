@@ -1,5 +1,5 @@
-import Component from "@glimmer/component";
 import { inject as service } from "@ember/service";
+import Component from "@glimmer/component";
 import { dropTask } from "ember-concurrency";
 import { trackedTask } from "ember-resources/util/ember-concurrency";
 
