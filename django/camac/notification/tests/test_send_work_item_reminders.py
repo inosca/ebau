@@ -8,14 +8,16 @@ from django.utils import timezone
 @pytest.mark.freeze_time("2020-08-10")
 @pytest.mark.parametrize("multilingual", [True, False])
 @pytest.mark.parametrize(
-    "is_overdue,is_not_viewed,is_assigned,has_controlling,outbox_count",
+    "is_overdue,is_not_viewed,is_assigned,has_controlling,multi_mail_service,is_applicant,outbox_count",
     [
-        (True, True, True, True, 3),
-        (True, True, True, False, 2),
-        (True, False, True, False, 2),
-        (False, True, True, False, 2),
-        (False, True, False, False, 1),
-        (False, False, True, False, 0),
+        (True, True, True, True, False, False, 3),
+        (True, True, True, False, True, False, 3),
+        (True, False, True, False, False, False, 2),
+        (False, True, True, False, True, False, 3),
+        (False, True, False, False, False, False, 1),
+        (False, False, True, False, False, False, 0),
+        (True, True, True, True, False, True, 2),
+        (True, False, True, False, False, True, 1),
     ],
 )
 def test_send_work_item_reminders(
@@ -33,6 +35,8 @@ def test_send_work_item_reminders(
     is_not_viewed,
     is_assigned,
     has_controlling,
+    multi_mail_service,
+    is_applicant,
     outbox_count,
     multilingual,
 ):
@@ -46,6 +50,10 @@ def test_send_work_item_reminders(
             for language in ["de", "fr"]:
                 service_t_factory(language=language, service=service)
 
+    if multi_mail_service:
+        services[0].email = f"{services[0].email},foo@bar.com"
+        services[0].save()
+
     deadline = (
         timezone.now() - timedelta(days=1)
         if is_overdue
@@ -57,7 +65,7 @@ def test_send_work_item_reminders(
         meta={"not-viewed": is_not_viewed},
         deadline=deadline,
         assigned_users=[user.username] if is_assigned else [],
-        addressed_groups=[str(services[0].pk)],
+        addressed_groups=[str(services[0].pk)] if not is_applicant else ["applicant"],
         controlling_groups=[str(services[1].pk)] if has_controlling else [],
     )
 
