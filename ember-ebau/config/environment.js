@@ -27,7 +27,7 @@ module.exports = function (environment) {
   }[app];
   const oidcHost = process.env.KEYCLOAK_HOST || "http://ebau-keycloak.local";
 
-  let ENV = {
+  const ENV = {
     modulePrefix: "ebau",
     environment,
     rootURL: "/",
