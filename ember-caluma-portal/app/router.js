@@ -14,6 +14,7 @@ Router.map(function () {
   this.route("login");
 
   this.route("protected", { path: "/" }, function () {
+    // this is needed to resolve ambiguity between the global index and protected index routes
     this.route("index", { path: "/", resetNamespace });
     this.route("instances", { resetNamespace }, function () {
       this.route("new");
