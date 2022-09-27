@@ -14,7 +14,7 @@ const ENV = ENV_MAP[process.env.APPLICATION] || ENVS[0];
 const UNUSED_ENVS = ENVS.filter((e) => e !== ENV).join("|");
 
 module.exports = function (defaults) {
-  let app = new EmberApp(defaults, {
+  const app = new EmberApp(defaults, {
     // Add options here
   });
 
