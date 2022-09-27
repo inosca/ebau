@@ -158,17 +158,7 @@ class Command(BaseCommand):
                     )
                 )
 
-        # addressed or controlling groups
-        all_service_ids = set(
-            group
-            for item in work_items.values("addressed_groups", "controlling_groups")
-            for group in item["addressed_groups"] + item["controlling_groups"]
-        )
-        all_services = (
-            Service.objects.exclude(disabled=1)
-            .filter(pk__in=all_service_ids)
-            .order_by("pk")
-        )
+        all_services = self._get_addressed_and_controlling_services(work_items)
 
         for service in all_services:
             addressed = work_items.filter(addressed_groups__contains=[str(service.pk)])
@@ -181,22 +171,40 @@ class Command(BaseCommand):
             controlling_overdue = controlling.filter(is_overdue).count()
 
             if addressed_overdue + addressed_not_viewed + controlling_overdue > 0:
-                emails.append(
-                    mail.EmailMessage(
-                        subject,
-                        render_service_template(
-                            addressed_overdue,
-                            addressed_not_viewed,
-                            controlling_overdue,
-                            service,
-                        ),
-                        settings.DEFAULT_FROM_EMAIL,
-                        [service.email],
+                for to_email in service.email.split(","):
+                    emails.append(
+                        mail.EmailMessage(
+                            subject,
+                            render_service_template(
+                                addressed_overdue,
+                                addressed_not_viewed,
+                                controlling_overdue,
+                                service,
+                            ),
+                            settings.DEFAULT_FROM_EMAIL,
+                            [to_email.strip()],
+                        )
                     )
-                )
 
         print(f"sending {len(emails)} reminders")
 
         if emails:
             connection = mail.get_connection()
             connection.send_messages(emails)
+
+    def _get_addressed_and_controlling_services(self, work_items):
+        all_service_ids = set()
+        for item in work_items.values("addressed_groups", "controlling_groups"):
+            for group in item["addressed_groups"] + item["controlling_groups"]:
+                try:
+                    int(group)
+                except ValueError:
+                    continue
+
+                all_service_ids.add(group)
+
+        return (
+            Service.objects.exclude(Q(disabled=1) | Q(notification=0))
+            .filter(pk__in=all_service_ids)
+            .order_by("pk")
+        )
