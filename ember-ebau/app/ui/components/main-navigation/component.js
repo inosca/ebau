@@ -1,9 +1,9 @@
 import { action } from "@ember/object";
-import Component from "@glimmer/component";
 import { inject as service } from "@ember/service";
+import { isTesting, macroCondition } from "@embroider/macros";
+import Component from "@glimmer/component";
 import { dropTask } from "ember-concurrency";
 import { trackedTask } from "ember-resources/util/ember-concurrency";
-import { isTesting, macroCondition } from "@embroider/macros";
 
 export default class MainNavigationComponent extends Component {
   @service session;
