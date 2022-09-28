@@ -612,10 +612,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
 
         permissions = set()
 
-        if (
-            state in ["sb2", "conclusion"]
-            and service_group.name == "construction-control"
-        ):
+        if state in ["sb1", "sb2", "conclusion"]:
             permissions.add("read")
 
         if (
@@ -624,7 +621,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             and service_group.pk in get_paper_settings("sb1")["ALLOWED_SERVICE_GROUPS"]
             and role.pk in get_paper_settings("sb1")["ALLOWED_ROLES"]
         ):
-            permissions.update(["read", "write"])
+            permissions.add("write")
 
         return permissions
 
@@ -658,7 +655,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
 
         permissions = set()
 
-        if state == "conclusion" and service_group.name == "construction-control":
+        if state in ["sb2", "conclusion"]:
             permissions.add("read")
 
         if (
