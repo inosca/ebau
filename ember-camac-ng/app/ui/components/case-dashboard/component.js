@@ -99,7 +99,7 @@ export default class CaseDashboardComponent extends Component {
   }
 
   get samePlotFilters() {
-    const plotNumbers = this.models?.caseModel.parcelNumbers;
+    const plotNumbers = this.models?.caseModel.parcel;
     const municipality = this.models?.caseModel.municipalityId;
 
     if (!municipality || !plotNumbers || plotNumbers.length === 0) {
