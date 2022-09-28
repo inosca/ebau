@@ -715,10 +715,7 @@ def test_attachment_update(
 
 @pytest.mark.parametrize("instance_state__name", [("finished")])
 @pytest.mark.parametrize(
-    "role__name,attachment_section__allowed_mime_types", [("Canton", [])]
-)
-@pytest.mark.parametrize(
-    "attachment__context,new_context,permission,status_code,is_active_service",
+    "attachment__context,new_context,permission,status_code,is_active_service,role__name,attachment_section__allowed_mime_types",
     [
         # attachment is in no writable section: ok
         (
@@ -727,6 +724,8 @@ def test_attachment_update(
             permissions.ReadPermission,
             status.HTTP_200_OK,
             False,
+            "Canton",
+            [],
         ),
         # change context, but not active service: forbidden
         (
@@ -735,6 +734,8 @@ def test_attachment_update(
             permissions.AdminPermission,
             status.HTTP_403_FORBIDDEN,
             False,
+            "Canton",
+            [],
         ),
         # change context as active service: ok
         (
@@ -743,6 +744,8 @@ def test_attachment_update(
             permissions.AdminPermission,
             status.HTTP_200_OK,
             True,
+            "Canton",
+            [],
         ),
         # no change (field not filled): ok
         (
@@ -751,6 +754,8 @@ def test_attachment_update(
             permissions.AdminPermission,
             status.HTTP_200_OK,
             False,
+            "Canton",
+            [],
         ),
         # no change (field filled but with same value): ok
         (
@@ -759,6 +764,8 @@ def test_attachment_update(
             permissions.AdminPermission,
             status.HTTP_200_OK,
             False,
+            "Canton",
+            [],
         ),
         # change of isDecision after instance's decision has been enacted
         (
@@ -767,6 +774,18 @@ def test_attachment_update(
             permissions.WritePermission,
             status.HTTP_400_BAD_REQUEST,
             True,
+            "Canton",
+            [],
+        ),
+        # change of isDecision after instance's decision has been enacted with support role
+        (
+            {"isDecision": False, "isPublished": False},
+            {"isDecision": True, "isPublished": True},
+            permissions.WritePermission,
+            status.HTTP_200_OK,
+            False,
+            "Support",
+            [],
         ),
     ],
 )
@@ -789,6 +808,7 @@ def test_attachment_update_context(
 
     finished_state_name = "finished"
     application_settings["ATTACHMENT_AFTER_DECISION_STATES"] = [finished_state_name]
+
     aasa.instance.instance_state = instance_state
 
     if is_active_service:
@@ -801,7 +821,13 @@ def test_attachment_update_context(
     # fix permissions
     mocker.patch(
         "camac.document.permissions.PERMISSIONS",
-        {"demo": {"canton": {permission: [attachment_section.pk]}}},
+        {
+            "demo": {
+                admin_user.groups.first().role.name.lower(): {
+                    permission: [attachment_section.pk]
+                }
+            }
+        },
     )
 
     data = {
