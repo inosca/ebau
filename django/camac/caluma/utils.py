@@ -71,7 +71,7 @@ def get_answer_display_value(
             [option.label.get(language) for option in answer.selected_options]
         )
     elif answer.question.type == Question.TYPE_DATE:
-        return answer.date.strftime(date_format)
+        return answer.date.strftime(date_format) if answer.date else None
 
     return answer.value
 
