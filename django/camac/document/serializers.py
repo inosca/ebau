@@ -218,9 +218,15 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
             active_service = self.instance.instance.responsible_service(
                 filter_type="municipality"
             )
+            attachmentInInternSection = self.instance.attachment_sections.filter(
+                attachment_section_id=settings.APPLICATION.get(
+                    "ATTACHMENT_SECTION_INTERN", None
+                )
+            ).exists()
 
-            if not service or active_service != service:
-                raise exceptions.PermissionDenied()
+            if not attachmentInInternSection:
+                if not service or active_service != service:
+                    raise exceptions.PermissionDenied()
 
         # prevent changing document's isDecision flag after case decision has been enacted
         if self.instance.instance.instance_state.name in settings.APPLICATION.get(
