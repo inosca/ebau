@@ -34,6 +34,7 @@ audit:
   copyError: "Fehler beim Kopieren der Prüfung"
 
   onlyExamItems: "Nur Prüfgegenstände anzeigen"
+  onlyDefectItems: "Nur Mängel anzeigen"
 
   expand: "aufklappen"
   collapse: "zuklappen"
