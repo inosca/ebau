@@ -787,6 +787,16 @@ def test_attachment_update(
             "Support",
             [],
         ),
+        # change of document name for attachment in internal attachment section, not active service
+        (
+            {"displayName": "testdocument.pdf"},
+            {"displayName": "testdocument_1.pdf"},
+            permissions.AdminInternalPermission,
+            status.HTTP_200_OK,
+            False,
+            "Canton",
+            [],
+        ),
     ],
 )
 def test_attachment_update_context(
@@ -805,6 +815,10 @@ def test_attachment_update_context(
 ):
     aasa = attachment_attachment_sections.attachment
     url = reverse("attachment-detail", args=[aasa.pk])
+    if "displayName" in aasa.context.keys():
+        application_settings[
+            "ATTACHMENT_SECTION_INTERN"
+        ] = aasa.attachment_sections.first().attachment_section_id
 
     finished_state_name = "finished"
     application_settings["ATTACHMENT_AFTER_DECISION_STATES"] = [finished_state_name]
