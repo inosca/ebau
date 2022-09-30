@@ -299,6 +299,7 @@ APPLICATIONS = {
             "koor_sd_users",
             "responsible_koor",
         ],
+        "ATTACHMENT_SECTION_INTERNAL": 4,
     },
     "kt_schwyz": {
         "INCLUDE_STATIC_FILES": [("xml", "kt_schwyz/static/ech0211/xml/")],
@@ -385,6 +386,7 @@ APPLICATIONS = {
         "PUBLICATION_BACKEND": "camac-ng",
         "PUBLICATION_ATTACHMENT_SECTION": [4],
         "ATTACHMENT_INTERNAL_STATES": ["internal"],
+        "ATTACHMENT_SECTION_INTERNAL": None,
         "ATTACHMENT_DELETEABLE_STATES": [
             "new",
             "rejected",
@@ -1187,6 +1189,7 @@ APPLICATIONS = {
         "INCLUDE_STATIC_FILES": [("xml", "kt_bern/static/ech0211/xml")],
         "LOG_NOTIFICATIONS": True,
         "SYSTEM_USER": "service-account-camac-admin",
+        "ATTACHMENT_SECTION_INTERNAL": 4,
         "ROLE_PERMISSIONS": {
             "service-lead": "service",
             "service-clerk": "service",
@@ -2068,6 +2071,7 @@ APPLICATIONS = {
         "APPLICANT_GROUP_ID": 685,  # We reuse the Portal User group
         "SEQUENCE_NAMESPACE_APPS": ["core", "document", "responsible"],
         "THUMBNAIL_SIZE": "x600",
+        "ATTACHMENT_SECTION_INTERNAL": None,
         "CUSTOM_NOTIFICATION_TYPES": [
             "submitter_list",
             "municipality_users",
