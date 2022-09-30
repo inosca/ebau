@@ -18086,13 +18086,13 @@
     "pk": "form-type-afe-korporationsgewaesser",
     "fields": {
       "created_at": "2020-11-02T11:28:59.418Z",
-      "modified_at": "2022-03-14T08:11:12.100Z",
+      "modified_at": "2022-09-26T13:36:52.909Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Konzessionsverfahren Korporationsgew\\u00e4sser mit Genehmigung durch Regierungsrat (Artikel 15 GNG)\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -18102,7 +18102,7 @@
     "pk": "form-type-archiv",
     "fields": {
       "created_at": "2020-10-30T13:24:54.836Z",
-      "modified_at": "2022-03-14T08:11:10.411Z",
+      "modified_at": "2022-09-26T13:36:51.034Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -18118,13 +18118,13 @@
     "pk": "form-type-archiv-afj",
     "fields": {
       "created_at": "2020-11-02T09:52:43.003Z",
-      "modified_at": "2022-03-14T08:11:11.103Z",
+      "modified_at": "2022-09-26T13:36:51.932Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Archivdossier AFJ\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -18134,7 +18134,7 @@
     "pk": "form-type-baubewilligungsverfahren",
     "fields": {
       "created_at": "2022-03-14T07:33:58.907Z",
-      "modified_at": "2022-03-14T08:11:12.571Z",
+      "modified_at": "2022-09-26T13:36:53.553Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -18150,10 +18150,10 @@
     "pk": "form-type-baugesuch-vorabklaerung",
     "fields": {
       "created_at": "2022-03-14T08:11:12.559Z",
-      "modified_at": "2022-03-14T08:11:12.560Z",
+      "modified_at": "2022-09-26T13:36:53.542Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Baugesuch-Vorabkl\\u00e4rung\", \"fr\": null}",
       "is_archived": false,
@@ -18166,10 +18166,10 @@
     "pk": "form-type-bauverwaltung",
     "fields": {
       "created_at": "2022-09-16T12:43:15.567Z",
-      "modified_at": "2022-09-16T12:43:15.567Z",
+      "modified_at": "2022-09-26T13:36:53.777Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Bauverwaltung\", \"fr\": null}",
       "is_archived": false,
@@ -18182,13 +18182,13 @@
     "pk": "form-type-bd-kantonsgewaesser",
     "fields": {
       "created_at": "2020-10-30T14:09:54.990Z",
-      "modified_at": "2022-09-16T12:43:13.485Z",
+      "modified_at": "2022-09-26T13:36:51.446Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Konzessionsverfahren Baudirektion Beanspruchung Kantonsgew\\u00e4sser bis 500 m2 (Artikel 3 ORR)\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -18198,7 +18198,7 @@
     "pk": "form-type-bgbb",
     "fields": {
       "created_at": "2020-10-30T13:23:29.217Z",
-      "modified_at": "2022-06-09T08:30:41.346Z",
+      "modified_at": "2022-09-26T13:36:51.082Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -18214,10 +18214,10 @@
     "pk": "form-type-bohrbewilligung-waermeentnahme",
     "fields": {
       "created_at": "2022-09-16T13:03:39.469Z",
-      "modified_at": "2022-09-16T13:03:39.469Z",
+      "modified_at": "2022-09-26T13:36:53.809Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Gesuch um Bohrbewilligung zur Wasser- oder W\\u00e4rmeentnahme\", \"fr\": null}",
       "is_archived": false,
@@ -18262,7 +18262,7 @@
     "pk": "form-type-commercial-permit",
     "fields": {
       "created_at": "2020-09-01T14:52:15.256Z",
-      "modified_at": "2022-03-14T08:11:12.247Z",
+      "modified_at": "2022-09-26T13:36:53.107Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -18278,13 +18278,13 @@
     "pk": "form-type-genehmigung",
     "fields": {
       "created_at": "2020-10-30T13:52:44.985Z",
-      "modified_at": "2022-03-14T08:11:10.553Z",
+      "modified_at": "2022-09-26T13:36:51.124Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Internes Genehmigungsverfahren\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -18294,7 +18294,7 @@
     "pk": "form-type-genehmigung-qgp",
     "fields": {
       "created_at": "2020-10-30T07:23:54.669Z",
-      "modified_at": "2022-03-14T08:11:09.489Z",
+      "modified_at": "2022-09-26T13:36:49.665Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -18310,7 +18310,7 @@
     "pk": "form-type-genehmigung-qp",
     "fields": {
       "created_at": "2020-10-30T07:24:58.168Z",
-      "modified_at": "2022-03-14T08:11:09.441Z",
+      "modified_at": "2022-09-26T13:36:49.837Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -18326,7 +18326,7 @@
     "pk": "form-type-genehmigung-teilrevision-np",
     "fields": {
       "created_at": "2020-10-30T07:24:58.164Z",
-      "modified_at": "2022-03-14T08:11:09.585Z",
+      "modified_at": "2022-09-26T13:36:49.868Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -18342,7 +18342,7 @@
     "pk": "form-type-gesamtrevision-np",
     "fields": {
       "created_at": "2020-10-30T07:23:17.798Z",
-      "modified_at": "2022-03-14T08:11:09.431Z",
+      "modified_at": "2022-09-26T13:36:49.634Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -18358,7 +18358,7 @@
     "pk": "form-type-kantonsgebiet",
     "fields": {
       "created_at": "2020-10-30T14:09:54.999Z",
-      "modified_at": "2022-03-14T08:11:10.662Z",
+      "modified_at": "2022-09-26T13:36:51.514Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -18374,13 +18374,13 @@
     "pk": "form-type-konzession-landrat",
     "fields": {
       "created_at": "2020-10-30T13:57:12.781Z",
-      "modified_at": "2022-03-14T08:11:10.579Z",
+      "modified_at": "2022-09-26T13:36:51.353Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Konzessionsverfahren Landrat f\\u00fcr Anlagen ab 1000 kW (Artikel 18 GNG) BD\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -18390,13 +18390,13 @@
     "pk": "form-type-konzession-landrat-afe",
     "fields": {
       "created_at": "2020-11-02T11:25:31.967Z",
-      "modified_at": "2022-03-14T08:11:11.829Z",
+      "modified_at": "2022-09-26T13:36:52.711Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Konzessionsverfahren Landrat f\\u00fcr Anlagen ab 1000 kW (Artikel 18 GNG) AFE\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -18406,13 +18406,13 @@
     "pk": "form-type-konzession-regierungsrat-afe",
     "fields": {
       "created_at": "2020-11-02T11:25:31.968Z",
-      "modified_at": "2022-03-14T08:11:11.708Z",
+      "modified_at": "2022-09-26T13:36:52.657Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Konzessionsverfahren Regierungsrat f\\u00fcr Anlagen bis 1000 kW (Artikel 18 GNG) AFE\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -18422,10 +18422,10 @@
     "pk": "form-type-konzession-waermeentnahme",
     "fields": {
       "created_at": "2022-09-16T13:03:38.047Z",
-      "modified_at": "2022-09-16T13:03:38.047Z",
+      "modified_at": "2022-09-26T13:36:53.840Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Gesuch um Konzession zur Wasser-oder W\\u00e4rmeentnahme\", \"fr\": null}",
       "is_archived": false,
@@ -18438,13 +18438,13 @@
     "pk": "form-type-konzession-warme",
     "fields": {
       "created_at": "2020-10-30T13:57:12.793Z",
-      "modified_at": "2022-09-16T13:03:37.227Z",
+      "modified_at": "2022-09-26T13:36:51.424Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Konzessionsverfahren Baudirektion f\\u00fcr W\\u00e4rmeentnahmen (Artikel 40 GNG) BD\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -18454,13 +18454,13 @@
     "pk": "form-type-konzession-warme-afe",
     "fields": {
       "created_at": "2020-11-02T11:25:31.975Z",
-      "modified_at": "2022-03-14T08:11:11.874Z",
+      "modified_at": "2022-09-26T13:36:52.693Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Konzessionsverfahren Baudirektion f\\u00fcr W\\u00e4rmeentnahmen (Artikel 40 GNG) AFE\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -18470,13 +18470,13 @@
     "pk": "form-type-konzessions-regierungsrat",
     "fields": {
       "created_at": "2020-10-30T13:57:12.751Z",
-      "modified_at": "2022-03-14T08:11:10.543Z",
+      "modified_at": "2022-09-26T13:36:51.273Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Konzessionsverfahren Regierungsrat f\\u00fcr Anlagen bis 1000 kW (Artikel 18 GNG) BD\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -18486,13 +18486,13 @@
     "pk": "form-type-landerwerb",
     "fields": {
       "created_at": "2020-10-30T14:12:20.573Z",
-      "modified_at": "2022-03-14T08:11:10.922Z",
+      "modified_at": "2022-09-26T13:36:51.817Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Land- und Rechtserwerb\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -18502,13 +18502,13 @@
     "pk": "form-type-mbv-koor-bg",
     "fields": {
       "created_at": "2020-11-24T13:09:22.524Z",
-      "modified_at": "2022-03-14T08:11:12.508Z",
+      "modified_at": "2022-09-26T13:36:53.417Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Mitberichtsverfahren Koordinationsstelle Baueingaben\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -18518,13 +18518,13 @@
     "pk": "form-type-mitbericht-afe",
     "fields": {
       "created_at": "2020-11-02T11:25:31.904Z",
-      "modified_at": "2022-03-14T08:11:11.637Z",
+      "modified_at": "2022-09-26T13:36:52.615Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Internes Mitberichtsverfahren AfE\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -18534,13 +18534,13 @@
     "pk": "form-type-mitbericht-afj",
     "fields": {
       "created_at": "2020-11-02T08:52:51.361Z",
-      "modified_at": "2022-03-14T08:11:10.998Z",
+      "modified_at": "2022-09-26T13:36:51.837Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Internes Mitberichtsverfahren AFJ\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -18550,13 +18550,13 @@
     "pk": "form-type-mitbericht-afu",
     "fields": {
       "created_at": "2020-11-02T11:15:07.244Z",
-      "modified_at": "2022-03-14T08:11:11.262Z",
+      "modified_at": "2022-09-26T13:36:52.279Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Internes Mitberichtsverfahren AfU\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -18566,13 +18566,13 @@
     "pk": "form-type-mitbericht-ala",
     "fields": {
       "created_at": "2020-11-02T11:08:44.467Z",
-      "modified_at": "2022-03-14T08:11:11.325Z",
+      "modified_at": "2022-09-26T13:36:52.184Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Internes Mitberichtsverfahren ALA\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -18582,13 +18582,13 @@
     "pk": "form-type-mitbericht-ala-korporation",
     "fields": {
       "created_at": "2020-11-02T11:08:44.482Z",
-      "modified_at": "2022-03-14T08:11:11.198Z",
+      "modified_at": "2022-09-26T13:36:52.270Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Internes Mitberichtsverfahren ALA (Korporationsstrassen mit Subventionierung)\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -18598,13 +18598,13 @@
     "pk": "form-type-mitbericht-bd",
     "fields": {
       "created_at": "2020-10-30T14:09:54.977Z",
-      "modified_at": "2022-03-14T08:11:10.766Z",
+      "modified_at": "2022-09-26T13:36:51.518Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Internes Mitberichtsverfahren BD\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -18614,13 +18614,13 @@
     "pk": "form-type-mitbericht-bg",
     "fields": {
       "created_at": "2020-11-02T09:58:56.325Z",
-      "modified_at": "2022-03-14T08:11:11.137Z",
+      "modified_at": "2022-09-26T13:36:52.108Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Internes Mitberichtsverfahren BG\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -18630,7 +18630,7 @@
     "pk": "form-type-mitbericht-bundesstelle",
     "fields": {
       "created_at": "2020-11-02T11:37:39.194Z",
-      "modified_at": "2022-03-14T08:11:12.446Z",
+      "modified_at": "2022-09-26T13:36:53.407Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -18646,10 +18646,10 @@
     "pk": "form-type-mitbericht-kanton",
     "fields": {
       "created_at": "2022-06-09T15:37:47.511Z",
-      "modified_at": "2022-06-09T15:37:47.511Z",
+      "modified_at": "2022-09-26T13:36:53.721Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Mitberichtsverfahren Kanton\", \"fr\": null}",
       "is_archived": false,
@@ -18662,13 +18662,13 @@
     "pk": "form-type-mitbericht-np",
     "fields": {
       "created_at": "2020-10-30T13:14:41.236Z",
-      "modified_at": "2022-06-09T15:37:44.037Z",
+      "modified_at": "2022-09-26T13:36:50.963Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Internes Mitberichtsverfahren NP\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -18678,13 +18678,13 @@
     "pk": "form-type-mitbericht-sd",
     "fields": {
       "created_at": "2020-11-02T11:33:25.046Z",
-      "modified_at": "2022-03-14T08:11:12.154Z",
+      "modified_at": "2022-09-26T13:36:52.962Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Internes Mitberichtsverfahren SD\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -18694,13 +18694,13 @@
     "pk": "form-type-mitbericht-sd-afkp",
     "fields": {
       "created_at": "2020-11-02T11:33:25.059Z",
-      "modified_at": "2022-03-14T08:11:12.209Z",
+      "modified_at": "2022-09-26T13:36:53.049Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Internes Mitberichtsverfahren SD AfKP\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -18710,13 +18710,13 @@
     "pk": "form-type-mitbericht-umweltschutz",
     "fields": {
       "created_at": "2020-11-02T11:15:07.243Z",
-      "modified_at": "2022-03-14T08:11:11.339Z",
+      "modified_at": "2022-09-26T13:36:52.296Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Internes Mitberichtsverfahren nach Artikel 30 BG Umweltschutz\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -18726,13 +18726,13 @@
     "pk": "form-type-mitbericht-uvp",
     "fields": {
       "created_at": "2020-11-02T11:15:07.268Z",
-      "modified_at": "2022-03-14T08:11:11.514Z",
+      "modified_at": "2022-09-26T13:36:52.383Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Internes Mitberichtsverfahren / Bewilligungsverfahren gem\\u00e4ss UVP\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -18742,7 +18742,7 @@
     "pk": "form-type-oereb",
     "fields": {
       "created_at": "2020-11-11T07:35:48.407Z",
-      "modified_at": "2022-03-14T08:11:12.466Z",
+      "modified_at": "2022-09-26T13:36:53.254Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -18758,7 +18758,7 @@
     "pk": "form-type-oereb-afj",
     "fields": {
       "created_at": "2020-11-02T08:52:51.386Z",
-      "modified_at": "2022-03-14T08:11:11.117Z",
+      "modified_at": "2022-09-26T13:36:51.914Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -18774,7 +18774,7 @@
     "pk": "form-type-oereb-afu",
     "fields": {
       "created_at": "2020-11-02T11:15:07.269Z",
-      "modified_at": "2022-03-14T08:11:11.592Z",
+      "modified_at": "2022-09-26T13:36:52.515Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -18790,7 +18790,7 @@
     "pk": "form-type-oereb-bd",
     "fields": {
       "created_at": "2020-10-30T14:12:20.578Z",
-      "modified_at": "2022-03-14T08:11:10.822Z",
+      "modified_at": "2022-09-26T13:36:51.715Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -18806,7 +18806,7 @@
     "pk": "form-type-oereb-np",
     "fields": {
       "created_at": "2020-10-30T13:18:22.351Z",
-      "modified_at": "2022-03-14T08:11:10.286Z",
+      "modified_at": "2022-09-26T13:36:51.062Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -18822,13 +18822,13 @@
     "pk": "form-type-pgv-eisenbahn",
     "fields": {
       "created_at": "2020-10-30T11:26:58.007Z",
-      "modified_at": "2022-03-14T08:11:09.662Z",
+      "modified_at": "2022-09-26T13:36:50.177Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Mitberichtsverfahren / PGV nach Eisenbahngesetz (EBG)\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -18838,13 +18838,13 @@
     "pk": "form-type-pgv-gemeindestrasse",
     "fields": {
       "created_at": "2020-10-30T11:27:52.804Z",
-      "modified_at": "2022-03-14T08:11:10.039Z",
+      "modified_at": "2022-09-26T13:36:50.603Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"PGV Gemeindestrasse (Artikel 30 StrG)\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -18854,13 +18854,13 @@
     "pk": "form-type-pgv-kantonsstrasse",
     "fields": {
       "created_at": "2020-10-30T11:27:52.802Z",
-      "modified_at": "2022-03-14T08:11:10.101Z",
+      "modified_at": "2022-09-26T13:36:50.682Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"PGV Kantonsstrasse (Artikel 30 StrG)\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -18870,13 +18870,13 @@
     "pk": "form-type-pgv-korporationsstrasse",
     "fields": {
       "created_at": "2020-10-30T11:27:52.825Z",
-      "modified_at": "2022-03-14T08:11:10.066Z",
+      "modified_at": "2022-09-26T13:36:50.588Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"PGV Korporationsstrasse (Artikel 30 StrG)\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -18886,13 +18886,13 @@
     "pk": "form-type-pgv-luftfahrt",
     "fields": {
       "created_at": "2020-10-30T11:26:57.996Z",
-      "modified_at": "2022-03-14T08:11:09.737Z",
+      "modified_at": "2022-09-26T13:36:50.256Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Mitberichtsverfahren / PGV nach Luftfahrtgesetz\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -18902,13 +18902,13 @@
     "pk": "form-type-pgv-militaer",
     "fields": {
       "created_at": "2020-10-30T11:26:57.956Z",
-      "modified_at": "2022-03-14T08:11:09.658Z",
+      "modified_at": "2022-09-26T13:36:50.235Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Mitberichtsverfahren / PGV f\\u00fcr milit\\u00e4rische Bauten\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -18918,13 +18918,13 @@
     "pk": "form-type-pgv-nationalstrassen",
     "fields": {
       "created_at": "2020-10-30T11:26:58.036Z",
-      "modified_at": "2022-03-14T08:11:09.838Z",
+      "modified_at": "2022-09-26T13:36:50.214Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Mitberichtsverfahren / PGV nach Nationalstrassengesetz (NSG)\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -18934,13 +18934,13 @@
     "pk": "form-type-pgv-oeffentliche-gewaesser",
     "fields": {
       "created_at": "2020-10-30T11:28:29.932Z",
-      "modified_at": "2022-03-14T08:11:10.240Z",
+      "modified_at": "2022-09-26T13:36:50.853Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"PGV \\u00f6ffentliche Gew\\u00e4sser (Artikel 12 WBG)\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -18950,13 +18950,13 @@
     "pk": "form-type-pgv-private-gewaesser",
     "fields": {
       "created_at": "2020-10-30T11:28:29.916Z",
-      "modified_at": "2022-03-14T08:11:10.223Z",
+      "modified_at": "2022-09-26T13:36:50.624Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"PGV private Gew\\u00e4sser (Artikel 19 WBG)\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -18966,13 +18966,13 @@
     "pk": "form-type-pgv-seilbahn",
     "fields": {
       "created_at": "2020-10-30T11:26:58.034Z",
-      "modified_at": "2022-03-14T08:11:09.809Z",
+      "modified_at": "2022-09-26T13:36:50.474Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Mitberichtsverfahren / PGV nach Seilbahngesetz (SebG)\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -18982,13 +18982,13 @@
     "pk": "form-type-pgv-starkstrom",
     "fields": {
       "created_at": "2020-10-30T11:26:58.041Z",
-      "modified_at": "2022-03-14T08:11:09.914Z",
+      "modified_at": "2022-09-26T13:36:50.373Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Mitberichtsverfahren / PGV nach Starkstromverordnung (EleG)\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -18998,13 +18998,13 @@
     "pk": "form-type-pgv-vereinfachtes-verfahren",
     "fields": {
       "created_at": "2020-10-30T11:28:29.940Z",
-      "modified_at": "2022-03-14T08:11:10.208Z",
+      "modified_at": "2022-09-26T13:36:50.744Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"PGV vereinfachtes Verfahren (Artikel 31 StrG)\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -19046,7 +19046,7 @@
     "pk": "form-type-project-announcement",
     "fields": {
       "created_at": "2020-09-01T14:52:15.178Z",
-      "modified_at": "2022-09-07T08:08:05.485Z",
+      "modified_at": "2022-09-26T13:36:52.789Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -19062,13 +19062,13 @@
     "pk": "form-type-project-announcement-afj",
     "fields": {
       "created_at": "2020-11-02T09:52:43.015Z",
-      "modified_at": "2022-03-14T08:11:11.092Z",
+      "modified_at": "2022-09-26T13:36:51.998Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Meldung Vorhaben AFJ\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -19078,13 +19078,13 @@
     "pk": "form-type-reklame-bd",
     "fields": {
       "created_at": "2020-10-30T14:09:55.019Z",
-      "modified_at": "2022-03-14T08:11:10.734Z",
+      "modified_at": "2022-09-26T13:36:51.645Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Reklamegesuch (eingereicht via Baudirektion)\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -19094,7 +19094,7 @@
     "pk": "form-type-solar-announcement",
     "fields": {
       "created_at": "2020-09-01T14:52:15.222Z",
-      "modified_at": "2022-03-14T08:11:12.229Z",
+      "modified_at": "2022-09-26T13:36:53.003Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -19110,7 +19110,7 @@
     "pk": "form-type-technische-bewilligung",
     "fields": {
       "created_at": "2021-12-03T10:45:33.493Z",
-      "modified_at": "2022-03-14T08:11:12.548Z",
+      "modified_at": "2022-09-26T13:36:53.598Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -19126,13 +19126,13 @@
     "pk": "form-type-veranstaltungsgesuch",
     "fields": {
       "created_at": "2020-10-21T13:00:18.680Z",
-      "modified_at": "2022-03-14T08:11:12.313Z",
+      "modified_at": "2022-09-26T13:36:53.174Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Beanspruchung von Kantonsgebiet / Veranstaltungsgesuch\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -19142,7 +19142,7 @@
     "pk": "form-type-vorpruefung-gesamtrevision-np",
     "fields": {
       "created_at": "2020-10-30T07:23:54.674Z",
-      "modified_at": "2022-03-14T08:11:09.258Z",
+      "modified_at": "2022-09-26T13:36:49.689Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -19158,7 +19158,7 @@
     "pk": "form-type-vorpruefung-qgp",
     "fields": {
       "created_at": "2020-10-30T07:24:58.163Z",
-      "modified_at": "2022-03-14T08:11:09.641Z",
+      "modified_at": "2022-09-26T13:36:50.082Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -19174,7 +19174,7 @@
     "pk": "form-type-vorpruefung-qp",
     "fields": {
       "created_at": "2020-10-30T07:24:58.187Z",
-      "modified_at": "2022-03-14T08:11:09.799Z",
+      "modified_at": "2022-09-26T13:36:49.970Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -19190,7 +19190,7 @@
     "pk": "form-type-vorpruefung-teilrevision-np",
     "fields": {
       "created_at": "2020-10-30T07:24:12.116Z",
-      "modified_at": "2022-03-14T08:11:09.371Z",
+      "modified_at": "2022-09-26T13:36:49.785Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -38184,7 +38184,7 @@
     "pk": "form-type",
     "fields": {
       "created_at": "2020-09-01T14:52:15.343Z",
-      "modified_at": "2022-03-14T08:11:12.935Z",
+      "modified_at": "2022-09-26T13:36:54.207Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -57553,8 +57553,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-afe-korporationsgewaesser",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.021Z",
-      "modified_at": "2022-09-16T13:03:40.021Z",
+      "created_at": "2022-09-26T13:36:54.261Z",
+      "modified_at": "2022-09-26T13:36:54.261Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -57568,8 +57568,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-archiv",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.101Z",
-      "modified_at": "2022-09-16T13:03:40.101Z",
+      "created_at": "2022-09-26T13:36:54.338Z",
+      "modified_at": "2022-09-26T13:36:54.338Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -57583,8 +57583,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-archiv-afj",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.063Z",
-      "modified_at": "2022-09-16T13:03:40.063Z",
+      "created_at": "2022-09-26T13:36:54.301Z",
+      "modified_at": "2022-09-26T13:36:54.301Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -57598,8 +57598,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-baubewilligungsverfahren",
     "fields": {
-      "created_at": "2022-09-16T13:03:39.987Z",
-      "modified_at": "2022-09-16T13:03:39.987Z",
+      "created_at": "2022-09-26T13:36:54.232Z",
+      "modified_at": "2022-09-26T13:36:54.232Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -57613,8 +57613,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-baugesuch-vorabklaerung",
     "fields": {
-      "created_at": "2022-09-16T13:03:39.984Z",
-      "modified_at": "2022-09-16T13:03:39.984Z",
+      "created_at": "2022-09-26T13:36:54.229Z",
+      "modified_at": "2022-09-26T13:36:54.229Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -57628,8 +57628,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-bauverwaltung",
     "fields": {
-      "created_at": "2022-09-16T13:03:39.978Z",
-      "modified_at": "2022-09-16T13:03:39.978Z",
+      "created_at": "2022-09-26T13:36:54.223Z",
+      "modified_at": "2022-09-26T13:36:54.223Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -57643,8 +57643,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-bd-kantonsgewaesser",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.086Z",
-      "modified_at": "2022-09-16T13:03:40.086Z",
+      "created_at": "2022-09-26T13:36:54.324Z",
+      "modified_at": "2022-09-26T13:36:54.324Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -57658,8 +57658,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-bgbb",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.104Z",
-      "modified_at": "2022-09-16T13:03:40.104Z",
+      "created_at": "2022-09-26T13:36:54.341Z",
+      "modified_at": "2022-09-26T13:36:54.341Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -57673,8 +57673,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-bohrbewilligung-waermeentnahme",
     "fields": {
-      "created_at": "2022-09-16T13:03:39.975Z",
-      "modified_at": "2022-09-16T13:03:39.975Z",
+      "created_at": "2022-09-26T13:36:54.220Z",
+      "modified_at": "2022-09-26T13:36:54.220Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -57688,8 +57688,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-commercial-permit",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.007Z",
-      "modified_at": "2022-09-16T13:03:40.007Z",
+      "created_at": "2022-09-26T13:36:54.249Z",
+      "modified_at": "2022-09-26T13:36:54.249Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -57703,8 +57703,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-genehmigung",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.098Z",
-      "modified_at": "2022-09-16T13:03:40.098Z",
+      "created_at": "2022-09-26T13:36:54.336Z",
+      "modified_at": "2022-09-26T13:36:54.336Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -57718,8 +57718,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-genehmigung-qgp",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.166Z",
-      "modified_at": "2022-09-16T13:03:40.166Z",
+      "created_at": "2022-09-26T13:36:54.400Z",
+      "modified_at": "2022-09-26T13:36:54.400Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -57733,8 +57733,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-genehmigung-qp",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.158Z",
-      "modified_at": "2022-09-16T13:03:40.158Z",
+      "created_at": "2022-09-26T13:36:54.392Z",
+      "modified_at": "2022-09-26T13:36:54.392Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -57748,8 +57748,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-genehmigung-teilrevision-np",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.154Z",
-      "modified_at": "2022-09-16T13:03:40.154Z",
+      "created_at": "2022-09-26T13:36:54.389Z",
+      "modified_at": "2022-09-26T13:36:54.389Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -57763,8 +57763,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-gesamtrevision-np",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.169Z",
-      "modified_at": "2022-09-16T13:03:40.169Z",
+      "created_at": "2022-09-26T13:36:54.403Z",
+      "modified_at": "2022-09-26T13:36:54.403Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -57778,8 +57778,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-kantonsgebiet",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.083Z",
-      "modified_at": "2022-09-16T13:03:40.083Z",
+      "created_at": "2022-09-26T13:36:54.321Z",
+      "modified_at": "2022-09-26T13:36:54.321Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -57793,8 +57793,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-konzession-landrat",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.092Z",
-      "modified_at": "2022-09-16T13:03:40.092Z",
+      "created_at": "2022-09-26T13:36:54.330Z",
+      "modified_at": "2022-09-26T13:36:54.330Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -57808,8 +57808,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-konzession-landrat-afe",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.030Z",
-      "modified_at": "2022-09-16T13:03:40.030Z",
+      "created_at": "2022-09-26T13:36:54.269Z",
+      "modified_at": "2022-09-26T13:36:54.269Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -57823,8 +57823,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-konzession-regierungsrat-afe",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.033Z",
-      "modified_at": "2022-09-16T13:03:40.033Z",
+      "created_at": "2022-09-26T13:36:54.272Z",
+      "modified_at": "2022-09-26T13:36:54.272Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -57838,8 +57838,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-konzession-waermeentnahme",
     "fields": {
-      "created_at": "2022-09-16T13:03:39.971Z",
-      "modified_at": "2022-09-16T13:03:39.971Z",
+      "created_at": "2022-09-26T13:36:54.217Z",
+      "modified_at": "2022-09-26T13:36:54.217Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -57853,8 +57853,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-konzession-warme",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.089Z",
-      "modified_at": "2022-09-16T13:03:40.089Z",
+      "created_at": "2022-09-26T13:36:54.327Z",
+      "modified_at": "2022-09-26T13:36:54.327Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -57868,8 +57868,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-konzession-warme-afe",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.027Z",
-      "modified_at": "2022-09-16T13:03:40.027Z",
+      "created_at": "2022-09-26T13:36:54.267Z",
+      "modified_at": "2022-09-26T13:36:54.267Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -57883,8 +57883,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-konzessions-regierungsrat",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.095Z",
-      "modified_at": "2022-09-16T13:03:40.095Z",
+      "created_at": "2022-09-26T13:36:54.333Z",
+      "modified_at": "2022-09-26T13:36:54.333Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -57898,8 +57898,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-landerwerb",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.071Z",
-      "modified_at": "2022-09-16T13:03:40.071Z",
+      "created_at": "2022-09-26T13:36:54.310Z",
+      "modified_at": "2022-09-26T13:36:54.310Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -57913,8 +57913,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-mbv-koor-bg",
     "fields": {
-      "created_at": "2022-09-16T13:03:39.993Z",
-      "modified_at": "2022-09-16T13:03:39.993Z",
+      "created_at": "2022-09-26T13:36:54.238Z",
+      "modified_at": "2022-09-26T13:36:54.238Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -57928,8 +57928,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-mitbericht-afe",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.036Z",
-      "modified_at": "2022-09-16T13:03:40.036Z",
+      "created_at": "2022-09-26T13:36:54.276Z",
+      "modified_at": "2022-09-26T13:36:54.276Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -57943,8 +57943,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-mitbericht-afj",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.068Z",
-      "modified_at": "2022-09-16T13:03:40.068Z",
+      "created_at": "2022-09-26T13:36:54.307Z",
+      "modified_at": "2022-09-26T13:36:54.307Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -57958,8 +57958,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-mitbericht-afu",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.048Z",
-      "modified_at": "2022-09-16T13:03:40.048Z",
+      "created_at": "2022-09-26T13:36:54.287Z",
+      "modified_at": "2022-09-26T13:36:54.287Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -57973,8 +57973,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-mitbericht-ala",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.054Z",
-      "modified_at": "2022-09-16T13:03:40.054Z",
+      "created_at": "2022-09-26T13:36:54.293Z",
+      "modified_at": "2022-09-26T13:36:54.293Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -57988,8 +57988,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-mitbericht-ala-korporation",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.051Z",
-      "modified_at": "2022-09-16T13:03:40.051Z",
+      "created_at": "2022-09-26T13:36:54.290Z",
+      "modified_at": "2022-09-26T13:36:54.290Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -58003,8 +58003,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-mitbericht-bd",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.080Z",
-      "modified_at": "2022-09-16T13:03:40.080Z",
+      "created_at": "2022-09-26T13:36:54.319Z",
+      "modified_at": "2022-09-26T13:36:54.319Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -58018,8 +58018,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-mitbericht-bg",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.057Z",
-      "modified_at": "2022-09-16T13:03:40.057Z",
+      "created_at": "2022-09-26T13:36:54.296Z",
+      "modified_at": "2022-09-26T13:36:54.296Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -58033,8 +58033,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-mitbericht-bundesstelle",
     "fields": {
-      "created_at": "2022-09-16T13:03:39.998Z",
-      "modified_at": "2022-09-16T13:03:39.999Z",
+      "created_at": "2022-09-26T13:36:54.244Z",
+      "modified_at": "2022-09-26T13:36:54.244Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -58048,8 +58048,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-mitbericht-kanton",
     "fields": {
-      "created_at": "2022-09-16T13:03:39.981Z",
-      "modified_at": "2022-09-16T13:03:39.981Z",
+      "created_at": "2022-09-26T13:36:54.226Z",
+      "modified_at": "2022-09-26T13:36:54.226Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -58063,8 +58063,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-mitbericht-np",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.110Z",
-      "modified_at": "2022-09-16T13:03:40.110Z",
+      "created_at": "2022-09-26T13:36:54.347Z",
+      "modified_at": "2022-09-26T13:36:54.347Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -58078,8 +58078,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-mitbericht-sd",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.018Z",
-      "modified_at": "2022-09-16T13:03:40.018Z",
+      "created_at": "2022-09-26T13:36:54.258Z",
+      "modified_at": "2022-09-26T13:36:54.258Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -58093,8 +58093,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-mitbericht-sd-afkp",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.011Z",
-      "modified_at": "2022-09-16T13:03:40.011Z",
+      "created_at": "2022-09-26T13:36:54.252Z",
+      "modified_at": "2022-09-26T13:36:54.252Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -58108,8 +58108,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-mitbericht-umweltschutz",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.045Z",
-      "modified_at": "2022-09-16T13:03:40.045Z",
+      "created_at": "2022-09-26T13:36:54.284Z",
+      "modified_at": "2022-09-26T13:36:54.285Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -58123,8 +58123,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-mitbericht-uvp",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.042Z",
-      "modified_at": "2022-09-16T13:03:40.042Z",
+      "created_at": "2022-09-26T13:36:54.282Z",
+      "modified_at": "2022-09-26T13:36:54.282Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -58138,8 +58138,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-oereb",
     "fields": {
-      "created_at": "2022-09-16T13:03:39.996Z",
-      "modified_at": "2022-09-16T13:03:39.996Z",
+      "created_at": "2022-09-26T13:36:54.241Z",
+      "modified_at": "2022-09-26T13:36:54.241Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -58153,8 +58153,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-oereb-afj",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.065Z",
-      "modified_at": "2022-09-16T13:03:40.065Z",
+      "created_at": "2022-09-26T13:36:54.304Z",
+      "modified_at": "2022-09-26T13:36:54.304Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -58168,8 +58168,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-oereb-afu",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.039Z",
-      "modified_at": "2022-09-16T13:03:40.039Z",
+      "created_at": "2022-09-26T13:36:54.279Z",
+      "modified_at": "2022-09-26T13:36:54.279Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -58183,8 +58183,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-oereb-bd",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.074Z",
-      "modified_at": "2022-09-16T13:03:40.074Z",
+      "created_at": "2022-09-26T13:36:54.313Z",
+      "modified_at": "2022-09-26T13:36:54.313Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -58198,8 +58198,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-oereb-np",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.107Z",
-      "modified_at": "2022-09-16T13:03:40.107Z",
+      "created_at": "2022-09-26T13:36:54.344Z",
+      "modified_at": "2022-09-26T13:36:54.344Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -58213,8 +58213,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-pgv-eisenbahn",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.142Z",
-      "modified_at": "2022-09-16T13:03:40.142Z",
+      "created_at": "2022-09-26T13:36:54.378Z",
+      "modified_at": "2022-09-26T13:36:54.378Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -58228,8 +58228,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-pgv-gemeindestrasse",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.128Z",
-      "modified_at": "2022-09-16T13:03:40.128Z",
+      "created_at": "2022-09-26T13:36:54.364Z",
+      "modified_at": "2022-09-26T13:36:54.364Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -58243,8 +58243,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-pgv-kantonsstrasse",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.125Z",
-      "modified_at": "2022-09-16T13:03:40.125Z",
+      "created_at": "2022-09-26T13:36:54.361Z",
+      "modified_at": "2022-09-26T13:36:54.361Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -58258,8 +58258,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-pgv-korporationsstrasse",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.122Z",
-      "modified_at": "2022-09-16T13:03:40.122Z",
+      "created_at": "2022-09-26T13:36:54.358Z",
+      "modified_at": "2022-09-26T13:36:54.358Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -58273,8 +58273,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-pgv-luftfahrt",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.140Z",
-      "modified_at": "2022-09-16T13:03:40.140Z",
+      "created_at": "2022-09-26T13:36:54.375Z",
+      "modified_at": "2022-09-26T13:36:54.375Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -58288,8 +58288,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-pgv-militaer",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.145Z",
-      "modified_at": "2022-09-16T13:03:40.145Z",
+      "created_at": "2022-09-26T13:36:54.381Z",
+      "modified_at": "2022-09-26T13:36:54.381Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -58303,8 +58303,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-pgv-nationalstrassen",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.137Z",
-      "modified_at": "2022-09-16T13:03:40.137Z",
+      "created_at": "2022-09-26T13:36:54.372Z",
+      "modified_at": "2022-09-26T13:36:54.372Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -58318,8 +58318,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-pgv-oeffentliche-gewaesser",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.113Z",
-      "modified_at": "2022-09-16T13:03:40.113Z",
+      "created_at": "2022-09-26T13:36:54.350Z",
+      "modified_at": "2022-09-26T13:36:54.350Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -58333,8 +58333,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-pgv-private-gewaesser",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.119Z",
-      "modified_at": "2022-09-16T13:03:40.119Z",
+      "created_at": "2022-09-26T13:36:54.355Z",
+      "modified_at": "2022-09-26T13:36:54.355Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -58348,8 +58348,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-pgv-seilbahn",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.134Z",
-      "modified_at": "2022-09-16T13:03:40.134Z",
+      "created_at": "2022-09-26T13:36:54.369Z",
+      "modified_at": "2022-09-26T13:36:54.369Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -58363,8 +58363,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-pgv-starkstrom",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.131Z",
-      "modified_at": "2022-09-16T13:03:40.131Z",
+      "created_at": "2022-09-26T13:36:54.366Z",
+      "modified_at": "2022-09-26T13:36:54.366Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -58378,8 +58378,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-pgv-vereinfachtes-verfahren",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.115Z",
-      "modified_at": "2022-09-16T13:03:40.115Z",
+      "created_at": "2022-09-26T13:36:54.352Z",
+      "modified_at": "2022-09-26T13:36:54.352Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -58393,8 +58393,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-project-announcement",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.024Z",
-      "modified_at": "2022-09-16T13:03:40.024Z",
+      "created_at": "2022-09-26T13:36:54.264Z",
+      "modified_at": "2022-09-26T13:36:54.264Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -58408,8 +58408,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-project-announcement-afj",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.060Z",
-      "modified_at": "2022-09-16T13:03:40.060Z",
+      "created_at": "2022-09-26T13:36:54.299Z",
+      "modified_at": "2022-09-26T13:36:54.299Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -58423,8 +58423,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-reklame-bd",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.077Z",
-      "modified_at": "2022-09-16T13:03:40.077Z",
+      "created_at": "2022-09-26T13:36:54.316Z",
+      "modified_at": "2022-09-26T13:36:54.316Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -58438,8 +58438,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-solar-announcement",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.014Z",
-      "modified_at": "2022-09-16T13:03:40.014Z",
+      "created_at": "2022-09-26T13:36:54.255Z",
+      "modified_at": "2022-09-26T13:36:54.255Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -58453,8 +58453,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-technische-bewilligung",
     "fields": {
-      "created_at": "2022-09-16T13:03:39.990Z",
-      "modified_at": "2022-09-16T13:03:39.990Z",
+      "created_at": "2022-09-26T13:36:54.235Z",
+      "modified_at": "2022-09-26T13:36:54.235Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -58468,8 +58468,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-veranstaltungsgesuch",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.003Z",
-      "modified_at": "2022-09-16T13:03:40.003Z",
+      "created_at": "2022-09-26T13:36:54.246Z",
+      "modified_at": "2022-09-26T13:36:54.246Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -58483,8 +58483,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-vorpruefung-gesamtrevision-np",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.163Z",
-      "modified_at": "2022-09-16T13:03:40.163Z",
+      "created_at": "2022-09-26T13:36:54.397Z",
+      "modified_at": "2022-09-26T13:36:54.398Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -58498,8 +58498,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-vorpruefung-qgp",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.152Z",
-      "modified_at": "2022-09-16T13:03:40.152Z",
+      "created_at": "2022-09-26T13:36:54.386Z",
+      "modified_at": "2022-09-26T13:36:54.386Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -58513,8 +58513,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-vorpruefung-qp",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.149Z",
-      "modified_at": "2022-09-16T13:03:40.149Z",
+      "created_at": "2022-09-26T13:36:54.383Z",
+      "modified_at": "2022-09-26T13:36:54.383Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -58528,8 +58528,8 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-vorpruefung-teilrevision-np",
     "fields": {
-      "created_at": "2022-09-16T13:03:40.161Z",
-      "modified_at": "2022-09-16T13:03:40.161Z",
+      "created_at": "2022-09-26T13:36:54.395Z",
+      "modified_at": "2022-09-26T13:36:54.395Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
