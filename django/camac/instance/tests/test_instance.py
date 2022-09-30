@@ -104,6 +104,7 @@ def test_instance_list_for_coordination_ur(
     group,
     group_factory,
     answer,
+    question_factory,
     answer_factory,
     koor_role,
     expected_count,
@@ -113,7 +114,8 @@ def test_instance_list_for_coordination_ur(
     )
     ur_instance.group = group_factory()  # dossier should be created by other group
     ur_instance.save()
-    answer_factory(document=ur_instance.case.document, value=answer)
+    question = question_factory(slug="mbv-bund-type")
+    answer_factory(document=ur_instance.case.document, question=question, value=answer)
     mocker.patch(koor_role, group.role.pk)
     url = reverse("instance-list")
 
