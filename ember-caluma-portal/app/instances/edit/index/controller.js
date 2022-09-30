@@ -1,5 +1,6 @@
 import Controller, { inject as controller } from "@ember/controller";
 import { inject as service } from "@ember/service";
+import { macroCondition, getOwnConfig } from "@embroider/macros";
 import { useCalumaQuery } from "@projectcaluma/ember-core/caluma-query";
 import { allCases } from "@projectcaluma/ember-core/caluma-query/queries";
 import { dropTask } from "ember-concurrency";
@@ -61,6 +62,12 @@ export default class InstancesEditIndexController extends Controller {
 
   @dropTask
   *createModification() {
+    if (macroCondition(getOwnConfig().enableModificationConfirm)) {
+      if (!(yield confirm(this.intl.t("instances.modificationConfirm")))) {
+        return;
+      }
+    }
+
     yield this.copy.perform(true);
   }
 
