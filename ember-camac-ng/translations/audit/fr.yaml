@@ -34,6 +34,7 @@ audit:
   copyError: "Erreur lors de la copie du examen"
 
   onlyExamItems: "Afficher uniquement les objets de l'éxamen"
+  onlyDefectItems: "Afficher uniquement les défauts"
 
   expand: "ouvrir"
   collapse: "fermer"
