@@ -299,9 +299,9 @@ def test_instance_nfd_permissions(
         ("new", "construction-control", "main", []),
         ("rejected", "municipality", "main", R),
         ("rejected", "construction-control", "main", R),
-        ("sb1", "municipality", "sb1", []),
+        ("sb1", "municipality", "sb1", R),
         ("sb1", "construction-control", "sb1", RW),
-        ("sb2", "municipality", "sb2", []),
+        ("sb2", "municipality", "sb2", R),
         ("sb2", "construction-control", "sb2", RW),
     ],
 )
