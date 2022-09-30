@@ -1,5 +1,4 @@
 import Controller, { inject as controller } from "@ember/controller";
-import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { dropTask } from "ember-concurrency";
 
@@ -30,12 +29,5 @@ export default class AuditEditController extends Controller {
 
     yield this.auditController.fetchAudit.perform();
     yield this.router.transitionTo("audit.index");
-  }
-
-  @action
-  toggleIrrelevant() {
-    if (!this.isMaterialExam) return;
-
-    this.materialExamSwitcher.toggle();
   }
 }
