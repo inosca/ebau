@@ -150,9 +150,12 @@ class InstanceQuerysetMixin(object):
         if responsible_pgv_answer:
             # and they also see the form "Mitbericht Bundesstelle", if the
             # selected "form type" matches their KOOR
-            pgv_instances = Instance.objects.filter(
-                case__document__answers__value=responsible_pgv_answer
-            ).values("instance_id")
+            pgv_instances = list(
+                Instance.objects.filter(
+                    case__document__answers__question_id="mbv-bund-type",
+                    case__document__answers__value=responsible_pgv_answer,
+                ).values_list("instance_id", flat=True)
+            )
             filter = filter | Q(
                 **{
                     form_field: [uri_constants.FORM_MITBERICHT_BUNDESSTELLE],
