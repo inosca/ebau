@@ -1512,6 +1512,7 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
         'read'
     ],
     'sb1': [
+        'read'
     ],
     'sb2': [
     ]
@@ -1554,6 +1555,7 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
         'read'
     ],
     'sb2': [
+        'read'
     ]
 }
 
@@ -1720,8 +1722,10 @@ snapshots['test_instance_permissions_be[municipality-lead-district-conclusion-in
         'write'
     ],
     'sb1': [
+        'read'
     ],
     'sb2': [
+        'read'
     ]
 }
 
@@ -2132,6 +2136,7 @@ snapshots['test_instance_permissions_be[municipality-lead-district-sb1-instance_
         'write'
     ],
     'sb1': [
+        'read'
     ],
     'sb2': [
     ]
@@ -2174,8 +2179,10 @@ snapshots['test_instance_permissions_be[municipality-lead-district-sb2-instance_
         'write'
     ],
     'sb1': [
+        'read'
     ],
     'sb2': [
+        'read'
     ]
 }
 
@@ -2344,8 +2351,10 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-conclusio
         'write'
     ],
     'sb1': [
+        'read'
     ],
     'sb2': [
+        'read'
     ]
 }
 
@@ -2756,6 +2765,7 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-sb1-insta
         'write'
     ],
     'sb1': [
+        'read'
     ],
     'sb2': [
     ]
@@ -2798,8 +2808,10 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-sb2-insta
         'write'
     ],
     'sb1': [
+        'read'
     ],
     'sb2': [
+        'read'
     ]
 }
 
@@ -2955,8 +2967,10 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-conclusio
         'read'
     ],
     'sb1': [
+        'read'
     ],
     'sb2': [
+        'read'
     ]
 }
 
@@ -3340,6 +3354,7 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-sb1-insta
         'read'
     ],
     'sb1': [
+        'read'
     ],
     'sb2': [
     ]
@@ -3379,8 +3394,10 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-sb2-insta
         'read'
     ],
     'sb1': [
+        'read'
     ],
     'sb2': [
+        'read'
     ]
 }
 
@@ -3534,8 +3551,10 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-concl
         'read'
     ],
     'sb1': [
+        'read'
     ],
     'sb2': [
+        'read'
     ]
 }
 
@@ -3919,6 +3938,7 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-sb1-i
         'read'
     ],
     'sb1': [
+        'read'
     ],
     'sb2': [
     ]
@@ -3958,8 +3978,10 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-sb2-i
         'read'
     ],
     'sb1': [
+        'read'
     ],
     'sb2': [
+        'read'
     ]
 }
 
