@@ -208,6 +208,13 @@ instances:
   modificationText: "Hat sich an Ihrem Bauvorhaben etwas geändert? Hier
     können Sie eine Projektänderung erfassen, ohne die bestehenden Daten neu
     erfassen zu müssen."
+  modificationConfirm: "'<strong'>Sie starten nun den Eingabeprozess für eine
+  Projektänderung (Art. 43 BewD)'</strong'>'<br'>'<br'>Für die Beantwortung
+  einer '<u'>Nachforderung'</u'> oder die Neueingabe eines '<u'>zurückgewiesenen
+  Dossiers'</u'> muss '<u'>keine Projektänderung'</u'> eingereicht werden.
+  Hierfür verwenden Sie bitte die jeweiligen Funktionen von eBau (Beantwortung
+  Nachforderung resp. Dossier neu einreichen).'<br'>'<br'>'<strong'>Wollen Sie
+  mit der Erfassung einer Projektänderung fortfahren?'</strong'>"
   rejectionTitle: "Dossier neu einreichen"
   rejectionTitleSuffix: "(Rückweisung)"
   rejectionText: "Sie können das ursprünglich eingereichte Dossier entsprechend
