@@ -80,47 +80,70 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'BOISSONS_ALCOOLIQUES': 'mit',
     'CIRCULATION_COMMUNES': [
         {
+            'CREE': '30.08.2021',
+            'DELAI': '31.10.2010',
             'ERSTELLT': '30.08.2021',
             'FRIST': '31.10.2010',
-            'NAME': 'Andrew Mcclain'
+            'NAME': 'Andrew Mcclain',
+            'NOM': 'Andrew Mcclain'
         },
         {
+            'CREE': '30.08.2021',
+            'DELAI': '03.03.1989',
             'ERSTELLT': '30.08.2021',
             'FRIST': '03.03.1989',
-            'NAME': 'William Byrd'
+            'NAME': 'William Byrd',
+            'NOM': 'William Byrd'
         }
     ],
     'CIRCULATION_PREAVIS': [
         {
             'ANTWORT': 'Unbekannt',
+            'DE': 'Scott Gould',
+            'DISPOSITIONS_ACCESSOIRES': 'Nebenbestimmungen 5',
             'NEBENBESTIMMUNGEN': 'Nebenbestimmungen 5',
+            'POINT_DE_VUE': 'Stellungnahme 5',
+            'REPONSE': 'Unbekannt',
             'STELLUNGNAHME': 'Stellungnahme 5',
             'VON': 'Scott Gould'
         },
         {
             'ANTWORT': 'Nachforderung',
+            'DE': 'James Johnson',
+            'DISPOSITIONS_ACCESSOIRES': 'Nebenbestimmungen 6',
             'NEBENBESTIMMUNGEN': 'Nebenbestimmungen 6',
+            'POINT_DE_VUE': 'Stellungnahme 6',
+            'REPONSE': 'Nachforderung',
             'STELLUNGNAHME': 'Stellungnahme 6',
             'VON': 'James Johnson'
         }
     ],
     'CIRCULATION_PREF': [
         {
+            'CREE': '30.08.2021',
+            'DELAI': '29.12.2003',
             'ERSTELLT': '30.08.2021',
             'FRIST': '29.12.2003',
-            'NAME': 'Laura Barnes'
+            'NAME': 'Laura Barnes',
+            'NOM': 'Laura Barnes'
         }
     ],
     'CIRCULATION_SERVICES': [
         {
+            'CREE': '30.08.2021',
+            'DELAI': '19.08.2005',
             'ERSTELLT': '30.08.2021',
             'FRIST': '19.08.2005',
-            'NAME': 'Scott Gould'
+            'NAME': 'Scott Gould',
+            'NOM': 'Scott Gould'
         },
         {
+            'CREE': '30.08.2021',
+            'DELAI': '17.08.2021',
             'ERSTELLT': '30.08.2021',
             'FRIST': '17.08.2021',
-            'NAME': 'James Johnson'
+            'NAME': 'James Johnson',
+            'NOM': 'James Johnson'
         }
     ],
     'COMMUNE': 'Burgdorf',
@@ -162,10 +185,12 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'EIGENE_GEBUEHREN': [
         {
             'BETRAG': '844.72',
+            'FORFAIT': '844.72',
             'POSITION': ''
         },
         {
             'BETRAG': '667.87',
+            'FORFAIT': '667.87',
             'POSITION': ''
         }
     ],
@@ -190,18 +215,22 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'EMOLUMENTS': [
         {
             'BETRAG': '243.52',
+            'FORFAIT': '243.52',
             'POSITION': ''
         },
         {
             'BETRAG': '182.23',
+            'FORFAIT': '182.23',
             'POSITION': ''
         },
         {
             'BETRAG': '844.72',
+            'FORFAIT': '844.72',
             'POSITION': ''
         },
         {
             'BETRAG': '667.87',
+            'FORFAIT': '667.87',
             'POSITION': ''
         }
     ],
@@ -209,34 +238,52 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'ETAT': 'Pamela Horton',
     'FACHSTELLEN_KANTONAL': [
         {
+            'CREE': '30.08.2021',
+            'DELAI': '10.10.1982',
             'ERSTELLT': '30.08.2021',
             'FRIST': '10.10.1982',
-            'NAME': 'Matthew Bowen'
+            'NAME': 'Matthew Bowen',
+            'NOM': 'Matthew Bowen'
         },
         {
+            'CREE': '30.08.2021',
+            'DELAI': '29.12.2003',
             'ERSTELLT': '30.08.2021',
             'FRIST': '29.12.2003',
-            'NAME': 'Laura Barnes'
+            'NAME': 'Laura Barnes',
+            'NOM': 'Laura Barnes'
         },
         {
+            'CREE': '30.08.2021',
+            'DELAI': '31.10.2010',
             'ERSTELLT': '30.08.2021',
             'FRIST': '31.10.2010',
-            'NAME': 'Andrew Mcclain'
+            'NAME': 'Andrew Mcclain',
+            'NOM': 'Andrew Mcclain'
         },
         {
+            'CREE': '30.08.2021',
+            'DELAI': '03.03.1989',
             'ERSTELLT': '30.08.2021',
             'FRIST': '03.03.1989',
-            'NAME': 'William Byrd'
+            'NAME': 'William Byrd',
+            'NOM': 'William Byrd'
         },
         {
+            'CREE': '30.08.2021',
+            'DELAI': '19.08.2005',
             'ERSTELLT': '30.08.2021',
             'FRIST': '19.08.2005',
-            'NAME': 'Scott Gould'
+            'NAME': 'Scott Gould',
+            'NOM': 'Scott Gould'
         },
         {
+            'CREE': '30.08.2021',
+            'DELAI': '17.08.2021',
             'ERSTELLT': '30.08.2021',
             'FRIST': '17.08.2021',
-            'NAME': 'James Johnson'
+            'NAME': 'James Johnson',
+            'NOM': 'James Johnson'
         }
     ],
     'FACHSTELLEN_KANTONAL_LIST': '''- Matthew Bowen
@@ -262,18 +309,22 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'GEBUEHREN': [
         {
             'BETRAG': '243.52',
+            'FORFAIT': '243.52',
             'POSITION': ''
         },
         {
             'BETRAG': '182.23',
+            'FORFAIT': '182.23',
             'POSITION': ''
         },
         {
             'BETRAG': '844.72',
+            'FORFAIT': '844.72',
             'POSITION': ''
         },
         {
             'BETRAG': '667.87',
+            'FORFAIT': '667.87',
             'POSITION': ''
         }
     ],
@@ -335,10 +386,12 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'MES_EMOLUMENTS': [
         {
             'BETRAG': '844.72',
+            'FORFAIT': '844.72',
             'POSITION': ''
         },
         {
             'BETRAG': '667.87',
+            'FORFAIT': '667.87',
             'POSITION': ''
         }
     ],
@@ -382,34 +435,52 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'OEFFENTLICHKEIT': 'Öffentlich',
     'OFFICES_CANTONAUX': [
         {
+            'CREE': '30.08.2021',
+            'DELAI': '10.10.1982',
             'ERSTELLT': '30.08.2021',
             'FRIST': '10.10.1982',
-            'NAME': 'Matthew Bowen'
+            'NAME': 'Matthew Bowen',
+            'NOM': 'Matthew Bowen'
         },
         {
+            'CREE': '30.08.2021',
+            'DELAI': '29.12.2003',
             'ERSTELLT': '30.08.2021',
             'FRIST': '29.12.2003',
-            'NAME': 'Laura Barnes'
+            'NAME': 'Laura Barnes',
+            'NOM': 'Laura Barnes'
         },
         {
+            'CREE': '30.08.2021',
+            'DELAI': '31.10.2010',
             'ERSTELLT': '30.08.2021',
             'FRIST': '31.10.2010',
-            'NAME': 'Andrew Mcclain'
+            'NAME': 'Andrew Mcclain',
+            'NOM': 'Andrew Mcclain'
         },
         {
+            'CREE': '30.08.2021',
+            'DELAI': '03.03.1989',
             'ERSTELLT': '30.08.2021',
             'FRIST': '03.03.1989',
-            'NAME': 'William Byrd'
+            'NAME': 'William Byrd',
+            'NOM': 'William Byrd'
         },
         {
+            'CREE': '30.08.2021',
+            'DELAI': '19.08.2005',
             'ERSTELLT': '30.08.2021',
             'FRIST': '19.08.2005',
-            'NAME': 'Scott Gould'
+            'NAME': 'Scott Gould',
+            'NOM': 'Scott Gould'
         },
         {
+            'CREE': '30.08.2021',
+            'DELAI': '17.08.2021',
             'ERSTELLT': '30.08.2021',
             'FRIST': '17.08.2021',
-            'NAME': 'James Johnson'
+            'NAME': 'James Johnson',
+            'NOM': 'James Johnson'
         }
     ],
     'OFFICES_CANTONAUX_LISTE': '''- Matthew Bowen
@@ -541,77 +612,118 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     ],
     'ZIRKULATION_ALLE': [
         {
+            'CREE': '30.08.2021',
+            'DELAI': '10.10.1982',
             'ERSTELLT': '30.08.2021',
             'FRIST': '10.10.1982',
-            'NAME': 'Matthew Bowen'
+            'NAME': 'Matthew Bowen',
+            'NOM': 'Matthew Bowen'
         },
         {
+            'CREE': '30.08.2021',
+            'DELAI': '29.12.2003',
             'ERSTELLT': '30.08.2021',
             'FRIST': '29.12.2003',
-            'NAME': 'Laura Barnes'
+            'NAME': 'Laura Barnes',
+            'NOM': 'Laura Barnes'
         },
         {
+            'CREE': '30.08.2021',
+            'DELAI': '31.10.2010',
             'ERSTELLT': '30.08.2021',
             'FRIST': '31.10.2010',
-            'NAME': 'Andrew Mcclain'
+            'NAME': 'Andrew Mcclain',
+            'NOM': 'Andrew Mcclain'
         },
         {
+            'CREE': '30.08.2021',
+            'DELAI': '03.03.1989',
             'ERSTELLT': '30.08.2021',
             'FRIST': '03.03.1989',
-            'NAME': 'William Byrd'
+            'NAME': 'William Byrd',
+            'NOM': 'William Byrd'
         },
         {
+            'CREE': '30.08.2021',
+            'DELAI': '19.08.2005',
             'ERSTELLT': '30.08.2021',
             'FRIST': '19.08.2005',
-            'NAME': 'Scott Gould'
+            'NAME': 'Scott Gould',
+            'NOM': 'Scott Gould'
         },
         {
+            'CREE': '30.08.2021',
+            'DELAI': '17.08.2021',
             'ERSTELLT': '30.08.2021',
             'FRIST': '17.08.2021',
-            'NAME': 'James Johnson'
+            'NAME': 'James Johnson',
+            'NOM': 'James Johnson'
         }
     ],
     'ZIRKULATION_FACHSTELLEN': [
         {
+            'CREE': '30.08.2021',
+            'DELAI': '19.08.2005',
             'ERSTELLT': '30.08.2021',
             'FRIST': '19.08.2005',
-            'NAME': 'Scott Gould'
+            'NAME': 'Scott Gould',
+            'NOM': 'Scott Gould'
         },
         {
+            'CREE': '30.08.2021',
+            'DELAI': '17.08.2021',
             'ERSTELLT': '30.08.2021',
             'FRIST': '17.08.2021',
-            'NAME': 'James Johnson'
+            'NAME': 'James Johnson',
+            'NOM': 'James Johnson'
         }
     ],
     'ZIRKULATION_GEMEINDEN': [
         {
+            'CREE': '30.08.2021',
+            'DELAI': '31.10.2010',
             'ERSTELLT': '30.08.2021',
             'FRIST': '31.10.2010',
-            'NAME': 'Andrew Mcclain'
+            'NAME': 'Andrew Mcclain',
+            'NOM': 'Andrew Mcclain'
         },
         {
+            'CREE': '30.08.2021',
+            'DELAI': '03.03.1989',
             'ERSTELLT': '30.08.2021',
             'FRIST': '03.03.1989',
-            'NAME': 'William Byrd'
+            'NAME': 'William Byrd',
+            'NOM': 'William Byrd'
         }
     ],
     'ZIRKULATION_RSTA': [
         {
+            'CREE': '30.08.2021',
+            'DELAI': '29.12.2003',
             'ERSTELLT': '30.08.2021',
             'FRIST': '29.12.2003',
-            'NAME': 'Laura Barnes'
+            'NAME': 'Laura Barnes',
+            'NOM': 'Laura Barnes'
         }
     ],
     'ZIRKULATION_RUECKMELDUNGEN': [
         {
             'ANTWORT': 'Unbekannt',
+            'DE': 'Scott Gould',
+            'DISPOSITIONS_ACCESSOIRES': 'Nebenbestimmungen 5',
             'NEBENBESTIMMUNGEN': 'Nebenbestimmungen 5',
+            'POINT_DE_VUE': 'Stellungnahme 5',
+            'REPONSE': 'Unbekannt',
             'STELLUNGNAHME': 'Stellungnahme 5',
             'VON': 'Scott Gould'
         },
         {
             'ANTWORT': 'Nachforderung',
+            'DE': 'James Johnson',
+            'DISPOSITIONS_ACCESSOIRES': 'Nebenbestimmungen 6',
             'NEBENBESTIMMUNGEN': 'Nebenbestimmungen 6',
+            'POINT_DE_VUE': 'Stellungnahme 6',
+            'REPONSE': 'Nachforderung',
             'STELLUNGNAHME': 'Stellungnahme 6',
             'VON': 'James Johnson'
         }
