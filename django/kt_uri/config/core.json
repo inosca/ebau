@@ -18996,7 +18996,7 @@
       "instance_resource": 180001,
       "name": "Freigeben für Koordinationsstelle",
       "description": null,
-      "class_field": "release_koor",
+      "class_field": "release_koor has_answer_value:mbv-bund-type:mitberichtsverfahren",
       "hidden": 0,
       "sort": 0
     }
