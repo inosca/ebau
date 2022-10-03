@@ -38362,15 +38362,6 @@
   },
   {
     "model": "core.araction",
-    "pk": 130001,
-    "fields": {
-      "available_resource": "documentmergeservice",
-      "action_name": "index",
-      "hidden": 0
-    }
-  },
-  {
-    "model": "core.araction",
     "pk": 140001,
     "fields": {
       "available_resource": "workitemlistall",
@@ -38592,15 +38583,6 @@
       "module_name": "calumalist",
       "controller_name": "calumalist",
       "description": "(Vue) List of instances"
-    }
-  },
-  {
-    "model": "core.availableresource",
-    "pk": "documentmergeservice",
-    "fields": {
-      "module_name": "documentmergeservice",
-      "controller_name": "documentmergeservice",
-      "description": "(Vue) Templates admin"
     }
   },
   {
@@ -46844,7 +46826,7 @@
       "resource": 20006,
       "name": null,
       "description": null,
-      "template": "/ember-camac-ng/document-merge.phtml",
+      "template": "/ember-camac-ng/dms-generate.phtml",
       "class_field": "menu-category-primary",
       "hidden": 0,
       "sort": 3,
@@ -46859,7 +46841,7 @@
       "resource": 20007,
       "name": null,
       "description": null,
-      "template": "/ember-camac-ng/document-merge.phtml",
+      "template": "/ember-camac-ng/dms-generate.phtml",
       "class_field": "menu-category-primary",
       "hidden": 0,
       "sort": 3,
@@ -108166,6 +108148,13 @@
   },
   {
     "model": "core.rpage",
+    "pk": 20009,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.rpage",
     "pk": 20010,
     "fields": {
       "pdf_class": null
@@ -108818,10 +108807,10 @@
     "model": "core.resource",
     "pk": 20009,
     "fields": {
-      "available_resource": "documentmergeservice",
+      "available_resource": "page",
       "name": null,
       "description": null,
-      "template": null,
+      "template": "/ember-camac-ng/dms-admin.phtml",
       "class_field": null,
       "hidden": 0,
       "sort": 9

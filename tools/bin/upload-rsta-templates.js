@@ -57,7 +57,7 @@ async function run() {
         chalk.red(
           `${chalk.bold(
             "GET"
-          )} "${host}/document-merge-service/api/v1/templates" failed with HTTP status ${
+          )} "${host}/document-merge-service/api/v1/template/" failed with HTTP status ${
             existingResponse.status
           }`
         )
@@ -65,7 +65,7 @@ async function run() {
       return;
     }
 
-    const { results: existingTemplates } = await existingResponse.json();
+    const existingTemplates = await existingResponse.json();
 
     if (del) {
       return await deleteExisting(existingTemplates, host, headers, dry);

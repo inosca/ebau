@@ -26,4 +26,11 @@ export default class CustomSessionService extends SessionService {
   get user() {
     return { id: this.shoebox.content.userId };
   }
+
+  get authHeaders() {
+    return {
+      authorization: `${this.data.authenticated.token_type} ${this.data.authenticated.access_token}`,
+      "x-camac-group": this.shoebox.content.groupId,
+    };
+  }
 }
