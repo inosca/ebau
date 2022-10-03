@@ -1,0 +1,40 @@
+<div class="uk-margin">
+  <label class="uk-form-label uk-text-bold">
+    {{t "dms.template"}}
+    <span class="uk-text-danger">*</span>
+  </label>
+  <div class="uk-form-controls">
+    <PowerSelect
+      @options={{this.templates}}
+      @selected={{this.template}}
+      @onChange={{fn (mut this.template)}}
+      @renderInPlace={{true}}
+      @searchEnabled={{true}}
+      @searchField="description"
+    as |template|>
+      {{template.description}}
+    </PowerSelect>
+  </div>
+</div>
+
+<div class="uk-margin">
+  <UkButton
+    @color="primary"
+    @disabled={{or this.merge.isRunning this.placeholders.isLoading (not this.template)}}
+    @onClick={{perform this.merge false}}
+  >
+    {{t "dms.merge"}}
+  </UkButton>
+  <UkButton
+    @color="default"
+    @disabled={{or this.merge.isRunning this.placeholders.isLoading (not this.template)}}
+    @onClick={{perform this.merge true}}
+  >
+    {{t "dms.merge-and-save"}}
+  </UkButton>
+</div>
+
+<Dms::Docs
+  @data={{this.placeholders.value}}
+  @title={{t "dms.docs.title-generate"}}
+/>
