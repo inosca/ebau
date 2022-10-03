@@ -1,0 +1,110 @@
+<h2 class="uk-margin-remove-top">
+  {{#if @slug}}
+    {{t "dms.edit"}}
+  {{else}}
+    {{t "dms.new"}}
+  {{/if}}
+</h2>
+
+<Dms::Docs @title={{t "dms.docs.title-admin"}} @showGeneralInfo={{true}} />
+
+{{#if this.template.isLoading}}
+  <div class="uk-text-center"><UkSpinner @ratio="2" /></div>
+{{else}}
+  <form class="uk-form uk-form-stacked" {{on "submit" (perform this.save)}}>
+    <div class="uk-margin">
+      <label class="uk-form-label uk-text-bold" for="name">
+        {{t "dms.name"}}
+        <span class="uk-text-danger">*</span>
+      </label>
+      <div class="uk-form-controls">
+        <Input
+          @type="text"
+          @value={{this.template.value.description}}
+          class="uk-input"
+          name="name"
+          id="name"
+          required
+        />
+      </div>
+    </div>
+    <div class="uk-margin">
+      <label class="uk-form-label uk-text-bold" for="category">
+        {{t "dms.category"}}
+      </label>
+      <div class="uk-form-controls">
+        <Input
+          @type="text"
+          @value={{this.template.value.meta.category}}
+          class="uk-input"
+          name="category"
+          id="category"
+        />
+      </div>
+    </div>
+    <div class="uk-margin">
+      <label class="uk-form-label uk-text-bold">
+        {{t "dms.template"}}
+        <span class="uk-text-danger">*</span>
+      </label>
+      <div class="uk-form-controls">
+        {{#if this.template.value.template}}
+          <span class="uk-text-italic">
+            {{this.template.value.templateFileName}}
+            <button
+              type="button"
+              class="uk-button uk-button-link"
+              {{uk-tooltip (t "dms.replace")}}
+              {{on "click" (fn (mut this.template.value.template) null)}}
+            >
+              <UkIcon @icon="pencil" />
+            </button>
+          </span>
+        {{else}}
+          {{#let (file-queue onFileAdded=this.setTemplate) as |queue|}}
+            <FileDropzone @queue={{queue}} @filter={{this.validateTemplate}} as |dropzone|>
+              <div class="uk-placeholder uk-margin-remove uk-text-center uk-padding-medium uk-flex uk-flex-middle uk-flex-center uk-flex-column {{if dropzone.active "uk-box-shadow-medium"}}">
+                <UkIcon @icon="cloud-upload" @ratio={{3}} class="uk-margin-bottom" />
+                <div class="uk-text-muted">
+                  {{t "dms.drag"}}
+                  <label for="template">
+                    <span role="button" tabindex="0" aria-controls="template" class="uk-link">{{t "dms.click"}}</span>
+                  </label>
+                  <input
+                    type="file"
+                    id="template"
+                    accept={{array ".docx" ".xlsx"}}
+                    hidden
+                    required
+                    {{queue.selectFile filter=this.validateTemplate}}
+                  >
+                </div>
+              </div>
+            </FileDropzone>
+          {{/let}}
+        {{/if}}
+      </div>
+    </div>
+    <div class="uk-margin">
+      <UkButton
+        @type="submit"
+        @color="primary"
+        @loading={{this.save.isRunning}}
+        @disabled={{this.save.isRunning}}
+      >
+        {{t "global.save"}}
+      </UkButton>
+      <UkButton @onClick={{this.back}} @color="default">{{t "global.back"}}</UkButton>
+      {{#if @slug}}
+        <UkButton
+          @disabled={{this.delete.isRunning}}
+          @loading={{this.delete.isRunning}}
+          @onClick={{perform this.delete}}
+          @color="default"
+        >
+          {{t "global.delete"}}
+        </UkButton>
+      {{/if}}
+    </div>
+  </form>
+{{/if}}

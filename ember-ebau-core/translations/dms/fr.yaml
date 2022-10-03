@@ -1,0 +1,82 @@
+dms:
+  category: "Catégorie"
+  click: "cliquez ici pour télécharger un fichier"
+  download: "Télécharger le modèle"
+  drag: "Glisser un fichier dans cette zone, ou"
+  edit: "Modifier le modèle"
+  empty: "Aucun modèle trouvé"
+  inherited: "supérieur"
+  inheritedUncategorized: "Modèles supérieurs (non catégorisé)"
+  merge-and-save: "Déposer le document"
+  merge: "Créer un document"
+  name: "Nom"
+  new: "Nouveau modèle"
+  own: "Mes modèles"
+  ownUncategorized: "Mes modèles (non catégorisé)"
+  replace: "Remplacer le modèle"
+  system: "Modèles de système"
+  template: "Modèle"
+
+  delete-error: "Erreur de suppression du modèle"
+  download-error: "Erreur lors du téléchargement du modèle"
+  merge-and-save-success: 'Le modèle a été classé avec succès dans la catégorie "Interne".'
+  merge-error: "Une erreur s'est produite lors de la génération du modèle"
+  save-error-placeholder: "{count, plural, one {L'espace réservé {placeholders} n'exsiste} other {L'espaces réservés {placeholders} n'existent}} pas."
+  save-error-syntax: 'Le modèle contient une syntaxe non valide. Pour plus d''informations, voir les "détails techniques".'
+  save-error: "Erreur lors de la sauvegarde du modèle"
+  validation-error: "Seuls les fichiers .docx et .xlsx peuvent être téléchargés"
+
+  docs:
+    general-info-title: "Renseignements d'ordre général"
+    general-info-text: "Les caractères de remplissage peuvent être insérés dans
+    un modèle avec des accolades doubles (par exemple <code>'{{ REQUERANT
+    '}}</code>).  Si vous souhaitez éditer un champ de texte multiligne avec des
+    sauts de ligne, vous pouvez le marquer avec <code>multiline</code> (par
+    exemple <code>'{{ PROJET_CONSTR | multiline '}}</code>.  Pour plus
+    d'informations sur la gestion de vos propres modèles, cliquez <a
+    href=''https://www.bauen.dij.be.ch/content/dam/bauen_dij/dokumente/fr/baubewilligungsverfahren/elektronisches-baubewilligungsverfahren/hilfsunterlagen/verwalten%20von%20eigenen%20vorlagen-fr.pdf''>ici</a>."
+    title-admin: "Documentation"
+    title-generate: "Informations techniques sur les espaces réservés"
+    title-placeholders: "Espaces réservés"
+
+    placeholder-and-description: "Espace réservé et description"
+    search: "Recherche d'un espace réservé..."
+    value: "Valeur"
+
+    complexInfo: "
+    <p>
+      Les caractères de remplissage techniques peuvent être utilisés dans un
+      modèle lors d'une itération comme suit :
+    </p>
+    <p>
+      L'exemple montre l'utilisation du caractère de remplissage <code>'{{
+      OFFICES_CANTONAUX '}}</code>
+    </p>
+    <p>Exemple pour les tableaux :</p>
+    <table class=''uk-table uk-table-divider uk-table-small''>
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Delai</th>
+          <th>Créé</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td colspan=''3''>'{%tr for OFFICE in OFFICES_CANTONAUX %'}</td></tr>
+        <tr>
+          <td>'{{ OFFICE.NOM '}}</td>
+          <td>'{{ OFFICE.DELAI '}}</td>
+          <td>'{{ OFFICE.CREE '}}</td>
+        </tr>
+        <tr><td colspan=''3''>'{%tr endfor %'}</td></tr>
+      </tbody>
+    </table>
+    <p>Exemple pour les listes :</p>
+    '{%li for OFFICE in OFFICES_CANTONAUX %'}
+    <ul class=''uk-list uk-list-bullet uk-margin-remove''>
+      <li>
+        '{{ OFFICE.NOM '}} (délai: '{{ OFFICE.DELAI '}})
+      </li>
+    </ul>
+    '{%li endfor %'}
+    "
