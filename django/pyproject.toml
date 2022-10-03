@@ -85,6 +85,7 @@ omit = [
     "*/migrations/*",
     "*/apps.py",
     "*/admin.py",
+    "**/admin/*.py",
     "camac/ech0211/schema/*",
     "manage.py",
     "setup.py",
