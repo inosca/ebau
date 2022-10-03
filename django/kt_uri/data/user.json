@@ -3,7 +3,6 @@
     "model": "user.user",
     "pk": 1,
     "fields": {
-      "is_superuser": true,
       "username": "admin",
       "password": "0f10da7320c3fad6c1bd4e597992fb83",
       "name": "min",
@@ -15,16 +14,13 @@
       "last_login": null,
       "address": "",
       "city": "",
-      "zip": "",
-      "is_staff": true,
-      "user_permissions": []
+      "zip": ""
     }
   },
   {
     "model": "user.user",
     "pk": 2,
     "fields": {
-      "is_superuser": false,
       "username": "guest",
       "password": "0f10da7320c3fad6c1bd4e597992fb83",
       "name": "guest",
@@ -36,16 +32,13 @@
       "last_login": null,
       "address": null,
       "city": null,
-      "zip": null,
-      "is_staff": false,
-      "user_permissions": []
+      "zip": null
     }
   },
   {
     "model": "user.user",
     "pk": 1209,
     "fields": {
-      "is_superuser": false,
       "username": "portalUser",
       "password": "0f10da7320c3fad6c1bd4e597992fb83",
       "name": "portal",
@@ -57,16 +50,13 @@
       "last_login": null,
       "address": null,
       "city": null,
-      "zip": null,
-      "is_staff": false,
-      "user_permissions": []
+      "zip": null
     }
   },
   {
     "model": "user.user",
     "pk": 1210,
     "fields": {
-      "is_superuser": false,
       "username": "service-account-camac-admin",
       "password": null,
       "name": "service-account-camac-admin",
@@ -78,16 +68,13 @@
       "last_login": null,
       "address": null,
       "city": null,
-      "zip": null,
-      "is_staff": false,
-      "user_permissions": []
+      "zip": null
     }
   },
   {
     "model": "user.user",
     "pk": 1211,
     "fields": {
-      "is_superuser": false,
       "username": "portal",
       "password": null,
       "name": "User",
@@ -99,16 +86,13 @@
       "last_login": null,
       "address": "Giessereiweg 5 Adresszusatz",
       "city": "Bern",
-      "zip": "3013",
-      "is_staff": false,
-      "user_permissions": []
+      "zip": "3013"
     }
   },
   {
     "model": "user.user",
     "pk": 1212,
     "fields": {
-      "is_superuser": false,
       "username": "import@koor-bg.ur.ch",
       "password": null,
       "name": "Import",
@@ -120,16 +104,13 @@
       "last_login": null,
       "address": null,
       "city": null,
-      "zip": null,
-      "is_staff": false,
-      "user_permissions": []
+      "zip": null
     }
   },
   {
     "model": "user.user",
     "pk": 1213,
     "fields": {
-      "is_superuser": false,
       "username": "service-account-oereb",
       "password": null,
       "name": "service-account-oereb",
@@ -141,9 +122,7 @@
       "last_login": null,
       "address": null,
       "city": null,
-      "zip": null,
-      "is_staff": false,
-      "user_permissions": []
+      "zip": null
     }
   },
   {
