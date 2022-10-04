@@ -14,7 +14,7 @@ import ENV from "camac-ng/config/environment";
 
 export default class DossierImportIndexController extends Controller {
   @service intl;
-  @service notifications;
+  @service notification;
   @service store;
   @service shoebox;
   @service session;
@@ -38,7 +38,7 @@ export default class DossierImportIndexController extends Controller {
 
   @dropTask
   *upload(event) {
-    this.notifications.clear();
+    this.notification.clear();
 
     // Prevent uikit's uk-upload from removing files
     // from underlying input field
@@ -61,7 +61,7 @@ export default class DossierImportIndexController extends Controller {
     if (file.size > this.ENV.maxDossierImportSize) {
       // Force component template to reload
       yield timeout(200);
-      this.notifications.error(
+      this.notification.danger(
         this.intl.t("dossierImport.new.uploadError.fileTooLarge")
       );
       return (this.fileUpload = {
@@ -96,13 +96,13 @@ export default class DossierImportIndexController extends Controller {
 
   async handleUploadError(response) {
     if (response.status === 413) {
-      this.notifications.error(
+      this.notification.danger(
         this.intl.t(`dossierImport.new.uploadError.fileTooLarge`)
       );
       return;
     }
     const message = (await response.json()).errors[0].detail;
-    this.notifications.error(message);
+    this.notification.danger(message);
   }
 
   @action
@@ -112,6 +112,6 @@ export default class DossierImportIndexController extends Controller {
 
   @action
   clearNotifications() {
-    this.notifications.clear();
+    this.notification.clear();
   }
 }

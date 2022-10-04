@@ -6,7 +6,7 @@ import { dropTask } from "ember-concurrency";
 export default class ResponsibleController extends Controller {
   @service store;
   @service shoebox;
-  @service notifications;
+  @service notification;
   @service intl;
 
   @tracked _selectedUser;
@@ -57,9 +57,9 @@ export default class ResponsibleController extends Controller {
       yield responsibility.save();
       yield this.fetchData.perform();
 
-      this.notifications.success(this.intl.t("responsible.saveSuccess"));
+      this.notification.success(this.intl.t("responsible.saveSuccess"));
     } catch (error) {
-      this.notifications.error(this.intl.t("responsible.saveError"));
+      this.notification.danger(this.intl.t("responsible.saveError"));
     }
   }
 }

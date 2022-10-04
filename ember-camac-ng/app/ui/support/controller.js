@@ -17,7 +17,7 @@ export default class SupportController extends Controller {
   @service store;
   @service fetch;
   @service intl;
-  @service notifications;
+  @service notification;
   @service shoebox;
 
   @tracked ebauNumber;
@@ -91,7 +91,7 @@ export default class SupportController extends Controller {
       // sadly we need this to have current data on the whole page
       location.reload();
     } catch (e) {
-      this.notifications.error(
+      this.notification.danger(
         this.intl.t("support.modification-to-new-dossier.conversion-error")
       );
     }
@@ -147,7 +147,7 @@ export default class SupportController extends Controller {
         `/index/redirect-to-instance-resource/instance-id/${this.model}`
       );
     } catch (error) {
-      this.notifications.error(this.intl.t("support.archive.error"));
+      this.notification.danger(this.intl.t("support.archive.error"));
     }
   }
 
@@ -180,7 +180,7 @@ export default class SupportController extends Controller {
         text = parseErrors(error.body.errors);
       }
 
-      this.notifications.error(text);
+      this.notification.danger(text);
     }
   }
 
@@ -204,7 +204,7 @@ export default class SupportController extends Controller {
       // sadly we need this to have current data on the whole page
       location.reload();
     } catch (error) {
-      this.notifications.error(this.intl.t("support.change-form.error"));
+      this.notification.danger(this.intl.t("support.change-form.error"));
     }
   }
 
@@ -236,7 +236,7 @@ export default class SupportController extends Controller {
       this.output = data.attributes.output;
       this.dryRunDone = true;
     } catch (error) {
-      this.notifications.error(this.intl.t("support.fix-work-items.error"));
+      this.notification.danger(this.intl.t("support.fix-work-items.error"));
     }
   }
 }

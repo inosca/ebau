@@ -5,7 +5,7 @@ import ENV from "camac-ng/config/environment";
 
 export default class WorkItemNewController extends Controller {
   @service shoebox;
-  @service notifications;
+  @service notification;
 
   allowApplicantManualWorkItem = ENV.APPLICATION.allowApplicantManualWorkItem;
 }

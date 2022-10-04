@@ -4,7 +4,7 @@ import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
 
 export default class TaskFormButtonComponent extends Component {
-  @service notifications;
+  @service notification;
   @service intl;
   @service fetch;
 
@@ -39,7 +39,7 @@ export default class TaskFormButtonComponent extends Component {
         `/index/redirect-to-instance-resource/instance-id/${this.args.context.instanceId}`
       );
     } catch (error) {
-      this.notifications.error(this.intl.t("ebauNumber.completeInvalid"));
+      this.notification.danger(this.intl.t("ebauNumber.completeInvalid"));
     }
   }
 }
