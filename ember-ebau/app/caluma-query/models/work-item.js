@@ -12,7 +12,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
   @service session;
   @service router;
   @service intl;
-  @service notifications;
+  @service notification;
   @service can;
 
   @tracked meta = this.raw.meta;
@@ -194,7 +194,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
 
       return true;
     } catch (error) {
-      this.notifications.error(this.intl.t("workItems.saveError"));
+      this.notification.danger(this.intl.t("workItems.saveError"));
     }
   }
 
@@ -223,7 +223,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
 
       return true;
     } catch (error) {
-      this.notifications.error(this.intl.t("workItems.saveError"));
+      this.notification.danger(this.intl.t("workItems.saveError"));
     }
   }
 
