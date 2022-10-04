@@ -5,7 +5,7 @@ import { findRecord } from "ember-data-resources";
 
 export default class OrganisationController extends Controller {
   @service intl;
-  @service notifications;
+  @service notification;
   @service store;
   @service shoebox;
 
@@ -20,9 +20,9 @@ export default class OrganisationController extends Controller {
 
       yield this.service.record.save();
 
-      this.notifications.success(this.intl.t("organisation.saveSuccess"));
+      this.notification.success(this.intl.t("organisation.saveSuccess"));
     } catch (error) {
-      this.notifications.error(this.intl.t("organisation.saveError"));
+      this.notification.danger(this.intl.t("organisation.saveError"));
     }
   }
 }

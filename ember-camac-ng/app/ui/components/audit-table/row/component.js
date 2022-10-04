@@ -12,7 +12,7 @@ import linkAuditDocument from "camac-ng/gql/mutations/link-audit-document.graphq
 
 export default class AuditTableRowComponent extends Component {
   @service fetch;
-  @service notifications;
+  @service notification;
   @service intl;
   @service router;
 
@@ -34,7 +34,7 @@ export default class AuditTableRowComponent extends Component {
 
       saveAs(yield response.blob(), filename);
     } catch (error) {
-      this.notifications.error(this.intl.t("audit.createPdfError"));
+      this.notification.danger(this.intl.t("audit.createPdfError"));
     }
   }
 
@@ -64,9 +64,9 @@ export default class AuditTableRowComponent extends Component {
 
       yield this.args.onRefresh();
 
-      this.notifications.success(this.intl.t("audit.deleteSuccess"));
+      this.notification.success(this.intl.t("audit.deleteSuccess"));
     } catch (error) {
-      this.notifications.error(this.intl.t("audit.deleteError"));
+      this.notification.danger(this.intl.t("audit.deleteError"));
     }
   }
 
@@ -104,7 +104,7 @@ export default class AuditTableRowComponent extends Component {
 
       yield this.router.transitionTo("audit.edit", documentId);
     } catch (error) {
-      this.notifications.error(this.intl.t("audit.copyError"));
+      this.notification.danger(this.intl.t("audit.copyError"));
     }
   }
 }

@@ -5,7 +5,7 @@ import { dropTask } from "ember-concurrency";
 export default class DecisionSubmitPartialComponent extends Component {
   @service fetch;
   @service intl;
-  @service notifications;
+  @service notification;
 
   @dropTask
   *sendNotifications() {
@@ -54,7 +54,7 @@ export default class DecisionSubmitPartialComponent extends Component {
         }),
       });
     } catch (error) {
-      this.notifications.error(this.intl.t("decision.sendNotificationError"));
+      this.notification.danger(this.intl.t("decision.sendNotificationError"));
     }
   }
 }
