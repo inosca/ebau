@@ -13,7 +13,7 @@ import isProd from "camac-ng/utils/is-prod";
 
 export default class DossierImportDetailController extends Controller {
   @service intl;
-  @service notifications;
+  @service notification;
   @service store;
   @service router;
 
@@ -23,7 +23,7 @@ export default class DossierImportDetailController extends Controller {
   @dropTask
   *fetchImport() {
     try {
-      this.notifications.clear();
+      this.notification.clear();
 
       return yield this.store.findRecord("dossier-import", this.model, {
         include: "user",
@@ -31,7 +31,7 @@ export default class DossierImportDetailController extends Controller {
       });
     } catch (e) {
       console.error(e);
-      this.notifications.error(
+      this.notification.danger(
         this.intl.t("dossierImport.detail.fetchImportError")
       );
       this.router.transitionTo("index");
@@ -41,17 +41,17 @@ export default class DossierImportDetailController extends Controller {
   @dropTask
   *deleteImport() {
     try {
-      this.notifications.clear();
+      this.notification.clear();
 
       yield this.import.destroyRecord();
 
-      this.notifications.success(
+      this.notification.success(
         this.intl.t("dossierImport.detail.actions.deleteImport.success")
       );
       this.router.transitionTo("dossier-import.index");
     } catch (e) {
       console.error(e);
-      this.notifications.error(
+      this.notification.danger(
         this.intl.t("dossierImport.detail.actions.deleteImport.error")
       );
     }
@@ -60,21 +60,21 @@ export default class DossierImportDetailController extends Controller {
   @dropTask
   *startImport() {
     try {
-      this.notifications.clear();
+      this.notification.clear();
 
       yield this.import.start();
 
       yield this.fetchImport.perform();
 
       // success notification only shown until next refresh
-      this.notifications.success(
+      this.notification.success(
         this.intl.t("dossierImport.detail.actions.startImport.success")
       );
 
       this.refresh.perform();
     } catch (e) {
       console.error(e);
-      this.notifications.error(
+      this.notification.danger(
         this.intl.t("dossierImport.detail.actions.startImport.error")
       );
     }
@@ -83,18 +83,18 @@ export default class DossierImportDetailController extends Controller {
   @dropTask
   *confirmImport() {
     try {
-      this.notifications.clear();
+      this.notification.clear();
 
       yield this.import.confirm();
 
       yield this.fetchImport.perform();
 
-      this.notifications.success(
+      this.notification.success(
         this.intl.t("dossierImport.detail.actions.confirmImport.success")
       );
     } catch (e) {
       console.error(e);
-      this.notifications.error(
+      this.notification.danger(
         this.intl.t("dossierImport.detail.actions.confirmImport.error")
       );
     }
@@ -103,17 +103,17 @@ export default class DossierImportDetailController extends Controller {
   @dropTask
   *undoImport() {
     try {
-      this.notifications.clear();
+      this.notification.clear();
 
       yield this.import.undo();
 
-      this.notifications.success(
+      this.notification.success(
         this.intl.t("dossierImport.detail.actions.undoImport.success")
       );
       this.router.transitionTo("dossier-import.index");
     } catch (e) {
       console.error(e);
-      this.notifications.error(
+      this.notification.danger(
         this.intl.t("dossierImport.detail.actions.confirmImport.error")
       );
     }
@@ -122,20 +122,20 @@ export default class DossierImportDetailController extends Controller {
   @dropTask
   *transmitImport() {
     try {
-      this.notifications.clear();
+      this.notification.clear();
 
       yield this.import.transmit();
 
       yield this.fetchImport.perform();
 
-      this.notifications.success(
+      this.notification.success(
         this.intl.t("dossierImport.detail.actions.transmitImport.success")
       );
 
       this.refresh.perform();
     } catch (e) {
       console.error(e);
-      this.notifications.error(
+      this.notification.danger(
         this.intl.t("dossierImport.detail.actions.transmitImport.error")
       );
     }

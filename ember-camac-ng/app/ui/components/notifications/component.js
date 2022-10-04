@@ -3,12 +3,12 @@ import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 
 export default class NotificationsComponent extends Component {
-  @service notifications;
+  @service notification;
 
   @action
   remove(notification, event) {
     event.preventDefault();
 
-    this.notifications.remove(notification.id);
+    this.notification.remove(notification.id);
   }
 }

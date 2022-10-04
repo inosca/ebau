@@ -7,7 +7,7 @@ import isProd from "camac-ng/utils/is-prod";
 
 export default class DossierImportIndexController extends Controller {
   @service intl;
-  @service notifications;
+  @service notification;
   @service store;
 
   get isProd() {
@@ -25,7 +25,7 @@ export default class DossierImportIndexController extends Controller {
         },
       });
     } catch (e) {
-      this.notifications.error(
+      this.notification.danger(
         this.intl.t("dossierImport.imports.fetchImportsError")
       );
     }
@@ -33,6 +33,6 @@ export default class DossierImportIndexController extends Controller {
 
   @action
   clearNotifications() {
-    this.notifications.clear();
+    this.notification.clear();
   }
 }

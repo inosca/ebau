@@ -10,7 +10,7 @@ import saveAnswerMutation from "camac-ng/gql/mutations/save-answer.graphql";
 import getMainDocumentAnswerQuery from "camac-ng/gql/queries/get-document-answer.graphql";
 
 export default class AuditTableComponent extends Component {
-  @service notifications;
+  @service notification;
   @service router;
   @service intl;
 
@@ -85,7 +85,7 @@ export default class AuditTableComponent extends Component {
 
       yield this.router.transitionTo("audit.edit", documentId);
     } catch (error) {
-      this.notifications.error(this.intl.t("audit.createError"));
+      this.notification.danger(this.intl.t("audit.createError"));
     }
   }
 }

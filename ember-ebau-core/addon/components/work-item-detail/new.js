@@ -26,6 +26,7 @@ export default class WorkItemDetailNewComponent extends Component {
   @service store;
   @service intl;
   @service router;
+  @service notification;
 
   @tracked workItem = new NewWorkItem();
 
@@ -134,12 +135,12 @@ export default class WorkItemDetailNewComponent extends Component {
 
       this.workItem = new NewWorkItem();
 
-      this.args.notifications.success(this.intl.t("workItems.saveSuccess"));
+      this.notification.success(this.intl.t("workItems.saveSuccess"));
 
       this.router.transitionTo(`${this.args.baseRoute}.index`);
     } catch (error) {
       console.error(error);
-      this.args.notifications.error(this.intl.t("workItems.saveError"));
+      this.notification.danger(this.intl.t("workItems.saveError"));
     }
   }
 }
