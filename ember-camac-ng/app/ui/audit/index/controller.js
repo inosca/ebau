@@ -10,7 +10,7 @@ import completeWorkItem from "ember-ebau-core/gql/mutations/complete-work-item.g
 import skipWorkItem from "camac-ng/gql/mutations/skip-work-item.graphql";
 
 export default class AuditIndexController extends Controller {
-  @service notifications;
+  @service notification;
   @service intl;
   @service fetch;
 
@@ -31,9 +31,9 @@ export default class AuditIndexController extends Controller {
 
       yield this.auditController.fetchAudit.perform();
 
-      this.notifications.success(this.intl.t("audit.skipSuccess"));
+      this.notification.success(this.intl.t("audit.skipSuccess"));
     } catch (error) {
-      this.notifications.error(this.intl.t("audit.skipError"));
+      this.notification.danger(this.intl.t("audit.skipError"));
     }
   }
 
@@ -48,14 +48,14 @@ export default class AuditIndexController extends Controller {
 
       yield this.auditController.fetchAudit.perform();
 
-      this.notifications.success(this.intl.t("audit.completeSuccess"));
+      this.notification.success(this.intl.t("audit.completeSuccess"));
     } catch (error) {
       if (error.errors) {
         // validation failed
-        this.notifications.error(this.intl.t("audit.completeInvalid"));
+        this.notification.danger(this.intl.t("audit.completeInvalid"));
       } else {
         // generic error
-        this.notifications.error(this.intl.t("audit.completeError"));
+        this.notification.danger(this.intl.t("audit.completeError"));
       }
     }
   }

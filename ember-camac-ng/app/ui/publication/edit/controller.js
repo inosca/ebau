@@ -13,7 +13,7 @@ import getPublication from "camac-ng/gql/queries/get-publication.graphql";
 import getPublications from "camac-ng/gql/queries/get-publications.graphql";
 
 export default class PublicationEditController extends Controller {
-  @service notifications;
+  @service notification;
   @service intl;
   @service shoebox;
   @service router;
@@ -81,7 +81,7 @@ export default class PublicationEditController extends Controller {
         },
       });
     } catch (e) {
-      this.notifications.error(this.intl.t("publication.cancelError"));
+      this.notification.danger(this.intl.t("publication.cancelError"));
     }
   }
 

@@ -7,7 +7,7 @@ import { trackedTask } from "ember-resources/util/ember-concurrency";
 import getPublications from "camac-ng/gql/queries/get-publications.graphql";
 
 export default class PublicationController extends Controller {
-  @service notifications;
+  @service notification;
   @service intl;
 
   @queryManager apollo;
@@ -41,7 +41,7 @@ export default class PublicationController extends Controller {
         "allWorkItems.edges"
       );
     } catch (error) {
-      this.notifications.error(this.intl.t("publication.loadingError"));
+      this.notification.danger(this.intl.t("publication.loadingError"));
     }
   }
 }

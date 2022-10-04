@@ -7,7 +7,7 @@ import saveAs from "file-saver";
 import QRCode from "qrcode";
 
 export default class QrCodeComponent extends Component {
-  @service notifications;
+  @service notification;
   @service shoebox;
   @service intl;
 
@@ -54,7 +54,7 @@ export default class QrCodeComponent extends Component {
         `${this.args.context.instanceId}-${slugify(form)}-qr-code.png`
       );
     } catch (error) {
-      this.notifications.error(
+      this.notification.danger(
         this.intl.t("publication.qr-code.downloadError")
       );
     }

@@ -3,5 +3,5 @@ import { inject as service } from "@ember/service";
 
 export default class WorkItemsInstanceEditController extends Controller {
   @service shoebox;
-  @service notifications;
+  @service notification;
 }

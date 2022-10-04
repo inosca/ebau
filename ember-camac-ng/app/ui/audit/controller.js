@@ -12,7 +12,7 @@ import Audit from "camac-ng/ui/audit/audit";
 
 export default class AuditController extends Controller {
   @service store;
-  @service notifications;
+  @service notification;
   @service intl;
 
   @queryManager apollo;
@@ -123,7 +123,7 @@ export default class AuditController extends Controller {
 
       return workItems;
     } catch (error) {
-      this.notifications.error(this.intl.t("audit.loadingError"));
+      this.notification.danger(this.intl.t("audit.loadingError"));
     }
   }
 
