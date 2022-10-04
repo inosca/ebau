@@ -27,33 +27,27 @@ Electronic building permit application for Swiss cantons.
 
 ## Overview
 
-This repository contains the source code for the web applications used to handle electronic building permits and comparable processes in the Swiss cantons of Berne, Schwyz and Uri. The software stack is undergoing a "rolling" modernization process, meaning that the application is built up on multiple technology stacks. The evolution of the framework happened in roughly the following stages:
+This repository contains the source code for the web applications used to handle electronic building permits and comparable processes in the Swiss cantons of Berne, Schwyz and Uri.
 
-1. Base: PHP-based, server-side rendered (legacy, not part of this repository)
-2. a) Introduction of Django (Python)-based model layer, allowing for simpler database management and development of REST APIs,
-   b) Introduction of Vue.js-based frontend modules that interact with REST APIs, embedded in legacy app
-3. Introduction of Ember.js-based "portal" for submitting forms, also based on REST APIs
-4. Introduction of [Caluma](https://github.com/projectcaluma/caluma) as form- and workflow-engine
-5. Embedding of Ember.js-based modules (replacing Vue.js), styled using [UIkit](https://getuikit.com/)
-6. Replacing the legacy application frame by an Ember.js app (ember-ebau)
+The following image shows a high-level overview of the architecture:
 
-The following image shows a high-level overview of the current architecture:
+<img src="https://i.imgur.com/CjDwlsL.jpg" alt="Architecture" width="500" />
 
-![Architecture](https://i.imgur.com/dZseZU5.jpg)
-
-While technically only one database is used, two are shown in the diagram to highlight that Caluma is using its own schema, while the legacy app and bridge API share a common schema.
+- The application is composed of various Docker containers, which are shown in light blue in the architecture overview.
+- The frontend consists of two Ember.js apps, one for applicants submitting building permit applications ("Portal"), and used by members of the public authorities (Internal area). The two apps can share code through the Ember Addon `ember-ebau-core`.
+- The backend is based on Python/Django and exposes a GraphQL API for forms and workflows based on [Caluma](https://caluma.io) and set of domain-specific REST endpoints ([Django REST Framework](https://www.django-rest-framework.org/)).
+- PostgreSQL is used as database.
 
 ### Folder structure
 
 ```
 ├── compose                # docker-compose files
 ├── db                     # database Dockerfile and utils
-├── django                 # backend code, containing both Bridge API and Caluma
+├── django                 # backend code, containing both API and Caluma
 ├── document-merge-service # document generation templates and config
-├── ember                  # Ember.js based portal using REST API, precursor of `ember-caluma-portal`
 ├── ember-caluma-portal    # Caluma-based portal
-├── ember-camac-ng         # Ember.js modules used in internal area
-├── ember-ebau             # New application container for internal area
+├── ember-camac-ng         # Ember.js app optimized for embedding in other applications
+├── ember-ebau             # Ember.js based application for internal area
 ├── ember-ebau-core        # Ember.js addon for code sharing between multiple Ember.js apps
 ├── keycloak               # Keycloak configuration for local development
 ├── proxy                  # Nginx configuration for local development
@@ -62,40 +56,32 @@ While technically only one database is used, two are shown in the diagram to hig
 
 ### Modules
 
-The following table lists the most important modules in the "internal" part of the application and their respective progress in the modernization based on four steps:
+Due to ongoing modernization work, some Frontend modules are not yet integrated in `ember-ebau`, but instead are still part of `ember-camac-ng`. Few Frontend modules are not part of this repository yet at all. The following table lists the most important modules in the "internal" part of the application and their respective completeness / integration state.
 
-1. **JS / API-driven**: frontend is based on Vue.js, backend is a REST or GraphQL API
-2. **Ember.js**: frontend is implemented with Ember.js
-3. **UIkit**: styling is implemented using UIkit
-4. **Part of ember-ebau**: this module has been integrated in ember-ebau
-
-| Module                       | Description                              | JS / API-driven    | Ember.js           | UIkit              | Part of ember-ebau |
-| ---------------------------- | ---------------------------------------- | ------------------ | ------------------ | ------------------ | ------------------ |
-| _Main Nav (resource)_        |                                          |                    |                    |                    |                    |
-| Dossier list                 | Show a list of dossiers                  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Task list                    | Show a list of tasks                     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Organization                 | Manage details of own organization       | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x:                |
-| Static content               | Static content, markdown editor          | :heavy_check_mark: | :x:                | :x:                | :x:                |
-| Text components              | Manage snippets for usage in text fields | :heavy_check_mark: | :x:                | :x:                | :x:                |
-| Templates                    | Manage document templates (docx)         | :heavy_check_mark: | :x:                | :x:                | :x:                |
-| Permissions                  | Decentralized permission management      | :x:                | :x:                | :x:                | :x:                |
-| _Subnav (instance resource)_ |                                          |                    |                    |                    |                    |
-| Tasks                        | View and manage tasks                    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Form                         | View and edit main form                  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Journal                      | Collaborative notebook                   | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Responsible                  | Assign responsible users                 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x:                |
-| Audit                        | Perform structured audit                 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x:                |
-| Publication                  | Manage publication in newspaper          | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x:                |
-| History                      | Shows milestones and historical data     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x:                |
-| Documents [1]                | Document management                      | :heavy_check_mark: | :x:                | :x:                | :x:                |
-| Audit-Log                    | Shows form changes                       | :heavy_check_mark: | :x:                | :x:                | :x:                |
-| Template                     | Generate document from template          | :heavy_check_mark: | :x:                | :x:                | :x:                |
-| Claims                       | Ask applicant for additional info        | :heavy_check_mark: | :x:                | :x:                | :x:                |
-| Billing                      | Manage handling fees                     | :x:                | :x:                | :x:                | :x:                |
-| Circulation [2]              | Get feedback from other organizations    | :x:                | :x:                | :x:                | :x:                |
+| Module                       | Description                              | Backend            | Frontend                 | Part of ember-ebau       |
+| ---------------------------- | ---------------------------------------- | ------------------ | ------------------------ | ------------------------ |
+| _Main Nav (resource)_        |                                          |                    |                          |                          |
+| Dossier list                 | Show a list of dossiers                  | :heavy_check_mark: | :heavy_check_mark:       | :heavy_check_mark:       |
+| Task list                    | Show a list of tasks                     | :heavy_check_mark: | :heavy_check_mark:       | :heavy_check_mark:       |
+| Organization                 | Manage details of own organization       | :heavy_check_mark: | :heavy_check_mark:       | :hourglass_flowing_sand: |
+| Static content               | Static content, markdown editor          | :heavy_check_mark: | :hourglass_flowing_sand: | :hourglass_flowing_sand: |
+| Text components              | Manage snippets for usage in text fields | :heavy_check_mark: | :hourglass_flowing_sand: | :hourglass_flowing_sand: |
+| Templates                    | Manage document templates (docx)         | :heavy_check_mark: | :hourglass_flowing_sand: | :hourglass_flowing_sand: |
+| _Subnav (instance resource)_ |                                          |                    |                          |                          |
+| Tasks                        | View and manage tasks                    | :heavy_check_mark: | :heavy_check_mark:       | :heavy_check_mark:       |
+| Form                         | View and edit main form                  | :heavy_check_mark: | :heavy_check_mark:       | :heavy_check_mark:       |
+| Journal                      | Collaborative notebook                   | :heavy_check_mark: | :heavy_check_mark:       | :heavy_check_mark:       |
+| Distribution                 | Get feedback from other organizations    | :heavy_check_mark: | :heavy_check_mark:       | :hourglass_flowing_sand: |
+| Responsible                  | Assign responsible users                 | :heavy_check_mark: | :heavy_check_mark:       | :hourglass_flowing_sand: |
+| Audit                        | Perform structured audit                 | :heavy_check_mark: | :heavy_check_mark:       | :hourglass_flowing_sand: |
+| Publication                  | Manage publication in newspaper          | :heavy_check_mark: | :heavy_check_mark:       | :hourglass_flowing_sand: |
+| History                      | Shows milestones and historical data     | :heavy_check_mark: | :heavy_check_mark:       | :hourglass_flowing_sand: |
+| Documents [1]                | Document management                      | :heavy_check_mark: | :hourglass_flowing_sand: | :hourglass_flowing_sand: |
+| Audit-Log                    | Shows form changes                       | :heavy_check_mark: | :hourglass_flowing_sand: | :hourglass_flowing_sand: |
+| Template                     | Generate document from template          | :heavy_check_mark: | :hourglass_flowing_sand: | :hourglass_flowing_sand: |
+| Claims                       | Ask applicant for additional info        | :heavy_check_mark: | :hourglass_flowing_sand: | :hourglass_flowing_sand: |
 
 [1] To be replaced with [alexandria](https://github.com/projectcaluma/alexandria).
-[2] To be replaced with [the distribution package in ember-caluma](https://github.com/projectcaluma/ember-caluma/tree/main/packages/distribution).
 
 ## Requirements
 
@@ -144,7 +130,6 @@ After, you should be able to use to the following services:
 
 - [ember-ebau.local](http://ember-ebau.local) - new main application used for "internal" users
 - [ebau-portal.local](http://ebau-portal.local) - public-facing portal (Caluma-based, default choice for new projects, used in Kt. BE, UR)
-- [ebau-rest-portal.local](http://ebau-rest-portal.local) - public-facing portal (REST-API-based, precursor of the Caluma-based portal, used in Kt. SZ)
 - [ebau.local/django-admin/](http://ebau.local/django-admin/) - Django admin interface
 - [ebau-keycloak.local/auth](http://ebau-keycloak.local/auth) - IAM solution
 
