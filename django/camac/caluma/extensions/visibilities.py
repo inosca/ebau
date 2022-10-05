@@ -237,6 +237,13 @@ class CustomVisibilitySZ(CustomVisibility):
 
         service = self.request.group.service
 
+        queryset = queryset.filter(
+            case__family__instance__pk__in=self._all_visible_instances(info)
+        )
+
+        if not service:
+            return queryset
+
         # If the work-item task is "inquiry", check if the current service
         # is either in the controlling_groups or addressed_groups. If not, then
         # check if the current service is permitted to see the work-item
@@ -267,5 +274,4 @@ class CustomVisibilitySZ(CustomVisibility):
                 ),
                 default=True,
             ),
-            case__family__instance__pk__in=self._all_visible_instances(info),
         )
