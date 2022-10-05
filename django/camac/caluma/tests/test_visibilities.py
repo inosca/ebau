@@ -13,8 +13,10 @@ from caluma.caluma_workflow.api import skip_work_item
 from caluma.schema import schema
 from django.db.models import Q
 from django.utils import timezone
+from pytest_factoryboy import LazyFixture
 
 from camac.caluma.extensions.visibilities import CustomVisibility, CustomVisibilitySZ
+from camac.user.models import User
 
 
 @pytest.mark.parametrize(
@@ -327,6 +329,55 @@ def test_work_item_visibility(
         ).intersection(visible_workitems)
         == set()
     )
+
+
+@pytest.mark.parametrize(
+    "role__name,instance__user,service",
+    [
+        ("Applicant", LazyFixture("user"), None),
+        ("Municipality", LazyFixture("admin_user"), None),
+    ],
+)
+def test_work_item_visibility_for_applicants_sz(
+    caluma_admin_schema_executor,
+    sz_instance,
+    mocker,
+):
+    mocker.patch(
+        "caluma.caluma_core.types.Node.visibility_classes", [CustomVisibilitySZ]
+    )
+
+    caluma_workflow_factories.WorkItemFactory(
+        task_id="complete-check", case=sz_instance.case, status="completed"
+    )
+
+    result = caluma_admin_schema_executor(
+        """
+        query {
+            allWorkItems {
+                edges {
+                    node {
+                        id
+                    }
+                }
+            }
+        }
+    """
+    )
+
+    assert not result.errors
+
+    visible_workitems = set(
+        [
+            extract_global_id(edge["node"]["id"])
+            for edge in result.data["allWorkItems"]["edges"]
+        ]
+    )
+
+    if User.objects.filter(groups__role__name="Applicant"):
+        assert len(visible_workitems) == 0
+    else:
+        assert len(visible_workitems) == 2
 
 
 def test_public_visibility(
