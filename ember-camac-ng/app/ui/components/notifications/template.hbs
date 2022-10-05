@@ -6,6 +6,19 @@
           <span hidden>{{t "global.close"}}</span>
         </a>
         {{notification.message}}
+        {{#if notification.options.technicalInfo}}
+          <button
+            type="button"
+            class="uk-button uk-button-link uk-text-default uk-text-bold uk-display-block uk-margin-small-top"
+            {{on "click" notification.toggleTechnicalInfo}}
+          >
+            <UkIcon @icon={{if notification.showTechnicalInfo "triangle-down" "triangle-right"}} />
+            {{t "global.technicalInfo"}}
+          </button>
+          {{#if notification.showTechnicalInfo}}
+            <pre class="uk-margin-small-top">{{notification.options.technicalInfo}}</pre>
+          {{/if}}
+        {{/if}}
       </div>
     {{/each}}
   </div>

@@ -1,0 +1,82 @@
+{{#if this.templates.isLoading}}
+  <div class="uk-text-center"><UkSpinner @ratio="2" /></div>
+{{else}}
+  <div class="uk-flex uk-flex-between uk-flex-middle uk-margin-bottom">
+    <h2 class="uk-margin-remove">{{t "dms.own"}}</h2>
+    <LinkTo @route={{concat @baseRoute ".new"}} class="uk-button uk-button-primary">
+      {{t "dms.new"}}
+    </LinkTo>
+  </div>
+
+  <Dms::Docs @title={{t "dms.docs.title-admin"}} @showGeneralInfo={{true}} />
+
+  <table class="uk-table uk-table-striped uk-table-middle">
+    <thead>
+      <tr>
+        <th>{{t "dms.name"}}</th>
+        <th>{{t "dms.category"}}</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#if this.ownTemplates}}
+        {{#each this.ownTemplates as |template|}}
+          <tr>
+            <td>{{template.description}}</td>
+            <td>{{or template.meta.category "-"}}</td>
+            <td class="uk-text-right">
+              <LinkTo
+                @route={{concat @baseRoute ".edit"}}
+                @model={{template.id}}
+                class="uk-button uk-button-link uk-margin-small-right"
+                {{uk-tooltip (t "dms.edit") pos="left"}}
+              >
+                <UkIcon @icon="pencil" />
+              </LinkTo>
+              <button
+                type="button"
+                class="uk-button uk-button-link"
+                {{uk-tooltip (t "dms.download") pos="left"}}
+                {{on "click" (perform this.downloadTemplate template)}}
+              >
+                <UkIcon @icon="download" />
+              </button>
+            </td>
+          </tr>
+        {{/each}}
+      {{else}}
+        <tr>
+          <td colspan="3" class="uk-text-center uk-text-italic">{{t "dms.empty"}}</td>
+        </tr>
+      {{/if}}
+    </tbody>
+  </table>
+
+  <h2>{{t "dms.system"}}</h2>
+
+  <table class="uk-table uk-table-striped uk-table-middle">
+    <thead>
+      <tr>
+        <th>{{t "dms.name"}}</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each this.systemTemplates as |template|}}
+        <tr>
+          <td>{{template.description}}</td>
+          <td class="uk-text-right">
+            <button
+              type="button"
+              class="uk-button uk-button-link"
+              {{uk-tooltip (t "dms.download") pos="left"}}
+              {{on "click" (perform this.downloadTemplate template)}}
+            >
+              <UkIcon @icon="download" />
+            </button>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+{{/if}}
