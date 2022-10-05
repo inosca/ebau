@@ -191,6 +191,9 @@ export default class CaseTableComponent extends Component {
             },
             submitDateBefore: undefined,
             submitDateAfter: undefined,
+            ...(this.args.casesBackend === "camac-ng"
+              ? { intent: undefined }
+              : {}),
           }
         : macroCondition(getOwnConfig().application === "be")
         ? {
@@ -293,7 +296,6 @@ export default class CaseTableComponent extends Component {
       ...(macroCondition(getOwnConfig().application === "sz")
         ? {
             address_sz: this.args.filter.address,
-            intent_sz: this.args.filter.intent,
             plot_sz: this.args.filter.parcel,
             builder_sz: this.args.filter.builder,
             landowner_sz: this.args.filter.landowner,
@@ -302,6 +304,9 @@ export default class CaseTableComponent extends Component {
             submit_date_before_sz: this.args.filter.submitDateBefore,
             form_name_versioned: this.args.filter.type,
             identifier: this.args.filter.instanceIdentifier || "",
+            ...(this.args.casesBackend === "camac-ng"
+              ? { intent_sz: this.args.filter.intent }
+              : {}),
           }
         : macroCondition(getOwnConfig().application === "ur")
         ? {
