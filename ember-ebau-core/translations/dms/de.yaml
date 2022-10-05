@@ -1,0 +1,82 @@
+dms:
+  category: "Kategorie"
+  click: "drücken sie hier um eine Datei hochzuladen"
+  download: "Vorlage herunterladen"
+  drag: "Ziehen Sie eine Datei in diesen Bereich oder"
+  edit: "Vorlage bearbeiten"
+  empty: "Keine Vorlagen gefunden"
+  inherited: "übergeordnet"
+  inheritedUncategorized: "Übergeordnete Vorlagen (unkategorisiert)"
+  merge-and-save: "Dokument ablegen"
+  merge: "Dokument erstellen"
+  name: "Name"
+  new: "Neue Vorlage"
+  own: "Eigene Vorlagen"
+  ownUncategorized: "Eigene Vorlagen (unkategorisiert)"
+  replace: "Vorlage ersetzen"
+  system: "Systemvorlagen"
+  template: "Vorlage"
+
+  delete-error: "Fehler beim Löschen der Vorlage"
+  download-error: "Fehler beim Herunterladen der Vorlage"
+  merge-and-save-success: 'Die Vorlage wurde erfolgreich in der Kategorie "Intern" abgelegt.'
+  merge-error: "Beim Generieren der Vorlage ist ein Fehler aufgetreten"
+  save-error-placeholder: "{count, plural, one {Der Platzhalzer {placeholders} existiert} other {Die Platzhalter {placeholders} existieren}} nicht."
+  save-error-syntax: 'Die Vorlage enthält ungültige Syntax. Weitere Informationen finden Sie unter "technische Details".'
+  save-error: "Fehler beim Speichern der Vorlage"
+  validation-error: "Es können nur .docx und .xlsx Dateien hochgeladen werden"
+
+  docs:
+    general-info-title: "Allgemeine Hinweise"
+    general-info-text: "Platzhalter können mit doppelt geschweiften Klammern in
+    eine Vorlage eingefügt werden (z.B. <code>'{{ GESUCHSTELLER '}}</code>).
+    Falls Sie ein mehrzeiliges Textfeld mit Zeilenumbrüchen ausgeben möchten,
+    können Sie dieses mit <code>multiline</code> markieren (z.B. <code>'{{
+    BAUVORHABEN | multiline '}}</code>.  Weitere Informationen zum Verwalten von
+    eigenen Vorlagen finden Sie <a
+    href=''https://www.bauen.dij.be.ch/content/dam/bauen_dij/dokumente/de/Baubewilligungsverfahren/elektronisches-Baubewilligungsverfahren/hilfsunterlagen-ebau/verwalten%20von%20eigenen%20vorlagen-de.pdf''>hier</a>."
+    title-admin: "Dokumentation"
+    title-generate: "Technische Informationen zu den Platzhaltern"
+    title-placeholders: "Platzhalter"
+
+    placeholder-and-description: "Platzhalter und Beschreibung"
+    search: "Nach Platzhalter suchen..."
+    value: "Wert"
+
+    complexInfo: "
+    <p>
+      Die technischen Platzhalter können in einer Vorlage in einer Iteration wie
+      folgt benutzt werden:
+    </p>
+    <p>
+      Das Beispiel zeigt den Gebrauch des Platzhalters <code>'{{
+      ZIRKULATION_ALLE '}}</code>
+    </p>
+    <p>Beispiel für Tabellen:</p>
+    <table class=''uk-table uk-table-divider uk-table-small''>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Frist</th>
+          <th>Erstellt</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td colspan=''3''>'{%tr for FACHSTELLE in ZIRKULATION_ALLE %'}</td></tr>
+        <tr>
+          <td>'{{ FACHSTELLE.NAME '}}</td>
+          <td>'{{ FACHSTELLE.FRIST '}}</td>
+          <td>'{{ FACHSTELLE.ERSTELLT '}}</td>
+        </tr>
+        <tr><td colspan=''3''>'{%tr endfor %'}</td></tr>
+      </tbody>
+    </table>
+    <p>Beispiel für Listen:</p>
+    '{%li for FACHSTELLE in ZIRKULATION_ALLE %'}
+    <ul class=''uk-list uk-list-bullet uk-margin-remove''>
+      <li>
+        '{{ FACHSTELLE.NAME '}} (Frist: '{{ FACHSTELLE.FRIST '}})
+      </li>
+    </ul>
+    '{%li endfor %'}
+    "
