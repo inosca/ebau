@@ -8,6 +8,21 @@ export default class App extends Application {
   modulePrefix = config.modulePrefix;
   podModulePrefix = config.podModulePrefix;
   Resolver = Resolver;
+
+  engines = {
+    "@projectcaluma/ember-distribution": {
+      dependencies: {
+        services: [
+          "apollo",
+          "notification",
+          "intl",
+          "caluma-options",
+          "store",
+          "fetch",
+        ],
+      },
+    },
+  };
 }
 
 loadInitializers(App, config.modulePrefix);

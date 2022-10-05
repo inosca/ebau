@@ -25,11 +25,10 @@ Router.map(function () {
       });
     });
 
-    this.route("form-builder", { resetNamespace }, function () {
-      this.mount("@projectcaluma/ember-form-builder", {
-        path: "/",
-        resetNamespace: true,
-      });
+    this.mount("@projectcaluma/ember-form-builder", {
+      as: "form-builder",
+      path: "/form-builder",
+      resetNamespace: true,
     });
 
     this.route("support", { resetNamespace });
