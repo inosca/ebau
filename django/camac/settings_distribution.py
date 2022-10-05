@@ -535,4 +535,7 @@ DISTRIBUTION = {
             },
         },
     },
+    "demo": {
+        "ENABLED": True
+    }
 }

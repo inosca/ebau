@@ -27,6 +27,10 @@ Router.map(function () {
         this.route("journal");
         this.route("history");
         this.route("dms-generate");
+        this.mount("@projectcaluma/ember-distribution", {
+          as: "distribution",
+          path: "/distribution/:case",
+        });
       });
       this.route("new");
     });
