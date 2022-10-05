@@ -71,4 +71,10 @@ Router.map(function () {
     as: "distribution",
     path: "/distribution/:case",
   });
+
+  this.route("dms-admin", function () {
+    this.route("edit", { path: "/:slug" });
+    this.route("new");
+  });
+  this.route("dms-generate", { path: "instances/:instance_id/dms-generate" });
 });

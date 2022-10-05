@@ -1,6 +1,23 @@
+import { action } from "@ember/object";
 import Service from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import { v4 } from "uuid";
+
+class Notification {
+  @tracked showTechnicalInfo;
+
+  constructor(id, type, message, options) {
+    this.id = id;
+    this.type = type;
+    this.message = message;
+    this.options = options;
+  }
+
+  @action
+  toggleTechnicalInfo() {
+    this.showTechnicalInfo = !this.showTechnicalInfo;
+  }
+}
 
 /**
  * This service intentionally overrides the notification service of ember-uikit
@@ -11,10 +28,10 @@ import { v4 } from "uuid";
 export default class NotificationService extends Service {
   @tracked all = [];
 
-  add(type, message) {
+  add(type, message, options = {}) {
     const id = v4();
 
-    this.all = [...this.all, { id, type, message }];
+    this.all = [...this.all, new Notification(id, type, message, options)];
   }
 
   remove(id) {
@@ -25,23 +42,23 @@ export default class NotificationService extends Service {
     this.all = [];
   }
 
-  default(message) {
-    this.add("default", message);
+  default(message, options) {
+    this.add("default", message, options);
   }
 
-  primary(message) {
-    this.add("primary", message);
+  primary(message, options) {
+    this.add("primary", message, options);
   }
 
-  success(message) {
-    this.add("success", message);
+  success(message, options) {
+    this.add("success", message, options);
   }
 
-  warning(message) {
-    this.add("warning", message);
+  warning(message, options) {
+    this.add("warning", message, options);
   }
 
-  danger(message) {
-    this.add("danger", message);
+  danger(message, options) {
+    this.add("danger", message, options);
   }
 }

@@ -18,3 +18,4 @@ global:
   ok: "Ok"
   continue: "Suivante"
   close: "Fermer"
+  technicalInfo: "détails techniques"
