@@ -738,7 +738,7 @@
       "is_archived": false,
       "form": null,
       "lead_time": null,
-      "is_multiple_instance": false,
+      "is_multiple_instance": true,
       "continue_async": false
     }
   },
