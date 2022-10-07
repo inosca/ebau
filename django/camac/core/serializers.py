@@ -120,11 +120,12 @@ class ResourceSerializer(serializers.ModelSerializer, MultilingualSerializer):
 
         if resource_type == "page":
             type_mapping = {
-                "/dashboard/faq.phtml": "faq",
-                "/dashboard/help.phtml": "help",
-                "/dashboard/news.phtml": "news",
+                "/dashboard/faq.phtml": "dashboard/faq",
+                "/dashboard/help.phtml": "dashboard/help",
+                "/dashboard/news.phtml": "dashboard/news",
+                "/ember-camac-ng/dms-admin.phtml": "dms-admin",
             }
-            return f"/dashboard/{type_mapping.get(obj.template)}"
+            return type_mapping.get(obj.template)
 
         if resource_type == "emberlist":
             instance_states = models.REmberList.objects.get(
@@ -165,6 +166,7 @@ class InstanceResourceSerializer(serializers.ModelSerializer, MultilingualSerial
             type_mapping = {
                 "/ember/instance.phtml": "form",
                 "/ember-camac-ng/journal.phtml": "journal",
+                "/ember-camac-ng/dms-generate.phtml": "dms-generate",
             }
             return type_mapping.get(obj.template)
 

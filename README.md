@@ -63,14 +63,15 @@ Due to ongoing modernization work, some Frontend modules are not yet integrated 
 | _Main Nav (resource)_        |                                          |                    |                          |                          |
 | Dossier list                 | Show a list of dossiers                  | :heavy_check_mark: | :heavy_check_mark:       | :heavy_check_mark:       |
 | Task list                    | Show a list of tasks                     | :heavy_check_mark: | :heavy_check_mark:       | :heavy_check_mark:       |
+| Templates                    | Manage document templates (docx)         | :heavy_check_mark: | :heavy_check_mark:       | :heavy_check_mark:       |
 | Organization                 | Manage details of own organization       | :heavy_check_mark: | :heavy_check_mark:       | :hourglass_flowing_sand: |
 | Static content               | Static content, markdown editor          | :heavy_check_mark: | :hourglass_flowing_sand: | :hourglass_flowing_sand: |
 | Text components              | Manage snippets for usage in text fields | :heavy_check_mark: | :hourglass_flowing_sand: | :hourglass_flowing_sand: |
-| Templates                    | Manage document templates (docx)         | :heavy_check_mark: | :hourglass_flowing_sand: | :hourglass_flowing_sand: |
 | _Subnav (instance resource)_ |                                          |                    |                          |                          |
 | Tasks                        | View and manage tasks                    | :heavy_check_mark: | :heavy_check_mark:       | :heavy_check_mark:       |
 | Form                         | View and edit main form                  | :heavy_check_mark: | :heavy_check_mark:       | :heavy_check_mark:       |
 | Journal                      | Collaborative notebook                   | :heavy_check_mark: | :heavy_check_mark:       | :heavy_check_mark:       |
+| Template                     | Generate document from template          | :heavy_check_mark: | :heavy_check_mark:       | :heavy_check_mark:       |
 | Distribution                 | Get feedback from other organizations    | :heavy_check_mark: | :heavy_check_mark:       | :hourglass_flowing_sand: |
 | Responsible                  | Assign responsible users                 | :heavy_check_mark: | :heavy_check_mark:       | :hourglass_flowing_sand: |
 | Audit                        | Perform structured audit                 | :heavy_check_mark: | :heavy_check_mark:       | :hourglass_flowing_sand: |
@@ -78,7 +79,6 @@ Due to ongoing modernization work, some Frontend modules are not yet integrated 
 | History                      | Shows milestones and historical data     | :heavy_check_mark: | :heavy_check_mark:       | :hourglass_flowing_sand: |
 | Documents [1]                | Document management                      | :heavy_check_mark: | :hourglass_flowing_sand: | :hourglass_flowing_sand: |
 | Audit-Log                    | Shows form changes                       | :heavy_check_mark: | :hourglass_flowing_sand: | :hourglass_flowing_sand: |
-| Template                     | Generate document from template          | :heavy_check_mark: | :hourglass_flowing_sand: | :hourglass_flowing_sand: |
 | Claims                       | Ask applicant for additional info        | :heavy_check_mark: | :hourglass_flowing_sand: | :hourglass_flowing_sand: |
 
 [1] To be replaced with [alexandria](https://github.com/projectcaluma/alexandria).
