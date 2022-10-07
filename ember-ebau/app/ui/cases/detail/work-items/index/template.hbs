@@ -1,7 +1,7 @@
 <WorkItemDetail
   @instanceId={{this.model}}
   @role={{this.role}}
-  @serviceId={{this.session.service.id}}
+  @serviceId={{session-value "service.id"}}
   @baseRoute="cases.detail.work-items"
   @setFilter={{this.setFilter}}
   @useLinkTo={{true}}
