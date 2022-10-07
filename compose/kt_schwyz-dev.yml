@@ -22,8 +22,6 @@ services:
           - ebau-keycloak.local
 
   clamav:
-    profiles:
-      - full
     ports:
       - "3310:3310"
     environment:
