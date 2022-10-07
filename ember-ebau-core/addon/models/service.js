@@ -13,4 +13,5 @@ export default class ServiceModel extends Model {
   @hasMany("user") users;
   @hasMany activations;
   @belongsTo("public-service-group") serviceGroup;
+  @belongsTo("service", { inverse: null }) serviceParent;
 }
