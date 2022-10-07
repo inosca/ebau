@@ -75,10 +75,10 @@ export default class DmsEditComponent extends Component {
     } catch (error) {
       if (
         error instanceof AdapterError &&
-        error.errors.status === 400 &&
-        error.errors.detail?.non_field_errors
+        error.errors[0]?.status === 400 &&
+        error.errors[0]?.detail?.non_field_errors
       ) {
-        const errors = error.errors.detail.non_field_errors;
+        const errors = error.errors[0]?.detail.non_field_errors;
         const placeholderError = errors.find((err) =>
           err.includes("unavailable placeholders")
         );
