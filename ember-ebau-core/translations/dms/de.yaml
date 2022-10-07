@@ -22,7 +22,7 @@ dms:
   merge-and-save-success: 'Die Vorlage wurde erfolgreich in der Kategorie "Intern" abgelegt.'
   merge-error: "Beim Generieren der Vorlage ist ein Fehler aufgetreten"
   save-error-placeholder: "{count, plural, one {Der Platzhalzer {placeholders} existiert} other {Die Platzhalter {placeholders} existieren}} nicht."
-  save-error-syntax: 'Die Vorlage enthält ungültige Syntax. Weitere Informationen finden Sie unter "technische Details".'
+  save-error-syntax: 'Die Vorlage enthält ungültige Syntax. Weitere Informationen finden Sie unter "Technische Details".'
   save-error: "Fehler beim Speichern der Vorlage"
   validation-error: "Es können nur .docx und .xlsx Dateien hochgeladen werden"
 
