@@ -68,7 +68,7 @@ def get_answer_display_value(
     """
     if answer.question.type in [Question.TYPE_MULTIPLE_CHOICE, Question.TYPE_CHOICE]:
         return option_separator.join(
-            [option.label.get(language) for option in answer.selected_options]
+            [option.label.get(language) or "" for option in answer.selected_options]
         )
     elif answer.question.type == Question.TYPE_DATE:
         return answer.date.strftime(date_format) if answer.date else None
