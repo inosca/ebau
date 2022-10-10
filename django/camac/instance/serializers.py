@@ -528,6 +528,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         "active_service": "camac.user.serializers.PublicServiceSerializer",
         "responsible_service_users": "camac.user.serializers.UserSerializer",
         "involved_applicants": "camac.applicants.serializers.ApplicantSerializer",
+        "linked_instances": "camac.instance.serializers.CalumaInstanceSerializer",
     }
 
     def _is_read_only(self):
