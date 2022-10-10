@@ -45,10 +45,6 @@ export default class InstanceModel extends Model {
     return this._caseMeta?.["ebau-number"];
   }
 
-  get dossierNr() {
-    return this._caseMeta?.["dossier-number"];
-  }
-
   unlink() {
     const adapter = this.store.adapterFor("instance");
     return adapter.unlink(this);
