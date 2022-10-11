@@ -3,7 +3,6 @@
     "model": "user.user",
     "pk": 1,
     "fields": {
-      "is_superuser": false,
       "username": "462afaba-aeb7-494a-8596-3497b81ed701",
       "password": "10602b62c0f171f626e3d64046c27567",
       "name": "Static",
@@ -15,16 +14,13 @@
       "last_login": "2018-02-23T14:24:06Z",
       "address": null,
       "city": null,
-      "zip": null,
-      "is_staff": false,
-      "user_permissions": []
+      "zip": null
     }
   },
   {
     "model": "user.user",
     "pk": 2,
     "fields": {
-      "is_superuser": false,
       "username": "guest",
       "password": null,
       "name": "Gu",
@@ -36,16 +32,13 @@
       "last_login": "2018-02-23T08:21:43Z",
       "address": null,
       "city": null,
-      "zip": null,
-      "is_staff": false,
-      "user_permissions": []
+      "zip": null
     }
   },
   {
     "model": "user.user",
     "pk": 8,
     "fields": {
-      "is_superuser": false,
       "username": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "password": "77b7675371ce6d9548683775a6245837",
       "name": "Er",
@@ -57,16 +50,13 @@
       "last_login": "2018-02-23T14:27:27Z",
       "address": null,
       "city": null,
-      "zip": null,
-      "is_staff": false,
-      "user_permissions": []
+      "zip": null
     }
   },
   {
     "model": "user.user",
     "pk": 9,
     "fields": {
-      "is_superuser": false,
       "username": "service-account-test-gemeinde",
       "password": null,
       "name": "service-account-test-gemeinde",
@@ -78,16 +68,13 @@
       "last_login": "2018-02-23T14:27:27Z",
       "address": null,
       "city": null,
-      "zip": null,
-      "is_staff": false,
-      "user_permissions": []
+      "zip": null
     }
   },
   {
     "model": "user.user",
     "pk": 10,
     "fields": {
-      "is_superuser": false,
       "username": "service-account-camac-admin",
       "password": null,
       "name": "camac-admin",
@@ -99,9 +86,7 @@
       "last_login": "2018-02-23T14:27:27Z",
       "address": null,
       "city": null,
-      "zip": null,
-      "is_staff": false,
-      "user_permissions": []
+      "zip": null
     }
   },
   {

@@ -8,7 +8,7 @@ from importlib import import_module
 import environ
 from deepmerge import always_merger
 from django.db.models.expressions import Q
-from django.utils.translation import gettext_lazy
+from django.utils.translation import gettext_lazy as _
 
 from camac.constants import kt_bern as be_constants
 from camac.constants.kt_bern import (
@@ -220,6 +220,7 @@ APPLICATIONS = {
             "service-clerk": "service",
             "subservice": "service",
         },
+        "ADMIN_GROUP": 1,
         "ROLE_INHERITANCE": {"trusted_service": "service"},
         "IS_MULTILINGUAL": False,
         "NOTIFICATIONS": {"SUBMIT": None, "APPLICANT": {"NEW": None, "EXISTING": None}},
@@ -335,6 +336,7 @@ APPLICATIONS = {
             "service": ["new"],
         },
         "PORTAL_GROUP": 4,
+        "ADMIN_GROUP": 1,
         "SERVICE_GROUPS_FOR_DISTRIBUTION": {
             "roles": {
                 "Gemeinde": [
@@ -1331,7 +1333,7 @@ APPLICATIONS = {
                 "init-distribution": {
                     "next_instance_state": "circulation",
                     "ech_event": "camac.ech0211.signals.circulation_started",
-                    "history_text": gettext_lazy("Circulation started"),
+                    "history_text": _("Circulation started"),
                     "notification": {
                         "template_slug": "03-verfahrensablauf-gesuchsteller",
                         "recipient_types": ["applicant"],
@@ -1340,7 +1342,7 @@ APPLICATIONS = {
                 "complete-distribution": {
                     "next_instance_state": "coordination",
                     "ech_event": "camac.ech0211.signals.circulation_ended",
-                    "history_text": gettext_lazy("Circulation completed"),
+                    "history_text": _("Circulation completed"),
                     "notification": {
                         "template_slug": "03-verfahren-vorzeitig-beendet",
                         "recipient_types": ["unanswered_inquiries"],
@@ -1349,12 +1351,12 @@ APPLICATIONS = {
                 # "reopen-circulation": {
                 #     "next_instance_state": "circulation",
                 #     "ech_event": "camac.ech0211.signals.circulation_started",
-                #     "history_text": gettext_lazy("Circulation reopened"),
+                #     "history_text": _("Circulation reopened"),
                 # },
                 "complete": {
                     "next_instance_state": "finished",
                     "ech_event": "camac.ech0211.signals.finished",
-                    "history_text": gettext_lazy("Procedure completed"),
+                    "history_text": _("Procedure completed"),
                 },
             },
             "INTERNAL_FORMS": [
@@ -1503,6 +1505,7 @@ APPLICATIONS = {
             "evaluated",
         ],
         "PORTAL_GROUP": 6,
+        "ADMIN_GROUP": 1,
         "DEMO_MODE_GROUPS": [
             23395,
             23396,
@@ -2270,6 +2273,7 @@ APPLICATIONS = {
             "phone",
         ],
         "PORTAL_GROUP": 685,
+        "ADMIN_GROUP": 1,
         "OEREB_FORM": 296,
         "INSTANCE_IDENTIFIER_FORM_ABBR": {},
         "DUMP_CONFIG_GROUPS": {
@@ -2924,7 +2928,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
 LOCALE_NAME = "de_CH"
 LANGUAGE_CODE = "de"
-LANGUAGES = [("de", "German"), ("fr", "French")]
+LANGUAGES = [("de", _("German")), ("fr", _("French"))]
 TIME_ZONE = "Europe/Zurich"
 USE_I18N = True
 USE_L10N = True
