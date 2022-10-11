@@ -26,7 +26,12 @@ Router.map(function () {
         });
         this.route("journal");
         this.route("history");
+        this.route("dms-generate");
       });
+      this.route("new");
+    });
+    this.route("dms-admin", { resetNamespace }, function () {
+      this.route("edit", { path: "/:slug" });
       this.route("new");
     });
   });

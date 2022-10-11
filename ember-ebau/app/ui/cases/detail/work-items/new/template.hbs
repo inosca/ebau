@@ -1,6 +1,6 @@
 <WorkItemDetail::New
   @instanceId={{this.model}}
-  @serviceId={{this.session.service.id}}
+  @serviceId={{session-value "service.id"}}
   @baseRoute="cases.detail.work-items"
   @allowApplicantManualWorkItem={{this.allowApplicantManualWorkItem}}
 />
