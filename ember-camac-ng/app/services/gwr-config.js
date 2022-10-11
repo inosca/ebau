@@ -15,6 +15,8 @@ export default class GwrConfigService extends Service {
   projectSortDirection = "desc";
   buildingSortColumn = "geb_modify_date";
   buildingSortDirection = "desc";
+  quarterlyClosureSortColumn = "bau_create_date";
+  quarterlyClosureSortDirection = "desc";
 
   get modalContainer() {
     return ENV.APPLICATION.gwr.modalContainer ?? "#ember-camac-ng";
