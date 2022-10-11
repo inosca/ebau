@@ -6,9 +6,9 @@
     @type={{this.type}}
     @status={{this.status}}
     @role={{this.role}}
-    @username={{this.session.user.username}}
-    @application={{this.session.application}}
-    @serviceId={{this.session.service.id}}
+    @username={{session-value "user.username"}}
+    @application={{session-value "application"}}
+    @serviceId={{session-value "service.id"}}
     @setFilter={{this.setFilter}}
     @useLinkTo={{true}}
     @baseRoute="cases.detail.work-items"

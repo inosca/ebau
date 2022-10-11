@@ -21,6 +21,7 @@ const DATA = {
   userIds: null,
   activationIds: null,
   serviceGroupId: null,
+  serviceParentId: null,
 };
 
 DATA.description = DATA.name;
