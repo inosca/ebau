@@ -46,6 +46,10 @@ export default class TemplateAdapter extends RESTAdapter {
   }
 
   normalizeErrorResponse(status, headers, payload) {
-    return { status, detail: payload };
+    return [{ status, detail: payload }];
+  }
+
+  generatedDetailedMessage(status, headers, payload) {
+    return payload.detail;
   }
 }
