@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-13 15:37+0200\n"
-"PO-Revision-Date: 2022-10-13 15:36+0200\n"
+"POT-Creation-Date: 2022-10-14 09:39+0200\n"
+"PO-Revision-Date: 2022-10-14 09:39+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -652,25 +652,33 @@ msgstr "delete_by_purpose n'a pas été fourni avec le paramètre requis"
 msgid "Objection %(objection) already has a representative"
 msgstr "Objection %(objection) a déjà un représentant"
 
-#: camac/settings.py:1335
+#: camac/settings.py:1331
 msgid "Circulation started"
 msgstr "Procédure de circulation lancée"
 
-#: camac/settings.py:1344
-msgid "Circulation completed"
-msgstr "Procédure de circulation close"
-
-#: camac/settings.py:1358
+#: camac/settings.py:1348
 msgid "Procedure completed"
 msgstr "Procédure de demande de permis de construire complétée"
 
-#: camac/settings.py:2953
+#: camac/settings.py:2943
 msgid "German"
 msgstr "Allemand"
 
-#: camac/settings.py:2953
+#: camac/settings.py:2943
 msgid "French"
 msgstr "Français"
+
+#: camac/settings_distribution.py:65 camac/settings_distribution.py:69
+msgid "Circulation reopened"
+msgstr "Réouverture de la circulation"
+
+#: camac/settings_distribution.py:67
+msgid "Circulation completed"
+msgstr "Procédure de circulation close"
+
+#: camac/settings_distribution.py:68
+msgid "Circulation skipped"
+msgstr "Sans procédure de circulation"
 
 #: camac/templates/admin/base.html:21
 msgid "Back to eBau"

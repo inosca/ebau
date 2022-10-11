@@ -1,5 +1,7 @@
 from datetime import timedelta
 
+from django.utils.translation import gettext_lazy as _
+
 from camac.utils import (
     has_permission_for_inquiry_answer_document,
     has_permission_for_inquiry_document,
@@ -21,6 +23,7 @@ DISTRIBUTION = {
         "INQUIRY_WORKFLOW": "inquiry",
         "INQUIRY_ANSWER_FORM": "inquiry-answer",
         "INQUIRY_ANSWER_FILL_TASK": "fill-inquiry",
+        "HISTORY": {},
         "REDO_INQUIRY": {},
         "QUESTIONS": {
             "DEADLINE": "inquiry-deadline",
@@ -59,6 +62,12 @@ DISTRIBUTION = {
         "ENABLED": True,
         "ECH_EVENTS": True,
         "INSTANCE_STATE_DISTRIBUTION": "circulation",
+        "DISTRIBUTION_": _("Circulation reopened"),
+        "HISTORY": {
+            "COMPLETE_DISTRIBUTION": _("Circulation completed"),
+            "SKIP_DISTRIBUTION": _("Circulation skipped"),
+            "REDO_DISTRIBUTION": _("Circulation reopened"),
+        },
         "REDO_INQUIRY": {
             "REOPEN_TASKS": ["fill-inquiry"],
         },
@@ -483,6 +492,10 @@ DISTRIBUTION = {
         "INQUIRY_ANSWER_CHECK_TASK": "check-inquiry",
         "INQUIRY_ANSWER_REVISE_TASK": "revise-inquiry",
         "INQUIRY_ANSWER_ALTER_TASK": "alter-inquiry",
+        "HISTORY": {
+            "COMPLETE_DISTRIBUTION": "Zirkulationsentscheid gestartet",
+            "SKIP_DISTRIBUTION": "Zirkulationsentscheid gestartet",
+        },
         "REDO_INQUIRY": {
             "REOPEN_TASKS": ["check-inquiry", "revise-inquiry"],
             "COMPLETE_TASKS": ["revise-inquiry"],
