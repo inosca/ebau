@@ -3,7 +3,6 @@
     "model": "user.user",
     "pk": 1,
     "fields": {
-      "is_superuser": false,
       "username": "462afaba-aeb7-494a-8596-3497b81ed701",
       "password": "0f10da7320c3fad6c1bd4e597992fb83",
       "name": "Static",
@@ -15,16 +14,13 @@
       "last_login": null,
       "address": null,
       "city": null,
-      "zip": null,
-      "is_staff": false,
-      "user_permissions": []
+      "zip": null
     }
   },
   {
     "model": "user.user",
     "pk": 2,
     "fields": {
-      "is_superuser": false,
       "username": "062afaba-aeb7-494a-8596-3497b81ed701",
       "password": "0f10da7320c3fad6c1bd4e597992fb83",
       "name": "guest",
@@ -36,16 +32,13 @@
       "last_login": null,
       "address": null,
       "city": null,
-      "zip": null,
-      "is_staff": false,
-      "user_permissions": []
+      "zip": null
     }
   },
   {
     "model": "user.user",
     "pk": 3,
     "fields": {
-      "is_superuser": false,
       "username": "9535c2ff-9649-4254-96cb-3c899353aa11",
       "password": "0f10da7320c3fad6c1bd4e597992fb83",
       "name": "Testuser",
@@ -57,16 +50,13 @@
       "last_login": null,
       "address": null,
       "city": null,
-      "zip": null,
-      "is_staff": false,
-      "user_permissions": []
+      "zip": null
     }
   },
   {
     "model": "user.user",
     "pk": 4,
     "fields": {
-      "is_superuser": false,
       "username": "service-account-camac-admin",
       "password": null,
       "name": "System",
@@ -78,9 +68,7 @@
       "last_login": null,
       "address": null,
       "city": null,
-      "zip": null,
-      "is_staff": false,
-      "user_permissions": []
+      "zip": null
     }
   },
   {
