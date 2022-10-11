@@ -8,6 +8,7 @@ mutation CreateMigratedWorkflow {
         "information-of-neighbors"
         "decision"
         "create-manual-workitems"
+        "ebau-number"
       ]
       allowForms: ["migriertes-dossier"]
       isPublished: true

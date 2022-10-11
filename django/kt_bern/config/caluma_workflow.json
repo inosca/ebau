@@ -1094,6 +1094,7 @@
       "start_tasks": [
         "create-manual-workitems",
         "decision",
+        "ebau-number",
         "fill-publication",
         "information-of-neighbors"
       ],
