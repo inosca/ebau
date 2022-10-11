@@ -28,7 +28,12 @@ from django.conf import settings
 from django.db import transaction
 from django.utils.timezone import now
 
-from camac.ech0211.signals import accompanying_report_send, task_send
+from camac.core.utils import create_history_entry
+from camac.ech0211.signals import (
+    accompanying_report_send,
+    circulation_started,
+    task_send,
+)
 from camac.instance.models import InstanceState
 from camac.notification.utils import send_mail_without_request
 from camac.user.models import Service, User
@@ -153,6 +158,23 @@ def post_redo_distribution(sender, work_item, user, context=None, **kwargs):
             name=settings.DISTRIBUTION["INSTANCE_STATE_DISTRIBUTION"]
         )
         instance.save()
+
+    camac_user = User.objects.get(username=user.username)
+
+    if settings.DISTRIBUTION["HISTORY"].get("REDO_DISTRIBUTION"):
+        create_history_entry(
+            instance,
+            camac_user,
+            settings.DISTRIBUTION["HISTORY"].get("REDO_DISTRIBUTION"),
+        )
+
+    if settings.DISTRIBUTION["ECH_EVENTS"]:
+        circulation_started.send(
+            sender="post_redo_distribution",
+            instance=work_item.case.family.instance,
+            user_pk=camac_user.pk,
+            group_pk=user.camac_group,
+        )
 
 
 @on(post_redo_work_item, raise_exception=True)
@@ -287,6 +309,30 @@ def pre_complete_distribution(sender, work_item, user, context=None, **kwargs):
     ):
         # everything else canceled
         cancel_work_item(work_item=work_item, user=user, context=context)
+
+
+@on(post_complete_work_item, raise_exception=True)
+@filter_by_task("DISTRIBUTION_COMPLETE_TASK")
+@transaction.atomic
+def post_complete_distribution(sender, work_item, user, context=None, **kwargs):
+    has_inquiries = (
+        work_item.case.work_items.filter(task_id=settings.DISTRIBUTION["INQUIRY_TASK"])
+        .exclude(status=WorkItem.STATUS_CANCELED)
+        .exists()
+    )
+
+    text = (
+        settings.DISTRIBUTION["HISTORY"].get("COMPLETE_DISTRIBUTION")
+        if has_inquiries
+        else settings.DISTRIBUTION["HISTORY"].get("SKIP_DISTRIBUTION")
+    )
+
+    if text:
+        create_history_entry(
+            work_item.case.family.instance,
+            User.objects.get(username=user.username),
+            text,
+        )
 
 
 @on(post_cancel_work_item, raise_exception=True)
