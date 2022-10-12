@@ -5,7 +5,7 @@ from django.forms import BooleanField, ChoiceField
 class CamacLanguageField(ChoiceField):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.choices = settings.LANGUAGES
+        self.choices = [(None, "-"), *settings.LANGUAGES]
 
 
 class CamacBooleanField(BooleanField):

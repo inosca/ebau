@@ -2,7 +2,16 @@ from django.forms import ModelForm
 from django.utils.translation import gettext as _
 
 from camac.user.admin.fields import CamacBooleanField, CamacLanguageField
-from camac.user.models import Group, GroupT, Service, ServiceT, User, UserGroup
+from camac.user.models import (
+    Group,
+    GroupT,
+    RoleT,
+    Service,
+    ServiceGroupT,
+    ServiceT,
+    User,
+    UserGroup,
+)
 
 
 class GroupTForm(ModelForm):
@@ -51,4 +60,20 @@ class ServiceTForm(ModelForm):
 
     class Meta:
         model = ServiceT
+        exclude = []
+
+
+class RoleTForm(ModelForm):
+    language = CamacLanguageField()
+
+    class Meta:
+        model = RoleT
+        exclude = []
+
+
+class ServiceGroupTForm(ModelForm):
+    language = CamacLanguageField()
+
+    class Meta:
+        model = ServiceGroupT
         exclude = []
