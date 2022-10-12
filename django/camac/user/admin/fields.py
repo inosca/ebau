@@ -9,8 +9,12 @@ class CamacLanguageField(ChoiceField):
 
 
 class CamacBooleanField(BooleanField):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.required = False
+
     def prepare_value(self, value):
         return value == 1
 
     def clean(self, value):
-        return 1 if super.clean(value) else 0
+        return 1 if super().clean(value) else 0
