@@ -47,8 +47,6 @@ urlpatterns = [
     re_path(r"^api/v1/", include("camac.responsible.urls")),
     re_path(r"^api/v1/", include("camac.tags.urls")),
     re_path(r"^api/v1/stats/", include("camac.stats.urls")),
-    re_path(r"^django-admin/", admin.site.urls),
-    re_path(r"^oidc/", include("mozilla_django_oidc.urls")),
     re_path(
         r"^graphql",
         CamacAuthenticatedGraphQLView.as_view(graphiql=settings.DEBUG),
@@ -69,8 +67,10 @@ urlpatterns = [
         schema_view.with_ui("redoc", cache_timeout=0),
         name="schema-redoc",
     ),
-    # re_path(r'^api/docs/$', schema_view),
-    # re_path(r'^api/auth/$', include('keycloak_adapter.urls')),
+    # Admin
+    re_path(r"^django/admin/", admin.site.urls),
+    re_path(r"^django/i18n/", include("django.conf.urls.i18n")),
+    re_path(r"^django/oidc/", include("mozilla_django_oidc.urls")),
 ] + r.urls
 
 if settings.APPLICATION["ECH0211"]["API_ACTIVE"]:  # pragma: no cover

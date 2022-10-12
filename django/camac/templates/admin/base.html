@@ -4,7 +4,43 @@
 {% block welcome-msg %}{% endblock %}
 
 {% block userlinks %}
-  {% if site_url %}
-    <a href="{{ site_url }}">{% translate 'Back to eBau' %}</a>
-  {% endif %}
+  {% get_current_language as LANGUAGE_CODE %}
+  {% get_available_languages as LANGUAGES %}
+  {% get_language_info_list for LANGUAGES as languages %}
+
+  {% for language in languages %}
+    <form action="{% url 'set_language' %}" method="post">
+      {% csrf_token %}
+      <input name="next" type="hidden" value="{{ redirect_to }}">
+      <input name="language" type="hidden" value="{{ language.code }}" />
+      <a href="#" class="submit-link {% if language.code == LANGUAGE_CODE %} bold{% endif %}">{{ language.code }}</a>
+    </form>
+    /
+  {% endfor %}
+
+  <a href="{{ site_url }}">{% translate 'Back to eBau' %}</a>
+{% endblock %}
+
+{% block extrahead %}
+<style>
+  #user-tools form {
+    display: inline;
+  }
+
+  #user-tools .bold {
+    font-weight: 700;
+  }
+</style>
+{% endblock %}
+
+{% block footer %}
+  {{ block.super }}
+  <script>
+    const links = document.querySelectorAll(".submit-link")
+
+    links.forEach(el => el.addEventListener("click", e => {
+      e.preventDefault()
+      e.target.closest("form").submit()
+    }))
+  </script>
 {% endblock %}
