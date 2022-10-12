@@ -3,7 +3,6 @@ caluma==8.0.0b19
 dataclasses-json==0.5.7
 deepmerge==1.0.1
 Django==3.2.15
-django-admin-sortable2==1.0.4
 django-clamd==0.4.0
 django-environ==0.9.0
 django-excel==0.0.10
