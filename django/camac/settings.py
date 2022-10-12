@@ -3235,48 +3235,22 @@ DOSSIER_IMPORT_CLIENT_SECRET = env.str(
 AUTHENTICATION_BACKENDS = [
     "camac.user.authentication.DjangoAdminOIDCAuthenticationBackend",
 ]
-
-OIDC_RP_CLIENT_ID = env.str("DJANGO_OIDC_RP_CLIENT_ID", default="camac")
-OIDC_RP_CLIENT_SECRET = env.str("DJANGO_OIDC_RP_CLIENT_SECRET", default=None)
-
-OIDC_DEFAULT_BASE_URL = env.str(
-    "DJANGO_OIDC_DEFAULT_BASE_URL",
-    default=f"{KEYCLOAK_URL}realms/{KEYCLOAK_REALM}/protocol/openid-connect",
+OIDC_RP_CLIENT_ID = KEYCLOAK_CLIENT
+OIDC_RP_CLIENT_SECRET = None
+OIDC_DEFAULT_BASE_URL = build_url(
+    KEYCLOAK_URL, "/realms/", KEYCLOAK_REALM, "/protocol/openid-connect"
 )
-
-OIDC_OP_AUTHORIZATION_ENDPOINT = env.str(
-    "DJANGO_OIDC_OP_AUTHORIZATION_ENDPOINT", default=f"{OIDC_DEFAULT_BASE_URL}/auth"
-)
-
-OIDC_OP_TOKEN_ENDPOINT = env.str(
-    "DJANGO_OIDC_OP_TOKEN_ENDPOINT", default=f"{OIDC_DEFAULT_BASE_URL}/token"
-)
-OIDC_OP_USER_ENDPOINT = env.str(
-    "DJANGO_OIDC_USERINFO_ENDPOINT", default=f"{OIDC_DEFAULT_BASE_URL}/userinfo"
-)
-
-# admin page after completing server-side authentication flow
-LOGIN_REDIRECT_URL = env.str(
-    "DJANGO_OIDC_ADMIN_LOGIN_REDIRECT_URL",
-    default=f"{INTERNAL_BASE_URL}/django-admin/",
-)
-
+OIDC_OP_AUTHORIZATION_ENDPOINT = build_url(OIDC_DEFAULT_BASE_URL, "/auth")
+OIDC_OP_TOKEN_ENDPOINT = build_url(OIDC_DEFAULT_BASE_URL, "/token")
+OIDC_OP_USER_ENDPOINT = build_url(OIDC_DEFAULT_BASE_URL, "/userinfo")
 OIDC_RP_SIGN_ALGO = env.str("DJANGO_OIDC_RP_SIGN_ALGO", default="RS256")
-
-OIDC_OP_JWKS_ENDPOINT = env.str(
-    "DJANGO_OIDC_OP_JWKS_ENDPOINT", default=f"{OIDC_DEFAULT_BASE_URL}/certs"
-)
+OIDC_OP_JWKS_ENDPOINT = build_url(OIDC_DEFAULT_BASE_URL, "/certs")
+OIDC_OP_INTROSPECT_ENDPOINT = build_url(OIDC_DEFAULT_BASE_URL, "/token/introspect")
+LOGIN_REDIRECT_URL = build_url(INTERNAL_BASE_URL, "/django-admin/")
 
 OIDC_EMAIL_CLAIM = env.str("DJANGO_OIDC_EMAIL_CLAIM", default="email")
-
 OIDC_FIRSTNAME_CLAIM = env.str("DJANGO_OIDC_FIRSTNAME_CLAIM", default="given_name")
-
 OIDC_LASTNAME_CLAIM = env.str("DJANGO_OIDC_LASTNAME_CLAIM", default="family_name")
-
-OIDC_OP_INTROSPECT_ENDPOINT = env.str(
-    "DJANGO_OIDC_OP_INTROSPECT_ENDPOINT",
-    default=f"{OIDC_DEFAULT_BASE_URL}/token/introspect",
-)
 
 STATICFILES_DIRS += APPLICATIONS[APPLICATION_NAME].get("INCLUDE_STATIC_FILES", [])
 
