@@ -77,17 +77,16 @@ class DossierImportView(ModelViewSet):
             raise ValidationError(
                 "Confirming an import is only possible after it has been imported.",
             )
-        subject = (
-            _("A dossier import for %s has been approved")
-            % dossier_import.group.get_name()
-        )
-        body = _("The approved dossiers can be viewed here:\n%(import_url)s") % dict(
-            import_url=build_url(
+        subject = _("A dossier import for %(group)s has been approved") % {
+            "group": dossier_import.group.get_name()
+        }
+        body = _("The approved dossiers can be viewed here:\n%(import_url)s") % {
+            "import_url": build_url(
                 settings.INTERNAL_BASE_URL,
                 settings.APPLICATION["DOSSIER_IMPORT"]["RESOURCE_ID_PATH"],
                 str(dossier_import.pk),
             )
-        )  # resource_id for dossier_import tab
+        }  # resource_id for dossier_import tab
         mail_admins(subject, message=body)
         if settings.SUPPORT_EMAIL_ADDRESS:
             send_mail(

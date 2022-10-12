@@ -626,8 +626,8 @@ class InstanceView(
             data.append(doc_data)
 
         header = [
-            _("eBau No."),
-            _("Instance No."),
+            _("eBau number"),
+            _("Instance number"),
             _("Application Type"),
             _("Address"),
             _("Submission Date"),
