@@ -8,7 +8,9 @@ from camac.user.admin.inlines import (
     GroupLocationInline,
     GroupTInline,
     GroupUserInline,
+    RoleTInline,
     ServiceGroupInline,
+    ServiceGroupTInline,
     ServiceTInline,
     UserGroupInline,
 )
@@ -127,3 +129,34 @@ class ServiceAdmin(MultilingualAdmin, ModelAdmin):
     @display(description=_("Disabled?"), boolean=True, ordering="disabled")
     def get_disabled(self, obj):
         return obj.disabled == 1
+
+
+class RoleAdmin(MultilingualAdmin, ModelAdmin):
+    exclude_ml = ["name", "group_prefix"]
+    inlines_ml = [RoleTInline]
+    list_display = ["role_id", "get_name"]
+    list_per_page = 20
+    ordering = ["pk"]
+    prefetch_related_ml = ["trans"]
+    search_fields = ["name"]
+    search_fields_ml = ["trans__name"]
+
+    @display(description=_("Name"))
+    def get_name(self, obj):
+        return obj.get_name()
+
+
+class ServiceGroupAdmin(MultilingualAdmin, ModelAdmin):
+    exclude = ["sort"]
+    exclude_ml = ["name", "sort"]
+    inlines_ml = [ServiceGroupTInline]
+    list_display = ["service_group_id", "get_name"]
+    list_per_page = 20
+    ordering = ["pk"]
+    prefetch_related_ml = ["trans"]
+    search_fields = ["name"]
+    search_fields_ml = ["trans__name"]
+
+    @display(description=_("Name"))
+    def get_name(self, obj):
+        return obj.get_name()
