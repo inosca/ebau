@@ -3,7 +3,7 @@ from django.utils.translation import gettext as _
 
 
 class DisabledFilter(SimpleListFilter):
-    title = _("Deaktiviert?")
+    title = _("Disabled?")
     parameter_name = "disabled"
 
     def lookups(self, request, model_admin):
