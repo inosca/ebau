@@ -117,7 +117,6 @@ INSTALLED_APPS = [
     # TODO: remove this when all production environments ran the migration to
     # delete the tables of this app
     "camac.file.apps.DefaultConfig",
-    "adminsortable2",
     "manabi_migrations",
 ]
 
