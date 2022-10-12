@@ -2,8 +2,23 @@ from django.conf import settings
 from django.contrib.admin import TabularInline
 from django.utils.translation import gettext as _
 
-from camac.user.admin.forms import GroupForm, GroupTForm, ServiceTForm, UserGroupForm
-from camac.user.models import Group, GroupLocation, GroupT, ServiceT, UserGroup
+from camac.user.admin.forms import (
+    GroupForm,
+    GroupTForm,
+    RoleTForm,
+    ServiceGroupTForm,
+    ServiceTForm,
+    UserGroupForm,
+)
+from camac.user.models import (
+    Group,
+    GroupLocation,
+    GroupT,
+    RoleT,
+    ServiceGroupT,
+    ServiceT,
+    UserGroup,
+)
 
 
 class UserGroupInline(TabularInline):
@@ -52,5 +67,23 @@ class ServiceTInline(TabularInline):
     form = ServiceTForm
     max_num = len(settings.LANGUAGES)
     model = ServiceT
+    verbose_name = _("Translation")
+    verbose_name_plural = _("Translations")
+
+
+class RoleTInline(TabularInline):
+    can_delete = False
+    form = RoleTForm
+    max_num = len(settings.LANGUAGES)
+    model = RoleT
+    verbose_name = _("Translation")
+    verbose_name_plural = _("Translations")
+
+
+class ServiceGroupTInline(TabularInline):
+    can_delete = False
+    form = ServiceGroupTForm
+    max_num = len(settings.LANGUAGES)
+    model = ServiceGroupT
     verbose_name = _("Translation")
     verbose_name_plural = _("Translations")
