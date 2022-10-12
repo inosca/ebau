@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-11 12:36+0200\n"
+"POT-Creation-Date: 2022-10-11 17:20+0200\n"
 "PO-Revision-Date: 2022-09-06 13:50+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -18,13 +18,13 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Poedit 3.0.1\n"
 
-#: camac/admin.py:7 camac/admin.py:8
+#: camac/admin.py:6 camac/admin.py:7
 #, fuzzy
 #| msgid "eBau No."
 msgid "eBau"
 msgstr "N° eBau"
 
-#: camac/admin.py:9
+#: camac/admin.py:8
 #, fuzzy
 #| msgid "Administrative Region"
 msgid "Administration"
@@ -200,7 +200,7 @@ msgstr ""
 msgid "%(count)i dossiers %(message)s. Affected dossiers:%(entries)s"
 msgstr "{count} dossiers {message}. Dossiers concernés:{entries}"
 
-#: camac/dossier_import/serializers.py:56 camac/instance/serializers.py:1712
+#: camac/dossier_import/serializers.py:56 camac/instance/serializers.py:1710
 msgid "No location assigned."
 msgstr "Location n'a pas été attribuée."
 
@@ -267,16 +267,16 @@ msgstr ""
 msgid "Inquiry sent"
 msgstr "Demande de prise de position"
 
-#: camac/ech0211/event_handlers.py:285 camac/instance/serializers.py:1296
+#: camac/ech0211/event_handlers.py:285 camac/instance/serializers.py:1294
 msgid "SB1 submitted"
 msgstr "DC1 envoyé"
 
-#: camac/ech0211/event_handlers.py:290 camac/instance/serializers.py:1642
+#: camac/ech0211/event_handlers.py:290 camac/instance/serializers.py:1640
 msgid "SB2 submitted"
 msgstr "DC2 envoyé"
 
 #: camac/instance/document_merge_service.py:146 camac/instance/views.py:632
-#: camac/user/models.py:77 camac/user/models.py:208 camac/user/models.py:483
+#: camac/user/models.py:76 camac/user/models.py:210 camac/user/models.py:485
 msgid "Address"
 msgstr "Adresse"
 
@@ -312,8 +312,8 @@ msgstr "Personne requérante"
 msgid "Input date"
 msgstr "Date de réception"
 
-#: camac/instance/document_merge_service.py:154 camac/user/models.py:462
-#: camac/user/models.py:529
+#: camac/instance/document_merge_service.py:154 camac/user/models.py:464
+#: camac/user/models.py:531
 msgid "Description"
 msgstr "Description"
 
@@ -377,12 +377,12 @@ msgstr ""
 msgid "Form may not be changed."
 msgstr ""
 
-#: camac/instance/serializers.py:391 camac/instance/serializers.py:1368
+#: camac/instance/serializers.py:391 camac/instance/serializers.py:1366
 #, python-format
 msgid "'%(form)s' is not a valid form type"
 msgstr "'%(form)s' est un type de dossier non valable"
 
-#: camac/instance/serializers.py:401 camac/instance/serializers.py:1362
+#: camac/instance/serializers.py:401 camac/instance/serializers.py:1360
 #, python-format
 msgid "The current form '%(form)s' can't be changed"
 msgstr "Le type de dossier actuel '%(form)s' ne peut être modifié"
@@ -396,101 +396,101 @@ msgstr ""
 msgid "form"
 msgstr ""
 
-#: camac/instance/serializers.py:847 camac/instance/serializers.py:853
+#: camac/instance/serializers.py:845 camac/instance/serializers.py:851
 msgid "migrated"
 msgstr "migré"
 
-#: camac/instance/serializers.py:856
+#: camac/instance/serializers.py:854
 msgid "paper"
 msgstr "papier"
 
-#: camac/instance/serializers.py:859
+#: camac/instance/serializers.py:857
 msgid "modification"
 msgstr "modification du projet"
 
-#: camac/instance/serializers.py:862
+#: camac/instance/serializers.py:860
 msgid "coordinated"
 msgstr "LCoord"
 
-#: camac/instance/serializers.py:893
+#: camac/instance/serializers.py:891
 msgid "Source instance not found"
 msgstr "Instance source non trouvée"
 
-#: camac/instance/serializers.py:929
+#: camac/instance/serializers.py:927
 #, python-format
 msgid "The form '%(form)s' can only be used by an internal role"
 msgstr ""
 "Le formulaire '%(form)s' ne peut être utilisé que pour les rôles internes"
 
-#: camac/instance/serializers.py:940
+#: camac/instance/serializers.py:938
 msgid "Project modification is not allowed"
 msgstr "Modification du projet non autorisée"
 
-#: camac/instance/serializers.py:1090
+#: camac/instance/serializers.py:1088
 msgid "Dossier completed by resubmission"
 msgstr "Dossier complété par une nouvelle soumission"
 
-#: camac/instance/serializers.py:1238
+#: camac/instance/serializers.py:1236
 msgid "Dossier submitted"
 msgstr "Dossier envoyé"
 
-#: camac/instance/serializers.py:1335
+#: camac/instance/serializers.py:1333
 msgid "Archived"
 msgstr "Archivé"
 
-#: camac/instance/serializers.py:1384
+#: camac/instance/serializers.py:1382
 msgid "Changed form type"
 msgstr ""
 
-#: camac/instance/serializers.py:1414
+#: camac/instance/serializers.py:1412
 msgid "Invalid format"
 msgstr "Format non valide"
 
-#: camac/instance/serializers.py:1421
+#: camac/instance/serializers.py:1419
 msgid "This eBau number doesn't exist"
 msgstr "Ce numéro eBau n'existe pas"
 
-#: camac/instance/serializers.py:1425
+#: camac/instance/serializers.py:1423
 msgid "This eBau number is already in use by a different municipality"
 msgstr "Ce numéro eBau a déjà été attribué par une autre autorité directrice"
 
-#: camac/instance/serializers.py:1474
+#: camac/instance/serializers.py:1472
 #, python-format
 msgid "%(value)s is not a valid service type - valid types are: %(expected)s"
 msgstr ""
 "%(value)s n'est pas un type de service correct - les types corrects sont "
 "%(expected)s"
 
-#: camac/instance/serializers.py:1488
+#: camac/instance/serializers.py:1486
 msgid "Invalid audit"
 msgstr ""
 
-#: camac/instance/serializers.py:1528
+#: camac/instance/serializers.py:1526
 #, python-format
 msgid "Changed responsible service to: %(service)s"
 msgstr "Nouvelle autorité directrice: %(service)s"
 
-#: camac/instance/serializers.py:1550
+#: camac/instance/serializers.py:1548
 #, python-format
 msgid "Responsible service did not change for instance %(instance_id)s"
 msgstr "N'a pas changé d'autorité directrice pour le dossier %(instance_id)s"
 
-#: camac/instance/serializers.py:1686
+#: camac/instance/serializers.py:1684
 #, python-format
 msgid "User %(user)s does not belong to service %(service)s."
 msgstr ""
 
-#: camac/instance/serializers.py:1734
+#: camac/instance/serializers.py:1732
 #, python-format
 msgid "No group found for location %(name)s."
 msgstr ""
 
-#: camac/instance/serializers.py:1766
+#: camac/instance/serializers.py:1764
 #, python-format
 msgid "invalid question %(question)s."
 msgstr ""
 
-#: camac/instance/serializers.py:1773
+#: camac/instance/serializers.py:1771
 #, python-format
 msgid "%(permission)s is not allowed to edit question %(question)s."
 msgstr ""
@@ -671,65 +671,78 @@ msgstr ""
 msgid "French"
 msgstr ""
 
-#: camac/user/admin/forms.py:17 camac/user/admin/forms.py:33
-#: camac/user/admin/forms.py:42 camac/user/admin/views.py:55
-#: camac/user/admin/views.py:90 camac/user/admin/views.py:125
-#: camac/user/models.py:61 camac/user/models.py:185 camac/user/models.py:500
+#: camac/templates/admin/base.html:8
+msgid "Back to eBau"
+msgstr ""
+
+#: camac/user/admin/filters.py:6 camac/user/admin/forms.py:17
+#: camac/user/admin/forms.py:33 camac/user/admin/forms.py:42
+#: camac/user/admin/views.py:57 camac/user/admin/views.py:92
+#: camac/user/admin/views.py:127 camac/user/models.py:60
+#: camac/user/models.py:187 camac/user/models.py:502
 msgid "Disabled?"
 msgstr ""
 
-#: camac/user/admin/forms.py:34 camac/user/models.py:503
+#: camac/user/admin/filters.py:11
+msgid "Yes"
+msgstr ""
+
+#: camac/user/admin/filters.py:12
+msgid "No"
+msgstr ""
+
+#: camac/user/admin/forms.py:34 camac/user/models.py:505
 msgid "Receive notifications?"
 msgstr ""
 
-#: camac/user/admin/inlines.py:12 camac/user/admin/inlines.py:45
-#: camac/user/models.py:231 camac/user/models.py:241 camac/user/models.py:317
-#: camac/user/models.py:347
+#: camac/user/admin/inlines.py:13 camac/user/admin/inlines.py:46
+#: camac/user/models.py:233 camac/user/models.py:243 camac/user/models.py:319
+#: camac/user/models.py:349
 msgid "Group"
 msgstr ""
 
-#: camac/user/admin/inlines.py:13 camac/user/admin/inlines.py:46
-#: camac/user/models.py:232
+#: camac/user/admin/inlines.py:14 camac/user/admin/inlines.py:47
+#: camac/user/models.py:234
 msgid "Groups"
 msgstr ""
 
-#: camac/user/admin/inlines.py:21 camac/user/admin/inlines.py:54
+#: camac/user/admin/inlines.py:22 camac/user/admin/inlines.py:55
 msgid "Translation"
 msgstr ""
 
-#: camac/user/admin/inlines.py:22 camac/user/admin/inlines.py:55
+#: camac/user/admin/inlines.py:23 camac/user/admin/inlines.py:56
 msgid "Translations"
 msgstr ""
 
-#: camac/user/admin/inlines.py:28 camac/user/models.py:324
+#: camac/user/admin/inlines.py:29 camac/user/models.py:326
 #, fuzzy
 #| msgid "Modification"
 msgid "Location"
 msgstr "Modification du projet"
 
-#: camac/user/admin/inlines.py:29 camac/user/admin/views.py:86
-#: camac/user/models.py:225
+#: camac/user/admin/inlines.py:30 camac/user/admin/views.py:88
+#: camac/user/models.py:227
 #, fuzzy
 #| msgid "Modification"
 msgid "Locations"
 msgstr "Modification du projet"
 
-#: camac/user/admin/inlines.py:36 camac/user/models.py:148
-#: camac/user/models.py:340
+#: camac/user/admin/inlines.py:37 camac/user/models.py:150
+#: camac/user/models.py:342
 msgid "User"
 msgstr ""
 
-#: camac/user/admin/inlines.py:37 camac/user/models.py:149
+#: camac/user/admin/inlines.py:38 camac/user/models.py:151
 msgid "Users"
 msgstr ""
 
-#: camac/user/admin/views.py:82 camac/user/admin/views.py:117
-#: camac/user/models.py:188 camac/user/models.py:247 camac/user/models.py:455
-#: camac/user/models.py:522
+#: camac/user/admin/views.py:84 camac/user/admin/views.py:119
+#: camac/user/models.py:190 camac/user/models.py:249 camac/user/models.py:457
+#: camac/user/models.py:524
 msgid "Name"
 msgstr ""
 
-#: camac/user/admin/views.py:121 camac/user/models.py:443
+#: camac/user/admin/views.py:123 camac/user/models.py:445
 msgid "Service group"
 msgstr ""
 
@@ -758,67 +771,67 @@ msgstr ""
 msgid "User is deactivated."
 msgstr ""
 
-#: camac/user/models.py:33 camac/user/models.py:166 camac/user/models.py:436
+#: camac/user/models.py:32 camac/user/models.py:168 camac/user/models.py:438
 msgid "ID"
 msgstr ""
 
-#: camac/user/models.py:35
+#: camac/user/models.py:34
 msgid "Username"
 msgstr ""
 
-#: camac/user/models.py:41
+#: camac/user/models.py:40
 msgid "First name"
 msgstr ""
 
-#: camac/user/models.py:44
+#: camac/user/models.py:43
 msgid "Last name"
 msgstr ""
 
-#: camac/user/models.py:51 camac/user/models.py:215 camac/user/models.py:490
+#: camac/user/models.py:50 camac/user/models.py:217 camac/user/models.py:492
 msgid "Email"
 msgstr ""
 
-#: camac/user/models.py:58 camac/user/models.py:195 camac/user/models.py:470
+#: camac/user/models.py:57 camac/user/models.py:197 camac/user/models.py:472
 msgid "Phone"
 msgstr ""
 
-#: camac/user/models.py:64 camac/user/models.py:244 camac/user/models.py:519
+#: camac/user/models.py:63 camac/user/models.py:246 camac/user/models.py:521
 msgid "Language"
 msgstr ""
 
-#: camac/user/models.py:70
+#: camac/user/models.py:69
 msgid "Last login"
 msgstr ""
 
-#: camac/user/models.py:80 camac/user/models.py:201 camac/user/models.py:250
-#: camac/user/models.py:476 camac/user/models.py:532
+#: camac/user/models.py:79 camac/user/models.py:203 camac/user/models.py:252
+#: camac/user/models.py:478 camac/user/models.py:534
 msgid "City"
 msgstr ""
 
-#: camac/user/models.py:83 camac/user/models.py:198 camac/user/models.py:473
+#: camac/user/models.py:82 camac/user/models.py:200 camac/user/models.py:475
 msgid "Zip"
 msgstr ""
 
-#: camac/user/models.py:173
+#: camac/user/models.py:175
 msgid "Role"
 msgstr ""
 
-#: camac/user/models.py:182 camac/user/models.py:510
+#: camac/user/models.py:184 camac/user/models.py:512
 msgid "Service"
 msgstr ""
 
-#: camac/user/models.py:222 camac/user/models.py:497
+#: camac/user/models.py:224 camac/user/models.py:499
 msgid "Website"
 msgstr ""
 
-#: camac/user/models.py:350
+#: camac/user/models.py:352
 msgid "Default group?"
 msgstr ""
 
-#: camac/user/models.py:452
+#: camac/user/models.py:454
 msgid "Service parent"
 msgstr ""
 
-#: camac/user/models.py:511
+#: camac/user/models.py:513
 msgid "Services"
 msgstr ""
