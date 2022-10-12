@@ -377,7 +377,9 @@ class UserGroupLog(models.Model):
 
 
 class Role(core_models.MultilingualModel, models.Model):
-    role_id = models.AutoField(db_column="ROLE_ID", primary_key=True)
+    role_id = models.AutoField(
+        db_column="ROLE_ID", primary_key=True, verbose_name=_("ID")
+    )
     role_parent = models.ForeignKey(
         "self",
         models.SET_NULL,
@@ -385,25 +387,42 @@ class Role(core_models.MultilingualModel, models.Model):
         related_name="+",
         blank=True,
         null=True,
+        verbose_name=_("Role parent"),
     )
-    name = models.CharField(db_column="NAME", max_length=100, blank=True, null=True)
+    name = models.CharField(
+        db_column="NAME", max_length=100, blank=True, null=True, verbose_name=_("Name")
+    )
     group_prefix = models.CharField(
-        db_column="GROUP_PREFIX", max_length=100, blank=True, null=True
+        db_column="GROUP_PREFIX",
+        max_length=100,
+        blank=True,
+        null=True,
+        verbose_name=_("Group prefix"),
     )
 
     class Meta:
         managed = True
         db_table = "ROLE"
+        verbose_name = _("Role")
+        verbose_name_plural = _("Roles")
 
 
 class RoleT(models.Model):
     role = models.ForeignKey(
         Role, models.CASCADE, db_column="ROLE_ID", related_name="trans"
     )
-    language = models.CharField(db_column="LANGUAGE", max_length=2)
-    name = models.CharField(db_column="NAME", max_length=100, blank=True, null=True)
+    language = models.CharField(
+        db_column="LANGUAGE", max_length=2, verbose_name=_("Language")
+    )
+    name = models.CharField(
+        db_column="NAME", max_length=100, blank=True, null=True, verbose_name=_("Name")
+    )
     group_prefix = models.CharField(
-        db_column="GROUP_PREFIX", max_length=100, blank=True, null=True
+        db_column="GROUP_PREFIX",
+        max_length=100,
+        blank=True,
+        null=True,
+        verbose_name=_("Group prefix"),
     )
 
     class Meta:
@@ -412,21 +431,31 @@ class RoleT(models.Model):
 
 
 class ServiceGroup(core_models.MultilingualModel, models.Model):
-    service_group_id = models.AutoField(db_column="SERVICE_GROUP_ID", primary_key=True)
-    name = models.CharField(db_column="NAME", max_length=100, blank=True, null=True)
+    service_group_id = models.AutoField(
+        db_column="SERVICE_GROUP_ID", primary_key=True, verbose_name=_("ID")
+    )
+    name = models.CharField(
+        db_column="NAME", max_length=100, blank=True, null=True, verbose_name=_("Name")
+    )
     sort = models.IntegerField(blank=True, null=True)
 
     class Meta:
         managed = True
         db_table = "SERVICE_GROUP"
+        verbose_name = _("Service group")
+        verbose_name_plural = _("Service groups")
 
 
 class ServiceGroupT(models.Model):
     service_group = models.ForeignKey(
         ServiceGroup, models.CASCADE, db_column="SERVICE_GROUP_ID", related_name="trans"
     )
-    language = models.CharField(db_column="LANGUAGE", max_length=2)
-    name = models.CharField(db_column="NAME", max_length=100, blank=True, null=True)
+    language = models.CharField(
+        db_column="LANGUAGE", max_length=2, verbose_name=_("Language")
+    )
+    name = models.CharField(
+        db_column="NAME", max_length=100, blank=True, null=True, verbose_name=_("Name")
+    )
 
     class Meta:
         managed = True
