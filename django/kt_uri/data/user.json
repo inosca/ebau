@@ -4790,6 +4790,14 @@
     }
   },
   {
+    "model": "user.grouplocation",
+    "pk": 214,
+    "fields": {
+      "group": 746,
+      "location": 6
+    }
+  },
+  {
     "model": "user.usergroup",
     "pk": 1,
     "fields": {
