@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-11 17:20+0200\n"
-"PO-Revision-Date: 2022-10-11 16:56+0200\n"
+"POT-Creation-Date: 2022-10-12 13:23+0200\n"
+"PO-Revision-Date: 2022-10-12 13:24+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -146,8 +146,8 @@ msgstr ""
 #: camac/dossier_import/loaders.py:300
 #, python-format
 msgid ""
-"Failed to load plot with numbers `%(plot_numbers)s` and egrid values `"
-"%(egrids)s`"
+"Failed to load plot with numbers `%(plot_numbers)s` and egrid values "
+"`%(egrids)s`"
 msgstr ""
 "Parzellendaten konnten nicht geladen werden. Nummer(n): `%(plot_numbers)s`. "
 "Egrid: `%(egrids)s`"
@@ -263,7 +263,7 @@ msgid "SB2 submitted"
 msgstr "SB2 eingereicht"
 
 #: camac/instance/document_merge_service.py:146 camac/instance/views.py:632
-#: camac/user/models.py:76 camac/user/models.py:210 camac/user/models.py:485
+#: camac/user/models.py:76 camac/user/models.py:210 camac/user/models.py:514
 msgid "Address"
 msgstr "Adresse"
 
@@ -299,8 +299,8 @@ msgstr "Zuständig"
 msgid "Input date"
 msgstr "Eingangsdatum"
 
-#: camac/instance/document_merge_service.py:154 camac/user/models.py:464
-#: camac/user/models.py:531
+#: camac/instance/document_merge_service.py:154 camac/user/models.py:493
+#: camac/user/models.py:560
 msgid "Description"
 msgstr "Beschreibung"
 
@@ -641,23 +641,23 @@ msgstr ""
 msgid "Objection %(objection) already has a representative"
 msgstr ""
 
-#: camac/settings.py:1336
+#: camac/settings.py:1335
 msgid "Circulation started"
 msgstr "Zirkulation gestartet"
 
-#: camac/settings.py:1345
+#: camac/settings.py:1344
 msgid "Circulation completed"
 msgstr "Zirkulation abgeschlossen"
 
-#: camac/settings.py:1359
+#: camac/settings.py:1358
 msgid "Procedure completed"
 msgstr "Baugesuchsverfahren abgeschlossen"
 
-#: camac/settings.py:2952
+#: camac/settings.py:2953
 msgid "German"
 msgstr "Deutsch"
 
-#: camac/settings.py:2952
+#: camac/settings.py:2953
 msgid "French"
 msgstr "Französisch"
 
@@ -665,11 +665,11 @@ msgstr "Französisch"
 msgid "Back to eBau"
 msgstr "Zurück zu eBau"
 
-#: camac/user/admin/filters.py:6 camac/user/admin/forms.py:17
-#: camac/user/admin/forms.py:33 camac/user/admin/forms.py:42
-#: camac/user/admin/views.py:57 camac/user/admin/views.py:92
-#: camac/user/admin/views.py:127 camac/user/models.py:60
-#: camac/user/models.py:187 camac/user/models.py:502
+#: camac/user/admin/filters.py:6 camac/user/admin/forms.py:26
+#: camac/user/admin/forms.py:42 camac/user/admin/forms.py:51
+#: camac/user/admin/views.py:59 camac/user/admin/views.py:94
+#: camac/user/admin/views.py:129 camac/user/models.py:60
+#: camac/user/models.py:187 camac/user/models.py:531
 msgid "Disabled?"
 msgstr "Deaktiviert?"
 
@@ -681,54 +681,59 @@ msgstr "Ja"
 msgid "No"
 msgstr "Nein"
 
-#: camac/user/admin/forms.py:34 camac/user/models.py:505
+#: camac/user/admin/forms.py:43 camac/user/models.py:534
 msgid "Receive notifications?"
 msgstr "Notifikationen empfangen?"
 
-#: camac/user/admin/inlines.py:13 camac/user/admin/inlines.py:46
+#: camac/user/admin/inlines.py:28 camac/user/admin/inlines.py:61
 #: camac/user/models.py:233 camac/user/models.py:243 camac/user/models.py:319
 #: camac/user/models.py:349
 msgid "Group"
 msgstr "Gruppe"
 
-#: camac/user/admin/inlines.py:14 camac/user/admin/inlines.py:47
+#: camac/user/admin/inlines.py:29 camac/user/admin/inlines.py:62
 #: camac/user/models.py:234
 msgid "Groups"
 msgstr "Gruppen"
 
-#: camac/user/admin/inlines.py:22 camac/user/admin/inlines.py:55
+#: camac/user/admin/inlines.py:37 camac/user/admin/inlines.py:70
+#: camac/user/admin/inlines.py:79 camac/user/admin/inlines.py:88
 msgid "Translation"
 msgstr "Übersetzung"
 
-#: camac/user/admin/inlines.py:23 camac/user/admin/inlines.py:56
+#: camac/user/admin/inlines.py:38 camac/user/admin/inlines.py:71
+#: camac/user/admin/inlines.py:80 camac/user/admin/inlines.py:89
 msgid "Translations"
 msgstr "Übersetzungen"
 
-#: camac/user/admin/inlines.py:29 camac/user/models.py:326
+#: camac/user/admin/inlines.py:44 camac/user/models.py:326
 msgid "Location"
 msgstr "Standort"
 
-#: camac/user/admin/inlines.py:30 camac/user/admin/views.py:88
+#: camac/user/admin/inlines.py:45 camac/user/admin/views.py:90
 #: camac/user/models.py:227
 msgid "Locations"
 msgstr "Standorte"
 
-#: camac/user/admin/inlines.py:37 camac/user/models.py:150
+#: camac/user/admin/inlines.py:52 camac/user/models.py:150
 #: camac/user/models.py:342
 msgid "User"
 msgstr "Benutzer"
 
-#: camac/user/admin/inlines.py:38 camac/user/models.py:151
+#: camac/user/admin/inlines.py:53 camac/user/models.py:151
 msgid "Users"
 msgstr "Benutzer"
 
-#: camac/user/admin/views.py:84 camac/user/admin/views.py:119
-#: camac/user/models.py:190 camac/user/models.py:249 camac/user/models.py:457
-#: camac/user/models.py:524
+#: camac/user/admin/views.py:86 camac/user/admin/views.py:121
+#: camac/user/admin/views.py:144 camac/user/admin/views.py:160
+#: camac/user/models.py:190 camac/user/models.py:249 camac/user/models.py:393
+#: camac/user/models.py:418 camac/user/models.py:438 camac/user/models.py:457
+#: camac/user/models.py:486 camac/user/models.py:553
 msgid "Name"
 msgstr "Name"
 
-#: camac/user/admin/views.py:123 camac/user/models.py:445
+#: camac/user/admin/views.py:125 camac/user/models.py:445
+#: camac/user/models.py:474
 msgid "Service group"
 msgstr "Organisationstyp"
 
@@ -759,7 +764,8 @@ msgstr ""
 msgid "User is deactivated."
 msgstr "Benutzer ist deaktiviert."
 
-#: camac/user/models.py:32 camac/user/models.py:168 camac/user/models.py:438
+#: camac/user/models.py:32 camac/user/models.py:168 camac/user/models.py:381
+#: camac/user/models.py:435 camac/user/models.py:467
 msgid "ID"
 msgstr "ID"
 
@@ -775,15 +781,16 @@ msgstr "Vorname"
 msgid "Last name"
 msgstr "Nachname"
 
-#: camac/user/models.py:50 camac/user/models.py:217 camac/user/models.py:492
+#: camac/user/models.py:50 camac/user/models.py:217 camac/user/models.py:521
 msgid "Email"
 msgstr "E-Mail-Adresse"
 
-#: camac/user/models.py:57 camac/user/models.py:197 camac/user/models.py:472
+#: camac/user/models.py:57 camac/user/models.py:197 camac/user/models.py:501
 msgid "Phone"
 msgstr "Telefon"
 
-#: camac/user/models.py:63 camac/user/models.py:246 camac/user/models.py:521
+#: camac/user/models.py:63 camac/user/models.py:246 camac/user/models.py:415
+#: camac/user/models.py:454 camac/user/models.py:550
 msgid "Language"
 msgstr "Sprache"
 
@@ -792,23 +799,23 @@ msgid "Last login"
 msgstr "Letztes Login"
 
 #: camac/user/models.py:79 camac/user/models.py:203 camac/user/models.py:252
-#: camac/user/models.py:478 camac/user/models.py:534
+#: camac/user/models.py:507 camac/user/models.py:563
 msgid "City"
 msgstr "Ort"
 
-#: camac/user/models.py:82 camac/user/models.py:200 camac/user/models.py:475
+#: camac/user/models.py:82 camac/user/models.py:200 camac/user/models.py:504
 msgid "Zip"
 msgstr "PLZ"
 
-#: camac/user/models.py:175
+#: camac/user/models.py:175 camac/user/models.py:406
 msgid "Role"
 msgstr "Rolle"
 
-#: camac/user/models.py:184 camac/user/models.py:512
+#: camac/user/models.py:184 camac/user/models.py:541
 msgid "Service"
 msgstr "Organisation"
 
-#: camac/user/models.py:224 camac/user/models.py:499
+#: camac/user/models.py:224 camac/user/models.py:528
 msgid "Website"
 msgstr "Website"
 
@@ -816,10 +823,26 @@ msgstr "Website"
 msgid "Default group?"
 msgstr "Standardgruppe?"
 
-#: camac/user/models.py:454
+#: camac/user/models.py:390
+msgid "Role parent"
+msgstr "Übergeordnete Rolle"
+
+#: camac/user/models.py:400 camac/user/models.py:425
+msgid "Group prefix"
+msgstr "Gruppenpräfix"
+
+#: camac/user/models.py:407
+msgid "Roles"
+msgstr "Rollen"
+
+#: camac/user/models.py:446
+msgid "Service groups"
+msgstr "Organisationstypen"
+
+#: camac/user/models.py:483
 msgid "Service parent"
 msgstr "Übergeordnete Organisation"
 
-#: camac/user/models.py:513
+#: camac/user/models.py:542
 msgid "Services"
 msgstr "Organisationen"
