@@ -45,3 +45,35 @@ def test_public_service_filter_exclude_own_service(
     assert bool(service.pk in [int(entry["id"]) for entry in data]) != bool(
         exclude_own_service
     )
+
+
+@pytest.mark.parametrize("service__name", [""])
+@pytest.mark.parametrize(
+    "language,search,expected",
+    [
+        ("de", "fr", 0),
+        ("de", "de", 1),
+        ("fr", "fr", 1),
+        ("fr", "de", 0),
+    ],
+)
+def test_public_service_multilingual_search(
+    admin_client,
+    service,
+    service_t_factory,
+    multilang,
+    language,
+    search,
+    expected,
+):
+    service_t_factory(language="de", service=service, name="de")
+    service_t_factory(language="fr", service=service, name="fr")
+
+    response = admin_client.get(
+        reverse("publicservice-list"),
+        HTTP_ACCEPT_LANGUAGE=language,
+        data={"search": search},
+    )
+
+    assert response.status_code == status.HTTP_200_OK
+    assert len(response.json()["data"]) == expected
