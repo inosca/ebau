@@ -1536,10 +1536,10 @@ snapshots['test_document_merge_service_snapshot baugesuch'] = [
                 'choices': [
                     {
                         'checked': True,
-                        'label': 'Der/die Gesuchsteller/in ist verantwortlich für die Einhaltung der Radonvorgaben gemäss Strahlenschutzverordnung des Bundes.'
+                        'label': 'Die Bauherrschaft bestätigt, dass die erforderlichen Massnahmen zum Schutz vor erhöhten Radongaskonzentrationen nach den anerkannten Regeln der Baukunde getroffen werden (siehe "Mehr Informationen"). Die Bauherrschaft hat zur Kenntnis genommen, dass die Bauabnahme grundsätzlich auch eine Radonmessung umfassen kann.'
                     }
                 ],
-                'label': 'Der/die Gesuchsteller/in ist verantwortlich für die Einhaltung der Radonvorgaben gemäss Strahlenschutzverordnung des Bundes.',
+                'label': 'Die Bauherrschaft bestätigt, dass die erforderlichen Massnahmen zum Schutz vor erhöhten Radongaskonzentrationen nach den anerkannten Regeln der Baukunde getroffen werden (siehe "Mehr Informationen"). Die Bauherrschaft hat zur Kenntnis genommen, dass die Bauabnahme grundsätzlich auch eine Radonmessung umfassen kann.',
                 'slug': 'einhaltung-radonvorgaben',
                 'type': 'MultipleChoiceQuestion'
             },
@@ -1547,10 +1547,10 @@ snapshots['test_document_merge_service_snapshot baugesuch'] = [
                 'choices': [
                     {
                         'checked': True,
-                        'label': 'Der/die Gesuchsteller/in ist verantwortlich für die Einhaltung der Asbestvorgaben des Bundes (Chemikalien-Risikoreduktions-Verordnung, ChemRRV).'
+                        'label': 'Die Bauherrschaft bestätigt, dass sie die Ausführungen zu den Asbestfragen (siehe "Mehr Informationen") zur Kenntnis genommen hat. Bei der Umsetzung des Bauvorhabens wird die Bauherrschaft ein Augenmerk auf mögliche asbesthaltige Materialien richten. Sollte ein Asbestverdacht vorhanden sein, verpflichtet sich die Bauherrschaft, das fragliche Material auf Asbest untersuchen zu lassen. Wenn sich dieses Material als astbesthaltig erweist, muss die Bauherrschaft dafür besorgt sein, dass dieses von einer Spezialfirma fachgerecht entsorgt wird (zu Lasten Auftraggeber).'
                     }
                 ],
-                'label': 'Der/die Gesuchsteller/in ist verantwortlich für die Einhaltung der Asbestvorgaben des Bundes (Chemikalien-Risikoreduktions-Verordnung, ChemRRV).',
+                'label': 'Die Bauherrschaft bestätigt, dass sie die Ausführungen zu den Asbestfragen (siehe "Mehr Informationen") zur Kenntnis genommen hat. Bei der Umsetzung des Bauvorhabens wird die Bauherrschaft ein Augenmerk auf mögliche asbesthaltige Materialien richten. Sollte ein Asbestverdacht vorhanden sein, verpflichtet sich die Bauherrschaft, das fragliche Material auf Asbest untersuchen zu lassen. Wenn sich dieses Material als astbesthaltig erweist, muss die Bauherrschaft dafür besorgt sein, dass dieses von einer Spezialfirma fachgerecht entsorgt wird (zu Lasten Auftraggeber).',
                 'slug': 'einhaltung-asbestvorgaben',
                 'type': 'MultipleChoiceQuestion'
             },
