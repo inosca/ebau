@@ -403,10 +403,7 @@ class CamacInstanceChangeFormSerializer(serializers.Serializer):
             )
         elif self.instance.form.name == data["form"]:
             raise exceptions.ValidationError(
-                _(
-                    _("Form is already of type '%(form)s', nothing to do.")
-                    % {"form": data["form"]}
-                )
+                _("Form is already of type '%(form)s'") % {"form": data["form"]}
             )
 
         return data

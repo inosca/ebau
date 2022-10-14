@@ -3246,7 +3246,7 @@ OIDC_OP_USER_ENDPOINT = build_url(OIDC_DEFAULT_BASE_URL, "/userinfo")
 OIDC_RP_SIGN_ALGO = env.str("DJANGO_OIDC_RP_SIGN_ALGO", default="RS256")
 OIDC_OP_JWKS_ENDPOINT = build_url(OIDC_DEFAULT_BASE_URL, "/certs")
 OIDC_OP_INTROSPECT_ENDPOINT = build_url(OIDC_DEFAULT_BASE_URL, "/token/introspect")
-LOGIN_REDIRECT_URL = build_url(INTERNAL_BASE_URL, "/django-admin/")
+LOGIN_REDIRECT_URL = build_url(INTERNAL_BASE_URL, "/django/admin/")
 
 OIDC_EMAIL_CLAIM = env.str("DJANGO_OIDC_EMAIL_CLAIM", default="email")
 OIDC_FIRSTNAME_CLAIM = env.str("DJANGO_OIDC_FIRSTNAME_CLAIM", default="given_name")
