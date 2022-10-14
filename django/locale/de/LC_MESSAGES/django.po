@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-13 15:37+0200\n"
-"PO-Revision-Date: 2022-10-13 15:37+0200\n"
+"POT-Creation-Date: 2022-10-14 09:39+0200\n"
+"PO-Revision-Date: 2022-10-14 09:38+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -649,25 +649,33 @@ msgstr ""
 msgid "Objection %(objection) already has a representative"
 msgstr "Einsprache %(objection) hat bereits einen Vertreter"
 
-#: camac/settings.py:1335
+#: camac/settings.py:1331
 msgid "Circulation started"
 msgstr "Zirkulation gestartet"
 
-#: camac/settings.py:1344
-msgid "Circulation completed"
-msgstr "Zirkulation abgeschlossen"
-
-#: camac/settings.py:1358
+#: camac/settings.py:1348
 msgid "Procedure completed"
 msgstr "Baugesuchsverfahren abgeschlossen"
 
-#: camac/settings.py:2953
+#: camac/settings.py:2943
 msgid "German"
 msgstr "Deutsch"
 
-#: camac/settings.py:2953
+#: camac/settings.py:2943
 msgid "French"
 msgstr "Französisch"
+
+#: camac/settings_distribution.py:65 camac/settings_distribution.py:69
+msgid "Circulation reopened"
+msgstr "Zirkulation wiedereröffnet"
+
+#: camac/settings_distribution.py:67
+msgid "Circulation completed"
+msgstr "Zirkulation abgeschlossen"
+
+#: camac/settings_distribution.py:68
+msgid "Circulation skipped"
+msgstr "Zirkulation übersprungen"
 
 #: camac/templates/admin/base.html:21
 msgid "Back to eBau"
