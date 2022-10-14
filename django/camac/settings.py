@@ -451,9 +451,6 @@ APPLICATIONS = {
                     "skip": [
                         "depreciate-case",
                     ],
-                    "cancel": [
-                        "reopen-circulation",
-                    ],
                 },
                 "check-inquiry": {"cancel": ["revise-inquiry"]},
                 "revise-inquiry": {"cancel": ["check-inquiry"]},
@@ -532,7 +529,6 @@ APPLICATIONS = {
                 },
                 "complete-distribution": {
                     "next_instance_state": "redac",
-                    "history_text": "Zirkulationsentscheid gestartet",
                 },
             },
         },
@@ -1341,17 +1337,11 @@ APPLICATIONS = {
                 "complete-distribution": {
                     "next_instance_state": "coordination",
                     "ech_event": "camac.ech0211.signals.circulation_ended",
-                    "history_text": _("Circulation completed"),
                     "notification": {
                         "template_slug": "03-verfahren-vorzeitig-beendet",
                         "recipient_types": ["unanswered_inquiries"],
                     },
                 },
-                # "reopen-circulation": {
-                #     "next_instance_state": "circulation",
-                #     "ech_event": "camac.ech0211.signals.circulation_started",
-                #     "history_text": _("Circulation reopened"),
-                # },
                 "complete": {
                     "next_instance_state": "finished",
                     "ech_event": "camac.ech0211.signals.finished",
