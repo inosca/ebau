@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 
 from camac.user.admin.fields import CamacBooleanField, CamacLanguageField
 from camac.user.models import (
