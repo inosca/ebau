@@ -7,7 +7,6 @@ module.exports = function (environment) {
     appEnv: process.env.APP_ENV || "development",
     rootURL: "/",
     locationType: "hash",
-    podModulePrefix: "camac-ng/ui",
     historySupportMiddleware: true,
     maxDossierImportSize: 1000000000, // 1GB
     apollo: {
