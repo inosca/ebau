@@ -359,6 +359,44 @@ def test_complete_distribution(
     assert mailoutbox[0].to[0] == service.email
 
 
+@pytest.mark.parametrize("has_inquiries", [True, False])
+def test_distribution_complete_history(
+    db,
+    be_instance,
+    caluma_admin_user,
+    distribution_child_case_be,
+    be_distribution_settings,
+    inquiry_factory_be,
+    has_inquiries,
+    mocker,
+):
+    mocker.patch("camac.notification.utils.send_mail", return_value=None)
+
+    be_distribution_settings["HISTORY"] = {
+        "COMPLETE_DISTRIBUTION": "complete",
+        "SKIP_DISTRIBUTION": "skip",
+    }
+
+    # draft will be canceled, therefore it will be excluded
+    inquiry_factory_be()
+
+    if has_inquiries:
+        inquiry_factory_be(sent=True)
+
+    complete_work_item(
+        work_item=distribution_child_case_be.work_items.get(
+            task_id=be_distribution_settings["DISTRIBUTION_COMPLETE_TASK"],
+            status=WorkItem.STATUS_READY,
+        ),
+        user=caluma_admin_user,
+    )
+
+    if has_inquiries:
+        assert be_instance.history.last().get_trans_attr("title") == "complete"
+    else:
+        assert be_instance.history.last().get_trans_attr("title") == "skip"
+
+
 def test_reopen_distribution(
     db,
     be_instance,
@@ -375,6 +413,7 @@ def test_reopen_distribution(
     be_distribution_settings[
         "INSTANCE_STATE_DISTRIBUTION"
     ] = instance_state_distribution.name
+    be_distribution_settings["HISTORY"] = {"REDO_DISTRIBUTION": "reopen"}
 
     service_with_sent_inquiry = service_factory()
     service_with_unsent_inquiry = service_factory()
@@ -454,6 +493,8 @@ def test_reopen_distribution(
         addressed_groups__contains=[str(subservice_with_sent_inquiry.pk)],
         status=WorkItem.STATUS_READY,
     ).exists()
+
+    assert be_instance.history.last().get_trans_attr("title") == "reopen"
 
 
 def test_reopen_inquiry(
