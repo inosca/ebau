@@ -488,7 +488,7 @@ class InstanceEditableMixin(AttributeMixin):
         )
         if instance.instance_state.name in hidden_states:
             raise exceptions.ValidationError(
-                _("Not allowed to add data to instance %(instance)s as coordination")
+                _("Not allowed to add data to instance %(instance)s")
                 % {"instance": instance.pk}
             )
 
