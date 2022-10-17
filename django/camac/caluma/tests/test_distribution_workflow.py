@@ -9,6 +9,7 @@ from caluma.caluma_workflow.api import (
     skip_work_item,
 )
 from caluma.caluma_workflow.models import Case, WorkItem
+from django.utils.timezone import now
 
 
 def _inquiry_factory(
@@ -257,9 +258,19 @@ def test_complete_inquiry(
     mailoutbox,
     service,
     has_multiple_inquiries,
+    work_item_factory,
 ):
     inquiry1 = inquiry_factory_be(sent=True)
     inquiry2 = inquiry_factory_be(sent=True) if has_multiple_inquiries else None
+
+    addressed_check_work_item = work_item_factory(
+        task_id=be_distribution_settings["INQUIRY_CHECK_TASK"],
+        case=inquiry1.case,
+        status=WorkItem.STATUS_READY,
+        addressed_groups=inquiry1.addressed_groups,
+        deadline=now(),
+        child_case=None,
+    )
 
     for question, value in [
         ("inquiry-answer-status", "inquiry-answer-status-positive"),
@@ -278,6 +289,10 @@ def test_complete_inquiry(
     complete_work_item(
         work_item=inquiry1.child_case.work_items.first(), user=caluma_admin_user
     )
+
+    addressed_check_work_item.refresh_from_db()
+
+    assert addressed_check_work_item.status == WorkItem.STATUS_COMPLETED
 
     inquiry1.refresh_from_db()
 
