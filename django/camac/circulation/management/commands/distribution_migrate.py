@@ -567,9 +567,40 @@ class Command(BaseCommand):
         ).distinct()
 
         for service in services_allowed_to_check:
-            earliest_answered_activation = answered_activations.filter(
-                service_parent=service
-            ).earliest("end_date")
+            has_pending_activations = any(
+                [
+                    self.activation_is_ready(activation)
+                    for activation in activations.filter(service_parent=service)
+                ]
+            )
+
+            last_answered_activation = answered_activations.filter(
+                service_parent=service,
+                end_date__isnull=False,
+            ).latest("end_date")
+
+            # The "check-inquiries" work item only has a deadline if all of the
+            # activation that were created by this service are answered
+            if not has_pending_activations and last_answered_activation:
+                deadline = pytz.utc.localize(
+                    datetime.combine(
+                        (
+                            last_answered_activation.end_date
+                            + timedelta(
+                                seconds=self.config.CHECK_INQUIRIES_TASK.lead_time
+                            )
+                        ).date(),
+                        datetime.min.time(),
+                    )
+                )
+            else:
+                deadline = None
+
+            # If the activation of this service already answered their
+            # activation, the "check-inquiries" work item is completed
+            addressed_activation_answered = answered_activations.filter(
+                service=service
+            ).exists()
 
             work_items.append(
                 WorkItem(
@@ -581,24 +612,13 @@ class Command(BaseCommand):
                     meta=self.config.META,
                     status=WorkItem.STATUS_COMPLETED
                     if distribution_is_closed
+                    or (addressed_activation_answered and deadline)
                     else WorkItem.STATUS_CANCELED
                     if distribution_is_canceled
                     else WorkItem.STATUS_SUSPENDED
                     if distribution_is_suspended
                     else WorkItem.STATUS_READY,
-                    deadline=pytz.utc.localize(
-                        datetime.combine(
-                            (
-                                earliest_answered_activation.end_date
-                                + timedelta(
-                                    seconds=self.config.CHECK_INQUIRIES_TASK.lead_time
-                                )
-                            ).date(),
-                            datetime.min.time(),
-                        )
-                    )
-                    if earliest_answered_activation
-                    else None,
+                    deadline=deadline,
                     closed_at=distribution_closed_at,
                 )
             )
