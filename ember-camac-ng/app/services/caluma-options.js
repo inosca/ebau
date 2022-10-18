@@ -131,6 +131,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
       withdrawInquiry: () => this.shoebox.isLeadRole,
       completeInquiryChildWorkItem: () => this.shoebox.isLeadRole,
       reopenInquiry: () => this.shoebox.isLeadRole,
+      checkInquiries: () => this.shoebox.isLeadRole,
     };
 
     if (macroCondition(getOwnConfig().application === "be")) {

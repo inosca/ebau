@@ -120,6 +120,22 @@ def test_save_work_item_permission(
         ),
         (
             "municipality-lead",
+            "completeWorkItem",
+            "INQUIRY_CHECK_TASK",
+            caluma_workflow_models.WorkItem.STATUS_READY,
+            True,
+            "COMPLETED",
+        ),
+        (
+            "municipality-clerk",
+            "completeWorkItem",
+            "INQUIRY_CHECK_TASK",
+            caluma_workflow_models.WorkItem.STATUS_READY,
+            False,
+            None,
+        ),
+        (
+            "municipality-lead",
             "cancelWorkItem",
             "INQUIRY_TASK",
             caluma_workflow_models.WorkItem.STATUS_READY,
