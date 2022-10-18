@@ -37,6 +37,7 @@ DISTRIBUTION = {
         "PERMISSIONS": {
             "CompleteWorkItem": {
                 "DISTRIBUTION_COMPLETE_TASK": lambda group, *_: is_lead_role(group),
+                "INQUIRY_CHECK_TASK": lambda group, *_: is_lead_role(group),
             },
             "ResumeWorkItem": {
                 "INQUIRY_TASK": lambda group, *_: is_lead_role(group),

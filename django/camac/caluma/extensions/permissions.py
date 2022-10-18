@@ -222,6 +222,7 @@ class CustomPermission(BasePermission):
         CompleteWorkItem,
         [
             "INQUIRY_CREATE_TASK",
+            "INQUIRY_CHECK_TASK",
             "DISTRIBUTION_COMPLETE_TASK",
             "INQUIRY_ANSWER_FILL_TASK",
             "INQUIRY_ANSWER_CHECK_TASK",
