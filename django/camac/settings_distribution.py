@@ -1,5 +1,3 @@
-from datetime import timedelta
-
 from django.utils.translation import gettext_lazy as _
 
 from camac.utils import (
@@ -11,7 +9,7 @@ from camac.utils import (
 DISTRIBUTION = {
     "default": {
         "ECH_EVENTS": False,
-        "DEFAULT_DEADLINE_DELTA": timedelta(days=30),
+        "DEFAULT_DEADLINE_LEAD_TIME": 30,  # 30 days, needs to be the same as configured in the frontend
         "DISTRIBUTION_WORKFLOW": "distribution",
         "DISTRIBUTION_TASK": "distribution",
         "DISTRIBUTION_INIT_TASK": "init-distribution",
