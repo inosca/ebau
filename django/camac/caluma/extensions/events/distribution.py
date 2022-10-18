@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 from itertools import chain
 
 import pytz
@@ -213,16 +213,27 @@ def post_create_inquiry(sender, work_item, user, context=None, **kwargs):
     # suspend work item so it's a draft
     suspend_work_item(work_item=work_item, user=user, context=context)
 
-    # set initial deadline value
-    save_answer(
-        question=Question.objects.get(
-            pk=settings.DISTRIBUTION["QUESTIONS"]["DEADLINE"]
-        ),
-        document=work_item.document,
-        value=now().date() + settings.DISTRIBUTION["DEFAULT_DEADLINE_DELTA"],
-        user=user,
-        context=context,
+    default_deadline = now().date() + timedelta(
+        days=settings.DISTRIBUTION["DEFAULT_DEADLINE_LEAD_TIME"]
     )
+    default_answers = {
+        settings.DISTRIBUTION["QUESTIONS"]["DEADLINE"]: default_deadline.isoformat(),
+        **(context.get("answers", {}) if context else {}),
+    }
+
+    for slug, value in default_answers.items():
+        question = Question.objects.get(pk=slug)
+
+        if question.type == Question.TYPE_DATE:
+            value = datetime.fromisoformat(value).date()
+
+        save_answer(
+            question=question,
+            document=work_item.document,
+            value=value,
+            user=user,
+            context=context,
+        )
 
 
 @on(post_resume_work_item, raise_exception=True)
