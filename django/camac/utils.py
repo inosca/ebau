@@ -149,7 +149,7 @@ def has_permission_for_inquiry_document(group, document):
         return False  # pragma: no cover
 
     return (
-        document.work_item.status == WorkItem.STATUS_SUSPENDED
+        document.work_item.status in [WorkItem.STATUS_SUSPENDED, WorkItem.STATUS_READY]
         and str(group.service_id) in document.work_item.controlling_groups
     )
 
