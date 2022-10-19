@@ -1,0 +1,446 @@
+[
+  {
+    "model": "caluma_form.form",
+    "pk": "baugesuch",
+    "fields": {
+      "created_at": "2021-02-12T13:03:45.382Z",
+      "modified_at": "2021-03-08T13:45:52.178Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Baugesuch\", \"fr\": \"Demande de permis de construire\"}",
+      "description": "{\"de\": \"Baugesuch\", \"fr\": \"Demande de permis de construire\"}",
+      "meta": {
+        "order": 1,
+        "category": "building-permit",
+        "is-creatable": true,
+        "is-main-form": true
+      },
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "dossierpruefung",
+    "fields": {
+      "created_at": "2020-10-13T11:53:41.201Z",
+      "modified_at": "2020-10-14T15:09:32.672Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Dossierpr\\u00fcfung\", \"fr\": \"Examen du dossier\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\"}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "einreichen",
+    "fields": {
+      "created_at": "2022-09-21T12:51:41.954Z",
+      "modified_at": "2022-09-21T12:51:56.802Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Einreichen\", \"fr\": null}",
+      "description": "{\"de\": \"\", \"fr\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch.allgemeine-angaben",
+    "fields": {
+      "created_at": "2022-09-21T12:18:28.725Z",
+      "modified_at": "2022-09-21T12:18:28.725Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baugesuch",
+      "question": "allgemeine-angaben",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch.einreichen",
+    "fields": {
+      "created_at": "2022-09-21T12:52:11.917Z",
+      "modified_at": "2022-09-21T12:52:11.917Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baugesuch",
+      "question": "einreichen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch.personalien",
+    "fields": {
+      "created_at": "2022-09-21T12:18:04.677Z",
+      "modified_at": "2022-09-21T12:18:04.677Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baugesuch",
+      "question": "personalien",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "einreichen.einreichen-button",
+    "fields": {
+      "created_at": "2022-09-21T12:51:45.387Z",
+      "modified_at": "2022-09-21T12:51:45.387Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "einreichen",
+      "question": "einreichen-button",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "einreichen-button-eingereicht",
+    "fields": {
+      "created_at": "2019-06-14T14:30:32.966Z",
+      "modified_at": "2022-09-21T12:51:49.703Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Eingereicht\", \"fr\": \"soumis/transmis\"}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "is-paper-no",
+    "fields": {
+      "created_at": "2020-01-14T07:42:26.848Z",
+      "modified_at": "2020-11-09T10:27:55.727Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "is-paper-yes",
+    "fields": {
+      "created_at": "2020-01-14T07:42:26.842Z",
+      "modified_at": "2020-11-09T10:27:55.737Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "allgemeine-angaben",
+    "fields": {
+      "created_at": "2022-09-21T12:18:28.632Z",
+      "modified_at": "2022-09-21T12:18:28.632Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Allgemeine Angaben\", \"fr\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "allgemeine-angaben-kurz",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "einreichen",
+    "fields": {
+      "created_at": "2022-09-21T12:52:11.818Z",
+      "modified_at": "2022-09-21T12:52:11.818Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Einreichen\", \"fr\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "einreichen",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "einreichen-button",
+    "fields": {
+      "created_at": "2019-05-08T13:38:35.424Z",
+      "modified_at": "2022-09-21T12:51:49.846Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Einreichen\", \"fr\": \"Envoyer\"}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"-\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "action": "submit",
+        "hideLabel": true,
+        "widgetOverride": "be-submit-instance"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "is-paper",
+    "fields": {
+      "created_at": "2020-01-14T07:42:26.963Z",
+      "modified_at": "2020-11-09T10:27:56Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"is-paper\", \"fr\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "'verlaengerung-geltungsdauer' == form || 'migriertes-dossier' == form",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": "cf-field/input/hidden"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "karte",
+    "fields": {
+      "created_at": "2019-05-05T11:28:18.012Z",
+      "modified_at": "2022-05-05T12:15:02.197Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Karte\", \"fr\": \"Carte\"}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": \"\"}",
+      "info_text": "{\"de\": \"![Steuerelement Suche](/assets/images/gis_search.png)![Suchfeld](/assets/images/gis_search_open.png)\\n\\nBeim Klick auf die Lupe \\u00f6ffnet sich das Suchfenster. \\u00dcber das Suchfenster kann die Parzelle \\u00fcber die Strasse gesucht werden.  Durch das Anklicken der Strasse, gelangt man zur gesuchten Parzelle.\\n\\n![Steuerelemente](/assets/images/gis_controls.png)\\n\\nAlternativ kann man direkt \\u00fcber die Karte nach der gew\\u00fcnschten Parzelle suchen. F\\u00fcr das Hinein- und Herauszoomen stehen das + und - Symbol und f\\u00fcr das Fortbewegen stehen die Pfeilsymbole zur Verf\\u00fcgung.\\n\\n![Steuerelement Vollbild](/assets/images/gis_fullscreen.png)\\n\\nDieses Symbol richtet die Karte wieder auf den gesamten Kanton Bern aus.\\n\\n![Steuerelement Kartenansicht](/assets/images/gis_legend.png)\\n\\n\\u00dcber dieses Symbol kann die Kartenansicht ver\\u00e4ndert werden. Es stehen folgende Kartenansichten zur Verf\\u00fcgung.\\n- Standard\\n- Geb\\u00e4udeadressen 1:7500\\n- Gemeinden\\n- Grundst\\u00fccke 1:6000\\n\\n![Steuerelement Zoom](/assets/images/gis_zoom.png)\\n\\nDamit die Parzelle ausgew\\u00e4hlt werden kann, muss vorg\\u00e4ngig auf den Button +/- geklickt werden.\\n\\n![Steuerelement Auswahl](/assets/images/gis_select_unselected.png)![Steuerelement Auswahl (ausgew\\u00e4hlt)](/assets/images/gis_select_selected.png)\\n\\nWenn die gew\\u00fcnschte Parzelle ausgew\\u00e4hlt wurde, erscheint ein Haken Symbol. Die Auswahl wird durch einen Klick auf das Symbol best\\u00e4tigt. Das Symbol f\\u00e4rbt sich rot ein und die Parzelle wird markiert.\\n\\n![Daten \\u00fcbernehmen](/assets/images/gis_button_de.png)\\n\\nNachdem die Parzelle ausgew\\u00e4hlt wurde, muss auf den Button \\u00abDaten \\u00fcbernehmen\\u00bb geklickt werden, damit die Formularfelder ausgef\\u00fcllt werden. Der Button befindet sich unterhalb der Karte.\\n\\n![Neu laden](/assets/images/gis_refresh_de.png)\\n\\nWenn die Karte nicht richtig dargestellt wird, kann das Problem \\u00fcber \\u00abNeu laden\\u00bb behoben werden. Der Button befindet sich unterhalb der Karte.\", \"fr\": \"![Contr\\u00f4le de recherche](/assets/images/gis_search.png)![Champ de recherche](/assets/images/gis_search_open.png)\\n\\nUn clic sur la loupe ouvre la fen\\u00eatre de recherche. Cette fen\\u00eatre de recherche permet de rechercher la parcelle via la rue.  En cliquant sur la rue, vous arrivez \\u00e0 la parcelle que vous recherchez.\\n\\n![El\\u00e9ments de contr\\u00f4le](/assets/images/gis_controls.png)\\n\\nVous pouvez \\u00e9galement rechercher la parcelle souhait\\u00e9e directement sur la carte. Les symboles + et - permettent d'effectuer un zoom en avant ou en arri\\u00e8re, et les fl\\u00e8ches permettent de se d\\u00e9placer.\\n\\n![Contr\\u00f4le du plein \\u00e9cran](/assets/images/gis_fullscreen.png)\\n\\nCe symbole permet de r\\u00e9aligner la carte sur l'ensemble du canton de Berne.\\n\\n![Contr\\u00f4le de la vue cartographique](/assets/images/gis_legend.png)\\n\\nCe symbole peut \\u00eatre utilis\\u00e9 pour changer la vue cartographique. Les affichages cartographiques suivants sont disponibles. \\n- Standard\\n- N\\u00b0 d\\u2019immeuble 1:7500\\n- Communes\\n- Parcelles 1:6000\\n\\n![Contr\\u00f4le du zoom](/assets/images/gis_zoom.png)\\n\\nAfin de s\\u00e9lectionner le trac\\u00e9, il faut d'abord cliquer sur le bouton +/-.\\n\\n![Contr\\u00f4le de s\\u00e9lection](/assets/images/gis_select_unselected.png)![Contr\\u00f4le de s\\u00e9lection (s\\u00e9lectionn\\u00e9)](/assets/images/gis_select_selected.png)\\n\\nLorsque le trac\\u00e9 souhait\\u00e9 a \\u00e9t\\u00e9 s\\u00e9lectionn\\u00e9, un symbole de coche appara\\u00eet. La s\\u00e9lection est confirm\\u00e9e en cliquant sur le symbole. Le symbole devient rouge et la parcelle est marqu\\u00e9e.\\n\\n![Reprendre les donn\\u00e9es](/assets/images/gis_button_fr.png)\\n\\nApr\\u00e8s avoir s\\u00e9lectionn\\u00e9 le terrain, il faut cliquer sur le bouton \\u00abReprendre les donn\\u00e9es\\u00bb pour que les champs du formulaire soient remplis. Le bouton est situ\\u00e9 en dessous de la carte.\\n\\n![Recharger](/assets/images/gis_refresh_fr.png)\\n\\nSi la carte ne s'affiche pas correctement, le probl\\u00e8me peut \\u00eatre r\\u00e9solu en cliquant sur \\u00abRecharger\\u00bb. Le bouton est situ\\u00e9 en dessous de la carte.\"}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {
+        "widgetOverride": "be-gis"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "personalien",
+    "fields": {
+      "created_at": "2022-09-21T12:18:04.569Z",
+      "modified_at": "2022-09-21T12:18:04.569Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Personalien\", \"fr\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "personalien",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "standort-migriert",
+    "fields": {
+      "created_at": "2020-10-07T13:52:21.285Z",
+      "modified_at": "2020-10-15T12:20:17.392Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Standort\", \"fr\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "form != 'migriertes-dossier'",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "einreichen-button.einreichen-button-eingereicht",
+    "fields": {
+      "created_at": "2022-09-21T12:51:49.852Z",
+      "modified_at": "2022-09-21T12:51:49.852Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "einreichen-button",
+      "option": "einreichen-button-eingereicht",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "is-paper.is-paper-no",
+    "fields": {
+      "created_at": "2020-11-09T10:27:56.015Z",
+      "modified_at": "2020-11-09T10:27:56.015Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "is-paper",
+      "option": "is-paper-no",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "is-paper.is-paper-yes",
+    "fields": {
+      "created_at": "2020-11-09T10:27:56.023Z",
+      "modified_at": "2020-11-09T10:27:56.023Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "is-paper",
+      "option": "is-paper-yes",
+      "sort": 2
+    }
+  }
+]
