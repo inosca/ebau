@@ -314,6 +314,21 @@ def post_complete_inquiry(sender, work_item, user, context=None, **kwargs):
         )
         controlling_check_work_item.save()
 
+    addressed_check_work_item = work_item.case.work_items.filter(
+        task_id=settings.DISTRIBUTION["INQUIRY_CHECK_TASK"],
+        status=WorkItem.STATUS_READY,
+        deadline__isnull=False,
+        addressed_groups=work_item.addressed_groups,
+    ).first()
+
+    # If there is a "check-inquiries" work item with a deadline (visible in the
+    # work item list) addressed to the service that just completed an inquiry,
+    # it must be automatically completed
+    if addressed_check_work_item:
+        complete_work_item(
+            work_item=addressed_check_work_item, user=user, context=context
+        )
+
     if settings.DISTRIBUTION["ECH_EVENTS"]:
         camac_user = User.objects.get(username=user.username)
         accompanying_report_send.send(
