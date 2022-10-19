@@ -104,7 +104,7 @@ def test_attachment_download_history_create(
     mocker.patch(
         "camac.document.permissions.PERMISSIONS",
         {
-            "demo": {
+            "test": {
                 role.name.lower(): {
                     permissions.AdminPermission: [
                         attachment_attachment_sections.attachmentsection_id

@@ -1196,7 +1196,7 @@ def test_instance_submit(
     # fix permissions
     mocker.patch(
         "camac.document.permissions.PERMISSIONS",
-        {"demo": {role.name.lower(): {"admin": [attachment_section.pk]}}},
+        {"test": {role.name.lower(): {"admin": [attachment_section.pk]}}},
     )
 
     response = admin_client.post(url)
