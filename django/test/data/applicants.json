@@ -1,0 +1,13 @@
+[
+  {
+    "model": "applicants.applicant",
+    "pk": 1,
+    "fields": {
+      "instance": 1,
+      "user": 1,
+      "invitee": 1,
+      "created": "2022-10-06T13:46:56.845Z",
+      "email": "email@example.ch"
+    }
+  }
+]

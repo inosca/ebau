@@ -48,7 +48,7 @@ addopts = "--reuse-db --randomly-seed=1521188766 --randomly-dont-reorganize"
 DJANGO_SETTINGS_MODULE = "camac.settings"
 env = [
     "DJANGO_CACHE_BACKEND=django.core.cache.backends.locmem.LocMemCache",
-    "APPLICATION=demo",
+    "APPLICATION=test",
     "APPLICATION_ENV=ci",
     "TEST_SUITE_RUNNING=true",
 ]

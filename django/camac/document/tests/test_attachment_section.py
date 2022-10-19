@@ -26,7 +26,7 @@ def test_attachment_section_list(
     mocker.patch(
         "camac.document.permissions.PERMISSIONS",
         {
-            "demo": {
+            "test": {
                 role.name.lower(): {
                     permissions.AdminPermission: [attachment_section_role.pk]
                 }
@@ -52,7 +52,7 @@ def test_attachment_section_detail(admin_client, attachment_section, role, mocke
     mocker.patch(
         "camac.document.permissions.PERMISSIONS",
         {
-            "demo": {
+            "test": {
                 role.name.lower(): {
                     permissions.AdminPermission: [attachment_section.pk]
                 }
@@ -211,7 +211,7 @@ def test_attachment_section_permissions_kt_bern(
     mocker.patch(
         "camac.document.permissions.PERMISSIONS",
         {
-            "demo": {
+            "test": {
                 "municipality-lead": {
                     permissions.AdminPermission: [attachment_section.pk]
                 },
