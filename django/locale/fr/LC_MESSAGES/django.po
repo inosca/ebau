@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-14 09:39+0200\n"
-"PO-Revision-Date: 2022-10-14 09:39+0200\n"
+"POT-Creation-Date: 2022-10-14 11:24+0200\n"
+"PO-Revision-Date: 2022-10-14 11:21+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -681,8 +681,8 @@ msgid "Circulation skipped"
 msgstr "Sans procédure de circulation"
 
 #: camac/templates/admin/base.html:21
-msgid "Back to eBau"
-msgstr "Retour à eBau"
+msgid "Back to CAMAC admin"
+msgstr "Retour à CAMAC Admin"
 
 #: camac/user/admin/filters.py:6 camac/user/admin/forms.py:26
 #: camac/user/admin/forms.py:42 camac/user/admin/forms.py:51
