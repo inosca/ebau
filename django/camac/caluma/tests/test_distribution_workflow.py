@@ -319,6 +319,7 @@ def test_send_inquiry(
 
 @pytest.mark.freeze_time("2022-03-23")
 @pytest.mark.parametrize("service__email", ["service@example.com"])
+@pytest.mark.parametrize("has_multiple_inquiries", [True, False])
 def test_complete_inquiry(
     db,
     caluma_admin_user,
@@ -327,8 +328,10 @@ def test_complete_inquiry(
     inquiry_factory_be,
     mailoutbox,
     service,
+    has_multiple_inquiries,
 ):
-    inquiry = inquiry_factory_be(sent=True)
+    inquiry1 = inquiry_factory_be(sent=True)
+    inquiry2 = inquiry_factory_be(sent=True) if has_multiple_inquiries else None
 
     for question, value in [
         ("inquiry-answer-status", "inquiry-answer-status-positive"),
@@ -337,7 +340,7 @@ def test_complete_inquiry(
     ]:
         save_answer(
             question=Question.objects.get(pk=question),
-            document=inquiry.child_case.document,
+            document=inquiry1.child_case.document,
             value=value,
             user=caluma_admin_user,
         )
@@ -345,22 +348,45 @@ def test_complete_inquiry(
     mailoutbox.clear()
 
     complete_work_item(
-        work_item=inquiry.child_case.work_items.first(), user=caluma_admin_user
+        work_item=inquiry1.child_case.work_items.first(), user=caluma_admin_user
     )
 
-    inquiry.refresh_from_db()
+    inquiry1.refresh_from_db()
 
-    assert distribution_child_case_be.work_items.filter(
+    check_work_item = distribution_child_case_be.work_items.filter(
         task_id=be_distribution_settings["INQUIRY_CHECK_TASK"],
         status=WorkItem.STATUS_READY,
         addressed_groups=[str(service.pk)],
-    ).exists()
+    ).first()
 
-    assert inquiry.child_case.status == Case.STATUS_COMPLETED
-    assert inquiry.status == WorkItem.STATUS_COMPLETED
+    assert check_work_item
+
+    if has_multiple_inquiries:
+        assert check_work_item.deadline is None
+    else:
+        assert check_work_item.deadline.isoformat() == "2022-04-02T00:00:00+00:00"
+
+    assert inquiry1.child_case.status == Case.STATUS_COMPLETED
+    assert inquiry1.status == WorkItem.STATUS_COMPLETED
 
     assert len(mailoutbox) == 1
     assert mailoutbox[0].to[0] == "service@example.com"
+
+    if has_multiple_inquiries:
+        save_answer(
+            question=Question.objects.get(pk="inquiry-answer-status"),
+            document=inquiry2.child_case.document,
+            value="inquiry-answer-status-negative",
+            user=caluma_admin_user,
+        )
+
+        complete_work_item(
+            work_item=inquiry2.child_case.work_items.first(), user=caluma_admin_user
+        )
+
+        check_work_item.refresh_from_db()
+
+        assert check_work_item.deadline.isoformat() == "2022-04-02T00:00:00+00:00"
 
 
 def test_complete_distribution(
