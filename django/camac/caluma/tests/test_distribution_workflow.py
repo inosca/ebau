@@ -213,6 +213,78 @@ def test_create_inquiry(
     ).exists()
 
 
+@pytest.mark.freeze_time("2022-01-01")
+@pytest.mark.parametrize(
+    "passed_deadline,passed_remark,expected_deadline,expected_remark",
+    [
+        (None, None, "2022-01-31", None),
+        ("2022-01-13", "Test", "2022-01-13", "Test"),
+    ],
+)
+def test_inquiry_default_values(
+    db,
+    distribution_child_case_be,
+    service_factory,
+    caluma_admin_user,
+    be_distribution_settings,
+    service,
+    passed_deadline,
+    passed_remark,
+    expected_deadline,
+    expected_remark,
+):
+    to_service = service_factory()
+
+    create_work_item = distribution_child_case_be.work_items.get(
+        task_id=be_distribution_settings["INQUIRY_CREATE_TASK"],
+        addressed_groups=[str(service.pk)],
+        status=WorkItem.STATUS_READY,
+    )
+
+    context = {"addressed_groups": [str(to_service.pk)], "answers": {}}
+
+    if passed_deadline:
+        context["answers"][
+            be_distribution_settings["QUESTIONS"]["DEADLINE"]
+        ] = passed_deadline
+
+    if passed_remark:
+        context["answers"][
+            be_distribution_settings["QUESTIONS"]["REMARK"]
+        ] = passed_remark
+
+    complete_work_item(
+        work_item=create_work_item,
+        user=caluma_admin_user,
+        context=context,
+    )
+
+    create_work_item.refresh_from_db()
+
+    inquiry = create_work_item.succeeding_work_items.get(
+        addressed_groups=[str(to_service.pk)],
+        controlling_groups=[str(service.pk)],
+        status=WorkItem.STATUS_SUSPENDED,
+    )
+
+    assert inquiry
+
+    assert (
+        inquiry.document.answers.get(
+            question_id=be_distribution_settings["QUESTIONS"]["DEADLINE"]
+        ).date.isoformat()
+        == expected_deadline
+    )
+
+    if expected_remark:
+        assert (
+            inquiry.document.answers.get(
+                question_id=be_distribution_settings["QUESTIONS"]["REMARK"]
+            ).value
+            == expected_remark
+        )
+
+
 @pytest.mark.freeze_time("2022-03-23")
 @pytest.mark.parametrize("user__email", ["applicant@example.com"])
 def test_send_inquiry(
