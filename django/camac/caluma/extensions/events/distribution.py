@@ -293,6 +293,27 @@ def post_complete_inquiry(sender, work_item, user, context=None, **kwargs):
     # send notification to controlling service
     send_inquiry_notification("INQUIRY_ANSWERED", work_item, user)
 
+    pending_inquiries = work_item.case.work_items.filter(
+        task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
+        status=WorkItem.STATUS_READY,
+        controlling_groups=work_item.controlling_groups,
+    )
+
+    controlling_check_work_item = work_item.case.work_items.filter(
+        task_id=settings.DISTRIBUTION["INQUIRY_CHECK_TASK"],
+        status=WorkItem.STATUS_READY,
+        addressed_groups=work_item.controlling_groups,
+    ).first()
+
+    # If there are no pending inquiries by the controlling service of this
+    # inquiry, we set the deadline of the "check-inquiries" work item addressed
+    # to that service so it will be displayed in the work item list.
+    if not pending_inquiries.exists() and controlling_check_work_item:
+        controlling_check_work_item.deadline = (
+            controlling_check_work_item.task.calculate_deadline()
+        )
+        controlling_check_work_item.save()
+
     if settings.DISTRIBUTION["ECH_EVENTS"]:
         camac_user = User.objects.get(username=user.username)
         accompanying_report_send.send(
@@ -303,6 +324,26 @@ def post_complete_inquiry(sender, work_item, user, context=None, **kwargs):
             inquiry=work_item,
             attachments=context.get("attachments") if context else None,
         )
+
+
+@on(post_create_work_item, raise_exception=True)
+@filter_by_task("INQUIRY_CHECK_TASK")
+@transaction.atomic
+def post_create_check_inquiries(sender, work_item, user, context=None, **kwargs):
+    # If there are pending inquiries for the addressed service on creation of
+    # the "check-inquiries" work item, we set the deadline to `None` so it won't
+    # be displayed in the work item list. The deadline will be set by the
+    # `post_complete_inquiry` event handler when the last pending inquiry is
+    # completed.
+    pending_inquiries = work_item.case.work_items.filter(
+        task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
+        status=WorkItem.STATUS_READY,
+        controlling_groups=work_item.addressed_groups,
+    )
+
+    if pending_inquiries.exists():
+        work_item.deadline = None
+        work_item.save()
 
 
 @on(pre_complete_work_item, raise_exception=True)
