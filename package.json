@@ -8,8 +8,5 @@
   ],
   "devDependencies": {
     "prettier": "2.7.1"
-  },
-  "resolutions": {
-    "uuid": "9.0.0"
   }
 }
