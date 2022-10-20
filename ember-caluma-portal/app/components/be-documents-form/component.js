@@ -92,7 +92,7 @@ export default class BeDocumentsFormComponent extends Component {
 
     const isUploadedOrInQuery = (attachment) =>
       this.uploadedAttachmentIds.includes(attachment.get("id")) ||
-      fetchedAttachmentIds.includes(attachment.get("id"));
+      fetchedAttachmentIds?.includes(attachment.get("id"));
 
     return this.store
       .peekAll("attachment")
