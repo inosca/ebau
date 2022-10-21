@@ -226,6 +226,47 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
               "inquiry-answer-status-opposition": INQUIRY_STATUS.NEGATIVE,
               "inquiry-answer-status-inspection": INQUIRY_STATUS.POSITIVE,
             },
+            details: (inquiry) => {
+              const releasedForReviewWorkItem =
+                inquiry.childCase.workItems.edges
+                  .map((workItem) => workItem.node)
+                  .filter(
+                    (workItem) =>
+                      ["fill-inquiry", "alter-inquiry"].includes(
+                        workItem.task.slug
+                      ) && workItem.status === "COMPLETED"
+                  )
+                  .sort((a, b) => a.closedAt - b.closedAt)
+                  .reverse()[0];
+
+              return [
+                {
+                  label: "caluma.distribution.inquiry.created-at",
+                  value: inquiry.createdAt,
+                  type: "date",
+                },
+                {
+                  label: "caluma.distribution.inquiry.assigned-user",
+                  value: inquiry.assignedUsers,
+                  type: "user",
+                },
+                {
+                  label: "distribution.inquiry.released-for-review",
+                  value: releasedForReviewWorkItem?.closedAt,
+                  type: "date",
+                },
+                {
+                  label: "caluma.distribution.inquiry.closed-at",
+                  value: inquiry.closedAt,
+                  type: "date",
+                },
+                {
+                  label: "distribution.inquiry.closed-by",
+                  value: inquiry.closedByUser,
+                  type: "user",
+                },
+              ];
+            },
           },
         },
         new: {

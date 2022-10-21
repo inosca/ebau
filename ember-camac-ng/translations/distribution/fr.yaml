@@ -12,3 +12,9 @@ distribution:
   release-adjustment-for-review: "Valider la révision pour contrôle"
   confirm: "Confirmer"
   revise: "Réviser"
+
+  inquiry:
+    released-for-review: ""
+    closed-by: ""
+
+"caluma.distribution.inquiry.created-at": "Date de début"
