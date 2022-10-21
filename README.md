@@ -145,6 +145,7 @@ respectively:
 | kt_uri        | Admin       | admin      | admin      |         |
 |               | PortalUser  | portal     | portal     |         |
 | kt_bern       | Admin       | user       | user       |         |
+| demo          | Admin       | user       | user       |         |
 
 #### Debugging
 

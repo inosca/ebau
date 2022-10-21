@@ -1,8 +1,9 @@
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
+import { queryManager } from "ember-apollo-client";
 import { dropTask, lastValue } from "ember-concurrency";
 import { trackedTask } from "ember-resources/util/ember-concurrency";
-import { queryManager } from "ember-apollo-client";
+
 import getDistributionCaseQuery from "ebau/gql/queries/get-distribution-case.graphql";
 
 export default class SubNavigationComponent extends Component {
@@ -38,7 +39,7 @@ export default class SubNavigationComponent extends Component {
         fetchPolicy: "network-only",
         variables: { instanceId: this.args.instanceId },
       },
-      "allCases.edges.firstObject.node.workItems.edges.firstObject.node"
+      "allCases.edges.firstObject.node.workItems.edges.firstObject.node.childCase"
     );
 
     return raw;
