@@ -91,12 +91,12 @@
             <span class="uk-text-danger">*</span>
           </label>
           <div class="uk-form-controls">
-            <input
+            <Datepicker
               id="deadline"
-              type="text"
-              class="uk-input"
-              {{pikaday value=this.workItem.deadline onSelect=(fn (mut this.workItem.deadline))}}
-              required
+              required={{true}}
+              @value={{this.workItem.deadline}}
+              @minDate={{this.minDeadline}}
+              @onChange={{fn (mut this.workItem.deadline)}}
             />
           </div>
         </div>
