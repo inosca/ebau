@@ -32,6 +32,10 @@ export default class WorkItemDetailEditComponent extends Component {
     return this.workItemsQuery.value[0];
   }
 
+  get minDeadline() {
+    return new Date();
+  }
+
   users = query(this, "public-user", () => ({
     service: this.args.serviceId,
     disabled: false,
