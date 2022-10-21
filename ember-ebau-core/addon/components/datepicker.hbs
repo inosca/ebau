@@ -1,0 +1,14 @@
+<EmberFlatpickr
+  @date={{or @value null}}
+  @locale={{this.locale}}
+  @dateFormat="Y-m-d"
+  @altFormat="d.m.Y"
+  @allowInput={{true}}
+  @altInput={{true}}
+  @onChange={{this.onChange}}
+  @disabled={{@disabled}}
+  @minDate={{@minDate}}
+  @maxDate={{@maxDate}}
+  class="uk-input"
+  ...attributes
+/>
