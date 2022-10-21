@@ -12,3 +12,9 @@ distribution:
   release-adjustment-for-review: "Anpassung zur Kontrolle freigeben"
   confirm: "Bestätigen"
   revise: "Überarbeiten"
+
+  inquiry:
+    released-for-review: "Zur Überprüfung freigegeben"
+    closed-by: "Geprüft durch"
+
+"caluma.distribution.inquiry.created-at": "Startdatum"
