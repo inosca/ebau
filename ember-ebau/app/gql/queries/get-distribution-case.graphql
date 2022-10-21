@@ -4,14 +4,11 @@ query GetDistributionCase($instanceId: GenericScalar!) {
   ) {
     edges {
       node {
-        id
-        meta
         workItems(filter: [{task: "distribution"}]) {
           edges {
             node {
-              id
-              task {
-                slug
+              childCase {
+                id
               }
             }
           }

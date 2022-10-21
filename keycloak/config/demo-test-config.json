@@ -3726,10 +3726,10 @@
           "http://ebau-portal.local/*",
           "http://ember-ebau.local/*",
           "http://ebau.local/*",
-          "http://localhost:4202/*"
+          "http://localhost:4400/*"
         ],
         "webOrigins": [
-          "http://localhost:4202",
+          "http://localhost:4400",
           "http://ebau.local",
           "http://ember-ebau.local",
           "http://ebau-portal.local"

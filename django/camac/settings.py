@@ -3119,6 +3119,11 @@ APPLICATIONS = {
                 },
             ),
         },
+        "GENERALIZED_ROLE_MAPPING": {
+            "municipality": "municipality-lead",
+            "service": "service-lead",
+            "support": "support",
+        },
     },
 }
 
