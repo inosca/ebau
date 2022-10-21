@@ -1,6 +1,2 @@
 global:
   delete: "Löschen"
-
-pikaday:
-  previousMonth: "Vorheriger Monat"
-  nextMonth: "Nächster Monat"

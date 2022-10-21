@@ -6825,7 +6825,7 @@ ember-file-upload@7.1.0:
     ember-modifier "^3.2.7"
     tracked-built-ins "^3.0.0"
 
-ember-flatpickr@^3.2.3:
+ember-flatpickr@3.2.3, ember-flatpickr@^3.2.3:
   version "3.2.3"
   resolved "https://registry.yarnpkg.com/ember-flatpickr/-/ember-flatpickr-3.2.3.tgz#4ec405d03853d67316fb1813e4e39bca487f1b83"
   integrity sha512-ON6FNh3gFSxDTam2UOyPOSeYki5qNqPqPEB+SS/Q+L+kPEvxmDMPeG/lWLLvdDsPR0X55W9q7uSjzZZAD/UxqA==
@@ -7032,7 +7032,7 @@ ember-page-title@7.0.0:
   dependencies:
     ember-cli-babel "^7.26.6"
 
-ember-pikaday@4.0.0, ember-pikaday@^4.0.0:
+ember-pikaday@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/ember-pikaday/-/ember-pikaday-4.0.0.tgz#7fbf58087abcdaa0cdc66aa22f3ef0496038eaec"
   integrity sha512-YEKvINhIBLb03F6BJ5newJZKo0IVx03ISEjZNVtE8NW+kOVRBcWZeIREf2p28YRukilKcQBDgqUBj5MwKSr46w==
