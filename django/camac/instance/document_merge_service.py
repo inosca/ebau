@@ -372,6 +372,11 @@ class DMSVisitor:
     def _is_visible_question(self, node):
         return node.slug in self.validation_context["visible_questions"]
 
+    def _is_static_title(self, node):
+        return node.type != Question.TYPE_STATIC or str(node.label) in str(
+            node.static_content
+        )
+
     def _visit_document(self, node, form=None, flatten=False, **kwargs):
         if not form:
             form = node.form
@@ -380,7 +385,11 @@ class DMSVisitor:
 
         visited_children = []
         for child in children:
-            if child.slug in self.exclude_slugs or not self._is_visible_question(child):
+            if (
+                child.slug in self.exclude_slugs
+                or not self._is_static_title(child)
+                or not self._is_visible_question(child)
+            ):
                 continue
 
             if (
