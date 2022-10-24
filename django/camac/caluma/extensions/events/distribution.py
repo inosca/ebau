@@ -1,7 +1,6 @@
 from datetime import datetime, timedelta
 from itertools import chain
 
-import pytz
 import reversion
 from caluma.caluma_core.events import filter_events, on
 from caluma.caluma_form.api import save_answer
@@ -28,6 +27,7 @@ from django.conf import settings
 from django.db import transaction
 from django.utils.timezone import now
 
+from camac.caluma.utils import sync_inquiry_deadline
 from camac.core.utils import create_history_entry
 from camac.ech0211.signals import (
     accompanying_report_send,
@@ -240,16 +240,7 @@ def post_create_inquiry(sender, work_item, user, context=None, **kwargs):
 @filter_by_task("INQUIRY_TASK")
 @transaction.atomic
 def post_resume_inquiry(sender, work_item, user, context=None, **kwargs):
-    # update work item deadline from form data
-    deadline_date = work_item.document.answers.get(
-        question_id=Question.objects.get(
-            pk=settings.DISTRIBUTION["QUESTIONS"]["DEADLINE"]
-        )
-    ).date
-    work_item.deadline = pytz.utc.localize(
-        datetime.combine(deadline_date, datetime.min.time())
-    )
-    work_item.save()
+    sync_inquiry_deadline(work_item)
 
     # start inquiry child case
     start_case(
