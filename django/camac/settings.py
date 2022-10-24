@@ -454,7 +454,9 @@ APPLICATIONS = {
                 },
                 "check-inquiry": {"cancel": ["revise-inquiry"]},
                 "revise-inquiry": {"cancel": ["check-inquiry"]},
-                "distribution": {"cancel": ["additional-demand"]},
+                "distribution": {
+                    "cancel": ["additional-demand", "submit-additional-demand"]
+                },
                 "depreciate-case": {
                     # CAUTION: When importing dossiers this section is modified in runtime to avoid unwanted
                     # outcomes when fast-forwarding workflow states of imported cases.
