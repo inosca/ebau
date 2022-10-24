@@ -1128,13 +1128,16 @@ class Command(BaseCommand):
         # handle depreciated cases
         case_is_depreciated = self.case_is_depreciated(case)
 
-        # create additional demand work-item
-        if not WorkItem.objects.filter(
-            task=self.config.ADDITIONAL_DEMAND_TASK,
-            case=case,
-        ).exists():
+        # create additional-demand work-item or rewrite previous_work_item
+        additional_demand_work_item = WorkItem.objects.filter(
+            task=self.config.ADDITIONAL_DEMAND_TASK, case=case
+        ).first()
 
-            work_item = WorkItem.objects.create(
+        if additional_demand_work_item:
+            additional_demand_work_item.previous_work_item = previous_work_item
+            additional_demand_work_item.save()
+        else:
+            additional_demand_work_item = WorkItem.objects.create(
                 task=self.config.ADDITIONAL_DEMAND_TASK,
                 name=self.config.ADDITIONAL_DEMAND_TASK.name,
                 addressed_groups=[user.group],
@@ -1153,8 +1156,8 @@ class Command(BaseCommand):
             )
 
             if previous_work_item:
-                work_item.created_at = previous_work_item.closed_at
-                work_item.save()
+                additional_demand_work_item.created_at = previous_work_item.closed_at
+                additional_demand_work_item.save()
 
     @canton_aware(include_base_method=True)
     def on_migrate_activations(self, distribution_case, activations):
