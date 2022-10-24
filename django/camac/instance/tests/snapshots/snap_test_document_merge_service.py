@@ -170,12 +170,6 @@ snapshots['test_document_merge_service_snapshot baugesuch'] = [
                                     'slug': 'e-mail-gesuchstellerin',
                                     'type': 'TextQuestion',
                                     'value': 'test@example.ch'
-                                },
-                                {
-                                    'content': None,
-                                    'label': 'Hinweis Gesuchsteller/in',
-                                    'slug': 'hinweis-personalien',
-                                    'type': 'StaticQuestion'
                                 }
                             ]
                         ],
@@ -359,12 +353,6 @@ snapshots['test_document_merge_service_snapshot baugesuch'] = [
                         'slug': 'dach-farbe',
                         'type': 'TextQuestion',
                         'value': None
-                    },
-                    {
-                        'content': None,
-                        'label': 'bauvorhaben-separator',
-                        'slug': 'bauvorhaben-separator',
-                        'type': 'StaticQuestion'
                     },
                     {
                         'choices': [
@@ -1401,12 +1389,6 @@ snapshots['test_document_merge_service_snapshot baugesuch'] = [
             {
                 'children': [
                     {
-                        'content': None,
-                        'label': 'Hinweis Naturgefahren',
-                        'slug': 'hinweis-naturgefahren',
-                        'type': 'StaticQuestion'
-                    },
-                    {
                         'choices': [
                             {
                                 'checked': True,
@@ -1627,18 +1609,6 @@ snapshots['test_document_merge_service_snapshot baugesuch'] = [
                 'slug': 'freigabequittung-bemerkungen',
                 'type': 'TextareaQuestion',
                 'value': None
-            },
-            {
-                'content': None,
-                'label': 'freigabequittung-text',
-                'slug': 'freigabequittung-text',
-                'type': 'StaticQuestion'
-            },
-            {
-                'content': None,
-                'label': 'Formulardownload (PDF)',
-                'slug': 'formulardownload-pdf',
-                'type': 'StaticQuestion'
             }
         ],
         'label': 'Einreichen',
@@ -1821,12 +1791,6 @@ snapshots['test_document_merge_service_snapshot sb1'] = [
                             'slug': 'e-mail-gesuchstellerin',
                             'type': 'TextQuestion',
                             'value': 'info@example.com'
-                        },
-                        {
-                            'content': None,
-                            'label': 'Hinweis Gesuchsteller/in',
-                            'slug': 'hinweis-personalien',
-                            'type': 'StaticQuestion'
                         }
                     ],
                     [
@@ -1889,12 +1853,6 @@ snapshots['test_document_merge_service_snapshot sb1'] = [
                             'slug': 'e-mail-gesuchstellerin',
                             'type': 'TextQuestion',
                             'value': 'i@e.org'
-                        },
-                        {
-                            'content': None,
-                            'label': 'Hinweis Gesuchsteller/in',
-                            'slug': 'hinweis-personalien',
-                            'type': 'StaticQuestion'
                         }
                     ]
                 ],
@@ -1969,12 +1927,6 @@ snapshots['test_document_merge_service_snapshot sb1'] = [
                 'content': None,
                 'label': '',
                 'slug': 'freigabequittung-druckansicht',
-                'type': 'StaticQuestion'
-            },
-            {
-                'content': None,
-                'label': 'Formulardownload (PDF)',
-                'slug': 'formulardownload-pdf',
                 'type': 'StaticQuestion'
             }
         ],
@@ -2086,12 +2038,6 @@ snapshots['test_document_merge_service_snapshot sb2'] = [
                             'slug': 'e-mail-gesuchstellerin',
                             'type': 'TextQuestion',
                             'value': 'i@e.org'
-                        },
-                        {
-                            'content': None,
-                            'label': 'Hinweis Gesuchsteller/in',
-                            'slug': 'hinweis-personalien',
-                            'type': 'StaticQuestion'
                         }
                     ],
                     [
@@ -2154,12 +2100,6 @@ snapshots['test_document_merge_service_snapshot sb2'] = [
                             'slug': 'e-mail-gesuchstellerin',
                             'type': 'TextQuestion',
                             'value': 'info@example.com'
-                        },
-                        {
-                            'content': None,
-                            'label': 'Hinweis Gesuchsteller/in',
-                            'slug': 'hinweis-personalien',
-                            'type': 'StaticQuestion'
                         }
                     ]
                 ],
@@ -2293,12 +2233,6 @@ snapshots['test_document_merge_service_snapshot sb2'] = [
                 'content': None,
                 'label': '',
                 'slug': 'freigabequittung-sb2-druckansicht',
-                'type': 'StaticQuestion'
-            },
-            {
-                'content': None,
-                'label': 'Formulardownload (PDF)',
-                'slug': 'formulardownload-pdf',
                 'type': 'StaticQuestion'
             }
         ],
