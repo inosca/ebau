@@ -1,8 +1,11 @@
 from copy import copy
+from datetime import date, datetime
 from typing import Optional
 
+import pytz
 from caluma.caluma_form.models import Answer, Document, Question
 from caluma.caluma_user.models import AnonymousUser, OIDCUser
+from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.contrib.auth.models import AnonymousUser as AnonymousCamacUser
 from django.utils.translation import get_language
@@ -74,6 +77,31 @@ def get_answer_display_value(
         return answer.date.strftime(date_format) if answer.date else None
 
     return answer.value
+
+
+def sync_inquiry_deadline(
+    inquiry: WorkItem, deadline: Optional[date] = None
+) -> WorkItem:
+    """Synchronize the inquriy deadline from input or the document."""
+
+    if not settings.DISTRIBUTION:  # pragma: no cover
+        return inquiry
+
+    assert (
+        inquiry.task_id == settings.DISTRIBUTION["INQUIRY_TASK"]
+    ), f"Passed work item must be of task {settings.DISTRIBUTION['INQUIRY_TASK']}"
+
+    if not deadline:
+        deadline = inquiry.document.answers.get(
+            question_id=settings.DISTRIBUTION["QUESTIONS"]["DEADLINE"]
+        ).date
+
+    inquiry.deadline = pytz.utc.localize(
+        datetime.combine(deadline, datetime.min.time())
+    )
+    inquiry.save()
+
+    return inquiry
 
 
 class CamacRequest:
