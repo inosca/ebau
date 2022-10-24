@@ -176,6 +176,20 @@ def post_redo_distribution(sender, work_item, user, context=None, **kwargs):
             group_pk=user.camac_group,
         )
 
+    redo_distribution_create_tasks = settings.DISTRIBUTION["REDO_DISTRIBUTION"].get(
+        "CREATE_TASKS"
+    )
+    if redo_distribution_create_tasks:
+        for task_name in redo_distribution_create_tasks:
+            WorkItem.objects.create(
+                task=Task.objects.get(slug=task_name),
+                name=task_name,
+                addressed_groups=work_item.addressed_groups,
+                case=work_item.case,
+                status=WorkItem.STATUS_READY,
+                previous_work_item=work_item.previous_work_item,
+            )
+
 
 @on(post_redo_work_item, raise_exception=True)
 @filter_by_task("INQUIRY_TASK")
