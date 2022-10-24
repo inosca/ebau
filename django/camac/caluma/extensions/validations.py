@@ -1,12 +1,12 @@
 from caluma.caluma_core.validations import BaseValidation, validation_for
 from caluma.caluma_form.models import Answer
-from caluma.caluma_form.schema import SaveDocumentStringAnswer
+from caluma.caluma_form.schema import SaveDocumentDateAnswer, SaveDocumentStringAnswer
 from caluma.caluma_workflow.models import WorkItem
 from caluma.caluma_workflow.schema import CompleteWorkItem
 from django.conf import settings
 from rest_framework import exceptions
 
-from camac.caluma.utils import CamacRequest
+from camac.caluma.utils import CamacRequest, sync_inquiry_deadline
 from camac.ech0211.signals import file_subsequently
 from camac.notification.utils import send_mail
 
@@ -98,5 +98,17 @@ class CustomValidation(BaseValidation):
                 raise exceptions.ValidationError(
                     "Services can't create inquiries for themselves!"
                 )
+
+        return data
+
+    @validation_for(SaveDocumentDateAnswer)
+    def validate_inquiry_deadline(self, mutation, data, info):
+        if (
+            settings.DISTRIBUTION
+            and data["question"].slug == settings.DISTRIBUTION["QUESTIONS"]["DEADLINE"]
+        ):
+            sync_inquiry_deadline(data["document"].work_item, data["date"])
+
+            return data
 
         return data
