@@ -733,3 +733,48 @@ def test_cancel_inquiry(
                     if i == len(inquiries)
                     else WorkItem.STATUS_READY
                 ).exists()
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+def test_sync_inquiry_deadline(
+    db,
+    be_distribution_settings,
+    caluma_admin_schema_executor,
+    inquiry_factory_be,
+    mocker,
+):
+    mocker.patch(
+        "camac.caluma.extensions.permissions.CustomPermission.has_camac_edit_permission",
+        return_value=True,
+    )
+
+    inquiry = inquiry_factory_be(sent=True)
+
+    result = caluma_admin_schema_executor(
+        """
+        mutation($input: SaveDocumentDateAnswerInput!) {
+            saveDocumentDateAnswer(input: $input) {
+                clientMutationId
+            }
+        }
+        """,
+        variables={
+            "input": {
+                "document": str(inquiry.document.pk),
+                "question": be_distribution_settings["QUESTIONS"]["DEADLINE"],
+                "value": "2022-10-24",
+            }
+        },
+    )
+
+    assert not result.errors
+
+    inquiry.refresh_from_db()
+
+    assert inquiry.deadline.isoformat() == "2022-10-24T00:00:00+00:00"
+    assert (
+        inquiry.document.answers.get(
+            question_id=be_distribution_settings["QUESTIONS"]["DEADLINE"]
+        ).date.isoformat()
+        == "2022-10-24"
+    )
