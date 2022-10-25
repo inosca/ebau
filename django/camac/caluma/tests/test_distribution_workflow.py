@@ -344,6 +344,20 @@ def test_complete_inquiry(
         child_case=None,
     )
 
+    addressed_redo_work_item = work_item_factory(
+        task_id=be_distribution_settings["INQUIRY_REDO_TASK"],
+        case=inquiry1.case,
+        status=WorkItem.STATUS_READY,
+        addressed_groups=inquiry1.addressed_groups,
+        child_case=None,
+    )
+
+    addressed_create_work_item = inquiry1.case.work_items.get(
+        task_id=be_distribution_settings["INQUIRY_CREATE_TASK"],
+        status=WorkItem.STATUS_READY,
+        addressed_groups=inquiry1.addressed_groups,
+    )
+
     for question, value in [
         ("inquiry-answer-status", "inquiry-answer-status-positive"),
         ("inquiry-answer-statement", "Stellungnahme Test"),
@@ -363,8 +377,14 @@ def test_complete_inquiry(
     )
 
     addressed_check_work_item.refresh_from_db()
+    addressed_redo_work_item.refresh_from_db()
+    addressed_create_work_item.refresh_from_db()
 
     assert addressed_check_work_item.status == WorkItem.STATUS_COMPLETED
+
+    if not has_multiple_inquiries:
+        assert addressed_redo_work_item.status == WorkItem.STATUS_CANCELED
+        assert addressed_create_work_item.status == WorkItem.STATUS_CANCELED
 
     inquiry1.refresh_from_db()
 
@@ -402,6 +422,11 @@ def test_complete_inquiry(
         check_work_item.refresh_from_db()
 
         assert check_work_item.deadline.isoformat() == "2022-04-02T00:00:00+00:00"
+
+        addressed_redo_work_item.refresh_from_db()
+        addressed_create_work_item.refresh_from_db()
+        assert addressed_redo_work_item.status == WorkItem.STATUS_CANCELED
+        assert addressed_create_work_item.status == WorkItem.STATUS_CANCELED
 
 
 def test_complete_distribution(
