@@ -8,7 +8,7 @@ from django.core.management import call_command
 
 
 @pytest.mark.parametrize("application", settings.APPLICATIONS.keys())
-def test_dump_and_load(db, settings, application, tmpdir):
+def test_dump_and_load(db, settings, application, tmp_path):
     settings.APPLICATION_DIR = settings.ROOT_DIR.path(application)
     settings.APPLICATION = settings.APPLICATIONS[application]
     settings.APPLICATION_NAME = application
@@ -28,7 +28,7 @@ def test_dump_and_load(db, settings, application, tmpdir):
     )
 
     for dump_type in ["config", "data"]:
-        outdir = tmpdir.join(dump_type)
+        outdir = tmp_path / dump_type
         outdir.mkdir()
 
         call_command(
@@ -39,7 +39,7 @@ def test_dump_and_load(db, settings, application, tmpdir):
 
         for filepath in glob(settings.APPLICATION_DIR(f"{dump_type}/*.json")):
             filename = filepath.split("/")[-1]
-            test_filepath = os.path.join(outdir, filename)
+            test_filepath = outdir / filename
 
             with open(test_filepath, "r") as test_dumped, open(filepath, "r") as dumped:
                 #  verify that dump is still the same

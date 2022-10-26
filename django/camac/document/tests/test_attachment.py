@@ -58,7 +58,7 @@ def test_attachment_list(
     mocker.patch(
         "camac.document.permissions.PERMISSIONS",
         {
-            "demo": {
+            "test": {
                 role.name.lower(): {
                     mode: [attachment_attachment_sections.attachmentsection_id]
                 }
@@ -135,7 +135,7 @@ def test_attachment_context_filter(
     mocker.patch(
         "camac.document.permissions.PERMISSIONS",
         {
-            "demo": {
+            "test": {
                 "applicant": {
                     permissions.AdminPermission: [
                         attachment_attachment_sections.attachmentsection_id
@@ -480,7 +480,7 @@ def test_attachment_create(
     # fix permissions
     mocker.patch(
         "camac.document.permissions.PERMISSIONS",
-        {"demo": {role.name.lower(): {acl_mode: [attachment_section.pk]}}},
+        {"test": {role.name.lower(): {acl_mode: [attachment_section.pk]}}},
     )
 
     application_settings["ATTACHMENT_INTERNAL_STATES"] = ["internal"]
@@ -558,7 +558,7 @@ def test_attachment_download(
     # fix permissions
     mocker.patch(
         "camac.document.permissions.PERMISSIONS",
-        {"demo": {"applicant": {acl_mode: [attachment_section.pk]}}},
+        {"test": {"applicant": {acl_mode: [attachment_section.pk]}}},
     )
 
     test_path = "/".join(str(attachment1.path).split("/")[3:])
@@ -639,7 +639,7 @@ def test_attachment_thumbnail(
     mocker.patch(
         "camac.document.permissions.PERMISSIONS",
         {
-            "demo": {
+            "test": {
                 "applicant": {
                     permissions.AdminPermission: [
                         section.pk for section in models.AttachmentSection.objects.all()
@@ -681,7 +681,7 @@ def test_attachment_update(
     mocker.patch(
         "camac.document.permissions.PERMISSIONS",
         {
-            "demo": {
+            "test": {
                 "canton": {
                     permissions.AdminPermission: [
                         section.pk for section in models.AttachmentSection.objects.all()
@@ -836,7 +836,7 @@ def test_attachment_update_context(
     mocker.patch(
         "camac.document.permissions.PERMISSIONS",
         {
-            "demo": {
+            "test": {
                 admin_user.groups.first().role.name.lower(): {
                     permission: [attachment_section.pk]
                 }
@@ -881,7 +881,7 @@ def test_attachment_detail(
     mocker.patch(
         "camac.document.permissions.PERMISSIONS",
         {
-            "demo": {
+            "test": {
                 role.name.lower(): {
                     permissions.AdminPermission: [
                         attachment_attachment_sections.attachmentsection_id
@@ -906,7 +906,7 @@ def test_attachment_loosen_filter(
     # permissons: Our user has no permission
     mocker.patch(
         "camac.document.permissions.PERMISSIONS",
-        {"demo": {role.name.lower(): {permissions.AdminPermission: []}}},
+        {"test": {role.name.lower(): {permissions.AdminPermission: []}}},
     )
 
     # First test in here: attachment was not marked and thus not visible
@@ -1100,7 +1100,7 @@ def test_attachment_delete(
     mocker.patch(
         "camac.document.permissions.PERMISSIONS",
         {
-            "demo": {
+            "test": {
                 "applicant": {
                     acl_mode: [
                         section.pk for section in models.AttachmentSection.objects.all()
@@ -1157,7 +1157,7 @@ def test_attachment_mime_type(
     mocker.patch(
         "camac.document.permissions.PERMISSIONS",
         {
-            "demo": {
+            "test": {
                 role.name.lower(): {
                     permissions.AdminPermission: [attachment_section.pk]
                 }
@@ -1201,7 +1201,7 @@ def test_attachment_section_filters(
     mocker.patch(
         "camac.document.permissions.PERMISSIONS",
         {
-            "demo": {
+            "test": {
                 role.name.lower(): {
                     permissions.AdminPermission: [
                         section_visible_1.pk,
@@ -1436,7 +1436,7 @@ def test_attachment_delete_custom_admin_modes(
     mocker.patch(
         "camac.document.permissions.PERMISSIONS",
         {
-            "demo": {
+            "test": {
                 "municipality": {
                     acl_mode: [
                         section.pk for section in models.AttachmentSection.objects.all()
@@ -1513,7 +1513,7 @@ def test_attachment_update_section(
     mocker.patch(
         "camac.document.permissions.PERMISSIONS",
         {
-            "demo": {
+            "test": {
                 "municipality": {
                     permissions.AdminPermission: [section_existing.pk],
                     permissions.AdminInternalPermission: [section_new.pk],
@@ -1563,7 +1563,7 @@ def test_attachment_delete_multiple_sections(
     # fix permissions
     mocker.patch(
         "camac.document.permissions.PERMISSIONS",
-        {"demo": {"municipality": {permissions.AdminPermission: sections}}},
+        {"test": {"municipality": {permissions.AdminPermission: sections}}},
     )
 
     url = reverse("attachment-detail", args=[attachment.pk])
@@ -1611,7 +1611,7 @@ def test_attachment_update_custom_permissions(
     mocker.patch(
         "camac.document.permissions.PERMISSIONS",
         {
-            "demo": {
+            "test": {
                 "service": {
                     permissions.AdminPermission: [existing_section.pk],
                     permissions.AdminServiceRunningInquiryPermission: [new_section.pk],

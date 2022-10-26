@@ -1,0 +1,12 @@
+[
+  {
+    "model": "api.template",
+    "pk": "form",
+    "fields": {
+      "description": "",
+      "template": "form.docx",
+      "engine": "docx-template",
+      "group": null
+    }
+  }
+]
