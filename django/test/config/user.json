@@ -1,0 +1,52 @@
+[
+  {
+    "model": "user.group",
+    "pk": 1,
+    "fields": {
+      "role": 1,
+      "service": null,
+      "disabled": 0,
+      "name": "Admin",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 2,
+    "fields": {
+      "role": 2,
+      "service": null,
+      "disabled": 0,
+      "name": "Guest",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 1,
+    "fields": {
+      "role_parent": null,
+      "name": "Admin",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 2,
+    "fields": {
+      "role_parent": null,
+      "name": "Guest",
+      "group_prefix": null
+    }
+  }
+]

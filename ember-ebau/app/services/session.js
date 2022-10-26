@@ -26,11 +26,15 @@ export default class CustomSession extends Session {
 
   @tracked groups = [];
   @tracked enforcePublicAccess = false;
+  @tracked currentInstanceId;
 
   @localCopy("data.language") _language;
   @localCopy("data.group") _group;
 
-  _data = trackedTask(this, this.fetchUser, () => [this.isAuthenticated]);
+  _data = trackedTask(this, this.fetchUser, () => [
+    this.isAuthenticated,
+    this.group,
+  ]);
 
   @dropTask
   *fetchUser() {
@@ -63,7 +67,11 @@ export default class CustomSession extends Session {
         );
     }
 
-    const group = this.group && this.store.peekRecord("group", this.group);
+    // we have to know which is the current group
+    const groupId =
+      this.group ?? response.data.relationships["default-group"].data.id;
+    const group = this.store.peekRecord("group", groupId);
+
     return {
       user: this.store.peekRecord("user", response.data.id),
       group,
@@ -86,6 +94,10 @@ export default class CustomSession extends Session {
 
   get rolePermission() {
     return this.role?.permission;
+  }
+
+  get isLeadRole() {
+    return true;
   }
 
   get isReadOnlyRole() {

@@ -291,7 +291,7 @@ def test_public_caluma_documents_ur(
     # fix attachment permissions
     mocker.patch(
         "camac.document.permissions.PERMISSIONS",
-        {"demo": {"applicant": {permissions.AdminPermission: [section.pk]}}},
+        {"test": {"applicant": {permissions.AdminPermission: [section.pk]}}},
     )
 
     response = admin_client.get(reverse("attachment-list"), **headers)
@@ -400,7 +400,7 @@ def test_public_documents_sz(
     mocker.patch(
         "camac.document.permissions.PERMISSIONS",
         {
-            "demo": {
+            "test": {
                 "applicant": {
                     permissions.AdminPermission: [section_public.pk, section.pk]
                 }

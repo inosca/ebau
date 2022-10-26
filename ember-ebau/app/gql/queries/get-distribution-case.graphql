@@ -1,0 +1,19 @@
+query GetDistributionCase($instanceId: GenericScalar!) {
+  allCases(
+    filter: [{ metaValue: [{ key: "camac-instance-id", value: $instanceId }] }]
+  ) {
+    edges {
+      node {
+        workItems(filter: [{task: "distribution"}]) {
+          edges {
+            node {
+              childCase {
+                id
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
