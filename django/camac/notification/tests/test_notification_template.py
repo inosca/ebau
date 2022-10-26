@@ -1,4 +1,5 @@
 import functools
+import re
 from datetime import datetime
 
 import pytest
@@ -667,6 +668,7 @@ def test_notification_caluma_placeholders(
         INQUIRY_ANSWER_DE: {{INQUIRY_ANSWER_DE}}
         INQUIRY_ANSWER_FR: {{INQUIRY_ANSWER_FR}}
         INQUIRY_REMARK: {{INQUIRY_REMARK}}
+        INQUIRY_LINK: {{INQUIRY_LINK}}
         CURRENT_SERVICE: {{CURRENT_SERVICE}}
         CURRENT_SERVICE_DE: {{CURRENT_SERVICE_DE}}
         CURRENT_SERVICE_FR: {{CURRENT_SERVICE_FR}}
@@ -760,7 +762,12 @@ def test_notification_caluma_placeholders(
     assert response.status_code == status.HTTP_204_NO_CONTENT
 
     assert len(mailoutbox) == 1
-    snapshot.assert_match(mailoutbox[0].body)
+
+    body = mailoutbox[0].body
+    body = re.sub(r"(distribution\/).{36}(\/)", r"\1DISTRIBUTION_UUID\2", body)
+    body = re.sub(r"(from\/\d+\/to\/\d+\/).{36}(\/answer)", r"\1INQUIRY_UUID\2", body)
+
+    snapshot.assert_match(body)
 
 
 @pytest.mark.parametrize("use_static_user", [True, False])
