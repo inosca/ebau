@@ -7,6 +7,7 @@ const ENV_MAP = {
   kt_bern: "be",
   kt_schwyz: "sz",
   kt_uri: "ur",
+  demo: "demo",
 };
 
 const ENVS = Object.values(ENV_MAP);
