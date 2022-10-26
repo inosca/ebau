@@ -123,6 +123,7 @@ services:
       - minio
     environment:
       - DATABASE_HOST=db
+      - DATABASE_NAME=${APPLICATION}
       - DATABASE_PASSWORD=camac
       - DATABASE_USER=camac
       - ENV=development
