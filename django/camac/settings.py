@@ -2745,11 +2745,7 @@ APPLICATIONS = {
             "SAVE_DOSSIER_NUMBER_IN_CALUMA": True,
         },
         "INSTANCE_STATE_REJECTION_COMPLETE": "finished",
-        "REJECTION_FEEDBACK_QUESTION": {
-            "CHAPTER": 20001,
-            "QUESTION": 20037,
-            "ITEM": 1,
-        },
+        "REJECTION_FEEDBACK_QUESTION": {},
         "USE_INSTANCE_SERVICE": True,
         "ACTIVE_SERVICES": {
             "MUNICIPALITY": {
@@ -2764,34 +2760,8 @@ APPLICATIONS = {
         "SIDE_EFFECTS": {
             "document_downloaded": "camac.document.side_effects.create_workflow_entry",
         },
-        "DOSSIER_IMPORT": {
-            "REQUIRED_KEYS": [
-                "external-id",
-                "parzelle-nr",
-                "erfassungsjahr",
-                "vorhaben",
-                "ort",
-                "baurecht-nr",
-                "gemeinde",
-                "gesuchsteller",
-                "documents",
-            ],
-            "USER": "import@koor-bg.ur.ch",
-        },
-        "CUSTOM_NOTIFICATION_TYPES": [
-            # BE
-            "inactive_municipality",
-            # UR
-            "submitter_list",
-            "municipality_users",
-            "unnotified_service_users",
-            "lisag",
-            "koor_np_users",
-            "koor_bg_users",
-            "koor_bd_users",
-            "koor_sd_users",
-            "responsible_koor",
-        ],
+        "DOSSIER_IMPORT": {},
+        "CUSTOM_NOTIFICATION_TYPES": [],
         "NOTIFICATIONS": {
             "SUBMIT": [
                 {
@@ -2819,67 +2789,12 @@ APPLICATIONS = {
                 ),
                 "caluma_form.Option": Q(questions__forms__pk__in=COMMON_FORM_SLUGS_BE),
             },
-            "caluma_dossier_import_form": {
-                "caluma_form.Form": Q(pk="migriertes-dossier")
-                | Q(pk="migriertes-dossier-daten"),
-                "caluma_form.FormQuestion": Q(form__pk="migriertes-dossier")
-                | Q(form__pk="migriertes-dossier-daten"),
-                "caluma_form.Question": Q(forms__pk="migriertes-dossier")
-                | Q(forms__pk="migriertes-dossier-daten"),
-                "caluma_form.QuestionOption": Q(
-                    question__forms__pk="migriertes-dossier"
-                )
-                | Q(question__forms__pk="migriertes-dossier-daten"),
-                "caluma_form.Option": Q(questions__forms__pk="migriertes-dossier")
-                | Q(questions__forms__pk="migriertes-dossier-daten"),
-            },
-            "caluma_form_v2": {
-                "caluma_form.Form": Q(pk__endswith="-v2"),
-                "caluma_form.FormQuestion": Q(form__pk__endswith="-v2"),
-                "caluma_form.Question": Q(pk__endswith="-v2"),
-                "caluma_form.QuestionOption": Q(question__pk__endswith="-v2"),
-                "caluma_form.Option": Q(questions__pk__endswith="-v2"),
-                "caluma_form.Answer": Q(
-                    question__forms__pk__endswith="-v2",
-                    document__isnull=True,
-                ),
-            },
-            "caluma_form_sb2": {
-                "caluma_form.Form": Q(pk="sb2"),
-                "caluma_form.FormQuestion": Q(form__pk="sb2"),
-                "caluma_form.Question": Q(forms__pk="sb2"),
-                "caluma_form.QuestionOption": Q(question__forms__pk="sb2"),
-                "caluma_form.Option": Q(questions__forms__pk="sb2"),
-            },
-            "caluma_information_of_neighbors_form": {
-                "caluma_form.Form": Q(pk="information-of-neighbors"),
-                "caluma_form.FormQuestion": Q(form__pk="information-of-neighbors"),
-                "caluma_form.Question": Q(forms__pk="information-of-neighbors"),
-                "caluma_form.QuestionOption": Q(
-                    question__forms__pk="information-of-neighbors"
-                ),
-                "caluma_form.Option": Q(
-                    questions__forms__pk="information-of-neighbors"
-                ),
-            },
             "caluma_ebau_number_form": {
                 "caluma_form.Form": Q(pk="ebau-number"),
                 "caluma_form.FormQuestion": Q(form__pk="ebau-number"),
                 "caluma_form.Question": Q(forms__pk="ebau-number"),
                 "caluma_form.QuestionOption": Q(question__forms__pk="ebau-number"),
                 "caluma_form.Option": Q(questions__forms__pk="ebau-number"),
-            },
-            "caluma_solar_plants_form": {
-                "caluma_form.Form": Q(pk__startswith="solaranlagen"),
-                "caluma_form.FormQuestion": Q(form__pk__startswith="solaranlagen"),
-                "caluma_form.Question": Q(forms__pk__startswith="solaranlagen")
-                & ~Q(pk__in=["8-freigabequittung", "dokumente-platzhalter"]),
-                "caluma_form.QuestionOption": Q(
-                    question__forms__pk__startswith="solaranlagen"
-                ),
-                "caluma_form.Option": Q(
-                    questions__forms__pk__startswith="solaranlagen"
-                ),
             },
             "caluma_decision_form": {
                 "caluma_form.Form": Q(pk="decision"),
