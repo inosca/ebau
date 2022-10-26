@@ -2631,6 +2631,14 @@
   },
   {
     "model": "core.rroleacl",
+    "pk": 2000000,
+    "fields": {
+      "resource": 14000000,
+      "role": 4
+    }
+  },
+  {
+    "model": "core.rroleacl",
     "pk": 14000000,
     "fields": {
       "resource": 150000,
@@ -2804,7 +2812,7 @@
     "fields": {
       "resource": 14000000,
       "language": "de",
-      "name": "Vorlagen Verwaltung",
+      "name": "Vorlagenverwaltung",
       "description": null
     }
   }
