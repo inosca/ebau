@@ -5,7 +5,7 @@ distribution:
   services-sz: "Fachstellen"
   subservices: "Unterfachstellen"
   external-services: "Externe Fachstellen"
-  municipal-services: "Fachstellen Gemeinden"
+  municipal-services: "Fachstellen Gemeinde"
 
   send-answer: "Antwort senden"
   release-for-review: "Zur Kontrolle freigeben"

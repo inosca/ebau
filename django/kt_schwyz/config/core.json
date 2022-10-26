@@ -2652,7 +2652,7 @@
     "fields": {
       "available_instance_resource": "page",
       "resource": 28,
-      "name": "Zirkulation",
+      "name": "Stellungnahmen",
       "description": null,
       "template": "/ember-camac-ng/distribution.phtml",
       "class_field": null,
@@ -2667,7 +2667,7 @@
     "fields": {
       "available_instance_resource": "page",
       "resource": 28,
-      "name": "Zirkulation",
+      "name": "Stellungnahmen",
       "description": null,
       "template": "/ember-camac-ng/distribution.phtml",
       "class_field": null,
