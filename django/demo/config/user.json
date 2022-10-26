@@ -80,6 +80,22 @@
     }
   },
   {
+    "model": "user.group",
+    "pk": 20097,
+    "fields": {
+      "role": 10001,
+      "service": null,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
     "model": "user.groupt",
     "pk": 1,
     "fields": {
@@ -170,6 +186,26 @@
     }
   },
   {
+    "model": "user.groupt",
+    "pk": 26535,
+    "fields": {
+      "group": 20097,
+      "language": "de",
+      "name": "Portal",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 26536,
+    "fields": {
+      "group": 20097,
+      "language": "fr",
+      "name": "Portal",
+      "city": null
+    }
+  },
+  {
     "model": "user.role",
     "pk": 1,
     "fields": {
@@ -211,6 +247,15 @@
     "fields": {
       "role_parent": null,
       "name": "support",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 10001,
+    "fields": {
+      "role_parent": null,
+      "name": null,
       "group_prefix": null
     }
   },
@@ -331,6 +376,26 @@
       "role": 10000,
       "language": "fr",
       "name": "Support",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20030,
+    "fields": {
+      "role": 10001,
+      "language": "de",
+      "name": "Gesuchsteller",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20031,
+    "fields": {
+      "role": 10001,
+      "language": "fr",
+      "name": "Requérant/e",
       "group_prefix": null
     }
   },
