@@ -284,7 +284,7 @@ def post_complete_inquiry(sender, work_item, user, context=None, **kwargs):
     # send notification to controlling service
     send_inquiry_notification("INQUIRY_ANSWERED", work_item, user)
 
-    pending_inquiries = work_item.case.work_items.filter(
+    pending_controlling_inquiries = work_item.case.work_items.filter(
         task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
         status=WorkItem.STATUS_READY,
         controlling_groups=work_item.controlling_groups,
@@ -299,7 +299,7 @@ def post_complete_inquiry(sender, work_item, user, context=None, **kwargs):
     # If there are no pending inquiries by the controlling service of this
     # inquiry, we set the deadline of the "check-inquiries" work item addressed
     # to that service so it will be displayed in the work item list.
-    if not pending_inquiries.exists() and controlling_check_work_item:
+    if not pending_controlling_inquiries.exists() and controlling_check_work_item:
         controlling_check_work_item.deadline = (
             controlling_check_work_item.task.calculate_deadline()
         )
@@ -319,6 +319,27 @@ def post_complete_inquiry(sender, work_item, user, context=None, **kwargs):
         complete_work_item(
             work_item=addressed_check_work_item, user=user, context=context
         )
+
+    pending_addressed_inquiries = work_item.case.work_items.filter(
+        task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
+        status=WorkItem.STATUS_READY,
+        addressed_groups=work_item.addressed_groups,
+    )
+
+    # If there are no more pending inquiries addressed to the service that just
+    # completed an inquiry, we need to cancel all create and redo inquiry work
+    # items in order to prohibit new or reopened inquiries controlled by this
+    # service.
+    if not pending_addressed_inquiries.exists():
+        for work_item_to_cancel in work_item.case.work_items.filter(
+            task_id__in=[
+                settings.DISTRIBUTION["INQUIRY_CREATE_TASK"],
+                settings.DISTRIBUTION["INQUIRY_REDO_TASK"],
+            ],
+            status=WorkItem.STATUS_READY,
+            addressed_groups=work_item.addressed_groups,
+        ):
+            cancel_work_item(work_item=work_item_to_cancel, user=user, context=context)
 
     if settings.DISTRIBUTION["ECH_EVENTS"]:
         camac_user = User.objects.get(username=user.username)
