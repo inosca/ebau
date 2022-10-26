@@ -24,6 +24,10 @@ module.exports = function (environment) {
     rejected: 31,
     old: 33,
   };
+  const instanceStatesDemo = {
+    new: 1,
+    finished: 120006,
+  };
   const appConfig = {
     demo: {
       name: "demo",
@@ -56,14 +60,10 @@ module.exports = function (environment) {
         feedbackSection: 3,
         excludeFromDocuments: ["dokumente-platzhalter"],
       },
-      instanceStates: instanceStatesBe,
+      instanceStates: instanceStatesDemo,
       modification: {
         allowForms: ["baugesuch"],
-        disallowStates: [
-          instanceStatesBe.new,
-          instanceStatesBe.archived,
-          instanceStatesBe.finished,
-        ],
+        disallowStates: [instanceStatesDemo.new, instanceStatesDemo.finished],
       },
       answerSlugs: {},
       personalSuggestions: {
