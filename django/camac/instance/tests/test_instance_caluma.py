@@ -1299,6 +1299,54 @@ def test_generate_and_store_pdf(
     assert attachment_section_default.attachments.count() == 0 if paper else 1
 
 
+def test_generate_and_store_pdf_no_setting(
+    db,
+    be_instance,
+    admin_user,
+    service,
+    group,
+    attachment_section_factory,
+    document_factory,
+    mocker,
+    application_settings,
+    caluma_workflow_config_be,
+    caluma_admin_user,
+):
+    attachment_section_default = attachment_section_factory()
+
+    del application_settings["STORE_PDF"]
+
+    client = mocker.patch(
+        "camac.instance.document_merge_service.DMSClient"
+    ).return_value
+    client.merge.return_value = b"some binary data"
+    mocker.patch("camac.instance.document_merge_service.DMSVisitor.visit")
+    context = mocker.patch(
+        "camac.instance.serializers.CalumaInstanceSubmitSerializer.context"
+    )
+    context["request"].user = admin_user
+    context["request"].group = group
+    context["request"].caluma_info.context.user = caluma_admin_user
+    mocker.patch("rest_framework.authentication.get_authorization_header")
+
+    serializer = CalumaInstanceSubmitSerializer()
+
+    application_settings["DOCUMENT_MERGE_SERVICE"] = {
+        "FORM": {
+            "main-form": {"template": "some-template"},
+            "nfd": {"template": "some-template"},
+        },
+    }
+
+    be_instance.case.document.answers.create(
+        value=str(service.pk), question_id="gemeinde"
+    )
+
+    serializer._generate_and_store_pdf(be_instance)
+
+    assert attachment_section_default.attachments.count() == 0
+
+
 @pytest.mark.parametrize(
     "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
 )
