@@ -38,9 +38,11 @@ module.exports = function (environment) {
       instanceStateCategories: {
         pending: [
           1, // new
+          120004, // subm
+          120005, // circ
         ],
         done: [
-          120004, // finished
+          120006, // finished
         ],
       },
       completePreliminaryClarificationSlugs: [

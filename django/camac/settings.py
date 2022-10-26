@@ -2734,7 +2734,7 @@ APPLICATIONS = {
             "name",
             "surname",
         ],
-        "PORTAL_GROUP": None,
+        "PORTAL_GROUP": 20097,
         "CALUMA": {
             "SUBMIT_TASKS": ["submit"],
             "FORM_PERMISSIONS": ["main", "inquiry", "inquiry-answer"],
