@@ -16,16 +16,17 @@ class Command(BaseCommand):
     help = "Send reminders for all inquiries that exceeded their deadline yesterday."
 
     def handle(self, *args, **options):
-        for instance_id in WorkItem.objects.filter(
+        for work_item in WorkItem.objects.filter(
             task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
             status=WorkItem.STATUS_READY,
             deadline__date=date.today() - timedelta(days=1),
             case__family__instance__instance_state__name="circulation",
-        ).values_list("case__family__instance__pk", flat=True):
+        ):
             send_mail(
                 TEMPLATE_REMINDER_CIRCULATION,
                 {},
                 PermissionlessNotificationTemplateSendmailSerializer,
                 recipient_types=["inquiry_deadline_yesterday"],
-                instance={"id": instance_id, "type": "instances"},
+                instance={"id": work_item.case.family.instance.pk, "type": "instances"},
+                inquiry={"id": work_item.pk, "type": "work-items"},
             )
