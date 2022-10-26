@@ -26,6 +26,7 @@ export default class CustomSession extends Session {
 
   @tracked groups = [];
   @tracked enforcePublicAccess = false;
+  @tracked currentInstanceId;
 
   @localCopy("data.language") _language;
   @localCopy("data.group") _group;
@@ -93,6 +94,10 @@ export default class CustomSession extends Session {
 
   get rolePermission() {
     return this.role?.permission;
+  }
+
+  get isLeadRole() {
+    return true;
   }
 
   get isReadOnlyRole() {
