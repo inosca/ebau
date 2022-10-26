@@ -115,7 +115,7 @@ services:
       ]
 
   alexandria:
-    image: ghcr.io/projectcaluma/alexandria
+    image: ghcr.io/projectcaluma/alexandria:dev
     ports:
       - "8000:8000"
     depends_on:
@@ -126,7 +126,6 @@ services:
       - DATABASE_PASSWORD=camac
       - DATABASE_USER=camac
       - ENV=development
-      - SECRET_KEY=2340923480sdfsd90f
       - ALLOWED_HOSTS=*
       - OIDC_OP_USER_ENDPOINT=http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
       - MINIO_STORAGE_ENDPOINT=ember-ebau.local
