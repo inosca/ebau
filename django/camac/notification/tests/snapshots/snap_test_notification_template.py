@@ -27,6 +27,7 @@ Es dient nur zu Testzwecken und kann ignoriert werden
         INQUIRY_ANSWER_DE: 
         INQUIRY_ANSWER_FR: 
         INQUIRY_REMARK: 
+        INQUIRY_LINK: 
         CURRENT_SERVICE: Leitbehörde Bern
         CURRENT_SERVICE_DE: Leitbehörde Bern
         CURRENT_SERVICE_FR: Municipalité Berne
@@ -54,6 +55,7 @@ Es dient nur zu Testzwecken und kann ignoriert werden
         INQUIRY_ANSWER_DE: 
         INQUIRY_ANSWER_FR: 
         INQUIRY_REMARK: 
+        INQUIRY_LINK: 
         CURRENT_SERVICE: Leitbehörde Bern
         CURRENT_SERVICE_DE: Leitbehörde Bern
         CURRENT_SERVICE_FR: Municipalité Berne
@@ -81,6 +83,7 @@ Es dient nur zu Testzwecken und kann ignoriert werden
         INQUIRY_ANSWER_DE: Nicht betroffen / nicht zuständig
         INQUIRY_ANSWER_FR: Non concerné/e / non compétent/e
         INQUIRY_REMARK: Bemerkung Anfrage
+        INQUIRY_LINK: http://ebau.local/index/redirect-to-instance-resource/instance-id/1/?instance-resource-name=distribution&ember-hash=/distribution/DISTRIBUTION_UUID/from/1/to/1/INQUIRY_UUID/answer
         CURRENT_SERVICE: Leitbehörde Bern
         CURRENT_SERVICE_DE: Leitbehörde Bern
         CURRENT_SERVICE_FR: Municipalité Berne
@@ -108,6 +111,7 @@ Es dient nur zu Testzwecken und kann ignoriert werden
         INQUIRY_ANSWER_DE: Nicht betroffen / nicht zuständig
         INQUIRY_ANSWER_FR: Non concerné/e / non compétent/e
         INQUIRY_REMARK: Bemerkung Anfrage
+        INQUIRY_LINK: http://ebau.local/index/redirect-to-instance-resource/instance-id/1/?instance-resource-name=distribution&ember-hash=/distribution/DISTRIBUTION_UUID/from/1/to/1/INQUIRY_UUID/answer
         CURRENT_SERVICE: Leitbehörde Bern
         CURRENT_SERVICE_DE: Leitbehörde Bern
         CURRENT_SERVICE_FR: Municipalité Berne

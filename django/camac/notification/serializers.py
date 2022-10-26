@@ -37,7 +37,7 @@ from camac.instance.models import Instance
 from camac.instance.validators import transform_coordinates
 from camac.user.models import Group, Role, Service, User
 from camac.user.utils import unpack_service_emails
-from camac.utils import flatten, get_responsible_koor_service_id
+from camac.utils import build_url, flatten, get_responsible_koor_service_id
 
 from ..core import models as core_models
 from . import models
@@ -196,6 +196,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     inquiry_answer_de = serializers.SerializerMethodField()
     inquiry_answer_fr = serializers.SerializerMethodField()
     inquiry_remark = serializers.SerializerMethodField()
+    inquiry_link = serializers.SerializerMethodField()
 
     current_user_name = serializers.SerializerMethodField()
     work_item_name = serializers.SerializerMethodField()
@@ -437,6 +438,24 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
         return find_answer(
             self.inquiry.document, settings.DISTRIBUTION["QUESTIONS"]["REMARK"]
+        )
+
+    def get_inquiry_link(self, instance):
+        if not self.inquiry:
+            return ""
+
+        return build_url(
+            settings.INTERNAL_BASE_URL,
+            "/index/redirect-to-instance-resource/instance-id/",
+            instance.pk,
+            "?instance-resource-name=distribution&ember-hash=/distribution/",
+            self.inquiry.case.pk,
+            "from",
+            self.inquiry.controlling_groups[0],
+            "to",
+            self.inquiry.addressed_groups[0],
+            self.inquiry.pk,
+            "answer",
         )
 
     def get_form_name_de(self, instance):
