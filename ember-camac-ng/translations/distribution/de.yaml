@@ -17,4 +17,4 @@ distribution:
     released-for-review: "Zur Überprüfung freigegeben"
     closed-by: "Geprüft durch"
 
-"caluma.distribution.inquiry.created-at": "Startdatum"
+"caluma.distribution.inquiry.sent-at": "Startdatum"
