@@ -202,7 +202,11 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
               "check-inquiry": {
                 color: "primary",
                 label: "distribution.confirm",
-                status: "caluma.distribution.answer.buttons.confirm.status",
+                status: {
+                  label: "caluma.distribution.answer.buttons.confirm.status",
+                  color: { addressed: "muted", controlling: "emphasis" },
+                  icon: "user",
+                },
                 willCompleteInquiry: true,
               },
               "revise-inquiry": {
