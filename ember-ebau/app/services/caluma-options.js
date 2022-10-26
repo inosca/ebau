@@ -50,7 +50,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
     };
 
     return {
-      ui: { stack: true, small: true, readonly: this.session.isReadOnlyRole },
+      ui: { stack: false, small: false, readonly: this.session.isReadOnlyRole },
       inquiry: {
         answer: {
           infoQuestions: [
