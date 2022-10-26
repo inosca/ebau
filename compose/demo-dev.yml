@@ -141,6 +141,10 @@ services:
     networks:
       - ebau.local
 
+  mc:
+    networks:
+      - ebau.local
+
 
 networks:
   ebau.local:
