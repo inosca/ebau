@@ -148,6 +148,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
                 color: "primary",
                 label: "distribution.send-answer",
                 status: "caluma.distribution.answer.buttons.compose.status",
+                willCompleteInquiry: true,
               },
             },
             statusMapping: {
@@ -202,6 +203,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
                 color: "primary",
                 label: "distribution.confirm",
                 status: "caluma.distribution.answer.buttons.confirm.status",
+                willCompleteInquiry: true,
               },
               "revise-inquiry": {
                 color: "default",

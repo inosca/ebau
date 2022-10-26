@@ -18,6 +18,7 @@ DISTRIBUTION = {
         "INQUIRY_FORM": "inquiry",
         "INQUIRY_CREATE_TASK": "create-inquiry",
         "INQUIRY_CHECK_TASK": "check-inquiries",
+        "INQUIRY_REDO_TASK": "redo-inquiry",
         "INQUIRY_WORKFLOW": "inquiry",
         "INQUIRY_ANSWER_FORM": "inquiry-answer",
         "INQUIRY_ANSWER_FILL_TASK": "fill-inquiry",
