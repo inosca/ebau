@@ -351,7 +351,7 @@ PERMISSIONS = {
             ],
         },
     },
-    "demo": {"applicant": {AdminPermission: [250, 251]}},
+    "test": {"applicant": {AdminPermission: [250, 251]}},
 }
 
 # Loosen filters allow additional visibility. They are used as an "OR"
@@ -368,7 +368,7 @@ LOOSEN_FILTERS = {
     ),
     # in test mode, we don't want to complicate the setup, so we don't enforce
     # user to be invitee
-    "demo": lambda request: Q(context__isDecision=True),
+    "test": lambda request: Q(context__isDecision=True),
 }
 
 

@@ -24,9 +24,13 @@ module.exports = function (environment) {
     rejected: 31,
     old: 33,
   };
+  const instanceStatesDemo = {
+    new: 1,
+    finished: 120006,
+  };
   const appConfig = {
-    kt_bern: {
-      name: "be",
+    demo: {
+      name: "demo",
       realm: "ebau",
       supportGroups: [10000],
       useConfidential: false,
@@ -34,26 +38,11 @@ module.exports = function (environment) {
       instanceStateCategories: {
         pending: [
           1, // new
-          20000, // subm
-          20003, // circulation_init
-          20004, // circulation
-          20005, // coordination
-          10000, // rejected
-          120001, // in_progress
-          120002, // in_progress_internal
-          20007, // correction
-          20008, // corrected
-        ],
-        sb: [
-          20011, // sb1
-          20013, // sb2
+          120004, // subm
+          120005, // circ
         ],
         done: [
-          120000, // finished
-          120003, // finished_internal
-          20009, // archived
-          20010, // evaluated
-          20014, // conclusion
+          120006, // finished
         ],
       },
       completePreliminaryClarificationSlugs: [
@@ -72,6 +61,61 @@ module.exports = function (environment) {
       documents: {
         feedbackSection: 3,
         excludeFromDocuments: ["dokumente-platzhalter"],
+      },
+      instanceStates: instanceStatesDemo,
+      modification: {
+        allowForms: ["baugesuch"],
+        disallowStates: [instanceStatesDemo.new, instanceStatesDemo.finished],
+      },
+      answerSlugs: {},
+      personalSuggestions: {
+        tableQuestions: [
+          "personalien-gesuchstellerin",
+          "personalien-vertreterin-mit-vollmacht",
+          "personalien-grundeigentumerin",
+          "personalien-projektverfasserin",
+          "personalien-gebaudeeigentumerin",
+          "personalien-sb",
+        ],
+        firstNameRegexp: "^vorname-.*$",
+        lastNameRegexp: "^name-.*$",
+        juristicNameRegexp: "^name-juristische-person.*$",
+        emailRegexp: "^e-mail-.*$",
+      },
+      // Who can create which forms. Roles can be given by ID, or magic key ("internal" or "public")
+      formCreationPermissions: [
+        {
+          roles: ["public", "internal"],
+          forms: ["baugesuch"],
+        },
+      ],
+    },
+    kt_bern: {
+      name: "be",
+      realm: "ebau",
+      supportGroups: [10000],
+      useConfidential: false,
+      defaultInstanceStateCategory: "pending",
+      instanceStateCategories: {
+        pending: [
+          1, // new
+          20003, // circulation_init
+          20004, // circulation
+          20005, // coordination
+        ],
+        done: [
+          120000, // finished
+        ],
+      },
+      completePreliminaryClarificationSlugs: [],
+      selectableGroups: {
+        roles: [
+          3, // Leitung Leitbehörde
+          10000, // System-Betrieb
+        ],
+      },
+      documents: {
+        excludeFromDocuments: [],
       },
       instanceStates: instanceStatesBe,
       modification: {

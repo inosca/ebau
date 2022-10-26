@@ -69,9 +69,15 @@ class CurrentUserSerializer(UserSerializer):
     groups = relations.SerializerMethodResourceRelatedField(
         source="get_groups", model=models.Group, read_only=True, many=True
     )
+    default_group = relations.SerializerMethodResourceRelatedField(
+        source="get_default_group", model=models.Group, read_only=True
+    )
 
     def get_groups(self, obj):
         return obj.groups.filter(disabled=False)
+
+    def get_default_group(self, obj):
+        return obj.get_default_group()
 
     included_serializers = {
         "groups": "camac.user.serializers.GroupSerializer",
@@ -81,13 +87,22 @@ class CurrentUserSerializer(UserSerializer):
     class Meta(UserSerializer.Meta):
         fields = UserSerializer.Meta.fields + (
             "groups",
+            "default_group",
             "phone",
             "email",
             "address",
             "zip",
             "city",
         )
-        read_only_fields = ("groups", "phone", "email", "address", "zip", "city")
+        read_only_fields = (
+            "groups",
+            "default_group",
+            "phone",
+            "email",
+            "address",
+            "zip",
+            "city",
+        )
 
 
 class PublicUserSerializer(serializers.ModelSerializer):
