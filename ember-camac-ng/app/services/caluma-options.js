@@ -226,7 +226,8 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
                 INQUIRY_STATUS.NEEDS_INTERACTION,
               "inquiry-answer-status-final": INQUIRY_STATUS.POSITIVE,
               "inquiry-answer-status-opposition": INQUIRY_STATUS.NEGATIVE,
-              "inquiry-answer-status-inspection": INQUIRY_STATUS.POSITIVE,
+              "inquiry-answer-status-inspection":
+                INQUIRY_STATUS.NEEDS_INTERACTION,
             },
             details: (inquiry) => {
               const releasedForReviewWorkItem =
