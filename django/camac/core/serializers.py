@@ -168,11 +168,9 @@ class InstanceResourceSerializer(serializers.ModelSerializer, MultilingualSerial
                 "/ember-camac-ng/journal.phtml": "journal",
                 "/ember-camac-ng/dms-generate.phtml": "dms-generate",
                 "/ember-camac-ng/distribution.phtml": "distribution",
+                "/ember-camac-ng/alexandria.phtml": "documents",
             }
             return type_mapping.get(obj.template)
-
-        if ir_type == "apidocuments":
-            return "documents"
 
         return None
 
