@@ -67,6 +67,19 @@ loadconfig-dms: ## Load the DMS configuration
 		docker-compose exec document-merge-service poetry run python manage.py loaddata /tmp/document-merge-service/dump.json; \
 	fi
 
+.PHONY: loadconfig-alexandria
+loadconfig-alexandria: ## Load the Alexandria configuration
+	@if docker-compose config|grep -q alexandria; then \
+		docker-compose exec alexandria poetry run python manage.py loaddata /tmp/alexandria/dump.json; \
+	fi
+
+.PHONY: dumpconfig-alexandria
+dumpconfig-alexandria: ## Load the Alexandria configuration
+	@if docker-compose config|grep -q alexandria; then \
+		docker-compose exec -u root alexandria bash -c "poetry run python manage.py dumpdata alexandria_core.Category > /tmp/alexandria/dump.json" ; \
+		yarn prettier --loglevel silent --write "alexandria/${APPLICATION}/dump.json"; \
+	fi
+
 .PHONY: loadconfig-keycloak
 loadconfig-keycloak: ## Load the keycloak configuration
 	@if [ "${APPLICATION}" = "kt_bern" ] || [ "${APPLICATION}" = "demo" ]; then \
@@ -81,7 +94,7 @@ dumpconfig-keycloak: ## Dump the keycloak configuration
 	fi
 
 .PHONY: loadconfig
-loadconfig: loadconfig-camac loadconfig-dms loadconfig-keycloak ## Load all configuration
+loadconfig: loadconfig-camac loadconfig-dms loadconfig-keycloak loadconfig-alexandria ## Load all configuration
 
 .PHONY: dbshell
 dbshell: ## Start a psql shell

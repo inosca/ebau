@@ -115,6 +115,9 @@ services:
     depends_on:
       - db
       - minio
+    volumes:
+      - ../alexandria/demo/dump.json:/tmp/alexandria/dump.json
+
     environment:
       - DATABASE_HOST=db
       - DATABASE_USER=camac
