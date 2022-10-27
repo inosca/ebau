@@ -2,7 +2,7 @@ import { setComponentTemplate } from "@ember/component";
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
-import { dropTask } from "ember-concurrency";
+import { dropTask, enqueueTask } from "ember-concurrency";
 import { trackedTask } from "ember-resources/util/ember-concurrency";
 
 import template from "./template";
@@ -47,7 +47,7 @@ export class SnippetsComponent extends Component {
     }, {});
   }
 
-  @dropTask
+  @enqueueTask
   *applySnippet(id, event) {
     event.preventDefault();
 
