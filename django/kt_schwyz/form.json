@@ -5395,7 +5395,7 @@
       "config": {}
     },
     "datenverschnitt-energie": {
-      "lable": "Ihr Vorhaben befindet sich in der Nähe von Anlagen mit erheblichen Strahlungs-Emissionen (Sendeantennen, Trafostationen, Hochspannungsleitungen, SBB-Übertragungsleitungen o. ä.). Die Vorschriften der entsprechenden gesetzlichen Grundlagen müssen eingehalten werden.",
+      "label": "Ihr Vorhaben befindet sich in der Nähe von Anlagen mit erheblichen Strahlungs-Emissionen (Sendeantennen, Trafostationen, Hochspannungsleitungen, SBB-Übertragungsleitungen o. ä.). Die Vorschriften der entsprechenden gesetzlichen Grundlagen müssen eingehalten werden.",
       "hint": "**Platzhalter**: *datenverschnitt-energie*",
       "type": "checkbox",
       "required": false,
