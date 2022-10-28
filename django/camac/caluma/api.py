@@ -248,6 +248,7 @@ class CalumaApi:
                     settings.DISTRIBUTION["INQUIRY_ANSWER_FILL_TASK"],
                     settings.DISTRIBUTION["INQUIRY_CREATE_TASK"],
                     settings.DISTRIBUTION["INQUIRY_CHECK_TASK"],
+                    settings.DISTRIBUTION["INQUIRY_REDO_TASK"],
                 ]
             )
         ):
@@ -275,35 +276,51 @@ class CalumaApi:
 
             work_item.save()
 
-        # If there is no work item to allow creation of an inquiry for the new
-        # service and the distribution is still running, we need to create one
         distribution = instance.case.work_items.filter(
             task_id=settings.DISTRIBUTION["DISTRIBUTION_TASK"],
             status=caluma_workflow_models.WorkItem.STATUS_READY,
         ).first()
 
-        if (
-            distribution
-            and not distribution.child_case.work_items.filter(
+        if distribution:
+            # If there is no work item to allow creation of an inquiry for the new
+            # service and the distribution is still running, we need to create one
+            if not distribution.child_case.work_items.filter(
                 task_id=settings.DISTRIBUTION["INQUIRY_CREATE_TASK"],
                 addressed_groups__contains=[to_group_id],
                 status=caluma_workflow_models.WorkItem.STATUS_READY,
-            ).exists()
-        ):
-            task = caluma_workflow_models.Task.objects.get(
-                pk=settings.DISTRIBUTION["INQUIRY_CREATE_TASK"]
-            )
+            ).exists():
+                task = caluma_workflow_models.Task.objects.get(
+                    pk=settings.DISTRIBUTION["INQUIRY_CREATE_TASK"]
+                )
 
-            caluma_workflow_models.WorkItem.objects.create(
-                task=task,
-                name=task.name,
-                addressed_groups=[to_group_id],
-                controlling_groups=[to_group_id],
-                case=distribution.child_case,
+                caluma_workflow_models.WorkItem.objects.create(
+                    task=task,
+                    name=task.name,
+                    addressed_groups=[to_group_id],
+                    controlling_groups=[to_group_id],
+                    case=distribution.child_case,
+                    status=caluma_workflow_models.WorkItem.STATUS_READY,
+                    created_by_user=user.username,
+                    created_by_group=user.group,
+                )
+
+            # If the current service has "create-inquiry" or "redo-inquiry" work
+            # items but doesn't have a pending inquiry, we need to cancel those
+            # so they can't create or reopen any inquiries
+            if not distribution.child_case.work_items.filter(
+                task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
+                addressed_groups__contains=[from_group_id],
                 status=caluma_workflow_models.WorkItem.STATUS_READY,
-                created_by_user=user.username,
-                created_by_group=user.group,
-            )
+            ).exists():
+                for work_item in distribution.child_case.work_items.filter(
+                    task_id__in=[
+                        settings.DISTRIBUTION["INQUIRY_CREATE_TASK"],
+                        settings.DISTRIBUTION["INQUIRY_REDO_TASK"],
+                    ],
+                    addressed_groups__contains=[from_group_id],
+                    status=caluma_workflow_models.WorkItem.STATUS_READY,
+                ):
+                    caluma_workflow_api.cancel_work_item(work_item=work_item, user=user)
 
     def validate_existing_audit_documents(self, instance_id, user):
         """Intermediate validation of existing audits.
