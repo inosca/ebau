@@ -12,11 +12,11 @@ export default class TemplateSerializer extends JSONSerializer {
   serializeIntoHash = null;
 
   serialize(snapshot) {
-    const { description, meta, engine, template } = snapshot.attributes();
+    const { description, meta, engine, template, slug } = snapshot.attributes();
 
     const formData = new FormData();
 
-    formData.append("slug", snapshot.id);
+    formData.append("slug", slug);
     formData.append("description", description);
     formData.append("meta", JSON.stringify(meta));
     formData.append("engine", engine);
