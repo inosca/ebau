@@ -7,7 +7,6 @@ import caseModelConfig from "ebau/config/case-model";
 
 export default class CustomCaseModel extends CaseModel {
   @service store;
-  @service shoebox;
   @service intl;
 
   getPersonData(question) {
