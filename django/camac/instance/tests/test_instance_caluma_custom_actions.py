@@ -453,6 +453,15 @@ def test_change_responsible_service(
             addressed_groups__overlap=[str(new_service.pk)],
         ).exists()
 
+        assert not caluma_workflow_models.WorkItem.objects.filter(
+            task_id__in=[
+                be_distribution_settings["INQUIRY_CREATE_TASK"],
+                be_distribution_settings["INQUIRY_REDO_TASK"],
+            ],
+            status=caluma_workflow_models.WorkItem.STATUS_READY,
+            addressed_groups__overlap=[str(old_service.pk)],
+        ).exists()
+
         # assigned users are filtered
         init_distribution.refresh_from_db()
         assert admin_user.username in init_distribution.assigned_users
