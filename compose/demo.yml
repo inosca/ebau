@@ -111,7 +111,7 @@ services:
       - OIDC_GROUPS_API_HEADERS=AUTHORIZATION,X-CAMAC-GROUP
 
   alexandria:
-    image: ghcr.io/projectcaluma/alexandria
+    image: ghcr.io/projectcaluma/alexandria:dev
     depends_on:
       - db
       - minio
@@ -119,8 +119,12 @@ services:
       - ../alexandria/demo/dump.json:/tmp/alexandria/dump.json
 
     environment:
+      - ENV=development
       - DATABASE_HOST=db
+      - DATABASE_NAME=${APPLICATION}
       - DATABASE_USER=camac
+      - MINIO_STORAGE_SERVICE=minio
+      - MINIO_STORAGE_ACCESS_KEY=minio
       - LANGUAGES=de-ch,en
 
   minio:
@@ -129,7 +133,6 @@ services:
       - minio_data:/data
     environment:
       - MINIO_ACCESS_KEY=minio
-      - MINIO_SECRET_KEY=minio123
       - MINIO_NOTIFY_WEBHOOK_ENABLE_ALEXANDRIA=on
       - MINIO_NOTIFY_WEBHOOK_ENDPOINT_ALEXANDRIA=http://alexandria:8000/api/v1/hook
     command: server data

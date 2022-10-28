@@ -115,29 +115,23 @@ services:
       ]
 
   alexandria:
-    image: ghcr.io/projectcaluma/alexandria:dev
     ports:
       - "8000:8000"
     depends_on:
       - db
       - minio
     environment:
-      - DATABASE_HOST=db
-      - DATABASE_NAME=${APPLICATION}
       - DATABASE_PASSWORD=camac
-      - DATABASE_USER=camac
-      - ENV=development
       - ALLOWED_HOSTS=*
       - OIDC_OP_USER_ENDPOINT=http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
       - MINIO_STORAGE_ENDPOINT=ember-ebau.local
-      - MINIO_STORAGE_SERVICE=minio
-      - MINIO_STORAGE_ACCESS_KEY=minio
       - MINIO_STORAGE_SECRET_KEY=minio123
-      - LANGUAGES=de-ch,en
     networks:
       - ebau.local
 
   minio:
+    environment:
+      - MINIO_SECRET_KEY=minio123
     networks:
       - ebau.local
 
