@@ -1,6 +1,7 @@
 @import "ember-uikit";
 @import "ember-ebau-core";
 @import "power-select";
+@import "ember-alexandria";
 
 @import "modules/work-items";
 
@@ -8,6 +9,7 @@
 
 $main-nav-height: 80px;
 $sidebar-width: 180px;
+$sidebar-padding: 48px;
 $border-color: darken($global-muted-background, 10%);
 
 tr[role="link"] {
@@ -44,10 +46,19 @@ tr[role="link"] {
 }
 
 div.uk-container.with-sidebar {
-  padding-left: $sidebar-width + 48px;
+  padding-left: $sidebar-width + $sidebar-padding;
 }
 
 .ca-label {
   text-transform: uppercase;
   color: $global-muted-color;
+}
+
+.full-screen-content {
+  padding-left: $sidebar-width;
+  margin-top: $main-nav-height;
+
+  &>div {
+    min-height: calc(100vh - $main-nav-height);
+  }
 }

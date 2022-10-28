@@ -1225,7 +1225,7 @@
       "template": "/ember-camac-ng/distribution.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 2,
+      "sort": 3,
       "form_group": 2000000
     }
   },
@@ -1270,7 +1270,7 @@
       "template": "/ember-camac-ng/journal.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 3,
+      "sort": 4,
       "form_group": 2000000
     }
   },
@@ -1315,7 +1315,7 @@
       "template": "/ember-camac-ng/dms-generate.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 4,
+      "sort": 5,
       "form_group": 2000000
     }
   },
@@ -1346,6 +1346,21 @@
       "class_field": null,
       "hidden": 0,
       "sort": 4,
+      "form_group": 2000000
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 18000000,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 20006,
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/alexandria.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 2,
       "form_group": 2000000
     }
   },
@@ -1868,6 +1883,16 @@
     }
   },
   {
+    "model": "core.instanceresourcet",
+    "pk": 18000000,
+    "fields": {
+      "instance_resource": 18000000,
+      "language": "de",
+      "name": "Dokumente",
+      "description": null
+    }
+  },
+  {
     "model": "core.irpage",
     "pk": 2000001,
     "fields": {
@@ -1947,6 +1972,13 @@
   {
     "model": "core.irpage",
     "pk": 14000013,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
+    "pk": 18000000,
     "fields": {
       "pdf_class": null
     }
@@ -2398,6 +2430,33 @@
     "fields": {
       "instance_resource": 14000013,
       "role": 10000,
+      "instance_state": 120006
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 18000000,
+    "fields": {
+      "instance_resource": 18000000,
+      "role": 3,
+      "instance_state": 120004
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 18000001,
+    "fields": {
+      "instance_resource": 18000000,
+      "role": 3,
+      "instance_state": 120005
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 18000002,
+    "fields": {
+      "instance_resource": 18000000,
+      "role": 3,
       "instance_state": 120006
     }
   },
