@@ -60,7 +60,7 @@ export default class MainNavigationComponent extends Component {
     if (macroCondition(isTesting())) {
       // Don't reload in testing
     } else {
-      this.router.transitionTo("dashboard");
+      this.router.transitionTo("index");
     }
   }
 
