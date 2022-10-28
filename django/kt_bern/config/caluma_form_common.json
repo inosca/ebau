@@ -2988,7 +2988,7 @@
       "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
-        "max_length": 12,
+        "max_length": null,
         "min_length": null
       },
       "meta": {},
@@ -3055,7 +3055,7 @@
       "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
-        "max_length": 12,
+        "max_length": null,
         "min_length": null
       },
       "meta": {},
