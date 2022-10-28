@@ -1150,7 +1150,7 @@
       "template": "/ember/instance.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 1,
+      "sort": 2,
       "form_group": 2000000
     }
   },
@@ -1165,7 +1165,7 @@
       "template": "/ember/instance.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 1,
+      "sort": 8,
       "form_group": 2000000
     }
   },
@@ -1180,7 +1180,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 0,
+      "sort": 7,
       "form_group": 2000000
     }
   },
@@ -1195,7 +1195,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 0,
+      "sort": 13,
       "form_group": 2000000
     }
   },
@@ -1210,7 +1210,7 @@
       "template": "/ember/instance.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 1,
+      "sort": 14,
       "form_group": 2000000
     }
   },
@@ -1225,7 +1225,7 @@
       "template": "/ember-camac-ng/distribution.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 3,
+      "sort": 6,
       "form_group": 2000000
     }
   },
@@ -1240,7 +1240,7 @@
       "template": "/ember-camac-ng/distribution.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 2,
+      "sort": 12,
       "form_group": 2000000
     }
   },
@@ -1255,7 +1255,7 @@
       "template": "/ember-camac-ng/distribution.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 2,
+      "sort": 18,
       "form_group": 2000000
     }
   },
@@ -1270,7 +1270,7 @@
       "template": "/ember-camac-ng/journal.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 5,
+      "sort": 4,
       "form_group": 2000000
     }
   },
@@ -1285,7 +1285,7 @@
       "template": "/ember-camac-ng/journal.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 4,
+      "sort": 10,
       "form_group": 2000000
     }
   },
@@ -1300,7 +1300,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 4,
+      "sort": 16,
       "form_group": 2000000
     }
   },
@@ -1315,7 +1315,7 @@
       "template": "/ember-camac-ng/dms-generate.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 4,
+      "sort": 5,
       "form_group": 2000000
     }
   },
@@ -1330,7 +1330,7 @@
       "template": "/ember-camac-ng/dms-generate.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 3,
+      "sort": 11,
       "form_group": 2000000
     }
   },
@@ -1345,7 +1345,7 @@
       "template": "/ember-camac-ng/dms-generate.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 3,
+      "sort": 17,
       "form_group": 2000000
     }
   },
@@ -1360,7 +1360,7 @@
       "template": "/ember-camac-ng/alexandria.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 2,
+      "sort": 1,
       "form_group": 2000000
     }
   },
@@ -1375,7 +1375,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 6,
+      "sort": 3,
       "form_group": 2000000
     }
   },
@@ -1390,7 +1390,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 5,
+      "sort": 9,
       "form_group": 2000000
     }
   },
@@ -1405,7 +1405,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 5,
+      "sort": 15,
       "form_group": 2000000
     }
   },

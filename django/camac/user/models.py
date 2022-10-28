@@ -492,7 +492,7 @@ class Service(core_models.MultilingualModel, models.Model):
         null=True,
         verbose_name=_("Description"),
     )
-    sort = models.IntegerField(db_column="SORT")
+    sort = models.IntegerField(db_column="SORT", default=0)
     phone = models.CharField(
         db_column="PHONE",
         max_length=100,
