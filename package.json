@@ -8,5 +8,8 @@
   ],
   "devDependencies": {
     "prettier": "2.7.1"
+  },
+  "resolutions": {
+    "ember-data": "3.28.12"
   }
 }
