@@ -12,7 +12,7 @@ from caluma.caluma_workflow import models as caluma_workflow_models
 from django.conf import settings
 from django.contrib.postgres.fields import ArrayField
 from django.core.mail import EmailMessage, get_connection
-from django.db.models import Exists, Func, IntegerField, OuterRef, Q, Subquery, Sum
+from django.db.models import Exists, F, Func, IntegerField, OuterRef, Q, Subquery, Sum
 from django.db.models.functions import Cast
 from django.utils import timezone, translation
 from django.utils.text import slugify
@@ -590,7 +590,13 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
                 ),
                 service_sort=Subquery(service_subquery.values("sort")[:1]),
             )
-            .order_by("service_group_sort", "controlling_groups", "service_sort")
+            .order_by(
+                "service_group_sort",
+                "controlling_groups",
+                "service_sort",
+                F("closed_at").desc(nulls_first=True),
+                "-deadline",
+            )
         )
 
     def get_activations(self, instance):
