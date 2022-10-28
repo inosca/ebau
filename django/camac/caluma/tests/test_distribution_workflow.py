@@ -545,6 +545,7 @@ def test_reopen_distribution(
     service_factory,
     service,
     instance_state_factory,
+    task_factory,
 ):
     instance_state_distribution = instance_state_factory()
 
@@ -552,6 +553,9 @@ def test_reopen_distribution(
         "INSTANCE_STATE_DISTRIBUTION"
     ] = instance_state_distribution.name
     be_distribution_settings["HISTORY"] = {"REDO_DISTRIBUTION": "reopen"}
+    be_distribution_settings["REDO_DISTRIBUTION"] = {
+        "CREATE_TASKS": [task_factory().slug]
+    }
 
     service_with_sent_inquiry = service_factory()
     service_with_unsent_inquiry = service_factory()
@@ -630,6 +634,15 @@ def test_reopen_distribution(
         task_id=be_distribution_settings["INQUIRY_CREATE_TASK"],
         addressed_groups__contains=[str(subservice_with_sent_inquiry.pk)],
         status=WorkItem.STATUS_READY,
+    ).exists()
+
+    # Any configured, necessary work-items in the distribution case should
+    # be re-created
+    assert distribution_child_case_be.family.work_items.filter(
+        task_id=be_distribution_settings["REDO_DISTRIBUTION"]["CREATE_TASKS"][0],
+        addressed_groups__contains=[str(distribution.addressed_groups[0])],
+        status=WorkItem.STATUS_READY,
+        previous_work_item=distribution.previous_work_item,
     ).exists()
 
     assert be_instance.history.last().get_trans_attr("title") == "reopen"

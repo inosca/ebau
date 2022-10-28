@@ -24,6 +24,7 @@ DISTRIBUTION = {
         "INQUIRY_ANSWER_FILL_TASK": "fill-inquiry",
         "HISTORY": {},
         "REDO_INQUIRY": {},
+        "REDO_DISTRIBUTION": {},
         "QUESTIONS": {
             "DEADLINE": "inquiry-deadline",
             "REMARK": "inquiry-remark",
@@ -499,6 +500,9 @@ DISTRIBUTION = {
         "REDO_INQUIRY": {
             "REOPEN_TASKS": ["check-inquiry", "revise-inquiry"],
             "COMPLETE_TASKS": ["revise-inquiry"],
+        },
+        "REDO_DISTRIBUTION": {
+            "CREATE_TASKS": ["additional-demand"],
         },
         "DEFAULT_SUGGESTIONS": [7],  # Baugesuchszentrale
         "SUGGESTIONS": {
