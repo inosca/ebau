@@ -118,6 +118,7 @@ INSTALLED_APPS = [
     # delete the tables of this app
     "camac.file.apps.DefaultConfig",
     "manabi_migrations",
+    "adminsortable2",
 ]
 
 if DEBUG:
@@ -305,6 +306,7 @@ APPLICATIONS = {
     "kt_schwyz": {
         "INCLUDE_STATIC_FILES": [("xml", "kt_schwyz/static/ech0211/xml/")],
         "LOG_NOTIFICATIONS": True,
+        "SHOW_DJANGO_ADMIN_RESOURCE_MANAGEMENT": False,
         "ROLE_PERMISSIONS": {
             "Gemeinde": "municipality",
             "Gemeinde Sachbearbeiter": "municipality",
@@ -1190,6 +1192,7 @@ APPLICATIONS = {
         "LOG_NOTIFICATIONS": True,
         "SYSTEM_USER": "service-account-camac-admin",
         "ATTACHMENT_SECTION_INTERNAL": 4,
+        "SHOW_DJANGO_ADMIN_RESOURCE_MANAGEMENT": False,
         "ROLE_PERMISSIONS": {
             "service-lead": "service",
             "service-clerk": "service",
@@ -2067,6 +2070,7 @@ APPLICATIONS = {
         "SEQUENCE_NAMESPACE_APPS": ["core", "document", "responsible"],
         "THUMBNAIL_SIZE": "x600",
         "ATTACHMENT_SECTION_INTERNAL": None,
+        "SHOW_DJANGO_ADMIN_RESOURCE_MANAGEMENT": False,
         "CUSTOM_NOTIFICATION_TYPES": [
             "submitter_list",
             "municipality_users",
@@ -2711,6 +2715,7 @@ APPLICATIONS = {
         "PUBLICATION_BACKEND": "camac-ng",
         "FORM_BACKEND": "caluma",
         "THUMBNAIL_SIZE": "x300",
+        "SHOW_DJANGO_ADMIN_RESOURCE_MANAGEMENT": True,
         "WORKFLOW_ITEMS": {
             "SUBMIT": None,
             "INSTANCE_COMPLETE": None,
