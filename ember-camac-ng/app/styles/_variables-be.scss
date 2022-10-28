@@ -29,6 +29,7 @@ $base-h3-font-size: 1.1em;
 
 // Form
 $form-focus-border: $global-secondary-background;
+$form-placeholder-color: lighten($global-muted-color, 30%);
 
 // Misc
 $modal-z-index: 1;
@@ -39,4 +40,4 @@ $ember-power-select-border-color: $global-border;
 $ember-power-select-focus-border-color: $form-focus-border;
 $ember-power-select-highlighted-background: $global-secondary-background;
 $ember-power-select-selected-background: $global-primary-background;
-$ember-power-select-placeholder-color: $global-muted-color;
+$ember-power-select-placeholder-color: $form-placeholder-color;
