@@ -258,7 +258,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
                   type: "user",
                 },
                 {
-                  label: "distribution.inquiry.released-for-review",
+                  label: "distribution.released-for-review",
                   value: releasedForReviewWorkItem?.closedAt,
                   type: "date",
                 },
@@ -268,7 +268,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
                   type: "date",
                 },
                 {
-                  label: "distribution.inquiry.closed-by",
+                  label: "distribution.closed-by",
                   value: inquiry.closedByUser,
                   type: "user",
                 },
@@ -282,7 +282,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
               label: "distribution.external-services",
             },
             Fachstellen: {
-              label: "distribution.services-sz",
+              label: "distribution.services",
             },
             subservice: {
               label: "distribution.subservices",

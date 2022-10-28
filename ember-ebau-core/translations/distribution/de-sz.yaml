@@ -1,1 +1,5 @@
+distribution:
+  services: "Fachstellen"
+
+# Override default text of @projectcaluma/ember-distribution
 "caluma.distribution.inquiry.closed-at": "Geprüft am"

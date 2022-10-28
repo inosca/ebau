@@ -2,19 +2,17 @@ distribution:
   districts: "RSTAs"
   municipalities: "Gemeinden"
   services: "Amts- / Fachstellen"
-  services-sz: "Fachstellen"
   subservices: "Unterfachstellen"
   external-services: "Externe Fachstellen"
   municipal-services: "Fachstellen Gemeinde"
 
   send-answer: "Antwort senden"
   release-for-review: "Zur Kontrolle freigeben"
+  released-for-review: "Zur Kontrolle freigegeben"
   release-adjustment-for-review: "Anpassung zur Kontrolle freigeben"
   confirm: "Bestätigen"
   revise: "Überarbeiten"
+  closed-by: "Geprüft durch"
 
-  inquiry:
-    released-for-review: "Zur Überprüfung freigegeben"
-    closed-by: "Geprüft durch"
-
+# Override default text of @projectcaluma/ember-distribution
 "caluma.distribution.inquiry.sent-at": "Startdatum"
