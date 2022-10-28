@@ -963,6 +963,9 @@ class AvailableResource(models.Model):
         managed = True
         db_table = "AVAILABLE_RESOURCE"
 
+    def __str__(self):
+        return self.module_name
+
 
 class BGroupAcl(models.Model):
     id = models.AutoField(db_column="ID", primary_key=True)
@@ -2159,15 +2162,19 @@ class InstanceResource(MultilingualModel, models.Model):
         db_column="CLASS", max_length=250, blank=True, null=True
     )
     hidden = models.PositiveSmallIntegerField(db_column="HIDDEN")
-    sort = models.IntegerField(db_column="SORT")
+    sort = models.IntegerField(db_column="SORT", default=0)
     form_group = models.ForeignKey(
-        FormGroup, models.CASCADE, db_column="FORM_GROUP_ID", related_name="+"
+        FormGroup,
+        models.CASCADE,
+        db_column="FORM_GROUP_ID",
+        related_name="+",
+        default=2000000,
     )
 
     class Meta:
         managed = True
         db_table = "INSTANCE_RESOURCE"
-        ordering = ["resource__sort", "sort"]
+        ordering = ["sort"]
 
 
 class InstanceResourceAction(models.Model):
@@ -3769,7 +3776,7 @@ class Resource(MultilingualModel, models.Model):
         db_column="CLASS", max_length=25, blank=True, null=True
     )
     hidden = models.PositiveSmallIntegerField(db_column="HIDDEN")
-    sort = models.IntegerField(db_column="SORT")
+    sort = models.IntegerField(db_column="SORT", default=0)
 
     class Meta:
         managed = True
