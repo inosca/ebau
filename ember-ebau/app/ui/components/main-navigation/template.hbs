@@ -1,7 +1,9 @@
 <nav class="main-navigation uk-navbar-container uk-navbar">
-  <div class="uk-navbar-left">
+  <div class="uk-navbar-left uk-margin-small-left">
     <ul class="uk-navbar-nav main-navbar">
-      <li><div class="uk-navbar-item uk-logo">eBau</div></li>
+      <li><div class="uk-navbar-item uk-logo">
+          <img alt={{t "nav.logo"}} src="/ebau-inosca-logo.svg" />
+      </div></li>
       {{#if this.session.isAuthenticated}}
         {{#each this.resources.value as |resource|}}
           <UkSubnav::Item @href={{resource.link}}>{{resource.name}}</UkSubnav::Item>
@@ -18,7 +20,7 @@
       {{/if}}
     </ul>
   </div>
-  <div class="uk-navbar-right">
+  <div class="uk-navbar-right uk-margin-small-right">
     <ul class="uk-navbar-nav">
       {{#if this.session.isAuthenticated}}
         <li>
