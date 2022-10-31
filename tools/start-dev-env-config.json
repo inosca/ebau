@@ -1,5 +1,9 @@
 {
   "applications": {
+    "demo": {
+      "compose": "compose/demo.yml:compose/demo-dev.yml",
+      "loadconfig": "make loadconfig"
+    },
     "kt_uri": {
       "compose": "compose/kt_uri.yml:compose/kt_uri-dev.yml",
       "loadconfig": "make loadconfig"
@@ -10,10 +14,6 @@
     },
     "kt_bern": {
       "compose": "compose/kt_bern.yml:compose/kt_bern-dev.yml",
-      "loadconfig": "make loadconfig"
-    },
-    "demo": {
-      "compose": "compose/demo.yml",
       "loadconfig": "make loadconfig"
     }
   },
