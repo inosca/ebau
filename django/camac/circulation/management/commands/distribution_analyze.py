@@ -52,6 +52,8 @@ class Command(BaseCommand):
             self._check_inquiry_answer_distribution_completed()
             self._check_inquiry_answer()
             self._check_inquiry_redo()
+            self._check_inquiry_create_only_with_pending_inquiries()
+            self._check_inquiry_redo_only_with_pending_inquiries()
 
         if len(self.faulty_instances):
             self.stdout.write()
@@ -745,6 +747,84 @@ class Command(BaseCommand):
                 work_items = [
                     f"{i.pk} {i.task_id} ({i.status})"
                     for i in inquiries_without_redo.filter(
+                        case__family__instance__pk=instance.pk
+                    )
+                ]
+                self._log_instance(instance, ", ".join(work_items))
+
+    def _check_inquiry_create_only_with_pending_inquiries(self):
+        create_without_pending_inquiry = WorkItem.objects.filter(
+            ~Exists(
+                WorkItem.objects.filter(
+                    task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
+                    addressed_groups=OuterRef("addressed_groups"),
+                    status=WorkItem.STATUS_READY,
+                )
+            ),
+            task_id=settings.DISTRIBUTION["INQUIRY_CREATE_TASK"],
+            status=WorkItem.STATUS_READY,
+        ).exclude(
+            addressed_groups=WorkItem.objects.filter(
+                task_id=settings.DISTRIBUTION["DISTRIBUTION_TASK"],
+                case=OuterRef("case__family"),
+            ).values("addressed_groups")[:1]
+        )
+
+        create_without_pending_inquiry_exists = create_without_pending_inquiry.exists()
+        self._log_analysis_result(
+            "Ready create-inquiry work-items only exist for services with pending inquiries",
+            not create_without_pending_inquiry_exists,
+        )
+
+        if create_without_pending_inquiry_exists:
+            instances = Instance.objects.filter(
+                pk__in=create_without_pending_inquiry.values(
+                    "case__family__instance__pk"
+                )
+            )
+
+            for instance in instances:
+                work_items = [
+                    f"{i.pk} {i.task_id} ({i.status})"
+                    for i in create_without_pending_inquiry.filter(
+                        case__family__instance__pk=instance.pk
+                    )
+                ]
+                self._log_instance(instance, ", ".join(work_items))
+
+    def _check_inquiry_redo_only_with_pending_inquiries(self):
+        redo_without_pending_inquiry = WorkItem.objects.filter(
+            ~Exists(
+                WorkItem.objects.filter(
+                    task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
+                    addressed_groups=OuterRef("addressed_groups"),
+                    status=WorkItem.STATUS_READY,
+                )
+            ),
+            task_id=settings.DISTRIBUTION["INQUIRY_REDO_TASK"],
+            status=WorkItem.STATUS_READY,
+        ).exclude(
+            addressed_groups=WorkItem.objects.filter(
+                task_id=settings.DISTRIBUTION["DISTRIBUTION_TASK"],
+                case=OuterRef("case__family"),
+            ).values("addressed_groups")[:1]
+        )
+
+        create_without_pending_inquiry_exists = redo_without_pending_inquiry.exists()
+        self._log_analysis_result(
+            "Ready redo-inquiry work-items only exist for services with pending inquiries",
+            not create_without_pending_inquiry_exists,
+        )
+
+        if create_without_pending_inquiry_exists:
+            instances = Instance.objects.filter(
+                pk__in=redo_without_pending_inquiry.values("case__family__instance__pk")
+            )
+
+            for instance in instances:
+                work_items = [
+                    f"{i.pk} {i.task_id} ({i.status})"
+                    for i in redo_without_pending_inquiry.filter(
                         case__family__instance__pk=instance.pk
                     )
                 ]
