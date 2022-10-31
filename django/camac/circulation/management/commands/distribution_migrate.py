@@ -1,5 +1,3 @@
-import logging
-import sys
 from collections import namedtuple
 from datetime import datetime, timedelta
 from functools import wraps
@@ -33,16 +31,6 @@ from camac.core import models as core_models
 from camac.instance.models import HistoryEntry
 from camac.responsible.models import ResponsibleService
 from camac.user.models import Service, User
-
-logger = logging.getLogger(__name__)
-
-
-"""
-TODO:
-
-- [ ] check-inquiries canceled vs. completed, closed_by_user?
-- [ ] init-distribution closed_by_user?
-"""
 
 
 def get_config(application_name):
@@ -146,20 +134,6 @@ def num_queries(reset=True):
         reset_queries()
 
 
-def setup_logger(file):
-    formatter = logging.Formatter("[%(asctime)s] %(message)s")
-    if file:
-        file_handler = logging.FileHandler(file)
-        file_handler.setFormatter(formatter)
-        logger.addHandler(file_handler)
-
-    stdout_handler = logging.StreamHandler(sys.stdout)
-    stdout_handler.setFormatter(formatter)
-
-    logger.addHandler(stdout_handler)
-    logger.propagate = False
-
-
 def canton_aware(include_base_method=False):
     def decorator(func, *_):
         @wraps(func)
@@ -203,44 +177,8 @@ class Command(BaseCommand):
             }
         )
 
-    def print_case(self, case, index=0):
-        space = " " * index
-        logger.info(f"{space} || (C) {case.workflow_id} | status: {case.status}")
-        for work_item in case.work_items.all():
-            activation_id = work_item.meta.get("migrated-from-activation-id")
-
-            logger.info(
-                f"{space}  |-- (W) {work_item.task_id} | {work_item.pk} | "
-                f"status: {work_item.status}, "
-                f"addressed_groups: {work_item.addressed_groups}, "
-                f"controlling_groups: {work_item.controlling_groups}, "
-                f"created_at: {work_item.created_at}, "
-                f"closed_at: {work_item.closed_at}, "
-                f"deadline: {work_item.deadline}, "
-                f"closed_by_user: {work_item.closed_by_user}, "
-                # f"document: {work_item.document.form.slug if work_item.document else None}, "
-                # f"child_case: {work_item.child_case.pk if work_item.child_case else None}"
-                # f"previous_work_item: {work_item.previous_work_item}"
-            )
-            if activation_id:
-                review_date = core_models.ActivationAnswer.objects.filter(
-                    activation=activation_id, chapter=1, question=4, item=1
-                ).first()
-                activation = core_models.Activation.objects.get(pk=activation_id)
-                logger.info(
-                    f"{space}  * activation circulation_state: {activation.circulation_state}, "
-                    f"activation review_date: {review_date.answer if review_date else None}, "
-                    f"activation end_date: {activation.end_date}"
-                )
-            if work_item.child_case:
-                self.print_case(work_item.child_case, index + 4)
-
     def add_arguments(self, parser):
         parser.add_argument("--reset", dest="reset", action="store_true", default=False)
-        parser.add_argument(
-            "--visualize", dest="visualize", action="store_true", default=False
-        )
-        parser.add_argument("--file", dest="file", type=str)
 
     def reset(self):
         with connection.cursor() as cursor:
@@ -293,8 +231,6 @@ class Command(BaseCommand):
         if options.get("reset"):
             self.reset()
 
-        setup_logger(options.get("file"))
-
         base_filters = Exists(
             WorkItem.objects.filter(
                 case_id=OuterRef("pk"),
@@ -322,18 +258,7 @@ class Command(BaseCommand):
 
         for case in tqdm(cases_to_migrate, mininterval=1, maxinterval=2):
             try:
-                identifier = case.instance.identifier or case.meta.get("ebau-number")
                 self.migrate_case(case)
-
-                if options.get("visualize"):
-                    logger.info(f"--- Instance {case.instance.pk} ({identifier}) ---")
-                    logger.info(
-                        f" * state: {case.instance.instance_state.description}, "
-                        f"activations: {core_models.Activation.objects.filter(circulation__instance=case.instance).count()}"
-                    )
-                    self.print_case(case)
-                    logger.info("--- END ---")
-
             except Exception as e:  # noqa: B902
                 raise CommandError(
                     f"Exception ocurred during migration of instance {case.instance.pk}: {str(e)}"
@@ -1329,7 +1254,7 @@ class Command(BaseCommand):
         )
 
         if not work_item.status:
-            logger.info(f"Inconsistent activation state for activation {activation.pk}")
+            tqdm.write(f"Inconsistent activation state for activation {activation.pk}")
 
         return child_document, child_case, [work_item]
 
@@ -1387,10 +1312,10 @@ class Command(BaseCommand):
                         )
                     )
                 except ValueError:
-                    logger.error(
+                    tqdm.write(
                         f"Couldn't parse activation.review_date {activation.review_date} for activation {activation.pk}"
                     )
-                    logger.info(f"Manually fix {self.config.FILL_INQUIRY_TASK} task")
+                    tqdm.write(f"Manually fix {self.config.FILL_INQUIRY_TASK} task")
                     activation_answer_draft_completed = pytz.utc.localize(
                         datetime.combine(datetime.min.date(), datetime.min.time())
                     )
@@ -1518,7 +1443,7 @@ class Command(BaseCommand):
                 )
 
         if any(not work_item.status for work_item in work_items):
-            logger.info(f"Inconsistent activation state for activation {activation.pk}")
+            tqdm.write(f"Inconsistent activation state for activation {activation.pk}")
 
         return child_document, child_case, work_items
 
