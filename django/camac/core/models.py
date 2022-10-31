@@ -944,6 +944,9 @@ class AvailableInstanceResource(models.Model):
         db_column="DESCRIPTION", max_length=1000, blank=True, null=True
     )
 
+    def __str__(self):
+        return self.module_name
+
     class Meta:
         managed = True
         db_table = "AVAILABLE_INSTANCE_RESOURCE"
@@ -959,12 +962,12 @@ class AvailableResource(models.Model):
         db_column="DESCRIPTION", max_length=1000, blank=True, null=True
     )
 
+    def __str__(self):
+        return self.module_name
+
     class Meta:
         managed = True
         db_table = "AVAILABLE_RESOURCE"
-
-    def __str__(self):
-        return self.module_name
 
 
 class BGroupAcl(models.Model):
@@ -2137,6 +2140,15 @@ class InstancePortal(models.Model):
         db_table = "INSTANCE_PORTAL"
 
 
+def get_first_form_group():
+    return FormGroup.objects.first()
+
+
+def next_instance_resource_sort():
+    last = InstanceResource.objects.order_by("-sort").first()
+    return last.sort + 1 if last else 0
+
+
 class InstanceResource(MultilingualModel, models.Model):
     instance_resource_id = models.AutoField(
         db_column="INSTANCE_RESOURCE_ID", primary_key=True
@@ -2162,13 +2174,13 @@ class InstanceResource(MultilingualModel, models.Model):
         db_column="CLASS", max_length=250, blank=True, null=True
     )
     hidden = models.PositiveSmallIntegerField(db_column="HIDDEN")
-    sort = models.IntegerField(db_column="SORT", default=0)
+    sort = models.IntegerField(db_column="SORT", default=next_instance_resource_sort)
     form_group = models.ForeignKey(
         FormGroup,
         models.CASCADE,
         db_column="FORM_GROUP_ID",
         related_name="+",
-        default=2000000,
+        default=get_first_form_group,
     )
 
     class Meta:
@@ -3756,6 +3768,11 @@ class RUserAcl(models.Model):
         unique_together = (("resource", "user"),)
 
 
+def next_resource_sort():
+    last = Resource.objects.order_by("-sort").first()
+    return last.sort + 1 if last else 0
+
+
 class Resource(MultilingualModel, models.Model):
     resource_id = models.AutoField(db_column="RESOURCE_ID", primary_key=True)
     available_resource = models.ForeignKey(
@@ -3776,7 +3793,7 @@ class Resource(MultilingualModel, models.Model):
         db_column="CLASS", max_length=25, blank=True, null=True
     )
     hidden = models.PositiveSmallIntegerField(db_column="HIDDEN")
-    sort = models.IntegerField(db_column="SORT", default=0)
+    sort = models.IntegerField(db_column="SORT", default=next_resource_sort)
 
     class Meta:
         managed = True

@@ -462,6 +462,11 @@ class ServiceGroupT(models.Model):
         db_table = "SERVICE_GROUP_T"
 
 
+def next_service_sort():
+    last_service = Service.objects.order_by("-sort").first()
+    return last_service.sort + 1 if last_service else 0
+
+
 class Service(core_models.MultilingualModel, models.Model):
     service_id = models.AutoField(
         db_column="SERVICE_ID", primary_key=True, verbose_name=_("ID")
@@ -492,7 +497,7 @@ class Service(core_models.MultilingualModel, models.Model):
         null=True,
         verbose_name=_("Description"),
     )
-    sort = models.IntegerField(db_column="SORT", default=0)
+    sort = models.IntegerField(db_column="SORT", default=next_service_sort)
     phone = models.CharField(
         db_column="PHONE",
         max_length=100,
