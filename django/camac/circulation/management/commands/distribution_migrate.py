@@ -1,5 +1,3 @@
-import logging
-import sys
 from collections import namedtuple
 from datetime import datetime, timedelta
 from functools import wraps
@@ -33,16 +31,6 @@ from camac.core import models as core_models
 from camac.instance.models import HistoryEntry
 from camac.responsible.models import ResponsibleService
 from camac.user.models import Service, User
-
-logger = logging.getLogger(__name__)
-
-
-"""
-TODO:
-
-- [ ] check-inquiries canceled vs. completed, closed_by_user?
-- [ ] init-distribution closed_by_user?
-"""
 
 
 def get_config(application_name):
@@ -146,20 +134,6 @@ def num_queries(reset=True):
         reset_queries()
 
 
-def setup_logger(file):
-    formatter = logging.Formatter("[%(asctime)s] %(message)s")
-    if file:
-        file_handler = logging.FileHandler(file)
-        file_handler.setFormatter(formatter)
-        logger.addHandler(file_handler)
-
-    stdout_handler = logging.StreamHandler(sys.stdout)
-    stdout_handler.setFormatter(formatter)
-
-    logger.addHandler(stdout_handler)
-    logger.propagate = False
-
-
 def canton_aware(include_base_method=False):
     def decorator(func, *_):
         @wraps(func)
@@ -203,44 +177,8 @@ class Command(BaseCommand):
             }
         )
 
-    def print_case(self, case, index=0):
-        space = " " * index
-        logger.info(f"{space} || (C) {case.workflow_id} | status: {case.status}")
-        for work_item in case.work_items.all():
-            activation_id = work_item.meta.get("migrated-from-activation-id")
-
-            logger.info(
-                f"{space}  |-- (W) {work_item.task_id} | {work_item.pk} | "
-                f"status: {work_item.status}, "
-                f"addressed_groups: {work_item.addressed_groups}, "
-                f"controlling_groups: {work_item.controlling_groups}, "
-                f"created_at: {work_item.created_at}, "
-                f"closed_at: {work_item.closed_at}, "
-                f"deadline: {work_item.deadline}, "
-                f"closed_by_user: {work_item.closed_by_user}, "
-                # f"document: {work_item.document.form.slug if work_item.document else None}, "
-                # f"child_case: {work_item.child_case.pk if work_item.child_case else None}"
-                # f"previous_work_item: {work_item.previous_work_item}"
-            )
-            if activation_id:
-                review_date = core_models.ActivationAnswer.objects.filter(
-                    activation=activation_id, chapter=1, question=4, item=1
-                ).first()
-                activation = core_models.Activation.objects.get(pk=activation_id)
-                logger.info(
-                    f"{space}  * activation circulation_state: {activation.circulation_state}, "
-                    f"activation review_date: {review_date.answer if review_date else None}, "
-                    f"activation end_date: {activation.end_date}"
-                )
-            if work_item.child_case:
-                self.print_case(work_item.child_case, index + 4)
-
     def add_arguments(self, parser):
         parser.add_argument("--reset", dest="reset", action="store_true", default=False)
-        parser.add_argument(
-            "--visualize", dest="visualize", action="store_true", default=False
-        )
-        parser.add_argument("--file", dest="file", type=str)
 
     def reset(self):
         with connection.cursor() as cursor:
@@ -251,6 +189,7 @@ class Command(BaseCommand):
                 settings.DISTRIBUTION["INQUIRY_TASK"],
                 settings.DISTRIBUTION["INQUIRY_CREATE_TASK"],
                 settings.DISTRIBUTION["INQUIRY_CHECK_TASK"],
+                settings.DISTRIBUTION["INQUIRY_REDO_TASK"],
                 settings.DISTRIBUTION["INQUIRY_ANSWER_FILL_TASK"],
             ]
             workflow_ids = [
@@ -293,8 +232,6 @@ class Command(BaseCommand):
         if options.get("reset"):
             self.reset()
 
-        setup_logger(options.get("file"))
-
         base_filters = Exists(
             WorkItem.objects.filter(
                 case_id=OuterRef("pk"),
@@ -322,18 +259,7 @@ class Command(BaseCommand):
 
         for case in tqdm(cases_to_migrate, mininterval=1, maxinterval=2):
             try:
-                identifier = case.instance.identifier or case.meta.get("ebau-number")
                 self.migrate_case(case)
-
-                if options.get("visualize"):
-                    logger.info(f"--- Instance {case.instance.pk} ({identifier}) ---")
-                    logger.info(
-                        f" * state: {case.instance.instance_state.description}, "
-                        f"activations: {core_models.Activation.objects.filter(circulation__instance=case.instance).count()}"
-                    )
-                    self.print_case(case)
-                    logger.info("--- END ---")
-
             except Exception as e:  # noqa: B902
                 raise CommandError(
                     f"Exception ocurred during migration of instance {case.instance.pk}: {str(e)}"
@@ -350,6 +276,7 @@ class Command(BaseCommand):
             core_models.Activation.objects.select_related("circulation_state")
             .prefetch_related("notices")
             .filter(circulation__instance=case.instance)
+            .defer("activation_parent", "version", "suspension_date", "user")
         )
 
         previous_work_item = case.work_items.filter(
@@ -538,22 +465,20 @@ class Command(BaseCommand):
         services_allowed_to_create = (
             Service.objects.filter(
                 # Only allow services to create, that have a pending inquiry
-                pk__in=self.activations_ready(activations)
-                .filter(service_id=OuterRef("pk"))
-                .values("service_id"),
+                pk__in=self.activations_ready(activations).values("service_id"),
                 service_parent__isnull=True,
             )
             # Already generated for leading authority
-            .exclude(pk=user.group).distinct()
+            .exclude(pk=user.group).values_list("pk", flat=True)
         )
 
-        for service in services_allowed_to_create:
+        for service_id in services_allowed_to_create:
             work_items.append(
                 WorkItem(
                     task=self.config.CREATE_INQUIRY_TASK,
                     name=self.config.CREATE_INQUIRY_TASK.name,
-                    addressed_groups=[service.pk],
-                    assigned_users=self.responsible_user(service.pk, case.instance),
+                    addressed_groups=[str(service_id)],
+                    assigned_users=self.responsible_user(service_id, case.instance),
                     case=distribution_case,
                     status=WorkItem.STATUS_CANCELED
                     if distribution_is_closed or distribution_is_canceled
@@ -570,19 +495,19 @@ class Command(BaseCommand):
         # with at least one answered activation
 
         services_allowed_to_check = Service.objects.filter(
-            Exists(answered_activations.filter(service_parent=OuterRef("pk")))
-        ).distinct()
+            pk__in=answered_activations.values("service_parent_id")
+        ).values_list("pk", flat=True)
 
-        for service in services_allowed_to_check:
+        for service_id in services_allowed_to_check:
             has_pending_activations = any(
                 [
                     self.activation_is_ready(activation)
-                    for activation in activations.filter(service_parent=service)
+                    for activation in activations.filter(service_parent_id=service_id)
                 ]
             )
 
             last_answered_activation = answered_activations.filter(
-                service_parent=service,
+                service_parent_id=service_id,
                 end_date__isnull=False,
             ).latest("end_date")
 
@@ -606,15 +531,15 @@ class Command(BaseCommand):
             # If the activation of this service already answered their
             # activation, the "check-inquiries" work item is completed
             addressed_activation_answered = answered_activations.filter(
-                service=service
+                service_id=service_id
             ).exists()
 
             work_items.append(
                 WorkItem(
                     task=self.config.CHECK_INQUIRIES_TASK,
                     name=self.config.CHECK_INQUIRIES_TASK.name,
-                    addressed_groups=[str(service.pk)],
-                    controlling_groups=[str(service.pk)],
+                    addressed_groups=[str(service_id)],
+                    controlling_groups=[str(service_id)],
                     case=distribution_case,
                     meta=self.config.META,
                     status=WorkItem.STATUS_COMPLETED
@@ -673,6 +598,11 @@ class Command(BaseCommand):
         answers = []
 
         for activation in activations:
+            is_completed = self.activation_is_completed(activation)
+            is_skipped = self.activation_is_skipped(activation, instance)
+            is_ready = self.activation_is_ready(activation)
+            is_draft = self.activation_is_draft(activation)
+
             # create inquiry work-item and document
             document = Document(form_id="inquiry")
             documents.append(document)
@@ -687,13 +617,13 @@ class Command(BaseCommand):
                 meta={**self.config.META, "migrated-from-activation-id": activation.pk},
                 status=(
                     WorkItem.STATUS_COMPLETED
-                    if self.activation_is_completed(activation)
+                    if is_completed
                     else WorkItem.STATUS_SKIPPED
-                    if self.activation_is_skipped(activation, instance)
+                    if is_skipped
                     else WorkItem.STATUS_READY
-                    if self.activation_is_ready(activation)
+                    if is_ready
                     else WorkItem.STATUS_SUSPENDED
-                    if self.activation_is_draft(activation)
+                    if is_draft
                     else None
                 ),
                 document=document,
@@ -726,12 +656,7 @@ class Command(BaseCommand):
 
             # create inquiry answer child-case, document and work-items
 
-            if (
-                self.activation_is_ready(activation)
-                or self.activation_is_completed(activation)
-                or self.activation_is_skipped(activation, instance)
-            ):
-
+            if is_ready or is_completed or is_skipped:
                 (
                     child_document,
                     child_case,
@@ -767,9 +692,7 @@ class Command(BaseCommand):
                         )
                     )
 
-            if self.activation_is_completed(activation) or self.activation_is_skipped(
-                activation, instance
-            ):
+            if is_completed or is_skipped:
                 work_items.append(
                     WorkItem(
                         task=self.config.REDO_INQUIRY_TASK,
@@ -780,7 +703,7 @@ class Command(BaseCommand):
                         case=distribution_case,
                         meta=self.config.META,
                         status=WorkItem.STATUS_CANCELED
-                        if self.activation_is_skipped(activation, instance)
+                        if is_skipped
                         or (
                             distribution_case.parent_work_item.status
                             == WorkItem.STATUS_COMPLETED
@@ -831,19 +754,16 @@ class Command(BaseCommand):
         return filters
 
     def cases_to_migrate_filters_be(self, filters):
-        return filters | (
-            # Case has an ebau number but no work item
-            Q(**{"meta__ebau-number__isnull": False})
-            # Case has an ebau number "None"
-            & ~Q(**{"meta__ebau-number": None})
+        return (
+            filters
             # Case is in a state before the circulation could happen (pre camac-ng)
             & ~Q(instance__instance_state__name__in=["new", "subm"])
-            # Case has an ebau number but was rejected before the circulation could happen (pre camac-ng)
+            # Case was rejected before the circulation could happen (pre camac-ng)
             & ~Q(
                 instance__instance_state__name="rejected",
                 instance__previous_instance_state__name="subm",
             )
-            # Case has an ebau number but was archived before the circulation could happen (pre camac-ng)
+            # Case was archived before the circulation could happen (pre camac-ng)
             & ~Q(
                 instance__instance_state__name="archived",
                 instance__previous_instance_state__name__in=["new", "subm"],
@@ -1190,7 +1110,6 @@ class Command(BaseCommand):
 
     @canton_aware(include_base_method=True)
     def on_migrate_activations(self, distribution_case, activations):
-
         WorkItem.objects.filter(
             task_id=self.config.INQUIRY_TASK.pk, case=distribution_case
         ).annotate(
@@ -1206,7 +1125,6 @@ class Command(BaseCommand):
     def on_migrate_activations_be(
         self, distribution_case, activations, result_base_method=None
     ):
-
         WorkItem.objects.filter(
             task_id=self.config.FILL_INQUIRY_TASK.pk, case=distribution_case
         ).update(
@@ -1224,7 +1142,6 @@ class Command(BaseCommand):
     def on_migrate_activations_sz(
         self, distribution_case, activations, result_base_method=None
     ):
-
         # TODO: reduce queries
         WorkItem.objects.filter(
             task_id__in=[
@@ -1283,7 +1200,6 @@ class Command(BaseCommand):
     def initialize_inquiry_answer(
         self, activation, distribution_case, inquiry_work_item, instance
     ):
-
         child_document = Document(form_id="inquiry-answer")
         child_case = Case(
             workflow_id="inquiry",
@@ -1306,7 +1222,6 @@ class Command(BaseCommand):
         instance,
         result_base_method=None,
     ):
-
         child_document, child_case = result_base_method
 
         work_item = WorkItem(
@@ -1329,7 +1244,7 @@ class Command(BaseCommand):
         )
 
         if not work_item.status:
-            logger.info(f"Inconsistent activation state for activation {activation.pk}")
+            tqdm.write(f"Inconsistent activation state for activation {activation.pk}")
 
         return child_document, child_case, [work_item]
 
@@ -1387,10 +1302,10 @@ class Command(BaseCommand):
                         )
                     )
                 except ValueError:
-                    logger.error(
+                    tqdm.write(
                         f"Couldn't parse activation.review_date {activation.review_date} for activation {activation.pk}"
                     )
-                    logger.info(f"Manually fix {self.config.FILL_INQUIRY_TASK} task")
+                    tqdm.write(f"Manually fix {self.config.FILL_INQUIRY_TASK} task")
                     activation_answer_draft_completed = pytz.utc.localize(
                         datetime.combine(datetime.min.date(), datetime.min.time())
                     )
@@ -1518,7 +1433,7 @@ class Command(BaseCommand):
                 )
 
         if any(not work_item.status for work_item in work_items):
-            logger.info(f"Inconsistent activation state for activation {activation.pk}")
+            tqdm.write(f"Inconsistent activation state for activation {activation.pk}")
 
         return child_document, child_case, work_items
 
