@@ -56,7 +56,7 @@ The following image shows a high-level overview of the architecture:
 
 ### Modules
 
-Due to ongoing modernization work, some Frontend modules are not yet integrated in `ember-ebau`, but instead are still part of `ember-camac-ng`. Few Frontend modules are not part of this repository yet at all. The following table lists the most important modules in the "internal" part of the application and their respective completeness / integration state.
+Due to ongoing modernization work, some Frontend modules are not yet integrated in `ember-ebau`, but instead are still part of `ember-camac-ng`. Few Frontend modules are not part of this repository yet at all. The following table lists the most important modules in the "internal" part of the application and their respective completeness / integration state (in the `demo` configuration).
 
 | Module                       | Description                              | Backend            | Frontend                 | Part of ember-ebau       |
 | ---------------------------- | ---------------------------------------- | ------------------ | ------------------------ | ------------------------ |
@@ -70,18 +70,16 @@ Due to ongoing modernization work, some Frontend modules are not yet integrated 
 | _Subnav (instance resource)_ |                                          |                    |                          |                          |
 | Tasks                        | View and manage tasks                    | :heavy_check_mark: | :heavy_check_mark:       | :heavy_check_mark:       |
 | Form                         | View and edit main form                  | :heavy_check_mark: | :heavy_check_mark:       | :heavy_check_mark:       |
-| Journal                      | Collaborative notebook                   | :heavy_check_mark: | :heavy_check_mark:       | :heavy_check_mark:       |
+| Distribution                 | Get feedback from other organizations    | :heavy_check_mark: | :heavy_check_mark:       | :heavy_check_mark:       |
+| Alexandria                   | Document management                      | :heavy_check_mark: | :heavy_check_mark:       | :heavy_check_mark:       |
 | Template                     | Generate document from template          | :heavy_check_mark: | :heavy_check_mark:       | :heavy_check_mark:       |
-| Distribution                 | Get feedback from other organizations    | :heavy_check_mark: | :heavy_check_mark:       | :hourglass_flowing_sand: |
+| Journal                      | Collaborative notebook                   | :heavy_check_mark: | :heavy_check_mark:       | :heavy_check_mark:       |
+| History                      | Shows milestones and historical data     | :heavy_check_mark: | :heavy_check_mark:       | :heavy_check_mark:       |
 | Responsible                  | Assign responsible users                 | :heavy_check_mark: | :heavy_check_mark:       | :hourglass_flowing_sand: |
 | Audit                        | Perform structured audit                 | :heavy_check_mark: | :heavy_check_mark:       | :hourglass_flowing_sand: |
 | Publication                  | Manage publication in newspaper          | :heavy_check_mark: | :heavy_check_mark:       | :hourglass_flowing_sand: |
-| History                      | Shows milestones and historical data     | :heavy_check_mark: | :heavy_check_mark:       | :hourglass_flowing_sand: |
-| Documents [1]                | Document management                      | :heavy_check_mark: | :hourglass_flowing_sand: | :hourglass_flowing_sand: |
 | Audit-Log                    | Shows form changes                       | :heavy_check_mark: | :hourglass_flowing_sand: | :hourglass_flowing_sand: |
 | Claims                       | Ask applicant for additional info        | :heavy_check_mark: | :hourglass_flowing_sand: | :hourglass_flowing_sand: |
-
-[1] To be replaced with [alexandria](https://github.com/projectcaluma/alexandria).
 
 ## Requirements
 
@@ -106,7 +104,7 @@ Ember:
 
 ### Basic setup
 
-Docker can be used to get eBau up and running quickly. Simply run the following script.
+Docker can be used to get eBau up and running quickly. The following script guides you through the setup process. We recommend using the `demo` config for now, since it features the highest number of modules in the `ember-ebau` app.
 
 ```bash
 make start-dev-env
@@ -116,7 +114,7 @@ In case you want to manually modify /etc/hosts following domains need to point t
 127.0.0.1 (localhost):
 
 ```
-ebau-portal.local ebau.local ebau-keycloak.local ebau-rest-portal.local
+ebau-portal.local ebau.local ebau-keycloak.local ember-ebau.local ebau-rest-portal.local
 ```
 
 For automatic checks during commit (formatting, linting) you can setup a git hook with the following commands:
@@ -140,12 +138,13 @@ respectively:
 
 | _Application_ | _Role_      | _Username_ | _Password_ | _Notes_ |
 | ------------- | ----------- | ---------- | ---------- | ------- |
+| demo          | Admin       | user       | user       |         |
 | kt_schwyz     | Admin       | admin      | admin      |         |
 |               | Publikation | adsy       | adsy       |         |
 | kt_uri        | Admin       | admin      | admin      |         |
 |               | PortalUser  | portal     | portal     |         |
 | kt_bern       | Admin       | user       | user       |         |
-| demo          | Admin       | user       | user       |         |
+
 
 #### Debugging
 
