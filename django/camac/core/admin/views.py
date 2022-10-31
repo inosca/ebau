@@ -1,6 +1,6 @@
 from adminsortable2.admin import SortableAdminMixin
 from django.contrib.admin import ModelAdmin, display
-from django.utils.translation import get_language, gettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from camac.core.admin.forms import InstanceResourceForm, ResourceForm
 from camac.core.admin.inlines import (
@@ -24,7 +24,6 @@ class ResourceAdmin(SortableAdminMixin, MultilingualAdmin, ModelAdmin):
         "template",
         "get_hidden",
         "get_available_resource",
-        "get_acl_role",
     ]
     list_per_page = 20
     ordering = ["pk"]
@@ -47,18 +46,6 @@ class ResourceAdmin(SortableAdminMixin, MultilingualAdmin, ModelAdmin):
     def get_available_resource(self, obj):
         return obj.available_resource.module_name
 
-    @display(description=_("ACL Role"))
-    def get_acl_role(self, obj):
-        roles = [acl.role for acl in obj.role_acls.all()]
-
-        group_names = []
-        for role in roles:
-            groups = role.groups.all()
-            for group in groups:
-                group_names.append(group.trans.get(language=get_language()).name)
-
-        return group_names
-
 
 class InstanceResourceAdmin(SortableAdminMixin, MultilingualAdmin, ModelAdmin):
     admin_order_field = "get_resource_description"
@@ -69,11 +56,9 @@ class InstanceResourceAdmin(SortableAdminMixin, MultilingualAdmin, ModelAdmin):
         "get_name",
         "get_resource_name",
         "get_resource_description",
-        "get_description",
         "template",
         "get_hidden",
         "get_available_instance_resource",
-        "get_acl_role",
     ]
     search_fields = ["name", "description"]
     search_fields_ml = ["trans__name"]
@@ -90,30 +75,10 @@ class InstanceResourceAdmin(SortableAdminMixin, MultilingualAdmin, ModelAdmin):
     def get_name(self, obj):
         return obj.get_name()
 
-    @display(description=_("Description"))
-    def get_description(self, obj):
-        return obj.get_trans_attr("description")
-
     @display(description=_("Hidden?"), boolean=True, ordering="hidden")
     def get_hidden(self, obj):
         return obj.hidden == 1
 
     @display(description=_("Available Instance Resource"))
     def get_available_instance_resource(self, obj):
-        return (
-            obj.available_instance_resource.module_name
-            + " "
-            + obj.available_instance_resource.description
-        )
-
-    @display(description=_("ACL Role"))
-    def get_acl_role(self, obj):
-        roles = [acl.role for acl in obj.role_acls.all()]
-
-        group_names = []
-        for role in roles:
-            groups = role.groups.all()
-            for group in groups:
-                group_names.append(group.trans.get(language=get_language()).name)
-
-        return group_names
+        return obj.available_instance_resource.module_name
