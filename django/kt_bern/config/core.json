@@ -48552,7 +48552,7 @@
     "fields": {
       "instance_resource": 14000000,
       "language": "fr",
-      "name": "RegBL",
+      "name": "Projets de construction de RegBL liés",
       "description": null
     }
   },
@@ -108942,7 +108942,7 @@
       "description": null,
       "template": "/ember-camac-ng/gwr-global.phtml",
       "class_field": null,
-      "hidden": 0,
+      "hidden": 1,
       "sort": 5
     }
   },

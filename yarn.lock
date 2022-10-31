@@ -6739,10 +6739,10 @@ ember-disable-prototype-extensions@1.1.3:
   resolved "https://registry.yarnpkg.com/ember-disable-prototype-extensions/-/ember-disable-prototype-extensions-1.1.3.tgz#1969135217654b5e278f9fe2d9d4e49b5720329e"
   integrity sha512-SB9NcZ27OtoUk+gfalsc3QU17+54OoqR668qHcuvHByk4KAhGxCKlkm9EBlKJcGr7yceOOAJqohTcCEBqfRw9g==
 
-ember-ebau-gwr@6.1.0:
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/ember-ebau-gwr/-/ember-ebau-gwr-6.1.0.tgz#79aeee1224a174b7e87ed65079ac31545e82db89"
-  integrity sha512-s6yKqy5+H5oqYPAHjayeDPMh0ZHErHUpFx4k8GNVZ1fHIf/uN0mmYE0XggBNV+iuJ7C4uAKCu+BoxVp6gyjsow==
+ember-ebau-gwr@6.2.0:
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/ember-ebau-gwr/-/ember-ebau-gwr-6.2.0.tgz#71144e672f718c7da1ba02abdbc3d3da683dd5de"
+  integrity sha512-6DuqaatX7HiJwoCjfioyYpes9QxCjWQw9bmgpkKRVYjr8oPqEPz2anOCh5YqjYEgwxHRcz8GZEAm5sNqkEZyTg==
   dependencies:
     "@ember/render-modifiers" "^2.0.4"
     "@fortawesome/ember-fontawesome" "^0.4.1"
