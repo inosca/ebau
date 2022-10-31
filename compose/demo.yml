@@ -10,7 +10,6 @@ services:
       - django
       - keycloak
       - mailhog
-      - php
       - document-merge-service
       - ember-ebau
     volumes:
@@ -156,5 +155,4 @@ volumes:
   pgdata:
   djangomedia:
   djangotmpmedia:
-  phpsessions:
   minio_data:
