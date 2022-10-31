@@ -1,6 +1,7 @@
 import csv
 import mimetypes
 from datetime import timedelta
+from itertools import chain
 
 import django_excel
 from caluma.caluma_form import models as form_models
@@ -30,13 +31,9 @@ from rest_framework_json_api import views
 from rest_framework_json_api.views import ReadOnlyModelViewSet
 
 from camac.caluma.api import CalumaApi
+from camac.caluma.utils import find_answer
 from camac.constants import kt_uri as ur_constants
-from camac.core.models import (
-    Activation,
-    InstanceService,
-    PublicationEntry,
-    WorkflowEntry,
-)
+from camac.core.models import InstanceService, PublicationEntry, WorkflowEntry
 from camac.core.views import SendfileHttpResponse
 from camac.document.models import Attachment, AttachmentSection
 from camac.notification.utils import send_mail
@@ -493,6 +490,9 @@ class InstanceView(
                 "Maximum 1000 instances allowed at a time.", status.HTTP_400_BAD_REQUEST
             )
 
+        def parse_date(date):
+            return date.strftime(settings.SHORT_DATE_FORMAT) if date else None
+
         current_service = self.request.group.service
 
         queryset = (
@@ -502,7 +502,6 @@ class InstanceView(
                 "responsible_services",
                 "responsible_services__responsible_user",
                 "tags",
-                "circulations__activations",
             )
         )
         queryset = self.filter_queryset(queryset).order_by("pk")
@@ -550,40 +549,56 @@ class InstanceView(
             )
             municipality_data = municipalities.get(municipality, {})
 
-            instance_activations = Activation.objects.filter(
-                circulation__instance_id=instance.pk
-            )
-
-            in_rsta = (
-                instance_activations.filter(
-                    service_id=instance.instance_services.first().service
+            in_rsta_date = parse_date(
+                instance.instance_services.filter(
+                    active=1, service__service_group__name="district"
                 )
-                .order_by("start_date")
+                .values_list("activation_date", flat=True)
                 .first()
             )
-            in_rsta_date = (
-                in_rsta.start_date.strftime(settings.SHORT_DATE_FORMAT)
-                if in_rsta
+
+            inquiries = workflow_models.WorkItem.objects.filter(
+                task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
+                case__family__instance=instance,
+            ).exclude(
+                status=[
+                    workflow_models.WorkItem.STATUS_CANCELED,
+                    workflow_models.WorkItem.STATUS_SUSPENDED,
+                ]
+            )
+
+            involved_services = Service.objects.filter(
+                pk__in=chain(*inquiries.values_list("addressed_groups", flat=True))
+            )
+
+            own_inquiries = inquiries.filter(
+                addressed_groups__contains=[str(current_service.pk)]
+            )
+
+            last_completed_inquiry = (
+                own_inquiries.filter(status=workflow_models.WorkItem.STATUS_COMPLETED)
+                .order_by("-closed_at")
+                .first()
+            )
+
+            inquiry_in_date = parse_date(
+                own_inquiries.order_by("created_at")
+                .values_list("created_at", flat=True)
+                .first()
+            )
+
+            inquiry_out_date = (
+                parse_date(last_completed_inquiry.closed_at)
+                if last_completed_inquiry
                 else None
             )
 
-            activations = instance_activations.filter(service_id=current_service.pk)
-
-            in_activation = activations.order_by("start_date").first()
-            in_activation_date = (
-                in_activation.start_date.strftime(settings.SHORT_DATE_FORMAT)
-                if in_activation
-                else None
-            )
-            out_activation = activations.order_by("end_date").last()
-            out_activation_date = (
-                out_activation.end_date.strftime(settings.SHORT_DATE_FORMAT)
-                if out_activation and out_activation.end_date
-                else None
-            )
-            circulation_answer = (
-                out_activation.circulation_answer.get_name()
-                if out_activation and out_activation.circulation_answer
+            inquiry_answer = (
+                find_answer(
+                    last_completed_inquiry.child_case.document,
+                    settings.DISTRIBUTION["QUESTIONS"]["STATUS"],
+                )
+                if last_completed_inquiry
                 else None
             )
 
@@ -611,11 +626,11 @@ class InstanceView(
                 municipality_data.get("Verwaltungskreis", ""),
                 municipality_data.get("Verwaltungsregion", ""),
                 in_rsta_date,
-                in_activation_date,
-                out_activation_date,
+                inquiry_in_date,
+                inquiry_out_date,
                 decision_date,
-                circulation_answer,
-                ", ".join(set([act.service.get_name() for act in activations])),
+                inquiry_answer,
+                ", ".join([service.get_name() for service in involved_services]),
                 ", ".join(
                     instance.tags.filter(service=current_service).values_list(
                         "name", flat=True
