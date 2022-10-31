@@ -4,7 +4,7 @@ from dateutil.parser import parse as dateutil_parse
 from django.core.management.base import BaseCommand
 from django.db import transaction
 from django.db.models import Exists, OuterRef
-from django.utils.timezone import make_aware
+from django.utils.timezone import is_naive, make_aware
 from tqdm import tqdm
 
 from camac.core.models import Answer as CamacAnswer
@@ -116,7 +116,10 @@ class Command(BaseCommand):
         # instance was migrated from old camac or RSTA - in that case we just
         # take the creation date of the case.
         if case.meta.get("submit-date"):
-            closed_at = make_aware(dateutil_parse(case.meta.get("submit-date")))
+            submit_date = dateutil_parse(case.meta.get("submit-date"))
+            closed_at = (
+                make_aware(submit_date) if is_naive(submit_date) else submit_date
+            )
         elif case.meta.get("migrated_from_old_camac") or case.meta.get(
             "prefecta-number"
         ):
