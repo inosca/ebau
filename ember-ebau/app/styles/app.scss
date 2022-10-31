@@ -25,6 +25,10 @@ tr[role="link"] {
   border-bottom: 1px solid $border-color;
 }
 
+.uk-logo img {
+  width: 90px;
+}
+
 .nav-sidebar {
   position: fixed;
   left: 0;
@@ -58,7 +62,7 @@ div.uk-container.with-sidebar {
   padding-left: $sidebar-width;
   margin-top: $main-nav-height;
 
-  &>div {
+  & > div {
     min-height: calc(100vh - $main-nav-height);
   }
 }
