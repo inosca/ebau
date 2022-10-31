@@ -383,7 +383,10 @@ class Command(BaseCommand):
 
         if activations.exists():
             self.migrate_activations(
-                distribution_work_item.child_case, activations, case.instance
+                distribution_work_item.child_case,
+                activations,
+                case.instance,
+                responsible_service,
             )
 
     def initialize_distribution(
@@ -534,7 +537,11 @@ class Command(BaseCommand):
 
         services_allowed_to_create = (
             Service.objects.filter(
-                pk__in=activations.values("service"), service_parent__isnull=True
+                # Only allow services to create, that have a pending inquiry
+                pk__in=self.activations_ready(activations)
+                .filter(service_id=OuterRef("pk"))
+                .values("service_id"),
+                service_parent__isnull=True,
             )
             # Already generated for leading authority
             .exclude(pk=user.group).distinct()
@@ -657,7 +664,9 @@ class Command(BaseCommand):
         )
         return distribution_work_item
 
-    def migrate_activations(self, distribution_case, activations, instance):
+    def migrate_activations(
+        self, distribution_case, activations, instance, responsible_service
+    ):
         documents = []
         cases = []
         work_items = []
@@ -775,6 +784,14 @@ class Command(BaseCommand):
                         or (
                             distribution_case.parent_work_item.status
                             == WorkItem.STATUS_COMPLETED
+                        )
+                        # redo-inquiry work-item canceled for services without pending inquiries
+                        # that are not the responsible service
+                        or (
+                            activation.service_parent_id != responsible_service.pk
+                            and not self.activations_ready(activations)
+                            .filter(service_id=activation.service_parent_id)
+                            .exists()
                         )
                         else distribution_case.parent_work_item.status,
                         deadline=None,
@@ -1027,6 +1044,18 @@ class Command(BaseCommand):
 
     def activations_sent_sz(self, activations):
         return activations.exclude(circulation_state__name="IDLE")
+
+    @canton_aware()
+    def activations_ready(self, activations):
+        pass
+
+    def activations_ready_be(self, activations):
+        return activations.filter(circulation_state__name="RUN").exclude(
+            circulation_answer__isnull=True, email_sent=0
+        )
+
+    def activations_ready_sz(self, activations):
+        return activations.filter(circulation_state__name__in=["RUN", "REVIEW"])
 
     @canton_aware()
     def activations_answered(self, activations):
