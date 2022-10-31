@@ -1,8 +1,10 @@
 from caluma.caluma_form.models import Answer, Document
 from caluma.caluma_workflow.models import Case, WorkItem
+from dateutil.parser import parse as dateutil_parse
 from django.core.management.base import BaseCommand
 from django.db import transaction
 from django.db.models import Exists, OuterRef
+from django.utils.timezone import make_aware
 from tqdm import tqdm
 
 from camac.core.models import Answer as CamacAnswer
@@ -29,6 +31,7 @@ class Command(BaseCommand):
                     "migrated",
                 ]
             )
+            .exclude(instance__instance_state__name="new")
             .exclude(**{"meta__ebau-number__isnull": True})
             .exclude(
                 Exists(
@@ -108,12 +111,24 @@ class Command(BaseCommand):
     def migrate_assign_ebau_number(self, case):
         camac_answers = self.get_answers(case)
 
+        # For simplicity, we assume that the work item was closed around the
+        # submit date. However, we might not have that information if the
+        # instance was migrated from old camac or RSTA - in that case we just
+        # take the creation date of the case.
+        if case.meta.get("submit-date"):
+            closed_at = make_aware(dateutil_parse(case.meta.get("submit-date")))
+        elif case.meta.get("migrated_from_old_camac") or case.meta.get(
+            "prefecta-number"
+        ):
+            closed_at = case.created_at
+
         document = Document(form_id="ebau-number")
         work_item = WorkItem(
             task_id="ebau-number",
             status=WorkItem.STATUS_COMPLETED,
             document=document,
             case=case,
+            closed_at=closed_at,
         )
         answers = []
 
