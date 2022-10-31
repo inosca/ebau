@@ -30,5 +30,5 @@
   "env": "UID={}\nAPPLICATION={}\nCOMPOSE_FILE={}\nCOMPOSE_PROFILES={}\nDJANGO_CLAMD_ENABLED={}",
   "build_cmd": "docker-compose up -d --build",
   "up_cmd": "docker-compose up -d",
-  "append_cmd": "echo 127.0.0.1 ebau-portal.local ebau.local ebau-keycloak.local ebau-rest-portal.local | sudo tee -a /etc/hosts"
+  "append_cmd": "echo 127.0.0.1 ebau-portal.local ebau.local ebau-keycloak.local ember-ebau.local ebau-rest-portal.local | sudo tee -a /etc/hosts"
 }
