@@ -203,7 +203,14 @@ class CustomPermission(BasePermission):
             or (
                 is_addressed_to_service(work_item, service)
                 and validate_parameters(
-                    ["work_item", "meta", "assigned_users"],
+                    # TODO: mutation.get_params should only return snake cased data
+                    [
+                        "work_item",
+                        "workItem",
+                        "meta",
+                        "assigned_users",
+                        "assignedUsers",
+                    ],
                     params["input"],
                     work_item,
                 )
@@ -211,7 +218,8 @@ class CustomPermission(BasePermission):
             or (
                 is_controlled_by_service(work_item, service)
                 and validate_parameters(
-                    ["work_item", "deadline", "description", "meta"],
+                    # TODO: mutation.get_params should only return snake cased data
+                    ["work_item", "workItem", "deadline", "description", "meta"],
                     params["input"],
                     work_item,
                 )
