@@ -418,7 +418,6 @@ module.exports = function (environment) {
       enablePkce: true,
     },
     "ember-ebau-core": {
-      gisUrl: "/lisag/ows",
       attachmentSections: { applicant: "12000000" },
     },
     apollo: {
@@ -463,7 +462,6 @@ module.exports = function (environment) {
   };
 
   if (environment === "development") {
-    ENV["ember-ebau-core"].gisUrl = "http://ebau.local/lisag/ows";
     ENV.ebau.beGisUrl = "https://www.map2-test.apps.be.ch";
   }
 
