@@ -34,7 +34,7 @@ The following image shows a high-level overview of the architecture:
 <img src="https://i.imgur.com/CjDwlsL.jpg" alt="Architecture" width="500" />
 
 - The application is composed of various Docker containers, which are shown in light blue in the architecture overview.
-- The frontend consists of two Ember.js apps, one for applicants submitting building permit applications ("Portal"), and used by members of the public authorities (Internal area). The two apps can share code through the Ember Addon `ember-ebau-core`.
+- The frontend consists of two Ember.js apps, one for applicants submitting building permit applications ("portal"), and another used by members of the public authorities ("internal area"). The two apps can share code through the Ember Addon `ember-ebau-core`.
 - The backend is based on Python/Django and exposes a GraphQL API for forms and workflows based on [Caluma](https://caluma.io) and set of domain-specific REST endpoints ([Django REST Framework](https://www.django-rest-framework.org/)).
 - PostgreSQL is used as database.
 
@@ -144,7 +144,6 @@ respectively:
 | kt_uri        | Admin       | admin      | admin      |         |
 |               | PortalUser  | portal     | portal     |         |
 | kt_bern       | Admin       | user       | user       |         |
-
 
 #### Debugging
 
