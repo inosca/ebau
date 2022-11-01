@@ -24,7 +24,7 @@ module.exports = function (environment) {
       },
     },
     "ember-ebau-core": {
-      gisUrl: "/lisag/ows",
+      gisUrl: "/webmercator/wfs",
       attachmentSections: { applicant: "12000000" },
     },
     APP: {
@@ -134,7 +134,7 @@ module.exports = function (environment) {
   };
 
   if (environment === "development") {
-    ENV["ember-ebau-core"].gisUrl = "http://ebau.local/lisag/ows";
+    ENV["ember-ebau-core"].gisUrl = "http://ebau.local/webmercator/wfs";
   }
 
   if (environment === "test") {
