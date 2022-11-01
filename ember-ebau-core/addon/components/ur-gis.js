@@ -39,15 +39,16 @@ const CHOICE_FIELD_KEYS = ["municipality"];
 const CENTER = { lat: 46.881301, lng: 8.643078 };
 
 const LAYERS = [
-  "raumplanung:ur73_Nutzungsplanung",
-  "av:Liegenschaften_overview",
+  "raumplanung:nutzungsplanung",
+  "av:ch059_liegenschaften_flaechen",
   "raumplanung:sondernutzungsplanung",
-  "weitere:wanderwege_uri",
+  "weitere:wanderwege_netz",
   "weitere:archaeologische_funderwartungsgebiete",
-  "av:t04_boflaeche_sw",
-  "t08_selbstrecht_ims_overview",
-  "leitungen:ur34_Abwasseranlagen_(Eigentum)",
-  "av:gebaeudeadressen",
+  "av:ch055_bodenbedeckung_flaechen_sw",
+  "av:ch059_liegenschaften_selbstrechte",
+  "leitungen:ur034_abwasseranlagen_eigentum",
+  "ch060_gebaeudeadresse_gebeudeeingaenge",
+  "av:ch060_gebaeudeadressen_strassenstuecke",
 ];
 
 const RESOLUTIONS = [50, 20, 10, 5, 2.5, 2, 1.5, 1, 0.5, 0.25, 0.1, 0.05];
@@ -178,7 +179,7 @@ export default class UrGisComponent extends Component {
       const maxX = x + 10;
       const maxY = y + 10;
       const response = yield fetch(
-        `${this.config.gisUrl}?SERVICE=WMS&VERSION=1.3.0&HEIGHT=101&WIDTH=101&request=GetCapabilities&REQUEST=GetFeatureInfo&FORMAT=image/png&LAYERS=${layerList}&QUERY_LAYERS=${layerList}&INFO_FORMAT=application/json&I=50&J=50&CRS=EPSG:3857&BBOX=${minX},${minY},${maxX},${maxY}&FEATURE_COUNT=10`,
+        `/lisag/wms?SERVICE=WMS&VERSION=1.3.0&HEIGHT=101&WIDTH=101&request=GetCapabilities&REQUEST=GetFeatureInfo&FORMAT=image/png&LAYERS=${layerList}&QUERY_LAYERS=${layerList}&INFO_FORMAT=application/json&I=50&J=50&CRS=EPSG:3857&BBOX=${minX},${minY},${maxX},${maxY}&FEATURE_COUNT=10`,
         {
           mode: "cors",
         }
@@ -198,17 +199,17 @@ export default class UrGisComponent extends Component {
 
         const gebaeudeAdressenFeature = filterFeatureById(
           data.features,
-          "t19_gebaeudeeingang_ims"
+          "ch060_gebaeudeadresse_gebeudeeingaenge"
         );
 
         const liegenschaftFeature = filterFeatureById(
           data.features,
-          "t08_liegenschaft_ims_overview"
+          "ch059_liegenschaften_flaechen"
         );
 
         const selbstrechtFeature = filterFeatureById(
           data.features,
-          "t08_selbstrecht_ims_overview"
+          "ch059_liegenschaften_selbstrechte"
         );
 
         const archFeature = filterFeatureById(
@@ -218,13 +219,13 @@ export default class UrGisComponent extends Component {
 
         const grundwasser = addFeatureStaticText(
           data.features,
-          "gbd_orientierend_grundwasserschutzzone",
+          "ch131_rkr_grundwasserschutzzonen_inkraft",
           "Grundwasserschutzzone"
         );
 
         const fruchtfolgefläche = addFeatureStaticText(
           data.features,
-          "ch68_fruchtfolgeflaeche",
+          "ch068_fruchtfolgeflaeche",
           "Fruchtfolgefläche"
         );
 
@@ -424,20 +425,15 @@ export default class UrGisComponent extends Component {
     const searchMunicipalityBy = searchMapping[municipality] || municipality;
     try {
       const params = new URLSearchParams({
-        service: "WFS",
-        version: "1.1.0",
-        REQUEST: "GetFeature",
+        version: "1.0.0",
+        request: "GetFeature",
         srsName: "EPSG:3857",
-        typeName: "suche:all_egrid_data",
-        outputFormat: "json",
-        FEATURE_COUNT: 10,
-        filter: `<PropertyIsEqualTo>
-          <PropertyName>searchterm</PropertyName>
-          <Literal>${parcelOrBuildingleaseNr} ${searchMunicipalityBy}</Literal>
-        </PropertyIsEqualTo>`,
+        typename: "suche:all_egrid_data",
+        outputFormat: "application/json",
+        CQL_FILTER: `searchterm='${parcelOrBuildingleaseNr} ${searchMunicipalityBy}'`,
       });
       const response = yield fetch(
-        `${this.config.gisUrl}?${params.toString()}`,
+        `/lisag/webmercator/wfs?${params.toString()}`,
         {
           mode: "cors",
         }
