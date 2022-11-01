@@ -627,6 +627,7 @@ class Command(BaseCommand):
                     else None
                 ),
                 document=document,
+                created_by_group=str(activation.service_parent_id),
                 created_at=activation.start_date,
                 deadline=pytz.utc.localize(
                     datetime.combine(
