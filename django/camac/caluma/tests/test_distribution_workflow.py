@@ -773,7 +773,7 @@ def test_cancel_inquiry(
                 ).exists()
 
 
-@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize("role__name", ["municipality-lead"])
 def test_sync_inquiry_deadline(
     db,
     be_distribution_settings,
