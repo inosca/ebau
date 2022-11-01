@@ -638,7 +638,6 @@ class Command(BaseCommand):
                 ),
                 document=document,
                 created_by_group=str(activation.service_parent_id),
-                created_at=activation.start_date,
                 deadline=pytz.utc.localize(
                     datetime.combine(
                         activation.deadline_date.date(),
@@ -1130,6 +1129,17 @@ class Command(BaseCommand):
                 activations.filter(pk=OuterRef("activation_id")).values("start_date")[
                     :1
                 ]
+            )
+        )
+
+        Case.objects.filter(
+            workflow_id=self.config.INQUIRY_WORKFLOW,
+            parent_work_item__case=distribution_case,
+        ).update(
+            created_at=Subquery(
+                WorkItem.objects.filter(child_case_id=OuterRef("pk")).values(
+                    "created_at"
+                )[:1]
             )
         )
 
