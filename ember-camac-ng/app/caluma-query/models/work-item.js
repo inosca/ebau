@@ -197,6 +197,17 @@ export default class CustomWorkItemModel extends WorkItemModel {
   }
 
   _getDirectLinkFor(configKey) {
+    // Only the addressed group should have a direct link if the work item is
+    // not a manual work item
+    if (
+      !this.raw.addressedGroups
+        .map(String)
+        .includes(String(this.shoebox.content.serviceId)) &&
+      this.raw.task.slug !== "create-manual-workitems"
+    ) {
+      return null;
+    }
+
     const query = this.shoebox.content.config.directLink[configKey];
 
     return query
