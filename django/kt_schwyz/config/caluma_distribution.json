@@ -834,7 +834,7 @@
       "control_groups": "info.prev_work_item.controlling_groups",
       "is_archived": false,
       "form": null,
-      "lead_time": 864000,
+      "lead_time": 432000,
       "is_multiple_instance": false,
       "continue_async": false
     }
@@ -972,7 +972,7 @@
       "control_groups": "['municipality']|groups",
       "is_archived": false,
       "form": null,
-      "lead_time": 864000,
+      "lead_time": 345600,
       "is_multiple_instance": false,
       "continue_async": false
     }
