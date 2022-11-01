@@ -530,9 +530,16 @@ class Command(BaseCommand):
 
             # If the activation of this service already answered their
             # activation, the "check-inquiries" work item is completed
-            addressed_activation_answered = answered_activations.filter(
-                service_id=service_id
-            ).exists()
+            last_addressed_activation_answered_at = (
+                answered_activations.filter(service_id=service_id)
+                .order_by("-end_date")
+                .values_list("end_date", flat=True)
+                .first()
+            )
+
+            is_completed = distribution_is_closed or (
+                last_addressed_activation_answered_at and deadline
+            )
 
             work_items.append(
                 WorkItem(
@@ -543,15 +550,18 @@ class Command(BaseCommand):
                     case=distribution_case,
                     meta=self.config.META,
                     status=WorkItem.STATUS_COMPLETED
-                    if distribution_is_closed
-                    or (addressed_activation_answered and deadline)
+                    if is_completed
                     else WorkItem.STATUS_CANCELED
                     if distribution_is_canceled
                     else WorkItem.STATUS_SUSPENDED
                     if distribution_is_suspended
                     else WorkItem.STATUS_READY,
                     deadline=deadline,
-                    closed_at=distribution_closed_at,
+                    closed_at=(
+                        last_addressed_activation_answered_at or distribution_closed_at
+                    )
+                    if is_completed
+                    else None,
                 )
             )
 
