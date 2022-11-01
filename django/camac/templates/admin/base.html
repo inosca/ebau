@@ -15,10 +15,8 @@
       <input name="language" type="hidden" value="{{ language.code }}" />
       <a href="#" class="submit-link {% if language.code == LANGUAGE_CODE %} bold{% endif %}">{{ language.code }}</a>
     </form>
-    /
   {% endfor %}
 
-  <a href="/admin">{% translate 'Back to CAMAC admin' %}</a>
 {% endblock %}
 
 {% block extrahead %}
