@@ -17,7 +17,7 @@ mutation InitDistributionTask {
       name: "Zirkulation starten"
       addressGroups: "['municipality']|groups"
       controlGroups: "['municipality']|groups"
-      leadTime: 864000 # 10 days
+      leadTime: 345600 # 4 days
     }
   ) {
     clientMutationId
@@ -125,7 +125,7 @@ mutation CheckInquiriesTask {
       name: "Rückmeldungen abgleichen"
       addressGroups: "info.prev_work_item.controlling_groups"
       controlGroups: "info.prev_work_item.controlling_groups"
-      leadTime: 864000 # 10 days
+      leadTime: 432000 # 5 days
       meta: "{\"is-manually-completable\":true}"
     }
   ) {
