@@ -130,11 +130,16 @@ export default class CaseFilterComponent extends Component {
     ];
   }
 
-  responsibleMunicipalities = query(this, "public-service", () => ({
-    service_group_name: "municipality,district",
-    has_parent: false,
-    sort: "-service_group__name,trans__name",
-  }));
+  responsibleMunicipalities = trackedFunction(this, async () => {
+    await Promise.resolve();
+
+    const services = await this.store.query("public-service", {
+      service_group_name: "municipality,district",
+      has_parent: false,
+    });
+
+    return services.toArray().sort((a, b) => a.name.localeCompare(b.name));
+  });
 
   forms = trackedFunction(this, async () => {
     const categories = [
