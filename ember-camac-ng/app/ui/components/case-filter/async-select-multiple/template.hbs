@@ -1,0 +1,25 @@
+{{! template-lint-disable require-input-label }}
+{{#if (or @filterOptions.length @showWithoutOptions)}}
+  <CaseFilter::Base @filterName={{@filterName}}>
+    <PowerSelectMultiple
+      id={{concat "case-filter__" @filterName}}
+      @searchEnabled={{true}}
+      @searchField={{or @labelField "label"}}
+      @search={{@onSearch}}
+      @options={{@filterOptions}}
+      @selected={{this.value}}
+      @placeholder={{or
+        @placeholder
+        (t (concat "cases.filters." @filterName "-placeholder"))
+      }}
+      @noMatchesMessage={{t "global.noMatch"}}
+      @searchMessage={{t "global.searchPrompt"}}
+      @loadingMessage={{t "global.loadingPrompt"}}
+      @onChange={{this.onChange}}
+      @renderInPlace={{true}}
+      as |filterOption|
+    >
+      {{if @labelField (get filterOption @labelField) filterOption.label}}
+    </PowerSelectMultiple>
+  </CaseFilter::Base>
+{{/if}}

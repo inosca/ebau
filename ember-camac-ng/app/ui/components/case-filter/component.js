@@ -1,12 +1,14 @@
 import { action } from "@ember/object";
 import { next } from "@ember/runloop";
 import { inject as service } from "@ember/service";
+import { isTesting, macroCondition } from "@embroider/macros";
 import { ensureSafeComponent } from "@embroider/util";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { useCalumaQuery } from "@projectcaluma/ember-core/caluma-query";
 import { allForms } from "@projectcaluma/ember-core/caluma-query/queries";
 import { queryManager } from "ember-apollo-client";
+import { restartableTask, timeout } from "ember-concurrency";
 import { findAll, query } from "ember-data-resources";
 import { trackedFunction } from "ember-resources/util/function";
 import { cached } from "tracked-toolbox";
@@ -19,6 +21,7 @@ import getBuildingPermitQuestion from "camac-ng/gql/queries/get-building-permit-
 import inquiryAnswersQuery from "camac-ng/gql/queries/inquiry-answers.graphql";
 import municipalitiesQuery from "camac-ng/gql/queries/municipalities.graphql";
 import rootFormsQuery from "camac-ng/gql/queries/root-forms.graphql";
+import AsyncSelectMultipleComponent from "camac-ng/ui/components/case-filter/async-select-multiple/component";
 import DateComponent from "camac-ng/ui/components/case-filter/date/component";
 import InputComponent from "camac-ng/ui/components/case-filter/input/component";
 import SelectMultipleComponent from "camac-ng/ui/components/case-filter/select-multiple/component";
@@ -26,6 +29,7 @@ import SelectComponent from "camac-ng/ui/components/case-filter/select/component
 import ToggleSwitchComponent from "camac-ng/ui/components/case-filter/toggle-switch/component";
 
 const COMPONENT_MAPPING = {
+  "async-select-multiple": AsyncSelectMultipleComponent,
   date: DateComponent,
   input: InputComponent,
   select: SelectComponent,
@@ -91,7 +95,40 @@ export default class CaseFilterComponent extends Component {
 
   municipalities = findAll(this, "location", () => ({}));
 
-  tags = findAll(this, "tag", () => ({}));
+  selectedTags = trackedFunction(this, async () => {
+    const key = Object.entries(this.caseFilters).find(
+      ([, config]) => config.options === "selectedTags"
+    )?.[0];
+
+    const selected = this._filter[key];
+
+    if (!selected?.length) {
+      return [];
+    }
+
+    await Promise.resolve();
+
+    return await this.store.query("tag", { name: String(selected) });
+  });
+
+  @restartableTask
+  *searchTags(search) {
+    if (!search) return [];
+
+    if (macroCondition(isTesting())) {
+      // no timeout
+    } else {
+      yield timeout(500);
+    }
+
+    yield Promise.resolve();
+
+    return yield this.store.query("tag", {
+      search,
+      "page[size]": 50,
+      "page[number]": 1,
+    });
+  }
 
   buildingPermitTypes = trackedFunction(this, async () => {
     const response = await this.apollo.query(
