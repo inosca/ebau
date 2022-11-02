@@ -72,7 +72,7 @@ export default {
         "decision",
         "paper",
       ],
-      default: [
+      municipality: [
         "form",
         "instanceId",
         "dossierNumber",
@@ -88,6 +88,16 @@ export default {
         "instanceState",
         "decision",
         "paper",
+      ],
+      default: [
+        "form",
+        "instanceId",
+        "dossierNumber",
+        "municipality",
+        "responsibleMunicipality",
+        "address",
+        "personalDetails",
+        "instanceState",
       ],
     },
   },
