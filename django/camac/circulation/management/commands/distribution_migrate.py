@@ -265,6 +265,8 @@ class Command(BaseCommand):
                     f"Exception ocurred during migration of instance {case.instance.pk}: {str(e)}"
                 )
 
+        self.post_migrate()
+
     def migrate_case(self, case):
         responsible_service = case.instance.responsible_service(
             filter_type="municipality"
@@ -739,8 +741,6 @@ class Command(BaseCommand):
         Case.objects.bulk_create(cases)
         WorkItem.objects.bulk_create(work_items)
 
-        self.on_migrate_activations(distribution_case, activations)
-
     @canton_aware()
     def case_is_depreciated(self, case):
         return False
@@ -1119,36 +1119,27 @@ class Command(BaseCommand):
                 additional_demand_work_item.save()
 
     @canton_aware(include_base_method=True)
-    def on_migrate_activations(self, distribution_case, activations):
-        WorkItem.objects.filter(
-            task_id=self.config.INQUIRY_TASK.pk, case=distribution_case
-        ).annotate(
+    def post_migrate(self):
+        WorkItem.objects.filter(task_id=self.config.INQUIRY_TASK.pk).annotate(
             activation_id=Cast("meta__migrated-from-activation-id", IntegerField())
         ).update(
             created_at=Subquery(
-                activations.filter(pk=OuterRef("activation_id")).values("start_date")[
-                    :1
-                ]
+                core_models.Activation.objects.filter(
+                    pk=OuterRef("activation_id")
+                ).values("start_date")[:1]
             )
         )
 
-        Case.objects.filter(
-            workflow_id=self.config.INQUIRY_WORKFLOW,
-            parent_work_item__case=distribution_case,
-        ).update(
+        Case.objects.filter(workflow_id=self.config.INQUIRY_WORKFLOW).update(
             created_at=Subquery(
-                WorkItem.objects.filter(child_case_id=OuterRef("pk")).values(
-                    "created_at"
-                )[:1]
+                WorkItem.objects.filter(
+                    task_id=self.config.INQUIRY_TASK.pk, child_case=OuterRef("pk")
+                ).values("created_at")[:1]
             )
         )
 
-    def on_migrate_activations_be(
-        self, distribution_case, activations, result_base_method=None
-    ):
-        WorkItem.objects.filter(
-            task_id=self.config.FILL_INQUIRY_TASK.pk, case=distribution_case
-        ).update(
+    def post_migrate_be(self, result_base_method=None):
+        WorkItem.objects.filter(task_id=self.config.FILL_INQUIRY_TASK.pk).update(
             # Joined field references are not permitted in update query
             # therefore directly using case__parent_work_item__created_at
             # isn't possible
@@ -1160,9 +1151,7 @@ class Command(BaseCommand):
             ),
         )
 
-    def on_migrate_activations_sz(
-        self, distribution_case, activations, result_base_method=None
-    ):
+    def post_migrate_sz(self, result_base_method=None):
         # TODO: reduce queries
         WorkItem.objects.filter(
             task_id__in=[
@@ -1171,7 +1160,6 @@ class Command(BaseCommand):
                 self.config.REVISE_INQUIRY_TASK.pk,
                 self.config.ALTER_INQUIRY_TASK.pk,
             ],
-            case__parent_work_item__case=distribution_case,
         ).update(
             # Joined field references are not permitted in update query
             # therefore directly using case__parent_work_item__created_at
