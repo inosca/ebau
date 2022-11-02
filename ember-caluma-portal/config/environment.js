@@ -11,11 +11,21 @@ module.exports = function (environment) {
   const instanceStatesBe = {
     new: 1,
     rejected: 10000,
+    subm: 20000,
+    circulationInit: 20003,
+    circulation: 20004,
+    coordination: 20005,
     archived: 20009,
+    evaluated: 20010,
     inCorrection: 20007,
+    corrected: 20008,
+    inProgress: 120001,
+    inProgressInternal: 120002,
     finished: 120000,
+    finishedInternal: 120003,
     sb1: 20011,
     sb2: 20013,
+    conclusion: 20014,
   };
   const instanceStatesUr = {
     new: 28,
@@ -26,6 +36,8 @@ module.exports = function (environment) {
   };
   const instanceStatesDemo = {
     new: 1,
+    subm: 120004,
+    circ: 120005,
     finished: 120006,
   };
   const appConfig = {
@@ -37,30 +49,21 @@ module.exports = function (environment) {
       defaultInstanceStateCategory: "pending",
       instanceStateCategories: {
         pending: [
-          1, // new
-          120004, // subm
-          120005, // circ
+          instanceStatesDemo.new,
+          instanceStatesDemo.subm,
+          instanceStatesDemo.circ,
         ],
-        done: [
-          120006, // finished
-        ],
+        done: [instanceStatesDemo.finished],
       },
-      completePreliminaryClarificationSlugs: [
-        "vorabklaerung-vollstaendig",
-        "vorabklaerung-vollstaendig-v2",
-      ],
+      completePreliminaryClarificationSlugs: [],
       selectableGroups: {
         roles: [
-          3, // Leitung Leitbehörde
-          5, // Leitung Baukontrolle
-          20004, // Sachbearbeiter Leitbehörde
-          20005, // Sachbearbeiter Baukontrolle
-          10000, // System-Betrieb
+          3, // municipality
+          10000, // support
         ],
       },
       documents: {
-        feedbackSection: 3,
-        excludeFromDocuments: ["dokumente-platzhalter"],
+        excludeFromDocuments: [],
       },
       instanceStates: instanceStatesDemo,
       modification: {
@@ -98,24 +101,42 @@ module.exports = function (environment) {
       defaultInstanceStateCategory: "pending",
       instanceStateCategories: {
         pending: [
-          1, // new
-          20003, // circulation_init
-          20004, // circulation
-          20005, // coordination
+          instanceStatesBe.new,
+          instanceStatesBe.subm,
+          instanceStatesBe.circulationInit,
+          instanceStatesBe.circulation,
+          instanceStatesBe.coordination,
+          instanceStatesBe.rejected,
+          instanceStatesBe.inProgress,
+          instanceStatesBe.inProgressInternal,
+          instanceStatesBe.inCorrection,
+          instanceStatesBe.corrected,
         ],
+        sb: [instanceStatesBe.sb1, instanceStatesBe.sb2],
         done: [
-          120000, // finished
+          instanceStatesBe.finished,
+          instanceStatesBe.finishedInternal,
+          instanceStatesBe.archived,
+          instanceStatesBe.evaluated,
+          instanceStatesBe.conclusion,
         ],
       },
-      completePreliminaryClarificationSlugs: [],
+      completePreliminaryClarificationSlugs: [
+        "vorabklaerung-vollstaendig",
+        "vorabklaerung-vollstaendig-v2",
+      ],
       selectableGroups: {
         roles: [
           3, // Leitung Leitbehörde
+          5, // Leitung Baukontrolle
+          20004, // Sachbearbeiter Leitbehörde
+          20005, // Sachbearbeiter Baukontrolle
           10000, // System-Betrieb
         ],
       },
       documents: {
-        excludeFromDocuments: [],
+        feedbackSection: 3,
+        excludeFromDocuments: ["dokumente-platzhalter"],
       },
       instanceStates: instanceStatesBe,
       modification: {
