@@ -11,6 +11,7 @@ import { DateTime } from "luxon";
 
 import caseModelConfig from "camac-ng/config/case-model";
 import caseTableConfig from "camac-ng/config/case-table";
+import config from "camac-ng/config/environment";
 import caseInstanceIdsQuery from "camac-ng/gql/queries/case-instance-ids.graphql";
 
 export default class CaseTableComponent extends Component {
@@ -412,9 +413,22 @@ export default class CaseTableComponent extends Component {
 
   @action
   redirectToCase(caseRecord) {
-    location.assign(
-      `/index/redirect-to-instance-resource/instance-id/${caseRecord.instanceId}/`
-    );
+    const instanceId = caseRecord.instanceId;
+
+    let url = `/index/redirect-to-instance-resource/instance-id/${instanceId}/`;
+
+    if (
+      caseRecord.instance.isPaper &&
+      parseInt(caseRecord.instance.get("instanceState.id")) ===
+        parseInt(config.APPLICATION.instanceStates?.new)
+    ) {
+      const portalURL = this.shoebox.content.config.portalURL;
+      const group = this.shoebox.content.groupId;
+      const language = this.shoebox.content.language;
+      url = `${portalURL}/instances/${instanceId}?group=${group}&language=${language}`;
+    }
+
+    location.assign(url);
   }
 
   @dropTask
