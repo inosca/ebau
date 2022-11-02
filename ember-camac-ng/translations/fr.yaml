@@ -1,6 +1,7 @@
 global:
   save: "Enregistrer"
   loading: "Télécharger"
+  loadingPrompt: "Téléchargement..."
   wait: "Veuillez patienter"
   empty: "Aucune entrée trouvée"
   cancel: "Annuler"
@@ -14,6 +15,7 @@ global:
   form: "Formulaire"
   applicant: "Requérant/e"
   search: "Recherche"
+  searchPrompt: "Rechercher..."
   reset: "Réinitialiser"
   ok: "Ok"
   continue: "Suivante"
