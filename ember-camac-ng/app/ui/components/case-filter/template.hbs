@@ -12,6 +12,7 @@
         @maxDate={{get this._filter filterConfig.maxDate}}
         @minDate={{get this._filter filterConfig.minDate}}
         @showWithoutOptions={{filterConfig.showWithoutOptions}}
+        @onSearch={{if filterConfig.search (perform (get this filterConfig.search))}}
       />
     {{/each-in}}
   </div>
