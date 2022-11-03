@@ -17,6 +17,7 @@
       @loadingMessage={{t "global.loadingPrompt"}}
       @onChange={{this.onChange}}
       @renderInPlace={{true}}
+      class="uk-select"
       as |filterOption|
     >
       {{if @labelField (get filterOption @labelField) filterOption.label}}
