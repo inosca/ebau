@@ -10,6 +10,7 @@ import {
 } from "ember-ebau-core/utils/dms";
 
 export default class DmsListComponent extends Component {
+  @service notification;
   @service fetch;
   @service intl;
 
