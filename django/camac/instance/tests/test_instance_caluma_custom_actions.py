@@ -9,6 +9,7 @@ from django.urls import reverse
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
+from camac.ech0211.models import Message
 from camac.instance.models import HistoryEntry
 
 
@@ -353,6 +354,8 @@ def test_change_responsible_service(
     caluma_admin_user,
     be_distribution_settings,
 ):
+    application_settings["DOSSIER_IMPORT"]["PROD_URL"] = "ebau.local"
+    application_settings["ECH0211"]["API_ACTIVE"] = True
     application_settings["NOTIFICATIONS"]["CHANGE_RESPONSIBLE_SERVICE"] = {
         "template_slug": notification_template.slug,
         "recipient_types": ["leitbehoerde"],
@@ -466,6 +469,10 @@ def test_change_responsible_service(
         init_distribution.refresh_from_db()
         assert admin_user.username in init_distribution.assigned_users
         assert other_user.username not in init_distribution.assigned_users
+        if service_type == "municipality":
+            assert Message.objects.count() == 1
+        else:
+            assert Message.objects.count() == 0
     elif expected_status == status.HTTP_400_BAD_REQUEST:
         assert (
             response.data[0]["detail"]
