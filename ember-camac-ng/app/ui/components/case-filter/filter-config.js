@@ -115,8 +115,9 @@ export default {
     showWithoutOptions: true,
   },
   tags: {
-    type: "select-multiple",
-    options: "tags",
+    type: "async-select-multiple",
+    options: "selectedTags",
+    search: "searchTags",
     valueField: "name",
     labelField: "name",
     showWithoutOptions: true,
