@@ -1553,7 +1553,9 @@ class CalumaInstanceChangeResponsibleServiceSerializer(serializers.Serializer):
         # Side effects
         self._sync_with_caluma(from_service, to_service)
         self._send_notification()
-        self._trigger_ech_message()
+        # Changing the active construction control should not trigger an eCH0211 event
+        if filter_type != "construction_control":
+            self._trigger_ech_message()
         self._add_history_entry(to_service)
 
         return instance
