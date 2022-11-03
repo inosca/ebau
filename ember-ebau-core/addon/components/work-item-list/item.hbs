@@ -5,7 +5,7 @@
 
   {{#each @columns as |column|}}
     <td
-      class={{if (includes column (array "responsible" "description" "closedBy")) "uk-text-truncate"}}
+      class={{if (includes column (array "task" "responsible" "description" "closedBy")) "uk-text-truncate"}}
       title="
         {{if (eq column "responsible") @workItem.responsible}}
         {{if (eq column "description") @workItem.instanceDescription}}
