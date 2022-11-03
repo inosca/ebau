@@ -2,12 +2,15 @@ from rest_framework_json_api.views import ReadOnlyModelViewSet
 
 from camac.user.permissions import permission_aware
 
-from . import models, serializers
+from . import filters, models, serializers
 
 
 class TagView(ReadOnlyModelViewSet):
     swagger_schema = None
     serializer_class = serializers.TagSerializer
+    filterset_class = filters.TagFilterSet
+    search_fields = ("name",)
+    ordering = ("name",)
     queryset = models.Tags.objects.all()
 
     @permission_aware
