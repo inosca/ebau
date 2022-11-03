@@ -7,7 +7,7 @@
         </th>
       {{/if}}
       {{#each @columns as |column|}}
-        <th>{{t (concat "workItems." column)}}</th>
+        <th class={{if (eq column "task") "uk-width-1-4"}}>{{t (concat "workItems." column)}}</th>
       {{/each}}
       <th>
         <span hidden>{{t "workItems.actions.title"}}</span>
