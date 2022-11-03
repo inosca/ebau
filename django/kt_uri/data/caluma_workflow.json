@@ -1,6 +1,61 @@
 [
   {
     "model": "caluma_workflow.historicalcase",
+    "pk": "0df3bc85-e007-4fa3-9382-a4903eb14a00",
+    "fields": {
+      "history_user_id": "admin",
+      "created_at": "2022-11-03T07:57:09.851Z",
+      "modified_at": "2022-11-03T07:57:09.851Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "id": "76357c78-61e1-4cfa-8b2a-30203af5b777",
+      "closed_at": null,
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "status": "running",
+      "meta": {
+        "camac-instance-id": 3
+      },
+      "family": "76357c78-61e1-4cfa-8b2a-30203af5b777",
+      "workflow": "building-permit",
+      "document": "97b9e3b2-a039-49a1-b374-c345f06a43db",
+      "history_date": "2022-11-03T07:57:09.853Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_workflow.historicalcase",
+    "pk": "1015ce85-2e1a-426a-aca7-77c5598aa868",
+    "fields": {
+      "history_user_id": "admin",
+      "created_at": "2022-11-03T07:57:09.851Z",
+      "modified_at": "2022-11-03T08:02:03.437Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "id": "76357c78-61e1-4cfa-8b2a-30203af5b777",
+      "closed_at": null,
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "status": "running",
+      "meta": {
+        "dossier-number": "1201-22-001",
+        "camac-instance-id": 3
+      },
+      "family": "76357c78-61e1-4cfa-8b2a-30203af5b777",
+      "workflow": "building-permit",
+      "document": "97b9e3b2-a039-49a1-b374-c345f06a43db",
+      "history_date": "2022-11-03T08:02:03.439Z",
+      "history_change_reason": null,
+      "history_type": "~"
+    }
+  },
+  {
+    "model": "caluma_workflow.historicalcase",
     "pk": "39058553-eb5a-4315-9188-42eece7a1e87",
     "fields": {
       "history_user_id": "admin",
@@ -51,6 +106,59 @@
       "history_date": "2021-04-16T12:48:20.993Z",
       "history_change_reason": null,
       "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_workflow.historicalcase",
+    "pk": "f86b8ba3-5661-4f99-abd7-0ba9ecfa7653",
+    "fields": {
+      "history_user_id": "admin",
+      "created_at": "2022-11-03T07:57:09.851Z",
+      "modified_at": "2022-11-03T08:02:08.106Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "id": "76357c78-61e1-4cfa-8b2a-30203af5b777",
+      "closed_at": null,
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "status": "running",
+      "meta": {
+        "submit-date": "2022-11-03T08:02:08+0000",
+        "dossier-number": "1201-22-001",
+        "camac-instance-id": 3
+      },
+      "family": "76357c78-61e1-4cfa-8b2a-30203af5b777",
+      "workflow": "building-permit",
+      "document": "97b9e3b2-a039-49a1-b374-c345f06a43db",
+      "history_date": "2022-11-03T08:02:08.108Z",
+      "history_change_reason": null,
+      "history_type": "~"
+    }
+  },
+  {
+    "model": "caluma_workflow.case",
+    "pk": "76357c78-61e1-4cfa-8b2a-30203af5b777",
+    "fields": {
+      "created_at": "2022-11-03T07:57:09.851Z",
+      "modified_at": "2022-11-03T08:02:08.106Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "family": "76357c78-61e1-4cfa-8b2a-30203af5b777",
+      "closed_at": null,
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "workflow": "building-permit",
+      "status": "running",
+      "meta": {
+        "submit-date": "2022-11-03T08:02:08+0000",
+        "dossier-number": "1201-22-001",
+        "camac-instance-id": 3
+      },
+      "document": "97b9e3b2-a039-49a1-b374-c345f06a43db"
     }
   },
   {
@@ -128,6 +236,76 @@
       "history_date": "2021-04-16T12:44:43.090Z",
       "history_change_reason": null,
       "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_workflow.historicalworkitem",
+    "pk": "160b4ab7-4f45-42f7-bd4d-429e9ecb7bd3",
+    "fields": {
+      "history_user_id": "admin",
+      "created_at": "2022-11-03T07:57:09.907Z",
+      "modified_at": "2022-11-03T07:57:09.907Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "id": "9c1456ec-750e-44b2-afbe-966f133cee27",
+      "name": "{\"de\": \"Platzhalter\", \"fr\": null}",
+      "description": "{\"de\": null, \"fr\": null}",
+      "closed_at": null,
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "deadline": null,
+      "status": "ready",
+      "meta": {},
+      "addressed_groups": "[]",
+      "controlling_groups": "[]",
+      "assigned_users": "[]",
+      "task": "placeholder",
+      "case": "76357c78-61e1-4cfa-8b2a-30203af5b777",
+      "child_case": null,
+      "document": null,
+      "previous_work_item": null,
+      "history_date": "2022-11-03T07:57:09.909Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_workflow.historicalworkitem",
+    "pk": "23c641d1-3e81-4352-833b-84f786014c2e",
+    "fields": {
+      "history_user_id": "admin",
+      "created_at": "2022-11-03T07:57:09.907Z",
+      "modified_at": "2022-11-03T07:57:09.914Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "id": "9c1456ec-750e-44b2-afbe-966f133cee27",
+      "name": "{\"de\": \"Platzhalter\", \"fr\": null}",
+      "description": "{\"de\": null, \"fr\": null}",
+      "closed_at": null,
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "deadline": null,
+      "status": "ready",
+      "meta": {
+        "not-viewed": true,
+        "notify-deadline": true,
+        "notify-completed": false
+      },
+      "addressed_groups": "[]",
+      "controlling_groups": "[]",
+      "assigned_users": "[]",
+      "task": "placeholder",
+      "case": "76357c78-61e1-4cfa-8b2a-30203af5b777",
+      "child_case": null,
+      "document": null,
+      "previous_work_item": null,
+      "history_date": "2022-11-03T07:57:09.916Z",
+      "history_change_reason": null,
+      "history_type": "~"
     }
   },
   {
@@ -235,6 +413,38 @@
       "history_date": "2021-04-16T12:48:21.004Z",
       "history_change_reason": null,
       "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_workflow.workitem",
+    "pk": "9c1456ec-750e-44b2-afbe-966f133cee27",
+    "fields": {
+      "created_at": "2022-11-03T07:57:09.907Z",
+      "modified_at": "2022-11-03T07:57:09.914Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Platzhalter\", \"fr\": null}",
+      "description": "{\"de\": null, \"fr\": null}",
+      "closed_at": null,
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "deadline": null,
+      "task": "placeholder",
+      "status": "ready",
+      "meta": {
+        "not-viewed": true,
+        "notify-deadline": true,
+        "notify-completed": false
+      },
+      "addressed_groups": "[]",
+      "controlling_groups": "[]",
+      "assigned_users": "[]",
+      "case": "76357c78-61e1-4cfa-8b2a-30203af5b777",
+      "child_case": null,
+      "document": null,
+      "previous_work_item": null
     }
   },
   {
