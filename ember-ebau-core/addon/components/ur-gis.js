@@ -433,12 +433,9 @@ export default class UrGisComponent extends Component {
         outputFormat: "application/json",
         CQL_FILTER: `searchterm='${parcelOrBuildingleaseNr} ${searchMunicipalityBy}'`,
       });
-      const response = yield fetch(
-        `/lisag/webmercator/wfs?${params.toString()}`,
-        {
-          mode: "cors",
-        }
-      );
+      const response = yield fetch(`/lisag/wfs?${params.toString()}`, {
+        mode: "cors",
+      });
       const data = yield response.json();
       if (data.features.length === 0) {
         this.notification.danger(this.intl.t("gis.noParcelNumber"));
