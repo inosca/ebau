@@ -31,7 +31,7 @@ export default class WorkItemDetailNewComponent extends Component {
   @tracked workItem = new NewWorkItem();
 
   get minDeadline() {
-    return new Date();
+    return DateTime.now().startOf("day").toJSDate();
   }
 
   get responsibleService() {
