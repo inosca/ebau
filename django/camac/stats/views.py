@@ -112,7 +112,7 @@ class InquiriesSummaryView(ListAPIView):
             self.get_queryset()
             .annotate(
                 processing_duration=Func(
-                    F("closed_at"), F("created_at"), function="age"
+                    F("closed_at"), F("child_case__created_at"), function="age"
                 ),
                 deadline_met=Case(
                     When(deadline__date__gt=F("closed_at__date"), then=1),
