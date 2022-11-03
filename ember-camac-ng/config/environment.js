@@ -44,6 +44,7 @@ module.exports = function (environment) {
         journalDefaultVisibility: false,
         journalEntryDuration: false,
         instanceStates: {
+          new: 1,
           archived: 20009,
         },
         interchangeableForms: [
