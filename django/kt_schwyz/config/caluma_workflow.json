@@ -1,6 +1,19 @@
 [
   {
     "model": "caluma_workflow.flow",
+    "pk": "2bd75f9d-562d-4e82-ba2c-3a6fefa3176b",
+    "fields": {
+      "created_at": "2022-11-03T13:38:43.204Z",
+      "modified_at": "2022-11-03T13:38:43.204Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "['archive-instance']|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
     "pk": "4e405383-e014-4106-b95c-853da58a568b",
     "fields": {
       "created_at": "2020-09-03T14:47:54.554Z",
@@ -14,10 +27,10 @@
   },
   {
     "model": "caluma_workflow.flow",
-    "pk": "83f2c279-bc8c-4cf4-97e1-8068fa85e8fa",
+    "pk": "5ad568f4-5b76-4534-a72e-3e35f611a390",
     "fields": {
-      "created_at": "2020-11-19T16:58:27.552Z",
-      "modified_at": "2020-11-19T16:58:27.552Z",
+      "created_at": "2022-11-03T13:28:09.688Z",
+      "modified_at": "2022-11-03T13:28:09.688Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
@@ -422,22 +435,6 @@
   },
   {
     "model": "caluma_workflow.taskflow",
-    "pk": "175d2ce4-5780-433e-b30c-e3ef13a4fdff",
-    "fields": {
-      "created_at": "2020-11-19T16:58:27.554Z",
-      "modified_at": "2020-11-19T16:58:27.554Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "workflow": "building-permit",
-      "task": "make-decision",
-      "flow": "83f2c279-bc8c-4cf4-97e1-8068fa85e8fa",
-      "redoable": "'distribution'|task"
-    }
-  },
-  {
-    "model": "caluma_workflow.taskflow",
     "pk": "1ca7c04f-57d5-4571-b4b5-a1fbbec551cf",
     "fields": {
       "created_at": "2020-09-03T14:47:45.619Z",
@@ -518,6 +515,22 @@
   },
   {
     "model": "caluma_workflow.taskflow",
+    "pk": "b13683be-cc99-469d-8d2a-9727b281465c",
+    "fields": {
+      "created_at": "2022-11-03T13:28:09.690Z",
+      "modified_at": "2022-11-03T13:28:09.690Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "building-permit",
+      "task": "depreciate-case",
+      "flow": "5ad568f4-5b76-4534-a72e-3e35f611a390",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
     "pk": "c7803ae1-1a0d-4ac8-9876-ab4fa5a51a67",
     "fields": {
       "created_at": "2020-11-02T08:09:57.061Z",
@@ -534,18 +547,18 @@
   },
   {
     "model": "caluma_workflow.taskflow",
-    "pk": "e0002fe5-9d86-4a6b-8c41-b4cf9d576f56",
+    "pk": "e82af8f9-5793-4b72-89ce-99250b7960cd",
     "fields": {
-      "created_at": "2020-11-19T16:58:27.554Z",
-      "modified_at": "2020-11-19T16:58:27.554Z",
+      "created_at": "2022-11-03T13:38:43.208Z",
+      "modified_at": "2022-11-03T13:38:43.208Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "workflow": "building-permit",
-      "task": "depreciate-case",
-      "flow": "83f2c279-bc8c-4cf4-97e1-8068fa85e8fa",
-      "redoable": null
+      "task": "make-decision",
+      "flow": "2bd75f9d-562d-4e82-ba2c-3a6fefa3176b",
+      "redoable": "'distribution'|task"
     }
   },
   {
