@@ -140,5 +140,23 @@
       "billing_account": 12000000,
       "instance_state": 34
     }
+  },
+  {
+    "model": "core.instancelocation",
+    "pk": 12000000,
+    "fields": {
+      "location": 1,
+      "instance": 3
+    }
+  },
+  {
+    "model": "core.workflowentry",
+    "pk": 12000000,
+    "fields": {
+      "workflow_date": "2022-11-03T08:02:08Z",
+      "instance": 3,
+      "workflow_item": 12,
+      "group": 1
+    }
   }
 ]
