@@ -1036,6 +1036,8 @@ def active_inquiry_factory(
         if kwargs.get("created_at"):
             inquiry.created_at = kwargs.get("created_at")
             inquiry.save()
+            inquiry.child_case.created_at = kwargs.get("created_at")
+            inquiry.child_case.save()
 
         answer_factory(
             document=inquiry.document,
