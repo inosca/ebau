@@ -135,9 +135,6 @@ export default {
     submitDate: {
       caluma: [{ meta: "submit-date" }],
     },
-    instanceState: {
-      "camac-ng": ["instance__instance_state__trans__name"],
-    },
   },
   defaultOrder: "instanceId",
 };
