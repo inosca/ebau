@@ -14,7 +14,7 @@ export class CaseFilterSelectComponent extends Component {
         return [...flattened, ...(option.options ? option.options : [option])];
       }, []) ?? [];
 
-    return this.args.value
+    return this.args.value && options.length
       ? options.find(
           (option) =>
             JSON.stringify(option[valueKey]) === JSON.stringify(this.args.value)
