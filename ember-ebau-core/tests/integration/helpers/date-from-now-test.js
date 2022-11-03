@@ -18,13 +18,27 @@ module("Integration | Helper | date-from-now", function (hooks) {
 
     await render(hbs`{{date-from-now this.value}}`);
 
-    assert.dom(this.element).hasText("vor 6 Tagen");
+    assert.dom(this.element).hasText("vor 5 Tagen");
   });
 
   test("it renders with a string", async function (assert) {
     this.value = this.date.toISO();
 
     await render(hbs`{{date-from-now this.value}}`);
+
+    assert.dom(this.element).hasText("vor 5 Tagen");
+  });
+
+  test("it renders without a value", async function (assert) {
+    await render(hbs`{{date-from-now null}}`);
+
+    assert.dom(this.element).hasText("");
+  });
+
+  test("it can force using the start of the day", async function (assert) {
+    this.value = this.date.toJSDate();
+
+    await render(hbs`{{date-from-now this.value startOfDay=true}}`);
 
     assert.dom(this.element).hasText("vor 6 Tagen");
   });
