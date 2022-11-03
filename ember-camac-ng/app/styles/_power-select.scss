@@ -1,6 +1,25 @@
 @import "ember-power-select";
 
+.ember-power-select-multiple-option {
+  margin: 3px 1px 3px 4px;
+}
+
+.ember-power-select-multiple-remove-btn {
+  opacity: 1 !important;
+}
+
 .ember-power-select-trigger-multiple-input {
   padding-left: 8px !important;
   font-weight: inherit;
+}
+
+.uk-select {
+  &.ember-power-select-multiple-trigger {
+    height: auto !important;
+    min-height: 40px;
+  }
+
+  .ember-power-select-status-icon {
+    display: none;
+  }
 }
