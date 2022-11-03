@@ -12,6 +12,7 @@ import {
 } from "ember-ebau-core/utils/dms";
 
 export default class DmsGenerateComponent extends Component {
+  @service notification;
   @service fetch;
   @service intl;
 
@@ -124,7 +125,7 @@ export default class DmsGenerateComponent extends Component {
         saveAs(blob, `${this.args.instanceId} - ${filename}`);
       }
     } catch (error) {
-      this.notification.error(this.intl.t("dms.merge-error"));
+      this.notification.danger(this.intl.t("dms.merge-error"));
     }
   }
 }
