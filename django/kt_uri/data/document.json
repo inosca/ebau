@@ -21,5 +21,51 @@
       "context": {},
       "attachment_sections": [12000000]
     }
+  },
+  {
+    "model": "document.attachment",
+    "pk": 12000001,
+    "fields": {
+      "uuid": "3483a712-6c42-42e9-a347-b3ea089d0358",
+      "name": "Parzellenbild.png",
+      "instance": 3,
+      "path": "attachments/files/3/Parzellenbild_IAVdwmW.png",
+      "size": 364724,
+      "date": "2022-11-03T07:58:18.824Z",
+      "user": 1,
+      "mime_type": "image/png",
+      "is_parcel_picture": 0,
+      "digital_signature": 0,
+      "is_confidential": 0,
+      "identifier": null,
+      "group": 685,
+      "question": null,
+      "service": null,
+      "context": {},
+      "attachment_sections": [12000000]
+    }
+  },
+  {
+    "model": "document.attachment",
+    "pk": 12000002,
+    "fields": {
+      "uuid": "d4e23c30-eb72-4b63-b0bd-e2aa5a934bb2",
+      "name": "3-baugesuch.pdf",
+      "instance": 3,
+      "path": "attachments/files/3/3-baugesuch.pdf",
+      "size": 183968,
+      "date": "2022-11-03T08:02:08.091Z",
+      "user": 1,
+      "mime_type": "application/pdf",
+      "is_parcel_picture": 0,
+      "digital_signature": 0,
+      "is_confidential": 0,
+      "identifier": null,
+      "group": 685,
+      "question": "dokument-weitere-gesuchsunterlagen",
+      "service": null,
+      "context": {},
+      "attachment_sections": [12000000]
+    }
   }
 ]

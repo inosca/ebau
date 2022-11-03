@@ -20,5 +20,16 @@
       "created": "2021-04-16T12:48:20.897Z",
       "email": "admin@example.com"
     }
+  },
+  {
+    "model": "applicants.applicant",
+    "pk": 3,
+    "fields": {
+      "instance": 3,
+      "user": 1,
+      "invitee": 1,
+      "created": "2022-11-03T07:57:09.682Z",
+      "email": "admin@example.com"
+    }
   }
 ]
