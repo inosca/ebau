@@ -32,5 +32,55 @@
       "case": "857ff0e6-9547-46c8-bd44-7258c9fa33e4",
       "instance_group": null
     }
+  },
+  {
+    "model": "instance.instance",
+    "pk": 3,
+    "fields": {
+      "instance_state": 30,
+      "form": 298,
+      "user": 1,
+      "group": 685,
+      "creation_date": "2022-11-03T07:57:09.669Z",
+      "modification_date": "2022-11-03T07:57:09.669Z",
+      "previous_instance_state": 28,
+      "identifier": null,
+      "location": 1,
+      "case": "76357c78-61e1-4cfa-8b2a-30203af5b777",
+      "instance_group": null
+    }
+  },
+  {
+    "model": "instance.historyentry",
+    "pk": 1,
+    "fields": {
+      "instance": 3,
+      "service": null,
+      "user": 1,
+      "created_at": "2022-11-03T08:02:08.116Z",
+      "title": "Dossier submitted",
+      "body": "",
+      "history_type": "status-change"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 1,
+    "fields": {
+      "title": "Dossier eingereicht",
+      "body": "",
+      "history_entry": 1,
+      "language": "de"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 2,
+    "fields": {
+      "title": "Dossier envoyé",
+      "body": "",
+      "history_entry": 1,
+      "language": "fr"
+    }
   }
 ]
