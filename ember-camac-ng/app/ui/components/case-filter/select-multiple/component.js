@@ -14,7 +14,7 @@ export class CaseFilterSelectMultipleComponent extends Component {
         return [...flattened, ...(option.options ? option.options : [option])];
       }, []) ?? [];
 
-    return this.args.value
+    return this.args.value && options.length
       ? this.args.value.map((value) =>
           options.find(
             (option) =>
