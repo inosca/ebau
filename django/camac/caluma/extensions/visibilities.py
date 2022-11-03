@@ -122,7 +122,7 @@ class CustomVisibilitySZ(CustomVisibility):
     Form visibility rules are defined in the form meta.
     Possible configurations are shown below.
     Note: If no visibility is configured for a form,
-    the form is by default NOT returned.
+    the form is visible by default.
 
     Visible for internal roles:
     "meta": {
@@ -196,6 +196,8 @@ class CustomVisibilitySZ(CustomVisibility):
         camac_role = self.request.group.role.role_id
         camac_service = self.request.group.service_id
 
+        default_filter = Q(meta__visibility__isnull=True)
+
         # public filter: visible to all
         public_filter = Q(meta__visibility__type="public")
 
@@ -222,7 +224,9 @@ class CustomVisibilitySZ(CustomVisibility):
             meta__visibility__visibleFor__services__contains=[camac_service],
         )
 
-        return queryset.filter(public_filter | internal_filter | specific_filter)
+        return queryset.filter(
+            default_filter | public_filter | internal_filter | specific_filter
+        )
 
     @filter_queryset_for(form_schema.Question)
     @filter_queryset_for(form_schema.Option)
