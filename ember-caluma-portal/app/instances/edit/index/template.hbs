@@ -1,10 +1,10 @@
 <div class="uk-grid-collapse" uk-grid>
-  <div class="uk-width-1-3">
+  <div class="uk-width-1-4 uk-width-1-3@m">
     <h2 class="instance-overview__title">
       {{t "instances.masterData"}}
     </h2>
   </div>
-  <div class="uk-width-2-3">
+  <div class="uk-width-3-4 uk-width-2-3@m">
     <div class="uk-width-1-1 uk-grid-small" uk-grid>
       <BeOverviewGridCell
         @label={{t "instances.special-id"}}
@@ -50,12 +50,12 @@
 
 {{#if this.isRejection}}
   <div class="uk-grid-collapse" uk-grid>
-    <div class="uk-width-1-3">
+    <div class="uk-width-1-4 uk-width-1-3@m">
       <h2 class="instance-overview__title">
         {{t "instances.reasonForRejection"}}
       </h2>
     </div>
-    <div class="uk-width-2-3">
+    <div class="uk-width-3-4 uk-width-2-3@m">
       <div class="uk-alert-danger" uk-alert>
         <p class="white-space-pre-line">
           {{~this.instance.value.rejectionFeedback~}}
@@ -70,12 +70,12 @@
 
 {{#if this.case.decision}}
   <div class="uk-grid-collapse" uk-grid>
-    <div class="uk-width-1-3">
+    <div class="uk-width-1-4 uk-width-1-3@m">
       <h2 class="instance-overview__title">
         {{t "instances.decisionRemarks"}}
       </h2>
     </div>
-    <div class="uk-width-2-3">
+    <div class="uk-width-3-4 uk-width-2-3@m">
       <div class={{this.case.decision.color}} uk-alert>
         <p class="white-space-pre-line">
           {{~this.case.decision.remarks~}}
@@ -88,12 +88,12 @@
 {{/if}}
 
 <div class="uk-grid-collapse" uk-grid>
-  <div class="uk-width-1-3">
+  <div class="uk-width-1-4 uk-width-1-3@m">
     <h2 class="instance-overview__title">
       {{t "instances.actions"}}
     </h2>
   </div>
-  <div class="uk-width-2-3">
+  <div class="uk-width-3-4 uk-width-2-3@m">
     {{#if (can "create copy of instance" this.instance.value)}}
       <h3 class="instance-overview__action-title">
         {{t "instances.rejectionTitle"}}
@@ -256,7 +256,7 @@
   <hr />
 
   <div class="uk-grid-collapse" uk-grid>
-    <div class="uk-width-1-3">
+    <div class="uk-width-1-4 uk-width-1-3@m">
       <h2 class="instance-overview__title">
         {{t "nav.feedback"}}
         {{#if this.feedback.value}}
@@ -267,7 +267,7 @@
         {{/if}}
       </h2>
     </div>
-    <div class="uk-width-2-3">
+    <div class="uk-width-3-4 uk-width-2-3@m">
       {{#if this.feedback.value}}
         <BeAttachmentList
           @loading={{this.feedback.isRunning}}
@@ -286,7 +286,7 @@
   <hr />
 
   <div class="uk-grid-collapse" uk-grid>
-    <div class="uk-width-1-3">
+    <div class="uk-width-1-4 uk-width-1-3@m">
       <h2 class="instance-overview__title">
         {{t "nav.decision"}}
         {{#if this.decision.value}}
@@ -297,7 +297,7 @@
         {{/if}}
       </h2>
     </div>
-    <div class="uk-width-2-3">
+    <div class="uk-width-3-4 uk-width-2-3@m">
       <BeAttachmentList
         @loading={{this.decision.isRunning}}
         @attachments={{this.decision.value}}
