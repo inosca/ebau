@@ -25,7 +25,7 @@
           <td
             class="
               {{if (eq tColumn.name "intent") "uk-text-truncate uk-table-expand"}}
-              {{if (eq tColumn.name "applicants") "uk-text-break"}}
+              {{if (includes tColumn.name (array "applicants" "address")) "uk-text-break"}}
             "
             title={{if (eq tColumn.name "instanceState") (get node "instanceStateDescription")}}
           >
