@@ -30,7 +30,7 @@
         {{t "responsible.responsible"}}
       </label>
       <div class="uk-grid-small" uk-grid>
-        <div class="uk-width-expand">
+        <div class="uk-width-expand uk-form-controls">
           <PowerSelect
             @searchEnabled={{true}}
             @searchField="fullName"
@@ -40,7 +40,7 @@
             @noMatchesMessage={{t "global.noMatch"}}
             @onChange={{fn (mut this.selectedUser)}}
             @allowClear={{true}}
-            class="uk-form-controls"
+            class="uk-select"
             id="responsible-user-select"
             data-test-responsible-user-select as |user|
           >
