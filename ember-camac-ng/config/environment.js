@@ -51,6 +51,7 @@ module.exports = function (environment) {
           ["baugesuch", "baugesuch-generell", "baugesuch-mit-uvp"],
           ["baugesuch-v2", "baugesuch-generell-v2", "baugesuch-mit-uvp-v2"],
         ],
+        useLocation: false,
         answerSlugs: {
           objectStreet: "strasse-flurname",
           objectNumber: "nr",
@@ -82,6 +83,7 @@ module.exports = function (environment) {
           camacForm: 11,
         },
         externalServiceGroupIds: [],
+        useLocation: true,
       },
       kt_uri: {
         name: "ur",
@@ -97,6 +99,7 @@ module.exports = function (environment) {
           142, // KOOR BG
           21, // KOOR NP
         ],
+        useLocation: true,
         submittedStates: [
           21, // comm
           22, // ext

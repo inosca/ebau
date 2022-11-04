@@ -22,10 +22,31 @@ export default class DossierImportIndexController extends Controller {
   ENV = ENV;
   @tracked fileUpload;
   @tracked selectedLocation;
+  @tracked selectedGroup;
+
+  @lastValue("fetchGroups") groups;
+  @restartableTask
+  *fetchGroups() {
+    if (!ENV.APPLICATION.useLocation && this.shoebox.isSupportRole) {
+      return yield this.store.query("group", {
+        role: this.shoebox.content.config.roles["municipality-admin"][0],
+        service_group: 2,
+        include: "service",
+      });
+    }
+    const group = yield this.store.findRecord(
+      "group",
+      this.shoebox.content.groupId
+    );
+    return [group];
+  }
 
   @lastValue("fetchLocations") locations;
   @restartableTask
   *fetchLocations() {
+    if (!ENV.APPLICATION.useLocation) {
+      return [];
+    }
     if (this.shoebox.isSupportRole) {
       return yield this.store.findAll("location");
     }
@@ -45,10 +66,12 @@ export default class DossierImportIndexController extends Controller {
     event.stopPropagation();
 
     const formData = new FormData();
-    formData.append("group", this.shoebox.content.groupId);
+    formData.append(
+      "group",
+      this.selectedGroup?.id || this.groups.firstObject?.id
+    );
 
-    // Locations only available (and necessary) for Kt. SZ
-    if (this.locations.length) {
+    if (ENV.APPLICATION.useLocation) {
       formData.append(
         "location_id",
         this.selectedLocation?.id || this.locations.firstObject?.id
@@ -108,6 +131,11 @@ export default class DossierImportIndexController extends Controller {
   @action
   updateLocation(location) {
     this.selectedLocation = location;
+  }
+
+  @action
+  updateGroup(group) {
+    this.selectedGroup = group;
   }
 
   @action
