@@ -24,7 +24,6 @@ module.exports = function (environment) {
       },
     },
     "ember-ebau-core": {
-      gisUrl: "/webmercator/wfs",
       attachmentSections: { applicant: "12000000" },
     },
     APP: {
@@ -133,10 +132,6 @@ module.exports = function (environment) {
     // above
     APPLICATION: {},
   };
-
-  if (environment === "development") {
-    ENV["ember-ebau-core"].gisUrl = "http://ebau.local/webmercator/wfs";
-  }
 
   if (environment === "test") {
     // Testem prefers this...
