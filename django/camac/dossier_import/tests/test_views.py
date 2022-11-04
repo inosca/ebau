@@ -17,12 +17,12 @@ from .test_dossier_import_case import TEST_IMPORT_FILE_NAME
 @pytest.mark.parametrize(
     "config,host,role__name,result_count",
     [
-        ("kt_bern", "ebau-test.sycloud.ch", "municipality-lead", 1),
+        ("kt_bern", "test.ebau.ch", "municipality-lead", 1),
         ("kt_bern", "ebau.apps.be.ch", "municipality-lead", 0),
-        ("kt_schwyz", "camac-schwyz.sycloud.ch", "Gemeinde", 1),
+        ("kt_schwyz", "test.ebau.ch", "Gemeinde", 1),
         ("kt_schwyz", "ebau-sz.ch", "Gemeinde", 0),
-        ("kt_schwyz", "camac-schwyz.sycloud.ch", "Support", 2),
-        ("kt_schwyz", "camac-schwyz.sycloud.ch", "Applicant", 0),
+        ("kt_schwyz", "test.ebau.ch", "Support", 2),
+        ("kt_schwyz", "test.ebau.ch", "Applicant", 0),
     ],
 )
 def test_api_get_views(
@@ -243,7 +243,7 @@ def test_file_validation(
     [
         (
             "start",
-            "sycloud",
+            "test",
             "municipality-lead",
             DossierImport.IMPORT_STATUS_VALIDATION_SUCCESSFUL,
             status.HTTP_200_OK,
@@ -259,7 +259,7 @@ def test_file_validation(
         ),
         (
             "start",
-            "sycloud",
+            "test",
             "municipality-lead",
             DossierImport.IMPORT_STATUS_VALIDATION_FAILED,
             status.HTTP_400_BAD_REQUEST,
@@ -267,7 +267,7 @@ def test_file_validation(
         ),
         (
             "confirm",
-            "sycloud",
+            "test",
             "municipality-lead",
             DossierImport.IMPORT_STATUS_IMPORTED,
             status.HTTP_200_OK,
@@ -275,7 +275,7 @@ def test_file_validation(
         ),
         (
             "confirm",
-            "sycloud",
+            "test",
             "municipality-lead",
             DossierImport.IMPORT_STATUS_VALIDATION_SUCCESSFUL,
             status.HTTP_400_BAD_REQUEST,
@@ -283,7 +283,7 @@ def test_file_validation(
         ),
         (
             "transmit",
-            "sycloud",
+            "test",
             "support",
             DossierImport.IMPORT_STATUS_CONFIRMED,
             status.HTTP_200_OK,
@@ -299,7 +299,7 @@ def test_file_validation(
         ),
         (
             "transmit",
-            "sycloud",
+            "test",
             "municipality-lead",
             DossierImport.IMPORT_STATUS_CONFIRMED,
             status.HTTP_403_FORBIDDEN,
@@ -307,7 +307,7 @@ def test_file_validation(
         ),
         (
             "transmit",
-            "sycloud",
+            "test",
             "support",
             DossierImport.IMPORT_STATUS_IMPORTED,
             status.HTTP_400_BAD_REQUEST,
@@ -315,7 +315,7 @@ def test_file_validation(
         ),
         (
             "undo",
-            "sycloud",
+            "test",
             "support",
             DossierImport.IMPORT_STATUS_IMPORTED,
             status.HTTP_200_OK,
@@ -323,7 +323,7 @@ def test_file_validation(
         ),
         (
             "undo",
-            "sycloud",
+            "test",
             "municipality-lead",
             DossierImport.IMPORT_STATUS_IMPORTED,
             status.HTTP_200_OK,
