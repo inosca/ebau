@@ -20,8 +20,8 @@ from camac.utils import build_url
 
 def is_prod():
     return (
-        "sycloud" not in settings.INTERNAL_BASE_URL
-        and "local" not in settings.INTERNAL_BASE_URL
+        "local" not in settings.INTERNAL_BASE_URL
+        and "test" not in settings.INTERNAL_BASE_URL
     )
 
 
