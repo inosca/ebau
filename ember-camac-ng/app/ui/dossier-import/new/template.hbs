@@ -4,7 +4,7 @@
 {{#if this.fetchLocations.isRunning}}
   <div uk-spinner></div>
 {{else}}
-  {{#if (gt this.locations.length 1)}}
+  {{#if (or (gt this.locations.length 1) (gt this.groups.length 1))}}
     <div class="uk-margin-small-bottom">
       <div class="uk-text-bold">
         {{t "dossierImport.new.locationLabel"}}
@@ -14,21 +14,36 @@
       </div>
     </div>
     <div class="uk-width-medium">
-      <PowerSelect
-        @options={{this.locations}}
-        @selected={{(or this.selectedLocation this.locations.firstObject)}}
-        @onChange={{this.updateLocation}}
-        @renderInPlace={{true}}
-        class="uk-select"
-        as |location|
-      >
-        <span>
-          {{location.communalFederalNumber}}
-        </span>
-        <span>
-          {{location.name}}
-        </span>
-      </PowerSelect>
+      {{#if (gt this.locations.length 1)}}
+        <PowerSelect
+          @options={{this.locations}}
+          @selected={{(or this.selectedLocation this.locations.firstObject)}}
+          @onChange={{this.updateLocation}}
+          @renderInPlace={{true}}
+          class="uk-select"
+          as |location|
+        >
+          <span>
+            {{location.communalFederalNumber}}
+          </span>
+          <span>
+            {{location.name}}
+          </span>
+        </PowerSelect>
+      {{else}}
+        <PowerSelect
+          @options={{this.groups}}
+          @selected={{(or this.selectedGroup this.groups.firstObject)}}
+          @onChange={{this.updateGroup}}
+          @renderInPlace={{true}}
+          class="uk-select"
+          as |group|
+        >
+          <span>
+            {{group.service.name}}
+          </span>
+        </PowerSelect>
+      {{/if}}
     </div>
   {{/if}}
   <div class="uk-margin-top">
