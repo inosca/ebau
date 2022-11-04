@@ -201,11 +201,12 @@ class AccessibleInstanceFilter(NumberFilter):
 class GroupFilterSet(FilterSet):
     accessible_instance = AccessibleInstanceFilter()
     service = NumberMultiValueFilter()
+    service_group = NumberMultiValueFilter(field_name="service__service_group")
     role = NumberMultiValueFilter()
 
     class Meta:
         model = models.Group
-        fields = ("accessible_instance", "service", "role")
+        fields = ("accessible_instance", "service", "service_group", "role")
 
 
 class PublicGroupFilterSet(FilterSet):
