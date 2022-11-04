@@ -100,10 +100,16 @@ class DossierImportView(ModelViewSet):
         return Response()
 
     @permission_aware
+    def has_object_create_permission(self, instance):  # pragma: no cover
+        return not is_prod()
+
+    def has_object_create_permission_for_support(self, instance):  # pragma: no cover
+        return True
+
+    @permission_aware
     def has_object_transmit_permission(self, instance):
         return False
 
-    @permission_aware
     def has_object_transmit_permission_for_support(self, instance):
         return not is_prod()
 
