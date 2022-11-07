@@ -942,10 +942,8 @@ class FormFieldView(
     def has_destroy_permission(self):
         return False
 
-    def get_base_queryset(self):
+    def get_fields(self, permission):
         queryset = super().get_base_queryset()
-        perms = settings.APPLICATION.get("ROLE_PERMISSIONS", {})
-        permission = perms.get(self.request.group.role.name, "applicant")
         questions = [
             question
             for question, value in settings.FORM_CONFIG["questions"].items()
@@ -961,11 +959,31 @@ class FormFieldView(
                     "municipality",
                     "service",
                     "support",
+                    "public",
                 ],
             )
         ]
-
         return queryset.filter(name__in=questions)
+
+    @permission_aware
+    def get_queryset(self):
+        perms = settings.APPLICATION.get("ROLE_PERMISSIONS", {})
+        return self.get_fields(perms.get(self.request.group.role.name, "applicant"))
+
+    def get_queryset_for_public(self):
+        return self.get_fields("public")
+
+    def get_queryset_for_municipality(self):
+        return self.get_fields("municipality")
+
+    def get_queryset_for_service(self):
+        return self.get_fields("service")
+
+    def get_queryset_for_reader(self):
+        return self.get_fields("reader")
+
+    def get_queryset_for_support(self):
+        return self.get_fields("support")
 
 
 class JournalEntryView(mixins.InstanceQuerysetMixin, views.ModelViewSet):

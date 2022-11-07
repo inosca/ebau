@@ -7908,21 +7908,21 @@
       "config": {}
     },
     "ortsbezeichnung-des-vorhabens": {
-      "restrict": ["municipality", "service", "reader"],
+      "restrict": ["municipality", "service", "reader", "public"],
       "label": "Adresse",
       "type": "text",
       "required": false,
       "config": {}
     },
     "standort-spezialbezeichnung": {
-      "restrict": ["municipality", "service", "reader"],
+      "restrict": ["municipality", "service", "reader", "public"],
       "label": "Spezialbezeichnung",
       "type": "text",
       "required": false,
       "config": {}
     },
     "standort-ort": {
-      "restrict": ["municipality", "service", "reader"],
+      "restrict": ["municipality", "service", "reader", "public"],
       "label": "Ort",
       "type": "text",
       "required": false,
