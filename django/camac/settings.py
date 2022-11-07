@@ -195,7 +195,7 @@ DISTRIBUTION_DUMP_CONFIG = {
 APPLICATIONS = {
     "test": {
         "ECH0211": {
-            "API_ACTIVE": False,
+            "API_ACTIVE": env.bool("ECH0211_API_ACTIVE", default=False),
         },
         "LOG_NOTIFICATIONS": True,
         # Mapping between camac role and instance permission.
@@ -328,7 +328,7 @@ APPLICATIONS = {
             "Support": "support",
         },
         "ECH0211": {
-            "API_ACTIVE": True,
+            "API_ACTIVE": env.bool("ECH0211_API_ACTIVE", default=False),
             "API_LEVEL": "basic",
             "URLS_CLASS": "camac.ech0211.urls.SZUrlsConf",
         },
@@ -1183,7 +1183,7 @@ APPLICATIONS = {
     },
     "kt_bern": {
         "ECH0211": {
-            "API_ACTIVE": True,
+            "API_ACTIVE": env.bool("ECH0211_API_ACTIVE", default=True),
             "API_LEVEL": "full",
             "SWAGGER_PATH": "camac.swagger.views.kt_bern",
             "URLS_CLASS": "camac.ech0211.urls.BEUrlsConf",
@@ -2056,7 +2056,7 @@ APPLICATIONS = {
     },
     "kt_uri": {
         "ECH0211": {
-            "API_ACTIVE": False,
+            "API_ACTIVE": env.bool("ECH0211_API_ACTIVE", default=False),
         },
         "ENABLE_PUBLIC_CALUMA": True,
         "LOG_NOTIFICATIONS": False,
@@ -2701,7 +2701,7 @@ APPLICATIONS = {
     },
     "demo": {
         "ECH0211": {
-            "API_ACTIVE": False,
+            "API_ACTIVE": env.bool("ECH0211_API_ACTIVE", default=False),
         },
         "LOG_NOTIFICATIONS": True,
         # Mapping between camac role and instance permission.
