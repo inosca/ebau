@@ -1,9 +1,5 @@
 function instanceReductor(all, workItem) {
-  return [
-    ...all,
-    workItem.case.parentWorkItem?.case.meta["camac-instance-id"] ||
-      workItem.case.meta["camac-instance-id"],
-  ];
+  return [...all, workItem.case.family.meta["camac-instance-id"]];
 }
 
 function usernameReductor(all, workItem) {
