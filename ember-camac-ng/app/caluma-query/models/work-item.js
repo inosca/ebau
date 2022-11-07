@@ -112,11 +112,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
   }
 
   get case() {
-    return (
-      this.raw.case.parentWorkItem?.case.parentWorkItem?.case ??
-      this.raw.case.parentWorkItem?.case ??
-      this.raw.case
-    );
+    return this.raw.case.family;
   }
 
   get instanceId() {
@@ -290,7 +286,24 @@ export default class CustomWorkItemModel extends WorkItemModel {
       meta
     }
     case {
-      ...RootCase
+      family {
+        id
+        meta
+        document {
+          form {
+            name
+          }
+          answers(filter: [{ questions: ["beschreibung-bauvorhaben", "voranfrage-vorhaben"] }]) {
+            edges {
+              node {
+                ... on StringAnswer {
+                  value
+                }
+              }
+            }
+          }
+        }
+      }
       parentWorkItem {
         id
         addressedGroups
@@ -300,38 +313,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
           meta
         }
         case {
-          ...RootCase
-          parentWorkItem {
-            id
-            addressedGroups
-            controllingGroups
-            task {
-              slug
-              meta
-            }
-            case {
-              ...RootCase
-            }
-          }
-        }
-      }
-    }
-  }
-
-  fragment RootCase on Case {
-    id
-    meta
-    document {
-      form {
-        name
-      }
-      answers(filter: [{ questions: ["beschreibung-bauvorhaben", "voranfrage-vorhaben"] }]) {
-        edges {
-          node {
-            ... on StringAnswer {
-              value
-            }
-          }
+          id
         }
       }
     }
