@@ -4,10 +4,13 @@ import { module, test } from "qunit";
 module("Unit | Model | user", function (hooks) {
   setupTest(hooks);
 
-  // Replace this with your real tests.
-  test("it exists", function (assert) {
+  test("it computes the full name", function (assert) {
     const store = this.owner.lookup("service:store");
-    const model = store.createRecord("user", {});
-    assert.ok(model);
+    const model = store.createRecord("user", {
+      name: "Max",
+      surname: "Muster",
+    });
+
+    assert.strictEqual(model.fullName, "Max Muster");
   });
 });

@@ -13,7 +13,7 @@ module("Integration | Component | case-filter/input", function (hooks) {
     // Handle any actions with this.set('myAction', function(val) { ... });
 
     this.set("update", () => null);
-    await render(hbs`<CaseFilter::Input @updateFilter={{update}} />`);
+    await render(hbs`<CaseFilter::Input @updateFilter={{this.update}} />`);
 
     assert.ok(this.element.textContent.trim());
   });
