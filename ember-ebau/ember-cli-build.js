@@ -16,7 +16,9 @@ const UNUSED_ENVS = ENVS.filter((e) => e !== ENV).join("|");
 
 module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
-    // Add options here
+    "ember-simple-auth": {
+      useSessionSetupMethod: true,
+    },
   });
 
   app.trees.app = stew.rm(

@@ -1,13 +1,11 @@
 import Application from "@ember/application";
 import { run } from "@ember/runloop";
+import config from "dummy/config/environment";
+import { initialize } from "dummy/instance-initializers/uikit-intl";
 import Resolver from "ember-resolver";
 import { module, test } from "qunit";
 
-import CustomField from "camac-ng/caluma/lib/custom-field";
-import config from "camac-ng/config/environment";
-import { initialize } from "camac-ng/initializers/register-custom-caluma-models";
-
-module("Unit | Initializer | register-custom-caluma-models", function (hooks) {
+module("Unit | Instance Initializer | uikit-intl", function (hooks) {
   hooks.beforeEach(function () {
     this.TestApplication = class TestApplication extends Application {
       modulePrefix = config.modulePrefix;
@@ -15,7 +13,7 @@ module("Unit | Initializer | register-custom-caluma-models", function (hooks) {
       Resolver = Resolver;
     };
 
-    this.TestApplication.initializer({
+    this.TestApplication.instanceInitializer({
       name: "initializer under test",
       initialize,
     });
@@ -23,18 +21,18 @@ module("Unit | Initializer | register-custom-caluma-models", function (hooks) {
     this.application = this.TestApplication.create({
       autoboot: false,
     });
-  });
 
+    this.instance = this.application.buildInstance();
+  });
   hooks.afterEach(function () {
+    run(this.instance, "destroy");
     run(this.application, "destroy");
   });
 
+  // TODO: Replace this with your real tests.
   test("it works", async function (assert) {
-    await this.application.boot();
+    await this.instance.boot();
 
-    assert.strictEqual(
-      this.application.resolveRegistration("caluma-model:field"),
-      CustomField
-    );
+    assert.ok(true);
   });
 });
