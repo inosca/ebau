@@ -7,9 +7,10 @@ distribution:
   municipal-services: "Fachstellen Gemeinde"
 
   send-answer: "Antwort senden"
-  release-for-review: "Zur Kontrolle freigeben"
-  released-for-review: "Zur Kontrolle freigegeben"
-  release-adjustment-for-review: "Anpassung zur Kontrolle freigeben"
+  release-for-review: "Zur Überprüfung freigeben"
+  released-for-review: "Zur Überprüfung freigegeben am"
+  released-for-review-by: "Zur Überprüfung freigegeben durch"
+  release-adjustment-for-review: "Anpassung zur Überprüfung freigeben"
   confirm: "Bestätigen"
   revise: "Überarbeiten"
   closed-by: "Geprüft durch"
