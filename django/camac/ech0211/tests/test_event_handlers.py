@@ -49,6 +49,7 @@ def test_submit_event_sz(
     api_level,
     application_settings,
 ):
+    application_settings["ECH0211"]["API_ACTIVE"] = True
     application_settings["ECH0211"]["API_LEVEL"] = api_level
     instance_state_factory(name="subm")
     serializer = InstanceSubmitSerializer(
