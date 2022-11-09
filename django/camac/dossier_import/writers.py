@@ -3,7 +3,6 @@ import re
 import shutil
 from dataclasses import asdict, fields
 from datetime import datetime
-from django.utils.translation import gettext as _
 from pathlib import Path
 from typing import Any, List, Optional
 
@@ -15,6 +14,7 @@ from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
 from django.db import IntegrityError
 from django.utils import timezone
+from django.utils.translation import gettext as _
 from future.moves import itertools
 
 from camac.core.models import WorkflowEntry

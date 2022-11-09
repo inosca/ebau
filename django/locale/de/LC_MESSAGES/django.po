@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-09 13:33+0100\n"
-"PO-Revision-Date: 2022-11-09 13:34+0100\n"
+"PO-Revision-Date: 2022-11-10 15:10+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -79,14 +79,10 @@ msgid "Translations"
 msgstr "Übersetzungen"
 
 #: camac/core/admin/inlines.py:20 camac/core/admin/inlines.py:35
-#, fuzzy
-#| msgid "Role"
 msgid "ACL Role"
 msgstr "Rolle"
 
 #: camac/core/admin/inlines.py:21 camac/core/admin/inlines.py:36
-#, fuzzy
-#| msgid "Roles"
 msgid "ACL Roles"
 msgstr "Rollen"
 
@@ -113,20 +109,16 @@ msgid "Resource Name"
 msgstr ""
 
 #: camac/core/admin/views.py:70
-#, fuzzy
-#| msgid "Description"
 msgid "Resource Description"
-msgstr "Beschreibung"
+msgstr ""
 
 #: camac/core/admin/views.py:82
 msgid "Available Instance Resource"
 msgstr ""
 
 #: camac/core/apps.py:7
-#, fuzzy
-#| msgid "User management"
 msgid "Resource management"
-msgstr "Benutzerverwaltung"
+msgstr ""
 
 #: camac/document/filters.py:21
 msgid ""
@@ -763,14 +755,12 @@ msgid "Back to CAMAC admin"
 msgstr "Zurück zum CAMAC Admin"
 
 #: camac/templates/admin/login.html:12
-#, fuzzy
-#| msgid "Source instance not found"
 msgid "Page not found"
-msgstr "Quellinstanz nicht gefunden"
+msgstr "Seite nicht gefunden"
 
 #: camac/templates/admin/login.html:13
 msgid "We’re sorry, but the requested page could not be found."
-msgstr ""
+msgstr "Die gewünschte Seite konnte nicht gefunden werden."
 
 #: camac/user/admin/filters.py:6 camac/user/admin/forms.py:26
 #: camac/user/admin/forms.py:42 camac/user/admin/forms.py:51
@@ -935,9 +925,3 @@ msgstr "Übergeordnete Organisation"
 #: camac/user/models.py:547
 msgid "Services"
 msgstr "Organisationen"
-
-#, python-format
-#~ msgid "Found unknown columns: %(extra)s"
-#~ msgstr ""
-#~ "Folgende Spalten in der Importdatei wurden nicht erkannt und werden beim "
-#~ "Import ignoriert: %(extra)s"
