@@ -1,7 +1,7 @@
 import { inject as service } from "@ember/service";
 import { Ability } from "ember-can";
 
-import config from "../config/environment";
+import config from "caluma-portal/config/environment";
 
 export default class InstanceAbility extends Ability {
   @service session;
