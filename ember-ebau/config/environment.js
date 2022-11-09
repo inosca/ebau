@@ -36,7 +36,6 @@ module.exports = function (environment) {
     environment,
     rootURL: "/",
     locationType: "auto",
-    podModulePrefix: "ebau/ui",
     "ember-simple-auth-oidc": {
       host: `${oidcHost}/auth/realms/${appConfig.realm}/protocol/openid-connect`,
       clientId: "camac",
