@@ -3,6 +3,7 @@ import re
 import shutil
 from dataclasses import asdict, fields
 from datetime import datetime
+from django.utils.translation import gettext as _
 from pathlib import Path
 from typing import Any, List, Optional
 
@@ -145,14 +146,24 @@ class WorkflowEntryDateWriter(FieldWriter):
 
 
 class CalumaAnswerWriter(FieldWriter):
-    def __init__(self, value_key: str = "value", task: str = None, *args, **kwargs):
+    def __init__(
+        self,
+        value_key: str = "value",
+        task: str = None,
+        formatter: str = None,
+        *args,
+        **kwargs,
+    ):
         self.value_key = value_key
         self.task = task
+        self.formatter = formatter
         super().__init__(*args, **kwargs)
 
     def write(self, instance, value):
         if not value:
             return
+        if self.formatter == "to-string":
+            value = str(value)
         try:
             dossier = self.context.get("dossier")
             if self.task:
@@ -172,6 +183,24 @@ class CalumaAnswerWriter(FieldWriter):
             else:
                 document = instance.case.document
             question = Question.objects.get(slug=self.target)
+            if (
+                question.type == "text"
+                and question.max_length
+                and question.max_length < len(value)
+            ):
+                value = value[: question.max_length - 3] + "..."
+                dossier._meta.warnings.append(
+                    Message(
+                        level=LOG_LEVEL_WARNING,
+                        code=MessageCodes.FIELD_VALIDATION_ERROR.value,
+                        detail=_(
+                            'Value "%(value)s" in field %(target)s is too long (max: %(max)s)'
+                        )
+                        % dict(
+                            value=value, target=self.target, max=question.max_length
+                        ),
+                    )
+                )
             try:
                 form_api.save_answer(
                     question=question,

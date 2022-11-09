@@ -220,13 +220,15 @@ def test_file_validation(
     )
     assert resp.status_code == expected_status
     if resp.status_code != status.HTTP_201_CREATED:
-        assert str(resp.data[0]["detail"]) == expected_result
+        assert expected_result in str(resp.data[0]["detail"])
     else:
         if expected_result is not None:
             for key, value in expected_result.items():
-                assert sorted(value) == sorted(
-                    resp.data["messages"]["validation"]["summary"][key]
-                )
+                for left, right in zip(
+                    sorted(value),
+                    sorted(resp.data["messages"]["validation"]["summary"][key]),
+                ):
+                    assert left in right
         admin_client.delete(reverse("dossier-import-detail", args=(resp.data["id"],)))
 
 
@@ -334,8 +336,8 @@ def test_file_validation(
             "prod",
             "support",
             DossierImport.IMPORT_STATUS_IMPORTED,
-            status.HTTP_403_FORBIDDEN,
-            None,
+            status.HTTP_200_OK,
+            "deleted",
         ),
         (
             "undo",

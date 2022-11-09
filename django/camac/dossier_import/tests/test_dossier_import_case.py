@@ -245,6 +245,13 @@ def test_set_workflow_state_exceptions(
         ),  # 2017-1
         (
             {
+                "ADDRESS-STREET": "1000000000200000000030000000004000000000500000000060000000007000000000",
+                "ADDRESS-STREET-NR": "3a",
+            },
+            "street",
+        ),
+        (
+            {
                 "COORDINATE-E": "2`710`662",
                 "COORDINATE-N": "1`225`997",
                 "PARCEL": "`123`,2BA",

@@ -13,6 +13,7 @@ from camac.dossier_import.models import DossierImport
 
 from .config.common import mimetypes
 from .messages import MessageCodes
+from .loaders import XlsxFileDossierLoader
 
 
 def verify_source_file(source_file: str) -> str:
@@ -113,8 +114,18 @@ def validate_zip_archive_structure(instance_pk, clean_on_fail=True) -> DossierIm
     missing = set(required_columns) - set(heading_values)
     if missing:
         raise InvalidImportDataError(
-            _("Meta data file in archive is missing required columns %(missing)s.")
-            % dict(missing=missing)
+            _(
+                "Meta data file in archive is missing required columns %(missing)s. Found %(found)s"
+            )
+            % dict(missing=missing, found=heading_values)
+        )
+    extra = set(heading_values) - set([e.value for e in XlsxFileDossierLoader.Column])
+    if extra:
+        dossier_import.messages["validation"]["summary"]["warning"].append(
+            _(
+                "Found unknown columns: %(extra)s. Those columns will be ignored while importing."
+            )
+            % dict(extra=extra)
         )
 
     status_column = next((col for col in headings if col.value == "STATUS"))

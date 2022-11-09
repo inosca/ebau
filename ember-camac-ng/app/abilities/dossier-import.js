@@ -8,7 +8,11 @@ export default class extends Ability {
 
   get canDoSomething() {
     return (
-      this.canStart || this.canConfirm || this.canTransmit || this.canDelete
+      this.canStart ||
+      this.canConfirm ||
+      this.canTransmit ||
+      this.canDelete ||
+      this.canUndo
     );
   }
 
@@ -36,10 +40,12 @@ export default class extends Ability {
       return false;
     }
     if (this.shoebox.isSupportRole) {
-      return ["imported", "confirmed"].includes(this.model?.status);
+      return ["imported", "import-failed", "confirmed"].includes(
+        this.model?.status
+      );
     }
     if (this.shoebox.baseRole === "municipality") {
-      return ["imported"].includes(this.model?.status);
+      return ["imported", "import-failed"].includes(this.model?.status);
     }
     return false;
   }
