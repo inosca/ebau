@@ -96,3 +96,15 @@ mutation CreateFlow7 {
     clientMutationId
   }
 }
+
+mutation CreateFlow8 {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["depreciate-case"]
+      next: "['archive-instance']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
