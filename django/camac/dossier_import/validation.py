@@ -1,4 +1,5 @@
 import datetime
+from enum import Enum
 import zipfile
 from typing import List
 
@@ -12,8 +13,17 @@ from camac.dossier_import.loaders import InvalidImportDataError
 from camac.dossier_import.models import DossierImport
 
 from .config.common import mimetypes
+from .dossier_classes import Dossier
 from .messages import MessageCodes
 from .loaders import XlsxFileDossierLoader
+
+
+class TargetStatus(Enum):
+    SUBMITTED = "SUBMITTED"
+    APPROVED = "APPROVED"
+    REJECTED = "REJECTED"
+    WRITTEN_OFF = "WRITTEN OFF"
+    DONE = "DONE"
 
 
 def verify_source_file(source_file: str) -> str:
@@ -175,12 +185,10 @@ def validate_zip_archive_structure(instance_pk, clean_on_fail=True) -> DossierIm
                     pass
                 continue
 
-    status_choices = ["SUBMITTED", "APPROVED", "DONE"]
-
     if status_column:
         for cell in worksheet[status_column.column_letter][1:]:
             dossier_id = worksheet[f"A{cell.row}"].value
-            if cell.value not in status_choices:
+            if cell.value not in [e.value for e in TargetStatus]:
                 if cell.value is None:
                     messages.append_or_update_dossier_message(
                         dossier_id,
