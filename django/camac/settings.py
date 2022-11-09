@@ -477,6 +477,7 @@ APPLICATIONS = {
                 "archive-instance": {
                     "cancel": [
                         "create-manual-workitems",
+                        "publication",
                     ],
                     "complete": [
                         "building-authority",
