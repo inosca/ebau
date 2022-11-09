@@ -115,7 +115,7 @@ class XlsxFileDossierLoader:
         completion_date = "COMPLETION-DATE"
         custom_1 = "CUSTOM-1"
         custom_2 = "CUSTOM-2"
-        link = "LINK4"
+        link = "LINK"
         applicant_first_name = "APPLICANT-FIRST-NAME"
         applicant_last_name = "APPLICANT-LAST-NAME"
         applicant_company = "APPLICANT-COMPANY"

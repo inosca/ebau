@@ -135,7 +135,7 @@ class KtBernDossierWriter(DossierWriter):
     custom_1 = CalumaAnswerWriter(target="freies-textfeld-1")
     custom_2 = CalumaAnswerWriter(target="freies-textfeld-2")
     street = CalumaAnswerWriter(target="strasse-flurname")
-    street_number = CalumaAnswerWriter(target="nr")
+    street_number = CalumaAnswerWriter(target="nr", formatter="to-string")
     city = CalumaAnswerWriter(target="ort-grundstueck")
     applicant = CalumaListAnswerWriter(
         target="personalien-gesuchstellerin", column_mapping=APPLICANT_MAPPING
@@ -278,6 +278,8 @@ class KtBernDossierWriter(DossierWriter):
         instance.history.all().delete()
 
         self.write_fields(instance, dossier)
+        dossier_summary.details += dossier._meta.warnings
+        dossier_summary.details += dossier._meta.errors
         dossier_summary.details.append(
             Message(
                 level=LOG_LEVEL_DEBUG,
