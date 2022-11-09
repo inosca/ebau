@@ -263,6 +263,11 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
                   type: "date",
                 },
                 {
+                  label: "distribution.released-for-review-by",
+                  value: releasedForReviewWorkItem?.closedByUser,
+                  type: "user",
+                },
+                {
                   label: "caluma.distribution.inquiry.closed-at",
                   value: inquiry.closedAt,
                   type: "date",
