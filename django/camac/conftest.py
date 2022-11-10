@@ -477,6 +477,7 @@ def caluma_workflow_config_be(
     call_command(
         "loaddata",
         settings.ROOT_DIR("kt_bern/config/caluma_distribution.json"),
+        settings.ROOT_DIR("kt_bern/config/caluma_legal_submission_form.json"),
         settings.ROOT_DIR("kt_bern/config/caluma_workflow.json"),
     )
 

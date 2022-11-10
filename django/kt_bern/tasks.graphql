@@ -211,3 +211,16 @@ mutation CreateCompleteTask {
     clientMutationId
   }
 }
+
+mutation CreateLegalSubmissionTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "legal-submission"
+      name: "Rechtsbegehren"
+      form: "legal-submission"
+      addressGroups: "['municipality']|groups"
+    }
+  ) {
+    clientMutationId
+  }
+}
