@@ -4182,6 +4182,21 @@
       "modified_by_group": null,
       "form": "dokumente-spezialgesuche",
       "question": "dachaufsicht-spezialgesuche",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-spezialgesuche.dachquerschnitt-spezialgesuche",
+    "fields": {
+      "created_at": "2022-11-10T07:25:03.573Z",
+      "modified_at": "2022-11-10T07:25:03.573Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-spezialgesuche",
+      "question": "dachquerschnitt-spezialgesuche",
       "sort": 4
     }
   },
@@ -4227,7 +4242,7 @@
       "modified_by_group": null,
       "form": "dokumente-spezialgesuche",
       "question": "situationsplan-1-500-spezialgesuche",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -17116,6 +17131,22 @@
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Dachaufsicht\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "dachquerschnitt-spezialgesuche-ja",
+    "fields": {
+      "created_at": "2022-11-10T07:25:03.099Z",
+      "modified_at": "2022-11-10T07:25:03.099Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dachquerschnitt\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -35651,6 +35682,39 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "dachquerschnitt-spezialgesuche",
+    "fields": {
+      "created_at": "2022-11-10T07:25:03.388Z",
+      "modified_at": "2022-11-10T07:25:03.388Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dachquerschnitt\", \"fr\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "!('form-type-solar-announcement' in 'form-type'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
       "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
@@ -56677,6 +56741,21 @@
       "modified_by_group": null,
       "question": "dachaufsicht",
       "option": "dachaufsicht-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "dachquerschnitt-spezialgesuche.dachquerschnitt-spezialgesuche-ja",
+    "fields": {
+      "created_at": "2022-11-10T07:25:03.399Z",
+      "modified_at": "2022-11-10T07:25:03.399Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "dachquerschnitt-spezialgesuche",
+      "option": "dachquerschnitt-spezialgesuche-ja",
       "sort": 1
     }
   },
