@@ -302,7 +302,12 @@ class InquiriesField(serializers.ReadOnlyField):
             status__in=(
                 [self.status]
                 if self.status
-                else [WorkItem.STATUS_READY, WorkItem.STATUS_COMPLETED]
+                else [
+                    WorkItem.STATUS_READY,
+                    WorkItem.STATUS_COMPLETED,
+                    WorkItem.STATUS_SUSPENDED,
+                    WorkItem.STATUS_SKIPPED,
+                ]
             ),
         )
 
