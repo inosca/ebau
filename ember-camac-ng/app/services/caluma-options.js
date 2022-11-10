@@ -127,6 +127,8 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
     const permissions = {
       completeDistribution: () => this.shoebox.isLeadRole,
       reopenDistribution: () => this.shoebox.isLeadRole,
+      createInquiry: () => this.shoebox.isLeadRole,
+      editInquiry: () => this.shoebox.isLeadRole,
       sendInquiry: () => this.shoebox.isLeadRole,
       withdrawInquiry: () => this.shoebox.isLeadRole,
       completeInquiryChildWorkItem: () => this.shoebox.isLeadRole,
