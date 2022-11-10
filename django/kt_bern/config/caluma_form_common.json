@@ -815,7 +815,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "e-mail-gesuchstellerin",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -830,7 +830,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "hinweis-personalien",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -845,7 +845,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "juristische-person-gesuchstellerin",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -860,7 +860,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "name-gesuchstellerin",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -875,7 +875,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "name-juristische-person-gesuchstellerin",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -890,7 +890,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "nummer-gesuchstellerin",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -905,7 +905,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "ort-gesuchstellerin",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -920,7 +920,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "plz-gesuchstellerin",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -935,7 +935,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "strasse-gesuchstellerin",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -950,7 +950,22 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "telefon-oder-mobile-gesuchstellerin",
-      "sort": 3
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien-tabelle.vertreterin",
+    "fields": {
+      "created_at": "2022-11-10T15:36:17.806Z",
+      "modified_at": "2022-11-10T15:36:17.806Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "personalien-tabelle",
+      "question": "vertreterin",
+      "sort": 1
     }
   },
   {
@@ -965,7 +980,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "vorname-gesuchstellerin",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -1659,6 +1674,38 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "vertreterin-ja",
+    "fields": {
+      "created_at": "2022-11-10T15:36:17.463Z",
+      "modified_at": "2022-11-10T15:37:01.318Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "vertreterin-nein",
+    "fields": {
+      "created_at": "2022-11-10T15:36:17.435Z",
+      "modified_at": "2022-11-10T15:37:01.332Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "vollmacht-generalvollmacht",
     "fields": {
       "created_at": "2019-03-15T08:32:06.882Z",
@@ -2207,7 +2254,7 @@
     "pk": "hinweis-personalien",
     "fields": {
       "created_at": "2020-11-12T15:15:05.246Z",
-      "modified_at": "2021-10-06T08:39:09.209Z",
+      "modified_at": "2022-11-10T15:33:32.415Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -2215,7 +2262,7 @@
       "label": "{\"de\": \"Hinweis Gesuchsteller/in\", \"fr\": \"Hinweis Gesuchsteller/in\"}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "form == 'information-of-neighbors'",
+      "is_hidden": "form == 'information-of-neighbors' || form == 'legal-submission-form'",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
@@ -4368,6 +4415,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "vertreterin",
+    "fields": {
+      "created_at": "2022-11-10T15:36:17.634Z",
+      "modified_at": "2022-11-10T15:37:01.565Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vertreter/in?\", \"fr\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "form != 'legal-submission-form'",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "vollmacht",
     "fields": {
       "created_at": "2019-03-15T08:32:07.078Z",
@@ -4815,6 +4893,36 @@
       "modified_by_group": null,
       "question": "verantwortliche-person-sb-identisch",
       "option": "verantwortliche-person-sb-identisch-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "vertreterin.vertreterin-ja",
+    "fields": {
+      "created_at": "2022-11-10T15:37:01.579Z",
+      "modified_at": "2022-11-10T15:37:01.579Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "vertreterin",
+      "option": "vertreterin-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "vertreterin.vertreterin-nein",
+    "fields": {
+      "created_at": "2022-11-10T15:37:01.575Z",
+      "modified_at": "2022-11-10T15:37:01.575Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "vertreterin",
+      "option": "vertreterin-nein",
       "sort": 1
     }
   },
