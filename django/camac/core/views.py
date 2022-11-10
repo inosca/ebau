@@ -2,8 +2,9 @@ from pathlib import Path
 from uuid import uuid4
 
 import requests
+from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
-from django.db.models import F
+from django.db.models import Exists, F, OuterRef, Q
 from django.http import HttpResponse
 from django.utils import timezone
 from django.utils.encoding import escape_uri_path, smart_bytes
@@ -108,10 +109,23 @@ class PublicationEntryView(ModelViewSet):
 
     def get_queryset_for_municipality(self):
         return models.PublicationEntry.objects.filter(
-            instance__group=self.request.group
+            instance__group__service_id=self.request.group.service_id
         )
 
     def get_queryset_for_service(self):
+        if settings.DISTRIBUTION:
+            return models.PublicationEntry.objects.filter(
+                Exists(
+                    WorkItem.objects.filter(
+                        task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
+                        case__family__instance=OuterRef("instance"),
+                        addressed_groups=[self.request.group.service_id],
+                    ).exclude(
+                        status__in=[WorkItem.STATUS_SUSPENDED, WorkItem.STATUS_CANCELED]
+                    )
+                )
+            )
+
         return models.PublicationEntry.objects.filter(
             instance__circulations__activations__service=self.request.group.service
         )
@@ -120,6 +134,20 @@ class PublicationEntryView(ModelViewSet):
         return models.PublicationEntry.objects.none()
 
     def get_queryset_for_reader(self):
+        if settings.DISTRIBUTION:
+            return models.PublicationEntry.objects.filter(
+                Q(instance__group__service_id=self.request.group.service_id)
+                | Exists(
+                    WorkItem.objects.filter(
+                        task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
+                        case__family__instance=OuterRef("instance"),
+                        addressed_groups=[self.request.group.service_id],
+                    ).exclude(
+                        status__in=[WorkItem.STATUS_SUSPENDED, WorkItem.STATUS_CANCELED]
+                    )
+                )
+            )
+
         return models.PublicationEntry.objects.filter(
             instance__circulations__activations__service=self.request.group.service
         )
