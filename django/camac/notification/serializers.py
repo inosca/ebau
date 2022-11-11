@@ -522,14 +522,19 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         if not settings.DISTRIBUTION:
             return "---"
 
-        work_item = caluma_workflow_models.WorkItem.objects.filter(
-            case__family__instance=instance,
-            task_id=settings.DISTRIBUTION["DISTRIBUTION_INIT_TASK"],
-            status=caluma_workflow_models.WorkItem.STATUS_COMPLETED,
-        ).first()
+        distribution_closed_at = (
+            caluma_workflow_models.WorkItem.objects.filter(
+                case__family__instance=instance,
+                task_id=settings.DISTRIBUTION["DISTRIBUTION_INIT_TASK"],
+                status=caluma_workflow_models.WorkItem.STATUS_COMPLETED,
+                closed_at__isnull=False,
+            )
+            .values_list("closed_at", flat=True)
+            .first()
+        )
 
-        if work_item:
-            return self.format_date(work_item.closed_at)
+        if distribution_closed_at:
+            return self.format_date(distribution_closed_at)
 
         return "---"
 
