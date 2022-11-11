@@ -1,0 +1,7 @@
+link-attachments:
+  title: 'Dokumente aus "{section}" verlinken'
+  empty: "Es wurden noch keine Dokumente in diese Sektion hochgeladen."
+  no-selected: "Es wurden keine Dokumente verlinkt."
+  download: "Dokument herunterladen"
+  upload-error: "Fehler beim Hochladen des Dokuments"
+  replaced: "(ersetzt)"

@@ -1,0 +1,19 @@
+.link-attachments{
+  &__preview {
+    width: 150px;
+    height: 200px;
+    background-size: cover;
+    background-position: center center;
+    border: none;
+    font-size: inherit;
+    text-align: left;
+    overflow-wrap: break-word;
+    padding: 0;
+
+    &__overlay {
+      &--selected {
+        background-color: rgba($global-primary-background, 0.8);
+      }
+    }
+  }
+}

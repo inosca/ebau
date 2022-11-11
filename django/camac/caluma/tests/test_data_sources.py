@@ -1,9 +1,12 @@
 from collections import namedtuple
 
 import pytest
+from caluma.caluma_form.factories import QuestionFactory
+from django.core.cache import cache
 
 from ..extensions.countries import COUNTRIES
 from ..extensions.data_sources import (
+    Attachments,
     Authorities,
     Countries,
     Locations,
@@ -134,3 +137,57 @@ def test_data_sources(
     data = test_class().get_data(user, None, None)
 
     assert data == expected
+
+
+@pytest.mark.parametrize(
+    "has_instance,has_attachment_section,expected_count",
+    [(False, False, 0), (True, False, 0), (False, True, 0), (True, True, 3)],
+)
+def test_attachments(
+    db,
+    attachment_attachment_section_factory,
+    attachment_section_factory,
+    caluma_admin_user,
+    expected_count,
+    has_attachment_section,
+    has_instance,
+    instance_factory,
+):
+    question = QuestionFactory()
+
+    section1 = attachment_section_factory()
+    section2 = attachment_section_factory()
+
+    instance1 = instance_factory()
+    instance2 = instance_factory()
+
+    # attachments in section 1
+    attachment_attachment_section_factory.create_batch(
+        3, attachmentsection=section1, attachment__instance=instance1
+    )
+    attachment_attachment_section_factory.create_batch(
+        2, attachmentsection=section1, attachment__instance=instance2
+    )
+
+    # attachments in section 2
+    attachment_attachment_section_factory.create_batch(
+        1, attachmentsection=section2, attachment__instance=instance1
+    )
+    attachment_attachment_section_factory.create_batch(
+        2, attachmentsection=section2, attachment__instance=instance2
+    )
+
+    if has_attachment_section:
+        question.meta["attachmentSection"] = section1.pk
+        question.save()
+
+    if has_instance:
+        context = {"instanceId": instance1.pk}
+    else:
+        context = {}
+
+    cache.clear()
+
+    data = Attachments().get_data(caluma_admin_user, question, context)
+
+    assert len(data) == expected_count

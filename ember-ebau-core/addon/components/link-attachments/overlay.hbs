@@ -1,0 +1,7 @@
+<div class="uk-overlay uk-overlay-primary uk-position-bottom uk-padding-small {{if @selected "link-attachments__preview__overlay--selected"}}">
+  {{#if @attachment.context.isReplaced}}
+    <del>{{@attachment.displayName}}</del> {{t "link-attachments.replaced"}}
+  {{else}}
+    {{@attachment.displayName}}
+  {{/if}}
+</div>
