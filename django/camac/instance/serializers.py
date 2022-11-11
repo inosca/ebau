@@ -732,7 +732,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         return set()
 
     def _get_ebau_number_form_permissions_for_municipality(self, instance):
-        if instance.instance_state.name == "subm":
+        if instance.instance_state.name in ["subm", "in_progress_internal"]:
             return set(["read", "write"])
 
         return set(["read"])
