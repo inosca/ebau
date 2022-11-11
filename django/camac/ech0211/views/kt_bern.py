@@ -1,5 +1,6 @@
 import logging
 
+from django.db import transaction
 from django.http import HttpResponse
 from drf_yasg import openapi
 from drf_yasg.utils import swagger_auto_schema
@@ -111,6 +112,7 @@ class EventView(ECHInstanceQuerysetMixin, GenericViewSet):
             return True
         return False
 
+    @transaction.atomic
     def create(self, request, instance_id, event_type, *args, **kwargs):
         instance = get_object_or_404(self.get_queryset(), pk=instance_id)
         try:
@@ -147,6 +149,7 @@ class SendView(ECHInstanceQuerysetMixin, GenericViewSet):
         ),
         responses={"201": "success"},
     )
+    @transaction.atomic
     def create(self, request, *args, **kwargs):
         if not request.data:
             return HttpResponse(status=400)
