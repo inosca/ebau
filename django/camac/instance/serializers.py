@@ -509,6 +509,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
     decision_date = serializers.SerializerMethodField()
     decision = serializers.SerializerMethodField()
     involved_at = serializers.SerializerMethodField()
+    is_after_decision = serializers.SerializerMethodField()
 
     def get_is_paper(self, instance):
         return CalumaApi().is_paper(instance)
@@ -600,6 +601,11 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
 
         return config.get("MAP", {}).get(
             instance.instance_state_id, config.get("DEFAULT", "")
+        )
+
+    def get_is_after_decision(self, instance):
+        return instance.instance_state.name in settings.APPLICATION.get(
+            "ATTACHMENT_AFTER_DECISION_STATES", []
         )
 
     included_serializers = {
@@ -1057,6 +1063,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             "decision",
             "decision_date",
             "involved_at",
+            "is_after_decision",
         )
         read_only_fields = InstanceSerializer.Meta.read_only_fields + (
             "caluma_form",
@@ -1073,6 +1080,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             "decision",
             "decision_date",
             "involved_at",
+            "is_after_decision",
         )
 
 

@@ -3,4 +3,7 @@
   <LinkTo @route={{module-route "legal-submission" "index"}} class="uk-button uk-button-default">{{t "global.back"}}</LinkTo>
 </div>
 
-<CfContent @documentId={{@model}} />
+<CfContent
+  @documentId={{@model.documentId}}
+  @context={{hash instanceId=@model.instanceId}}
+/>

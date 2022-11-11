@@ -64,7 +64,7 @@
       "modified_by_group": null,
       "form": "legal-submission-form",
       "question": "legal-submission-completion-date",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -79,7 +79,7 @@
       "modified_by_group": null,
       "form": "legal-submission-form",
       "question": "legal-submission-completion-reason",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -94,7 +94,22 @@
       "modified_by_group": null,
       "form": "legal-submission-form",
       "question": "legal-submission-document-date",
-      "sort": 6
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "legal-submission-form.legal-submission-documents",
+    "fields": {
+      "created_at": "2023-01-03T13:27:20.696Z",
+      "modified_at": "2023-01-03T13:27:20.696Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "legal-submission-form",
+      "question": "legal-submission-documents",
+      "sort": 1
     }
   },
   {
@@ -109,7 +124,7 @@
       "modified_by_group": null,
       "form": "legal-submission-form",
       "question": "legal-submission-legal-claimants-table-question",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -124,7 +139,7 @@
       "modified_by_group": null,
       "form": "legal-submission-form",
       "question": "legal-submission-legal-hearing-date",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -139,7 +154,7 @@
       "modified_by_group": null,
       "form": "legal-submission-form",
       "question": "legal-submission-opening-date",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -154,7 +169,7 @@
       "modified_by_group": null,
       "form": "legal-submission-form",
       "question": "legal-submission-receipt-date",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -169,7 +184,7 @@
       "modified_by_group": null,
       "form": "legal-submission-form",
       "question": "legal-submission-reprimands",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -184,7 +199,7 @@
       "modified_by_group": null,
       "form": "legal-submission-form",
       "question": "legal-submission-status",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -199,7 +214,7 @@
       "modified_by_group": null,
       "form": "legal-submission-form",
       "question": "legal-submission-title",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -214,7 +229,7 @@
       "modified_by_group": null,
       "form": "legal-submission-form",
       "question": "legal-submission-type",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -399,6 +414,40 @@
       "configuration": {},
       "meta": {},
       "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "legal-submission-documents",
+    "fields": {
+      "created_at": "2023-01-03T13:27:20.436Z",
+      "modified_at": "2023-01-03T13:28:22.237Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dokumente\", \"fr\": \"Documents\"}",
+      "type": "dynamic_multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "link-attachments",
+        "attachmentSection": 14
+      },
+      "data_source": "Attachments",
       "row_form": null,
       "sub_form": null,
       "source": null,
