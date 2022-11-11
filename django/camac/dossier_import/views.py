@@ -141,13 +141,11 @@ class DossierImportView(ModelViewSet):
     def has_object_undo_permission_for_municipality(self, instance):
         return instance.status in [
             DossierImport.IMPORT_STATUS_IMPORTED,
+            DossierImport.IMPORT_STATUS_IMPORT_FAILED,
         ]
 
     @permission_aware
     def has_object_undo_permission_for_support(self, instance):
-        if is_prod():
-            return False
-
         return instance.status not in [
             DossierImport.IMPORT_STATUS_NEW,
             DossierImport.IMPORT_STATUS_VALIDATION_SUCCESSFUL,
