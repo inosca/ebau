@@ -1375,7 +1375,8 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
         'read'
     ],
     'ebau-number': [
-        'read'
+        'read',
+        'write'
     ],
     'information-of-neighbors': [
         'read'
@@ -1990,7 +1991,8 @@ snapshots['test_instance_permissions_be[municipality-lead-district-in_progress_i
         'write'
     ],
     'ebau-number': [
-        'read'
+        'read',
+        'write'
     ],
     'information-of-neighbors': [
         'read',
@@ -2619,7 +2621,8 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-in_progre
         'write'
     ],
     'ebau-number': [
-        'read'
+        'read',
+        'write'
     ],
     'information-of-neighbors': [
         'read',
@@ -3217,7 +3220,8 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-in_progre
         'read'
     ],
     'ebau-number': [
-        'read'
+        'read',
+        'write'
     ],
     'information-of-neighbors': [
         'read'
@@ -3801,7 +3805,8 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-in_pr
         'read'
     ],
     'ebau-number': [
-        'read'
+        'read',
+        'write'
     ],
     'information-of-neighbors': [
         'read'
