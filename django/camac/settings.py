@@ -13,6 +13,7 @@ from django.utils.translation import gettext_lazy as _
 from camac.constants import kt_bern as be_constants
 from camac.constants.kt_bern import (
     INSTANCE_STATE_DONE,
+    INSTANCE_STATE_EVALUATED,
     INSTANCE_STATE_NEW,
     INSTANCE_STATE_SB1,
 )
@@ -1769,9 +1770,20 @@ APPLICATIONS = {
         "DOSSIER_IMPORT": {
             "WRITER_CLASS": "camac.dossier_import.config.kt_bern.KtBernDossierWriter",
             "INSTANCE_STATE_MAPPING": {
-                "SUBMITTED": INSTANCE_STATE_NEW,
-                "APPROVED": INSTANCE_STATE_SB1,
-                "DONE": INSTANCE_STATE_DONE,
+                "BUILDINGPERMIT": {
+                    "SUBMITTED": INSTANCE_STATE_NEW,
+                    "APPROVED": INSTANCE_STATE_SB1,
+                    "REJECTED": INSTANCE_STATE_DONE,
+                    "WRITTEN OFF": INSTANCE_STATE_DONE,
+                    "DONE": INSTANCE_STATE_DONE,
+                },
+                "PRELIMINARY": {
+                    "SUBMITTED": INSTANCE_STATE_NEW,
+                    "APPROVED": INSTANCE_STATE_EVALUATED,
+                    "REJECTED": INSTANCE_STATE_EVALUATED,
+                    "WRITTEN_OFF": INSTANCE_STATE_EVALUATED,
+                    "DONE": INSTANCE_STATE_EVALUATED,
+                },
             },
             "USER": "service-account-camac-admin",
             "WORKFLOW_MAPPING": {

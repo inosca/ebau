@@ -15,8 +15,11 @@ from django.db import transaction
 from camac.caluma.extensions.events.general import get_caluma_setting
 from camac.constants.kt_bern import (
     DECISION_TYPE_UNKNOWN,
+    DECISIONS_ABGELEHNT,
+    DECISIONS_ABGESCHRIEBEN,
     DECISIONS_BEWILLIGT,
-    DECISIONS_POSITIVE,
+    VORABKLAERUNG_DECISIONS_BEWILLIGT,
+    VORABKLAERUNG_DECISIONS_NEGATIVE,
 )
 from camac.core.models import InstanceService
 from camac.dossier_import.dossier_classes import Dossier
@@ -29,6 +32,7 @@ from camac.dossier_import.messages import (
     MessageCodes,
     get_message_max_level,
 )
+from camac.dossier_import.validation import TargetStatus
 from camac.dossier_import.writers import (
     CalumaAnswerWriter,
     CalumaListAnswerWriter,
@@ -135,7 +139,7 @@ class KtBernDossierWriter(DossierWriter):
     custom_1 = CalumaAnswerWriter(target="freies-textfeld-1")
     custom_2 = CalumaAnswerWriter(target="freies-textfeld-2")
     street = CalumaAnswerWriter(target="strasse-flurname")
-    street_number = CalumaAnswerWriter(target="nr")
+    street_number = CalumaAnswerWriter(target="nr", formatter="to-string")
     city = CalumaAnswerWriter(target="ort-grundstueck")
     applicant = CalumaListAnswerWriter(
         target="personalien-gesuchstellerin", column_mapping=APPLICANT_MAPPING
@@ -169,12 +173,12 @@ class KtBernDossierWriter(DossierWriter):
         camac.instance.domain_logic.CreateInstanceLogic should be able to do the job and
         spit out a reasonably generic starting point.
         """
-        instance_state_id = self._import_settings["INSTANCE_STATE_MAPPING"].get(
-            dossier._meta.target_state
+        instance_state = InstanceState.objects.get(
+            pk=self._import_settings["INSTANCE_STATE_MAPPING"]
+            .get(dossier._meta.workflow, {})
+            .get(dossier._meta.target_state)
         )
-        instance_state = instance_state_id and InstanceState.objects.get(
-            pk=instance_state_id
-        )
+
         creation_data = dict(
             instance_state=instance_state,
             previous_instance_state=instance_state,
@@ -272,12 +276,12 @@ class KtBernDossierWriter(DossierWriter):
 
         dossier_summary.details += self._create_dossier_attachments(dossier, instance)
 
-        workflow_message = self._set_workflow_state(
-            instance, dossier._meta.target_state, dossier
-        )
+        workflow_message = self._set_workflow_state(instance, dossier)
         instance.history.all().delete()
 
         self.write_fields(instance, dossier)
+        dossier_summary.details += dossier._meta.warnings
+        dossier_summary.details += dossier._meta.errors
         dossier_summary.details.append(
             Message(
                 level=LOG_LEVEL_DEBUG,
@@ -305,9 +309,7 @@ class KtBernDossierWriter(DossierWriter):
     def _set_workflow_state(  # noqa: C901
         self,
         instance: Instance,
-        target_state,
         dossier,
-        workflow_type: str = "BUILDINGPERMIT",
     ) -> List[Message]:
         """Advance instance's case through defined workflow sequence to target state.
 
@@ -328,16 +330,23 @@ class KtBernDossierWriter(DossierWriter):
          as cancelling them instead of skipping.
         """
         messages = []
+        target_state = dossier._meta.target_state
 
         # configure workflow state advance path and strategies (skip | cancel)
         SUBMITTED = ["submit"]
-        APPROVED = SUBMITTED + ["ebau-number", "distribution", "decision"]
-        DONE = APPROVED + ["sb1", "sb2", "complete"]
+        DECIDED = SUBMITTED + ["ebau-number", "distribution", "decision"]
+        DONE = DECIDED + ["sb1", "sb2", "complete"]
 
-        if workflow_type == "PRELIMINARY":
-            DONE = APPROVED
+        if dossier._meta.workflow == "PRELIMINARY":
+            DONE = DECIDED
 
-        path_to_state = {"SUBMITTED": SUBMITTED, "APPROVED": APPROVED, "DONE": DONE}
+        path_to_state = {
+            "SUBMITTED": SUBMITTED,
+            "APPROVED": DECIDED,
+            "REJECTED": DECIDED,
+            "WRITTEN OFF": DECIDED,
+            "DONE": DONE,
+        }
 
         default_context = {"no-notification": True, "no-history": True}
 
@@ -360,7 +369,7 @@ class KtBernDossierWriter(DossierWriter):
                 continue
 
             if task_id == "decision":
-                self.write_decision_form(work_item, dossier, workflow_type)
+                self.write_decision_form(work_item, dossier)
 
             config = get_caluma_setting("PRE_COMPLETE") and get_caluma_setting(
                 "PRE_COMPLETE"
@@ -436,15 +445,27 @@ class KtBernDossierWriter(DossierWriter):
             )
             return
 
-    def write_decision_form(self, decision_work_item, dossier, workflow_type):
+    def write_decision_form(self, decision_work_item, dossier):
+        decision_mapping = {
+            "BUILDINGPERMIT": {
+                TargetStatus.APPROVED.value: DECISIONS_BEWILLIGT,
+                TargetStatus.REJECTED.value: DECISIONS_ABGELEHNT,
+                TargetStatus.WRITTEN_OFF.value: DECISIONS_ABGESCHRIEBEN,
+                TargetStatus.DONE.value: DECISIONS_BEWILLIGT,
+            },
+            "PRELIMINARY": {
+                TargetStatus.APPROVED.value: VORABKLAERUNG_DECISIONS_BEWILLIGT,
+                TargetStatus.REJECTED.value: VORABKLAERUNG_DECISIONS_NEGATIVE,
+                TargetStatus.WRITTEN_OFF.value: VORABKLAERUNG_DECISIONS_NEGATIVE,
+                TargetStatus.DONE.value: VORABKLAERUNG_DECISIONS_BEWILLIGT,
+            },
+        }
         form_api.save_answer(
             document=decision_work_item.document,
             question=Question.objects.get(slug="decision-decision-assessment"),
-            value=DECISIONS_BEWILLIGT
-            if workflow_type == "BUILDINGPERMIT"
-            else DECISIONS_POSITIVE,
+            value=decision_mapping[dossier._meta.workflow][dossier._meta.target_state],
         )
-        if workflow_type == "BUILDINGPERMIT":
+        if dossier._meta.workflow == "BUILDINGPERMIT":
             form_api.save_answer(
                 document=decision_work_item.document,
                 question=Question.objects.get(pk="decision-approval-type"),
