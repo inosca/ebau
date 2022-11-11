@@ -4,7 +4,6 @@ query GetWorkItemOfTask($instanceId: GenericScalar!, $task: ID!) {
       { rootCaseMetaValue: { key: "camac-instance-id", value: $instanceId } }
       { task: $task }
       { status: CANCELED, invert: true }
-      { status: SKIPPED, invert: true }
     ]
     first: 1
   ) {

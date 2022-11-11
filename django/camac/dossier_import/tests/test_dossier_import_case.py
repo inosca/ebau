@@ -7,7 +7,6 @@ from django.utils import timezone
 from pytest_lazyfixture import lazy_fixture
 
 from camac.caluma.api import CalumaApi
-from camac.constants.kt_bern import DECISION_TYPE_BUILDING_PERMIT
 from camac.core.models import InstanceLocation
 from camac.dossier_import.dossier_classes import Dossier
 from camac.dossier_import.loaders import InvalidImportDataError, XlsxFileDossierLoader
@@ -243,6 +242,13 @@ def test_set_workflow_state_exceptions(
             },
             "dossier_number",
         ),  # 2017-1
+        (
+            {
+                "ADDRESS-STREET": "1000000000200000000030000000004000000000500000000060000000007000000000",
+                "ADDRESS-STREET-NR": "3a",
+            },
+            "street",
+        ),
         (
             {
                 "COORDINATE-E": "2`710`662",
@@ -700,7 +706,7 @@ def test_validation(
         ),
         (
             "SUBMITTED",
-            DECISION_TYPE_BUILDING_PERMIT,
+            "BUILDINGPERMIT",
             None,
             [
                 ("submit", "skipped"),  # "Gesuch ausfüllen"
@@ -712,7 +718,7 @@ def test_validation(
         ),  # "Gesuch einreichen"
         (
             "SUBMITTED",
-            DECISION_TYPE_BUILDING_PERMIT,
+            "BUILDINGPERMIT",
             "2022-1",
             [
                 ("submit", "skipped"),  # "Gesuch ausfüllen"
@@ -727,7 +733,7 @@ def test_validation(
         ),
         (
             "APPROVED",
-            DECISION_TYPE_BUILDING_PERMIT,
+            "BUILDINGPERMIT",
             None,
             [
                 ("submit", "skipped"),  # "Gesuch ausfüllen"
@@ -744,12 +750,13 @@ def test_validation(
                 ("create-publication", "canceled"),  # "Neue Publikation"
                 ("decision", "skipped"),  # "Entscheid verfügen"
                 ("information-of-neighbors", "canceled"),  # Nachbarschaftsorientierung
+                ("sb1", "ready"),  # "Entscheid verfügen"
             ],
-            "completed",
+            "running",
         ),  # "Entscheid verfügen"
         (
             "DONE",
-            DECISION_TYPE_BUILDING_PERMIT,
+            "BUILDINGPERMIT",
             None,
             [
                 ("submit", "skipped"),  # "Gesuch ausfüllen"
@@ -820,9 +827,8 @@ def test_set_workflow_state_be(
     writer.is_paper.write(be_instance, writer.is_paper.value)
 
     dossier = Dossier(id=123, proposal="Just a test")
-    writer._set_workflow_state(
-        be_instance, target_state, dossier, workflow_type=workflow_type
-    )
+    dossier._meta = Dossier.Meta(target_state=target_state, workflow=workflow_type)
+    writer._set_workflow_state(be_instance, dossier)
     be_instance.case.refresh_from_db()
     for task_id, expected_status in expected_work_items_states:
         assert (
