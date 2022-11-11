@@ -286,6 +286,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
       meta
     }
     case {
+      id
       family {
         id
         meta
