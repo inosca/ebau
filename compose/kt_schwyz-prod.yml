@@ -33,7 +33,7 @@ services:
       - postfix
     restart: always
     environment:
-      - DATABASE_HOST=vm-ktsz-ebau-prod-switzerlandnorth-db-01.tux42.ch
+      - DATABASE_HOST=${SZ_DATABASE_HOST_PROD}
       - DJANGO_ENV_FILE=/run/secrets/django.env
       - DJANGO_MERGE_DATE_FORMAT=%-d. %B %Y
     volumes:
@@ -43,7 +43,7 @@ services:
 
   django-q:
     <<: *django
-    command: /bin/sh -c "./wait-for-it.sh db:5431 -- ./manage.py qcluster --pythonpath /app/$APPLICATION"
+    command: /bin/sh -c "./wait-for-it.sh $SZ_DATABASE_HOST_PROD:5431 -- ./manage.py qcluster --pythonpath /app/$APPLICATION"
 
   ember:
     image: acr.run/camac-ng/camac-ng/ember:${CI_COMMIT_REF_SLUG}-${APPLICATION}
@@ -101,15 +101,6 @@ services:
       - POSTFIX_myhostname=ebau-sz.ch
       - POSTFIX_mail_name=noreply@ebau-sz.ch
 
-  mailhog:
-    image: mailhog/mailhog
-    restart: always
-    environment:
-      - MH_UI_WEB_PATH=mailhog
-      - MH_AUTH_FILE=/run/secrets/mailhog_auth
-    volumes:
-      - /etc/camac/mailhog_auth:/run/secrets/mailhog_auth:ro
-
   metabase:
     image: metabase/metabase:v0.43.2
     ports:
@@ -120,7 +111,7 @@ services:
       - MB_DB_PORT=5432
       - MB_DB_USER=${METABASE_DB_USER_PROD}
       - MB_DB_PASS=${METABASE_DB_PASS_PROD}
-      - MB_DB_HOST=${METABASE_DB_HOST_PROD}
+      - MB_DB_HOST=${SZ_DATABASE_HOST_PROD}
     restart: always
 
 volumes:
