@@ -13,14 +13,14 @@ Electronic building permit application for Swiss cantons.
 - [Development](#development)
   - [Basic setup](#basic-setup)
   - [Predefined credentials](#predefined-credentials)
-    - [Debugging](#debugging)
+  - [Debugging](#debugging)
   - [Working locally with ember](#working-locally-with-ember)
     - [Yarn workspace](#yarn-workspace)
+  - [Django profiling](#django-profiling)
+  - [Visual Studio Code](#visual-studio-code)
   - [GWR API](#gwr-api)
-    - [Django profiling](#django-profiling)
-    - [Visual Studio Code](#visual-studio-code)
   - [Customize API](#customize-api)
-- [Sending email](#sending-email)
+  - [Sending email](#sending-email)
 - [License](#license)
 
 <!-- vim-markdown-toc -->
@@ -145,7 +145,7 @@ respectively:
 |               | PortalUser  | portal     | portal     |         |
 | kt_bern       | Admin       | user       | user       |         |
 
-#### Debugging
+### Debugging
 
 For debugging inside container shell, use this:
 
@@ -173,22 +173,13 @@ The common yarn workspace allows us to share code (e.g. addons) between the apps
 - (-) the docker build processes of the two frontend containers have to run in the context of the root of the repo, in order to access the shared dependencies during build time
 - (-) the ember versions `ember-caluma-portal` and `ember-camac-ng` need to be kept in sync
 
-### GWR API
-
-If you use the GWR module, you need to generate a Fernet key
-according to the [documentation](https://github.com/adfinis-sygroup/ebau-gwr) of the gwr backend.
-
-You need to set this key in each environment/server in your env file.
-**Generate a separate key for each environment, since this is used to store /
-read the gwr user passwords.**
-
-##### Django profiling
+### Django profiling
 
 To enable `django-silk` for profiling, simply add `DJANGO_ENABLE_SILK=True`
 to your `django/.env` file. Then restart the django container and browse to
 http://ebau.local/api/silk/.
 
-##### Visual Studio Code
+### Visual Studio Code
 
 The remote debugger settings for VS Code are committed to the repository.
 
@@ -200,6 +191,20 @@ To enable debugging in the django container the ptvsd server must be started.
 Since this debug server collides with other setups (PyCharm, PyDev) it will
 only be started if the env var `ENABLE_PTVSD_DEBUGGER` is set to `True` in
 [`django/.env`](django/.env).
+
+### GWR API
+
+The GWR module is developed in two separate repositories:
+
+- Frontend: [inosca/ember-ebau-gwr](https://github.com/inosca/ember-ebau-gwr)
+- Backend: [inosca/ebau-gwr](https://github.com/inosca/ebau-gwr)
+
+If you use the GWR module, you need to generate a Fernet key
+according to the [documentation](https://github.com/inosca/ebau-gwr) of the gwr backend.
+
+You need to set this key in each environment/server in your env file.
+**Generate a separate key for each environment, since this is used to store /
+read the gwr user passwords.**
 
 ### Customize API
 
@@ -213,7 +218,7 @@ customization, the following rules apply:
 
 For different feature flags and permissions, see `APPLICATIONS` in settings.py.
 
-## Sending email
+### Sending email
 
 In development mode, the application is configured to send all email to a
 Mailhog instance, so unless you specify something else, no email will be
