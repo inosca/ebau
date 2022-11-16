@@ -342,7 +342,9 @@ def test_notify_created_work_item(
     service = service_factory()
 
     work_item = work_item_factory(
-        task=task_factory(slug="create-manual-workitems"),
+        task=task_factory(
+            slug=application_settings["CALUMA"]["MANUAL_WORK_ITEM_TASK"],
+        ),
         status="ready",
         addressed_groups=[str(service.pk)],
         child_case=None,

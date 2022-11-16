@@ -255,6 +255,7 @@ APPLICATIONS = {
         ],
         "PORTAL_GROUP": None,
         "CALUMA": {
+            "MANUAL_WORK_ITEM_TASK": "create-manual-workitems",
             "FORM_PERMISSIONS": ["main", "inquiry", "inquiry-answer"],
             "HAS_PROJECT_CHANGE": False,
             "CREATE_IN_PROCESS": False,
@@ -444,6 +445,7 @@ APPLICATIONS = {
         "SEQUENCE_NAMESPACE_APPS": [],
         "NOTIFICATIONS_EXCLUDED_TASKS": [],
         "CALUMA": {
+            "MANUAL_WORK_ITEM_TASK": "create-manual-workitems",
             "ACTIVATION_EXCLUDE_ROLES": ["Lesezugriff"],
             "SUBMIT_TASKS": ["submit", "submit-additional-demand", "formal-addition"],
             "REJECTION_TASK": "reject-form",
@@ -1313,6 +1315,7 @@ APPLICATIONS = {
             "phone",
         ],
         "CALUMA": {
+            "MANUAL_WORK_ITEM_TASK": "create-manual-workitems",
             "FORM_PERMISSIONS": [
                 "main",
                 "sb1",
@@ -2756,6 +2759,7 @@ APPLICATIONS = {
         ],
         "PORTAL_GROUP": 20097,
         "CALUMA": {
+            "MANUAL_WORK_ITEM_TASK": "create-manual-workitems",
             "SUBMIT_TASKS": ["submit"],
             "FORM_PERMISSIONS": ["main", "inquiry", "inquiry-answer"],
             "HAS_PROJECT_CHANGE": False,
