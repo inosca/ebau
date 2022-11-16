@@ -5,7 +5,6 @@ import { allWorkItems } from "@projectcaluma/ember-core/caluma-query/queries";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
 import { query } from "ember-data-resources";
-import { DateTime } from "luxon";
 import { cached } from "tracked-toolbox";
 
 import completeWorkItem from "ember-ebau-core/gql/mutations/complete-work-item.graphql";
@@ -31,10 +30,6 @@ export default class WorkItemDetailEditComponent extends Component {
   @cached
   get workItem() {
     return this.workItemsQuery.value[0];
-  }
-
-  get minDeadline() {
-    return DateTime.now().startOf("day").toJSDate();
   }
 
   users = query(this, "public-user", () => ({
