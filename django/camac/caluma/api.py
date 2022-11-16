@@ -243,7 +243,7 @@ class CalumaApi:
             )
             .exclude(
                 task_id__in=[
-                    "create-manual-workitems",
+                    settings.APPLICATION["CALUMA"]["MANUAL_WORK_ITEM_TASK"],
                     settings.DISTRIBUTION["INQUIRY_TASK"],
                     settings.DISTRIBUTION["INQUIRY_ANSWER_FILL_TASK"],
                     settings.DISTRIBUTION["INQUIRY_CREATE_TASK"],

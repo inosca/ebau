@@ -31,6 +31,7 @@ from caluma.caluma_workflow.schema import (
     SuspendCase,
 )
 from django.conf import settings
+from inflection import underscore
 
 from camac.caluma.utils import CamacRequest
 from camac.constants.kt_bern import DASHBOARD_FORM_SLUG
@@ -59,13 +60,6 @@ def is_addressed_to_applicant(work_item):
 
 def get_current_service_id(info):
     return info.context.user.group
-
-
-def validate_parameters(valid_parameters, parameters, obj):
-    return all(
-        key in valid_parameters or (hasattr(obj, key) and getattr(obj, key) == value)
-        for key, value in parameters.items()
-    )
 
 
 def resolve_savedocumentanswer_document(mutation, info, answer=None):
@@ -194,36 +188,39 @@ class CustomPermission(BasePermission):
             return True
 
         service = get_current_service_id(info)
-        params = mutation.get_params(info)
 
-        # creator, addressed and controlling service can edit their work item
-        # but addressed and controlling can only edit the listed fields
-        return (
-            is_created_by_service(work_item, service)
-            or (
-                is_addressed_to_service(work_item, service)
-                and validate_parameters(
-                    # TODO: mutation.get_params should only return snake cased data
-                    [
-                        "work_item",
-                        "workItem",
-                        "meta",
-                        "assigned_users",
-                        "assignedUsers",
-                    ],
-                    params["input"],
-                    work_item,
-                )
-            )
-            or (
-                is_controlled_by_service(work_item, service)
-                and validate_parameters(
-                    # TODO: mutation.get_params should only return snake cased data
-                    ["work_item", "workItem", "deadline", "description", "meta"],
-                    params["input"],
-                    work_item,
-                )
-            )
+        # The creator of a manual work item can change all properties
+        if work_item.task_id == settings.APPLICATION["CALUMA"].get(
+            "MANUAL_WORK_ITEM_TASK", None
+        ) and is_created_by_service(work_item, service):
+            return True
+
+        serialized_input = {
+            underscore(key): value
+            for key, value in mutation.get_params(info)["input"].items()
+        }
+
+        changed_keys = [
+            key
+            for key, value in serialized_input.items()
+            if hasattr(work_item, key) and getattr(work_item, key) != value
+        ]
+
+        is_addressed = is_addressed_to_service(work_item, service)
+        is_controller = is_controlled_by_service(work_item, service)
+
+        permissions_for_key = {
+            "description": is_controller,
+            "assigned_users": is_addressed,
+            "deadline": is_controller,
+            "meta": is_addressed or is_controller,
+        }
+
+        return all(
+            [
+                permissions_for_key.get(changed_key, False)
+                for changed_key in changed_keys
+            ]
         )
 
     @distribution_permission_for(

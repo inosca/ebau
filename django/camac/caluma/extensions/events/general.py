@@ -182,7 +182,9 @@ def notify_completed_work_item(sender, work_item, user, **kwargs):
 
 @on(post_create_work_item, raise_exception=True)
 def notify_created_work_item(sender, work_item, user, **kwargs):
-    if not work_item.task_id == "create-manual-workitems":
+    if not work_item.task_id == settings.APPLICATION["CALUMA"].get(
+        "MANUAL_WORK_ITEM_TASK"
+    ):
         return
 
     # After the submission of the form and the decision a
