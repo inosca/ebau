@@ -1619,7 +1619,7 @@ class CalumaInstanceFinalizeSerializer(CalumaInstanceSubmitSerializer):
                         "fr": "Transmettre la notification à l'AWA",
                     },
                     deadline=timezone.now() + timedelta(days=10),
-                    task_id="create-manual-workitems",
+                    task_id=settings.APPLICATION["CALUMA"]["MANUAL_WORK_ITEM_TASK"],
                     case=work_item.case,
                     status=workflow_models.WorkItem.STATUS_READY,
                     addressed_groups=[
