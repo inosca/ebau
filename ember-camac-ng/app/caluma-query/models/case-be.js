@@ -27,21 +27,12 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
     );
   }
 
-  get decisionDocument() {
-    return this.raw.decision.edges[0]?.node.document;
-  }
-
   get decision() {
-    return this.decisionDocument
-      ? getAnswer(this.decisionDocument, "decision-decision-assessment")?.node
-          .selectedOption?.label
-      : null;
+    return this.instance?.decision;
   }
 
   get decisionDate() {
-    const decisionDate = this.decisionDocument
-      ? getAnswer(this.decisionDocument, "decision-date")?.node.value
-      : null;
+    const decisionDate = this.instance?.decisionDate;
 
     return decisionDate
       ? this.intl.formatDate(decisionDate, { format: "date" })
@@ -49,9 +40,7 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
   }
 
   get inquiryCreated() {
-    const inquiryCreated =
-      this.raw.distribution.edges[0]?.node.childCase?.workItems.edges[0]?.node
-        .createdAt;
+    const inquiryCreated = this.instance?.involvedAt;
 
     return inquiryCreated
       ? this.intl.formatDate(inquiryCreated, { format: "date" })
@@ -97,79 +86,7 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
   static fragment = `{
     meta
     id
-    decision: workItems(
-      filter: [
-        { task: "decision" }
-        { status: CANCELED, invert: true }
-        { status: READY, invert: true }
-      ]
-      order: [{ attribute: CREATED_AT, direction: DESC }]
-      first: 1
-    ) {
-      edges {
-        node {
-          id
-          document {
-            id
-            answers(
-              filter: [
-                { questions: ["decision-date", "decision-decision-assessment"] }
-              ]
-            ) {
-              edges {
-                node {
-                  id
-                  question {
-                    slug
-                  }
-                  ... on DateAnswer {
-                    value
-                  }
-                  ... on StringAnswer {
-                    selectedOption {
-                      slug
-                      label
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    distribution: workItems(filter: [{ task: "distribution" }]) {
-      edges {
-        node {
-          id
-          childCase {
-            id
-            workItems(
-              filter: [
-                { task: "inquiry" }
-                { status: SUSPENDED, invert: true }
-                { status: CANCELED, invert: true }
-              ]
-              order: [{ attribute: CREATED_AT, direction: ASC }]
-              first: 1
-            ) {
-              edges {
-                node {
-                  id
-                  createdAt
-                }
-              }
-            }
-          }
-        }
-      }
-    }
     document {
-      form {
-        id
-        slug
-        name
-      }
       answers(
         filter: [
           {
