@@ -30,10 +30,6 @@ export default class WorkItemDetailNewComponent extends Component {
 
   @tracked workItem = new NewWorkItem();
 
-  get minDeadline() {
-    return DateTime.now().startOf("day").toJSDate();
-  }
-
   get responsibleService() {
     return this.services.find((service) =>
       this.workItem.addressedGroups.includes(service.id)

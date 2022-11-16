@@ -1,102 +1,101 @@
 import datetime
+import json
 from unittest.mock import Mock
 
 import pytest
 import requests
 from caluma.caluma_core.relay import extract_global_id
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
+from django.utils.dateparse import parse_datetime
+from inflection import underscore
 
 
-@pytest.mark.parametrize("role__name", ["Municipality", "Applicant"])
+@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize(
+    "involved_type,input,has_error",
+    [
+        (
+            "creator",
+            {
+                "name": "Name change",
+                "description": "Creator changes",
+                "assignedUsers": ["3"],
+                "deadline": "2022-11-16T00:00:00Z",
+                "meta": json.dumps({"foo": "bar"}),
+            },
+            False,
+        ),
+        (
+            "addressed",
+            {
+                "assignedUsers": ["3"],
+                "meta": json.dumps({"foo": "bar"}),
+            },
+            False,
+        ),
+        ("addressed", {"name": "Bar"}, True),
+        ("addressed", {"description": "Error"}, True),
+        ("addressed", {"deadline": "2022-11-15T23:00:00Z"}, True),
+        (
+            "controller",
+            {
+                "description": "Controller changes",
+                "deadline": "2022-11-15T00:00:00Z",
+                "meta": json.dumps({"foo": "bar"}),
+            },
+            False,
+        ),
+        ("controller", {"name": "Bar"}, True),
+        ("controller", {"assigned_users": ["1"]}, True),
+    ],
+)
 def test_save_work_item_permission(
-    db,
-    role,
-    be_instance,
-    service,
-    service_factory,
     caluma_admin_schema_executor,
-    caluma_admin_user,
+    involved_type,
+    input,
+    has_error,
+    snapshot,
+    work_item_factory,
+    service,
+    be_instance,
+    application_settings,
 ):
-    workflow_api.complete_work_item(
-        work_item=be_instance.case.work_items.get(task_id="submit"),
-        user=caluma_admin_user,
+    work_item = work_item_factory(
+        case=be_instance.case,
+        name="Foo",
+        description="Foo work item",
+        created_by_group=str(service.pk) if involved_type == "creator" else None,
+        addressed_groups=[str(service.pk)] if involved_type == "addressed" else [],
+        controlling_groups=[str(service.pk)] if involved_type == "controller" else [],
+        deadline=None,
     )
 
-    not_creator_work_item = caluma_workflow_models.WorkItem.objects.get(
-        task_id="create-manual-workitems"
-    )
-    not_creator_work_item.created_by_group = service_factory().pk
-    not_creator_work_item.save()
+    if involved_type == "creator":
+        application_settings["CALUMA"]["MANUAL_WORK_ITEM_TASK"] = work_item.task_id
 
-    assigned_work_item = caluma_workflow_models.WorkItem.objects.get(
-        task_id="ebau-number"
-    )
+    mutation = """
+        mutation($input: SaveWorkItemInput!) {
+            saveWorkItem(input: $input) {
+                clientMutationId
+            }
+        }
+    """
 
     result = caluma_admin_schema_executor(
-        """
-        mutation saveWorkItem {{
-            saveWorkItem(
-                input: {{workItem: "{work_item}", description: "Lorem ipsum"}}
-            ) {{
-                clientMutationId
-                workItem {{
-                    id
-                    description
-                }}
-            }}
-        }}
-        """.format(
-            work_item=assigned_work_item.pk
-        )
+        mutation, variables={"input": {**input, "workItem": str(work_item.pk)}}
     )
 
-    if not role.name == "Municipality":
-        assert result.errors
-        return
+    assert bool(result.errors) == has_error
+    if not has_error:
+        work_item.refresh_from_db()
 
-    assert not result.errors
-    assert result.data["saveWorkItem"]["workItem"]["description"] == "Lorem ipsum"
+        for key, value in input.items():
+            if key == "deadline":
+                value = parse_datetime(value)
+            elif key == "meta":
+                value = json.loads(value)
 
-    result = caluma_admin_schema_executor(
-        """
-        mutation saveWorkItem {{
-            saveWorkItem(
-                input: {{workItem: "{work_item}", name: "{name}"}}
-            ) {{
-                clientMutationId
-                workItem {{
-                    id
-                    name
-                }}
-            }}
-        }}
-        """.format(
-            work_item=not_creator_work_item.pk, name="Good Name"
-        )
-    )
-
-    assert result.errors
-
-    result = caluma_admin_schema_executor(
-        """
-        mutation saveWorkItem {{
-            saveWorkItem(
-                input: {{workItem: "{work_item}", name: "{name}"}}
-            ) {{
-                clientMutationId
-                workItem {{
-                    id
-                    name
-                }}
-            }}
-        }}
-        """.format(
-            work_item=assigned_work_item.pk, name="Good Name"
-        )
-    )
-
-    assigned_work_item.refresh_from_db()
-    assert assigned_work_item.name == "Good Name"
+            assert getattr(work_item, underscore(key)) == value
 
 
 @pytest.mark.parametrize(
