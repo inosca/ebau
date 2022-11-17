@@ -1,0 +1,31 @@
+query LegalSubmissionWorkItem($instanceId: GenericScalar!) {
+  allWorkItems(
+    filter: [
+      { task: "legal-submission" }
+      { rootCaseMetaValue: { key: "camac-instance-id", value: $instanceId } }
+    ]
+  ) {
+    edges {
+      node {
+        id
+        addressedGroups
+        status
+        document {
+          id
+          answers {
+            edges {
+              node {
+                id
+                ... on TableAnswer {
+                  value {
+                    id
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+legal-submission:
+  new: ""
+  edit: ""
+
+  all: ""
+
+  receipt-date: ""
+  type: ""
+  title: ""
+  legal-claimants: ""
+  status: ""
+
+  loading-error: ""
+  create-error: ""
+
+  delete-confirm: ""
+  delete-success: ""
+  delete-error: ""

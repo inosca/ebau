@@ -1,4 +1,4 @@
-mutation CreateAuditDocument($form: ID!) {
+mutation CreateDocument($form: ID!) {
   saveDocument(input: { form: $form }) {
     document {
       id
