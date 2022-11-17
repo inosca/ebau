@@ -214,8 +214,8 @@ user-admin: ## Add most recent user to admin group
 .PHONY: debug-django
 debug-django: ## start a api container with service ports for debugging
 	@docker-compose stop django
-	@echo "run ./manage.py runserver 0:80 to start debug server"
-	@docker-compose run --user root --use-alias --service-ports django bash
+	@echo "Run `./manage.py runserver 0:80` to start the debugging server"
+	@docker-compose run --user root --use-aliases --service-ports django bash
 
 .PHONY: load-be-dump
 load-be-dump: SHELL:=/bin/bash
