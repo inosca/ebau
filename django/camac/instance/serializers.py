@@ -488,6 +488,9 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
     )
     rejection_feedback = serializers.SerializerMethodField()
     name = serializers.SerializerMethodField()
+    decision_date = serializers.SerializerMethodField()
+    decision = serializers.SerializerMethodField()
+    involved_at = serializers.SerializerMethodField()
 
     def get_is_paper(self, instance):
         return CalumaApi().is_paper(instance)
@@ -503,6 +506,64 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
 
     def get_active_service(self, instance):
         return instance.responsible_service(filter_type="municipality")
+
+    def get_decision(self, instance):
+        answer = (
+            form_models.Answer.objects.filter(
+                question_id="decision-decision-assessment",
+                document__work_item__task_id="decision",
+                document__work_item__status__in=[
+                    workflow_models.WorkItem.STATUS_COMPLETED,
+                    workflow_models.WorkItem.STATUS_SKIPPED,
+                ],
+                document__work_item__case__family__instance=instance,
+            )
+            .order_by("-document__work_item__closed_at")
+            .first()
+        )
+
+        if not answer or not answer.selected_options:
+            return None
+
+        return str(answer.selected_options[0].label)
+
+    def get_decision_date(self, instance):
+        return (
+            form_models.Answer.objects.filter(
+                question_id="decision-date",
+                document__work_item__task_id="decision",
+                document__work_item__status__in=[
+                    workflow_models.WorkItem.STATUS_COMPLETED,
+                    workflow_models.WorkItem.STATUS_SKIPPED,
+                ],
+                document__work_item__case__family__instance=instance,
+            )
+            .order_by("-document__work_item__closed_at")
+            .values_list("date", flat=True)
+            .first()
+        )
+
+    def get_involved_at(self, instance):
+        service_id = self.context["request"].group.service_id
+
+        if not settings.DISTRIBUTION or not service_id:
+            return None
+
+        return (
+            workflow_models.WorkItem.objects.filter(
+                case__family__instance=instance,
+                task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
+                status__in=[
+                    workflow_models.WorkItem.STATUS_READY,
+                    workflow_models.WorkItem.STATUS_COMPLETED,
+                    workflow_models.WorkItem.STATUS_SKIPPED,
+                ],
+                addressed_groups=[str(service_id)],
+            )
+            .order_by("child_case__created_at")
+            .values_list("child_case__created_at", flat=True)
+            .first()
+        )
 
     def get_responsible_service_users(self, instance):
         return get_user_model().objects.filter(
@@ -971,6 +1032,9 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             "name",
             "generate_identifier",
             "dossier_number",
+            "decision",
+            "decision_date",
+            "involved_at",
         )
         read_only_fields = InstanceSerializer.Meta.read_only_fields + (
             "caluma_form",
@@ -983,6 +1047,9 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             "rejection_feedback",
             "name",
             "dossier_number",
+            "decision",
+            "decision_date",
+            "involved_at",
         )
 
 

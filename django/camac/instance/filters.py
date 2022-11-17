@@ -230,19 +230,23 @@ class DecisionDateFilter(DateFilter):
         if value in EMPTY_VALUES:
             return qs
 
-        return qs.annotate(
-            decision_date=Subquery(
-                Answer.objects.filter(
-                    question_id="decision-date",
-                    document__work_item__task_id="decision",
-                    document__work_item__status__in=[
-                        WorkItem.STATUS_COMPLETED,
-                        WorkItem.STATUS_SKIPPED,
-                    ],
-                    document__work_item__case__instance=OuterRef("pk"),
-                ).values("date")[:1]
+        answers = Answer.objects.filter(
+            question_id="decision-date",
+            document__work_item__task_id="decision",
+            document__work_item__status__in=[
+                WorkItem.STATUS_COMPLETED,
+                WorkItem.STATUS_SKIPPED,
+            ],
+            **{f"date__{self.lookup_expr}": value},
+        )
+
+        return qs.filter(
+            pk__in=list(
+                answers.values_list(
+                    "document__work_item__case__instance__pk", flat=True
+                )
             )
-        ).filter(**{f"decision_date__{self.lookup_expr}": value})
+        )
 
 
 class DecisionFilter(BaseInFilter):
@@ -250,17 +254,20 @@ class DecisionFilter(BaseInFilter):
         if value in EMPTY_VALUES:
             return qs
 
+        answers = Answer.objects.filter(
+            question_id="decision-decision-assessment",
+            document__work_item__task_id="decision",
+            document__work_item__status__in=[
+                WorkItem.STATUS_COMPLETED,
+                WorkItem.STATUS_SKIPPED,
+            ],
+            value__in=value,
+        )
+
         return qs.filter(
-            Exists(
-                Answer.objects.filter(
-                    question_id="decision-decision-assessment",
-                    document__work_item__task_id="decision",
-                    document__work_item__status__in=[
-                        WorkItem.STATUS_COMPLETED,
-                        WorkItem.STATUS_SKIPPED,
-                    ],
-                    document__work_item__case__instance=OuterRef("pk"),
-                    value__in=value,
+            pk__in=list(
+                answers.values_list(
+                    "document__work_item__case__instance__pk", flat=True
                 )
             )
         )
@@ -271,6 +278,7 @@ class InquiryStateFilter(CharFilter):
         if value in ["pending", "completed"]:
             inquiries = WorkItem.objects.filter(
                 task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
+                addressed_groups__contains=[str(self.parent.request.group.service_id)],
                 status__in=(
                     [WorkItem.STATUS_READY]
                     if value == "pending"
@@ -278,7 +286,11 @@ class InquiryStateFilter(CharFilter):
                 ),
             )
 
-            return qs.filter(pk__in=inquiries.values("case__family__instance__pk"))
+            return qs.filter(
+                pk__in=list(
+                    inquiries.values_list("case__family__instance__pk", flat=True)
+                )
+            )
 
         return super().filter(qs, value)
 
@@ -290,25 +302,21 @@ class InquiryDateFilter(DateFilter):
 
         inquiries = WorkItem.objects.filter(
             task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-            case__family__instance=OuterRef("pk"),
             addressed_groups__contains=[str(self.parent.request.group.service_id)],
             status__in=[
                 WorkItem.STATUS_READY,
                 WorkItem.STATUS_COMPLETED,
                 WorkItem.STATUS_SKIPPED,
             ],
+            **{self.lookup_expr: value},
         )
 
-        return qs.annotate(
-            first_inquiry_created_at=Subquery(
-                inquiries.order_by("created_at").values("created_at__date")[:1]
-            ),
-            last_inquiry_closed_at=Subquery(
-                inquiries.exclude(closed_at__isnull=True)
-                .order_by("-closed_at")
-                .values("closed_at__date")[:1]
-            ),
-        ).filter(**{self.lookup_expr: value})
+        if self.lookup_expr.startswith("closed_at"):
+            inquiries = inquiries.filter(closed_at__isnull=False)
+
+        return qs.filter(
+            pk__in=list(inquiries.values_list("case__family__instance__pk", flat=True))
+        )
 
 
 class InquiryAnswerFilter(BaseInFilter):
@@ -316,24 +324,25 @@ class InquiryAnswerFilter(BaseInFilter):
         if value in EMPTY_VALUES:
             return qs
 
+        answers = Answer.objects.filter(
+            question_id=settings.DISTRIBUTION["QUESTIONS"]["STATUS"],
+            value__in=value,
+            document__case__parent_work_item__task_id=settings.DISTRIBUTION[
+                "INQUIRY_TASK"
+            ],
+            document__case__parent_work_item__addressed_groups__contains=[
+                str(self.parent.request.group.service_id)
+            ],
+            document__case__parent_work_item__status__in=[
+                WorkItem.STATUS_READY,
+                WorkItem.STATUS_COMPLETED,
+                WorkItem.STATUS_SKIPPED,
+            ],
+        )
+
         return qs.filter(
-            Exists(
-                Answer.objects.filter(
-                    question_id=settings.DISTRIBUTION["QUESTIONS"]["STATUS"],
-                    value__in=value,
-                    document__case__family__instance=OuterRef("pk"),
-                    document__case__parent_work_item__task_id=settings.DISTRIBUTION[
-                        "INQUIRY_TASK"
-                    ],
-                    document__case__parent_work_item__addressed_groups__contains=[
-                        str(self.parent.request.group.service_id)
-                    ],
-                    document__case__parent_work_item__status__in=[
-                        WorkItem.STATUS_READY,
-                        WorkItem.STATUS_COMPLETED,
-                        WorkItem.STATUS_SKIPPED,
-                    ],
-                )
+            pk__in=list(
+                answers.values_list("document__case__family__instance__pk", flat=True)
             )
         )
 
@@ -408,17 +417,13 @@ class InstanceFilterSet(FilterSet):
 
     inquiry_state = InquiryStateFilter()
     inquiry_created_after = InquiryDateFilter(
-        lookup_expr="first_inquiry_created_at__gte"
+        lookup_expr="child_case__created_at__date__gte"
     )
     inquiry_created_before = InquiryDateFilter(
-        lookup_expr="first_inquiry_created_at__lte"
+        lookup_expr="child_case__created_at__date__lte"
     )
-    inquiry_completed_after = InquiryDateFilter(
-        lookup_expr="last_inquiry_closed_at__gte"
-    )
-    inquiry_completed_before = InquiryDateFilter(
-        lookup_expr="last_inquiry_closed_at__lte"
-    )
+    inquiry_completed_after = InquiryDateFilter(lookup_expr="closed_at__date__gte")
+    inquiry_completed_before = InquiryDateFilter(lookup_expr="closed_at__date__lte")
     inquiry_answer = InquiryAnswerFilter()
 
     def filter_is_applicant(self, queryset, name, value):
