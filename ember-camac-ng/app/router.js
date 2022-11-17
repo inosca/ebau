@@ -56,6 +56,13 @@ Router.map(function () {
   this.route("audit", { path: "instances/:instance_id/audit" }, function () {
     this.route("edit", { path: "/edit/:document_uuid" });
   });
+  this.route(
+    "legal-submission",
+    { path: "instances/:instance_id/legal-submission" },
+    function () {
+      this.route("edit", { path: "/edit/:document_uuid" });
+    }
+  );
   this.route("assign-ebau-number", {
     path: "instances/:instance_id/assign-ebau-number",
   });

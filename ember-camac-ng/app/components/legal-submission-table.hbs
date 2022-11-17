@@ -1,0 +1,86 @@
+<div uk-grid class="uk-grid-small uk-margin uk-child-width-1-1 uk-child-width-1-2@m">
+  <div>
+    <label class="uk-form-label" for="types">{{t "legal-submission.type"}}</label>
+    <div class="uk-form-controls">
+      <PowerSelectMultiple
+        @triggerId="types"
+        @options={{this.types}}
+        @selected={{this.selectedTypes}}
+        @placeholder={{t "legal-submission.all"}}
+        @onChange={{this.updateTypes}}
+        @renderInPlace={{true}}
+        class="uk-select"
+      as |type|>
+        {{type.label}}
+      </PowerSelectMultiple>
+    </div>
+  </div>
+  <div>
+    <label class="uk-form-label" for="status">{{t "legal-submission.status"}}</label>
+    <div class="uk-form-controls">
+      <PowerSelect
+        @triggerId="status"
+        @options={{this.status}}
+        @selected={{this.selectedStatus}}
+        @placeholder={{t "legal-submission.all"}}
+        @onChange={{this.updateStatus}}
+        @allowClear={{true}}
+        @renderInPlace={{true}}
+        class="uk-select"
+      as |status|>
+        {{status.label}}
+      </PowerSelect>
+    </div>
+  </div>
+</div>
+
+{{#if (or this.workItem.isLoading this.legalSubmissions.isLoading)}}
+  <div class="uk-text-center">
+    <UkSpinner @ratio={{2}} />
+  </div>
+{{else}}
+  <table class="uk-table uk-table-striped uk-table-middle">
+    <thead>
+      <tr>
+        <th class="uk-text-nowrap">{{t "legal-submission.receipt-date"}}</th>
+        <th>{{t "legal-submission.type"}}</th>
+        <th class="uk-width-small">{{t "legal-submission.title"}}</th>
+        <th>{{t "legal-submission.legal-claimants"}}</th>
+        <th>{{t "legal-submission.status"}}</th>
+        {{#if (can "edit legal-submission" this.workItem.value)}}
+          <th></th>
+        {{/if}}
+      </tr>
+    </thead>
+    <tbody>
+      {{#each this.legalSubmissions.value as |row|}}
+        <LegalSubmissionTable::Row
+          @legalSubmission={{row}}
+          @workItem={{this.workItem.value}}
+          @onDelete={{this.legalSubmissions.retry}}
+        />
+      {{else}}
+        <tr>
+          <td colspan={{this.colspan}} class="uk-text-center">{{t "global.empty"}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+    {{#if (can "edit legal-submission" this.workItem.value)}}
+      <tfoot>
+        <tr>
+          <td colspan={{this.colspan}} class="uk-text-center">
+            <UkButton
+              @color="link"
+              @loading={{this.create.isRunning}}
+              @disabled={{this.create.isRunning}}
+              @onClick={{perform this.create}}
+              title={{t "legal-submission.new"}}
+            >
+              <UkIcon @icon="plus" />
+            </UkButton>
+          </td>
+        </tr>
+      </tfoot>
+    {{/if}}
+  </table>
+{{/if}}

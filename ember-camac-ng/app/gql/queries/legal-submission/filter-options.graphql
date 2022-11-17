@@ -1,0 +1,36 @@
+query LegalSubmissionFilterOptions {
+  status: allQuestions(filter: [{ slugs: ["legal-submission-status"] }]) {
+    edges {
+      node {
+        id
+        ... on ChoiceQuestion {
+          options {
+            edges {
+              node {
+                slug
+                label
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  type: allQuestions(filter: [{ slugs: ["legal-submission-type"] }]) {
+    edges {
+      node {
+        id
+        ... on MultipleChoiceQuestion {
+          options {
+            edges {
+              node {
+                slug
+                label
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

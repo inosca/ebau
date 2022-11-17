@@ -1,5 +1,22 @@
 [
   {
+    "model": "caluma_form.answer",
+    "pk": "6e3b80b9-3b60-492c-81f9-918254290b15",
+    "fields": {
+      "created_at": "2022-12-28T15:40:24.786Z",
+      "modified_at": "2022-12-28T15:40:24.786Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "legal-submission-status",
+      "value": "legal-submission-status-open",
+      "meta": {},
+      "document": null,
+      "date": null
+    }
+  },
+  {
     "model": "caluma_form.form",
     "pk": "legal-submission",
     "fields": {
@@ -583,7 +600,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null,
+      "default_answer": "6e3b80b9-3b60-492c-81f9-918254290b15",
       "calc_expression": null,
       "calc_dependents": "[]"
     }

@@ -1,0 +1,30 @@
+<tr>
+  <td>{{format-date this.receiptDate format="date"}}</td>
+  <td>{{this.type}}</td>
+  <td class="uk-text-truncate" title={{this.title}}>{{this.title}}</td>
+  <td>{{this.legalClaimants}}</td>
+  <td>{{this.status}}</td>
+  {{#if (can "edit legal-submission" @workItem)}}
+    <td>
+      <div class="uk-flex uk-flex-middle uk-flex-right">
+        <LinkTo
+          @route="legal-submission.edit"
+          @model={{@legalSubmission.id}}
+          class="uk-button uk-button-link"
+        >
+          <UkIcon @icon="pencil" />
+        </LinkTo>
+        <UkButton
+          @color="link"
+          @loading={{this.delete.isRunning}}
+          @disabled={{this.delete.isRunning}}
+          @onClick={{perform this.delete}}
+          class="uk-margin-small-left"
+          title={{t "global.delete"}}
+        >
+          <UkIcon @icon="trash" />
+        </UkButton>
+      </div>
+    </td>
+  {{/if}}
+</tr>

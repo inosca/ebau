@@ -8,7 +8,7 @@ import { saveAs } from "file-saver";
 
 import copyDocument from "camac-ng/gql/mutations/copy-document.graphql";
 import deleteDocument from "camac-ng/gql/mutations/delete-document.graphql";
-import linkAuditDocument from "camac-ng/gql/mutations/link-audit-document.graphql";
+import linkDocument from "camac-ng/gql/mutations/link-document.graphql";
 
 export default class AuditTableRowComponent extends Component {
   @service fetch;
@@ -48,7 +48,7 @@ export default class AuditTableRowComponent extends Component {
 
       // unlink audit
       yield this.apollo.mutate({
-        mutation: linkAuditDocument,
+        mutation: linkDocument,
         variables: {
           question: this.args.audit.form,
           document: this.args.documentData.id,
@@ -92,7 +92,7 @@ export default class AuditTableRowComponent extends Component {
 
       // link document to the right table
       yield this.apollo.mutate({
-        mutation: linkAuditDocument,
+        mutation: linkDocument,
         variables: {
           question: form,
           document: this.args.documentData.id,
