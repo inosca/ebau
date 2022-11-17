@@ -143,13 +143,11 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
 
         user, created = self._update_or_create_user(defaults)
 
+        Applicant.objects.filter(email=user.email, invitee=None).update(invitee=user)
+
         if created:
             if settings.URI_MIGRATE_PORTAL_USER and "portalid" in data:
                 migrate_portal_user(data.get("portalid"), user)
-
-            Applicant.objects.filter(email=user.email, invitee=None).update(
-                invitee=user
-            )
 
             demo_groups = settings.APPLICATION.get("DEMO_MODE_GROUPS")
             if settings.DEMO_MODE and demo_groups:
