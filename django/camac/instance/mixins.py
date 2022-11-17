@@ -326,7 +326,7 @@ class InstanceQuerysetMixin(object):
             # WARNING: if this logic changes, `hasInquiry` in
             # php/library/Custom/CalumaDistribution.php needs to be updated as
             # well
-            return (
+            return list(
                 WorkItem.objects.filter(
                     task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
                     addressed_groups=[str(group.service.pk)],
@@ -337,7 +337,7 @@ class InstanceQuerysetMixin(object):
                         WorkItem.STATUS_CANCELED,
                     ],
                 )
-                .values("case__family__instance__pk")
+                .values_list("case__family__instance__pk", flat=True)
             )
 
         return Circulation.objects.filter(activations__service=group.service).values(

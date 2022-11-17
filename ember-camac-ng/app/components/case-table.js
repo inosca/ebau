@@ -381,6 +381,12 @@ export default class CaseTableComponent extends Component {
           ? ["form", "user"]
           : []),
       ].join(","),
+      ...(macroCondition(getOwnConfig().application === "be")
+        ? {
+            "fields[instances]":
+              "id,name,decision,decision_date,involved_at,instance_state",
+          }
+        : {}),
     });
 
     if (this.args.casesBackend === "camac-ng") {
