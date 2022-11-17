@@ -1,4 +1,3 @@
-version: "3.4"
 services:
   cache:
     image: memcached:1.6-alpine
@@ -14,37 +13,21 @@ services:
       - djangomedia:/var/lib/camac/media:ro
       - djangotmpmedia:/tmp/camac/tmpfiles:ro
 
-  db:
-    build:
-      context: ../db
-      cache_from:
-        - acr.run/camac-ng/camac-ng/db:master
-    environment:
-      - POSTGRES_USER=camac
-      - POSTGRES_DATABASE=${APPLICATION}
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-
   django: &django
     build:
       context: ../django
-      cache_from:
-        - acr.run/camac-ng/camac-ng/django:master
     depends_on:
-      - db
       - cache
       - clamav
       - keycloak
       - unoconv
     environment:
-      - DATABASE_HOST=db
-      - DATABASE_NAME=${APPLICATION}
+      - APPLICATION=${APPLICATION}
       - DJANGO_CACHE_LOCATION=cache:11211
       - DJANGO_MEDIA_ROOT=/var/lib/camac/media
       - DJANGO_UNOCONV_URL=http://unoconv:3000
       - DJANGO_CLAMD_TCP_ADDR=clamav
       - DJANGO_MERGE_DATE_FORMAT=%-d. %B %Y
-      - APPLICATION=${APPLICATION}
       - CACHE_BACKEND=django.core.cache.backends.memcached.MemcachedCache
       - CACHE_LOCATION=cache:11211
       - EVENT_RECEIVER_MODULES=camac.caluma.extensions.events
@@ -64,7 +47,6 @@ services:
 
   django-q:
     <<: *django
-    command: /bin/sh -c "./wait-for-it.sh db:5431 -- ./manage.py qcluster --pythonpath /app/$APPLICATION"
 
   ember-camac-ng:
     build:
@@ -92,32 +74,20 @@ services:
       - DEFINITIONS_UPDATE_BEGIN=0300
 
   keycloak:
-    depends_on:
-      - db
     image: acr.run/camac-ng/keycloak:16.1.0_theme-v1.0.1
     environment:
-      - DB_VENDOR=postgres
-      - DB_ADDR=db
-      - DB_USER=camac
-      - DB_DATABASE=${APPLICATION}
-      - KEYCLOAK_USER=admin
       - PROXY_ADDRESS_FORWARDING=true
 
   metabase:
     image: metabase/metabase:v0.43.2
-    depends_on:
-      - db
     ports:
       - "666:3000"
     environment:
       - MB_DB_TYPE=postgres
       - MB_DB_DBNAME=metabase
       - MB_DB_PORT=5432
-      - MB_DB_USER=camac
-      - MB_DB_HOST=db
 
 volumes:
-  pgdata:
   djangomedia:
   djangotmpmedia:
   phpsessions:
