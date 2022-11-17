@@ -1,4 +1,3 @@
-version: "3.4"
 services:
   proxy:
     restart: always
@@ -12,35 +11,20 @@ services:
       - /etc/letsencrypt:/etc/letsencrypt:ro
       - /etc/camac/nginx:/etc/nginx/conf.d:ro
 
-  db:
-    image: acr.run/camac-ng/camac-ng/db:${CI_COMMIT_REF_SLUG}-${APPLICATION}
-    build:
-      context: ../db
-      cache_from:
-        - acr.run/camac-ng/camac-ng/db:${CI_COMMIT_REF_SLUG}-${APPLICATION}
-    restart: always
-    ports:
-      - "5432:5432"
-    environment:
-      - POSTGRES_PASSWORD_FILE=/run/secrets/postgres-passwd
-    volumes:
-      - /etc/camac/postgres_password.conf:/run/secrets/postgres-passwd:ro
-
   django: &django
     image: acr.run/camac-ng/camac-ng/django:${CI_COMMIT_REF_SLUG}-${APPLICATION}
     build:
-      context: ../django
       cache_from:
         - acr.run/camac-ng/camac-ng/django:${CI_COMMIT_REF_SLUG}-${APPLICATION}
-    restart: always
     depends_on:
       - postfix
       - mailhog
     environment:
-      - DATABASE_NAME=kt_schwyz_dist
+      - DATABASE_HOST=${SZ_DATABASE_HOST_STAGE}
       - DJANGO_ENV_FILE=/run/secrets/django.env
     volumes:
       - /etc/camac/django.env:/run/secrets/django.env:ro
+    restart: always
 
   django-q:
     <<: *django
@@ -48,11 +32,11 @@ services:
       - DJANGO_ENV_FILE=/run/secrets/django.env
     volumes:
       - /etc/camac/django.env:/run/secrets/django.env:ro
+    command: /bin/sh -c "./wait-for-it.sh $SZ_DATABASE_HOST_STAGE:5431 -- ./manage.py qcluster --pythonpath /app/$APPLICATION"
 
   ember:
     image: acr.run/camac-ng/camac-ng/ember:${CI_COMMIT_REF_SLUG}-${APPLICATION}
     build:
-      context: ../ember
       cache_from:
         - acr.run/camac-ng/camac-ng/ember:${CI_COMMIT_REF_SLUG}-${APPLICATION}
       args:
@@ -64,12 +48,8 @@ services:
   ember-camac-ng:
     image: acr.run/camac-ng/camac-ng/ember-camac-ng:${CI_COMMIT_REF_SLUG}-${APPLICATION}
     build:
-      context: ../
-      dockerfile: ./ember-camac-ng/Dockerfile
       cache_from:
         - acr.run/camac-ng/camac-ng/ember-camac-ng:${CI_COMMIT_REF_SLUG}-${APPLICATION}
-      args:
-        - APPLICATION=${APPLICATION}
     restart: always
 
   cache:
@@ -106,14 +86,12 @@ services:
 
   metabase:
     environment:
+      - MB_DB_USER=${METABASE_DB_USER_STAGE}
       - MB_DB_PASS=${METABASE_DB_PASS_STAGE}
+      - MB_DB_HOST=${SZ_DATABASE_HOST_STAGE}
     restart: always
 
 volumes:
-  pgdata:
-    external:
-      name: camacpgdata
-
   djangomedia:
     external:
       name: camacdjangomedia
@@ -121,7 +99,3 @@ volumes:
   phpsessions:
     external:
       name: camacphpsessions
-
-  phpresources:
-    external:
-      name: camacphpresources
