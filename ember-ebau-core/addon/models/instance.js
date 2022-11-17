@@ -17,6 +17,9 @@ export default class InstanceModel extends Model {
   @attr isModification;
   @attr isPaper;
   @attr dossierNumber;
+  @attr decision;
+  @attr decisionDate;
+  @attr involvedAt;
 
   @belongsTo user;
   @belongsTo form;

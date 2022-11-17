@@ -2024,3 +2024,19 @@ def test_filter_inquiry_answer(
 
         assert response.status_code == status.HTTP_200_OK
         assert len(response.json()["data"]) == expected_count
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+def test_inquiry_and_decision_data(
+    db, snapshot, active_inquiry_factory, admin_client, be_instance, decision_factory
+):
+    active_inquiry_factory(created_at=make_aware(datetime(2022, 9, 1)))
+    decision_factory(decision_date=date(2022, 11, 16))
+
+    response = admin_client.get(
+        reverse("instance-list"),
+        data={"fields[instances]": "decision,decision_date,involved_at"},
+    )
+
+    assert response.status_code == status.HTTP_200_OK
+    snapshot.assert_match(response.json()["data"][0]["attributes"])
