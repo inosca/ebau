@@ -8234,6 +8234,94 @@
         ]
       }
     },
+    "vertreter-mit-vollmacht-override": {
+      "restrict": ["municipality", "service", "reader"],
+      "label": "Vertreter/in mit Vollmacht",
+      "type": "table",
+      "required": false,
+      "config": {
+        "columns": [
+          {
+            "name": "anrede",
+            "label": "Anrede",
+            "type": "radio",
+            "required": true,
+            "config": {
+              "options": ["Herr", "Frau", "Firma"]
+            }
+          },
+          {
+            "name": "firma",
+            "label": "Firma/ Körperschaft",
+            "table-label": "Firma",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "name",
+            "label": "Name",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "vorname",
+            "label": "Vorname",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "strasse",
+            "label": "Strasse, Nr.",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "plz",
+            "label": "PLZ",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "ort",
+            "label": "Ort",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "email",
+            "label": "E-Mail",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "tel",
+            "label": "Tel. Nr.",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "vollmacht",
+            "label": "Vollmacht",
+            "type": "radio",
+            "required": true,
+            "config": {
+              "options": [
+                "Die Bauherrschaft bestätigt mit beigelegtem, unterschriebenem Dokument, obgenannter Person die Generalvollmacht zu erteilen.",
+                "Die Bauherrschaft bestätigt mit beigelegtem, unterschriebenem Dokument, obgenannter Person die Vollmacht mit beschriebenem Handlungsspielraum zu erteilen."
+              ]
+            }
+          }
+        ]
+      }
+    },
     "info-vorhaben-mit-baute": {
       "label": "Es ist ein Energienachweis erforderlich.",
       "type": "checkbox",
