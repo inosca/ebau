@@ -150,6 +150,7 @@ omit = [
     "camac/core/management/commands/fix_ur_publication_dates.py",
     "camac/core/management/commands/fix_ur_publication_dates_2.py",
     "camac/core/management/commands/migrate_workflow_dates_ur.py",
+    "camac/core/management/commands/migrate_objections_be.py",
     # Audit migration"
     "camac/core/management/commands/config/",
     "camac/core/management/commands/migrate_audit.py",
