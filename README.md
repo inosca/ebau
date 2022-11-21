@@ -1,4 +1,4 @@
-# eBau
+<img src="https://user-images.githubusercontent.com/7962156/203104928-1dda9728-54e2-4c72-8afd-f0bec914d8d2.svg" alt="inosca/ebau logo" width="200" />
 
 Electronic building permit application for Swiss cantons.
 
