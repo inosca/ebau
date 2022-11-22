@@ -79,8 +79,9 @@ class PublicServiceFilterSet(FilterSet):
             if config["localized"]:
                 filters.append(
                     Q(
+                        Q(groups__locations__in=group.locations.all())
+                        | Q(groups__locations__isnull=True),
                         service_group__pk=config["id"],
-                        groups__locations__in=group.locations.all(),
                     )
                 )
             else:
