@@ -43,7 +43,7 @@ from camac.dossier_import.writers import (
 )
 from camac.instance.domain_logic import SUBMIT_DATE_FORMAT, CreateInstanceLogic
 from camac.instance.models import Form, Instance, InstanceState
-from camac.instance.utils import set_construction_control
+from camac.instance.utils import get_construction_control, set_construction_control
 from camac.tags.models import Tags
 from camac.user.models import Group, Location, User
 
@@ -255,6 +255,10 @@ class KtBernDossierWriter(DossierWriter):
         instance = self.create_instance(dossier)
         Tags.objects.create(
             name=dossier.id, service=self._group.service, instance=instance
+        )
+        construction_control = get_construction_control(self._group.service)
+        Tags.objects.create(
+            name=dossier.id, service=construction_control, instance=instance
         )
         instance.case.meta["import-id"] = import_session_id
         instance.case.save()
