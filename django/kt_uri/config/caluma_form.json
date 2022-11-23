@@ -4587,7 +4587,7 @@
       "modified_by_group": null,
       "form": "energetische-massnahmen",
       "question": "das-vorhaben-betrifft",
-      "sort": 24
+      "sort": 25
     }
   },
   {
@@ -4603,6 +4603,21 @@
       "form": "energetische-massnahmen",
       "question": "einzelbauteilnachweis",
       "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "energetische-massnahmen.energiebezugsflaeche",
+    "fields": {
+      "created_at": "2022-11-23T16:29:11.329Z",
+      "modified_at": "2022-11-23T16:29:11.329Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "energetische-massnahmen",
+      "question": "energiebezugsflaeche",
+      "sort": 24
     }
   },
   {
@@ -4902,7 +4917,7 @@
       "modified_by_group": null,
       "form": "energetische-massnahmen",
       "question": "raumdetails-titel",
-      "sort": 25
+      "sort": 26
     }
   },
   {
@@ -36688,6 +36703,40 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "energetische-massnahmen",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "energiebezugsflaeche",
+    "fields": {
+      "created_at": "2022-11-23T16:29:11.176Z",
+      "modified_at": "2022-11-23T16:29:11.176Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Energiebezugsfl\\u00e4che in m2\", \"fr\": null}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "!(\n[\n\"das-vorhaben-betrifft-beheizte-oder-gekuehlte-neu-und-umbauten\", \"das-vorhaben-betrifft-aenderung-beheizter-oder-gekuehlter-bauten\", \"das-vorhaben-betrifft-installation-technischer-anlagen\"\n] intersects (\"das-vorhaben-betrifft\"|answer || [])\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"##Definition der Energiebezugsfl\\u00e4che\\n\\nDie Energiebezugsfl\\u00e4che auch EBF genannt, ist die Summe aller ober- und unterirdischen Geschossfl\\u00e4chen, die innerhalb der thermischen Geb\\u00e4udeh\\u00fclle liegen und f\\u00fcr die ein Beheizen oder Klimatisieren notwendig ist.\\n\\nZur Energiebezugsfl\\u00e4che z\\u00e4hlen Hauptnutzfl\\u00e4chen (Wohnzimmer, Schlafzimmer etc.), Verkehrsfl\\u00e4chen (Treppenhaus, Gang), Garderoben und Fl\\u00e4chen der Sanit\\u00e4rr\\u00e4ume, sofern diese Fl\\u00e4chen innerhalb der thermischen Geb\\u00e4udeh\\u00fclle liegen.\\n\\nDie thermische Geb\\u00e4udeh\\u00fclle ist ein geschlossener geometrischer K\\u00f6rper, der aus den Bauteilen (Aussenwand, Innenwand, Dach, Decke, Boden, Fenster, T\\u00fcren usw.) gebildet wird, welche den beheizten Raum vom Aussenklima und den nicht beheizten R\\u00e4umen abgrenzen.\\n\\nZur Energiebezugsfl\\u00e4che z\\u00e4hlen auch Nebennutzfl\\u00e4chen welche eine Fl\\u00e4che kleiner als 10m2 aufweisen. Als Nebennutzfl\\u00e4chen gelten zum Beispiel Ver- und Entsorgungssch\\u00e4chte, Abstellr\\u00e4ume (Keller), Waschk\\u00fcchen, Heizr\\u00e4ume usw.\\n\\nNicht zur Energiebezugsfl\\u00e4che z\\u00e4hlen Nebennutzfl\\u00e4chen und Funktionsfl\\u00e4chen, die ohne Heizung verwendbar sind (Waschk\\u00fcchen, Technische R\\u00e4ume, Heizzentralen, Garagen, Abstellr\\u00e4ume, Estrich usw.), auch wenn diese beheizt sind (Ausnahme: Fl\\u00e4chen kleiner als 10 m2 die innerhalb der thermischen Geb\\u00e4udeh\\u00fclle liegen). Fl\\u00e4chenteile mit einer Raumh\\u00f6he kleiner als 1.0 m (siehe Beispiel Dachgeschoss) z\\u00e4hlen nicht zur Energiebezugsfl\\u00e4che.\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_value": 2000000000,
+        "min_value": 0
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
