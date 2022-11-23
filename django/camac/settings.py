@@ -1628,6 +1628,14 @@ APPLICATIONS = {
                         "dokumente-platzhalter",
                     ],
                 },
+                "migriertes-dossier": {
+                    "forms": [
+                        "migriertes-dossier",
+                    ],
+                    "template": "form",
+                    "personalien": "personalien",
+                    "exclude_slugs": [],
+                },
                 "selbstdeklaration": {
                     "forms": ["sb1", "sb2"],
                     "template": "form",
