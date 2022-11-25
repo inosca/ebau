@@ -1,0 +1,48 @@
+<UkButton
+  @type={{if this.showOnlyUnread "default" "primary"}}
+  {{on "click" (fn (mut this.showOnlyUnread) false)}}
+>
+  Alle
+</UkButton>
+<UkButton
+  @type={{if this.showOnlyUnread "primary" "default"}}
+  {{on "click" (fn (mut this.showOnlyUnread) true)}}
+>
+  Ungelesene
+</UkButton>
+
+<table class="uk-table">
+  <caption></caption>
+  <thead>
+    <tr>
+      <th>Dossier</th>
+      <th>Teilnehmer</th>
+      <th>Thema</th>
+      <th>Datum</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#if this.topics.isLoading}}
+      <tr>
+        <td>Loading...</td>
+      </tr>
+    {{else}}
+      {{log this.topics}}
+      {{#each this.topics.records as |topic|}}
+        <tr class={{if topic.hasUnreads "uk-text-bold"}}>
+          <td>{{topic.instnace.dossierNr}} ({{topic.instance.id}})</td>
+          <td>{{if
+              topic.involvedEntities
+              (join ", " topic.involvedEntities)
+            }}</td>
+          <td>{{topic.subject}}</td>
+          <td>{{topic.created}}</td>
+        </tr>
+      {{else}}
+        <tr>
+          <td>Empty</td>
+        </tr>
+      {{/each}}
+    {{/if}}
+  </tbody>
+</table>

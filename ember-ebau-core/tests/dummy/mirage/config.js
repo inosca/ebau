@@ -15,6 +15,11 @@ export default function makeServer(config) {
       this.resource("instances", { only: ["index", "show"] });
       this.resource("instance-states", { only: ["index", "show"] });
 
+      this.resource("communications-topics");
+      this.resource("communications-messages");
+      this.resource("communications-attachments");
+      this.resource("communications-entities");
+
       this.namespace = ""; // reset namespace
     },
   });
