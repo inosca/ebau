@@ -1,11 +1,11 @@
 dms:
   category: "Kategorie"
-  click: "drücken sie hier um eine Datei hochzuladen"
+  click: "Drücken sie hier um eine Datei hochzuladen"
   download: "Vorlage herunterladen"
   drag: "Ziehen Sie eine Datei in diesen Bereich oder"
   edit: "Vorlage bearbeiten"
   empty: "Keine Vorlagen gefunden"
-  inherited: "übergeordnet"
+  inherited: "Übergeordnet"
   inheritedUncategorized: "Übergeordnete Vorlagen (unkategorisiert)"
   merge-and-save: "Dokument ablegen"
   merge: "Dokument erstellen"
