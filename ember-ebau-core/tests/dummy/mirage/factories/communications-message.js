@@ -6,11 +6,11 @@ export default Factory.extend({
     faker.lorem.paragraph({ sentenceCount: faker.datatype.number({ max: 6 }) }),
   created: () => faker.date.recent(),
   isRead: false,
-  afterCreate(message, server) {
+  afterCreate(communicationsMessage, server) {
     server.createList(
       "communications-attachment",
       faker.datatype.number({ max: 5 }),
-      { message }
+      { communicationsMessage }
     );
   },
 });

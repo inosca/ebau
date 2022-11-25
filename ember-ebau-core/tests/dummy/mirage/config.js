@@ -14,6 +14,7 @@ export default function makeServer(config) {
       this.resource("attachments");
       this.resource("instances", { only: ["index", "show"] });
       this.resource("instance-states", { only: ["index", "show"] });
+      this.resource("services");
 
       this.resource("communications-topics");
       this.resource("communications-messages");

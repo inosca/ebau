@@ -6,7 +6,8 @@ export default class CommunicationTopicListComponent extends Component {
   @tracked showOnlyUnread = false;
 
   topics = query(this, "communications-topic", () => ({
-    unread: this.showOnlyUnread,
-    included: "instance,involved_entities",
+    has_unread: this.showOnlyUnread,
+    instance: this.args.instance,
+    include: "instance,involved_entities",
   }));
 }

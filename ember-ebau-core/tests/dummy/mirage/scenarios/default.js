@@ -1,3 +1,5 @@
+import { faker } from "@faker-js/faker";
+
 export default function (server) {
   server.create("instance", { id: 2 });
 
@@ -13,7 +15,18 @@ export default function (server) {
 
   server.createList("notification-template", 3);
 
+  // Communications module setup
+  server.create("user");
   server.create("communications-entity", { isApplicant: true });
   server.createList("communications-entity", 4);
-  server.createList("instance", 5);
+  const instances = server.createList("instance", 5);
+  instances.forEach((instance) =>
+    server.createList(
+      "communications-topic",
+      faker.datatype.number({ max: 10 }),
+      {
+        instance,
+      }
+    )
+  );
 }
