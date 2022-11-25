@@ -2,6 +2,7 @@ import csv
 import itertools
 from collections import OrderedDict
 
+from caluma.caluma_form.models import Document
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.utils.timezone import now
@@ -9,7 +10,7 @@ from django.utils.translation import get_language
 from rest_framework import serializers
 
 from camac.caluma.api import CalumaApi
-from camac.objection.models import Objection
+from camac.caluma.utils import find_answer
 from camac.user.models import Service
 from camac.utils import build_url
 
@@ -183,6 +184,7 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
     ebau_number = fields.MasterDataField(source="dossier_number")
     eigene_gebuehren_total = fields.BillingEntriesField(own=True, total=True)
     eigene_gebuehren = fields.BillingEntriesField(own=True)
+    einsprachen = fields.LegalSubmissionField(type="legal-submission-type-objection")
     email = fields.DeprecatedField()
     fachstellen_kantonal_list = fields.InquiriesField(
         props=["service_with_prefix"], join_by="\n"
@@ -265,6 +267,9 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
     )
     koordinaten = serializers.SerializerMethodField()
     language = serializers.SerializerMethodField()
+    lastenausgleichsbegehren = fields.LegalSubmissionField(
+        type="legal-submission-type-load-compensation-request"
+    )
     leitbehoerde_address_1 = fields.ResponsibleServiceField(source="address")
     leitbehoerde_address_2 = fields.JointField(
         fields=[
@@ -390,6 +395,9 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         source="publikation-startdatum", value_key="date", parser=human_readable_date
     )
     publikation_text = fields.PublicationField(source="publikation-text")
+    rechtsverwahrungen = fields.LegalSubmissionField(
+        type="legal-submission-type-legal-custody"
+    )
     sachverhalt = fields.MasterDataField(source="situation")
     status = serializers.SerializerMethodField()
     stellungnahme = fields.InquiriesField(
@@ -513,21 +521,39 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         return get_language()
 
     def get_opposing(self, instance):
-        objections = Objection.objects.filter(instance=instance)
-
         data = []
-        for objection in objections:
-            for opponent in objection.objection_participants.all():
-                data.append(
-                    {
-                        "NAME": ", ".join(
-                            filter(None, [opponent.company, opponent.name])
-                        ),
-                        "ADDRESS": ", ".join(
-                            filter(None, [opponent.address, opponent.city])
-                        ),
-                    }
+
+        for claimant in Document.objects.filter(
+            form_id="personalien-tabelle",
+            family__work_item__task_id="legal-submission",
+            family__work_item__case__instance=instance,
+        ):
+            is_juristic = (
+                find_answer(
+                    claimant, "juristische-person-gesuchstellerin", raw_value=True
                 )
+                == "juristische-person-gesuchstellerin-ja"
+            )
+            name = (
+                find_answer(claimant, "name-juristische-person-gesuchstellerin")
+                if is_juristic
+                else clean_join(
+                    find_answer(claimant, "vorname-gesuchstellerin"),
+                    find_answer(claimant, "name-gesuchstellerin"),
+                )
+            )
+            street = clean_join(
+                find_answer(claimant, "strasse-gesuchstellerin"),
+                find_answer(claimant, "nummer-gesuchstellerin"),
+            )
+            location = clean_join(
+                find_answer(claimant, "plz-gesuchstellerin"),
+                find_answer(claimant, "ort-gesuchstellerin"),
+            )
+
+            data.append(
+                {"ADDRESS": clean_join(street, location, separator=", "), "NAME": name}
+            )
 
         return data
 

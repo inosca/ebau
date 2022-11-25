@@ -2,10 +2,10 @@ import base64
 from io import BytesIO
 
 import qrcode
-from caluma.caluma_form.models import Question
+from caluma.caluma_form.models import Answer, Document, Question
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
-from django.db.models import Q, Sum
+from django.db.models import Exists, OuterRef, Q, Sum
 from django.utils.translation import get_language, gettext as _
 from rest_framework import serializers
 
@@ -338,6 +338,71 @@ class InquiriesField(serializers.ReadOnlyField):
             )
 
         return queryset.order_by("created_at")
+
+
+class LegalSubmissionField(serializers.ReadOnlyField):
+    def __init__(self, type, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.type = type
+
+    def to_representation(self, value):
+        data = []
+
+        for document in value:
+            legal_claimants = []
+
+            for claimant in find_answer(
+                document, "legal-submission-legal-claimants-table-question"
+            ):
+                is_juristic = (
+                    find_answer(
+                        claimant, "juristische-person-gesuchstellerin", raw_value=True
+                    )
+                    == "juristische-person-gesuchstellerin-ja"
+                )
+                name = (
+                    find_answer(claimant, "name-juristische-person-gesuchstellerin")
+                    if is_juristic
+                    else clean_join(
+                        find_answer(claimant, "vorname-gesuchstellerin"),
+                        find_answer(claimant, "name-gesuchstellerin"),
+                    )
+                )
+                legal_claimants.append(name)
+
+            data.append(
+                {
+                    "DATUM_EINGANG": find_answer(
+                        document, "legal-submission-receipt-date"
+                    ),
+                    "DATUM_DOKUMENT": find_answer(
+                        document, "legal-submission-document-date"
+                    ),
+                    "TITEL": find_answer(document, "legal-submission-title"),
+                    "RUEGEPUNKTE": find_answer(document, "legal-submission-reprimands"),
+                    "RECHTSBEGEHRENDE": clean_join(*legal_claimants, separator=", "),
+                }
+            )
+
+        return data
+
+    def get_attribute(self, instance):
+        return (
+            Document.objects.filter(
+                form_id="legal-submission-form",
+                family__work_item__case__instance=instance,
+            )
+            .filter(
+                Exists(
+                    Answer.objects.filter(
+                        question_id="legal-submission-type",
+                        value__contains=self.type,
+                        document_id=OuterRef("pk"),
+                    )
+                )
+            )
+            .prefetch_related("answers")
+        )
 
 
 class MasterDataPersonField(MasterDataField):
