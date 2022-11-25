@@ -1,48 +1,78 @@
-<UkButton
-  @type={{if this.showOnlyUnread "default" "primary"}}
-  {{on "click" (fn (mut this.showOnlyUnread) false)}}
->
-  Alle
-</UkButton>
-<UkButton
-  @type={{if this.showOnlyUnread "primary" "default"}}
-  {{on "click" (fn (mut this.showOnlyUnread) true)}}
->
-  Ungelesene
-</UkButton>
+<div>
+  <div class="uk-flex uk-flex-between">
+    <div class="uk-button-group">
+      <UkButton
+        @color={{if this.showOnlyUnread "default" "primary"}}
+        {{on "click" (fn (mut this.showOnlyUnread) false)}}
+      >
+        Alle
+      </UkButton>
+      <UkButton
+        @color={{if this.showOnlyUnread "primary" "default"}}
+        {{on "click" (fn (mut this.showOnlyUnread) true)}}
+      >
+        Ungelesene
+      </UkButton>
+    </div>
+    {{#if (and @instance @newRoute)}}
+      <LinkTo @route={{@newRoute}}>
+        <UkButton @color="primary">
+          Neue Nachricht erfassen
+        </UkButton>
+      </LinkTo>
+    {{/if}}
+  </div>
 
-<table class="uk-table">
-  <caption></caption>
-  <thead>
-    <tr>
-      <th>Dossier</th>
-      <th>Teilnehmer</th>
-      <th>Thema</th>
-      <th>Datum</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#if this.topics.isLoading}}
+  <table class="uk-table uk-table-striped">
+    <caption></caption>
+    <thead>
       <tr>
-        <td>Loading...</td>
+        {{#if (not @instance)}}
+          <th>Dossier</th>
+        {{/if}}
+        <th>Thema</th>
+        <th>Teilnehmer</th>
+        <th>Datum</th>
       </tr>
-    {{else}}
-      {{log this.topics}}
-      {{#each this.topics.records as |topic|}}
-        <tr class={{if topic.hasUnreads "uk-text-bold"}}>
-          <td>{{topic.instnace.dossierNr}} ({{topic.instance.id}})</td>
-          <td>{{if
-              topic.involvedEntities
-              (join ", " topic.involvedEntities)
-            }}</td>
-          <td>{{topic.subject}}</td>
-          <td>{{topic.created}}</td>
+    </thead>
+    <tbody>
+      {{#if this.topics.isLoading}}
+        <tr>
+          <td colspan="4">Loading...</td>
         </tr>
       {{else}}
-        <tr>
-          <td>Empty</td>
-        </tr>
-      {{/each}}
-    {{/if}}
-  </tbody>
-</table>
+        {{#each this.topics.records as |topic|}}
+          <tr class={{if topic.hasUnread "uk-text-bold"}}>
+            {{#if (not @instance)}}
+              <td>
+                {{topic.instance.dossierNr}}
+                ({{topic.instance.id}})
+              </td>
+            {{/if}}
+            <td>{{topic.subject}}</td>
+            <td>
+              {{topic.involvedEntitiesString}}
+              {{#each topic.involvedEntities as |entity|}}
+                {{entity.service.name}}<br />
+              {{else}}
+                -
+              {{/each}}
+            </td>
+            <td>{{format-date
+                topic.created
+                day="2-digit"
+                month="2-digit"
+                year="numeric"
+                hour="numeric"
+                minute="numeric"
+              }}</td>
+          </tr>
+        {{else}}
+          <tr>
+            <td>Empty</td>
+          </tr>
+        {{/each}}
+      {{/if}}
+    </tbody>
+  </table>
+</div>
