@@ -7,6 +7,7 @@ from mozilla_django_oidc.contrib.drf import OIDCAuthentication
 from rest_framework import exceptions, status
 from rest_framework.exceptions import AuthenticationFailed
 
+from camac.applicants.models import Applicant
 from camac.user.authentication import JSONWebTokenKeycloakAuthentication
 
 
@@ -190,3 +191,45 @@ def test_authenticate_header(db, rf, settings):
     request = rf.request()
     header = JSONWebTokenKeycloakAuthentication().authenticate_header(request)
     assert settings.KEYCLOAK_REALM in header
+
+
+def test_authenticate_applicants(
+    rf, admin_user, mocker, applicant_factory, instance_factory
+):
+    new_email = "test@test.ch"
+
+    instance1 = instance_factory()
+    instance2 = instance_factory()
+
+    existing_applicant = applicant_factory(instance=instance1, invitee=admin_user)
+    pending_obsolete_applicant = applicant_factory(
+        instance=instance1, email=new_email, invitee=None
+    )
+    pending_applicant = applicant_factory(
+        instance=instance2, email=new_email, invitee=None
+    )
+
+    token_value = {
+        "sub": admin_user.username,
+        "email": new_email,
+        "family_name": admin_user.name,
+        "given_name": admin_user.surname,
+        settings.OIDC_USERNAME_CLAIM: admin_user.username,
+    }
+    decode_token = mocker.patch("keycloak.KeycloakOpenID.decode_token")
+    decode_token.return_value = token_value
+    mocker.patch("keycloak.KeycloakOpenID.certs")
+
+    userinfo = mocker.patch("keycloak.KeycloakOpenID.userinfo")
+    userinfo.return_value = token_value
+
+    request = rf.request(HTTP_AUTHORIZATION="Bearer some_token")
+
+    JSONWebTokenKeycloakAuthentication().authenticate(request)
+
+    assert Applicant.objects.filter(pk=existing_applicant.pk).exists()
+    assert Applicant.objects.filter(
+        pk=pending_applicant.pk, invitee=admin_user
+    ).exists()
+
+    assert not Applicant.objects.filter(pk=pending_obsolete_applicant.pk).exists()
