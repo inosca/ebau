@@ -270,7 +270,7 @@ class InquiriesField(serializers.ReadOnlyField):
             ),
             "service": lambda i: self.get_service(i, "addressed_groups"),
             "service_with_prefix": lambda i: f"- {self.get_service(i,'addressed_groups')}",
-            "deadline": lambda i: i.deadline.strftime("%d.%m.%Y"),
+            "deadline": lambda i: i.deadline.strftime("%d.%m.%Y") if i.deadline else "",
             "creation_date": lambda i: i.created_at.strftime("%d.%m.%Y"),
         }
 

@@ -249,6 +249,8 @@ def post_create_inquiry(sender, work_item, user, context=None, **kwargs):
             context=context,
         )
 
+    sync_inquiry_deadline(work_item)
+
 
 @on(post_resume_work_item, raise_exception=True)
 @filter_by_task("INQUIRY_TASK")
