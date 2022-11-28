@@ -23,8 +23,8 @@ services:
       - DATABASE_HOST=${SZ_DATABASE_HOST_STAGE}
       - DJANGO_ENV_FILE=/run/secrets/django.env
     volumes:
-      - /etc/camac/django.env:/run/secrets/django.env:ro
-      - /etc/camac/django/uwsgi-prod.ini:/app/uwsgi.ini
+      - /etc/camac/django/django.env:/run/secrets/django.env:ro
+      - /etc/camac/django/uwsgi.ini:/app/uwsgi.ini
     restart: always
 
   django-q:
