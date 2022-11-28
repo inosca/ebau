@@ -1,3 +1,4 @@
+import itertools
 import json
 import re
 from collections import namedtuple
@@ -166,7 +167,26 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         )
 
     def get_involved_services(self, obj):
-        filters = Q(pk__in=obj.circulations.values("activations__service__pk"))
+        if not settings.DISTRIBUTION:
+            return Service.objects.none()
+
+        filters = Q(
+            pk__in=list(
+                itertools.chain(
+                    *workflow_models.WorkItem.objects.filter(
+                        task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
+                        case__family=obj.case,
+                    )
+                    .exclude(
+                        status__in=[
+                            workflow_models.WorkItem.STATUS_CANCELED,
+                            workflow_models.WorkItem.STATUS_SUSPENDED,
+                        ]
+                    )
+                    .values_list("addressed_groups", flat=True)
+                )
+            )
+        )
 
         if settings.APPLICATION.get("USE_INSTANCE_SERVICE"):
             filters |= Q(pk__in=obj.services.values("pk"))
