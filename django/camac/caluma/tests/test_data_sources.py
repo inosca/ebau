@@ -23,7 +23,7 @@ def test_locations(db, role, location_factory, expected_count):
     location_factory(name="Foo", zip=123)
     location_factory(name="Foo", zip=None)
 
-    data = Locations().get_data(user)
+    data = Locations().get_data(user, None, None)
     assert len(data) == expected_count
 
 
@@ -38,7 +38,7 @@ def test_mitberichtsverfahren(db, role, location_factory, expected_count):
     location_factory(name="Foo", zip=123)
     location_factory(name="Foo", zip=None)
 
-    data = Mitberichtsverfahren().get_data(user)
+    data = Mitberichtsverfahren().get_data(user, None, None)
     assert len(data) == expected_count
 
 
@@ -131,6 +131,6 @@ def test_data_sources(
     User = namedtuple("OIDCUser", "group")
     user = User(group=service1.pk)
 
-    data = test_class().get_data(user)
+    data = test_class().get_data(user, None, None)
 
     assert data == expected

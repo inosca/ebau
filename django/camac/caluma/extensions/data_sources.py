@@ -51,7 +51,7 @@ def get_others_option():
 class Municipalities(BaseDataSource):
     info = "List of municipalities from Camac"
 
-    def get_data(self, user):
+    def get_data(self, user, question, context):
         cache_key = f"data_source_{type(self).__name__}"
         include_disabled = (
             hasattr(user, "group")
@@ -89,7 +89,7 @@ class Municipalities(BaseDataSource):
 class Locations(BaseDataSource):
     info = "List of locations from Camac"
 
-    def get_data(self, user):
+    def get_data(self, user, question, context):
         cache_key = f"data_source_{type(self).__name__}"
         include_special = (
             hasattr(user, "camac_role") and user.camac_role != "Portal User"
@@ -201,7 +201,7 @@ form_mapping_by_koor = {
 class Mitberichtsverfahren(BaseDataSource):
     info = "List of different types of 'Mitberichtsverfahren' (role-dependent)"
 
-    def get_data(self, user):
+    def get_data(self, user, question, context):
         if not hasattr(user, "camac_role"):  # pragma: no cover
             return []
         return form_mapping_by_koor.get(user.camac_role, [])
@@ -211,7 +211,7 @@ class Services(BaseDataSource):
     info = "List of services, municipalities and RSTAs from Camac"
 
     @data_source_cache(timeout=3600)
-    def get_data(self, info):
+    def get_data(self, user, question, context):
         services = (
             Service.objects.select_related("service_group")
             .filter(
@@ -241,12 +241,12 @@ class Countries(BaseDataSource):
     info = "List of all countries in the world with opinionated sorting"
 
     @data_source_cache(timeout=3600)
-    def get_data(self, info):
+    def get_data(self, user, question, context):
         return COUNTRIES
 
 
 class Authorities(BaseDataSource):
     info = "List of authorities from camac"
 
-    def get_data(self, info):
+    def get_data(self, user, question, context):
         return [[authority.pk, authority.name] for authority in Authority.objects.all()]
