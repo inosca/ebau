@@ -28,15 +28,15 @@ from camac.instance.models import HistoryEntryT
         (
             "Applicant",
             LazyFixture("admin_user"),
-            21,
+            16,
             1,
             {"instance", "form", "document"},
         ),
         # reader should see instances from other users but has no editables
-        ("Reader", LazyFixture("user"), 21, 1, set()),
-        ("Canton", LazyFixture("user"), 21, 1, {"form", "document"}),
-        ("Municipality", LazyFixture("user"), 20, 1, {"form", "document"}),
-        ("Service", LazyFixture("user"), 20, 1, {"form", "document"}),
+        ("Reader", LazyFixture("user"), 16, 1, set()),
+        ("Canton", LazyFixture("user"), 16, 1, {"form", "document"}),
+        ("Municipality", LazyFixture("user"), 15, 1, {"form", "document"}),
+        ("Service", LazyFixture("user"), 15, 1, {"form", "document"}),
         ("Public", LazyFixture("user"), 2, 0, {}),
     ],
 )
@@ -738,6 +738,34 @@ def test_linked_instances(
     linked = json["data"]["relationships"]["linked-instances"]["data"]
     assert len(linked) == 1
     assert int(linked[0]["id"]) == other_instance.pk
+
+
+@pytest.mark.parametrize(
+    "role__name,instance__user", [("Municipality", LazyFixture("admin_user"))]
+)
+def test_involved_services(
+    admin_client, group, be_instance, active_inquiry_factory, service_factory
+):
+    invited_service = service_factory()
+    active_inquiry_factory(be_instance, invited_service)
+    active_inquiry_factory(
+        be_instance,
+        service_factory(),
+        status=caluma_workflow_models.WorkItem.STATUS_SUSPENDED,
+    )
+    be_instance.group = group
+    be_instance.save()
+
+    url = reverse("instance-detail", args=[be_instance.pk])
+
+    response = admin_client.get(url)
+    assert response.status_code == status.HTTP_200_OK
+    json = response.json()
+    involved_services = json["data"]["relationships"]["involved-services"]["data"]
+    assert len(involved_services) == 2
+    assert set([str(invited_service.pk), str(group.service_id)]) == set(
+        [service["id"] for service in involved_services]
+    )
 
 
 @pytest.mark.parametrize("main_instance_has_group", [False, True])
