@@ -7,7 +7,7 @@ from django.contrib.auth import get_user_model
 from django.core.cache import cache
 from django.core.exceptions import ObjectDoesNotExist
 from django.db import transaction
-from django.db.models import Q
+from django.db.models import Exists, OuterRef, Q
 from django.utils import translation
 from django.utils.encoding import force_bytes, smart_str
 from django.utils.translation import gettext as _
@@ -143,7 +143,7 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
 
         user, created = self._update_or_create_user(defaults)
 
-        Applicant.objects.filter(email=user.email, invitee=None).update(invitee=user)
+        self._update_applicants(user)
 
         if created:
             if settings.URI_MIGRATE_PORTAL_USER and "portalid" in data:
@@ -168,6 +168,20 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
             raise AuthenticationFailed(msg)
 
         return user
+
+    def _update_applicants(self, user):
+        pending_applicants = Applicant.objects.filter(email=user.email, invitee=None)
+
+        # Remove pending applicants that already have a connection to that user.
+        # If we don't remove those, they will be updated in the next statement
+        # which will cause an integrity error.
+        pending_applicants.filter(
+            Exists(
+                Applicant.objects.filter(invitee=user, instance=OuterRef("instance"))
+            )
+        ).delete()
+
+        pending_applicants.update(invitee=user)
 
     def authenticate_header(self, request):
         return 'JWT realm="{0}"'.format(settings.KEYCLOAK_REALM)
