@@ -108,12 +108,7 @@ class InstanceView(
             "responsible_services__responsible_user",
         ],
         "location": ["location"],
-        "involved_services": [
-            "services",
-            "circulations",
-            "circulations__activations",
-            "circulations__activations__service",
-        ],
+        "involved_services": ["services"],
         "circulation_initializer_services": [
             "circulations",
         ],
