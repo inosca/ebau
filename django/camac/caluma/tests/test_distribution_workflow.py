@@ -193,7 +193,7 @@ def test_create_inquiry(
 
     for work_item in [service_inquiry, subservice_inquiry]:
         assert work_item.status == WorkItem.STATUS_SUSPENDED
-        assert work_item.deadline is None
+        assert work_item.deadline.isoformat() == "2022-04-22T00:00:00+00:00"
 
     assert distribution_child_case_be.work_items.filter(
         task_id=be_distribution_settings["INQUIRY_CREATE_TASK"],
