@@ -160,6 +160,10 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
               "inquiry-answer-status-not-involved": INQUIRY_STATUS.POSITIVE,
               "inquiry-answer-status-obligated": INQUIRY_STATUS.NEGATIVE,
               "inquiry-answer-status-not-obligated": INQUIRY_STATUS.POSITIVE,
+              "inquiry-answer-status-unknown": {
+                icon: "question",
+                color: "emphasis",
+              },
             },
           },
         },
