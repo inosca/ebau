@@ -1,6 +1,60 @@
 [
   {
     "model": "caluma_form.form",
+    "pk": "abschluss-sb2",
+    "fields": {
+      "created_at": "2019-06-17T10:53:55.566Z",
+      "modified_at": "2019-06-17T11:03:07.357Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Abschluss\", \"fr\": \"Graduation\"}",
+      "description": "{\"de\": \"\", \"fr\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "dokumente-sb2",
+    "fields": {
+      "created_at": "2019-06-17T10:54:16.160Z",
+      "modified_at": "2019-06-17T11:03:05.906Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Dokumente\", \"fr\": \"Documents\"}",
+      "description": "{\"de\": \"\", \"fr\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "freigabequittung-sb2",
+    "fields": {
+      "created_at": "2019-06-17T10:54:57.033Z",
+      "modified_at": "2019-06-17T11:03:04.401Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Freigabequittung\", \"fr\": \"D\\u00e9claration de validation\"}",
+      "description": "{\"de\": \"\", \"fr\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "sb2",
     "fields": {
       "created_at": "2019-06-17T10:53:32.170Z",
@@ -15,6 +69,276 @@
       "is_published": false,
       "is_archived": false,
       "source": null
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abschluss-sb2.abweichung-ausfuehrung",
+    "fields": {
+      "created_at": "2019-09-25T10:19:35.716Z",
+      "modified_at": "2019-09-25T10:19:35.716Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abschluss-sb2",
+      "question": "abweichung-ausfuehrung",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abschluss-sb2.abweichung-bedingungen-auflagen",
+    "fields": {
+      "created_at": "2019-09-25T10:19:36.186Z",
+      "modified_at": "2019-09-25T10:19:36.186Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abschluss-sb2",
+      "question": "abweichung-bedingungen-auflagen",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abschluss-sb2.abweichung-sicherheitsvorschriften",
+    "fields": {
+      "created_at": "2019-09-25T10:19:36.827Z",
+      "modified_at": "2019-09-25T10:19:36.827Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abschluss-sb2",
+      "question": "abweichung-sicherheitsvorschriften",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abschluss-sb2.bauende",
+    "fields": {
+      "created_at": "2021-01-26T16:38:43.725Z",
+      "modified_at": "2021-01-26T16:38:43.725Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abschluss-sb2",
+      "question": "bauende",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abschluss-sb2.bauvorhaben-nach-baubewilligung-ausgefuehrt",
+    "fields": {
+      "created_at": "2019-09-25T10:19:35.548Z",
+      "modified_at": "2019-09-25T10:19:35.548Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abschluss-sb2",
+      "question": "bauvorhaben-nach-baubewilligung-ausgefuehrt",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abschluss-sb2.bedingungen-auflagen-eingehalten",
+    "fields": {
+      "created_at": "2019-09-25T10:19:35.916Z",
+      "modified_at": "2019-09-25T10:19:35.916Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abschluss-sb2",
+      "question": "bedingungen-auflagen-eingehalten",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abschluss-sb2.personalien-sb1-sb2",
+    "fields": {
+      "created_at": "2020-03-06T14:03:08.038Z",
+      "modified_at": "2020-03-06T14:03:08.038Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abschluss-sb2",
+      "question": "personalien-sb1-sb2",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abschluss-sb2.sicherheitsvorschriften-eingehalten",
+    "fields": {
+      "created_at": "2019-09-25T10:19:36.589Z",
+      "modified_at": "2019-09-25T10:19:36.589Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abschluss-sb2",
+      "question": "sicherheitsvorschriften-eingehalten",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abschluss-sb2.sind-die-nebengebaeude-fertiggestellt",
+    "fields": {
+      "created_at": "2019-09-25T10:19:37.422Z",
+      "modified_at": "2019-09-25T10:19:37.422Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abschluss-sb2",
+      "question": "sind-die-nebengebaeude-fertiggestellt",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abschluss-sb2.sind-die-umgebungsarbeiten-fertiggestellt",
+    "fields": {
+      "created_at": "2019-09-25T10:19:37.993Z",
+      "modified_at": "2019-09-25T10:19:37.993Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abschluss-sb2",
+      "question": "sind-die-umgebungsarbeiten-fertiggestellt",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abschluss-sb2.zeitpunkt-der-fertigstellung",
+    "fields": {
+      "created_at": "2019-09-25T10:19:37.836Z",
+      "modified_at": "2019-09-25T10:19:37.836Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abschluss-sb2",
+      "question": "zeitpunkt-der-fertigstellung",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abschluss-sb2.zeitpunkt-der-fertigstellung-umgebungsarbeiten",
+    "fields": {
+      "created_at": "2019-09-25T10:19:38.601Z",
+      "modified_at": "2019-09-25T10:19:38.601Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abschluss-sb2",
+      "question": "zeitpunkt-der-fertigstellung-umgebungsarbeiten",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-sb2.dokumente-platzhalter",
+    "fields": {
+      "created_at": "2019-09-25T10:19:39.771Z",
+      "modified_at": "2019-09-25T10:19:39.771Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-sb2",
+      "question": "dokumente-platzhalter",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "freigabequittung-sb2.bemerkungen-abschluss-sb2",
+    "fields": {
+      "created_at": "2020-12-16T10:07:23.768Z",
+      "modified_at": "2020-12-16T10:07:23.768Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "freigabequittung-sb2",
+      "question": "bemerkungen-abschluss-sb2",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "freigabequittung-sb2.einreichen-button-sb2",
+    "fields": {
+      "created_at": "2019-09-25T10:19:39.662Z",
+      "modified_at": "2019-09-25T10:19:39.662Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "freigabequittung-sb2",
+      "question": "einreichen-button-sb2",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "freigabequittung-sb2.formulardownload-pdf",
+    "fields": {
+      "created_at": "2019-09-25T10:19:38.964Z",
+      "modified_at": "2019-09-25T10:19:38.964Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "freigabequittung-sb2",
+      "question": "formulardownload-pdf",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "freigabequittung-sb2.freigabequittung-sb2-druckansicht",
+    "fields": {
+      "created_at": "2019-09-25T10:19:38.697Z",
+      "modified_at": "2019-09-25T10:19:38.697Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "freigabequittung-sb2",
+      "question": "freigabequittung-sb2-druckansicht",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "freigabequittung-sb2.is-paper",
+    "fields": {
+      "created_at": "2020-01-16T16:09:54.735Z",
+      "modified_at": "2020-01-16T16:09:54.735Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "freigabequittung-sb2",
+      "question": "is-paper",
+      "sort": 1
     }
   },
   {
@@ -78,6 +402,182 @@
     }
   },
   {
+    "model": "caluma_form.option",
+    "pk": "bauvorhaben-nach-baubewilligung-ausgefuehrt-ja",
+    "fields": {
+      "created_at": "2019-06-17T11:02:33.670Z",
+      "modified_at": "2019-06-17T11:02:33.670Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": \"Oui\"}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bauvorhaben-nach-baubewilligung-ausgefuehrt-nein",
+    "fields": {
+      "created_at": "2019-06-17T11:02:33.678Z",
+      "modified_at": "2019-06-17T11:02:33.678Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": \"Non\"}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bedingungen-auflagen-eingehalten-ja",
+    "fields": {
+      "created_at": "2019-06-17T11:24:56.561Z",
+      "modified_at": "2019-06-17T11:24:56.561Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": \"Oui\"}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bedingungen-auflagen-eingehalten-nein",
+    "fields": {
+      "created_at": "2019-06-17T11:24:56.565Z",
+      "modified_at": "2019-06-17T11:24:56.565Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": \"Non\"}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "einreichen-eingereicht",
+    "fields": {
+      "created_at": "2019-07-23T07:39:31.037Z",
+      "modified_at": "2019-07-23T07:39:31.037Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Eingereicht\", \"fr\": \"soumis/transmis\"}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "sicherheitsvorschriften-eingehalten-ja",
+    "fields": {
+      "created_at": "2019-06-17T11:28:29.869Z",
+      "modified_at": "2019-06-17T11:28:29.869Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": \"Oui\"}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "sicherheitsvorschriften-eingehalten-nein",
+    "fields": {
+      "created_at": "2019-06-17T11:28:29.874Z",
+      "modified_at": "2019-06-17T11:28:29.874Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": \"Non\"}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "sind-die-nebengebaeude-fertiggestellt-ja",
+    "fields": {
+      "created_at": "2019-06-17T11:31:38.252Z",
+      "modified_at": "2019-06-17T11:31:38.252Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": \"Oui\"}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "sind-die-nebengebaeude-fertiggestellt-nein",
+    "fields": {
+      "created_at": "2019-06-17T11:31:38.261Z",
+      "modified_at": "2019-06-17T11:31:38.261Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": \"Non\"}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "sind-die-umgebungsarbeiten-fertiggestellt-ja",
+    "fields": {
+      "created_at": "2019-06-17T11:33:43.840Z",
+      "modified_at": "2019-06-17T11:33:43.840Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": \"Oui\"}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "sind-die-umgebungsarbeiten-fertiggestellt-nein",
+    "fields": {
+      "created_at": "2019-06-17T11:33:43.914Z",
+      "modified_at": "2019-06-17T11:33:43.914Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": \"Non\"}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
     "model": "caluma_form.question",
     "pk": "abschluss-sb2",
     "fields": {
@@ -101,6 +601,200 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "abschluss-sb2",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "abweichung-ausfuehrung",
+    "fields": {
+      "created_at": "2019-06-17T11:07:06.980Z",
+      "modified_at": "2019-06-17T11:25:54.420Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abweichung\", \"fr\": \"Ecart constat\\u00e9\"}",
+      "type": "textarea",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "!(\n  'bauvorhaben-nach-baubewilligung-ausgefuehrt-nein' == 'bauvorhaben-nach-baubewilligung-ausgefuehrt'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "abweichung-bedingungen-auflagen",
+    "fields": {
+      "created_at": "2019-06-17T11:26:51.916Z",
+      "modified_at": "2019-06-17T11:27:43.477Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abweichung\", \"fr\": \"Ecart constat\\u00e9\"}",
+      "type": "textarea",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "!(\n  'bedingungen-auflagen-eingehalten-nein' == 'bedingungen-auflagen-eingehalten'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "abweichung-sicherheitsvorschriften",
+    "fields": {
+      "created_at": "2019-06-17T11:30:11.957Z",
+      "modified_at": "2019-06-17T11:30:11.957Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abweichung\", \"fr\": \"Ecart constat\\u00e9\"}",
+      "type": "textarea",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "!(\n  'sicherheitsvorschriften-eingehalten-nein' == 'sicherheitsvorschriften-eingehalten'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bauvorhaben-nach-baubewilligung-ausgefuehrt",
+    "fields": {
+      "created_at": "2019-06-17T11:02:33.845Z",
+      "modified_at": "2019-06-17T11:02:33.845Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ist das Bauvorhaben nach der Baubewilligung und evtl. Projekt\\u00e4nderungsbewilligung ausgef\\u00fchrt?\", \"fr\": \"Le projet de construction est-il ex\\u00e9cut\\u00e9 conform\\u00e9ment au permis de construire et, le cas \\u00e9ch\\u00e9ant, \\u00e0 l\\u2019autorisation de modification du projet?\"}",
+      "type": "choice",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bedingungen-auflagen-eingehalten",
+    "fields": {
+      "created_at": "2019-06-17T11:24:56.700Z",
+      "modified_at": "2019-06-17T11:24:56.700Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Sind die Bedingungen und Auflagen der Baubewilligung eingehalten?\", \"fr\": \"Les conditions et les charges prescrites dans le permis de construire sont-elles respect\\u00e9es?\"}",
+      "type": "choice",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bemerkungen-abschluss-sb2",
+    "fields": {
+      "created_at": "2019-06-17T11:35:14.200Z",
+      "modified_at": "2019-06-17T11:35:14.200Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": \"Remarques\"}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -144,6 +838,74 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "einreichen-button-sb2",
+    "fields": {
+      "created_at": "2019-07-23T07:39:31.176Z",
+      "modified_at": "2019-07-23T07:39:31.176Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Einreichen\", \"fr\": \"Envoyer\"}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "action": "finalize",
+        "hideLabel": true,
+        "widgetOverride": "be-submit-instance"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "formulardownload-pdf",
+    "fields": {
+      "created_at": "2019-06-12T08:11:33.972Z",
+      "modified_at": "2019-06-12T08:11:33.972Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Formulardownload (PDF)\", \"fr\": \"t\\u00e9l\\u00e9charger le formulaire (pdf)\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "be-download-pdf"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "freigabequittung-sb2",
     "fields": {
       "created_at": "2019-06-17T10:59:56.054Z",
@@ -166,6 +928,37 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "freigabequittung-sb2",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "freigabequittung-sb2-druckansicht",
+    "fields": {
+      "created_at": "2019-06-17T11:49:05.910Z",
+      "modified_at": "2020-12-16T10:16:52.660Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"\", \"fr\": \"\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\"}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"<hr>\\n<p class=\\\"uk-margin-remove-bottom\\\">Das folgende Formular ist unterzeichnet und datiert an die Baupolizeibeh\\u00f6rde zu senden.</p>\", \"fr\": \"<hr>\\n<p class=\\\"uk-margin-remove-bottom\\\">La DC 2 doit \\u00eatre imprim\\u00e9e, sign\\u00e9e et envoy\\u00e9e \\u00e0 la police des constructions.</p>\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -202,6 +995,364 @@
       "default_answer": null,
       "calc_expression": null,
       "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "personalien-sb1-sb2",
+    "fields": {
+      "created_at": "2020-03-06T11:42:04.991Z",
+      "modified_at": "2020-03-20T11:28:06.719Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Verantwortliche Person Selbstdeklaration Baukontrolle\", \"fr\": \"Personne responsable d\\u00e9claration spontan\\u00e9e en mati\\u00e8re de contr\\u00f4le des constructions\"}",
+      "type": "table",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "columnsToDisplay": [
+          "name-gesuchstellerin",
+          "vorname-gesuchstellerin",
+          "telefon-oder-mobile-gesuchstellerin",
+          "e-mail-gesuchstellerin"
+        ]
+      },
+      "data_source": null,
+      "row_form": "personalien-tabelle",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "sicherheitsvorschriften-eingehalten",
+    "fields": {
+      "created_at": "2019-06-17T11:28:30.042Z",
+      "modified_at": "2019-06-17T11:28:30.042Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Sind die Sicherheitsvorschriften eingehalten?\", \"fr\": \"Les prescriptions de s\\u00e9curit\\u00e9 sont-elles respect\\u00e9es?\"}",
+      "type": "choice",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "sind-die-nebengebaeude-fertiggestellt",
+    "fields": {
+      "created_at": "2019-06-17T11:31:38.424Z",
+      "modified_at": "2019-06-17T11:31:38.424Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Sind die Nebengeb\\u00e4ude fertiggestellt?\", \"fr\": \"Les annexes sont-elles achev\\u00e9es?\"}",
+      "type": "choice",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "sind-die-umgebungsarbeiten-fertiggestellt",
+    "fields": {
+      "created_at": "2019-06-17T11:33:44.102Z",
+      "modified_at": "2019-06-17T11:33:44.102Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Sind die Umgebungsarbeiten fertiggestellt?\", \"fr\": \"Les travaux d\\u2019am\\u00e9nagement des abords sont-ils achev\\u00e9s?\"}",
+      "type": "choice",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zeitpunkt-der-fertigstellung",
+    "fields": {
+      "created_at": "2019-06-17T11:32:57.566Z",
+      "modified_at": "2019-06-17T11:32:57.566Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zeitpunkt der Fertigstellung\", \"fr\": \"Date de l'ach\\u00e8vement\"}",
+      "type": "date",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "!(\n  'sind-die-nebengebaeude-fertiggestellt-nein' == 'sind-die-nebengebaeude-fertiggestellt'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zeitpunkt-der-fertigstellung-umgebungsarbeiten",
+    "fields": {
+      "created_at": "2019-06-17T11:38:21.974Z",
+      "modified_at": "2019-06-17T11:38:21.974Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zeitpunkt der Fertigstellung\", \"fr\": \"Date de l'ach\\u00e8vement\"}",
+      "type": "date",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "!(\n  'sind-die-umgebungsarbeiten-fertiggestellt-nein' == 'sind-die-umgebungsarbeiten-fertiggestellt'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bauvorhaben-nach-baubewilligung-ausgefuehrt.bauvorhaben-nach-baubewilligung-ausgefuehrt-ja",
+    "fields": {
+      "created_at": "2019-06-17T11:02:33.852Z",
+      "modified_at": "2019-06-17T11:02:33.852Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "bauvorhaben-nach-baubewilligung-ausgefuehrt",
+      "option": "bauvorhaben-nach-baubewilligung-ausgefuehrt-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bauvorhaben-nach-baubewilligung-ausgefuehrt.bauvorhaben-nach-baubewilligung-ausgefuehrt-nein",
+    "fields": {
+      "created_at": "2019-06-17T11:02:33.849Z",
+      "modified_at": "2019-06-17T11:02:33.849Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "bauvorhaben-nach-baubewilligung-ausgefuehrt",
+      "option": "bauvorhaben-nach-baubewilligung-ausgefuehrt-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bedingungen-auflagen-eingehalten.bedingungen-auflagen-eingehalten-ja",
+    "fields": {
+      "created_at": "2019-06-17T11:24:56.706Z",
+      "modified_at": "2019-06-17T11:24:56.706Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "bedingungen-auflagen-eingehalten",
+      "option": "bedingungen-auflagen-eingehalten-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bedingungen-auflagen-eingehalten.bedingungen-auflagen-eingehalten-nein",
+    "fields": {
+      "created_at": "2019-06-17T11:24:56.704Z",
+      "modified_at": "2019-06-17T11:24:56.704Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "bedingungen-auflagen-eingehalten",
+      "option": "bedingungen-auflagen-eingehalten-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "einreichen-button-sb2.einreichen-eingereicht",
+    "fields": {
+      "created_at": "2019-07-23T07:39:31.182Z",
+      "modified_at": "2019-07-23T07:39:31.182Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "einreichen-button-sb2",
+      "option": "einreichen-eingereicht",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "sicherheitsvorschriften-eingehalten.sicherheitsvorschriften-eingehalten-ja",
+    "fields": {
+      "created_at": "2019-06-17T11:28:30.049Z",
+      "modified_at": "2019-06-17T11:28:30.049Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "sicherheitsvorschriften-eingehalten",
+      "option": "sicherheitsvorschriften-eingehalten-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "sicherheitsvorschriften-eingehalten.sicherheitsvorschriften-eingehalten-nein",
+    "fields": {
+      "created_at": "2019-06-17T11:28:30.046Z",
+      "modified_at": "2019-06-17T11:28:30.046Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "sicherheitsvorschriften-eingehalten",
+      "option": "sicherheitsvorschriften-eingehalten-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "sind-die-nebengebaeude-fertiggestellt.sind-die-nebengebaeude-fertiggestellt-ja",
+    "fields": {
+      "created_at": "2019-06-17T11:31:38.432Z",
+      "modified_at": "2019-06-17T11:31:38.432Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "sind-die-nebengebaeude-fertiggestellt",
+      "option": "sind-die-nebengebaeude-fertiggestellt-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "sind-die-nebengebaeude-fertiggestellt.sind-die-nebengebaeude-fertiggestellt-nein",
+    "fields": {
+      "created_at": "2019-06-17T11:31:38.429Z",
+      "modified_at": "2019-06-17T11:31:38.429Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "sind-die-nebengebaeude-fertiggestellt",
+      "option": "sind-die-nebengebaeude-fertiggestellt-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "sind-die-umgebungsarbeiten-fertiggestellt.sind-die-umgebungsarbeiten-fertiggestellt-ja",
+    "fields": {
+      "created_at": "2019-06-17T11:33:44.122Z",
+      "modified_at": "2019-06-17T11:33:44.122Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "sind-die-umgebungsarbeiten-fertiggestellt",
+      "option": "sind-die-umgebungsarbeiten-fertiggestellt-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "sind-die-umgebungsarbeiten-fertiggestellt.sind-die-umgebungsarbeiten-fertiggestellt-nein",
+    "fields": {
+      "created_at": "2019-06-17T11:33:44.107Z",
+      "modified_at": "2019-06-17T11:33:44.107Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "sind-die-umgebungsarbeiten-fertiggestellt",
+      "option": "sind-die-umgebungsarbeiten-fertiggestellt-nein",
+      "sort": 1
     }
   }
 ]
