@@ -292,7 +292,7 @@ class CreateInstanceLogic:
             municipality_slug = settings.APPLICATION["MASTER_DATA"]["municipality"][1]
 
             if source.validate_answer_value(
-                value, case.document, municipality_slug, None
+                value, case.document, municipality_slug, None, None
             ):
                 caluma_api.update_or_create_answer(
                     case.document,
