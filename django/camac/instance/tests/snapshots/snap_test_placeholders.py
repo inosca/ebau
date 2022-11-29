@@ -98,12 +98,12 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     ],
     'CIRCULATION_PREAVIS': [
         {
-            'ANTWORT': 'Unbekannt',
+            'ANTWORT': 'Siehe Fachbericht (Antwort via eCH)',
             'DE': 'Scott Gould',
             'DISPOSITIONS_ACCESSOIRES': 'Nebenbestimmungen 5',
             'NEBENBESTIMMUNGEN': 'Nebenbestimmungen 5',
             'POINT_DE_VUE': 'Stellungnahme 5',
-            'REPONSE': 'Unbekannt',
+            'REPONSE': 'Siehe Fachbericht (Antwort via eCH)',
             'STELLUNGNAHME': 'Stellungnahme 5',
             'VON': 'Scott Gould'
         },
@@ -708,12 +708,12 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     ],
     'ZIRKULATION_RUECKMELDUNGEN': [
         {
-            'ANTWORT': 'Unbekannt',
+            'ANTWORT': 'Siehe Fachbericht (Antwort via eCH)',
             'DE': 'Scott Gould',
             'DISPOSITIONS_ACCESSOIRES': 'Nebenbestimmungen 5',
             'NEBENBESTIMMUNGEN': 'Nebenbestimmungen 5',
             'POINT_DE_VUE': 'Stellungnahme 5',
-            'REPONSE': 'Unbekannt',
+            'REPONSE': 'Siehe Fachbericht (Antwort via eCH)',
             'STELLUNGNAHME': 'Stellungnahme 5',
             'VON': 'Scott Gould'
         },
