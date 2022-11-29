@@ -512,7 +512,9 @@ class DMSVisitor:
             answer = [answer]
 
         for ans in answer:
-            value = data_source.validate_answer_value(ans, document, question, None)
+            value = data_source.validate_answer_value(
+                ans, document, question, None, None
+            )
 
             if isinstance(value, dict):
                 yield value.get(get_language())
