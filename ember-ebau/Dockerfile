@@ -1,18 +1,20 @@
 FROM danlynn/ember-cli:3.28.5 as build
 
+COPY package.json yarn.lock /myapp/
+COPY ember-ebau-core/package.json /myapp/ember-ebau-core/
+COPY ember-ebau/package.json /myapp/ember-ebau/
+
+RUN yarn workspace ebau install
+
+COPY ember-ebau-core /myapp/ember-ebau-core
+COPY ember-ebau /myapp/ember-ebau
+
+WORKDIR /myapp/ember-ebau
+
 ARG APPLICATION
 ARG KEYCLOAK_HOST
 ARG INTERNAL_URL
 
-COPY package.json yarn.lock /myapp/
-COPY ember-ebau-core /myapp/ember-ebau-core
-COPY ./ember-ebau/package.json /myapp/ember-ebau/
-
-RUN yarn workspace ebau install
-
-COPY ember-ebau /myapp/ember-ebau
-
-WORKDIR /myapp/ember-ebau
 RUN yarn deploy production
 
 FROM nginx:1.21-alpine
