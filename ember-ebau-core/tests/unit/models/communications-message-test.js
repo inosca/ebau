@@ -1,4 +1,4 @@
-import { setupTest } from "dummy/tests/helpers";
+import { setupTest } from "ember-qunit";
 import { module, test } from "qunit";
 
 module("Unit | Model | communication message", function (hooks) {

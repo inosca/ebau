@@ -16,17 +16,15 @@ export default function (server) {
   server.createList("notification-template", 3);
 
   // Communications module setup
-  server.create("user");
   server.create("communications-entity", { isApplicant: true });
   server.createList("communications-entity", 4);
-  const instances = server.createList("instance", 5);
-  instances.forEach((instance) =>
-    server.createList(
-      "communications-topic",
-      faker.datatype.number({ max: 10 }),
-      {
-        instance,
-      }
-    )
+  server.createList("instance", 5, "withTopics");
+  const attachments = server.createList("communications-attachment", 3);
+  attachments.forEach((attachment, index) =>
+    attachment.update({
+      communicationsMessage: server.schema.communicationsMessages.find(
+        index + 1
+      ),
+    })
   );
 }
