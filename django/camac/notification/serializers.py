@@ -52,9 +52,6 @@ RECIPIENT_TYPE_NAMES = {
     "leitbehoerde": translation.gettext_noop("Authority"),
     "construction_control": translation.gettext_noop("Construction control"),
     "involved_in_distribution": translation.gettext_noop("Involved services"),
-    "inquiry_deadline_yesterday": translation.gettext_noop(
-        "Services with overdue inquiries"
-    ),
     "unanswered_inquiries": translation.gettext_noop(
         "Services with unanswered inquiries"
     ),
@@ -871,7 +868,6 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             "activation_service_parent",
             # New circulation (BE, SZ)
             "involved_in_distribution",
-            "inquiry_deadline_yesterday",
             "unanswered_inquiries",
             "inquiry_addressed",
             "inquiry_controlling",
@@ -1086,28 +1082,6 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             )
 
         addressed_groups = inquiries.values_list("addressed_groups", flat=True)
-
-        return flatten(
-            [
-                self._get_responsible(instance, service)
-                for service in Service.objects.filter(
-                    pk__in=list(chain(*addressed_groups))
-                )
-            ]
-        )
-
-    def _get_recipients_inquiry_deadline_yesterday(self, instance):
-        """Return recipients of inquiries for an instance which deadline expired yesterday."""
-        if not settings.DISTRIBUTION:  # pragma: no cover
-            return []
-
-        addressed_groups = caluma_workflow_models.WorkItem.objects.filter(
-            task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-            status=caluma_workflow_models.WorkItem.STATUS_READY,
-            deadline__date=date.today() - timedelta(days=1),
-            case__family__instance__instance_state__name="circulation",
-            case__family__instance=instance,
-        ).values_list("addressed_groups", flat=True)
 
         return flatten(
             [
