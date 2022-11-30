@@ -6,6 +6,7 @@
     <switcher.nav @type="tab" as |nav|>
       <nav.component as |tab|>
         <tab.item>Topic list</tab.item>
+        <tab.item>Topic new</tab.item>
         <tab.item>Topic detail</tab.item>
       </nav.component>
     </switcher.nav>
@@ -20,9 +21,13 @@
           {{if this.isScoped "Instance" "Global"}}
         </UkButton>
         <Communication::TopicList
+          @detailRoute="application"
           @instance={{this.isScoped}}
           @newRoute="application"
         />
+      </content.item>
+      <content.item>
+        tbd
       </content.item>
       <content.item>
         tbd

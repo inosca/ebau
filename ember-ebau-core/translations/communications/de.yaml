@@ -1,0 +1,12 @@
+communications:
+  dossier: Dossier
+  topic: Thema
+  participants: Teilnehmer
+  date: Datum
+  loading: Daten werden geladen...
+  empty: Keine Themen vorhanden
+
+  topics:
+    all: Alle
+    unread: Ungelesene
+    newMessage: Neue Nachricht erfassen

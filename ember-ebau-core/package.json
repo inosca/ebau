@@ -88,6 +88,7 @@
     "ember-source": "4.8.4",
     "ember-source-channel-url": "3.0.0",
     "ember-template-lint": "5.7.2",
+    "ember-test-selectors": "6.0.0",
     "eslint": "8.39.0",
     "eslint-config-prettier": "8.8.0",
     "eslint-plugin-ember": "11.5.2",
