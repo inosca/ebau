@@ -270,14 +270,18 @@ class InquiriesField(serializers.ReadOnlyField):
             ),
             "service": lambda i: self.get_service(i, "addressed_groups"),
             "service_with_prefix": lambda i: f"- {self.get_service(i,'addressed_groups')}",
-            "deadline": lambda i: i.deadline.strftime("%d.%m.%Y") if i.deadline else "",
+            "deadline": lambda i: i.deadline.strftime("%d.%m.%Y"),
             "creation_date": lambda i: i.created_at.strftime("%d.%m.%Y"),
         }
 
         if isinstance(prop, tuple):
             prop = prop[0]
 
-        return prop_mapping.get(prop)(inquiry)
+        try:
+            return prop_mapping.get(prop)(inquiry)
+        except AttributeError:
+            # child_case and deadline may be None on draft inquiries
+            return ""
 
     def to_representation(self, value):
         mapped = [
@@ -312,7 +316,7 @@ class InquiriesField(serializers.ReadOnlyField):
         )
 
         if self.only_own:
-            queryset = queryset.filter(
+            queryset = queryset.exclude(status=WorkItem.STATUS_SUSPENDED).filter(
                 addressed_groups__contains=[
                     str(self.context["request"].group.service.pk)
                 ]
