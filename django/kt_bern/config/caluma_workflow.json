@@ -1119,6 +1119,7 @@
       "allow_all_forms": false,
       "start_tasks": ["submit"],
       "allow_forms": [
+        "heat-generator",
         "hecken-feldgehoelze-baeume",
         "klaerung-baubewilligungspflicht",
         "migriertes-dossier",

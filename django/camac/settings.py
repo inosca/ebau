@@ -1611,6 +1611,7 @@ APPLICATIONS = {
                         "vorabklaerung-vollstaendig",
                         "vorabklaerung-vollstaendig-v2",
                         "solaranlagen-meldung",
+                        "heat-generator",
                     ],
                     "template": "form",
                     "personalien": "personalien",
@@ -1719,6 +1720,7 @@ APPLICATIONS = {
                 r"^(dossierpruefung|mp-|fp-|mp-|bab-)"
             ),
             "caluma_publication_form": generate_form_dump_config(r"^publikation$"),
+            "caluma_heat_generator_form": generate_form_dump_config(r"^heat-generator"),
             # Distribution
             **DISTRIBUTION_DUMP_CONFIG,
         },
@@ -3395,6 +3397,7 @@ ECH_EXCLUDED_FORMS = [
     "klaerung-baubewilligungspflicht",
     "zutrittsermaechtigung",
     "solaranlagen-meldung",
+    "heat-generator",
 ]
 
 # Swagger settings
