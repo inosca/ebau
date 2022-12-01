@@ -184,17 +184,17 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'EBAU_URL': 'http://ebau.local',
     'EIGENE_GEBUEHREN': [
         {
-            'BETRAG': '844.72',
-            'FORFAIT': '844.72',
+            'BETRAG': '24.72',
+            'FORFAIT': '24.72',
             'POSITION': ''
         },
         {
-            'BETRAG': '667.87',
-            'FORFAIT': '667.87',
+            'BETRAG': '322.27',
+            'FORFAIT': '322.27',
             'POSITION': ''
         }
     ],
-    'EIGENE_GEBUEHREN_TOTAL': '1’512.59',
+    'EIGENE_GEBUEHREN_TOTAL': '346.99',
     'EIGENE_NEBENBESTIMMUNGEN': 'Nebenbestimmungen 1',
     'EIGENE_STELLUNGNAHMEN': 'Stellungnahme 1',
     'EINSPRECHENDE': [
@@ -214,27 +214,27 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'EMAIL': '',
     'EMOLUMENTS': [
         {
-            'BETRAG': '243.52',
-            'FORFAIT': '243.52',
+            'BETRAG': '502.20',
+            'FORFAIT': '502.20',
             'POSITION': ''
         },
         {
-            'BETRAG': '182.23',
-            'FORFAIT': '182.23',
+            'BETRAG': '476.43',
+            'FORFAIT': '476.43',
             'POSITION': ''
         },
         {
-            'BETRAG': '844.72',
-            'FORFAIT': '844.72',
+            'BETRAG': '24.72',
+            'FORFAIT': '24.72',
             'POSITION': ''
         },
         {
-            'BETRAG': '667.87',
-            'FORFAIT': '667.87',
+            'BETRAG': '322.27',
+            'FORFAIT': '322.27',
             'POSITION': ''
         }
     ],
-    'EMOLUMENTS_TOTAL': '1’938.34',
+    'EMOLUMENTS_TOTAL': '1’325.62',
     'ETAT': 'Pamela Horton',
     'FACHSTELLEN_KANTONAL': [
         {
@@ -284,6 +284,14 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
             'FRIST': '17.08.2021',
             'NAME': 'James Johnson',
             'NOM': 'James Johnson'
+        },
+        {
+            'CREE': '30.08.2021',
+            'DELAI': '',
+            'ERSTELLT': '30.08.2021',
+            'FRIST': '',
+            'NAME': 'Matthew Bowen',
+            'NOM': 'Matthew Bowen'
         }
     ],
     'FACHSTELLEN_KANTONAL_LIST': '''- Matthew Bowen
@@ -291,13 +299,15 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
 - Andrew Mcclain
 - William Byrd
 - Scott Gould
-- James Johnson''',
+- James Johnson
+- Matthew Bowen''',
     'FACHSTELLEN_KANTONAL_LISTE': '''- Matthew Bowen
 - Laura Barnes
 - Andrew Mcclain
 - William Byrd
 - Scott Gould
-- James Johnson''',
+- James Johnson
+- Matthew Bowen''',
     'FORM_NAME': 'Baugesuch',
     'GEBAEUDEEIGENTUEMER': 'Peter Meier',
     'GEBAEUDEEIGENTUEMER_ADDRESS_1': 'Thunstrasse 88',
@@ -308,27 +318,27 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'GEBAEUDEEIGENTUEMER_NAME_ADRESSE': 'Peter Meier, Thunstrasse 88, 3002 Bern',
     'GEBUEHREN': [
         {
-            'BETRAG': '243.52',
-            'FORFAIT': '243.52',
+            'BETRAG': '502.20',
+            'FORFAIT': '502.20',
             'POSITION': ''
         },
         {
-            'BETRAG': '182.23',
-            'FORFAIT': '182.23',
+            'BETRAG': '476.43',
+            'FORFAIT': '476.43',
             'POSITION': ''
         },
         {
-            'BETRAG': '844.72',
-            'FORFAIT': '844.72',
+            'BETRAG': '24.72',
+            'FORFAIT': '24.72',
             'POSITION': ''
         },
         {
-            'BETRAG': '667.87',
-            'FORFAIT': '667.87',
+            'BETRAG': '322.27',
+            'FORFAIT': '322.27',
             'POSITION': ''
         }
     ],
-    'GEBUEHREN_TOTAL': '1’938.34',
+    'GEBUEHREN_TOTAL': '1’325.62',
     'GEMEINDE': 'Burgdorf',
     'GEMEINDE_ADRESSE': 'South Emma',
     'GEMEINDE_ADRESSE_1': '',
@@ -374,7 +384,7 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'LEITBEHOERDE_PHONE': '',
     'LEITBEHOERDE_STADT': 'Jeffreyfort',
     'LEITBEHOERDE_TELEFON': '',
-    'LEITPERSON': 'Joyce Pierce',
+    'LEITPERSON': 'Bradley Hernandez',
     'MEINE_ORGANISATION_ADRESSE_1': '',
     'MEINE_ORGANISATION_ADRESSE_2': 'Jeffreyfort',
     'MEINE_ORGANISATION_EMAIL': 'judithallen@example.com',
@@ -385,17 +395,17 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'MEINE_ORGANISATION_TELEFON': '',
     'MES_EMOLUMENTS': [
         {
-            'BETRAG': '844.72',
-            'FORFAIT': '844.72',
+            'BETRAG': '24.72',
+            'FORFAIT': '24.72',
             'POSITION': ''
         },
         {
-            'BETRAG': '667.87',
-            'FORFAIT': '667.87',
+            'BETRAG': '322.27',
+            'FORFAIT': '322.27',
             'POSITION': ''
         }
     ],
-    'MES_EMOLUMENTS_TOTAL': '1’512.59',
+    'MES_EMOLUMENTS_TOTAL': '346.99',
     'MODIFICATION_DATE': '',
     'MODIFICATION_TIME': '',
     'MON_ORGANISATION_ADRESSE_1': '',
@@ -406,7 +416,7 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'MON_ORGANISATION_NOM_ABR': 'Matthew Bowen',
     'MON_ORGANISATION_NOM_ADRESSE': 'Matthew Bowen, Jeffreyfort',
     'MON_ORGANISATION_TELEPHONE': '',
-    'MOTS_CLES': 'Amy Walton, Mario Patterson, Tina Wallace, Danny Maddox, Craig Huffman',
+    'MOTS_CLES': 'Kara Wang, Mia Lawson, Jeffrey Woods, John Green, Claire Walker',
     'MUNICIPALITY': 'Burgdorf',
     'MUNICIPALITY_ADDRESS': 'South Emma',
     'NACHBARSCHAFTSORIENTIERUNG_LINK': 'http://ebau-portal.local/public-instances/1/form?key=5a49823',
@@ -481,6 +491,14 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
             'FRIST': '17.08.2021',
             'NAME': 'James Johnson',
             'NOM': 'James Johnson'
+        },
+        {
+            'CREE': '30.08.2021',
+            'DELAI': '',
+            'ERSTELLT': '30.08.2021',
+            'FRIST': '',
+            'NAME': 'Matthew Bowen',
+            'NOM': 'Matthew Bowen'
         }
     ],
     'OFFICES_CANTONAUX_LISTE': '''- Matthew Bowen
@@ -488,7 +506,8 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
 - Andrew Mcclain
 - William Byrd
 - Scott Gould
-- James Johnson''',
+- James Johnson
+- Matthew Bowen''',
     'OPPOSANTS': [
         {
             'ADDRESS': 'Teststrasse 1, 1234 Testdorf',
@@ -575,9 +594,9 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'REQUERANT_NOM_ADRESSE': 'ACME AG, Max Mustermann, Teststrasse 123, 1234 Testhausen',
     'REQUERANT_TOUS': 'ACME AG, Max Mustermann',
     'REQUERANT_TOUS_NOM_ADRESSE': 'ACME AG, Max Mustermann, Teststrasse 123, 1234 Testhausen',
-    'RESPONSABLE_AUTORITE_DIRECTRICE': 'Joyce Pierce',
-    'RESPONSABLE_EMAIL': 'cherylpearson@example.net',
-    'RESPONSABLE_NOM': 'Joyce Pierce',
+    'RESPONSABLE_AUTORITE_DIRECTRICE': 'Bradley Hernandez',
+    'RESPONSABLE_EMAIL': 'gabriel71@example.org',
+    'RESPONSABLE_NOM': 'Bradley Hernandez',
     'RESPONSABLE_TELEPHONE': '',
     'SACHVERHALT': 'Sachverhalt Test',
     'SCHUTZZONE': 'S1',
@@ -588,7 +607,7 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'SPRACHE': 'de',
     'STATUS': 'Pamela Horton',
     'STELLUNGNAHME': 'Stellungnahme 1',
-    'STICHWORTE': 'Amy Walton, Mario Patterson, Tina Wallace, Danny Maddox, Craig Huffman',
+    'STICHWORTE': 'Kara Wang, Mia Lawson, Jeffrey Woods, John Green, Claire Walker',
     'TODAY': '30. August 2021',
     'UEBERBAUUNGSORDNUNG': 'Überbauung XY',
     'UVP_JA_NEIN': False,
@@ -658,6 +677,14 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
             'FRIST': '17.08.2021',
             'NAME': 'James Johnson',
             'NOM': 'James Johnson'
+        },
+        {
+            'CREE': '30.08.2021',
+            'DELAI': '',
+            'ERSTELLT': '30.08.2021',
+            'FRIST': '',
+            'NAME': 'Matthew Bowen',
+            'NOM': 'Matthew Bowen'
         }
     ],
     'ZIRKULATION_FACHSTELLEN': [
@@ -729,8 +756,8 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
         }
     ],
     'ZONE_PROTEGEE': 'S1',
-    'ZUSTAENDIG_EMAIL': 'cherylpearson@example.net',
-    'ZUSTAENDIG_NAME': 'Joyce Pierce',
+    'ZUSTAENDIG_EMAIL': 'gabriel71@example.org',
+    'ZUSTAENDIG_NAME': 'Bradley Hernandez',
     'ZUSTAENDIG_PHONE': '',
     'ZUSTAENDIG_TELEFON': ''
 }
