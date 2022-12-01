@@ -122,7 +122,7 @@ documents:
     spezialformulare-reklame: "Spezialformulare - Reklame"
     bauen-ausserhalb-bauzone: "Bauen ausserhalb Bauzone"
     selbstdeklaration-2: "Selbstdeklaration 2"
-
+    nachweise: "Nachweise"
     weitere-unterlagen: "Weitere Unterlagen"
 
 freigabequittung:
@@ -289,7 +289,15 @@ instances:
 
     special-procedure:
       title: "Spezialverfahren"
-      info: ""
+      info: "Jeder **Wärmeerzeugerersatz** (Heizungsersatz) ist meldepflichtig.
+      Das gilt für jede Gebäudekategorie und unabhängig vom aktuell eingebauten
+      und neu geplanten Heizungssystem. Als Wärmeerzeugersatz nach Art. 20a Abs.
+      2 KEnV gilt in jedem Fall, wenn entweder das Gesamtsystem, der Kessel, der
+      Brenner (sofern der Kessel älter als 10 Jahre ist), der Kamin oder der
+      Öltank ersetzt werden. Soll ein Gebäude der Kategorie I - VI, welches zum
+      Zeitpunkt der Meldung älter als 20 Jahre ist, nach dem Wärmeerzeugerersatz
+      weiterhin mit fossilen Energieträgern beheizt werden, dann gelten
+      zusätzliche Anforderungen."
 
     internal-procedure-canton:
       title: "Interne kantonale Verfahren"
