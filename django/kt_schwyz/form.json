@@ -3094,6 +3094,7 @@
       "config": {
         "options": [
           "Geoinfra Ingenieure AG (Pfäffikon, Siebnen, Einsiedeln, Goldau, Küssnacht, Brunnen)",
+          "geometrie plus ag (Einsiedeln)",
           "geometrie plus ag (Freienbach)",
           "GEO Netz AG (Lachen, Schwyz)",
           "Wild Ingenieure AG (Küssnacht)"
@@ -3222,7 +3223,7 @@
           "Unterschreitung Gewässerabstand",
           "Unterschreitung Gewässerraum",
           "Unterschreitung Waldabstand",
-          "Unterschreitung Stassenabstand oder Verletzung Strassenbaulinie",
+          "Unterschreitung Strassenabstand oder Verletzung Strassenbaulinie",
           "Andere"
         ]
       }
