@@ -193,9 +193,9 @@ def test_dms_placeholders(
         for svc in service_factory.create_batch(2, service_group__name="service")
     ]
 
-    inquries = [*district_inquiries, *municipalities_inquiries, *service_inquiries]
+    inquiries = [*district_inquiries, *municipalities_inquiries, *service_inquiries]
 
-    for i, inquiry in enumerate(inquries):
+    for i, inquiry in enumerate(inquiries):
         # add stellungnahme and nebenbestimmungen
         AnswerFactory(
             document=inquiry.child_case.document,
@@ -218,8 +218,19 @@ def test_dms_placeholders(
             ),
         )
 
-    inquries[0].addressed_groups = [str(group.service.pk)]
-    inquries[0].save()
+    inquiries[0].addressed_groups = [str(group.service.pk)]
+    inquiries[0].save()
+
+    # Add an inquiry in draft
+    draft_inquiry = active_inquiry_factory(
+        be_instance,
+        group.service,
+        status=WorkItem.STATUS_SUSPENDED,
+    )
+    draft_inquiry.child_case = None
+    # This should not happen anymore but should still be tested
+    draft_inquiry.deadline = None
+    draft_inquiry.save()
 
     tag_factory.create_batch(5, service=group.service, instance=be_instance)
     responsible_service_factory(instance=be_instance, service=group.service)
