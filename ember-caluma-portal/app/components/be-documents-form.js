@@ -16,7 +16,10 @@ export default class BeDocumentsFormComponent extends Component {
   @tracked uploadedAttachmentIds = [];
 
   get buckets() {
-    return config.ebau.attachments.buckets;
+    return (
+      this.args.fieldset.field.question.raw.meta.buckets ??
+      config.ebau.attachments.buckets
+    );
   }
 
   get showHint() {
