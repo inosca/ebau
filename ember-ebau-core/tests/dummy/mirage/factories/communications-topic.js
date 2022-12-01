@@ -9,7 +9,7 @@ export default Factory.extend({
   hasUnread: () => faker.datatype.boolean(),
   afterCreate(communicationsTopic, server) {
     const initiatedBy = server.schema.users.first() ?? server.create("user");
-    let involvedEntities = server.schema.communicationsEntities.all();
+    const involvedEntities = server.schema.communicationsEntities.all();
     communicationsTopic.update({
       initiatedBy,
       involvedEntities: involvedEntities.length

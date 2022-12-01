@@ -1,17 +1,17 @@
-<div>
+<div {{did-insert this.setElement}}>
   <div class="uk-flex uk-flex-between">
     <div class="uk-button-group">
       <UkButton
         @color={{if this.showOnlyUnread "default" "primary"}}
         data-test-show-all
-        {{on "click" (fn (mut this.showOnlyUnread) false)}}
+        {{on "click" (fn this.updateFilter false)}}
       >
         {{t "communications.topics.all"}}
       </UkButton>
       <UkButton
         @color={{if this.showOnlyUnread "primary" "default"}}
         data-test-show-unread
-        {{on "click" (fn (mut this.showOnlyUnread) true)}}
+        {{on "click" (fn this.updateFilter true)}}
       >
         {{t "communications.topics.unread"}}
       </UkButton>
@@ -37,17 +37,12 @@
       </tr>
     </thead>
     <tbody>
-      {{#if this.topics.isLoading}}
-        <tr>
-          <td colspan="4" class="uk-text-center">{{t
-              "communications.loading"
-            }}</td>
-        </tr>
-      {{else}}
+      {{#unless this.topicsListHidden}}
         {{#each this.topics.records as |topic|}}
           <tr
             class="{{if topic.hasUnread 'uk-text-bold'}}"
             data-test-topic
+            role="link"
             {{on "click" (fn this.transitionToTopic topic.instance.id)}}
           >
             {{#unless @instance}}
@@ -74,10 +69,40 @@
               }}</td>
           </tr>
         {{else}}
-          <tr>
-            <td>{{t "communications.empty"}}</td>
-          </tr>
+          {{#unless this.topics.isLoading}}
+            <tr>
+              <td>{{t "communications.empty"}}</td>
+            </tr>
+          {{/unless}}
         {{/each}}
+      {{/unless}}
+      {{#if this.topics.isLoading}}
+        <tr>
+          <td colspan="4" class="uk-text-center">{{t
+              "communications.loading"
+            }}</td>
+        </tr>
+      {{else if this.topics.hasMore}}
+        <tr {{in-viewport onEnter=this.updatePage}}>
+          <td colspan="4" class="uk-text-center">{{t
+              "communications.loading"
+            }}</td>
+        </tr>
+      {{else if this.topics.records.length}}
+        <tr>
+          <td colspan="4" class="uk-text-center">
+            {{t "communications.noMoreData"}}
+
+            <button
+              type="button"
+              class="uk-margin-small-left uk-icon-button"
+              uk-icon="chevron-up"
+              uk-tooltip={{t "communications.backToFirst"}}
+              data-test-back-to-first
+              {{on "click" this.scrollToFirst}}
+            ></button>
+          </td>
+        </tr>
       {{/if}}
     </tbody>
   </table>

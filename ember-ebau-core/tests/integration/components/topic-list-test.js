@@ -1,9 +1,10 @@
-import { render, click } from "@ember/test-helpers";
+import { render, click, waitFor } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
+import { setupMirage } from "ember-cli-mirage/test-support";
 import { setupIntl } from "ember-intl/test-support";
 import { setupRenderingTest } from "ember-qunit";
 import { module, test } from "qunit";
-import { setupMirage } from "ember-cli-mirage/test-support";
+import sinon from "sinon";
 
 module("Integration | Component | communication/topic-list", function (hooks) {
   setupRenderingTest(hooks);
@@ -11,6 +12,7 @@ module("Integration | Component | communication/topic-list", function (hooks) {
   setupIntl(hooks, "de");
 
   test("it renders instance list", async function (assert) {
+    assert.expect(7);
     this.instance = this.server.create("instance", "withTopics");
 
     await render(
@@ -43,6 +45,7 @@ module("Integration | Component | communication/topic-list", function (hooks) {
   });
 
   test("it renders global list", async function (assert) {
+    assert.expect(4);
     const instance = this.server.create("instance", "withTopics");
 
     await render(hbs`<Communication::TopicList @detailRoute="application"/>`);
@@ -57,6 +60,7 @@ module("Integration | Component | communication/topic-list", function (hooks) {
   });
 
   test("it toggles between read and unread", async function (assert) {
+    assert.expect(3);
     const instance = this.server.create("instance");
     this.server.create("communications-topic", {
       hasUnread: true,
@@ -81,6 +85,98 @@ module("Integration | Component | communication/topic-list", function (hooks) {
       has_unread: "true",
       instance: instance.id,
       include: "instance,involved_entities",
+      "page[number]": "1",
+      "page[size]": "20",
     });
+  });
+
+  test("it links to detail and new", async function (assert) {
+    assert.expect(4);
+    this.server.create("communications-topic");
+
+    const router = this.owner.lookup("service:router");
+    const routing = this.owner.lookup("service:-routing");
+
+    const detailFake = sinon.replace(
+      router,
+      "transitionTo",
+      sinon.fake.returns("transisioned")
+    );
+    const newFake = sinon.replace(
+      routing,
+      "transitionTo",
+      sinon.fake.returns("transisioned")
+    );
+
+    await render(
+      hbs`<Communication::TopicList @detailRoute="detail" @instance={{1}} @newRoute="new" />`
+    );
+
+    await click("[data-test-new-topic]");
+    await click("[data-test-topic]");
+
+    assert.strictEqual(detailFake.callCount, 1);
+    assert.strictEqual(detailFake.args[0][0], "detail");
+    assert.strictEqual(newFake.callCount, 1);
+    assert.strictEqual(newFake.args[0][0], "new");
+  });
+
+  test("it has infinite loading and resets page on query change", async function (assert) {
+    assert.expect(5);
+    this.server.createList("communications-topic", 40);
+
+    await render(
+      hbs`<Communication::TopicList @detailRoute="detail" @instance={{1}} @newRoute="new" />`
+    );
+
+    assert.dom("[data-test-topic]").exists({ count: 20 });
+
+    // I could`t get the scrollTo helper to work here and this works perfect.
+    this.element.querySelector("tbody>tr:last-child").scrollIntoView();
+    await waitFor("[data-test-topic]", { count: 40 });
+
+    assert.dom("[data-test-topic]").exists({ count: 40 });
+
+    let requests = this.server.pretender.handledRequests;
+    assert.deepEqual(requests[requests.length - 1].queryParams, {
+      has_unread: "false",
+      instance: "1",
+      include: "instance,involved_entities",
+      "page[number]": "2",
+      "page[size]": "20",
+    });
+
+    await click("button[data-test-show-unread]");
+    assert.dom("[data-test-topic]").exists({ count: 20 });
+
+    requests = this.server.pretender.handledRequests;
+    assert.deepEqual(requests[requests.length - 1].queryParams, {
+      has_unread: "true",
+      instance: "1",
+      include: "instance,involved_entities",
+      "page[number]": "1",
+      "page[size]": "20",
+    });
+  });
+
+  test("it has scroll to top button", async function (assert) {
+    assert.expect(3);
+    this.server.createList("communications-topic", 20);
+
+    await render(
+      hbs`<Communication::TopicList @detailRoute="detail" @instance={{1}} @newRoute="new" />`
+    );
+
+    assert.dom("[data-test-topic]").exists({ count: 20 });
+    // I could`t get the scrollTo helper to work here and this works perfect.
+    this.element.querySelector("tbody>tr:last-child").scrollIntoView();
+    const scrollIntoViewFake = sinon.replace(
+      this.element.querySelector("tbody>tr:first-child"),
+      "scrollIntoView",
+      sinon.fake()
+    );
+    assert.strictEqual(scrollIntoViewFake.callCount, 0);
+    await click("[data-test-back-to-first]");
+    assert.strictEqual(scrollIntoViewFake.callCount, 1);
   });
 });

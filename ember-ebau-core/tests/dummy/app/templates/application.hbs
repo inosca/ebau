@@ -1,39 +1,4 @@
 <div class="uk-padding">
   {{page-title "Dummy"}}
-
-  <h2 id="title">Welcome to Ember</h2>
-  <UkSwitcher @active="0" @animation="uk-animation-fade" as |switcher|>
-    <switcher.nav @type="tab" as |nav|>
-      <nav.component as |tab|>
-        <tab.item>Topic list</tab.item>
-        <tab.item>Topic new</tab.item>
-        <tab.item>Topic detail</tab.item>
-      </nav.component>
-    </switcher.nav>
-
-    <switcher.content as |content|>
-      <content.item>
-        <UkButton
-          {{on "click" (fn (mut this.isScoped) (not this.isScoped))}}
-          class="uk-margin-bottom"
-        >
-          Scope:
-          {{if this.isScoped "Instance" "Global"}}
-        </UkButton>
-        <Communication::TopicList
-          @detailRoute="application"
-          @instance={{this.isScoped}}
-          @newRoute="application"
-        />
-      </content.item>
-      <content.item>
-        tbd
-      </content.item>
-      <content.item>
-        tbd
-      </content.item>
-    </switcher.content>
-  </UkSwitcher>
-
   {{outlet}}
 </div>

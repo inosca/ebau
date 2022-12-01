@@ -2,18 +2,28 @@ import { assert } from "@ember/debug";
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
-import { tracked } from "@glimmer/tracking";
-import { query } from "ember-data-resources";
+import { dedupeTracked } from "tracked-toolbox";
+
+import paginatedQuery from "ember-ebau-core/resources/paginated-query";
 
 export default class CommunicationTopicListComponent extends Component {
   @service router;
 
-  @tracked showOnlyUnread = false;
+  @dedupeTracked showOnlyUnread = false;
+  @dedupeTracked page = 1;
 
-  topics = query(this, "communications-topic", () => ({
+  get topicsListHidden() {
+    return parseInt(this.page) === 1 && this.topics.isLoading;
+  }
+
+  topics = paginatedQuery(this, "communications-topic", () => ({
     has_unread: this.showOnlyUnread,
     instance: this.args.instance,
     include: "instance,involved_entities",
+    page: {
+      number: this.page,
+      size: 20,
+    },
   }));
 
   constructor(owner, args) {
@@ -33,5 +43,30 @@ export default class CommunicationTopicListComponent extends Component {
   @action
   transitionToTopic(instanceId) {
     this.router.transitionTo(this.args.detailRoute, instanceId);
+  }
+
+  @action
+  scrollToFirst() {
+    this.element
+      ?.querySelector("table>tbody>tr:first-child")
+      .scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+
+  @action
+  updateFilter(value) {
+    this.showOnlyUnread = value;
+    this.page = 1;
+  }
+
+  @action
+  updatePage() {
+    if (this.topics.hasMore && !this.topics.isLoading) {
+      this.page += 1;
+    }
+  }
+
+  @action
+  setElement(element) {
+    this.element = element;
   }
 }

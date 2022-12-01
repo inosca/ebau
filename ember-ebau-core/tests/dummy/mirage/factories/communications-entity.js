@@ -3,7 +3,7 @@ import { Factory } from "miragejs";
 
 export default Factory.extend({
   afterCreate(communicationsEntity, server) {
-    let services = server.schema.services.all();
+    const services = server.schema.services.all();
 
     communicationsEntity.update({
       service: faker.helpers.arrayElement(
