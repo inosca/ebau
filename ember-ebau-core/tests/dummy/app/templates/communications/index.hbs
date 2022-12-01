@@ -1,0 +1,13 @@
+<UkButton
+  {{on "click" (fn (mut this.isScoped) (not this.isScoped))}}
+  class="uk-margin-bottom"
+>
+  Scope:
+  {{if this.isScoped "Instance" "Global"}}
+</UkButton>
+
+<Communication::TopicList
+  @detailRoute="communications.edit"
+  @instance={{this.isScoped}}
+  @newRoute="communications.new"
+/>

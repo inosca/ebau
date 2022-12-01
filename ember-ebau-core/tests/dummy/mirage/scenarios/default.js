@@ -1,5 +1,3 @@
-import { faker } from "@faker-js/faker";
-
 export default function (server) {
   server.create("instance", { id: 2 });
 
