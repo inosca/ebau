@@ -65,9 +65,9 @@ def verify_source_file(source_file: str) -> str:
 
 def validate_attachments(archive: zipfile.ZipFile, dossier_ids: List[str]):
     dirs = {
-        zipinfo.filename.split("/")[0]
-        for zipinfo in archive.filelist
-        if zipinfo.filename.endswith("/") and len(zipinfo.filename.split("/")) < 3
+        filename.split("/")[0]
+        for filename in archive.namelist()
+        if "/" in filename and len(filename.split("/")) < 3
     }
     orphan_dirs = sorted(list(dirs - set(dossier_ids)))
     result = []
@@ -91,10 +91,10 @@ def get_attachment_validation_stats(archive: zipfile.ZipFile, dossier_ids: List[
     return sum(
         [
             1
-            for url in archive.filelist
-            if url.filename.split("/")[0] in dossier_ids
-            and not url.filename.endswith("/")
-            and mimetypes.guess_type(url.filename)
+            for filename in archive.namelist()
+            if filename.split("/")[0] in dossier_ids
+            and not filename.endswith("/")
+            and mimetypes.guess_type(filename)
         ]
     )
 
