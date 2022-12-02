@@ -8802,13 +8802,13 @@
     },
     "freies-textfeld-1": {
       "label": "Freies Textfeld 1",
-      "type": "text",
+      "type": "textarea",
       "required": false,
       "config": {}
     },
     "freies-textfeld-2": {
       "label": "Freies Textfeld 2",
-      "type": "text",
+      "type": "textarea",
       "required": false,
       "config": {}
     },
