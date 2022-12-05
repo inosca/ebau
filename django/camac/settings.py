@@ -164,6 +164,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "camac.wsgi.application"
 
+COMMON_QUESTION_SLUGS_BE = ["8-freigabequittung", "dokumente-platzhalter"]
 COMMON_FORM_SLUGS_BE = [
     "personalien",
     "allgemeine-angaben-kurz",
@@ -190,6 +191,21 @@ DISTRIBUTION_DUMP_CONFIG = {
         "caluma_workflow.Flow": Q(task_flows__workflow__pk__iregex=DISTRIBUTION_REGEX),
     },
 }
+
+
+def generate_form_dump_config(regex):
+    return {
+        "caluma_form.Option": Q(questions__forms__pk__iregex=regex),
+        "caluma_form.Question": Q(forms__pk__iregex=regex),
+        "caluma_form.Form": Q(pk__iregex=regex),
+        "caluma_form.QuestionOption": Q(question__forms__pk__iregex=regex),
+        "caluma_form.FormQuestion": Q(form__pk__iregex=regex),
+        "caluma_form.Answer": Q(
+            question__forms__pk__iregex=regex,
+            document__isnull=True,
+        ),
+    }
+
 
 # Application specific settings
 # an application is defined by the customer e.g. uri, schwyz, etc.
@@ -1431,27 +1447,6 @@ APPLICATIONS = {
             "CREATE_IN_PROCESS": False,
             "GENERATE_IDENTIFIER": False,
             "USE_LOCATION": False,
-            "AUDIT_FORMS": [
-                "dossierpruefung",
-                "fp-form",
-                "bab-form",
-                "bab-beilagen",
-                "mp-form",
-                "mp-abschluss",
-                "mp-ausnahmen",
-                "mp-bauabstaende",
-                "mp-eigene-pruefgegenstaende",
-                "mp-erschliessung",
-                "mp-form",
-                "mp-gesundheit",
-                "mp-nutzungsvorschriften",
-                "mp-ortsbild-und-landschaftsschutz",
-                "mp-schutzinventare",
-                "mp-sicherheit",
-                "mp-umweltschutz",
-                "mp-weitere-gegenstaende",
-                "mp-weitere-vorschriften",
-            ],
             "EXTEND_VALIDITY_FORM": "verlaengerung-geltungsdauer",
             "EXTEND_VALIDITY_COPY_QUESTIONS": [
                 "weitere-personen",
@@ -1470,7 +1465,6 @@ APPLICATIONS = {
                 "personalien-sb",
                 "parzelle",
             ],
-            "PUBLICATION_FORM": "publikation",
             "PUBLIC_STATUS": {
                 "MAP": {
                     be_constants.INSTANCE_STATE_NEW: be_constants.PUBLIC_INSTANCE_STATE_CREATING,
@@ -1691,25 +1685,14 @@ APPLICATIONS = {
             "caluma_form_common": {
                 "caluma_form.Form": Q(pk__in=COMMON_FORM_SLUGS_BE),
                 "caluma_form.FormQuestion": Q(form__pk__in=COMMON_FORM_SLUGS_BE),
-                "caluma_form.Question": Q(forms__pk__in=COMMON_FORM_SLUGS_BE),
+                "caluma_form.Question": Q(forms__pk__in=COMMON_FORM_SLUGS_BE)
+                | Q(pk__in=COMMON_QUESTION_SLUGS_BE),
                 "caluma_form.QuestionOption": Q(
                     question__forms__pk__in=COMMON_FORM_SLUGS_BE
-                ),
-                "caluma_form.Option": Q(questions__forms__pk__in=COMMON_FORM_SLUGS_BE),
-            },
-            "caluma_dossier_import_form": {
-                "caluma_form.Form": Q(pk="migriertes-dossier")
-                | Q(pk="migriertes-dossier-daten"),
-                "caluma_form.FormQuestion": Q(form__pk="migriertes-dossier")
-                | Q(form__pk="migriertes-dossier-daten"),
-                "caluma_form.Question": Q(forms__pk="migriertes-dossier")
-                | Q(forms__pk="migriertes-dossier-daten"),
-                "caluma_form.QuestionOption": Q(
-                    question__forms__pk="migriertes-dossier"
                 )
-                | Q(question__forms__pk="migriertes-dossier-daten"),
-                "caluma_form.Option": Q(questions__forms__pk="migriertes-dossier")
-                | Q(questions__forms__pk="migriertes-dossier-daten"),
+                | Q(question_id__in=COMMON_QUESTION_SLUGS_BE),
+                "caluma_form.Option": Q(questions__forms__pk__in=COMMON_FORM_SLUGS_BE)
+                | Q(questions__pk__in=COMMON_QUESTION_SLUGS_BE),
             },
             "caluma_form_v2": {
                 "caluma_form.Form": Q(pk__endswith="-v2"),
@@ -1722,50 +1705,20 @@ APPLICATIONS = {
                     document__isnull=True,
                 ),
             },
-            "caluma_form_sb2": {
-                "caluma_form.Form": Q(pk="sb2"),
-                "caluma_form.FormQuestion": Q(form__pk="sb2"),
-                "caluma_form.Question": Q(forms__pk="sb2"),
-                "caluma_form.QuestionOption": Q(question__forms__pk="sb2"),
-                "caluma_form.Option": Q(questions__forms__pk="sb2"),
-            },
-            "caluma_information_of_neighbors_form": {
-                "caluma_form.Form": Q(pk="information-of-neighbors"),
-                "caluma_form.FormQuestion": Q(form__pk="information-of-neighbors"),
-                "caluma_form.Question": Q(forms__pk="information-of-neighbors"),
-                "caluma_form.QuestionOption": Q(
-                    question__forms__pk="information-of-neighbors"
-                ),
-                "caluma_form.Option": Q(
-                    questions__forms__pk="information-of-neighbors"
-                ),
-            },
-            "caluma_ebau_number_form": {
-                "caluma_form.Form": Q(pk="ebau-number"),
-                "caluma_form.FormQuestion": Q(form__pk="ebau-number"),
-                "caluma_form.Question": Q(forms__pk="ebau-number"),
-                "caluma_form.QuestionOption": Q(question__forms__pk="ebau-number"),
-                "caluma_form.Option": Q(questions__forms__pk="ebau-number"),
-            },
-            "caluma_solar_plants_form": {
-                "caluma_form.Form": Q(pk__startswith="solaranlagen"),
-                "caluma_form.FormQuestion": Q(form__pk__startswith="solaranlagen"),
-                "caluma_form.Question": Q(forms__pk__startswith="solaranlagen")
-                & ~Q(pk__in=["8-freigabequittung", "dokumente-platzhalter"]),
-                "caluma_form.QuestionOption": Q(
-                    question__forms__pk__startswith="solaranlagen"
-                ),
-                "caluma_form.Option": Q(
-                    questions__forms__pk__startswith="solaranlagen"
-                ),
-            },
-            "caluma_decision_form": {
-                "caluma_form.Form": Q(pk="decision"),
-                "caluma_form.FormQuestion": Q(form__pk="decision"),
-                "caluma_form.Question": Q(forms__pk="decision"),
-                "caluma_form.QuestionOption": Q(question__forms__pk="decision"),
-                "caluma_form.Option": Q(questions__forms__pk="decision"),
-            },
+            "caluma_dossier_import_form": generate_form_dump_config(
+                r"^migriertes-dossier(-daten)?$"
+            ),
+            "caluma_form_sb2": generate_form_dump_config(r"(-)?sb2$"),
+            "caluma_information_of_neighbors_form": generate_form_dump_config(
+                r"^information-of-neighbors$"
+            ),
+            "caluma_ebau_number_form": generate_form_dump_config(r"^ebau-number$"),
+            "caluma_solar_plants_form": generate_form_dump_config(r"^solaranlagen(-)?"),
+            "caluma_decision_form": generate_form_dump_config(r"^decision$"),
+            "caluma_audit_form": generate_form_dump_config(
+                r"^(dossierpruefung|mp-|fp-|mp-|bab-)"
+            ),
+            "caluma_publication_form": generate_form_dump_config(r"^publikation$"),
             # Distribution
             **DISTRIBUTION_DUMP_CONFIG,
         },
@@ -2815,26 +2768,17 @@ APPLICATIONS = {
             "caluma_form_common": {
                 "caluma_form.Form": Q(pk__in=COMMON_FORM_SLUGS_BE),
                 "caluma_form.FormQuestion": Q(form__pk__in=COMMON_FORM_SLUGS_BE),
-                "caluma_form.Question": Q(forms__pk__in=COMMON_FORM_SLUGS_BE),
+                "caluma_form.Question": Q(forms__pk__in=COMMON_FORM_SLUGS_BE)
+                | Q(pk__in=COMMON_QUESTION_SLUGS_BE),
                 "caluma_form.QuestionOption": Q(
                     question__forms__pk__in=COMMON_FORM_SLUGS_BE
-                ),
-                "caluma_form.Option": Q(questions__forms__pk__in=COMMON_FORM_SLUGS_BE),
+                )
+                | Q(question_id__in=COMMON_QUESTION_SLUGS_BE),
+                "caluma_form.Option": Q(questions__forms__pk__in=COMMON_FORM_SLUGS_BE)
+                | Q(questions__pk__in=COMMON_QUESTION_SLUGS_BE),
             },
-            "caluma_ebau_number_form": {
-                "caluma_form.Form": Q(pk="ebau-number"),
-                "caluma_form.FormQuestion": Q(form__pk="ebau-number"),
-                "caluma_form.Question": Q(forms__pk="ebau-number"),
-                "caluma_form.QuestionOption": Q(question__forms__pk="ebau-number"),
-                "caluma_form.Option": Q(questions__forms__pk="ebau-number"),
-            },
-            "caluma_decision_form": {
-                "caluma_form.Form": Q(pk="decision"),
-                "caluma_form.FormQuestion": Q(form__pk="decision"),
-                "caluma_form.Question": Q(forms__pk="decision"),
-                "caluma_form.QuestionOption": Q(question__forms__pk="decision"),
-                "caluma_form.Option": Q(questions__forms__pk="decision"),
-            },
+            "caluma_ebau_number_form": generate_form_dump_config(r"^ebau-number$"),
+            "caluma_decision_form": generate_form_dump_config(r"^decision$"),
             # Distribution
             **DISTRIBUTION_DUMP_CONFIG,
         },
@@ -3071,44 +3015,6 @@ APPLICATIONS = {
             "service": "service-lead",
             "support": "support",
         },
-    },
-}
-
-APPLICATIONS["kt_bern"]["DUMP_CONFIG_GROUPS"] = {
-    **APPLICATIONS["kt_bern"]["DUMP_CONFIG_GROUPS"],
-    "caluma_audit_form": {
-        "caluma_form.Option": Q(
-            questions__forms__pk__in=APPLICATIONS["kt_bern"]["CALUMA"]["AUDIT_FORMS"]
-        ),
-        "caluma_form.Question": Q(
-            forms__pk__in=APPLICATIONS["kt_bern"]["CALUMA"]["AUDIT_FORMS"]
-        ),
-        "caluma_form.Form": Q(pk__in=APPLICATIONS["kt_bern"]["CALUMA"]["AUDIT_FORMS"]),
-        "caluma_form.QuestionOption": Q(
-            question__forms__pk__in=APPLICATIONS["kt_bern"]["CALUMA"]["AUDIT_FORMS"]
-        ),
-        "caluma_form.FormQuestion": Q(
-            form__pk__in=APPLICATIONS["kt_bern"]["CALUMA"]["AUDIT_FORMS"]
-        ),
-        "caluma_form.Answer": Q(
-            question__forms__pk__in=APPLICATIONS["kt_bern"]["CALUMA"]["AUDIT_FORMS"],
-            document__isnull=True,
-        ),
-    },
-    "caluma_publication_form": {
-        "caluma_form.Option": Q(
-            questions__forms__pk=APPLICATIONS["kt_bern"]["CALUMA"]["PUBLICATION_FORM"]
-        ),
-        "caluma_form.Question": Q(
-            forms__pk=APPLICATIONS["kt_bern"]["CALUMA"]["PUBLICATION_FORM"]
-        ),
-        "caluma_form.Form": Q(pk=APPLICATIONS["kt_bern"]["CALUMA"]["PUBLICATION_FORM"]),
-        "caluma_form.QuestionOption": Q(
-            question__forms__pk=APPLICATIONS["kt_bern"]["CALUMA"]["PUBLICATION_FORM"]
-        ),
-        "caluma_form.FormQuestion": Q(
-            form__pk=APPLICATIONS["kt_bern"]["CALUMA"]["PUBLICATION_FORM"]
-        ),
     },
 }
 

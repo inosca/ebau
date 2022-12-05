@@ -81,6 +81,7 @@ class Command(BaseCommand):
                     filtered_queryset = (
                         model.objects.exclude(pk__in=excluded_pks)
                         .filter(model_filters[model_identifier])
+                        .distinct()
                         .order_by("pk")
                     )
 
