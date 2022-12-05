@@ -419,7 +419,7 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Die Anforderungen sind gem\\u00e4ss den Richtlinien \\u00abBewilligungsfreie Anlagen zur Gewinnung von erneuerbarer Energie\\u00bb eingehalten\", \"fr\": \"Les exigences \\u00e9nonc\\u00e9es aux directives \\u00abInstallations de production d\\u2019\\u00e9nergies renouvelables non soumises au r\\u00e9gime du permis de construire\\u00bb\"}",
+      "label": "{\"de\": \"Die Anforderungen sind gem\\u00e4ss den Richtlinien \\u00abBewilligungsfreie Anlagen zur Gewinnung von erneuerbarer Energie\\u00bb eingehalten\", \"fr\": \"Les exigences \\u00e9nonc\\u00e9es dans les directives \\u00abInstallations de production d\\u2019\\u00e9nergies renouvelables non soumises au r\\u00e9gime du permis de construire\\u00bb sont respect\\u00e9es\"}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -689,7 +689,7 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Die Anforderungen sind gem\\u00e4ss den Richtlinien \\u00abBewilligungsfreie Anlagen zur Gewinnung von erneuerbarer Energie\\u00bb eingehalten\", \"fr\": \"Les exigences \\u00e9nonc\\u00e9es aux directives \\u00abInstallations de production d\\u2019\\u00e9nergies renouvelables non soumises au r\\u00e9gime du permis de construire\\u00bb\"}",
+      "label": "{\"de\": \"Die Anforderungen sind gem\\u00e4ss den Richtlinien \\u00abBewilligungsfreie Anlagen zur Gewinnung von erneuerbarer Energie\\u00bb eingehalten\", \"fr\": \"Les exigences \\u00e9nonc\\u00e9es dans les directives \\u00abInstallations de production d\\u2019\\u00e9nergies renouvelables non soumises au r\\u00e9gime du permis de construire\\u00bb sont respect\\u00e9es\"}",
       "type": "multiple_choice",
       "is_required": "false",
       "is_hidden": "false",
