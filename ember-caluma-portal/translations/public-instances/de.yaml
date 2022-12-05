@@ -23,8 +23,8 @@ publicInstancesDetail:
   Zustimmung des Planerstellers bzw. des geistigen Eigentümers gestattet."
   privacyText: "Aus Gründen des Datenschutzes werden hier nur die für das
   Baubewilligungsverfahren relevanten Dokumente publiziert, die vom
-  Gesuchsteller nicht explizit als vertrauenswürdig und nicht öffentlich
-  zugänglich eingestuft wurden."
+  Gesuchsteller nicht explizit als vertraulich und nicht öffentlich zugänglich
+  eingestuft wurden."
   empty: "Keine Auflagedokumente gefunden"
   related: "{count} {count, plural, =1 {aufgelegtes Dossier} other {aufgelegte Dossiers}} mit gleicher eBau-Nummer"
   documentPreview: Dokumentenvorschau
