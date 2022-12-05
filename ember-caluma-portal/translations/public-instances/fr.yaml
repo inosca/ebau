@@ -24,8 +24,8 @@ publicInstancesDetail:
   intellectuel."
   privacyText: "Pour des raisons de protection des données, seuls sont publiés
   ici les documents pertinents pour la procédure d'autorisation de construire
-  qui n'ont pas été explicitement classés par le requérant comme étant dignes de
-  confiance et non accessibles au public."
+  qui n'ont pas été explicitement classés par le requérant comme étant
+  confidentiels et non accessibles au public."
   empty: "Aucun document mis à l'enquête trouvé"
   related: "{count} {count, plural, =1 {dossier} other {dossiers}} mis à l'enquête avec le même numéro eBau"
   documentPreview: "Aperçu du document"
