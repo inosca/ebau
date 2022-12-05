@@ -6,20 +6,26 @@ export default class PublicationAbility extends Ability {
 
   get hasBasePermission() {
     return (
-      this.shoebox.baseRole === "municipality" &&
-      (this.model?.addressedGroups ?? []).includes(
-        String(this.shoebox.content?.serviceId)
-      ) &&
-      !this.shoebox.isReadOnlyRole
+      this.shoebox.baseRole === "municipality" && !this.shoebox.isReadOnlyRole
+    );
+  }
+
+  get isAddressed() {
+    return (this.model?.addressedGroups ?? []).includes(
+      String(this.shoebox.content?.serviceId)
     );
   }
 
   get canShowInfo() {
-    return this.hasBasePermission;
+    return this.hasBasePermission && this.isAddressed;
   }
 
   get canEdit() {
-    return this.hasBasePermission && this.model?.status === "READY";
+    return (
+      this.hasBasePermission &&
+      this.isAddressed &&
+      this.model?.status === "READY"
+    );
   }
 
   get canCreate() {
@@ -29,6 +35,7 @@ export default class PublicationAbility extends Ability {
   get canCancel() {
     return (
       this.hasBasePermission &&
+      this.isAddressed &&
       this.model?.status === "COMPLETED" &&
       this.model?.meta["is-published"]
     );
