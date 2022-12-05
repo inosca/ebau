@@ -6,9 +6,11 @@ from django.conf import settings
 from django.contrib.admin import ModelAdmin, display
 from django.contrib.admin.utils import lookup_needs_distinct
 from django.core.exceptions import FieldDoesNotExist
+from django.db import transaction
 from django.db.models import Q
 from django.db.models.constants import LOOKUP_SEP
 from django.utils.text import smart_split, unescape_string_literal
+from django.utils.timezone import now
 from django.utils.translation import get_language, gettext_lazy as _
 
 from camac.user.admin.filters import DisabledFilter
@@ -23,6 +25,32 @@ from camac.user.admin.inlines import (
     ServiceTInline,
     UserGroupInline,
 )
+from camac.user.models import UserGroup, UserGroupLog
+
+
+def generate_user_group_log(request, formset):
+    if not formset.model == UserGroup:
+        return
+
+    logs = []
+
+    for action, prop in [("d", "deleted_objects"), ("i", "new_objects")]:
+        logs.extend(
+            [
+                UserGroupLog(
+                    modification_date=now().replace(microsecond=0),
+                    action=action,
+                    user_id=request.user.pk,
+                    field1="USER_ID",
+                    id1=obj.user_id,
+                    field2="GROUP_ID",
+                    id2=obj.group_id,
+                )
+                for obj in getattr(formset, prop)
+            ]
+        )
+
+    UserGroupLog.objects.bulk_create(logs)
 
 
 class MultilingualAdmin:
@@ -130,6 +158,12 @@ class UserAdmin(MultilingualAdmin, ModelAdmin):
     readonly_fields = ["username", "last_login"]
     search_fields = ["username", "name", "surname", "email"]
 
+    @transaction.atomic
+    def save_formset(self, request, form, formset, change):
+        super().save_formset(request, form, formset, change)
+
+        generate_user_group_log(request, formset)
+
     @display(description=_("Disabled?"), boolean=True, ordering="disabled")
     def get_disabled(self, obj):
         return obj.disabled == 1
@@ -168,6 +202,12 @@ class GroupAdmin(MultilingualAdmin, ModelAdmin):
     @display(description=_("Disabled?"), boolean=True, ordering="disabled")
     def get_disabled(self, obj):
         return obj.disabled == 1
+
+    @transaction.atomic
+    def save_formset(self, request, form, formset, change):
+        super().save_formset(request, form, formset, change)
+
+        generate_user_group_log(request, formset)
 
 
 class ServiceAdmin(MultilingualAdmin, ModelAdmin):
