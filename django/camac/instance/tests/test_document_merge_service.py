@@ -62,22 +62,22 @@ def test_document_merge_service_snapshot(
         (
             "baugesuch",
             {"instance_id": 1},
-            15,
+            16,
         ),
         (
             "sb1",
             {"instance_id": 3, "form_slug": "sb1"},
-            19,
+            22,
         ),
         (
             "sb2",
             {"instance_id": 3, "form_slug": "sb2"},
-            19,
+            22,
         ),
         (
             "mp-form",
             {"instance_id": 3, "document_id": "da618b68-b4a8-414f-9d5e-50e0fda43cde"},
-            18,
+            20,
         ),
     ]:
         with django_assert_num_queries(expected_queries):

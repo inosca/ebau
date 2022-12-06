@@ -92,7 +92,7 @@ def test_public_caluma_instance_enabled_empty_qs(
 @pytest.mark.parametrize("role__name", ["Applicant"])
 @pytest.mark.parametrize(
     "headers,num_queries,num_instances",
-    [({}, 1, 0), ({"HTTP_X_CAMAC_PUBLIC_ACCESS": True}, 5, 1)],
+    [({}, 1, 0), ({"HTTP_X_CAMAC_PUBLIC_ACCESS": True}, 7, 1)],
 )
 def test_public_caluma_instance_ur(
     db,
@@ -154,7 +154,7 @@ def test_public_caluma_instance_ur(
 @pytest.mark.parametrize(
     "is_oereb_form,instance_state__name,num_queries,is_visible",
     [
-        (True, "comm", 6, True),
+        (True, "comm", 8, True),
         (False, "comm", 2, False),
         (True, "new", 2, False),
         (True, "new_portal", 2, False),
@@ -419,7 +419,7 @@ def test_public_documents_sz(
 @pytest.mark.parametrize("role__name", ["Applicant"])
 @pytest.mark.parametrize(
     "headers,num_queries,num_instances",
-    [({}, 1, 0), ({"HTTP_X_CAMAC_PUBLIC_ACCESS": True}, 5, 1)],
+    [({}, 1, 0), ({"HTTP_X_CAMAC_PUBLIC_ACCESS": True}, 8, 1)],
 )
 def test_public_caluma_instance_be(
     db,
