@@ -120,7 +120,7 @@ def validate_zip_archive_structure(instance_pk, clean_on_fail=True) -> DossierIm
     headings = [h for h in worksheet[1] if h.value is not None]
 
     required_columns = ["ID", "STATUS", "PROPOSAL", "SUBMIT-DATE"]
-    heading_values = [col.value for col in headings]
+    heading_values = [cell.value for cell in headings]
     missing = set(required_columns) - set(heading_values)
     if missing:
         raise InvalidImportDataError(
@@ -138,20 +138,21 @@ def validate_zip_archive_structure(instance_pk, clean_on_fail=True) -> DossierIm
             % dict(extra=extra)
         )
 
-    status_column = next((col for col in headings if col.value == "STATUS"))
-    submit_date_column = next((col for col in headings if col.value == "SUBMIT-DATE"))
-    id_column = next((col for col in headings if col.value == "ID"))
+    status_column = next((col for col in headings if col.value == "STATUS")).col_idx - 1
+    submit_date_column = (
+        next((col for col in headings if col.value == "SUBMIT-DATE")).col_idx - 1
+    )
+    id_column = next((col for col in headings if col.value == "ID")).col_idx - 1
 
     dossier_msgs = []
-    deleted_rows = 0
-    for cell in worksheet[id_column.column_letter]:
-        if cell.value is not None:
-            continue
-        worksheet.delete_rows(cell.row, 1)
-        deleted_rows += 1
 
-    dossier_ids = [cell.value for cell in worksheet[id_column.column_letter][1:]]
+    # read entired worksheet into python data structure, because case-by-case lookups
+    # in openpyxl are slow
+    rows = [r for r in worksheet.rows if r[id_column].value is not None]
+    # skip header row
+    rows = rows[1:]
 
+    dossier_ids = [r[id_column].value for r in rows]
     dupes = set([d for d in dossier_ids if dossier_ids.count(d) > 1])
 
     for dupe in dupes:
@@ -165,17 +166,17 @@ def validate_zip_archive_structure(instance_pk, clean_on_fail=True) -> DossierIm
 
     dossiers_success = list(set(dossier_ids))
 
-    for date_column in [col for col in headings if col.value.endswith("-DATE")]:
-        for cell in worksheet[date_column.column_letter][1:]:
-            dossier_id = worksheet[f"A{cell.row}"].value
-            field_name = worksheet[f"{cell.column_letter}1"].value.lower()
+    for date_column in [cell for cell in headings if cell.value.endswith("-DATE")]:
+        for dossier_id, value in [
+            (r[id_column].value, r[date_column.col_idx - 1].value) for r in rows
+        ]:
             try:
-                assert cell.value is None or type(cell.value) == datetime.datetime
+                assert value is None or type(value) == datetime.datetime
             except AssertionError:
                 messages.append_or_update_dossier_message(
                     dossier_id,
-                    field_name,
-                    str(cell.value),
+                    date_column.value.lower(),
+                    str(value),
                     MessageCodes.DATE_FIELD_VALIDATION_ERROR.value,
                     dossier_msgs,
                 )
@@ -186,10 +187,11 @@ def validate_zip_archive_structure(instance_pk, clean_on_fail=True) -> DossierIm
                 continue
 
     if status_column:
-        for cell in worksheet[status_column.column_letter][1:]:
-            dossier_id = worksheet[f"A{cell.row}"].value
-            if cell.value not in [e.value for e in TargetStatus]:
-                if cell.value is None:
+        for dossier_id, status in [
+            (r[id_column].value, r[status_column].value) for r in rows
+        ]:
+            if status not in [e.value for e in TargetStatus]:
+                if status is None:
                     messages.append_or_update_dossier_message(
                         dossier_id,
                         "status",
@@ -207,7 +209,7 @@ def validate_zip_archive_structure(instance_pk, clean_on_fail=True) -> DossierIm
                 messages.append_or_update_dossier_message(
                     dossier_id,
                     "status",
-                    cell.value,
+                    status,
                     MessageCodes.STATUS_CHOICE_VALIDATION_ERROR.value,
                     dossier_msgs,
                     level=messages.LOG_LEVEL_ERROR,
@@ -218,9 +220,10 @@ def validate_zip_archive_structure(instance_pk, clean_on_fail=True) -> DossierIm
                     pass
 
     if submit_date_column:
-        for cell in worksheet[submit_date_column.column_letter][1:]:
-            dossier_id = worksheet[f"A{cell.row}"].value
-            if not cell.value:
+        for dossier_id, submit_date in [
+            (r[id_column].value, r[submit_date_column].value) for r in rows
+        ]:
+            if not submit_date:
                 messages.append_or_update_dossier_message(
                     dossier_id,
                     "submit_date",
