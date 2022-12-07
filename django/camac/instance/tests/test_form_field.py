@@ -8,13 +8,23 @@ from camac.instance import models
 
 @pytest.mark.parametrize(
     "role__name,instance__user,size",
-    [("Applicant", LazyFixture("admin_user"), 1), ("Unknown", LazyFixture("user"), 0)],
+    [
+        ("Applicant", LazyFixture("admin_user"), 1),
+        ("Unknown", LazyFixture("user"), 0),
+        ("Support", LazyFixture("user"), 1),
+        ("Service", LazyFixture("user"), 1),
+        ("Public", LazyFixture("user"), 0),
+    ],
 )
 @pytest.mark.parametrize("form_field__name", ["kategorie-des-vorhabens"])
 def test_form_field_list(admin_client, form_field, size):
     url = reverse("form-field-list")
 
-    response = admin_client.get(url)
+    if admin_client.user.groups.filter(role__name="Public"):
+        response = admin_client.get(url, HTTP_X_CAMAC_PUBLIC_ACCESS=True)
+    else:
+        response = admin_client.get(url)
+
     assert response.status_code == status.HTTP_200_OK
 
     json = response.json()
