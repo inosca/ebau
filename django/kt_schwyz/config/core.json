@@ -11233,14 +11233,6 @@
   },
   {
     "model": "core.rroleacl",
-    "pk": 65,
-    "fields": {
-      "resource": 25,
-      "role": 3
-    }
-  },
-  {
-    "model": "core.rroleacl",
     "pk": 72,
     "fields": {
       "resource": 26,
@@ -11400,6 +11392,14 @@
     }
   },
   {
+    "model": "core.rroleacl",
+    "pk": 92,
+    "fields": {
+      "resource": 25,
+      "role": 12
+    }
+  },
+  {
     "model": "core.resource",
     "pk": 9,
     "fields": {
@@ -11499,7 +11499,7 @@
       "description": "View and upload dossiers",
       "template": "/ember-camac-ng/dossierimport.phtml",
       "class_field": null,
-      "hidden": 1,
+      "hidden": 0,
       "sort": 7
     }
   },
