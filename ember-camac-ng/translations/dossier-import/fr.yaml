@@ -118,11 +118,15 @@ dossierImport:
         buttonLabel: Transférer l'importation
         success: L'importation a été transférée avec succès.
         error: Quelque chose s'est mal passé lors du transfert de l'importation.
+      downloadImport:
+        title: Télécharger le fichier d'importation
+        description: |-
+          Le fichier d'importation peut être téléchargé ici.
+        buttonLabel: Télécharger l'importation
+        error: Quelque chose s'est mal passé lors du téléchargement de l'importation.
       deleteImport:
         title: Supprimer l'importation
         description: Si vous n'avez plus besoin de l'importation, vous pouvez la supprimer ici.
         buttonLabel: Supprimer l'importation
         error: Quelque chose s'est mal passé lors de la suppression de l'importation, veuillez réessayer.
         success: L'importation a été supprimée avec succès.
-
-

@@ -6,16 +6,6 @@ import isProd from "camac-ng/utils/is-prod";
 export default class extends Ability {
   @service shoebox;
 
-  get canDoSomething() {
-    return (
-      this.canStart ||
-      this.canConfirm ||
-      this.canTransmit ||
-      this.canDelete ||
-      this.canUndo
-    );
-  }
-
   get canStart() {
     return (
       this.model?.status === "verified" &&

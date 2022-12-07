@@ -108,6 +108,12 @@ dossierImport:
         buttonLabel: Import übertragen
         success: Der Import wurde erfolgreich übertragen.
         error: Beim Übertragen des Imports ist etwas schiefgegangen.
+      downloadImport:
+        title: Importdatei herunterladen
+        description: |-
+          Hier kann die Importdatei heruntergeladen werden.
+        buttonLabel: Import herunterladen
+        error: Beim Herunterladen des Imports ist etwas schiefgegangen.
       undoImport:
         title: Import rückgängig machen
         description: |-
@@ -121,5 +127,3 @@ dossierImport:
         buttonLabel: Import löschen
         error: Beim Löschen des Imports ist etwas schiefgegangen, bitte versuchen Sie es erneut.
         success: Der Import wurde erfolgreich gelöscht.
-
-
