@@ -7,7 +7,7 @@ from snapshottest import Snapshot
 
 snapshots = Snapshot()
 
-snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml">
+snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:w15="http://schemas.microsoft.com/office/word/2012/wordml">
   <w:p>
     <w:pPr>
       <w:pStyle w:val="Heading2"/>
@@ -103,6 +103,23 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
         <w:lang w:val="de-CH" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
       </w:rPr>
       <w:t>Publikationsdatum: {{ publication_date }}</w:t>
+    </w:r>
+  </w:p>
+  <w:p>
+    <w:pPr>
+      <w:pStyle w:val="Normal"/>
+      <w:rPr>
+        <w:sz w:val="24"/>
+        <w:szCs w:val="24"/>
+      </w:rPr>
+    </w:pPr>
+    <w:r>
+      <w:rPr>
+        <w:sz w:val="24"/>
+        <w:szCs w:val="24"/>
+        <w:lang w:val="de-CH" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
+      </w:rPr>
+      <w:t>Verantwortliche Person: {{ responsible_person }}</w:t>
     </w:r>
   </w:p>
   <w:p>
@@ -4541,18 +4558,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
               <w:szCs w:val="24"/>
               <w:lang w:val="en-US" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
             </w:rPr>
-            <w:t>sistierung</w:t>
-          </w:r>
-          <w:r>
-            <w:rPr>
-              <w:rFonts w:eastAsia="Noto Sans CJK SC Regular" w:cs="FreeSans"/>
-              <w:color w:val="00000A"/>
-              <w:kern w:val="0"/>
-              <w:sz w:val="24"/>
-              <w:szCs w:val="24"/>
-              <w:lang w:val="en-US" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
-            </w:rPr>
-            <w:t xml:space="preserve">.bewilligungsverfahren_sistierung_von </w:t>
+            <w:t xml:space="preserve">sistierung.bewilligungsverfahren_sistierung_von </w:t>
           </w:r>
           <w:r>
             <w:rPr>
@@ -4590,18 +4596,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
               <w:szCs w:val="24"/>
               <w:lang w:val="en-US" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
             </w:rPr>
-            <w:t>sistierung</w:t>
-          </w:r>
-          <w:r>
-            <w:rPr>
-              <w:rFonts w:eastAsia="Noto Sans CJK SC Regular" w:cs="FreeSans"/>
-              <w:color w:val="00000A"/>
-              <w:kern w:val="0"/>
-              <w:sz w:val="24"/>
-              <w:szCs w:val="24"/>
-              <w:lang w:val="en-US" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
-            </w:rPr>
-            <w:t>.bewilligungsverfahren_sistierung_bis</w:t>
+            <w:t>sistierung.bewilligungsverfahren_sistierung_bis</w:t>
           </w:r>
           <w:r>
             <w:rPr/>
@@ -4637,18 +4632,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
               <w:szCs w:val="24"/>
               <w:lang w:val="en-US" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
             </w:rPr>
-            <w:t>sistierung</w:t>
-          </w:r>
-          <w:r>
-            <w:rPr>
-              <w:rFonts w:eastAsia="Noto Sans CJK SC Regular" w:cs="FreeSans"/>
-              <w:color w:val="00000A"/>
-              <w:kern w:val="0"/>
-              <w:sz w:val="24"/>
-              <w:szCs w:val="24"/>
-              <w:lang w:val="en-US" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
-            </w:rPr>
-            <w:t>.bewilligungsverfahren_sistierung_bemerkung</w:t>
+            <w:t>sistierung.bewilligungsverfahren_sistierung_bemerkung</w:t>
           </w:r>
           <w:r>
             <w:rPr/>
@@ -4893,18 +4877,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
               <w:szCs w:val="24"/>
               <w:lang w:val="en-US" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
             </w:rPr>
-            <w:t>beschwerde</w:t>
-          </w:r>
-          <w:r>
-            <w:rPr>
-              <w:rFonts w:eastAsia="Noto Sans CJK SC Regular" w:cs="FreeSans"/>
-              <w:color w:val="00000A"/>
-              <w:kern w:val="0"/>
-              <w:sz w:val="24"/>
-              <w:szCs w:val="24"/>
-              <w:lang w:val="en-US" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
-            </w:rPr>
-            <w:t>.</w:t>
+            <w:t>beschwerde.</w:t>
           </w:r>
           <w:r>
             <w:rPr>
@@ -5469,7 +5442,7 @@ snapshots['test_template_download[Municipality-template__path0] 1'] = '''<w:body
 </w:body>
 '''
 
-snapshots['test_template_merge[Canton-200-docx-11-18-011-instance__group0-instance__user0-Schwyz-testname-template__path0-Amt-billing_entry__created0-99.66-Allgemein-Gebuehren-publication_entry__publication_date0] 1'] = '''<w:body xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml">
+snapshots['test_template_merge[Canton-200-docx-11-18-011-instance__group0-instance__user0-Schwyz-testname-template__path0-Amt-billing_entry__created0-99.66-Allgemein-Gebuehren-publication_entry__publication_date0] 1'] = '''<w:body xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:w15="http://schemas.microsoft.com/office/word/2012/wordml">
   <w:p>
     <w:pPr>
       <w:pStyle w:val="Heading2"/>
@@ -5565,6 +5538,23 @@ snapshots['test_template_merge[Canton-200-docx-11-18-011-instance__group0-instan
         <w:lang w:val="de-CH" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
       </w:rPr>
       <w:t xml:space="preserve">Publikationsdatum: 28.05.2018</w:t>
+    </w:r>
+  </w:p>
+  <w:p>
+    <w:pPr>
+      <w:pStyle w:val="Normal"/>
+      <w:rPr>
+        <w:sz w:val="24"/>
+        <w:szCs w:val="24"/>
+      </w:rPr>
+    </w:pPr>
+    <w:r>
+      <w:rPr>
+        <w:sz w:val="24"/>
+        <w:szCs w:val="24"/>
+        <w:lang w:val="de-CH" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
+      </w:rPr>
+      <w:t xml:space="preserve">Verantwortliche Person: User Admin</w:t>
     </w:r>
   </w:p>
   <w:p>
