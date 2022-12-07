@@ -8,6 +8,7 @@ import {
   timeout,
   waitForProperty,
 } from "ember-concurrency";
+import { saveAs } from "file-saver";
 
 import isProd from "camac-ng/utils/is-prod";
 
@@ -16,6 +17,7 @@ export default class DossierImportDetailController extends Controller {
   @service notification;
   @service store;
   @service router;
+  @service fetch;
 
   @tracked user;
 
@@ -137,6 +139,21 @@ export default class DossierImportDetailController extends Controller {
       console.error(e);
       this.notification.danger(
         this.intl.t("dossierImport.detail.actions.transmitImport.error")
+      );
+    }
+  }
+
+  @dropTask
+  *downloadImport() {
+    try {
+      const response = yield this.fetch.fetch(
+        `/api/v1/dossier-imports/${this.model}/download`
+      );
+      saveAs(yield response.blob(), this.import.filename);
+    } catch (e) {
+      console.error(e);
+      this.notification.danger(
+        this.intl.t("dossierImport.detail.actions.downloadImport.error")
       );
     }
   }
