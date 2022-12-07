@@ -72,7 +72,6 @@ def ech_instance(
         service__zip="3400",
         service__address="Teststrasse 23",
         service__email="burgdorf@example.com",
-        service__pk=2,
         service__trans=None,
         service__service_group__name="municipality",
         active=1,
