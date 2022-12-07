@@ -148,6 +148,7 @@ def test_template_merge(
     service,
     service_factory,
     application_settings,
+    responsible_service_factory,
 ):
     call_command(
         "loaddata",
@@ -231,6 +232,11 @@ def test_template_merge(
                 "bewilligungsverfahren-sitzung-baukommission-bemerkung": "Foo Bar",
             }
         ],
+    )
+    responsible_service_factory(
+        instance=sz_instance,
+        service=service,
+        responsible_user=admin_client.user,
     )
 
     url = reverse("template-merge", args=[template.pk])

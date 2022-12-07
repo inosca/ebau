@@ -179,6 +179,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     my_activations = serializers.SerializerMethodField()
     objections = serializers.SerializerMethodField()
     bauverwaltung = serializers.SerializerMethodField()
+    responsible_person = serializers.SerializerMethodField()
 
     vorhaben = serializers.SerializerMethodField()
     parzelle = serializers.SerializerMethodField()
@@ -692,6 +693,16 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             answers[inflection.underscore(question.slug)] = question_answers
 
         return answers
+
+    def get_responsible_person(self, instance):
+        responsible_service = instance.responsible_services.filter(
+            service=self.service
+        ).first()
+        return (
+            responsible_service.responsible_user.get_full_name()
+            if responsible_service
+            else ""
+        )
 
     def get_current_user_name(self, instance):
         return (
