@@ -60,7 +60,7 @@
     "ember-concurrency": "2.3.7",
     "ember-data": "3.28.12",
     "ember-ebau-core": "0.0.0",
-    "ember-engines": "0.9.0",
+    "ember-engines": "0.8.23",
     "ember-export-application-global": "2.0.1",
     "ember-fetch": "8.1.2",
     "ember-flatpickr": "3.2.3",
