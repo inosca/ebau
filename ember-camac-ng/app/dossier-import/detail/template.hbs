@@ -114,77 +114,86 @@
       {{/if}}
     </div>
   </DossierImportDetailBlock>
-  {{#if (can "do something to dossier-import" this.import)}}
-    <DossierImportDetailBlock @title={{t "dossierImport.detail.actions.title"}}>
-      <div>
-        {{#if (can "start dossier-import" this.import)}}
-          <DossierImportAction
-            @actionName="startImport"
-            @task={{this.startImport}}
-            @title={{t "dossierImport.detail.actions.startImport.title"}}
-            @description={{t
-              "dossierImport.detail.actions.startImport.description"
-            }}
-            @buttonLabel={{t
-              "dossierImport.detail.actions.startImport.buttonLabel"
-            }}
-          />
-        {{/if}}
-        {{#if (can "confirm dossier-import" this.import)}}
-          <DossierImportAction
-            @actionName="confirmImport"
-            @task={{this.confirmImport}}
-            @title={{t "dossierImport.detail.actions.confirmImport.title"}}
-            @description={{t
-              "dossierImport.detail.actions.confirmImport.description"
-            }}
-            @buttonLabel={{t
-              "dossierImport.detail.actions.confirmImport.buttonLabel"
-            }}
-          />
-        {{/if}}
-        {{#if (can "transmit dossier-import" this.import)}}
-          <DossierImportAction
-            @actionName="transmitImport"
-            @task={{this.transmitImport}}
-            @title={{t "dossierImport.detail.actions.transmitImport.title"}}
-            @description={{t
-              "dossierImport.detail.actions.transmitImport.description"
-            }}
-            @buttonLabel={{t
-              "dossierImport.detail.actions.transmitImport.buttonLabel"
-            }}
-          />
-        {{/if}}
-        {{#if (can "undo dossier-import" this.import)}}
-          <DossierImportAction
-            @actionName="undoImport"
-            @task={{this.undoImport}}
-            @title={{t "dossierImport.detail.actions.undoImport.title"}}
-            @description={{t
-              "dossierImport.detail.actions.undoImport.description"
-            }}
-            @buttonLabel={{t
-              "dossierImport.detail.actions.undoImport.buttonLabel"
-            }}
-          />
-        {{/if}}
-        {{#if (can "delete dossier-import" this.import)}}
-          <DossierImportAction
-            @actionName="deleteImport"
-            @task={{this.deleteImport}}
-            @title={{t "dossierImport.detail.actions.deleteImport.title"}}
-            @description={{t
-              "dossierImport.detail.actions.deleteImport.description"
-            }}
-            @buttonLabel={{t
-              "dossierImport.detail.actions.deleteImport.buttonLabel"
-            }}
-          />
-        {{/if}}
-      </div>
-    </DossierImportDetailBlock>
-  {{/if}}
+  <DossierImportDetailBlock @title={{t "dossierImport.detail.actions.title"}}>
+    <div>
+      {{#if (can "start dossier-import" this.import)}}
+        <DossierImportAction
+          @actionName="startImport"
+          @task={{this.startImport}}
+          @title={{t "dossierImport.detail.actions.startImport.title"}}
+          @description={{t
+            "dossierImport.detail.actions.startImport.description"
+          }}
+          @buttonLabel={{t
+            "dossierImport.detail.actions.startImport.buttonLabel"
+          }}
+        />
+      {{/if}}
+      {{#if (can "confirm dossier-import" this.import)}}
+        <DossierImportAction
+          @actionName="confirmImport"
+          @task={{this.confirmImport}}
+          @title={{t "dossierImport.detail.actions.confirmImport.title"}}
+          @description={{t
+            "dossierImport.detail.actions.confirmImport.description"
+          }}
+          @buttonLabel={{t
+            "dossierImport.detail.actions.confirmImport.buttonLabel"
+          }}
+        />
+      {{/if}}
+      {{#if (can "transmit dossier-import" this.import)}}
+        <DossierImportAction
+          @actionName="transmitImport"
+          @task={{this.transmitImport}}
+          @title={{t "dossierImport.detail.actions.transmitImport.title"}}
+          @description={{t
+            "dossierImport.detail.actions.transmitImport.description"
+          }}
+          @buttonLabel={{t
+            "dossierImport.detail.actions.transmitImport.buttonLabel"
+          }}
+        />
+      {{/if}}
+      {{#if (can "undo dossier-import" this.import)}}
+        <DossierImportAction
+          @actionName="undoImport"
+          @task={{this.undoImport}}
+          @title={{t "dossierImport.detail.actions.undoImport.title"}}
+          @description={{t
+            "dossierImport.detail.actions.undoImport.description"
+          }}
+          @buttonLabel={{t
+            "dossierImport.detail.actions.undoImport.buttonLabel"
+          }}
+        />
+      {{/if}}
+      {{#if (can "delete dossier-import" this.import)}}
+        <DossierImportAction
+          @actionName="deleteImport"
+          @task={{this.deleteImport}}
+          @title={{t "dossierImport.detail.actions.deleteImport.title"}}
+          @description={{t
+            "dossierImport.detail.actions.deleteImport.description"
+          }}
+          @buttonLabel={{t
+            "dossierImport.detail.actions.deleteImport.buttonLabel"
+          }}
+        />
+      {{/if}}
+      <DossierImportAction
+        @actionName="downloadImport"
+        @task={{this.downloadImport}}
+        @title={{t "dossierImport.detail.actions.downloadImport.title"}}
+        @description={{t
+          "dossierImport.detail.actions.downloadImport.description"
+        }}
+        @buttonLabel={{t
+          "dossierImport.detail.actions.downloadImport.buttonLabel"
+        }}
+      />
+    </div>
+  </DossierImportDetailBlock>
   <LinkTo
     data-test-imports-link
     class="uk-button uk-button-default uk-margin-bottom"

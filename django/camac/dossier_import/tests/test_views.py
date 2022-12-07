@@ -472,3 +472,15 @@ def test_failing_transmission(db, application_settings, requests_mock, dossier_i
     )
     transmit_import(dossier_import)
     assert dossier_import.status == DossierImport.IMPORT_STATUS_TRANSMISSION_FAILED
+
+
+@pytest.mark.parametrize("role__name", ["Support"])
+def test_download_import(db, admin_client, archive_file, dossier_import_factory):
+    dossier_import = dossier_import_factory(
+        source_file=archive_file("import-example.zip"),
+        group=admin_client.user.groups.first(),
+    )
+    resp = admin_client.get(
+        reverse("dossier-import-download", args=(dossier_import.pk,))
+    )
+    assert resp.status_code == status.HTTP_200_OK

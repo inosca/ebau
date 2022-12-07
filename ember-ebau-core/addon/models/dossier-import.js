@@ -8,6 +8,7 @@ export default class DossierImportModel extends Model {
   @attr status;
   @attr messages;
   @attr sourceFile;
+  @attr filename;
   @attr mimeType;
   @attr dossierLoaderType;
 

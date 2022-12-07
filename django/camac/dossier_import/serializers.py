@@ -31,10 +31,11 @@ class DossierImportSerializer(serializers.ModelSerializer):
             "id",
             "messages",
             "source_file",
+            "filename",
             "mime_type",
             "dossier_loader_type",
         )
-        read_only_fields = ("id", "created_at", "messages", "status")
+        read_only_fields = ("id", "created_at", "messages", "status", "filename")
 
     included_serializers = {
         "user": "camac.user.serializers.UserSerializer",

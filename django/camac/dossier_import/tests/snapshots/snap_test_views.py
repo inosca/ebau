@@ -10,6 +10,7 @@ snapshots = Snapshot()
 snapshots['test_validation_errors[import-example-validation-errors.zip-kt_bern-None-201-Gemeinde] 1'] = {
     'created-at': '2021-12-12T01:00:00+01:00',
     'dossier-loader-type': 'zip-archive-xlsx',
+    'filename': None,
     'messages': {
         'import': {
             'completed': None,
@@ -313,6 +314,7 @@ snapshots['test_validation_errors[import-example-validation-errors.zip-kt_bern-N
 snapshots['test_validation_errors[import-example-validation-errors.zip-kt_bern-None-201-municipality-lead] 1'] = {
     'created-at': '2021-12-12T01:00:00+01:00',
     'dossier-loader-type': 'zip-archive-xlsx',
+    'filename': None,
     'messages': {
         'import': {
             'completed': None,
@@ -642,6 +644,7 @@ snapshots['test_validation_errors[import-example-validation-errors.zip-kt_schwyz
 snapshots['test_validation_errors[import-example-validation-errors.zip-kt_schwyz-location-201-Gemeinde] 1'] = {
     'created-at': '2021-12-12T01:00:00+01:00',
     'dossier-loader-type': 'zip-archive-xlsx',
+    'filename': None,
     'messages': {
         'import': {
             'completed': None,
@@ -945,6 +948,7 @@ snapshots['test_validation_errors[import-example-validation-errors.zip-kt_schwyz
 snapshots['test_validation_errors[import-example-validation-errors.zip-kt_schwyz-location-201-municipality-lead] 1'] = {
     'created-at': '2021-12-12T01:00:00+01:00',
     'dossier-loader-type': 'zip-archive-xlsx',
+    'filename': None,
     'messages': {
         'import': {
             'completed': None,

@@ -7,6 +7,7 @@ from rest_framework.exceptions import ValidationError
 from rest_framework.response import Response
 from rest_framework_json_api.views import ModelViewSet
 
+from camac.core.views import SendfileHttpResponse
 from camac.dossier_import.domain_logic import (
     perform_import,
     transmit_import,
@@ -132,6 +133,17 @@ class DossierImportView(ModelViewSet):
         dossier_import.save()
 
         return Response({"task_id": task_id})
+
+    @action(methods=["GET"], url_path="download", detail=True)
+    def download(self, request, pk=None):
+        dossier_import = self.get_object()
+
+        return SendfileHttpResponse(
+            content_type="application/zip",
+            filename=dossier_import.filename(),
+            base_path=settings.MEDIA_ROOT,
+            file_path=f"/dossier_imports/files/{dossier_import.pk}/{dossier_import.filename()}",
+        )
 
     @permission_aware
     def has_object_undo_permission(self, instance):  # pragma: no cover
