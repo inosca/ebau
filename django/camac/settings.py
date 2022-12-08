@@ -1745,7 +1745,7 @@ APPLICATIONS = {
                     "SUBMITTED": INSTANCE_STATE_NEW,
                     "APPROVED": INSTANCE_STATE_EVALUATED,
                     "REJECTED": INSTANCE_STATE_EVALUATED,
-                    "WRITTEN_OFF": INSTANCE_STATE_EVALUATED,
+                    "WRITTEN OFF": INSTANCE_STATE_EVALUATED,
                     "DONE": INSTANCE_STATE_EVALUATED,
                 },
             },
