@@ -114,6 +114,7 @@ omit = [
     "camac/dossier_import/management/commands/fix_addresses_schuebelbach.py",
     "camac/instance/management/commands/fix_work_items.py",
     "camac/instance/management/commands/clean_deleted_instances.py",
+    "camac/instance/management/commands/fix_ech_sb1.py",
     "camac/core/management/commands/fix_applicants.py",
     "camac/data_migration/*",
     "camac/core/management/commands/migrate_rsta.py",
