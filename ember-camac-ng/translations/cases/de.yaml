@@ -1,4 +1,6 @@
 cases:
+  no-filters: "Bitte füllen Sie im Minimum einen Filter aus um nach einem Dossier zu suchen"
+
   tableHeaders:
     address: "Adresse"
     applicant: "Gesuchsteller"

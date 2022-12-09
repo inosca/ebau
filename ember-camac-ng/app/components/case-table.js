@@ -1,5 +1,6 @@
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
+import { isEmpty } from "@ember/utils";
 import { getOwnConfig, macroCondition } from "@embroider/macros";
 import Component from "@glimmer/component";
 import { useCalumaQuery } from "@projectcaluma/ember-core/caluma-query";
@@ -39,6 +40,14 @@ export default class CaseTableComponent extends Component {
       },
     },
   }));
+
+  get showEntries() {
+    if (!this.shoebox.isSupportRole) {
+      return true;
+    }
+
+    return Object.values(this.args.filter).some((filter) => !isEmpty(filter));
+  }
 
   get isService() {
     return this.shoebox.baseRole === "service";
