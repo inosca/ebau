@@ -293,7 +293,7 @@ snapshots['test_validation_errors[import-example-validation-errors.zip-kt_bern-N
                 ],
                 'stats': {
                     'attachments': 4,
-                    'dossiers': 0
+                    'dossiers': 2
                 },
                 'warning': [
                     '''5 Dossiers haben ein ungültiges Datum. Datumsangaben bitte im Format "DD.MM.YYYY" (e.g. "13.04.2021") machen. Betroffene Dossiers:
@@ -597,7 +597,7 @@ snapshots['test_validation_errors[import-example-validation-errors.zip-kt_bern-N
                 ],
                 'stats': {
                     'attachments': 4,
-                    'dossiers': 0
+                    'dossiers': 2
                 },
                 'warning': [
                     '''5 Dossiers haben ein ungültiges Datum. Datumsangaben bitte im Format "DD.MM.YYYY" (e.g. "13.04.2021") machen. Betroffene Dossiers:
@@ -927,7 +927,7 @@ snapshots['test_validation_errors[import-example-validation-errors.zip-kt_schwyz
                 ],
                 'stats': {
                     'attachments': 4,
-                    'dossiers': 0
+                    'dossiers': 2
                 },
                 'warning': [
                     '''5 Dossiers haben ein ungültiges Datum. Datumsangaben bitte im Format "DD.MM.YYYY" (e.g. "13.04.2021") machen. Betroffene Dossiers:
@@ -1231,7 +1231,7 @@ snapshots['test_validation_errors[import-example-validation-errors.zip-kt_schwyz
                 ],
                 'stats': {
                     'attachments': 4,
-                    'dossiers': 0
+                    'dossiers': 2
                 },
                 'warning': [
                     '''5 Dossiers haben ein ungültiges Datum. Datumsangaben bitte im Format "DD.MM.YYYY" (e.g. "13.04.2021") machen. Betroffene Dossiers:
