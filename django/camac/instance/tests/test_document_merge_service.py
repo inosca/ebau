@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 import pytest
@@ -6,6 +7,7 @@ from caluma.caluma_user.models import BaseUser
 from django.conf import settings
 from django.core.cache import cache
 from django.core.management import call_command
+from django.utils.timezone import make_aware
 from django.utils.translation import gettext as _
 from rest_framework import exceptions, status
 
@@ -133,6 +135,7 @@ def test_document_merge_service_cover_sheet_with_header_values(
     snapshot,
     application_settings,
     master_data_is_visible_mock,
+    freezer,
 ):
     application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_bern"][
         "MASTER_DATA"
@@ -216,6 +219,11 @@ def test_document_merge_service_cover_sheet_with_header_values(
         slug="1",
         label="Testhausen",
     )
+
+    be_instance.case.document.created_at = make_aware(datetime(2022, 8, 3, 9, 19))
+    be_instance.case.document.save()
+
+    freezer.move_to("2022-09-07 12:01")
 
     snapshot.assert_match(
         DMSHandler().get_meta_data(

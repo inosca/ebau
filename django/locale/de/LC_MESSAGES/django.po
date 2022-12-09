@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-30 17:08+0100\n"
-"PO-Revision-Date: 2022-11-30 17:10+0100\n"
+"PO-Revision-Date: 2022-12-09 11:07+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -411,10 +411,20 @@ msgstr "Unterschrift"
 msgid "Place and date"
 msgstr "Ort und Datum"
 
-#: camac/instance/document_merge_service.py:177
+#: camac/instance/document_merge_service.py:187
 #, python-format
 msgid "Created %(date)s at %(time)s"
 msgstr "Erstellt am %(date)s um %(time)s"
+
+#: camac/instance/document_merge_service.py:177
+#, python-format
+msgid "Generated %(date)s at %(time)s"
+msgstr "Generiert am %(date)s um %(time)s"
+
+#: camac/instance/document_merge_service.py:182
+#, python-format
+msgid "Modified %(date)s at %(time)s"
+msgstr "Zuletzt bearbeitet am %(date)s um %(time)s"
 
 #: camac/instance/document_merge_service.py:267
 #, python-format
