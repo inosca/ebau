@@ -155,7 +155,7 @@ class UserAdmin(MultilingualAdmin, ModelAdmin):
     list_filter = [DisabledFilter]
     list_per_page = 20
     ordering = ["pk"]
-    readonly_fields = ["username", "last_login"]
+    readonly_fields = ["last_login"]
     search_fields = ["username", "name", "surname", "email"]
 
     @transaction.atomic
