@@ -110,7 +110,7 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
             request=self.request,
         )
 
-        instance_ids = filtered.qs.values_list("pk", flat=True)
+        instance_ids = list(filtered.qs.values_list("pk", flat=True))
 
         setattr(info.context, "_visibility_instances_cache", instance_ids)
         return instance_ids

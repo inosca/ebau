@@ -11,63 +11,71 @@
     </tr>
   </thead>
   <tbody>
-    {{#each this.casesQuery.value as |node|}}
-      <tr
-        role="link"
-        class="pointer {{
-          if
-          node.activationWarning
-          (concat "activation-warning-row " node.activationWarning)
-        }}"
-        {{on "click" (fn this.redirectToCase node)}}
-      >
-        {{#each this.tableColumns as |tColumn|}}
-          <td
-            class="
-              {{if (eq tColumn.name "intent") "uk-text-truncate uk-table-expand"}}
-              {{if (includes tColumn.name (array "applicants" "address")) "uk-text-break"}}
-            "
-            title={{if (eq tColumn.name "instanceState") (get node "instanceStateDescription")}}
-          >
-            {{#if (eq tColumn.name "applicant")}}
-              {{get node (concat tColumn.name ".name")}}
-            {{else if (eq tColumn.name "processingDeadline")}}
-              {{date-from-now (get node tColumn.name)}}
+    {{#if this.showEntries}}
+      {{#each this.casesQuery.value as |node|}}
+        <tr
+          role="link"
+          class="pointer {{
+            if
+            node.activationWarning
+            (concat "activation-warning-row " node.activationWarning)
+          }}"
+          {{on "click" (fn this.redirectToCase node)}}
+        >
+          {{#each this.tableColumns as |tColumn|}}
+            <td
+              class="
+                {{if (eq tColumn.name "intent") "uk-text-truncate uk-table-expand"}}
+                {{if (includes tColumn.name (array "applicants" "address")) "uk-text-break"}}
+              "
+              title={{if (eq tColumn.name "instanceState") (get node "instanceStateDescription")}}
+            >
+              {{#if (eq tColumn.name "applicant")}}
+                {{get node (concat tColumn.name ".name")}}
+              {{else if (eq tColumn.name "processingDeadline")}}
+                {{date-from-now (get node tColumn.name)}}
+              {{else}}
+                {{get node tColumn.name}}
+              {{/if}}
+            </td>
+          {{/each}}
+        </tr>
+      {{else}}
+        <tr>
+          <td colspan={{this.tableColumns.length}} class="uk-text-center">
+            {{#if this.casesQuery.isLoading}}
+              <UkSpinner />
             {{else}}
-              {{get node tColumn.name}}
+              {{t "global.empty"}}
             {{/if}}
           </td>
-        {{/each}}
-      </tr>
+        </tr>
+      {{/each}}
+
+      {{#if this.casesQuery.hasNextPage}}
+        <tr>
+          <td colspan={{this.tableColumns.length}} class="uk-text-center">
+            {{#if this.casesQuery.isLoading}}
+              <UkSpinner @ratio="0.5" />
+            {{else}}
+              <button type="button" class="uk-button uk-button-link" {{on "click" this.casesQuery.fetchMore}}>
+                {{t "global.loadMore"}}
+              </button>
+            {{/if}}
+          </td>
+        </tr>
+      {{/if}}
     {{else}}
       <tr>
         <td colspan={{this.tableColumns.length}} class="uk-text-center">
-          {{#if this.casesQuery.isLoading}}
-            <UkSpinner />
-          {{else}}
-            {{t "global.empty"}}
-          {{/if}}
-        </td>
-      </tr>
-    {{/each}}
-
-    {{#if this.casesQuery.hasNextPage}}
-      <tr>
-        <td colspan={{this.tableColumns.length}} class="uk-text-center">
-          {{#if this.casesQuery.isLoading}}
-            <UkSpinner @ratio="0.5" />
-          {{else}}
-            <button type="button" class="uk-button uk-button-link" {{on "click" this.casesQuery.fetchMore}}>
-              {{t "global.loadMore"}}
-            </button>
-          {{/if}}
+          {{t "cases.no-filters"}}
         </td>
       </tr>
     {{/if}}
   </tbody>
 </table>
 
-{{#if this.casesQuery.value.length}}
+{{#if (and this.showEntries this.casesQuery.value.length)}}
   <div class="uk-margin" uk-grid>
     {{#if (macroCondition (macroGetOwnConfig "isBE"))}}
       <div>
