@@ -171,7 +171,7 @@ def validate_zip_archive_structure(instance_pk, clean_on_fail=True) -> DossierIm
             (r[id_column].value, r[date_column.col_idx - 1].value) for r in rows
         ]:
             try:
-                assert value is None or type(value) == datetime.datetime
+                assert not value or type(value) == datetime.datetime
             except AssertionError:
                 messages.append_or_update_dossier_message(
                     dossier_id,
@@ -180,18 +180,13 @@ def validate_zip_archive_structure(instance_pk, clean_on_fail=True) -> DossierIm
                     MessageCodes.DATE_FIELD_VALIDATION_ERROR.value,
                     dossier_msgs,
                 )
-                try:
-                    dossiers_success.remove(dossier_id)
-                except ValueError:
-                    pass
-                continue
 
     if status_column:
         for dossier_id, status in [
             (r[id_column].value, r[status_column].value) for r in rows
         ]:
             if status not in [e.value for e in TargetStatus]:
-                if status is None:
+                if not status:
                     messages.append_or_update_dossier_message(
                         dossier_id,
                         "status",
