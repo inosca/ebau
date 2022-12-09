@@ -1,4 +1,6 @@
 cases:
+  no-filters: "Veuillez remplir au minimum un filtre pour rechercher un dossier"
+
   tableHeaders:
     address: "Adresse"
     applicant: ""
