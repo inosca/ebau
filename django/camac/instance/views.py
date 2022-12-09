@@ -36,6 +36,7 @@ from camac.constants import kt_uri as ur_constants
 from camac.core.models import InstanceService, PublicationEntry, WorkflowEntry
 from camac.core.views import SendfileHttpResponse
 from camac.document.models import Attachment, AttachmentSection
+from camac.instance.utils import build_document_prefetch_statements
 from camac.notification.utils import send_mail
 from camac.swagger.utils import get_operation_description, group_param
 from camac.user.models import Service
@@ -1363,10 +1364,7 @@ class PublicCalumaInstanceView(mixins.InstanceQuerysetMixin, ListAPIView):
             super()
             .get_queryset_for_public()
             .prefetch_related(
-                "document__answers",
-                "document__answers__answerdocument_set",
-                "document__answers__answerdocument_set__document__answers",
-                "document__dynamicoption_set",
+                *build_document_prefetch_statements(prefix="document"),
             )
             .annotate(instance_id=F("instance__pk"))
         )
@@ -1408,10 +1406,7 @@ class PublicCalumaInstanceView(mixins.InstanceQuerysetMixin, ListAPIView):
             super()
             .get_queryset_for_oereb_api(self.request.group)
             .prefetch_related(
-                "document__answers",
-                "document__answers__answerdocument_set",
-                "document__answers__answerdocument_set__document__answers",
-                "document__dynamicoption_set",
+                *build_document_prefetch_statements(prefix="document"),
             )
             .annotate(instance_id=F("instance__pk"))
         )

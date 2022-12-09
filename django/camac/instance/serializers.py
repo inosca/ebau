@@ -2080,10 +2080,13 @@ class PublicCalumaInstanceSerializer(serializers.Serializer):  # pragma: no cove
     _master_data_cache = {}
 
     def get_master_data(self, case):
-        if case.pk not in self._master_data_cache:
-            self._master_data_cache[case.pk] = MasterData(case)
+        request = self.context["request"]
+        if not hasattr(request, "_master_data_cache"):
+            request._master_data_cache = {}
+        if case.pk not in request._master_data_cache:
+            request._master_data_cache[case.pk] = MasterData(case)
 
-        return self._master_data_cache[case.pk]
+        return request._master_data_cache[case.pk]
 
     def get_municipality(self, case):
         municipality = self.get_master_data(case).municipality

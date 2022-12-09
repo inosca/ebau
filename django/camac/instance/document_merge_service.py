@@ -3,12 +3,11 @@ import re
 from importlib import import_module
 
 import requests
-from caluma.caluma_form.models import AnswerDocument, Document, Option, Question
+from caluma.caluma_form.models import Document, Question
 from caluma.caluma_form.validators import CustomValidationError, DocumentValidator
 from django.conf import settings
 from django.core.files.base import ContentFile
 from django.core.serializers.json import DjangoJSONEncoder
-from django.db.models import Prefetch
 from django.utils.text import slugify
 from django.utils.timezone import localtime
 from django.utils.translation import get_language, gettext as _
@@ -18,6 +17,7 @@ from rest_framework.authentication import get_authorization_header
 from camac.instance.master_data import MasterData
 from camac.instance.models import Instance
 from camac.instance.placeholders.utils import clean_join, get_person_name
+from camac.instance.utils import build_document_prefetch_statements
 from camac.utils import build_url
 
 
@@ -32,73 +32,6 @@ def find_in_result(slug, node):
             return result
 
     return None
-
-
-def build_document_prefetch_statements(prefix="", prefetch_options=False):
-    """Build needed prefetch statements to performantly fetch a document.
-
-    This is needed to reduce the query count when generating a PDF for a certain
-    document which needs almost all of the form data (forms, questions and
-    options in the right order and down the whole tree).
-    """
-
-    question_queryset = Question.objects.select_related(
-        "sub_form", "row_form"
-    ).order_by("-formquestion__sort")
-
-    if prefetch_options:
-        question_queryset = question_queryset.prefetch_related(
-            Prefetch(
-                "options",
-                queryset=Option.objects.order_by("-questionoption__sort"),
-            )
-        )
-
-    if prefix:
-        prefix += "__"
-
-    return [
-        f"{prefix}answers",
-        Prefetch(
-            f"{prefix}answers__answerdocument_set",
-            queryset=AnswerDocument.objects.select_related("document__form")
-            .prefetch_related("document__answers")
-            .order_by("-sort"),
-        ),
-        Prefetch(
-            # root form -> questions
-            f"{prefix}form__questions",
-            queryset=question_queryset.prefetch_related(
-                Prefetch(
-                    # root form -> row forms -> questions
-                    "row_form__questions",
-                    queryset=question_queryset,
-                ),
-                Prefetch(
-                    # root form -> sub forms -> questions
-                    "sub_form__questions",
-                    queryset=question_queryset.prefetch_related(
-                        Prefetch(
-                            # root form -> sub forms -> row forms -> questions
-                            "row_form__questions",
-                            queryset=question_queryset,
-                        ),
-                        Prefetch(
-                            # root form -> sub forms -> sub forms -> questions
-                            "sub_form__questions",
-                            queryset=question_queryset.prefetch_related(
-                                Prefetch(
-                                    # root form -> sub forms -> sub forms -> row forms -> questions
-                                    "row_form__questions",
-                                    queryset=question_queryset,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-            ),
-        ),
-    ]
 
 
 def get_form_config():
@@ -233,7 +166,6 @@ class DMSHandler:
                 "case", "case__document", "case__document__form"
             )
             .prefetch_related(
-                "case__document__dynamicoption_set",
                 *build_document_prefetch_statements(
                     prefix="case__document", prefetch_options=use_root_document
                 ),
