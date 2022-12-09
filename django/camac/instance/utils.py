@@ -1,5 +1,6 @@
-from caluma.caluma_form.models import Answer
+from caluma.caluma_form.models import Answer, AnswerDocument, Option, Question
 from caluma.caluma_workflow.models import WorkItem
+from django.db.models import Prefetch
 from django.utils.translation import gettext as _
 
 from camac.caluma.api import CalumaApi
@@ -69,4 +70,72 @@ def should_continue_after_decision(instance: Instance, work_item: WorkItem) -> b
     ) or decision_type in [
         DECISION_TYPE_CONSTRUCTION_TEE_WITH_RESTORATION,
         DECISION_TYPE_PARTIAL_PERMIT_WITH_PARTIAL_CONSTRUCTION_TEE_AND_PARTIAL_RESTORATION,
+    ]
+
+
+def build_document_prefetch_statements(prefix="", prefetch_options=False):
+    """Build needed prefetch statements to performantly fetch a document.
+
+    This is needed to reduce the query count when almost all the form data
+    is needed for a given document, e.g. when exporting a PDF or listing public
+    instances (master data).
+    """
+
+    question_queryset = Question.objects.select_related(
+        "sub_form", "row_form"
+    ).order_by("-formquestion__sort")
+
+    if prefetch_options:
+        question_queryset = question_queryset.prefetch_related(
+            Prefetch(
+                "options",
+                queryset=Option.objects.order_by("-questionoption__sort"),
+            )
+        )
+
+    if prefix:
+        prefix += "__"
+
+    return [
+        f"{prefix}answers",
+        f"{prefix}dynamicoption_set",
+        Prefetch(
+            f"{prefix}answers__answerdocument_set",
+            queryset=AnswerDocument.objects.select_related("document__form")
+            .prefetch_related("document__answers", "document__form__questions")
+            .order_by("-sort"),
+        ),
+        Prefetch(
+            # root form -> questions
+            f"{prefix}form__questions",
+            queryset=question_queryset.prefetch_related(
+                Prefetch(
+                    # root form -> row forms -> questions
+                    "row_form__questions",
+                    queryset=question_queryset,
+                ),
+                Prefetch(
+                    # root form -> sub forms -> questions
+                    "sub_form__questions",
+                    queryset=question_queryset.prefetch_related(
+                        Prefetch(
+                            # root form -> sub forms -> row forms -> questions
+                            "row_form__questions",
+                            queryset=question_queryset,
+                        ),
+                        Prefetch(
+                            # root form -> sub forms -> sub forms -> questions
+                            "sub_form__questions",
+                            queryset=question_queryset.prefetch_related(
+                                Prefetch(
+                                    # root form -> sub forms -> sub forms -> row forms -> questions
+                                    "row_form__questions",
+                                    queryset=question_queryset,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+        ),
     ]

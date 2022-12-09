@@ -1,6 +1,6 @@
 import datetime
-from enum import Enum
 import zipfile
+from enum import Enum
 from typing import List
 
 import openpyxl
@@ -14,8 +14,8 @@ from camac.dossier_import.models import DossierImport
 
 from .config.common import mimetypes
 from .dossier_classes import Dossier
-from .messages import MessageCodes
 from .loaders import XlsxFileDossierLoader
+from .messages import MessageCodes
 
 
 class TargetStatus(Enum):
