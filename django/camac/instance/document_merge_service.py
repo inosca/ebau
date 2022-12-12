@@ -9,7 +9,7 @@ from django.conf import settings
 from django.core.files.base import ContentFile
 from django.core.serializers.json import DjangoJSONEncoder
 from django.utils.text import slugify
-from django.utils.timezone import localtime
+from django.utils.timezone import get_current_timezone, localtime
 from django.utils.translation import get_language, gettext as _
 from rest_framework import exceptions, status
 from rest_framework.authentication import get_authorization_header
@@ -92,7 +92,15 @@ def get_header_labels():
 class DMSHandler:
     def get_meta_data(self, instance, document, service):
         master_data = MasterData(instance.case)
-        created_at = localtime()
+        timezone = get_current_timezone()
+
+        generated_at = localtime()
+        created_at = document.created_at.astimezone(timezone)
+        modified_at = (
+            document.modified_content_at.astimezone(timezone)
+            if document.modified_content_at
+            else created_at
+        )
 
         data = {
             "caseId": instance.pk,
@@ -107,6 +115,16 @@ class DMSHandler:
             "signatureSectionTitle": _("Signatures"),
             "signatureTitle": _("Signature"),
             "signatureMetadata": _("Place and date"),
+            "generatedAt": _("Generated %(date)s at %(time)s")
+            % {
+                "date": generated_at.strftime("%d.%m.%Y"),
+                "time": generated_at.strftime("%H:%M"),
+            },
+            "modifiedAt": _("Modified %(date)s at %(time)s")
+            % {
+                "date": modified_at.strftime("%d.%m.%Y"),
+                "time": modified_at.strftime("%H:%M"),
+            },
             "createdAt": _("Created %(date)s at %(time)s")
             % {
                 "date": created_at.strftime("%d.%m.%Y"),
