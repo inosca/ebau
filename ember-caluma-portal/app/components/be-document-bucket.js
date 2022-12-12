@@ -29,7 +29,7 @@ export default class BeDocumentBucketComponent extends Component {
   @tracked attachmentLoading = [];
 
   get allowedMimetypes() {
-    return config.ebau.attachments.allowedMimetypes.join(",");
+    return config.ebau.attachments.allowedMimetypes;
   }
 
   get useConfidential() {
@@ -68,15 +68,7 @@ export default class BeDocumentBucketComponent extends Component {
   }
 
   @action
-  validateFile(file) {
-    const isValidMimeType = config.ebau.attachments.allowedMimetypes.includes(
-      file.type
-    );
-
-    if (!isValidMimeType) {
-      this.notification.danger(this.intl.t("documents.wrongMimeType"));
-    }
-
-    return isValidMimeType && !this.args.disabled;
+  onValidationError() {
+    this.notification.danger(this.intl.t("documents.wrongMimeType"));
   }
 }

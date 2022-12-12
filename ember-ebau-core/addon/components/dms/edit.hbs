@@ -61,27 +61,11 @@
             </button>
           </span>
         {{else}}
-          {{#let (file-queue onFileAdded=this.setTemplate) as |queue|}}
-            <FileDropzone @queue={{queue}} @filter={{this.validateTemplate}} as |dropzone|>
-              <div class="uk-placeholder uk-margin-remove uk-text-center uk-padding-medium uk-flex uk-flex-middle uk-flex-center uk-flex-column {{if dropzone.active "uk-box-shadow-medium"}}">
-                <UkIcon @icon="cloud-upload" @ratio={{3}} class="uk-margin-bottom" />
-                <div class="uk-text-muted">
-                  {{t "dms.drag"}}
-                  <label for="template">
-                    <span role="button" tabindex="0" aria-controls="template" class="uk-link">{{t "dms.click"}}</span>
-                  </label>
-                  <input
-                    type="file"
-                    id="template"
-                    accept={{array ".docx" ".xlsx"}}
-                    hidden
-                    required
-                    {{queue.selectFile filter=this.validateTemplate}}
-                  >
-                </div>
-              </div>
-            </FileDropzone>
-          {{/let}}
+          <Dropzone
+            @allowedMimetypes={{this.mimetypes}}
+            @onValidationError={{this.onValidationError}}
+            @onFileAdded={{this.setTemplate}}
+          />
         {{/if}}
       </div>
     </div>

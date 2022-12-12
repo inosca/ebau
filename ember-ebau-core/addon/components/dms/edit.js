@@ -26,6 +26,10 @@ export default class DmsEditComponent extends Component {
     return await this.store.findRecord("template", this.args.slug);
   });
 
+  get mimetypes() {
+    return Object.keys(MIME_TYPE_TO_ENGINE);
+  }
+
   @action
   setTemplate({ file }) {
     this.template.value.template = file;
@@ -33,14 +37,8 @@ export default class DmsEditComponent extends Component {
   }
 
   @action
-  validateTemplate(file) {
-    if (!Object.keys(MIME_TYPE_TO_ENGINE).includes(file.type)) {
-      this.notification.danger(this.intl.t("dms.validation-error"));
-
-      return false;
-    }
-
-    return true;
+  onValidationError() {
+    this.notification.danger(this.intl.t("dms.validation-error"));
   }
 
   @action
