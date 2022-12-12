@@ -19,41 +19,31 @@
       {{/if}}
     </div>
   {{else}}
-    {{#let (file-queue name=this.slug onFileAdded=(perform this.upload)) as |queue|}}
-      <FileDropzone @queue={{queue}} @filter={{this.validateFile}} @multiple={{true}} as |dropzone|>
-        <div class="uk-placeholder uk-margin-remove uk-text-center uk-padding-medium uk-flex uk-flex-middle uk-flex-center uk-flex-column {{if dropzone.active "uk-box-shadow-medium"}}">
-          <p class="uk-margin-right uk-margin-left">{{t (concat "documents.buckets." this.slug)}}</p>
-          <UkIcon @icon="cloud-upload" @ratio={{3}} class="uk-margin-bottom" />
-          <div class="uk-text-small uk-text-muted">
-            {{#if dropzone.supported}}{{t "documents.drag"}}{{/if}}
-            <label for="upload-{{this.slug}}">
-              <span role="button" tabindex="0" aria-controls="upload-{{this.slug}}" class="uk-link">{{t "documents.click"}}</span>
-            </label>
-            <input
-              type="file"
-              id="upload-{{this.slug}}"
-              accept={{this.allowedMimetypes}}
-              multiple
-              hidden
-              {{queue.selectFile filter=this.validateFile}}
-            >
+    <Dropzone
+      @multiple={{true}}
+      @allowedMimetypes={{this.allowedMimetypes}}
+      @onFileAdded={{perform this.upload}}
+      @onValidationError={{this.onValidationError}}
+      class="uk-text-meta"
+    >
+      <:header>
+        <p class="uk-margin-right uk-margin-left">{{t (concat "documents.buckets." this.slug)}}</p>
+      </:header>
+      <:footer>
+        {{#if (or @loading @attachments.length)}}
+          <div class="uk-text-left uk-margin uk-width-1-1">
+            <BeAttachmentList
+              @loading={{@loading}}
+              @attachments={{@attachments}}
+              @deletable={{@deletable}}
+              @onDelete={{perform this.delete}}
+              @useConfidential={{this.useConfidential}}
+              @onConfidential={{this.toggleConfidential}}
+              @attachmentLoading={{this.attachmentLoading}}
+            />
           </div>
-
-          {{#if (or @loading @attachments.length)}}
-            <div class="uk-text-left uk-margin uk-width-1-1">
-              <BeAttachmentList
-                @loading={{@loading}}
-                @attachments={{@attachments}}
-                @deletable={{@deletable}}
-                @onDelete={{perform this.delete}}
-                @useConfidential={{this.useConfidential}}
-                @onConfidential={{this.toggleConfidential}}
-                @attachmentLoading={{this.attachmentLoading}}
-              />
-            </div>
-          {{/if}}
-        </div>
-      </FileDropzone>
-    {{/let}}
+        {{/if}}
+      </:footer>
+    </Dropzone>
   {{/if}}
 </div>
