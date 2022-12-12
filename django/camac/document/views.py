@@ -19,6 +19,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.serializers import Serializer
 from rest_framework_json_api.views import ModelViewSet, ReadOnlyModelViewSet
 from sorl.thumbnail import get_thumbnail
+from sorl.thumbnail.engines.convert_engine import EngineError
 
 from camac.core.views import SendfileHttpResponse
 from camac.instance.mixins import InstanceEditableMixin, InstanceQuerysetMixin
@@ -226,20 +227,21 @@ class AttachmentView(
     @action(methods=["get"], detail=True)
     @swagger_auto_schema(auto_schema=None)
     def thumbnail(self, request, pk=None):
-        attachment = self.get_object()
-        path = attachment.path
         try:
+            attachment = self.get_object()
+            path = attachment.path
             thumbnail = get_thumbnail(
                 path, geometry_string=settings.APPLICATION.get("THUMBNAIL_SIZE")
             )
-
-        # no proper exception handling in sorl thumbnail when image type is
-        # invalid - workaround catching AttributeError
-        # ValueError occures if the document holds an empty file
-        # Could happen with Prefecta imported documents, missing the file
-        except (AttributeError, ValueError):
+            return HttpResponse(thumbnail.read(), "image/jpeg")
+        # Since sorl-thumnail doesn't do error handling properly, we catch all
+        # possible (sometimes even expected) errors here and return a 404:
+        # - AttributeError: no file given (e.g from RSTA import)
+        # - ValueError: document holds an empty file
+        # - FileNotFoundError: path not found
+        # - EngineError: sorl-thumbnail engine throws an error
+        except (AttributeError, ValueError, FileNotFoundError, EngineError):
             raise exceptions.NotFound()
-        return HttpResponse(thumbnail.read(), "image/jpeg")
 
 
 attachments_param = openapi.Parameter(
