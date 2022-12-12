@@ -149,12 +149,15 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
     def get_linked_instances(self, obj):
         if not obj.instance_group:
             return models.Instance.objects.none()
-        return (
-            self.context["view"]
-            .get_queryset()
-            .filter(instance_group=obj.instance_group)
-            .exclude(pk=obj.pk)
+
+        queryset = self.context["view"].get_queryset()
+        _filter = (
+            {"instance__instance_group": obj.instance_group}
+            if queryset.model is models.FormField
+            else {"instance_group": obj.instance_group}
         )
+
+        return queryset.filter(**_filter).exclude(pk=obj.pk)
 
     def get_circulation_initializer_services(self, obj):
         return Service.objects.filter(
