@@ -51,6 +51,9 @@
           </AriaHeading>
         </Tab.item>
       {{/if}}
+      {{#if (macroCondition (macroGetOwnConfig "enableInstanceSupport"))}}
+        <InstanceSupport @instance={{this.instance.value}} />
+      {{/if}}
     </UkTab>
   {{/if}}
 
