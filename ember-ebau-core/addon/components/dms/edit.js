@@ -12,11 +12,12 @@ export default class DmsEditComponent extends Component {
   @service store;
   @service intl;
   @service notification;
+  @service ebauModules;
 
   template = trackedFunction(this, async () => {
     if (!this.args.slug) {
       return this.store.createRecord("template", {
-        group: String(this.args.serviceId),
+        group: String(this.ebauModules.serviceId),
       });
     }
 
@@ -48,7 +49,9 @@ export default class DmsEditComponent extends Component {
 
     this.template.value.rollbackAttributes();
 
-    this.router.transitionTo(`${this.args.baseRoute}.index`);
+    this.router.transitionTo(
+      this.ebauModules.resolveModuleRoute("dms-admin", "index")
+    );
   }
 
   @dropTask
@@ -58,7 +61,9 @@ export default class DmsEditComponent extends Component {
     try {
       yield this.template.value.destroyRecord();
 
-      this.router.transitionTo(`${this.args.baseRoute}.index`);
+      this.router.transitionTo(
+        this.ebauModules.resolveModuleRoute("dms-admin", "index")
+      );
     } catch (error) {
       this.notification.danger(this.intl.t("dms.delete-error"));
     }
@@ -71,7 +76,9 @@ export default class DmsEditComponent extends Component {
     try {
       yield this.template.value.save();
 
-      this.router.transitionTo(`${this.args.baseRoute}.index`);
+      this.router.transitionTo(
+        this.ebauModules.resolveModuleRoute("dms-admin", "index")
+      );
     } catch (error) {
       if (
         error instanceof AdapterError &&
