@@ -1,0 +1,27 @@
+query InstanceSupport($instanceId: GenericScalar!) {
+  allCases(
+    filter: [{ metaValue: { key: "camac-instance-id", value: $instanceId } }]
+  ) {
+    edges {
+      node {
+        id
+        document {
+          id
+          form {
+            slug
+          }
+          municipality: answers(filter: [{ questions: ["gemeinde"] }]) {
+            edges {
+              node {
+                id
+                ... on StringAnswer {
+                  value
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

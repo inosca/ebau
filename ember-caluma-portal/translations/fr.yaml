@@ -157,7 +157,8 @@ gis:
 support:
   title-support: "Support technique (24/7)"
   title-questions: "Questions concernant la procédure"
-  info: "Pour toute question concernant la procédure, veuillez contacter la municipalité responsable"
+  info: "Pour les questions concernant la procédure, veuillez-vous adresser à l'autorité compétente ou utiliser la fonction d'aide '<span uk-icon=question ratio=0.75'>'</span'> dans le dossier concerné."
+
   phone: "+41 31 636 99 96"
   email: ""
   subject: ""
