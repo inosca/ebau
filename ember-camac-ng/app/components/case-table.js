@@ -393,7 +393,7 @@ export default class CaseTableComponent extends Component {
       ...(macroCondition(getOwnConfig().application === "be")
         ? {
             "fields[instances]":
-              "id,name,decision,decision_date,involved_at,instance_state",
+              "id,name,decision,decision_date,involved_at,instance_state,is_paper",
           }
         : {}),
     });
