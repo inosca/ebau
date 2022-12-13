@@ -3,7 +3,7 @@
 {{else}}
   <div class="uk-flex uk-flex-between uk-flex-middle uk-margin-bottom">
     <h2 class="uk-margin-remove">{{t "dms.own"}}</h2>
-    <LinkTo @route={{concat @baseRoute ".new"}} class="uk-button uk-button-primary">
+    <LinkTo @route={{module-route "dms-admin" "new"}} class="uk-button uk-button-primary">
       {{t "dms.new"}}
     </LinkTo>
   </div>
@@ -26,7 +26,7 @@
             <td>{{or template.meta.category "-"}}</td>
             <td class="uk-text-right">
               <LinkTo
-                @route={{concat @baseRoute ".edit"}}
+                @route={{module-route "dms-admin" "edit"}}
                 @model={{template.id}}
                 class="uk-button uk-button-link uk-margin-small-right"
                 {{uk-tooltip (t "dms.edit") pos="left"}}
