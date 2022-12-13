@@ -18,6 +18,26 @@ from camac.user.models import Role, Service
 from camac.utils import filters, order
 
 
+def work_item_by_addressed_service_condition(service_condition):
+    return Exists(
+        Service.objects.filter(
+            Q(
+                # Use element = ANY(array) operator to check if
+                # element is present in ArrayField, which requires
+                # lhs and rhs of expression to be of same type
+                pk=Func(
+                    Cast(
+                        OuterRef("addressed_groups"),
+                        output_field=ArrayField(IntegerField()),
+                    ),
+                    function="ANY",
+                )
+            )
+            & Q(service_condition)
+        )
+    )
+
+
 class CustomVisibility(Authenticated, InstanceQuerysetMixin):
     """Custom visibility for Kanton Bern.
 
@@ -237,13 +257,10 @@ class CustomVisibilitySZ(CustomVisibility):
 
     @filter_queryset_for(workflow_schema.WorkItem)
     def filter_queryset_for_work_items(self, node, queryset, info):
+        queryset = super().filter_queryset_for_work_items(node, queryset, info)
+
         visibility_config = settings.APPLICATION.get("INTER_SERVICE_GROUP_VISIBILITIES")
-
         service = self.request.group.service
-
-        queryset = queryset.filter(
-            case__family__instance__pk__in=self._all_visible_instances(info)
-        )
 
         if not service:
             return queryset
@@ -258,22 +275,40 @@ class CustomVisibilitySZ(CustomVisibility):
                     Q(task_id=settings.DISTRIBUTION["INQUIRY_TASK"])
                     & ~Q(addressed_groups__contains=[service.pk])
                     & ~Q(controlling_groups__contains=[service.pk]),
-                    then=Exists(
-                        Service.objects.filter(
-                            # Use element = ANY(array) operator to check if
-                            # element is present in ArrayField, which requires
-                            # lhs and rhs of expression to be of same type
-                            pk=Func(
-                                Cast(
-                                    OuterRef("addressed_groups"),
-                                    output_field=ArrayField(IntegerField()),
-                                ),
-                                function="ANY",
-                            ),
+                    then=work_item_by_addressed_service_condition(
+                        Q(
                             service_group__pk__in=visibility_config.get(
                                 service.service_group_id, []
-                            ),
+                            )
                         )
+                    ),
+                ),
+                default=True,
+            ),
+        )
+
+
+class CustomVisibilityBE(CustomVisibility):
+    @filter_queryset_for(workflow_schema.WorkItem)
+    def filter_queryset_for_work_items(self, node, queryset, info):
+        queryset = super().filter_queryset_for_work_items(node, queryset, info)
+
+        service = self.request.group.service
+
+        if not service:  # pragma: no cover
+            return queryset
+
+        # Inquiries in which the current service is not involved are only
+        # visible if they are not addressed to subservices or if the current
+        # service is the parent service of the addressed subservice.
+        return queryset.filter(
+            Case(
+                When(
+                    Q(task_id=settings.DISTRIBUTION["INQUIRY_TASK"])
+                    & ~Q(addressed_groups__contains=[service.pk])
+                    & ~Q(controlling_groups__contains=[service.pk]),
+                    then=work_item_by_addressed_service_condition(
+                        Q(service_parent__isnull=True) | Q(service_parent_id=service.pk)
                     ),
                 ),
                 default=True,
