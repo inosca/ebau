@@ -219,6 +219,7 @@ module.exports = function (environment) {
           ],
         },
       ],
+      staticSupportIds: { "heat-generator": 20046 },
     },
     kt_uri: {
       name: "ur",
