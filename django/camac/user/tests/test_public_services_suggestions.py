@@ -22,11 +22,11 @@ def mock_cache(mocker):
 @pytest.mark.parametrize(
     "num_queries,num_queries_cached,suggestions,suggestion_answer,default_suggestions,expected_services",
     [
-        (2, 2, [], [], [], []),
+        (2, 2, {}, [], [], []),
         (
             6,
             3,
-            {("non-existing-question", "foo"): [0]},
+            {"QUESTIONS": {("non-existing-question", "foo"): [0]}},
             [("baubeschrieb", ["baubeschrieb-erweiterung-anbau"])],
             [1111],
             [1111],
@@ -34,7 +34,7 @@ def mock_cache(mocker):
         (
             5,
             2,
-            {("baubeschrieb", "baubeschrieb-erweiterung-anbau"): [1234]},
+            {"QUESTIONS": {("baubeschrieb", "baubeschrieb-erweiterung-anbau"): [1234]}},
             [("baubeschrieb", ["baubeschrieb-um-ausbau"])],
             [],
             [],
@@ -43,9 +43,11 @@ def mock_cache(mocker):
             6,
             3,
             {
-                ("baubeschrieb", "baubeschrieb-erweiterung-anbau"): [1234],
-                ("baubeschrieb", "baubeschrieb-um-ausbau"): [5678],
-                ("non-existing-question", "foo"): [0],
+                "QUESTIONS": {
+                    ("baubeschrieb", "baubeschrieb-erweiterung-anbau"): [1234],
+                    ("baubeschrieb", "baubeschrieb-um-ausbau"): [5678],
+                    ("non-existing-question", "foo"): [0],
+                }
             },
             [("baubeschrieb", ["baubeschrieb-erweiterung-anbau"])],
             [1111],
@@ -55,8 +57,10 @@ def mock_cache(mocker):
             6,
             3,
             {
-                ("baubeschrieb", "baubeschrieb-erweiterung-anbau"): [1234],
-                ("art-versickerung-dach", "oberflaechengewaesser"): [5678],
+                "QUESTIONS": {
+                    ("baubeschrieb", "baubeschrieb-erweiterung-anbau"): [1234],
+                    ("art-versickerung-dach", "oberflaechengewaesser"): [5678],
+                },
             },
             [
                 ("baubeschrieb", ["baubeschrieb-erweiterung-anbau"]),
@@ -69,9 +73,11 @@ def mock_cache(mocker):
             6,
             3,
             {
-                ("baubeschrieb", "baubeschrieb-erweiterung-anbau"): [1234, 5678],
-                ("art-versickerung-dach", "some value"): [999],
-                ("non-existing-question", "foo"): [0],
+                "QUESTIONS": {
+                    ("baubeschrieb", "baubeschrieb-erweiterung-anbau"): [1234, 5678],
+                    ("art-versickerung-dach", "some value"): [999],
+                    ("non-existing-question", "foo"): [0],
+                }
             },
             [
                 (
@@ -82,6 +88,14 @@ def mock_cache(mocker):
             ],
             [],
             [1234, 5678, 999],
+        ),
+        (
+            5,
+            3,
+            {"FORM": {"main-form": [20046]}},
+            [],
+            [],
+            [20046],
         ),
     ],
 )
@@ -107,7 +121,9 @@ def test_suggestion_for_instance_filter_caluma(
 
     if suggestions:
         distribution_settings["SUGGESTIONS"] = suggestions
-        for service_id in set(chain(*suggestions.values())):
+        for service_id in set(
+            chain(*[chain(*config.values()) for config in suggestions.values()])
+        ):
             service_factory(pk=service_id)
 
         for ans in suggestion_answer:
