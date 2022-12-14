@@ -228,7 +228,7 @@ instances:
     directrice (voir texte «Motif du rejet»). Un nouveau numéro de dossier sera
     créé pour la correction."
   rejectionInfoText: "Veuillez ouvrir à nouveau le formulaire au moyen de «Soumettre à nouveau le dossier» et compléter les informations manquantes."
-  decisionRemarks: "Remarques Décision"
+  decisionRemarks: "Décision / Evaluation"
   onlyPaperDossiers: "Seulment les dossiers papier"
 
   extensionPeriodOfValidityTitle: "Prolongation de la durée de validité du permis de construire"

@@ -7,6 +7,15 @@ import getFormTitle from "caluma-portal/utils/form-title";
 
 const { answerSlugs } = config.APPLICATION;
 
+const DECISION_COLOR_MAPPING = {
+  "decision-decision-assessment-positive": "uk-alert-success",
+  "decision-decision-assessment-accepted": "uk-alert-success",
+  "decision-decision-assessment-negative": "uk-alert-danger",
+  "decision-decision-assessment-denied": "uk-alert-danger",
+  "decision-decision-assessment-positive-with-reservation": "uk-alert-warning",
+  "decision-decision-assessment-retreat": "uk-alert-warning",
+};
+
 export default class CustomCaseModel extends CaseModel {
   @service store;
 
@@ -93,30 +102,21 @@ export default class CustomCaseModel extends CaseModel {
   }
 
   get decision() {
-    const COLOR_MAPPING = {
-      "decision-decision-assessment-positive": "uk-alert-success",
-      "decision-decision-assessment-negative": "uk-alert-danger",
-      "decision-decision-assessment-positive-with-reservation":
-        "uk-alert-warning",
-      "decision-decision-assessment-retreat": "uk-alert-warning",
-    };
+    const document = this.raw.workItems.edges[0]?.node.document;
 
-    const decision = this.raw.workItems.edges[0]?.node.document;
+    if (!document) return null;
 
-    if (!decision) return null;
-
-    const remarks = getAnswerDisplayValue(decision, "decision-remarks");
-    const decisionAssessment = getAnswerDisplayValue(
-      decision,
+    const color =
+      DECISION_COLOR_MAPPING[
+        getAnswerDisplayValue(document, "decision-decision-assessment", false)
+      ] ?? "uk-background-muted";
+    const remarks = getAnswerDisplayValue(document, "decision-remarks");
+    const decision = getAnswerDisplayValue(
+      document,
       "decision-decision-assessment"
     );
 
-    return remarks
-      ? {
-          remarks,
-          color: COLOR_MAPPING[decisionAssessment],
-        }
-      : null;
+    return { remarks, color, decision };
   }
 
   static fragment = `{
@@ -138,6 +138,10 @@ export default class CustomCaseModel extends CaseModel {
                   }
                   ...on StringAnswer {
                     stringValue: value
+                    selectedOption {
+                      slug
+                      label
+                    }
                   }
                 }
               }
