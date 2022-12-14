@@ -222,7 +222,7 @@ instances:
     bearbeiten und erneut einreichen. Für die Korrektur wird eine neue
     Dossiernummer erstellt."
   rejectionInfoText: "Bitte öffnen Sie das Formular mittels «Dossier neu einreichen» erneut und ergänzen Sie die fehlenden Angaben."
-  decisionRemarks: "Bemerkungen Entscheid"
+  decisionRemarks: "Entscheid / Beurteilung"
   onlyPaperDossiers: "Nur Papierdossiers"
 
   extensionPeriodOfValidityTitle: "Verlängerung Geltungsdauer"
