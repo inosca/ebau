@@ -1551,6 +1551,75 @@ def test_has_pending_billing_entry_filter(
 
 
 @pytest.mark.parametrize(
+    "objection_received,expected_count",
+    [(True, 2), ("", 3), (False, 3)],
+)
+def test_objection_received_filter(
+    admin_user,
+    admin_client,
+    sz_instance,
+    instance_with_case,
+    instance_factory,
+    objection_factory,
+    objection_received,
+    expected_count,
+):
+    # instances with objections
+    objection_factory(instance=instance_with_case(instance_factory(user=admin_user)))
+    objection_factory(instance=instance_with_case(instance_factory(user=admin_user)))
+
+    # instance without objection
+    instance_factory(user=admin_user)
+
+    url = reverse("instance-list")
+    response = admin_client.get(url, data={"objection_received": objection_received})
+
+    assert response.status_code == status.HTTP_200_OK
+
+    assert len(response.json()["data"]) == expected_count
+
+
+@pytest.mark.parametrize(
+    "value,expected_count",
+    [("innerhalb", 2), ("ausserhalb", 1), ("beides", 0), ("", 3)],
+)
+def test_construction_zone_location_filter_sz(
+    admin_user,
+    admin_client,
+    sz_instance,
+    form_field_factory,
+    instance_with_case,
+    instance_factory,
+    value,
+    expected_count,
+    application_settings,
+):
+    application_settings["CONSTRUCTION_ZONE_LOCATION_FORM_FIELD"] = "lage"
+    form_field_factory(
+        instance=instance_with_case(instance_factory(user=admin_user)),
+        name="lage",
+        value="innerhalb",
+    )
+    form_field_factory(
+        instance=instance_with_case(instance_factory(user=admin_user)),
+        name="lage",
+        value="innerhalb",
+    )
+    form_field_factory(
+        instance=instance_with_case(instance_factory(user=admin_user)),
+        name="lage",
+        value="ausserhalb",
+    )
+
+    url = reverse("instance-list")
+    response = admin_client.get(url, data={"construction_zone_location_sz": value})
+
+    assert response.status_code == status.HTTP_200_OK
+
+    assert len(response.json()["data"]) == expected_count
+
+
+@pytest.mark.parametrize(
     "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
 )
 @pytest.mark.parametrize(
