@@ -112,14 +112,54 @@ def post_create_distribution(sender, work_item, user, context=None, **kwargs):
 @filter_by_task("DISTRIBUTION_TASK")
 @transaction.atomic
 def post_redo_distribution(sender, work_item, user, context=None, **kwargs):
+
+    check_distribution_work_item = (
+        work_item.child_case.work_items.filter(
+            task_id=settings.DISTRIBUTION["DISTRIBUTION_CHECK_TASK"],
+            status=WorkItem.STATUS_COMPLETED,
+            addressed_groups=work_item.addressed_groups,
+        )
+        .order_by("-closed_at")
+        .first()
+    )
+
     reopen_case(
         case=work_item.child_case,
-        work_items=work_item.child_case.work_items.filter(
-            task_id=settings.DISTRIBUTION["DISTRIBUTION_COMPLETE_TASK"]
+        work_items=list(
+            chain(
+                work_item.child_case.work_items.filter(
+                    task_id=settings.DISTRIBUTION["DISTRIBUTION_COMPLETE_TASK"]
+                ),
+                [check_distribution_work_item] if check_distribution_work_item else [],
+            )
         ),
         user=user,
         context=context,
     )
+
+    # Create a new check-distribution work-item due to skipped distribution
+    if not check_distribution_work_item:
+        check_distribution_task = Task.objects.get(
+            pk=settings.DISTRIBUTION["DISTRIBUTION_CHECK_TASK"],
+        )
+
+        check_distribution_work_item = WorkItem(
+            task=check_distribution_task,
+            name=check_distribution_task.name,
+            addressed_groups=work_item.addressed_groups,
+            case=work_item.child_case,
+            status=WorkItem.STATUS_READY,
+            created_by_user=user.username,
+            created_by_group=user.group,
+            deadline=check_distribution_task.calculate_deadline(),
+        )
+
+    check_distribution_work_item.meta = {
+        "not-viewed": True,
+        "notify-completed": False,
+        "notify-deadline": True,
+    }
+    check_distribution_work_item.save()
 
     services = Service.objects.filter(
         pk__in=[
@@ -279,6 +319,18 @@ def post_resume_inquiry(sender, work_item, user, context=None, **kwargs):
     if init_work_item:
         complete_work_item(work_item=init_work_item, user=user, context=context)
 
+    # cancel check-distribution work item
+    check_distribution_work_item = work_item.case.work_items.filter(
+        task_id=settings.DISTRIBUTION["DISTRIBUTION_CHECK_TASK"],
+        status=WorkItem.STATUS_READY,
+        addressed_groups=work_item.controlling_groups,
+    ).first()
+
+    if check_distribution_work_item:
+        cancel_work_item(
+            work_item=check_distribution_work_item, user=user, context=context
+        )
+
     # send notification to addressed service
     send_inquiry_notification("INQUIRY_SENT", work_item, user)
 
@@ -300,37 +352,14 @@ def post_complete_inquiry(sender, work_item, user, context=None, **kwargs):
     # send notification to controlling service
     send_inquiry_notification("INQUIRY_ANSWERED", work_item, user)
 
-    pending_controlling_inquiries = work_item.case.work_items.filter(
-        task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-        status=WorkItem.STATUS_READY,
-        controlling_groups=work_item.controlling_groups,
-    )
-
-    controlling_check_work_item = work_item.case.work_items.filter(
-        task_id=settings.DISTRIBUTION["INQUIRY_CHECK_TASK"],
-        status=WorkItem.STATUS_READY,
-        addressed_groups=work_item.controlling_groups,
-    ).first()
-
-    # If there are no pending inquiries by the controlling service of this
-    # inquiry, we set the deadline of the "check-inquiries" work item addressed
-    # to that service so it will be displayed in the work item list.
-    if not pending_controlling_inquiries.exists() and controlling_check_work_item:
-        controlling_check_work_item.deadline = (
-            controlling_check_work_item.task.calculate_deadline()
-        )
-        controlling_check_work_item.save()
-
     addressed_check_work_item = work_item.case.work_items.filter(
         task_id=settings.DISTRIBUTION["INQUIRY_CHECK_TASK"],
         status=WorkItem.STATUS_READY,
-        deadline__isnull=False,
         addressed_groups=work_item.addressed_groups,
     ).first()
 
-    # If there is a "check-inquiries" work item with a deadline (visible in the
-    # work item list) addressed to the service that just completed an inquiry,
-    # it must be automatically completed
+    # If there is a "check-inquiries" work item addressed to the service
+    # that just completed an inquiry, it must be automatically completed
     if addressed_check_work_item:
         complete_work_item(
             work_item=addressed_check_work_item, user=user, context=context
@@ -369,26 +398,6 @@ def post_complete_inquiry(sender, work_item, user, context=None, **kwargs):
         )
 
 
-@on(post_create_work_item, raise_exception=True)
-@filter_by_task("INQUIRY_CHECK_TASK")
-@transaction.atomic
-def post_create_check_inquiries(sender, work_item, user, context=None, **kwargs):
-    # If there are pending inquiries for the addressed service on creation of
-    # the "check-inquiries" work item, we set the deadline to `None` so it won't
-    # be displayed in the work item list. The deadline will be set by the
-    # `post_complete_inquiry` event handler when the last pending inquiry is
-    # completed.
-    pending_inquiries = work_item.case.work_items.filter(
-        task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-        status=WorkItem.STATUS_READY,
-        controlling_groups=work_item.addressed_groups,
-    )
-
-    if pending_inquiries.exists():
-        work_item.deadline = None
-        work_item.save()
-
-
 @on(pre_complete_work_item, raise_exception=True)
 @filter_by_task("DISTRIBUTION_COMPLETE_TASK")
 @transaction.atomic
@@ -398,6 +407,17 @@ def pre_complete_distribution(sender, work_item, user, context=None, **kwargs):
     ):
         # unanswered inquiries must be skipped
         skip_work_item(work_item=work_item, user=user, context=context)
+
+    check_distribution_work_item = work_item.case.work_items.filter(
+        task_id=settings.DISTRIBUTION["DISTRIBUTION_CHECK_TASK"],
+        status=WorkItem.STATUS_READY,
+        addressed_groups=work_item.addressed_groups,
+    ).first()
+
+    if check_distribution_work_item:
+        complete_work_item(
+            work_item=check_distribution_work_item, user=user, context=context
+        )
 
     for work_item in work_item.case.work_items.filter(
         status__in=[WorkItem.STATUS_READY, WorkItem.STATUS_SUSPENDED]
