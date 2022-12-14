@@ -372,6 +372,9 @@ class InstanceFilterSet(FilterSet):
     form_name_versioned = NumberFilter(field_name="form__family__pk")
     location = NumberMultiValueFilter()
     address_sz = CharFilter(method="filter_address_sz")
+    construction_zone_location_sz = CharFilter(
+        method="filter_construction_zone_location_sz"
+    )
     intent_sz = CharFilter(method="filter_intent_sz")
     plot_sz = FormFieldListValueFilter(
         form_field_names=["parzellen"], keys=["number", "egrid"]
@@ -402,6 +405,7 @@ class InstanceFilterSet(FilterSet):
         ],
         keys=["vorname", "name", "firma"],
     )
+    objection_received = BooleanFilter(method="filter_objection_received")
     has_pending_billing_entry = BooleanFilter(method="filter_has_pending_billing_entry")
     has_pending_sanction = BooleanFilter(method="filter_has_pending_sanction")
     pending_sanctions_control_instance = NumberFilter(
@@ -431,6 +435,11 @@ class InstanceFilterSet(FilterSet):
             return queryset.filter(**{name: self.request.user})
 
         return queryset.exclude(**{name: self.request.user})
+
+    def filter_objection_received(self, queryset, name, value):
+        if value:
+            return queryset.filter(objections__isnull=False)
+        return queryset
 
     def filter_has_pending_billing_entry(self, queryset, name, value):
         _filter = {"billing_entries__invoiced": False, "billing_entries__type": 1}
@@ -495,6 +504,15 @@ class InstanceFilterSet(FilterSet):
         intent_form_fields = settings.APPLICATION.get("INTENT_FORM_FIELDS", [])
         return queryset.filter(
             fields__name__in=intent_form_fields, fields__value__icontains=value
+        )
+
+    def filter_construction_zone_location_sz(self, queryset, name, value):
+        construction_zone_location_form_field = settings.APPLICATION.get(
+            "CONSTRUCTION_ZONE_LOCATION_FORM_FIELD", None
+        )
+        return queryset.filter(
+            fields__name=construction_zone_location_form_field,
+            fields__value=value,
         )
 
     class Meta:

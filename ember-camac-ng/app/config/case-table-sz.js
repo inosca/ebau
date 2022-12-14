@@ -27,6 +27,8 @@ export default {
       "submitDateBefore",
       "service",
       "type",
+      "constructionZoneLocation",
+      "objectionReceived",
     ],
   },
   formFields: [
@@ -36,6 +38,7 @@ export default {
     "bauherrschaft-override",
     "bezeichnung",
     "bezeichnung-override",
+    "lage",
   ],
   availableOrderings: {
     dossierNumber: {

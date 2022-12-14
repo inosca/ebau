@@ -227,6 +227,23 @@ export default class CaseFilterComponent extends Component {
     return response[0]?.node.options.edges.map((edge) => edge.node);
   });
 
+  get constructionZoneLocationOptions() {
+    return [
+      {
+        name: this.intl.t("cases.filters.constructionZoneLocationInside"),
+        value: "innerhalb",
+      },
+      {
+        name: this.intl.t("cases.filters.constructionZoneLocationOutside"),
+        value: "ausserhalb",
+      },
+      {
+        name: this.intl.t("cases.filters.constructionZoneLocationBoth"),
+        value: "beides",
+      },
+    ];
+  }
+
   get paperOptions() {
     return [
       { value: "1", label: this.intl.t("cases.paper.only") },
