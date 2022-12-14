@@ -739,7 +739,11 @@ APPLICATIONS = {
             ),
             "legal_representatives": (
                 "ng_table",
-                "vertreter-mit-vollmacht",
+                [
+                    "vertreter-mit-vollmacht",
+                    "vertreter-mit-vollmacht-v2",
+                    "vertreter-mit-vollmacht-override",
+                ],
                 {
                     "column_mapping": {
                         "last_name": "name",
