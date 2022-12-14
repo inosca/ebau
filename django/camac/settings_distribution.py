@@ -1,3 +1,5 @@
+from datetime import timedelta
+
 from django.utils.translation import gettext_lazy as _
 
 from camac.utils import (
@@ -536,6 +538,11 @@ DISTRIBUTION = {
                 "INQUIRY_ANSWER_CHECK_TASK": lambda group, *_: is_lead_role(group),
                 "INQUIRY_ANSWER_REVISE_TASK": lambda group, *_: is_lead_role(group),
             },
+        },
+        "SYNC_INQUIRY_DEADLINE_TO_ANSWER_TASKS": {
+            "fill-inquiry": {
+                "TIME_DELTA": timedelta(days=-3)  # check-inquiry lead-time
+            }
         },
     },
     "demo": {"ENABLED": True},

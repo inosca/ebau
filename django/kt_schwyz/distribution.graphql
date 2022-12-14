@@ -54,7 +54,7 @@ mutation InquiryTask {
   saveCompleteTaskFormTask(
     input: {
       slug: "inquiry"
-      name: "Stellungnahme verfassen"
+      name: "Stellungnahme zustellen"
       form: "inquiry"
       addressGroups: "info.context.addressed_groups"
       controlGroups: "info.prev_work_item.addressed_groups"
@@ -72,6 +72,7 @@ mutation FillInquiryTask {
       slug: "fill-inquiry"
       name: "Stellungnahme verfassen"
       addressGroups: "info.context.addressed_groups"
+      controlGroups: "info.context.addressed_groups"
     }
   ) {
     clientMutationId
