@@ -226,18 +226,32 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
               },
             },
             statusMapping: {
-              "inquiry-answer-status-further-clarification":
-                INQUIRY_STATUS.NEEDS_INTERACTION,
+              "inquiry-answer-status-further-clarification": {
+                icon: "search",
+                color: "warning",
+              },
               "inquiry-answer-status-not-involved": INQUIRY_STATUS.POSITIVE,
-              "inquiry-answer-status-claim": INQUIRY_STATUS.NEEDS_INTERACTION,
-              "inquiry-answer-status-legal-hearing":
-                INQUIRY_STATUS.NEEDS_INTERACTION,
-              "inquiry-answer-status-claim-legal-hearing":
-                INQUIRY_STATUS.NEEDS_INTERACTION,
+              "inquiry-answer-status-claim": {
+                icon: "file",
+                color: "warning",
+              },
+              "inquiry-answer-status-legal-hearing": {
+                icon: "file-text",
+                color: "danger",
+              },
+              "inquiry-answer-status-claim-legal-hearing": {
+                icon: "copy",
+                color: "danger",
+              },
               "inquiry-answer-status-final": INQUIRY_STATUS.POSITIVE,
-              "inquiry-answer-status-opposition": INQUIRY_STATUS.NEGATIVE,
-              "inquiry-answer-status-inspection":
-                INQUIRY_STATUS.NEEDS_INTERACTION,
+              "inquiry-answer-status-opposition": {
+                icon: "bolt",
+                color: "danger",
+              },
+              "inquiry-answer-status-inspection": {
+                icon: "camera",
+                color: "warning",
+              },
             },
             details: (inquiry) => {
               const releasedForReviewWorkItem =
