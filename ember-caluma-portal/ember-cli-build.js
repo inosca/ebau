@@ -19,6 +19,7 @@ module.exports = function (defaults) {
     "@embroider/macros": {
       setOwnConfig: {
         enableFaq: ENV === "be",
+        enableInstanceSupport: ENV === "be",
         enablePublicationForm: ENV === "be",
         enablePublicationEndDate: ENV === "ur",
         enableModificationConfirm: ENV === "be",
