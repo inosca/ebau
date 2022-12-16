@@ -207,6 +207,7 @@ module.exports = function (environment) {
             "baugesuch-generell",
             "hecken-feldgehoelze-baeume",
             "solaranlagen-meldung",
+            "heat-generator",
           ],
         },
         {
