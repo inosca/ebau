@@ -14,6 +14,7 @@ from camac.core.models import MultilingualModel
 class MasterData(object):
     case: object
     visible_questions: dict = field(default_factory=dict)
+    validation_context: dict = field(default_factory=dict)
 
     def __getattr__(self, lookup_key):
         config = settings.APPLICATION["MASTER_DATA"].get(lookup_key)
@@ -87,7 +88,13 @@ class MasterData(object):
         visible_questions = self.visible_questions.get(answer.document.pk)
 
         if visible_questions is None:
-            visible_questions = DocumentValidator().visible_questions(answer.document)
+            if not self.validation_context.get(answer.document.family, None):
+                self.validation_context[
+                    answer.document.family
+                ] = DocumentValidator()._validation_context(answer.document.family)
+            visible_questions = DocumentValidator().visible_questions(
+                answer.document, self.validation_context[answer.document.family]
+            )
             self.visible_questions[answer.document.pk] = visible_questions
 
         return answer.question_id in visible_questions
