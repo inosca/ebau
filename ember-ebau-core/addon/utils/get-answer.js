@@ -5,7 +5,7 @@ export function getAnswer(document, slugOrSlugs) {
   );
 }
 
-export function getAnswerDisplayValue(document, slug) {
+export function getAnswerDisplayValue(document, slug, useLabel = true) {
   const answer = document.answers.edges
     .map(({ node }) => node)
     .find((answer) => answer.question.slug === slug);
@@ -14,10 +14,10 @@ export function getAnswerDisplayValue(document, slug) {
     return null;
   }
 
-  if (answer.selectedOption) {
+  if (useLabel && answer.selectedOption) {
     return answer.selectedOption.label;
   }
-  if (answer.selectedOptions) {
+  if (useLabel && answer.selectedOptions) {
     return answer.selectedOptions.edges.map((item) => item.node.label);
   }
 

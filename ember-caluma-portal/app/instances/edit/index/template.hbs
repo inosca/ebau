@@ -76,10 +76,8 @@
       </h2>
     </div>
     <div class="uk-width-3-4 uk-width-2-3@m">
-      <div class={{this.case.decision.color}} uk-alert>
-        <p class="white-space-pre-line">
-          {{~this.case.decision.remarks~}}
-        </p>
+      <div class="{{this.case.decision.color}} uk-padding-small">
+        <p class="white-space-pre-line uk-margin-remove"><span class="uk-text-bold">{{this.case.decision.decision}}{{if this.case.decision.remarks ": "}}</span>{{~this.case.decision.remarks~}}</p>
       </div>
     </div>
   </div>
