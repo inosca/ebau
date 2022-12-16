@@ -229,6 +229,7 @@ class CustomPermission(BasePermission):
             "INQUIRY_CREATE_TASK",
             "INQUIRY_CHECK_TASK",
             "DISTRIBUTION_COMPLETE_TASK",
+            "DISTRIBUTION_CHECK_TASK",
             "INQUIRY_ANSWER_FILL_TASK",
             "INQUIRY_ANSWER_CHECK_TASK",
             "INQUIRY_ANSWER_REVISE_TASK",
