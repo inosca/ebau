@@ -145,6 +145,7 @@ CALUMA_FORM_TYPES_SLUGS = [
     "verlaengerung-geltungsdauer",
     "building-permit",
     "solaranlagen-meldung",
+    "heat-generator",
 ]
 
 

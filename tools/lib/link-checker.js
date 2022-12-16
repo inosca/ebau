@@ -12,6 +12,7 @@ const paths = [
   "../django/kt_bern/config/caluma_audit_form.json",
   "../django/kt_bern/config/caluma_publication_form.json",
   "../django/kt_bern/config/caluma_solar_plants_form.json",
+  "../django/kt_bern/config/caluma_heat_generator_form.json",
 ];
 
 export const config = paths.reduce(
