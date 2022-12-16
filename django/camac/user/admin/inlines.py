@@ -61,6 +61,9 @@ class ServiceGroupInline(TabularInline):
     verbose_name = _("Group")
     verbose_name_plural = _("Groups")
 
+    def has_add_permission(self, request, obj):
+        return False
+
 
 class ServiceTInline(TabularInline):
     can_delete = False
