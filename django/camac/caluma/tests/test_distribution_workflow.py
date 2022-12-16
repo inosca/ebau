@@ -1,3 +1,5 @@
+from datetime import timedelta
+
 import pytest
 from caluma.caluma_form.api import save_answer
 from caluma.caluma_form.models import Question
@@ -785,6 +787,11 @@ def test_sync_inquiry_deadline(
         "camac.caluma.extensions.permissions.CustomPermission.has_camac_edit_permission",
         return_value=True,
     )
+    be_distribution_settings["SYNC_INQUIRY_DEADLINE_TO_ANSWER_TASKS"] = {
+        f'{be_distribution_settings["INQUIRY_ANSWER_FILL_TASK"]}': {
+            "TIME_DELTA": timedelta(days=-5)
+        }
+    }
 
     inquiry = inquiry_factory_be(sent=True)
 
@@ -815,4 +822,13 @@ def test_sync_inquiry_deadline(
             question_id=be_distribution_settings["QUESTIONS"]["DEADLINE"]
         ).date.isoformat()
         == "2022-10-24"
+    )
+
+    assert (
+        inquiry.child_case.work_items.filter(
+            task_id=be_distribution_settings["INQUIRY_ANSWER_FILL_TASK"]
+        )
+        .first()
+        .deadline.isoformat()
+        == "2022-10-19T00:00:00+00:00"
     )
