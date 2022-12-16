@@ -106,6 +106,19 @@ mutation RedoInquiryTask {
   }
 }
 
+mutation CheckDistributionTask {
+  saveSimpleTask(
+    input: {
+      slug: "check-distribution"
+      name: "Entscheid starten"
+      addressGroups: "['municipality']|groups"
+      leadTime: 864000 # 10 days
+    }
+  ) {
+    clientMutationId
+  }
+}
+
 mutation DistributionWorkflow {
   saveWorkflow(
     input: {
@@ -155,7 +168,7 @@ mutation InquiryFlow {
     input: {
       workflow: "distribution"
       tasks: ["inquiry"]
-      next: "['check-inquiries', 'redo-inquiry']|tasks"
+      next: "['after-inquiries-completed', 'redo-inquiry']|tasks"
     }
   ) {
     clientMutationId

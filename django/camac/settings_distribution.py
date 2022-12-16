@@ -16,6 +16,7 @@ DISTRIBUTION = {
         "DISTRIBUTION_TASK": "distribution",
         "DISTRIBUTION_INIT_TASK": "init-distribution",
         "DISTRIBUTION_COMPLETE_TASK": "complete-distribution",
+        "DISTRIBUTION_CHECK_TASK": "check-distribution",
         "INQUIRY_TASK": "inquiry",
         "INQUIRY_FORM": "inquiry",
         "INQUIRY_CREATE_TASK": "create-inquiry",
@@ -39,6 +40,7 @@ DISTRIBUTION = {
         "PERMISSIONS": {
             "CompleteWorkItem": {
                 "DISTRIBUTION_COMPLETE_TASK": lambda group, *_: is_lead_role(group),
+                "DISTRIBUTION_CHECK_TASK": lambda group, *_: is_lead_role(group),
                 "INQUIRY_CHECK_TASK": lambda group, *_: is_lead_role(group),
             },
             "ResumeWorkItem": {
