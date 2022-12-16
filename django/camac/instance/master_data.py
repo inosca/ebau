@@ -88,12 +88,12 @@ class MasterData(object):
         visible_questions = self.visible_questions.get(answer.document.pk)
 
         if visible_questions is None:
-            if not self.validation_context.get(answer.document.family, None):
+            if not self.validation_context.get(answer.document.family.pk, None):
                 self.validation_context[
-                    answer.document.family
+                    answer.document.family.pk
                 ] = DocumentValidator()._validation_context(answer.document.family)
             visible_questions = DocumentValidator().visible_questions(
-                answer.document, self.validation_context[answer.document.family]
+                answer.document, self.validation_context[answer.document.family.pk]
             )
             self.visible_questions[answer.document.pk] = visible_questions
 
