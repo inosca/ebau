@@ -7,10 +7,10 @@
     <td
       class={{if (includes column (array "task" "responsible" "description" "closedBy")) "uk-text-truncate"}}
       title="
-        {{if (eq column "responsible") @workItem.responsible}}
-        {{if (eq column "description") @workItem.instanceDescription}}
-        {{if (eq column "closedBy") @workItem.closedByUser.fullName}}
-        {{if (eq column "deadline") (format-date @workItem.deadline format="date")}}
+        {{~if (eq column "responsible") @workItem.responsible~}}
+        {{~if (eq column "description") @workItem.instanceDescription~}}
+        {{~if (eq column "closedBy") @workItem.closedByUser.fullName~}}
+        {{~if (eq column "deadline") (format-date @workItem.deadline format="date")~}}
       "
     >
       {{#if (eq column "task")}}
