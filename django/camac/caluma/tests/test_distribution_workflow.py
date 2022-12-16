@@ -120,10 +120,10 @@ def inquiry_factory_be(
     service,
     service_factory,
 ):
-    def factory(to_service=service_factory(), sent=False):
+    def factory(to_service=service_factory(), from_service=service, sent=False):
         return _inquiry_factory(
             to_service=to_service,
-            from_service=service,
+            from_service=from_service,
             sent=sent,
             user=caluma_admin_user,
             distribution_child_case=distribution_child_case_be,
@@ -298,9 +298,17 @@ def test_send_inquiry(
     inquiry_factory_be,
     mailoutbox,
     service_factory,
+    work_item_factory,
+    service,
 ):
-    service = service_factory()
-    inquiry = inquiry_factory_be(to_service=service, sent=True)
+    addressed_service = service_factory()
+    work_item_factory(
+        task_id=be_distribution_settings["DISTRIBUTION_CHECK_TASK"],
+        case=distribution_child_case_be,
+        status=WorkItem.STATUS_READY,
+        addressed_groups=[str(service.pk)],
+    )
+    inquiry = inquiry_factory_be(to_service=addressed_service, sent=True)
 
     assert inquiry.status == WorkItem.STATUS_READY
     assert inquiry.deadline.isoformat() == "2022-04-22T00:00:00+00:00"
@@ -314,10 +322,16 @@ def test_send_inquiry(
         ).status
         == WorkItem.STATUS_COMPLETED
     )
+    assert (
+        distribution_child_case_be.work_items.get(
+            task_id=be_distribution_settings["DISTRIBUTION_CHECK_TASK"],
+        ).status
+        == WorkItem.STATUS_CANCELED
+    )
 
     assert len(mailoutbox) == 2
     assert mailoutbox[0].to[0] == "applicant@example.com"
-    assert mailoutbox[1].to[0] == service.email
+    assert mailoutbox[1].to[0] == addressed_service.email
 
 
 @pytest.mark.freeze_time("2022-03-23")
@@ -390,18 +404,20 @@ def test_complete_inquiry(
 
     inquiry1.refresh_from_db()
 
-    check_work_item = distribution_child_case_be.work_items.filter(
+    check_inquiries_work_items = distribution_child_case_be.work_items.filter(
         task_id=be_distribution_settings["INQUIRY_CHECK_TASK"],
         status=WorkItem.STATUS_READY,
         addressed_groups=[str(service.pk)],
-    ).first()
+    )
 
-    assert check_work_item
+    check_distribution_work_items = distribution_child_case_be.work_items.filter(
+        task_id=be_distribution_settings["DISTRIBUTION_CHECK_TASK"],
+        status=WorkItem.STATUS_READY,
+        addressed_groups=[str(service.pk)],
+    )
 
-    if has_multiple_inquiries:
-        assert check_work_item.deadline is None
-    else:
-        assert check_work_item.deadline.isoformat() == "2022-04-02T00:00:00+00:00"
+    assert check_inquiries_work_items.exists() != has_multiple_inquiries
+    assert check_distribution_work_items.exists() != has_multiple_inquiries
 
     assert inquiry1.child_case.status == Case.STATUS_COMPLETED
     assert inquiry1.status == WorkItem.STATUS_COMPLETED
@@ -421,9 +437,8 @@ def test_complete_inquiry(
             work_item=inquiry2.child_case.work_items.first(), user=caluma_admin_user
         )
 
-        check_work_item.refresh_from_db()
-
-        assert check_work_item.deadline.isoformat() == "2022-04-02T00:00:00+00:00"
+        assert check_inquiries_work_items.exists()
+        assert check_distribution_work_items.exists()
 
         addressed_redo_work_item.refresh_from_db()
         addressed_create_work_item.refresh_from_db()
@@ -440,6 +455,7 @@ def test_complete_distribution(
     inquiry_factory_be,
     mailoutbox,
     service_factory,
+    work_item_factory,
 ):
     service = service_factory()
 
@@ -448,11 +464,19 @@ def test_complete_distribution(
         to_service=service, sent=True
     )  # sent - will be skipped
 
+    check_distribution = work_item_factory(
+        task_id=be_distribution_settings["DISTRIBUTION_CHECK_TASK"],
+        case=distribution_child_case_be,
+        status=WorkItem.STATUS_READY,
+        addressed_groups=[str(service.pk)],
+        child_case=None,
+    )
+
     assert (
         distribution_child_case_be.work_items.filter(
             status=WorkItem.STATUS_READY
         ).count()
-        == 5  # 1x complete-distribution, 3x create-inquiry, 1x inquiry
+        == 6  # 1x complete-distribution, 3x create-inquiry, 1x inquiry, 1x check-distribution
     )
     assert (
         distribution_child_case_be.work_items.filter(
@@ -473,9 +497,11 @@ def test_complete_distribution(
 
     draft_inquiry.refresh_from_db()
     sent_inquiry.refresh_from_db()
+    check_distribution.refresh_from_db()
 
     assert draft_inquiry.status == WorkItem.STATUS_CANCELED
     assert sent_inquiry.status == WorkItem.STATUS_SKIPPED
+    assert check_distribution.status == WorkItem.STATUS_COMPLETED
 
     assert (
         distribution_child_case_be.work_items.filter(
@@ -635,6 +661,14 @@ def test_reopen_distribution(
     assert not distribution_child_case_be.work_items.filter(
         task_id=be_distribution_settings["INQUIRY_CREATE_TASK"],
         addressed_groups__contains=[str(subservice_with_sent_inquiry.pk)],
+        status=WorkItem.STATUS_READY,
+    ).exists()
+
+    # A check-distribution work-item should have been recreated or redone
+    # for the services that reopened the distribution
+    assert distribution_child_case_be.work_items.filter(
+        task_id=be_distribution_settings["DISTRIBUTION_CHECK_TASK"],
+        addressed_groups__contains=[str(service.pk)],
         status=WorkItem.STATUS_READY,
     ).exists()
 
