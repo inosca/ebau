@@ -139,31 +139,40 @@ def get_service_suggestions(instance):
 def get_service_suggestions_caluma(instance, suggestions):
     suggested_services = set()
 
-    answers = (
-        Answer.objects.select_related("question")
-        .filter(document__family=instance.case.document)
-        .filter(
-            reduce(
-                lambda a, b: a | b,
-                [
-                    Q(question_id=question, value=answer)
-                    | Q(question_id=question, value__contains=answer)
-                    for question, answer in suggestions.keys()
-                ],
-                Q(pk=None),
+    questions = suggestions.get("QUESTIONS", {})
+
+    if questions:
+        answers = (
+            Answer.objects.select_related("question")
+            .filter(document__family=instance.case.document)
+            .filter(
+                reduce(
+                    lambda a, b: a | b,
+                    [
+                        Q(question_id=question, value=answer)
+                        | Q(question_id=question, value__contains=answer)
+                        for question, answer in questions.keys()
+                    ],
+                    Q(pk=None),
+                )
             )
         )
+
+        for answer in answers:
+            value = (
+                answer.value
+                if answer.question.type == Question.TYPE_MULTIPLE_CHOICE
+                else [answer.value]
+            )
+
+            for choice in value:
+                suggested_services.update(
+                    questions.get((answer.question_id, choice), [])
+                )
+
+    suggested_services.update(
+        suggestions.get("FORM", {}).get(instance.case.document.form_id, [])
     )
-
-    for answer in answers:
-        value = (
-            answer.value
-            if answer.question.type == Question.TYPE_MULTIPLE_CHOICE
-            else [answer.value]
-        )
-
-        for choice in value:
-            suggested_services.update(suggestions.get((answer.question_id, choice), []))
 
     return suggested_services
 
