@@ -1,0 +1,26 @@
+// WARNING: This file is mirrored with
+// `ember/app/styles/_a11y.scss`. If you change something here it
+// **must** be changed in that file as well!
+
+// indicate active state by making the active item bold since we can't do much
+// with the color contrast
+.uk-tab > .uk-active > a,
+.uk-nav > .uk-active > a,
+.uk-navbar-nav > .uk-active > a {
+  @extend .uk-text-bolder;
+}
+
+// add a bolder active border
+.uk-tab:not(.uk-tab-left):not(.uk-tab-right):not(.uk-tab-bottom)
+  > .uk-active
+  > a {
+  box-shadow: inset 0 -1px 0 0 $global-primary-background;
+}
+
+.uk-tab.uk-tab-left > .uk-active > a {
+  box-shadow: inset -1px 0 0 0 $global-primary-background;
+}
+
+.uk-button[disabled] {
+  cursor: not-allowed;
+}
