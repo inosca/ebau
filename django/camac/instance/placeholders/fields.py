@@ -5,12 +5,13 @@ import qrcode
 from caluma.caluma_form.models import Question
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
-from django.contrib.postgres.fields import ArrayField
-from django.db.models import Exists, Func, IntegerField, OuterRef, Sum
-from django.db.models.functions import Cast
+from django.db.models import Q, Sum
 from django.utils.translation import get_language, gettext as _
 from rest_framework import serializers
 
+from camac.caluma.extensions.visibilities import (
+    work_item_by_addressed_service_condition,
+)
 from camac.caluma.utils import find_answer
 from camac.core.models import BillingV2Entry
 from camac.user.models import Service
@@ -300,6 +301,8 @@ class InquiriesField(serializers.ReadOnlyField):
         return mapped
 
     def get_attribute(self, instance):
+        service = self.context["request"].group.service
+
         queryset = WorkItem.objects.filter(
             task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
             case__family__instance=instance,
@@ -313,30 +316,20 @@ class InquiriesField(serializers.ReadOnlyField):
                     WorkItem.STATUS_SKIPPED,
                 ]
             ),
+        ).filter(
+            work_item_by_addressed_service_condition(
+                Q(service_parent__isnull=True) | Q(service_parent_id=service.pk)
+            )
         )
 
         if self.only_own:
             queryset = queryset.exclude(status=WorkItem.STATUS_SUSPENDED).filter(
-                addressed_groups__contains=[
-                    str(self.context["request"].group.service.pk)
-                ]
+                addressed_groups__contains=[str(service.pk)]
             )
         elif self.service_group:
             queryset = queryset.filter(
-                Exists(
-                    Service.objects.filter(
-                        # Use element = ANY(array) operator to check if
-                        # element is present in ArrayField, which requires
-                        # lhs and rhs of expression to be of same type
-                        pk=Func(
-                            Cast(
-                                OuterRef("addressed_groups"),
-                                output_field=ArrayField(IntegerField()),
-                            ),
-                            function="ANY",
-                        ),
-                        service_group__name=self.service_group,
-                    )
+                work_item_by_addressed_service_condition(
+                    Q(service_group__name=self.service_group)
                 )
             )
 
