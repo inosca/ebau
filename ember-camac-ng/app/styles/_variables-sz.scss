@@ -1,18 +1,25 @@
+// Base colors
 $global-primary-background: rgb(225, 10, 22);
-$global-muted-color: #999;
+$global-muted-background: rgb(250, 250, 250);
 $global-border: #e5e5e5;
 
+// Font colors
+$global-muted-color: #999;
 $global-link-color: darken($global-primary-background, 10%);
 $global-link-hover-color: darken($global-link-color, 10%);
 
+// Font
 $global-font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont,
   "Helvetica Neue", Arial, sans-serif;
 $global-font-size: 12px;
 $global-large-font-size: 1.2rem;
 $base-h3-font-size: 1.17em;
 
+// Form
 $form-focus-border: rgb(87, 87, 87);
+$form-placeholder-color: lighten($global-muted-color, 10%);
+$form-disabled-color: darken($global-muted-color, 30%);
 
-/* ember-power-select */
+// ember-power-select
 $ember-power-select-border-color: $global-border;
-$ember-power-select-placeholder-color: $global-muted-color;
+$ember-power-select-placeholder-color: $form-placeholder-color;
