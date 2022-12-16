@@ -256,8 +256,6 @@ def post_create_inquiry(sender, work_item, user, context=None, **kwargs):
 @filter_by_task("INQUIRY_TASK")
 @transaction.atomic
 def post_resume_inquiry(sender, work_item, user, context=None, **kwargs):
-    sync_inquiry_deadline(work_item)
-
     # start inquiry child case
     start_case(
         workflow=Workflow.objects.get(pk=settings.DISTRIBUTION["INQUIRY_WORKFLOW"]),
@@ -269,6 +267,11 @@ def post_resume_inquiry(sender, work_item, user, context=None, **kwargs):
             "addressed_groups": work_item.addressed_groups,
         },
     )
+
+    # sync inquiry deadline after starting child case to
+    # ensure that potential child case work-items' deadlines
+    # are also synced
+    sync_inquiry_deadline(work_item)
 
     # complete init distribution work item
     init_work_item = work_item.case.work_items.filter(
