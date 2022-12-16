@@ -1,0 +1,29 @@
+<li class="uk-position-right">
+  <a href="" class="uk-padding-remove-horizontal" {{on "click" this.toggle}}>
+    <UkIcon @icon="question" title={{t "nav.support"}} />
+  </a>
+</li>
+
+<UkModal
+  @visible={{this.showModal}}
+  @onHide={{fn (mut this.showModal) false}}
+  as |Modal|
+>
+  <Modal.body class="uk-text-center">
+    <UkIcon @icon="question" ratio="2" />
+    <p class="uk-text-large">{{t "instance-support.title"}}</p>
+    {{#if this.service.value}}
+      <p>{{t "instance-support.subtitle"}}</p>
+      <p class="uk-text-bold">
+        {{this.service.value.name}}
+        {{#if this.service.value.website}}
+          <a href={{this.service.value.website}} target="_blank" rel="noopener noreferrer">
+            ({{t "instance-support.website"}})
+          </a>
+        {{/if}}
+      </p>
+    {{else}}
+      <p class="uk-text-italic">{{t "instance-support.no-selected"}}</p>
+    {{/if}}
+  </Modal.body>
+</UkModal>

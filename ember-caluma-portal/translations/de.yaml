@@ -152,7 +152,7 @@ gis:
 support:
   title-support: "Technischer Support (24/7)"
   title-questions: "Fachliche Fragen"
-  info: "Für fachliche Fragen wenden Sie sich bitte an die zuständige Gemeinde."
+  info: "Für fachliche Fragen wenden Sie sich bitte an die zuständige Behörde oder nutzen Sie die Hilfefunktion '<span uk-icon=question ratio=0.75'>'</span'> im entsprechenden Dossier."
   phone: "+41 31 636 99 97"
   email: "urec@ur.ch"
   subject: "URec - Supportanfrage"
