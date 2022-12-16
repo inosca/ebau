@@ -1,5 +1,5 @@
 from copy import copy
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 from typing import Optional
 
 import pytz
@@ -100,6 +100,26 @@ def sync_inquiry_deadline(
         datetime.combine(deadline, datetime.min.time())
     )
     inquiry.save()
+
+    sync_to_answer_tasks = settings.DISTRIBUTION.get(
+        "SYNC_INQUIRY_DEADLINE_TO_ANSWER_TASKS", {}
+    )
+    if inquiry.child_case and len(sync_to_answer_tasks):
+        inquiry_answer_work_items = inquiry.child_case.work_items.filter(
+            status=WorkItem.STATUS_READY,
+            task_id__in=sync_to_answer_tasks.keys(),
+        )
+        for work_item in inquiry_answer_work_items:
+            work_item.deadline = pytz.utc.localize(
+                datetime.combine(
+                    deadline
+                    + sync_to_answer_tasks[work_item.task_id].get(
+                        "TIME_DELTA", timedelta()
+                    ),
+                    datetime.min.time(),
+                )
+            )
+            work_item.save()
 
     return inquiry
 
