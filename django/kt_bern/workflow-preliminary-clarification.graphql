@@ -8,6 +8,7 @@ mutation CreatePreliminaryClarificationWorkflow {
         "hecken-feldgehoelze-baeume"
         "klaerung-baubewilligungspflicht"
         "solaranlagen-meldung"
+        "heat-generator",
         "vorabklaerung-einfach"
         "vorabklaerung-vollstaendig"
         "vorabklaerung-vollstaendig-v2"
