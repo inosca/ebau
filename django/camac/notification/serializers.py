@@ -196,6 +196,9 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     inquiry_remark = serializers.SerializerMethodField()
     inquiry_link = serializers.SerializerMethodField()
 
+    decision_de = serializers.SerializerMethodField()
+    decision_fr = serializers.SerializerMethodField()
+
     current_user_name = serializers.SerializerMethodField()
     work_item_name_de = serializers.SerializerMethodField()
     work_item_name_fr = serializers.SerializerMethodField()
@@ -717,6 +720,28 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
     def get_work_item_name_fr(self, instance):
         return self.work_item.name.get("fr") if self.work_item else None
+
+    def get_decision_de(self, instance):
+        return self._get_decision(instance, "de")
+
+    def get_decision_fr(self, instance):
+        return self._get_decision(instance, "fr")
+
+    def _get_decision(self, instance, language):
+        decision = instance.case.work_items.filter(
+            task_id="decision",
+            status__in=[
+                caluma_workflow_models.WorkItem.STATUS_COMPLETED,
+                caluma_workflow_models.WorkItem.STATUS_SKIPPED,
+            ],
+        ).first()
+
+        if not decision:
+            return ""
+
+        return find_answer(
+            decision.document, "decision-decision-assessment", language=language
+        )
 
     def to_representation(self, instance):
         ret = super().to_representation(instance)
