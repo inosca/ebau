@@ -1299,11 +1299,11 @@ APPLICATIONS = {
             ],
             "DECISION_PRELIMINARY_CLARIFICATION": [
                 {
-                    "template_slug": "08-stellungnahme-zu-voranfrage-gesuchsteller",
+                    "template_slug": "08-beurteilung-zu-voranfrage-gesuchsteller",
                     "recipient_types": ["applicant"],
                 },
                 {
-                    "template_slug": "08-stellungnahme-zu-voranfrage-behoerden",
+                    "template_slug": "08-beurteilung-zu-voranfrage-behoerden",
                     "recipient_types": ["leitbehoerde", "involved_in_distribution"],
                 },
             ],
