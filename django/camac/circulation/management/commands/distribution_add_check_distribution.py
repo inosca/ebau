@@ -181,22 +181,27 @@ class Command(BaseCommand):
         )
 
         if settings.APPLICATION_NAME == "kt_bern":
-            check_distribution_wrong_addressed_group = WorkItem.objects.filter(
-                task_id=settings.DISTRIBUTION["DISTRIBUTION_CHECK_TASK"]
-            ).exclude(
-                addressed_groups__0=Cast(
-                    InstanceService.objects.filter(
-                        active=1,
-                        instance_id=OuterRef("case__family__instance_id"),
-                        **(
-                            settings.APPLICATION.get("ACTIVE_SERVICES", {})
-                            .get("MUNICIPALITY", {})
-                            .get("FILTERS", {})
-                        ),
-                    ).values_list("service")[:1],
-                    output_field=CharField(),
+            check_distribution_wrong_addressed_group = (
+                WorkItem.objects.filter(
+                    task_id=settings.DISTRIBUTION["DISTRIBUTION_CHECK_TASK"]
                 )
+                .exclude(
+                    addressed_groups__0=Cast(
+                        InstanceService.objects.filter(
+                            active=1,
+                            instance_id=OuterRef("case__family__instance__pk"),
+                            **(
+                                settings.APPLICATION.get("ACTIVE_SERVICES", {})
+                                .get("MUNICIPALITY", {})
+                                .get("FILTERS", {})
+                            ),
+                        ).values_list("service")[:1],
+                        output_field=CharField(),
+                    )
+                )
+                .count()
             )
+
         else:
             check_distribution_wrong_addressed_group = (
                 WorkItem.objects.filter(
