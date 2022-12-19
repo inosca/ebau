@@ -197,7 +197,8 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     inquiry_link = serializers.SerializerMethodField()
 
     current_user_name = serializers.SerializerMethodField()
-    work_item_name = serializers.SerializerMethodField()
+    work_item_name_de = serializers.SerializerMethodField()
+    work_item_name_fr = serializers.SerializerMethodField()
 
     def __init__(
         self, instance=None, inquiry=None, work_item=None, escape=False, *args, **kwargs
@@ -711,8 +712,11 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             else None
         )
 
-    def get_work_item_name(self, instance):
-        return str(self.work_item.name) if self.work_item else None
+    def get_work_item_name_de(self, instance):
+        return self.work_item.name.get("de") if self.work_item else None
+
+    def get_work_item_name_fr(self, instance):
+        return self.work_item.name.get("fr") if self.work_item else None
 
     def to_representation(self, instance):
         ret = super().to_representation(instance)
