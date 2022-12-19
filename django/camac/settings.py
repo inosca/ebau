@@ -1257,6 +1257,16 @@ APPLICATIONS = {
                     "recipient_types": ["leitbehoerde"],
                 },
             ],
+            "SUBMIT_HEAT_GENERATOR": [
+                {
+                    "template_slug": "00-empfang-meldung-waermeerzeugerersatz-gesuchsteller",
+                    "recipient_types": ["applicant"],
+                },
+                {
+                    "template_slug": "00-empfang-meldung-waermeerzeugerersatz-behoerden",
+                    "recipient_types": ["leitbehoerde"],
+                },
+            ],
             "REPORT": [
                 {
                     "template_slug": "11-meldung-selbstdeklaration-gesuchsteller",
