@@ -387,7 +387,7 @@
     "model": "notification.notificationtemplate",
     "pk": 34,
     "fields": {
-      "slug": "08-stellungnahme-zu-voranfrage-behoerden",
+      "slug": "08-beurteilung-zu-voranfrage-behoerden",
       "purpose": null,
       "subject": null,
       "body": null,
@@ -435,7 +435,7 @@
     "model": "notification.notificationtemplate",
     "pk": 38,
     "fields": {
-      "slug": "08-stellungnahme-zu-voranfrage-gesuchsteller",
+      "slug": "08-beurteilung-zu-voranfrage-gesuchsteller",
       "purpose": null,
       "subject": null,
       "body": null,
@@ -704,7 +704,7 @@
       "language": "de",
       "purpose": "08 Entscheid (Gesuchsteller)",
       "subject": "Information über Entscheid (eBau Nr. {{EBAU_NUMBER}}) / Information sur le prononcé de la décision (n° eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nDer Bauentscheid zum Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde gefällt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/feedback\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nLa décision relative au dossier portant le numéro eBau {{EBAU_NUMBER}} ({{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}) a été rendue. Elle est jointe en annexe, accompagnée de l'indication des voies de droit.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/feedback\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
+      "body": "Guten Tag\r\n\r\nDer Bauentscheid ({{DECISION_DE}}) zum Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde gefällt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/feedback\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nLa décision ({{DECISION_FR}}) relative au dossier portant le numéro eBau {{EBAU_NUMBER}} ({{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}) a été rendue. Elle est jointe en annexe, accompagnée de l'indication des voies de droit.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/feedback\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
     }
   },
   {
@@ -856,11 +856,11 @@
     "pk": 67,
     "fields": {
       "template": 34,
-      "template_slug": "08-stellungnahme-zu-voranfrage-behoerden",
+      "template_slug": "08-beurteilung-zu-voranfrage-behoerden",
       "language": "de",
-      "purpose": "08 Stellungnahme zu Voranfrage (Behörden)",
-      "subject": "Stellungnahme zu Dossier (eBau Nr. {{EBAU_NUMBER}}) / Observations sur le dossier (n° eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nSie finden die Stellungnahme / Antwort zum Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) in den eBau-Dokumenten:\r\n\r\n{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=documents\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nVous trouverez la déclaration / réponse au dossier avec le numéro eBau {{EBAU_NUMBER}} ({{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}) dans les documents eBau :\r\n\r\n{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=documents\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\n{{LEITBEHOERDE_NAME_FR}}"
+      "purpose": "08 Beurteilung zu Voranfrage (Behörden)",
+      "subject": "Beurteilung zu Dossier (eBau Nr. {{EBAU_NUMBER}}) / Évaluation sur le dossier (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nSie finden die Beurteilung ({{DECISION_DE}}) zum Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) unter dem folgenden Link:\r\n\r\n{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=decision\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nVous trouverez l'évaluation ({{DECISION_FR}}) au dossier avec le numéro eBau {{EBAU_NUMBER}} ({{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}) sous le lien suivant :\r\n\r\n{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=decision\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\n{{LEITBEHOERDE_NAME_FR}}"
     }
   },
   {
@@ -904,11 +904,11 @@
     "pk": 75,
     "fields": {
       "template": 38,
-      "template_slug": "08-stellungnahme-zu-voranfrage-gesuchsteller",
+      "template_slug": "08-beurteilung-zu-voranfrage-gesuchsteller",
       "language": "de",
-      "purpose": "08 Stellungnahme zu Voranfrage (Gesuchsteller)",
-      "subject": "Stellungnahme zu Dossier (eBau Nr. {{EBAU_NUMBER}}) / Observations sur le dossier (n° eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nSie finden die Stellungnahme zum Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) in den eBau-Dokumenten:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nVous trouverez la déclaration au dossier avec le numéro eBau {{EBAU_NUMBER}} ({{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}) dans les documents eBau :\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
+      "purpose": "08 Beurteilung zu Voranfrage (Gesuchsteller)",
+      "subject": "Beurteilung zu Dossier (eBau Nr. {{EBAU_NUMBER}}) / Évaluation sur le dossier (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nSie finden die Beurteilung ({{DECISION_DE}}) zum Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) unter dem folgenden Link:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nVous trouverez l'évaluation ({{DECISION_FR}}) au dossier avec le numéro eBau {{EBAU_NUMBER}} ({{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}) sous le lien suivant :\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
     }
   },
   {
