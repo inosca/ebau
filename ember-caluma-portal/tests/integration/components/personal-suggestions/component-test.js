@@ -164,7 +164,7 @@ module("Integration | Component | personal-suggestions", function (hooks) {
 
     await render(hbs`
       <PersonalSuggestions>
-        <button>trigger</button>
+        <button type="button">trigger</button>
       </PersonalSuggestions>
     `);
 

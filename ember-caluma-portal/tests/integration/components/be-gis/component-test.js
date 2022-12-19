@@ -7,7 +7,7 @@ module("Integration | Component | be-gis", function (hooks) {
   setupRenderingTest(hooks);
 
   skip("it renders", async function (assert) {
-    await render(hbs`{{be-gis}}`);
+    await render(hbs`<BeGis />`);
     assert.ok(this.element);
   });
 });

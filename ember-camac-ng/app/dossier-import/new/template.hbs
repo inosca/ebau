@@ -17,7 +17,7 @@
       {{#if (gt this.locations.length 1)}}
         <PowerSelect
           @options={{this.locations}}
-          @selected={{(or this.selectedLocation this.locations.firstObject)}}
+          @selected={{or this.selectedLocation (get this.locations "0")}}
           @onChange={{this.updateLocation}}
           @renderInPlace={{true}}
           class="uk-select"
@@ -33,7 +33,7 @@
       {{else}}
         <PowerSelect
           @options={{this.groups}}
-          @selected={{(or this.selectedGroup this.groups.firstObject)}}
+          @selected={{or this.selectedGroup (get this.groups "0")}}
           @onChange={{this.updateGroup}}
           @renderInPlace={{true}}
           class="uk-select"
