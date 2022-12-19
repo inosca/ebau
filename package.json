@@ -7,6 +7,6 @@
     "ember-ebau"
   ],
   "devDependencies": {
-    "prettier": "2.8.0"
+    "prettier": "2.8.1"
   }
 }
