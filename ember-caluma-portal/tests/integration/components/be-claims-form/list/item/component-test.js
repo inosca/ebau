@@ -10,15 +10,15 @@ module("Integration | Component | be-claims-form/list/item", function (hooks) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`{{be-claims-form/list/item}}`);
+    await render(hbs`<BeClaimsForm::List::Item />`);
 
     assert.dom(this.element).hasText("");
 
     // Template block usage:
     await render(hbs`
-      {{#be-claims-form/list/item}}
+      <BeClaimsForm::List::Item>
         template block text
-      {{/be-claims-form/list/item}}
+      </BeClaimsForm::List::Item>
     `);
 
     assert.dom(this.element).hasText("template block text");

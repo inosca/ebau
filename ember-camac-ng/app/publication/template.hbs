@@ -24,9 +24,9 @@
             publication.node.document.end.edges.length
           )
         }}
-          {{format-date publication.node.document.start.edges.0.node.value format="date"}}
+          {{format-date (get publication "node.document.start.edges.0.node.value") format="date"}}
           -
-          {{format-date publication.node.document.end.edges.0.node.value format="date"}}
+          {{format-date (get publication "node.document.end.edges.0.node.value") format="date"}}
         {{/if}}
         {{#if
           (and
