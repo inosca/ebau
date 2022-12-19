@@ -673,7 +673,8 @@ def test_notification_caluma_placeholders(
         CURRENT_SERVICE_DE: {{CURRENT_SERVICE_DE}}
         CURRENT_SERVICE_FR: {{CURRENT_SERVICE_FR}}
         CURRENT_USER_NAME: {{CURRENT_USER_NAME}}
-        WORK_ITEM_NAME: {{WORK_ITEM_NAME}}
+        WORK_ITEM_NAME_DE: {{WORK_ITEM_NAME_DE}}
+        WORK_ITEM_NAME_FR: {{WORK_ITEM_NAME_FR}}
     """
     notification_template.save()
 
