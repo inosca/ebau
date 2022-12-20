@@ -1208,13 +1208,15 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
 
     def _send_notifications(self, case):
         notification_key = "SUBMIT"
-        if case.workflow_id == "preliminary-clarification":
-            notification_key = "SUBMIT_PRELIMINARY_CLARIFICATION"  # pragma: no cover
+        if case.workflow_id == "preliminary-clarification":  # pragma: no cover
+            notification_key = "SUBMIT_PRELIMINARY_CLARIFICATION"
         if case.document.form_id == "cantonal-territory-usage":
             if case.instance.group_id == uri_constants.KOOR_SD_GROUP_ID:
                 notification_key = "SUBMIT_CANTONAL_TERRITORY_USAGE_SD"
             else:
                 notification_key = "SUBMIT_CANTONAL_TERRITORY_USAGE_BD"
+        if case.document.form_id == "heat-generator":  # pragma: no cover
+            notification_key = "SUBMIT_HEAT_GENERATOR"
 
         # send out emails upon submission
         for notification_config in settings.APPLICATION["NOTIFICATIONS"][

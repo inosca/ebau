@@ -39,7 +39,7 @@
     "model": "notification.notificationtemplate",
     "pk": 4,
     "fields": {
-      "slug": "01-empfang-baugesuch-gemeinde",
+      "slug": "00-empfang-meldung-waermeerzeugerersatz-behoerden",
       "purpose": null,
       "subject": null,
       "body": null,
@@ -51,7 +51,7 @@
     "model": "notification.notificationtemplate",
     "pk": 5,
     "fields": {
-      "slug": "02-empfangsbestatigung-baugesuch-gesuchsteller",
+      "slug": "00-empfang-meldung-waermeerzeugerersatz-gesuchsteller",
       "purpose": null,
       "subject": null,
       "body": null,
@@ -387,7 +387,7 @@
     "model": "notification.notificationtemplate",
     "pk": 34,
     "fields": {
-      "slug": "08-stellungnahme-zu-voranfrage-behoerden",
+      "slug": "08-beurteilung-zu-voranfrage-behoerden",
       "purpose": null,
       "subject": null,
       "body": null,
@@ -435,7 +435,7 @@
     "model": "notification.notificationtemplate",
     "pk": 38,
     "fields": {
-      "slug": "08-stellungnahme-zu-voranfrage-gesuchsteller",
+      "slug": "08-beurteilung-zu-voranfrage-gesuchsteller",
       "purpose": null,
       "subject": null,
       "body": null,
@@ -508,11 +508,11 @@
     "pk": 7,
     "fields": {
       "template": 4,
-      "template_slug": "01-empfang-baugesuch-gemeinde",
+      "template_slug": "00-empfang-meldung-waermeerzeugerersatz-behoerden",
       "language": "de",
-      "purpose": "01 Empfang Dossier (Gemeinde)",
-      "subject": "Empfang Dossier eBau-Nr. {{EBAU_NUMBER}} / Réception du dossier portant le numéro eBau {{EBAU_NUMBER}}",
-      "body": "Guten Tag\r\n\r\nDas Dossier mit der eBau-Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}, {{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde erfolgreich abgeschlossen. Das Baubewilligungsverfahren wird von der Gemeinde {{LEITBEHOERDE_NAME_DE}} eröffnet.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nLe dossier portant le numéro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}, {{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}) a été transmise avec succès. La commune de {{LEITBEHOERDE_NAME_FR}} ouvre la procédure d'octroi du permis de construire.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\n{{LEITBEHOERDE_NAME_FR}}"
+      "purpose": "00 Empfang Meldung Wärmeerzeugerersatz (Gesuchsteller)",
+      "subject": "Erfolgreiche Einreichung / Formulaire déposé avec succès\t",
+      "body": "Guten Tag\r\n\r\nIhr Dossier mit der Dossier-Nr. {{INSTANCE_ID}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde erfolgreich übermittelt.\r\n\r\nSie erhalten von der Gemeinde eine Rückmeldung zu Ihrer Meldung abhängig von der Situation im Rahmen der folgenden Fristen: \r\n\r\nSituation: Keine Nachweise erforderlich. Die gesetzlichen Anforderungen nach Art. 40a KEnG und Art. 20a KEnV sind erfüllt: \r\n   - Beim Wechsel auf Holzheizungen, Wärmekraftkopplungsanlagen, Fernwärme und Wärmepumpen innerhalb von längstens 7 Tagen. \r\n     Hinweis: Eine positive Rückmeldung beim Wärmeerzeugerersatz entbindet nicht von einer allfälligen Baubewilligungspflicht beim geplanten Wärmeerzeugerersatz. Informieren Sie sich auf «Energievorschriften beim Bauen» unter Wärmeerzeugerersatz. \r\n\r\nSituation: Nachweise erforderlich. Es ist die Erfüllung an die gesetzlichen Anforderungen nach Art. 40a KEnG und Art. 20a KEnV nachzuweisen: \r\n   - Beim Wechsel von fossilen zu fossilen Energieträgern (bspw. 1:1 Ersatz einer Ölheizung) innerhalb von längstens 30 Tagen.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nVotre dossier portant le numéro de dossier {{INSTANCE_ID}} ({{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}) a été déposé/e avec succès.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
     }
   },
   {
@@ -520,11 +520,11 @@
     "pk": 9,
     "fields": {
       "template": 5,
-      "template_slug": "02-empfangsbestatigung-baugesuch-gesuchsteller",
+      "template_slug": "00-empfang-meldung-waermeerzeugerersatz-gesuchsteller",
       "language": "de",
-      "purpose": "02 Empfangsbestätigung Dossier (Gesuchsteller)",
-      "subject": "Empfangsbestätigung Dossier (eBau-Nr. {{EBAU_NUMBER}}) / Accusé de réception du dossier (n° eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nDas Dossier mit der eBau-Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}, {{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde erfolgreich übermittelt. Das Verfahren wird nun ausgelöst. Sie werden über die Statusmeldungen informiert. \r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nLe dossier portant le numéro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}, {{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}) a été déposée avec succès. La procédure est ouverte et tout changement de statut vous sera communiqué. \r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
+      "purpose": "00 Empfang Meldung Wärmererzeugerersatz (Behörden)",
+      "subject": "Neu eingegangen / Nouvelle entrée",
+      "body": "Guten Tag\r\n\r\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. {{INSTANCE_ID}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).\r\n\r\nWir empfehlen abhängig von der Situation eine Bearbeitung der Meldung zum Wärmeerzeugerersatz im Rahmen der folgenden Fristen: \r\n\r\nSituation: Keine Nachweise erforderlich. Die gesetzlichen Anforderungen nach Art. 40a KEnG und Art. 20a KEnV sind erfüllt: \r\n   - Beim Wechsel auf Holzheizungen, Wärmekraftkopplungsanlagen und Wärmepumpen innerhalb von längstens 7 Tagen. \r\n     Hinweis: Eine positive Rückmeldung beim Wärmeerzeugerersatz entbindet nicht von einer allfälligen Baubewilligungspflicht beim geplanten Wärmeerzeugerersatz. Informieren Sie sich auf «Energievorschriften beim Bauen» unter Wärmeerzeugerersatz.\r\n\r\nSituation: Nachweise erforderlich. Es ist die Erfüllung an die gesetzlichen Anforderungen nach Art. 40a KEnG und Art. 20a KEnV nachzuweisen: \r\n  - Beim Wechsel von fossilen zu fossilen Energieträgern (bspw. 1:1 Ersatz einer Ölheizung) innerhalb von längstens 30 Tagen.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\neBau\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\neBau a enregistré une nouvelle entrée portant le numéro de dossier {{INSTANCE_ID}} ({{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}).\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\neBau"
     }
   },
   {
@@ -632,7 +632,7 @@
       "language": "de",
       "purpose": "Manuelle Aufgabe erstellt",
       "subject": "Aufgabe erstellt (eBau-Nr. {{EBAU_NUMBER}}) / tâche créée (n° eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nIhnen wurde eine neue Aufgabe \"{{WORK_ITEM_NAME}}\" im Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}, {{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) von {{CURRENT_USER_NAME}} ({{CURRENT_SERVICE_DE}}) zugewiesen.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n*** version française ***\r\n\r\nBonjour,\r\n\r\nLa tâche \"{{WORK_ITEM_NAME}}\" dans le dossier portant le numéro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}, {{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}) a été attribuée par {{CURRENT_USER_NAME}} ({{CURRENT_SERVICE_FR}}).\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre."
+      "body": "Guten Tag\r\n\r\nIhnen wurde eine neue Aufgabe \"{{WORK_ITEM_NAME_DE}}\" im Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}, {{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) von {{CURRENT_USER_NAME}} ({{CURRENT_SERVICE_DE}}) zugewiesen.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n*** version française ***\r\n\r\nBonjour,\r\n\r\nLa tâche \"{{WORK_ITEM_NAME_FR}}\" dans le dossier portant le numéro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}, {{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}) a été attribuée par {{CURRENT_USER_NAME}} ({{CURRENT_SERVICE_FR}}).\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre."
     }
   },
   {
@@ -668,7 +668,7 @@
       "language": "de",
       "purpose": "Manuelle Aufgabe abgeschlossen",
       "subject": "Aufgabe abgeschlossen (eBau-Nr. {{EBAU_NUMBER}}) / tâche complétée (n° eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nDie Aufgabe \"{{WORK_ITEM_NAME}}\" im Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}, {{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde von {{CURRENT_USER_NAME}} ({{CURRENT_SERVICE_DE}}) abgeschlossen.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nSie erhalten diese Notifikation, weil Sie beim Erstellen der Aufgabe die Notifikationseinstellung \"Bei Abschluss\" gewählt haben.\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n*** version française ***\r\n\r\nBonjour,\r\n\r\nLa tâche \"{{WORK_ITEM_NAME}}\" dans le dossier portant le numéro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}, {{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}) a été terminée par {{CURRENT_USER_NAME}} ({{CURRENT_SERVICE_FR}}).\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nVous recevez cette notification parce que vous avez sélectionné le paramètre de notification \"après achèvement\" lorsque vous avez créé la tâche.\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre."
+      "body": "Guten Tag\r\n\r\nDie Aufgabe \"{{WORK_ITEM_NAME_DE}}\" im Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}, {{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde von {{CURRENT_USER_NAME}} ({{CURRENT_SERVICE_DE}}) abgeschlossen.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nSie erhalten diese Notifikation, weil Sie beim Erstellen der Aufgabe die Notifikationseinstellung \"Bei Abschluss\" gewählt haben.\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n*** version française ***\r\n\r\nBonjour,\r\n\r\nLa tâche \"{{WORK_ITEM_NAME_FR}}\" dans le dossier portant le numéro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}, {{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}) a été terminée par {{CURRENT_USER_NAME}} ({{CURRENT_SERVICE_FR}}).\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nVous recevez cette notification parce que vous avez sélectionné le paramètre de notification \"après achèvement\" lorsque vous avez créé la tâche.\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre."
     }
   },
   {
@@ -704,7 +704,7 @@
       "language": "de",
       "purpose": "08 Entscheid (Gesuchsteller)",
       "subject": "Information über Entscheid (eBau Nr. {{EBAU_NUMBER}}) / Information sur le prononcé de la décision (n° eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nDer Bauentscheid zum Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde gefällt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/feedback\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nLa décision relative au dossier portant le numéro eBau {{EBAU_NUMBER}} ({{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}) a été rendue. Elle est jointe en annexe, accompagnée de l'indication des voies de droit.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/feedback\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
+      "body": "Guten Tag\r\n\r\nDer Bauentscheid ({{DECISION_DE}}) zum Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde gefällt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/feedback\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nLa décision ({{DECISION_FR}}) relative au dossier portant le numéro eBau {{EBAU_NUMBER}} ({{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}) a été rendue. Elle est jointe en annexe, accompagnée de l'indication des voies de droit.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/feedback\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
     }
   },
   {
@@ -856,11 +856,11 @@
     "pk": 67,
     "fields": {
       "template": 34,
-      "template_slug": "08-stellungnahme-zu-voranfrage-behoerden",
+      "template_slug": "08-beurteilung-zu-voranfrage-behoerden",
       "language": "de",
-      "purpose": "08 Stellungnahme zu Voranfrage (Behörden)",
-      "subject": "Stellungnahme zu Dossier (eBau Nr. {{EBAU_NUMBER}}) / Observations sur le dossier (n° eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nSie finden die Stellungnahme / Antwort zum Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) in den eBau-Dokumenten:\r\n\r\n{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=documents\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nVous trouverez la déclaration / réponse au dossier avec le numéro eBau {{EBAU_NUMBER}} ({{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}) dans les documents eBau :\r\n\r\n{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=documents\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\n{{LEITBEHOERDE_NAME_FR}}"
+      "purpose": "08 Beurteilung zu Voranfrage (Behörden)",
+      "subject": "Beurteilung zu Dossier (eBau Nr. {{EBAU_NUMBER}}) / Évaluation sur le dossier (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nSie finden die Beurteilung ({{DECISION_DE}}) zum Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) unter dem folgenden Link:\r\n\r\n{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=decision\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nVous trouverez l'évaluation ({{DECISION_FR}}) au dossier avec le numéro eBau {{EBAU_NUMBER}} ({{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}) sous le lien suivant :\r\n\r\n{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=decision\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\n{{LEITBEHOERDE_NAME_FR}}"
     }
   },
   {
@@ -904,11 +904,11 @@
     "pk": 75,
     "fields": {
       "template": 38,
-      "template_slug": "08-stellungnahme-zu-voranfrage-gesuchsteller",
+      "template_slug": "08-beurteilung-zu-voranfrage-gesuchsteller",
       "language": "de",
-      "purpose": "08 Stellungnahme zu Voranfrage (Gesuchsteller)",
-      "subject": "Stellungnahme zu Dossier (eBau Nr. {{EBAU_NUMBER}}) / Observations sur le dossier (n° eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nSie finden die Stellungnahme zum Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) in den eBau-Dokumenten:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nVous trouverez la déclaration au dossier avec le numéro eBau {{EBAU_NUMBER}} ({{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}) dans les documents eBau :\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
+      "purpose": "08 Beurteilung zu Voranfrage (Gesuchsteller)",
+      "subject": "Beurteilung zu Dossier (eBau Nr. {{EBAU_NUMBER}}) / Évaluation sur le dossier (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nSie finden die Beurteilung ({{DECISION_DE}}) zum Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) unter dem folgenden Link:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nVous trouverez l'évaluation ({{DECISION_FR}}) au dossier avec le numéro eBau {{EBAU_NUMBER}} ({{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}) sous le lien suivant :\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
     }
   },
   {
