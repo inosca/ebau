@@ -141,7 +141,10 @@ class DMSHandler:
                         master_data.street,
                         master_data.street_number,
                     ),
-                    master_data.city,
+                    clean_join(
+                        master_data.zip,
+                        master_data.city,
+                    ),
                     separator=", ",
                 ),
                 "plotsHeader": clean_join(
