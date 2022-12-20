@@ -8,7 +8,8 @@ distribution:
 
   send-answer: "Envoyer la réponse"
   release-for-review: "Valider pour contrôle"
-  released-for-review: "Validé pour contrôle"
+  released-for-review: "Validé pour contrôle le"
+  released-for-review-by: "Validé pour contrôle par"
   release-adjustment-for-review: "Valider la révision pour contrôle"
   confirm: "Confirmer"
   revise: "Réviser"
@@ -16,3 +17,4 @@ distribution:
 
 # Override default text of @projectcaluma/ember-distribution
 "caluma.distribution.inquiry.sent-at": "Date de début"
+"caluma.distribution.inquiry.closed-at": "Contrôlé le"
