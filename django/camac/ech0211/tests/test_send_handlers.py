@@ -141,10 +141,8 @@ def test_notice_ruling_send_handler(
     decision_factory,
 ):
     if is_vorabklaerung:
-        notification_template_factory(
-            slug="08-stellungnahme-zu-voranfrage-gesuchsteller"
-        )
-        notification_template_factory(slug="08-stellungnahme-zu-voranfrage-behoerden")
+        notification_template_factory(slug="08-beurteilung-zu-voranfrage-gesuchsteller")
+        notification_template_factory(slug="08-beurteilung-zu-voranfrage-behoerden")
     else:
         notification_template_factory(slug="08-entscheid-gesuchsteller")
         notification_template_factory(slug="08-entscheid-behoerden")

@@ -650,6 +650,7 @@ def test_notification_caluma_placeholders(
     snapshot,
     total_inquiries,
     with_inquiry,
+    decision_factory,
 ):
     notification_template.body = """
         BASE_URL: {{BASE_URL}}
@@ -673,9 +674,14 @@ def test_notification_caluma_placeholders(
         CURRENT_SERVICE_DE: {{CURRENT_SERVICE_DE}}
         CURRENT_SERVICE_FR: {{CURRENT_SERVICE_FR}}
         CURRENT_USER_NAME: {{CURRENT_USER_NAME}}
-        WORK_ITEM_NAME: {{WORK_ITEM_NAME}}
+        WORK_ITEM_NAME_DE: {{WORK_ITEM_NAME_DE}}
+        WORK_ITEM_NAME_FR: {{WORK_ITEM_NAME_FR}}
+        DECISION_DE: {{DECISION_DE}}
+        DECISION_FR: {{DECISION_FR}}
     """
     notification_template.save()
+
+    decision_factory()
 
     caluma_form_factories.AnswerFactory(
         document=be_instance.case.document, question_id="gemeinde", value="1"
