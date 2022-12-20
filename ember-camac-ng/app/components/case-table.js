@@ -221,6 +221,7 @@ export default class CaseTableComponent extends Component {
                   questions: [
                     "strasse-flurname",
                     "nr",
+                    "plz-grundstueck-v3",
                     "ort-grundstueck",
                     "standort-migriert",
                   ],

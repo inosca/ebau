@@ -74,9 +74,13 @@ export default class CustomCaseModel extends CaseModel {
       .filter(Boolean)
       .join(" ")
       .trim();
-    const city = this._getAnswerDisplayValue(
-      answerSlugs.objectLocation
-    )?.trim();
+    const city = [
+      this._getAnswerDisplayValue(answerSlugs.objectZIP),
+      this._getAnswerDisplayValue(answerSlugs.objectLocation),
+    ]
+      .filter(Boolean)
+      .join(" ")
+      .trim();
 
     return [streetAndNr, city].filter(Boolean).join(", ").trim();
   }
@@ -164,6 +168,7 @@ export default class CustomCaseModel extends CaseModel {
             "${answerSlugs.objectStreet}"
             "${answerSlugs.objectNumber}"
             "${answerSlugs.objectLocation}"
+            "${answerSlugs.objectZIP}"
             "${answerSlugs.personalDataApplicant}"
             "${answerSlugs.oerebProcedure}"
             "${answerSlugs.oerebTopics}"
