@@ -3453,7 +3453,8 @@
           "name-gebaeudeeigentuemerin",
           "vorname-gebaeudeeigentuemerin",
           "telefon-oder-mobile-gebaeudeeigentuemerin",
-          "e-mail-gebaeudeeigentuemerin"
+          "e-mail-gebaeudeeigentuemerin",
+          "name-juristische-person-gebaeudeeigentuemerin"
         ]
       },
       "data_source": null,
@@ -3491,7 +3492,8 @@
           "name-gesuchstellerin",
           "vorname-gesuchstellerin",
           "e-mail-gesuchstellerin",
-          "telefon-oder-mobile-gesuchstellerin"
+          "telefon-oder-mobile-gesuchstellerin",
+          "name-juristische-person-gesuchstellerin"
         ]
       },
       "data_source": null,
@@ -3529,7 +3531,8 @@
           "name-grundeigentuemerin",
           "vorname-grundeigentuemerin",
           "telefon-oder-mobile-grundeigentuemerin",
-          "e-mail-grundeigentuemerin"
+          "e-mail-grundeigentuemerin",
+          "name-juristische-person-grundeigentuemerin"
         ]
       },
       "data_source": null,
@@ -3567,7 +3570,8 @@
           "name-projektverfasserin",
           "vorname-projektverfasserin",
           "telefon-oder-mobile-projektverfasserin",
-          "e-mail-projektverfasserin"
+          "e-mail-projektverfasserin",
+          "name-juristische-person-projektverfasserin"
         ]
       },
       "data_source": null,
@@ -3643,7 +3647,8 @@
           "name-vertreterin",
           "vorname-vertreterin",
           "e-mail-vertreterin",
-          "telefon-oder-mobile-vertreterin"
+          "telefon-oder-mobile-vertreterin",
+          "name-juristische-person-vertreterin"
         ]
       },
       "data_source": null,
