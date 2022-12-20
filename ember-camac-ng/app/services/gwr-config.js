@@ -11,12 +11,14 @@ export default class GwrConfigService extends Service {
   gwrAPI = "/housing-stat/regbl/api/ech0216/2";
   isTestEnvironment = ENV.appEnv !== "production";
   pageSize = 10;
-  projectSortColumn = "bau_modify_date";
-  projectSortDirection = "desc";
-  buildingSortColumn = "geb_modify_date";
-  buildingSortDirection = "desc";
-  quarterlyClosureSortColumn = "bau_create_date";
-  quarterlyClosureSortDirection = "desc";
+  // Sorting currently not possible due to bug in GWR eCH-0216 API.
+  // TODO: Re-add sorting once issue has been resolved.
+  // projectSortColumn = "bau_modify_date";
+  // projectSortDirection = "desc";
+  // buildingSortColumn = "geb_modify_date";
+  // buildingSortDirection = "desc";
+  // quarterlyClosureSortColumn = "bau_create_date";
+  // quarterlyClosureSortDirection = "desc";
 
   get modalContainer() {
     return ENV.APPLICATION.gwr.modalContainer ?? "#ember-camac-ng";
