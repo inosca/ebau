@@ -1022,7 +1022,8 @@
           "name-gesuchstellerin",
           "vorname-gesuchstellerin",
           "telefon-oder-mobile-gesuchstellerin",
-          "e-mail-gesuchstellerin"
+          "e-mail-gesuchstellerin",
+          "name-juristische-person-gesuchstellerin"
         ]
       },
       "data_source": null,
