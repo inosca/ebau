@@ -193,18 +193,34 @@ DISTRIBUTION_DUMP_CONFIG = {
 }
 
 
-def generate_form_dump_config(regex):
-    return {
-        "caluma_form.Option": Q(questions__forms__pk__iregex=regex),
-        "caluma_form.Question": Q(forms__pk__iregex=regex),
-        "caluma_form.Form": Q(pk__iregex=regex),
-        "caluma_form.QuestionOption": Q(question__forms__pk__iregex=regex),
-        "caluma_form.FormQuestion": Q(form__pk__iregex=regex),
-        "caluma_form.Answer": Q(
-            question__forms__pk__iregex=regex,
-            document__isnull=True,
-        ),
-    }
+def generate_form_dump_config(regex=None, version=None):
+    if regex:
+        return {
+            "caluma_form.Option": Q(questions__forms__pk__iregex=regex),
+            "caluma_form.Question": Q(forms__pk__iregex=regex),
+            "caluma_form.Form": Q(pk__iregex=regex),
+            "caluma_form.QuestionOption": Q(question__forms__pk__iregex=regex),
+            "caluma_form.FormQuestion": Q(form__pk__iregex=regex),
+            "caluma_form.Answer": Q(
+                question__forms__pk__iregex=regex,
+                document__isnull=True,
+            ),
+        }
+    elif version:
+        v = f"-v{version}"
+        return {
+            "caluma_form.Form": Q(pk__endswith=v),
+            "caluma_form.FormQuestion": Q(form__pk__endswith=v),
+            "caluma_form.Question": Q(pk__endswith=v),
+            "caluma_form.QuestionOption": Q(question__pk__endswith=v),
+            "caluma_form.Option": Q(questions__pk__endswith=v),
+            "caluma_form.Answer": Q(
+                question__forms__pk__endswith=v,
+                document__isnull=True,
+            ),
+        }
+
+    return {}  # pragma: no cover
 
 
 # Application specific settings
@@ -1462,6 +1478,7 @@ APPLICATIONS = {
                 "weitere-personen",
                 "strasse-flurname",
                 "nr",
+                "plz-grundstueck-v3",
                 "ort-grundstueck",
                 "gemeinde",
                 "beschreibung-bauvorhaben",
@@ -1705,32 +1722,31 @@ APPLICATIONS = {
                 "caluma_form.Option": Q(questions__forms__pk__in=COMMON_FORM_SLUGS_BE)
                 | Q(questions__pk__in=COMMON_QUESTION_SLUGS_BE),
             },
-            "caluma_form_v2": {
-                "caluma_form.Form": Q(pk__endswith="-v2"),
-                "caluma_form.FormQuestion": Q(form__pk__endswith="-v2"),
-                "caluma_form.Question": Q(pk__endswith="-v2"),
-                "caluma_form.QuestionOption": Q(question__pk__endswith="-v2"),
-                "caluma_form.Option": Q(questions__pk__endswith="-v2"),
-                "caluma_form.Answer": Q(
-                    question__forms__pk__endswith="-v2",
-                    document__isnull=True,
-                ),
-            },
+            "caluma_form_v2": generate_form_dump_config(version=2),
+            "caluma_form_v3": generate_form_dump_config(version=3),
             "caluma_dossier_import_form": generate_form_dump_config(
-                r"^migriertes-dossier(-daten)?$"
+                regex=r"^migriertes-dossier(-daten)?$"
             ),
-            "caluma_form_sb2": generate_form_dump_config(r"(-)?sb2$"),
+            "caluma_form_sb2": generate_form_dump_config(regex=r"(-)?sb2$"),
             "caluma_information_of_neighbors_form": generate_form_dump_config(
-                r"^information-of-neighbors$"
+                regex=r"^information-of-neighbors$"
             ),
-            "caluma_ebau_number_form": generate_form_dump_config(r"^ebau-number$"),
-            "caluma_solar_plants_form": generate_form_dump_config(r"^solaranlagen(-)?"),
-            "caluma_decision_form": generate_form_dump_config(r"^decision$"),
+            "caluma_ebau_number_form": generate_form_dump_config(
+                regex=r"^ebau-number$"
+            ),
+            "caluma_solar_plants_form": generate_form_dump_config(
+                regex=r"^solaranlagen(-)?"
+            ),
+            "caluma_decision_form": generate_form_dump_config(regex=r"^decision$"),
             "caluma_audit_form": generate_form_dump_config(
-                r"^(dossierpruefung|mp-|fp-|mp-|bab-)"
+                regex=r"^(dossierpruefung|mp-|fp-|mp-|bab-)"
             ),
-            "caluma_publication_form": generate_form_dump_config(r"^publikation$"),
-            "caluma_heat_generator_form": generate_form_dump_config(r"^heat-generator"),
+            "caluma_publication_form": generate_form_dump_config(
+                regex=r"^publikation$"
+            ),
+            "caluma_heat_generator_form": generate_form_dump_config(
+                regex=r"^heat-generator"
+            ),
             # Distribution
             **DISTRIBUTION_DUMP_CONFIG,
         },
@@ -1980,6 +1996,7 @@ APPLICATIONS = {
             "description_modification": ("answer", "beschreibung-projektaenderung"),
             "street": ("answer", "strasse-flurname"),
             "street_number": ("answer", "nr"),
+            "zip": ("answer", "plz-grundstueck-v3"),
             "city": ("answer", "ort-grundstueck"),
             "construction_costs": ("answer", "baukosten-in-chf"),
             "municipality": ("answer", "gemeinde", {"value_parser": "dynamic_option"}),
@@ -2789,8 +2806,10 @@ APPLICATIONS = {
                 "caluma_form.Option": Q(questions__forms__pk__in=COMMON_FORM_SLUGS_BE)
                 | Q(questions__pk__in=COMMON_QUESTION_SLUGS_BE),
             },
-            "caluma_ebau_number_form": generate_form_dump_config(r"^ebau-number$"),
-            "caluma_decision_form": generate_form_dump_config(r"^decision$"),
+            "caluma_ebau_number_form": generate_form_dump_config(
+                regex=r"^ebau-number$"
+            ),
+            "caluma_decision_form": generate_form_dump_config(regex=r"^decision$"),
             # Distribution
             **DISTRIBUTION_DUMP_CONFIG,
         },

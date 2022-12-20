@@ -373,17 +373,18 @@ class CalumaApi:
         ).strip()
 
     def get_address(self, document):
-        street, number, city, migrated = [
+        street, number, zip, city, migrated = [
             self._get_answer(document, ans)
             for ans in [
                 "strasse-flurname",
                 "nr",
+                "plz-grundstueck-v3",
                 "ort-grundstueck",
                 "standort-migriert",
             ]
         ]
 
-        address_lines = [f"{street} {number}".strip(), city]
+        address_lines = [f"{street} {number}".strip(), f"{zip} {city}".strip()]
 
         return ", ".join(address_lines) if all(address_lines) else migrated
 
