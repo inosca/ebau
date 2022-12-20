@@ -262,7 +262,7 @@
       "modified_by_group": null,
       "form": "heat-generator-form",
       "question": "heat-generator-age",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -277,7 +277,7 @@
       "modified_by_group": null,
       "form": "heat-generator-form",
       "question": "heat-generator-category",
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -442,6 +442,21 @@
       "modified_by_group": null,
       "form": "heat-generator-form",
       "question": "heat-generator-year",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "heat-generator-form.heat-generator-year-info",
+    "fields": {
+      "created_at": "2022-12-19T14:36:56.113Z",
+      "modified_at": "2022-12-19T14:36:56.113Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "heat-generator-form",
+      "question": "heat-generator-year-info",
       "sort": 11
     }
   },
@@ -2580,7 +2595,7 @@
     "pk": "heat-generator-info",
     "fields": {
       "created_at": "2022-12-01T12:18:49.348Z",
-      "modified_at": "2022-12-16T11:34:08.199Z",
+      "modified_at": "2022-12-19T14:32:24.948Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -2593,7 +2608,7 @@
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "hint_text": "{\"de\": null, \"fr\": null}",
-      "static_content": "{\"de\": \"Unabh\\u00e4ngig vom Heizsystem ist jeder Ersatz eines W\\u00e4rmeerzeugers meldepflichtig. Ein W\\u00e4rmeerzeugerersatz gilt sobald der Ersatz vom Gesamtsystem, vom Kessel, vom Brenner (wenn der Kessel \\u00e4lter als 10 Jahre ist), vom Kamin oder vom \\u00d6ltank geplant ist. Die gesetzlichen Grundlagen sind im Artikel 40a des Kantonalen Energiegesetzes und im Artikel 20a der Kantonalen Energieverordnung geregelt.\\n\\nDas Meldeverfahren ersetzt nicht die Meldung einer baubewilligungspflichtigen Massnahme. Welche Massnahmen eine Baubewilligung erfordern, ist im Dokument [**\\u00ab\\u00dcbersicht Standardl\\u00f6sungen, Meldepflicht W\\u00e4rmeerzeugerersatz\\u00bb**](https://www.weu.be.ch/de/start/themen/energie/energievorschriften-bauen.html) ersichtlich.\\n\\n- Gem\\u00e4ss Art. 40a des Kantonalen Energiegesetzes (KEnG) ist der Ersatz eines W\\u00e4rmeerzeugers generell f\\u00fcr alle Geb\\u00e4udekategorien meldepflichtig.\\n- Gem\\u00e4ss Art. 20a der Kantonalen Energieverordnung (KEnV) gilt der Ersatz eines W\\u00e4rmeerzeugers, wenn der Kessel, der Brenner (wenn Kessel \\u00e4lter als 10 Jahre), der Kamin oder der \\u00d6ltank ersetzt werden.\\n- Systematische Sammlung (BSG) der Gesetzgebung im Kanton Bern:\\n    - [KEnG](https://www.belex.sites.be.ch/app/de/texts_of_law/741.1)\\n    - [KEnV](https://www.belex.sites.be.ch/app/de/texts_of_law/741.111)\\n\\n<hr class=\\\"uk-margin-remove\\\">\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"Unabh\\u00e4ngig von der Geb\\u00e4udekategorie und vom Heizsystem ist jeder Ersatz eines W\\u00e4rmeerzeugers meldepflichtig. Als W\\u00e4rmeerzeugerersatz gilt der Ersatz vom Gesamtsystem, vom Kessel, vom Brenner (wenn der Kessel \\u00e4lter als 10 Jahre ist), vom Kamin oder vom \\u00d6ltank. Die gesetzliche Grundlage ist in den folgenden Artikeln formuliert:\\n\\n- Gem\\u00e4ss Art. 40a des Kantonalen Energiegesetzes (KEnG) ist der Ersatz eines W\\u00e4rmeerzeugers generell f\\u00fcr alle Geb\\u00e4udekategorien meldepflichtig.\\n- Gem\\u00e4ss Art. 20a der Kantonalen Energieverordnung (KEnV) gilt der Ersatz eines W\\u00e4rmeerzeugers, wenn der Kessel, der Brenner (wenn Kessel \\u00e4lter als 10 Jahre), der Kamin oder der \\u00d6ltank ersetzt werden.\\n- Systematische Sammlung (BSG) der Gesetzgebung im Kanton Bern:\\n    - [KEnG](https://www.belex.sites.be.ch/app/de/texts_of_law/741.1)\\n    - [KEnV](https://www.belex.sites.be.ch/app/de/texts_of_law/741.111)\\n\\nDas Meldeverfahren befreit nicht von der Baubewilligungspflicht. Welche Massnahmen eine Baubewilligung erfordern, ist im Dokument [\\u00abBaubewilligungsverfahren Standardl\\u00f6sungen_Meldepflicht W\\u00e4rmeerzeugerersatz\\u00bb](https://www.weu.be.ch/de/start/themen/energie/energievorschriften-bauen.html) ersichtlich.\\n\\n<hr class=\\\"uk-margin-remove\\\">\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -2751,18 +2766,18 @@
     "pk": "heat-generator-percentage-renewable-gas",
     "fields": {
       "created_at": "2022-12-01T12:41:48.279Z",
-      "modified_at": "2022-12-14T11:41:03.221Z",
+      "modified_at": "2022-12-19T14:36:17.611Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Anteil Erneuerbares Gas (z.B. Biogas)\", \"fr\": null}",
+      "label": "{\"de\": \"Anteil Erneuerbares Gas (z.B. Biogas) in Prozent\", \"fr\": null}",
       "type": "integer",
       "is_required": "true",
       "is_hidden": "!(\n\t'heat-generator-new'|answer|mapby('heat-generator-energy-source-new')\n\tintersects\n\t[\n\t\t'heat-generator-energy-source-new-gasfeuerung',\n\t\t'heat-generator-energy-source-new-gasfeuerung-kondensierend',\n\t\t'heat-generator-energy-source-new-waermekraftkopplung'\n\t]\n)\n&&\n!(\n\t'heat-generator-new-with-requirements'|answer|mapby('heat-generator-energy-source-new-with-requirements')\n\tintersects\n\t[\n\t\t'heat-generator-energy-source-new-with-requirements-gasfeuerung',\n\t\t'heat-generator-energy-source-new-with-requirements-gasfeuerung-kondensierend',\n\t\t'heat-generator-energy-source-new-with-requirements-waermekraftkopplung'\n\t]\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
-      "info_text": "{\"de\": \"Wie hoch ist nach erfolgtem Produktwechsel der Anteil erneuerbares Gas (z.B. Biogas) am Gasliefermix?\", \"fr\": null}",
+      "info_text": "{\"de\": \"Wie hoch ist der aktuelle prozentuale Anteil erneuerbares Gas (z.B. Biogas) am Gasliefermix?\", \"fr\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {
@@ -3121,6 +3136,37 @@
         "max_value": 9999,
         "min_value": 1000
       },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "heat-generator-year-info",
+    "fields": {
+      "created_at": "2022-12-19T14:36:55.900Z",
+      "modified_at": "2022-12-19T14:38:07.773Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Erstellungsjahr Info\", \"fr\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "'heat-generator-year'|answer == null",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert uk-margin-remove\\\">Die Leitbeh\\u00f6rde pr\\u00fcft die Angabe zum Erstellungsjahr auf Korrektheit. Belege k\\u00f6nnen nachgefordert werden.</div>\", \"fr\": \"\"}",
+      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
