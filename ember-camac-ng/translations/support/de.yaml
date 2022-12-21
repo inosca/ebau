@@ -4,7 +4,7 @@ support:
     description: "Hier können Sie das Dossier archivieren (z.B. Testdossiers, duplizierte Dossiers, etc.). Dabei wird das Dossier unwiederruflich in den Status '<strong'>Archiviert'</strong'> versetzt."
     button: "Archivieren"
 
-    confirm: "Wollen Sie das Dossier wirklich archivieren?"
+    confirm: "Wollen Sie das Dossier wirklich archivieren?'<br/'><br/'>'<strong'>Achtung:'</strong'> Diese Aktion kann nicht mehr rückgängig gemacht werden!"
     error: "Fehler beim Archivieren des Dossiers"
 
   ebau-number:
