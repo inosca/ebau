@@ -4,7 +4,7 @@ support:
     description: "Ici vous pouvez archiver le dossier (par exemple, les dossiers d'essai, les dossiers en double, etc.) Le dossier est alors irrévocablement placé sous le statut '<strong'>Archivé'</strong'>."
     button: "Archiver"
 
-    confirm: "Voulez vous vraiment archiver le dossier ?"
+    confirm: "Voulez vous vraiment archiver le dossier ?'<br/'><br/'>'<strong'>Attention :'</strong'> Cette action ne peut être annulée !"
     error: "Erreur lors de l'archivage du dossier"
 
   ebau-number:
