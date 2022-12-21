@@ -153,6 +153,7 @@ mutation CheckDistributionTask {
       slug: "check-distribution"
       name: "Zirkulation prüfen"
       addressGroups: "['municipality']|groups"
+      controlGroups: "['municipality']|groups"
       leadTime: 432000 # 5 days
     }
   ) {

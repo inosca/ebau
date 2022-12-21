@@ -112,6 +112,7 @@ mutation CheckDistributionTask {
       slug: "check-distribution"
       name: "Entscheid starten"
       addressGroups: "['municipality']|groups"
+      controlGroups: "['municipality']|groups"
       leadTime: 864000 # 10 days
     }
   ) {
