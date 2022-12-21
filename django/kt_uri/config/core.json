@@ -8966,7 +8966,7 @@
       "question": 264,
       "value": "5071",
       "name": "RPG 37a RPV 43 Änderung zonenwidrig gewordener gewerblicher Bauten",
-      "sort": 26
+      "sort": 27
     }
   },
   {
@@ -8976,7 +8976,7 @@
       "question": 264,
       "value": "3 Kein GWR Code",
       "name": "Andere Dossiers",
-      "sort": 28
+      "sort": 29
     }
   },
   {
@@ -9096,7 +9096,7 @@
       "question": 264,
       "value": "2 Kein GWR Code",
       "name": "BGBB 4a VBB Abparzellierung von Bauten und Anlagen, Feststellungsverfügung",
-      "sort": 27
+      "sort": 28
     }
   },
   {
@@ -9497,6 +9497,16 @@
       "value": "Betrieb Hof",
       "name": "Betrieb Gewerbe Liegenschaften",
       "sort": 12
+    }
+  },
+  {
+    "model": "core.answerlist",
+    "pk": 12000000,
+    "fields": {
+      "question": 264,
+      "value": "4 Kein GWR Code",
+      "name": "RPV 32c Standortgebundene Solaranlagen ausserhalb der Bauzonen",
+      "sort": 26
     }
   },
   {
