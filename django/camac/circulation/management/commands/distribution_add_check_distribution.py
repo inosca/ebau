@@ -102,6 +102,7 @@ class Command(BaseCommand):
                         task=check_distribution_task,
                         name=check_distribution_task.name,
                         addressed_groups=distribution_case.parent_work_item.addressed_groups,
+                        controlling_groups=distribution_case.parent_work_item.addressed_groups,
                         case=distribution_case,
                         status=WorkItem.STATUS_READY,
                         deadline=pytz.utc.localize(
