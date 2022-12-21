@@ -147,6 +147,7 @@ def post_redo_distribution(sender, work_item, user, context=None, **kwargs):
             task=check_distribution_task,
             name=check_distribution_task.name,
             addressed_groups=work_item.addressed_groups,
+            controlling_groups=work_item.addressed_groups,
             case=work_item.child_case,
             status=WorkItem.STATUS_READY,
             created_by_user=user.username,
