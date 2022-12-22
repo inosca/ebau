@@ -41,6 +41,7 @@ documents:
   setConfidential: "Als vertraulich markieren"
   setNonConfidential: "Vertraulich Markierung entfernen"
   confirm: "Hiermit bestätige ich, dass ich {count, plural, =1 {den folgenden Pflichtinhalt} other {die folgenden # Pflichtinhalte}} hochgeladen habe:"
+  confirm-reduced: "Hiermit bestätige ich, dass ich die benötigten Pflichtinhalte hochgeladen habe:"
   buckets:
     dokument-grundstucksangaben: "Grundstücksangaben und Projektbeschrieb"
     dokument-gutachten-nachweise-begrundungen: "Gutachten, Nachweise, Begründungen, Ausnahmebegehren"
