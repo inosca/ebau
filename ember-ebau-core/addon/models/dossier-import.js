@@ -32,6 +32,11 @@ export default class DossierImportModel extends Model {
     return adapter.undo(this);
   }
 
+  clean() {
+    const adapter = this.store.adapterFor("dossier-import");
+    return adapter.clean(this);
+  }
+
   transmit() {
     const adapter = this.store.adapterFor("dossier-import");
     return adapter.transmit(this);

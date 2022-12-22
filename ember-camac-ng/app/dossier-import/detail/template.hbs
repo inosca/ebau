@@ -1,16 +1,13 @@
 {{#if this.fetchImport.isRunning}}
   <div uk-spinner></div>
 {{else}}
-  <h3
-    data-test-import-detail
-    class="uk-margin-small-top uk-margin-small-bottom"
-  >
-    {{t
-      "dossierImport.detail.title"
-      creationDate=(format-date this.import.createdAt format="datetime")
-      user=(if this.isProd this.import.group.name this.import.user.fullName)
-    }}
-  </h3>
+  <DossierImportDetailBlock @title={{t "dossierImport.detail.filename"}}>
+      {{this.import.filename}}
+  </DossierImportDetailBlock>
+  <DossierImportDetailBlock @title={{t "dossierImport.detail.created"}}>
+      {{format-date this.import.createdAt format="datetime"}} {{t "global.by" }}
+      {{(if this.isProd this.import.group.name this.import.user.fullName)}}
+  </DossierImportDetailBlock>
   {{#if (or this.isValidated this.isImported)}}
     <DossierImportDetailBlock @title={{t "dossierImport.detail.analysis.title"}}>
       <div>
@@ -112,6 +109,9 @@
           <pre class="uk-margin-remove-top">{{this.import.messages.import.exception}}</pre>
         </details>
       {{/if}}
+      {{#if (eq this.import.status "in-progress")}}
+        <progress class="uk-progress" value={{this.progress}} max={{this.total}}></progress>
+      {{/if}}
     </div>
   </DossierImportDetailBlock>
   <DossierImportDetailBlock @title={{t "dossierImport.detail.actions.title"}}>
@@ -165,6 +165,19 @@
           }}
           @buttonLabel={{t
             "dossierImport.detail.actions.undoImport.buttonLabel"
+          }}
+        />
+      {{/if}}
+      {{#if (can "clean dossier-import" this.import)}}
+        <DossierImportAction
+          @actionName="cleanImport"
+          @task={{this.cleanImport}}
+          @title={{t "dossierImport.detail.actions.cleanImport.title"}}
+          @description={{t
+            "dossierImport.detail.actions.cleanImport.description"
+          }}
+          @buttonLabel={{t
+            "dossierImport.detail.actions.cleanImport.buttonLabel"
           }}
         />
       {{/if}}

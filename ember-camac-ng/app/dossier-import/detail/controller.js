@@ -116,7 +116,26 @@ export default class DossierImportDetailController extends Controller {
     } catch (e) {
       console.error(e);
       this.notification.danger(
-        this.intl.t("dossierImport.detail.actions.confirmImport.error")
+        this.intl.t("dossierImport.detail.actions.undoImport.error")
+      );
+    }
+  }
+
+  @dropTask
+  *cleanImport() {
+    try {
+      this.notification.clear();
+
+      yield this.import.clean();
+      yield this.fetchImport.perform();
+
+      this.notification.success(
+        this.intl.t("dossierImport.detail.actions.cleanImport.success")
+      );
+    } catch (e) {
+      console.error(e);
+      this.notification.danger(
+        this.intl.t("dossierImport.detail.actions.cleanImport.error")
       );
     }
   }
@@ -177,6 +196,14 @@ export default class DossierImportDetailController extends Controller {
       : this.isImported
       ? messages?.import.summary
       : null;
+  }
+
+  get progress() {
+    return this.import?.messages?.import?.details.length;
+  }
+
+  get total() {
+    return this.import?.messages?.validation?.summary?.stats?.dossiers;
   }
 
   get isValidated() {

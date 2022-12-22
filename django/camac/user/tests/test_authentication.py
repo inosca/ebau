@@ -101,6 +101,50 @@ def test_authenticate_new_user(
     assert decode_token.return_value == token
 
 
+@pytest.mark.parametrize(
+    "token_value, expected",
+    [
+        (
+            {
+                "sub": "service-account-gemeinde",
+                "email": "new-guy@example.com",
+                "clientId": "testClient",
+                settings.OIDC_USERNAME_CLAIM: "service-account-gemeinde",
+            },
+            "new-guy@example.com",
+        ),
+        (
+            {
+                "sub": "service-account-gemeinde",
+                "clientId": "testClient",
+                settings.OIDC_USERNAME_CLAIM: "service-account-gemeinde",
+            },
+            "service-account-gemeinde@placeholder.org",
+        ),
+    ],
+)
+def test_authenticate_email_fallback(
+    rf,
+    admin_user,
+    mocker,
+    token_value,
+    applicant_factory,
+    clear_cache,
+    expected,
+):
+    decode_token = mocker.patch("keycloak.KeycloakOpenID.decode_token")
+    decode_token.return_value = token_value
+    mocker.patch("keycloak.KeycloakOpenID.certs")
+
+    userinfo = mocker.patch("keycloak.KeycloakOpenID.userinfo")
+    userinfo.return_value = token_value
+
+    request = rf.request(HTTP_AUTHORIZATION="Bearer some_token")
+    user, token = JSONWebTokenKeycloakAuthentication().authenticate(request)
+
+    assert user.email == expected
+
+
 def test_authenticate_ok(rf, admin_user, mocker, clear_cache):
     token_value = {
         "sub": admin_user.username,

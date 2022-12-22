@@ -484,3 +484,15 @@ def test_download_import(db, admin_client, archive_file, dossier_import_factory)
         reverse("dossier-import-download", args=(dossier_import.pk,))
     )
     assert resp.status_code == status.HTTP_200_OK
+
+
+@pytest.mark.parametrize("role__name", ["Support"])
+def test_clean_import(db, admin_client, archive_file, dossier_import_factory):
+    dossier_import = dossier_import_factory(
+        source_file=archive_file("import-example.zip"),
+        group=admin_client.user.groups.first(),
+    )
+    resp = admin_client.post(reverse("dossier-import-clean", args=(dossier_import.pk,)))
+    assert resp.status_code == status.HTTP_204_NO_CONTENT
+    dossier_import.refresh_from_db()
+    assert not dossier_import.source_file
