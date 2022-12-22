@@ -125,6 +125,12 @@ def undo_import(dossier_import):
     dossier_import.delete()
 
 
+def clean_import(dossier_import):
+    dossier_import.delete_file()
+    dossier_import.status = DossierImport.IMPORT_STATUS_CLEANED
+    dossier_import.save()
+
+
 def get_or_create_ebau_nr(ebau_number, service, submit_date=None):
     """Validate a proposed ebau-number to match its service domain or get a new one."""
     pattern = re.compile("([0-9]{4}-[1-9][0-9]*)")

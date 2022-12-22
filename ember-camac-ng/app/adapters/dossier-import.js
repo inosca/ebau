@@ -16,6 +16,11 @@ export default class DossierImportAdapter extends ApplicationAdapter {
     return this.ajax(url, "POST");
   }
 
+  clean(model) {
+    const url = `${this.buildURL("dossier-import", model.id)}/clean`;
+    return this.ajax(url, "POST");
+  }
+
   transmit(model) {
     const url = `${this.buildURL("dossier-import", model.id)}/transmit`;
     return this.ajax(url, "POST");

@@ -11,7 +11,7 @@
   <thead>
     <tr>
       {{#let
-        (array "createDate" "author" "status" "importDate") as |tableHeaders|
+        (array "filename" "createDate" "author" "status" "importDate") as |tableHeaders|
       }}
         {{#each tableHeaders as |tableHeader|}}
           <th class="uk-padding-remove-top">
@@ -37,6 +37,15 @@
     {{else}}
       {{#each this.imports as |import|}}
         <tr data-test-imports-row={{import.id}}>
+          <td class="uk-table-link">
+            <LinkTo
+              @route="dossier-import.detail"
+              @model={{import.id}}
+              class="uk-link uk-link-reset"
+            >
+              {{import.filename}}
+            </LinkTo>
+          </td>
           <td class="uk-table-link">
             <LinkTo
               @route="dossier-import.detail"
