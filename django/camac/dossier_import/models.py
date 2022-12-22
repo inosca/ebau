@@ -33,6 +33,7 @@ class DossierImport(UUIDModel):
     IMPORT_STATUS_IMPORTED = "imported"
     IMPORT_STATUS_IMPORT_FAILED = "import-failed"
     IMPORT_STATUS_CONFIRMED = "confirmed"
+    IMPORT_STATUS_CLEANED = "cleaned"
     IMPORT_STATUS_TRANSMITTING = "transmitting"
     IMPORT_STATUS_TRANSMITTED = "transmitted"
     IMPORT_STATUS_TRANSMISSION_FAILED = "transmission-failed"
@@ -94,7 +95,7 @@ class DossierImport(UUIDModel):
     def filename(self):
         return os.path.basename(self.source_file.name) if self.source_file else None
 
-    def delete(self, using=None, keep_parents=False, *args, **kwargs):
+    def delete_file(self):
         if self.source_file:
             Path(self.source_file.path).exists() and Path(
                 self.source_file.path
@@ -105,4 +106,9 @@ class DossierImport(UUIDModel):
                 ),
                 ignore_errors=True,
             )
+            self.source_file = None
+            self.save()
+
+    def delete(self, using=None, keep_parents=False, *args, **kwargs):
+        self.delete_file()
         return super().delete(*args, **kwargs)

@@ -92,7 +92,7 @@ module("Acceptance | dossier-import", function (hooks) {
   });
 
   test("it can delete imports", async function (assert) {
-    assert.expect(5);
+    assert.expect(4);
     const dossierImport = this.server.createList("dossier-import", 5)[0];
 
     await visit(`/dossier-import`);
@@ -101,10 +101,6 @@ module("Acceptance | dossier-import", function (hooks) {
     await click(`[data-test-imports-row='${dossierImport.id}'] a`);
 
     assert.strictEqual(currentURL(), `/dossier-import/${dossierImport.id}`);
-    await waitFor("[data-test-import-detail]");
-    assert
-      .dom("[data-test-import-detail]")
-      .includesText(`${dossierImport.user.surname}`);
 
     await click("button[data-test-action-button='deleteImport']");
 

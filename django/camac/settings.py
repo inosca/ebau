@@ -3503,12 +3503,15 @@ PARASHIFT_SOURCE_FILES_URI = env.str(
 PARASHIFT_TENANT_ID = env.int("PARASHIFT_TENANT_ID", default=1665)
 PARASHIFT_API_KEY = env.str("PARASHIFT_API_KEY", default="ey...")
 
+# Until running tasks can be manually canceled we want a timeout
+DJANGO_Q_TASK_TIMEOUT_HOURS = env.int("DJANGO_Q_TASK_TIMEOUT_HOURS", default=6)
+
 Q_CLUSTER = {
     "name": "DjangORM",
     "workers": 2,
-    "timeout": 2 * 3600,  # 2 hours
-    "retry": 24 * 3600,  # retry tomorrow
     "queue_limit": 50,
+    "timeout": DJANGO_Q_TASK_TIMEOUT_HOURS * 60 * 60,
+    "ack_failures": True,  # prevents failed tasks from being retried
     "bulk": 10,
     "orm": "default",
 }

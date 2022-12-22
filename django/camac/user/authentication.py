@@ -136,6 +136,9 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
                 )
             ),
         }
+        if username.startswith("service-account-") and not data.get("email"):
+            all_defaults["email"] = f"{username}@placeholder.org"
+
         defaults = {
             key: all_defaults[key]
             for key in settings.APPLICATION.get("OIDC_SYNC_USER_ATTRIBUTES")
