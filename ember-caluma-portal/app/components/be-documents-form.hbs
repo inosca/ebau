@@ -11,7 +11,13 @@
 {{/if}}
 
 {{#if this.allRequiredTags.length}}
-  <p class="uk-text-bold">{{t "documents.confirm" count=this.allRequiredTags.length}}</p>
+  <p class="uk-text-bold">
+    {{#if this.showReducedConfirmText}}
+      {{t "documents.confirm-reduced"}}
+    {{else}}
+      {{t "documents.confirm" count=this.allRequiredTags.length}}
+    {{/if}}
+  </p>
 
   {{#each-in this.requiredTags as |title fields|}}
     <p class="uk-margin">{{t (concat "documents.tags." title)}}</p>

@@ -41,6 +41,7 @@ documents:
   setConfidential: ""
   setNonConfidential: ""
   confirm: "Je confirme par la présente que j'ai téléchargé {count, plural, =1 {le contenu obligatoire} other {les # contenus obligatoires}} suivants."
+  confirm-reduced: "Je confirme par la présente que j'ai téléchargé les contenus obligatoires nécessaires :"
   buckets:
     dokument-grundstucksangaben: "Indications relatives à l'immeuble et description du projet"
     dokument-gutachten-nachweise-begrundungen: "Expertises, preuves, justifications, demande de dérogation"
