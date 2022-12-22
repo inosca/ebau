@@ -6,7 +6,7 @@ global:
   empty: "Aucune entrée trouvée"
   cancel: "Annuler"
   date: "Date"
-  from: "De"
+  by: "De"
   back: "Retour"
   noMatch: "Aucun résultat trouvé"
   loadMore: "Télécharger plus"
