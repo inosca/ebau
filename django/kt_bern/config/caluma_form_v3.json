@@ -1,0 +1,280 @@
+[
+  {
+    "model": "caluma_form.form",
+    "pk": "allgemeine-angaben-kurz-v3",
+    "fields": {
+      "created_at": "2022-12-20T08:19:46.935Z",
+      "modified_at": "2022-12-20T08:20:29.958Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Allgemeine Angaben\", \"fr\": null}",
+      "description": "{\"de\": \"Allgemeine Angaben (kurz, v3)\", \"fr\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": "allgemeine-angaben-kurz"
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v3.be-gid",
+    "fields": {
+      "created_at": "2022-12-20T08:19:47.006Z",
+      "modified_at": "2022-12-20T08:19:47.006Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v3",
+      "question": "be-gid",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v3.beschreibung-bauvorhaben",
+    "fields": {
+      "created_at": "2022-12-20T08:19:47.018Z",
+      "modified_at": "2022-12-20T08:19:47.018Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v3",
+      "question": "beschreibung-bauvorhaben",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v3.gemeinde",
+    "fields": {
+      "created_at": "2022-12-20T08:19:46.997Z",
+      "modified_at": "2022-12-20T08:19:46.997Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v3",
+      "question": "gemeinde",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v3.gwr-egid",
+    "fields": {
+      "created_at": "2022-12-20T08:19:47.010Z",
+      "modified_at": "2022-12-20T08:19:47.010Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v3",
+      "question": "gwr-egid",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v3.is-paper",
+    "fields": {
+      "created_at": "2022-12-20T08:19:47.027Z",
+      "modified_at": "2022-12-20T08:19:47.027Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v3",
+      "question": "is-paper",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v3.karte",
+    "fields": {
+      "created_at": "2022-12-20T08:19:46.976Z",
+      "modified_at": "2022-12-20T08:19:46.976Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v3",
+      "question": "karte",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v3.nr",
+    "fields": {
+      "created_at": "2022-12-20T08:19:46.988Z",
+      "modified_at": "2022-12-20T08:19:46.988Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v3",
+      "question": "nr",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v3.ort-grundstueck",
+    "fields": {
+      "created_at": "2022-12-20T08:19:46.993Z",
+      "modified_at": "2022-12-20T08:19:46.993Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v3",
+      "question": "ort-grundstueck",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v3.parzelle",
+    "fields": {
+      "created_at": "2022-12-20T08:19:47.001Z",
+      "modified_at": "2022-12-20T08:19:47.001Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v3",
+      "question": "parzelle",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v3.plz-grundstueck-v3",
+    "fields": {
+      "created_at": "2022-12-20T08:22:29.177Z",
+      "modified_at": "2022-12-20T08:22:29.177Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v3",
+      "question": "plz-grundstueck-v3",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v3.sachverhalt",
+    "fields": {
+      "created_at": "2022-12-20T08:19:47.023Z",
+      "modified_at": "2022-12-20T08:19:47.023Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v3",
+      "question": "sachverhalt",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v3.standort-migriert",
+    "fields": {
+      "created_at": "2022-12-20T08:19:47.014Z",
+      "modified_at": "2022-12-20T08:19:47.014Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v3",
+      "question": "standort-migriert",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v3.strasse-flurname",
+    "fields": {
+      "created_at": "2022-12-20T08:19:46.983Z",
+      "modified_at": "2022-12-20T08:19:46.983Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v3",
+      "question": "strasse-flurname",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "allgemeine-angaben-kurz-formular-v3",
+    "fields": {
+      "created_at": "2022-12-20T08:24:33.047Z",
+      "modified_at": "2022-12-20T08:24:47.133Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Allgemeine Angaben\", \"fr\": \"Informations g\\u00e9n\\u00e9rales\"}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\"}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "allgemeine-angaben-kurz-v3",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "plz-grundstueck-v3",
+    "fields": {
+      "created_at": "2022-12-20T08:22:28.935Z",
+      "modified_at": "2022-12-20T08:23:17.134Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"PLZ\", \"fr\": \"NPA\"}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": \"\"}",
+      "info_text": "{\"de\": null, \"fr\": \"\"}",
+      "hint_text": "{\"de\": null, \"fr\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {
+        "max_value": 9999,
+        "min_value": 1000
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  }
+]

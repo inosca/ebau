@@ -222,6 +222,7 @@ export default class InstancesIndexController extends Controller {
             questions: [
               answerSlugs.objectStreet,
               answerSlugs.objectNumber,
+              answerSlugs.objectZIP,
               answerSlugs.objectLocation,
             ],
             value: this._address,
