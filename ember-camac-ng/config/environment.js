@@ -53,6 +53,7 @@ module.exports = function (environment) {
         answerSlugs: {
           objectStreet: "strasse-flurname",
           objectNumber: "nr",
+          objectZIP: "plz-grundstueck-v3",
           objectLocation: "ort-grundstueck",
           description: "beschreibung-bauvorhaben",
           municipality: "gemeinde",

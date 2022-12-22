@@ -146,7 +146,8 @@ snapshots['test_master_data[kt_bern-de-be_master_data_case-select_related0-prefe
             'label': 'Aᵤ',
             'slug': 'gewaesserschutzbereich-v2-au'
         }
-    ]
+    ],
+    'zip': 3000
 }
 
 snapshots['test_master_data[kt_bern-fr-be_master_data_case-select_related1-prefetch_related1-9] 1'] = {
@@ -288,7 +289,8 @@ snapshots['test_master_data[kt_bern-fr-be_master_data_case-select_related1-prefe
             'label': 'Aᵤ',
             'slug': 'gewaesserschutzbereich-v2-au'
         }
-    ]
+    ],
+    'zip': 3000
 }
 
 snapshots['test_master_data[kt_schwyz-de-sz_master_data_case_gwr-select_related3-prefetch_related3-5] 1'] = {
