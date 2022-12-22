@@ -2,7 +2,7 @@ import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
-import { dropTask, restartableTask } from "ember-concurrency";
+import { task, dropTask, restartableTask } from "ember-concurrency";
 import { DateTime } from "luxon";
 import { all } from "rsvp";
 
@@ -85,7 +85,7 @@ export default class BeClaimsFormEditComponent extends Component {
     });
   }
 
-  @dropTask
+  @task
   *add({ file, bucket }) {
     const section =
       this.store.peekRecord("attachment-section", this.section) ||
