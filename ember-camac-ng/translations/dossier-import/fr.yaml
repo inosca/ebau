@@ -18,6 +18,7 @@ dossierImport:
     fetchImportsError: Une erreur est survenue lors du chargement des importations. Veuillez réessayer.
     listTitle: Historique des importations
     tableHeader:
+      filename: Nom de fichier
       createDate: Créé le
       author: Auteur
       status: État
@@ -32,12 +33,15 @@ dossierImport:
       new: Nouveau
       imported: Importé sur le système de test
       confirmed: Confirmé
+      cleaned: Nettoyé
       transmitting: Transfert au système de production en cours
       transmitted: Transférée au système de production
       transmission-failed: Échec de la transmission au système de production
     newImportLink: Nouvelle importation
   detail:
     title: "Détails de l'importation du {creationDate} ({user})"
+    filename: Nom de fichier
+    created: Créé
     importsLink: Vers l'aperçu
     fetchImportError: Une erreur est survenue lors du chargement de l'importation. Veuillez réessayer.
     analysis:
@@ -74,7 +78,7 @@ dossierImport:
           Vous avez téléchargé un fichier d'importation non valide. Pour corriger
           l'erreur vous devez télécharger un nouveau fichier d'importation.
         import-failed: Une erreur est survenue lors de l'importation. Veuillez prendre contact avec le support.
-        in-progress: L'importation est en cours. Selon le volume, cela peut prendre plusieurs minutes.
+        in-progress: L'importation est en cours.
         imported: L'importation sur le système de test a été effectuée avec succès.
         confirmed: L'importation a été validée pour une exécution sur le système de production.
         transmitting: L'importation est en cours de transfert vers le système de production. Selon le volume, cela peut prendre quelques minutes.
@@ -111,6 +115,13 @@ dossierImport:
         buttonLabel: Annuler l'importation
         success: L'importation a été annulée avec succès.
         error: Quelque chose s'est mal passé lors de l'annulation de l'importation.
+      cleanImport:
+        title: Nettoyer le système du fichier après l'importation
+        description: |-
+          Après une importation productive réussie ceci supprime le fichier d'importation (ZIP) redondant.
+        buttonLabel: Nettoyer après l'importation
+        success: Nettoyage de l'importation a reussi.
+        error: Nettoyage de l'importation a échoué.
       transmitImport:
         title: Transférer l'importation vers le système de production
         description: |-
