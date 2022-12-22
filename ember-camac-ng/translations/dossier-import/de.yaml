@@ -18,6 +18,7 @@ dossierImport:
     fetchImportsError: Beim Laden der Imports ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.
     listTitle: Importverlauf
     tableHeader:
+      filename: Dateiname
       createDate: Erstellt am
       author: Autor
       status: Status
@@ -32,12 +33,15 @@ dossierImport:
       new: Neu
       imported: Auf Testsystem importiert
       confirmed: Bestätigt
+      cleaned: Bereinigt
       transmitting: Wird an Produktionssystem übertragen
       transmitted: An Produktionssystem übertragen
       transmission-failed: Übertragung an Produktionssystem fehlgeschlagen
     newImportLink: Neuer Import
   detail:
     title: "Details zum Import vom {creationDate} ({user})"
+    filename: Dateiname
+    created: Erstellt
     importsLink: Zur Übersicht
     fetchImportError: Beim Laden des Imports ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.
     analysis:
@@ -72,7 +76,7 @@ dossierImport:
           Sie haben eine ungültige Import-Datei hochgeladen. Um die Fehler zu beheben
           müssen Sie eine neue Import-Datei hochladen.
         import-failed: Beim Import ist ein Fehler aufgetreten. Bitte nehmen sie mit dem Support Kontakt auf.
-        in-progress: Der Import wird gerade ausgeführt. Je nach Umfang kann dies mehrere Minuten dauern.
+        in-progress: Der Import wird gerade ausgeführt.
         imported: Der Import auf dem Testsystem wurde erfolgreich ausgeführt.
         confirmed: Der Import wurde für die Ausführung auf dem Produktionssystem freigegeben.
         transmitting: Der Import wird gerade an das Produktionssystem übermittelt. Je nach Umfang kann dies wenige Minuten dauern.
@@ -121,6 +125,13 @@ dossierImport:
         buttonLabel: Import rückgängig machen
         success: Der Import wurde erfolgreich rückgängig gemacht.
         error: Beim Rückgängigmachen des Imports ist etwas schiefgegangen.
+      cleanImport:
+        title: Importdatei bereinigen
+        description: |-
+          Nach einem erfolgreichen produktiven Import kann hiermit die nicht mehr benötigte Importdatei (ZIP) gelöscht werden.
+        buttonLabel: Import bereinigen
+        success: Der Import wurde erfolgreich bereinigt.
+        error: Beim Bereinigen des Imports ist etwas schiefgegangen.
       deleteImport:
         title: Import löschen
         description: Falls Sie den Import nicht mehr benötigen, können Sie ihn hier löschen.

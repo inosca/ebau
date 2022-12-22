@@ -2,6 +2,7 @@ from django.conf import settings
 from django.core.mail import mail_admins, send_mail
 from django.utils.translation import gettext_lazy as _
 from django_q.tasks import async_task
+from rest_framework import status
 from rest_framework.decorators import action
 from rest_framework.exceptions import ValidationError
 from rest_framework.response import Response
@@ -9,6 +10,7 @@ from rest_framework_json_api.views import ModelViewSet
 
 from camac.core.views import SendfileHttpResponse
 from camac.dossier_import.domain_logic import (
+    clean_import,
     perform_import,
     transmit_import,
     undo_import,
@@ -169,3 +171,16 @@ class DossierImportView(ModelViewSet):
     def undo(self, request, pk=None):
         undo_import(self.get_object())
         return Response()
+
+    @permission_aware
+    def has_object_clean_permission(self, instance):  # pragma: no cover
+        return False
+
+    @permission_aware
+    def has_object_clean_permission_for_support(self, instance):
+        return True
+
+    @action(methods=["POST"], url_path="clean", detail=True)
+    def clean(self, request, pk=None):
+        clean_import(self.get_object())
+        return Response(status=status.HTTP_204_NO_CONTENT)

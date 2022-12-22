@@ -40,6 +40,14 @@ export default class extends Ability {
     return false;
   }
 
+  get canClean() {
+    return (
+      isProd() &&
+      this.shoebox.isSupportRole &&
+      ["imported", "confirmed", "import-failed"].includes(this.model?.status)
+    );
+  }
+
   get canDelete() {
     return ["verified", "failed"].includes(this.model?.status);
   }

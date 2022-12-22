@@ -20,9 +20,6 @@ export default class DossierImportIndexController extends Controller {
     try {
       return yield this.store.query("dossier-import", {
         include: "user,group",
-        page: {
-          size: 10,
-        },
       });
     } catch (e) {
       this.notification.danger(
