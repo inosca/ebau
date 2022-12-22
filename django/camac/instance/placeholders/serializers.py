@@ -58,7 +58,12 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
                     fields.MasterDataField(source="street_number"),
                 ]
             ),
-            fields.MasterDataField(source="city"),
+            fields.JointField(
+                fields=[
+                    fields.MasterDataField(source="zip"),
+                    fields.MasterDataField(source="city"),
+                ]
+            ),
         ],
         separator=", ",
     )

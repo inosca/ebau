@@ -238,6 +238,7 @@ def be_master_data_case(db, be_instance, group, master_data_is_visible_mock):
     add_answer(document, "strasse-flurname", "Musterstrasse")
     add_answer(document, "nr", 4)
     add_answer(document, "baukosten-in-chf", 199000)
+    add_answer(document, "plz-grundstueck-v3", 3000)
     add_answer(document, "ort-grundstueck", "Musterhausen")
     add_answer(document, "baubeschrieb", "baubeschrieb-neubau", label="Neubau")
     add_answer(

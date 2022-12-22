@@ -15,13 +15,18 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
     const street = getAnswer(this.raw.document, "strasse-flurname")?.node
       .stringValue;
     const number = getAnswer(this.raw.document, "nr")?.node.stringValue;
+    const zip = getAnswer(this.raw.document, "plz-grundstueck-v3")?.node
+      .integerValue;
     const city = getAnswer(this.raw.document, "ort-grundstueck")?.node
       .stringValue;
     const migrated = getAnswer(this.raw.document, "standort-migriert")?.node
       .stringValue;
 
     return (
-      [[street, number].filter(Boolean).join(" ").trim(), (city ?? "").trim()]
+      [
+        [street, number].filter(Boolean).join(" ").trim(),
+        [zip, city].filter(Boolean).join(" ").trim(),
+      ]
         .filter(Boolean)
         .join(", ") || (migrated ?? "").trim()
     );
@@ -93,6 +98,7 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
             questions: [
               "strasse-flurname"
               "nr"
+              "plz-grundstueck-v3"
               "ort-grundstueck"
               "standort-migriert"
               "beschreibung-bauvorhaben"
