@@ -1638,6 +1638,41 @@ snapshots['test_document_merge_service_snapshot baugesuch'] = [
     }
 ]
 
+snapshots['test_document_merge_service_snapshot baugesuch_header'] = {
+    'addressHeader': 'Teststrasse 3, Burgdorf',
+    'addressHeaderLabel': 'Adresse',
+    'applicantHeader': 'Hans Meier',
+    'applicantHeaderLabel': 'Gesuchsteller/in',
+    'authorityHeader': None,
+    'authorityHeaderLabel': 'Leitbehörde',
+    'caseId': 1,
+    'caseType': 'Baugesuch',
+    'createdAt': 'Erstellt am 06.03.2020 um 12:10',
+    'descriptionHeader': 'Testanfrage',
+    'descriptionHeaderLabel': 'Beschreibung',
+    'dossierNr': None,
+    'formType': None,
+    'generatedAt': 'Generiert am 06.01.2023 um 17:10',
+    'inputDateHeader': None,
+    'inputDateHeaderLabel': 'Eingangsdatum',
+    'modificationHeader': None,
+    'modificationHeaderLabel': 'Projektänderung',
+    'modifiedAt': 'Zuletzt bearbeitet am 05.08.2021 um 11:05',
+    'municipality': 'Burgdorf',
+    'municipalityHeader': 'Burgdorf',
+    'municipalityHeaderLabel': 'Gemeinde',
+    'paperInputDateHeader': None,
+    'plotsHeader': '1',
+    'plotsHeaderLabel': 'Parzelle(n)',
+    'responsibleHeader': None,
+    'responsibleHeaderLabel': 'Zuständig',
+    'signatureMetadata': 'Ort und Datum',
+    'signatureSectionTitle': 'Unterschriften',
+    'signatureTitle': 'Unterschrift',
+    'tagHeader': None,
+    'tagHeaderLabel': 'Stichworte'
+}
+
 snapshots['test_document_merge_service_snapshot mp-form'] = [
     {
         'children': [
@@ -1715,6 +1750,41 @@ snapshots['test_document_merge_service_snapshot mp-form'] = [
         'type': 'FormQuestion'
     }
 ]
+
+snapshots['test_document_merge_service_snapshot mp-form_header'] = {
+    'addressHeader': 'Wiesenweg, Burgdorf',
+    'addressHeaderLabel': 'Adresse',
+    'applicantHeader': 'Max Muster',
+    'applicantHeaderLabel': 'Gesuchsteller/in',
+    'authorityHeader': None,
+    'authorityHeaderLabel': 'Leitbehörde',
+    'caseId': 3,
+    'caseType': 'Baugesuch',
+    'createdAt': 'Erstellt am 05.07.2022 um 18:29',
+    'descriptionHeader': 'Neubad',
+    'descriptionHeaderLabel': 'Beschreibung',
+    'dossierNr': '2021-1',
+    'formType': 'Materielle Prüfung',
+    'generatedAt': 'Generiert am 06.01.2023 um 17:10',
+    'inputDateHeader': GenericRepr('FakeDatetime(2021, 3, 31, 13, 17, 8, tzinfo=tzutc())'),
+    'inputDateHeaderLabel': 'Eingangsdatum',
+    'modificationHeader': None,
+    'modificationHeaderLabel': 'Projektänderung',
+    'modifiedAt': 'Zuletzt bearbeitet am 05.07.2022 um 18:34',
+    'municipality': 'Burgdorf',
+    'municipalityHeader': 'Burgdorf',
+    'municipalityHeaderLabel': 'Gemeinde',
+    'paperInputDateHeader': None,
+    'plotsHeader': '3',
+    'plotsHeaderLabel': 'Parzelle(n)',
+    'responsibleHeader': None,
+    'responsibleHeaderLabel': 'Zuständig',
+    'signatureMetadata': 'Ort und Datum',
+    'signatureSectionTitle': 'Unterschriften',
+    'signatureTitle': 'Unterschrift',
+    'tagHeader': None,
+    'tagHeaderLabel': 'Stichworte'
+}
 
 snapshots['test_document_merge_service_snapshot sb1'] = [
     {
@@ -1962,6 +2032,41 @@ snapshots['test_document_merge_service_snapshot sb1'] = [
         'type': 'FormQuestion'
     }
 ]
+
+snapshots['test_document_merge_service_snapshot sb1_header'] = {
+    'addressHeader': 'Wiesenweg, Burgdorf',
+    'addressHeaderLabel': 'Adresse',
+    'applicantHeader': 'Max Muster',
+    'applicantHeaderLabel': 'Gesuchsteller/in',
+    'authorityHeader': None,
+    'authorityHeaderLabel': 'Leitbehörde',
+    'caseId': 3,
+    'caseType': 'Baugesuch',
+    'createdAt': 'Erstellt am 06.04.2021 um 14:19',
+    'descriptionHeader': 'Neubad',
+    'descriptionHeaderLabel': 'Beschreibung',
+    'dossierNr': '2021-1',
+    'formType': 'Selbstdeklaration Baukontrolle 1',
+    'generatedAt': 'Generiert am 06.01.2023 um 17:10',
+    'inputDateHeader': GenericRepr('FakeDatetime(2021, 3, 31, 13, 17, 8, tzinfo=tzutc())'),
+    'inputDateHeaderLabel': 'Eingangsdatum',
+    'modificationHeader': None,
+    'modificationHeaderLabel': 'Projektänderung',
+    'modifiedAt': 'Zuletzt bearbeitet am 06.04.2021 um 14:22',
+    'municipality': 'Burgdorf',
+    'municipalityHeader': 'Burgdorf',
+    'municipalityHeaderLabel': 'Gemeinde',
+    'paperInputDateHeader': None,
+    'plotsHeader': '3',
+    'plotsHeaderLabel': 'Parzelle(n)',
+    'responsibleHeader': None,
+    'responsibleHeaderLabel': 'Zuständig',
+    'signatureMetadata': 'Ort und Datum',
+    'signatureSectionTitle': 'Unterschriften',
+    'signatureTitle': 'Unterschrift',
+    'tagHeader': None,
+    'tagHeaderLabel': 'Stichworte'
+}
 
 snapshots['test_document_merge_service_snapshot sb2'] = [
     {
@@ -2268,3 +2373,38 @@ snapshots['test_document_merge_service_snapshot sb2'] = [
         'type': 'FormQuestion'
     }
 ]
+
+snapshots['test_document_merge_service_snapshot sb2_header'] = {
+    'addressHeader': 'Wiesenweg, Burgdorf',
+    'addressHeaderLabel': 'Adresse',
+    'applicantHeader': 'Max Muster',
+    'applicantHeaderLabel': 'Gesuchsteller/in',
+    'authorityHeader': None,
+    'authorityHeaderLabel': 'Leitbehörde',
+    'caseId': 3,
+    'caseType': 'Baugesuch',
+    'createdAt': 'Erstellt am 06.04.2021 um 14:23',
+    'descriptionHeader': 'Neubad',
+    'descriptionHeaderLabel': 'Beschreibung',
+    'dossierNr': '2021-1',
+    'formType': 'Selbstdeklaration Baukontrolle 2',
+    'generatedAt': 'Generiert am 06.01.2023 um 17:10',
+    'inputDateHeader': GenericRepr('FakeDatetime(2021, 3, 31, 13, 17, 8, tzinfo=tzutc())'),
+    'inputDateHeaderLabel': 'Eingangsdatum',
+    'modificationHeader': None,
+    'modificationHeaderLabel': 'Projektänderung',
+    'modifiedAt': 'Zuletzt bearbeitet am 06.04.2021 um 14:23',
+    'municipality': 'Burgdorf',
+    'municipalityHeader': 'Burgdorf',
+    'municipalityHeaderLabel': 'Gemeinde',
+    'paperInputDateHeader': None,
+    'plotsHeader': '3',
+    'plotsHeaderLabel': 'Parzelle(n)',
+    'responsibleHeader': None,
+    'responsibleHeaderLabel': 'Zuständig',
+    'signatureMetadata': 'Ort und Datum',
+    'signatureSectionTitle': 'Unterschriften',
+    'signatureTitle': 'Unterschrift',
+    'tagHeader': None,
+    'tagHeaderLabel': 'Stichworte'
+}

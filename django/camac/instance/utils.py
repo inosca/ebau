@@ -101,7 +101,9 @@ def build_document_prefetch_statements(prefix="", prefetch_options=False):
         f"{prefix}dynamicoption_set",
         Prefetch(
             f"{prefix}answers__answerdocument_set",
-            queryset=AnswerDocument.objects.select_related("document__form")
+            queryset=AnswerDocument.objects.select_related(
+                "document__form", "document__family"
+            )
             .prefetch_related("document__answers", "document__form__questions")
             .order_by("-sort"),
         ),
