@@ -57,36 +57,52 @@ def dms_settings(application_settings):
     )
 
 
+@pytest.mark.freeze_time("2023-01-06 16:10")
 def test_document_merge_service_snapshot(
-    db, snapshot, caluma_form_fixture, dms_settings, django_assert_num_queries
+    db,
+    application_settings,
+    caluma_form_fixture,
+    django_assert_num_queries,
+    dms_settings,
+    service,
+    snapshot,
 ):
     cache.clear()
+
+    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_bern"][
+        "MASTER_DATA"
+    ]
 
     for snapshot_name, kwargs, expected_queries in [
         (
             "baugesuch",
             {"instance_id": 1},
-            16,
+            21,
         ),
         (
             "sb1",
             {"instance_id": 3, "form_slug": "sb1"},
-            22,
+            27,
         ),
         (
             "sb2",
             {"instance_id": 3, "form_slug": "sb2"},
-            22,
+            27,
         ),
         (
             "mp-form",
             {"instance_id": 3, "document_id": "da618b68-b4a8-414f-9d5e-50e0fda43cde"},
-            20,
+            25,
         ),
     ]:
         with django_assert_num_queries(expected_queries):
             handler = DMSHandler()
-            _, root_document = handler.get_instance_and_document(**kwargs)
+            instance, root_document = handler.get_instance_and_document(**kwargs)
+
+            snapshot.assert_match(
+                handler.get_meta_data(instance, root_document, service),
+                f"{snapshot_name}_header",
+            )
 
             visitor = DMSVisitor(root_document, BaseUser())
             snapshot.assert_match(visitor.visit(root_document), snapshot_name)
