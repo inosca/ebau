@@ -184,8 +184,10 @@ export default class DossierImportDetailController extends Controller {
     yield waitForProperty(this.fetchImport, "isRunning", false);
 
     while (["in-progress", "transmitting"].includes(this.import?.status)) {
-      yield timeout(5000);
-      yield this.fetchImport.perform();
+      yield timeout(2000);
+      yield this.store.findRecord("dossier-import", this.model, {
+        reload: true,
+      });
     }
   }
 
