@@ -245,7 +245,7 @@ def test_inquiries_summary(
     assert result["deadline-quota"] == expected_deadline_quota
 
 
-@pytest.mark.freeze_time
+@pytest.mark.freeze_time("2022-07-09")
 @pytest.mark.parametrize(
     "role__name,has_access",
     [
@@ -255,7 +255,7 @@ def test_inquiries_summary(
         ("Applicant", False),
     ],
 )
-def test_instance_cycle_time_view(  # TODO: fix test
+def test_instance_cycle_time_view(
     db,
     group,
     role,
@@ -269,7 +269,6 @@ def test_instance_cycle_time_view(  # TODO: fix test
     freezer,
     has_access,
 ):
-
     cycle_time = 4
     num_years = 3
     years = []
