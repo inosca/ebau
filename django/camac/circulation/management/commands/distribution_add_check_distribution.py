@@ -10,6 +10,7 @@ from django.db.models.functions import Cast
 from tqdm import tqdm
 
 from camac.core.models import InstanceService
+from camac.responsible.models import ResponsibleService
 
 
 class Command(BaseCommand):
@@ -97,12 +98,22 @@ class Command(BaseCommand):
                     else distribution_case.modified_at
                 )
 
+                assigned_users = list(
+                    ResponsibleService.objects.filter(
+                        instance=distribution_case.family.instance,
+                        service_id=int(
+                            distribution_case.parent_work_item.addressed_groups[0]
+                        ),
+                    ).values_list("responsible_user__username", flat=True)
+                )
+
                 check_distribution_work_items.append(
                     WorkItem(
                         task=check_distribution_task,
                         name=check_distribution_task.name,
                         addressed_groups=distribution_case.parent_work_item.addressed_groups,
                         controlling_groups=distribution_case.parent_work_item.addressed_groups,
+                        assigned_users=assigned_users,
                         case=distribution_case,
                         status=WorkItem.STATUS_READY,
                         deadline=pytz.utc.localize(

@@ -8,6 +8,8 @@ from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.events import (
     post_complete_work_item,
     post_create_work_item,
+    post_redo_work_item,
+    post_reopen_case,
     pre_complete_work_item,
     pre_skip_work_item,
 )
@@ -245,3 +247,15 @@ def set_is_published(sender, work_item, user, **kwargs):
     ]:
         work_item.meta["is-published"] = True
         work_item.save()
+
+
+@on([post_redo_work_item, post_reopen_case], raise_exception=True)
+@transaction.atomic
+def set_work_items_unread_on_reopen(
+    work_items=[],  # argument of `post_reopen_case`
+    work_item=None,  # argument of `post_redo_work_item`
+    **kwargs,
+):
+    for wi in filter(None, [*work_items, work_item]):
+        wi.meta = {**wi.meta, "not-viewed": True}
+        wi.save()
