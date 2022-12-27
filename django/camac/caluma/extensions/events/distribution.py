@@ -2,7 +2,7 @@ from datetime import datetime, timedelta
 from itertools import chain
 
 import reversion
-from caluma.caluma_core.events import filter_events, on
+from caluma.caluma_core.events import filter_events, on, send_event
 from caluma.caluma_form.api import save_answer
 from caluma.caluma_form.models import Form, Question
 from caluma.caluma_workflow.api import (
@@ -143,7 +143,7 @@ def post_redo_distribution(sender, work_item, user, context=None, **kwargs):
             pk=settings.DISTRIBUTION["DISTRIBUTION_CHECK_TASK"],
         )
 
-        check_distribution_work_item = WorkItem(
+        check_distribution_work_item = WorkItem.objects.create(
             task=check_distribution_task,
             name=check_distribution_task.name,
             addressed_groups=work_item.addressed_groups,
@@ -155,12 +155,13 @@ def post_redo_distribution(sender, work_item, user, context=None, **kwargs):
             deadline=check_distribution_task.calculate_deadline(),
         )
 
-    check_distribution_work_item.meta = {
-        "not-viewed": True,
-        "notify-completed": False,
-        "notify-deadline": True,
-    }
-    check_distribution_work_item.save()
+        send_event(
+            post_create_work_item,
+            sender="post_redo_distribution",
+            work_item=check_distribution_work_item,
+            user=user,
+            context={},
+        )
 
     services = Service.objects.filter(
         pk__in=[
