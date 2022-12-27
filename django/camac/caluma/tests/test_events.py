@@ -731,3 +731,39 @@ def test_complete_simple_workflow(
     assert len(mailoutbox) == 1
 
     del application_settings["CALUMA"]["SIMPLE_WORKFLOW"][task]["notification"]
+
+
+def test_reopen_redo_unread(
+    db, work_item_factory, case_factory, caluma_admin_user, mocker
+):
+    mocker.patch(
+        "caluma.caluma_workflow.domain_logic.RedoWorkItemLogic.is_work_item_redoable",
+        return_value=True,
+    )
+
+    case_to_reopen = case_factory(status=caluma_workflow_models.Case.STATUS_COMPLETED)
+    case_work_items = work_item_factory.create_batch(
+        2,
+        case=case_to_reopen,
+        meta={"not-viewed": False},
+        status=caluma_workflow_models.WorkItem.STATUS_COMPLETED,
+    )
+
+    workflow_api.reopen_case(
+        case=case_to_reopen, work_items=case_work_items, user=caluma_admin_user
+    )
+
+    for work_item in case_work_items:
+        assert work_item.status == caluma_workflow_models.WorkItem.STATUS_READY
+        assert work_item.meta["not-viewed"]
+
+    work_item_to_redo = work_item_factory(
+        child_case=None,
+        meta={"not-viewed": False},
+        status=caluma_workflow_models.WorkItem.STATUS_COMPLETED,
+    )
+
+    workflow_api.redo_work_item(work_item=work_item_to_redo, user=caluma_admin_user)
+
+    assert work_item.status == caluma_workflow_models.WorkItem.STATUS_READY
+    assert work_item.meta["not-viewed"]
