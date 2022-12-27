@@ -3530,6 +3530,7 @@ Q_CLUSTER = {
     "workers": 2,
     "queue_limit": 50,
     "timeout": DJANGO_Q_TASK_TIMEOUT_HOURS * 60 * 60,
+    "retry": DJANGO_Q_TASK_TIMEOUT_HOURS * 60 * 60 * 2,
     "ack_failures": True,  # prevents failed tasks from being retried
     "bulk": 10,
     "orm": "default",
