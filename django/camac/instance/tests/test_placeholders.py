@@ -10,6 +10,7 @@ from caluma.caluma_workflow.factories import WorkItemFactory
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.urls import reverse
+from django.utils.timezone import make_aware
 from rest_framework import status
 
 from camac.constants.kt_bern import (
@@ -189,6 +190,7 @@ def test_dms_placeholders(
             be_instance,
             svc,
             status=WorkItem.STATUS_COMPLETED,
+            closed_at=make_aware(faker.Faker().date_time()),
         )
         for svc in service_factory.create_batch(2, service_group__name="service")
     ]

@@ -65,6 +65,14 @@ loadconfig-dms: ## Load the DMS configuration
 		docker-compose exec document-merge-service poetry run python manage.py loaddata /tmp/document-merge-service/dump.json; \
 	fi
 
+.PHONY: dumpconfig-dms
+dumpconfig-dms: ## Dump the DMS configuration
+	@if docker-compose config|grep -q document-merge-service; then \
+		docker-compose exec -u root document-merge-service bash -c "poetry run python manage.py dumpdata api.Template > /tmp/document-merge-service/dump.json" ; \
+		yarn prettier --loglevel silent --write "document-merge-service/${APPLICATION}/dump.json"; \
+	fi
+
+
 .PHONY: loadconfig-alexandria
 loadconfig-alexandria: ## Load the Alexandria configuration
 	@if docker-compose config|grep -q alexandria; then \

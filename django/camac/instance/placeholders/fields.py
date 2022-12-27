@@ -235,6 +235,7 @@ class InquiriesField(serializers.ReadOnlyField):
             ("service", "NAME"),
             ("deadline", "FRIST"),
             ("creation_date", "ERSTELLT"),
+            ("completion_date", "BEANTWORTET"),
         ],
         join_by=None,
         service_group=None,
@@ -273,6 +274,9 @@ class InquiriesField(serializers.ReadOnlyField):
             "service_with_prefix": lambda i: f"- {self.get_service(i,'addressed_groups')}",
             "deadline": lambda i: i.deadline.strftime("%d.%m.%Y"),
             "creation_date": lambda i: i.created_at.strftime("%d.%m.%Y"),
+            "completion_date": lambda i: i.closed_at.strftime("%d.%m.%Y")
+            if i.status == WorkItem.STATUS_COMPLETED
+            else None,
         }
 
         if isinstance(prop, tuple):
