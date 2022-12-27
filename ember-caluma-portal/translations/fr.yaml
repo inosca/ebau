@@ -128,7 +128,7 @@ documents:
     spezialformulare-reklame: "Formulaires spéciaux - Réclame"
     bauen-ausserhalb-bauzone: "Construction hors de la zone à bâtir"
     selbstdeklaration-2: "Déclaration spontanée 2"
-    nachweise: "Justifications"
+    nachweise: "Justificatif"
     weitere-unterlagen: "Autres documents"
 
 freigabequittung:
@@ -314,7 +314,17 @@ instances:
       d'annoncer. Les installations solaires qui n'exigent pas de permis de
       construire doivent obligatoirement être annoncées. L'autorité à laquelle
       il convient de faire cette annonce est la commune concernée par
-      l'installation."
+      l'installation.\n\nTout **remplacement de générateur de chaleur**
+      (remplacement de chauffage) doit être annoncé. Cela vaut pour chaque
+      catégorie de bâtiment et indépendamment du système de chauffage
+      actuellement installé ou nouvellement prévu. Est considéré comme un
+      remplacement de générateur de chaleur au sens de l'art. 20a, al. 2 OCEn,
+      dans tous les cas, le remplacement soit du système complet, soit de la
+      chaudière, soit du brûleur (si la chaudière a plus de 10 ans), soit de la
+      cheminée, soit de la citerne à mazout. Si un bâtiment de catégorie I - VI,
+      âgé de plus de 20 ans au moment de l'annonce, continue d'être chauffé avec
+      des énergies fossiles après le remplacement du générateur de chaleur, des
+      exigences supplémentaires s'appliquent."
 
     internal-procedure-canton:
       title: ""
