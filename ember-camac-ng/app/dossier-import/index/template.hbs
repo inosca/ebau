@@ -24,13 +24,13 @@
   <tbody>
     {{#if this.fetchImports.isRunning}}
       <tr>
-        <td colspan="4" class="uk-text-center">
+        <td colspan="5" class="uk-text-center">
           <div class="uk-table-expand" uk-spinner></div>
         </td>
       </tr>
     {{else if (not this.imports.length)}}
       <tr>
-        <td colspan="4" class="uk-text-center">
+        <td colspan="5" class="uk-text-center">
           {{t "dossierImport.imports.tableBody.noImports"}}
         </td>
       </tr>
