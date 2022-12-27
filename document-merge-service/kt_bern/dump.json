@@ -1,102 +1,13 @@
 [
   {
     "model": "api.template",
-    "pk": "form",
-    "fields": {
-      "description": "",
-      "template": "form.docx",
-      "engine": "docx-template",
-      "group": null
-    }
-  },
-  {
-    "model": "api.template",
     "pk": "audit-form",
     "fields": {
       "description": "",
       "template": "audit-form.docx",
       "engine": "docx-template",
-      "group": null
-    }
-  },
-  {
-    "model": "api.template",
-    "pk": "fr-decision-globale",
-    "fields": {
-      "description": "FR D\u00e9cision globale",
-      "template": "fr-decision-globale.docx",
-      "engine": "docx-template",
-      "group": null
-    }
-  },
-  {
-    "model": "api.template",
-    "pk": "fr-avis-de-construction",
-    "fields": {
-      "description": "FR Avis de construction",
-      "template": "fr-avis-de-construction.docx",
-      "engine": "docx-template",
-      "group": null
-    }
-  },
-  {
-    "model": "api.template",
-    "pk": "fr-demande-de-complement-dinformation",
-    "fields": {
-      "description": "FR Demande de compl\u00e9ment d'information",
-      "template": "fr-demande-de-complement-d-information.docx",
-      "engine": "docx-template",
-      "group": null
-    }
-  },
-  {
-    "model": "api.template",
-    "pk": "fr-notification-de-defauts-formel",
-    "fields": {
-      "description": "FR Notification de d\u00e9fauts formel",
-      "template": "fr-notification-de-defauts-formel.docx",
-      "engine": "docx-template",
-      "group": null
-    }
-  },
-  {
-    "model": "api.template",
-    "pk": "fr-notification-de-defauts-formel-materiel",
-    "fields": {
-      "description": "FR Notification de d\u00e9fauts formel mat\u00e9riel",
-      "template": "fr-notification-de-defauts-formel-materiel.docx",
-      "engine": "docx-template",
-      "group": null
-    }
-  },
-  {
-    "model": "api.template",
-    "pk": "fr-notification-de-defauts-materiel",
-    "fields": {
-      "description": "FR Notification de d\u00e9fauts mat\u00e9riel",
-      "template": "fr-notification-de-defauts-materiel.docx",
-      "engine": "docx-template",
-      "group": null
-    }
-  },
-  {
-    "model": "api.template",
-    "pk": "fr-programme-de-procedure-normal",
-    "fields": {
-      "description": "FR Programme de procedure normal",
-      "template": "fr-programme-de-procedure-normal.docx",
-      "engine": "docx-template",
-      "group": null
-    }
-  },
-  {
-    "model": "api.template",
-    "pk": "fr-rapport-officiel",
-    "fields": {
-      "description": "FR Rapport officiel",
-      "template": "fr-rapport-officiel.docx",
-      "engine": "docx-template",
-      "group": null
+      "group": null,
+      "meta": {}
     }
   },
   {
@@ -106,17 +17,41 @@
       "description": "DE Amtsbericht",
       "template": "de-amtsbericht.docx",
       "engine": "docx-template",
-      "group": null
+      "group": null,
+      "meta": {}
     }
   },
   {
     "model": "api.template",
     "pk": "de-aufforderung-ergaenzung",
     "fields": {
-      "description": "DE Aufforderung Erg\u00e4nzung",
+      "description": "DE Aufforderung Ergänzung",
       "template": "de-aufforderung-ergaenzung.docx",
       "engine": "docx-template",
-      "group": null
+      "group": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "de-bestaetigung-waermeerzeugerersatz",
+    "fields": {
+      "description": "DE Bestätigung Wärmeerzeugerersatz",
+      "template": "de-bestaetigung-waermeerzeugerersatz.docx",
+      "engine": "docx-template",
+      "group": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "fr-confirmation-remplacement-generateur-chaleur",
+    "fields": {
+      "description": "FR Confirmation du remplacement du générateur de chaleur",
+      "template": "fr-confirmation-remplacement-generateur-chaleur.docx",
+      "engine": "docx-template",
+      "group": null,
+      "meta": {}
     }
   },
   {
@@ -126,67 +61,41 @@
       "description": "DE Gesamtbauentscheid",
       "template": "de-gesamtbauentscheid.docx",
       "engine": "docx-template",
-      "group": null
+      "group": null,
+      "meta": {}
     }
   },
   {
     "model": "api.template",
     "pk": "de-maengelbrief-formell",
     "fields": {
-      "description": "DE M\u00e4ngelbrief Formell",
+      "description": "DE Mängelbrief Formell",
       "template": "de-maengelbrief-formell.docx",
       "engine": "docx-template",
-      "group": null
+      "group": null,
+      "meta": {}
     }
   },
   {
     "model": "api.template",
     "pk": "de-maengelbrief-formell-materiell",
     "fields": {
-      "description": "DE M\u00e4ngelbrief Formell Materiell",
+      "description": "DE Mängelbrief Formell Materiell",
       "template": "de-maengelbrief-formell-materiell.docx",
       "engine": "docx-template",
-      "group": null
+      "group": null,
+      "meta": {}
     }
   },
   {
     "model": "api.template",
     "pk": "de-maengelbrief-materiell",
     "fields": {
-      "description": "DE M\u00e4ngelbrief Materiell",
+      "description": "DE Mängelbrief Materiell",
       "template": "de-maengelbrief-materiell.docx",
       "engine": "docx-template",
-      "group": null
-    }
-  },
-  {
-    "model": "api.template",
-    "pk": "de-publikation",
-    "fields": {
-      "description": "DE Publikation",
-      "template": "de-publikation.docx",
-      "engine": "docx-template",
-      "group": null
-    }
-  },
-  {
-    "model": "api.template",
-    "pk": "de-verfahrensprogramm-normal",
-    "fields": {
-      "description": "DE Verfahrensprogramm Normal",
-      "template": "de-verfahrensprogramm-normal.docx",
-      "engine": "docx-template",
-      "group": null
-    }
-  },
-  {
-    "model": "api.template",
-    "pk": "de-verfahrensprogramm-voranfrage",
-    "fields": {
-      "description": "DE Verfahrensprogramm Voranfrage",
-      "template": "de-verfahrensprogramm-voranfrage.docx",
-      "engine": "docx-template",
-      "group": null
+      "group": null,
+      "meta": {}
     }
   },
   {
@@ -196,7 +105,63 @@
       "description": "DE Nachbarschaftsorientierung",
       "template": "de-nachbarschaftsorientierung.docx",
       "engine": "docx-template",
-      "group": null
+      "group": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "de-publikation",
+    "fields": {
+      "description": "DE Publikation",
+      "template": "de-publikation.docx",
+      "engine": "docx-template",
+      "group": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "de-verfahrensprogramm-normal",
+    "fields": {
+      "description": "DE Verfahrensprogramm Normal",
+      "template": "de-verfahrensprogramm-normal.docx",
+      "engine": "docx-template",
+      "group": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "de-verfahrensprogramm-voranfrage",
+    "fields": {
+      "description": "DE Verfahrensprogramm Voranfrage",
+      "template": "de-verfahrensprogramm-voranfrage.docx",
+      "engine": "docx-template",
+      "group": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "form",
+    "fields": {
+      "description": "",
+      "template": "form.docx",
+      "engine": "docx-template",
+      "group": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "fr-avis-de-construction",
+    "fields": {
+      "description": "FR Avis de construction",
+      "template": "fr-avis-de-construction.docx",
+      "engine": "docx-template",
+      "group": null,
+      "meta": {}
     }
   },
   {
@@ -206,7 +171,85 @@
       "description": "FR Communication aux voisins et aux voisines",
       "template": "fr-communication-aux-voisins-et-aux-voisines.docx",
       "engine": "docx-template",
-      "group": null
+      "group": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "fr-decision-globale",
+    "fields": {
+      "description": "FR Décision globale",
+      "template": "fr-decision-globale.docx",
+      "engine": "docx-template",
+      "group": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "fr-demande-de-complement-dinformation",
+    "fields": {
+      "description": "FR Demande de complément d'information",
+      "template": "fr-demande-de-complement-d-information.docx",
+      "engine": "docx-template",
+      "group": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "fr-notification-de-defauts-formel",
+    "fields": {
+      "description": "FR Notification de défauts formel",
+      "template": "fr-notification-de-defauts-formel.docx",
+      "engine": "docx-template",
+      "group": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "fr-notification-de-defauts-formel-materiel",
+    "fields": {
+      "description": "FR Notification de défauts formel matériel",
+      "template": "fr-notification-de-defauts-formel-materiel.docx",
+      "engine": "docx-template",
+      "group": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "fr-notification-de-defauts-materiel",
+    "fields": {
+      "description": "FR Notification de défauts matériel",
+      "template": "fr-notification-de-defauts-materiel.docx",
+      "engine": "docx-template",
+      "group": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "fr-programme-de-procedure-normal",
+    "fields": {
+      "description": "FR Programme de procedure normal",
+      "template": "fr-programme-de-procedure-normal.docx",
+      "engine": "docx-template",
+      "group": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "fr-rapport-officiel",
+    "fields": {
+      "description": "FR Rapport officiel",
+      "template": "fr-rapport-officiel.docx",
+      "engine": "docx-template",
+      "group": null,
+      "meta": {}
     }
   }
 ]
