@@ -80,20 +80,24 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'BOISSONS_ALCOOLIQUES': 'mit',
     'CIRCULATION_COMMUNES': [
         {
+            'BEANTWORTET': '',
             'CREE': '30.08.2021',
             'DELAI': '18.11.1986',
             'ERSTELLT': '30.08.2021',
             'FRIST': '18.11.1986',
             'NAME': 'Melissa Walsh',
-            'NOM': 'Melissa Walsh'
+            'NOM': 'Melissa Walsh',
+            'REPONDU': ''
         },
         {
+            'BEANTWORTET': '',
             'CREE': '30.08.2021',
             'DELAI': '07.10.1975',
             'ERSTELLT': '30.08.2021',
             'FRIST': '07.10.1975',
             'NAME': 'Tanner Craig',
-            'NOM': 'Tanner Craig'
+            'NOM': 'Tanner Craig',
+            'REPONDU': ''
         }
     ],
     'CIRCULATION_PREAVIS': [
@@ -120,30 +124,36 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     ],
     'CIRCULATION_PREF': [
         {
+            'BEANTWORTET': '',
             'CREE': '30.08.2021',
             'DELAI': '07.04.1973',
             'ERSTELLT': '30.08.2021',
             'FRIST': '07.04.1973',
             'NAME': 'Lisa Oneill',
-            'NOM': 'Lisa Oneill'
+            'NOM': 'Lisa Oneill',
+            'REPONDU': ''
         }
     ],
     'CIRCULATION_SERVICES': [
         {
+            'BEANTWORTET': '10.11.1971',
             'CREE': '30.08.2021',
-            'DELAI': '10.11.1971',
+            'DELAI': '05.11.1976',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '10.11.1971',
+            'FRIST': '05.11.1976',
             'NAME': 'David Morris',
-            'NOM': 'David Morris'
+            'NOM': 'David Morris',
+            'REPONDU': '10.11.1971'
         },
         {
+            'BEANTWORTET': '27.11.2002',
             'CREE': '30.08.2021',
-            'DELAI': '27.11.2002',
+            'DELAI': '19.05.1994',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '27.11.2002',
+            'FRIST': '19.05.1994',
             'NAME': 'Jacob Alvarez',
-            'NOM': 'Jacob Alvarez'
+            'NOM': 'Jacob Alvarez',
+            'REPONDU': '27.11.2002'
         }
     ],
     'COMMUNE': 'Burgdorf',
@@ -238,60 +248,74 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'ETAT': 'Pamela Horton',
     'FACHSTELLEN_KANTONAL': [
         {
+            'BEANTWORTET': '',
             'CREE': '30.08.2021',
             'DELAI': '26.11.2007',
             'ERSTELLT': '30.08.2021',
             'FRIST': '26.11.2007',
             'NAME': 'Matthew Bowen',
-            'NOM': 'Matthew Bowen'
+            'NOM': 'Matthew Bowen',
+            'REPONDU': ''
         },
         {
+            'BEANTWORTET': '',
             'CREE': '30.08.2021',
             'DELAI': '07.04.1973',
             'ERSTELLT': '30.08.2021',
             'FRIST': '07.04.1973',
             'NAME': 'Lisa Oneill',
-            'NOM': 'Lisa Oneill'
+            'NOM': 'Lisa Oneill',
+            'REPONDU': ''
         },
         {
+            'BEANTWORTET': '',
             'CREE': '30.08.2021',
             'DELAI': '18.11.1986',
             'ERSTELLT': '30.08.2021',
             'FRIST': '18.11.1986',
             'NAME': 'Melissa Walsh',
-            'NOM': 'Melissa Walsh'
+            'NOM': 'Melissa Walsh',
+            'REPONDU': ''
         },
         {
+            'BEANTWORTET': '',
             'CREE': '30.08.2021',
             'DELAI': '07.10.1975',
             'ERSTELLT': '30.08.2021',
             'FRIST': '07.10.1975',
             'NAME': 'Tanner Craig',
-            'NOM': 'Tanner Craig'
+            'NOM': 'Tanner Craig',
+            'REPONDU': ''
         },
         {
+            'BEANTWORTET': '10.11.1971',
             'CREE': '30.08.2021',
-            'DELAI': '10.11.1971',
+            'DELAI': '05.11.1976',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '10.11.1971',
+            'FRIST': '05.11.1976',
             'NAME': 'David Morris',
-            'NOM': 'David Morris'
+            'NOM': 'David Morris',
+            'REPONDU': '10.11.1971'
         },
         {
+            'BEANTWORTET': '27.11.2002',
             'CREE': '30.08.2021',
-            'DELAI': '27.11.2002',
+            'DELAI': '19.05.1994',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '27.11.2002',
+            'FRIST': '19.05.1994',
             'NAME': 'Jacob Alvarez',
-            'NOM': 'Jacob Alvarez'
+            'NOM': 'Jacob Alvarez',
+            'REPONDU': '27.11.2002'
         },
         {
+            'BEANTWORTET': '',
             'CREE': '30.08.2021',
             'DELAI': '',
             'ERSTELLT': '30.08.2021',
             'FRIST': '',
             'NAME': 'Matthew Bowen',
-            'NOM': 'Matthew Bowen'
+            'NOM': 'Matthew Bowen',
+            'REPONDU': ''
         }
     ],
     'FACHSTELLEN_KANTONAL_LIST': '''- Matthew Bowen
@@ -445,60 +469,74 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'OEFFENTLICHKEIT': 'Öffentlich',
     'OFFICES_CANTONAUX': [
         {
+            'BEANTWORTET': '',
             'CREE': '30.08.2021',
             'DELAI': '26.11.2007',
             'ERSTELLT': '30.08.2021',
             'FRIST': '26.11.2007',
             'NAME': 'Matthew Bowen',
-            'NOM': 'Matthew Bowen'
+            'NOM': 'Matthew Bowen',
+            'REPONDU': ''
         },
         {
+            'BEANTWORTET': '',
             'CREE': '30.08.2021',
             'DELAI': '07.04.1973',
             'ERSTELLT': '30.08.2021',
             'FRIST': '07.04.1973',
             'NAME': 'Lisa Oneill',
-            'NOM': 'Lisa Oneill'
+            'NOM': 'Lisa Oneill',
+            'REPONDU': ''
         },
         {
+            'BEANTWORTET': '',
             'CREE': '30.08.2021',
             'DELAI': '18.11.1986',
             'ERSTELLT': '30.08.2021',
             'FRIST': '18.11.1986',
             'NAME': 'Melissa Walsh',
-            'NOM': 'Melissa Walsh'
+            'NOM': 'Melissa Walsh',
+            'REPONDU': ''
         },
         {
+            'BEANTWORTET': '',
             'CREE': '30.08.2021',
             'DELAI': '07.10.1975',
             'ERSTELLT': '30.08.2021',
             'FRIST': '07.10.1975',
             'NAME': 'Tanner Craig',
-            'NOM': 'Tanner Craig'
+            'NOM': 'Tanner Craig',
+            'REPONDU': ''
         },
         {
+            'BEANTWORTET': '10.11.1971',
             'CREE': '30.08.2021',
-            'DELAI': '10.11.1971',
+            'DELAI': '05.11.1976',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '10.11.1971',
+            'FRIST': '05.11.1976',
             'NAME': 'David Morris',
-            'NOM': 'David Morris'
+            'NOM': 'David Morris',
+            'REPONDU': '10.11.1971'
         },
         {
+            'BEANTWORTET': '27.11.2002',
             'CREE': '30.08.2021',
-            'DELAI': '27.11.2002',
+            'DELAI': '19.05.1994',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '27.11.2002',
+            'FRIST': '19.05.1994',
             'NAME': 'Jacob Alvarez',
-            'NOM': 'Jacob Alvarez'
+            'NOM': 'Jacob Alvarez',
+            'REPONDU': '27.11.2002'
         },
         {
+            'BEANTWORTET': '',
             'CREE': '30.08.2021',
             'DELAI': '',
             'ERSTELLT': '30.08.2021',
             'FRIST': '',
             'NAME': 'Matthew Bowen',
-            'NOM': 'Matthew Bowen'
+            'NOM': 'Matthew Bowen',
+            'REPONDU': ''
         }
     ],
     'OFFICES_CANTONAUX_LISTE': '''- Matthew Bowen
@@ -631,106 +669,130 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     ],
     'ZIRKULATION_ALLE': [
         {
+            'BEANTWORTET': '',
             'CREE': '30.08.2021',
             'DELAI': '26.11.2007',
             'ERSTELLT': '30.08.2021',
             'FRIST': '26.11.2007',
             'NAME': 'Matthew Bowen',
-            'NOM': 'Matthew Bowen'
+            'NOM': 'Matthew Bowen',
+            'REPONDU': ''
         },
         {
+            'BEANTWORTET': '',
             'CREE': '30.08.2021',
             'DELAI': '07.04.1973',
             'ERSTELLT': '30.08.2021',
             'FRIST': '07.04.1973',
             'NAME': 'Lisa Oneill',
-            'NOM': 'Lisa Oneill'
+            'NOM': 'Lisa Oneill',
+            'REPONDU': ''
         },
         {
+            'BEANTWORTET': '',
             'CREE': '30.08.2021',
             'DELAI': '18.11.1986',
             'ERSTELLT': '30.08.2021',
             'FRIST': '18.11.1986',
             'NAME': 'Melissa Walsh',
-            'NOM': 'Melissa Walsh'
+            'NOM': 'Melissa Walsh',
+            'REPONDU': ''
         },
         {
+            'BEANTWORTET': '',
             'CREE': '30.08.2021',
             'DELAI': '07.10.1975',
             'ERSTELLT': '30.08.2021',
             'FRIST': '07.10.1975',
             'NAME': 'Tanner Craig',
-            'NOM': 'Tanner Craig'
+            'NOM': 'Tanner Craig',
+            'REPONDU': ''
         },
         {
+            'BEANTWORTET': '10.11.1971',
             'CREE': '30.08.2021',
-            'DELAI': '10.11.1971',
+            'DELAI': '05.11.1976',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '10.11.1971',
+            'FRIST': '05.11.1976',
             'NAME': 'David Morris',
-            'NOM': 'David Morris'
+            'NOM': 'David Morris',
+            'REPONDU': '10.11.1971'
         },
         {
+            'BEANTWORTET': '27.11.2002',
             'CREE': '30.08.2021',
-            'DELAI': '27.11.2002',
+            'DELAI': '19.05.1994',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '27.11.2002',
+            'FRIST': '19.05.1994',
             'NAME': 'Jacob Alvarez',
-            'NOM': 'Jacob Alvarez'
+            'NOM': 'Jacob Alvarez',
+            'REPONDU': '27.11.2002'
         },
         {
+            'BEANTWORTET': '',
             'CREE': '30.08.2021',
             'DELAI': '',
             'ERSTELLT': '30.08.2021',
             'FRIST': '',
             'NAME': 'Matthew Bowen',
-            'NOM': 'Matthew Bowen'
+            'NOM': 'Matthew Bowen',
+            'REPONDU': ''
         }
     ],
     'ZIRKULATION_FACHSTELLEN': [
         {
+            'BEANTWORTET': '10.11.1971',
             'CREE': '30.08.2021',
-            'DELAI': '10.11.1971',
+            'DELAI': '05.11.1976',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '10.11.1971',
+            'FRIST': '05.11.1976',
             'NAME': 'David Morris',
-            'NOM': 'David Morris'
+            'NOM': 'David Morris',
+            'REPONDU': '10.11.1971'
         },
         {
+            'BEANTWORTET': '27.11.2002',
             'CREE': '30.08.2021',
-            'DELAI': '27.11.2002',
+            'DELAI': '19.05.1994',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '27.11.2002',
+            'FRIST': '19.05.1994',
             'NAME': 'Jacob Alvarez',
-            'NOM': 'Jacob Alvarez'
+            'NOM': 'Jacob Alvarez',
+            'REPONDU': '27.11.2002'
         }
     ],
     'ZIRKULATION_GEMEINDEN': [
         {
+            'BEANTWORTET': '',
             'CREE': '30.08.2021',
             'DELAI': '18.11.1986',
             'ERSTELLT': '30.08.2021',
             'FRIST': '18.11.1986',
             'NAME': 'Melissa Walsh',
-            'NOM': 'Melissa Walsh'
+            'NOM': 'Melissa Walsh',
+            'REPONDU': ''
         },
         {
+            'BEANTWORTET': '',
             'CREE': '30.08.2021',
             'DELAI': '07.10.1975',
             'ERSTELLT': '30.08.2021',
             'FRIST': '07.10.1975',
             'NAME': 'Tanner Craig',
-            'NOM': 'Tanner Craig'
+            'NOM': 'Tanner Craig',
+            'REPONDU': ''
         }
     ],
     'ZIRKULATION_RSTA': [
         {
+            'BEANTWORTET': '',
             'CREE': '30.08.2021',
             'DELAI': '07.04.1973',
             'ERSTELLT': '30.08.2021',
             'FRIST': '07.04.1973',
             'NAME': 'Lisa Oneill',
-            'NOM': 'Lisa Oneill'
+            'NOM': 'Lisa Oneill',
+            'REPONDU': ''
         }
     ],
     'ZIRKULATION_RUECKMELDUNGEN': [
