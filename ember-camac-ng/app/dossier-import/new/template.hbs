@@ -77,7 +77,9 @@
             </div>
           </div>
         {{else}}
-          <div class="uk-flex-none" uk-icon="icon: plus"></div>
+          <label for="import-file">
+            <div class="uk-flex-none uk-button uk-button-link" uk-icon="icon: plus"></div>
+          </label>
         {{/if}}
         <div
           class="uk-divider-vertical uk-margin-remove-right uk-margin-remove-vertical uk-margin-left dossier-import__upload-divider"
@@ -88,12 +90,12 @@
           {{t "dossierImport.new.uploadDrop"}}
         </div>
         <div uk-form-custom>
-          <label>
-            <input type="file" {{on "change" (perform this.upload)}} />
+          <label for="import-file">
+            <span class="uk-link">
+              {{t "dossierImport.new.uploadSelect"}}
+            </span>
           </label>
-          <span class="uk-link">
-            {{t "dossierImport.new.uploadSelect"}}
-          </span>
+          <input id="import-file" hidden type="file" {{on "change" (perform this.upload)}} />
         </div>
       </div>
     </div>
