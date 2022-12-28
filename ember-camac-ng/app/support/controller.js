@@ -108,8 +108,6 @@ export default class SupportController extends Controller {
   *fetchInstance() {
     const instance = yield this.store.findRecord("instance", this.model);
 
-    yield instance.fetchCaseMeta.perform();
-
     this.ebauNumber = instance.ebauNumber || "";
     this._form = instance.calumaForm;
 
