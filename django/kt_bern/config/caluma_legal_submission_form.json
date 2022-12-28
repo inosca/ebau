@@ -157,7 +157,7 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "legal-submission-form.legal-submission-state",
+    "pk": "legal-submission-form.legal-submission-status",
     "fields": {
       "created_at": "2022-11-10T13:43:52.560Z",
       "modified_at": "2022-11-10T13:43:52.560Z",
@@ -166,7 +166,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "legal-submission-form",
-      "question": "legal-submission-state",
+      "question": "legal-submission-status",
       "sort": 10
     }
   },
@@ -217,7 +217,7 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "legal-submission-state-done",
+    "pk": "legal-submission-status-done",
     "fields": {
       "created_at": "2022-11-10T13:43:52.106Z",
       "modified_at": "2022-11-10T13:43:52.106Z",
@@ -233,7 +233,7 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "legal-submission-state-open",
+    "pk": "legal-submission-status-open",
     "fields": {
       "created_at": "2022-11-10T13:43:52.114Z",
       "modified_at": "2022-11-10T13:43:52.114Z",
@@ -308,7 +308,7 @@
       "label": "{\"de\": \"Datum Erledigt\", \"fr\": null}",
       "type": "date",
       "is_required": "false",
-      "is_hidden": "\"legal-submission-state\"|answer != \"legal-submission-state-done\"",
+      "is_hidden": "\"legal-submission-status\"|answer != \"legal-submission-status-done\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": null, \"fr\": null}",
@@ -559,7 +559,7 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "legal-submission-state",
+    "pk": "legal-submission-status",
     "fields": {
       "created_at": "2022-11-10T13:43:52.303Z",
       "modified_at": "2022-11-10T13:43:52.303Z",
@@ -686,7 +686,7 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "legal-submission-state.legal-submission-state-done",
+    "pk": "legal-submission-status.legal-submission-status-done",
     "fields": {
       "created_at": "2022-11-10T13:43:52.310Z",
       "modified_at": "2022-11-10T13:43:52.310Z",
@@ -694,14 +694,14 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "question": "legal-submission-state",
-      "option": "legal-submission-state-done",
+      "question": "legal-submission-status",
+      "option": "legal-submission-status-done",
       "sort": 1
     }
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "legal-submission-state.legal-submission-state-open",
+    "pk": "legal-submission-status.legal-submission-status-open",
     "fields": {
       "created_at": "2022-11-10T13:43:52.315Z",
       "modified_at": "2022-11-10T13:43:52.315Z",
@@ -709,8 +709,8 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "question": "legal-submission-state",
-      "option": "legal-submission-state-open",
+      "question": "legal-submission-status",
+      "option": "legal-submission-status-open",
       "sort": 2
     }
   },
