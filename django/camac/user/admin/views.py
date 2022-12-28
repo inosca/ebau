@@ -13,7 +13,7 @@ from django.utils.text import smart_split, unescape_string_literal
 from django.utils.timezone import now
 from django.utils.translation import get_language, gettext_lazy as _
 
-from camac.user.admin.filters import DisabledFilter
+from camac.user.admin.filters import DisabledFilter, SubserviceFilter
 from camac.user.admin.forms import GroupForm, ServiceForm, UserForm
 from camac.user.admin.inlines import (
     GroupLocationInline,
@@ -224,7 +224,7 @@ class ServiceAdmin(MultilingualAdmin, ModelAdmin):
         "get_service_group_name",
         "get_disabled",
     ]
-    list_filter = ["service_group", DisabledFilter]
+    list_filter = ["service_group", DisabledFilter, SubserviceFilter]
     list_per_page = 20
     ordering = ["pk"]
     prefetch_related_ml = ["trans", "service_group__trans"]
