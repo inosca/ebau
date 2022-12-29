@@ -6,7 +6,9 @@
   </div>
 {{else}}
   <div class="uk-container main-content with-sidebar">
+    {{! template-lint-disable no-bare-strings}}
     <h2>Dossier {{@model}}</h2>
+    {{! template-lint-enable no-bare-strings}}
 
     {{outlet}}
   </div>
