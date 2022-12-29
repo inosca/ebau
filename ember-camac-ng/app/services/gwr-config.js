@@ -1,5 +1,6 @@
 import { action } from "@ember/object";
 import Service, { inject as service } from "@ember/service";
+import { getOwnConfig, macroCondition } from "@embroider/macros";
 
 import ENV from "camac-ng/config/environment";
 
@@ -46,9 +47,15 @@ export default class GwrConfigService extends Service {
       instance_id: [...new Set(localIds)].join(","),
     });
 
-    return instances.map(({ id, identifier, dossierNumber }) => ({
+    return instances.map(({ id, identifier, dossierNumber, ebauNumber }) => ({
       localId: id,
-      identifier: identifier ?? dossierNumber,
+      identifier: macroCondition(getOwnConfig().application === "be")
+        ? ebauNumber
+        : macroCondition(getOwnConfig().application === "sz")
+        ? identifier
+        : macroCondition(getOwnConfig().application === "ur")
+        ? dossierNumber
+        : "-",
       hostLink: `/index/redirect-to-instance-resource/instance-id/${id}?instance-resource-name=gwr&ember-hash=/gwr/${id}`,
     }));
   }

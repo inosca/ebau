@@ -486,6 +486,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
 
     caluma_form = serializers.SerializerMethodField()
     dossier_number = serializers.SerializerMethodField()
+    ebau_number = serializers.SerializerMethodField()
 
     is_paper = serializers.SerializerMethodField()  # "Papierdossier
     is_modification = serializers.SerializerMethodField()  # "Projektänderung"
@@ -523,6 +524,9 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
 
     def get_dossier_number(self, instance):
         return CalumaApi().get_dossier_number(instance)
+
+    def get_ebau_number(self, instance):
+        return instance.case.meta.get("ebau-number")
 
     def get_active_service(self, instance):
         return instance.responsible_service(filter_type="municipality")
@@ -1052,6 +1056,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             "name",
             "generate_identifier",
             "dossier_number",
+            "ebau_number",
             "decision",
             "decision_date",
             "involved_at",
@@ -1067,6 +1072,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             "rejection_feedback",
             "name",
             "dossier_number",
+            "ebau_number",
             "decision",
             "decision_date",
             "involved_at",
