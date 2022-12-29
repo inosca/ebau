@@ -67,35 +67,18 @@ export default class CaseDashboardComponent extends Component {
 
   @dropTask
   *initialize() {
-    yield this.fetchCurrentInstance.perform(true, true);
+    yield this.fetchCurrentInstance.perform(true);
     yield this.fetchModels.perform();
     yield this.fetchInstancesOnSamePlot.perform();
   }
 
   @lastValue("fetchCurrentInstance") currentInstance;
   @dropTask
-  *fetchCurrentInstance(
-    reloadInstance = false,
-    fetchDossierNumbersOfLinkedInstances = false
-  ) {
-    const instance = yield this.store.findRecord(
-      "instance",
-      this.args.instanceId,
-      {
-        reload: reloadInstance,
-        include: "linked_instances",
-      }
-    );
-
-    if (fetchDossierNumbersOfLinkedInstances && instance.linkedInstances) {
-      const instances = yield instance.linkedInstances.filter(
-        ({ id }) => id !== instance.id
-      );
-
-      instances.forEach((element) => element.fetchCaseMeta.perform());
-    }
-
-    return instance;
+  *fetchCurrentInstance(reload = false) {
+    return yield this.store.findRecord("instance", this.args.instanceId, {
+      reload,
+      include: "linked_instances",
+    });
   }
 
   get samePlotFilters() {
@@ -153,8 +136,6 @@ export default class CaseDashboardComponent extends Component {
         instance_id: instanceIds.join(","),
         instance_state: config.APPLICATION.submittedStates.join(","),
       });
-
-      instances.forEach((instance) => instance.fetchCaseMeta.perform());
 
       return instances;
     } catch (error) {
@@ -218,7 +199,7 @@ export default class CaseDashboardComponent extends Component {
         }),
       });
 
-      yield this.fetchCurrentInstance.perform(true, true);
+      yield this.fetchCurrentInstance.perform(true);
       this.dossierNumber = null;
       this.notification.success(
         this.intl.t("cases.miscellaneous.linkInstanceSuccess")
