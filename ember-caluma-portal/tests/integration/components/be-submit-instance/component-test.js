@@ -7,7 +7,7 @@ module("Integration | Component | be-submit-instance", function (hooks) {
   setupRenderingTest(hooks);
 
   skip("it renders", async function (assert) {
-    await render(hbs`{{be-submit-instance}}`);
+    await render(hbs`<BeSubmitInstance />`);
 
     assert.ok(this.element.textContent);
   });
