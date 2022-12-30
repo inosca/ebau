@@ -12,15 +12,15 @@
   },
   "scripts": {
     "build": "ember build --environment=production",
-    "lint": "npm-run-all --aggregate-output --continue-on-error --parallel \"lint:!(fix)\"",
-    "lint:fix": "npm-run-all --aggregate-output --continue-on-error --parallel lint:*:fix",
+    "lint": "npm-run-all --print-name --aggregate-output --continue-on-error --parallel \"lint:!(fix)\"",
+    "lint:fix": "npm-run-all --print-name --aggregate-output --continue-on-error --parallel \"lint:*:fix\"",
     "lint:hbs": "ember-template-lint .",
     "lint:hbs:fix": "ember-template-lint . --fix",
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
     "start": "ember serve",
     "start-proxy": "ember serve --proxy http://ember-ebau.local",
-    "test": "npm-run-all lint test:*",
+    "test": "npm-run-all --print-name \"lint\" \"test:*\"",
     "test:ember": "ember test",
     "deploy": "ember deploy"
   },
@@ -42,7 +42,7 @@
     "ember-apollo-client": "4.0.2",
     "ember-auto-import": "2.6.1",
     "ember-can": "4.2.0",
-    "ember-cli": "4.4.1",
+    "ember-cli": "4.8.0",
     "ember-cli-app-version": "5.0.0",
     "ember-cli-babel": "7.26.11",
     "ember-cli-dependency-checker": "3.3.1",
@@ -74,7 +74,7 @@
     "ember-resources": "5.6.2",
     "ember-set-helper": "2.0.1",
     "ember-simple-auth-oidc": "5.0.1",
-    "ember-source": "4.4.4",
+    "ember-source": "4.8.4",
     "ember-template-lint": "5.3.0",
     "ember-truth-helpers": "3.1.1",
     "ember-uikit": "6.1.1",
@@ -97,7 +97,7 @@
     "webpack": "5.75.0"
   },
   "engines": {
-    "node": "12.* || 14.* || >= 16"
+    "node": "14.* || 16.* || >= 18"
   },
   "ember": {
     "edition": "octane"
