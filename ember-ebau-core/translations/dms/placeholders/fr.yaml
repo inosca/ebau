@@ -171,6 +171,8 @@ dms:
       PUBLIKATION_ANZEIGER_NAME-placeholder: "PUBLICATION_FEUILLE_AVIS_NOM"
       PUBLIKATION_ENDE-description: "Date d'expiration de la publication du dossier"
       PUBLIKATION_ENDE-placeholder: "PUBLICATION_EXPIRATION"
+      PUBLIKATION_LINK-description: "Lien pour la mise à l'enquête publique"
+      PUBLIKATION_LINK-placeholder: "LIEN_PUBLICATION"
       PUBLIKATION_START-description: "Date de début de la publication du dossier"
       PUBLIKATION_START-placeholder: "PUBLICATION_DEBUT"
       PUBLIKATION_TEXT-description: "Date de début de la publication du dossier"
