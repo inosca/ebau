@@ -171,6 +171,8 @@ dms:
       PUBLIKATION_ANZEIGER_NAME-placeholder: "PUBLIKATION_ANZEIGER_NAME"
       PUBLIKATION_ENDE-description: "Enddatum der Publikation des Dossiers"
       PUBLIKATION_ENDE-placeholder: "PUBLIKATION_ENDE"
+      PUBLIKATION_LINK-description: "Link zur öffentlichen Auflage"
+      PUBLIKATION_LINK-placeholder: "PUBLIKATION_LINK"
       PUBLIKATION_START-description: "Startdatum der Publikation des Dossiers"
       PUBLIKATION_START-placeholder: "PUBLIKATION_START"
       PUBLIKATION_TEXT-description: "Publikationstext des Dossiers"
