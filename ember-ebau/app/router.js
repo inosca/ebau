@@ -1,10 +1,24 @@
 import EmberRouter from "@ember/routing/router";
+import { inject as service } from "@ember/service";
+import registerDMSAdmin from "ember-ebau-core/modules/dms-admin";
 
 import config from "ebau/config/environment";
 
 export default class Router extends EmberRouter {
+  @service ebauModules;
+
   location = config.locationType;
   rootURL = config.rootURL;
+
+  setupRouter(...args) {
+    const didSetup = super.setupRouter(...args);
+
+    if (didSetup) {
+      this.ebauModules.setupModules();
+    }
+
+    return didSetup;
+  }
 }
 
 const resetNamespace = true;
@@ -38,9 +52,6 @@ Router.map(function () {
       });
       this.route("new");
     });
-    this.route("dms-admin", { resetNamespace }, function () {
-      this.route("edit", { path: "/:slug" });
-      this.route("new");
-    });
+    registerDMSAdmin(this, { resetNamespace });
   });
 });
