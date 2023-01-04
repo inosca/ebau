@@ -1,10 +1,24 @@
 import EmberRouter from "@ember/routing/router";
+import { inject as service } from "@ember/service";
+import registerDMSAdmin from "ember-ebau-core/modules/dms-admin";
 
 import config from "camac-ng/config/environment";
 
 export default class Router extends EmberRouter {
+  @service ebauModules;
+
   location = config.locationType;
   rootURL = config.rootURL;
+
+  setupRouter(...args) {
+    const didSetup = super.setupRouter(...args);
+
+    if (didSetup) {
+      this.ebauModules.setupModules();
+    }
+
+    return didSetup;
+  }
 }
 
 /* eslint-disable-next-line array-callback-return */
@@ -72,9 +86,6 @@ Router.map(function () {
     path: "/distribution/:case",
   });
 
-  this.route("dms-admin", function () {
-    this.route("edit", { path: "/:slug" });
-    this.route("new");
-  });
+  registerDMSAdmin(this);
   this.route("dms-generate", { path: "instances/:instance_id/dms-generate" });
 });
