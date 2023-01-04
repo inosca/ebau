@@ -35,6 +35,7 @@ from inflection import underscore
 
 from camac.caluma.utils import CamacRequest
 from camac.constants.kt_bern import DASHBOARD_FORM_SLUG
+from camac.user.permissions import permission_aware
 from camac.utils import build_url, headers
 
 log = getLogger()
@@ -126,6 +127,11 @@ def distribution_permission_for(
 
 
 class CustomPermission(BasePermission):
+    def __init__(self):
+        super().__init__()
+
+        self.request = None
+
     # Override has_permission of BasePermission to only allow authenticated
     # users, which also adhere to the permission methods defined by the
     # CustomPermission class, to execute mutations.
@@ -133,9 +139,16 @@ class CustomPermission(BasePermission):
     # has_permission without calling the super has_permission method of its parent
     # class BasePermission.
     def has_permission(self, mutation, info):
+        self.request = info.context.camac_request
+
         return info.context.user.is_authenticated and super().has_permission(
             mutation, info
         )
+
+    def has_object_permission(self, mutation, info, instance):
+        self.request = info.context.camac_request
+
+        return super().has_object_permission(mutation, info, instance)
 
     @permission_for(Mutation)
     def has_permission_default(self, mutation, info):
@@ -143,7 +156,7 @@ class CustomPermission(BasePermission):
             f"ACL: fallback permission: allow mutation '{mutation.__name__}' for support users"
         )
 
-        return self.has_camac_role(info, "support")
+        return self.has_camac_role("support")
 
     @object_permission_for(Mutation)
     def has_object_permission_default(self, mutation, info, instance):
@@ -152,7 +165,7 @@ class CustomPermission(BasePermission):
             f"mutation '{mutation.__name__}' on {instance} for support users"
         )
 
-        return self.has_camac_role(info, "support")
+        return self.has_camac_role("support")
 
     # Case
     @permission_for(SaveCase)
@@ -240,7 +253,7 @@ class CustomPermission(BasePermission):
     @object_permission_for(CompleteWorkItem)
     @object_permission_for(SkipWorkItem)
     def has_permission_for_process_work_item(self, mutation, info, work_item=None):
-        if not work_item or self.has_camac_role(info, "support"):
+        if not work_item or self.has_camac_role("support"):
             # Always allow for support group since our PHP action uses that group
             return True
 
@@ -252,7 +265,7 @@ class CustomPermission(BasePermission):
     @permission_for(CancelWorkItem)
     @object_permission_for(CancelWorkItem)
     def has_permission_for_cancel_work_item(self, mutation, info, work_item=None):
-        if not work_item or self.has_camac_role(info, "support"):
+        if not work_item or self.has_camac_role("support"):
             # Always allow for support group since our PHP action uses that group
             return True
 
@@ -294,7 +307,7 @@ class CustomPermission(BasePermission):
             # There should only be one dashboard document which has to be
             # created by a support user
             return (
-                self.has_camac_role(info, "support")
+                self.has_camac_role("support")
                 and Document.objects.filter(form__slug=DASHBOARD_FORM_SLUG).count() == 0
             )
 
@@ -304,7 +317,7 @@ class CustomPermission(BasePermission):
     @object_permission_for(SaveDocument)
     def has_object_permission_for_savedocument(self, mutation, info, document):
         if document.form.slug == DASHBOARD_FORM_SLUG:
-            return self.has_camac_role(info, "support")
+            return self.has_camac_role("support")
 
         return self.has_camac_edit_permission(document.family, info)
 
@@ -333,7 +346,7 @@ class CustomPermission(BasePermission):
             return False
 
         if document.form.slug == DASHBOARD_FORM_SLUG:
-            return self.has_camac_role(info, "support")
+            return self.has_camac_role("support")
 
         return self.has_camac_edit_permission(document.family, info)
 
@@ -345,7 +358,7 @@ class CustomPermission(BasePermission):
     @object_permission_for(SaveDocumentAnswer)
     def has_object_permission_for_savedocumentanswer(self, mutation, info, answer):
         if answer.document.form.slug == DASHBOARD_FORM_SLUG:
-            return self.has_camac_role(info, "support")
+            return self.has_camac_role("support")
 
         return self.has_camac_edit_permission(answer.document.family, info)
 
@@ -359,8 +372,8 @@ class CustomPermission(BasePermission):
     def has_object_permission_for_removeanswer(self, mutation, info, answer):
         return self.has_camac_edit_permission(answer.document.family, info)
 
-    def has_camac_role(self, info, required_permission):
-        role_name = CamacRequest(info).request.group.role.name
+    def has_camac_role(self, required_permission):
+        role_name = self.request.group.role.name
         role_permissions = settings.APPLICATION.get("ROLE_PERMISSIONS", {})
 
         return role_permissions.get(role_name) == required_permission
@@ -370,6 +383,14 @@ class CustomPermission(BasePermission):
             case = target
             permission_key = "case-meta"
         elif isinstance(target, Document):
+            if target.family.form_id not in settings.APPLICATION["CALUMA"].get(
+                "FORM_PERMISSIONS", []
+            ):
+                # If the form of the current document is not using custom
+                # permissions defined in the instance serializer, we shall use
+                # basic caluma permissions.
+                return self.has_caluma_form_edit_permission(target, info)
+
             case = (
                 target.work_item.case
                 if getattr(target, "work_item", None)
@@ -412,3 +433,18 @@ class CustomPermission(BasePermission):
             raise RuntimeError(
                 f"NG API returned unexpected data structure (no data key) {jsondata}"
             )
+
+    @permission_aware
+    def has_caluma_form_edit_permission(self, document, info):
+        return False
+
+    def has_caluma_form_edit_permission_for_municipality(self, document, info):
+        work_item = document.family.work_item
+
+        return (
+            is_addressed_to_service(work_item, get_current_service_id(info))
+            and work_item.status == WorkItem.STATUS_READY
+        )
+
+    def has_caluma_form_edit_permission_for_support(self, document, info):
+        return True
