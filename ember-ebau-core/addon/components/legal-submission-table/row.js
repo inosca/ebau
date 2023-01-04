@@ -2,13 +2,13 @@ import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
+
 import { confirmTask } from "ember-ebau-core/decorators";
+import deleteDocument from "ember-ebau-core/gql/mutations/delete-document.graphql";
 import {
   getAnswerDisplayValue,
   getAnswer,
 } from "ember-ebau-core/utils/get-answer";
-
-import deleteDocument from "camac-ng/gql/mutations/delete-document.graphql";
 
 export default class LegalSubmissionTableRowComponent extends Component {
   @service notification;

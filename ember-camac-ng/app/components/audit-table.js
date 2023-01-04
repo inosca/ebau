@@ -3,9 +3,9 @@ import Component from "@glimmer/component";
 import { decodeId } from "@projectcaluma/ember-core/helpers/decode-id";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
+import createDocument from "ember-ebau-core/gql/mutations/create-document.graphql";
+import linkDocument from "ember-ebau-core/gql/mutations/link-document.graphql";
 
-import createDocument from "camac-ng/gql/mutations/create-document.graphql";
-import linkDocument from "camac-ng/gql/mutations/link-document.graphql";
 import saveAnswerMutation from "camac-ng/gql/mutations/save-answer.graphql";
 import getMainDocumentAnswerQuery from "camac-ng/gql/queries/get-document-answer.graphql";
 
