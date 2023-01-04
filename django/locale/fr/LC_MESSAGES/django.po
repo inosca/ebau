@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-05 15:56+0100\n"
-"PO-Revision-Date: 2022-12-09 11:07+0100\n"
+"POT-Creation-Date: 2023-01-06 17:17+0100\n"
+"PO-Revision-Date: 2023-01-06 17:18+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -174,7 +174,12 @@ msgstr ""
 "Autorisations insuffisantes pour supprimer un fichier de la section "
 "'%(section)s'."
 
-#: camac/document/serializers.py:186
+#: camac/document/serializers.py:178
+#, python-format
+msgid "File %s is too large."
+msgstr "Le fichier %s est trop gros."
+
+#: camac/document/serializers.py:191
 #, python-format
 msgid ""
 "Invalid mime type for attachment. Allowed types for section %(section_name)s "
@@ -183,18 +188,18 @@ msgstr ""
 "Type de mime non valable pour la pièce jointe. Les types autorisés pour la "
 "section %(section_name)s sont : %(allowed_mime_types)s"
 
-#: camac/document/serializers.py:237
+#: camac/document/serializers.py:242
 msgid ""
 "Changing decision document mark after decision is enacted is not allowed."
 msgstr ""
 "Il n'est pas permis de modifier la marque du document de décision après la "
 "promulgation de la décision."
 
-#: camac/document/serializers.py:305
+#: camac/document/serializers.py:311
 msgid "Path may not be changed."
 msgstr "Le chemin ne peut pas être modifié."
 
-#: camac/document/serializers.py:348
+#: camac/document/serializers.py:354
 msgid "Invalid mime type for template. Allowed types are: docx"
 msgstr ""
 "Type de mime non valide pour le modèle. Les types autorisés sont : docx"
@@ -220,8 +225,8 @@ msgstr "Charger et transformer le coordinates E: %(e)i et N: %(n)i a échoué"
 #: camac/dossier_import/loaders.py:300
 #, python-format
 msgid ""
-"Failed to load plot with numbers `%(plot_numbers)s` and egrid values `"
-"%(egrids)s`"
+"Failed to load plot with numbers `%(plot_numbers)s` and egrid values "
+"`%(egrids)s`"
 msgstr ""
 "Échec du chargement du graphe avec les numéros `%(plot_numbers)s` et les "
 "valeurs des egrides `%(egrids)s`"
@@ -241,8 +246,8 @@ msgid ""
 "have an invalid value in date field. Please use the format \"DD.MM.YYYY\" (e."
 "g. \"13.04.2021\")"
 msgstr ""
-"n'ont pas de valeur date valable. Veuillez utilizer le format \"DD.MM.YYYY"
-"\" (e.g. \"13.04.2021\")"
+"n'ont pas de valeur date valable. Veuillez utilizer le format \"DD.MM."
+"YYYY\" (e.g. \"13.04.2021\")"
 
 #: camac/dossier_import/messages.py:160
 msgid "have an invalid status"
@@ -463,12 +468,12 @@ msgid "Draft"
 msgstr "Brouillon"
 
 #: camac/instance/document_merge_service.py:284
-#: camac/instance/tests/test_document_merge_service.py:282
+#: camac/instance/tests/test_document_merge_service.py:298
 #: camac/user/authentication.py:76
 msgid "Signature has expired."
 msgstr "La signature a expiré."
 
-#: camac/instance/mixins.py:453 camac/instance/mixins.py:490
+#: camac/instance/mixins.py:455 camac/instance/mixins.py:492
 #, python-format
 msgid "Not allowed to add data to instance %(instance)s"
 msgstr "Pas autorisé à ajouter des données à l'instance %(instance)s"
@@ -757,11 +762,11 @@ msgstr "Procédure de circulation lancée"
 msgid "Procedure completed"
 msgstr "Procédure de demande de permis de construire complétée"
 
-#: camac/settings.py:3261
+#: camac/settings.py:3262
 msgid "German"
 msgstr "Allemand"
 
-#: camac/settings.py:3261
+#: camac/settings.py:3262
 msgid "French"
 msgstr "Français"
 
