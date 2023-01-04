@@ -25,6 +25,7 @@ export default class DmsDocsComponent extends Component {
     ).map((placeholder) => {
       const value = this.args.data?.[placeholder] ?? "";
       const isComplex = complexPlaceholders.includes(placeholder);
+      const isLink = /^http(s)?:\/\//.test(value);
 
       return {
         placeholder: this.intl.t(
@@ -35,6 +36,7 @@ export default class DmsDocsComponent extends Component {
         ),
         value: isComplex ? JSON.stringify(value, null, "  ") : value,
         isComplex,
+        isLink,
       };
     });
   }

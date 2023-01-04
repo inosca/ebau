@@ -11,6 +11,7 @@ from rest_framework import serializers
 from camac.caluma.api import CalumaApi
 from camac.objection.models import Objection
 from camac.user.models import Service
+from camac.utils import build_url
 
 from ..master_data import MasterData
 from . import fields
@@ -384,6 +385,7 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
     publikation_ende = fields.PublicationField(
         source="publikation-ablaufdatum", value_key="date", parser=human_readable_date
     )
+    publikation_link = serializers.SerializerMethodField()
     publikation_start = fields.PublicationField(
         source="publikation-startdatum", value_key="date", parser=human_readable_date
     )
@@ -534,6 +536,9 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
             *[plot.get("plot_number") for plot in instance._master_data.plot_data],
             separator=", ",
         )
+
+    def get_publikation_link(self, instance):
+        return build_url(settings.PUBLIC_BASE_URL, f"public-instances/{instance.pk}")
 
     def get_status(self, instance):
         return instance.instance_state.get_name()
