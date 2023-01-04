@@ -55,6 +55,12 @@
               <td>
                 {{#if placeholder.isComplex}}
                   <pre class="uk-width-medium">{{placeholder.value}}</pre>
+                {{else if placeholder.isLink}}
+                  <a
+                    href={{placeholder.value}}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >{{placeholder.value}}</a>
                 {{else}}
                   {{placeholder.value}}
                 {{/if}}
