@@ -1,6 +1,6 @@
 <div class="uk-flex uk-flex-between uk-flex-middle uk-margin-bottom">
   <h2 class="uk-margin-remove">{{t "legal-submission.edit"}}</h2>
-  <LinkTo @route="legal-submission.index" class="uk-button uk-button-default">{{t "global.back"}}</LinkTo>
+  <LinkTo @route={{module-route "legal-submission" "index"}} class="uk-button uk-button-default">{{t "global.back"}}</LinkTo>
 </div>
 
 <CfContent @documentId={{@model}} />

@@ -169,6 +169,7 @@ class InstanceResourceSerializer(serializers.ModelSerializer, MultilingualSerial
                 "/ember-camac-ng/dms-generate.phtml": "dms-generate",
                 "/ember-camac-ng/distribution.phtml": "distribution",
                 "/ember-camac-ng/alexandria.phtml": "documents",
+                "/ember-camac-ng/legal-submission.phtml": "legal-submission",
             }
             return type_mapping.get(obj.template)
 

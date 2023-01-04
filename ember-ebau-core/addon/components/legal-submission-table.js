@@ -6,13 +6,14 @@ import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
 import { trackedFunction } from "ember-resources/util/function";
 
-import createDocumentMutation from "camac-ng/gql/mutations/create-document.graphql";
-import linkDocumentMutation from "camac-ng/gql/mutations/link-document.graphql";
-import documentsQuery from "camac-ng/gql/queries/legal-submission/documents.graphql";
-import filterOptionsQuery from "camac-ng/gql/queries/legal-submission/filter-options.graphql";
-import workItemQuery from "camac-ng/gql/queries/legal-submission/work-item.graphql";
+import createDocumentMutation from "ember-ebau-core/gql/mutations/create-document.graphql";
+import linkDocumentMutation from "ember-ebau-core/gql/mutations/link-document.graphql";
+import documentsQuery from "ember-ebau-core/gql/queries/legal-submission/documents.graphql";
+import filterOptionsQuery from "ember-ebau-core/gql/queries/legal-submission/filter-options.graphql";
+import workItemQuery from "ember-ebau-core/gql/queries/legal-submission/work-item.graphql";
 
 export default class LegalSubmissionTableComponent extends Component {
+  @service ebauModules;
   @service notification;
   @service abilities;
   @service router;
@@ -62,7 +63,7 @@ export default class LegalSubmissionTableComponent extends Component {
     try {
       const response = await this.apollo.query({
         query: workItemQuery,
-        variables: { instanceId: this.args.instanceId },
+        variables: { instanceId: this.ebauModules.instanceId },
       });
 
       return response.allWorkItems.edges[0].node;
@@ -152,7 +153,10 @@ export default class LegalSubmissionTableComponent extends Component {
         },
       });
 
-      this.router.transitionTo("legal-submission.edit", documentId);
+      this.router.transitionTo(
+        this.ebauModules.resolveModuleRoute("legal-submission", "edit"),
+        documentId
+      );
     } catch (error) {
       this.notification.danger(this.intl.t("legal-submission.create-error"));
     }

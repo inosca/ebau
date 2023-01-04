@@ -4,11 +4,11 @@ import { decodeId } from "@projectcaluma/ember-core/helpers/decode-id";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
 import { confirmTask } from "ember-ebau-core/decorators";
+import deleteDocument from "ember-ebau-core/gql/mutations/delete-document.graphql";
+import linkDocument from "ember-ebau-core/gql/mutations/link-document.graphql";
 import { saveAs } from "file-saver";
 
 import copyDocument from "camac-ng/gql/mutations/copy-document.graphql";
-import deleteDocument from "camac-ng/gql/mutations/delete-document.graphql";
-import linkDocument from "camac-ng/gql/mutations/link-document.graphql";
 
 export default class AuditTableRowComponent extends Component {
   @service fetch;
