@@ -5,7 +5,10 @@ from unittest.mock import Mock
 import pytest
 import requests
 from caluma.caluma_core.relay import extract_global_id
-from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
+from caluma.caluma_core.visibilities import Any
+from caluma.caluma_form.models import Question
+from caluma.caluma_workflow import api as workflow_api
+from caluma.caluma_workflow.models import Case, WorkItem
 from django.utils.dateparse import parse_datetime
 from inflection import underscore
 
@@ -105,7 +108,7 @@ def test_save_work_item_permission(
             "municipality-lead",
             "completeWorkItem",
             "DISTRIBUTION_COMPLETE_TASK",
-            caluma_workflow_models.WorkItem.STATUS_READY,
+            WorkItem.STATUS_READY,
             True,
             "COMPLETED",
         ),
@@ -113,7 +116,7 @@ def test_save_work_item_permission(
             "municipality-clerk",
             "completeWorkItem",
             "DISTRIBUTION_COMPLETE_TASK",
-            caluma_workflow_models.WorkItem.STATUS_READY,
+            WorkItem.STATUS_READY,
             False,
             None,
         ),
@@ -121,7 +124,7 @@ def test_save_work_item_permission(
             "municipality-lead",
             "completeWorkItem",
             "INQUIRY_CHECK_TASK",
-            caluma_workflow_models.WorkItem.STATUS_READY,
+            WorkItem.STATUS_READY,
             True,
             "COMPLETED",
         ),
@@ -129,7 +132,7 @@ def test_save_work_item_permission(
             "municipality-clerk",
             "completeWorkItem",
             "INQUIRY_CHECK_TASK",
-            caluma_workflow_models.WorkItem.STATUS_READY,
+            WorkItem.STATUS_READY,
             False,
             None,
         ),
@@ -137,7 +140,7 @@ def test_save_work_item_permission(
             "municipality-lead",
             "cancelWorkItem",
             "INQUIRY_TASK",
-            caluma_workflow_models.WorkItem.STATUS_READY,
+            WorkItem.STATUS_READY,
             True,
             "CANCELED",
         ),
@@ -145,7 +148,7 @@ def test_save_work_item_permission(
             "municipality-clerk",
             "cancelWorkItem",
             "INQUIRY_TASK",
-            caluma_workflow_models.WorkItem.STATUS_READY,
+            WorkItem.STATUS_READY,
             False,
             None,
         ),
@@ -153,7 +156,7 @@ def test_save_work_item_permission(
             "municipality-lead",
             "resumeWorkItem",
             "INQUIRY_TASK",
-            caluma_workflow_models.WorkItem.STATUS_SUSPENDED,
+            WorkItem.STATUS_SUSPENDED,
             True,
             "READY",
         ),
@@ -161,7 +164,7 @@ def test_save_work_item_permission(
             "municipality-clerk",
             "resumeWorkItem",
             "INQUIRY_TASK",
-            caluma_workflow_models.WorkItem.STATUS_SUSPENDED,
+            WorkItem.STATUS_SUSPENDED,
             False,
             None,
         ),
@@ -169,7 +172,7 @@ def test_save_work_item_permission(
             "municipality-lead",
             "redoWorkItem",
             "DISTRIBUTION_TASK",
-            caluma_workflow_models.WorkItem.STATUS_COMPLETED,
+            WorkItem.STATUS_COMPLETED,
             True,
             "READY",
         ),
@@ -177,7 +180,7 @@ def test_save_work_item_permission(
             "municipality-clerk",
             "redoWorkItem",
             "DISTRIBUTION_TASK",
-            caluma_workflow_models.WorkItem.STATUS_COMPLETED,
+            WorkItem.STATUS_COMPLETED,
             False,
             None,
         ),
@@ -185,7 +188,7 @@ def test_save_work_item_permission(
             "municipality-lead",
             "redoWorkItem",
             "INQUIRY_TASK",
-            caluma_workflow_models.WorkItem.STATUS_COMPLETED,
+            WorkItem.STATUS_COMPLETED,
             True,
             "READY",
         ),
@@ -193,7 +196,7 @@ def test_save_work_item_permission(
             "municipality-clerk",
             "redoWorkItem",
             "INQUIRY_TASK",
-            caluma_workflow_models.WorkItem.STATUS_COMPLETED,
+            WorkItem.STATUS_COMPLETED,
             False,
             None,
         ),
@@ -229,7 +232,7 @@ def test_distribution_permission_for_task(
                 task_id=be_distribution_settings["DISTRIBUTION_TASK"]
             )
         elif task == "INQUIRY_TASK":
-            work_item.status = caluma_workflow_models.WorkItem.STATUS_READY
+            work_item.status = WorkItem.STATUS_READY
             work_item.save()
 
             mocker.patch(
@@ -237,7 +240,7 @@ def test_distribution_permission_for_task(
                 return_value=None,
             )
 
-        work_item.child_case.status = caluma_workflow_models.Case.STATUS_COMPLETED
+        work_item.child_case.status = Case.STATUS_COMPLETED
         work_item.child_case.save()
 
         workflow_api.complete_work_item(work_item=work_item, user=caluma_admin_user)
@@ -371,7 +374,7 @@ def test_distribution_permission_for_answer(
         active_inquiry_factory(
             be_instance,
             addressed_service=service,
-            status=caluma_workflow_models.WorkItem.STATUS_READY,
+            status=WorkItem.STATUS_READY,
         )
 
     inquiry = active_inquiry_factory(
@@ -382,9 +385,9 @@ def test_distribution_permission_for_answer(
         addressed_service=service
         if distribution_form == "INQUIRY_ANSWER_FORM" and is_permitted
         else service_factory(),
-        status=caluma_workflow_models.WorkItem.STATUS_SUSPENDED
+        status=WorkItem.STATUS_SUSPENDED
         if distribution_form == "INQUIRY_FORM" and is_permitted
-        else caluma_workflow_models.WorkItem.STATUS_READY,
+        else WorkItem.STATUS_READY,
     )
 
     document = (
@@ -435,3 +438,54 @@ def test_distribution_permission_for_answer(
         ).first()
         == value
     )
+
+
+@pytest.mark.parametrize(
+    "role__name,status,is_addressed,success",
+    [
+        ("Applicant", WorkItem.STATUS_READY, True, False),
+        ("Municipality", WorkItem.STATUS_READY, False, False),
+        ("Municipality", WorkItem.STATUS_COMPLETED, True, False),
+        ("Municipality", WorkItem.STATUS_READY, True, True),
+        ("Support", WorkItem.STATUS_COMPLETED, False, True),
+    ],
+)
+def test_simple_caluma_form_permissions(
+    db,
+    caluma_admin_schema_executor,
+    form_question_factory,
+    is_addressed,
+    mocker,
+    role,
+    service,
+    status,
+    success,
+    work_item_factory,
+):
+    mocker.patch("caluma.caluma_core.types.Node.visibility_classes", [Any])
+
+    work_item = work_item_factory(
+        status=status, addressed_groups=[str(service.pk)] if is_addressed else []
+    )
+
+    question = form_question_factory(
+        form=work_item.document.form, question__type=Question.TYPE_TEXT
+    ).question
+
+    query = """
+        mutation($question: ID!, $document: ID!) {
+            saveDocumentStringAnswer(input: {
+                question: $question
+                document: $document
+                value: "foo"
+            }) {
+                clientMutationId
+            }
+        }
+    """
+
+    variables = {"question": question.pk, "document": str(work_item.document.pk)}
+
+    result = caluma_admin_schema_executor(query, variables=variables)
+
+    assert bool(result.errors) != success

@@ -1372,7 +1372,6 @@ APPLICATIONS = {
                 "decision",
                 "inquiry",
                 "inquiry-answer",
-                "legal-submission",
             ],
             "SUBMIT_TASKS": ["submit"],
             "REPORT_TASK": "sb1",

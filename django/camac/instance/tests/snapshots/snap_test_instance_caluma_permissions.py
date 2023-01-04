@@ -27,8 +27,6 @@ snapshots['test_instance_permissions_be[applicant-None-circulation-instance__use
         'read',
         'write'
     ],
-    'legal-submission': [
-    ],
     'main': [
         'read'
     ],
@@ -62,8 +60,6 @@ snapshots['test_instance_permissions_be[applicant-None-circulation_init-instance
         'read',
         'write'
     ],
-    'legal-submission': [
-    ],
     'main': [
         'read'
     ],
@@ -96,8 +92,6 @@ snapshots['test_instance_permissions_be[applicant-None-conclusion-instance__user
     'inquiry-answer': [
         'read',
         'write'
-    ],
-    'legal-submission': [
     ],
     'main': [
         'read'
@@ -134,8 +128,6 @@ snapshots['test_instance_permissions_be[applicant-None-coordination-instance__us
         'read',
         'write'
     ],
-    'legal-submission': [
-    ],
     'main': [
         'read'
     ],
@@ -168,8 +160,6 @@ snapshots['test_instance_permissions_be[applicant-None-correction-instance__user
     'inquiry-answer': [
         'read',
         'write'
-    ],
-    'legal-submission': [
     ],
     'main': [
         'read'
@@ -204,8 +194,6 @@ snapshots['test_instance_permissions_be[applicant-None-evaluated-instance__user0
         'read',
         'write'
     ],
-    'legal-submission': [
-    ],
     'main': [
         'read'
     ],
@@ -238,8 +226,6 @@ snapshots['test_instance_permissions_be[applicant-None-finished-instance__user0]
     'inquiry-answer': [
         'read',
         'write'
-    ],
-    'legal-submission': [
     ],
     'main': [
         'read'
@@ -274,8 +260,6 @@ snapshots['test_instance_permissions_be[applicant-None-finished_internal-instanc
         'read',
         'write'
     ],
-    'legal-submission': [
-    ],
     'main': [
         'read'
     ],
@@ -308,8 +292,6 @@ snapshots['test_instance_permissions_be[applicant-None-in_progress-instance__use
     'inquiry-answer': [
         'read',
         'write'
-    ],
-    'legal-submission': [
     ],
     'main': [
         'read'
@@ -344,8 +326,6 @@ snapshots['test_instance_permissions_be[applicant-None-in_progress_internal-inst
         'read',
         'write'
     ],
-    'legal-submission': [
-    ],
     'main': [
         'read'
     ],
@@ -378,8 +358,6 @@ snapshots['test_instance_permissions_be[applicant-None-new-instance__user0] 1'] 
     'inquiry-answer': [
         'read',
         'write'
-    ],
-    'legal-submission': [
     ],
     'main': [
         'read',
@@ -415,8 +393,6 @@ snapshots['test_instance_permissions_be[applicant-None-rejected-instance__user0]
         'read',
         'write'
     ],
-    'legal-submission': [
-    ],
     'main': [
         'read'
     ],
@@ -449,8 +425,6 @@ snapshots['test_instance_permissions_be[applicant-None-sb1-instance__user0] 1'] 
     'inquiry-answer': [
         'read',
         'write'
-    ],
-    'legal-submission': [
     ],
     'main': [
         'read'
@@ -486,8 +460,6 @@ snapshots['test_instance_permissions_be[applicant-None-sb2-instance__user0] 1'] 
     'inquiry-answer': [
         'read',
         'write'
-    ],
-    'legal-submission': [
     ],
     'main': [
         'read'
@@ -525,8 +497,6 @@ snapshots['test_instance_permissions_be[applicant-None-subm-instance__user0] 1']
         'read',
         'write'
     ],
-    'legal-submission': [
-    ],
     'main': [
         'read'
     ],
@@ -559,8 +529,6 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     'inquiry-answer': [
         'read',
         'write'
-    ],
-    'legal-submission': [
     ],
     'main': [
         'read'
@@ -595,8 +563,6 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
         'read',
         'write'
     ],
-    'legal-submission': [
-    ],
     'main': [
         'read'
     ],
@@ -629,8 +595,6 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     'inquiry-answer': [
         'read',
         'write'
-    ],
-    'legal-submission': [
     ],
     'main': [
         'read'
@@ -667,8 +631,6 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
         'read',
         'write'
     ],
-    'legal-submission': [
-    ],
     'main': [
         'read'
     ],
@@ -701,8 +663,6 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     'inquiry-answer': [
         'read',
         'write'
-    ],
-    'legal-submission': [
     ],
     'main': [
         'read'
@@ -737,8 +697,6 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
         'read',
         'write'
     ],
-    'legal-submission': [
-    ],
     'main': [
         'read'
     ],
@@ -771,8 +729,6 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     'inquiry-answer': [
         'read',
         'write'
-    ],
-    'legal-submission': [
     ],
     'main': [
         'read'
@@ -807,8 +763,6 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
         'read',
         'write'
     ],
-    'legal-submission': [
-    ],
     'main': [
         'read'
     ],
@@ -841,8 +795,6 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     'inquiry-answer': [
         'read',
         'write'
-    ],
-    'legal-submission': [
     ],
     'main': [
         'read'
@@ -877,8 +829,6 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
         'read',
         'write'
     ],
-    'legal-submission': [
-    ],
     'main': [
         'read'
     ],
@@ -911,8 +861,6 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     'inquiry-answer': [
         'read',
         'write'
-    ],
-    'legal-submission': [
     ],
     'main': [
         'read',
@@ -948,8 +896,6 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
         'read',
         'write'
     ],
-    'legal-submission': [
-    ],
     'main': [
         'read'
     ],
@@ -982,8 +928,6 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     'inquiry-answer': [
         'read',
         'write'
-    ],
-    'legal-submission': [
     ],
     'main': [
         'read'
@@ -1019,8 +963,6 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     'inquiry-answer': [
         'read',
         'write'
-    ],
-    'legal-submission': [
     ],
     'main': [
         'read'
@@ -1058,8 +1000,6 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
         'read',
         'write'
     ],
-    'legal-submission': [
-    ],
     'main': [
         'read'
     ],
@@ -1094,10 +1034,6 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
         'write'
     ],
     'inquiry-answer': [
-        'read',
-        'write'
-    ],
-    'legal-submission': [
         'read',
         'write'
     ],
@@ -1140,10 +1076,6 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
         'read',
         'write'
     ],
-    'legal-submission': [
-        'read',
-        'write'
-    ],
     'main': [
         'read'
     ],
@@ -1180,10 +1112,6 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
         'write'
     ],
     'inquiry-answer': [
-        'read',
-        'write'
-    ],
-    'legal-submission': [
         'read',
         'write'
     ],
@@ -1228,10 +1156,6 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
         'read',
         'write'
     ],
-    'legal-submission': [
-        'read',
-        'write'
-    ],
     'main': [
         'read'
     ],
@@ -1270,10 +1194,6 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
         'read',
         'write'
     ],
-    'legal-submission': [
-        'read',
-        'write'
-    ],
     'main': [
         'read'
     ],
@@ -1309,10 +1229,6 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
         'write'
     ],
     'inquiry-answer': [
-        'read',
-        'write'
-    ],
-    'legal-submission': [
         'read',
         'write'
     ],
@@ -1355,10 +1271,6 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
         'read',
         'write'
     ],
-    'legal-submission': [
-        'read',
-        'write'
-    ],
     'main': [
         'read'
     ],
@@ -1398,10 +1310,6 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
         'read',
         'write'
     ],
-    'legal-submission': [
-        'read',
-        'write'
-    ],
     'main': [
         'read'
     ],
@@ -1438,10 +1346,6 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
         'write'
     ],
     'inquiry-answer': [
-        'read',
-        'write'
-    ],
-    'legal-submission': [
         'read',
         'write'
     ],
@@ -1485,10 +1389,6 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
         'read',
         'write'
     ],
-    'legal-submission': [
-        'read',
-        'write'
-    ],
     'main': [
         'read'
     ],
@@ -1527,10 +1427,6 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
         'read',
         'write'
     ],
-    'legal-submission': [
-        'read',
-        'write'
-    ],
     'main': [
     ],
     'nfd': [
@@ -1565,10 +1461,6 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
         'write'
     ],
     'inquiry-answer': [
-        'read',
-        'write'
-    ],
-    'legal-submission': [
         'read',
         'write'
     ],
@@ -1611,10 +1503,6 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
         'read',
         'write'
     ],
-    'legal-submission': [
-        'read',
-        'write'
-    ],
     'main': [
         'read'
     ],
@@ -1652,10 +1540,6 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
         'write'
     ],
     'inquiry-answer': [
-        'read',
-        'write'
-    ],
-    'legal-submission': [
         'read',
         'write'
     ],
@@ -1700,10 +1584,6 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
         'read',
         'write'
     ],
-    'legal-submission': [
-        'read',
-        'write'
-    ],
     'main': [
         'read'
     ],
@@ -1742,10 +1622,6 @@ snapshots['test_instance_permissions_be[municipality-lead-district-circulation-i
         'write'
     ],
     'inquiry-answer': [
-        'read',
-        'write'
-    ],
-    'legal-submission': [
         'read',
         'write'
     ],
@@ -1793,10 +1669,6 @@ snapshots['test_instance_permissions_be[municipality-lead-district-circulation_i
         'read',
         'write'
     ],
-    'legal-submission': [
-        'read',
-        'write'
-    ],
     'main': [
         'read'
     ],
@@ -1837,10 +1709,6 @@ snapshots['test_instance_permissions_be[municipality-lead-district-conclusion-in
         'write'
     ],
     'inquiry-answer': [
-        'read',
-        'write'
-    ],
-    'legal-submission': [
         'read',
         'write'
     ],
@@ -1890,10 +1758,6 @@ snapshots['test_instance_permissions_be[municipality-lead-district-coordination-
         'read',
         'write'
     ],
-    'legal-submission': [
-        'read',
-        'write'
-    ],
     'main': [
         'read'
     ],
@@ -1932,10 +1796,6 @@ snapshots['test_instance_permissions_be[municipality-lead-district-correction-in
         'write'
     ],
     'inquiry-answer': [
-        'read',
-        'write'
-    ],
-    'legal-submission': [
         'read',
         'write'
     ],
@@ -1979,10 +1839,6 @@ snapshots['test_instance_permissions_be[municipality-lead-district-evaluated-ins
         'read',
         'write'
     ],
-    'legal-submission': [
-        'read',
-        'write'
-    ],
     'main': [
         'read'
     ],
@@ -2020,10 +1876,6 @@ snapshots['test_instance_permissions_be[municipality-lead-district-finished-inst
         'write'
     ],
     'inquiry-answer': [
-        'read',
-        'write'
-    ],
-    'legal-submission': [
         'read',
         'write'
     ],
@@ -2067,10 +1919,6 @@ snapshots['test_instance_permissions_be[municipality-lead-district-finished_inte
         'read',
         'write'
     ],
-    'legal-submission': [
-        'read',
-        'write'
-    ],
     'main': [
         'read'
     ],
@@ -2110,10 +1958,6 @@ snapshots['test_instance_permissions_be[municipality-lead-district-in_progress-i
         'write'
     ],
     'inquiry-answer': [
-        'read',
-        'write'
-    ],
-    'legal-submission': [
         'read',
         'write'
     ],
@@ -2162,10 +2006,6 @@ snapshots['test_instance_permissions_be[municipality-lead-district-in_progress_i
         'read',
         'write'
     ],
-    'legal-submission': [
-        'read',
-        'write'
-    ],
     'main': [
         'read'
     ],
@@ -2203,10 +2043,6 @@ snapshots['test_instance_permissions_be[municipality-lead-district-new-instance_
         'write'
     ],
     'inquiry-answer': [
-        'read',
-        'write'
-    ],
-    'legal-submission': [
         'read',
         'write'
     ],
@@ -2249,10 +2085,6 @@ snapshots['test_instance_permissions_be[municipality-lead-district-rejected-inst
         'read',
         'write'
     ],
-    'legal-submission': [
-        'read',
-        'write'
-    ],
     'main': [
         'read'
     ],
@@ -2292,10 +2124,6 @@ snapshots['test_instance_permissions_be[municipality-lead-district-sb1-instance_
         'write'
     ],
     'inquiry-answer': [
-        'read',
-        'write'
-    ],
-    'legal-submission': [
         'read',
         'write'
     ],
@@ -2342,10 +2170,6 @@ snapshots['test_instance_permissions_be[municipality-lead-district-sb2-instance_
         'read',
         'write'
     ],
-    'legal-submission': [
-        'read',
-        'write'
-    ],
     'main': [
         'read'
     ],
@@ -2389,10 +2213,6 @@ snapshots['test_instance_permissions_be[municipality-lead-district-subm-instance
         'read',
         'write'
     ],
-    'legal-submission': [
-        'read',
-        'write'
-    ],
     'main': [
         'read'
     ],
@@ -2432,10 +2252,6 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-circulati
         'write'
     ],
     'inquiry-answer': [
-        'read',
-        'write'
-    ],
-    'legal-submission': [
         'read',
         'write'
     ],
@@ -2483,10 +2299,6 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-circulati
         'read',
         'write'
     ],
-    'legal-submission': [
-        'read',
-        'write'
-    ],
     'main': [
         'read'
     ],
@@ -2527,10 +2339,6 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-conclusio
         'write'
     ],
     'inquiry-answer': [
-        'read',
-        'write'
-    ],
-    'legal-submission': [
         'read',
         'write'
     ],
@@ -2580,10 +2388,6 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-coordinat
         'read',
         'write'
     ],
-    'legal-submission': [
-        'read',
-        'write'
-    ],
     'main': [
         'read'
     ],
@@ -2622,10 +2426,6 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-correctio
         'write'
     ],
     'inquiry-answer': [
-        'read',
-        'write'
-    ],
-    'legal-submission': [
         'read',
         'write'
     ],
@@ -2669,10 +2469,6 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-evaluated
         'read',
         'write'
     ],
-    'legal-submission': [
-        'read',
-        'write'
-    ],
     'main': [
         'read'
     ],
@@ -2710,10 +2506,6 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-finished-
         'write'
     ],
     'inquiry-answer': [
-        'read',
-        'write'
-    ],
-    'legal-submission': [
         'read',
         'write'
     ],
@@ -2757,10 +2549,6 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-finished_
         'read',
         'write'
     ],
-    'legal-submission': [
-        'read',
-        'write'
-    ],
     'main': [
         'read'
     ],
@@ -2800,10 +2588,6 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-in_progre
         'write'
     ],
     'inquiry-answer': [
-        'read',
-        'write'
-    ],
-    'legal-submission': [
         'read',
         'write'
     ],
@@ -2852,10 +2636,6 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-in_progre
         'read',
         'write'
     ],
-    'legal-submission': [
-        'read',
-        'write'
-    ],
     'main': [
         'read'
     ],
@@ -2893,10 +2673,6 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-new-insta
         'write'
     ],
     'inquiry-answer': [
-        'read',
-        'write'
-    ],
-    'legal-submission': [
         'read',
         'write'
     ],
@@ -2939,10 +2715,6 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-rejected-
         'read',
         'write'
     ],
-    'legal-submission': [
-        'read',
-        'write'
-    ],
     'main': [
         'read'
     ],
@@ -2982,10 +2754,6 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-sb1-insta
         'write'
     ],
     'inquiry-answer': [
-        'read',
-        'write'
-    ],
-    'legal-submission': [
         'read',
         'write'
     ],
@@ -3032,10 +2800,6 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-sb2-insta
         'read',
         'write'
     ],
-    'legal-submission': [
-        'read',
-        'write'
-    ],
     'main': [
         'read'
     ],
@@ -3079,10 +2843,6 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-subm-inst
         'read',
         'write'
     ],
-    'legal-submission': [
-        'read',
-        'write'
-    ],
     'main': [
         'read'
     ],
@@ -3119,10 +2879,6 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-circulati
         'write'
     ],
     'inquiry-answer': [
-        'read',
-        'write'
-    ],
-    'legal-submission': [
         'read',
         'write'
     ],
@@ -3165,10 +2921,6 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-circulati
         'read',
         'write'
     ],
-    'legal-submission': [
-        'read',
-        'write'
-    ],
     'main': [
         'read'
     ],
@@ -3205,10 +2957,6 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-conclusio
         'write'
     ],
     'inquiry-answer': [
-        'read',
-        'write'
-    ],
-    'legal-submission': [
         'read',
         'write'
     ],
@@ -3253,10 +3001,6 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-coordinat
         'read',
         'write'
     ],
-    'legal-submission': [
-        'read',
-        'write'
-    ],
     'main': [
         'read'
     ],
@@ -3295,10 +3039,6 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-correctio
         'read',
         'write'
     ],
-    'legal-submission': [
-        'read',
-        'write'
-    ],
     'main': [
         'read'
     ],
@@ -3334,10 +3074,6 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-evaluated
         'write'
     ],
     'inquiry-answer': [
-        'read',
-        'write'
-    ],
-    'legal-submission': [
         'read',
         'write'
     ],
@@ -3380,10 +3116,6 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-finished-
         'read',
         'write'
     ],
-    'legal-submission': [
-        'read',
-        'write'
-    ],
     'main': [
         'read'
     ],
@@ -3423,10 +3155,6 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-finished_
         'read',
         'write'
     ],
-    'legal-submission': [
-        'read',
-        'write'
-    ],
     'main': [
         'read'
     ],
@@ -3463,10 +3191,6 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-in_progre
         'write'
     ],
     'inquiry-answer': [
-        'read',
-        'write'
-    ],
-    'legal-submission': [
         'read',
         'write'
     ],
@@ -3510,10 +3234,6 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-in_progre
         'read',
         'write'
     ],
-    'legal-submission': [
-        'read',
-        'write'
-    ],
     'main': [
         'read'
     ],
@@ -3552,10 +3272,6 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-new-insta
         'read',
         'write'
     ],
-    'legal-submission': [
-        'read',
-        'write'
-    ],
     'main': [
     ],
     'nfd': [
@@ -3590,10 +3306,6 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-rejected-
         'write'
     ],
     'inquiry-answer': [
-        'read',
-        'write'
-    ],
-    'legal-submission': [
         'read',
         'write'
     ],
@@ -3636,10 +3348,6 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-sb1-insta
         'read',
         'write'
     ],
-    'legal-submission': [
-        'read',
-        'write'
-    ],
     'main': [
         'read'
     ],
@@ -3677,10 +3385,6 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-sb2-insta
         'write'
     ],
     'inquiry-answer': [
-        'read',
-        'write'
-    ],
-    'legal-submission': [
         'read',
         'write'
     ],
@@ -3725,10 +3429,6 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-subm-inst
         'read',
         'write'
     ],
-    'legal-submission': [
-        'read',
-        'write'
-    ],
     'main': [
         'read'
     ],
@@ -3764,10 +3464,6 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-circu
         'write'
     ],
     'inquiry-answer': [
-        'read',
-        'write'
-    ],
-    'legal-submission': [
         'read',
         'write'
     ],
@@ -3810,10 +3506,6 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-circu
         'read',
         'write'
     ],
-    'legal-submission': [
-        'read',
-        'write'
-    ],
     'main': [
         'read'
     ],
@@ -3850,10 +3542,6 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-concl
         'write'
     ],
     'inquiry-answer': [
-        'read',
-        'write'
-    ],
-    'legal-submission': [
         'read',
         'write'
     ],
@@ -3898,10 +3586,6 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-coord
         'read',
         'write'
     ],
-    'legal-submission': [
-        'read',
-        'write'
-    ],
     'main': [
         'read'
     ],
@@ -3940,10 +3624,6 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-corre
         'read',
         'write'
     ],
-    'legal-submission': [
-        'read',
-        'write'
-    ],
     'main': [
         'read'
     ],
@@ -3979,10 +3659,6 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-evalu
         'write'
     ],
     'inquiry-answer': [
-        'read',
-        'write'
-    ],
-    'legal-submission': [
         'read',
         'write'
     ],
@@ -4025,10 +3701,6 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-finis
         'read',
         'write'
     ],
-    'legal-submission': [
-        'read',
-        'write'
-    ],
     'main': [
         'read'
     ],
@@ -4068,10 +3740,6 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-finis
         'read',
         'write'
     ],
-    'legal-submission': [
-        'read',
-        'write'
-    ],
     'main': [
         'read'
     ],
@@ -4108,10 +3776,6 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-in_pr
         'write'
     ],
     'inquiry-answer': [
-        'read',
-        'write'
-    ],
-    'legal-submission': [
         'read',
         'write'
     ],
@@ -4155,10 +3819,6 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-in_pr
         'read',
         'write'
     ],
-    'legal-submission': [
-        'read',
-        'write'
-    ],
     'main': [
         'read'
     ],
@@ -4197,10 +3857,6 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-new-i
         'read',
         'write'
     ],
-    'legal-submission': [
-        'read',
-        'write'
-    ],
     'main': [
     ],
     'nfd': [
@@ -4235,10 +3891,6 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-rejec
         'write'
     ],
     'inquiry-answer': [
-        'read',
-        'write'
-    ],
-    'legal-submission': [
         'read',
         'write'
     ],
@@ -4281,10 +3933,6 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-sb1-i
         'read',
         'write'
     ],
-    'legal-submission': [
-        'read',
-        'write'
-    ],
     'main': [
         'read'
     ],
@@ -4322,10 +3970,6 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-sb2-i
         'write'
     ],
     'inquiry-answer': [
-        'read',
-        'write'
-    ],
-    'legal-submission': [
         'read',
         'write'
     ],
@@ -4370,10 +4014,6 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-subm-
         'read',
         'write'
     ],
-    'legal-submission': [
-        'read',
-        'write'
-    ],
     'main': [
         'read'
     ],
@@ -4409,8 +4049,6 @@ snapshots['test_instance_permissions_be[service-lead-service-circulation-instanc
     'inquiry-answer': [
         'read',
         'write'
-    ],
-    'legal-submission': [
     ],
     'main': [
         'read'
@@ -4448,8 +4086,6 @@ snapshots['test_instance_permissions_be[service-lead-service-circulation_init-in
         'read',
         'write'
     ],
-    'legal-submission': [
-    ],
     'main': [
         'read'
     ],
@@ -4485,8 +4121,6 @@ snapshots['test_instance_permissions_be[service-lead-service-conclusion-instance
     'inquiry-answer': [
         'read',
         'write'
-    ],
-    'legal-submission': [
     ],
     'main': [
         'read'
@@ -4526,8 +4160,6 @@ snapshots['test_instance_permissions_be[service-lead-service-coordination-instan
         'read',
         'write'
     ],
-    'legal-submission': [
-    ],
     'main': [
         'read'
     ],
@@ -4561,8 +4193,6 @@ snapshots['test_instance_permissions_be[service-lead-service-correction-instance
     'inquiry-answer': [
         'read',
         'write'
-    ],
-    'legal-submission': [
     ],
     'main': [
         'read'
@@ -4598,8 +4228,6 @@ snapshots['test_instance_permissions_be[service-lead-service-evaluated-instance_
     'inquiry-answer': [
         'read',
         'write'
-    ],
-    'legal-submission': [
     ],
     'main': [
         'read'
@@ -4637,8 +4265,6 @@ snapshots['test_instance_permissions_be[service-lead-service-finished-instance__
         'read',
         'write'
     ],
-    'legal-submission': [
-    ],
     'main': [
         'read'
     ],
@@ -4674,8 +4300,6 @@ snapshots['test_instance_permissions_be[service-lead-service-finished_internal-i
     'inquiry-answer': [
         'read',
         'write'
-    ],
-    'legal-submission': [
     ],
     'main': [
         'read'
@@ -4713,8 +4337,6 @@ snapshots['test_instance_permissions_be[service-lead-service-in_progress-instanc
         'read',
         'write'
     ],
-    'legal-submission': [
-    ],
     'main': [
         'read'
     ],
@@ -4751,8 +4373,6 @@ snapshots['test_instance_permissions_be[service-lead-service-in_progress_interna
         'read',
         'write'
     ],
-    'legal-submission': [
-    ],
     'main': [
         'read'
     ],
@@ -4787,8 +4407,6 @@ snapshots['test_instance_permissions_be[service-lead-service-new-instance__user0
         'read',
         'write'
     ],
-    'legal-submission': [
-    ],
     'main': [
     ],
     'nfd': [
@@ -4822,8 +4440,6 @@ snapshots['test_instance_permissions_be[service-lead-service-rejected-instance__
     'inquiry-answer': [
         'read',
         'write'
-    ],
-    'legal-submission': [
     ],
     'main': [
         'read'
@@ -4861,8 +4477,6 @@ snapshots['test_instance_permissions_be[service-lead-service-sb1-instance__user0
         'read',
         'write'
     ],
-    'legal-submission': [
-    ],
     'main': [
         'read'
     ],
@@ -4899,8 +4513,6 @@ snapshots['test_instance_permissions_be[service-lead-service-sb2-instance__user0
         'read',
         'write'
     ],
-    'legal-submission': [
-    ],
     'main': [
         'read'
     ],
@@ -4936,8 +4548,6 @@ snapshots['test_instance_permissions_be[service-lead-service-subm-instance__user
         'read',
         'write'
     ],
-    'legal-submission': [
-    ],
     'main': [
         'read'
     ],
@@ -4972,8 +4582,6 @@ snapshots['test_instance_permissions_be[service-readonly-service-circulation-ins
     'inquiry-answer': [
         'read',
         'write'
-    ],
-    'legal-submission': [
     ],
     'main': [
         'read'
@@ -5011,8 +4619,6 @@ snapshots['test_instance_permissions_be[service-readonly-service-circulation_ini
         'read',
         'write'
     ],
-    'legal-submission': [
-    ],
     'main': [
         'read'
     ],
@@ -5048,8 +4654,6 @@ snapshots['test_instance_permissions_be[service-readonly-service-conclusion-inst
     'inquiry-answer': [
         'read',
         'write'
-    ],
-    'legal-submission': [
     ],
     'main': [
         'read'
@@ -5089,8 +4693,6 @@ snapshots['test_instance_permissions_be[service-readonly-service-coordination-in
         'read',
         'write'
     ],
-    'legal-submission': [
-    ],
     'main': [
         'read'
     ],
@@ -5124,8 +4726,6 @@ snapshots['test_instance_permissions_be[service-readonly-service-correction-inst
     'inquiry-answer': [
         'read',
         'write'
-    ],
-    'legal-submission': [
     ],
     'main': [
         'read'
@@ -5161,8 +4761,6 @@ snapshots['test_instance_permissions_be[service-readonly-service-evaluated-insta
     'inquiry-answer': [
         'read',
         'write'
-    ],
-    'legal-submission': [
     ],
     'main': [
         'read'
@@ -5200,8 +4798,6 @@ snapshots['test_instance_permissions_be[service-readonly-service-finished-instan
         'read',
         'write'
     ],
-    'legal-submission': [
-    ],
     'main': [
         'read'
     ],
@@ -5237,8 +4833,6 @@ snapshots['test_instance_permissions_be[service-readonly-service-finished_intern
     'inquiry-answer': [
         'read',
         'write'
-    ],
-    'legal-submission': [
     ],
     'main': [
         'read'
@@ -5276,8 +4870,6 @@ snapshots['test_instance_permissions_be[service-readonly-service-in_progress-ins
         'read',
         'write'
     ],
-    'legal-submission': [
-    ],
     'main': [
         'read'
     ],
@@ -5314,8 +4906,6 @@ snapshots['test_instance_permissions_be[service-readonly-service-in_progress_int
         'read',
         'write'
     ],
-    'legal-submission': [
-    ],
     'main': [
         'read'
     ],
@@ -5350,8 +4940,6 @@ snapshots['test_instance_permissions_be[service-readonly-service-new-instance__u
         'read',
         'write'
     ],
-    'legal-submission': [
-    ],
     'main': [
     ],
     'nfd': [
@@ -5385,8 +4973,6 @@ snapshots['test_instance_permissions_be[service-readonly-service-rejected-instan
     'inquiry-answer': [
         'read',
         'write'
-    ],
-    'legal-submission': [
     ],
     'main': [
         'read'
@@ -5424,8 +5010,6 @@ snapshots['test_instance_permissions_be[service-readonly-service-sb1-instance__u
         'read',
         'write'
     ],
-    'legal-submission': [
-    ],
     'main': [
         'read'
     ],
@@ -5462,8 +5046,6 @@ snapshots['test_instance_permissions_be[service-readonly-service-sb2-instance__u
         'read',
         'write'
     ],
-    'legal-submission': [
-    ],
     'main': [
         'read'
     ],
@@ -5498,8 +5080,6 @@ snapshots['test_instance_permissions_be[service-readonly-service-subm-instance__
     'inquiry-answer': [
         'read',
         'write'
-    ],
-    'legal-submission': [
     ],
     'main': [
         'read'
@@ -5538,8 +5118,6 @@ snapshots['test_instance_permissions_be[support-None-circulation-instance__user0
     'inquiry-answer': [
         'read',
         'write'
-    ],
-    'legal-submission': [
     ],
     'main': [
         'read',
@@ -5588,8 +5166,6 @@ snapshots['test_instance_permissions_be[support-None-circulation_init-instance__
         'read',
         'write'
     ],
-    'legal-submission': [
-    ],
     'main': [
         'read',
         'write'
@@ -5636,8 +5212,6 @@ snapshots['test_instance_permissions_be[support-None-conclusion-instance__user0]
     'inquiry-answer': [
         'read',
         'write'
-    ],
-    'legal-submission': [
     ],
     'main': [
         'read',
@@ -5686,8 +5260,6 @@ snapshots['test_instance_permissions_be[support-None-coordination-instance__user
         'read',
         'write'
     ],
-    'legal-submission': [
-    ],
     'main': [
         'read',
         'write'
@@ -5734,8 +5306,6 @@ snapshots['test_instance_permissions_be[support-None-correction-instance__user0]
     'inquiry-answer': [
         'read',
         'write'
-    ],
-    'legal-submission': [
     ],
     'main': [
         'read',
@@ -5784,8 +5354,6 @@ snapshots['test_instance_permissions_be[support-None-evaluated-instance__user0] 
         'read',
         'write'
     ],
-    'legal-submission': [
-    ],
     'main': [
         'read',
         'write'
@@ -5832,8 +5400,6 @@ snapshots['test_instance_permissions_be[support-None-finished-instance__user0] 1
     'inquiry-answer': [
         'read',
         'write'
-    ],
-    'legal-submission': [
     ],
     'main': [
         'read',
@@ -5882,8 +5448,6 @@ snapshots['test_instance_permissions_be[support-None-finished_internal-instance_
         'read',
         'write'
     ],
-    'legal-submission': [
-    ],
     'main': [
         'read',
         'write'
@@ -5930,8 +5494,6 @@ snapshots['test_instance_permissions_be[support-None-in_progress-instance__user0
     'inquiry-answer': [
         'read',
         'write'
-    ],
-    'legal-submission': [
     ],
     'main': [
         'read',
@@ -5980,8 +5542,6 @@ snapshots['test_instance_permissions_be[support-None-in_progress_internal-instan
         'read',
         'write'
     ],
-    'legal-submission': [
-    ],
     'main': [
         'read',
         'write'
@@ -6028,8 +5588,6 @@ snapshots['test_instance_permissions_be[support-None-new-instance__user0] 1'] = 
     'inquiry-answer': [
         'read',
         'write'
-    ],
-    'legal-submission': [
     ],
     'main': [
         'read',
@@ -6078,8 +5636,6 @@ snapshots['test_instance_permissions_be[support-None-rejected-instance__user0] 1
         'read',
         'write'
     ],
-    'legal-submission': [
-    ],
     'main': [
         'read',
         'write'
@@ -6126,8 +5682,6 @@ snapshots['test_instance_permissions_be[support-None-sb1-instance__user0] 1'] = 
     'inquiry-answer': [
         'read',
         'write'
-    ],
-    'legal-submission': [
     ],
     'main': [
         'read',
@@ -6176,8 +5730,6 @@ snapshots['test_instance_permissions_be[support-None-sb2-instance__user0] 1'] = 
         'read',
         'write'
     ],
-    'legal-submission': [
-    ],
     'main': [
         'read',
         'write'
@@ -6224,8 +5776,6 @@ snapshots['test_instance_permissions_be[support-None-subm-instance__user0] 1'] =
     'inquiry-answer': [
         'read',
         'write'
-    ],
-    'legal-submission': [
     ],
     'main': [
         'read',
