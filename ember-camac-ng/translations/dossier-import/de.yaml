@@ -34,6 +34,10 @@ dossierImport:
       imported: Auf Testsystem importiert
       confirmed: Bestätigt
       cleaned: Bereinigt
+      clean-failed: Bereinigung fehlgeschlagen
+      undo-in-progress: Wird rückgängig gemacht
+      undo-failed: Fehler beim Rückgängigmachen
+      undone: Rückgängig gemacht
       transmitting: Wird an Produktionssystem übertragen
       transmitted: An Produktionssystem übertragen
       transmission-failed: Übertragung an Produktionssystem fehlgeschlagen
@@ -75,8 +79,10 @@ dossierImport:
         failed: |-
           Sie haben eine ungültige Import-Datei hochgeladen. Um die Fehler zu beheben
           müssen Sie eine neue Import-Datei hochladen.
-        import-failed: Beim Import ist ein Fehler aufgetreten. Bitte nehmen sie mit dem Support Kontakt auf.
+        import-failed: Beim Import ist ein Fehler aufgetreten. Bitte nehmen Sie mit dem Support Kontakt auf.
         in-progress: Der Import wird gerade ausgeführt.
+        undo-in-progress: Der Import wird gerade rückgängig gemacht.
+        undo-failed: Beim Rückgängigmachen des Imports ist ein Fehler aufgetreten. Bitte nehmen Sie mit dem Support Kontakt auf.
         imported: Der Import auf dem Testsystem wurde erfolgreich ausgeführt.
         confirmed: Der Import wurde für die Ausführung auf dem Produktionssystem freigegeben.
         transmitting: Der Import wird gerade an das Produktionssystem übermittelt. Je nach Umfang kann dies wenige Minuten dauern.
@@ -123,6 +129,7 @@ dossierImport:
         description: |-
           Löscht den Import sowie alle dabei importieren Dossiers.
         buttonLabel: Import rückgängig machen
+        started: Rückgängigmache des Imports gestartet.
         success: Der Import wurde erfolgreich rückgängig gemacht.
         error: Beim Rückgängigmachen des Imports ist etwas schiefgegangen.
       cleanImport:

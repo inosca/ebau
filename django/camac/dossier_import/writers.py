@@ -8,7 +8,6 @@ from typing import Any, List, Optional
 
 from caluma.caluma_form import api as form_api
 from caluma.caluma_form.models import Answer, AnswerDocument, Document, Question
-from caluma.caluma_form.validators import CustomValidationError
 from caluma.caluma_user.models import BaseUser
 from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
@@ -16,6 +15,7 @@ from django.db import IntegrityError
 from django.utils import timezone
 from django.utils.translation import gettext as _
 from future.moves import itertools
+from rest_framework.exceptions import ValidationError
 
 from camac.core.models import WorkflowEntry
 from camac.document.models import Attachment, AttachmentSection
@@ -210,7 +210,7 @@ class CalumaAnswerWriter(FieldWriter):
                         username=self.owner._user.username, group=self.owner._group.pk
                     ),
                 )
-            except CustomValidationError:  # pragma: no cover
+            except ValidationError:  # pragma: no cover
                 dossier._meta.errors.append(
                     Message(
                         level=LOG_LEVEL_WARNING,
@@ -294,12 +294,12 @@ class CalumaListAnswerWriter(FieldWriter):
                                 group=self.owner._group.pk,
                             ),
                         )
-                    except CustomValidationError as e:  # pragma: no cover
+                    except ValidationError:  # pragma: no cover
                         self.context.get("dossier")._meta.errors.append(
                             Message(
                                 level=LOG_LEVEL_WARNING,
                                 code=MessageCodes.FIELD_VALIDATION_ERROR.value,
-                                detail=f"Failed to write {value} for field {field.name} to {self.target} for dossier {instance}: {e}",
+                                detail=f"Failed to write {value} for field {field.name} to {self.target} for dossier {instance}.",
                             )
                         )
                         continue
