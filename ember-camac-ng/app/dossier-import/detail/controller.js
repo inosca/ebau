@@ -110,9 +110,10 @@ export default class DossierImportDetailController extends Controller {
       yield this.import.undo();
 
       this.notification.success(
-        this.intl.t("dossierImport.detail.actions.undoImport.success")
+        this.intl.t("dossierImport.detail.actions.undoImport.started")
       );
-      this.router.transitionTo("dossier-import.index");
+      yield this.fetchImport.perform();
+      this.refresh.perform();
     } catch (e) {
       console.error(e);
       this.notification.danger(
@@ -183,11 +184,25 @@ export default class DossierImportDetailController extends Controller {
     // isn't awaited in setupController
     yield waitForProperty(this.fetchImport, "isRunning", false);
 
-    while (["in-progress", "transmitting"].includes(this.import?.status)) {
+    while (
+      ["in-progress", "undo-in-progress", "transmitting"].includes(
+        this.import?.status
+      )
+    ) {
       yield timeout(2000);
-      yield this.store.findRecord("dossier-import", this.model, {
-        reload: true,
-      });
+      try {
+        yield this.store.findRecord("dossier-import", this.model, {
+          reload: true,
+        });
+      } catch (e) {
+        console.warn(e);
+        // if a dossier import "disappears" during refresh, it should be safe to assume that
+        // it has just been undone/deleted
+        this.notification.success(
+          this.intl.t("dossierImport.detail.actions.deleteImport.success")
+        );
+        this.router.transitionTo("dossier-import.index");
+      }
     }
   }
 

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-05 10:33+0100\n"
-"PO-Revision-Date: 2023-01-05 10:28+0100\n"
+"POT-Creation-Date: 2023-01-05 15:56+0100\n"
+"PO-Revision-Date: 2022-12-09 11:07+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -232,11 +232,11 @@ msgstr ""
 "Le fichier de métadonnées de l'archive est corrompu ou n'est pas un fichier ."
 "xlsx valide."
 
-#: camac/dossier_import/messages.py:151
+#: camac/dossier_import/messages.py:156
 msgid "have the same ID"
 msgstr "ont la mème ID"
 
-#: camac/dossier_import/messages.py:153
+#: camac/dossier_import/messages.py:158
 msgid ""
 "have an invalid value in date field. Please use the format \"DD.MM.YYYY\" (e."
 "g. \"13.04.2021\")"
@@ -244,34 +244,40 @@ msgstr ""
 "n'ont pas de valeur date valable. Veuillez utilizer le format \"DD.MM.YYYY"
 "\" (e.g. \"13.04.2021\")"
 
-#: camac/dossier_import/messages.py:155
+#: camac/dossier_import/messages.py:160
 msgid "have an invalid status"
 msgstr "n'ont du status pas valable"
 
-#: camac/dossier_import/messages.py:157
+#: camac/dossier_import/messages.py:162
 msgid "miss a value in a required field"
 msgstr "manquent une donnée obligatoire"
 
-#: camac/dossier_import/messages.py:159
+#: camac/dossier_import/messages.py:164
 msgid "don't have a unique ID"
 msgstr "n'ont pas d'ID unique"
 
-#: camac/dossier_import/messages.py:160
+#: camac/dossier_import/messages.py:165
 msgid "have an invalid value"
 msgstr "présentent une valeur pas valable"
 
-#: camac/dossier_import/messages.py:162
+#: camac/dossier_import/messages.py:167
 msgid "have at least one document with an unknown file type"
 msgstr "n'ont ou moin référence à une fichier d'un type pas reconnu"
 
-#: camac/dossier_import/messages.py:165
+#: camac/dossier_import/messages.py:170
 msgid "have an inconsistent workflow state"
 msgstr "ont un état de flux de travail incohérent"
 
-#: camac/dossier_import/messages.py:190
+#: camac/dossier_import/messages.py:195
 #, python-format
 msgid "%(count)i dossiers %(message)s. Affected dossiers:%(entries)s"
 msgstr "%(count)i dossiers %(message)s. Dossiers concernés:%(entries)s"
+
+#: camac/dossier_import/models.py:155
+#, python-format
+msgid ""
+"The import took more than %(timeout)i seconds to complete and timed out."
+msgstr ""
 
 #: camac/dossier_import/serializers.py:57 camac/instance/serializers.py:1775
 msgid "No location assigned."
@@ -331,12 +337,20 @@ msgstr ""
 "Colonnes inconnues trouvées : %(extra)s. Ces colonnes seront ignorées lors "
 "de l'importation."
 
-#: camac/dossier_import/views.py:83
+#: camac/dossier_import/views.py:69
+msgid ""
+"Cannot delete this import. There are still cases and instances referring to "
+"this import. Revert the import before deletion."
+msgstr ""
+"Impossible de supprimer cette importation. Il y à encore des case et "
+"instance qui la reference.Besoin de revertir l'importation en avence."
+
+#: camac/dossier_import/views.py:107
 #, python-format
 msgid "A dossier import for %(group)s has been approved"
 msgstr "Un dossier d'importation pour %(group)s a été approuvé"
 
-#: camac/dossier_import/views.py:86
+#: camac/dossier_import/views.py:110
 #, python-format
 msgid ""
 "The approved dossiers can be viewed here:\n"
@@ -957,3 +971,11 @@ msgstr "Organisation supérieure"
 #: camac/user/models.py:547
 msgid "Services"
 msgstr "Organisations"
+
+#, python-format
+#~ msgid ""
+#~ "The import has been queued for reversal at %(time)s. This may take some "
+#~ "time."
+#~ msgstr ""
+#~ "L'importation a été mise en queue pour revertissement à %(time)s. Ça peut "
+#~ "prendre un moment."

@@ -30,12 +30,14 @@ export default class extends Ability {
       return false;
     }
     if (this.shoebox.isSupportRole) {
-      return ["imported", "import-failed", "confirmed"].includes(
+      return ["imported", "import-failed", "confirmed", "undo-failed"].includes(
         this.model?.status
       );
     }
     if (this.shoebox.baseRole === "municipality") {
-      return ["imported", "import-failed"].includes(this.model?.status);
+      return ["imported", "import-failed", "undo-failed"].includes(
+        this.model?.status
+      );
     }
     return false;
   }
@@ -49,6 +51,8 @@ export default class extends Ability {
   }
 
   get canDelete() {
-    return ["verified", "failed"].includes(this.model?.status);
+    return ["verified", "failed", "cleaned", "undone"].includes(
+      this.model?.status
+    );
   }
 }

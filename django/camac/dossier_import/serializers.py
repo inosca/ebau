@@ -59,7 +59,7 @@ class DossierImportSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         dossier_import = super().create(validated_data)
-        dossier_import.status = dossier_import.IMPORT_STATUS_IMPORT_INPROGRESS
+        dossier_import.status = dossier_import.IMPORT_STATUS_IMPORT_IN_PROGRESS
         dossier_import.save()
         try:
             return validate_zip_archive_structure(str(dossier_import.pk))

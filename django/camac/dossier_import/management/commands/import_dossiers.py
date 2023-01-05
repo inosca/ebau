@@ -119,7 +119,7 @@ class Command(BaseCommand):
                 != "y"
             ):
                 return
-        perform_import(dossier_import, options["override_application"])
+        perform_import(dossier_import, override_config=options["override_application"])
         self.stdout.write("========= Dossier import =========")
         if options["verbosity"] > 1:
             self.stdout.write(
