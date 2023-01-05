@@ -6805,10 +6805,10 @@ ember-disable-prototype-extensions@1.1.3:
   resolved "https://registry.yarnpkg.com/ember-disable-prototype-extensions/-/ember-disable-prototype-extensions-1.1.3.tgz#1969135217654b5e278f9fe2d9d4e49b5720329e"
   integrity sha512-SB9NcZ27OtoUk+gfalsc3QU17+54OoqR668qHcuvHByk4KAhGxCKlkm9EBlKJcGr7yceOOAJqohTcCEBqfRw9g==
 
-ember-ebau-gwr@6.3.0:
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/ember-ebau-gwr/-/ember-ebau-gwr-6.3.0.tgz#0b3bf66e3d6479d214a0d3ab65a06392821942eb"
-  integrity sha512-IVH+3WRDDSq85CKlwT3wZckPnQ22WPxwHvb0IdI89oV0C1PSDPchgV8VovTReu/N4XQ2xuv0kmtVNNWyCLuf8w==
+ember-ebau-gwr@6.3.1:
+  version "6.3.1"
+  resolved "https://registry.yarnpkg.com/ember-ebau-gwr/-/ember-ebau-gwr-6.3.1.tgz#018cadc78411bb032feeaaa7c2dd54368388a105"
+  integrity sha512-FKhrPMhg1Kz9s2MzqrHeMi73thjydeAhkUoABs/gGCXreUls8a3bTExe+mdqhoyPkRJKIuo15kCRSjUzeX3PTg==
   dependencies:
     "@ember/render-modifiers" "^2.0.4"
     "@fortawesome/ember-fontawesome" "^0.4.1"
@@ -6833,7 +6833,7 @@ ember-ebau-gwr@6.3.0:
     ember-uikit "^6.1.1"
     ember-validated-form "^6.1.2"
     handlebars "^4.7.7"
-    luxon "^3.1.1"
+    luxon "^3.2.0"
 
 ember-element-helper@^0.6.0:
   version "0.6.1"
@@ -11013,7 +11013,7 @@ lru-cache@^7.4.4, lru-cache@^7.5.1, lru-cache@^7.7.1:
   resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-7.14.1.tgz#8da8d2f5f59827edb388e63e459ac23d6d408fea"
   integrity sha512-ysxwsnTKdAx96aTRdhDOCQfDgbHnt8SK0KY8SEjO0wHinhWOFTESbjVCMPbU1uGXg/ch4lifqx0wfjOawU2+WA==
 
-luxon@3.2.1, luxon@^3.1.1:
+luxon@3.2.1, luxon@^3.1.1, luxon@^3.2.0:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/luxon/-/luxon-3.2.1.tgz#14f1af209188ad61212578ea7e3d518d18cee45f"
   integrity sha512-QrwPArQCNLAKGO/C+ZIilgIuDnEnKx5QYODdDtbFaxzsbZcc/a7WFq7MhsVYgRlwawLtvOUESTlfJ+hc/USqPg==
