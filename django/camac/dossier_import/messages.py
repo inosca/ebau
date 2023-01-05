@@ -63,11 +63,12 @@ class MessageCodes(str, Enum):
 
     """
 
-    # success
+    # info
     INSTANCE_CREATED = "instance-created"
     FORM_DATA_WRITTEN = "form-data-written"
     ATTACHMENTS_WRITTEN = "attachments-written"
     SET_WORKFLOW_STATE = "workflow-state-set"
+    UNDO_IMPORT_TRIGGERED = "undo-import-triggered"
 
     # warnings
     DUPLICATE_DOSSIER = "duplicate-dossier"
@@ -79,6 +80,10 @@ class MessageCodes(str, Enum):
     MIME_TYPE_UNKNOWN = "mime-type-unknown"
     WORKFLOW_SKIP_ITEM_FAILED = "skip-workitem-failed"  # not user-facing
     INCONSISTENT_WORKFLOW_STATE = "inconsistent-workflow-state"  # trying to write dates that should not exist at the current state of workflow
+
+    # errors
+    TASK_TIMED_OUT = "task-timed-out"
+    UNHANDLED_EXCEPTION = "unhandled-exceptions"
 
 
 def get_message_max_level(message_list: List[Message], default=LOG_LEVEL_DEBUG):

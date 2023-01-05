@@ -3,7 +3,6 @@ from typing import List
 from caluma.caluma_form import api as form_api
 from caluma.caluma_form.api import save_answer
 from caluma.caluma_form.models import Form as CalumaForm, Question
-from caluma.caluma_form.validators import CustomValidationError
 from caluma.caluma_user.models import BaseUser
 from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.api import skip_work_item
@@ -11,6 +10,7 @@ from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
 from django.db import transaction
+from rest_framework.exceptions import ValidationError
 
 from camac.caluma.extensions.events.general import get_caluma_setting
 from camac.constants.kt_bern import (
@@ -423,7 +423,7 @@ class KtBernDossierWriter(DossierWriter):
                 value=value,
                 user=BaseUser(username=self._user.username, group=self._group.pk),
             )
-        except CustomValidationError:  # pragma: no cover
+        except ValidationError:  # pragma: no cover
             dossier._meta.errors.append(
                 Message(
                     level=LOG_LEVEL_WARNING,
@@ -441,7 +441,7 @@ class KtBernDossierWriter(DossierWriter):
                 value=f"{exists_slug}-yes",
                 user=BaseUser(username=self._user.username, group=self._group.pk),
             )
-        except CustomValidationError:  # pragma: no cover
+        except ValidationError:  # pragma: no cover
             dossier._meta.errors.append(
                 Message(
                     level=LOG_LEVEL_WARNING,

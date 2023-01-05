@@ -1,6 +1,7 @@
+from caluma.caluma_workflow.models import Case
 from django.conf import settings
 from django.core.mail import mail_admins, send_mail
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext as _
 from django_q.tasks import async_task
 from rest_framework import status
 from rest_framework.decorators import action
@@ -12,11 +13,13 @@ from camac.core.views import SendfileHttpResponse
 from camac.dossier_import.domain_logic import (
     clean_import,
     perform_import,
+    set_status_callback,
     transmit_import,
     undo_import,
 )
 from camac.dossier_import.models import DossierImport
 from camac.dossier_import.serializers import DossierImportSerializer
+from camac.instance.models import Instance
 from camac.user.permissions import permission_aware
 from camac.utils import build_url
 
@@ -31,9 +34,9 @@ def is_prod():
 class DossierImportView(ModelViewSet):
     """View class for uploading a ZIP archive with dossier metadata and documents for import."""
 
-    queryset = DossierImport.objects.all()
     serializer_class = DossierImportSerializer
     queryset = DossierImport.objects.all().order_by("-created_at")
+
     instance_field = None
     swagger_schema = None
 
@@ -49,7 +52,28 @@ class DossierImportView(ModelViewSet):
         return self.queryset.filter(group_id__in=groups)
 
     def get_queryset_for_support(self):
-        return self.queryset
+        return self.queryset.all()
+
+    def destroy(self, request, *args, **kwargs):
+        instance = self.get_object()
+        if any(
+            [
+                Instance.objects.filter(
+                    **{"case__meta__import-id": str(instance.pk)}
+                ).exists(),
+                Case.objects.filter(**{"meta__import-id": str(instance.pk)}).exists(),
+            ]
+        ):
+            raise ValidationError(
+                _(
+                    "Cannot delete this import. There are still cases and instances referring to this import. Revert the import before deletion."
+                )
+            )
+        return super().destroy(request, *args, **kwargs)
+
+    def retrieve(self, request, *args, **kwargs):
+        self.get_object().update_async_status()
+        return super().retrieve(request, *args, **kwargs)
 
     @action(methods=["POST"], url_path="start", detail=True)
     def start(self, request, pk=None):
@@ -61,12 +85,12 @@ class DossierImportView(ModelViewSet):
             raise ValidationError(
                 "Make sure the uploaded archive validates successfully.",
             )
-        dossier_import.status = DossierImport.IMPORT_STATUS_IMPORT_INPROGRESS
-        dossier_import.save()
+        dossier_import.status = DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS
         task_id = async_task(
             perform_import,
             dossier_import,
-            # sync=settings.Q_CLUSTER.get("sync", False),  # TODO: running tasks sync does not work at
+            hook=set_status_callback,
+            # sync=settings.Q_CLUSTER.get("sync", True),  # TODO: running tasks sync does not work at
             #  the moment: django-q task loses db connection. maybe related to testing fixtures
         )
         dossier_import.task_id = task_id
@@ -100,7 +124,7 @@ class DossierImportView(ModelViewSet):
             )
         dossier_import.status = DossierImport.IMPORT_STATUS_CONFIRMED
         dossier_import.save()
-        return Response()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
     @permission_aware
     def has_object_create_permission(self, instance):  # pragma: no cover
@@ -163,14 +187,19 @@ class DossierImportView(ModelViewSet):
         return instance.status not in [
             DossierImport.IMPORT_STATUS_NEW,
             DossierImport.IMPORT_STATUS_VALIDATION_SUCCESSFUL,
-            DossierImport.IMPORT_STATUS_IMPORT_FAILED,
-            DossierImport.IMPORT_STATUS_IMPORT_INPROGRESS,
+            DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS,
         ]
 
     @action(methods=["POST"], url_path="undo", detail=True)
     def undo(self, request, pk=None):
-        undo_import(self.get_object())
-        return Response()
+        # removes all instances and cases that came with the import
+        # - removes the dossier-import instance on success
+        instance = self.get_object()
+        instance.status = DossierImport.IMPORT_STATUS_UNDO_IN_PROGRESS
+        task_id = async_task(undo_import, instance, hook=set_status_callback)
+        instance.task_id = task_id
+        instance.save()
+        return Response({"task_id": task_id})
 
     @permission_aware
     def has_object_clean_permission(self, instance):  # pragma: no cover
@@ -182,5 +211,9 @@ class DossierImportView(ModelViewSet):
 
     @action(methods=["POST"], url_path="clean", detail=True)
     def clean(self, request, pk=None):
+        # removes the source archive from the file system
+        # to clean up space.
+        #  - does not remove any database entries.
+        #  - does not remove the import instance
         clean_import(self.get_object())
         return Response(status=status.HTTP_204_NO_CONTENT)
