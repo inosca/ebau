@@ -83,7 +83,7 @@ def create_history_entry(
         **data,
     )
 
-    for (language, text) in get_translations(text):
+    for (language, text) in get_translations(text).items():
         HistoryEntryT.objects.create(
             history_entry=history,
             title=text % text_data(language),
