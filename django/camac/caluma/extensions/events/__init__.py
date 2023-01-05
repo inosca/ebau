@@ -8,5 +8,6 @@ from . import (  # noqa: F401
     distribution,
     ebau_number,
     general,
+    sb,
     simple_workflow,
 )
