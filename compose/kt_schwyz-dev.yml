@@ -84,8 +84,12 @@ services:
   # repeat definition here because otherwise prod settings are applied
   django-q:
     <<: *django
-    command: /bin/sh -c "./wait-for-it.sh db:5431 -- ./manage.py qcluster --pythonpath /app/$APPLICATION"
-    ports: []
+    # entr will watch for changes in the list of files piped to it and execute the command passed as argument
+    # to make sure your tasks execute the latest code
+    command: /bin/sh -c "./wait-for-it.sh db:5432 -- python manage.py qcluster --pythonpath /app/$APPLICATION"
+    # for reloading: comment above line, uncomment command below and run next line's command in the container
+    # find -wholename "**/*.py" | entr python manage.py qcluster --pythonpath /app/$APPLICATION
+    #command: /bin/sh -c "while true; do sleep 10; done"
 
   ember:
     image: acr.run/camac-ng/camac-ng/ember:master

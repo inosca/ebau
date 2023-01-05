@@ -3525,14 +3525,17 @@ PARASHIFT_API_KEY = env.str("PARASHIFT_API_KEY", default="ey...")
 # Until running tasks can be manually canceled we want a timeout
 DJANGO_Q_TASK_TIMEOUT_HOURS = env.int("DJANGO_Q_TASK_TIMEOUT_HOURS", default=6)
 
+# We use q-cluster for importing.
+# - no retry of failed imports
+# - timeout required because we cannot abort running imports (except killing the worker but that seems excessive)
+# - ack_failures option keeps a clean queue and allows to identify timed out imports
 Q_CLUSTER = {
     "name": "DjangORM",
     "workers": 2,
     "queue_limit": 50,
     "timeout": DJANGO_Q_TASK_TIMEOUT_HOURS * 60 * 60,
     "retry": DJANGO_Q_TASK_TIMEOUT_HOURS * 60 * 60 * 2,
-    "ack_failures": True,  # prevents failed tasks from being retried
-    "bulk": 10,
+    "ack_failures": True,  # discards failed tasks after timeout
     "orm": "default",
 }
 

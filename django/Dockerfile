@@ -2,15 +2,16 @@
 FROM python:3.8-slim
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-	git \
-	build-essential \
-	curl \
-	imagemagick \
-	ghostscript \
-	postgresql-client \
-	gettext \
-	locales \
-	libreoffice \
+  git \
+  build-essential \
+  curl \
+  entr \
+  imagemagick \
+  ghostscript \
+  postgresql-client \
+  gettext \
+  locales \
+  libreoffice \
 && rm -rf /var/lib/apt/lists/* \
 && mkdir /app \
 && sed -i -e 's/# de_CH.UTF-8 UTF-8/de_CH.UTF-8 UTF-8/' /etc/locale.gen \
