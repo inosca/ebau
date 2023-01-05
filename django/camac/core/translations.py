@@ -8,4 +8,4 @@ def get_translation_in(language, s):
 
 
 def get_translations(s):
-    return [(lang, get_translation_in(lang, s)) for (lang, _) in settings.LANGUAGES]
+    return {lang: get_translation_in(lang, s) for lang, _ in settings.LANGUAGES}
