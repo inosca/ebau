@@ -1,7 +1,9 @@
 import mimetypes
 
 import pytest
-from caluma.caluma_workflow.models import Case
+from django.utils import timezone
+from django_q.brokers import get_broker
+from django_q.signing import SignedPackage
 from pytest_lazyfixture import lazy_fixture
 from rest_framework import status
 from rest_framework.reverse import reverse
@@ -237,7 +239,7 @@ def test_file_validation(
     "config,camac_instance",
     [
         ("kt_bern", lazy_fixture("be_instance")),
-        # ("kt_schwyz", "Support", lazy_fixture("sz_instance")),
+        # ("kt_schwyz", lazy_fixture("sz_instance")),
     ],
 )
 @pytest.mark.parametrize(
@@ -249,7 +251,7 @@ def test_file_validation(
             "municipality-lead",
             DossierImport.IMPORT_STATUS_VALIDATION_SUCCESSFUL,
             status.HTTP_200_OK,
-            DossierImport.IMPORT_STATUS_IMPORT_INPROGRESS,
+            DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS,
         ),
         (
             "start",
@@ -272,7 +274,7 @@ def test_file_validation(
             "test",
             "municipality-lead",
             DossierImport.IMPORT_STATUS_IMPORTED,
-            status.HTTP_200_OK,
+            status.HTTP_204_NO_CONTENT,
             DossierImport.IMPORT_STATUS_CONFIRMED,
         ),
         (
@@ -321,7 +323,7 @@ def test_file_validation(
             "support",
             DossierImport.IMPORT_STATUS_IMPORTED,
             status.HTTP_200_OK,
-            "deleted",
+            DossierImport.IMPORT_STATUS_UNDO_IN_PROGRESS,
         ),
         (
             "undo",
@@ -329,7 +331,7 @@ def test_file_validation(
             "municipality-lead",
             DossierImport.IMPORT_STATUS_IMPORTED,
             status.HTTP_200_OK,
-            "deleted",
+            DossierImport.IMPORT_STATUS_UNDO_IN_PROGRESS,
         ),
         (
             "undo",
@@ -337,7 +339,7 @@ def test_file_validation(
             "support",
             DossierImport.IMPORT_STATUS_IMPORTED,
             status.HTTP_200_OK,
-            "deleted",
+            DossierImport.IMPORT_STATUS_UNDO_IN_PROGRESS,
         ),
         (
             "undo",
@@ -389,15 +391,9 @@ def test_state_transitions(
         reverse(f"dossier-import-{action}", args=(dossier_import.pk,))
     )
     assert resp.status_code == expected_response_code
+    dossier_import.refresh_from_db()
     if expected_response_code == status.HTTP_200_OK:
-        if status_after == "deleted":
-            assert not DossierImport.objects.filter(pk=dossier_import.pk).exists()
-            assert not Case.objects.filter(
-                **{"meta__import-id": str(dossier_import.pk)}
-            ).exists()
-        else:
-            dossier_import.refresh_from_db()
-            assert dossier_import.status == status_after
+        assert dossier_import.status == status_after
     if (
         action == "confirm"
         and dossier_import.status == DossierImport.IMPORT_STATUS_CONFIRMED
@@ -496,3 +492,94 @@ def test_clean_import(db, admin_client, archive_file, dossier_import_factory):
     assert resp.status_code == status.HTTP_204_NO_CONTENT
     dossier_import.refresh_from_db()
     assert not dossier_import.source_file
+
+
+@pytest.mark.parametrize(
+    "has_case,expected_status",
+    [(False, status.HTTP_204_NO_CONTENT), (True, status.HTTP_400_BAD_REQUEST)],
+)
+@pytest.mark.parametrize("role__name", ["Support"])
+def test_delete_import(
+    db,
+    admin_client,
+    archive_file,
+    dossier_import,
+    case_factory,
+    instance_with_case,
+    has_case,
+    expected_status,
+):
+    if has_case:
+        case_factory(meta={"import-id": str(dossier_import.pk)})
+    resp = admin_client.delete(
+        reverse("dossier-import-detail", args=(str(dossier_import.pk),))
+    )
+    assert resp.status_code == expected_status
+
+
+@pytest.mark.parametrize("role__name", ["Support"])
+@pytest.mark.parametrize(
+    "task_state,expected_status",
+    [
+        ("queued", DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS),
+        ("timed-out", DossierImport.IMPORT_STATUS_IMPORT_FAILED),
+        (
+            DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS,
+            DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS,
+        ),
+        (None, DossierImport.IMPORT_STATUS_IMPORT_FAILED),
+        (DossierImport.IMPORT_STATUS_IMPORTED, DossierImport.IMPORT_STATUS_IMPORTED),
+    ],
+)
+def test_import_status(
+    db, admin_client, dossier_import, task_state, expected_status, settings, mocker
+):
+    lock = timezone.now()
+    dossier_import.status = DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS
+    dossier_import.save()
+    if not task_state:
+        # verify that an in progres status and no task-id results in failed status
+        assert "failed" in dossier_import.update_async_status()
+        return
+    if task_state == "queued":
+        lock = lock - timezone.timedelta(2 * settings.Q_CLUSTER["timeout"])
+    task = {
+        "id": "abba1221acab1312",
+        "name": "one-task",
+        "func": "some-func",
+        "args": {},
+    }
+    other_task = {
+        "id": "1234abcd5678efgh",
+        "name": "other-task",
+        "func": "some-func",
+        "args": {},
+    }
+    broker = get_broker()
+    if task_state not in ("timed-out", DossierImport.IMPORT_STATUS_IMPORTED):
+        broker.get_connection().create(
+            key=broker.list_key, payload=SignedPackage.dumps(task), lock=lock
+        )
+    dossier_import.task_id = task["id"]
+    dossier_import.save()
+    broker.get_connection().create(
+        key=broker.list_key,
+        payload=SignedPackage.dumps(other_task),
+        lock=timezone.now(),
+    )
+    if task_state in (
+        DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS,
+        DossierImport.IMPORT_STATUS_IMPORTED,
+    ):
+        mocker.patch("camac.dossier_import.models.fetch", return_value=task)
+    dossier_import.update_async_status()
+    dossier_import.status == expected_status
+    resp = admin_client.get(reverse("dossier-import-detail", args=(dossier_import.pk,)))
+    assert resp.status_code == status.HTTP_200_OK
+    # status is only changed by the update_async_status method if import times out
+    assert (
+        resp.json()["data"]["attributes"]["status"]
+        == DossierImport.IMPORT_STATUS_IMPORT_FAILED
+        if expected_status == "timed-out"
+        else DossierImport.IMPORT_STATUS_IMPORTED
+    )

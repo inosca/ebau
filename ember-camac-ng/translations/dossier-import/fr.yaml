@@ -34,6 +34,10 @@ dossierImport:
       imported: Importé sur le système de test
       confirmed: Confirmé
       cleaned: Nettoyé
+      clean-failed: Nettoyage échoué
+      undo-in-progress: Recul en cours
+      undo-failed: Recul échoué
+      undone: Recul fini
       transmitting: Transfert au système de production en cours
       transmitted: Transférée au système de production
       transmission-failed: Échec de la transmission au système de production
@@ -79,6 +83,8 @@ dossierImport:
           l'erreur vous devez télécharger un nouveau fichier d'importation.
         import-failed: Une erreur est survenue lors de l'importation. Veuillez prendre contact avec le support.
         in-progress: L'importation est en cours.
+        undo-in-progress: L'importation est en cours d'annulation.
+        undo-failed: Une erreur est survenue lors de l'annulation de l'importation. Veuillez prendre contact avec le support.
         imported: L'importation sur le système de test a été effectuée avec succès.
         confirmed: L'importation a été validée pour une exécution sur le système de production.
         transmitting: L'importation est en cours de transfert vers le système de production. Selon le volume, cela peut prendre quelques minutes.
@@ -113,6 +119,7 @@ dossierImport:
         description: |-
           Supprime l'importation ainsi que tous les dossiers importés.
         buttonLabel: Annuler l'importation
+        started: Annulation de l'importation initializé.
         success: L'importation a été annulée avec succès.
         error: Quelque chose s'est mal passé lors de l'annulation de l'importation.
       cleanImport:
