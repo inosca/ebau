@@ -451,15 +451,12 @@ def application_md(instance: Instance):
     judgement, judgement_date = determine_decision_state(instance)
 
     def format_decision_ruling_type(instance, judgement, judgement_date):
-        md = MasterData(instance.case)
         ruling = (
             instance.form.get_name()
         )  # TODO: is this valid for Entscheid/ruling 3.4.1.2?
         return ns_application.decisionRulingType(
-            judgement=1
-            if instance.form.get_name()
-            else 2,  # TODO: this needs some mapping to integers
-            date=md.decision_date,
+            judgement=judgement,
+            date=judgement_date,
             ruling=ruling.upper(),
             rulingAuthority=authority(
                 instance.responsible_service(filter_type="municipality"),

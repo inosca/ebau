@@ -67,6 +67,7 @@ services:
       - ENV=development
       - APPLICATION_ENV=development
       - KEYCLOAK_URL=http://ebau-keycloak.local/auth/
+      - ECH0211_API_ACTIVE=True
       - DATABASE_HOST=db
       - DATABASE_NAME=${APPLICATION}
       - DATABASE_PASSWORD=camac
