@@ -80,9 +80,6 @@ documents:
 
   download: "Télécharger le fichier"
 
-  drag: "Glisser un fichier dans cette zone, ou"
-  click: "cliquez ici pour télécharger un fichier"
-
   date: "Téléchargé le {date} à {time}"
 
   wrongMimeType: "Ce type de fichier n'est pas autorisé. Les types de fichiers autorisés sont PDF, PNG et JPEG."

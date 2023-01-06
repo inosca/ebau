@@ -75,9 +75,6 @@ documents:
 
   download: "Datei herunterladen"
 
-  drag: "Ziehen Sie eine Datei in diesen Bereich oder"
-  click: "drücken sie hier um eine Datei hochzuladen"
-
   date: "Hochgeladen am {date} um {time}"
 
   wrongMimeType: "Dieser Dateityp ist nicht erlaubt. Erlaubte Dateitypen sind PDF, PNG und JPEG."

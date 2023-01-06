@@ -1,8 +1,6 @@
 dms:
   category: "Catégorie"
-  click: "cliquez ici pour télécharger un fichier"
   download: "Télécharger le modèle"
-  drag: "Glisser un fichier dans cette zone, ou"
   edit: "Modifier le modèle"
   empty: "Aucun modèle trouvé"
   inherited: "supérieur"
