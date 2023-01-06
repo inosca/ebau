@@ -166,7 +166,7 @@ services:
       - ebau.local
 
   document-merge-service:
-    image: ghcr.io/adfinis/document-merge-service:5.1.0
+    image: ghcr.io/adfinis/document-merge-service:5.2.1
     depends_on:
       - db
       - unoconv
