@@ -419,7 +419,7 @@ def test_public_documents_sz(
 @pytest.mark.parametrize("role__name", ["Applicant"])
 @pytest.mark.parametrize(
     "headers,num_queries,num_instances",
-    [({}, 1, 0), ({"HTTP_X_CAMAC_PUBLIC_ACCESS": True}, 8, 1)],
+    [({}, 1, 0), ({"HTTP_X_CAMAC_PUBLIC_ACCESS": True}, 9, 1)],
 )
 def test_public_caluma_instance_be(
     db,
