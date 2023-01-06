@@ -1,8 +1,6 @@
 dms:
   category: "Kategorie"
-  click: "drücken sie hier um eine Datei hochzuladen"
   download: "Vorlage herunterladen"
-  drag: "Ziehen Sie eine Datei in diesen Bereich oder"
   edit: "Vorlage bearbeiten"
   empty: "Keine Vorlagen gefunden"
   inherited: "übergeordnet"
