@@ -2,7 +2,7 @@ import logging
 
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
-from django.db.models import Exists, OuterRef, Q
+from django.db.models import Q
 from django.db.models.constants import LOOKUP_SEP
 from django.utils import timezone
 from django.utils.translation import gettext as _
@@ -250,7 +250,6 @@ class InstanceQuerysetMixin(object):
             )
 
             filters = {
-                "case": OuterRef(self._get_instance_filter_expr("case__pk")),
                 "task_id": "fill-publication",
                 "meta__is-published": True,
                 "status": WorkItem.STATUS_COMPLETED,
@@ -268,18 +267,21 @@ class InstanceQuerysetMixin(object):
                 start_question = "information-of-neighbors-start-date"
                 end_question = "information-of-neighbors-end-date"
 
-            return queryset.filter(
-                Exists(
-                    WorkItem.objects.filter(**filters)
-                    .filter(
-                        document__answers__question_id=start_question,
-                        document__answers__date__lte=timezone.now(),
-                    )
-                    .filter(
-                        document__answers__question_id=end_question,
-                        document__answers__date__gte=timezone.now(),
-                    )
+            public_cases = list(
+                WorkItem.objects.filter(**filters)
+                .filter(
+                    document__answers__question_id=start_question,
+                    document__answers__date__lte=timezone.now(),
                 )
+                .filter(
+                    document__answers__question_id=end_question,
+                    document__answers__date__gte=timezone.now(),
+                )
+                .values_list("case__family", flat=True)
+            )
+
+            return queryset.filter(
+                **{self._get_instance_filter_expr("case__pk__in"): public_cases}
             )
         elif settings.APPLICATION.get("PUBLICATION_BACKEND") == "camac-ng":
             return (
