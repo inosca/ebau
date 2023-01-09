@@ -1,9 +1,9 @@
 NAME,NAME_FR,ROLE_ID
 Admin,Admin,1
 Guest,Guest,2
-"Leitung Leitbehörde","Direction: autorité directrice",3
-"Leitung Fachstelle","Direction: service",4
-"Leitung Baukontrolle","Direction: contrôle des constructions",5
+"Leitung Leitbehörde","Responsable: autorité directrice",3
+"Leitung Fachstelle","Responsable: service",4
+"Leitung Baukontrolle","Responsable: contrôle des constructions",5
 Gesuchsteller,Requérant/e,6
 System-Betrieb,"Exploitation du système",10000
 Unterfachstelle,"Unité d'un service spécialisé",20000
