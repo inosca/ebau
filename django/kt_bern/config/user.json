@@ -338,8 +338,8 @@
     "fields": {
       "role": 3,
       "language": "fr",
-      "name": "Direction: autorité directrice",
-      "group_prefix": "Direction:"
+      "name": "Responsable: autorité directrice",
+      "group_prefix": "Responsable:"
     }
   },
   {
@@ -348,8 +348,8 @@
     "fields": {
       "role": 4,
       "language": "fr",
-      "name": "Direction: service",
-      "group_prefix": "Direction:"
+      "name": "Responsable: service",
+      "group_prefix": "Responsable:"
     }
   },
   {
@@ -358,8 +358,8 @@
     "fields": {
       "role": 5,
       "language": "fr",
-      "name": "Direction: contrôle des constructions",
-      "group_prefix": "Direction:"
+      "name": "Responsable: contrôle des constructions",
+      "group_prefix": "Responsable:"
     }
   },
   {
