@@ -342,6 +342,8 @@ module.exports = function (environment) {
             "commercial-permit",
             "solar-declaration",
             "proposal-declaration",
+            "bohrbewilligung-waermeentnahme",
+            "konzession-waermeentnahme",
           ],
         },
         {
@@ -366,8 +368,6 @@ module.exports = function (environment) {
             "bgbb",
             "archivdossier",
             "bauverwaltung",
-            "bohrbewilligung-waermeentnahme",
-            "konzession-waermeentnahme",
           ],
         },
         {
@@ -389,7 +389,12 @@ module.exports = function (environment) {
         {
           // KOOR AfU
           roles: [1106],
-          forms: ["mitbericht-kanton", "oereb"],
+          forms: [
+            "mitbericht-kanton",
+            "oereb",
+            "bohrbewilligung-waermeentnahme",
+            "konzession-waermeentnahme",
+          ],
         },
         {
           // KOOR ALA
