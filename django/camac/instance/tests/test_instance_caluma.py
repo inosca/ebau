@@ -836,6 +836,98 @@ def test_instance_submit_cantonal_territory_usage_ur(
     assert ur_instance.group == koor_group
 
 
+@pytest.mark.parametrize("service_group__name", ["coordination"])
+@pytest.mark.parametrize(
+    "form_slug", ["konzession-waermeentnahme", "bohrbewilligung-waermeentnahme"]
+)
+@pytest.mark.parametrize("instance_state__name", ["new"])
+@pytest.mark.parametrize(
+    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
+)
+def test_instance_submit_heat_extraction_ur(
+    mocker,
+    admin_client,
+    settings,
+    caluma_workflow_config_ur,
+    ur_instance,
+    notification_template,
+    application_settings,
+    mock_generate_and_store_pdf,
+    ech_mandatory_answers_einfache_vorabklaerung,
+    workflow_item_factory,
+    location_factory,
+    group_factory,
+    role_factory,
+    instance_state_factory,
+    service_factory,
+    authority_location_factory,
+    form_slug,
+):
+    settings.APPLICATION_NAME = "kt_uri"
+    application_settings["CALUMA"]["USE_LOCATION"] = True
+    application_settings["CALUMA"]["GENERATE_IDENTIFIER"] = False
+    application_settings["USE_INSTANCE_SERVICE"] = False
+    application_settings["MASTER_DATA"] = {
+        "leitbehoerde_internal_form": (
+            "answer",
+            "leitbehoerde-internal-form",
+        ),
+    }
+
+    heat_extraction_form = caluma_form_factories.FormFactory(slug=form_slug)
+    caluma_form_factories.FormFactory(slug="personalien")
+    ur_instance.case.document.form = heat_extraction_form
+    ur_instance.case.document.save()
+
+    koor_service = service_factory(email="KOOR_AFU@example.com")
+    mocker.patch("camac.constants.kt_uri.KOOR_AFU_SERVICE_ID", koor_service.pk)
+    koor_group = group_factory(service=koor_service)
+    mocker.patch("camac.constants.kt_uri.KOOR_AFU_GROUP_ID", koor_group.pk)
+    koor_email = koor_group.service.email
+
+    application_settings["NOTIFICATIONS"] = {
+        "SUBMIT_HEAT_EXTRACTION": [
+            {
+                "template_slug": notification_template.slug,
+                "recipient_types": ["koor_afu_users"],
+            },
+        ],
+    }
+    application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = True
+    application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
+
+    workflow_item_factory(workflow_item_id=ur_constants.WORKFLOW_ITEM_DOSSIER_ERFASST)
+
+    location = location_factory()
+
+    ur_instance.case.document.answers.create(
+        value=str(location.communal_federal_number), question_id="municipality"
+    )
+
+    authority_location_factory(location=location)
+
+    mocker.patch.object(
+        DocumentParser,
+        "parse_answers",
+        return_value=ech_mandatory_answers_einfache_vorabklaerung,
+    )
+    instance_state_factory(name="ext")
+    instance_state_factory(name="subm")
+
+    response = admin_client.post(reverse("instance-submit", args=[ur_instance.pk]))
+
+    ur_instance.refresh_from_db()
+
+    assert response.status_code == status.HTTP_200_OK
+
+    assert len(mail.outbox) == 1
+    assert koor_email in mail.outbox[0].recipients()
+
+    assert ur_instance.instance_state.name == "ext"
+    assert ur_instance.location_id == location.pk
+    assert ur_instance.group == koor_group
+
+
 @pytest.mark.parametrize("instance_state__name", ["new"])
 @pytest.mark.parametrize(
     "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
