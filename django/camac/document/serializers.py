@@ -172,6 +172,11 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
 
         return attachment_sections
 
+    def _validate_file_size(self, path):
+        max_size = settings.APPLICATION.get("ATTACHMENT_MAX_SIZE")
+        if max_size and path.size > max_size:
+            raise exceptions.ParseError(_("File %s is too large.") % path.name)
+
     def _validate_allowed_mime_types(self, attachment_sections, mime_type):
         for section in attachment_sections:
             # empty allowed_mime_types -> any mime type allowed
@@ -262,6 +267,7 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
 
             self._validate_file_infection(path)
             self._validate_allowed_mime_types(attachment_sections, path.content_type)
+            self._validate_file_size(path)
 
             data["size"] = path.size
             data["mime_type"] = path.content_type

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-05 15:56+0100\n"
-"PO-Revision-Date: 2022-12-09 11:07+0100\n"
+"POT-Creation-Date: 2023-01-06 17:17+0100\n"
+"PO-Revision-Date: 2023-01-06 17:18+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -175,7 +175,12 @@ msgstr ""
 "Nicht ausreichend Berechtigungen um eine Datei aus dem Ordner '%(section)s' "
 "zu löschen."
 
-#: camac/document/serializers.py:186
+#: camac/document/serializers.py:178
+#, python-format
+msgid "File %s is too large."
+msgstr "Die Datei %s ist zu gross."
+
+#: camac/document/serializers.py:191
 #, python-format
 msgid ""
 "Invalid mime type for attachment. Allowed types for section %(section_name)s "
@@ -184,18 +189,18 @@ msgstr ""
 "Der aktuelle Dateityp kann nicht als Dokument hochgeladen werden. Erlaubte "
 "Dateitypen für Abschnitt %(section_name)s sind: %(allowed_mime_types)s"
 
-#: camac/document/serializers.py:237
+#: camac/document/serializers.py:242
 msgid ""
 "Changing decision document mark after decision is enacted is not allowed."
 msgstr ""
 "Nach dem Entscheid dürfen Entscheiddokumente nicht mehr hinzugefügt oder "
 "entfernt werden."
 
-#: camac/document/serializers.py:305
+#: camac/document/serializers.py:311
 msgid "Path may not be changed."
 msgstr "Der Pfad darf nicht geändert werden."
 
-#: camac/document/serializers.py:348
+#: camac/document/serializers.py:354
 msgid "Invalid mime type for template. Allowed types are: docx"
 msgstr ""
 "Der aktuelle Dateityp kann nicht als Vorlage hochgeladen werden. Erlaubte "
@@ -224,8 +229,8 @@ msgstr ""
 #: camac/dossier_import/loaders.py:300
 #, python-format
 msgid ""
-"Failed to load plot with numbers `%(plot_numbers)s` and egrid values `"
-"%(egrids)s`"
+"Failed to load plot with numbers `%(plot_numbers)s` and egrid values "
+"`%(egrids)s`"
 msgstr ""
 "Parzellendaten konnten nicht geladen werden. Nummer(n): `%(plot_numbers)s`. "
 "Egrid: `%(egrids)s`"
@@ -462,12 +467,12 @@ msgid "Draft"
 msgstr "Entwurf"
 
 #: camac/instance/document_merge_service.py:284
-#: camac/instance/tests/test_document_merge_service.py:282
+#: camac/instance/tests/test_document_merge_service.py:298
 #: camac/user/authentication.py:76
 msgid "Signature has expired."
 msgstr "Signatur ist abgelaufen."
 
-#: camac/instance/mixins.py:453 camac/instance/mixins.py:490
+#: camac/instance/mixins.py:455 camac/instance/mixins.py:492
 #, python-format
 msgid "Not allowed to add data to instance %(instance)s"
 msgstr "Keine Berechtigung um Daten zum Dossier %(instance)s hinzuzufügen"
@@ -756,11 +761,11 @@ msgstr "Zirkulation gestartet"
 msgid "Procedure completed"
 msgstr "Baugesuchsverfahren abgeschlossen"
 
-#: camac/settings.py:3261
+#: camac/settings.py:3262
 msgid "German"
 msgstr "Deutsch"
 
-#: camac/settings.py:3261
+#: camac/settings.py:3262
 msgid "French"
 msgstr "Französisch"
 
