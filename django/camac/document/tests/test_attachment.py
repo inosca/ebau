@@ -457,6 +457,20 @@ def test_attachment_context_filter(
             permissions.AdminInternalBusinessControlPermission,
             status.HTTP_400_BAD_REQUEST,
         ),
+        # applicant attempts to upload a too large file
+        (
+            "1MB.pdf",
+            "application/pdf",
+            "Applicant",
+            LazyFixture("admin_user"),
+            LazyFixture("location"),
+            LazyFixture("service"),
+            LazyFixture("group"),
+            LazyFixture("instance_state"),
+            None,
+            permissions.AdminPermission,
+            status.HTTP_400_BAD_REQUEST,
+        ),
     ],
 )
 def test_attachment_create(
@@ -484,6 +498,7 @@ def test_attachment_create(
     )
 
     application_settings["ATTACHMENT_INTERNAL_STATES"] = ["internal"]
+    application_settings["ATTACHMENT_MAX_SIZE"] = 0.9 * 1024 * 1024
     if case_status:
         sz_instance.case = case_factory(status=case_status)
         sz_instance.save()
