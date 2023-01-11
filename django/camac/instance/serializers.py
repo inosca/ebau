@@ -1194,20 +1194,25 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
 
         instance.group = group
 
-    def _prepare_cantonal_territory_usage(self, instance):
-        if instance.case.document.form.slug != "cantonal-territory-usage":
+    def _prepare_cantonal_instances(self, instance):
+        if instance.case.document.form.slug == "cantonal-territory-usage":
+            event_type_answer = self.get_master_data(instance.case).veranstaltung_art
+
+            if event_type_answer in settings.APPLICATION["CALUMA"].get("KOOR_SD_SLUGS"):
+                instance.group = Group.objects.get(pk=uri_constants.KOOR_SD_GROUP_ID)
+            else:
+                instance.group = Group.objects.get(pk=uri_constants.KOOR_BD_GROUP_ID)
+        elif instance.case.document.form.slug in [
+            "konzession-waermeentnahme",
+            "bohrbewilligung-waermeentnahme",
+        ]:
+            instance.group = Group.objects.get(pk=uri_constants.KOOR_AFU_GROUP_ID)
+        else:
             return
 
         instance.instance_state = models.InstanceState.objects.get(name="ext")
 
         self._update_instance_location(instance)
-
-        event_type_answer = self.get_master_data(instance.case).veranstaltung_art
-
-        if event_type_answer in settings.APPLICATION["CALUMA"].get("KOOR_SD_SLUGS"):
-            instance.group = Group.objects.get(pk=uri_constants.KOOR_SD_GROUP_ID)
-        else:
-            instance.group = Group.objects.get(pk=uri_constants.KOOR_BD_GROUP_ID)
 
     def _send_notifications(self, case):
         notification_key = "SUBMIT"
@@ -1220,6 +1225,11 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                 notification_key = "SUBMIT_CANTONAL_TERRITORY_USAGE_BD"
         if case.document.form_id == "heat-generator":  # pragma: no cover
             notification_key = "SUBMIT_HEAT_GENERATOR"
+        if case.document.form_id in [
+            "konzession-waermeentnahme",
+            "bohrbewilligung-waermeentnahme",
+        ]:
+            notification_key = "SUBMIT_HEAT_EXTRACTION"
 
         # send out emails upon submission
         for notification_config in settings.APPLICATION["NOTIFICATIONS"][
@@ -1292,7 +1302,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
 
         if settings.APPLICATION_NAME == "kt_uri":
             self._internal_submission(instance, self.context["request"].group)
-            self._prepare_cantonal_territory_usage(instance)
+            self._prepare_cantonal_instances(instance)
 
         instance.save()
 
