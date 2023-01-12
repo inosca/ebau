@@ -9,7 +9,7 @@
       <div class="uk-flex uk-flex-middle uk-flex-right">
         <LinkTo
           @route={{module-route "legal-submission" "edit"}}
-          @model={{@legalSubmission.id}}
+          @model={{decode-id @legalSubmission.id}}
           class="uk-button uk-button-link"
         >
           <UkIcon @icon="pencil" />
