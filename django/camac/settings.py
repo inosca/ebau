@@ -332,7 +332,7 @@ APPLICATIONS = {
             "koor_bg_users",
             "koor_bd_users",
             "koor_sd_users",
-            "koor_afu_users",
+            "koor_afe_users",
             "responsible_koor",
         ],
         "ATTACHMENT_SECTION_INTERNAL": 4,
@@ -2089,7 +2089,7 @@ APPLICATIONS = {
             "koor_bg_users",
             "koor_bd_users",
             "koor_sd_users",
-            "koor_afu_users",
+            "koor_afe_users",
             "responsible_koor",
         ],
         "DOCUMENTS_SKIP_CONTEXT_VALIDATION": True,
@@ -2268,8 +2268,8 @@ APPLICATIONS = {
                     "recipient_types": ["applicant"],
                 },
                 {
-                    "template_slug": "dossier-eingereicht-koor-afu",
-                    "recipient_types": ["koor_afu_users"],
+                    "template_slug": "dossier-eingereicht-koor-afe",
+                    "recipient_types": ["koor_afe_users"],
                 },
             ],
             "APPLICANT": {
