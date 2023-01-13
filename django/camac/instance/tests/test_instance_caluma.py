@@ -879,17 +879,17 @@ def test_instance_submit_heat_extraction_ur(
     ur_instance.case.document.form = heat_extraction_form
     ur_instance.case.document.save()
 
-    koor_service = service_factory(email="KOOR_AFU@example.com")
-    mocker.patch("camac.constants.kt_uri.KOOR_AFU_SERVICE_ID", koor_service.pk)
+    koor_service = service_factory(email="KOOR_AFE@example.com")
+    mocker.patch("camac.constants.kt_uri.KOOR_AFE_SERVICE_ID", koor_service.pk)
     koor_group = group_factory(service=koor_service)
-    mocker.patch("camac.constants.kt_uri.KOOR_AFU_GROUP_ID", koor_group.pk)
+    mocker.patch("camac.constants.kt_uri.KOOR_AFE_GROUP_ID", koor_group.pk)
     koor_email = koor_group.service.email
 
     application_settings["NOTIFICATIONS"] = {
         "SUBMIT_HEAT_EXTRACTION": [
             {
                 "template_slug": notification_template.slug,
-                "recipient_types": ["koor_afu_users"],
+                "recipient_types": ["koor_afe_users"],
             },
         ],
     }

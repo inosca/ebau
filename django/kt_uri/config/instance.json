@@ -635,7 +635,7 @@
     "fields": {
       "form_state": 1,
       "name": "Gesuch um Bohrbewilligung zur Wasser- oder Wärmeentnahme",
-      "description": "KOOR-AfU;Koordinationsstelle Amt für Umwelt",
+      "description": "KOOR-AfE;Koordinationsstelle Amt für Energie",
       "family": null
     }
   },
@@ -645,7 +645,7 @@
     "fields": {
       "form_state": 1,
       "name": "Gesuch um Konzession zur Wasser-oder Wärmeentnahme",
-      "description": "KOOR-AfU;Koordinationsstelle Amt für Umwelt",
+      "description": "KOOR-AfE;Koordinationsstelle Amt für Energie",
       "family": null
     }
   },
