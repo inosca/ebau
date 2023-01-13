@@ -389,12 +389,7 @@ module.exports = function (environment) {
         {
           // KOOR AfU
           roles: [1106],
-          forms: [
-            "mitbericht-kanton",
-            "oereb",
-            "bohrbewilligung-waermeentnahme",
-            "konzession-waermeentnahme",
-          ],
+          forms: ["mitbericht-kanton", "oereb"],
         },
         {
           // KOOR ALA
@@ -404,7 +399,11 @@ module.exports = function (environment) {
         {
           // KOOR AfE
           roles: [1127],
-          forms: ["mitbericht-kanton"],
+          forms: [
+            "mitbericht-kanton",
+            "bohrbewilligung-waermeentnahme",
+            "konzession-waermeentnahme",
+          ],
         },
         {
           // KOOR AfJ
