@@ -1206,7 +1206,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             "konzession-waermeentnahme",
             "bohrbewilligung-waermeentnahme",
         ]:
-            instance.group = Group.objects.get(pk=uri_constants.KOOR_AFU_GROUP_ID)
+            instance.group = Group.objects.get(pk=uri_constants.KOOR_AFE_GROUP_ID)
         else:
             return
 
