@@ -15643,10 +15643,10 @@
     "pk": "antrag-ausnahme-solarpflicht-technisch",
     "fields": {
       "created_at": "2022-12-20T14:39:22.489Z",
-      "modified_at": "2022-12-21T07:15:00.430Z",
+      "modified_at": "2023-01-13T08:42:48.448Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Sie ist technisch nicht m\\u00f6glich\", \"fr\": null}",
       "is_archived": false,
@@ -15659,10 +15659,10 @@
     "pk": "antrag-ausnahme-solarpflicht-vorschriften",
     "fields": {
       "created_at": "2022-12-20T14:39:22.367Z",
-      "modified_at": "2022-12-21T07:15:00.429Z",
+      "modified_at": "2023-01-13T08:42:48.388Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Sie widerspricht \\u00f6ffentlich-rechtlichen Vorschriften\", \"fr\": null}",
       "is_archived": false,
@@ -15675,12 +15675,28 @@
     "pk": "antrag-ausnahme-solarpflicht-wirtschaftlich",
     "fields": {
       "created_at": "2022-12-20T14:39:22.364Z",
-      "modified_at": "2022-12-21T07:15:00.438Z",
+      "modified_at": "2023-01-13T08:42:48.440Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Sie ist wirtschaftlich unverh\\u00e4ltnism\\u00e4ssig\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "antrag-ausnahme-solarpflicht-zev",
+    "fields": {
+      "created_at": "2023-01-13T08:42:48.431Z",
+      "modified_at": "2023-01-13T08:42:48.431Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beteiligung an einem Zusammenschluss zum Eigenverbrauch ZEV gem\\u00e4ss Energiegesetz Bund\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -33126,12 +33142,12 @@
     "pk": "antrag-ausnahme-solarpflicht",
     "fields": {
       "created_at": "2022-12-20T14:39:22.670Z",
-      "modified_at": "2022-12-21T07:15:00.549Z",
+      "modified_at": "2023-01-13T08:42:48.646Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "admin",
       "modified_by_group": null,
-      "label": "{\"de\": \"Die Installation einer Solaranlage ist aus folgenden Gr\\u00fcnden nicht m\\u00f6glich:\", \"fr\": null}",
+      "label": "{\"de\": \"Die Solaranlage wird aus folgendem Grund nicht realisiert:\", \"fr\": null}",
       "type": "multiple_choice",
       "is_required": "false",
       "is_hidden": "!(\n  \"solarpflicht-ja\" ==\"solarpflicht\"|answer\n)",
@@ -59436,44 +59452,59 @@
     "model": "caluma_form.questionoption",
     "pk": "antrag-ausnahme-solarpflicht.antrag-ausnahme-solarpflicht-technisch",
     "fields": {
-      "created_at": "2022-12-21T07:15:00.557Z",
-      "modified_at": "2022-12-21T07:15:00.557Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2023-01-13T08:42:48.659Z",
+      "modified_at": "2023-01-13T08:42:48.659Z",
+      "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "antrag-ausnahme-solarpflicht",
       "option": "antrag-ausnahme-solarpflicht-technisch",
-      "sort": 2
+      "sort": 3
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "antrag-ausnahme-solarpflicht.antrag-ausnahme-solarpflicht-vorschriften",
     "fields": {
-      "created_at": "2022-12-21T07:15:00.560Z",
-      "modified_at": "2022-12-21T07:15:00.560Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2023-01-13T08:42:48.662Z",
+      "modified_at": "2023-01-13T08:42:48.662Z",
+      "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "antrag-ausnahme-solarpflicht",
       "option": "antrag-ausnahme-solarpflicht-vorschriften",
-      "sort": 3
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "antrag-ausnahme-solarpflicht.antrag-ausnahme-solarpflicht-wirtschaftlich",
     "fields": {
-      "created_at": "2022-12-21T07:15:00.555Z",
-      "modified_at": "2022-12-21T07:15:00.555Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2023-01-13T08:42:48.656Z",
+      "modified_at": "2023-01-13T08:42:48.656Z",
+      "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "antrag-ausnahme-solarpflicht",
       "option": "antrag-ausnahme-solarpflicht-wirtschaftlich",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "antrag-ausnahme-solarpflicht.antrag-ausnahme-solarpflicht-zev",
+    "fields": {
+      "created_at": "2023-01-13T08:42:48.653Z",
+      "modified_at": "2023-01-13T08:42:48.653Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "antrag-ausnahme-solarpflicht",
+      "option": "antrag-ausnahme-solarpflicht-zev",
       "sort": 1
     }
   },
