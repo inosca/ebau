@@ -33,7 +33,7 @@ module.exports = function (environment) {
     APPLICATIONS: {
       kt_bern: {
         name: "be",
-        prodUrl: "ebau.apps.be.ch",
+        prodUrl: "www.ebau.apps.be.ch",
         gwr: {
           cantonAbbreviation: "BE",
           importModels: ["project"],
