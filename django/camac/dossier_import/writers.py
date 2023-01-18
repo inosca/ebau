@@ -25,6 +25,7 @@ from camac.dossier_import.loaders import safe_join
 from camac.dossier_import.messages import LOG_LEVEL_WARNING, Message, MessageCodes
 from camac.instance.domain_logic import SUBMIT_DATE_FORMAT
 from camac.instance.models import Instance
+from camac.user.models import Group, User
 
 
 class FieldWriter:
@@ -380,6 +381,8 @@ class EbauNumberWriter(CalumaAnswerWriter):
 class DossierWriter:
     def __init__(
         self,
+        user_id,
+        group_id: int,
         import_settings: dict = settings.APPLICATION["DOSSIER_IMPORT"],
         *args,
         **kwargs,
@@ -392,6 +395,12 @@ class DossierWriter:
 
         E. g. "_import_settings
         """
+        self._user = user_id and User.objects.get(pk=user_id)
+        self._group = Group.objects.get(pk=group_id)
+        self._caluma_user = BaseUser(
+            username=self._user.username, group=self._group.service.pk
+        )
+        self._caluma_user.camac_group = self._group.pk
         self._import_settings = import_settings
 
     def create_instance(self, dossier: Dossier) -> Instance:

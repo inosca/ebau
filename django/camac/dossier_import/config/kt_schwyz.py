@@ -2,7 +2,6 @@ from copy import deepcopy
 from typing import List
 
 from caluma.caluma_form.models import Form as CalumaForm
-from caluma.caluma_user.models import BaseUser
 from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.api import cancel_work_item, skip_work_item
 from caluma.caluma_workflow.models import WorkItem
@@ -36,7 +35,7 @@ from camac.dossier_import.writers import (
 )
 from camac.instance.domain_logic import CreateInstanceLogic
 from camac.instance.models import Form, Instance, InstanceState
-from camac.user.models import Group, Location, User
+from camac.user.models import Location
 
 PERSON_MAPPING = {
     "company": "firma",
@@ -128,15 +127,11 @@ class KtSchwyzDossierWriter(DossierWriter):
 
     def __init__(
         self,
-        user_id,
-        group_id: int,
         location_id: int,
         *args,
         **kwargs,
     ):
         super().__init__(*args, **kwargs)
-        self._user = user_id and User.objects.get(pk=user_id)
-        self._group = Group.objects.get(pk=group_id)
         self._location = Location.objects.get(pk=location_id)
 
     def create_instance(self, dossier: Dossier) -> Instance:
@@ -160,7 +155,7 @@ class KtSchwyzDossierWriter(DossierWriter):
         )
         instance = CreateInstanceLogic.create(
             creation_data,
-            caluma_user=BaseUser(),
+            caluma_user=self._caluma_user,
             camac_user=self._user,
             group=self._group,
             caluma_form=CalumaForm.objects.get(
@@ -298,11 +293,6 @@ class KtSchwyzDossierWriter(DossierWriter):
 
         default_context = {"no-notification": True, "no-history": True}
 
-        camac_user = self._user
-
-        caluma_user = BaseUser(username=camac_user.name, group=self._group.pk)
-        caluma_user.camac_group = self._group.pk
-
         # In order for a work item to be completed no sibling work items can be
         # in state ready. They have to be dealt with in advance.
         for task_id in path_to_state[target_state]:
@@ -331,15 +321,15 @@ class KtSchwyzDossierWriter(DossierWriter):
                     for item in work_item.case.work_items.filter(
                         task_id__in=tasks, status=WorkItem.STATUS_READY
                     ):
-                        action(item, caluma_user)
-            skip_work_item(work_item, user=caluma_user, context=default_context)
+                        action(item, self._caluma_user)
+            skip_work_item(work_item, user=self._caluma_user, context=default_context)
             # post complete submit
             if task_id == "submit":
                 item = work_item.case.work_items.filter(
                     task_id="reject-form", status=WorkItem.STATUS_READY
                 ).first()
                 item and cancel_work_item(
-                    item, user=caluma_user, context=default_context
+                    item, user=self._caluma_user, context=default_context
                 )
         messages.append(
             Message(

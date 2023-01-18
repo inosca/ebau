@@ -3,7 +3,6 @@ from typing import List
 from caluma.caluma_form import api as form_api
 from caluma.caluma_form.api import save_answer
 from caluma.caluma_form.models import Form as CalumaForm, Question
-from caluma.caluma_user.models import BaseUser
 from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.api import skip_work_item
 from caluma.caluma_workflow.models import WorkItem
@@ -45,7 +44,6 @@ from camac.instance.domain_logic import SUBMIT_DATE_FORMAT, CreateInstanceLogic
 from camac.instance.models import Form, Instance, InstanceState
 from camac.instance.utils import get_construction_control, set_construction_control
 from camac.tags.models import Tags
-from camac.user.models import Group, Location, User
 
 APPLICANT_MAPPING = {
     "company": "name-juristische-person-gesuchstellerin",
@@ -156,19 +154,6 @@ class KtBernDossierWriter(DossierWriter):
         target="is-paper", value="is-paper-no"
     )  # static answer
 
-    def __init__(
-        self,
-        user_id,
-        group_id: int,
-        location_id: int,
-        *args,
-        **kwargs,
-    ):
-        super().__init__(*args, **kwargs)
-        self._user = user_id and User.objects.get(pk=user_id)
-        self._group = Group.objects.get(pk=group_id)
-        self._location = location_id and Location.objects.get(pk=location_id)
-
     def create_instance(self, dossier: Dossier) -> Instance:
         """Create a Camac NG Instance with a case.
 
@@ -196,7 +181,7 @@ class KtBernDossierWriter(DossierWriter):
 
         instance = CreateInstanceLogic.create(
             creation_data,
-            caluma_user=BaseUser(username=self._user.username, group=self._group.pk),
+            caluma_user=self._caluma_user,
             camac_user=self._user,
             group=self._group,
             caluma_form=CalumaForm.objects.get(
@@ -277,7 +262,7 @@ class KtBernDossierWriter(DossierWriter):
             document=instance.case.document,
             question=q_municipality,
             value=str(self._group.service_id),
-            user=BaseUser(username=self._user.username, group=self._group.pk),
+            user=self._caluma_user,
         )
 
         dossier_summary.details += self._create_dossier_attachments(dossier, instance)
@@ -356,9 +341,6 @@ class KtBernDossierWriter(DossierWriter):
 
         default_context = {"no-notification": True, "no-history": True}
 
-        caluma_user = BaseUser(username=self._user.username, group=self._group.pk)
-        caluma_user.camac_group = self._group.pk
-
         # In order for a work item to be completed no sibling work items can be
         # in state ready. They have to be dealt with in advance.
         for task_id in path_to_state[target_state]:
@@ -387,14 +369,16 @@ class KtBernDossierWriter(DossierWriter):
                     for item in work_item.case.work_items.filter(
                         task_id__in=tasks, status=WorkItem.STATUS_READY
                     ):
-                        action(item, caluma_user)
-            skip_work_item(work_item, user=caluma_user, context=default_context)
+                        action(item, self._caluma_user)
+            skip_work_item(work_item, user=self._caluma_user, context=default_context)
             if task_id == "decision":
                 set_construction_control(instance)
             if target_state == "SUBMITTED":
                 if instance.case.meta.get("ebau-number"):
                     work_item = instance.case.work_items.get(task_id="ebau-number")
-                    skip_work_item(work_item, user=caluma_user, context=default_context)
+                    skip_work_item(
+                        work_item, user=self._caluma_user, context=default_context
+                    )
                     self.write_ebau_number_form(instance, work_item, dossier)
                     instance.instance_state = InstanceState.objects.get(
                         name="circulation_init"
@@ -421,7 +405,7 @@ class KtBernDossierWriter(DossierWriter):
                 question=question,
                 document=document,
                 value=value,
-                user=BaseUser(username=self._user.username, group=self._group.pk),
+                user=self._caluma_user,
             )
         except ValidationError:  # pragma: no cover
             dossier._meta.errors.append(
@@ -439,7 +423,7 @@ class KtBernDossierWriter(DossierWriter):
                 question=question_exists,
                 document=document,
                 value=f"{exists_slug}-yes",
-                user=BaseUser(username=self._user.username, group=self._group.pk),
+                user=self._caluma_user,
             )
         except ValidationError:  # pragma: no cover
             dossier._meta.errors.append(
@@ -470,10 +454,12 @@ class KtBernDossierWriter(DossierWriter):
             document=decision_work_item.document,
             question=Question.objects.get(slug="decision-decision-assessment"),
             value=decision_mapping[dossier._meta.workflow][dossier._meta.target_state],
+            user=self._caluma_user,
         )
         if dossier._meta.workflow == "BUILDINGPERMIT":
             form_api.save_answer(
                 document=decision_work_item.document,
                 question=Question.objects.get(pk="decision-approval-type"),
                 value=DECISION_TYPE_UNKNOWN,
+                user=self._caluma_user,
             )
