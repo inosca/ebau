@@ -2140,6 +2140,7 @@ APPLICATIONS = {
                         "archivdossier",
                         "konzession-waermeentnahme",
                         "bohrbewilligung-waermeentnahme",
+                        "pgv-gemeindestrasse",
                     ],
                     "people_sources": [
                         "applicant",
@@ -2242,7 +2243,7 @@ APPLICATIONS = {
                     "recipient_types": ["municipality_users"],
                 },
             ],
-            "SUBMIT_CANTONAL_TERRITORY_USAGE_SD": [
+            "SUBMIT_KOOR_SD": [
                 {
                     "template_slug": "dossier-eingereicht-gesuchsteller",
                     "recipient_types": ["applicant"],
@@ -2252,7 +2253,7 @@ APPLICATIONS = {
                     "recipient_types": ["koor_sd_users"],
                 },
             ],
-            "SUBMIT_CANTONAL_TERRITORY_USAGE_BD": [
+            "SUBMIT_KOOR_BD": [
                 {
                     "template_slug": "dossier-eingereicht-gesuchsteller",
                     "recipient_types": ["applicant"],
@@ -2262,7 +2263,7 @@ APPLICATIONS = {
                     "recipient_types": ["koor_bd_users"],
                 },
             ],
-            "SUBMIT_HEAT_EXTRACTION": [
+            "SUBMIT_KOOR_AFE": [
                 {
                     "template_slug": "dossier-eingereicht-gesuchsteller",
                     "recipient_types": ["applicant"],

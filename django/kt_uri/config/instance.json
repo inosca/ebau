@@ -650,6 +650,16 @@
     }
   },
   {
+    "model": "instance.form",
+    "pk": 304,
+    "fields": {
+      "form_state": 1,
+      "name": "PGV Gemeindestrasse",
+      "description": "KOOR-BD;Koordinationsstelle für Bewilligungsverfahren Baudirektion",
+      "family": null
+    }
+  },
+  {
     "model": "instance.formstate",
     "pk": 1,
     "fields": {
