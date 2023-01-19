@@ -141,6 +141,10 @@ export default class UrGisComponent extends Component {
   _map = null;
   _value = null;
 
+  get url() {
+    return this.config.urGisUrl;
+  }
+
   @enqueueTask
   *handleLoad(target) {
     try {
