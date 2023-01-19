@@ -427,6 +427,7 @@ module.exports = function (environment) {
   const oidcHost = process.env.KEYCLOAK_HOST || "http://ebau-keycloak.local";
   const internalURL = process.env.INTERNAL_URL || "http://ebau.local";
   const beGisUrl = process.env.BE_GIS_URL || "https://www.map.apps.be.ch";
+  const urGisUrl = process.env.UR_GIS_URL || "https://geo.ur.ch/wms";
 
   const ENV = {
     modulePrefix: "caluma-portal",
@@ -447,6 +448,7 @@ module.exports = function (environment) {
     },
     "ember-ebau-core": {
       attachmentSections: { applicant: "12000000" },
+      urGisUrl,
     },
     apollo: {
       apiURL: "/graphql/",
@@ -491,6 +493,7 @@ module.exports = function (environment) {
 
   if (environment === "development") {
     ENV.ebau.beGisUrl = "https://www.map2-test.apps.be.ch";
+    ENV["ember-ebau-core"].urGisUrl = "/lisag/wms";
   }
 
   if (environment === "test") {
