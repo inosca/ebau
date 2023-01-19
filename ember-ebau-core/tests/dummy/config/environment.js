@@ -1,6 +1,8 @@
 "use strict";
 
 module.exports = function (environment) {
+  const urGisUrl = "/lisag/wms";
+
   const ENV = {
     modulePrefix: "dummy",
     environment,
@@ -18,6 +20,7 @@ module.exports = function (environment) {
     },
     "ember-ebau-core": {
       attachmentSections: { applicant: "12000000" },
+      urGisUrl,
     },
 
     APP: {
