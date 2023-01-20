@@ -427,9 +427,7 @@ module.exports = function (environment) {
   const oidcHost = process.env.KEYCLOAK_HOST || "http://ebau-keycloak.local";
   const internalURL = process.env.INTERNAL_URL || "http://ebau.local";
   const beGisUrl = process.env.BE_GIS_URL || "https://www.map.apps.be.ch";
-  const urGisUrl =
-    process.env.UR_GIS_URL ||
-    "https://service-webmercator.lisag.hosting.karten-werk.ch/wms";
+  const urGisUrl = process.env.UR_GIS_URL || "https://geo.ur.ch/wms";
 
   const ENV = {
     modulePrefix: "caluma-portal",
