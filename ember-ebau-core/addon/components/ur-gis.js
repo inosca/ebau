@@ -41,13 +41,13 @@ const CENTER = { lat: 46.881301, lng: 8.643078 };
 const LAYERS = [
   "raumplanung:nutzungsplanung",
   "av:ch059_liegenschaften_flaechen",
-  "av:ch059_liegenschaften_parzellenbild",
+  // "av:ch059_liegenschaften_parzellenbild",
   "raumplanung:sondernutzungsplanung",
   "weitere:wanderwege_netz",
   "weitere:archaeologische_funderwartungsgebiete",
   "av:ch055_bodenbedeckung_flaechen_sw",
   "av:ch059_liegenschaften_selbstrechte",
-  "leitungen:ur034_abwasseranlagen_eigentum",
+  // "leitungen:ur034_abwasseranlagen_eigentum",
   "ch060_gebaeudeadresse_gebeudeeingaenge",
   "av:ch060_gebaeudeadressen_strassenstuecke",
 ];
