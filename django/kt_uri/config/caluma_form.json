@@ -9720,7 +9720,7 @@
       "modified_by_group": null,
       "form": "personal-data-table",
       "question": "e-mail",
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -9735,7 +9735,7 @@
       "modified_by_group": null,
       "form": "personal-data-table",
       "question": "country",
-      "sort": 16
+      "sort": 17
     }
   },
   {
@@ -9750,7 +9750,7 @@
       "modified_by_group": null,
       "form": "personal-data-table",
       "question": "first-name",
-      "sort": 23
+      "sort": 24
     }
   },
   {
@@ -9765,7 +9765,22 @@
       "modified_by_group": null,
       "form": "personal-data-table",
       "question": "has-representative",
-      "sort": 13
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personal-data-table.hinweis-personalien",
+    "fields": {
+      "created_at": "2023-01-20T11:46:39.236Z",
+      "modified_at": "2023-01-20T11:46:39.237Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "personal-data-table",
+      "question": "hinweis-personalien",
+      "sort": 1
     }
   },
   {
@@ -9780,7 +9795,7 @@
       "modified_by_group": null,
       "form": "personal-data-table",
       "question": "is-juristic-person",
-      "sort": 28
+      "sort": 29
     }
   },
   {
@@ -9795,7 +9810,7 @@
       "modified_by_group": null,
       "form": "personal-data-table",
       "question": "juristic-contact-title",
-      "sort": 26
+      "sort": 27
     }
   },
   {
@@ -9810,7 +9825,7 @@
       "modified_by_group": null,
       "form": "personal-data-table",
       "question": "juristic-person-name",
-      "sort": 27
+      "sort": 28
     }
   },
   {
@@ -9825,7 +9840,7 @@
       "modified_by_group": null,
       "form": "personal-data-table",
       "question": "last-name",
-      "sort": 22
+      "sort": 23
     }
   },
   {
@@ -9840,7 +9855,7 @@
       "modified_by_group": null,
       "form": "personal-data-table",
       "question": "city",
-      "sort": 17
+      "sort": 18
     }
   },
   {
@@ -9855,7 +9870,7 @@
       "modified_by_group": null,
       "form": "personal-data-table",
       "question": "p-o-box",
-      "sort": 19
+      "sort": 20
     }
   },
   {
@@ -9870,7 +9885,7 @@
       "modified_by_group": null,
       "form": "personal-data-table",
       "question": "phone",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -9885,7 +9900,7 @@
       "modified_by_group": null,
       "form": "personal-data-table",
       "question": "representative-city",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -9900,7 +9915,7 @@
       "modified_by_group": null,
       "form": "personal-data-table",
       "question": "representative-country",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -9915,7 +9930,7 @@
       "modified_by_group": null,
       "form": "personal-data-table",
       "question": "representative-e-mail",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -9930,7 +9945,7 @@
       "modified_by_group": null,
       "form": "personal-data-table",
       "question": "representative-first-name",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -9945,7 +9960,7 @@
       "modified_by_group": null,
       "form": "personal-data-table",
       "question": "representative-last-name",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -9960,7 +9975,7 @@
       "modified_by_group": null,
       "form": "personal-data-table",
       "question": "representative-p-o-box",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -9975,7 +9990,7 @@
       "modified_by_group": null,
       "form": "personal-data-table",
       "question": "representative-phone",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -9990,7 +10005,7 @@
       "modified_by_group": null,
       "form": "personal-data-table",
       "question": "representative-salutation",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -10005,7 +10020,7 @@
       "modified_by_group": null,
       "form": "personal-data-table",
       "question": "representative-street",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -10020,7 +10035,7 @@
       "modified_by_group": null,
       "form": "personal-data-table",
       "question": "representative-street-number",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -10035,7 +10050,7 @@
       "modified_by_group": null,
       "form": "personal-data-table",
       "question": "representative-title",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -10050,7 +10065,7 @@
       "modified_by_group": null,
       "form": "personal-data-table",
       "question": "representative-zip",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -10065,7 +10080,7 @@
       "modified_by_group": null,
       "form": "personal-data-table",
       "question": "salutation",
-      "sort": 25
+      "sort": 26
     }
   },
   {
@@ -10080,7 +10095,7 @@
       "modified_by_group": null,
       "form": "personal-data-table",
       "question": "street",
-      "sort": 21
+      "sort": 22
     }
   },
   {
@@ -10095,7 +10110,7 @@
       "modified_by_group": null,
       "form": "personal-data-table",
       "question": "street-number",
-      "sort": 20
+      "sort": 21
     }
   },
   {
@@ -10110,7 +10125,7 @@
       "modified_by_group": null,
       "form": "personal-data-table",
       "question": "title",
-      "sort": 24
+      "sort": 25
     }
   },
   {
@@ -10125,7 +10140,7 @@
       "modified_by_group": null,
       "form": "personal-data-table",
       "question": "zip",
-      "sort": 18
+      "sort": 19
     }
   },
   {
@@ -45514,6 +45529,37 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"---\\n\\n####**Unterzeichnung / Einreichung**\\n\\n#####Physische Unterzeichnung des PDF Formulars\\n\\nBitte erstellen Sie das PDF Formular des Dossiers (Formulardownload siehe unten), drucken Sie es aus und schicken Sie es handschriftlich unterzeichnet an die verfahrensleitende Beh\\u00f6rde (Amt f\\u00fcr Energie Uri, Klausenstrasse 2, 6460 Altdorf)\\n\\n\\n#####Elektronische Unterzeichnung des PDF Formulars\\n\\nAlternativ k\\u00f6nnen Sie das PDF Formular downloaden, qualifiziert elektronisch unterzeichnen und bei den Dokumenten hochladen. Qualifiziert elektronisch unterzeichnete PDF Formulare m\\u00fcssen, unter dem Vorbehalt der Einreichung allf\\u00e4lliger physischer Gesamtdossiers (siehe unten) nicht schriftlich eingereicht werden. \\n\\n\\nMit Klick auf die Schaltfl\\u00e4che \\\"Einreichen\\\"...\\n\\n...best\\u00e4tigen Sie, dass das Formular vollst\\u00e4ndig und wahrheitsgetreu ausgef\\u00fcllt wurde,\\n...wird Ihr Gesuch bei der zust\\u00e4ndigen Beh\\u00f6rde zur Pr\\u00fcfung eingereicht,\\n...k\\u00f6nnen Sie an den Formulareintr\\u00e4gen keine Ver\\u00e4nderungen mehr vornehmen.\\n\\n\\n#####Pr\\u00fcfung des Gesuches\\n\\n**Erteilung Bohrbewilligung**\\nSobald das Gesuch um Bohrbewilligung eingereicht ist, wird es durch den Kanton gepr\\u00fcft und im Amtsblatt sowie auf der Gemeinde f\\u00fcr 30 Tage publiziert. Ohne Einsprachen Dritter und bei positivem Pr\\u00fcfentscheid durch den Kanton wird anschliessend die Bohrbewilligung erteilt.\\n\\n**Erteilung Konzession**\\nF\\u00fcr die Erteilung der konzession ist wie bereits erw\\u00e4hnt, ein separates Dossier zu er\\u00f6ffnen (Konzessionsgesuch). Sobald dieses Gesuch eingereicht ist, wird es durch den Kanton gepr\\u00fcft. Nach positivem Pr\\u00fcfentscheid erh\\u00e4lt der Gesuchsteller den Konzessionsvertrag zur Unterschrift zugestellt.\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-personalien",
+    "fields": {
+      "created_at": "2023-01-20T11:46:39.032Z",
+      "modified_at": "2023-01-20T11:46:39.032Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis Gesuchsteller/in\", \"fr\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert\\\"><p>Wenn die hier erfasste Person zus\\u00e4tzlich Zugang zum Dossier erhalten und \\u00fcber dessen Bearbeitungsfortschritt informiert werden soll, erfassen Sie diese im Men\\u00fc \\\"Berechtigungen\\\".</p>\\n\\n<p>Um auf das Dossier zuzugreifen, muss die eingeladene Personen auf dem eBau Portal registriert sein. Falls dies noch nicht der Fall ist, wird bei der Einladung automatisch eine E-Mail mit einem Link zur Registrierung versendet.</p></div>\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
