@@ -927,9 +927,10 @@ def format_relationships_to_persons(md: MasterData):
 
 
 def get_relationship_to_person(answers: AnswersDict):
-    people = {"applicant": get_applicant_data(answers)}
+    people = []
 
     slug_map = [
+        ("personalien-gesuchstellerin", "applicant"),
         ("personalien-vertreterin-mit-vollmacht", "contact"),
         ("personalien-projektverfasserin", "project author"),
         ("personalien-grundeigentumerin", "landowner"),
@@ -938,11 +939,28 @@ def get_relationship_to_person(answers: AnswersDict):
     for slug, role in slug_map:
         form = answers.get(slug)
         if form:
-            people[role] = normalize_personalien(form[0])
+            for row in form:
+                people.append((role, normalize_personalien(row)))
+        elif role == "applicant":
+            # No applicant given (should not be possible)
+            people.append(
+                (
+                    role,
+                    {
+                        "vorname": None,
+                        "name": None,
+                        "strasse": None,
+                        "nummer": None,
+                        "ort": None,
+                        "plz": None,
+                        "juristische-person": "Nein",
+                    },
+                )
+            )
 
     return [
         ns_application.relationshipToPersonType(role=role, person=person_type(pers))
-        for role, pers in people.items()
+        for role, pers in people
     ]
 
 
@@ -988,34 +1006,6 @@ def person_type(person):
             country="CH",
         ),
     )
-
-
-def get_applicant_data(answers):
-    if "personalien-gesuchstellerin" in answers:
-        pers_infos = answers["personalien-gesuchstellerin"][0]
-        return {
-            "vorname": pers_infos.get("vorname-gesuchstellerin"),
-            "name": pers_infos.get("name-gesuchstellerin"),
-            "strasse": pers_infos["strasse-gesuchstellerin"],
-            "nummer": pers_infos.get("nummer-gesuchstellerin"),
-            "ort": pers_infos["ort-gesuchstellerin"],
-            "plz": pers_infos["plz-gesuchstellerin"],
-            "juristische-person": pers_infos["juristische-person-gesuchstellerin"],
-            "name-juristische-person": pers_infos.get(
-                "name-juristische-person-gesuchstellerin"
-            ),
-        }
-
-    # No value given (should not be possible)
-    return {
-        "vorname": None,
-        "name": None,
-        "strasse": None,
-        "nummer": None,
-        "ort": None,
-        "plz": None,
-        "juristische-person": "Nein",
-    }
 
 
 def directive(comment, deadline=None):
