@@ -41,7 +41,7 @@
     "fields": {
       "name": "",
       "description": null,
-      "sort": 7,
+      "sort": 8,
       "notification_template": null,
       "recipient_types": "[]",
       "allowed_mime_types": "[]"
@@ -53,7 +53,7 @@
     "fields": {
       "name": "",
       "description": null,
-      "sort": 11,
+      "sort": 12,
       "notification_template": null,
       "recipient_types": "[]",
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
@@ -65,7 +65,7 @@
     "fields": {
       "name": "",
       "description": null,
-      "sort": 9,
+      "sort": 10,
       "notification_template": null,
       "recipient_types": "[]",
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
@@ -89,7 +89,7 @@
     "fields": {
       "name": "",
       "description": null,
-      "sort": 8,
+      "sort": 9,
       "notification_template": null,
       "recipient_types": "[]",
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
@@ -101,7 +101,7 @@
     "fields": {
       "name": "",
       "description": null,
-      "sort": 10,
+      "sort": 11,
       "notification_template": null,
       "recipient_types": "[]",
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
@@ -113,7 +113,7 @@
     "fields": {
       "name": "",
       "description": null,
-      "sort": 12,
+      "sort": 13,
       "notification_template": null,
       "recipient_types": "[]",
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
@@ -138,6 +138,18 @@
       "name": "",
       "description": null,
       "sort": 2,
+      "notification_template": null,
+      "recipient_types": "[]",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
+    }
+  },
+  {
+    "model": "document.attachmentsection",
+    "pk": 14,
+    "fields": {
+      "name": "",
+      "description": null,
+      "sort": 7,
       "notification_template": null,
       "recipient_types": "[]",
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
@@ -381,6 +393,26 @@
       "language": "fr",
       "name": "Demandes de complément d’information (papier)",
       "description": "Il est possible de télécharger ici des documents qui ont été soumis par la personne requérante sur papier (ou en dehors du système eBau, par exemple par courrier électronique) dans le cadre d'une demande de complément d’information. Les documents peuvent être consultés par toutes les autorités impliquées dans la procédure."
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 26,
+    "fields": {
+      "attachment_section": 14,
+      "language": "de",
+      "name": "Rechtsbegehren",
+      "description": ""
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 27,
+    "fields": {
+      "attachment_section": 14,
+      "language": "fr",
+      "name": "Rechtsbegehren",
+      "description": ""
     }
   }
 ]

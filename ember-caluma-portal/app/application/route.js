@@ -2,6 +2,7 @@ import { getOwner } from "@ember/application";
 import Route from "@ember/routing/route";
 import { inject as service } from "@ember/service";
 import DocumentValidityButtonComponent from "ember-ebau-core/components/document-validity-button";
+import LinkAttachmentsComponent from "ember-ebau-core/components/link-attachments";
 import UrGisComponent from "ember-ebau-core/components/ur-gis";
 
 import BeClaimsFormComponent from "caluma-portal/components/be-claims-form";
@@ -107,6 +108,11 @@ export default class ApplicationRoute extends Route {
       label: "Validierungs Button",
       component: "document-validity-button",
       componentClass: DocumentValidityButtonComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Dokumente verlinken",
+      component: "link-attachments",
+      componentClass: LinkAttachmentsComponent,
     });
   }
 }

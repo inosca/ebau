@@ -3,9 +3,9 @@ import Component from "@glimmer/component";
 import { decodeId } from "@projectcaluma/ember-core/helpers/decode-id";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
+import createDocument from "ember-ebau-core/gql/mutations/create-document.graphql";
+import linkDocument from "ember-ebau-core/gql/mutations/link-document.graphql";
 
-import createAuditDocument from "camac-ng/gql/mutations/create-audit-document.graphql";
-import linkAuditDocument from "camac-ng/gql/mutations/link-audit-document.graphql";
 import saveAnswerMutation from "camac-ng/gql/mutations/save-answer.graphql";
 import getMainDocumentAnswerQuery from "camac-ng/gql/queries/get-document-answer.graphql";
 
@@ -28,7 +28,7 @@ export default class AuditTableComponent extends Component {
       // create empty document
       const document = yield this.apollo.mutate(
         {
-          mutation: createAuditDocument,
+          mutation: createDocument,
           variables: { form },
         },
         "saveDocument.document"
@@ -73,7 +73,7 @@ export default class AuditTableComponent extends Component {
 
       // link document to the right table
       yield this.apollo.mutate({
-        mutation: linkAuditDocument,
+        mutation: linkDocument,
         variables: {
           question: form,
           document: this.args.documentData.id,

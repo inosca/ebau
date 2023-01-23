@@ -82,87 +82,87 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
         {
             'BEANTWORTET': '',
             'CREE': '30.08.2021',
-            'DELAI': '18.11.1986',
+            'DELAI': '03.03.1970',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '18.11.1986',
-            'NAME': 'Melissa Walsh',
-            'NOM': 'Melissa Walsh',
+            'FRIST': '03.03.1970',
+            'NAME': 'John Ward',
+            'NOM': 'John Ward',
             'REPONDU': ''
         },
         {
             'BEANTWORTET': '',
             'CREE': '30.08.2021',
-            'DELAI': '07.10.1975',
+            'DELAI': '26.01.1999',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '07.10.1975',
-            'NAME': 'Tanner Craig',
-            'NOM': 'Tanner Craig',
+            'FRIST': '26.01.1999',
+            'NAME': 'Brittany Hill',
+            'NOM': 'Brittany Hill',
             'REPONDU': ''
         }
     ],
     'CIRCULATION_PREAVIS': [
         {
             'ANTWORT': 'Baubewilligungspflichtig',
-            'DE': 'David Morris',
+            'DE': 'Dale Summers',
             'DISPOSITIONS_ACCESSOIRES': 'Nebenbestimmungen 5',
             'NEBENBESTIMMUNGEN': 'Nebenbestimmungen 5',
             'POINT_DE_VUE': 'Stellungnahme 5',
             'REPONSE': 'Baubewilligungspflichtig',
             'STELLUNGNAHME': 'Stellungnahme 5',
-            'VON': 'David Morris'
+            'VON': 'Dale Summers'
         },
         {
-            'ANTWORT': 'Baubewilligungspflichtig',
-            'DE': 'Jacob Alvarez',
+            'ANTWORT': 'Nicht betroffen / nicht zuständig',
+            'DE': 'Robert Cowan',
             'DISPOSITIONS_ACCESSOIRES': 'Nebenbestimmungen 6',
             'NEBENBESTIMMUNGEN': 'Nebenbestimmungen 6',
             'POINT_DE_VUE': 'Stellungnahme 6',
-            'REPONSE': 'Baubewilligungspflichtig',
+            'REPONSE': 'Nicht betroffen / nicht zuständig',
             'STELLUNGNAHME': 'Stellungnahme 6',
-            'VON': 'Jacob Alvarez'
+            'VON': 'Robert Cowan'
         }
     ],
     'CIRCULATION_PREF': [
         {
             'BEANTWORTET': '',
             'CREE': '30.08.2021',
-            'DELAI': '07.04.1973',
+            'DELAI': '29.01.2021',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '07.04.1973',
-            'NAME': 'Lisa Oneill',
-            'NOM': 'Lisa Oneill',
+            'FRIST': '29.01.2021',
+            'NAME': 'Scott Clark',
+            'NOM': 'Scott Clark',
             'REPONDU': ''
         }
     ],
     'CIRCULATION_SERVICES': [
         {
-            'BEANTWORTET': '10.11.1971',
+            'BEANTWORTET': '13.02.1982',
             'CREE': '30.08.2021',
-            'DELAI': '05.11.1976',
+            'DELAI': '17.06.1987',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '05.11.1976',
-            'NAME': 'David Morris',
-            'NOM': 'David Morris',
-            'REPONDU': '10.11.1971'
+            'FRIST': '17.06.1987',
+            'NAME': 'Dale Summers',
+            'NOM': 'Dale Summers',
+            'REPONDU': '13.02.1982'
         },
         {
-            'BEANTWORTET': '27.11.2002',
+            'BEANTWORTET': '15.08.1971',
             'CREE': '30.08.2021',
-            'DELAI': '19.05.1994',
+            'DELAI': '24.08.2008',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '19.05.1994',
-            'NAME': 'Jacob Alvarez',
-            'NOM': 'Jacob Alvarez',
-            'REPONDU': '27.11.2002'
+            'FRIST': '24.08.2008',
+            'NAME': 'Robert Cowan',
+            'NOM': 'Robert Cowan',
+            'REPONDU': '15.08.1971'
         }
     ],
     'COMMUNE': 'Burgdorf',
-    'COMMUNE_ADRESSE': 'North Arthur',
+    'COMMUNE_ADRESSE': 'Jacobmouth',
     'COMMUNE_ADRESSE_1': '',
-    'COMMUNE_ADRESSE_2': 'North Arthur',
-    'COMMUNE_EMAIL': 'ghunter@example.net',
-    'COMMUNE_LIEU': 'North Arthur',
-    'COMMUNE_NOM_ADRESSE': 'Gemeinde Burgdorf, North Arthur',
+    'COMMUNE_ADRESSE_2': 'Jacobmouth',
+    'COMMUNE_EMAIL': 'jhill@example.net',
+    'COMMUNE_LIEU': 'Jacobmouth',
+    'COMMUNE_NOM_ADRESSE': 'Gemeinde Burgdorf, Jacobmouth',
     'COMMUNE_TELEPHONE': '',
     'COMMUNICATION_AUX_VOISINS_CODE_QR': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZoAAAGaAQAAAAAefbjOAAADLElEQVR4nO2bQW7jOBBFX40EeEkBfQAfhbrBHCnom1lHyQEaEJcGSPxZkFSU9Cym4YztRMWFIFp6MAsgqoq/Sib+eCx//TkDDjnkkEMOOeTQ94SsjREWG7E5jUBqU0j9hfkhy3PojhCSJKIkaR3qHTCoPoBBxLVPoyRdntwmhz4DSt0BLGamS7iazRSDkOsL1YM8ankOPQ6K6yB7WakBQ5f/758cekpo/DDXcr6alukXgjIS1zKK9KjlOXR3qO+IICAB8XWEuCKDoV4A2CtZT26TQ58ALWZmNoHNDKpnjbhSLzZT6lHjUctz6N4+Yu8AwtVEKibI9Lv3WveT2+TQ7ZDNQBcgTjKbgGUqzSksVahwH3EEqOoR0gq6hIwuQSKusPtNyrBpFK5HfGtop1DVxAGAqLxtlU2cWvv28R1xCKgYhG1bpHYGsRlawFimRy7PoXtBzUds0mQLHWzhZOcesvuIw0BNmgwS8fUkm4GmbKeeTy7TloF+CZscuuX0aXCSkcZs8XLtRwqGbATBcs6jxbX0Q+iT2+TQLdAugWxlzyARldnVQwF0YfDa5wGgzUdgIk1omZuL0DKt/a3wazTCNn1ymxz6FGio7sFmANKIvbxaK4nH15N0SV4NPxAUlbE5je2s8XOiXgB+L4l/DZscur2uETLVPRBWLKqMtSi6/H01oJhnloeBatEimdlLVayLtY6Zt1gRMjY/ZnkOPUDFzjVg0BorAUKuxY3qPLZmSz9rfGto8wCDDE6C9AMt5zwKattMBhDL+epR42BQVBOn7GUdBMlM0tVamSOd9C/Q/Zbn0F2gra7RS+J6L061Zn36bx41jgH1dEHvShoU08+pWNsWaaQ9/RI2OXSrZgkwZMEglglaL10NGD9qadTziMNAsTdS9ea5rf1WmV4rL95VdyBo+6arjWK9z3JQ65g5yzPLQ0JVe2i9M60/Ikj7TfPlbHLov4+P33S1Q2bII3EtqPXSlXfvPblNDt0C/f5Nl3qsALC41qTyTau66/IcujvU9Yg6BjXtuvdevnXM7PqzXY/4ztDHb7q0zdpdyNvTwTNLhxxyyCGHHHJoN/4BMBD7kv22h4gAAAAASUVORK5CYII=',
     'COMMUNICATION_AUX_VOISINS_LIEN': 'http://ebau-portal.local/public-instances/1/form?key=5a49823',
@@ -180,6 +180,22 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'DECISION_REFUS_AVEC_RET': False,
     'DECISION_REFUS_SANS_RET': False,
     'DECISION_TYPE': 'GESAMT',
+    'DEMANDES_EN_COMPENSATION_DES_CHARGES': [
+        {
+            'DATE_DOCUMENT': '01.10.2022',
+            'DATE_RECEPTION': '02.10.2022',
+            'DATUM_DOKUMENT': '01.10.2022',
+            'DATUM_EINGANG': '02.10.2022',
+            'GRIEFS': '''Test LAB 1
+Test LAB 2''',
+            'RECHTSBEGEHRENDE': 'Lastenausgleichsbegehren4you AG',
+            'REQUERANTS_CONCLUSIONS': 'Lastenausgleichsbegehren4you AG',
+            'RUEGEPUNKTE': '''Test LAB 1
+Test LAB 2''',
+            'TITEL': 'Test Lastenausgleichsbegehren',
+            'TITRE': 'Test Lastenausgleichsbegehren'
+        }
+    ],
     'DEPOT_DEMANDE_DATE': '31. März 2021',
     'DESCRIPTION_MODIFICATION': 'Doch eher kleines Haus',
     'DISPOSITIONS_ANNEXES': 'Nebenbestimmungen 1',
@@ -194,65 +210,87 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'EBAU_URL': 'http://ebau.local',
     'EIGENE_GEBUEHREN': [
         {
-            'BETRAG': '559.32',
-            'FORFAIT': '559.32',
+            'BETRAG': '392.66',
+            'FORFAIT': '392.66',
             'POSITION': ''
         },
         {
-            'BETRAG': '279.33',
-            'FORFAIT': '279.33',
+            'BETRAG': '574.29',
+            'FORFAIT': '574.29',
             'POSITION': ''
         }
     ],
-    'EIGENE_GEBUEHREN_TOTAL': '838.65',
+    'EIGENE_GEBUEHREN_TOTAL': '966.95',
     'EIGENE_NEBENBESTIMMUNGEN': 'Nebenbestimmungen 1',
     'EIGENE_STELLUNGNAHMEN': 'Stellungnahme 1',
+    'EINSPRACHEN': [
+        {
+            'DATE_DOCUMENT': '01.12.2022',
+            'DATE_RECEPTION': '02.12.2022',
+            'DATUM_DOKUMENT': '01.12.2022',
+            'DATUM_EINGANG': '02.12.2022',
+            'GRIEFS': '''Test E 1
+Test E 2''',
+            'RECHTSBEGEHRENDE': 'Heinz Einsprachenmann',
+            'REQUERANTS_CONCLUSIONS': 'Heinz Einsprachenmann',
+            'RUEGEPUNKTE': '''Test E 1
+Test E 2''',
+            'TITEL': 'Test Einsprache',
+            'TITRE': 'Test Einsprache'
+        }
+    ],
     'EINSPRECHENDE': [
         {
-            'ADDRESS': 'Teststrasse 1, 1234 Testdorf',
-            'ADRESSE': 'Teststrasse 1, 1234 Testdorf',
-            'NAME': 'Test AG, Müller Hans',
-            'NOM': 'Test AG, Müller Hans'
+            'ADDRESS': 'Beispielstrasse 1, 4321 Beispieldorf',
+            'ADRESSE': 'Beispielstrasse 1, 4321 Beispieldorf',
+            'NAME': 'Heinz Einsprachenmann',
+            'NOM': 'Heinz Einsprachenmann'
         },
         {
-            'ADDRESS': 'Bahnhofstrasse 32, 9874 Testingen',
-            'ADRESSE': 'Bahnhofstrasse 32, 9874 Testingen',
-            'NAME': 'Muster Max',
-            'NOM': 'Muster Max'
+            'ADDRESS': 'Beispielstrasse 2, 4321 Beispieldorf',
+            'ADRESSE': 'Beispielstrasse 2, 4321 Beispieldorf',
+            'NAME': 'Martha Rechstverwahrungsson',
+            'NOM': 'Martha Rechstverwahrungsson'
+        },
+        {
+            'ADDRESS': 'Beispielstrasse 3, 4321 Beispieldorf',
+            'ADRESSE': 'Beispielstrasse 3, 4321 Beispieldorf',
+            'NAME': 'Lastenausgleichsbegehren4you AG',
+            'NOM': 'Lastenausgleichsbegehren4you AG'
         }
     ],
     'EMAIL': '',
     'EMOLUMENTS': [
         {
-            'BETRAG': '419.90',
-            'FORFAIT': '419.90',
+            'BETRAG': '378.78',
+            'FORFAIT': '378.78',
             'POSITION': ''
         },
         {
-            'BETRAG': '98.57',
-            'FORFAIT': '98.57',
+            'BETRAG': '780.57',
+            'FORFAIT': '780.57',
             'POSITION': ''
         },
         {
-            'BETRAG': '559.32',
-            'FORFAIT': '559.32',
+            'BETRAG': '392.66',
+            'FORFAIT': '392.66',
             'POSITION': ''
         },
         {
-            'BETRAG': '279.33',
-            'FORFAIT': '279.33',
+            'BETRAG': '574.29',
+            'FORFAIT': '574.29',
             'POSITION': ''
         }
     ],
-    'EMOLUMENTS_TOTAL': '1’357.12',
+    'EMOLUMENTS_TOTAL': '2’126.30',
     'ETAT': 'Pamela Horton',
     'FACHSTELLEN_KANTONAL': [
         {
             'BEANTWORTET': '',
             'CREE': '30.08.2021',
-            'DELAI': '26.11.2007',
+            'DELAI': '16.10.2004',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '26.11.2007',
+            'FRIST': '16.10.2004',
             'NAME': 'Matthew Bowen',
             'NOM': 'Matthew Bowen',
             'REPONDU': ''
@@ -260,52 +298,52 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
         {
             'BEANTWORTET': '',
             'CREE': '30.08.2021',
-            'DELAI': '07.04.1973',
+            'DELAI': '29.01.2021',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '07.04.1973',
-            'NAME': 'Lisa Oneill',
-            'NOM': 'Lisa Oneill',
+            'FRIST': '29.01.2021',
+            'NAME': 'Scott Clark',
+            'NOM': 'Scott Clark',
             'REPONDU': ''
         },
         {
             'BEANTWORTET': '',
             'CREE': '30.08.2021',
-            'DELAI': '18.11.1986',
+            'DELAI': '03.03.1970',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '18.11.1986',
-            'NAME': 'Melissa Walsh',
-            'NOM': 'Melissa Walsh',
+            'FRIST': '03.03.1970',
+            'NAME': 'John Ward',
+            'NOM': 'John Ward',
             'REPONDU': ''
         },
         {
             'BEANTWORTET': '',
             'CREE': '30.08.2021',
-            'DELAI': '07.10.1975',
+            'DELAI': '26.01.1999',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '07.10.1975',
-            'NAME': 'Tanner Craig',
-            'NOM': 'Tanner Craig',
+            'FRIST': '26.01.1999',
+            'NAME': 'Brittany Hill',
+            'NOM': 'Brittany Hill',
             'REPONDU': ''
         },
         {
-            'BEANTWORTET': '10.11.1971',
+            'BEANTWORTET': '13.02.1982',
             'CREE': '30.08.2021',
-            'DELAI': '05.11.1976',
+            'DELAI': '17.06.1987',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '05.11.1976',
-            'NAME': 'David Morris',
-            'NOM': 'David Morris',
-            'REPONDU': '10.11.1971'
+            'FRIST': '17.06.1987',
+            'NAME': 'Dale Summers',
+            'NOM': 'Dale Summers',
+            'REPONDU': '13.02.1982'
         },
         {
-            'BEANTWORTET': '27.11.2002',
+            'BEANTWORTET': '15.08.1971',
             'CREE': '30.08.2021',
-            'DELAI': '19.05.1994',
+            'DELAI': '24.08.2008',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '19.05.1994',
-            'NAME': 'Jacob Alvarez',
-            'NOM': 'Jacob Alvarez',
-            'REPONDU': '27.11.2002'
+            'FRIST': '24.08.2008',
+            'NAME': 'Robert Cowan',
+            'NOM': 'Robert Cowan',
+            'REPONDU': '15.08.1971'
         },
         {
             'BEANTWORTET': '',
@@ -319,18 +357,18 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
         }
     ],
     'FACHSTELLEN_KANTONAL_LIST': '''- Matthew Bowen
-- Lisa Oneill
-- Melissa Walsh
-- Tanner Craig
-- David Morris
-- Jacob Alvarez
+- Scott Clark
+- John Ward
+- Brittany Hill
+- Dale Summers
+- Robert Cowan
 - Matthew Bowen''',
     'FACHSTELLEN_KANTONAL_LISTE': '''- Matthew Bowen
-- Lisa Oneill
-- Melissa Walsh
-- Tanner Craig
-- David Morris
-- Jacob Alvarez
+- Scott Clark
+- John Ward
+- Brittany Hill
+- Dale Summers
+- Robert Cowan
 - Matthew Bowen''',
     'FORM_NAME': 'Baugesuch',
     'GEBAEUDEEIGENTUEMER': 'Peter Meier',
@@ -342,34 +380,34 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'GEBAEUDEEIGENTUEMER_NAME_ADRESSE': 'Peter Meier, Thunstrasse 88, 3002 Bern',
     'GEBUEHREN': [
         {
-            'BETRAG': '419.90',
-            'FORFAIT': '419.90',
+            'BETRAG': '378.78',
+            'FORFAIT': '378.78',
             'POSITION': ''
         },
         {
-            'BETRAG': '98.57',
-            'FORFAIT': '98.57',
+            'BETRAG': '780.57',
+            'FORFAIT': '780.57',
             'POSITION': ''
         },
         {
-            'BETRAG': '559.32',
-            'FORFAIT': '559.32',
+            'BETRAG': '392.66',
+            'FORFAIT': '392.66',
             'POSITION': ''
         },
         {
-            'BETRAG': '279.33',
-            'FORFAIT': '279.33',
+            'BETRAG': '574.29',
+            'FORFAIT': '574.29',
             'POSITION': ''
         }
     ],
-    'GEBUEHREN_TOTAL': '1’357.12',
+    'GEBUEHREN_TOTAL': '2’126.30',
     'GEMEINDE': 'Burgdorf',
-    'GEMEINDE_ADRESSE': 'North Arthur',
+    'GEMEINDE_ADRESSE': 'Jacobmouth',
     'GEMEINDE_ADRESSE_1': '',
-    'GEMEINDE_ADRESSE_2': 'North Arthur',
-    'GEMEINDE_EMAIL': 'ghunter@example.net',
-    'GEMEINDE_NAME_ADRESSE': 'Gemeinde Burgdorf, North Arthur',
-    'GEMEINDE_ORT': 'North Arthur',
+    'GEMEINDE_ADRESSE_2': 'Jacobmouth',
+    'GEMEINDE_EMAIL': 'jhill@example.net',
+    'GEMEINDE_NAME_ADRESSE': 'Gemeinde Burgdorf, Jacobmouth',
+    'GEMEINDE_ORT': 'Jacobmouth',
     'GEMEINDE_TELEFON': '',
     'GESUCHSTELLER': 'ACME AG, Max Mustermann',
     'GESUCHSTELLER_ADDRESS_1': 'Teststrasse 123',
@@ -397,6 +435,22 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'KOORDINATEN': '2’599’941 / 1’198’923; 2’601’995 / 1’201’340',
     'LANGUAGE': 'de',
     'LANGUE': 'de',
+    'LASTENAUSGLEICHSBEGEHREN': [
+        {
+            'DATE_DOCUMENT': '01.10.2022',
+            'DATE_RECEPTION': '02.10.2022',
+            'DATUM_DOKUMENT': '01.10.2022',
+            'DATUM_EINGANG': '02.10.2022',
+            'GRIEFS': '''Test LAB 1
+Test LAB 2''',
+            'RECHTSBEGEHRENDE': 'Lastenausgleichsbegehren4you AG',
+            'REQUERANTS_CONCLUSIONS': 'Lastenausgleichsbegehren4you AG',
+            'RUEGEPUNKTE': '''Test LAB 1
+Test LAB 2''',
+            'TITEL': 'Test Lastenausgleichsbegehren',
+            'TITRE': 'Test Lastenausgleichsbegehren'
+        }
+    ],
     'LEITBEHOERDE_ADDRESS_1': '',
     'LEITBEHOERDE_ADDRESS_2': 'Jeffreyfort',
     'LEITBEHOERDE_ADRESSE_1': '',
@@ -408,7 +462,7 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'LEITBEHOERDE_PHONE': '',
     'LEITBEHOERDE_STADT': 'Jeffreyfort',
     'LEITBEHOERDE_TELEFON': '',
-    'LEITPERSON': 'Luis Munoz',
+    'LEITPERSON': 'Thomas Morgan',
     'LIEN_PUBLICATION': 'http://ebau-portal.local/public-instances/1',
     'MEINE_ORGANISATION_ADRESSE_1': '',
     'MEINE_ORGANISATION_ADRESSE_2': 'Jeffreyfort',
@@ -420,17 +474,17 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'MEINE_ORGANISATION_TELEFON': '',
     'MES_EMOLUMENTS': [
         {
-            'BETRAG': '559.32',
-            'FORFAIT': '559.32',
+            'BETRAG': '392.66',
+            'FORFAIT': '392.66',
             'POSITION': ''
         },
         {
-            'BETRAG': '279.33',
-            'FORFAIT': '279.33',
+            'BETRAG': '574.29',
+            'FORFAIT': '574.29',
             'POSITION': ''
         }
     ],
-    'MES_EMOLUMENTS_TOTAL': '838.65',
+    'MES_EMOLUMENTS_TOTAL': '966.95',
     'MODIFICATION_DATE': '',
     'MODIFICATION_TIME': '',
     'MON_ORGANISATION_ADRESSE_1': '',
@@ -441,9 +495,9 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'MON_ORGANISATION_NOM_ABR': 'Matthew Bowen',
     'MON_ORGANISATION_NOM_ADRESSE': 'Matthew Bowen, Jeffreyfort',
     'MON_ORGANISATION_TELEPHONE': '',
-    'MOTS_CLES': 'Michael Nelson, Michelle Mcclain, Christopher Miller, Tanya Rojas, Rebecca Kelley',
+    'MOTS_CLES': 'Andrew Berg MD, Alex Scott, Jacqueline Herrera, Kaitlyn Mendoza, Mary Mooney',
     'MUNICIPALITY': 'Burgdorf',
-    'MUNICIPALITY_ADDRESS': 'North Arthur',
+    'MUNICIPALITY_ADDRESS': 'Jacobmouth',
     'NACHBARSCHAFTSORIENTIERUNG_LINK': 'http://ebau-portal.local/public-instances/1/form?key=5a49823',
     'NACHBARSCHAFTSORIENTIERUNG_QR_CODE': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZoAAAGaAQAAAAAefbjOAAADLElEQVR4nO2bQW7jOBBFX40EeEkBfQAfhbrBHCnom1lHyQEaEJcGSPxZkFSU9Cym4YztRMWFIFp6MAsgqoq/Sib+eCx//TkDDjnkkEMOOeTQ94SsjREWG7E5jUBqU0j9hfkhy3PojhCSJKIkaR3qHTCoPoBBxLVPoyRdntwmhz4DSt0BLGamS7iazRSDkOsL1YM8ankOPQ6K6yB7WakBQ5f/758cekpo/DDXcr6alukXgjIS1zKK9KjlOXR3qO+IICAB8XWEuCKDoV4A2CtZT26TQ58ALWZmNoHNDKpnjbhSLzZT6lHjUctz6N4+Yu8AwtVEKibI9Lv3WveT2+TQ7ZDNQBcgTjKbgGUqzSksVahwH3EEqOoR0gq6hIwuQSKusPtNyrBpFK5HfGtop1DVxAGAqLxtlU2cWvv28R1xCKgYhG1bpHYGsRlawFimRy7PoXtBzUds0mQLHWzhZOcesvuIw0BNmgwS8fUkm4GmbKeeTy7TloF+CZscuuX0aXCSkcZs8XLtRwqGbATBcs6jxbX0Q+iT2+TQLdAugWxlzyARldnVQwF0YfDa5wGgzUdgIk1omZuL0DKt/a3wazTCNn1ymxz6FGio7sFmANKIvbxaK4nH15N0SV4NPxAUlbE5je2s8XOiXgB+L4l/DZscur2uETLVPRBWLKqMtSi6/H01oJhnloeBatEimdlLVayLtY6Zt1gRMjY/ZnkOPUDFzjVg0BorAUKuxY3qPLZmSz9rfGto8wCDDE6C9AMt5zwKattMBhDL+epR42BQVBOn7GUdBMlM0tVamSOd9C/Q/Zbn0F2gra7RS+J6L061Zn36bx41jgH1dEHvShoU08+pWNsWaaQ9/RI2OXSrZgkwZMEglglaL10NGD9qadTziMNAsTdS9ea5rf1WmV4rL95VdyBo+6arjWK9z3JQ65g5yzPLQ0JVe2i9M60/Ikj7TfPlbHLov4+P33S1Q2bII3EtqPXSlXfvPblNDt0C/f5Nl3qsALC41qTyTau66/IcujvU9Yg6BjXtuvdevnXM7PqzXY/4ztDHb7q0zdpdyNvTwTNLhxxyyCGHHHJoN/4BMBD7kv22h4gAAAAASUVORK5CYII=',
     'NAME': '',
@@ -472,9 +526,9 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
         {
             'BEANTWORTET': '',
             'CREE': '30.08.2021',
-            'DELAI': '26.11.2007',
+            'DELAI': '16.10.2004',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '26.11.2007',
+            'FRIST': '16.10.2004',
             'NAME': 'Matthew Bowen',
             'NOM': 'Matthew Bowen',
             'REPONDU': ''
@@ -482,52 +536,52 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
         {
             'BEANTWORTET': '',
             'CREE': '30.08.2021',
-            'DELAI': '07.04.1973',
+            'DELAI': '29.01.2021',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '07.04.1973',
-            'NAME': 'Lisa Oneill',
-            'NOM': 'Lisa Oneill',
+            'FRIST': '29.01.2021',
+            'NAME': 'Scott Clark',
+            'NOM': 'Scott Clark',
             'REPONDU': ''
         },
         {
             'BEANTWORTET': '',
             'CREE': '30.08.2021',
-            'DELAI': '18.11.1986',
+            'DELAI': '03.03.1970',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '18.11.1986',
-            'NAME': 'Melissa Walsh',
-            'NOM': 'Melissa Walsh',
+            'FRIST': '03.03.1970',
+            'NAME': 'John Ward',
+            'NOM': 'John Ward',
             'REPONDU': ''
         },
         {
             'BEANTWORTET': '',
             'CREE': '30.08.2021',
-            'DELAI': '07.10.1975',
+            'DELAI': '26.01.1999',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '07.10.1975',
-            'NAME': 'Tanner Craig',
-            'NOM': 'Tanner Craig',
+            'FRIST': '26.01.1999',
+            'NAME': 'Brittany Hill',
+            'NOM': 'Brittany Hill',
             'REPONDU': ''
         },
         {
-            'BEANTWORTET': '10.11.1971',
+            'BEANTWORTET': '13.02.1982',
             'CREE': '30.08.2021',
-            'DELAI': '05.11.1976',
+            'DELAI': '17.06.1987',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '05.11.1976',
-            'NAME': 'David Morris',
-            'NOM': 'David Morris',
-            'REPONDU': '10.11.1971'
+            'FRIST': '17.06.1987',
+            'NAME': 'Dale Summers',
+            'NOM': 'Dale Summers',
+            'REPONDU': '13.02.1982'
         },
         {
-            'BEANTWORTET': '27.11.2002',
+            'BEANTWORTET': '15.08.1971',
             'CREE': '30.08.2021',
-            'DELAI': '19.05.1994',
+            'DELAI': '24.08.2008',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '19.05.1994',
-            'NAME': 'Jacob Alvarez',
-            'NOM': 'Jacob Alvarez',
-            'REPONDU': '27.11.2002'
+            'FRIST': '24.08.2008',
+            'NAME': 'Robert Cowan',
+            'NOM': 'Robert Cowan',
+            'REPONDU': '15.08.1971'
         },
         {
             'BEANTWORTET': '',
@@ -541,38 +595,66 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
         }
     ],
     'OFFICES_CANTONAUX_LISTE': '''- Matthew Bowen
-- Lisa Oneill
-- Melissa Walsh
-- Tanner Craig
-- David Morris
-- Jacob Alvarez
+- Scott Clark
+- John Ward
+- Brittany Hill
+- Dale Summers
+- Robert Cowan
 - Matthew Bowen''',
     'OPPOSANTS': [
         {
-            'ADDRESS': 'Teststrasse 1, 1234 Testdorf',
-            'ADRESSE': 'Teststrasse 1, 1234 Testdorf',
-            'NAME': 'Test AG, Müller Hans',
-            'NOM': 'Test AG, Müller Hans'
+            'ADDRESS': 'Beispielstrasse 1, 4321 Beispieldorf',
+            'ADRESSE': 'Beispielstrasse 1, 4321 Beispieldorf',
+            'NAME': 'Heinz Einsprachenmann',
+            'NOM': 'Heinz Einsprachenmann'
         },
         {
-            'ADDRESS': 'Bahnhofstrasse 32, 9874 Testingen',
-            'ADRESSE': 'Bahnhofstrasse 32, 9874 Testingen',
-            'NAME': 'Muster Max',
-            'NOM': 'Muster Max'
+            'ADDRESS': 'Beispielstrasse 2, 4321 Beispieldorf',
+            'ADRESSE': 'Beispielstrasse 2, 4321 Beispieldorf',
+            'NAME': 'Martha Rechstverwahrungsson',
+            'NOM': 'Martha Rechstverwahrungsson'
+        },
+        {
+            'ADDRESS': 'Beispielstrasse 3, 4321 Beispieldorf',
+            'ADRESSE': 'Beispielstrasse 3, 4321 Beispieldorf',
+            'NAME': 'Lastenausgleichsbegehren4you AG',
+            'NOM': 'Lastenausgleichsbegehren4you AG'
         }
     ],
     'OPPOSING': [
         {
-            'ADDRESS': 'Teststrasse 1, 1234 Testdorf',
-            'ADRESSE': 'Teststrasse 1, 1234 Testdorf',
-            'NAME': 'Test AG, Müller Hans',
-            'NOM': 'Test AG, Müller Hans'
+            'ADDRESS': 'Beispielstrasse 1, 4321 Beispieldorf',
+            'ADRESSE': 'Beispielstrasse 1, 4321 Beispieldorf',
+            'NAME': 'Heinz Einsprachenmann',
+            'NOM': 'Heinz Einsprachenmann'
         },
         {
-            'ADDRESS': 'Bahnhofstrasse 32, 9874 Testingen',
-            'ADRESSE': 'Bahnhofstrasse 32, 9874 Testingen',
-            'NAME': 'Muster Max',
-            'NOM': 'Muster Max'
+            'ADDRESS': 'Beispielstrasse 2, 4321 Beispieldorf',
+            'ADRESSE': 'Beispielstrasse 2, 4321 Beispieldorf',
+            'NAME': 'Martha Rechstverwahrungsson',
+            'NOM': 'Martha Rechstverwahrungsson'
+        },
+        {
+            'ADDRESS': 'Beispielstrasse 3, 4321 Beispieldorf',
+            'ADRESSE': 'Beispielstrasse 3, 4321 Beispieldorf',
+            'NAME': 'Lastenausgleichsbegehren4you AG',
+            'NOM': 'Lastenausgleichsbegehren4you AG'
+        }
+    ],
+    'OPPOSITIONS': [
+        {
+            'DATE_DOCUMENT': '01.12.2022',
+            'DATE_RECEPTION': '02.12.2022',
+            'DATUM_DOKUMENT': '01.12.2022',
+            'DATUM_EINGANG': '02.12.2022',
+            'GRIEFS': '''Test E 1
+Test E 2''',
+            'RECHTSBEGEHRENDE': 'Heinz Einsprachenmann',
+            'REQUERANTS_CONCLUSIONS': 'Heinz Einsprachenmann',
+            'RUEGEPUNKTE': '''Test E 1
+Test E 2''',
+            'TITEL': 'Test Einsprache',
+            'TITRE': 'Test Einsprache'
         }
     ],
     'OUTSIDE_SEATING': 20,
@@ -622,6 +704,42 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'PUBLIKATION_START': '1. September 2021',
     'PUBLIKATION_TEXT': 'Text',
     'RECENSEMENT': 'Schützenswert, K-Objekt, Baugruppe Bauinventar: Test Baugruppe, RRB vom 1. Januar 2022, Vertrag vom 1. Februar 2022',
+    'RECHTSBEGEHRENDE': [
+        {
+            'ADDRESS': 'Beispielstrasse 1, 4321 Beispieldorf',
+            'ADRESSE': 'Beispielstrasse 1, 4321 Beispieldorf',
+            'NAME': 'Heinz Einsprachenmann',
+            'NOM': 'Heinz Einsprachenmann'
+        },
+        {
+            'ADDRESS': 'Beispielstrasse 2, 4321 Beispieldorf',
+            'ADRESSE': 'Beispielstrasse 2, 4321 Beispieldorf',
+            'NAME': 'Martha Rechstverwahrungsson',
+            'NOM': 'Martha Rechstverwahrungsson'
+        },
+        {
+            'ADDRESS': 'Beispielstrasse 3, 4321 Beispieldorf',
+            'ADRESSE': 'Beispielstrasse 3, 4321 Beispieldorf',
+            'NAME': 'Lastenausgleichsbegehren4you AG',
+            'NOM': 'Lastenausgleichsbegehren4you AG'
+        }
+    ],
+    'RECHTSVERWAHRUNGEN': [
+        {
+            'DATE_DOCUMENT': '01.11.2022',
+            'DATE_RECEPTION': '02.11.2022',
+            'DATUM_DOKUMENT': '01.11.2022',
+            'DATUM_EINGANG': '02.11.2022',
+            'GRIEFS': '''Test RV 1
+Test RV 2''',
+            'RECHTSBEGEHRENDE': 'Martha Rechstverwahrungsson',
+            'REQUERANTS_CONCLUSIONS': 'Martha Rechstverwahrungsson',
+            'RUEGEPUNKTE': '''Test RV 1
+Test RV 2''',
+            'TITEL': 'Test Rechtsverwahrung',
+            'TITRE': 'Test Rechtsverwahrung'
+        }
+    ],
     'REPRESENTANT': 'Mustermann und Söhne AG',
     'REPRESENTANT_ADRESSE_1': 'Juristenweg 99',
     'REPRESENTANT_ADRESSE_2': '3008 Bern',
@@ -629,14 +747,50 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'REPRESENTANT_TOUS': 'Mustermann und Söhne AG',
     'REPRESENTANT_TOUS_NOM_ADRESSE': 'Mustermann und Söhne AG, Juristenweg 99, 3008 Bern',
     'REQUERANT': 'ACME AG, Max Mustermann',
+    'REQUERANTS_CONCLUSIONS': [
+        {
+            'ADDRESS': 'Beispielstrasse 1, 4321 Beispieldorf',
+            'ADRESSE': 'Beispielstrasse 1, 4321 Beispieldorf',
+            'NAME': 'Heinz Einsprachenmann',
+            'NOM': 'Heinz Einsprachenmann'
+        },
+        {
+            'ADDRESS': 'Beispielstrasse 2, 4321 Beispieldorf',
+            'ADRESSE': 'Beispielstrasse 2, 4321 Beispieldorf',
+            'NAME': 'Martha Rechstverwahrungsson',
+            'NOM': 'Martha Rechstverwahrungsson'
+        },
+        {
+            'ADDRESS': 'Beispielstrasse 3, 4321 Beispieldorf',
+            'ADRESSE': 'Beispielstrasse 3, 4321 Beispieldorf',
+            'NAME': 'Lastenausgleichsbegehren4you AG',
+            'NOM': 'Lastenausgleichsbegehren4you AG'
+        }
+    ],
     'REQUERANT_ADRESSE_1': 'Teststrasse 123',
     'REQUERANT_ADRESSE_2': '1234 Testhausen',
     'REQUERANT_NOM_ADRESSE': 'ACME AG, Max Mustermann, Teststrasse 123, 1234 Testhausen',
     'REQUERANT_TOUS': 'ACME AG, Max Mustermann',
     'REQUERANT_TOUS_NOM_ADRESSE': 'ACME AG, Max Mustermann, Teststrasse 123, 1234 Testhausen',
-    'RESPONSABLE_AUTORITE_DIRECTRICE': 'Luis Munoz',
-    'RESPONSABLE_EMAIL': 'perkinssabrina@example.com',
-    'RESPONSABLE_NOM': 'Luis Munoz',
+    'RESERVES_DE_DROIT': [
+        {
+            'DATE_DOCUMENT': '01.11.2022',
+            'DATE_RECEPTION': '02.11.2022',
+            'DATUM_DOKUMENT': '01.11.2022',
+            'DATUM_EINGANG': '02.11.2022',
+            'GRIEFS': '''Test RV 1
+Test RV 2''',
+            'RECHTSBEGEHRENDE': 'Martha Rechstverwahrungsson',
+            'REQUERANTS_CONCLUSIONS': 'Martha Rechstverwahrungsson',
+            'RUEGEPUNKTE': '''Test RV 1
+Test RV 2''',
+            'TITEL': 'Test Rechtsverwahrung',
+            'TITRE': 'Test Rechtsverwahrung'
+        }
+    ],
+    'RESPONSABLE_AUTORITE_DIRECTRICE': 'Thomas Morgan',
+    'RESPONSABLE_EMAIL': 'tammy30@example.net',
+    'RESPONSABLE_NOM': 'Thomas Morgan',
     'RESPONSABLE_TELEPHONE': '',
     'SACHVERHALT': 'Sachverhalt Test',
     'SCHUTZZONE': 'S1',
@@ -647,7 +801,7 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'SPRACHE': 'de',
     'STATUS': 'Pamela Horton',
     'STELLUNGNAHME': 'Stellungnahme 1',
-    'STICHWORTE': 'Michael Nelson, Michelle Mcclain, Christopher Miller, Tanya Rojas, Rebecca Kelley',
+    'STICHWORTE': 'Andrew Berg MD, Alex Scott, Jacqueline Herrera, Kaitlyn Mendoza, Mary Mooney',
     'TODAY': '30. August 2021',
     'UEBERBAUUNGSORDNUNG': 'Überbauung XY',
     'UVP_JA_NEIN': False,
@@ -673,9 +827,9 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
         {
             'BEANTWORTET': '',
             'CREE': '30.08.2021',
-            'DELAI': '26.11.2007',
+            'DELAI': '16.10.2004',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '26.11.2007',
+            'FRIST': '16.10.2004',
             'NAME': 'Matthew Bowen',
             'NOM': 'Matthew Bowen',
             'REPONDU': ''
@@ -683,52 +837,52 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
         {
             'BEANTWORTET': '',
             'CREE': '30.08.2021',
-            'DELAI': '07.04.1973',
+            'DELAI': '29.01.2021',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '07.04.1973',
-            'NAME': 'Lisa Oneill',
-            'NOM': 'Lisa Oneill',
+            'FRIST': '29.01.2021',
+            'NAME': 'Scott Clark',
+            'NOM': 'Scott Clark',
             'REPONDU': ''
         },
         {
             'BEANTWORTET': '',
             'CREE': '30.08.2021',
-            'DELAI': '18.11.1986',
+            'DELAI': '03.03.1970',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '18.11.1986',
-            'NAME': 'Melissa Walsh',
-            'NOM': 'Melissa Walsh',
+            'FRIST': '03.03.1970',
+            'NAME': 'John Ward',
+            'NOM': 'John Ward',
             'REPONDU': ''
         },
         {
             'BEANTWORTET': '',
             'CREE': '30.08.2021',
-            'DELAI': '07.10.1975',
+            'DELAI': '26.01.1999',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '07.10.1975',
-            'NAME': 'Tanner Craig',
-            'NOM': 'Tanner Craig',
+            'FRIST': '26.01.1999',
+            'NAME': 'Brittany Hill',
+            'NOM': 'Brittany Hill',
             'REPONDU': ''
         },
         {
-            'BEANTWORTET': '10.11.1971',
+            'BEANTWORTET': '13.02.1982',
             'CREE': '30.08.2021',
-            'DELAI': '05.11.1976',
+            'DELAI': '17.06.1987',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '05.11.1976',
-            'NAME': 'David Morris',
-            'NOM': 'David Morris',
-            'REPONDU': '10.11.1971'
+            'FRIST': '17.06.1987',
+            'NAME': 'Dale Summers',
+            'NOM': 'Dale Summers',
+            'REPONDU': '13.02.1982'
         },
         {
-            'BEANTWORTET': '27.11.2002',
+            'BEANTWORTET': '15.08.1971',
             'CREE': '30.08.2021',
-            'DELAI': '19.05.1994',
+            'DELAI': '24.08.2008',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '19.05.1994',
-            'NAME': 'Jacob Alvarez',
-            'NOM': 'Jacob Alvarez',
-            'REPONDU': '27.11.2002'
+            'FRIST': '24.08.2008',
+            'NAME': 'Robert Cowan',
+            'NOM': 'Robert Cowan',
+            'REPONDU': '15.08.1971'
         },
         {
             'BEANTWORTET': '',
@@ -743,45 +897,45 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     ],
     'ZIRKULATION_FACHSTELLEN': [
         {
-            'BEANTWORTET': '10.11.1971',
+            'BEANTWORTET': '13.02.1982',
             'CREE': '30.08.2021',
-            'DELAI': '05.11.1976',
+            'DELAI': '17.06.1987',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '05.11.1976',
-            'NAME': 'David Morris',
-            'NOM': 'David Morris',
-            'REPONDU': '10.11.1971'
+            'FRIST': '17.06.1987',
+            'NAME': 'Dale Summers',
+            'NOM': 'Dale Summers',
+            'REPONDU': '13.02.1982'
         },
         {
-            'BEANTWORTET': '27.11.2002',
+            'BEANTWORTET': '15.08.1971',
             'CREE': '30.08.2021',
-            'DELAI': '19.05.1994',
+            'DELAI': '24.08.2008',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '19.05.1994',
-            'NAME': 'Jacob Alvarez',
-            'NOM': 'Jacob Alvarez',
-            'REPONDU': '27.11.2002'
+            'FRIST': '24.08.2008',
+            'NAME': 'Robert Cowan',
+            'NOM': 'Robert Cowan',
+            'REPONDU': '15.08.1971'
         }
     ],
     'ZIRKULATION_GEMEINDEN': [
         {
             'BEANTWORTET': '',
             'CREE': '30.08.2021',
-            'DELAI': '18.11.1986',
+            'DELAI': '03.03.1970',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '18.11.1986',
-            'NAME': 'Melissa Walsh',
-            'NOM': 'Melissa Walsh',
+            'FRIST': '03.03.1970',
+            'NAME': 'John Ward',
+            'NOM': 'John Ward',
             'REPONDU': ''
         },
         {
             'BEANTWORTET': '',
             'CREE': '30.08.2021',
-            'DELAI': '07.10.1975',
+            'DELAI': '26.01.1999',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '07.10.1975',
-            'NAME': 'Tanner Craig',
-            'NOM': 'Tanner Craig',
+            'FRIST': '26.01.1999',
+            'NAME': 'Brittany Hill',
+            'NOM': 'Brittany Hill',
             'REPONDU': ''
         }
     ],
@@ -789,39 +943,39 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
         {
             'BEANTWORTET': '',
             'CREE': '30.08.2021',
-            'DELAI': '07.04.1973',
+            'DELAI': '29.01.2021',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '07.04.1973',
-            'NAME': 'Lisa Oneill',
-            'NOM': 'Lisa Oneill',
+            'FRIST': '29.01.2021',
+            'NAME': 'Scott Clark',
+            'NOM': 'Scott Clark',
             'REPONDU': ''
         }
     ],
     'ZIRKULATION_RUECKMELDUNGEN': [
         {
             'ANTWORT': 'Baubewilligungspflichtig',
-            'DE': 'David Morris',
+            'DE': 'Dale Summers',
             'DISPOSITIONS_ACCESSOIRES': 'Nebenbestimmungen 5',
             'NEBENBESTIMMUNGEN': 'Nebenbestimmungen 5',
             'POINT_DE_VUE': 'Stellungnahme 5',
             'REPONSE': 'Baubewilligungspflichtig',
             'STELLUNGNAHME': 'Stellungnahme 5',
-            'VON': 'David Morris'
+            'VON': 'Dale Summers'
         },
         {
-            'ANTWORT': 'Baubewilligungspflichtig',
-            'DE': 'Jacob Alvarez',
+            'ANTWORT': 'Nicht betroffen / nicht zuständig',
+            'DE': 'Robert Cowan',
             'DISPOSITIONS_ACCESSOIRES': 'Nebenbestimmungen 6',
             'NEBENBESTIMMUNGEN': 'Nebenbestimmungen 6',
             'POINT_DE_VUE': 'Stellungnahme 6',
-            'REPONSE': 'Baubewilligungspflichtig',
+            'REPONSE': 'Nicht betroffen / nicht zuständig',
             'STELLUNGNAHME': 'Stellungnahme 6',
-            'VON': 'Jacob Alvarez'
+            'VON': 'Robert Cowan'
         }
     ],
     'ZONE_PROTEGEE': 'S1',
-    'ZUSTAENDIG_EMAIL': 'perkinssabrina@example.com',
-    'ZUSTAENDIG_NAME': 'Luis Munoz',
+    'ZUSTAENDIG_EMAIL': 'tammy30@example.net',
+    'ZUSTAENDIG_NAME': 'Thomas Morgan',
     'ZUSTAENDIG_PHONE': '',
     'ZUSTAENDIG_TELEFON': ''
 }
@@ -920,6 +1074,8 @@ snapshots['test_dms_placeholders_empty[Municipality] 1'] = {
     'DECISION_REFUS_AVEC_RET': '',
     'DECISION_REFUS_SANS_RET': '',
     'DECISION_TYPE': '',
+    'DEMANDES_EN_COMPENSATION_DES_CHARGES': [
+    ],
     'DEPOT_DEMANDE_DATE': '30. August 2021',
     'DESCRIPTION_MODIFICATION': '',
     'DISPOSITIONS_ANNEXES': '',
@@ -937,6 +1093,8 @@ snapshots['test_dms_placeholders_empty[Municipality] 1'] = {
     'EIGENE_GEBUEHREN_TOTAL': '0.00',
     'EIGENE_NEBENBESTIMMUNGEN': '',
     'EIGENE_STELLUNGNAHMEN': '',
+    'EINSPRACHEN': [
+    ],
     'EINSPRECHENDE': [
     ],
     'EMAIL': '',
@@ -993,6 +1151,8 @@ snapshots['test_dms_placeholders_empty[Municipality] 1'] = {
     'KOORDINATEN': '',
     'LANGUAGE': 'de',
     'LANGUE': 'de',
+    'LASTENAUSGLEICHSBEGEHREN': [
+    ],
     'LEITBEHOERDE_ADDRESS_1': '',
     'LEITBEHOERDE_ADDRESS_2': '',
     'LEITBEHOERDE_ADRESSE_1': '',
@@ -1048,6 +1208,8 @@ snapshots['test_dms_placeholders_empty[Municipality] 1'] = {
     ],
     'OPPOSING': [
     ],
+    'OPPOSITIONS': [
+    ],
     'OUTSIDE_SEATING': '',
     'OUVERTURE_PUBLIC': '',
     'PARCELLE': '',
@@ -1095,6 +1257,10 @@ snapshots['test_dms_placeholders_empty[Municipality] 1'] = {
     'PUBLIKATION_START': '',
     'PUBLIKATION_TEXT': '',
     'RECENSEMENT': '',
+    'RECHTSBEGEHRENDE': [
+    ],
+    'RECHTSVERWAHRUNGEN': [
+    ],
     'REPRESENTANT': '',
     'REPRESENTANT_ADRESSE_1': '',
     'REPRESENTANT_ADRESSE_2': '',
@@ -1102,11 +1268,15 @@ snapshots['test_dms_placeholders_empty[Municipality] 1'] = {
     'REPRESENTANT_TOUS': '',
     'REPRESENTANT_TOUS_NOM_ADRESSE': '',
     'REQUERANT': '',
+    'REQUERANTS_CONCLUSIONS': [
+    ],
     'REQUERANT_ADRESSE_1': '',
     'REQUERANT_ADRESSE_2': '',
     'REQUERANT_NOM_ADRESSE': '',
     'REQUERANT_TOUS': '',
     'REQUERANT_TOUS_NOM_ADRESSE': '',
+    'RESERVES_DE_DROIT': [
+    ],
     'RESPONSABLE_AUTORITE_DIRECTRICE': '',
     'RESPONSABLE_EMAIL': '',
     'RESPONSABLE_NOM': '',

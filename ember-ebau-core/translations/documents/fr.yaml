@@ -1,0 +1,3 @@
+documents:
+  downloadSuccess: "Le fichier a été téléchargé avec succès"
+  downloadError: "Quelque chose a mal tourné lors du téléchargement du fichier"

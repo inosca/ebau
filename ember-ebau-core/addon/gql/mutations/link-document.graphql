@@ -1,4 +1,4 @@
-mutation LinkAuditDocument($question: ID!, $document: ID!, $value: [ID]!) {
+mutation LinkDocument($question: ID!, $document: ID!, $value: [ID]!) {
   saveDocumentTableAnswer(
     input: { question: $question, document: $document, value: $value }
   ) {

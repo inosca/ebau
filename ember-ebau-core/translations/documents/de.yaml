@@ -1,0 +1,3 @@
+documents:
+  downloadSuccess: "Die Datei wurde erfolgreich heruntergeladen"
+  downloadError: "Beim Herunterladen der Datei ist etwas schief gelaufen"

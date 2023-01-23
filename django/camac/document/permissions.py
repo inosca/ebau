@@ -205,64 +205,64 @@ PERMISSIONS = {
     "kt_bern": {
         "applicant": {
             AdminPermission: [1, 5, 6, 7],
-            ReadPermission: [3],
+            ReadPermission: [3, 14],
         },
         # municipality
         "municipality-lead": {
-            AdminBeforeDecisionPermission: [3, 12, 13],
+            AdminBeforeDecisionPermission: [3, 12, 13, 14],
             AdminServiceBeforeDecisionPermission: [2],
             AdminInternalPermission: [4],
             ReadPermission: [1, 7, 8],
         },
         "municipality-clerk": {
-            AdminBeforeDecisionPermission: [3, 12, 13],
+            AdminBeforeDecisionPermission: [3, 12, 13, 14],
             AdminServiceBeforeDecisionPermission: [2],
             AdminInternalPermission: [4],
             ReadPermission: [1, 7, 8],
         },
         "municipality-readonly": {
-            ReadPermission: [1, 2, 3, 7, 8, 12, 13],
+            ReadPermission: [1, 2, 3, 7, 8, 12, 13, 14],
             ReadInternalPermission: [4],
         },
         # service
         "service-lead": {
             AdminServiceRunningInquiryPermission: [2],
             AdminInternalPermission: [4],
-            ReadPermission: [1, 3, 7, 8, 13, 12],
+            ReadPermission: [1, 3, 7, 8, 13, 12, 14],
         },
         "service-clerk": {
             AdminServiceRunningInquiryPermission: [2],
             AdminInternalPermission: [4],
-            ReadPermission: [1, 3, 7, 8, 13, 12],
+            ReadPermission: [1, 3, 7, 8, 13, 12, 14],
         },
         "service-readonly": {
-            ReadPermission: [1, 2, 3, 7, 8, 13, 12],
+            ReadPermission: [1, 2, 3, 7, 8, 13, 12, 14],
             ReadInternalPermission: [4],
         },
         "subservice": {
             AdminServiceRunningInquiryPermission: [2],
             AdminInternalPermission: [4],
-            ReadPermission: [1, 3, 7, 8, 13, 12],
+            ReadPermission: [1, 3, 7, 8, 13, 12, 14],
         },
         # construction control
         "construction-control-lead": {
             AdminServicePermission: [2, 3],
             AdminPermission: [10, 11],
             AdminInternalPermission: [4],
-            ReadPermission: [1, 5, 6, 7, 8, 13, 12],
+            ReadPermission: [1, 5, 6, 7, 8, 13, 12, 14],
         },
         "construction-control-clerk": {
             AdminServicePermission: [2, 3],
             AdminPermission: [10, 11],
             AdminInternalPermission: [4],
-            ReadPermission: [1, 5, 6, 7, 8, 12, 13],
+            ReadPermission: [1, 5, 6, 7, 8, 12, 13, 14],
         },
         "construction-control-readonly": {
-            ReadPermission: [1, 2, 3, 5, 6, 7, 8, 10, 11, 12, 13],
+            ReadPermission: [1, 2, 3, 5, 6, 7, 8, 10, 11, 12, 13, 14],
             ReadInternalPermission: [4],
         },
         "support": {
-            AdminPermission: [1, 2, 3, 4, 5, 6, 7, 10, 11, 12, 13],
+            AdminPermission: [1, 2, 3, 4, 5, 6, 7, 10, 11, 12, 13, 14],
             ReadPermission: [8],
         },
     },

@@ -60,6 +60,7 @@ def get_answer_display_value(
     option_separator: Optional[str] = ", ",
     date_format: Optional[str] = settings.MERGE_DATE_FORMAT,
     language: Optional[str] = get_language(),
+    raw_value: Optional[bool] = False,
 ) -> str:
     """
     Get the display value of an answer depending on the question type.
@@ -69,12 +70,16 @@ def get_answer_display_value(
     ... )
     '02.06.2022'
     """
-    if answer.question.type in [Question.TYPE_MULTIPLE_CHOICE, Question.TYPE_CHOICE]:
+    if raw_value:
+        return answer.value
+    elif answer.question.type in [Question.TYPE_MULTIPLE_CHOICE, Question.TYPE_CHOICE]:
         return option_separator.join(
             [option.label.get(language) or "" for option in answer.selected_options]
         )
     elif answer.question.type == Question.TYPE_DATE:
         return answer.date.strftime(date_format) if answer.date else None
+    elif answer.question.type == Question.TYPE_TABLE:
+        return answer.documents.all()
 
     return answer.value
 

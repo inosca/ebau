@@ -116,7 +116,8 @@ snapshots['test_document_merge_service_snapshot baugesuch'] = [
                             'Ort',
                             'Telefon oder Mobile',
                             'E-Mail',
-                            'Hinweis Gesuchsteller/in'
+                            'Hinweis Gesuchsteller/in',
+                            'Vertreter/in?'
                         ],
                         'label': 'Gesuchsteller/in',
                         'rows': [
@@ -1801,7 +1802,8 @@ snapshots['test_document_merge_service_snapshot sb1'] = [
                     'Ort',
                     'Telefon oder Mobile',
                     'E-Mail',
-                    'Hinweis Gesuchsteller/in'
+                    'Hinweis Gesuchsteller/in',
+                    'Vertreter/in?'
                 ],
                 'label': 'Verantwortliche Person Selbstdeklaration Baukontrolle',
                 'rows': [
@@ -2083,7 +2085,8 @@ snapshots['test_document_merge_service_snapshot sb2'] = [
                     'Ort',
                     'Telefon oder Mobile',
                     'E-Mail',
-                    'Hinweis Gesuchsteller/in'
+                    'Hinweis Gesuchsteller/in',
+                    'Vertreter/in?'
                 ],
                 'label': 'Verantwortliche Person Selbstdeklaration Baukontrolle',
                 'rows': [

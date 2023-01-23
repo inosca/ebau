@@ -86,31 +86,26 @@ def test_dms_placeholders(
         document,
         "publikation-1-publikation-anzeiger",
         date(2021, 8, 30),
-        value_key="date",
     )
     add_answer(
         document,
         "publikation-2-publikation-anzeiger",
         date(2021, 8, 20),
-        value_key="date",
     )
     add_answer(
         document,
         "publikation-amtsblatt",
         date(2021, 8, 10),
-        value_key="date",
     )
     add_answer(
         document,
         "publikation-startdatum",
         date(2021, 9, 1),
-        value_key="date",
     )
     add_answer(
         document,
         "publikation-ablaufdatum",
         date(2021, 9, 15),
-        value_key="date",
     )
 
     WorkItemFactory(
@@ -152,21 +147,102 @@ def test_dms_placeholders(
         ],
     )
 
-    objection_participant_factory(
-        objection=objection,
-        representative=0,
-        company="Test AG",
-        name="Müller Hans",
-        address="Teststrasse 1",
-        city="1234 Testdorf",
+    # Legal submission
+    legal_submission = WorkItemFactory(
+        task_id="legal-submission",
+        document__form_id="legal-submission",
+        case=be_instance.case,
     )
-    objection_participant_factory(
-        objection=objection,
-        representative=0,
-        company="",
-        name="Muster Max",
-        address="Bahnhofstrasse 32",
-        city="9874 Testingen",
+
+    table_answer = add_table_answer(
+        legal_submission.document,
+        "legal-submission-table",
+        [
+            {
+                "legal-submission-type": ["legal-submission-type-objection"],
+                "legal-submission-document-date": date(2022, 12, 1),
+                "legal-submission-receipt-date": date(2022, 12, 2),
+                "legal-submission-reprimands": "Test E 1\nTest E 2",
+                "legal-submission-title": "Test Einsprache",
+            },
+            {
+                "legal-submission-type": ["legal-submission-type-legal-custody"],
+                "legal-submission-document-date": date(2022, 11, 1),
+                "legal-submission-receipt-date": date(2022, 11, 2),
+                "legal-submission-reprimands": "Test RV 1\nTest RV 2",
+                "legal-submission-title": "Test Rechtsverwahrung",
+            },
+            {
+                "legal-submission-type": [
+                    "legal-submission-type-load-compensation-request"
+                ],
+                "legal-submission-document-date": date(2022, 10, 1),
+                "legal-submission-receipt-date": date(2022, 10, 2),
+                "legal-submission-reprimands": "Test LAB 1\nTest LAB 2",
+                "legal-submission-title": "Test Lastenausgleichsbegehren",
+            },
+        ],
+        row_form_id="legal-submission-form",
+    )
+
+    objection = table_answer.documents.get(
+        answers__value=["legal-submission-type-objection"]
+    )
+    legal_custody = table_answer.documents.get(
+        answers__value=["legal-submission-type-legal-custody"]
+    )
+    load_compensation = table_answer.documents.get(
+        answers__value=["legal-submission-type-load-compensation-request"]
+    )
+
+    add_table_answer(
+        objection,
+        "legal-submission-legal-claimants-table-question",
+        [
+            {
+                "juristische-person-gesuchstellerin": "juristische-person-gesuchstellerin-nein",
+                "vorname-gesuchstellerin": "Heinz",
+                "name-gesuchstellerin": "Einsprachenmann",
+                "strasse-gesuchstellerin": "Beispielstrasse",
+                "nummer-gesuchstellerin": 1,
+                "ort-gesuchstellerin": "Beispieldorf",
+                "plz-gesuchstellerin": 4321,
+            }
+        ],
+        row_form_id="personalien-tabelle",
+    )
+
+    add_table_answer(
+        legal_custody,
+        "legal-submission-legal-claimants-table-question",
+        [
+            {
+                "juristische-person-gesuchstellerin": "juristische-person-gesuchstellerin-nein",
+                "vorname-gesuchstellerin": "Martha",
+                "name-gesuchstellerin": "Rechstverwahrungsson",
+                "strasse-gesuchstellerin": "Beispielstrasse",
+                "nummer-gesuchstellerin": 2,
+                "ort-gesuchstellerin": "Beispieldorf",
+                "plz-gesuchstellerin": 4321,
+            }
+        ],
+        row_form_id="personalien-tabelle",
+    )
+
+    add_table_answer(
+        load_compensation,
+        "legal-submission-legal-claimants-table-question",
+        [
+            {
+                "juristische-person-gesuchstellerin": "juristische-person-gesuchstellerin-ja",
+                "name-juristische-person-gesuchstellerin": "Lastenausgleichsbegehren4you AG",
+                "strasse-gesuchstellerin": "Beispielstrasse",
+                "nummer-gesuchstellerin": 3,
+                "ort-gesuchstellerin": "Beispieldorf",
+                "plz-gesuchstellerin": 4321,
+            }
+        ],
+        row_form_id="personalien-tabelle",
     )
 
     municipality = service_factory(
@@ -273,7 +349,6 @@ def test_dms_placeholders(
         be_instance.case.document,
         "rrb-vom",
         date(2022, 1, 1),
-        value_key="date",
         question_label="RRB vom",
     )
     add_answer(be_instance.case.document, "vertrag", "vertrag-ja")
@@ -281,7 +356,6 @@ def test_dms_placeholders(
         be_instance.case.document,
         "vertrag-vom",
         date(2022, 2, 1),
-        value_key="date",
         question_label="Vertrag vom",
     )
 
