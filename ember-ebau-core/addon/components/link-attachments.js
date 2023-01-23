@@ -19,6 +19,8 @@ import hasRunningInquiriesQuery from "ember-ebau-core/gql/queries/has-running-in
 export default class LinkAttachmentsComponent extends Component {
   @service store;
   @service fetch;
+  @service intl;
+  @service notification;
   @service calumaOptions;
 
   @queryManager apollo;
@@ -120,11 +122,15 @@ export default class LinkAttachmentsComponent extends Component {
 
   @dropTask
   *save() {
-    this.args.field.answer.value = this.selected;
+    try {
+      this.args.field.answer.value = this.selected;
 
-    yield this.args.field.save.perform();
+      yield this.args.field.save.perform();
 
-    this.showModal = false;
+      this.showModal = false;
+    } catch (error) {
+      this.notification.danger(this.intl.t("link-attachments.link-error"));
+    }
   }
 
   @action
