@@ -383,14 +383,6 @@ class CustomPermission(BasePermission):
             case = target
             permission_key = "case-meta"
         elif isinstance(target, Document):
-            if target.family.form_id not in settings.APPLICATION["CALUMA"].get(
-                "FORM_PERMISSIONS", []
-            ):
-                # If the form of the current document is not using custom
-                # permissions defined in the instance serializer, we shall use
-                # basic caluma permissions.
-                return self.has_caluma_form_edit_permission(target, info)
-
             case = (
                 target.work_item.case
                 if getattr(target, "work_item", None)
@@ -401,6 +393,14 @@ class CustomPermission(BasePermission):
                 # if the document is unlinked, allow changing it this is used for
                 # new table rows
                 return True
+
+            if target.family.form_id not in settings.APPLICATION["CALUMA"].get(
+                "FORM_PERMISSIONS", []
+            ):
+                # If the form of the current document is not using custom
+                # permissions defined in the instance serializer, we shall use
+                # basic caluma permissions.
+                return self.has_caluma_form_edit_permission(target, info)
 
             permission_key = (
                 "main"
