@@ -671,7 +671,6 @@ def caluma_forms_be(settings):
     )
 
     # main form
-
     question = caluma_form_models.Question.objects.create(
         slug="vorname-gesuchstellerin", type=caluma_form_models.Question.TYPE_TEXT
     )
