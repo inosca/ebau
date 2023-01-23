@@ -2,7 +2,8 @@ legal-submission:
   new: "Neues Rechtsbegehren"
   edit: "Rechtsbegehren bearbeiten"
 
-  all: "Alle"
+  all-types: "Alle Typen"
+  all-status: "Alle Status"
 
   receipt-date: "Datum Eingang"
   type: "Typ"

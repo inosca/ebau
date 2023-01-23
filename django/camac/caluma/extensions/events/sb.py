@@ -64,7 +64,7 @@ def custom_sb1_work_item(sender, work_item, user, context, **kwargs):
 
         work_item = WorkItem.objects.create(
             task_id=get_caluma_setting("MANUAL_WORK_ITEM_TASK"),
-            name=get_translations(gettext_noop("Informin burden compensation bodies")),
+            name=get_translations(gettext_noop("Inform load compensation bodies")),
             created_by_user=user.username,
             created_by_group=user.group,
             deadline=timezone.now() + timedelta(days=10),
