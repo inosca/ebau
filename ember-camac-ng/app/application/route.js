@@ -2,6 +2,7 @@ import { getOwner } from "@ember/application";
 import Route from "@ember/routing/route";
 import { inject as service } from "@ember/service";
 import DocumentValidityButtonComponent from "ember-ebau-core/components/document-validity-button";
+import LinkAttachmentsComponent from "ember-ebau-core/components/link-attachments";
 import UrGisComponent from "ember-ebau-core/components/ur-gis";
 
 import AssignEbauNumberButtonComponent from "camac-ng/components/assign-ebau-number-button";
@@ -114,6 +115,12 @@ export default class ApplicationRoute extends Route {
       component: "inquiry-answer-status",
       componentClass: InquiryAnswerStatus,
       type: "ChoiceQuestion",
+    });
+
+    this.calumaOptions.registerComponentOverride({
+      label: "Dokumente verlinken",
+      component: "link-attachments",
+      componentClass: LinkAttachmentsComponent,
     });
   }
 }

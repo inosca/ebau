@@ -1,6 +1,7 @@
 import EmberRouter from "@ember/routing/router";
 import { inject as service } from "@ember/service";
 import registerDMSAdmin from "ember-ebau-core/modules/dms-admin";
+import registerLegalSubmission from "ember-ebau-core/modules/legal-submission";
 
 import config from "camac-ng/config/environment";
 
@@ -86,6 +87,8 @@ Router.map(function () {
     path: "/distribution/:case",
   });
 
-  registerDMSAdmin(this);
   this.route("dms-generate", { path: "instances/:instance_id/dms-generate" });
+
+  registerLegalSubmission(this);
+  registerDMSAdmin(this);
 });

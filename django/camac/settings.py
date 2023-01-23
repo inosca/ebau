@@ -1451,7 +1451,12 @@ APPLICATIONS = {
             ],
             "PRE_COMPLETE": {
                 "decision": {
-                    "skip": ["audit", "publication", "fill-publication"],
+                    "skip": [
+                        "audit",
+                        "publication",
+                        "fill-publication",
+                        "legal-submission",
+                    ],
                     "cancel": [
                         "create-manual-workitems",
                         "create-publication",
@@ -1748,6 +1753,9 @@ APPLICATIONS = {
             ),
             "caluma_heat_generator_form": generate_form_dump_config(
                 regex=r"^heat-generator"
+            ),
+            "caluma_legal_submission_form": generate_form_dump_config(
+                r"^legal-submission"
             ),
             # Distribution
             **DISTRIBUTION_DUMP_CONFIG,

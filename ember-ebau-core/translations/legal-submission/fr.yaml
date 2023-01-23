@@ -1,0 +1,19 @@
+legal-submission:
+  new: "Nouvelle conclusion"
+  edit: "Modifier la conclusion"
+
+  all-types: "Tous les types"
+  all-status: "Tous les statuts"
+
+  receipt-date: "Date de réception"
+  type: "Type"
+  title: "Titre"
+  legal-claimants: "Requérants conclusions"
+  status: "Statut"
+
+  loading-error: "Erreur lors du chargement des conclusions"
+  create-error: "Erreur lors de la création de la conclusion"
+
+  delete-confirm: "Voulez-vous vraiment supprimer la conclusion ?"
+  delete-success: "La conclusion a été supprimée avec succès."
+  delete-error: "Erreur lors de la suppression de la conclusion"

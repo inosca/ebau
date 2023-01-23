@@ -7,4 +7,12 @@ export default class CustomEbauModulesService extends EbauModulesService {
   get serviceId() {
     return this.shoebox.content.serviceId;
   }
+
+  get instanceId() {
+    return this.shoebox.content.instanceId;
+  }
+
+  get isReadOnlyRole() {
+    return this.shoebox.isReadOnlyRole;
+  }
 }

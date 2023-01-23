@@ -4,6 +4,7 @@ from django.core.cache import cache
 from django.utils.translation import gettext as _, override
 
 from camac.core.models import Authority
+from camac.document.models import Attachment
 from camac.user.models import Location, Service
 
 from .countries import COUNTRIES
@@ -250,3 +251,20 @@ class Authorities(BaseDataSource):
 
     def get_data(self, user, question, context):
         return [[authority.pk, authority.name] for authority in Authority.objects.all()]
+
+
+class Attachments(BaseDataSource):
+    info = "List of attachments in a given attachment section"
+
+    @data_source_cache(timeout=5)
+    def get_data(self, user, question, context):
+        attachment_section_id = question.meta.get("attachmentSection")
+        instance_id = context.get("instanceId")
+
+        if not attachment_section_id or not instance_id:
+            return []
+
+        return Attachment.objects.filter(
+            attachment_sections__pk=attachment_section_id,
+            instance_id=instance_id,
+        ).values_list("pk", flat=True)

@@ -25,12 +25,12 @@ class CamacAuthenticatedGraphQLView(AuthenticationGraphQLView):
             # Get the camac request containing the camac user and group
             request.user = oidc_user
             Info = namedtuple("Info", "context")
-            camac_request = CamacRequest(Info(context=request)).request
+            request.camac_request = CamacRequest(Info(context=request)).request
 
-            extend_user(oidc_user, camac_request)
+            extend_user(oidc_user, request.camac_request)
 
             # Set the camac_user property on the caluma request
-            request.camac_user = camac_request.user
+            request.camac_user = request.camac_request.user
         except User.DoesNotExist:
             # Raise a 401 error if the user was not found in the CAMAC database
             raise HttpError(HttpResponseUnauthorized())

@@ -701,6 +701,7 @@ def test_validation(
                 ("create-publication", "canceled"),  # "Neue Publikation"
                 ("decision", "skipped"),  # "Entscheid verfügen"
                 ("information-of-neighbors", "canceled"),  # Nachbarschaftsorientierung
+                ("legal-submission", "skipped"),  # Rechtsbegehren
             ],
             "completed",
         ),
@@ -770,6 +771,7 @@ def test_validation(
                 ("create-publication", "canceled"),  # "Neue Publikation"
                 ("decision", "skipped"),  # "Entscheid verfügen"
                 ("information-of-neighbors", "canceled"),  # Nachbarschaftsorientierung
+                ("legal-submission", "skipped"),  # Rechtsbegehren
             ],
             "completed",
         ),

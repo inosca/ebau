@@ -122,6 +122,59 @@ def test_copy_sb_personalien(
         assert sb2_row.answers.get(question_id="name-sb").value == "Test123"
 
 
+@pytest.mark.freeze_time("2023-01-01")
+def test_post_complete_sb1(
+    db,
+    be_instance,
+    decision_factory,
+    caluma_admin_user,
+    document_factory,
+    service_factory,
+    instance_service_factory,
+):
+    case = be_instance.case
+
+    service = service_factory(
+        service_group__name="construction-control",
+        trans__name="Baukontrolle Burgdorf",
+        trans__language="de",
+    )
+    instance_service_factory(instance=be_instance, service=service, active=1)
+
+    for task_id in ["submit", "ebau-number", "distribution", "decision"]:
+        if task_id == "decision":
+            decision_factory(decision=DECISIONS_BEWILLIGT)
+
+        workflow_api.skip_work_item(
+            work_item=case.work_items.get(task_id=task_id), user=caluma_admin_user
+        )
+
+    work_item = caluma_workflow_models.WorkItem.objects.filter(
+        task_id="legal-submission"
+    ).first()
+    row_document = document_factory(
+        form_id="legal-submission-form", family=work_item.document
+    )
+    document_answer = work_item.document.answers.create(
+        question_id="legal-submission-table"
+    )
+    caluma_form_models.Answer.objects.create(
+        value="legal-submission-type-load-compensation-request",
+        document=row_document,
+        question_id="legal-submission-type",
+    )
+    document_answer.documents.add(row_document)
+
+    workflow_api.complete_work_item(
+        work_item=case.work_items.get(task_id="sb1"), user=caluma_admin_user
+    )
+
+    manual_workitem = caluma_workflow_models.WorkItem.objects.filter(
+        task_id="create-manual-workitems", name="Lastenausgleichsstellende informieren"
+    ).first()
+    assert manual_workitem.deadline.strftime("%d.%m.%Y") == "11.01.2023"
+
+
 def test_copy_municipality_tags_for_sb1(
     db,
     be_instance,

@@ -1,0 +1,7 @@
+link-attachments:
+  title: 'Lier les documents de "{section}"'
+  empty: "Aucun document n'a encore été téléchargé dans cette section."
+  no-selected: "Aucun document n'a été mis en lien."
+  download: "Télécharger le document"
+  upload-error: "Erreur lors du téléchargement du document"
+  replaced: "(remplacé)"

@@ -1,6 +1,7 @@
 import Model, { attr, belongsTo, hasMany } from "@ember-data/model";
 import { inject as service } from "@ember/service";
 import { dropTask } from "ember-concurrency";
+import { trackedFunction } from "ember-resources/util/function";
 import { saveAs } from "file-saver";
 import { filesize } from "filesize";
 
@@ -24,8 +25,30 @@ export default class Attachment extends Model {
     return filesize(this.size);
   }
 
+  get displayName() {
+    return this.context.displayName ?? this.name;
+  }
+
+  thumbnail = trackedFunction(this, async () => {
+    try {
+      const response = await this.fetch.fetch(
+        `/api/v1/attachments/${this.id}/thumbnail`
+      );
+
+      return await new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        response.blob().then((blob) => reader.readAsDataURL(blob));
+      });
+    } catch (error) {
+      return null;
+    }
+  });
+
   @dropTask
-  *download() {
+  *download(event) {
+    event?.preventDefault();
+
     try {
       const response = yield this.fetch.fetch(`${this.path}`, {
         mode: "cors",

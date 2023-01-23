@@ -1,0 +1,88 @@
+query LegalSubmissionDocuments($filter: [DocumentFilterSetType]) {
+  allDocuments(
+    filter: $filter
+    order: [{ answerValue: "legal-submission-receipt-date" }]
+  ) {
+    edges {
+      node {
+        id
+        answers(
+          filter: [
+            {
+              questions: [
+                "legal-submission-type"
+                "legal-submission-status"
+                "legal-submission-title"
+                "legal-submission-receipt-date"
+                "legal-submission-legal-claimants-table-question"
+              ]
+            }
+          ]
+        ) {
+          edges {
+            node {
+              id
+              question {
+                slug
+              }
+              ... on StringAnswer {
+                stringValue: value
+                selectedOption {
+                  label
+                  slug
+                }
+              }
+              ... on ListAnswer {
+                listValue: value
+                selectedOptions {
+                  edges {
+                    node {
+                      label
+                      slug
+                    }
+                  }
+                }
+              }
+              ... on DateAnswer {
+                dateValue: value
+              }
+              ... on TableAnswer {
+                tableValue: value {
+                  id
+                  answers(
+                    filter: [
+                      {
+                        questions: [
+                          "juristische-person-gesuchstellerin"
+                          "name-juristische-person-gesuchstellerin"
+                          "vorname-gesuchstellerin"
+                          "name-gesuchstellerin"
+                        ]
+                      }
+                    ]
+                  ) {
+                    edges {
+                      node {
+                        id
+                        question {
+                          slug
+                        }
+                        ... on StringAnswer {
+                          stringValue: value
+                          selectedOption {
+                            label
+                            slug
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

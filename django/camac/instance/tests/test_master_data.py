@@ -1,3 +1,5 @@
+from datetime import date
+
 import pytest
 from caluma.caluma_form import (
     factories as caluma_form_factories,
@@ -13,12 +15,13 @@ from django.utils.translation import override
 from ..master_data import MasterData
 
 
-def _question(slug, question_label=None):
+def _question(slug, question_type, question_label=None):
     return (
         {"question_id": slug}
         if caluma_form_models.Question.objects.filter(pk=slug).exists()
         else {
             "question__pk": slug,
+            "question__type": question_type,
             **({"question__label": question_label} if question_label else {}),
         }
     )
@@ -28,12 +31,23 @@ def add_answer(
     document,
     question,
     value,
-    value_key="value",
     label=None,
     question_label=None,
 ):
+    question_type = (
+        caluma_form_models.Question.TYPE_DATE
+        if isinstance(value, date)
+        else caluma_form_models.Question.TYPE_INTEGER
+        if isinstance(value, int)
+        else caluma_form_models.Question.TYPE_TEXT
+    )
+    value_key = (
+        "date" if question_type == caluma_form_models.Question.TYPE_DATE else "value"
+    )
+
     answer = caluma_form_factories.AnswerFactory(
-        document=document, **{value_key: value, **_question(question, question_label)}
+        document=document,
+        **{value_key: value, **_question(question, question_type, question_label)},
     )
 
     if label:
@@ -54,11 +68,14 @@ def add_answer(
     return answer
 
 
-def add_table_answer(document, question, rows, table_answer=None):
+def add_table_answer(document, question, rows, table_answer=None, row_form_id=None):
     answer = add_answer(document, question, None) if not table_answer else table_answer
 
     for i, row in enumerate(reversed(rows)):
-        row_document = caluma_form_factories.DocumentFactory(family=document)
+        row_args = {"form_id": row_form_id} if row_form_id else {}
+        row_document = caluma_form_factories.DocumentFactory(
+            family=document.family, **row_args
+        )
         for column, value in row.items():
             add_answer(row_document, column, value)
 

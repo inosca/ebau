@@ -1,0 +1,19 @@
+legal-submission:
+  new: "Neues Rechtsbegehren"
+  edit: "Rechtsbegehren bearbeiten"
+
+  all-types: "Alle Typen"
+  all-status: "Alle Status"
+
+  receipt-date: "Datum Eingang"
+  type: "Typ"
+  title: "Titel"
+  legal-claimants: "Rechtsbegehrende"
+  status: "Status"
+
+  loading-error: "Fehler beim Laden der Rechtsbegehren"
+  create-error: "Fehler beim Erstellen des Rechtsbegehren"
+
+  delete-confirm: "Wollen Sie das Rechtsbegehren wirklich löschen?"
+  delete-success: "Das Rechtsbegehren wurde erfolgreich gelöscht."
+  delete-error: "Fehler beim Löschen des Rechtsbegehren"

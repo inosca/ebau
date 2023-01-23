@@ -18,6 +18,7 @@ export default class InstanceModel extends Model {
   @attr decision;
   @attr decisionDate;
   @attr involvedAt;
+  @attr isAfterDecision;
 
   @belongsTo user;
   @belongsTo form;
