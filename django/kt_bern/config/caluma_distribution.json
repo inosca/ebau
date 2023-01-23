@@ -614,7 +614,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"Entscheid starten\", \"fr\": null}",
+      "name": "{\"de\": \"Entscheid starten\", \"fr\": \"Clore la proc\\u00e9dure de circulation\"}",
       "description": "{\"de\": null, \"fr\": null}",
       "type": "simple",
       "meta": {},
