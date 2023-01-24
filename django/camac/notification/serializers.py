@@ -31,7 +31,6 @@ from camac.core.models import (
     WorkflowEntry,
 )
 from camac.core.utils import create_history_entry
-from camac.instance.master_data import MasterData
 from camac.instance.mixins import InstanceEditableMixin
 from camac.instance.models import Instance
 from camac.instance.validators import transform_coordinates
@@ -343,22 +342,21 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
     def get_municipality_de(self, instance):
         """Return municipality in german."""
-        try:
-            master_data = MasterData(instance.case)
-
-            with translation.override("de"):
-                return f"Gemeinde {master_data.municipality.get('label')}"
-        except (KeyError, AttributeError):
-            return ""
+        return self.get_municipality(instance, "de")
 
     def get_municipality_fr(self, instance):
         """Return municipality in french."""
-        try:
-            master_data = MasterData(instance.case)
+        return self.get_municipality(instance, "fr")
 
-            with translation.override("fr"):
-                return f"Municipalité {master_data.municipality.get('label')}"
-        except (KeyError, AttributeError):
+    def get_municipality(self, instance, language):
+        try:
+            service = Service.objects.get(pk=CalumaApi().get_municipality(instance))
+            name = service.get_name(language)
+
+            return name.replace("Leitbehörde", "Gemeinde").replace(
+                "Autorité directrice", "Municipalité"
+            )
+        except Service.DoesNotExist:
             return ""
 
     def get_current_service(self, instance):
