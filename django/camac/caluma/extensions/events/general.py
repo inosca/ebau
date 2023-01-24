@@ -132,7 +132,7 @@ def set_meta_attributes(sender, work_item, user, context, **kwargs):
     }
 
     work_item.meta = {**META_DEFAULTS, **work_item.meta}
-    work_item.save()
+    work_item.save(update_fields=["meta"])
 
 
 @on(post_create_work_item, raise_exception=True)
@@ -159,7 +159,7 @@ def set_assigned_user(sender, work_item, user, **kwargs):
 
     if responsible:
         work_item.assigned_users = responsible
-        work_item.save()
+        work_item.save(update_fields=["assigned_users"])
 
 
 @on(post_complete_work_item, raise_exception=True)
