@@ -119,9 +119,6 @@ def test_notification_template_destroy(
 
 
 @pytest.mark.parametrize(
-    "notification_template__body", ["{{identifier}} {{answer_period_date}}"]
-)
-@pytest.mark.parametrize(
     "role__name,instance__identifier,notification_template__subject,status_code",
     [
         ("Canton", "identifier", "{{identifier}}", status.HTTP_200_OK),
@@ -134,22 +131,42 @@ def test_notification_template_merge(
     sz_instance,
     notification_template,
     status_code,
-    activation,
     billing_entry,
     application_settings,
     form_field_factory,
-    notice_factory,
     publication_entry,
     work_item_factory,
     document_factory,
     settings,
+    snapshot,
 ):
+    notification_template.body = """
+        identifier: {{identifier}}
+        answer_period_date: {{answer_period_date}}
+        field_punkte: {{field_punkte}}
+        field_bezeichnung: {{field_bezeichnung}}
+        field_durchmesser_der_bohrung: {{field_durchmesser_der_bohrung}}
+        billing_entries:{% for b in billing_entries %}
+            - {{b.service}}: {{b.amount}} CHF, erstellt am {{b.created}} auf Kostenstelle {{b.account}} (Nr. {{b.account_number}}){% endfor %}
+        bauverwaltung:
+            - beschwerdeverfahren_weiterzug_durch: {{bauverwaltung.beschwerdeverfahren_weiterzug_durch}}
+            - bewilligungsverfahren_gr_sitzung_beschluss: {{bauverwaltung.bewilligungsverfahren_gr_sitzung_beschluss}}
+            - bewilligungsverfahren_gr_sitzung_datum: {{bauverwaltung.bewilligungsverfahren_gr_sitzung_datum}}
+            - beschwerdeverfahren: {{bauverwaltung.beschwerdeverfahren}}
+            - baukontrolle_realisierung_table: {{bauverwaltung.baukontrolle_realisierung_table}}
+            - bewilligungsverfahren_sistierung: {{bauverwaltung.bewilligungsverfahren_sistierung}}
+            - bewilligungsverfahren_sitzung_baukommission:{% for bv in bauverwaltung.bewilligungsverfahren_sitzung_baukommission %}
+                - Bemerkung: {{bv.bewilligungsverfahren_sitzung_baukommission_bemerkung}}, Nr: {{bv.bewilligungsverfahren_sitzung_baukommission_nr}}{% endfor %}
+        publications:{% for p in publications %}
+            - {{p.date}} - {{p.end_date}} (W{{p.calendar_week}}){% endfor %}
+    """
+    notification_template.save()
+
     call_command(
         "loaddata", settings.ROOT_DIR("kt_schwyz/config/buildingauthority.json")
     )
     call_command("loaddata", settings.ROOT_DIR("kt_schwyz/config/caluma_form.json"))
 
-    notice_factory.create_batch(size=3, activation=activation)
     application_settings["COORDINATE_QUESTION"] = "punkte"
     application_settings["QUESTIONS_WITH_OVERRIDE"] = ["bezeichnung"]
     application_settings["LOCATION_NAME_QUESTION"] = "durchmesser-der-bohrung"
@@ -203,11 +220,12 @@ def test_notification_template_merge(
     if status_code == status.HTTP_200_OK:
         json = response.json()
         assert json["data"]["attributes"]["subject"] == sz_instance.identifier
-        assert json["data"]["attributes"]["body"] == "identifier 21.01.2017"
         assert json["data"]["id"] == "{0}-{1}".format(
             notification_template.slug, sz_instance.pk
         )
         assert json["data"]["type"] == "notification-template-merges"
+
+        snapshot.assert_match(json["data"]["attributes"]["body"])
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
@@ -1498,3 +1516,11 @@ def test_notification_history_entry(
             history_entry.title == f"Notifikation gesendet an {service.email} (Subject)"
         )
         assert history_entry.body == "Body"
+
+
+def test_merge_serializer_used_placeholders(db, instance):
+    serializer = InstanceMergeSerializer(
+        instance=instance, used_placeholders=["base_url"]
+    )
+
+    assert list(serializer.data.keys()) == ["base_url"]
