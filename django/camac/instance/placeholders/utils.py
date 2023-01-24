@@ -1,6 +1,9 @@
 from datetime import date, datetime
 from typing import Any, Optional, Union
 
+from babel.dates import format_date
+from django.utils.translation import get_language
+
 
 def clean_join(*parts: Any, separator: Optional[str] = " ") -> str:
     """Join all truthy arguments as trimmed string with a given separator.
@@ -81,4 +84,7 @@ def human_readable_date(value: Union[datetime, date, None]) -> str:
     "4. October 2021"
     """
 
-    return value.strftime("%-d. %B %Y") if value else None
+    if not value:
+        return None
+
+    return format_date(value, "long", locale=get_language())
