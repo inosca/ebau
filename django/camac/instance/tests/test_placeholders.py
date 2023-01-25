@@ -11,6 +11,7 @@ from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.urls import reverse
 from django.utils.timezone import make_aware
+from django.utils.translation import override
 from rest_framework import status
 
 from camac.constants.kt_bern import (
@@ -18,6 +19,7 @@ from camac.constants.kt_bern import (
     VORABKLAERUNG_DECISIONS_BEWILLIGT,
 )
 from camac.instance.placeholders.aliases import ALIASES
+from camac.instance.placeholders.utils import human_readable_date
 
 from .test_master_data import add_answer, add_table_answer, be_master_data_case  # noqa
 
@@ -420,3 +422,13 @@ def test_dms_placeholder_alias_integrity():
             assert (
                 complex_aliases[key].count(alias) == 1
             ), f'Duplicate complex alias "{alias}" in "{key}"'
+
+
+@pytest.mark.freeze_time("2023-01-24")
+@pytest.mark.parametrize(
+    "language,expected",
+    [("de", "24. Januar 2023"), ("fr", "24 janvier 2023"), ("en", "January 24, 2023")],
+)
+def test_human_readable_date(language, expected):
+    with override(language):
+        assert human_readable_date(date.today()) == expected
