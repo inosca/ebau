@@ -23616,7 +23616,7 @@
       "template": "",
       "class_field": "",
       "hidden": 0,
-      "sort": 9,
+      "sort": 10,
       "form_group": 30
     }
   },
@@ -23646,7 +23646,7 @@
       "template": "",
       "class_field": "",
       "hidden": 0,
-      "sort": 6,
+      "sort": 7,
       "form_group": 30
     }
   },
@@ -23686,10 +23686,10 @@
     "fields": {
       "available_instance_resource": "page",
       "resource": 301,
-      "name": "Beteiligte Fachstellen",
-      "description": "",
+      "name": "Mitteilungen Fachstellen",
+      "description": null,
       "template": "/global/involved-department.phtml",
-      "class_field": "",
+      "class_field": null,
       "hidden": 0,
       "sort": 6,
       "form_group": 181
@@ -23706,7 +23706,7 @@
       "template": "",
       "class_field": "",
       "hidden": 0,
-      "sort": 7,
+      "sort": 8,
       "form_group": 30
     }
   },
@@ -23731,7 +23731,7 @@
     "fields": {
       "available_instance_resource": "page",
       "resource": 302,
-      "name": "Beteiligte Fachstellen",
+      "name": "Mitteilungen Fachstellen",
       "description": null,
       "template": "/global/involved-department.phtml",
       "class_field": null,
@@ -23841,7 +23841,7 @@
       "template": "/koord/edit-notice.phtml",
       "class_field": "",
       "hidden": 1,
-      "sort": 8,
+      "sort": 9,
       "form_group": 161
     }
   },
@@ -24141,7 +24141,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 10,
+      "sort": 11,
       "form_group": 161
     }
   },
@@ -24636,7 +24636,7 @@
       "template": "",
       "class_field": null,
       "hidden": 0,
-      "sort": 11,
+      "sort": 12,
       "form_group": 161
     }
   },
@@ -24981,7 +24981,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 12,
+      "sort": 13,
       "form_group": 161
     }
   },
@@ -25431,7 +25431,7 @@
       "template": "/ember-camac-ng/responsible.phtml",
       "class_field": "menu-category-primary",
       "hidden": 0,
-      "sort": 13,
+      "sort": 14,
       "form_group": 161
     }
   },
@@ -25552,6 +25552,21 @@
       "class_field": "menu-category-primary",
       "hidden": 0,
       "sort": 4,
+      "form_group": 161
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 12000021,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 267,
+      "name": "Mitteilungen Fachstellen",
+      "description": null,
+      "template": "/global/involved-department.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 6,
       "form_group": 161
     }
   },
@@ -28785,7 +28800,7 @@
     "model": "core.irpage",
     "pk": 285,
     "fields": {
-      "pdf_class": ""
+      "pdf_class": null
     }
   },
   {
@@ -29050,6 +29065,13 @@
   {
     "model": "core.irpage",
     "pk": 12000020,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
+    "pk": 12000021,
     "fields": {
       "pdf_class": null
     }
@@ -41128,6 +41150,51 @@
       "instance_resource": 12000019,
       "role": 1102,
       "instance_state": 22
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000381,
+    "fields": {
+      "instance_resource": 12000021,
+      "role": 3,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000382,
+    "fields": {
+      "instance_resource": 12000021,
+      "role": 3,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000383,
+    "fields": {
+      "instance_resource": 12000021,
+      "role": 3,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000384,
+    "fields": {
+      "instance_resource": 12000021,
+      "role": 3,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000385,
+    "fields": {
+      "instance_resource": 12000021,
+      "role": 3,
+      "instance_state": 26
     }
   },
   {
