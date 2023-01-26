@@ -38,7 +38,7 @@ const CHOICE_FIELD_KEYS = ["municipality"];
 
 const CENTER = { lat: 46.881301, lng: 8.643078 };
 
-const LAYER = "urec:urec_darstellungslayer";
+const LAYERS = ["urec:urec_darstellungslayer"];
 
 const RESOLUTIONS = [50, 20, 10, 5, 2.5, 2, 1.5, 1, 0.5, 0.25, 0.1, 0.05];
 
@@ -118,7 +118,7 @@ export default class UrGisComponent extends Component {
 
   minZoom = 10;
   maxZoom = 18;
-  layers = LAYER;
+  layers = LAYERS.join(",");
 
   get config() {
     return getOwner(this).resolveRegistration("config:environment")?.[
@@ -166,13 +166,13 @@ export default class UrGisComponent extends Component {
     this.point = latlng;
     const { x, y } = LatLngToEPSG3857(latlng);
     try {
-      const layer = LAYER;
+      const layers = LAYERS.join(",");
       const minX = x - 10;
       const minY = y - 10;
       const maxX = x + 10;
       const maxY = y + 10;
       const response = yield fetch(
-        `/lisag/wms?SERVICE=WMS&VERSION=1.3.0&HEIGHT=101&WIDTH=101&request=GetCapabilities&REQUEST=GetFeatureInfo&FORMAT=image/png&LAYERS=${layer}&QUERY_LAYERS=${layer}&INFO_FORMAT=application/json&I=50&J=50&CRS=EPSG:3857&BBOX=${minX},${minY},${maxX},${maxY}&FEATURE_COUNT=10`,
+        `/lisag/wms?SERVICE=WMS&VERSION=1.3.0&HEIGHT=101&WIDTH=101&request=GetCapabilities&REQUEST=GetFeatureInfo&FORMAT=image/png&LAYERS=${layers}&QUERY_LAYERS=${layers}&INFO_FORMAT=application/json&I=50&J=50&CRS=EPSG:3857&BBOX=${minX},${minY},${maxX},${maxY}&FEATURE_COUNT=10`,
         {
           mode: "cors",
         }
