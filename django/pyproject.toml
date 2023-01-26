@@ -102,7 +102,6 @@ omit = [
     "camac/core/management/commands/duplicate-instance.py",
     "camac/core/management/commands/repair_sz_workflow.py",
     # Temporary entries for landing !2391 into master
-    "camac/caluma/extensions/permissions.py",
     "camac/caluma/extensions/validations.py",
     # Temporary exlusions, remove when publication permission endpoint is reenabled"
     # revert !2353 to remove"

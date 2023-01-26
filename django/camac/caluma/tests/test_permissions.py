@@ -489,3 +489,71 @@ def test_simple_caluma_form_permissions(
     result = caluma_admin_schema_executor(query, variables=variables)
 
     assert bool(result.errors) != success
+
+
+@pytest.mark.parametrize(
+    "is_main_form,form_permissions,success",
+    [
+        (True, {"read", "write"}, True),
+        (True, {"read"}, False),
+        (False, {"read", "write"}, True),
+        (False, {"read"}, False),
+    ],
+)
+def test_specific_form_permissions(
+    db,
+    caluma_admin_schema_executor,
+    form_question_factory,
+    mocker,
+    service,
+    success,
+    work_item_factory,
+    instance_factory,
+    is_main_form,
+    case_factory,
+    application_settings,
+    form_permissions,
+):
+    mocker.patch("caluma.caluma_core.types.Node.visibility_classes", [Any])
+
+    case = case_factory()
+    instance_factory(case=case)
+    if is_main_form:
+        document = case.document
+        form = "main"
+    else:
+        work_item = work_item_factory(case=case)
+        document = work_item.document
+        form = document.form_id
+
+    application_settings["CALUMA"]["FORM_PERMISSIONS"] = [form]
+
+    response = Mock(spec=requests.models.Response)
+    response.status_code = 200
+    response.json.return_value = {
+        "data": {"meta": {"permissions": {form: form_permissions}}}
+    }
+    mocker.patch.object(requests, "get", return_value=response)
+
+    question = form_question_factory(
+        form=document.form, question__type=Question.TYPE_TEXT
+    ).question
+
+    query = """
+        mutation($question: ID!, $document: ID!) {
+            saveDocumentStringAnswer(input: {
+                question: $question
+                document: $document
+                value: "foo"
+            }) {
+                clientMutationId
+            }
+        }
+    """
+
+    variables = {"question": question.pk, "document": str(document.pk)}
+
+    result = caluma_admin_schema_executor(query, variables=variables)
+
+    requests.get.assert_called()
+    assert bool(result.errors) != success

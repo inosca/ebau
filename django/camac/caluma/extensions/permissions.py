@@ -53,7 +53,7 @@ def is_created_by_service(work_item, service_id):
     return work_item.created_by_group == str(service_id)
 
 
-def is_addressed_to_applicant(work_item):
+def is_addressed_to_applicant(work_item):  # pragma: todo cover
     if settings.APPLICATION_NAME == "kt_schwyz":
         return "applicant" in work_item.addressed_groups
     return len(work_item.addressed_groups) == 0
@@ -151,7 +151,7 @@ class CustomPermission(BasePermission):
         return super().has_object_permission(mutation, info, instance)
 
     @permission_for(Mutation)
-    def has_permission_default(self, mutation, info):
+    def has_permission_default(self, mutation, info):  # pragma: todo cover
         log.debug(
             f"ACL: fallback permission: allow mutation '{mutation.__name__}' for support users"
         )
@@ -159,7 +159,9 @@ class CustomPermission(BasePermission):
         return self.has_camac_role("support")
 
     @object_permission_for(Mutation)
-    def has_object_permission_default(self, mutation, info, instance):
+    def has_object_permission_default(
+        self, mutation, info, instance
+    ):  # pragma: todo cover
         log.debug(
             f"ACL: fallback object permission: allowing "
             f"mutation '{mutation.__name__}' on {instance} for support users"
@@ -170,7 +172,9 @@ class CustomPermission(BasePermission):
     # Case
     @permission_for(SaveCase)
     @object_permission_for(SaveCase)
-    def has_permission_for_save_case(self, mutation, info, case=None):
+    def has_permission_for_save_case(
+        self, mutation, info, case=None
+    ):  # pragma: todo cover
         # Visibilty handles whether the user has access to the case
         return True
 
@@ -178,7 +182,9 @@ class CustomPermission(BasePermission):
     @permission_for(ResumeCase)
     @object_permission_for(ResumeCase)
     @object_permission_for(SuspendCase)
-    def has_permission_for_suspend_resume_case(self, mutation, info, case=None):
+    def has_permission_for_suspend_resume_case(
+        self, mutation, info, case=None
+    ):  # pragma: todo cover
         if not case:
             return True
 
@@ -188,7 +194,7 @@ class CustomPermission(BasePermission):
 
     # Work Item
     @permission_for(CreateWorkItem)
-    def has_permission_for_create_work_item(self, mutation, info):
+    def has_permission_for_create_work_item(self, mutation, info):  # pragma: todo cover
         # Visibilty handles whether the user has access to the case on which
         # the work item is created
         return True
@@ -302,7 +308,7 @@ class CustomPermission(BasePermission):
     # Document
     @permission_for(RemoveDocument)
     @permission_for(SaveDocument)
-    def has_permission_for_savedocument(self, mutation, info):
+    def has_permission_for_savedocument(self, mutation, info):  # pragma: todo cover
         if mutation.get_params(info).get("form") == DASHBOARD_FORM_SLUG:
             # There should only be one dashboard document which has to be
             # created by a support user
@@ -315,14 +321,16 @@ class CustomPermission(BasePermission):
 
     @object_permission_for(RemoveDocument)
     @object_permission_for(SaveDocument)
-    def has_object_permission_for_savedocument(self, mutation, info, document):
+    def has_object_permission_for_savedocument(
+        self, mutation, info, document
+    ):  # pragma: todo cover
         if document.form.slug == DASHBOARD_FORM_SLUG:
             return self.has_camac_role("support")
 
         return self.has_camac_edit_permission(document.family, info)
 
     @permission_for(CopyDocument)
-    def has_permission_for_copydocument(self, mutation, info):
+    def has_permission_for_copydocument(self, mutation, info):  # pragma: todo cover
         source = Document.objects.get(pk=mutation.get_params(info)["input"]["source"])
 
         return self.has_camac_edit_permission(source, info)
@@ -339,13 +347,13 @@ class CustomPermission(BasePermission):
             document = Document.objects.get(
                 pk=mutation.get_params(info)["input"]["document"]
             )
-        except (Document.DoesNotExist, KeyError):
+        except (Document.DoesNotExist, KeyError):  # pragma: no cover
             log.error(
                 f"{mutation.__name__}: unable not find document: {json.dumps(mutation.get_params(info))}"
             )
             return False
 
-        if document.form.slug == DASHBOARD_FORM_SLUG:
+        if document.form.slug == DASHBOARD_FORM_SLUG:  # pragma: todo cover
             return self.has_camac_role("support")
 
         return self.has_camac_edit_permission(document.family, info)
@@ -357,19 +365,21 @@ class CustomPermission(BasePermission):
     )
     @object_permission_for(SaveDocumentAnswer)
     def has_object_permission_for_savedocumentanswer(self, mutation, info, answer):
-        if answer.document.form.slug == DASHBOARD_FORM_SLUG:
+        if answer.document.form.slug == DASHBOARD_FORM_SLUG:  # pragma: todo cover
             return self.has_camac_role("support")
 
         return self.has_camac_edit_permission(answer.document.family, info)
 
     @permission_for(RemoveAnswer)
-    def has_permission_for_removeanswer(self, mutation, info):
+    def has_permission_for_removeanswer(self, mutation, info):  # pragma: todo cover
         answer = mutation.get_params(info)["input"]["answer"]
 
         return self.has_camac_edit_permission(answer.document.family, info)
 
     @object_permission_for(RemoveAnswer)
-    def has_object_permission_for_removeanswer(self, mutation, info, answer):
+    def has_object_permission_for_removeanswer(
+        self, mutation, info, answer
+    ):  # pragma: todo cover
         return self.has_camac_edit_permission(answer.document.family, info)
 
     def has_camac_role(self, required_permission):
@@ -379,7 +389,7 @@ class CustomPermission(BasePermission):
         return role_permissions.get(role_name) == required_permission
 
     def has_camac_edit_permission(self, target, info, required_permission="write"):
-        if isinstance(target, Case):
+        if isinstance(target, Case):  # pragma: todo cover
             case = target
             permission_key = "case-meta"
         elif isinstance(target, Document):
@@ -389,18 +399,10 @@ class CustomPermission(BasePermission):
                 else getattr(target, "case", None)
             )
 
-            if not case:
+            if not case:  # pragma: todo cover
                 # if the document is unlinked, allow changing it this is used for
                 # new table rows
                 return True
-
-            if target.family.form_id not in settings.APPLICATION["CALUMA"].get(
-                "FORM_PERMISSIONS", []
-            ):
-                # If the form of the current document is not using custom
-                # permissions defined in the instance serializer, we shall use
-                # basic caluma permissions.
-                return self.has_caluma_form_edit_permission(target, info)
 
             permission_key = (
                 "main"
@@ -408,7 +410,18 @@ class CustomPermission(BasePermission):
                 and not (hasattr(case, "parent_work_item") and case.parent_work_item)
                 else target.form.slug
             )
-        else:
+
+            if (
+                permission_key != "main"
+                and target.family.form_id
+                not in settings.APPLICATION["CALUMA"].get("FORM_PERMISSIONS", [])
+            ):
+                # If the form of the current document is not using custom
+                # permissions defined in the instance serializer, we shall use
+                # basic caluma permissions.
+                return self.has_caluma_form_edit_permission(target, info)
+
+        else:  # pragma: no cover
             return False
 
         resp = requests.get(
@@ -422,14 +435,14 @@ class CustomPermission(BasePermission):
 
         try:
             jsondata = resp.json()
-            if "error" in jsondata:
+            if "error" in jsondata:  # pragma: no cover
                 raise RuntimeError("Error from NG API: %s" % jsondata["error"])
 
             permissions = jsondata["data"]["meta"]["permissions"]
 
             return required_permission in permissions.get(permission_key, [])
 
-        except KeyError:
+        except KeyError:  # pragma: no cover
             raise RuntimeError(
                 f"NG API returned unexpected data structure (no data key) {jsondata}"
             )
