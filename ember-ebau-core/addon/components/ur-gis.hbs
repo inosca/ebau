@@ -17,6 +17,7 @@
   @maxZoom={{this.maxZoom}}
   @onClick={{perform this.getFeatures value="latlng"}}
   @onLoad={{perform this.handleLoad}}
+  @crs={{this.crs}}
   class="uk-width-1-1 uk-height-large uk-margin" as |map|
 >
   <map.wms-tile
