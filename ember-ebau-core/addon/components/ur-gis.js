@@ -111,13 +111,15 @@ export default class UrGisComponent extends Component {
 
   @queryManager apollo;
   @tracked latlng = CENTER;
-  @tracked zoom = 13;
+  @tracked zoom = 2;
   @tracked _search = "";
   @tracked parcels = [];
   @tracked point = "";
 
-  minZoom = 10;
-  maxZoom = 18;
+  @tracked crs = L.CRS.EPSG2056;
+
+  minZoom = 1;
+  maxZoom = 10;
   layers = LAYERS.join(",");
 
   get config() {
@@ -152,7 +154,7 @@ export default class UrGisComponent extends Component {
         ]);
         this.point = latlng;
         this.latlng = latlng;
-        this.zoom = 18;
+        this.zoom = 10;
         yield this.getFeatures.perform(this.point);
       }
     } catch (error) {
@@ -437,7 +439,7 @@ export default class UrGisComponent extends Component {
         data.features[0].geometry.coordinates[0][0].map(EPSG3857toLatLng)
       );
       this.latlng = coordinates;
-      this.zoom = 18;
+      this.zoom = 10;
     } catch (error) {
       console.error(error);
       this.notification.danger(this.intl.t("gis.technicalError"));
