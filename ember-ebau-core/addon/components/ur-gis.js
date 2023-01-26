@@ -38,19 +38,7 @@ const CHOICE_FIELD_KEYS = ["municipality"];
 
 const CENTER = { lat: 46.881301, lng: 8.643078 };
 
-const LAYERS = [
-  "raumplanung:nutzungsplanung",
-  "av:ch059_liegenschaften_flaechen",
-  // "av:ch059_liegenschaften_parzellenbild",
-  "raumplanung:sondernutzungsplanung",
-  "weitere:wanderwege_netz",
-  "weitere:archaeologische_funderwartungsgebiete",
-  "av:ch055_bodenbedeckung_flaechen_sw",
-  "av:ch059_liegenschaften_selbstrechte",
-  // "leitungen:ur034_abwasseranlagen_eigentum",
-  "ch060_gebaeudeadresse_gebeudeeingaenge",
-  "av:ch060_gebaeudeadressen_strassenstuecke",
-];
+const LAYER = "urec:urec_darstellungslayer";
 
 const RESOLUTIONS = [50, 20, 10, 5, 2.5, 2, 1.5, 1, 0.5, 0.25, 0.1, 0.05];
 
@@ -130,7 +118,7 @@ export default class UrGisComponent extends Component {
 
   minZoom = 10;
   maxZoom = 18;
-  layers = LAYERS.join(",");
+  layers = LAYER;
 
   get config() {
     return getOwner(this).resolveRegistration("config:environment")?.[
@@ -178,13 +166,13 @@ export default class UrGisComponent extends Component {
     this.point = latlng;
     const { x, y } = LatLngToEPSG3857(latlng);
     try {
-      const layerList = LAYERS.join(",");
+      const layer = LAYER;
       const minX = x - 10;
       const minY = y - 10;
       const maxX = x + 10;
       const maxY = y + 10;
       const response = yield fetch(
-        `/lisag/wms?SERVICE=WMS&VERSION=1.3.0&HEIGHT=101&WIDTH=101&request=GetCapabilities&REQUEST=GetFeatureInfo&FORMAT=image/png&LAYERS=${layerList}&QUERY_LAYERS=${layerList}&INFO_FORMAT=application/json&I=50&J=50&CRS=EPSG:3857&BBOX=${minX},${minY},${maxX},${maxY}&FEATURE_COUNT=10`,
+        `/lisag/wms?SERVICE=WMS&VERSION=1.3.0&HEIGHT=101&WIDTH=101&request=GetCapabilities&REQUEST=GetFeatureInfo&FORMAT=image/png&LAYERS=${layer}&QUERY_LAYERS=${layer}&INFO_FORMAT=application/json&I=50&J=50&CRS=EPSG:3857&BBOX=${minX},${minY},${maxX},${maxY}&FEATURE_COUNT=10`,
         {
           mode: "cors",
         }
