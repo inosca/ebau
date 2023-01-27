@@ -20,7 +20,7 @@ from django.db import transaction
 from camac.caluma.api import CalumaApi
 from camac.instance.models import Instance
 from camac.notification.utils import send_mail_without_request
-from camac.user import models as user_models
+from camac.responsible.models import ResponsibleService
 
 log = getLogger()
 
@@ -132,7 +132,7 @@ def set_meta_attributes(sender, work_item, user, context, **kwargs):
     }
 
     work_item.meta = {**META_DEFAULTS, **work_item.meta}
-    work_item.save()
+    work_item.save(update_fields=["meta"])
 
 
 @on(post_create_work_item, raise_exception=True)
@@ -150,15 +150,16 @@ def set_assigned_user(sender, work_item, user, **kwargs):
     if len(work_item.assigned_users) or not addressed_group:
         return
 
-    instance = get_instance(work_item, context=kwargs.get("context"))
-    service = user_models.Service.objects.get(pk=addressed_group)
-
-    responsible = instance.responsible_services.filter(service=service).values_list(
-        "responsible_user__username", flat=True
+    responsible = list(
+        ResponsibleService.objects.filter(
+            instance_id=get_instance_id(work_item, context=kwargs.get("context")),
+            service_id=addressed_group,
+        ).values_list("responsible_user__username", flat=True)
     )
 
-    work_item.assigned_users = list(responsible)
-    work_item.save()
+    if responsible:
+        work_item.assigned_users = responsible
+        work_item.save(update_fields=["assigned_users"])
 
 
 @on(post_complete_work_item, raise_exception=True)

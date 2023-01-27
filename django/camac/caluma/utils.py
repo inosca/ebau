@@ -104,7 +104,7 @@ def sync_inquiry_deadline(
     inquiry.deadline = pytz.utc.localize(
         datetime.combine(deadline, datetime.min.time())
     )
-    inquiry.save()
+    inquiry.save(update_fields=["deadline"])
 
     sync_to_answer_tasks = settings.DISTRIBUTION.get(
         "SYNC_INQUIRY_DEADLINE_TO_ANSWER_TASKS", {}
@@ -124,7 +124,7 @@ def sync_inquiry_deadline(
                     datetime.min.time(),
                 )
             )
-            work_item.save()
+            work_item.save(update_fields=["deadline"])
 
     return inquiry
 

@@ -31,7 +31,6 @@ from camac.core.models import (
     WorkflowEntry,
 )
 from camac.core.utils import create_history_entry
-from camac.instance.master_data import MasterData
 from camac.instance.mixins import InstanceEditableMixin
 from camac.instance.models import Instance
 from camac.instance.validators import transform_coordinates
@@ -204,7 +203,14 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     work_item_name_fr = serializers.SerializerMethodField()
 
     def __init__(
-        self, instance=None, inquiry=None, work_item=None, escape=False, *args, **kwargs
+        self,
+        instance=None,
+        inquiry=None,
+        work_item=None,
+        escape=False,
+        used_placeholders=[],
+        *args,
+        **kwargs,
     ):
         self.escape = escape
         self.inquiry = inquiry
@@ -215,6 +221,14 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         self.service = (
             self.context["request"].group.service if "request" in self.context else None
         )
+
+        # This part here is more or less copy pasted from the
+        # SparseFieldsetsMixion of DRF-JSON-API but using a passed argument
+        # instead of query params.
+        if used_placeholders:
+            for field_name, _ in self.fields.fields.copy().items():
+                if field_name not in used_placeholders:
+                    self.fields.pop(field_name)
 
     def _escape(self, data):
         result = data
@@ -343,22 +357,21 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
     def get_municipality_de(self, instance):
         """Return municipality in german."""
-        try:
-            master_data = MasterData(instance.case)
-
-            with translation.override("de"):
-                return f"Gemeinde {master_data.municipality.get('label')}"
-        except (KeyError, AttributeError):
-            return ""
+        return self.get_municipality(instance, "de")
 
     def get_municipality_fr(self, instance):
         """Return municipality in french."""
-        try:
-            master_data = MasterData(instance.case)
+        return self.get_municipality(instance, "fr")
 
-            with translation.override("fr"):
-                return f"Municipalité {master_data.municipality.get('label')}"
-        except (KeyError, AttributeError):
+    def get_municipality(self, instance, language):
+        try:
+            service = Service.objects.get(pk=CalumaApi().get_municipality(instance))
+            name = service.get_name(language)
+
+            return name.replace("Leitbehörde", "Gemeinde").replace(
+                "Autorité directrice", "Municipalité"
+            )
+        except Service.DoesNotExist:
             return ""
 
     def get_current_service(self, instance):
@@ -834,10 +847,23 @@ class NotificationTemplateMergeSerializer(
     body = serializers.CharField(required=False)
 
     def _merge(self, value, data):
-        try:
-            value_template = jinja2.Template(value)
+        value_template = jinja2.Template(value)
 
-            return value_template.render(data)
+        return value_template.render(data)
+
+    def _get_used_placeholders(self, subject, body):
+        try:
+            content = subject + body
+            env = jinja2.Environment()
+            ast = env.parse(content)
+
+            return [
+                placeholder.lower()
+                # Find all variables that are used in the notification template.
+                # Since we parsed the template with jinja without adding any
+                # context (variables) those will be "undeclared variables"
+                for placeholder in jinja2.meta.find_undeclared_variables(ast)
+            ]
         except jinja2.TemplateError as e:
             raise exceptions.ValidationError(str(e))
 
@@ -845,24 +871,22 @@ class NotificationTemplateMergeSerializer(
         notification_template = data["notification_template"]
         instance = data["instance"]
 
+        subject = data.get("subject", notification_template.get_trans_attr("subject"))
+        body = data.get("body", notification_template.get_trans_attr("body"))
+
         placeholder_data = InstanceMergeSerializer(
             instance=instance,
             context=self.context,
             inquiry=data.get("inquiry"),
             work_item=data.get("work_item"),
+            used_placeholders=self._get_used_placeholders(subject, body),
         ).data
 
         # some cantons use uppercase placeholders. be as compatible as possible
         placeholder_data.update({k.upper(): v for k, v in placeholder_data.items()})
 
-        data["subject"] = self._merge(
-            data.get("subject", notification_template.get_trans_attr("subject")),
-            placeholder_data,
-        )
-        data["body"] = self._merge(
-            data.get("body", notification_template.get_trans_attr("body")),
-            placeholder_data,
-        )
+        data["subject"] = self._merge(subject, placeholder_data)
+        data["body"] = self._merge(body, placeholder_data)
         data["pk"] = "{0}-{1}".format(notification_template.slug, instance.pk)
 
         return data
