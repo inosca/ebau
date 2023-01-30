@@ -357,6 +357,7 @@ module.exports = function (environment) {
             "building-permit",
             "proposal-declaration",
             "archivdossier",
+            "pgv-gemeindestrasse",
           ],
         },
         {
