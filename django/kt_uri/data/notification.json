@@ -310,5 +310,17 @@
       "service": null,
       "type": "email"
     }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 1458,
+    "fields": {
+      "slug": "eroeffnung-stellungnahme-vorentscheid",
+      "purpose": "8.3 Info an Gesuchsteller und Beteiligte - Eröffnung Stellungnahme / Vorentscheid",
+      "subject": "URec Dossier Nr. {{DOSSIER_NR}}: Bau- und Einsprache-Entscheid",
+      "body": "URec Info (automatisch generierte E-Mail von URec, bitte nicht darauf antworten) Statusmeldung zum Stand des Verfahrens\r\n\r\nERÖFFNUNG STELLUNGNAHME / VORENTSCHEID\r\n\r\nSehr geehrte Dame Sehr geehrter Herr\r\n\r\nZum Dossier mit der ID Nr. {{INSTANCE_ID}}, (URec Dossiernummer {{DOSSIER_NR}}) wird Ihnen hiermit eine Stellungnahme / Vorentscheid via {{CURRENT_SERVICE_DESCRIPTION}} zugestellt. Die Originaldokumente bleiben bei der ausstellenden Behörde und können bei Bedarf angefordert werden. Sie können die relevanten Dokumente über den folgenden Link herunterladen:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nFalls der Link nicht funktioniert, stellen Sie bitte sicher, dass Sie sich im URec Portal registriert und angemeldet haben. Unter folgendem Link können Sie sich registrieren: https://urec-portal.ur.ch/.\r\n\r\nMit dem Öffnen eines Dokuments beginnt gleichzeitig die in der Stellungnahme / Vorentscheid erwähnte Frist für das rechtliche Gehör. Das aktuelle Datum beim Anklicken des Links wurde im System gespeichert und gilt als Eröffnungsdatum.\r\n\r\nMit freundlichen Grüssen\r\n\r\n{{CURRENT_SERVICE_DESCRIPTION}}",
+      "service": null,
+      "type": "email"
+    }
   }
 ]
