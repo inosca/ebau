@@ -1215,6 +1215,8 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             "bohrbewilligung-waermeentnahme",
         ]:
             instance.group = Group.objects.get(pk=uri_constants.KOOR_AFE_GROUP_ID)
+        elif instance.case.document.form.slug == "pgv-gemeindestrasse":
+            instance.group = Group.objects.get(pk=uri_constants.KOOR_BD_GROUP_ID)
         else:
             return
 
@@ -1228,16 +1230,18 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             notification_key = "SUBMIT_PRELIMINARY_CLARIFICATION"
         if case.document.form_id == "cantonal-territory-usage":
             if case.instance.group_id == uri_constants.KOOR_SD_GROUP_ID:
-                notification_key = "SUBMIT_CANTONAL_TERRITORY_USAGE_SD"
+                notification_key = "SUBMIT_KOOR_SD"
             else:
-                notification_key = "SUBMIT_CANTONAL_TERRITORY_USAGE_BD"
+                notification_key = "SUBMIT_KOOR_BD"
         if case.document.form_id == "heat-generator":  # pragma: no cover
             notification_key = "SUBMIT_HEAT_GENERATOR"
         if case.document.form_id in [
             "konzession-waermeentnahme",
             "bohrbewilligung-waermeentnahme",
         ]:
-            notification_key = "SUBMIT_HEAT_EXTRACTION"
+            notification_key = "SUBMIT_KOOR_AFE"
+        if case.document.form_id == "pgv-gemeindestrasse":
+            notification_key = "SUBMIT_KOOR_BD"
 
         # send out emails upon submission
         for notification_config in settings.APPLICATION["NOTIFICATIONS"][
@@ -1259,9 +1263,12 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         if not settings.APPLICATION["CALUMA"].get("USE_LOCATION", False):
             return
 
-        # in internal forms, KOORs can set a custom authority by answering a specific question
-        # this takes precedence over the default authority given by the location
-        authority = self.get_master_data(instance.case).leitbehoerde_internal_form
+        if instance.case.document.form.slug == "pgv-gemeindestrasse":
+            authority = str(uri_constants.BAUDIREKTION_AUTHORITY_ID)
+        else:
+            # in internal forms, KOORs can set a custom authority by answering a specific question
+            # this takes precedence over the default authority given by the location
+            authority = self.get_master_data(instance.case).leitbehoerde_internal_form
 
         if not authority:
             authority = (
