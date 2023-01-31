@@ -8,7 +8,7 @@ module.exports = function (environment) {
     rootURL: "/",
     locationType: "hash",
     historySupportMiddleware: true,
-    maxDossierImportSize: 1000000000, // 1GB
+    maxDossierImportSize: 1500000000, // 1.5GB
     apollo: {
       apiURL: "/graphql/",
     },
