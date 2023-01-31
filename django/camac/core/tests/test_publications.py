@@ -150,13 +150,20 @@ def test_publication_create(
 
 
 @pytest.mark.parametrize(
-    "role__name", ["Applicant", "Municipality", "Canton", "Service", "Reader"]
+    "role__name,status_code",
+    [
+        ("Applicant", status.HTTP_403_FORBIDDEN),
+        ("Municipality", status.HTTP_204_NO_CONTENT),
+        ("Canton", status.HTTP_403_FORBIDDEN),
+        ("Service", status.HTTP_403_FORBIDDEN),
+        ("Reader", status.HTTP_403_FORBIDDEN),
+    ],
 )
-def test_publication_destroy(admin_client, publication_entry, activation):
+def test_publication_destroy(admin_client, publication_entry, activation, status_code):
     url = reverse("publication-detail", args=[publication_entry.pk])
 
     response = admin_client.delete(url)
-    assert response.status_code == status.HTTP_403_FORBIDDEN
+    assert response.status_code == status_code
 
 
 @pytest.mark.parametrize("role__name", [("Municipality")])
