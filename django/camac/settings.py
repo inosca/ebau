@@ -479,6 +479,11 @@ APPLICATIONS = {
         "SEQUENCE_NAMESPACE_APPS": [],
         "NOTIFICATIONS_EXCLUDED_TASKS": [],
         "CALUMA": {
+            "FORM_PERMISSIONS": [
+                "bauverwaltung",
+                "inquiry",
+                "inquiry-answer",
+            ],
             "MANUAL_WORK_ITEM_TASK": "create-manual-workitems",
             "ACTIVATION_EXCLUDE_ROLES": ["Lesezugriff"],
             "SUBMIT_TASKS": ["submit", "submit-additional-demand", "formal-addition"],
