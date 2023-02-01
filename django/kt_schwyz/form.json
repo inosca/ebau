@@ -5292,7 +5292,7 @@
       "hint": "Ausnahmebewilligungen für die Unterschreitung des Strassenabstandes können nur in begründeten Ausnahmefällen erteilt werden. Wirtschaftliche Gründe können nicht geltend gemacht werden.",
       "type": "checkbox",
       "required": true,
-      "active-expression": "'tangiert-vorhaben-strasse'|value == 'Ja, indirekt' && 'Unterschreitung Stassenabstand oder Verletzung Strassenbaulinie' in 'ausnahmen'|value",
+      "active-expression": "'tangiert-vorhaben-strasse'|value == 'Ja, indirekt' && 'Unterschreitung Strassenabstand oder Verletzung Strassenbaulinie' in 'ausnahmen'|value",
       "config": {
         "options": [
           "Baute oder ähnlich wirkende Anlagen",
