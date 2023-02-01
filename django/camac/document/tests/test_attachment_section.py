@@ -83,7 +83,10 @@ def test_attachment_section_detail(admin_client, attachment_section, role, mocke
             "coordination",
             "KOOR_AFJ",
             12000008,
-            {12000008: permissions.AdminServicePermission},
+            {
+                12000008: permissions.AdminServicePermission,
+                12000007: permissions.AdminServicePermission,
+            },
         ),
         (
             "trusted_service",
