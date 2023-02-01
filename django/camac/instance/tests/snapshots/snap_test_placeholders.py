@@ -182,10 +182,10 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'DECISION_TYPE': 'GESAMT',
     'DEMANDES_EN_COMPENSATION_DES_CHARGES': [
         {
-            'DATE_DOCUMENT': '01.10.2022',
-            'DATE_RECEPTION': '02.10.2022',
-            'DATUM_DOKUMENT': '01.10.2022',
-            'DATUM_EINGANG': '02.10.2022',
+            'DATE_DOCUMENT': '1. Oktober 2022',
+            'DATE_RECEPTION': '2. Oktober 2022',
+            'DATUM_DOKUMENT': '1. Oktober 2022',
+            'DATUM_EINGANG': '2. Oktober 2022',
             'GRIEFS': '''Test LAB 1
 Test LAB 2''',
             'RECHTSBEGEHRENDE': 'Lastenausgleichsbegehren4you AG',
@@ -225,10 +225,10 @@ Test LAB 2''',
     'EIGENE_STELLUNGNAHMEN': 'Stellungnahme 1',
     'EINSPRACHEN': [
         {
-            'DATE_DOCUMENT': '01.12.2022',
-            'DATE_RECEPTION': '02.12.2022',
-            'DATUM_DOKUMENT': '01.12.2022',
-            'DATUM_EINGANG': '02.12.2022',
+            'DATE_DOCUMENT': '1. Dezember 2022',
+            'DATE_RECEPTION': '2. Dezember 2022',
+            'DATUM_DOKUMENT': '1. Dezember 2022',
+            'DATUM_EINGANG': '2. Dezember 2022',
             'GRIEFS': '''Test E 1
 Test E 2''',
             'RECHTSBEGEHRENDE': 'Heinz Einsprachenmann',
@@ -241,10 +241,10 @@ Test E 2''',
     ],
     'EINSPRECHENDE': [
         {
-            'ADDRESS': 'Beispielstrasse 1, 4321 Beispieldorf',
-            'ADRESSE': 'Beispielstrasse 1, 4321 Beispieldorf',
-            'NAME': 'Heinz Einsprachenmann',
-            'NOM': 'Heinz Einsprachenmann'
+            'ADDRESS': 'Beispielstrasse 3, 4321 Beispieldorf',
+            'ADRESSE': 'Beispielstrasse 3, 4321 Beispieldorf',
+            'NAME': 'Lastenausgleichsbegehren4you AG',
+            'NOM': 'Lastenausgleichsbegehren4you AG'
         },
         {
             'ADDRESS': 'Beispielstrasse 2, 4321 Beispieldorf',
@@ -253,10 +253,10 @@ Test E 2''',
             'NOM': 'Martha Rechstverwahrungsson'
         },
         {
-            'ADDRESS': 'Beispielstrasse 3, 4321 Beispieldorf',
-            'ADRESSE': 'Beispielstrasse 3, 4321 Beispieldorf',
-            'NAME': 'Lastenausgleichsbegehren4you AG',
-            'NOM': 'Lastenausgleichsbegehren4you AG'
+            'ADDRESS': 'Beispielstrasse 1, 4321 Beispieldorf',
+            'ADRESSE': 'Beispielstrasse 1, 4321 Beispieldorf',
+            'NAME': 'Heinz Einsprachenmann',
+            'NOM': 'Heinz Einsprachenmann'
         }
     ],
     'EMAIL': '',
@@ -437,10 +437,10 @@ Test E 2''',
     'LANGUE': 'de',
     'LASTENAUSGLEICHSBEGEHREN': [
         {
-            'DATE_DOCUMENT': '01.10.2022',
-            'DATE_RECEPTION': '02.10.2022',
-            'DATUM_DOKUMENT': '01.10.2022',
-            'DATUM_EINGANG': '02.10.2022',
+            'DATE_DOCUMENT': '1. Oktober 2022',
+            'DATE_RECEPTION': '2. Oktober 2022',
+            'DATUM_DOKUMENT': '1. Oktober 2022',
+            'DATUM_EINGANG': '2. Oktober 2022',
             'GRIEFS': '''Test LAB 1
 Test LAB 2''',
             'RECHTSBEGEHRENDE': 'Lastenausgleichsbegehren4you AG',
@@ -603,10 +603,10 @@ Test LAB 2''',
 - Matthew Bowen''',
     'OPPOSANTS': [
         {
-            'ADDRESS': 'Beispielstrasse 1, 4321 Beispieldorf',
-            'ADRESSE': 'Beispielstrasse 1, 4321 Beispieldorf',
-            'NAME': 'Heinz Einsprachenmann',
-            'NOM': 'Heinz Einsprachenmann'
+            'ADDRESS': 'Beispielstrasse 3, 4321 Beispieldorf',
+            'ADRESSE': 'Beispielstrasse 3, 4321 Beispieldorf',
+            'NAME': 'Lastenausgleichsbegehren4you AG',
+            'NOM': 'Lastenausgleichsbegehren4you AG'
         },
         {
             'ADDRESS': 'Beispielstrasse 2, 4321 Beispieldorf',
@@ -615,18 +615,18 @@ Test LAB 2''',
             'NOM': 'Martha Rechstverwahrungsson'
         },
         {
-            'ADDRESS': 'Beispielstrasse 3, 4321 Beispieldorf',
-            'ADRESSE': 'Beispielstrasse 3, 4321 Beispieldorf',
-            'NAME': 'Lastenausgleichsbegehren4you AG',
-            'NOM': 'Lastenausgleichsbegehren4you AG'
+            'ADDRESS': 'Beispielstrasse 1, 4321 Beispieldorf',
+            'ADRESSE': 'Beispielstrasse 1, 4321 Beispieldorf',
+            'NAME': 'Heinz Einsprachenmann',
+            'NOM': 'Heinz Einsprachenmann'
         }
     ],
     'OPPOSING': [
         {
-            'ADDRESS': 'Beispielstrasse 1, 4321 Beispieldorf',
-            'ADRESSE': 'Beispielstrasse 1, 4321 Beispieldorf',
-            'NAME': 'Heinz Einsprachenmann',
-            'NOM': 'Heinz Einsprachenmann'
+            'ADDRESS': 'Beispielstrasse 3, 4321 Beispieldorf',
+            'ADRESSE': 'Beispielstrasse 3, 4321 Beispieldorf',
+            'NAME': 'Lastenausgleichsbegehren4you AG',
+            'NOM': 'Lastenausgleichsbegehren4you AG'
         },
         {
             'ADDRESS': 'Beispielstrasse 2, 4321 Beispieldorf',
@@ -635,18 +635,18 @@ Test LAB 2''',
             'NOM': 'Martha Rechstverwahrungsson'
         },
         {
-            'ADDRESS': 'Beispielstrasse 3, 4321 Beispieldorf',
-            'ADRESSE': 'Beispielstrasse 3, 4321 Beispieldorf',
-            'NAME': 'Lastenausgleichsbegehren4you AG',
-            'NOM': 'Lastenausgleichsbegehren4you AG'
+            'ADDRESS': 'Beispielstrasse 1, 4321 Beispieldorf',
+            'ADRESSE': 'Beispielstrasse 1, 4321 Beispieldorf',
+            'NAME': 'Heinz Einsprachenmann',
+            'NOM': 'Heinz Einsprachenmann'
         }
     ],
     'OPPOSITIONS': [
         {
-            'DATE_DOCUMENT': '01.12.2022',
-            'DATE_RECEPTION': '02.12.2022',
-            'DATUM_DOKUMENT': '01.12.2022',
-            'DATUM_EINGANG': '02.12.2022',
+            'DATE_DOCUMENT': '1. Dezember 2022',
+            'DATE_RECEPTION': '2. Dezember 2022',
+            'DATUM_DOKUMENT': '1. Dezember 2022',
+            'DATUM_EINGANG': '2. Dezember 2022',
             'GRIEFS': '''Test E 1
 Test E 2''',
             'RECHTSBEGEHRENDE': 'Heinz Einsprachenmann',
@@ -706,10 +706,10 @@ Test E 2''',
     'RECENSEMENT': 'Schützenswert, K-Objekt, Baugruppe Bauinventar: Test Baugruppe, RRB vom 1. Januar 2022, Vertrag vom 1. Februar 2022',
     'RECHTSBEGEHRENDE': [
         {
-            'ADDRESS': 'Beispielstrasse 1, 4321 Beispieldorf',
-            'ADRESSE': 'Beispielstrasse 1, 4321 Beispieldorf',
-            'NAME': 'Heinz Einsprachenmann',
-            'NOM': 'Heinz Einsprachenmann'
+            'ADDRESS': 'Beispielstrasse 3, 4321 Beispieldorf',
+            'ADRESSE': 'Beispielstrasse 3, 4321 Beispieldorf',
+            'NAME': 'Lastenausgleichsbegehren4you AG',
+            'NOM': 'Lastenausgleichsbegehren4you AG'
         },
         {
             'ADDRESS': 'Beispielstrasse 2, 4321 Beispieldorf',
@@ -718,18 +718,18 @@ Test E 2''',
             'NOM': 'Martha Rechstverwahrungsson'
         },
         {
-            'ADDRESS': 'Beispielstrasse 3, 4321 Beispieldorf',
-            'ADRESSE': 'Beispielstrasse 3, 4321 Beispieldorf',
-            'NAME': 'Lastenausgleichsbegehren4you AG',
-            'NOM': 'Lastenausgleichsbegehren4you AG'
+            'ADDRESS': 'Beispielstrasse 1, 4321 Beispieldorf',
+            'ADRESSE': 'Beispielstrasse 1, 4321 Beispieldorf',
+            'NAME': 'Heinz Einsprachenmann',
+            'NOM': 'Heinz Einsprachenmann'
         }
     ],
     'RECHTSVERWAHRUNGEN': [
         {
-            'DATE_DOCUMENT': '01.11.2022',
-            'DATE_RECEPTION': '02.11.2022',
-            'DATUM_DOKUMENT': '01.11.2022',
-            'DATUM_EINGANG': '02.11.2022',
+            'DATE_DOCUMENT': '1. November 2022',
+            'DATE_RECEPTION': '2. November 2022',
+            'DATUM_DOKUMENT': '1. November 2022',
+            'DATUM_EINGANG': '2. November 2022',
             'GRIEFS': '''Test RV 1
 Test RV 2''',
             'RECHTSBEGEHRENDE': 'Martha Rechstverwahrungsson',
@@ -749,10 +749,10 @@ Test RV 2''',
     'REQUERANT': 'ACME AG, Max Mustermann',
     'REQUERANTS_CONCLUSIONS': [
         {
-            'ADDRESS': 'Beispielstrasse 1, 4321 Beispieldorf',
-            'ADRESSE': 'Beispielstrasse 1, 4321 Beispieldorf',
-            'NAME': 'Heinz Einsprachenmann',
-            'NOM': 'Heinz Einsprachenmann'
+            'ADDRESS': 'Beispielstrasse 3, 4321 Beispieldorf',
+            'ADRESSE': 'Beispielstrasse 3, 4321 Beispieldorf',
+            'NAME': 'Lastenausgleichsbegehren4you AG',
+            'NOM': 'Lastenausgleichsbegehren4you AG'
         },
         {
             'ADDRESS': 'Beispielstrasse 2, 4321 Beispieldorf',
@@ -761,10 +761,10 @@ Test RV 2''',
             'NOM': 'Martha Rechstverwahrungsson'
         },
         {
-            'ADDRESS': 'Beispielstrasse 3, 4321 Beispieldorf',
-            'ADRESSE': 'Beispielstrasse 3, 4321 Beispieldorf',
-            'NAME': 'Lastenausgleichsbegehren4you AG',
-            'NOM': 'Lastenausgleichsbegehren4you AG'
+            'ADDRESS': 'Beispielstrasse 1, 4321 Beispieldorf',
+            'ADRESSE': 'Beispielstrasse 1, 4321 Beispieldorf',
+            'NAME': 'Heinz Einsprachenmann',
+            'NOM': 'Heinz Einsprachenmann'
         }
     ],
     'REQUERANT_ADRESSE_1': 'Teststrasse 123',
@@ -774,10 +774,10 @@ Test RV 2''',
     'REQUERANT_TOUS_NOM_ADRESSE': 'ACME AG, Max Mustermann, Teststrasse 123, 1234 Testhausen',
     'RESERVES_DE_DROIT': [
         {
-            'DATE_DOCUMENT': '01.11.2022',
-            'DATE_RECEPTION': '02.11.2022',
-            'DATUM_DOKUMENT': '01.11.2022',
-            'DATUM_EINGANG': '02.11.2022',
+            'DATE_DOCUMENT': '1. November 2022',
+            'DATE_RECEPTION': '2. November 2022',
+            'DATUM_DOKUMENT': '1. November 2022',
+            'DATUM_EINGANG': '2. November 2022',
             'GRIEFS': '''Test RV 1
 Test RV 2''',
             'RECHTSBEGEHRENDE': 'Martha Rechstverwahrungsson',
