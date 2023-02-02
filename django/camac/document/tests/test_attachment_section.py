@@ -89,6 +89,22 @@ def test_attachment_section_detail(admin_client, attachment_section, role, mocke
             },
         ),
         (
+            "coordination",
+            "KOOR_AFU",
+            12000007,
+            {
+                12000007: permissions.AdminServicePermission,
+            },
+        ),
+        (
+            "coordination",
+            "KOOR_BD",
+            12000007,
+            {
+                12000007: permissions.AdminServicePermission,
+            },
+        ),
+        (
             "trusted_service",
             "LISAG",
             12000007,
