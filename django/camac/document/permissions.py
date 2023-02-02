@@ -373,7 +373,7 @@ LOOSEN_FILTERS = {
 
 
 def special_permissions_uri(group):
-    if group.group_id in [uri_constants.LISAG_GROUP_ID]:
+    if group.group_id == uri_constants.LISAG_GROUP_ID:
         return {uri_constants.LISAG_ATTACHMENT_SECTION_ID: AdminServicePermission}
     elif group.group_id == uri_constants.KOOR_AFJ_GROUP_ID:
         return {
@@ -386,15 +386,19 @@ def special_permissions_uri(group):
         uri_constants.SACHBEARBEITUNG_UND_KOORDINATION_AFJ_GROUP_ID,
     ]:
         return {uri_constants.KOOR_AFJ_ATTACHMENT_SECTION_ID: AdminServicePermission}
-    elif group.group_id in [uri_constants.KOOR_BG_GROUP_ID]:
+    elif group.group_id == uri_constants.KOOR_BG_GROUP_ID:
         return {
             uri_constants.MUNICIPALITY_SERVICE_ATTACHMENT_SECTION_ID: AdminServicePermission
         }
-    elif group.group_id in [uri_constants.KOOR_NP_GROUP_ID]:
+    elif group.group_id == uri_constants.KOOR_NP_GROUP_ID:
         return {
             uri_constants.MUNICIPALITY_SERVICE_ATTACHMENT_SECTION_ID: AdminServicePermission,
             uri_constants.LISAG_ATTACHMENT_SECTION_ID: AdminServicePermission,
         }
+    elif group.group_id == uri_constants.KOOR_BD_GROUP_ID:
+        return {uri_constants.LISAG_ATTACHMENT_SECTION_ID: AdminServicePermission}
+    elif group.group_id == uri_constants.KOOR_AFU_GROUP_ID:
+        return {uri_constants.LISAG_ATTACHMENT_SECTION_ID: AdminServicePermission}
     return {}
 
 
