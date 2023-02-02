@@ -223,6 +223,11 @@ def test_template_merge(
     work_item.document = document_factory(form_id="bauverwaltung")
     work_item.save()
     add_answer(work_item.document, "bewilligungsverfahren-gr-sitzung-nummer", 12)
+    add_answer(
+        work_item.document,
+        "bewilligungsverfahren-gr-sitzung-bewilligungsdatum",
+        make_aware(datetime(2023, 1, 2)),
+    )
     add_table_answer(
         work_item.document,
         "bewilligungsverfahren-sitzung-baukommission",

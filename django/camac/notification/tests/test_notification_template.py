@@ -594,6 +594,17 @@ def test_notification_placeholders(
         closed_at=timezone.make_aware(datetime(2019, 9, 24, 10)),
     )
 
+    building_authority_work_item = work_item_factory(
+        case=sz_instance.case,
+        status=caluma_workflow_models.WorkItem.STATUS_READY,
+        task_id="building-authority",
+    )
+    add_answer(
+        building_authority_work_item.document,
+        "bewilligungsverfahren-gr-sitzung-bewilligungsdatum",
+        timezone.make_aware(datetime(2023, 1, 2)),
+    )
+
     kommunal_amount = billing_v2_entry_factory(
         instance=sz_instance, organization="municipal"
     ).final_rate
@@ -635,12 +646,12 @@ def test_notification_placeholders(
         .split("\n")
     ] == [
         f"REGISTRATION_LINK: {settings.REGISTRATION_URL}",
-        "DATE_DOSSIERVOLLSTANDIG: 23.08.2019",
-        "DATE_DOSSIEREINGANG: 22.07.2019",
-        "DATE_START_ZIRKULATION: 24.09.2019",
-        "DATE_BAU_EINSPRACHEENTSCHEID: 24.10.2019",
+        "DATE_DOSSIERVOLLSTANDIG: 23. August 2019",
+        "DATE_DOSSIEREINGANG: 22. Juli 2019",
+        "DATE_START_ZIRKULATION: 24. September 2019",
+        "DATE_BAU_EINSPRACHEENTSCHEID: 2. Januar 2023",
         f"BILLING_TOTAL_KOMMUNAL: {kommunal_amount:.2f}",
-        f"BILLING_TOTAL_KANTON: {kanton_amount}",
+        f"BILLING_TOTAL_KANTON: {format(kanton_amount, '.2f')}",
         f"BILLING_TOTAL: {round(kommunal_amount + kanton_amount, 2)}",
         f"CURRENT_SERVICE_DESCRIPTION: {admin_svc.description}",
         f"OBJECTIONS: <QuerySet [<Objection: Objection object ({objection.id})>]>",
