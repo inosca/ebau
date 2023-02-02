@@ -1,6 +1,8 @@
 "use strict";
 
 module.exports = function (environment) {
+  const urGisUrl = process.env.UR_GIS_URL || "https://geo.ur.ch/wms";
+
   const ENV = {
     modulePrefix: "camac-ng",
     environment,
@@ -24,6 +26,7 @@ module.exports = function (environment) {
     },
     "ember-ebau-core": {
       attachmentSections: { applicant: "12000000" },
+      urGisUrl,
     },
     APP: {
       rootElement: "#ember-camac-ng",
