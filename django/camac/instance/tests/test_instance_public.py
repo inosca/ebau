@@ -91,8 +91,31 @@ def test_public_caluma_instance_enabled_empty_qs(
 
 @pytest.mark.parametrize("role__name", ["Applicant"])
 @pytest.mark.parametrize(
-    "headers,num_queries,num_instances",
-    [({}, 1, 0), ({"HTTP_X_CAMAC_PUBLIC_ACCESS": True}, 7, 1)],
+    "headers,num_queries,num_instances,form_type,expected",
+    [
+        ({}, 1, 0, "form-type-building-permit", "test"),
+        (
+            {"HTTP_X_CAMAC_PUBLIC_ACCESS": True},
+            7,
+            1,
+            "form-type-commercial-permit",
+            "Reklamegesuch",
+        ),
+        (
+            {"HTTP_X_CAMAC_PUBLIC_ACCESS": True},
+            7,
+            1,
+            "form-type-building-permit",
+            "test",
+        ),
+        (
+            {"HTTP_X_CAMAC_PUBLIC_ACCESS": True},
+            7,
+            1,
+            "form-type-solar-announcement",
+            "Solaranlage",
+        ),
+    ],
 )
 def test_public_caluma_instance_ur(
     db,
@@ -106,7 +129,11 @@ def test_public_caluma_instance_ur(
     num_queries,
     num_instances,
     master_data_is_visible_mock,
+    form_type,
+    expected,
+    settings,
 ):
+    settings.APPLICATION_NAME = "kt_uri"
     application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_uri"]["MASTER_DATA"]
     application_settings["PUBLICATION_BACKEND"] = "camac-ng"
 
@@ -121,10 +148,24 @@ def test_public_caluma_instance_ur(
     ur_instance.case.save()
 
     AnswerFactory(
+        question_id="form-type",
+        document=ur_instance.case.document,
+        value=form_type,
+    )
+
+    AnswerFactory(
         question_id="municipality",
         document=ur_instance.case.document,
         value="1",
     )
+    AnswerFactory(
+        question=Question.objects.create(
+            slug="proposal-description", type=Question.TYPE_TEXT
+        ),
+        document=ur_instance.case.document,
+        value="test",
+    )
+
     DynamicOptionFactory(
         slug="1",
         label={"de": "Altdorf"},
@@ -148,6 +189,7 @@ def test_public_caluma_instance_ur(
         assert result[0]["attributes"]["instance-id"] == ur_instance.pk
         assert result[0]["attributes"]["dossier-nr"] == "123"
         assert result[0]["attributes"]["municipality"] == "Altdorf"
+        assert result[0]["attributes"]["intent"] == expected
 
 
 @pytest.mark.parametrize("role__name", ["Oereb Api"])
