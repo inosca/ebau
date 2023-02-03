@@ -352,7 +352,7 @@ module.exports = function (environment) {
           forms: [
             "solar-declaration",
             "preliminary-clarification",
-            "oereb",
+            "oereb-verfahren-gemeinde",
             "commercial-permit",
             "building-permit",
             "proposal-declaration",
