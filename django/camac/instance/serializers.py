@@ -2106,6 +2106,13 @@ class PublicCalumaInstanceSerializer(serializers.Serializer):  # pragma: no cove
         )
 
     def get_intent(self, case):
+        if settings.APPLICATION_NAME == "kt_uri":
+            form_type = self.get_master_data(case).form_type
+
+            if form_type == "form-type-commercial-permit":
+                return "Reklamegesuch"
+            elif form_type == "form-type-solar-announcement":
+                return "Solaranlage"
         return self.get_master_data(case).proposal
 
     def get_street(self, case):
