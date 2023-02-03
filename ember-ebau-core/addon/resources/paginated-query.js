@@ -3,25 +3,13 @@ import { inject as service } from "@ember/service";
 import { task, lastValue } from "ember-concurrency";
 import { Resource } from "ember-resources";
 
-const getQueryDiff = (oldQuery, newQuery) =>
-  [...Object.keys(oldQuery), ...Object.keys(newQuery)].reduce(
-    (diff, currentKey) => ({
-      ...diff,
-      ...(oldQuery[currentKey] !== newQuery[currentKey]
-        ? { [currentKey]: oldQuery[currentKey] }
-        : {}),
-    }),
-    {}
-  );
-
 const shouldResetPage = ([oldModel, oldQuery] = [], [newModel, newQuery]) =>
   parseInt(newQuery.page.number) === 1 ||
   oldModel !== newModel ||
-  Object.keys(getQueryDiff(oldQuery, newQuery)).filter((key) => key !== "page")
-    .length;
-
-export default (context, modelName, query) =>
-  PaginatedQuery.from(context, () => [modelName, query()]);
+  // Compare all keys in the old and new query to see if we have changes which would require a fresh data array.
+  Array.from(new Set([...Object.keys(newQuery), ...Object.keys(oldQuery)]))
+    .filter((key) => key !== "page")
+    .some((key) => newQuery[key] !== oldQuery[key]);
 
 export class PaginatedQuery extends Resource {
   @service store;
@@ -70,8 +58,8 @@ export class PaginatedQuery extends Resource {
           query,
         ])
           ? data.toArray()
-          : [...this.data.records.toArray(), ...data.toArray()],
-        hasMore: query.page.number < data.meta?.pagination?.pages ?? false,
+          : [...this.data.records, ...data.toArray()],
+        hasMore: query.page.number < data.meta?.pagination?.pages,
       };
     } catch (error) {
       console.error(error);
@@ -79,3 +67,6 @@ export class PaginatedQuery extends Resource {
     }
   });
 }
+
+export default (context, modelName, query) =>
+  PaginatedQuery.from(context, () => [modelName, query()]);

@@ -56,7 +56,9 @@ module("Integration | Component | communication/topic-list", function (hooks) {
 
     assert
       .dom("[data-test-dossier-number]")
-      .hasText(`${instance.dossierNumber} (${instance.id})`);
+      .hasText(
+        `${this.server.db.communicationsTopics[0].dossierNumber} (${instance.id})`
+      );
   });
 
   test("it toggles between read and unread", async function (assert) {
