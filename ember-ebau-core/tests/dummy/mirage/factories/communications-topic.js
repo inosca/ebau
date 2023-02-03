@@ -7,6 +7,8 @@ export default Factory.extend({
   subject: () => faker.lorem.sentence(),
   created: () => faker.date.recent(),
   hasUnread: () => faker.datatype.boolean(),
+  dossierNumber: () =>
+    `${faker.datatype.datetime().getFullYear()}-${faker.datatype.number(99)}`,
   afterCreate(communicationsTopic, server) {
     const initiatedBy = server.schema.users.first() ?? server.create("user");
     const involvedEntities = server.schema.communicationsEntities.all();

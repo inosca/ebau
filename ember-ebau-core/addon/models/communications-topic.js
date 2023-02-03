@@ -3,6 +3,7 @@ import Model, { attr, belongsTo, hasMany } from "@ember-data/model";
 export default class CommunicationTopicModel extends Model {
   @attr subject;
   @attr hasUnread;
+  @attr dossierNumber;
   @attr("date") created;
 
   @belongsTo instance;

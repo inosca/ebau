@@ -11,9 +11,14 @@ export default class CommunicationTopicListComponent extends Component {
 
   @dedupeTracked showOnlyUnread = false;
   @dedupeTracked page = 1;
+  @dedupeTracked element;
 
   get topicsListHidden() {
     return parseInt(this.page) === 1 && this.topics.isLoading;
+  }
+
+  get colspan() {
+    return this.args.instance ? 3 : 4;
   }
 
   topics = paginatedQuery(this, "communications-topic", () => ({
@@ -47,9 +52,7 @@ export default class CommunicationTopicListComponent extends Component {
 
   @action
   scrollToFirst() {
-    this.element
-      ?.querySelector("table>tbody>tr:first-child")
-      .scrollIntoView({ behavior: "smooth", block: "center" });
+    this.element.scrollIntoView({ behavior: "smooth", block: "center" });
   }
 
   @action
@@ -67,6 +70,8 @@ export default class CommunicationTopicListComponent extends Component {
 
   @action
   setElement(element) {
-    this.element = element;
+    if (!this.element) {
+      this.element = element;
+    }
   }
 }

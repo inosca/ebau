@@ -1,4 +1,4 @@
-<div {{did-insert this.setElement}}>
+<div>
   <div class="uk-flex uk-flex-between">
     <div class="uk-button-group">
       <UkButton
@@ -17,23 +17,27 @@
       </UkButton>
     </div>
     {{#if (and @instance @newRoute)}}
-      <LinkTo @route={{@newRoute}} data-test-new-topic>
-        <UkButton @color="primary">
-          {{t "communications.topics.newMessage"}}
-        </UkButton>
+      <LinkTo
+        @route={{@newRoute}}
+        class="uk-button uk-button-primary"
+        data-test-new-topic
+      >
+        {{t "communications.topics.newMessage"}}
       </LinkTo>
     {{/if}}
   </div>
 
-  <table class="uk-table uk-table-striped">
+  <table class="uk-table uk-table-striped uk-table-hover">
     <thead>
       <tr>
         {{#unless @instance}}
-          <th data-test-instance-header>{{t "communications.dossier"}}</th>
+          <th class="uk-width-small" data-test-instance-header>{{t
+              "communications.dossier"
+            }}</th>
         {{/unless}}
-        <th>{{t "communications.topic"}}</th>
-        <th>{{t "communications.participants"}}</th>
-        <th>{{t "communications.date"}}</th>
+        <th class="uk-table-expand">{{t "communications.topic"}}</th>
+        <th class="uk-table-shrink">{{t "communications.participants"}}</th>
+        <th class="uk-width-small">{{t "communications.date"}}</th>
       </tr>
     </thead>
     <tbody>
@@ -43,11 +47,12 @@
             class="{{if topic.hasUnread 'uk-text-bold'}}"
             data-test-topic
             role="link"
+            {{did-insert this.setElement}}
             {{on "click" (fn this.transitionToTopic topic.instance.id)}}
           >
             {{#unless @instance}}
               <td data-test-dossier-number>
-                {{topic.instance.dossierNumber}}
+                {{topic.dossierNumber}}
                 ({{topic.instance.id}})
               </td>
             {{/unless}}
@@ -59,14 +64,7 @@
                 -
               {{/each}}
             </td>
-            <td>{{format-date
-                topic.created
-                day="2-digit"
-                month="2-digit"
-                year="numeric"
-                hour="numeric"
-                minute="numeric"
-              }}</td>
+            <td>{{format-date topic.created format="datetime"}}</td>
           </tr>
         {{else}}
           {{#unless this.topics.isLoading}}
@@ -78,19 +76,19 @@
       {{/unless}}
       {{#if this.topics.isLoading}}
         <tr>
-          <td colspan="4" class="uk-text-center">{{t
+          <td colspan={{this.colspan}} class="uk-text-center">{{t
               "communications.loading"
             }}</td>
         </tr>
       {{else if this.topics.hasMore}}
         <tr {{in-viewport onEnter=this.updatePage}}>
-          <td colspan="4" class="uk-text-center">{{t
+          <td colspan={{this.colspan}} class="uk-text-center">{{t
               "communications.loading"
             }}</td>
         </tr>
       {{else if this.topics.records.length}}
         <tr>
-          <td colspan="4" class="uk-text-center">
+          <td colspan={{this.colspan}} class="uk-text-center">
             {{t "communications.noMoreData"}}
 
             <button
