@@ -177,6 +177,7 @@ class InstanceView(
                 "submit": serializers.InstanceSubmitSerializer,
                 "default": serializers.SchwyzInstanceSerializer,
                 "change_form": serializers.CamacInstanceChangeFormSerializer,
+                "unlink": serializers.CalumaInstanceUnlinkSerializer,
             },
         }
 
