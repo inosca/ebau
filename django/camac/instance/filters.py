@@ -350,6 +350,8 @@ class InquiryAnswerFilter(BaseInFilter):
 class InstanceFilterSet(FilterSet):
     instance_id = NumberMultiValueFilter()
     identifier = CharFilter(field_name="identifier", lookup_expr="icontains")
+    # identifier to search instance for linking
+    identifier_for_linking = CharFilter(field_name="identifier", lookup_expr="exact")
     service = NumberFilter(method="filter_circulation_service")
     creation_date_after = DateFilter(
         field_name="creation_date__date", lookup_expr="gte"
@@ -524,6 +526,7 @@ class InstanceFilterSet(FilterSet):
             "form",
             "form_name_versioned",
             "identifier",
+            "identifier_for_linking",
             "instance_state",
             "instance_group",
             "location",
