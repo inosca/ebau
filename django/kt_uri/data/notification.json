@@ -322,5 +322,17 @@
       "service": null,
       "type": "email"
     }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 1459,
+    "fields": {
+      "slug": "dossier-eingereicht-koor-np",
+      "purpose": "8.4 Info an KOOR NP - Neues Dossier wurde online eingereicht",
+      "subject": "Neues Dossier wurde online eingereicht",
+      "body": "URec Info\r\n(automatisch generierte E-Mail von URec, bitte nicht darauf antworten)\r\n\r\nNEUES ONLINE DOSSIER\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nVia Online Portal wurde ein neues Dossier mit der Nr. {{DOSSIER_NR}} eingereicht. Bitte prüfen Sie das Dossier auf Vollständigkeit. Falls zusätzliche Unterlagen notwendig sind, schreiben Sie die entsprechende Nachricht in das dafür vorgesehene Feld «Mitteilung an Gesuchsteller» und klicken Sie auf «Nachforderung». Das Dossier wird blau hinterlegt und der Gesuchsteller erhält Ihre Mitteilung per E-Mail.\r\n\r\nFalls es sich offensichtlich um ein Fake-Gesuch handelt (z.B. wenn ein leeres Formular versehentlich abgeschickt wurde), können Sie dieses abweisen. Durch klicken auf «Abweisen» wird das Dossier gelöscht.\r\n\r\nWenn das Dossier vollständig ist, klicken Sie auf «Dossier annehmen». Das Dossier wird in der Dossierbearbeitung starten angezeigt und erhält vom System die zugehörige URec Nummer. Der Gesuchsteller erhält eine entsprechende Annahmebestätigung per E-Mail.\r\n\r\nBei Bedarf wandeln Sie das Dossier um in ein entsprechendes Verfahren mit kantonaler Beteiligung.\r\n\r\nBei Fragen schreiben Sie uns bitte eine E-Mail an:\r\nraumplanung@ur.ch",
+      "service": null,
+      "type": "email"
+    }
   }
 ]

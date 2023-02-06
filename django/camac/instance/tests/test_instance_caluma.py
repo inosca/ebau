@@ -1,3 +1,4 @@
+import itertools
 from datetime import date, datetime
 from pathlib import Path
 
@@ -31,6 +32,8 @@ from camac.instance.serializers import (
 )
 from camac.user.models import Location
 from camac.utils import flatten
+
+from .test_master_data import add_answer
 
 
 @pytest.fixture
@@ -1011,6 +1014,138 @@ def test_instance_submit_pgv_gemeindestrasse_ur(
     assert ur_instance.instance_state.name == "ext"
     assert ur_instance.location_id == location.pk
     assert ur_instance.group == koor_group
+
+
+@pytest.mark.parametrize(
+    "form_slug,expected_copy_state",
+    [("oereb", "ext"), ("oereb-verfahren-gemeinde", "subm")],
+)
+@pytest.mark.parametrize("service_group__name", [("municipality", "coordination")])
+@pytest.mark.parametrize("instance_state__name", ["new"])
+@pytest.mark.parametrize(
+    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
+)
+def test_oereb_instance_copy_for_koor_afj(
+    mocker,
+    admin_client,
+    settings,
+    caluma_workflow_config_ur,
+    ur_instance,
+    notification_template,
+    application_settings,
+    mock_generate_and_store_pdf,
+    ech_mandatory_answers_einfache_vorabklaerung,
+    workflow_item_factory,
+    location_factory,
+    group_factory,
+    form_factory,
+    instance_state_factory,
+    service_factory,
+    authority_location_factory,
+    form_slug,
+    expected_copy_state,
+):
+    settings.APPLICATION_NAME = "kt_uri"
+    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_uri"]["MASTER_DATA"]
+
+    ur_instance.form = form_factory(name="camac-form")
+    ur_instance.save()
+
+    oereb_form = caluma_form_factories.FormFactory(slug=form_slug)
+    ur_instance.case.document.form = oereb_form
+    ur_instance.case.document.save()
+
+    mocker.patch(
+        "camac.constants.kt_uri.CALUMA_FORM_MAPPING",
+        {ur_instance.form.pk: ur_instance.form.name},
+    )
+
+    koor_afj_service = service_factory(email="KOOR_AFJ@example.com")
+    mocker.patch("camac.constants.kt_uri.KOOR_AFJ_SERVICE_ID", koor_afj_service.pk)
+    koor_afj_group = group_factory(service=koor_afj_service)
+    mocker.patch("camac.constants.kt_uri.KOOR_AFJ_GROUP_ID", koor_afj_group.pk)
+
+    koor_np_service = service_factory(email="KOOR_NP@example.com", name="KOOR NP")
+    mocker.patch("camac.constants.kt_uri.KOOR_NP_SERVICE_ID", koor_np_service.pk)
+
+    gbb_altdorf_service = service_factory(
+        email="gbb-altdorf@example.com", name="GBB Altdorf"
+    )
+    mocker.patch(
+        "camac.constants.kt_uri.GBB_ALTDORF_SERVICE_ID", gbb_altdorf_service.pk
+    )
+
+    if form_slug == "oereb":
+        group = group_factory(service=koor_np_service)
+        ur_instance.group = group
+        ur_instance.save()
+        mocker.patch("camac.constants.kt_uri.KOOR_NP_GROUP_ID", group.pk)
+        email = group.service.email
+
+        add_answer(
+            ur_instance.case.document,
+            "waldfeststellung-mit-statischen-waldgrenzen-kanton",
+            "waldfeststellung-mit-statischen-waldgrenzen-kanton-ja",
+        )
+    elif form_slug == "oereb-verfahren-gemeinde":
+        group = group_factory(service=gbb_altdorf_service)
+        ur_instance.group = group
+        ur_instance.save()
+        mocker.patch("camac.constants.kt_uri.GBB_ALTDORF_SERVICE_ID", group.pk)
+        email = group.service.email
+
+        add_answer(
+            ur_instance.case.document,
+            "waldfeststellung-mit-statischen-waldgrenzen-gemeinde",
+            "waldfeststellung-mit-statischen-waldgrenzen-gemeinde-ja",
+        )
+
+    add_answer(
+        ur_instance.case.document,
+        "form-type",
+        f"form-type-{form_slug}",
+    )
+    application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = True
+    application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
+
+    workflow_item_factory(workflow_item_id=ur_constants.WORKFLOW_ITEM_DOSSIER_ERFASST)
+
+    location = location_factory()
+    authority_location_factory(location=location)
+
+    ur_instance.case.document.answers.create(
+        value=str(location.communal_federal_number), question_id="municipality"
+    )
+
+    instance_state_factory(name="ext")
+    instance_state_factory(name="comm")
+    instance_state_factory(name="subm")
+
+    assert len(Instance.objects.all()) == 1
+
+    response = admin_client.post(reverse("instance-submit", args=[ur_instance.pk]))
+
+    assert response.status_code == status.HTTP_200_OK
+
+    assert len(Instance.objects.all()) == 2
+
+    copied_instance = Instance.objects.exclude(
+        group__service__name__in=["KOOR NP", "GBB Altdorf"]
+    ).first()
+
+    assert copied_instance.group == koor_afj_group
+    assert copied_instance.location_id == location.pk
+    assert copied_instance.instance_state.name == expected_copy_state
+
+    ur_instance.refresh_from_db()
+
+    if form_slug == "oereb":
+        assert len(mail.outbox) == 4
+        assert email in list(itertools.chain(*[m.recipients() for m in mail.outbox]))
+
+    assert ur_instance.instance_state.name == "subm"
+    assert ur_instance.location_id == location.pk
+    assert ur_instance.group == group
 
 
 @pytest.mark.parametrize("instance_state__name", ["new"])

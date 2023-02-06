@@ -502,7 +502,30 @@ def caluma_workflow_config_be(
 
 
 @pytest.fixture
-def caluma_workflow_config_ur(settings, caluma_forms_ur, caluma_config_ur):
+def caluma_workflow_config_ur(
+    settings,
+    caluma_forms_ur,
+    caluma_config_ur,
+    application_settings,
+    notification_template,
+):
+    def transform_notifications(notifications):
+        if type(notifications) is dict:
+            return notifications
+        return [
+            {
+                "template_slug": notification_template.slug,
+                "recipient_types": n["recipient_types"],
+            }
+            for n in notifications
+        ]
+
+    application_settings["NOTIFICATIONS"] = {
+        task: transform_notifications(notifications)
+        for task, notifications in settings.APPLICATIONS["kt_uri"][
+            "NOTIFICATIONS"
+        ].items()
+    }
 
     for slug in CALUMA_FORM_TYPES_SLUGS:
         caluma_form_models.Form.objects.create(slug=slug)
