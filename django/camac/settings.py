@@ -673,6 +673,7 @@ APPLICATIONS = {
             "standort-spezialbezeichnung",
             "standort-ort",
         ],
+        "CONSTRUCTION_ZONE_LOCATION_FORM_FIELD": "lage",
         "INTENT_FORM_FIELDS": [
             "bezeichnung",
             "bezeichnung-override",

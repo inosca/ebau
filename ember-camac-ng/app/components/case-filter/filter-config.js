@@ -20,7 +20,13 @@ export default {
   submitDateAfter: { type: "date", maxDate: "submitDateBefore" },
   submitDateBefore: { type: "date", minDate: "submitDateAfter" },
   withCantonalParticipation: { type: "toggle-switch" },
-
+  objectionReceived: { type: "toggle-switch" },
+  constructionZoneLocation: {
+    type: "select",
+    options: "constructionZoneLocationOptions",
+    valueField: "value",
+    labelField: "name",
+  },
   municipality: macroCondition(getOwnConfig().application === "be")
     ? {
         type: "select",

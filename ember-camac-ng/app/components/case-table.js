@@ -314,6 +314,9 @@ export default class CaseTableComponent extends Component {
             submit_date_after_sz: this.args.filter.submitDateAfter,
             submit_date_before_sz: this.args.filter.submitDateBefore,
             form_name_versioned: this.args.filter.type,
+            objection_received: this.args.filter.objectionReceived,
+            construction_zone_location_sz:
+              this.args.filter.constructionZoneLocation,
             identifier: this.args.filter.instanceIdentifier || "",
             ...(this.args.casesBackend === "camac-ng"
               ? { intent_sz: this.args.filter.intent }
