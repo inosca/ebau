@@ -279,6 +279,7 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
               "ueberlagerte-nutzungen"
               "typ-des-verfahrens"
               "oereb-thema"
+              "oereb-thema-gemeinde"
               "teilstatus"
               "beschreibung-reklame"
               "mbv-type",
