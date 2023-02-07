@@ -1,6 +1,6 @@
 import re
 from collections import namedtuple
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
 from html import escape
 from itertools import chain
 from logging import getLogger
@@ -554,9 +554,22 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         return "---"
 
     def get_date_bau_einspracheentscheid(self, instance):
-        return self._get_workflow_entry_date(
-            instance, settings.APPLICATION.get("WORKFLOW_ITEMS", {}).get("DECISION")
-        )
+        work_item = instance.case.work_items.filter(
+            task_id="building-authority"
+        ).first()
+
+        if work_item:
+            answer = caluma_form_models.Answer.objects.filter(
+                question_id="bewilligungsverfahren-gr-sitzung-bewilligungsdatum",
+                document=work_item.document,
+            ).first()
+
+            return (
+                self.format_date(datetime.combine(answer.date, datetime.min.time()))
+                if answer
+                else "---"
+            )
+        return "---"
 
     def get_billing_total_kommunal(self, instance):
         return BillingV2Entry.objects.filter(
