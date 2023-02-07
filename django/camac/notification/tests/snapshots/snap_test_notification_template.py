@@ -143,6 +143,7 @@ snapshots['test_notification_template_merge[Canton-identifier-{{identifier}}-200
             - beschwerdeverfahren_weiterzug_durch: Beschwerdegegner
             - bewilligungsverfahren_gr_sitzung_beschluss: foo
             - bewilligungsverfahren_gr_sitzung_datum: 01.01.2017
+            - bewilligungsverfahren_gr_sitzung_bewilligungsdatum: 01.01.2017
             - beschwerdeverfahren: []
             - baukontrolle_realisierung_table: []
             - bewilligungsverfahren_sistierung: []

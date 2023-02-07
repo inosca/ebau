@@ -152,6 +152,7 @@ def test_notification_template_merge(
             - beschwerdeverfahren_weiterzug_durch: {{bauverwaltung.beschwerdeverfahren_weiterzug_durch}}
             - bewilligungsverfahren_gr_sitzung_beschluss: {{bauverwaltung.bewilligungsverfahren_gr_sitzung_beschluss}}
             - bewilligungsverfahren_gr_sitzung_datum: {{bauverwaltung.bewilligungsverfahren_gr_sitzung_datum}}
+            - bewilligungsverfahren_gr_sitzung_bewilligungsdatum: {{bauverwaltung.bewilligungsverfahren_gr_sitzung_bewilligungsdatum}}
             - beschwerdeverfahren: {{bauverwaltung.beschwerdeverfahren}}
             - baukontrolle_realisierung_table: {{bauverwaltung.baukontrolle_realisierung_table}}
             - bewilligungsverfahren_sistierung: {{bauverwaltung.bewilligungsverfahren_sistierung}}
@@ -190,6 +191,11 @@ def test_notification_template_merge(
         "bewilligungsverfahren-gr-sitzung-datum",
         timezone.now(),
         "date",
+    )
+    add_answer(
+        work_item.document,
+        "bewilligungsverfahren-gr-sitzung-bewilligungsdatum",
+        timezone.now(),
     )
     add_table_answer(
         work_item.document,
@@ -582,16 +588,23 @@ def test_notification_placeholders(
         instance=sz_instance,
         workflow_date=timezone.make_aware(datetime(2019, 9, 24, 10)),
     ).workflow_item.pk
-    settings.APPLICATION["WORKFLOW_ITEMS"]["DECISION"] = workflow_entry_factory(
-        instance=sz_instance,
-        workflow_date=timezone.make_aware(datetime(2019, 10, 24, 10)),
-    ).workflow_item.pk
 
     work_item_factory(
         case=sz_instance.case,
         status=caluma_workflow_models.WorkItem.STATUS_COMPLETED,
         task_id=distribution_settings["DISTRIBUTION_INIT_TASK"],
         closed_at=timezone.make_aware(datetime(2019, 9, 24, 10)),
+    )
+
+    building_authority_work_item = work_item_factory(
+        case=sz_instance.case,
+        status=caluma_workflow_models.WorkItem.STATUS_READY,
+        task_id="building-authority",
+    )
+    add_answer(
+        building_authority_work_item.document,
+        "bewilligungsverfahren-gr-sitzung-bewilligungsdatum",
+        timezone.make_aware(datetime(2019, 10, 24, 10)),
     )
 
     kommunal_amount = billing_v2_entry_factory(
@@ -640,7 +653,7 @@ def test_notification_placeholders(
         "DATE_START_ZIRKULATION: 24.09.2019",
         "DATE_BAU_EINSPRACHEENTSCHEID: 24.10.2019",
         f"BILLING_TOTAL_KOMMUNAL: {kommunal_amount:.2f}",
-        f"BILLING_TOTAL_KANTON: {kanton_amount}",
+        f"BILLING_TOTAL_KANTON: {format(kanton_amount, '.2f')}",
         f"BILLING_TOTAL: {round(kommunal_amount + kanton_amount, 2)}",
         f"CURRENT_SERVICE_DESCRIPTION: {admin_svc.description}",
         f"OBJECTIONS: <QuerySet [<Objection: Objection object ({objection.id})>]>",
