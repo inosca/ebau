@@ -91,6 +91,7 @@ services:
     # for reloading: comment above line, uncomment command below and run next line's command in the container
     # find -wholename "**/*.py" | entr python manage.py qcluster --pythonpath /app/$APPLICATION
     #command: /bin/sh -c "while true; do sleep 10; done"
+    ports: []
 
   ember:
     image: acr.run/camac-ng/camac-ng/ember:master
