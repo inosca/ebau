@@ -152,6 +152,7 @@ def test_notification_template_merge(
             - beschwerdeverfahren_weiterzug_durch: {{bauverwaltung.beschwerdeverfahren_weiterzug_durch}}
             - bewilligungsverfahren_gr_sitzung_beschluss: {{bauverwaltung.bewilligungsverfahren_gr_sitzung_beschluss}}
             - bewilligungsverfahren_gr_sitzung_datum: {{bauverwaltung.bewilligungsverfahren_gr_sitzung_datum}}
+            - bewilligungsverfahren_gr_sitzung_bewilligungsdatum: {{bauverwaltung.bewilligungsverfahren_gr_sitzung_bewilligungsdatum}}
             - beschwerdeverfahren: {{bauverwaltung.beschwerdeverfahren}}
             - baukontrolle_realisierung_table: {{bauverwaltung.baukontrolle_realisierung_table}}
             - bewilligungsverfahren_sistierung: {{bauverwaltung.bewilligungsverfahren_sistierung}}
@@ -190,6 +191,11 @@ def test_notification_template_merge(
         "bewilligungsverfahren-gr-sitzung-datum",
         timezone.now(),
         "date",
+    )
+    add_answer(
+        work_item.document,
+        "bewilligungsverfahren-gr-sitzung-bewilligungsdatum",
+        timezone.now(),
     )
     add_table_answer(
         work_item.document,
@@ -582,10 +588,6 @@ def test_notification_placeholders(
         instance=sz_instance,
         workflow_date=timezone.make_aware(datetime(2019, 9, 24, 10)),
     ).workflow_item.pk
-    settings.APPLICATION["WORKFLOW_ITEMS"]["DECISION"] = workflow_entry_factory(
-        instance=sz_instance,
-        workflow_date=timezone.make_aware(datetime(2019, 10, 24, 10)),
-    ).workflow_item.pk
 
     work_item_factory(
         case=sz_instance.case,
@@ -602,7 +604,7 @@ def test_notification_placeholders(
     add_answer(
         building_authority_work_item.document,
         "bewilligungsverfahren-gr-sitzung-bewilligungsdatum",
-        timezone.make_aware(datetime(2023, 1, 2)),
+        timezone.make_aware(datetime(2019, 10, 24, 10)),
     )
 
     kommunal_amount = billing_v2_entry_factory(
@@ -646,10 +648,10 @@ def test_notification_placeholders(
         .split("\n")
     ] == [
         f"REGISTRATION_LINK: {settings.REGISTRATION_URL}",
-        "DATE_DOSSIERVOLLSTANDIG: 23. August 2019",
-        "DATE_DOSSIEREINGANG: 22. Juli 2019",
-        "DATE_START_ZIRKULATION: 24. September 2019",
-        "DATE_BAU_EINSPRACHEENTSCHEID: 2. Januar 2023",
+        "DATE_DOSSIERVOLLSTANDIG: 23.08.2019",
+        "DATE_DOSSIEREINGANG: 22.07.2019",
+        "DATE_START_ZIRKULATION: 24.09.2019",
+        "DATE_BAU_EINSPRACHEENTSCHEID: 24.10.2019",
         f"BILLING_TOTAL_KOMMUNAL: {kommunal_amount:.2f}",
         f"BILLING_TOTAL_KANTON: {format(kanton_amount, '.2f')}",
         f"BILLING_TOTAL: {round(kommunal_amount + kanton_amount, 2)}",

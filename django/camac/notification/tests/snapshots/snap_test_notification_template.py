@@ -133,21 +133,22 @@ Es dient nur zu Testzwecken und kann ignoriert werden
 
 snapshots['test_notification_template_merge[Canton-identifier-{{identifier}}-200] 1'] = '''
         identifier: identifier
-        answer_period_date: 21. Januar 2017
+        answer_period_date: 21.01.2017
         field_punkte: 2’690’881 / 1’208’835
         field_bezeichnung: abc
         field_durchmesser_der_bohrung: 1
         billing_entries:
-            - Alex Smith: 903.24 CHF, erstellt am 12. Mai 1999 auf Kostenstelle John Bonilla / Shannon Cruz (Nr. 0000)
+            - Alex Smith: 903.24 CHF, erstellt am 12.05.1999 auf Kostenstelle John Bonilla / Shannon Cruz (Nr. 0000)
         bauverwaltung:
             - beschwerdeverfahren_weiterzug_durch: Beschwerdegegner
             - bewilligungsverfahren_gr_sitzung_beschluss: foo
-            - bewilligungsverfahren_gr_sitzung_datum: 1. Januar 2017
+            - bewilligungsverfahren_gr_sitzung_datum: 01.01.2017
+            - bewilligungsverfahren_gr_sitzung_bewilligungsdatum: 01.01.2017
             - beschwerdeverfahren: []
             - baukontrolle_realisierung_table: []
             - bewilligungsverfahren_sistierung: []
             - bewilligungsverfahren_sitzung_baukommission:
                 - Bemerkung: Foo Bar, Nr: 78
         publications:
-            - 14. Mai 1990 - 19. September 2002 (W20)
+            - 14.05.1990 - 19.09.2002 (W20)
     '''
