@@ -190,23 +190,6 @@ class CreateInstanceLogic:
         return identifier
 
     @staticmethod
-    def change_instance_state_for_copy(
-        instance, source_instance, is_modification, group
-    ):
-        """In Kt. UR, municipalities and KOOR NP can copy ÖREB dossiers."""
-        if settings.APPLICATION_NAME == "kt_uri" and source_instance:
-            mapping = {
-                ur_constants.ROLE_MUNICIPALITY: "comm",
-                ur_constants.ROLE_KOOR_NP: "ext",
-            }
-            new_state = mapping.get(group.role.pk, None)
-            if new_state:
-                instance.instance_state = models.InstanceState.objects.get(
-                    name=new_state
-                )
-                instance.save()
-
-    @staticmethod
     def initialize_caluma(
         instance,
         source_instance,
@@ -414,10 +397,6 @@ class CreateInstanceLogic:
             CreateInstanceLogic.copy_extend_validity_answers(
                 extend_validity_instance, instance, user
             )
-
-        CreateInstanceLogic.change_instance_state_for_copy(
-            instance, source_instance, is_modification, group
-        )
 
     @staticmethod
     def create(

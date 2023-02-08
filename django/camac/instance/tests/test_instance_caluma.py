@@ -362,11 +362,7 @@ def test_create_instance_caluma_ur(  # noqa: C901
                 assert attachment.name == new_attachment.name
                 assert attachment.uuid != new_attachment.uuid
                 assert attachment.path.name != new_attachment.path.name
-
-                if role.name == "Municipality":
-                    assert new_instance.instance_state.name == "comm"
-                elif role.name == "Coordination":
-                    assert new_instance.instance_state.name == "ext"
+                assert new_instance.instance_state.name == "new"
 
             assert ("dossier-number" in new_case.meta) == generate_identifier
 
