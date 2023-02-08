@@ -168,7 +168,6 @@ class InstanceView(
                 "archive": serializers.CalumaInstanceArchiveSerializer,
                 "change_form": serializers.CalumaInstanceChangeFormSerializer,
                 "fix_work_items": serializers.CalumaInstanceFixWorkItemsSerializer,
-                "unlink": serializers.CalumaInstanceUnlinkSerializer,
                 "convert_modification": serializers.CalumaInstanceConvertModificationSerializer,
                 "dms_placeholders": DMSPlaceholdersSerializer,
                 "default": serializers.CalumaInstanceSerializer,
@@ -177,7 +176,6 @@ class InstanceView(
                 "submit": serializers.InstanceSubmitSerializer,
                 "default": serializers.SchwyzInstanceSerializer,
                 "change_form": serializers.CamacInstanceChangeFormSerializer,
-                "unlink": serializers.CalumaInstanceUnlinkSerializer,
             },
         }
 
@@ -773,8 +771,21 @@ class InstanceView(
 
     @swagger_auto_schema(auto_schema=None)
     @action(methods=["patch"], detail=True, url_path="unlink")
+    @transaction.atomic
     def unlink(self, request, pk=None):
-        return self._custom_serializer_action(request, pk)
+        instance = self.get_object()
+
+        instances_with_same_group = models.Instance.objects.filter(
+            instance_group=instance.instance_group
+        ).exclude(pk=instance.pk)
+        # if only two dossiers were in group, unlink both
+        if len(instances_with_same_group) == 1:
+            instances_with_same_group.update(instance_group=None)
+
+        instance.instance_group = None
+        instance.save()
+
+        return response.Response(status=status.HTTP_204_NO_CONTENT)
 
     @swagger_auto_schema(auto_schema=None)
     @action(methods=["patch"], detail=True, url_path="convert-modification")
