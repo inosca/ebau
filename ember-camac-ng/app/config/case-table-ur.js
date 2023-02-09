@@ -73,9 +73,10 @@ export default {
       "submitDateAfter",
       "submitDateBefore",
       "intent",
-      "withCantonalParticipation",
       "responsibleServiceUser",
       "paper",
+      "legalStateOereb",
+      "withCantonalParticipation",
     ],
   },
   activeCirculationStates: [
