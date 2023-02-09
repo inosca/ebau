@@ -273,6 +273,23 @@ class DecisionFilter(BaseInFilter):
         )
 
 
+class OerebLegalStateFilter(CharFilter):
+    def filter(self, qs, value, *args, **kwargs):
+        if value in EMPTY_VALUES:
+            return qs
+
+        answers = Answer.objects.filter(
+            question_id="typ-des-verfahrens",
+            value__in=value.split(","),
+        )
+
+        return qs.filter(
+            pk__in=list(
+                answers.values_list("document__case__family__instance__pk", flat=True)
+            )
+        )
+
+
 class InquiryStateFilter(CharFilter):
     def filter(self, qs, value, *args, **kwargs):
         if value in ["pending", "completed"]:
@@ -420,6 +437,8 @@ class InstanceFilterSet(FilterSet):
     decision_date_after = DecisionDateFilter(lookup_expr="gte")
     decision_date_before = DecisionDateFilter(lookup_expr="lte")
     decision = DecisionFilter()
+
+    oereb_legal_state = OerebLegalStateFilter()
 
     inquiry_state = InquiryStateFilter()
     inquiry_created_after = InquiryDateFilter(

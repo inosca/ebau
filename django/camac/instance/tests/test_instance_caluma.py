@@ -1580,6 +1580,62 @@ def test_objection_received_filter(
 
 
 @pytest.mark.parametrize(
+    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
+)
+@pytest.mark.parametrize(
+    "filter,expected",
+    [
+        ("typ-des-verfahrens-anpassung", 2),
+        ("typ-des-verfahrens-festsetzung", 1),
+        ("typ-des-verfahrens-festsetzung,typ-des-verfahrens-anpassung", 3),
+        ("", 3),
+        ("test123", 0),
+    ],
+)
+def test_oereb_legal_state_filter_ur(
+    admin_user,
+    admin_client,
+    ur_instance,
+    instance_with_case,
+    question_factory,
+    answer_factory,
+    instance_factory,
+    filter,
+    expected,
+):
+    instance_1 = ur_instance
+    instance_2 = instance_with_case(instance_factory(user=admin_user))
+    instance_3 = instance_with_case(instance_factory(user=admin_user))
+
+    question = question_factory(
+        slug="typ-des-verfahrens",
+        type=caluma_form_models.Question.TYPE_CHOICE,
+    )
+    answer_factory(
+        document=instance_1.case.document,
+        question=question,
+        value="typ-des-verfahrens-anpassung",
+    )
+    answer_factory(
+        document=instance_2.case.document,
+        question=question,
+        value="typ-des-verfahrens-festsetzung",
+    )
+    answer_factory(
+        document=instance_3.case.document,
+        question=question,
+        value="typ-des-verfahrens-anpassung",
+    )
+
+    url = reverse("instance-list")
+    response = admin_client.get(url, data={"oereb_legal_state": filter})
+
+    assert response.status_code == status.HTTP_200_OK
+
+    assert len(response.json()["data"]) == expected
+
+
+@pytest.mark.parametrize(
     "value,expected_count",
     [("innerhalb", 2), ("ausserhalb", 1), ("beides", 0), ("", 3)],
 )

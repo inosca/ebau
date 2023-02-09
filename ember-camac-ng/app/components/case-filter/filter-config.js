@@ -135,6 +135,17 @@ export default {
     labelField: "label",
     showWithoutOptions: true,
   },
+  ...(macroCondition(getOwnConfig().application === "ur")
+    ? {
+        legalStateOerebOptions: {
+          type: "select-multiple",
+          options: "legalStateOerebOptions",
+          valueField: "slug",
+          labelField: "label",
+          showWithoutOptions: true,
+        },
+      }
+    : {}),
   inquiryState: {
     type: "select",
     options: "inquiryStateOptions",
