@@ -11,7 +11,7 @@ export default class DatepickerComponent extends Component {
 
   @action
   onChange(dates) {
-    if (dates.length === 0) {
+    if (!dates || dates.length === 0) {
       this.args.onChange(null);
     } else if (dates.length === 1) {
       this.args.onChange(dates[0]);
