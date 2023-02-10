@@ -1,14 +1,26 @@
-<EmberFlatpickr
-  @date={{or @value null}}
-  @locale={{this.locale}}
-  @dateFormat="Y-m-d"
-  @altFormat="d.m.Y"
-  @allowInput={{true}}
-  @altInput={{true}}
-  @onChange={{this.onChange}}
-  @disabled={{@disabled}}
-  @minDate={{@minDate}}
-  @maxDate={{@maxDate}}
-  class="uk-input"
-  ...attributes
-/>
+<div class="uk-inline uk-width-1-1">
+  {{#if (and @value (not @disabled))}}
+    <a
+      class="uk-form-icon uk-form-icon-flip"
+      href="#"
+      {{uk-tooltip (t "global.delete")}}
+      {{on "click" (fn this.onChange null)}}
+    >
+      <UkIcon @icon="close" />
+    </a>
+  {{/if}}
+  <EmberFlatpickr
+    @date={{or @value null}}
+    @locale={{this.locale}}
+    @dateFormat="Y-m-d"
+    @altFormat="d.m.Y"
+    @allowInput={{true}}
+    @altInput={{true}}
+    @onChange={{this.onChange}}
+    @disabled={{@disabled}}
+    @minDate={{@minDate}}
+    @maxDate={{@maxDate}}
+    class="uk-input"
+    ...attributes
+  />
+</div>
