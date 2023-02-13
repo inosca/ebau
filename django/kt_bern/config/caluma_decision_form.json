@@ -568,12 +568,12 @@
     "pk": "decision-decision-assessment-positive-with-reservation",
     "fields": {
       "created_at": "2022-04-29T14:03:24.825Z",
-      "modified_at": "2022-05-17T14:38:46.475Z",
+      "modified_at": "2023-02-13T10:22:37.924Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Mit Vorbehalt positiv (Projekt muss angepasst werden)\", \"fr\": \"Positif avec r\\u00e9servation (le projet doit \\u00eatre adapt\\u00e9)\"}",
+      "label": "{\"de\": \"Mit Vorbehalt positiv (Projekt muss angepasst werden)\", \"fr\": \"Positif avec r\\u00e9serve (le projet doit \\u00eatre adapt\\u00e9)\"}",
       "is_archived": false,
       "meta": {
         "identifier": "conditionallyPositive"
@@ -586,12 +586,12 @@
     "pk": "decision-decision-assessment-retreat",
     "fields": {
       "created_at": "2022-04-29T14:03:24.806Z",
-      "modified_at": "2022-05-17T14:38:46.463Z",
+      "modified_at": "2023-02-13T10:22:38.098Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"R\\u00fcckzug\", \"fr\": \"Retraite\"}",
+      "label": "{\"de\": \"R\\u00fcckzug\", \"fr\": \"Retrait\"}",
       "is_archived": false,
       "meta": {
         "identifier": "retreat"
