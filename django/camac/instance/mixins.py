@@ -301,8 +301,8 @@ class InstanceQuerysetMixin(object):
                 .exclude(
                     **{
                         self._get_instance_filter_expr(
-                            "form_id"
-                        ): settings.APPLICATION.get("OEREB_FORM", None)
+                            "form_id__in"
+                        ): settings.APPLICATION.get("OEREB_FORMS", [])
                     }
                 )
                 .distinct()
@@ -316,9 +316,9 @@ class InstanceQuerysetMixin(object):
         return queryset.filter(
             Q(
                 **{
-                    self._get_instance_filter_expr("form_id"): settings.APPLICATION.get(
-                        "OEREB_FORM", None
-                    ),
+                    self._get_instance_filter_expr(
+                        "form_id__in"
+                    ): settings.APPLICATION.get("OEREB_FORMS", []),
                 }
             )
         )
