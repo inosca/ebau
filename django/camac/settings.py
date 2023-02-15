@@ -2314,7 +2314,7 @@ APPLICATIONS = {
         ],
         "PORTAL_GROUP": 685,
         "ADMIN_GROUP": 1,
-        "OEREB_FORM": 296,
+        "OEREB_FORMS": [296, 305],
         "INSTANCE_IDENTIFIER_FORM_ABBR": {},
         "DUMP_CONFIG_GROUPS": {
             "dashboard_document": {
