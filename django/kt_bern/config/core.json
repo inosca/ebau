@@ -133,6 +133,13 @@
     }
   },
   {
+    "model": "core.aphp",
+    "pk": 15000001,
+    "fields": {
+      "php_class": "CheckHasRunningInquiries"
+    }
+  },
+  {
     "model": "core.action",
     "pk": 10036,
     "fields": {
@@ -241,7 +248,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -409,7 +416,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 0
+      "sort": 1
     }
   },
   {
@@ -676,6 +683,20 @@
       "error_message": null,
       "execute_always": 0,
       "sort": 6
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 15000001,
+    "fields": {
+      "available_action": "php",
+      "button": 20046,
+      "name": null,
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 0
     }
   },
   {
@@ -1244,6 +1265,30 @@
       "description": null,
       "success_message": null,
       "error_message": null
+    }
+  },
+  {
+    "model": "core.actiont",
+    "pk": 15000001,
+    "fields": {
+      "action": 15000001,
+      "language": "de",
+      "name": "Validation",
+      "description": null,
+      "success_message": null,
+      "error_message": "Das Dossier kann nicht korrigiert werden solange noch eine Zirkulation läuft."
+    }
+  },
+  {
+    "model": "core.actiont",
+    "pk": 15000002,
+    "fields": {
+      "action": 15000001,
+      "language": "fr",
+      "name": "Validation",
+      "description": null,
+      "success_message": null,
+      "error_message": "Le dossier ne peut être corrigé tant que des demandes complémentaires sont encore ouvertes."
     }
   },
   {
