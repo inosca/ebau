@@ -2082,7 +2082,7 @@ APPLICATIONS = {
         ),
         "ENABLE_PUBLIC_ENDPOINTS": True,
         "PUBLICATION_BACKEND": "caluma",
-        "ATTACHMENT_MAX_SIZE": 20 * 1024 * 1024,
+        "ATTACHMENT_MAX_SIZE": 100 * 1024 * 1024,
     },
     "kt_uri": {
         "ECH0211": {
