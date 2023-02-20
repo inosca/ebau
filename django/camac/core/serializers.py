@@ -1,6 +1,5 @@
 from caluma.caluma_workflow import api as workflow_api, models as workflow_models
 from django.conf import settings
-from django.core.exceptions import ObjectDoesNotExist
 from django.db import transaction
 from rest_framework_json_api import relations, serializers
 
@@ -36,18 +35,22 @@ class PublicationEntrySerializer(serializers.ModelSerializer):
     description = serializers.SerializerMethodField()
 
     def get_description(self, obj):
-        # We include this form field to avoid creating a whitelist for fields
-        try:
-            description_overwrite = obj.instance.fields.get(
-                name="bezeichnung-override"
-            ).value
+        description_override = (
+            obj.instance.fields.filter(name="bezeichnung-override")
+            .values_list("value", flat=True)
+            .first()
+        )
 
-            return (
-                description_overwrite
-                or obj.instance.fields.get(name="bezeichnung").value
-            )
-        except ObjectDoesNotExist:
-            return ""
+        if description_override:
+            return description_override
+
+        description = (
+            obj.instance.fields.filter(name="bezeichnung")
+            .values_list("value", flat=True)
+            .first()
+        )
+
+        return description or ""
 
     included_serializers = {"instance": "camac.instance.serializers.InstanceSerializer"}
 
