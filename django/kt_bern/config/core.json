@@ -140,6 +140,13 @@
     }
   },
   {
+    "model": "core.aphp",
+    "pk": 15000002,
+    "fields": {
+      "php_class": "CheckDocumentValidity"
+    }
+  },
+  {
     "model": "core.action",
     "pk": 10036,
     "fields": {
@@ -262,7 +269,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -430,7 +437,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 0
+      "sort": 1
     }
   },
   {
@@ -691,6 +698,20 @@
     "fields": {
       "available_action": "php",
       "button": 20046,
+      "name": null,
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 15000002,
+    "fields": {
+      "available_action": "php",
+      "button": 20047,
       "name": null,
       "description": null,
       "success_message": null,
@@ -1289,6 +1310,30 @@
       "description": null,
       "success_message": null,
       "error_message": "Le dossier ne peut être corrigé tant que des demandes complémentaires sont encore ouvertes."
+    }
+  },
+  {
+    "model": "core.actiont",
+    "pk": 15000003,
+    "fields": {
+      "action": 15000002,
+      "language": "de",
+      "name": "Validation",
+      "description": null,
+      "success_message": null,
+      "error_message": "Das Formular wurde nicht vollständig ausgefüllt. Bitte überprüfen Sie Ihre Eingaben und versuchen Sie den Abschluss der Dossierkorrektur erneut. Um die Vollständigkeit zu prüfen, navigieren Sie zum Abschnitt \"Einreichen\" im Formular."
+    }
+  },
+  {
+    "model": "core.actiont",
+    "pk": 15000004,
+    "fields": {
+      "action": 15000002,
+      "language": "fr",
+      "name": "Validation",
+      "description": null,
+      "success_message": null,
+      "error_message": "Le formulaire n'a pas été rempli complètement. Veuillez vérifier vos entrées et essayer à nouveau de clore la correction du dossier. Pour vérifier si le dossier est complet, naviguez vers la rubrique « Envoyer » du formulaire."
     }
   },
   {
