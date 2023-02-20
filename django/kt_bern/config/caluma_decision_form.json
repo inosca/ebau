@@ -483,7 +483,7 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Negativ\", \"fr\": \"N\\u00e9gatif\"}",
+      "label": "{\"de\": \"Negativ\", \"fr\": \"N\\u00e9gative\"}",
       "is_archived": false,
       "meta": {
         "identifier": "negative"
@@ -555,7 +555,7 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Positiv\", \"fr\": \"Positif\"}",
+      "label": "{\"de\": \"Positiv\", \"fr\": \"Positive\"}",
       "is_archived": false,
       "meta": {
         "identifier": "positive"
@@ -573,7 +573,7 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Mit Vorbehalt positiv (Projekt muss angepasst werden)\", \"fr\": \"Positif avec r\\u00e9serve (le projet doit \\u00eatre adapt\\u00e9)\"}",
+      "label": "{\"de\": \"Mit Vorbehalt positiv (Projekt muss angepasst werden)\", \"fr\": \"Positive avec r\\u00e9serve (le projet doit \\u00eatre adapt\\u00e9)\"}",
       "is_archived": false,
       "meta": {
         "identifier": "conditionallyPositive"
