@@ -1,8 +1,5 @@
-import pathlib
-
-import pyexcel
 import pytest
-from caluma.caluma_form import api as form_api, models as caluma_form_models
+from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
 from django.core import mail
 from django.urls import reverse
@@ -586,74 +583,6 @@ def test_fix_work_items(
             assert sorted(
                 be_instance.case.work_items.values_list("task_id", flat=True)
             ) == sorted(expected_work_items)
-
-
-@pytest.mark.parametrize("role__name", ["Municipality"])
-@pytest.mark.parametrize("service__name", ["Leitbehörde Burgdorf"])
-def test_caluma_export_be(
-    db,
-    admin_client,
-    be_instance,
-    instance_service_factory,
-    service,
-    application_settings,
-    settings,
-):
-    settings.APPLICATION_NAME = "kt_bern"
-    application_settings["MUNICIPALITY_DATA_SHEET"] = settings.ROOT_DIR(
-        "kt_bern",
-        pathlib.Path(settings.APPLICATIONS["kt_bern"]["MUNICIPALITY_DATA_SHEET"]).name,
-    )
-
-    instance_service_factory(
-        instance=be_instance, service=admin_client.user.groups.first().service
-    )
-
-    be_instance.case.document.answers.create(
-        value=str(service.pk), question_id="gemeinde"
-    )
-
-    row_doc = form_api.save_document(
-        caluma_form_models.Form.objects.get(pk="personalien-tabelle")
-    )
-    form_api.save_answer(
-        caluma_form_models.Question.objects.get(pk="vorname-gesuchstellerin"),
-        row_doc,
-        value="Max",
-    )
-    form_api.save_answer(
-        caluma_form_models.Question.objects.get(pk="name-gesuchstellerin"),
-        row_doc,
-        value="Muster",
-    )
-
-    form_api.save_answer(
-        caluma_form_models.Question.objects.get(pk="personalien-gesuchstellerin"),
-        be_instance.case.document,
-        value=[str(row_doc.pk)],
-    )
-
-    url = reverse("instance-export")
-    response = admin_client.get(url, {"instance_id": be_instance.pk})
-    assert response.status_code == status.HTTP_200_OK
-    book = pyexcel.get_book(file_content=response.content, file_type="xlsx")
-    assert be_instance.pk in book.get_dict()["pyexcel sheet"][1]
-
-
-@pytest.mark.parametrize(
-    "query",
-    [
-        {},
-        {"foo": "bar"},
-        {"instance_id": ""},
-        {"instance_id": ",".join(str(i) for i in range(10000, 11001))},
-    ],
-)
-def test_caluma_export_bad_request(admin_client, query):
-    url = reverse("instance-export")
-    resp = admin_client.get(url, query)
-
-    assert resp.status_code == status.HTTP_400_BAD_REQUEST
 
 
 @pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])

@@ -372,44 +372,5 @@ class CalumaApi:
             or ""
         ).strip()
 
-    def get_address(self, document):
-        street, number, zip, city, migrated = [
-            self._get_answer(document, ans)
-            for ans in [
-                "strasse-flurname",
-                "nr",
-                "plz-grundstueck-v3",
-                "ort-grundstueck",
-                "standort-migriert",
-            ]
-        ]
-
-        address_lines = [f"{street} {number}".strip(), f"{zip} {city}".strip()]
-
-        return ", ".join(address_lines) if all(address_lines) else migrated
-
-    def get_gesuchsteller(self, document):
-        table_ans = document.answers.filter(
-            question_id="personalien-gesuchstellerin"
-        ).first()
-        if not table_ans or not table_ans.documents.exists():  # pragma: no cover
-            return ""
-
-        def _get_name(doc):
-            name_jurist, first_name, last_name = [
-                self._get_answer(doc, ans)
-                for ans in [
-                    "name-juristische-person-gesuchstellerin",
-                    "vorname-gesuchstellerin",
-                    "name-gesuchstellerin",
-                ]
-            ]
-
-            return name_jurist or f"{first_name} {last_name}".strip()
-
-        return ", ".join(  # pragma: no cover
-            [_get_name(row_doc) for row_doc in table_ans.documents.all()]
-        )
-
     def get_gemeinde(self, document):
         return self._get_answer(document, "gemeinde")
