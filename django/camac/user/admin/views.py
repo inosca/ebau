@@ -187,7 +187,7 @@ class GroupAdmin(MultilingualAdmin, ModelAdmin):
     ordering = ["pk"]
     prefetch_related = ["locations"]
     prefetch_related_ml = ["trans", "service__trans", "locations", "locations__trans"]
-    search_fields = ["name"]
+    search_fields = ["name", "pk"]
     search_fields_ml = ["trans__name"]
     select_related = ["service"]
 
@@ -228,7 +228,7 @@ class ServiceAdmin(MultilingualAdmin, ModelAdmin):
     list_per_page = 20
     ordering = ["pk"]
     prefetch_related_ml = ["trans", "service_group__trans"]
-    search_fields = ["name", "email"]
+    search_fields = ["name", "email", "pk"]
     search_fields_ml = ["trans__name", "email"]
     select_related = ["service_group"]
 
