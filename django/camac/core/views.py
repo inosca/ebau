@@ -184,14 +184,15 @@ class PublicationEntryView(ModelViewSet):
         for person in persons:
             # We only use the title of grundeigentuemer because the external Amtsblatt API
             # only uses a title on grundeigentuemer
-            if type == "grundeigentuemer":
+            if type == "grundeigentuemer" and "anrede" in person:
                 anrede_mapping = {
                     "Herr": "Grundeigentümer",
                     "Frau": "Grundeigentümerin",
                     "Firma": "Grundeigentümer",
                 }
+
                 person["anrede"] = anrede_mapping[person["anrede"]]
-            else:
+            elif "anrede" in person:
                 del person["anrede"]
 
             person["adresse"] = person["strasse"]
