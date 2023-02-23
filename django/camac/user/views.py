@@ -23,6 +23,7 @@ class LocationView(MultilangMixin, ReadOnlyModelViewSet):
     filterset_class = filters.LocationFilterSet
     serializer_class = serializers.LocationSerializer
     queryset = models.Location.objects.all()
+    ordering = "name"
 
 
 class UserView(ReadOnlyModelViewSet):
