@@ -11,7 +11,7 @@
       "phone": "",
       "disabled": 0,
       "language": "de",
-      "last_login": null,
+      "last_login": "2023-02-20T10:46:58.457Z",
       "address": "",
       "city": "",
       "zip": ""
@@ -115,14 +115,14 @@
       "password": null,
       "name": "service-account-oereb",
       "surname": "service-account-oereb",
-      "email": "service-account-oereb@example.com",
-      "phone": null,
+      "email": "service-account-oereb@placeholder.org",
+      "phone": "",
       "disabled": 0,
       "language": "de",
       "last_login": null,
-      "address": null,
-      "city": null,
-      "zip": null
+      "address": "",
+      "city": "",
+      "zip": ""
     }
   },
   {
@@ -3278,6 +3278,22 @@
     }
   },
   {
+    "model": "user.group",
+    "pk": 1071,
+    "fields": {
+      "role": 1132,
+      "service": null,
+      "disabled": 0,
+      "name": "oereb-api",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
     "model": "user.grouplocation",
     "pk": 1,
     "fields": {
@@ -4906,6 +4922,24 @@
     }
   },
   {
+    "model": "user.usergroup",
+    "pk": 13,
+    "fields": {
+      "user": 1,
+      "group": 1071,
+      "default_group": 1
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 14,
+    "fields": {
+      "user": 1213,
+      "group": 1071,
+      "default_group": 0
+    }
+  },
+  {
     "model": "user.usergrouplog",
     "pk": 1,
     "fields": {
@@ -5000,6 +5034,34 @@
       "id1": 1,
       "field1": "USER_ID",
       "id2": 283,
+      "field2": "GROUP_ID"
+    }
+  },
+  {
+    "model": "user.usergrouplog",
+    "pk": 8,
+    "fields": {
+      "modification_date": "2023-02-20T10:47:59Z",
+      "user_id": 1,
+      "action": "i",
+      "data": null,
+      "id1": 1,
+      "field1": "USER_ID",
+      "id2": 1071,
+      "field2": "GROUP_ID"
+    }
+  },
+  {
+    "model": "user.usergrouplog",
+    "pk": 9,
+    "fields": {
+      "modification_date": "2023-02-20T10:47:59Z",
+      "user_id": 1,
+      "action": "i",
+      "data": null,
+      "id1": 1213,
+      "field1": "USER_ID",
+      "id2": 1071,
       "field2": "GROUP_ID"
     }
   },
