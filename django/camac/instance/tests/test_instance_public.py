@@ -197,7 +197,7 @@ def test_public_caluma_instance_ur(
     "is_oereb_form,instance_state__name,num_queries,is_visible",
     [
         (True, "comm", 8, True),
-        (False, "comm", 2, False),
+        (False, "comm", 1, False),
         (True, "new", 2, False),
         (True, "new_portal", 2, False),
     ],
@@ -227,7 +227,7 @@ def test_public_caluma_instance_oereb_ur(
 
     oereb_form = form_factory()
     if is_oereb_form:
-        application_settings["OEREB_FORM"] = oereb_form.pk
+        application_settings["OEREB_FORMS"] = [oereb_form.pk]
 
     ur_instance.form = oereb_form
     ur_instance.case.meta = {"dossier-number": "1201-20-001"}
