@@ -334,6 +334,7 @@ export default class CaseTableComponent extends Component {
             with_cantonal_participation:
               this.args.filter.withCantonalParticipation,
             is_paper: this.args.filter.paper,
+            oereb_legal_state: this.args.filter.legalStateOereb,
           }
         : macroCondition(getOwnConfig().application === "be")
         ? {

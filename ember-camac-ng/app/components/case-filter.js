@@ -25,6 +25,7 @@ import decisionsQuery from "camac-ng/gql/queries/decisions.graphql";
 import getBuildingPermitQuestion from "camac-ng/gql/queries/get-building-permit-question.graphql";
 import inquiryAnswersQuery from "camac-ng/gql/queries/inquiry-answers.graphql";
 import municipalitiesQuery from "camac-ng/gql/queries/municipalities.graphql";
+import oerebLegalStateAnswersQuery from "camac-ng/gql/queries/oereb-legal-state-answers.graphql";
 import rootFormsQuery from "camac-ng/gql/queries/root-forms.graphql";
 
 const COMPONENT_MAPPING = {
@@ -250,6 +251,15 @@ export default class CaseFilterComponent extends Component {
       { value: "0", label: this.intl.t("cases.paper.none") },
     ];
   }
+
+  legalStateOerebOptions = trackedFunction(this, async () => {
+    const response = await this.apollo.query(
+      { query: oerebLegalStateAnswersQuery },
+      "allQuestions.edges"
+    );
+
+    return response[0]?.node.options.edges.map((edge) => edge.node);
+  });
 
   get inquiryStateOptions() {
     return [
