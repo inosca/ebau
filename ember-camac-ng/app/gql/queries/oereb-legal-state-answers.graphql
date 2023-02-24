@@ -1,0 +1,19 @@
+query OerebLegalStateAnswer {
+  allQuestions(filter: [{ slugs: ["typ-des-verfahrens"] }]) {
+    edges {
+      node {
+        slug
+        ... on ChoiceQuestion {
+          options {
+            edges {
+              node {
+                slug
+                label
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
