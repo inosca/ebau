@@ -73,6 +73,9 @@ services:
       - CONCURRENT_DATABASE_RELOAD=false
       - DEFINITIONS_UPDATE_FREQUENCY=1440
       - DEFINITIONS_UPDATE_BEGIN=0300
+      - MAX_FILE_SIZE=60M
+      - MAX_SCAN_SIZE=200M
+      - STREAM_MAX_LENGTH=60M
 
   keycloak:
     image: acr.run/camac-ng/keycloak:16.1.0_theme-v1.0.1
