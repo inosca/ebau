@@ -192,21 +192,6 @@ services:
       - OIDC_GROUPS_API_HEADERS=AUTHORIZATION,X-CAMAC-GROUP
       - PAGINATION_ENABLED=False
 
-  metabase:
-    image: metabase/metabase:v0.34.2
-    depends_on:
-      - db
-    ports:
-      - "666:3000"
-    networks:
-      - ebau.local
-    environment:
-      - MB_DB_TYPE=postgres
-      - MB_DB_DBNAME=metabase
-      - MB_DB_PORT=5432
-      - MB_DB_USER=camac
-      - MB_DB_HOST=db
-
 volumes:
   pgdata:
   djangomedia:
