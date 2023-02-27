@@ -83,7 +83,7 @@ services:
       - PROXY_ADDRESS_FORWARDING=true
 
   metabase:
-    image: metabase/metabase:v0.43.2
+    image: metabase/metabase:v0.45.3
     ports:
       - "666:3000"
     environment:
