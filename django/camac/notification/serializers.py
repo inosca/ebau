@@ -791,7 +791,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             elif field.name == settings.APPLICATION.get("LOCATION_NAME_QUESTION", ""):
                 ret["field_standort_adresse"] = value
 
-            ret[name] = value
+            ret[name] = value if value is not None else ""
 
         if self.escape:
             ret = self._escape(ret)
