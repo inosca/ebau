@@ -46933,7 +46933,7 @@
       "description": null,
       "template": null,
       "class_field": "menu-category-process",
-      "hidden": 1,
+      "hidden": 0,
       "sort": 13,
       "form_group": 40000
     }
@@ -47233,7 +47233,7 @@
       "description": null,
       "template": "/ember-camac-ng/legal-submission.phtml",
       "class_field": "menu-category-process",
-      "hidden": 0,
+      "hidden": 1,
       "sort": 14,
       "form_group": 40000
     }
@@ -47263,7 +47263,7 @@
       "description": null,
       "template": null,
       "class_field": "menu-category-process",
-      "hidden": 1,
+      "hidden": 0,
       "sort": 8,
       "form_group": 40000
     }
@@ -47353,7 +47353,7 @@
       "description": null,
       "template": "/ember-camac-ng/legal-submission.phtml",
       "class_field": "menu-category-process",
-      "hidden": 0,
+      "hidden": 1,
       "sort": 9,
       "form_group": 40000
     }
