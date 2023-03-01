@@ -1,6 +1,8 @@
+from django.core.exceptions import ValidationError
 from django.http import HttpResponse
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework import status
+from rest_framework.exceptions import ParseError
 from rest_framework.mixins import RetrieveModelMixin
 from rest_framework.serializers import Serializer
 from rest_framework.viewsets import GenericViewSet
@@ -29,6 +31,8 @@ class MessageView(RetrieveModelMixin, GenericViewSet):
         if last:
             try:
                 last_message = queryset.get(pk=last)
+            except ValidationError:
+                raise ParseError("'last' parameter must be a valid UUID")
             except Message.DoesNotExist:
                 return
 

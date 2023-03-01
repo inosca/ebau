@@ -628,3 +628,10 @@ def test_application_retrieve_full_sz(
 
     resp = admin_client.get(reverse("application", args=[ech_instance_sz.pk]))
     assert resp.status_code == status.HTTP_200_OK
+
+
+def test_message_invalid_last(admin_client, set_application_be):
+    response = admin_client.get(reverse("message"), data={"last": "invalid-uuid"})
+
+    assert response.status_code == status.HTTP_400_BAD_REQUEST
+    assert b"'last' parameter must be a valid UUID" in response.content
