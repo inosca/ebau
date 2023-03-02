@@ -13,7 +13,7 @@ from django.utils.encoding import force_bytes, smart_str
 from django.utils.translation import gettext as _
 from jose.exceptions import ExpiredSignatureError, JOSEError
 from keycloak import KeycloakOpenID
-from keycloak.exceptions import KeycloakAuthenticationError
+from keycloak.exceptions import KeycloakAuthenticationError, KeycloakGetError
 from mozilla_django_oidc.auth import OIDCAuthenticationBackend
 from rest_framework.authentication import BaseAuthentication, get_authorization_header
 from rest_framework.exceptions import AuthenticationFailed
@@ -35,14 +35,16 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
             return None
 
         if len(auth) == 1:
-            msg = _("Invalid Authorization header. No credentials provided")
-            raise AuthenticationFailed(msg)
-        elif len(auth) > 2:
-            msg = _(
-                "Invalid Authorization header. Credentials string should "
-                "not contain spaces."
+            raise AuthenticationFailed(
+                _("Invalid Authorization header. No credentials provided")
             )
-            raise AuthenticationFailed(msg)
+        elif len(auth) > 2:
+            raise AuthenticationFailed(
+                _(
+                    "Invalid Authorization header. Credentials string should "
+                    "not contain spaces."
+                )
+            )
 
         return auth[1]
 
@@ -73,17 +75,21 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
                 jwt_value, keycloak.certs(), options=options
             )
         except ExpiredSignatureError:
-            msg = _("Signature has expired.")
-            raise AuthenticationFailed(msg)
+            raise AuthenticationFailed(_("Signature has expired."))
         except JOSEError:
-            msg = _("Invalid token.")
-            raise AuthenticationFailed(msg)
+            raise AuthenticationFailed(_("Invalid token."))
 
         try:
             resp = keycloak.userinfo(jwt_value.decode())
         except KeycloakAuthenticationError:  # pragma: no cover
-            msg = _("User session not found or doesn't have client attached on it")
-            raise AuthenticationFailed(msg)
+            raise AuthenticationFailed(
+                _("User session not found or doesn't have client attached on it")
+            )
+        except KeycloakGetError as e:  # pragma: no cover
+            request_logger.error(
+                f"Error while fetching the userinfo endpoint of Keycloak: {str(e)}"
+            )
+            raise AuthenticationFailed(_("Error while fetching userinfo"))
 
         # TODO: don't use jwt token at all, once Middleware is refactored
         return self._build_user(resp), jwt_decoded
