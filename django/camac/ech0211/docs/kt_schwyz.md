@@ -9,6 +9,7 @@ curl --request POST \
 --url 'https://portal.ebau-test.sycloud.ch/auth/realms/camac/protocol/openid-connect/token' \
 --header 'content-type: application/x-www-form-urlencoded' \
 --data grant_type=client_credentials \
+--data scope=openid \
 --data client_id='${client-id}' \
 --data client_secret=${client-secret}
 ```
@@ -35,18 +36,18 @@ Dies ist notwendig, um die verschiedenen Stellen innerhalb einer Gemeinde zu unt
 
 ### Beispiel
 
- - Gemeinde client `A` hat als Standardgruppe `Leitung Leitbehörde Gemeinde A`
- - Zusätzlich besteht noch eine Mitgliedschaft in der Gruppe `Leitung Baukontrolle Gemeinde A`
- - Requests mit dem client dieser Gemeinde werden standardmässig im Namen der Gruppe `Leitung Leitbehörde Gemeinde A` gemacht
- - Sollen nun beispielsweise Meldungen für die Gruppe `Leitung Baukontrolle Gemeinde A` abgeholt werden, muss der `group` Parameter entsprechend gesetzt werden
+- Gemeinde client `A` hat als Standardgruppe `Leitung Leitbehörde Gemeinde A`
+- Zusätzlich besteht noch eine Mitgliedschaft in der Gruppe `Leitung Baukontrolle Gemeinde A`
+- Requests mit dem client dieser Gemeinde werden standardmässig im Namen der Gruppe `Leitung Leitbehörde Gemeinde A` gemacht
+- Sollen nun beispielsweise Meldungen für die Gruppe `Leitung Baukontrolle Gemeinde A` abgeholt werden, muss der `group` Parameter entsprechend gesetzt werden
 
 ### Abfragen von Gruppen IDs
 
 Unter dem Tag [User](#/User) sind die Endpunkte zusammengefasst, die eine Abfrage von Gruppenmitgliedschaften und -IDs ermöglichen:
 
- - [/me](#/User/api_v1_me_read) zeigt Informationen zum aktuellen User, inklusive Gruppenmitgliedschaften, an
- - [/groups](#/User/api_v1_groups_list) zeigt alle Gruppen an, für welche eine Mitgliedschaft besteht
- - [/groups/{group_id}](#/User/api_v1_groups_read) zeigt Informationen zu einer spezifischen Gruppe an
+- [/me](#/User/api_v1_me_read) zeigt Informationen zum aktuellen User, inklusive Gruppenmitgliedschaften, an
+- [/groups](#/User/api_v1_groups_list) zeigt alle Gruppen an, für welche eine Mitgliedschaft besteht
+- [/groups/{group_id}](#/User/api_v1_groups_read) zeigt Informationen zu einer spezifischen Gruppe an
 
 ## Abweichungen und Besonderheiten
 
@@ -68,29 +69,27 @@ Unter dem Tag [User](#/User) sind die Endpunkte zusammengefasst, die eine Abfrag
 
 - Relevante URLs finden sich in den Meldungen im `HeaderType` unter `extension`.
 
-
 - Judgements in `NoticeRuling` werden in eBau wie folgt gemappt:
 
-    | Judgement | Descision               | Besonderheiten                     |
-    |-----------|-------------------------|------------------------------------|
-    | 1         | Bewilligt               |                                    |
-    | 2         | Bewilligt mit Vorbehalt | Nicht verfügbar für Baugesuche     |
-    | 3         | Abgeschrieben           | Nicht verfügbar für Vorabklärungen |
-    | 4         | Abgelehnt               |                                    |
+  | Judgement | Descision               | Besonderheiten                     |
+  | --------- | ----------------------- | ---------------------------------- |
+  | 1         | Bewilligt               |                                    |
+  | 2         | Bewilligt mit Vorbehalt | Nicht verfügbar für Baugesuche     |
+  | 3         | Abgeschrieben           | Nicht verfügbar für Vorabklärungen |
+  | 4         | Abgelehnt               |                                    |
 
- - `relationshipToPerson`: Hier füllen wir folgende Personalien ab:
+- `relationshipToPerson`: Hier füllen wir folgende Personalien ab:
 
-    | eBau form              | ech role       |
-    |------------------------|----------------|
-    | Gesuchsteller          | applicant      |
-    | Vertreter mit Vollmacht| contact        |
-    | Projektverfasser       | project author |
-    | Grundeigentümer        | landowner      |
+  | eBau form               | ech role       |
+  | ----------------------- | -------------- |
+  | Gesuchsteller           | applicant      |
+  | Vertreter mit Vollmacht | contact        |
+  | Projektverfasser        | project author |
+  | Grundeigentümer         | landowner      |
 
-    Sollte es sich bei einem Eintrag um eine juristische Person handeln, sieht eCH keine
-    Felder vor für Vor- und Nachname der Kontaktperson. Wir füllen diese Namen daher in das Feld
-    `organisationAdditionalName` im Format: "Vorname Name".
-
+  Sollte es sich bei einem Eintrag um eine juristische Person handeln, sieht eCH keine
+  Felder vor für Vor- und Nachname der Kontaktperson. Wir füllen diese Namen daher in das Feld
+  `organisationAdditionalName` im Format: "Vorname Name".
 
 ## Message Typen
 
