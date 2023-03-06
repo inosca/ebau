@@ -9,6 +9,7 @@ curl --request POST \
 --url 'https://urec.ur.sycloud.ch/auth/realms/urec/protocol/openid-connect/token' \
 --header 'content-type: application/x-www-form-urlencoded' \
 --data grant_type=client_credentials \
+--data scope=openid \
 --data client_id='${client-id}' \
 --data client_secret=${client-secret}
 ```
