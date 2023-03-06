@@ -248,6 +248,15 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
         return result
 
+    def _clean_none(self, data):
+        result = data if data is not None else ""
+        if isinstance(data, list):
+            result = [self._clean_none(value) for value in data]
+        elif isinstance(data, dict):
+            result = {key: self._clean_none(value) for key, value in data.items()}
+
+        return result
+
     def format_date(self, date):
         current_tz = timezone.get_current_timezone()
         return current_tz.normalize(date.astimezone(current_tz)).strftime(
@@ -798,7 +807,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             elif field.name == settings.APPLICATION.get("LOCATION_NAME_QUESTION", ""):
                 ret["field_standort_adresse"] = value
 
-            ret[name] = value if value is not None else ""
+            ret[name] = self._clean_none(value)
 
         if self.escape:
             ret = self._escape(ret)
