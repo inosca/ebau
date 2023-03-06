@@ -784,3 +784,21 @@ def test_accompanying_report_send_handler(
     else:
         with pytest.raises(SendHandlerException):
             handler.apply()
+
+
+def test_get_instance_id_error(admin_user, group, caluma_admin_user):
+    xml = xml_data("task").replace(
+        "<ns2:dossierIdentification>2323</ns2:dossierIdentification>",
+        "<ns2:dossierIdentification>string</ns2:dossierIdentification>",
+    )
+    data = CreateFromDocument(xml)
+
+    with pytest.raises(SendHandlerException):
+        TaskSendHandler(
+            data=data,
+            queryset=Instance.objects,
+            user=admin_user,
+            group=group,
+            auth_header="Bearer: some token",
+            caluma_user=caluma_admin_user,
+        )
