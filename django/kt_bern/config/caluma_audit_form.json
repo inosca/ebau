@@ -9243,12 +9243,28 @@
     "pk": "fp-zustaendigkeit-baubewilligung-mehr",
     "fields": {
       "created_at": "2021-04-01T13:55:23.455Z",
-      "modified_at": "2021-04-16T10:48:39.565Z",
+      "modified_at": "2023-03-02T14:43:13.510Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"mehr als die im Hilfetext erw\\u00e4hnten Anforderungen, oder die Baukosten liegen \\u00fcber 1 Million Franken\", \"fr\": \"davantage que les documents mentionn\\u00e9s dans le texte d'aide, ou alors sa r\\u00e9alisation revient \\u00e0 plus d'un million de francs\"}",
+      "is_archived": true,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "fp-zustaendigkeit-baubewilligung-mehr-v2",
+    "fields": {
+      "created_at": "2023-03-02T14:41:21.791Z",
+      "modified_at": "2023-03-02T14:43:13.547Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"mehr als die im Hilfetext erw\\u00e4hnten Anforderungen, oder die Baukosten liegen \\u00fcber 1.4 Millionen Franken\", \"fr\": \"davantage que les documents mentionn\\u00e9s dans le texte d'aide, ou alors sa r\\u00e9alisation revient \\u00e0 plus de 1.4 million de francs\"}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9259,7 +9275,7 @@
     "pk": "fp-zustaendigkeit-baubewilligung-nicht-mehr",
     "fields": {
       "created_at": "2021-04-01T13:55:23.455Z",
-      "modified_at": "2021-04-16T10:48:39.589Z",
+      "modified_at": "2023-03-02T14:43:13.523Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -9275,7 +9291,7 @@
     "pk": "fp-zustaendigkeit-baubewilligung-uvp",
     "fields": {
       "created_at": "2021-04-01T13:55:23.455Z",
-      "modified_at": "2021-04-16T10:48:39.561Z",
+      "modified_at": "2023-03-02T14:43:13.583Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -20130,7 +20146,7 @@
     "pk": "fp-zustaendigkeit-baubewilligung",
     "fields": {
       "created_at": "2021-04-01T13:55:23.578Z",
-      "modified_at": "2021-04-16T10:48:39.750Z",
+      "modified_at": "2023-03-02T14:43:13.744Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -20142,7 +20158,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"- den Anschluss an das Strassen- und Energieleitungsnetz, an die Wasserversorgung und Kanalisation\\n- den Anschluss an Fernmeldeanlagen, Gemeinschaftsantennenanlagen und dgl.\\n- die Gew\\u00e4sserschutzbewilligung\\n- die Konzession zum Entzug von W\\u00e4rme aus einem \\u00f6ffentlichen Gew\\u00e4sser\\n- die Haustechnik\\n- den energietechnischen Massnahmennachweis\\n- die Pr\\u00fcfung der technischen Belange der Feuerpolizei und des Zivilschutzes\\n- die Ausnahmebewilligung nach Art. 24 - 24d oder Art. 37a RPG\\n- den Entscheid \\u00fcber die Zonenkonformit\\u00e4t einer Baute ausserhalb der Bauzone\\n- die Ausnahme nach Art. 26 oder 28 BauG oder nach Art. 81 SG\", \"fr\": \"- Ie raccordement \\u00e0 la route, aux r\\u00e9seaux de distribution d'\\u00e9nergie et d'eau ainsi qu'aux canalisations\\n- le raccordement aux installations de t\\u00e9l\\u00e9communications, aux antennes collectives, etc.\\n- l'autorisation en mati\\u00e8re de protection des eaux\\n- la concession de pr\\u00e9l\\u00e8vement de chaleur dans des eaux publiques\\n- les installations techniques int\\u00e9rieures\\n- le certificat de conformit\\u00e9 aux normes \\u00e9nerg\\u00e9tiques\\n- l'examen des questions techniques relatives \\u00e0 la police du feu et \\u00e0 la protection civile\\n- la d\\u00e9rogation au sens des articles 24 \\u00e0 24d ou 37a LAT\\n- la d\\u00e9cision sur la conformit\\u00e9 de l\\u2019affectation \\u00e0 la zone d\\u2019un b\\u00e2timent hors de la zone \\u00e0 b\\u00e2tir\\n- la d\\u00e9rogation au sens des articles 26 ou 28 LC ou de l'article 81 LR\"}",
-      "hint_text": "{\"de\": null, \"fr\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {
@@ -32254,14 +32270,29 @@
     "model": "caluma_form.questionoption",
     "pk": "fp-zustaendigkeit-baubewilligung.fp-zustaendigkeit-baubewilligung-mehr",
     "fields": {
-      "created_at": "2021-04-16T10:48:39.767Z",
-      "modified_at": "2021-04-16T10:48:39.767Z",
+      "created_at": "2023-03-02T14:43:13.758Z",
+      "modified_at": "2023-03-02T14:43:13.758Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "fp-zustaendigkeit-baubewilligung",
       "option": "fp-zustaendigkeit-baubewilligung-mehr",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "fp-zustaendigkeit-baubewilligung.fp-zustaendigkeit-baubewilligung-mehr-v2",
+    "fields": {
+      "created_at": "2023-03-02T14:43:13.754Z",
+      "modified_at": "2023-03-02T14:43:13.754Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "fp-zustaendigkeit-baubewilligung",
+      "option": "fp-zustaendigkeit-baubewilligung-mehr-v2",
       "sort": 2
     }
   },
@@ -32269,23 +32300,23 @@
     "model": "caluma_form.questionoption",
     "pk": "fp-zustaendigkeit-baubewilligung.fp-zustaendigkeit-baubewilligung-nicht-mehr",
     "fields": {
-      "created_at": "2021-04-16T10:48:39.772Z",
-      "modified_at": "2021-04-16T10:48:39.772Z",
+      "created_at": "2023-03-02T14:43:13.762Z",
+      "modified_at": "2023-03-02T14:43:13.762Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "fp-zustaendigkeit-baubewilligung",
       "option": "fp-zustaendigkeit-baubewilligung-nicht-mehr",
-      "sort": 3
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "fp-zustaendigkeit-baubewilligung.fp-zustaendigkeit-baubewilligung-uvp",
     "fields": {
-      "created_at": "2021-04-16T10:48:39.761Z",
-      "modified_at": "2021-04-16T10:48:39.761Z",
+      "created_at": "2023-03-02T14:43:13.750Z",
+      "modified_at": "2023-03-02T14:43:13.750Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
