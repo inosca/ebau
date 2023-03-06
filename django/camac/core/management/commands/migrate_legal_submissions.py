@@ -32,6 +32,11 @@ class Command(BaseCommand):
             action="store_true",
             help="Remove migrated data",
         )
+        parser.add_argument(
+            "--instances",
+            type=str,
+            help="Comma separated list of instance IDs to migrate",
+        )
 
     @transaction.atomic
     def handle(self, *args, **options):
@@ -39,6 +44,9 @@ class Command(BaseCommand):
             self.reset()
 
         sid = transaction.savepoint()
+
+        instance_ids = options.get("instances")
+        self.instance_ids = instance_ids.split(",") if instance_ids else None
 
         if not options.get("only_data"):
             self.create_work_items()
@@ -50,8 +58,14 @@ class Command(BaseCommand):
         else:
             transaction.savepoint_commit(sid)
 
-    def write(self, text):
-        self.stdout.write(self.style.SUCCESS(text))
+    def write(self, text, style=None, use_tqdm=False):
+        if style:
+            text = style(text)
+
+        if use_tqdm:
+            tqdm.write(text)
+        else:
+            self.stdout.write(text)
 
     def reset(self):
         with connection.cursor() as cursor:
@@ -76,6 +90,12 @@ class Command(BaseCommand):
             .distinct()
         )
 
+        if self.instance_ids:
+            cases_with_data = cases_with_data.filter(instance__pk__in=self.instance_ids)
+
+        if not cases_with_data:
+            return
+
         self.write("Migrating objections to legal submissions...")
 
         for case in tqdm(cases_with_data):
@@ -83,7 +103,7 @@ class Command(BaseCommand):
                 case, case.work_items.get(task_id="legal-submission")
             )
 
-        self.write("Objections migrated!")
+        self.write("Objections migrated!", self.style.SUCCESS)
 
     def create_work_items(self):
         self.write("Fetching cases that need a legal submission work item...")
@@ -123,6 +143,13 @@ class Command(BaseCommand):
             .distinct()
         )
 
+        if self.instance_ids:
+            cases = cases.filter(instance__pk__in=self.instance_ids)
+
+        if not cases:
+            self.write("No cases need a legal submission work item", self.style.WARNING)
+            return
+
         task = Task.objects.get(pk="legal-submission")
 
         documents = []
@@ -149,7 +176,7 @@ class Command(BaseCommand):
         Document.objects.bulk_create(documents)
         WorkItem.objects.bulk_create(work_items)
 
-        self.write("Legal submission work items created!")
+        self.write("Legal submission work items created!", self.style.SUCCESS)
 
     def determine_status(self, case):
         status = case.instance.instance_state.name
@@ -173,17 +200,27 @@ class Command(BaseCommand):
     def migrate_objections(self, case, work_item):
         objections = case.instance.objections.all()
 
-        if not objections.exists():
+        if not objections:
             return
 
-        row_answer = Answer.objects.create(
+        row_answer, _ = Answer.objects.get_or_create(
             question_id="legal-submission-table", document=work_item.document
         )
 
         for objection in objections:
-            row_document = Document.objects.create(
-                form_id="legal-submission-form", family=work_item.document
+            row_document, created = Document.objects.get_or_create(
+                form_id="legal-submission-form",
+                family=work_item.document,
+                meta={"objection-id": objection.pk},
             )
+
+            if not created:
+                self.write(
+                    f"Skipping migration of objection {objection.pk}",
+                    self.style.WARNING,
+                    True,
+                )
+                continue
 
             Answer.objects.bulk_create(
                 [
@@ -219,7 +256,7 @@ class Command(BaseCommand):
     def migrate_participants(self, objection, document):
         participants = objection.objection_participants.all()
 
-        if not participants.exists():
+        if not participants:
             return
 
         row_answer = Answer.objects.create(
