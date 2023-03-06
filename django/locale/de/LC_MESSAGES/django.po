@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-01 16:00+0100\n"
+"POT-Creation-Date: 2023-03-02 11:07+0100\n"
 "PO-Revision-Date: 2023-03-01 15:52+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -386,7 +386,7 @@ msgstr "SB1 eingereicht"
 msgid "SB2 submitted"
 msgstr "SB2 eingereicht"
 
-#: camac/instance/document_merge_service.py:79 camac/instance/views.py:642
+#: camac/instance/document_merge_service.py:79 camac/instance/export.py:73
 #: camac/user/models.py:76 camac/user/models.py:210 camac/user/models.py:519
 msgid "Address"
 msgstr "Adresse"
@@ -395,7 +395,7 @@ msgstr "Adresse"
 msgid "Plots"
 msgstr "Parzelle(n)"
 
-#: camac/instance/document_merge_service.py:81 camac/instance/views.py:646
+#: camac/instance/document_merge_service.py:81 camac/instance/export.py:81
 #: camac/notification/serializers.py:48
 msgid "Applicant"
 msgstr "Gesuchsteller/in"
@@ -404,8 +404,8 @@ msgstr "Gesuchsteller/in"
 msgid "Keywords"
 msgstr "Stichworte"
 
-#: camac/instance/document_merge_service.py:83
-#: camac/instance/placeholders/fields.py:67 camac/instance/views.py:647
+#: camac/instance/document_merge_service.py:83 camac/instance/export.py:82
+#: camac/instance/placeholders/fields.py:67
 #: camac/notification/serializers.py:49
 msgid "Municipality"
 msgstr "Gemeinde"
@@ -415,7 +415,7 @@ msgstr "Gemeinde"
 msgid "Authority"
 msgstr "Leitbehörde"
 
-#: camac/instance/document_merge_service.py:85 camac/instance/views.py:645
+#: camac/instance/document_merge_service.py:85 camac/instance/export.py:80
 msgid "Responsible"
 msgstr "Zuständig"
 
@@ -475,6 +475,62 @@ msgstr "Entwurf"
 #: camac/user/authentication.py:78
 msgid "Signature has expired."
 msgstr "Signatur ist abgelaufen."
+
+#: camac/instance/export.py:66
+msgid "eBau number"
+msgstr "eBau-Nr."
+
+#: camac/instance/export.py:68
+msgid "Instance number"
+msgstr "Dossier-Nr."
+
+#: camac/instance/export.py:71
+msgid "Application Type"
+msgstr "Gesuchstyp"
+
+#: camac/instance/export.py:77
+msgid "Submission Date"
+msgstr "Eingabedatum"
+
+#: camac/instance/export.py:79
+msgid "Status"
+msgstr "Status"
+
+#: camac/instance/export.py:83
+msgid "Administrative District"
+msgstr "Verwaltungskreis"
+
+#: camac/instance/export.py:84
+msgid "Administrative Region"
+msgstr "Verwaltungsregion"
+
+#: camac/instance/export.py:87
+msgid "Arrival RSTA"
+msgstr "Eingang RSTA"
+
+#: camac/instance/export.py:91
+msgid "Arrival Department"
+msgstr "Eingang Fachstelle"
+
+#: camac/instance/export.py:95
+msgid "Departure Department"
+msgstr "Ausgang Fachstelle"
+
+#: camac/instance/export.py:99
+msgid "Decision"
+msgstr "Bauentscheid"
+
+#: camac/instance/export.py:101
+msgid "Assessment"
+msgstr "Beurteilung"
+
+#: camac/instance/export.py:102
+msgid "Involved Departments"
+msgstr "Involvierte Fachstellen"
+
+#: camac/instance/export.py:103
+msgid "Tags"
+msgstr "Schlagworte"
 
 #: camac/instance/mixins.py:455 camac/instance/mixins.py:492
 #, python-format
@@ -639,62 +695,6 @@ msgstr "Dokument für die Frage `%(field)s fehlt"
 #, python-format
 msgid "Invalid form type %(form)s."
 msgstr "Ungültiger Formulartyp %(form)s."
-
-#: camac/instance/views.py:639
-msgid "eBau number"
-msgstr "eBau-Nr."
-
-#: camac/instance/views.py:640
-msgid "Instance number"
-msgstr "Dossier-Nr."
-
-#: camac/instance/views.py:641
-msgid "Application Type"
-msgstr "Gesuchstyp"
-
-#: camac/instance/views.py:643
-msgid "Submission Date"
-msgstr "Eingabedatum"
-
-#: camac/instance/views.py:644
-msgid "Status"
-msgstr "Status"
-
-#: camac/instance/views.py:648
-msgid "Administrative District"
-msgstr "Verwaltungskreis"
-
-#: camac/instance/views.py:649
-msgid "Administrative Region"
-msgstr "Verwaltungsregion"
-
-#: camac/instance/views.py:650
-msgid "Arrival RSTA"
-msgstr "Eingang RSTA"
-
-#: camac/instance/views.py:651
-msgid "Arrival Department"
-msgstr "Eingang Fachstelle"
-
-#: camac/instance/views.py:652
-msgid "Departure Department"
-msgstr "Ausgang Fachstelle"
-
-#: camac/instance/views.py:653
-msgid "Decision"
-msgstr "Bauentscheid"
-
-#: camac/instance/views.py:654
-msgid "Assessment"
-msgstr "Beurteilung"
-
-#: camac/instance/views.py:655
-msgid "Involved Departments"
-msgstr "Involvierte Fachstellen"
-
-#: camac/instance/views.py:656
-msgid "Tags"
-msgstr "Schlagworte"
 
 #: camac/notification/serializers.py:50
 msgid "Municipality (from Caluma)"
