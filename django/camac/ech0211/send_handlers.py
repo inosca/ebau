@@ -69,6 +69,10 @@ class BaseSendHandler:
             return queryset.get(pk=self.get_instance_id())
         except Instance.DoesNotExist:
             raise SendHandlerException("Unknown instance")
+        except ValueError:
+            raise SendHandlerException(
+                "dossierIdentification must be of type integer", status=400
+            )
 
     def get_instance_id(self):
         return (
