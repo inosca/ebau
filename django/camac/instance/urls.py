@@ -3,15 +3,27 @@ from django.urls import re_path
 from rest_framework.routers import SimpleRouter
 
 from . import views
+from .export import InstanceExportView
 
 
 class UnswaggeredInstanceView(views.InstanceView):
     swagger_schema = None
 
 
-r = SimpleRouter(trailing_slash=False)
-urlpatterns = []
+urlpatterns = [
+    re_path(
+        r"instances/export$",
+        InstanceExportView.as_view(),
+        name="instance-export",
+    ),
+    re_path(
+        r"form-config",
+        views.FormConfigDownloadView.as_view(),
+        name="form-config-download",
+    ),
+]
 
+r = SimpleRouter(trailing_slash=False)
 r.register(r"instance-states", views.InstanceStateView, "instance-state")
 r.register(r"forms", views.FormView, "form")
 r.register(r"instances", views.InstanceView, "instance")
@@ -26,14 +38,6 @@ r.register(r"history-entries", views.HistoryEntryView, "history-entry")
 r.register(r"issues", views.IssueView)
 r.register(r"issue-templates", views.IssueTemplateView, "issue-template")
 r.register(r"issue-template-sets", views.IssueTemplateSetView, "issue-template-set")
-
-urlpatterns.append(
-    re_path(
-        r"form-config",
-        views.FormConfigDownloadView.as_view(),
-        name="form-config-download",
-    )
-)
 
 
 def enable_public_caluma_instances():
