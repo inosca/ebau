@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-02 11:07+0100\n"
-"PO-Revision-Date: 2023-03-01 15:52+0100\n"
+"POT-Creation-Date: 2023-03-07 10:00+0100\n"
+"PO-Revision-Date: 2023-03-07 09:59+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -386,7 +386,7 @@ msgstr "SB1 eingereicht"
 msgid "SB2 submitted"
 msgstr "SB2 eingereicht"
 
-#: camac/instance/document_merge_service.py:79 camac/instance/export.py:73
+#: camac/instance/document_merge_service.py:79 camac/instance/export.py:78
 #: camac/user/models.py:76 camac/user/models.py:210 camac/user/models.py:519
 msgid "Address"
 msgstr "Adresse"
@@ -395,7 +395,7 @@ msgstr "Adresse"
 msgid "Plots"
 msgstr "Parzelle(n)"
 
-#: camac/instance/document_merge_service.py:81 camac/instance/export.py:81
+#: camac/instance/document_merge_service.py:81 camac/instance/export.py:86
 #: camac/notification/serializers.py:48
 msgid "Applicant"
 msgstr "Gesuchsteller/in"
@@ -404,18 +404,18 @@ msgstr "Gesuchsteller/in"
 msgid "Keywords"
 msgstr "Stichworte"
 
-#: camac/instance/document_merge_service.py:83 camac/instance/export.py:82
+#: camac/instance/document_merge_service.py:83 camac/instance/export.py:87
 #: camac/instance/placeholders/fields.py:67
-#: camac/notification/serializers.py:49
+#: camac/notification/serializers.py:58
 msgid "Municipality"
 msgstr "Gemeinde"
 
 #: camac/instance/document_merge_service.py:84
-#: camac/notification/serializers.py:51
+#: camac/notification/serializers.py:57
 msgid "Authority"
 msgstr "Leitbehörde"
 
-#: camac/instance/document_merge_service.py:85 camac/instance/export.py:80
+#: camac/instance/document_merge_service.py:85 camac/instance/export.py:85
 msgid "Responsible"
 msgstr "Zuständig"
 
@@ -476,59 +476,59 @@ msgstr "Entwurf"
 msgid "Signature has expired."
 msgstr "Signatur ist abgelaufen."
 
-#: camac/instance/export.py:66
+#: camac/instance/export.py:71
 msgid "eBau number"
 msgstr "eBau-Nr."
 
-#: camac/instance/export.py:68
+#: camac/instance/export.py:73
 msgid "Instance number"
 msgstr "Dossier-Nr."
 
-#: camac/instance/export.py:71
+#: camac/instance/export.py:76
 msgid "Application Type"
 msgstr "Gesuchstyp"
 
-#: camac/instance/export.py:77
+#: camac/instance/export.py:82
 msgid "Submission Date"
 msgstr "Eingabedatum"
 
-#: camac/instance/export.py:79
+#: camac/instance/export.py:84
 msgid "Status"
 msgstr "Status"
 
-#: camac/instance/export.py:83
+#: camac/instance/export.py:88
 msgid "Administrative District"
 msgstr "Verwaltungskreis"
 
-#: camac/instance/export.py:84
+#: camac/instance/export.py:89
 msgid "Administrative Region"
 msgstr "Verwaltungsregion"
 
-#: camac/instance/export.py:87
+#: camac/instance/export.py:92
 msgid "Arrival RSTA"
 msgstr "Eingang RSTA"
 
-#: camac/instance/export.py:91
+#: camac/instance/export.py:96
 msgid "Arrival Department"
 msgstr "Eingang Fachstelle"
 
-#: camac/instance/export.py:95
+#: camac/instance/export.py:100
 msgid "Departure Department"
 msgstr "Ausgang Fachstelle"
 
-#: camac/instance/export.py:99
+#: camac/instance/export.py:104
 msgid "Decision"
 msgstr "Bauentscheid"
 
-#: camac/instance/export.py:101
+#: camac/instance/export.py:106
 msgid "Assessment"
 msgstr "Beurteilung"
 
-#: camac/instance/export.py:102
+#: camac/instance/export.py:107
 msgid "Involved Departments"
 msgstr "Involvierte Fachstellen"
 
-#: camac/instance/export.py:103
+#: camac/instance/export.py:108
 msgid "Tags"
 msgstr "Schlagworte"
 
@@ -696,41 +696,57 @@ msgstr "Dokument für die Frage `%(field)s fehlt"
 msgid "Invalid form type %(form)s."
 msgstr "Ungültiger Formulartyp %(form)s."
 
-#: camac/notification/serializers.py:50
+#: camac/notification/serializers.py:49
 msgid "Municipality (from Caluma)"
 msgstr "Gemeinde (aus dem Formular)"
 
-#: camac/notification/serializers.py:52
+#: camac/notification/serializers.py:50
 msgid "Construction control"
 msgstr "Baukontrolle"
 
-#: camac/notification/serializers.py:53
-msgid "Involved services"
-msgstr "Involvierte Fachstellen"
+#: camac/notification/serializers.py:52
+msgid "Municipality (if district active)"
+msgstr "Gemeinde (falls RSTA aktiv)"
+
+#: camac/notification/serializers.py:54
+msgid "Addressed service of inquiry"
+msgstr "Eingeladene Stelle der Stellungnahme"
 
 #: camac/notification/serializers.py:55
-msgid "Services with unanswered inquiries"
-msgstr "Fachstellen mit unbeantworteten Stellungnahmen"
-
-#: camac/notification/serializers.py:57
-msgid "Addressed service of inquiry"
-msgstr "Eingeladene Fachstelle der Stellungnahme"
-
-#: camac/notification/serializers.py:58
 msgid "Controlling service of inquiry"
-msgstr "Auslösende Fachstelle der Stellungnahme"
+msgstr "Auslösende Stelle der Stellungnahme"
 
-#: camac/notification/serializers.py:428
+#: camac/notification/serializers.py:56
+msgid "Involved services"
+msgstr "Involvierte Stellen"
+
+#: camac/notification/serializers.py:60
+msgid "Services with unanswered inquiries"
+msgstr "Stellen mit unbeantworteten Stellungnahmen"
+
+#: camac/notification/serializers.py:62
+msgid "Addressed service of work item"
+msgstr "Zuständige Stelle der Aufgabe"
+
+#: camac/notification/serializers.py:64
+msgid "Controlling service of work item"
+msgstr "Auslösende Stelle der Aufgabe"
+
+#: camac/notification/serializers.py:435
 #, python-format
 msgid "%(pending)d of %(total)d inquries are still pending."
 msgstr "%(pending)d von %(total)d Stellungnahmen stehen noch aus."
 
-#: camac/notification/serializers.py:431
+#: camac/notification/serializers.py:438
 #, python-format
 msgid "All %(total)d inquries were received."
 msgstr "Alle %(total)d Stellungnahmen sind nun eingegangen."
 
-#: camac/notification/serializers.py:1375
+#: camac/notification/serializers.py:1276
+msgid "Unknown recipient type"
+msgstr "Unbekannter Empfängertyp"
+
+#: camac/notification/serializers.py:1384
 #, python-format
 msgid ""
 "Notification sent to %(receiver_emails)s (%(receiver_type)s) (%(subject)s)"
@@ -738,7 +754,7 @@ msgstr ""
 "Notifikation gesendet an %(receiver_emails)s (%(receiver_type)s) "
 "(%(subject)s)"
 
-#: camac/notification/serializers.py:1379
+#: camac/notification/serializers.py:1388
 #, python-format
 msgid "Notification sent to %(receiver_type)s (no receivers) (%(subject)s)"
 msgstr ""
