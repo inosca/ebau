@@ -46,16 +46,23 @@ logger = getLogger(__name__)
 
 RECIPIENT_TYPE_NAMES = {
     "applicant": translation.gettext_noop("Applicant"),
-    "municipality": translation.gettext_noop("Municipality"),
     "caluma_municipality": translation.gettext_noop("Municipality (from Caluma)"),
-    "leitbehoerde": translation.gettext_noop("Authority"),
     "construction_control": translation.gettext_noop("Construction control"),
-    "involved_in_distribution": translation.gettext_noop("Involved services"),
-    "unanswered_inquiries": translation.gettext_noop(
-        "Services with unanswered inquiries"
+    "inactive_municipality": translation.gettext_noop(
+        "Municipality (if district active)"
     ),
     "inquiry_addressed": translation.gettext_noop("Addressed service of inquiry"),
     "inquiry_controlling": translation.gettext_noop("Controlling service of inquiry"),
+    "involved_in_distribution": translation.gettext_noop("Involved services"),
+    "leitbehoerde": translation.gettext_noop("Authority"),
+    "municipality": translation.gettext_noop("Municipality"),
+    "unanswered_inquiries": translation.gettext_noop(
+        "Services with unanswered inquiries"
+    ),
+    "work_item_addressed": translation.gettext_noop("Addressed service of work item"),
+    "work_item_controlling": translation.gettext_noop(
+        "Controlling service of work item"
+    ),
 }
 
 
@@ -1271,7 +1278,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             with translation.override(language):
                 return translation.gettext(receiver_type)
 
-        return None
+        return translation.gettext("Unknown recipient type")
 
     def _post_send_unnotified_service(self, instance):
         Activation.objects.filter(
