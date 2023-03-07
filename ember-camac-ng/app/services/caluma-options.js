@@ -136,6 +136,10 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
       checkInquiries: () => this.shoebox.isLeadRole,
     };
 
+    const hooks = {
+      postCompleteDistribution: () => this.redirectToInstanceResource(),
+    };
+
     if (macroCondition(getOwnConfig().application === "be")) {
       return {
         ui: { stack: true, small: true, readonly: this.shoebox.isReadOnlyRole },
@@ -184,6 +188,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
           },
         },
         permissions,
+        hooks,
         inquiryReminderNotificationTemplateSlug:
           "05-meldung-fristuberschreitung-fachstelle",
       };
@@ -326,6 +331,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
             !["check-inquiry", "revise-inquiry"].includes(task) ||
             this.shoebox.isLeadRole,
         },
+        hooks,
         inquiryReminderNotificationTemplateSlug: "fristueberschreitung",
       };
 
@@ -344,9 +350,6 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
               obj[key] = config.new.types[key];
               return obj;
             }, {}),
-        },
-        hooks: {
-          postCompleteDistribution: () => this.redirectToInstanceResource(),
         },
       };
     }
