@@ -3,7 +3,7 @@ from django.urls import re_path
 from rest_framework.routers import SimpleRouter
 
 from . import views
-from .export import InstanceExportView
+from .export.views import InstanceExportView
 
 
 class UnswaggeredInstanceView(views.InstanceView):
