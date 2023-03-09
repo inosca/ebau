@@ -78,6 +78,7 @@ class InstanceExportSerializer(serializers.Serializer):
     address = serializers.CharField(label=_("Address"))
     submit_date = SubmitDateField(
         source="case.meta.submit-date",
+        default=None,
         format=settings.SHORT_DATE_FORMAT,
         label=_("Submission Date"),
     )
