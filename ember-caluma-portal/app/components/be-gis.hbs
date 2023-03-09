@@ -77,12 +77,12 @@ as |Modal|>
 
   <Modal.footer class="uk-text-right">
     <UkButton
-      @label={{t "gis.additional.no"}}
+      @label={{t "global.no"}}
       @onClick={{fn (mut this.showConfirmation) false}}
     />
     <UkButton
       @color="primary"
-      @label={{t "gis.additional.yes"}}
+      @label={{t "global.yes"}}
       @disabled={{this.confirmFieldUnchecked}}
       @loading={{this.saveAdditionalData.isRunning}}
       @onClick={{perform this.saveAdditionalData}}

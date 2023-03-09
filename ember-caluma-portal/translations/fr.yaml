@@ -13,6 +13,8 @@ global:
   save: "Enregistrer"
   ok: "Ok"
   urec: ""
+  yes: "Oui"
+  no: "Non"
 
 nav:
   form: "Formulaire"
@@ -140,8 +142,6 @@ gis:
   info-override: "Lorsque les données sont transférées, les entrées précédentes sont supprimées et nouvellement créées. Toutes les informations complétées manuellement seront perdues."
   additional:
     title: "Reprendre les données"
-    yes: "Oui"
-    no: "Non"
   oereb: "Cadastre RDPPF :"
 
   notifications:
@@ -150,11 +150,17 @@ gis:
     error-additional: "Une erreur s'est produite lors de la demande d'informations supplémentaires. Veuillez réessayer d'accepter les données."
 
 support:
-  title-support: "Support technique (24/7)"
-  title-questions: "Questions concernant la procédure"
-  info: "Pour les questions concernant la procédure, veuillez-vous adresser à l'autorité compétente ou utiliser la fonction d'aide '<span uk-icon=question ratio=0.75'>'</span'> dans le dossier concerné."
-
-  phone: "+41 31 636 99 96"
+  type: "Avez-vous des questions au sujet de la procédure ou du formulaire ?"
+  technical: |-
+    Pour les problèmes techniques avec eBau, veuillez contacter <b>le support
+    technique (24/7)</b> au numéro suivant :<br><a href="tel:+41 31 636 99
+    97">+41 31 636 99 97</a>
+  professional: |-
+    Pour les questions concernant la procédure ou le formulaire, veuillez vous
+    adresser à <b>l'autorité compétente</b> ou utiliser la fonction d'aide <b>«
+    Assistance à la procédure <span uk-icon="question"></span>»</b> dans le
+    dossier correspondant.
+  info: ""
   email: ""
   subject: ""
 
