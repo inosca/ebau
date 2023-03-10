@@ -4,14 +4,17 @@ import CustomCaseBaseModel from "camac-ng/caluma-query/models/-case";
 
 export default class CustomCaseModel extends CustomCaseBaseModel {
   getFormFields(fields) {
-    return this.store
+    const formFields = this.store
       .peekAll("form-field")
-      .find(
+      .filter(
         (formField) =>
           formField.instance.get("id") === String(this.instanceId) &&
-          fields.includes(formField.name) &&
           !isEmpty(formField.value)
       );
+    // The order of the "fields" array is important, otherwise the overrides will not work.
+    return fields
+      .map((f) => formFields.find((formField) => f === formField.name))
+      .filter(Boolean)[0];
   }
 
   get instanceFormDescription() {
