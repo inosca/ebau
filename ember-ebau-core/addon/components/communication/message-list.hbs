@@ -1,9 +1,8 @@
 <div class="communications-message-list" ...attributes>
-  {{#each @messages as |message index|}}
+  {{#each @messages as |message|}}
     <Communication::Message
       @message={{message}}
       @refresh={{@refresh}}
-      {{did-insert (fn this.scrollIntoView index)}}
       data-test-message={{message.id}}
     />
     <hr />

@@ -1,19 +1,24 @@
 import { action } from "@ember/object";
+import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 
 export default class CommunicationMessageInputComponent extends Component {
+  @service ebauModules;
+
   @tracked showDocumentUpload = false;
+  @tracked attachmentSection;
 
   get body() {
     return this.args.message?.body;
   }
-  get files() {
-    return this.args.message?.filesToSave;
-  }
 
   get disabled() {
     return this.args.loading || this.args.disabled;
+  }
+
+  get sendDisabled() {
+    return this.disabled || !this.body;
   }
 
   get messageIcon() {
@@ -29,12 +34,22 @@ export default class CommunicationMessageInputComponent extends Component {
   }
 
   @action
-  addFiles({ target: { files } = {} } = {}) {
-    this.args.updateFiles(this.files.push(files));
+  addFiles({ target: { files } }) {
+    this.args.message.filesToSave = [
+      ...this.args.message.filesToSave,
+      ...files,
+    ];
   }
 
   @action
-  removeFile(fileToRemove) {
-    this.args.updateFiles(this.files.filter((file) => file !== fileToRemove));
+  remove(list, toRemove) {
+    this.args.message[list] = this.args.message[list].filter(
+      (file) => file !== toRemove
+    );
+  }
+
+  @action
+  addDocumentAttachments(attachments) {
+    this.args.message.documentAttachmentsToSave = attachments;
   }
 }

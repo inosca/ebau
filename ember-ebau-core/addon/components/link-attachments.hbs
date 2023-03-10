@@ -1,70 +1,39 @@
-<div class="uk-grid-small" uk-grid>
-  {{#each this.selectedAttachments as |attachment|}}
-    <div>
-      <LinkAttachments::Attachment @attachment={{attachment}} @selected={{true}} />
-    </div>
-  {{/each}}
-  {{#if (and @disabled (not this.selectedAttachments.length))}}
-    <div class="uk-text-italic uk-margin-small-top">{{t "link-attachments.no-selected"}}</div>
-  {{else if (not @disabled)}}
-    <div class="uk-flex uk-flex-middle">
-      <button
-        type="button"
-        uk-icon={{if this.selectedAttachments.length "pencil" "plus"}}
-        class="uk-icon-button {{unless this.selectedAttachments.length "uk-margin-small-top"}}"
-        {{on "click" (fn (mut this.showModal) true)}}
-      ></button>
-    </div>
-  {{/if}}
-</div>
+<LinkAttachments::Modal
+  @visible={{this.showModal}}
+  @onHide={{fn (mut this.showModal) false}}
+  @disabled={{@disabled}}
+  @section={{this.attachmentSection.record}}
+  @hasUpload={{this.hasUploadPermission}}
+  @selected={{@field.answer.value}}
+  @instanceId={{this.instanceId}}
+  @isLoading={{this.isLoading}}
+  @save={{this.save}}
+  as |selectedAttachments|
+>
+  <div class="uk-grid-small" uk-grid>
+    {{#each selectedAttachments as |attachment|}}
+      <div>
+        <LinkAttachments::Attachment
+          @attachment={{attachment}}
+          @selected={{true}}
+        />
+      </div>
+    {{/each}}
+    {{#if (and @disabled (not this.selectedAttachments.length))}}
+      <div class="uk-text-italic uk-margin-small-top">{{t
+          "link-attachments.no-selected"
+        }}</div>
+    {{else if (not @disabled)}}
+      <div class="uk-flex uk-flex-middle">
+        <button
+          type="button"
+          uk-icon={{if this.selectedAttachments.length "pencil" "plus"}}
+          class="uk-icon-button
+            {{unless this.selectedAttachments.length 'uk-margin-small-top'}}"
+          {{on "click" (fn (mut this.showModal) true)}}
+        ></button>
+      </div>
+    {{/if}}
+  </div>
 
-{{#unless @disabled}}
-  <UkModal
-    @visible={{this.showModal}}
-    @onHide={{fn (mut this.showModal) false}}
-    @dialogClass="uk-width-2xlarge"
-    as |Modal|
-  >
-    <Modal.header>{{t "link-attachments.title" section=this.attachmentSection.record.name}}</Modal.header>
-    <Modal.body>
-      {{#if this.showModal}}
-        {{#if this.isLoading}}
-          <div class="uk-text-center uk-padding">
-            <UkSpinner @ratio="2" />
-          </div>
-        {{else}}
-          {{#if this.attachments.value.length}}
-            <div class="uk-grid-small" uk-grid>
-              {{#each this.attachments.value as |attachment|}}
-                <div>
-                  <LinkAttachments::Attachment
-                    @attachment={{attachment}}
-                    @selected={{includes attachment.id this.selected}}
-                    @onToggle={{this.toggleAttachment}}
-                  />
-                </div>
-              {{/each}}
-            </div>
-          {{else}}
-            <p class="uk-text-center uk-text-italic uk-text-muted">
-              {{t "link-attachments.empty"}}
-            </p>
-          {{/if}}
-          {{#if this.hasUploadPermission}}
-            <hr>
-            <Dropzone @multiple={{true}} @onFileAdded={{perform this.upload}} />
-          {{/if}}
-        {{/if}}
-      {{/if}}
-    </Modal.body>
-    <Modal.footer class="uk-text-right">
-      <UkButton @onClick={{this.cancel}}>{{t "global.cancel"}}</UkButton>
-      <UkButton
-        @color="primary"
-        @loading={{this.save.isRunning}}
-        @disabled={{this.save.isRunning}}
-        @onClick={{perform this.save}}
-      >{{t "global.save"}}</UkButton>
-    </Modal.footer>
-  </UkModal>
-{{/unless}}
+</LinkAttachments::Modal>

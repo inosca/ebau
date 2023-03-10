@@ -1,4 +1,4 @@
-import { render, fillIn, click } from "@ember/test-helpers";
+import { render, fillIn, click, waitFor } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
 import { setupMirage } from "ember-cli-mirage/test-support";
 import { setupIntl } from "ember-intl/test-support";
@@ -18,7 +18,7 @@ module("Integration | Component | communication/topic", function (hooks) {
       topic: this.topic,
     });
 
-    await render(hbs`<Communication::Topic @topic={{this.topic.id}}/>`);
+    await render(hbs`<Communication::Topic @topicId={{this.topic.id}}/>`);
 
     assert.dom("[data-test-subject]").hasText(this.topic.subject);
     assert
@@ -35,6 +35,8 @@ module("Integration | Component | communication/topic", function (hooks) {
       .exists({ count: 4 });
     await fillIn("[data-test-message-input] textarea", "New message");
     await click("[data-test-message-input] [data-test-send]");
+    // The click awaiter is not waiting for the concurrency task to finish for some reason
+    await waitFor('[data-test-message="5"]', { timeout: 200 });
     assert
       .dom("[data-test-message-list] [data-test-message]")
       .exists({ count: 5 });
@@ -50,7 +52,7 @@ module("Integration | Component | communication/topic", function (hooks) {
       topic: this.topic,
     });
 
-    await render(hbs`<Communication::Topic @topic={{this.topic.id}}/>`);
+    await render(hbs`<Communication::Topic @topicId={{this.topic.id}}/>`);
 
     assert.dom("[data-test-message-input]").doesNotExist();
     assert.dom("[data-test-no-replies]").exists();

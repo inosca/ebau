@@ -25,9 +25,14 @@ export default function makeServer(config) {
       this.resource("communications-attachments");
       this.resource("communications-entities");
 
-      this.post("/communications-messages", function (schema) {
-        const attrs = this.normalizedRequestAttrs();
+      this.post("/communications-messages", function (schema, request) {
+        const topicId = JSON.parse(request.requestBody.get("topic")).id;
+
+        const attrs = {};
+        attrs.topic = schema.communicationsTopics.find(topicId);
+        attrs.body = request.requestBody.get("body");
         attrs.createdAt = new Date();
+
         return schema.communicationsMessages.create(attrs);
       });
 

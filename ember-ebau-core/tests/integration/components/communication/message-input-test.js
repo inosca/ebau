@@ -43,6 +43,7 @@ module(
       this.updateMessage = (value) => {
         assert.step("update");
         assert.strictEqual(value, testInput);
+        this.message.body = value;
       };
 
       this.sendMessage = () => {
@@ -114,9 +115,11 @@ module(
       this.sendMessage = () => {};
       this.set("disabled", false);
       this.set("loading", false);
+      this.message = { body: "test" };
 
       await render(hbs`
       <Communication::MessageInput
+        @message={{this.message}}
         @disabled={{this.disabled}}
         @loading={{this.loading}}
         @sendMessage={{this.sendMessage}}

@@ -5,6 +5,7 @@ export default Factory.extend({
   body: () => faker.lorem.paragraph(),
   createdAt: () => faker.date.past(),
   readAt: () => faker.date.recent(),
+  readByEntity: () => [],
 
   afterCreate(message, server) {
     const createdBy =

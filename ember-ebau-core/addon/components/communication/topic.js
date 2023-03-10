@@ -1,41 +1,47 @@
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
-import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { task } from "ember-concurrency";
 import { findRecord } from "ember-data-resources";
 import { trackedFunction } from "ember-resources/util/function";
 
+import TopicBase from "./topic-base";
+
 import paginatedQuery from "ember-ebau-core/resources/paginated";
 
-export default class CommunicationTopicComponent extends Component {
+export default class CommunicationTopicComponent extends TopicBase {
   @service store;
-  @service notification;
   @service router;
+  @service fetch;
+  @service notification;
   @service intl;
 
   @tracked page = 1;
-
-  get topicId() {
-    return this.args.topic?.id ?? this.args.topic;
-  }
 
   get newMessage() {
     return this.newMessageResource.value;
   }
 
+  get messages() {
+    return this.messagesResource.records.reverse();
+  }
+
+  get topic() {
+    return this.topicResource.record;
+  }
+
   topicResource = findRecord(this, "communications-topic", () => [
-    this.topicId,
+    this.args.topicId,
     { include: "initiated_by" },
   ]);
 
   messagesResource = paginatedQuery(this, "communications-message", () => ({
-    topic: this.topicId,
+    topic: this.args.topicId,
     page: {
       number: this.page,
-      size: 20,
+      size: 5,
     },
-    include: "created_by_user",
+    include: "created-by-user,attachments",
   }));
 
   newMessageResource = trackedFunction(this, async () => {
@@ -47,19 +53,9 @@ export default class CommunicationTopicComponent extends Component {
     }
   });
 
-  @action
-  updateMessage(body) {
-    this.newMessage.body = body;
-  }
-
-  @action
-  updateFiles(files) {
-    this.newMessage.filesToSave = files;
-  }
-
   sendMessage = task(async () => {
     try {
-      await this.newMessage.save();
+      await this.newMessage.send();
       await this.messagesResource.retry();
       await this.newMessageResource.retry();
     } catch (error) {
@@ -67,4 +63,9 @@ export default class CommunicationTopicComponent extends Component {
       this.notification.danger(this.intl.t("communications.new.saveError"));
     }
   });
+
+  @action
+  updateMessage(body) {
+    this.newMessage.body = body;
+  }
 }

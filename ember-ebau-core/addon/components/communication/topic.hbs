@@ -1,12 +1,12 @@
 <div class="communications-topic" ...attributes>
   <UkFlex @horizontal="between">
     <div>
-      <h3 data-test-subject>{{this.topicResource.record.subject}}</h3>
+      <h3 data-test-subject>{{this.topic.subject}}</h3>
       <span class="uk-text-meta" data-test-created-by>
         {{t
           "communications.detail.createdBy"
-          entity=this.topicResource.record.initiatedByEntity.name
-          user=this.topicResource.record.initiatedBy.fullName
+          entity=this.topic.initiatedByEntity.name
+          user=this.topic.initiatedBy.fullName
         }}
       </span>
     </div>
@@ -25,13 +25,30 @@
   </UkFlex>
 
   <hr />
+
+  {{#if this.messagesResource.hasMore}}
+    <div class="uk-text-center uk-margin">
+      {{#if this.messagesResource.isLoading}}
+        <UkSpinner />
+      {{else}}
+        <button
+          type="button"
+          class="uk-button uk-button-link"
+          {{on "click" (fn (mut this.page) (inc this.page))}}
+        >
+          {{t "communications.detail.loadPreviousMessages"}}
+        </button>
+      {{/if}}
+    </div>
+  {{/if}}
+
   <Communication::MessageList
+    @messages={{this.messages}}
     @refresh={{this.messagesResource.retry}}
-    @messages={{this.messagesResource.records}}
     data-test-message-list
   />
 
-  {{#if this.topicResource.record.allowReplies}}
+  {{#if (or this.isActiveInstanceService this.topic.allowReplies)}}
     <Communication::MessageInput
       @message={{this.newMessage}}
       @loading={{this.sendMessage.isRunning}}

@@ -14,14 +14,17 @@ export default class CommunicationMessageComponent extends Component {
   @tracked paragraph;
 
   get isExpandable() {
-    return this.paragraph?.clientWidth < this.paragraph?.scrollWidth;
+    return (
+      this.paragraph?.clientWidth < this.paragraph?.scrollWidth ||
+      this.args.message.attachments.length
+    );
   }
 
   get readByEveryone() {
     const message = this.args.message;
     return (
       message.readByEntity.length ===
-      message.topic?.get("involvedEntities").length
+      message.get("topic.involvedEntities.length")
     );
   }
 

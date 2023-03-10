@@ -1,5 +1,5 @@
 import { getOwner } from "@ember/application";
-import { render, fillIn, click } from "@ember/test-helpers";
+import { render, fillIn, click, waitUntil } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
 import { setupMirage } from "ember-cli-mirage/test-support";
 import { setupIntl } from "ember-intl/test-support";
@@ -38,7 +38,7 @@ module("Integration | Component | communication/new-topic", function (hooks) {
   });
 
   test("it renders the form for applicant", async function (assert) {
-    assert.expect(15);
+    assert.expect(13);
 
     this.ebauModules.isApplicant = true;
     this.instance = this.server.create("instance");
@@ -51,7 +51,7 @@ module("Integration | Component | communication/new-topic", function (hooks) {
       />`
     );
 
-    assert.dom("[data-test-involved-entities]").exists();
+    assert.dom("[data-test-involved-entities]").doesNotExist();
     assert.dom("[data-test-subject]").exists();
     assert.dom("[data-test-allow-answers]").doesNotExist();
     assert.dom("[data-test-message]").exists();
@@ -59,31 +59,15 @@ module("Integration | Component | communication/new-topic", function (hooks) {
     assert.dom("[data-test-save]").isDisabled();
     assert.dom("[data-test-discard]").exists();
 
-    await selectChoose(
-      "[data-test-involved-entities]",
-      this.instance.activeService.name
-    );
-
-    try {
-      // Check applicant is not selectable
-      await selectChoose(
-        "[data-test-involved-entities]",
-        this.intl.t("communications.new.applicant")
-      );
-    } catch (error) {
-      assert.ok(error);
-    }
-
-    assert
-      .dom("[data-test-involved-entities]")
-      .hasText(`× ${this.instance.activeService.name}`);
-
     const subject = "Test subject";
     await fillIn("[data-test-subject]", subject);
     await fillIn("[data-test-message] textarea", "Test subject");
     assert.dom("[data-test-save]").isNotDisabled();
 
     await click("[data-test-save]");
+    // Same as in the message-input test, the click helper is not waiting for
+    // the concurrency task to finish.
+    await waitUntil(() => this.transitionToFake.callCount === 1);
 
     const requests = this.server.pretender.handledRequests;
 
@@ -164,6 +148,9 @@ module("Integration | Component | communication/new-topic", function (hooks) {
     assert.dom("[data-test-save]").isNotDisabled();
 
     await click("[data-test-save]");
+    // Same as in the message-input test, the click helper is not waiting for
+    // the concurrency task to finish.
+    await waitUntil(() => this.transitionToFake.callCount === 1);
 
     const requests = this.server.pretender.handledRequests;
 
@@ -235,6 +222,9 @@ module("Integration | Component | communication/new-topic", function (hooks) {
     assert.dom("[data-test-save]").isNotDisabled();
 
     await click("[data-test-save]");
+    // Same as in the message-input test, the click helper is not waiting for
+    // the concurrency task to finish.
+    await waitUntil(() => this.transitionToFake.callCount === 1);
 
     const requests = this.server.pretender.handledRequests;
 
