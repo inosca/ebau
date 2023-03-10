@@ -1,30 +1,32 @@
-<div class="uk-padding" ...attributes>
+<div ...attributes>
   <h3 class="uk-margin-remove-top">{{t "communications.new.newTopic"}}</h3>
   <form class="uk-form-stacked" {{on "submit" this.preventDefault}}>
-    <div class="uk-margin">
-      <label class="uk-form-label uk-text-bold">
-        {{t "communications.new.involvedEntities"}}
-        <span class="uk-text-danger">*</span>
-      </label>
-      <div class="uk-form-controls">
-        <PowerSelectMultiple
-          @required={{true}}
-          @searchEnabled={{true}}
-          @searchField="name"
-          @renderInPlace={{true}}
-          @options={{this.selectableServices}}
-          @selected={{this.topic.involvedEntities}}
-          @noMatchesMessage={{t "global.noMatch"}}
-          @placeholder={{t "communications.new.involvedEntitiesPlaceholder"}}
-          @onChange={{this.setInvolvedEntities}}
-          @disabled={{this.createTopic.isRunning}}
-          data-test-involved-entities
-          as |service|
-        >
-          {{service.name}}
-        </PowerSelectMultiple>
+    {{#unless this.ebauModules.isApplicant}}
+      <div class="uk-margin">
+        <label class="uk-form-label uk-text-bold">
+          {{t "communications.new.involvedEntities"}}
+          <span class="uk-text-danger">*</span>
+        </label>
+        <div class="uk-form-controls">
+          <PowerSelectMultiple
+            @required={{true}}
+            @searchEnabled={{true}}
+            @searchField="name"
+            @renderInPlace={{true}}
+            @options={{this.selectableServices}}
+            @selected={{this.topic.involvedEntities}}
+            @noMatchesMessage={{t "global.noMatch"}}
+            @placeholder={{t "communications.new.involvedEntitiesPlaceholder"}}
+            @onChange={{this.setInvolvedEntities}}
+            @disabled={{this.createTopic.isRunning}}
+            data-test-involved-entities
+            as |service|
+          >
+            {{service.name}}
+          </PowerSelectMultiple>
+        </div>
       </div>
-    </div>
+    {{/unless}}
 
     <div class="uk-margin">
       <label class="uk-form-label uk-text-bold">
@@ -71,7 +73,7 @@
         <Communication::MessageInput
           @message={{this.message}}
           @updateMessage={{this.updateMessage}}
-          @updateFiles={{this.updateFiles}}
+          class="uk-margin-bottom"
           data-test-message
         />
       </div>

@@ -1,17 +1,9 @@
 <div class="uk-margin communications-message-input" ...attributes>
-  <div uk-grid>
-    {{#each this.files as |file|}}
-      <div>
-        {{file.name}}
-        <button
-          type="button"
-          class="uk-icon-button"
-          uk-icon="trash"
-          {{on "click" (fn this.removeFile file)}}
-        ></button>
-      </div>
-    {{/each}}
-  </div>
+  <Communication::FileList
+    @files={{union @message.filesToSave @message.documentAttachmentsToSave}}
+    @removeFile={{fn this.remove "filesToSave"}}
+    @removeAttachment={{fn this.remove "documentAttachmentsToSave"}}
+  />
 
   <div class="uk-flex uk-flex-bottom">
     <textarea
@@ -19,7 +11,6 @@
       aria-label={{t "communications.message.messageInputLabel"}}
       class="uk-textarea"
       placeholder={{t "communications.message.messageInputPlaceholder"}}
-      rows="1"
       disabled={{this.disabled}}
       {{on "input" this.updateMessage}}
       {{autoresize this.body mode="height"}}
@@ -39,16 +30,39 @@
         uk-icon="file-text"
         disabled={{this.disabled}}
         data-test-select-files
-        {{on
-          "click"
-          (fn (mut this.showDocumentUpload) (not this.showDocumentUpload))
-        }}
+        tabindex="-1"
       ></button>
     </div>
+    {{#unless this.ebauModules.isApplicant}}
+      <div class="uk-margin-small-right">
+        <button
+          type="button"
+          class="uk-icon-button"
+          uk-icon="link"
+          disabled={{this.disabled}}
+          data-test-select-files
+          tabindex="-1"
+        >
+        </button>
+        <Communication::AttachmentSectionDropdown
+          @instanceId={{this.instanceId}}
+          @selectSection={{fn (mut this.attachmentSection)}}
+          uk-dropdown="mode:click;pos:top-right;"
+        />
+        <LinkAttachments::Modal
+          @selected={{@message.documentAttachmentsToSave}}
+          @visible={{this.attachmentSection}}
+          @onHide={{fn (mut this.attachmentSection) null}}
+          @section={{this.attachmentSection}}
+          @instanceId={{this.instanceId}}
+          @save={{this.addDocumentAttachments}}
+        />
+      </div>
+    {{/unless}}
     {{#if @sendMessage}}
       <button
         type="button"
-        disabled={{this.disabled}}
+        disabled={{this.sendDisabled}}
         class="uk-icon-button"
         uk-icon={{this.messageIcon}}
         data-test-send

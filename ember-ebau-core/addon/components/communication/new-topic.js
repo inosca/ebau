@@ -1,16 +1,17 @@
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
-import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { task } from "ember-concurrency";
 import { trackedFunction } from "ember-resources/util/function";
 
-export default class CommunicationNewTopicComponent extends Component {
+import TopicBase from "./topic-base";
+
+export default class CommunicationNewTopicComponent extends TopicBase {
   @service store;
   @service router;
+  @service fetch;
   @service notification;
   @service intl;
-  @service ebauModules;
 
   @tracked message;
 
@@ -22,31 +23,9 @@ export default class CommunicationNewTopicComponent extends Component {
     return this.topic?.get("instance.involvedServices");
   }
 
-  get activeInstanceService() {
-    return this.topic?.get("instance.activeService");
-  }
-
-  // Leitbehörde
-  get isActiveInstanceService() {
-    return (
-      parseInt(this.ebauModules.serviceId) ===
-      parseInt(this.activeInstanceService?.get("id"))
-    );
-  }
-
   get selectableServices() {
     if (!this.topic) {
       return null;
-    }
-
-    if (this.ebauModules.isApplicant) {
-      // Applicant can only select instance active service
-      return [
-        {
-          id: this.activeInstanceService.get("id"),
-          name: this.activeInstanceService.get("name"),
-        },
-      ];
     }
 
     // Without current service
@@ -83,9 +62,20 @@ export default class CommunicationNewTopicComponent extends Component {
         this.args.instanceId,
         { include: "involved_services,active_service", reload: true }
       );
-      const topic = await this.store.createRecord("communications-topic", {
+      const topic = this.store.createRecord("communications-topic", {
         instance,
       });
+
+      // Applicant can only select instance active service
+      if (this.ebauModules.isApplicant) {
+        topic.involvedEntities = [
+          {
+            id: instance.get("activeService.id"),
+            name: instance.get("activeService.name"),
+          },
+        ];
+      }
+
       this.message = this.store.createRecord("communications-message", {
         topic,
       });
@@ -99,13 +89,14 @@ export default class CommunicationNewTopicComponent extends Component {
   createTopic = task(async () => {
     try {
       const topic = await this.topic.save();
-      await this.message.save();
+      await this.message.send();
+
       this.router.transitionTo(
         this.ebauModules.resolveModuleRoute(
           "communications",
           this.args.detailRoute
         ),
-        topic
+        topic.id
       );
     } catch (error) {
       console.error(error);

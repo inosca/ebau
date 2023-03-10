@@ -28,11 +28,16 @@ communications:
     markAsUnreadError: Die Nachricht konnte nicht als ungelesen markiert werden. Bitte versuchen Sie es erneut.
     collapseMessage: Nachricht einklappen
     readOnly: In dieser Konversation können von Ihnen keine Nachrichten erfasst werden.
+    loadPreviousMessages: Vorherige Nachrichten laden
+    uploadToDMS: Anhang ins Dokumentenmodul hochloaden
+    uploadedToDMS: Im Dokumentenmodul gespeichert
+    attachmentSections: Kategorien
+
 
   new:
     newTopic: Neue Konversation eröffnen
     involvedEntities: Involvierte Parteien
-    involvedEntitiesPlaceholder: Wählen Sie die involvierten Parteien aus...
+    involvedEntitiesPlaceholder: Involvierten Parteien...
     topicName: Thema
     topicNamePlaceholder: Geben Sie eine Thema ein...
     message: Nachricht
@@ -47,3 +52,6 @@ communications:
     fileInputLabel: Dateien anhängen
     messageInputLabel: Nachricht
     messageInputPlaceholder: Geben Sie eine Nachricht ein...
+    attachments: Verknüpfte Dateien (Dokumentenmodul)
+    files: Angehängte Dateien
+    attachmentCount: "+{count} Dokumente"

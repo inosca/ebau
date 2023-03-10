@@ -14,6 +14,19 @@
       </span>
     </span>
     <span>
+      {{#if @message.attachments.length}}
+        <a
+          href="#"
+          class="uk-link uk-link-text uk-margin-small-right"
+          {{on "click" this.toggleText}}
+          data-test-expand-files
+        >
+          {{t
+            "communications.message.attachmentCount"
+            count=@message.attachments.length
+          }}
+        </a>
+      {{/if}}
 
       {{#if @message.readAt}}
         <div class="uk-inline">
@@ -74,16 +87,21 @@
       {{on "click" this.toggleText}}
       data-test-expand
     >{{@message.body}}</p>
+
     {{#unless this.collapsed}}
-      <a
-        href="#"
-        class="uk-link uk-link-text"
-        {{on "click" this.toggleText}}
-        data-test-collapse
-      >
-        {{t "communications.detail.collapseMessage"}}
-      </a>
+      <Communication::FileList @files={{@message.attachments}} />
+
+      <div class="uk-flex uk-flex-right uk-flex-middle">
+        <UkIcon @icon="shrink" class="uk-margin-small-right" />
+        <a
+          href="#"
+          class="uk-link uk-link-text"
+          {{on "click" this.toggleText}}
+          data-test-collapse
+        >
+          {{t "communications.detail.collapseMessage"}}
+        </a>
+      </div>
     {{/unless}}
   </div>
-
 </div>
