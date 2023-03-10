@@ -181,31 +181,34 @@ class PublicationEntryView(ModelViewSet):
         return True
 
     def _clean_persons(self, persons, type=""):
+        persons_data = []
         for person in persons:
+            person_data = {
+                "firma": person.get("firma", ""),
+                "vorname": person.get("vorname", ""),
+                "nachname": person.get("name", ""),
+                "adresse": person.get("street", ""),
+                "plz": person.get("plz", ""),
+                "ort": person.get("ort", ""),
+            }
+
             # We only use the title of grundeigentuemer because the external Amtsblatt API
             # only uses a title on grundeigentuemer
-            if type == "grundeigentuemer" and "anrede" in person:
+            if type == "grundeigentuemer":
                 anrede_mapping = {
                     "Herr": "Grundeigentümer",
                     "Frau": "Grundeigentümerin",
                     "Firma": "Grundeigentümer",
                 }
 
-                person["anrede"] = anrede_mapping[person["anrede"]]
-            elif "anrede" in person:
-                del person["anrede"]
+                person_data["anrede"] = (
+                    anrede_mapping[person["anrede"]]
+                    if "anrede" in person
+                    else "Diverse"
+                )
+            persons_data.append(person_data)
 
-            person["adresse"] = person["strasse"]
-            del person["strasse"]
-
-            if "name" in person:
-                person["nachname"] = person["name"]
-                del person["name"]
-
-            person.pop("email", None)
-            person.pop("tel", None)
-
-        return persons
+        return persons_data
 
     @action(methods=["post"], detail=True)
     def publish(self, request, pk=None):  # noqa: C901
