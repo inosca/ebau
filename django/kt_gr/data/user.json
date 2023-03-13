@@ -1,0 +1,74 @@
+[
+  {
+    "model": "user.user",
+    "pk": 1,
+    "fields": {
+      "username": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "password": "0f10da7320c3fad6c1bd4e597992fb83",
+      "name": "admin",
+      "surname": "admin",
+      "email": "",
+      "phone": null,
+      "disabled": 0,
+      "language": "de",
+      "last_login": null,
+      "address": null,
+      "city": null,
+      "zip": null
+    }
+  },
+  {
+    "model": "user.user",
+    "pk": 2,
+    "fields": {
+      "username": "guest",
+      "password": "0f10da7320c3fad6c1bd4e597992fb83",
+      "name": "guest",
+      "surname": "person",
+      "email": "",
+      "phone": null,
+      "disabled": 0,
+      "language": "de",
+      "last_login": null,
+      "address": null,
+      "city": null,
+      "zip": null
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "group": 1,
+      "default_group": 1
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 2,
+    "fields": {
+      "user": 1,
+      "group": 20096,
+      "default_group": 0
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 3,
+    "fields": {
+      "user": 1,
+      "group": 20003,
+      "default_group": 0
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 4,
+    "fields": {
+      "user": 1,
+      "group": 10000,
+      "default_group": 0
+    }
+  }
+]

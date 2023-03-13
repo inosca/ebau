@@ -4,6 +4,7 @@ const stew = require("broccoli-stew");
 const EmberApp = require("ember-cli/lib/broccoli/ember-app");
 
 const ENV_MAP = {
+  kt_gr: "gr",
   kt_bern: "be",
   kt_schwyz: "sz",
   kt_uri: "ur",

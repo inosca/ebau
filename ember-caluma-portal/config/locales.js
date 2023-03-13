@@ -1,6 +1,7 @@
 "use strict";
 
 const LOCALES_MAP = {
+  kt_gr: ["de"],
   demo: ["de", "fr"],
   kt_bern: ["de", "fr"],
   kt_uri: ["de"],
