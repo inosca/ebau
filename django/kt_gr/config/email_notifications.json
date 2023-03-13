@@ -1,0 +1,50 @@
+[
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 1,
+    "fields": {
+      "slug": "00-empfang-anfragebaugesuch-gesuchsteller",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 2,
+    "fields": {
+      "slug": "00-empfang-anfragebaugesuch-behorden",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 1,
+    "fields": {
+      "template": 1,
+      "template_slug": "00-empfang-anfragebaugesuch-gesuchsteller",
+      "language": "de",
+      "purpose": "00 Empfang Baugesuch (Gesuchsteller)",
+      "subject": "Erfolgreiche Einreichung / Formulaire déposé avec succès",
+      "body": "Guten Tag\r\n\r\nIhr Dossier mit der Dossier-Nr. {{INSTANCE_ID}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}})  wurde erfolgreich übermittelt. Alle auf eBau hochgeladenen Pläne und Dokumente müssen unterschrieben, datiert und in mindestens zweifacher Ausfertigung mit dem Gesuchsformular bei der zuständigen Gemeinde eingereicht werden. Das Dossier wird erst bearbeitet, wenn die Gemeinde das Papierdossier erhalten hat.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nVotre dossier portant le numéro de dossier {{INSTANCE_ID}} ({{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}) a été déposé/e avec succès. Tous les plans et documents téléchargés sur eBau doivent être signés, datés et envoyés en au moins deux exemplaires avec le formulaire de demande de permis de construire à la commune responsable. Le dossier ne sera traité que lorsque la commune aura reçu le dossier papier.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 3,
+    "fields": {
+      "template": 2,
+      "template_slug": "00-empfang-anfragebaugesuch-behorden",
+      "language": "de",
+      "purpose": "00 Empfang Anfrage/Baugesuch - (Behörden)",
+      "subject": "Neu eingegangen / Nouvelle entrée",
+      "body": "Guten Tag\r\n\r\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. {{INSTANCE_ID}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\neBau\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\neBau a enregistré une nouvelle entrée portant le numéro de dossier {{INSTANCE_ID}} ({{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}).\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\neBau"
+    }
+  }
+]

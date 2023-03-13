@@ -1,0 +1,518 @@
+[
+  {
+    "model": "user.group",
+    "pk": 1,
+    "fields": {
+      "role": 1,
+      "service": null,
+      "disabled": 0,
+      "name": "Admin",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 2,
+    "fields": {
+      "role": 2,
+      "service": null,
+      "disabled": 0,
+      "name": "Guest",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 10000,
+    "fields": {
+      "role": 10000,
+      "service": null,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 20003,
+    "fields": {
+      "role": 3,
+      "service": 2,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 20096,
+    "fields": {
+      "role": 4,
+      "service": 20032,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 20097,
+    "fields": {
+      "role": 10001,
+      "service": null,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 1,
+    "fields": {
+      "group": 1,
+      "language": "de",
+      "name": "Admin",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 2,
+    "fields": {
+      "group": 2,
+      "language": "de",
+      "name": "Guest",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 20003,
+    "fields": {
+      "group": 20003,
+      "language": "de",
+      "name": "Leitbehörde Burgdorf",
+      "city": "Burgdorf"
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 20105,
+    "fields": {
+      "group": 20096,
+      "language": "de",
+      "name": "Amt für Gemeinden und Raumordnung",
+      "city": "Bern"
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 21533,
+    "fields": {
+      "group": 20003,
+      "language": "fr",
+      "name": "Responsable autorité directrice Burgdorf",
+      "city": "Burgdorf"
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 24852,
+    "fields": {
+      "group": 1,
+      "language": "fr",
+      "name": "Admin",
+      "city": ""
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 24853,
+    "fields": {
+      "group": 2,
+      "language": "fr",
+      "name": "Guest",
+      "city": ""
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 24880,
+    "fields": {
+      "group": 20096,
+      "language": "fr",
+      "name": "Responsable Amt für Gemeinden und Raumordnung - Abteilung Bauen",
+      "city": "Bern"
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 26534,
+    "fields": {
+      "group": 10000,
+      "language": "de",
+      "name": "Support",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 26535,
+    "fields": {
+      "group": 20097,
+      "language": "de",
+      "name": "Portal",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 26536,
+    "fields": {
+      "group": 20097,
+      "language": "fr",
+      "name": "Portal",
+      "city": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 1,
+    "fields": {
+      "role_parent": null,
+      "name": "Admin",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 2,
+    "fields": {
+      "role_parent": null,
+      "name": "Guest",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 3,
+    "fields": {
+      "role_parent": null,
+      "name": "municipality",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 4,
+    "fields": {
+      "role_parent": null,
+      "name": "service",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 10000,
+    "fields": {
+      "role_parent": null,
+      "name": "support",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 10001,
+    "fields": {
+      "role_parent": null,
+      "name": null,
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 1,
+    "fields": {
+      "role": 1,
+      "language": "de",
+      "name": "Admin",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 2,
+    "fields": {
+      "role": 2,
+      "language": "de",
+      "name": "Guest",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 3,
+    "fields": {
+      "role": 1,
+      "language": "fr",
+      "name": "Administrateur",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 4,
+    "fields": {
+      "role": 2,
+      "language": "fr",
+      "name": "Guest (FR)",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 5,
+    "fields": {
+      "role": 3,
+      "language": "de",
+      "name": "Leitbehörde",
+      "group_prefix": "Leitung"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 6,
+    "fields": {
+      "role": 4,
+      "language": "de",
+      "name": "Fachstelle",
+      "group_prefix": "Leitung"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20007,
+    "fields": {
+      "role": 1,
+      "language": "fr",
+      "name": "Admin",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20008,
+    "fields": {
+      "role": 2,
+      "language": "fr",
+      "name": "Guest",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20009,
+    "fields": {
+      "role": 3,
+      "language": "fr",
+      "name": "Autorité directrice",
+      "group_prefix": "Responsable:"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20010,
+    "fields": {
+      "role": 4,
+      "language": "fr",
+      "name": "Service",
+      "group_prefix": "Responsable:"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20028,
+    "fields": {
+      "role": 10000,
+      "language": "de",
+      "name": "Support",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20029,
+    "fields": {
+      "role": 10000,
+      "language": "fr",
+      "name": "Support",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20030,
+    "fields": {
+      "role": 10001,
+      "language": "de",
+      "name": "Gesuchsteller",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20031,
+    "fields": {
+      "role": 10001,
+      "language": "fr",
+      "name": "Requérant/e",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 2,
+    "fields": {
+      "service_group": 2,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 81,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.com",
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 20032,
+    "fields": {
+      "service_group": 1,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 707,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.com",
+      "website": null,
+      "disabled": 0,
+      "notification": 1
+    }
+  },
+  {
+    "model": "user.servicegroup",
+    "pk": 1,
+    "fields": {
+      "name": "service",
+      "sort": null
+    }
+  },
+  {
+    "model": "user.servicegroup",
+    "pk": 2,
+    "fields": {
+      "name": "municipality",
+      "sort": null
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 20000,
+    "fields": {
+      "service_group": 1,
+      "language": "de",
+      "name": "Fachstelle"
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 20001,
+    "fields": {
+      "service_group": 2,
+      "language": "de",
+      "name": "Leitbehörde Gemeinde"
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 2,
+    "fields": {
+      "service": 2,
+      "language": "de",
+      "name": "Leitbehörde Burgdorf",
+      "description": "Leitbehörde Burgdorf",
+      "city": "Burgdorf"
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 20035,
+    "fields": {
+      "service": 20032,
+      "language": "de",
+      "name": "Amt für Gemeinden und Raumordnung - Abteilung Bauen",
+      "description": "Amt für Gemeinden und Raumordnung - Abteilung Bauen",
+      "city": "Bern"
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 20669,
+    "fields": {
+      "service": 2,
+      "language": "fr",
+      "name": "Autorité directrice Burgdorf",
+      "description": "Leitbehörde Burgdorf",
+      "city": "Burgdorf"
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 21862,
+    "fields": {
+      "service": 20032,
+      "language": "fr",
+      "name": "Amt für Gemeinden und Raumordnung - Abteilung Bauen",
+      "description": "Amt für Gemeinden und Raumordnung - Abteilung Bauen",
+      "city": "Bern"
+    }
+  }
+]

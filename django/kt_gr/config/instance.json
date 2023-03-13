@@ -1,0 +1,122 @@
+[
+  {
+    "model": "instance.form",
+    "pk": 1,
+    "fields": {
+      "form_state": 1,
+      "name": null,
+      "description": null,
+      "family": null
+    }
+  },
+  {
+    "model": "instance.formstate",
+    "pk": 1,
+    "fields": {
+      "name": "Published"
+    }
+  },
+  {
+    "model": "instance.formstate",
+    "pk": 2,
+    "fields": {
+      "name": "Not published"
+    }
+  },
+  {
+    "model": "instance.formt",
+    "pk": 1,
+    "fields": {
+      "form": 1,
+      "language": "de",
+      "name": "Baugesuch",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 1,
+    "fields": {
+      "name": "new",
+      "sort": 0,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 120004,
+    "fields": {
+      "name": "subm",
+      "sort": 1,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 120005,
+    "fields": {
+      "name": null,
+      "sort": 2,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 120006,
+    "fields": {
+      "name": null,
+      "sort": 3,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 1,
+    "fields": {
+      "instance_state": 1,
+      "language": "de",
+      "name": "Neu",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120001,
+    "fields": {
+      "instance_state": 1,
+      "language": "fr",
+      "name": "Nouveau",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120034,
+    "fields": {
+      "instance_state": 120004,
+      "language": "de",
+      "name": "Eingereicht",
+      "description": "Eingereicht bei Gemeinde"
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120035,
+    "fields": {
+      "instance_state": 120005,
+      "language": "de",
+      "name": "Zirkulation",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120036,
+    "fields": {
+      "instance_state": 120006,
+      "language": "de",
+      "name": "Abgeschlossen",
+      "description": null
+    }
+  }
+]

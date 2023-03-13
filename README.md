@@ -179,6 +179,25 @@ To enable `django-silk` for profiling, simply add `DJANGO_ENABLE_SILK=True`
 to your `django/.env` file. Then restart the django container and browse to
 http://ebau.local/api/silk/.
 
+### Switching tenant
+
+To switch from the `demo` config to `kt_bern`, one has to make sure that the frontend apps take up the right 
+environment variables.
+
+#### Working locally with ember
+
+1. Stop the frontend servers started with `yarn start-proxy`
+2. Run `make kt_bern`
+3. Run `docker-compose up -d && make loadconfig`
+4. Start using command from step 1
+
+#### Working with docker only
+
+1. Run `docker-compose down`
+2. Run `make kt_bern`
+3. Run `docker-compose build`
+4. Run `docker-compose up -d`
+
 ### Visual Studio Code
 
 The remote debugger settings for VS Code are committed to the repository.
@@ -191,6 +210,14 @@ To enable debugging in the django container the ptvsd server must be started.
 Since this debug server collides with other setups (PyCharm, PyDev) it will
 only be started if the env var `ENABLE_PTVSD_DEBUGGER` is set to `True` in
 [`django/.env`](django/.env).
+
+### GraphQl
+
+In order to talk to the graphql endpoint with authentication, you can install 
+a GraphQL Tool (much like Postman). Things you might consider here:
+
+- [Insomnia](https://insomnia.rest/download)
+- [Altair GraphQL client](https://altairgraphql.dev/#download)
 
 ### GWR API
 

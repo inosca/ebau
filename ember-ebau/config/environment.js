@@ -28,6 +28,11 @@ module.exports = function (environment) {
       realm: "ebau",
       allowApplicantManualWorkItem: true,
     },
+    kt_gr: {
+      name: "gr",
+      realm: "ebau",
+      allowApplicantManualWorkItem: false,
+    },
   }[app];
   const oidcHost = process.env.KEYCLOAK_HOST || "http://ebau-keycloak.local";
 

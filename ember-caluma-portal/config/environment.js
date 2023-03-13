@@ -40,6 +40,12 @@ module.exports = function (environment) {
     circ: 120005,
     finished: 120006,
   };
+  const instanceStatesGr = {
+    new: 1,
+    subm: 120004,
+    circ: 120005,
+    finished: 120006,
+  };
   const appConfig = {
     demo: {
       name: "demo",
@@ -420,6 +426,58 @@ module.exports = function (environment) {
           // Bundesstelle
           roles: [1130],
           forms: ["mitbericht-bund"],
+        },
+      ],
+    },
+    kt_gr: {
+      name: "gr",
+      realm: "ebau",
+      supportGroups: [10000],
+      useConfidential: false,
+      defaultInstanceStateCategory: "pending",
+      instanceStateCategories: {
+        pending: [
+          instanceStatesGr.new,
+          instanceStatesGr.subm,
+          instanceStatesGr.circ,
+        ],
+        done: [instanceStatesGr.finished],
+      },
+      completePreliminaryClarificationSlugs: [],
+      selectableGroups: {
+        roles: [
+          3, // municipality
+          10000, // support
+        ],
+      },
+      documents: {
+        excludeFromDocuments: [],
+      },
+      instanceStates: instanceStatesGr,
+      modification: {
+        allowForms: ["baugesuch"],
+        disallowStates: [instanceStatesGr.new, instanceStatesGr.finished],
+      },
+      answerSlugs: {},
+      personalSuggestions: {
+        tableQuestions: [
+          "personalien-gesuchstellerin",
+          "personalien-vertreterin-mit-vollmacht",
+          "personalien-grundeigentumerin",
+          "personalien-projektverfasserin",
+          "personalien-gebaudeeigentumerin",
+          "personalien-sb",
+        ],
+        firstNameRegexp: "^vorname-.*$",
+        lastNameRegexp: "^name-.*$",
+        juristicNameRegexp: "^name-juristische-person.*$",
+        emailRegexp: "^e-mail-.*$",
+      },
+      // Who can create which forms. Roles can be given by ID, or magic key ("internal" or "public")
+      formCreationPermissions: [
+        {
+          roles: ["public", "internal"],
+          forms: ["baugesuch"],
         },
       ],
     },

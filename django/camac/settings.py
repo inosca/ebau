@@ -3085,6 +3085,348 @@ APPLICATIONS = {
             "support": "support",
         },
     },
+    "kt_gr": {
+        "ECH0211": {
+            "API_ACTIVE": env.bool("ECH0211_API_ACTIVE", default=False),
+        },
+        "LOG_NOTIFICATIONS": True,
+        # Mapping between camac role and instance permission.
+        "ROLE_PERMISSIONS": {
+            "service": "service",
+            "municipality": "municipality",
+            "support": "support",
+        },
+        "ADMIN_GROUP": 1,
+        "IS_MULTILINGUAL": True,
+        "PUBLICATION_BACKEND": "camac-ng",
+        "FORM_BACKEND": "caluma",
+        "THUMBNAIL_SIZE": "x300",
+        "SHOW_DJANGO_ADMIN_RESOURCE_MANAGEMENT": True,
+        "WORKFLOW_ITEMS": {
+            "SUBMIT": None,
+            "INSTANCE_COMPLETE": None,
+            "PUBLICATION": None,
+            "START_CIRC": None,
+            "DECISION": None,
+        },
+        "PAPER": {
+            "ALLOWED_ROLES": {"DEFAULT": []},
+            "ALLOWED_SERVICE_GROUPS": {"DEFAULT": []},
+        },
+        "GROUP_RENAME_ON_SERVICE_RENAME": True,
+        "SERVICE_UPDATE_ALLOWED_ROLES": [
+            "Administration Leitbehörde"
+        ],  # if unset, all are allowed
+        # please also update django/Makefile command when changing apps here
+        "SEQUENCE_NAMESPACE_APPS": ["core", "responsible", "document"],
+        "NOTIFICATIONS_EXCLUDED_TASKS": [],
+        "OIDC_SYNC_USER_ATTRIBUTES": [
+            "language",
+            "email",
+            "username",
+            "name",
+            "surname",
+        ],
+        "PORTAL_GROUP": 20097,
+        "CALUMA": {
+            "MANUAL_WORK_ITEM_TASK": "create-manual-workitems",
+            "SUBMIT_TASKS": ["submit"],
+            "FORM_PERMISSIONS": ["main", "inquiry", "inquiry-answer"],
+            "HAS_PROJECT_CHANGE": False,
+            "CREATE_IN_PROCESS": False,
+            "GENERATE_IDENTIFIER": False,
+            "USE_LOCATION": False,
+            "SAVE_DOSSIER_NUMBER_IN_CALUMA": True,
+        },
+        "INSTANCE_STATE_REJECTION_COMPLETE": "finished",
+        "REJECTION_FEEDBACK_QUESTION": {},
+        "USE_INSTANCE_SERVICE": True,
+        "ACTIVE_SERVICES": {
+            "MUNICIPALITY": {
+                "FILTERS": {
+                    "service__service_group__name__in": [
+                        "municipality",
+                    ]
+                },
+                "DEFAULT": True,
+            },
+        },
+        "SIDE_EFFECTS": {
+            "document_downloaded": "camac.document.side_effects.create_workflow_entry",
+        },
+        "DOSSIER_IMPORT": {},
+        "CUSTOM_NOTIFICATION_TYPES": [],
+        "NOTIFICATIONS": {
+            "SUBMIT": [
+                {
+                    "template_slug": "00-empfang-anfragebaugesuch-gesuchsteller",
+                    "recipient_types": ["applicant"],
+                },
+                {
+                    "template_slug": "00-empfang-anfragebaugesuch-behorden",
+                    "recipient_types": ["leitbehoerde"],
+                },
+            ],
+        },
+        "DUMP_CONFIG_GROUPS": {
+            "email_notifications": {
+                "notification.NotificationTemplate": Q(type="email"),
+                "notification.NotificationTemplateT": Q(template__type="email"),
+            },
+            # required by several form-questions
+            "caluma_form_common": {
+                "caluma_form.Form": Q(pk__in=COMMON_FORM_SLUGS_BE),
+                "caluma_form.FormQuestion": Q(form__pk__in=COMMON_FORM_SLUGS_BE),
+                "caluma_form.Question": Q(forms__pk__in=COMMON_FORM_SLUGS_BE)
+                | Q(pk__in=COMMON_QUESTION_SLUGS_BE),
+                "caluma_form.QuestionOption": Q(
+                    question__forms__pk__in=COMMON_FORM_SLUGS_BE
+                )
+                | Q(question_id__in=COMMON_QUESTION_SLUGS_BE),
+                "caluma_form.Option": Q(questions__forms__pk__in=COMMON_FORM_SLUGS_BE)
+                | Q(questions__pk__in=COMMON_QUESTION_SLUGS_BE),
+            },
+            "caluma_ebau_number_form": generate_form_dump_config(
+                regex=r"^ebau-number$"
+            ),
+            "caluma_decision_form": generate_form_dump_config(regex=r"^decision$"),
+            # Distribution
+            **DISTRIBUTION_DUMP_CONFIG,
+        },
+        "ATTACHMENT_SECTION_INTERNAL": 4,
+        "DOCUMENT_MERGE_SERVICE": {
+            "FORM": {
+                "_base": {
+                    "people_sources": [
+                        "personalien-gesuchstellerin",
+                        "personalien-vertreterin-mit-vollmacht",
+                        "personalien-grundeigentumerin",
+                        "personalien-gebaudeeigentumerin",
+                        "personalien-projektverfasserin",
+                    ],
+                    "people_names": {
+                        "name-gesuchstellerin": "familyName",
+                        "vorname-gesuchstellerin": "givenName",
+                        "name-juristische-person-gesuchstellerin": "juristicName",
+                        "name-vertreterin": "familyName",
+                        "vorname-vertreterin": "givenName",
+                        "name-juristische-person-vertreterin": "juristicName",
+                        "name-grundeigentuemerin": "familyName",
+                        "vorname-grundeigentuemerin": "givenName",
+                        "name-juristische-person-grundeigentuemerin": "juristicName",
+                        "name-gebaeudeeigentuemerin": "familyName",
+                        "vorname-gebaeudeeigentuemerin": "givenName",
+                        "name-juristische-person-gebaeudeeigentuemerin": "juristicName",
+                        "name-projektverfasserin": "familyName",
+                        "vorname-projektverfasserin": "givenName",
+                        "name-juristische-person-projektverfasserin": "juristicName",
+                    },
+                },
+                "baugesuch": {
+                    "forms": [
+                        "baugesuch",
+                    ],
+                    "template": "form",
+                    "personalien": "personalien",
+                    "exclude_slugs": [
+                        "is-paper",
+                        "einreichen-button",
+                        "dokumente-platzhalter",
+                    ],
+                },
+            },
+            "ADD_HEADER_DATA": False,
+        },
+        "MASTER_DATA": {
+            "canton": ("static", "demo"),
+            "applicants": (
+                "table",
+                "personalien-gesuchstellerin",
+                {
+                    "column_mapping": {
+                        "last_name": "name-gesuchstellerin",
+                        "first_name": "vorname-gesuchstellerin",
+                        "street": "strasse-gesuchstellerin",
+                        "street_number": "nummer-gesuchstellerin",
+                        "zip": "plz-gesuchstellerin",
+                        "town": "ort-gesuchstellerin",
+                        "is_juristic_person": (
+                            "juristische-person-gesuchstellerin",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "juristische-person-gesuchstellerin-ja": True,
+                                            "juristische-person-gesuchstellerin-nein": False,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                        "juristic_name": "name-juristische-person-gesuchstellerin",
+                    }
+                },
+            ),
+            "building_owners": (
+                "table",
+                "personalien-gebaudeeigentumerin",
+                {
+                    "column_mapping": {
+                        "last_name": "name-gebaeudeeigentuemerin",
+                        "first_name": "vorname-gebaeudeeigentuemerin",
+                        "street": "strasse-gebaeudeeigentuemerin",
+                        "street_number": "nummer-gebaeudeeigentuemerin",
+                        "zip": "plz-gebaeudeeigentuemerin",
+                        "town": "ort-gebaeudeeigentuemerin",
+                        "is_juristic_person": (
+                            "juristische-person-gebaeudeeigentuemerin",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "juristische-person-gebaeudeeigentuemer-ja": True,
+                                            "juristische-person-gebaeudeeigentuemer-nein": False,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                        "juristic_name": "name-juristische-person-gebaeudeeigentuemerin",
+                    }
+                },
+            ),
+            "landowners": (
+                "table",
+                "personalien-grundeigentumerin",
+                {
+                    "column_mapping": {
+                        "last_name": "name-grundeigentuemerin",
+                        "first_name": "vorname-grundeigentuemerin",
+                        "street": "strasse-grundeigentuemerin",
+                        "street_number": "nummer-grundeigentuemerin",
+                        "zip": "plz-grundeigentuemerin",
+                        "town": "ort-grundeigentuemerin",
+                        "is_juristic_person": (
+                            "juristische-person-grundeigentuemerin",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "juristische-person-grundeigentuemerin-ja": True,
+                                            "juristische-person-grundeigentuemerin-nein": False,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                        "juristic_name": "name-juristische-person-grundeigentuemerin",
+                    }
+                },
+            ),
+            "project_authors": (
+                "table",
+                "personalien-projektverfasserin",
+                {
+                    "column_mapping": {
+                        "last_name": "name-projektverfasserin",
+                        "first_name": "vorname-projektverfasserin",
+                        "street": "strasse-projektverfasserin",
+                        "street_number": "nummer-projektverfasserin",
+                        "zip": "plz-projektverfasserin",
+                        "town": "ort-projektverfasserin",
+                        "is_juristic_person": (
+                            "juristische-person-projektverfasserin",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "juristische-person-projektverfasserin-ja": True,
+                                            "juristische-person-projektverfasserin-nein": False,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                        "juristic_name": "name-juristische-person-projektverfasserin",
+                    }
+                },
+            ),
+            "legal_representatives": (
+                "table",
+                "personalien-vertreterin-mit-vollmacht",
+                {
+                    "column_mapping": {
+                        "last_name": "name-vertreterin",
+                        "first_name": "vorname-vertreterin",
+                        "street": "strasse-vertreterin",
+                        "street_number": "nummer-vertreterin",
+                        "zip": "plz-vertreterin",
+                        "town": "ort-vertreterin",
+                        "is_juristic_person": (
+                            "juristische-person-vertreterin",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "juristische-person-vertreterin-ja": True,
+                                            "juristische-person-vertreterin-nein": False,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                        "juristic_name": "name-juristische-person-vertreterin",
+                    }
+                },
+            ),
+            "dossier_number": ("case_meta", "ebau-number"),
+            "project": ("answer", "baubeschrieb", {"value_parser": "option"}),
+            "proposal": ("answer", "beschreibung-bauvorhaben"),
+            "street": ("answer", "strasse-flurname"),
+            "street_number": ("answer", "nr"),
+            "city": ("answer", "ort-grundstueck"),
+            "construction_costs": ("answer", "baukosten-in-chf"),
+            "municipality": ("answer", "gemeinde", {"value_parser": "dynamic_option"}),
+            "plot_data": (
+                "table",
+                "parzelle",
+                {
+                    "column_mapping": {
+                        "plot_number": "parzellennummer",
+                        "egrid_number": "e-grid-nr",
+                        "coord_east": "lagekoordinaten-ost",
+                        "coord_north": "lagekoordinaten-nord",
+                    }
+                },
+            ),
+            "submit_date": ("case_meta", "submit-date", {"value_parser": "datetime"}),
+            "paper_submit_date": (
+                "case_meta",
+                "paper-submit-date",
+                {"value_parser": "datetime"},
+            ),
+            "is_paper": (
+                "answer",
+                "is-paper",
+                {
+                    "value_parser": (
+                        "value_mapping",
+                        {"mapping": {"is-paper-yes": True, "is-paper-no": False}},
+                    )
+                },
+            ),
+        },
+        "GENERALIZED_ROLE_MAPPING": {
+            "municipality": "municipality-lead",
+            "service": "service-lead",
+            "support": "support",
+        },
+    },
 }
 
 APPLICATION = APPLICATIONS.get(APPLICATION_NAME, {})

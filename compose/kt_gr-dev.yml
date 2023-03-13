@@ -63,8 +63,6 @@ services:
 
   ember-caluma-portal:
     image: acr.run/camac-ng/camac-ng/ember-caluma-portal:master
-    environment:
-      - BE_GIS_URL=https://map2-test.apps.be.ch
     networks:
       - ebau.local
 
@@ -137,7 +135,6 @@ services:
   mc:
     networks:
       - ebau.local
-
 
 networks:
   ebau.local:
