@@ -537,7 +537,7 @@
           "name": "ms:ch.sz.a005.nutzungsplanung.grundnutzung"
         },
         {
-          "name": "ms:ch.sz.a012.naturgefahrenkarte.synoptisch"
+          "name": "ms:ch.sz.a012b.naturgefahrenkarte.gefahrenflaechen.ueberlagert"
         },
         {
           "name": "ms:ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft.polygon"
@@ -1148,7 +1148,7 @@
           "name": "ms:ch.sz.a005.nutzungsplanung.grundnutzung"
         },
         {
-          "name": "ms:ch.sz.a012.naturgefahrenkarte.synoptisch"
+          "name": "ms:ch.sz.a012b.naturgefahrenkarte.gefahrenflaechen.ueberlagert"
         },
         {
           "name": "ms:ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft.polygon"
@@ -1643,7 +1643,7 @@
           "name": "ms:ch.sz.a005.nutzungsplanung.grundnutzung"
         },
         {
-          "name": "ms:ch.sz.a012.naturgefahrenkarte.synoptisch"
+          "name": "ms:ch.sz.a012b.naturgefahrenkarte.gefahrenflaechen.ueberlagert"
         },
         {
           "name": "ms:ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft.polygon"
@@ -2074,7 +2074,7 @@
           "name": "ms:ch.sz.a005.nutzungsplanung.grundnutzung"
         },
         {
-          "name": "ms:ch.sz.a012.naturgefahrenkarte.synoptisch"
+          "name": "ms:ch.sz.a012b.naturgefahrenkarte.gefahrenflaechen.ueberlagert"
         },
         {
           "name": "ms:ch.sz.a013a.planerischergewaesserschutz.gsbereiche.bereich.au"
@@ -2448,7 +2448,7 @@
           "name": "ms:ch.sz.a005.nutzungsplanung.grundnutzung"
         },
         {
-          "name": "ms:ch.sz.a012.naturgefahrenkarte.synoptisch"
+          "name": "ms:ch.sz.a012b.naturgefahrenkarte.gefahrenflaechen.ueberlagert"
         },
         {
           "name": "ms:ch.sz.a013a.planerischergewaesserschutz.gsbereiche.bereich.au"
