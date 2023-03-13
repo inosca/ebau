@@ -1,5 +1,6 @@
 import Model, { attr, belongsTo, hasMany } from "@ember-data/model";
 import { inject as service } from "@ember/service";
+import { htmlSafe } from "@ember/template";
 import { dropTask } from "ember-concurrency";
 import { trackedFunction } from "ember-resources/util/function";
 import { saveAs } from "file-saver";
@@ -27,6 +28,17 @@ export default class Attachment extends Model {
 
   get displayName() {
     return this.context.displayName ?? this.name;
+  }
+
+  get displayNameOrReplaced() {
+    if (this.context.isReplaced) {
+      return htmlSafe(
+        `<del>${this.displayName}</del> ${this.intl.t(
+          "link-attachments.replaced"
+        )}`
+      );
+    }
+    return this.displayName;
   }
 
   thumbnail = trackedFunction(this, async () => {

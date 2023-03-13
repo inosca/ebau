@@ -31,7 +31,7 @@
                 type="button"
                 {{on "click" (perform attachment.download)}}
               >
-                {{attachment.name}}
+                {{attachment.displayNameOrReplaced}}
               </button>
             </Thumbnail>
             {{#if attachment.context.isPublishedWithoutObligation}}
