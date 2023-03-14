@@ -1,9 +1,8 @@
 import Component from "@glimmer/component";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
+import getSourceCaseMeta from "ember-ebau-core/gql/queries/get-source-case-meta.graphql";
 import { trackedTask } from "ember-resources/util/ember-concurrency";
-
-import getSourceCaseMeta from "camac-ng/gql/queries/get-source-case-meta.graphql";
 
 export default class SuggestEbauNumberComponent extends Component {
   @queryManager apollo;

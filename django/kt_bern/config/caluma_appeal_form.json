@@ -1,0 +1,742 @@
+[
+  {
+    "model": "caluma_form.form",
+    "pk": "appeal",
+    "fields": {
+      "created_at": "2023-03-14T09:02:12.600Z",
+      "modified_at": "2023-03-14T09:02:12.600Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Beschwerdeverfahren\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "appeal-form",
+    "fields": {
+      "created_at": "2023-03-14T09:03:34.036Z",
+      "modified_at": "2023-03-14T09:03:34.036Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Beschwerdeverfahren Tabelle\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "appeal-form.appeal-authority",
+    "fields": {
+      "created_at": "2023-03-14T09:04:53.150Z",
+      "modified_at": "2023-03-14T09:04:53.150Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "appeal-form",
+      "question": "appeal-authority",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "appeal-form.appeal-date",
+    "fields": {
+      "created_at": "2023-03-14T09:07:36.365Z",
+      "modified_at": "2023-03-14T09:07:36.365Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "appeal-form",
+      "question": "appeal-date",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "appeal-form.appeal-remark",
+    "fields": {
+      "created_at": "2023-03-14T09:08:01.921Z",
+      "modified_at": "2023-03-14T09:08:01.921Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "appeal-form",
+      "question": "appeal-remark",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "appeal-form.appeal-type",
+    "fields": {
+      "created_at": "2023-03-14T09:06:36.191Z",
+      "modified_at": "2023-03-14T09:06:36.191Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "appeal-form",
+      "question": "appeal-type",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "appeal-form.appeal-type-description",
+    "fields": {
+      "created_at": "2023-03-14T09:07:16.533Z",
+      "modified_at": "2023-03-14T09:07:16.533Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "appeal-form",
+      "question": "appeal-type-description",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "appeal.appeal-complainants-table",
+    "fields": {
+      "created_at": "2023-03-14T09:09:30.474Z",
+      "modified_at": "2023-03-14T09:09:30.474Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "appeal",
+      "question": "appeal-complainants-table",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "appeal.appeal-opponents-table",
+    "fields": {
+      "created_at": "2023-03-14T09:10:16.231Z",
+      "modified_at": "2023-03-14T09:10:16.231Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "appeal",
+      "question": "appeal-opponents-table",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "appeal.appeal-table",
+    "fields": {
+      "created_at": "2023-03-14T09:08:49.892Z",
+      "modified_at": "2023-03-14T09:08:49.892Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "appeal",
+      "question": "appeal-table",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "appeal-authority-bundesgericht",
+    "fields": {
+      "created_at": "2023-03-14T09:04:52.577Z",
+      "modified_at": "2023-03-14T09:04:52.577Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bundesgericht\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "appeal-authority-rechtsamt",
+    "fields": {
+      "created_at": "2023-03-14T09:04:52.579Z",
+      "modified_at": "2023-03-14T09:04:52.579Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bau\\u2011 und Verkehrsdirektion (Rechtsamt)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "appeal-authority-verwaltungsgericht",
+    "fields": {
+      "created_at": "2023-03-14T09:04:52.584Z",
+      "modified_at": "2023-03-14T09:04:52.584Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Verwaltungsgericht\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "appeal-type-andere",
+    "fields": {
+      "created_at": "2023-03-14T09:06:35.808Z",
+      "modified_at": "2023-03-14T09:06:35.808Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "appeal-type-aufforderung-zur-stellungnahme",
+    "fields": {
+      "created_at": "2023-03-14T09:06:35.679Z",
+      "modified_at": "2023-03-14T09:06:35.679Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Aufforderung zur Stellungnahme\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "appeal-type-eingabe",
+    "fields": {
+      "created_at": "2023-03-14T09:06:35.730Z",
+      "modified_at": "2023-03-14T09:06:35.730Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Eingabe bei Beschwerdeinstanz (Poststempel)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "appeal-type-entscheid",
+    "fields": {
+      "created_at": "2023-03-14T09:06:35.693Z",
+      "modified_at": "2023-03-14T09:06:35.694Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entscheid\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "appeal-type-eroeffnung",
+    "fields": {
+      "created_at": "2023-03-14T09:06:35.684Z",
+      "modified_at": "2023-03-14T09:06:35.684Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Er\\u00f6ffnung des Beschwerdeverfahren bei Beschwerdeinstanz\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "appeal-type-frist-der-stellungnahme",
+    "fields": {
+      "created_at": "2023-03-14T09:06:35.682Z",
+      "modified_at": "2023-03-14T09:06:35.682Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Frist der Stellungnahme\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "appeal-type-stellungnahme",
+    "fields": {
+      "created_at": "2023-03-14T09:06:35.667Z",
+      "modified_at": "2023-03-14T09:06:35.667Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Stellungnahme\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "appeal-authority",
+    "fields": {
+      "created_at": "2023-03-14T09:04:52.843Z",
+      "modified_at": "2023-03-14T09:04:52.843Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschwerdeinstanz\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "appeal-complainants-table",
+    "fields": {
+      "created_at": "2023-03-14T09:09:30.291Z",
+      "modified_at": "2023-03-14T09:11:11.045Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschwerdef\\u00fchrer/innen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "table",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "columnsToDisplay": [
+          "name-juristische-person-gesuchstellerin",
+          "name-gesuchstellerin",
+          "vorname-gesuchstellerin",
+          "telefon-oder-mobile-gesuchstellerin",
+          "e-mail-gesuchstellerin",
+          "vertreterin"
+        ]
+      },
+      "data_source": null,
+      "row_form": "personalien-tabelle",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "appeal-date",
+    "fields": {
+      "created_at": "2023-03-14T09:07:36.170Z",
+      "modified_at": "2023-03-14T09:07:36.170Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Datum\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "date",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "appeal-opponents-table",
+    "fields": {
+      "created_at": "2023-03-14T09:10:16.045Z",
+      "modified_at": "2023-03-14T09:11:21.310Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschwerdegegner/innen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "table",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "columnsToDisplay": [
+          "vertreterin",
+          "e-mail-gesuchstellerin",
+          "telefon-oder-mobile-gesuchstellerin",
+          "vorname-gesuchstellerin",
+          "name-gesuchstellerin",
+          "name-juristische-person-gesuchstellerin"
+        ]
+      },
+      "data_source": null,
+      "row_form": "personalien-tabelle",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "appeal-remark",
+    "fields": {
+      "created_at": "2023-03-14T09:08:01.683Z",
+      "modified_at": "2023-03-14T09:08:01.683Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "appeal-table",
+    "fields": {
+      "created_at": "2023-03-14T09:08:49.707Z",
+      "modified_at": "2023-03-14T09:10:55.901Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschwerdeverfahren\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "table",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "columnsToDisplay": ["appeal-authority", "appeal-type", "appeal-date"]
+      },
+      "data_source": null,
+      "row_form": "appeal-form",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "appeal-type",
+    "fields": {
+      "created_at": "2023-03-14T09:06:35.936Z",
+      "modified_at": "2023-03-14T09:06:35.936Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Typ\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "appeal-type-description",
+    "fields": {
+      "created_at": "2023-03-14T09:07:16.352Z",
+      "modified_at": "2023-03-14T09:07:16.352Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung Typ\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "'appeal-type'|answer != 'appeal-type-andere'",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "appeal-authority.appeal-authority-bundesgericht",
+    "fields": {
+      "created_at": "2023-03-14T09:04:52.919Z",
+      "modified_at": "2023-03-14T09:04:52.919Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "appeal-authority",
+      "option": "appeal-authority-bundesgericht",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "appeal-authority.appeal-authority-rechtsamt",
+    "fields": {
+      "created_at": "2023-03-14T09:04:52.972Z",
+      "modified_at": "2023-03-14T09:04:52.972Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "appeal-authority",
+      "option": "appeal-authority-rechtsamt",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "appeal-authority.appeal-authority-verwaltungsgericht",
+    "fields": {
+      "created_at": "2023-03-14T09:04:52.958Z",
+      "modified_at": "2023-03-14T09:04:52.958Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "appeal-authority",
+      "option": "appeal-authority-verwaltungsgericht",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "appeal-type.appeal-type-andere",
+    "fields": {
+      "created_at": "2023-03-14T09:06:35.943Z",
+      "modified_at": "2023-03-14T09:06:35.943Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "appeal-type",
+      "option": "appeal-type-andere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "appeal-type.appeal-type-aufforderung-zur-stellungnahme",
+    "fields": {
+      "created_at": "2023-03-14T09:06:35.958Z",
+      "modified_at": "2023-03-14T09:06:35.958Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "appeal-type",
+      "option": "appeal-type-aufforderung-zur-stellungnahme",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "appeal-type.appeal-type-eingabe",
+    "fields": {
+      "created_at": "2023-03-14T09:06:35.965Z",
+      "modified_at": "2023-03-14T09:06:35.965Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "appeal-type",
+      "option": "appeal-type-eingabe",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "appeal-type.appeal-type-entscheid",
+    "fields": {
+      "created_at": "2023-03-14T09:06:35.947Z",
+      "modified_at": "2023-03-14T09:06:35.947Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "appeal-type",
+      "option": "appeal-type-entscheid",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "appeal-type.appeal-type-eroeffnung",
+    "fields": {
+      "created_at": "2023-03-14T09:06:35.961Z",
+      "modified_at": "2023-03-14T09:06:35.961Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "appeal-type",
+      "option": "appeal-type-eroeffnung",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "appeal-type.appeal-type-frist-der-stellungnahme",
+    "fields": {
+      "created_at": "2023-03-14T09:06:35.954Z",
+      "modified_at": "2023-03-14T09:06:35.954Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "appeal-type",
+      "option": "appeal-type-frist-der-stellungnahme",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "appeal-type.appeal-type-stellungnahme",
+    "fields": {
+      "created_at": "2023-03-14T09:06:35.951Z",
+      "modified_at": "2023-03-14T09:06:35.951Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "appeal-type",
+      "option": "appeal-type-stellungnahme",
+      "sort": 3
+    }
+  }
+]

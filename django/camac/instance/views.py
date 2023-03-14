@@ -164,6 +164,7 @@ class InstanceView(
                 "fix_work_items": serializers.CalumaInstanceFixWorkItemsSerializer,
                 "convert_modification": serializers.CalumaInstanceConvertModificationSerializer,
                 "dms_placeholders": DMSPlaceholdersSerializer,
+                "appeal": serializers.CalumaInstanceAppealSerializer,
                 "default": serializers.CalumaInstanceSerializer,
             },
             "camac-ng": {
@@ -311,6 +312,20 @@ class InstanceView(
 
     def has_object_convert_modification_permission_for_support(self, instance):
         return True
+
+    @permission_aware
+    def has_object_appeal_permission(self, instance):
+        return False
+
+    def has_object_appeal_permission_for_municipality(self, instance):
+        return (
+            (
+                instance.responsible_service(filter_type="municipality")
+                == self.request.group.service
+            )
+            and instance.previous_instance_state.name == "coordination"
+            and instance.instance_state.name in ["finished", "sb1"]
+        )
 
     @swagger_auto_schema(auto_schema=None)
     def retrieve(self, request, *args, **kwargs):  # pragma: no cover
@@ -672,6 +687,13 @@ class InstanceView(
     def dms_placeholders(self, request, pk):
         serializer = self.get_serializer(instance=self.get_object())
         return response.Response(serializer.data)
+
+    @swagger_auto_schema(auto_schema=None)
+    @action(methods=["post"], detail=True)
+    def appeal(self, request, pk):
+        return self._custom_serializer_action(
+            request, pk, status_code=status.HTTP_201_CREATED
+        )
 
 
 class InstanceResponsibilityView(mixins.InstanceQuerysetMixin, views.ModelViewSet):

@@ -1,0 +1,20 @@
+decision:
+  submit:
+    preliminary-clarification: "Beurteilung abschliessen"
+    appeal: "Entscheid bestätigen"
+
+  appeal:
+    confirmed: |-
+      Dieses Dossier wird nach dem Erfassen des Entscheides in den angedachten
+      Status des vorhergehenden Entscheides <b>({status})</b> versetzt.
+    changed: |-
+      Dieses Dossier wird nach dem Bestätigen des Entscheides in den
+      gegenteiligen Status des vorhergehenden Entscheides <b>({status})</b>
+      versetzt.
+    rejected: |-
+      Dieses Dossier wird nach dem Erfassen des Entscheides kopiert und in den
+      Status <b>"{status}"</b> versetzt. Das momentane Dossier wird
+      abgeschlossen.
+
+  send-notification-error: "Fehler beim Versenden der Notifikationen"
+  appeal-error: "Fehler beim Starten des Beschwerdeverfahrens"

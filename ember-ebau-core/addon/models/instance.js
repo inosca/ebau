@@ -23,6 +23,7 @@ export default class InstanceModel extends Model {
   @belongsTo user;
   @belongsTo form;
   @belongsTo instanceState;
+  @belongsTo("instance-state") previousInstanceState;
   @belongsTo location;
 
   @hasMany("service") circulationInitializerServices;

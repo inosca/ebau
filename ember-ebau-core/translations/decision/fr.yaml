@@ -1,0 +1,18 @@
+decision:
+  submit:
+    preliminary-clarification: "Clôturer l'évaluation"
+    appeal: "Confirmer la décision"
+
+  appeal:
+    confirmed: |-
+      Après la saisie de la décision, ce dossier est placé dans le statut prévu
+      de la décision précédente <b>({status})</b>.
+    changed: |-
+      Ce dossier, une fois la décision confirmée, est placé dans le statut
+      opposé à celui de la décision précédente <b>({status})</b>.
+    rejected: |-
+      Ce dossier est copié après la saisie de la décision et placé en
+      <b>"{status}"</b>. Le dossier actuel est clôturé.
+
+  send-notification-error: "Erreur lors de l'envoi des notifications"
+  appeal-error: "Erreur lors du lancement de la procédure de recours"
