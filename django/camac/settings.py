@@ -1472,6 +1472,7 @@ APPLICATIONS = {
                         "publication",
                         "fill-publication",
                         "legal-submission",
+                        "appeal",
                     ],
                     "cancel": [
                         "create-manual-workitems",
@@ -1773,6 +1774,7 @@ APPLICATIONS = {
             "caluma_legal_submission_form": generate_form_dump_config(
                 r"^legal-submission"
             ),
+            "caluma_appeal_form": generate_form_dump_config(r"^appeal"),
             # Distribution
             **DISTRIBUTION_DUMP_CONFIG,
         },

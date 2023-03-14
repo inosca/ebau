@@ -97,17 +97,24 @@ export default class CustomField extends Field {
 
     const workflow = response[0].node.case.workflow.slug;
     const form = response[0].node.case.document.form.slug;
+    const isAppeal = response[0].node.case.meta["is-appeal"] ?? false;
 
-    return { workflow, form };
+    return { workflow, form, isAppeal };
   }
 
   get enabledOptions() {
     if (this.question.slug === "decision-decision-assessment") {
       if (!this.caseInformation.value) return [];
 
-      const { workflow, form } = this.caseInformation.value;
+      const { workflow, form, isAppeal } = this.caseInformation.value;
 
-      if (workflow === "building-permit") {
+      if (isAppeal) {
+        return [
+          "decision-decision-assessment-appeal-confirmed",
+          "decision-decision-assessment-appeal-changed",
+          "decision-decision-assessment-appeal-rejected",
+        ];
+      } else if (workflow === "building-permit") {
         // Baugesuche, Verlängerung Geltungsdauer
         return [
           "decision-decision-assessment-accepted",

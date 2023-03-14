@@ -39,6 +39,7 @@ def caluma_form_fixture(db):
         "config/caluma_distribution.json",
         "config/caluma_workflow.json",
         "config/caluma_legal_submission_form.json",
+        "config/caluma_appeal_form.json",
         "data/caluma_form.json",
         "data/caluma_workflow.json",
         "data/user.json",

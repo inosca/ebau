@@ -8,7 +8,7 @@ mutation CreatePreliminaryClarificationWorkflow {
         "hecken-feldgehoelze-baeume"
         "klaerung-baubewilligungspflicht"
         "solaranlagen-meldung"
-        "heat-generator",
+        "heat-generator"
         "vorabklaerung-einfach"
         "vorabklaerung-vollstaendig"
         "vorabklaerung-vollstaendig-v2"
@@ -37,7 +37,7 @@ mutation CreateFlow2 {
     input: {
       workflow: "preliminary-clarification"
       tasks: ["ebau-number"]
-      next: "['distribution', 'audit', 'publication', 'fill-publication', 'information-of-neighbors', 'legal-submission']|tasks"
+      next: "['after-ebau-number']|tasks"
     }
   ) {
     clientMutationId

@@ -126,6 +126,9 @@ VORABKLAERUNG_DECISIONS_BEWILLIGT_MIT_VORBEHALT = (
     "decision-decision-assessment-positive-with-reservation"
 )
 VORABKLAERUNG_DECISIONS_NEGATIVE = "decision-decision-assessment-negative"
+DECISIONS_APPEAL_CONFIRMED = "decision-decision-assessment-appeal-confirmed"
+DECISIONS_APPEAL_CHANGED = "decision-decision-assessment-appeal-changed"
+DECISIONS_APPEAL_REJECTED = "decision-decision-assessment-appeal-rejected"
 
 # decision type
 DECISION_TYPE_CONSTRUCTION_TEE_WITH_RESTORATION = (

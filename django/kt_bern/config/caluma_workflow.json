@@ -9,7 +9,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['distribution', 'audit', 'publication', 'fill-publication', 'information-of-neighbors', 'legal-submission']|tasks"
+      "next": "['after-ebau-number']|tasks"
     }
   },
   {
@@ -126,7 +126,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['distribution', 'audit', 'publication', 'fill-publication', 'information-of-neighbors', 'legal-submission']|tasks"
+      "next": "['after-ebau-number']|tasks"
     }
   },
   {
@@ -296,6 +296,29 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "next": "'create-publication'|task"
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "appeal",
+    "fields": {
+      "created_at": "2023-03-14T09:33:29.565Z",
+      "modified_at": "2023-03-14T09:33:29.565Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Beschwerdeverfahren\", \"fr\": \"Proc\\u00e9dure de recours\", \"it\": null, \"rm\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "complete_task_form",
+      "meta": {},
+      "address_groups": "['municipality']|groups",
+      "control_groups": null,
+      "is_archived": false,
+      "form": "appeal",
+      "lead_time": null,
+      "is_multiple_instance": false,
+      "continue_async": false
     }
   },
   {

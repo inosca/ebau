@@ -8,16 +8,19 @@ from django.conf import settings
 from django.db import transaction
 from django.utils.translation import gettext_noop
 
+from camac.constants.kt_bern import DECISIONS_APPEAL_REJECTED
 from camac.core.utils import create_history_entry
 from camac.ech0211.signals import ruling
 from camac.instance.utils import (
+    copy_instance,
+    fill_ebau_number,
     get_lead_authority,
     set_construction_control,
     should_continue_after_decision,
 )
 from camac.notification.utils import send_mail_without_request
 from camac.stats.cycle_time import compute_cycle_time
-from camac.user.models import Service, User
+from camac.user.models import Group, Service, User
 
 from .general import get_caluma_setting, get_instance
 
@@ -35,6 +38,31 @@ def copy_municipality_tags(instance, construction_control):
 
     for tag in municipality_tags:
         instance.tags.create(service=construction_control, name=tag.name)
+
+
+def handle_appeal_decision(instance, work_item, user, camac_user):
+    if not instance.case.meta.get("is-appeal"):
+        return
+
+    decision = work_item.document.answers.get(
+        question_id="decision-decision-assessment"
+    ).value
+
+    if decision == DECISIONS_APPEAL_REJECTED:
+        new_instance = copy_instance(
+            instance=instance,
+            group=Group.objects.get(pk=user.camac_group),
+            user=camac_user,
+            caluma_user=user,
+            skip_submit=True,
+            new_meta={"is-rejected-appeal": True},
+        )
+
+        fill_ebau_number(
+            instance=new_instance,
+            ebau_number=instance.case.meta.get("ebau-number"),
+            caluma_user=user,
+        )
 
 
 def copy_responsible_person_lead_authority(instance, construction_control):
@@ -94,6 +122,8 @@ def post_complete_decision(sender, work_item, user, context, **kwargs):
                 # copy municipality tags for sb1
                 copy_municipality_tags(instance, construction_control)
                 copy_responsible_person_lead_authority(instance, construction_control)
+
+            handle_appeal_decision(instance, work_item, user, camac_user)
 
         elif workflow == "preliminary-clarification":
             instance_state_name = "evaluated"

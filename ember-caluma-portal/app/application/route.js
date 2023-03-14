@@ -1,6 +1,9 @@
 import { getOwner } from "@ember/application";
 import Route from "@ember/routing/route";
 import { inject as service } from "@ember/service";
+import DecisionAppealButtonComponent from "ember-ebau-core/components/decision/appeal-button";
+import DecisionInfoAppealComponent from "ember-ebau-core/components/decision/info-appeal";
+import DecisionSubmitButtonComponent from "ember-ebau-core/components/decision/submit-button";
 import DocumentValidityButtonComponent from "ember-ebau-core/components/document-validity-button";
 import InquiryAnswerStatus from "ember-ebau-core/components/inquiry-answer-status";
 import LinkAttachmentsComponent from "ember-ebau-core/components/link-attachments";
@@ -102,11 +105,6 @@ export default class ApplicationRoute extends Route {
       type: "StaticQuestion",
     });
     this.calumaOptions.registerComponentOverride({
-      label: "Entscheid verfügen (Teilbaubewilligung)",
-      component: "decision-submit-partial",
-      type: "StaticQuestion",
-    });
-    this.calumaOptions.registerComponentOverride({
       label: "Validierungs Button",
       component: "document-validity-button",
       componentClass: DocumentValidityButtonComponent,
@@ -126,6 +124,21 @@ export default class ApplicationRoute extends Route {
       component: "inquiry-answer-status",
       componentClass: InquiryAnswerStatus,
       type: "ChoiceQuestion",
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Hilfetext Beschwerdeverfahren",
+      component: "decision/info-appeal",
+      componentClass: DecisionInfoAppealComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Entscheid verfügen",
+      component: "decision/submit-button",
+      componentClass: DecisionSubmitButtonComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Beschwerde eingegangen",
+      component: "decision/appeal-button",
+      componentClass: DecisionAppealButtonComponent,
     });
   }
 }

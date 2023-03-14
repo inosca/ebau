@@ -2071,6 +2071,7 @@ def test_rejection(
 @pytest.mark.parametrize("is_modification", [True, False])
 @pytest.mark.parametrize("is_migrated", [True, False])
 @pytest.mark.parametrize("is_kog", [True, False])
+@pytest.mark.parametrize("is_appeal", [True, False])
 def test_instance_name(
     admin_client,
     caluma_workflow_config_be,
@@ -2084,6 +2085,7 @@ def test_instance_name(
     is_modification,
     is_migrated,
     is_kog,
+    is_appeal,
 ):
     def yes_no_german(boolean):
         return "ja" if boolean else "nein"
@@ -2097,6 +2099,11 @@ def test_instance_name(
         "migriertes-dossier" if is_migrated else "main-form",
         {"instance": instance.pk},
     )
+
+    if is_appeal:
+        instance.case.meta.update({"is-appeal": True})
+        instance.case.save()
+
     service_group = instance_service_factory(instance=instance).service.service_group
 
     if is_migrated:
@@ -2129,12 +2136,11 @@ def test_instance_name(
         assert name == "Baupolizeiliches Verfahren (Migriert)"
     else:
         assert "Baugesuch" in name
-        if is_paper:
-            assert "(Papier)" in name
-        if is_modification:
-            assert "(Projektänderung)" in name
-        if is_kog:
-            assert "(KoG)" in name
+
+        assert ("(Papier)" in name) == is_paper
+        assert ("(Projektänderung)" in name) == is_modification
+        assert ("(KoG)" in name) == is_kog
+        assert ("(Beschwerdeverfahren)" in name) == is_appeal
 
 
 @pytest.mark.parametrize("service_group__name", ["municipality"])

@@ -4474,7 +4474,7 @@
       "label": "{\"de\": \"Vertreter/in?\", \"fr\": \"Mandataire\", \"it\": null, \"rm\": null}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "form != 'legal-submission-form'",
+      "is_hidden": "!(form in ['legal-submission-form', 'appeal'])",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null, \"rm\": null}",

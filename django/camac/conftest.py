@@ -455,9 +455,9 @@ def caluma_config_sz(settings):
 @pytest.fixture
 def use_instance_service(application_settings):
     application_settings["USE_INSTANCE_SERVICE"] = True
-    application_settings["ACTIVE_SERVICES"] = settings.APPLICATIONS["kt_bern"][
-        "ACTIVE_SERVICES"
-    ]
+    application_settings["ACTIVE_SERVICES"] = deepcopy(
+        settings.APPLICATIONS["kt_bern"]["ACTIVE_SERVICES"]
+    )
     application_settings["ACTIVE_SERVICES"]["MUNICIPALITY"]["FILTERS"] = {}
     application_settings["ACTIVE_SERVICES"]["CONSTRUCTION_CONTROL"]["FILTERS"] = {}
 
@@ -478,6 +478,7 @@ def caluma_workflow_config_be(
         "loaddata",
         settings.ROOT_DIR("kt_bern/config/caluma_distribution.json"),
         settings.ROOT_DIR("kt_bern/config/caluma_legal_submission_form.json"),
+        settings.ROOT_DIR("kt_bern/config/caluma_appeal_form.json"),
         settings.ROOT_DIR("kt_bern/config/caluma_workflow.json"),
     )
 

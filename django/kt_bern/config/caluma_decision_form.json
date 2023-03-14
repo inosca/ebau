@@ -19,6 +19,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "decision.decision-appeal",
+    "fields": {
+      "created_at": "2023-04-19T13:31:07.015Z",
+      "modified_at": "2023-04-19T13:31:07.015Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "decision",
+      "question": "decision-appeal",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "decision.decision-approval-type",
     "fields": {
       "created_at": "2022-04-29T08:53:27.397Z",
@@ -59,7 +74,37 @@
       "modified_by_group": null,
       "form": "decision",
       "question": "decision-decision-assessment",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "decision.decision-info-appeal",
+    "fields": {
+      "created_at": "2023-03-14T13:12:35.695Z",
+      "modified_at": "2023-03-14T13:12:35.695Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "decision",
+      "question": "decision-info-appeal",
       "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "decision.decision-info-appeal-submit",
+    "fields": {
+      "created_at": "2023-03-14T13:19:09.362Z",
+      "modified_at": "2023-03-14T13:19:09.362Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "decision",
+      "question": "decision-info-appeal-submit",
+      "sort": 3
     }
   },
   {
@@ -124,36 +169,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "decision.decision-submit-partial",
-    "fields": {
-      "created_at": "2022-05-03T07:17:04.590Z",
-      "modified_at": "2022-05-03T07:17:04.590Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "decision",
-      "question": "decision-submit-partial",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "decision.decision-submit-preliminary-clarification",
-    "fields": {
-      "created_at": "2022-09-09T07:34:47.313Z",
-      "modified_at": "2022-09-09T07:34:47.313Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "decision",
-      "question": "decision-submit-preliminary-clarification",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "decision.decision-workflow",
     "fields": {
       "created_at": "2022-05-17T15:04:08.078Z",
@@ -164,7 +179,7 @@
       "modified_by_group": null,
       "form": "decision",
       "question": "decision-workflow",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -172,7 +187,7 @@
     "pk": "decision-approval-type-building-permit",
     "fields": {
       "created_at": "2022-04-29T08:53:26.527Z",
-      "modified_at": "2022-05-18T14:08:22.100Z",
+      "modified_at": "2023-03-14T16:37:58.399Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -190,7 +205,7 @@
     "pk": "decision-approval-type-building-permit-free",
     "fields": {
       "created_at": "2022-04-29T08:53:26.898Z",
-      "modified_at": "2022-05-18T14:08:23.036Z",
+      "modified_at": "2023-03-14T16:37:58.746Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -208,7 +223,7 @@
     "pk": "decision-approval-type-construction-tee-with-restoration",
     "fields": {
       "created_at": "2022-04-29T08:53:26.792Z",
-      "modified_at": "2022-05-18T14:08:22.739Z",
+      "modified_at": "2023-03-14T16:37:58.672Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -226,7 +241,7 @@
     "pk": "decision-approval-type-construction-tee-without-restoration",
     "fields": {
       "created_at": "2022-04-29T08:53:26.691Z",
-      "modified_at": "2022-05-18T14:08:22.684Z",
+      "modified_at": "2023-03-14T16:37:58.669Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -244,7 +259,7 @@
     "pk": "decision-approval-type-deprecation-order-retreat",
     "fields": {
       "created_at": "2022-04-29T08:53:26.769Z",
-      "modified_at": "2022-05-18T14:08:22.982Z",
+      "modified_at": "2023-03-14T16:37:58.754Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -262,7 +277,7 @@
     "pk": "decision-approval-type-general-building-permit",
     "fields": {
       "created_at": "2022-04-29T08:53:26.552Z",
-      "modified_at": "2022-05-18T14:08:22.229Z",
+      "modified_at": "2023-03-14T16:37:58.443Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -280,7 +295,7 @@
     "pk": "decision-approval-type-other",
     "fields": {
       "created_at": "2022-05-18T14:07:54.117Z",
-      "modified_at": "2022-05-18T14:08:23.049Z",
+      "modified_at": "2023-03-14T16:37:58.801Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -298,7 +313,7 @@
     "pk": "decision-approval-type-overall-building-permit",
     "fields": {
       "created_at": "2022-04-29T08:53:26.569Z",
-      "modified_at": "2022-05-18T14:08:22.204Z",
+      "modified_at": "2023-03-14T16:37:58.418Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -316,7 +331,7 @@
     "pk": "decision-approval-type-partial-building-permit",
     "fields": {
       "created_at": "2022-04-29T08:53:26.615Z",
-      "modified_at": "2022-05-18T14:08:22.372Z",
+      "modified_at": "2023-03-14T16:37:58.416Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -334,7 +349,7 @@
     "pk": "decision-approval-type-partial-building-permit-partial-construction-tee-partial-restoration",
     "fields": {
       "created_at": "2022-04-29T08:53:26.932Z",
-      "modified_at": "2022-05-18T14:08:22.910Z",
+      "modified_at": "2023-03-14T16:37:58.687Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -352,7 +367,7 @@
     "pk": "decision-approval-type-project-modification",
     "fields": {
       "created_at": "2022-04-29T08:53:26.529Z",
-      "modified_at": "2022-05-18T14:08:22.469Z",
+      "modified_at": "2023-03-14T16:37:58.276Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -370,7 +385,7 @@
     "pk": "decision-approval-type-small-building-permit",
     "fields": {
       "created_at": "2022-04-29T08:53:26.665Z",
-      "modified_at": "2022-05-18T14:08:22.425Z",
+      "modified_at": "2023-03-14T16:37:58.439Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -388,7 +403,7 @@
     "pk": "decision-approval-type-unknown",
     "fields": {
       "created_at": "2022-05-10T08:15:38.721Z",
-      "modified_at": "2022-05-18T14:08:23.151Z",
+      "modified_at": "2023-03-14T16:37:58.866Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -406,7 +421,7 @@
     "pk": "decision-decision-assessment-accepted",
     "fields": {
       "created_at": "2022-04-29T14:03:24.629Z",
-      "modified_at": "2022-05-17T14:38:46.190Z",
+      "modified_at": "2023-03-14T12:04:09.980Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -421,10 +436,58 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "decision-decision-assessment-appeal-changed",
+    "fields": {
+      "created_at": "2023-03-14T12:04:10.437Z",
+      "modified_at": "2023-03-14T12:04:10.437Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entscheid ge\\u00e4ndert / aufgehoben\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-decision-assessment-appeal-confirmed",
+    "fields": {
+      "created_at": "2023-03-14T12:04:10.372Z",
+      "modified_at": "2023-03-14T12:04:10.372Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entscheid best\\u00e4tigt\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-decision-assessment-appeal-rejected",
+    "fields": {
+      "created_at": "2023-03-14T12:04:10.445Z",
+      "modified_at": "2023-03-14T12:04:10.445Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entscheid zur\\u00fcckgewiesen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "decision-decision-assessment-construction-tee",
     "fields": {
       "created_at": "2022-05-17T14:38:09.931Z",
-      "modified_at": "2022-05-17T14:38:46.767Z",
+      "modified_at": "2023-03-14T12:04:10.329Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -442,7 +505,7 @@
     "pk": "decision-decision-assessment-denied",
     "fields": {
       "created_at": "2022-04-29T14:03:24.560Z",
-      "modified_at": "2022-05-17T14:38:46.085Z",
+      "modified_at": "2023-03-14T12:04:10.011Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -460,7 +523,7 @@
     "pk": "decision-decision-assessment-depreciated",
     "fields": {
       "created_at": "2022-04-29T14:03:24.839Z",
-      "modified_at": "2022-05-17T14:38:45.994Z",
+      "modified_at": "2023-03-14T12:04:10.025Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -478,7 +541,7 @@
     "pk": "decision-decision-assessment-negative",
     "fields": {
       "created_at": "2022-04-29T14:03:24.651Z",
-      "modified_at": "2022-05-17T14:38:46.335Z",
+      "modified_at": "2023-03-14T12:04:09.995Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -496,7 +559,7 @@
     "pk": "decision-decision-assessment-not-obligated",
     "fields": {
       "created_at": "2022-05-12T07:43:07.573Z",
-      "modified_at": "2022-05-17T14:38:46.630Z",
+      "modified_at": "2023-03-14T12:04:10.236Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -514,7 +577,7 @@
     "pk": "decision-decision-assessment-obligated",
     "fields": {
       "created_at": "2022-05-12T07:43:07.413Z",
-      "modified_at": "2022-05-17T14:38:46.518Z",
+      "modified_at": "2023-03-14T12:04:10.185Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -532,7 +595,7 @@
     "pk": "decision-decision-assessment-other",
     "fields": {
       "created_at": "2022-05-12T07:44:44.027Z",
-      "modified_at": "2022-05-17T14:38:46.706Z",
+      "modified_at": "2023-03-14T12:04:10.265Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -550,7 +613,7 @@
     "pk": "decision-decision-assessment-positive",
     "fields": {
       "created_at": "2022-04-29T14:03:24.875Z",
-      "modified_at": "2022-05-17T14:38:45.872Z",
+      "modified_at": "2023-03-14T12:04:10.028Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -568,7 +631,7 @@
     "pk": "decision-decision-assessment-positive-with-reservation",
     "fields": {
       "created_at": "2022-04-29T14:03:24.825Z",
-      "modified_at": "2023-02-13T10:22:37.924Z",
+      "modified_at": "2023-03-14T12:04:09.960Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -586,7 +649,7 @@
     "pk": "decision-decision-assessment-retreat",
     "fields": {
       "created_at": "2022-04-29T14:03:24.806Z",
-      "modified_at": "2023-02-13T10:22:38.098Z",
+      "modified_at": "2023-03-14T12:04:10.263Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -601,10 +664,44 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "decision-appeal",
+    "fields": {
+      "created_at": "2023-04-19T13:31:06.820Z",
+      "modified_at": "2023-04-19T13:31:06.820Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschwerde eingegangen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": "decision/appeal-button"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "decision-approval-type",
     "fields": {
       "created_at": "2022-04-29T08:53:27.134Z",
-      "modified_at": "2022-05-18T14:08:23.519Z",
+      "modified_at": "2023-03-14T16:37:59.127Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -612,7 +709,7 @@
       "label": "{\"de\": \"Bewilligungstyp\", \"fr\": \"Cat\\u00e9gorie d'autorisation\", \"it\": null, \"rm\": null}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "'decision-workflow'|answer != 'building-permit' || 'decision-decision-assessment'|answer(null) == null",
+      "is_hidden": "'decision-workflow'|answer != 'building-permit' || 'decision-decision-assessment'|answer(null) in [null, 'decision-decision-assessment-appeal-confirmed', 'decision-decision-assessment-appeal-changed', 'decision-decision-assessment-appeal-rejected']",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null, \"rm\": null}",
@@ -666,7 +763,7 @@
     "pk": "decision-decision-assessment",
     "fields": {
       "created_at": "2022-04-29T14:03:25.080Z",
-      "modified_at": "2022-05-17T14:38:47.068Z",
+      "modified_at": "2023-03-14T12:04:10.590Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -680,6 +777,70 @@
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null, \"rm\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "decision-info-appeal",
+    "fields": {
+      "created_at": "2023-03-14T13:12:35.450Z",
+      "modified_at": "2023-03-14T13:16:18.173Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hilfetext Beschwerdeverfahren\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\n\t'decision-decision-assessment'|answer in [\n\t\t'decision-decision-assessment-appeal-confirmed',\n\t\t'decision-decision-assessment-appeal-changed',\n\t\t'decision-decision-assessment-appeal-rejected'\n\t]\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"x\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "decision/info-appeal"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "decision-info-appeal-submit",
+    "fields": {
+      "created_at": "2023-03-14T13:19:09.185Z",
+      "modified_at": "2023-03-14T13:19:09.185Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hilfetext Beschwerdeverfahren best\\u00e4tigen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\n\t'decision-decision-assessment'|answer in [\n\t\t'decision-decision-assessment-appeal-confirmed',\n\t\t'decision-decision-assessment-appeal-changed',\n\t\t'decision-decision-assessment-appeal-rejected'\n\t]\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert uk-alert-default uk-margin-remove\\\"><strong>Achtung:</strong> Der Entscheid kann in eBau erst best\\u00e4tigt werden, wenn das Rechtsverfahren definitiv abgeschlossen ist.</div>\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -800,7 +961,7 @@
     "pk": "decision-submit",
     "fields": {
       "created_at": "2022-05-02T11:49:19.157Z",
-      "modified_at": "2022-07-08T08:51:18.172Z",
+      "modified_at": "2023-03-24T14:44:16.951Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -819,76 +980,9 @@
         "action": "complete",
         "validate_on_enter": false
       },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "decision-submit-partial",
-    "fields": {
-      "created_at": "2022-05-03T07:17:04.363Z",
-      "modified_at": "2022-05-03T07:29:34.149Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Entscheid verf\\u00fcgen\", \"fr\": \"Rendre la d\\u00e9cision\", \"it\": null, \"rm\": null}",
-      "type": "static",
-      "is_required": "false",
-      "is_hidden": "!(\n\t'decision-approval-type-partial-building-permit' == 'decision-approval-type'|answer\n)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "static_content": "{\"de\": \"Test\", \"fr\": \"Test\", \"it\": \"\", \"rm\": \"\"}",
-      "configuration": {},
       "meta": {
-        "hideLabel": false,
-        "widgetOverride": "decision-submit-partial"
+        "widgetOverride": "decision/submit-button"
       },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "decision-submit-preliminary-clarification",
-    "fields": {
-      "created_at": "2022-09-09T07:34:47.139Z",
-      "modified_at": "2022-09-09T07:39:29.638Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Beurteilung abschliessen\", \"fr\": \"Cl\\u00f4turer l'\\u00e9valuation\", \"it\": null, \"rm\": null}",
-      "type": "action_button",
-      "is_required": "false",
-      "is_hidden": "'decision-workflow'|answer != 'preliminary-clarification'",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
-      "configuration": {
-        "color": "primary",
-        "action": "complete",
-        "validate_on_enter": false
-      },
-      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -937,8 +1031,8 @@
     "model": "caluma_form.questionoption",
     "pk": "decision-approval-type.decision-approval-type-building-permit",
     "fields": {
-      "created_at": "2022-05-18T14:08:23.607Z",
-      "modified_at": "2022-05-18T14:08:23.608Z",
+      "created_at": "2023-03-14T16:37:59.212Z",
+      "modified_at": "2023-03-14T16:37:59.212Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -952,8 +1046,8 @@
     "model": "caluma_form.questionoption",
     "pk": "decision-approval-type.decision-approval-type-building-permit-free",
     "fields": {
-      "created_at": "2022-05-18T14:08:23.551Z",
-      "modified_at": "2022-05-18T14:08:23.551Z",
+      "created_at": "2023-03-14T16:37:59.160Z",
+      "modified_at": "2023-03-14T16:37:59.160Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -967,8 +1061,8 @@
     "model": "caluma_form.questionoption",
     "pk": "decision-approval-type.decision-approval-type-construction-tee-with-restoration",
     "fields": {
-      "created_at": "2022-05-18T14:08:23.564Z",
-      "modified_at": "2022-05-18T14:08:23.564Z",
+      "created_at": "2023-03-14T16:37:59.171Z",
+      "modified_at": "2023-03-14T16:37:59.171Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -982,8 +1076,8 @@
     "model": "caluma_form.questionoption",
     "pk": "decision-approval-type.decision-approval-type-construction-tee-without-restoration",
     "fields": {
-      "created_at": "2022-05-18T14:08:23.570Z",
-      "modified_at": "2022-05-18T14:08:23.570Z",
+      "created_at": "2023-03-14T16:37:59.177Z",
+      "modified_at": "2023-03-14T16:37:59.177Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -997,8 +1091,8 @@
     "model": "caluma_form.questionoption",
     "pk": "decision-approval-type.decision-approval-type-deprecation-order-retreat",
     "fields": {
-      "created_at": "2022-05-18T14:08:23.557Z",
-      "modified_at": "2022-05-18T14:08:23.557Z",
+      "created_at": "2023-03-14T16:37:59.166Z",
+      "modified_at": "2023-03-14T16:37:59.166Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -1012,8 +1106,8 @@
     "model": "caluma_form.questionoption",
     "pk": "decision-approval-type.decision-approval-type-general-building-permit",
     "fields": {
-      "created_at": "2022-05-18T14:08:23.588Z",
-      "modified_at": "2022-05-18T14:08:23.588Z",
+      "created_at": "2023-03-14T16:37:59.194Z",
+      "modified_at": "2023-03-14T16:37:59.194Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -1027,8 +1121,8 @@
     "model": "caluma_form.questionoption",
     "pk": "decision-approval-type.decision-approval-type-other",
     "fields": {
-      "created_at": "2022-05-18T14:08:23.539Z",
-      "modified_at": "2022-05-18T14:08:23.539Z",
+      "created_at": "2023-03-14T16:37:59.147Z",
+      "modified_at": "2023-03-14T16:37:59.147Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -1042,8 +1136,8 @@
     "model": "caluma_form.questionoption",
     "pk": "decision-approval-type.decision-approval-type-overall-building-permit",
     "fields": {
-      "created_at": "2022-05-18T14:08:23.601Z",
-      "modified_at": "2022-05-18T14:08:23.601Z",
+      "created_at": "2023-03-14T16:37:59.204Z",
+      "modified_at": "2023-03-14T16:37:59.204Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -1057,8 +1151,8 @@
     "model": "caluma_form.questionoption",
     "pk": "decision-approval-type.decision-approval-type-partial-building-permit",
     "fields": {
-      "created_at": "2022-05-18T14:08:23.582Z",
-      "modified_at": "2022-05-18T14:08:23.582Z",
+      "created_at": "2023-03-14T16:37:59.188Z",
+      "modified_at": "2023-03-14T16:37:59.188Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -1072,8 +1166,8 @@
     "model": "caluma_form.questionoption",
     "pk": "decision-approval-type.decision-approval-type-partial-building-permit-partial-construction-tee-partial-restoration",
     "fields": {
-      "created_at": "2022-05-18T14:08:23.545Z",
-      "modified_at": "2022-05-18T14:08:23.545Z",
+      "created_at": "2023-03-14T16:37:59.153Z",
+      "modified_at": "2023-03-14T16:37:59.153Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -1087,8 +1181,8 @@
     "model": "caluma_form.questionoption",
     "pk": "decision-approval-type.decision-approval-type-project-modification",
     "fields": {
-      "created_at": "2022-05-18T14:08:23.577Z",
-      "modified_at": "2022-05-18T14:08:23.577Z",
+      "created_at": "2023-03-14T16:37:59.183Z",
+      "modified_at": "2023-03-14T16:37:59.183Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -1102,8 +1196,8 @@
     "model": "caluma_form.questionoption",
     "pk": "decision-approval-type.decision-approval-type-small-building-permit",
     "fields": {
-      "created_at": "2022-05-18T14:08:23.595Z",
-      "modified_at": "2022-05-18T14:08:23.595Z",
+      "created_at": "2023-03-14T16:37:59.200Z",
+      "modified_at": "2023-03-14T16:37:59.200Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -1117,8 +1211,8 @@
     "model": "caluma_form.questionoption",
     "pk": "decision-approval-type.decision-approval-type-unknown",
     "fields": {
-      "created_at": "2022-05-18T14:08:23.533Z",
-      "modified_at": "2022-05-18T14:08:23.533Z",
+      "created_at": "2023-03-14T16:37:59.139Z",
+      "modified_at": "2023-03-14T16:37:59.139Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -1132,165 +1226,210 @@
     "model": "caluma_form.questionoption",
     "pk": "decision-decision-assessment.decision-decision-assessment-accepted",
     "fields": {
-      "created_at": "2022-05-17T14:38:47.141Z",
-      "modified_at": "2022-05-17T14:38:47.141Z",
+      "created_at": "2023-03-14T12:04:10.637Z",
+      "modified_at": "2023-03-14T12:04:10.637Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "decision-decision-assessment",
       "option": "decision-decision-assessment-accepted",
-      "sort": 11
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-decision-assessment.decision-decision-assessment-appeal-changed",
+    "fields": {
+      "created_at": "2023-03-14T12:04:10.601Z",
+      "modified_at": "2023-03-14T12:04:10.601Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "decision-decision-assessment",
+      "option": "decision-decision-assessment-appeal-changed",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-decision-assessment.decision-decision-assessment-appeal-confirmed",
+    "fields": {
+      "created_at": "2023-03-14T12:04:10.604Z",
+      "modified_at": "2023-03-14T12:04:10.604Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "decision-decision-assessment",
+      "option": "decision-decision-assessment-appeal-confirmed",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-decision-assessment.decision-decision-assessment-appeal-rejected",
+    "fields": {
+      "created_at": "2023-03-14T12:04:10.598Z",
+      "modified_at": "2023-03-14T12:04:10.598Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "decision-decision-assessment",
+      "option": "decision-decision-assessment-appeal-rejected",
+      "sort": 1
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "decision-decision-assessment.decision-decision-assessment-construction-tee",
     "fields": {
-      "created_at": "2022-05-17T14:38:47.080Z",
-      "modified_at": "2022-05-17T14:38:47.080Z",
+      "created_at": "2023-03-14T12:04:10.607Z",
+      "modified_at": "2023-03-14T12:04:10.607Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "decision-decision-assessment",
       "option": "decision-decision-assessment-construction-tee",
-      "sort": 1
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "decision-decision-assessment.decision-decision-assessment-denied",
     "fields": {
-      "created_at": "2022-05-17T14:38:47.134Z",
-      "modified_at": "2022-05-17T14:38:47.134Z",
+      "created_at": "2023-03-14T12:04:10.634Z",
+      "modified_at": "2023-03-14T12:04:10.634Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "decision-decision-assessment",
       "option": "decision-decision-assessment-denied",
-      "sort": 10
+      "sort": 13
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "decision-decision-assessment.decision-decision-assessment-depreciated",
     "fields": {
-      "created_at": "2022-05-17T14:38:47.128Z",
-      "modified_at": "2022-05-17T14:38:47.128Z",
+      "created_at": "2023-03-14T12:04:10.631Z",
+      "modified_at": "2023-03-14T12:04:10.631Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "decision-decision-assessment",
       "option": "decision-decision-assessment-depreciated",
-      "sort": 9
+      "sort": 12
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "decision-decision-assessment.decision-decision-assessment-negative",
     "fields": {
-      "created_at": "2022-05-17T14:38:47.117Z",
-      "modified_at": "2022-05-17T14:38:47.117Z",
+      "created_at": "2023-03-14T12:04:10.625Z",
+      "modified_at": "2023-03-14T12:04:10.625Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "decision-decision-assessment",
       "option": "decision-decision-assessment-negative",
-      "sort": 7
+      "sort": 10
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "decision-decision-assessment.decision-decision-assessment-not-obligated",
     "fields": {
-      "created_at": "2022-05-17T14:38:47.094Z",
-      "modified_at": "2022-05-17T14:38:47.094Z",
+      "created_at": "2023-03-14T12:04:10.613Z",
+      "modified_at": "2023-03-14T12:04:10.613Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "decision-decision-assessment",
       "option": "decision-decision-assessment-not-obligated",
-      "sort": 3
+      "sort": 6
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "decision-decision-assessment.decision-decision-assessment-obligated",
     "fields": {
-      "created_at": "2022-05-17T14:38:47.100Z",
-      "modified_at": "2022-05-17T14:38:47.100Z",
+      "created_at": "2023-03-14T12:04:10.616Z",
+      "modified_at": "2023-03-14T12:04:10.616Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "decision-decision-assessment",
       "option": "decision-decision-assessment-obligated",
-      "sort": 4
+      "sort": 7
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "decision-decision-assessment.decision-decision-assessment-other",
     "fields": {
-      "created_at": "2022-05-17T14:38:47.088Z",
-      "modified_at": "2022-05-17T14:38:47.088Z",
+      "created_at": "2023-03-14T12:04:10.610Z",
+      "modified_at": "2023-03-14T12:04:10.610Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "decision-decision-assessment",
       "option": "decision-decision-assessment-other",
-      "sort": 2
+      "sort": 5
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "decision-decision-assessment.decision-decision-assessment-positive",
     "fields": {
-      "created_at": "2022-05-17T14:38:47.122Z",
-      "modified_at": "2022-05-17T14:38:47.122Z",
+      "created_at": "2023-03-14T12:04:10.628Z",
+      "modified_at": "2023-03-14T12:04:10.628Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "decision-decision-assessment",
       "option": "decision-decision-assessment-positive",
-      "sort": 8
+      "sort": 11
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "decision-decision-assessment.decision-decision-assessment-positive-with-reservation",
     "fields": {
-      "created_at": "2022-05-17T14:38:47.111Z",
-      "modified_at": "2022-05-17T14:38:47.111Z",
+      "created_at": "2023-03-14T12:04:10.622Z",
+      "modified_at": "2023-03-14T12:04:10.622Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "decision-decision-assessment",
       "option": "decision-decision-assessment-positive-with-reservation",
-      "sort": 6
+      "sort": 9
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "decision-decision-assessment.decision-decision-assessment-retreat",
     "fields": {
-      "created_at": "2022-05-17T14:38:47.106Z",
-      "modified_at": "2022-05-17T14:38:47.106Z",
+      "created_at": "2023-03-14T12:04:10.619Z",
+      "modified_at": "2023-03-14T12:04:10.619Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "decision-decision-assessment",
       "option": "decision-decision-assessment-retreat",
-      "sort": 5
+      "sort": 8
     }
   }
 ]
