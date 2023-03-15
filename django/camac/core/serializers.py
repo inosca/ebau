@@ -54,31 +54,41 @@ class PublicationEntrySerializer(serializers.ModelSerializer):
 
     included_serializers = {"instance": "camac.instance.serializers.InstanceSerializer"}
 
+    def finalize_publication(self, instance):
+        models.WorkflowEntry.objects.create(
+            group=instance.instance.group.pk,
+            workflow_item_id=settings.APPLICATION.get("WORKFLOW_ITEMS", {}).get(
+                "PUBLICATION"
+            ),
+            instance_id=instance.instance.pk,
+            # remove the microseconds because this date is displayed in camac and
+            # camac can't handle microseconds..
+            workflow_date=instance.publication_date.replace(microsecond=0),
+        )
+
+        work_item = instance.instance.case.work_items.filter(
+            task_id="publication", status=workflow_models.WorkItem.STATUS_READY
+        ).first()
+
+        # TODO: test this
+        if work_item:  # pragma: no cover
+            workflow_api.complete_work_item(
+                work_item=work_item,
+                user=self.context["request"].caluma_info.context.user,
+            )
+
+    @transaction.atomic
+    def create(self, validated_data):
+        instance = super().create(validated_data)
+        if validated_data["is_published"]:
+            self.finalize_publication(instance)
+
+        return instance
+
     @transaction.atomic
     def update(self, instance, validated_data):
         if not instance.is_published and validated_data["is_published"]:
-
-            models.WorkflowEntry.objects.create(
-                group=instance.instance.group.pk,
-                workflow_item_id=settings.APPLICATION.get("WORKFLOW_ITEMS", {}).get(
-                    "PUBLICATION"
-                ),
-                instance_id=instance.instance.pk,
-                # remove the microseconds because this date is displayed in camac and
-                # camac can't handle microseconds..
-                workflow_date=instance.publication_date.replace(microsecond=0),
-            )
-
-            work_item = self.instance.instance.case.work_items.filter(
-                task_id="publication", status=workflow_models.WorkItem.STATUS_READY
-            ).first()
-
-            # TODO: test this
-            if work_item:  # pragma: no cover
-                workflow_api.complete_work_item(
-                    work_item=work_item,
-                    user=self.context["request"].caluma_info.context.user,
-                )
+            self.finalize_publication(instance)
 
         return super().update(instance, validated_data)
 
