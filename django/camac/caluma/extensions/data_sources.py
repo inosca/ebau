@@ -1,8 +1,10 @@
 from caluma.caluma_data_source.data_sources import BaseDataSource
 from caluma.caluma_data_source.utils import data_source_cache
+from caluma.caluma_form.models import Document
 from django.core.cache import cache
 from django.utils.translation import gettext as _, override
 
+from camac.caluma.utils import find_answer
 from camac.core.models import Authority
 from camac.document.models import Attachment
 from camac.user.models import Location, Service
@@ -268,3 +270,39 @@ class Attachments(BaseDataSource):
             attachment_sections__pk=attachment_section_id,
             instance_id=instance_id,
         ).values_list("pk", flat=True)
+
+
+class Landowners(BaseDataSource):
+    info = "Selection of the landowners from the current instance"
+
+    def get_data(self, user, question, context):
+        instance_id = context.get("instanceId")
+
+        document = Document.objects.get(case__instance__pk=instance_id)
+        rows = find_answer(document, "personalien-grundeigentumerin")
+
+        if not rows:  # pragma: no cover
+            return
+
+        landowner_data = []
+        for row in rows:
+            is_juristic = (
+                find_answer(
+                    row, "juristische-person-grundeigentuemerin", raw_value=True
+                )
+                == "juristische-person-grundeigentuemerin-ja"
+            )
+
+            if is_juristic:
+                label = find_answer(row, "name-juristische-person-grundeigentuemerin")
+            else:
+                label = " ".join(
+                    [
+                        find_answer(row, "vorname-grundeigentuemerin"),
+                        find_answer(row, "name-grundeigentuemerin"),
+                    ]
+                )
+
+            landowner_data.append((row.pk, label))
+
+        return landowner_data

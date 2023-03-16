@@ -1,14 +1,18 @@
 from collections import namedtuple
 
 import pytest
+from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_form.factories import QuestionFactory
 from django.core.cache import cache
+
+from camac.instance.tests.test_master_data import add_table_answer
 
 from ..extensions.countries import COUNTRIES
 from ..extensions.data_sources import (
     Attachments,
     Authorities,
     Countries,
+    Landowners,
     Locations,
     Mitberichtsverfahren,
     Municipalities,
@@ -191,3 +195,35 @@ def test_attachments(
     data = Attachments().get_data(caluma_admin_user, question, context)
 
     assert len(data) == expected_count
+
+
+def test_landowners(db, caluma_admin_user, be_instance):
+    question = QuestionFactory(
+        slug="personalien-grundeigentumerin",
+        type=caluma_form_models.Question.TYPE_TABLE,
+    )
+
+    add_table_answer(
+        be_instance.case.document,
+        question,
+        [
+            {
+                "juristische-person-grundeigentuemerin": "juristische-person-grundeigentuemerin-nein",
+                "vorname-grundeigentuemerin": "Foo",
+                "name-grundeigentuemerin": "Bar",
+            },
+            {
+                "juristische-person-grundeigentuemerin": "juristische-person-grundeigentuemerin-ja",
+                "name-juristische-person-grundeigentuemerin": "Foobar AG",
+            },
+        ],
+    )
+
+    context = {"instanceId": be_instance.pk}
+    data = Landowners().get_data(caluma_admin_user, question, context)
+
+    names = [item[1] for item in data]
+
+    assert len(data) == 2
+    assert "Foobar AG" in names
+    assert "Foo Bar" in names
