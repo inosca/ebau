@@ -729,6 +729,7 @@ snapshots['test_document_merge_service_snapshot baugesuch'] = [
                     {
                         'columns': [
                             'Parzellennummer',
+                            'Grundeigentümer/in',
                             'Liegenschaftsnummer',
                             'Baurecht-Nummer',
                             'E-GRID-Nr.',
@@ -747,6 +748,12 @@ snapshots['test_document_merge_service_snapshot baugesuch'] = [
                                     'slug': 'parzellennummer',
                                     'type': 'TextQuestion',
                                     'value': '1'
+                                },
+                                {
+                                    'label': 'Grundeigentümer/in',
+                                    'slug': 'grundeigentuemerin',
+                                    'type': 'TextQuestion',
+                                    'value': ''
                                 },
                                 {
                                     'label': 'Liegenschaftsnummer',
