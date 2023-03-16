@@ -187,7 +187,7 @@ class PublicationEntryView(ModelViewSet):
                 "firma": person.get("firma", ""),
                 "vorname": person.get("vorname", ""),
                 "nachname": person.get("name", ""),
-                "adresse": person.get("street", ""),
+                "adresse": person.get("strasse", ""),
                 "plz": person.get("plz", ""),
                 "ort": person.get("ort", ""),
             }
