@@ -204,6 +204,7 @@ class ParashiftImporter:
         "336782": {"gemeinde": "Spiringen 1218"},
         "336901": {"erfassungsjahr": 2005},
         "336905": {"erfassungsjahr": 2007},
+        "4530658": {"gemeinde": "Gurtnellen 1209"},
     }
 
     def fetch_data(self, para_id):
