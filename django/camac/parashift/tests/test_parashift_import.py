@@ -5,6 +5,7 @@ from django.conf import settings
 from django.core.management import call_command
 from PyPDF2 import PdfReader
 
+from camac.constants import kt_uri as uri_constants
 from camac.instance.master_data import MasterData
 from camac.parashift.parashift import ParashiftImporter
 from camac.utils import build_url
@@ -77,9 +78,14 @@ def test_import_validation_error(requests_mock, capsys):
 
 
 def test_command(
-    parashift_data, parashift_mock, application_settings, master_data_is_visible_mock
+    parashift_data,
+    parashift_mock,
+    application_settings,
+    master_data_is_visible_mock,
+    workflow_item_factory,
 ):
     application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_uri"]["MASTER_DATA"]
+    workflow_item_factory(pk=uri_constants.WORKFLOW_ITEM_DOSSIER_ERFASST)
 
     client = ParashiftImporter()
     instances = client.run("138866", "138867")
