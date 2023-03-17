@@ -9,6 +9,13 @@ from rest_framework import status
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize("service__name", ["Leitbehörde Burgdorf"])
+@pytest.mark.parametrize(
+    "is_multilingual",
+    [
+        False,
+        # TODO: True,
+    ],
+)
 def test_caluma_export_be(
     db,
     admin_client,
@@ -18,12 +25,14 @@ def test_caluma_export_be(
     application_settings,
     settings,
     django_assert_num_queries,
+    is_multilingual,
 ):
     settings.APPLICATION_NAME = "kt_bern"
     application_settings["MUNICIPALITY_DATA_SHEET"] = settings.ROOT_DIR(
         "kt_bern",
         pathlib.Path(settings.APPLICATIONS["kt_bern"]["MUNICIPALITY_DATA_SHEET"]).name,
     )
+    application_settings["IS_MULTILINGUAL"] = is_multilingual
 
     instance_service_factory(
         instance=be_instance, service=admin_client.user.groups.first().service
@@ -61,6 +70,33 @@ def test_caluma_export_be(
     assert response.status_code == status.HTTP_200_OK
     book = pyexcel.get_book(file_content=response.content, file_type="xlsx")
     assert be_instance.pk in book.get_dict()["pyexcel sheet"][1]
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize("service__name", ["Leitbehörde Schwyz"])
+def test_caluma_export_sz(
+    db,
+    admin_client,
+    sz_instance,
+    service,
+    settings,
+    sz_distribution_settings,
+    django_assert_num_queries,
+):
+    settings.APPLICATION_NAME = "kt_schwyz"
+    sz_instance.identifier = "123-45-77"
+    sz_instance.save()
+
+    # TODO: Update test to reflect exported data
+
+    url = reverse("instance-export")
+
+    with django_assert_num_queries(2):
+        response = admin_client.get(url, {"instance_id": sz_instance.pk})
+
+    assert response.status_code == status.HTTP_200_OK
+    book = pyexcel.get_book(file_content=response.content, file_type="xlsx")
+    assert sz_instance.identifier in book.get_dict()["pyexcel sheet"][1]
 
 
 @pytest.mark.parametrize(
