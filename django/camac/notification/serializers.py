@@ -12,7 +12,18 @@ from caluma.caluma_workflow import models as caluma_workflow_models
 from django.conf import settings
 from django.contrib.postgres.fields import ArrayField
 from django.core.mail import EmailMessage, get_connection
-from django.db.models import Exists, F, Func, IntegerField, OuterRef, Q, Subquery, Sum
+from django.db.models import (
+    Case,
+    Exists,
+    F,
+    Func,
+    IntegerField,
+    OuterRef,
+    Q,
+    Subquery,
+    Sum,
+    When,
+)
 from django.db.models.functions import Cast
 from django.utils import timezone, translation
 from django.utils.text import slugify
@@ -638,9 +649,28 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
                     service_subquery.values("service_group__sort")[:1]
                 ),
                 service_sort=Subquery(service_subquery.values("sort")[:1]),
+                service_grouping=Case(
+                    When(
+                        Exists(
+                            service_subquery.filter(service_parent_id__isnull=False)
+                        ),
+                        then=Subquery(
+                            service_subquery.values("service_parent_id")[:1],
+                            output_field=IntegerField(),
+                        ),
+                    ),
+                    default=Subquery(
+                        service_subquery.values("pk")[:1], output_field=IntegerField()
+                    ),
+                ),
+                is_subservice=Exists(
+                    service_subquery.filter(service_parent_id__isnull=False)
+                ),
             )
             .order_by(
                 "service_group_sort",
+                "service_grouping",
+                "is_subservice",
                 "controlling_groups",
                 "service_sort",
                 F("closed_at").desc(nulls_first=True),
