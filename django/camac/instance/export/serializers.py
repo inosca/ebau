@@ -1,4 +1,5 @@
 import csv
+import datetime
 from collections import OrderedDict
 
 from dateutil.parser import parse as dateutil_parse
@@ -15,7 +16,10 @@ class SubmitDateField(serializers.DateField):
         if not value:  # pragma: no cover
             return None
 
-        return super().to_representation(dateutil_parse(value).date())
+        if not isinstance(value, datetime.datetime):
+            value = dateutil_parse(value)
+
+        return super().to_representation(value.date())
 
 
 class InstanceExportListSerializer(serializers.ListSerializer):
@@ -30,6 +34,10 @@ class InstanceExportListSerializer(serializers.ListSerializer):
 
 class InstanceExportSerializer(serializers.Serializer):
     responsible_user = serializers.CharField(label=_("Responsible"))
+    inquiry_created_date = serializers.DateField(
+        format=settings.SHORT_DATE_FORMAT,
+        label=_("Arrival Department"),
+    )
     inquiry_in_date = serializers.DateField(
         format=settings.SHORT_DATE_FORMAT,
         label=_("Arrival Department"),
@@ -143,7 +151,7 @@ class InstanceExportSerializerBE(InstanceExportSerializer):
             "district",
             "region",
             "in_rsta_date",
-            "inquiry_in_date",
+            "inquiry_created_date",
             "inquiry_out_date",
             "decision_date",
             "inquiry_answer",
@@ -153,7 +161,53 @@ class InstanceExportSerializerBE(InstanceExportSerializer):
 
 
 class InstanceExportSerializerSZ(InstanceExportSerializer):
-    pass
+    dossier_number = serializers.CharField(
+        source="identifier", label=_("Instance number")
+    )
+    form_name = serializers.CharField(
+        source="form.description",
+        label=_("Application Type"),
+    )
+    municipality = serializers.CharField(
+        source="location.name", label=_("Lead authority")
+    )
+    # TODO: applicants = serializers.CharField(label=_("Applicant"))
+    intent = serializers.CharField(label=_("Intent"))
+    address = serializers.CharField(label=_("Address"))
+    instance_state_name = serializers.CharField(
+        source="instance_state.description", label=_("Status")
+    )
+    submit_date = SubmitDateField(
+        default=None,
+        format=settings.SHORT_DATE_FORMAT,
+        label=_("Submission Date"),
+    )
+    inquiry_answer = serializers.CharField(label=_("Inquiry Assessment"))
+    decision_date_communal = serializers.DateField(
+        format=settings.SHORT_DATE_FORMAT,
+        label=_("Decision Date Communal"),
+    )
+    decision_date_cantonal = serializers.DateField(
+        format=settings.SHORT_DATE_FORMAT,
+        label=_("Decision Date Cantonal"),
+    )
 
     class Meta(InstanceExportSerializer.Meta):
-        pass
+        # Define order of the fields
+        fields = (
+            "dossier_number",
+            "form_name",
+            "municipality",
+            # TODO: "applicants",
+            "intent",
+            "address",
+            "instance_state_name",
+            "responsible_user",
+            "submit_date",
+            "inquiry_in_date",
+            "inquiry_out_date",
+            "inquiry_answer",
+            # "involved_services",
+            "decision_date_communal",
+            "decision_date_cantonal",
+        )

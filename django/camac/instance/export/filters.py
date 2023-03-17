@@ -21,8 +21,8 @@ from django.utils.translation import get_language
 from rest_framework.exceptions import ValidationError
 from rest_framework.filters import BaseFilterBackend
 
-from camac.core.models import InstanceService
-from camac.instance.models import InstanceStateT
+from camac.core.models import InstanceService, WorkflowEntry
+from camac.instance.models import FormField, InstanceStateT
 from camac.responsible.models import ResponsibleService
 from camac.user.models import Service, ServiceT
 
@@ -43,9 +43,9 @@ class InstanceExportFilterBackend(BaseFilterBackend):
         )
 
         if not instance_ids:
-            return ValidationError("Must provide 'instance_id' query parameter.")
+            raise ValidationError("Must provide 'instance_id' query parameter.")
         if len(instance_ids) > 1000:
-            return ValidationError("Maximum 1000 instances allowed at a time.")
+            raise ValidationError("Maximum 1000 instances allowed at a time.")
 
         return queryset.filter(pk__in=instance_ids)
 
@@ -69,8 +69,12 @@ class InstanceExportFilterBackend(BaseFilterBackend):
             addressed_groups__contains=[str(current_service)]
         )
 
-        inquiry_in_date = own_inquiries.order_by("created_at").values(
+        inquiry_created_date = own_inquiries.order_by("created_at").values(
             "created_at__date"
+        )[:1]
+
+        inquiry_in_date = own_inquiries.order_by("child_case__created_at").values(
+            "child_case__created_at__date"
         )[:1]
 
         inquiry_out_date = (
@@ -107,7 +111,9 @@ class InstanceExportFilterBackend(BaseFilterBackend):
 
         def service_name(pk_query):
             if settings.APPLICATION.get("IS_MULTILINGUAL"):
-                return ServiceT.objects.filter(service_id=pk_query, language=language)
+                return ServiceT.objects.filter(
+                    service_id=pk_query, language=language
+                )  # pragma: no cover
 
             return Service.objects.filter(pk=pk_query)
 
@@ -144,6 +150,7 @@ class InstanceExportFilterBackend(BaseFilterBackend):
         )
 
         return queryset.annotate(
+            inquiry_created_date=inquiry_created_date,
             inquiry_in_date=inquiry_in_date,
             inquiry_out_date=inquiry_out_date,
             inquiry_answer=inquiry_answer,
@@ -296,4 +303,67 @@ class InstanceExportFilterBackendBE(InstanceExportFilterBackend):
 
 
 class InstanceExportFilterBackendSZ(InstanceExportFilterBackend):
-    pass
+    def filter_queryset(self, request, queryset, view):
+        queryset = (
+            super().filter_queryset(request, queryset, view).order_by("-identifier")
+        )
+
+        answer = (
+            lambda name: FormField.objects.filter(
+                instance_id=OuterRef("pk"),
+                name=name,
+            )
+            .annotate(
+                # Return NULL if the answer is empty so this function returns
+                # the same on empty answers as on no answer at all.
+                string_value=NullIf(
+                    Trim(
+                        Replace(
+                            Cast("value", output_field=CharField()),
+                            Value('"'),
+                            Value(""),
+                        )
+                    ),
+                    Value(""),
+                ),
+            )
+            .values("string_value")[:1]
+        )
+
+        intent = Coalesce(answer("bezeichnung-override"), answer("bezeichnung"))
+
+        # `CONCAT_WS` always returns a string, even if all concatenated values
+        # are empty.
+        address = ConcatWS(
+            answer("ortsbezeichnung-des-vorhabens"),
+            answer("standort-spezialbezeichnung"),
+            answer("standort-ort"),
+            delimiter=", ",
+        )
+
+        submit_date = (
+            WorkflowEntry.objects.filter(instance=OuterRef("pk"), workflow_item_id=10)
+            .order_by("workflow_date")
+            .values("workflow_date")[:1]
+        )
+
+        # TODO: applicants
+
+        decision_date_communal = Answer.objects.filter(
+            question_id="bewilligungsverfahren-gr-sitzung-bewilligungsdatum",
+            document__work_item__case__instance=OuterRef("pk"),
+        ).values("date")[:1]
+
+        decision_date_cantonal = Answer.objects.filter(
+            question_id="bewilligungsverfahren-datum-gesamtentscheid",
+            document__work_item__case__instance=OuterRef("pk"),
+        ).values("date")[:1]
+
+        return queryset.annotate(
+            # TODO: applicants=applicants,
+            intent=intent,
+            address=address,
+            submit_date=submit_date,
+            decision_date_communal=decision_date_communal,
+            decision_date_cantonal=decision_date_cantonal,
+        ).select_related("form", "instance_state", "location")
