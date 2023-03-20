@@ -19,6 +19,7 @@
           <td>
             {{#if applicant.invitee}}
               {{applicant.invitee.fullName}}
+              <span class="uk-text-meta">({{applicant.invitee.email}})</span>
             {{else}}
               {{applicant.email}}
               <span class="uk-text-meta">({{t "instances.applicants.unregistered"}})</span>

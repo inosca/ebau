@@ -4,6 +4,7 @@ export default class UserModel extends Model {
   @attr name;
   @attr surname;
   @attr username;
+  @attr email;
 
   @belongsTo service;
 
