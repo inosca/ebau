@@ -1118,7 +1118,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         ]
 
     def _get_responsible(self, instance, service, work_item=None):
-        if not service.notification:
+        if not service or not service.notification:
             return []
 
         # Responsible user for the instance from various responsibility modules
