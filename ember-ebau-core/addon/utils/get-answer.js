@@ -20,11 +20,6 @@ export function getAnswerDisplayValue(document, slug, useLabel = true) {
   if (useLabel && answer.selectedOptions) {
     return answer.selectedOptions.edges.map((item) => item.node.label);
   }
-  if (answer.tableValue) {
-    return answer.tableValue.map((item) =>
-      item.answers.edges.map((edge) => edge.node.stringValue)
-    );
-  }
 
   const valueKey = Object.keys(answer).find((key) => /^\w+Value$/.test(key));
 
