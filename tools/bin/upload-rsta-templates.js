@@ -14,7 +14,7 @@ const DEFAULT_GROUPS = {
     22527, 22528, 22529, 22530, 22531, 22532, 22533, 22534, 22535, 22536,
   ],
   "https://ebau-test.sycloud.ch": [
-    22615, 22616, 22617, 22674, 22675, 22676, 22677, 22678, 22679, 22680,
+    22615, 22616, 22617, 22674, 22675, 22676, 22677, 22678, 22679, 22680, 23395,
   ],
   "https://www.ebau.apps.be.ch": [
     23602, 23603, 23604, 23605, 23606, 23607, 23608, 23609, 23610, 23616,
@@ -26,7 +26,8 @@ const getLength = (form) =>
 
 async function run() {
   const globPattern =
-    argv.pattern || "../document-merge-service/kt_bern/rsta_templates/*.docx";
+    argv.pattern ||
+    "../document-merge-service/kt_bern/rsta_templates/**/*.docx";
   const host = argv.host || "http://ebau.local";
   const groupIds = argv.groups || DEFAULT_GROUPS[host];
   const token = argv.token || process.env.TOKEN;
@@ -40,7 +41,9 @@ async function run() {
   const files = glob.sync(globPattern);
 
   for (let group of groups) {
-    console.log(chalk.bold(`\nDistributing files to group ${group}\n`));
+    console.log(
+      chalk.bold(`\nDistributing ${files.length} files to group ${group}\n`)
+    );
 
     const headers = {
       "x-camac-group": group,
@@ -68,15 +71,22 @@ async function run() {
     const existingTemplates = await existingResponse.json();
 
     if (del) {
-      return await deleteExisting(existingTemplates, host, headers, dry);
+      await deleteExisting(existingTemplates, host, headers, dry);
+      continue;
     }
 
     for (let file of files) {
-      const filename = file.split("/").slice(-1)[0].replace(".docx", "");
+      let [category, filename] = file.split("/").slice(-2);
+
+      filename = filename.replace(".docx", "");
+      category = filename.endsWith("_f2") ? null : category;
 
       const existing = existingTemplates.find(
         (template) =>
-          template.group !== null && template.description === filename
+          template.group !== null &&
+          [template.description, template.meta.rstaIdentifier].includes(
+            filename
+          )
       );
 
       const slug = existing ? existing.slug : v4();
@@ -84,6 +94,10 @@ async function run() {
 
       const body = new FormData();
       body.append("description", filename);
+      body.append(
+        "meta",
+        JSON.stringify({ category, rstaIdentifier: filename })
+      );
       body.append("slug", slug);
       body.append("engine", "docx-template");
       body.append("template", createReadStream(file));
@@ -129,8 +143,10 @@ async function run() {
 async function deleteExisting(existing, host, headers, dry) {
   const method = "DELETE";
 
-  const templatesToDelete = existing?.filter((template) =>
-    /^(bpv|nhhe|nhsb|rsta)_/.test(template.description)
+  const templatesToDelete = existing?.filter(
+    (template) =>
+      template.meta.rstaIdentifier ||
+      /^(bpv|nhhe|nhsb|rsta)_/.test(template.description)
   );
 
   if (!templatesToDelete?.length) {
