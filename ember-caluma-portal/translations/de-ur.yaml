@@ -5,9 +5,6 @@ global:
 nav:
   public-instance: "Bauplanauflage"
 
-support:
-  info: "Im Falle von Problemen oder Fragen, welche durch die hinterlegten Hilfestellungen nicht geklärt werden, können Sie sich entweder an <b>die zuständige Bauverwaltung der entsprechenden Gemeinde</b> oder an <b>das Amt für Raumentwicklung</b> wenden."
-
 index:
   welcome: "Willkommen im Portal für elektronische Verfahrenskoordination des Kantons Uri"
 
