@@ -70,11 +70,11 @@ dms:
       </tbody>
     </table>
     <p>Exemple pour les listes :</p>
-    '{%li for OFFICE in OFFICES_CANTONAUX %'}
+    '{%p for OFFICE in OFFICES_CANTONAUX %'}
     <ul class=''uk-list uk-list-bullet uk-margin-remove''>
       <li>
         '{{ OFFICE.NOM '}} (délai: '{{ OFFICE.DELAI '}})
       </li>
     </ul>
-    '{%li endfor %'}
+    '{%p endfor %'}
     "
