@@ -10,7 +10,7 @@
           <div class="uk-width-expand">
             {{#if attachment.path}}
               <a href="#" title={{t "documents.download"}} class="uk-text-bold uk-text-link" {{on "click" (perform attachment.download)}}>
-                {{or attachment.context.displayName attachment.name}} {{if attachment.context.isConfidential (t "documents.confidential") ""}}
+                {{attachment.displayNameOrReplaced}} {{if attachment.context.isConfidential (t "documents.confidential") ""}}
               </a>
             {{else}}
               <span class="uk-text-bold">{{or attachment.context.displayName attachment.name}}</span>
