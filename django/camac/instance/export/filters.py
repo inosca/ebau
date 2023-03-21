@@ -69,10 +69,6 @@ class InstanceExportFilterBackend(BaseFilterBackend):
             addressed_groups__contains=[str(current_service)]
         )
 
-        inquiry_created_date = own_inquiries.order_by("created_at").values(
-            "created_at__date"
-        )[:1]
-
         inquiry_in_date = own_inquiries.order_by("child_case__created_at").values(
             "child_case__created_at__date"
         )[:1]
@@ -150,7 +146,6 @@ class InstanceExportFilterBackend(BaseFilterBackend):
         )
 
         return queryset.annotate(
-            inquiry_created_date=inquiry_created_date,
             inquiry_in_date=inquiry_in_date,
             inquiry_out_date=inquiry_out_date,
             inquiry_answer=inquiry_answer,
