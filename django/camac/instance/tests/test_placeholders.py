@@ -1,6 +1,5 @@
 import pathlib
 from datetime import date
-from itertools import chain
 
 import faker
 import pytest
@@ -18,10 +17,19 @@ from camac.constants.kt_bern import (
     DECISION_TYPE_OVERALL_BUILDING_PERMIT,
     VORABKLAERUNG_DECISIONS_BEWILLIGT,
 )
-from camac.instance.placeholders.aliases import ALIASES
 from camac.instance.placeholders.utils import human_readable_date
 
 from .test_master_data import add_answer, add_table_answer, be_master_data_case  # noqa
+
+
+@pytest.fixture
+def be_languages(settings):
+    original_languages = settings.LANGUAGES
+    settings.LANGUAGES = [
+        (code, name) for code, name in settings.LANGUAGES if code in ["de", "fr"]
+    ]
+    yield
+    settings.LANGUAGES = original_languages
 
 
 @pytest.fixture
@@ -69,6 +77,7 @@ def test_dms_placeholders(
     status_question,
     stellungnahme_question,
     nebenbestimmungen_question,
+    be_languages,
 ):
 
     application_settings["MUNICIPALITY_DATA_SHEET"] = settings.ROOT_DIR(
@@ -379,6 +388,7 @@ def test_dms_placeholders_empty(
     application_settings,
     be_instance,
     snapshot,
+    be_languages,
 ):
     application_settings["MUNICIPALITY_DATA_SHEET"] = settings.ROOT_DIR(
         "kt_bern",
@@ -395,35 +405,6 @@ def test_dms_placeholders_empty(
     snapshot.assert_match(response.json())
 
 
-def test_dms_placeholder_alias_integrity():
-    assert list(ALIASES.keys()) == list(
-        sorted(ALIASES.keys())
-    ), "Aliases are not properly sorted"
-
-    simple_aliases = list(chain(*[v for k, v in ALIASES.items() if "." not in k]))
-
-    for alias in simple_aliases:
-        keys = ", ".join([f'"{k}"' for k, v in ALIASES.items() if alias in v])
-        assert (
-            simple_aliases.count(alias) == 1
-        ), f'Duplicate alias "{alias}" in "{keys}"'
-
-    complex_aliases = {}
-    for key, aliases in ALIASES.items():
-        if "." in key:
-            k = key.split(".")[0]
-            if k not in complex_aliases:
-                complex_aliases[k] = []
-
-            complex_aliases[k].append(*aliases)
-
-    for key, aliases in complex_aliases.items():
-        for alias in aliases:
-            assert (
-                complex_aliases[key].count(alias) == 1
-            ), f'Duplicate complex alias "{alias}" in "{key}"'
-
-
 @pytest.mark.freeze_time("2023-01-24")
 @pytest.mark.parametrize(
     "language,expected",
@@ -432,3 +413,19 @@ def test_dms_placeholder_alias_integrity():
 def test_human_readable_date(language, expected):
     with override(language):
         assert human_readable_date(date.today()) == expected
+
+
+def test_dms_placeholders_docs(admin_client, snapshot, be_languages):
+    response = admin_client.get(reverse("dms-placeholders-docs"))
+    assert response.status_code == status.HTTP_200_OK
+    snapshot.assert_match(response.json())
+
+
+def test_dms_placeholders_docs_available_placeholders(
+    admin_client, snapshot, be_languages
+):
+    response = admin_client.get(
+        reverse("dms-placeholders-docs"), data={"available_placeholders": True}
+    )
+    assert response.status_code == status.HTTP_200_OK
+    snapshot.assert_match(response.json())

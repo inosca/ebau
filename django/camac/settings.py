@@ -3655,7 +3655,10 @@ TIME_ZONE = "Europe/Zurich"
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
-LOCALE_PATHS = (os.path.join(ROOT_DIR, "locale"),)
+LOCALE_PATHS = (
+    os.path.join(ROOT_DIR, "camac", "instance", "placeholders", "locale"),
+    os.path.join(ROOT_DIR, "locale"),
+)
 
 
 AUTH_PASSWORT_SALT = "ds5fsdFd763znsPO"
