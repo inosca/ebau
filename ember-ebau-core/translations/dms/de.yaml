@@ -70,11 +70,11 @@ dms:
       </tbody>
     </table>
     <p>Beispiel für Listen:</p>
-    '{%li for FACHSTELLE in ZIRKULATION_ALLE %'}
+    '{%p for FACHSTELLE in ZIRKULATION_ALLE %'}
     <ul class=''uk-list uk-list-bullet uk-margin-remove''>
       <li>
         '{{ FACHSTELLE.NAME '}} (Frist: '{{ FACHSTELLE.FRIST '}})
       </li>
     </ul>
-    '{%li endfor %'}
+    '{%p endfor %'}
     "
