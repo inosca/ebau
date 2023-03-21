@@ -402,7 +402,7 @@
       "attachment_section": 14,
       "language": "de",
       "name": "Rechtsbegehren",
-      "description": ""
+      "description": "Hier werden von der Leitbehörde Dokumente hochgeladen, welche für alle am Verfahren beteiligten Rollen einsehbar sein sollen (z.B. Einsprachen, Rechtsverwahrung, Lastenausgleichsbegehren). Gesuchstellenden werden diese Dokumente im eBau-Portal unter \"Rückmeldungen\" angezeigt."
     }
   },
   {
@@ -412,7 +412,7 @@
       "attachment_section": 14,
       "language": "fr",
       "name": "Rechtsbegehren",
-      "description": ""
+      "description": "C'est là que les documents visibles par toutes les parties impliquées dans la procédure sont téléchargés par l'autorité directrice (par exemple, oppositions, réserves de droit, demandes en compensation des charges). Les personnes requérantes peuvent consulter ces documents sur le portail eBau, sous la rubrique \"Remarques\"."
     }
   }
 ]
