@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-23 11:50+0100\n"
+"POT-Creation-Date: 2023-03-24 10:25+0100\n"
 "PO-Revision-Date: 2023-03-07 09:59+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -156,7 +156,7 @@ msgstr ""
 "combiner les recherches.\n"
 "            "
 
-#: camac/document/filters.py:83
+#: camac/document/filters.py:84
 msgid ""
 "The \"attachments\" filter must consist of a comma delimited list of "
 "attachment PKs!"
@@ -408,9 +408,7 @@ msgid "Keywords"
 msgstr "Mots-clés"
 
 #: camac/instance/document_merge_service.py:83
-#: camac/instance/export/serializers.py:94
-#: camac/instance/placeholders/fields.py:67
-#: camac/notification/serializers.py:69
+#: camac/instance/export/serializers.py:94 camac/notification/serializers.py:69
 msgid "Municipality"
 msgstr "Municipalité"
 
