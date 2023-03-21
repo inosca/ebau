@@ -34,10 +34,6 @@ class InstanceExportListSerializer(serializers.ListSerializer):
 
 class InstanceExportSerializer(serializers.Serializer):
     responsible_user = serializers.CharField(label=_("Responsible"))
-    inquiry_created_date = serializers.DateField(
-        format=settings.SHORT_DATE_FORMAT,
-        label=_("Arrival Department"),
-    )
     inquiry_in_date = serializers.DateField(
         format=settings.SHORT_DATE_FORMAT,
         label=_("Arrival Department"),
@@ -151,7 +147,7 @@ class InstanceExportSerializerBE(InstanceExportSerializer):
             "district",
             "region",
             "in_rsta_date",
-            "inquiry_created_date",
+            "inquiry_in_date",
             "inquiry_out_date",
             "decision_date",
             "inquiry_answer",
