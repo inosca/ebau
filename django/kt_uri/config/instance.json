@@ -574,7 +574,7 @@
     "pk": 296,
     "fields": {
       "form_state": 1,
-      "name": "ÖREB Verfahren",
+      "name": "ÖREB Verfahren Kanton",
       "description": "KOOR-ARE-NP;Koordinationsstelle für Nutzungsplanung Amt für Raumentwicklung",
       "family": null
     }
@@ -656,6 +656,16 @@
       "form_state": 1,
       "name": "PGV Gemeindestrasse",
       "description": "KOOR-BD;Koordinationsstelle für Bewilligungsverfahren Baudirektion",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 305,
+    "fields": {
+      "form_state": 1,
+      "name": "ÖREB Verfahren Gemeinde",
+      "description": "KOOR-ARE-NP;Koordinationsstelle für Nutzungsplanung Amt für Raumentwicklung",
       "family": null
     }
   },

@@ -1102,15 +1102,16 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             instance={"type": "instances", "id": self.instance.pk},
         )
 
-    def _set_submit_date(self, validated_data):
+    def _set_submit_date(self, validated_data, instance=None):
+        instance = instance if instance else self.instance
         submit_date = timezone.now().strftime(SUBMIT_DATE_FORMAT)
 
-        changed = CalumaApi().set_submit_date(self.instance.pk, submit_date)
+        changed = CalumaApi().set_submit_date(instance.pk, submit_date)
         if settings.APPLICATION.get("SET_SUBMIT_DATE_CAMAC_ANSWER") and changed:
             # Set submit date in Camac first...
             # TODO drop this after this is not used anymore in Camac
             Answer.objects.get_or_create(
-                instance=self.instance,
+                instance=instance,
                 question_id=SUBMIT_DATE_QUESTION_ID,
                 item=1,
                 chapter_id=SUBMIT_DATE_CHAPTER,
@@ -1120,7 +1121,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         elif settings.APPLICATION.get("SET_SUBMIT_DATE_CAMAC_WORKFLOW"):
             WorkflowEntry.objects.create(
                 workflow_date=submit_date,
-                instance=self.instance,
+                instance=instance,
                 workflow_item_id=uri_constants.WORKFLOW_ITEM_DOSSIER_ERFASST,
                 group=1,
             )
@@ -1221,6 +1222,55 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
 
         self._update_instance_location(instance)
 
+    def _copy_oereb_instance_for_koor_afj(self, instance):
+        if instance.case.document.form.slug in [
+            "oereb",
+            "oereb-verfahren-gemeinde",
+        ] and instance.case.document.answers.filter(
+            value__in=[
+                "waldfeststellung-mit-statischen-waldgrenzen-kanton-ja",
+                "waldfeststellung-mit-statischen-waldgrenzen-gemeinde-ja",
+            ]
+        ):
+            caluma_form = caluma_api.get_form_slug(instance)
+
+            data = {
+                "generate_identifier": True,
+                "form": models.Form.objects.get(form_id=instance.form_id),
+                "group": self.context.get("request").group,
+                "instance_state": instance.instance_state,
+                "previous_instance_state": instance.previous_instance_state,
+                "user": self.context["request"].user,
+            }
+
+            koor_afj_instance = domain_logic.CreateInstanceLogic.create(
+                data,
+                caluma_user=self.context["request"].caluma_info.context.user,
+                camac_user=self.context["request"].user,
+                group=self.context.get("request").group,
+                lead=self.initial_data.get("lead", None),
+                is_modification=False,
+                is_paper=True,
+                caluma_form=caluma_form,
+                source_instance=instance,
+            )
+            koor_afj_instance.group = Group.objects.get(
+                pk=uri_constants.KOOR_AFJ_GROUP_ID
+            )
+            koor_afj_instance.instance_state = models.InstanceState.objects.get(
+                name="ext"
+            )
+            if instance.case.document.form.slug == "oereb-verfahren-gemeinde":
+                koor_afj_instance.instance_state = models.InstanceState.objects.get(
+                    name="subm"
+                )
+            self._update_instance_location(koor_afj_instance)
+            koor_afj_instance.save()
+            self._generate_and_store_pdf(koor_afj_instance)
+            self._set_submit_date(None, koor_afj_instance)
+            self._set_authority(koor_afj_instance)
+            self._send_notifications(koor_afj_instance.case)
+
     def _send_notifications(self, case):
         notification_key = "SUBMIT"
         if case.workflow_id == "preliminary-clarification":  # pragma: no cover
@@ -1239,6 +1289,8 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             notification_key = "SUBMIT_KOOR_AFE"
         if case.document.form_id == "pgv-gemeindestrasse":
             notification_key = "SUBMIT_KOOR_BD"
+        if case.document.form_id == "oereb":
+            notification_key = "SUBMIT_KOOR_NP"
 
         # send out emails upon submission
         for notification_config in settings.APPLICATION["NOTIFICATIONS"][
@@ -1315,6 +1367,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         if settings.APPLICATION_NAME == "kt_uri":
             self._internal_submission(instance, self.context["request"].group)
             self._prepare_cantonal_instances(instance)
+            self._copy_oereb_instance_for_koor_afj(instance)
 
         instance.save()
 
