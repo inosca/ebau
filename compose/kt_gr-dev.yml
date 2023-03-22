@@ -112,6 +112,8 @@ services:
       ]
 
   alexandria:
+    volumes:
+      - ../alexandria/gr:/app/alexandria/gr
     ports:
       - "8000:8000"
     depends_on:

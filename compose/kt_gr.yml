@@ -115,7 +115,7 @@ services:
       - db
       - minio
     volumes:
-      - ../alexandria/demo/dump.json:/tmp/alexandria/dump.json
+      - ../alexandria/gr/dump.json:/tmp/alexandria/dump.json
 
     environment:
       - ENV=development
@@ -125,6 +125,8 @@ services:
       - MINIO_STORAGE_SERVICE=minio
       - MINIO_STORAGE_ACCESS_KEY=minio
       - LANGUAGES=de-ch,en
+      - VISIBILITY_CLASSES=alexandria.gr.extensions.visibilities.CustomVisibility
+      - PERMISSION_CLASSES=alexandria.gr.extensions.permissions.CustomPermission
 
   minio:
     image: minio/minio:latest@sha256:7f84f4d07cf0d3562911c6b072e1183436fbc3cad8ccef8157ec5c27456ed452

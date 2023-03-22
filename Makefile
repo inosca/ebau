@@ -173,11 +173,11 @@ kt_uri: ## Set APPLICATION to kt_uri
 	$(call set_app,kt_uri)
 
 .PHONY: kt_schwyz
-kt_schwyz: ## Set APPLICATION to kt_uri
+kt_schwyz: ## Set APPLICATION to kt_schwyz
 	$(call set_app,kt_schwyz)
 
 .PHONY: kt_bern
-kt_bern: ## Set APPLICATION to kt_uri
+kt_bern: ## Set APPLICATION to kt_bern
 	$(call set_app,kt_bern)
 
 .PHONY: kt_gr
@@ -185,7 +185,7 @@ kt_gr: ## Set APPLICATION to kt_gr
 	$(call set_app,kt_gr)
 
 .PHONY: demo
-demo: ## Set APPLICATION to kt_uri
+demo: ## Set APPLICATION to demo
 	$(call set_app,demo)
 
 .PHONY: profile-full
