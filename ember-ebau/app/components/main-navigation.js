@@ -6,10 +6,16 @@ import { dropTask } from "ember-concurrency";
 import { trackedTask } from "ember-resources/util/ember-concurrency";
 import UIkit from "uikit";
 
+import config from "ebau/config/environment";
+
+const { languages } = config;
+
 export default class MainNavigationComponent extends Component {
   @service session;
   @service store;
   @service router;
+
+  languages = languages;
 
   groups = trackedTask(this, this.fetchGroups, () => [this.session.group]);
 
@@ -48,6 +54,21 @@ export default class MainNavigationComponent extends Component {
       return;
     }
     return yield this.store.query("resource", {});
+  }
+
+  @action
+  async setLanguage(language, event) {
+    event?.preventDefault();
+
+    if (this.router.currentRoute?.queryParams.language) {
+      await this.router.replaceWith({ queryParams: { language: null } });
+    }
+
+    this.session.language = language;
+
+    if (macroCondition(!isTesting())) {
+      window.location.reload();
+    }
   }
 
   @action
