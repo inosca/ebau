@@ -1,6 +1,6 @@
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
-import { isDevelopingApp, macroCondition } from "@embroider/macros";
+import { isDevelopingApp, isTesting, macroCondition } from "@embroider/macros";
 import Component from "@glimmer/component";
 
 import config from "caluma-portal/config/environment";
@@ -64,7 +64,7 @@ export default class BeNavbarComponent extends Component {
     this.session.groupId = groupId;
 
     // Hard reload the whole page so the data is refetched
-    if (environment !== "test") {
+    if (macroCondition(!isTesting())) {
       window.location.reload();
     }
   }
@@ -80,7 +80,7 @@ export default class BeNavbarComponent extends Component {
     this.session.language = language;
 
     // Hard reload the whole page so the data is refetched
-    if (environment !== "test") {
+    if (macroCondition(!isTesting())) {
       window.location.reload();
     }
   }

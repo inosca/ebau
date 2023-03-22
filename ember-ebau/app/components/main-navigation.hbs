@@ -51,6 +51,27 @@
           {{/if}}
         </li>
         <li class="uk-margin-small-right">
+          <a href="#">{{this.session.language}}</a>
+          <div
+            uk-dropdown
+            animation="uk-animation-slide-top-small"
+            duration="300"
+            mode="click"
+            pos="bottom-right"
+            id="locale-dropdown"
+           >
+            <ul class="uk-nav uk-dropdown-nav">
+              {{#each this.languages as |lang|}}
+                <li>
+                  <a href="#" class="uk-text-uppercase" {{on "click" (fn this.setLanguage lang)}}>
+                    {{lang}}
+                  </a>
+                </li>
+              {{/each}}
+            </ul>
+          </div>
+        </li>
+        <li class="uk-margin-small-right">
           <a href="#" title={{t "nav.logout"}} {{on "click" this.logout}}>
             <UkIcon @icon="sign-out" />
             <span class="uk-hidden">
