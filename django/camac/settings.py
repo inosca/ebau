@@ -2162,6 +2162,7 @@ APPLICATIONS = {
                         "konzession-waermeentnahme",
                         "bohrbewilligung-waermeentnahme",
                         "pgv-gemeindestrasse",
+                        "oereb-verfahren-gemeinde",
                     ],
                     "people_sources": [
                         "applicant",
@@ -2292,6 +2293,16 @@ APPLICATIONS = {
                 {
                     "template_slug": "dossier-eingereicht-koor-afe",
                     "recipient_types": ["koor_afe_users"],
+                },
+            ],
+            "SUBMIT_KOOR_NP": [
+                {
+                    "template_slug": "dossier-eingereicht-gesuchsteller",
+                    "recipient_types": ["applicant"],
+                },
+                {
+                    "template_slug": "dossier-eingereicht-koor-np",
+                    "recipient_types": ["koor_np_users"],
                 },
             ],
             "APPLICANT": {

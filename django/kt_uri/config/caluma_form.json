@@ -1012,12 +1012,12 @@
     "pk": "oereb",
     "fields": {
       "created_at": "2020-12-07T15:52:09.095Z",
-      "modified_at": "2021-03-16T08:31:04.969Z",
+      "modified_at": "2023-02-03T13:22:28.690Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
-      "name": "{\"de\": \"\\u00d6REB Verfahren\", \"fr\": null}",
+      "name": "{\"de\": \"\\u00d6REB Verfahren Kanton\", \"fr\": null}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {
         "category": "special-procedure",
@@ -1040,7 +1040,48 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"\\u00d6REB Verfahren\", \"fr\": null}",
+      "name": "{\"de\": \"\\u00d6REB Verfahren Kanton\", \"fr\": null}",
+      "description": "{\"de\": \"\", \"fr\": null}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "oereb-verfahren-gemeinde",
+    "fields": {
+      "created_at": "2023-02-03T13:23:53.131Z",
+      "modified_at": "2023-02-03T13:23:53.131Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"\\u00d6REB Verfahren Gemeinde\", \"fr\": null}",
+      "description": "{\"de\": \"\", \"fr\": null}",
+      "meta": {
+        "category": "special-procedure",
+        "is-creatable": true,
+        "is-main-form": true,
+        "camac-form-id": 305
+      },
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "oereb-verfahren-gemeinde-form",
+    "fields": {
+      "created_at": "2023-02-03T13:25:56.610Z",
+      "modified_at": "2023-02-03T13:25:56.610Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"\\u00d6REB Verfahren Gemeinde\", \"fr\": null}",
       "description": "{\"de\": \"\", \"fr\": null}",
       "meta": {},
       "is_published": true,
@@ -9001,47 +9042,257 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "oereb-verfahren.art-der-revision",
+    "pk": "oereb-verfahren-gemeinde-form.art-der-revision",
     "fields": {
-      "created_at": "2020-11-11T09:18:32.580Z",
-      "modified_at": "2020-11-11T09:18:32.580Z",
-      "created_by_user": null,
+      "created_at": "2023-02-03T13:27:20.594Z",
+      "modified_at": "2023-02-03T13:27:20.594Z",
+      "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "form": "oereb-verfahren",
+      "form": "oereb-verfahren-gemeinde-form",
       "question": "art-der-revision",
-      "sort": 7
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "oereb-verfahren.art-snp",
-    "fields": {
-      "created_at": "2020-11-11T09:31:09.833Z",
-      "modified_at": "2020-11-11T09:31:09.833Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "oereb-verfahren",
-      "question": "art-snp",
       "sort": 6
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "oereb-verfahren.art-snpbl-gemeinde",
+    "pk": "oereb-verfahren-gemeinde-form.art-snp",
     "fields": {
-      "created_at": "2020-11-11T09:47:42.504Z",
-      "modified_at": "2020-11-11T09:47:42.504Z",
-      "created_by_user": null,
+      "created_at": "2023-02-03T13:27:27.147Z",
+      "modified_at": "2023-02-03T13:27:27.147Z",
+      "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "form": "oereb-verfahren",
-      "question": "art-snpbl-gemeinde",
+      "form": "oereb-verfahren-gemeinde-form",
+      "question": "art-snp",
       "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "oereb-verfahren-gemeinde-form.art-snpbl-gemeinde",
+    "fields": {
+      "created_at": "2023-02-03T13:27:46.904Z",
+      "modified_at": "2023-02-03T13:27:46.904Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "oereb-verfahren-gemeinde-form",
+      "question": "art-snpbl-gemeinde",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "oereb-verfahren-gemeinde-form.bemerkungen-np",
+    "fields": {
+      "created_at": "2023-02-03T13:28:26.459Z",
+      "modified_at": "2023-02-03T13:28:26.459Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "oereb-verfahren-gemeinde-form",
+      "question": "bemerkungen-np",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "oereb-verfahren-gemeinde-form.hinweis-statische-waldgrenze-gemeinde",
+    "fields": {
+      "created_at": "2023-02-03T14:45:45.642Z",
+      "modified_at": "2023-02-03T14:45:45.642Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "oereb-verfahren-gemeinde-form",
+      "question": "hinweis-statische-waldgrenze-gemeinde",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "oereb-verfahren-gemeinde-form.oereb-thema-gemeinde",
+    "fields": {
+      "created_at": "2023-02-03T13:46:33.958Z",
+      "modified_at": "2023-02-03T13:46:33.958Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "oereb-verfahren-gemeinde-form",
+      "question": "oereb-thema-gemeinde",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "oereb-verfahren-gemeinde-form.oereb-titel",
+    "fields": {
+      "created_at": "2023-02-03T13:26:04.847Z",
+      "modified_at": "2023-02-03T13:26:04.847Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "oereb-verfahren-gemeinde-form",
+      "question": "oereb-titel",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "oereb-verfahren-gemeinde-form.typ-des-verfahrens",
+    "fields": {
+      "created_at": "2023-02-03T13:26:47.679Z",
+      "modified_at": "2023-02-03T13:26:47.679Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "oereb-verfahren-gemeinde-form",
+      "question": "typ-des-verfahrens",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "oereb-verfahren-gemeinde-form.verfahrensinhalt-gemeinde",
+    "fields": {
+      "created_at": "2023-02-03T14:02:35.823Z",
+      "modified_at": "2023-02-03T14:02:35.823Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "oereb-verfahren-gemeinde-form",
+      "question": "verfahrensinhalt-gemeinde",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "oereb-verfahren-gemeinde-form.waldfeststellung-mit-statischen-waldgrenzen-gemeinde",
+    "fields": {
+      "created_at": "2023-02-03T14:34:13.156Z",
+      "modified_at": "2023-02-03T14:34:13.156Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "oereb-verfahren-gemeinde-form",
+      "question": "waldfeststellung-mit-statischen-waldgrenzen-gemeinde",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "oereb-verfahren-gemeinde-form.weitere-baulinien",
+    "fields": {
+      "created_at": "2023-02-03T13:28:18.052Z",
+      "modified_at": "2023-02-03T13:28:18.052Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "oereb-verfahren-gemeinde-form",
+      "question": "weitere-baulinien",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "oereb-verfahren-gemeinde.allgemeine-informationen-oereb",
+    "fields": {
+      "created_at": "2023-02-03T13:24:04.906Z",
+      "modified_at": "2023-02-03T13:24:04.906Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "oereb-verfahren-gemeinde",
+      "question": "allgemeine-informationen-oereb",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "oereb-verfahren-gemeinde.dokumente-spezialgesuch",
+    "fields": {
+      "created_at": "2023-02-03T13:24:36.198Z",
+      "modified_at": "2023-02-03T13:24:36.198Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "oereb-verfahren-gemeinde",
+      "question": "dokumente-spezialgesuch",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "oereb-verfahren-gemeinde.einreichen",
+    "fields": {
+      "created_at": "2023-02-03T13:24:43.511Z",
+      "modified_at": "2023-02-03T13:24:43.511Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "oereb-verfahren-gemeinde",
+      "question": "einreichen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "oereb-verfahren-gemeinde.lokalisierung",
+    "fields": {
+      "created_at": "2023-02-03T13:24:17.551Z",
+      "modified_at": "2023-02-03T13:24:17.551Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "oereb-verfahren-gemeinde",
+      "question": "lokalisierung",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "oereb-verfahren-gemeinde.oereb-verfahren-gemeinde-form-question",
+    "fields": {
+      "created_at": "2023-02-03T13:29:43.182Z",
+      "modified_at": "2023-02-03T13:29:43.182Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "oereb-verfahren-gemeinde",
+      "question": "oereb-verfahren-gemeinde-form-question",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "oereb-verfahren-gemeinde.personalien",
+    "fields": {
+      "created_at": "2023-02-03T13:24:25.575Z",
+      "modified_at": "2023-02-03T13:24:25.575Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "oereb-verfahren-gemeinde",
+      "question": "personalien",
+      "sort": 3
     }
   },
   {
@@ -9071,7 +9322,7 @@
       "modified_by_group": null,
       "form": "oereb-verfahren",
       "question": "bezeichnung",
-      "sort": 11
+      "sort": 8
     }
   },
   {
@@ -9086,7 +9337,22 @@
       "modified_by_group": null,
       "form": "oereb-verfahren",
       "question": "grundwasserschutz-art",
-      "sort": 3
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "oereb-verfahren.hinweis-statische-waldgrenze-kanton",
+    "fields": {
+      "created_at": "2023-02-03T14:43:16.842Z",
+      "modified_at": "2023-02-03T14:43:16.842Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "oereb-verfahren",
+      "question": "hinweis-statische-waldgrenze-kanton",
+      "sort": 4
     }
   },
   {
@@ -9101,7 +9367,7 @@
       "modified_by_group": null,
       "form": "oereb-verfahren",
       "question": "oereb-thema",
-      "sort": 9
+      "sort": 6
     }
   },
   {
@@ -9116,7 +9382,7 @@
       "modified_by_group": null,
       "form": "oereb-verfahren",
       "question": "oereb-titel",
-      "sort": 12
+      "sort": 9
     }
   },
   {
@@ -9131,7 +9397,7 @@
       "modified_by_group": null,
       "form": "oereb-verfahren",
       "question": "typ-des-verfahrens",
-      "sort": 10
+      "sort": 7
     }
   },
   {
@@ -9146,22 +9412,22 @@
       "modified_by_group": null,
       "form": "oereb-verfahren",
       "question": "verfahrensinhalt",
-      "sort": 4
+      "sort": 3
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "oereb-verfahren.weitere-baulinien",
+    "pk": "oereb-verfahren.waldfeststellung-mit-statischen-waldgrenzen-kanton",
     "fields": {
-      "created_at": "2020-11-11T09:58:52.762Z",
-      "modified_at": "2020-11-11T09:58:52.762Z",
-      "created_by_user": null,
+      "created_at": "2023-02-03T14:40:34.220Z",
+      "modified_at": "2023-02-03T14:40:34.220Z",
+      "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "oereb-verfahren",
-      "question": "weitere-baulinien",
-      "sort": 2
+      "question": "waldfeststellung-mit-statischen-waldgrenzen-kanton",
+      "sort": 5
     }
   },
   {
@@ -17163,7 +17429,7 @@
     "pk": "art-der-revision-gesamtrevision",
     "fields": {
       "created_at": "2020-11-11T09:18:32.383Z",
-      "modified_at": "2021-11-05T08:30:09.770Z",
+      "modified_at": "2023-02-03T13:57:59.305Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -17179,7 +17445,7 @@
     "pk": "art-der-revision-teilrevision",
     "fields": {
       "created_at": "2020-11-11T09:18:32.384Z",
-      "modified_at": "2021-11-05T08:30:09.774Z",
+      "modified_at": "2023-02-03T13:57:59.323Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -17451,7 +17717,7 @@
     "pk": "art-snp-qgp",
     "fields": {
       "created_at": "2020-11-11T09:31:09.608Z",
-      "modified_at": "2021-11-05T08:23:33.506Z",
+      "modified_at": "2023-02-03T13:57:47.566Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -17467,7 +17733,7 @@
     "pk": "art-snp-qp",
     "fields": {
       "created_at": "2020-11-11T09:31:09.616Z",
-      "modified_at": "2021-11-05T08:23:33.499Z",
+      "modified_at": "2023-02-03T13:57:47.569Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -17483,7 +17749,7 @@
     "pk": "art-snpbl-gemeinde-bl-gewaesser",
     "fields": {
       "created_at": "2020-11-11T09:47:42.205Z",
-      "modified_at": "2021-11-05T08:38:47.221Z",
+      "modified_at": "2023-02-03T14:00:07.013Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -17499,7 +17765,7 @@
     "pk": "art-snpbl-gemeinde-bl-immissionsschutz",
     "fields": {
       "created_at": "2020-11-11T09:47:42.253Z",
-      "modified_at": "2021-11-05T08:38:47.114Z",
+      "modified_at": "2023-02-03T14:00:07.023Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -17515,7 +17781,7 @@
     "pk": "art-snpbl-gemeinde-bl-strasse",
     "fields": {
       "created_at": "2020-11-11T09:47:42.222Z",
-      "modified_at": "2021-11-05T08:38:47.213Z",
+      "modified_at": "2023-02-03T14:00:06.923Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -17531,7 +17797,7 @@
     "pk": "art-snpbl-gemeinde-bl-waldabstand",
     "fields": {
       "created_at": "2020-11-11T09:47:42.261Z",
-      "modified_at": "2021-11-05T08:38:47.178Z",
+      "modified_at": "2023-02-03T14:00:07.010Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -17547,7 +17813,7 @@
     "pk": "art-snpbl-gemeinde-bl-weitere",
     "fields": {
       "created_at": "2020-11-11T09:47:42.278Z",
-      "modified_at": "2021-11-05T08:38:47.245Z",
+      "modified_at": "2023-02-03T14:00:07.072Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -19995,7 +20261,7 @@
     "pk": "form-type-afe-korporationsgewaesser",
     "fields": {
       "created_at": "2020-11-02T11:28:59.418Z",
-      "modified_at": "2023-01-19T17:22:23.033Z",
+      "modified_at": "2023-02-03T13:52:42.126Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20011,7 +20277,7 @@
     "pk": "form-type-archiv",
     "fields": {
       "created_at": "2020-10-30T13:24:54.836Z",
-      "modified_at": "2023-01-19T17:22:20.780Z",
+      "modified_at": "2023-02-03T13:52:40.691Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20027,7 +20293,7 @@
     "pk": "form-type-archiv-afj",
     "fields": {
       "created_at": "2020-11-02T09:52:43.003Z",
-      "modified_at": "2023-01-19T17:22:22.153Z",
+      "modified_at": "2023-02-03T13:52:41.310Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20043,7 +20309,7 @@
     "pk": "form-type-baubewilligungsverfahren",
     "fields": {
       "created_at": "2022-03-14T07:33:58.907Z",
-      "modified_at": "2023-01-19T17:22:23.789Z",
+      "modified_at": "2023-02-03T13:52:42.657Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20059,7 +20325,7 @@
     "pk": "form-type-baugesuch-vorabklaerung",
     "fields": {
       "created_at": "2022-03-14T08:11:12.559Z",
-      "modified_at": "2023-01-19T17:22:23.826Z",
+      "modified_at": "2023-02-03T13:52:42.611Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20075,7 +20341,7 @@
     "pk": "form-type-bauverwaltung",
     "fields": {
       "created_at": "2022-09-16T12:43:15.567Z",
-      "modified_at": "2023-01-19T17:22:24.002Z",
+      "modified_at": "2023-02-03T13:52:42.773Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20091,7 +20357,7 @@
     "pk": "form-type-bd-kantonsgewaesser",
     "fields": {
       "created_at": "2020-10-30T14:09:54.990Z",
-      "modified_at": "2023-01-19T17:22:21.419Z",
+      "modified_at": "2023-02-03T13:52:40.878Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20107,7 +20373,7 @@
     "pk": "form-type-bgbb",
     "fields": {
       "created_at": "2020-10-30T13:23:29.217Z",
-      "modified_at": "2023-01-19T17:22:20.775Z",
+      "modified_at": "2023-02-03T13:52:40.665Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20123,7 +20389,7 @@
     "pk": "form-type-bohrbewilligung-waermeentnahme",
     "fields": {
       "created_at": "2022-09-16T13:03:39.469Z",
-      "modified_at": "2023-01-19T17:22:24.059Z",
+      "modified_at": "2023-02-03T13:52:42.805Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20171,7 +20437,7 @@
     "pk": "form-type-commercial-permit",
     "fields": {
       "created_at": "2020-09-01T14:52:15.256Z",
-      "modified_at": "2023-01-19T17:22:23.702Z",
+      "modified_at": "2023-02-03T13:52:42.274Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20187,7 +20453,7 @@
     "pk": "form-type-genehmigung",
     "fields": {
       "created_at": "2020-10-30T13:52:44.985Z",
-      "modified_at": "2023-01-19T17:22:20.813Z",
+      "modified_at": "2023-02-03T13:52:40.690Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20203,7 +20469,7 @@
     "pk": "form-type-genehmigung-qgp",
     "fields": {
       "created_at": "2020-10-30T07:23:54.669Z",
-      "modified_at": "2023-01-19T17:22:19.102Z",
+      "modified_at": "2023-02-03T13:52:39.404Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20219,7 +20485,7 @@
     "pk": "form-type-genehmigung-qp",
     "fields": {
       "created_at": "2020-10-30T07:24:58.168Z",
-      "modified_at": "2023-01-19T17:22:19.180Z",
+      "modified_at": "2023-02-03T13:52:39.614Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20235,7 +20501,7 @@
     "pk": "form-type-genehmigung-teilrevision-np",
     "fields": {
       "created_at": "2020-10-30T07:24:58.164Z",
-      "modified_at": "2023-01-19T17:22:19.088Z",
+      "modified_at": "2023-02-03T13:52:39.617Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20251,7 +20517,7 @@
     "pk": "form-type-gesamtrevision-np",
     "fields": {
       "created_at": "2020-10-30T07:23:17.798Z",
-      "modified_at": "2023-01-19T17:22:19.097Z",
+      "modified_at": "2023-02-03T13:52:39.385Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20267,7 +20533,7 @@
     "pk": "form-type-kantonsgebiet",
     "fields": {
       "created_at": "2020-10-30T14:09:54.999Z",
-      "modified_at": "2023-01-19T17:22:21.427Z",
+      "modified_at": "2023-02-03T13:52:40.925Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20283,7 +20549,7 @@
     "pk": "form-type-konzession-landrat",
     "fields": {
       "created_at": "2020-10-30T13:57:12.781Z",
-      "modified_at": "2023-01-19T17:22:20.865Z",
+      "modified_at": "2023-02-03T13:52:40.721Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20299,7 +20565,7 @@
     "pk": "form-type-konzession-landrat-afe",
     "fields": {
       "created_at": "2020-11-02T11:25:31.967Z",
-      "modified_at": "2023-01-19T17:22:22.972Z",
+      "modified_at": "2023-02-03T13:52:41.853Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20315,7 +20581,7 @@
     "pk": "form-type-konzession-regierungsrat-afe",
     "fields": {
       "created_at": "2020-11-02T11:25:31.968Z",
-      "modified_at": "2023-01-19T17:22:22.948Z",
+      "modified_at": "2023-02-03T13:52:41.825Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20331,7 +20597,7 @@
     "pk": "form-type-konzession-waermeentnahme",
     "fields": {
       "created_at": "2022-09-16T13:03:38.047Z",
-      "modified_at": "2023-01-19T17:22:24.027Z",
+      "modified_at": "2023-02-03T13:52:42.807Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20347,7 +20613,7 @@
     "pk": "form-type-konzession-warme",
     "fields": {
       "created_at": "2020-10-30T13:57:12.793Z",
-      "modified_at": "2023-01-19T17:22:21.415Z",
+      "modified_at": "2023-02-03T13:52:40.855Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20363,7 +20629,7 @@
     "pk": "form-type-konzession-warme-afe",
     "fields": {
       "created_at": "2020-11-02T11:25:31.975Z",
-      "modified_at": "2023-01-19T17:22:22.962Z",
+      "modified_at": "2023-02-03T13:52:41.872Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20379,7 +20645,7 @@
     "pk": "form-type-konzessions-regierungsrat",
     "fields": {
       "created_at": "2020-10-30T13:57:12.751Z",
-      "modified_at": "2023-01-19T17:22:20.836Z",
+      "modified_at": "2023-02-03T13:52:40.708Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20395,7 +20661,7 @@
     "pk": "form-type-landerwerb",
     "fields": {
       "created_at": "2020-10-30T14:12:20.573Z",
-      "modified_at": "2023-01-19T17:22:21.508Z",
+      "modified_at": "2023-02-03T13:52:41.145Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20411,7 +20677,7 @@
     "pk": "form-type-mbv-koor-bg",
     "fields": {
       "created_at": "2020-11-24T13:09:22.524Z",
-      "modified_at": "2023-01-19T17:22:23.719Z",
+      "modified_at": "2023-02-03T13:52:42.569Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20427,7 +20693,7 @@
     "pk": "form-type-mitbericht-afe",
     "fields": {
       "created_at": "2020-11-02T11:25:31.904Z",
-      "modified_at": "2023-01-19T17:22:22.905Z",
+      "modified_at": "2023-02-03T13:52:41.812Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20443,7 +20709,7 @@
     "pk": "form-type-mitbericht-afj",
     "fields": {
       "created_at": "2020-11-02T08:52:51.361Z",
-      "modified_at": "2023-01-19T17:22:21.516Z",
+      "modified_at": "2023-02-03T13:52:41.226Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20459,7 +20725,7 @@
     "pk": "form-type-mitbericht-afu",
     "fields": {
       "created_at": "2020-11-02T11:15:07.244Z",
-      "modified_at": "2023-01-19T17:22:22.171Z",
+      "modified_at": "2023-02-03T13:52:41.626Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20475,7 +20741,7 @@
     "pk": "form-type-mitbericht-ala",
     "fields": {
       "created_at": "2020-11-02T11:08:44.467Z",
-      "modified_at": "2023-01-19T17:22:22.137Z",
+      "modified_at": "2023-02-03T13:52:41.401Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20491,7 +20757,7 @@
     "pk": "form-type-mitbericht-ala-korporation",
     "fields": {
       "created_at": "2020-11-02T11:08:44.482Z",
-      "modified_at": "2023-01-19T17:22:22.179Z",
+      "modified_at": "2023-02-03T13:52:41.655Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20507,7 +20773,7 @@
     "pk": "form-type-mitbericht-bd",
     "fields": {
       "created_at": "2020-10-30T14:09:54.977Z",
-      "modified_at": "2023-01-19T17:22:21.442Z",
+      "modified_at": "2023-02-03T13:52:40.930Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20523,7 +20789,7 @@
     "pk": "form-type-mitbericht-bg",
     "fields": {
       "created_at": "2020-11-02T09:58:56.325Z",
-      "modified_at": "2023-01-19T17:22:22.159Z",
+      "modified_at": "2023-02-03T13:52:41.387Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20539,7 +20805,7 @@
     "pk": "form-type-mitbericht-bundesstelle",
     "fields": {
       "created_at": "2020-11-02T11:37:39.194Z",
-      "modified_at": "2023-01-19T17:22:23.692Z",
+      "modified_at": "2023-02-03T13:52:42.346Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20555,7 +20821,7 @@
     "pk": "form-type-mitbericht-kanton",
     "fields": {
       "created_at": "2022-06-09T15:37:47.511Z",
-      "modified_at": "2023-01-19T17:22:23.815Z",
+      "modified_at": "2023-02-03T13:52:42.646Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20571,7 +20837,7 @@
     "pk": "form-type-mitbericht-np",
     "fields": {
       "created_at": "2020-10-30T13:14:41.236Z",
-      "modified_at": "2023-01-19T17:22:20.738Z",
+      "modified_at": "2023-02-03T13:52:40.426Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20587,7 +20853,7 @@
     "pk": "form-type-mitbericht-sd",
     "fields": {
       "created_at": "2020-11-02T11:33:25.046Z",
-      "modified_at": "2023-01-19T17:22:23.147Z",
+      "modified_at": "2023-02-03T13:52:42.124Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20603,7 +20869,7 @@
     "pk": "form-type-mitbericht-sd-afkp",
     "fields": {
       "created_at": "2020-11-02T11:33:25.059Z",
-      "modified_at": "2023-01-19T17:22:23.120Z",
+      "modified_at": "2023-02-03T13:52:42.208Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20619,7 +20885,7 @@
     "pk": "form-type-mitbericht-umweltschutz",
     "fields": {
       "created_at": "2020-11-02T11:15:07.243Z",
-      "modified_at": "2023-01-19T17:22:22.242Z",
+      "modified_at": "2023-02-03T13:52:41.624Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20635,7 +20901,7 @@
     "pk": "form-type-mitbericht-uvp",
     "fields": {
       "created_at": "2020-11-02T11:15:07.268Z",
-      "modified_at": "2023-01-19T17:22:22.244Z",
+      "modified_at": "2023-02-03T13:52:41.648Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20651,12 +20917,12 @@
     "pk": "form-type-oereb",
     "fields": {
       "created_at": "2020-11-11T07:35:48.407Z",
-      "modified_at": "2023-01-19T17:22:23.703Z",
+      "modified_at": "2023-02-03T13:52:42.324Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
-      "label": "{\"de\": \"\\u00d6REB Verfahren\", \"fr\": null}",
+      "label": "{\"de\": \"\\u00d6REB Verfahren Kanton\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -20667,7 +20933,7 @@
     "pk": "form-type-oereb-afj",
     "fields": {
       "created_at": "2020-11-02T08:52:51.386Z",
-      "modified_at": "2023-01-19T17:22:21.558Z",
+      "modified_at": "2023-02-03T13:52:41.219Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20683,7 +20949,7 @@
     "pk": "form-type-oereb-afu",
     "fields": {
       "created_at": "2020-11-02T11:15:07.269Z",
-      "modified_at": "2023-01-19T17:22:22.250Z",
+      "modified_at": "2023-02-03T13:52:41.713Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20699,7 +20965,7 @@
     "pk": "form-type-oereb-bd",
     "fields": {
       "created_at": "2020-10-30T14:12:20.578Z",
-      "modified_at": "2023-01-19T17:22:21.461Z",
+      "modified_at": "2023-02-03T13:52:41.158Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20715,7 +20981,7 @@
     "pk": "form-type-oereb-np",
     "fields": {
       "created_at": "2020-10-30T13:18:22.351Z",
-      "modified_at": "2023-01-19T17:22:20.724Z",
+      "modified_at": "2023-02-03T13:52:40.445Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20728,10 +20994,26 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "form-type-oereb-verfahren-gemeinde",
+    "fields": {
+      "created_at": "2023-02-03T13:52:42.821Z",
+      "modified_at": "2023-02-03T13:52:42.821Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"\\u00d6REB Verfahren Gemeinde\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "form-type-pgv-eisenbahn",
     "fields": {
       "created_at": "2020-10-30T11:26:58.007Z",
-      "modified_at": "2023-01-19T17:22:19.781Z",
+      "modified_at": "2023-02-03T13:52:39.808Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20747,7 +21029,7 @@
     "pk": "form-type-pgv-gemeindestrasse",
     "fields": {
       "created_at": "2020-10-30T11:27:52.804Z",
-      "modified_at": "2023-01-19T17:22:19.851Z",
+      "modified_at": "2023-02-03T13:52:40.168Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20763,7 +21045,7 @@
     "pk": "form-type-pgv-kantonsstrasse",
     "fields": {
       "created_at": "2020-10-30T11:27:52.802Z",
-      "modified_at": "2023-01-19T17:22:19.884Z",
+      "modified_at": "2023-02-03T13:52:40.210Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20779,7 +21061,7 @@
     "pk": "form-type-pgv-korporationsstrasse",
     "fields": {
       "created_at": "2020-10-30T11:27:52.825Z",
-      "modified_at": "2023-01-19T17:22:19.913Z",
+      "modified_at": "2023-02-03T13:52:40.169Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20795,7 +21077,7 @@
     "pk": "form-type-pgv-luftfahrt",
     "fields": {
       "created_at": "2020-10-30T11:26:57.996Z",
-      "modified_at": "2023-01-19T17:22:19.797Z",
+      "modified_at": "2023-02-03T13:52:39.849Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20811,7 +21093,7 @@
     "pk": "form-type-pgv-militaer",
     "fields": {
       "created_at": "2020-10-30T11:26:57.956Z",
-      "modified_at": "2023-01-19T17:22:19.194Z",
+      "modified_at": "2023-02-03T13:52:39.655Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20827,7 +21109,7 @@
     "pk": "form-type-pgv-nationalstrassen",
     "fields": {
       "created_at": "2020-10-30T11:26:58.036Z",
-      "modified_at": "2023-01-19T17:22:19.796Z",
+      "modified_at": "2023-02-03T13:52:39.859Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20843,7 +21125,7 @@
     "pk": "form-type-pgv-oeffentliche-gewaesser",
     "fields": {
       "created_at": "2020-10-30T11:28:29.932Z",
-      "modified_at": "2023-01-19T17:22:20.747Z",
+      "modified_at": "2023-02-03T13:52:40.424Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20859,7 +21141,7 @@
     "pk": "form-type-pgv-private-gewaesser",
     "fields": {
       "created_at": "2020-10-30T11:28:29.916Z",
-      "modified_at": "2023-01-19T17:22:19.928Z",
+      "modified_at": "2023-02-03T13:52:40.182Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20875,7 +21157,7 @@
     "pk": "form-type-pgv-seilbahn",
     "fields": {
       "created_at": "2020-10-30T11:26:58.034Z",
-      "modified_at": "2023-01-19T17:22:19.810Z",
+      "modified_at": "2023-02-03T13:52:39.884Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20891,7 +21173,7 @@
     "pk": "form-type-pgv-starkstrom",
     "fields": {
       "created_at": "2020-10-30T11:26:58.041Z",
-      "modified_at": "2023-01-19T17:22:19.836Z",
+      "modified_at": "2023-02-03T13:52:40.161Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20907,7 +21189,7 @@
     "pk": "form-type-pgv-vereinfachtes-verfahren",
     "fields": {
       "created_at": "2020-10-30T11:28:29.940Z",
-      "modified_at": "2023-01-19T17:22:20.732Z",
+      "modified_at": "2023-02-03T13:52:40.352Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20955,7 +21237,7 @@
     "pk": "form-type-project-announcement",
     "fields": {
       "created_at": "2020-09-01T14:52:15.178Z",
-      "modified_at": "2023-01-19T17:22:22.967Z",
+      "modified_at": "2023-02-03T13:52:42.087Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20971,7 +21253,7 @@
     "pk": "form-type-project-announcement-afj",
     "fields": {
       "created_at": "2020-11-02T09:52:43.015Z",
-      "modified_at": "2023-01-19T17:22:22.134Z",
+      "modified_at": "2023-02-03T13:52:41.347Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -20987,7 +21269,7 @@
     "pk": "form-type-reklame-bd",
     "fields": {
       "created_at": "2020-10-30T14:09:55.019Z",
-      "modified_at": "2023-01-19T17:22:21.464Z",
+      "modified_at": "2023-02-03T13:52:41.142Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -21003,7 +21285,7 @@
     "pk": "form-type-solar-announcement",
     "fields": {
       "created_at": "2020-09-01T14:52:15.222Z",
-      "modified_at": "2023-01-19T17:22:23.106Z",
+      "modified_at": "2023-02-03T13:52:42.108Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -21019,7 +21301,7 @@
     "pk": "form-type-technische-bewilligung",
     "fields": {
       "created_at": "2021-12-03T10:45:33.493Z",
-      "modified_at": "2023-01-19T17:22:23.743Z",
+      "modified_at": "2023-02-03T13:52:42.635Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -21035,7 +21317,7 @@
     "pk": "form-type-veranstaltungsgesuch",
     "fields": {
       "created_at": "2020-10-21T13:00:18.680Z",
-      "modified_at": "2023-01-19T17:22:23.673Z",
+      "modified_at": "2023-02-03T13:52:42.286Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -21051,7 +21333,7 @@
     "pk": "form-type-vorpruefung-gesamtrevision-np",
     "fields": {
       "created_at": "2020-10-30T07:23:54.674Z",
-      "modified_at": "2023-01-19T17:22:19.182Z",
+      "modified_at": "2023-02-03T13:52:39.402Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -21067,7 +21349,7 @@
     "pk": "form-type-vorpruefung-qgp",
     "fields": {
       "created_at": "2020-10-30T07:24:58.163Z",
-      "modified_at": "2023-01-19T17:22:19.168Z",
+      "modified_at": "2023-02-03T13:52:39.621Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -21083,7 +21365,7 @@
     "pk": "form-type-vorpruefung-qp",
     "fields": {
       "created_at": "2020-10-30T07:24:58.187Z",
-      "modified_at": "2023-01-19T17:22:19.199Z",
+      "modified_at": "2023-02-03T13:52:39.623Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -21099,7 +21381,7 @@
     "pk": "form-type-vorpruefung-teilrevision-np",
     "fields": {
       "created_at": "2020-10-30T07:24:12.116Z",
-      "modified_at": "2023-01-19T17:22:19.112Z",
+      "modified_at": "2023-02-03T13:52:39.398Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -25400,11 +25682,27 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "oereb-thema-gnp",
+    "pk": "oereb-thema-gemeinde-bausperre",
     "fields": {
-      "created_at": "2020-11-11T09:15:36.183Z",
-      "modified_at": "2021-11-05T08:28:02.555Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2023-02-03T14:31:28.346Z",
+      "modified_at": "2023-02-03T14:31:28.346Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bausperre\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "oereb-thema-gemeinde-gnp",
+    "fields": {
+      "created_at": "2023-02-03T13:46:33.649Z",
+      "modified_at": "2023-02-03T14:31:28.329Z",
+      "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
@@ -25416,11 +25714,11 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "oereb-thema-gpz",
+    "pk": "oereb-thema-gemeinde-gpz",
     "fields": {
-      "created_at": "2020-11-11T09:15:36.304Z",
-      "modified_at": "2021-11-05T08:28:02.907Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2023-02-03T13:46:33.662Z",
+      "modified_at": "2023-02-03T14:31:28.266Z",
+      "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
@@ -25432,10 +25730,74 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "oereb-thema-gemeinde-snp-bl-gemeinde",
+    "fields": {
+      "created_at": "2023-02-03T13:46:33.628Z",
+      "modified_at": "2023-02-03T14:31:28.388Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gemeindliche Baulinie\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "oereb-thema-gemeinde-snp-qgp-qp",
+    "fields": {
+      "created_at": "2023-02-03T13:46:33.672Z",
+      "modified_at": "2023-02-03T14:31:28.391Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Sondernutzungsplanung QGP / QP\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "oereb-thema-gnp",
+    "fields": {
+      "created_at": "2020-11-11T09:15:36.183Z",
+      "modified_at": "2023-02-03T14:30:37.800Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gemeindliche Nutzungsplanung\", \"fr\": null}",
+      "is_archived": true,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "oereb-thema-gpz",
+    "fields": {
+      "created_at": "2020-11-11T09:15:36.304Z",
+      "modified_at": "2023-02-03T14:30:37.759Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gemeindliche Planungszone\", \"fr\": null}",
+      "is_archived": true,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "oereb-thema-grundwasserschutz",
     "fields": {
       "created_at": "2020-11-11T09:15:36.183Z",
-      "modified_at": "2021-11-05T08:28:02.699Z",
+      "modified_at": "2023-02-03T14:30:37.939Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -25451,7 +25813,7 @@
     "pk": "oereb-thema-kantonale-baulinien",
     "fields": {
       "created_at": "2020-11-11T09:15:36.092Z",
-      "modified_at": "2021-11-05T08:28:02.579Z",
+      "modified_at": "2023-02-03T14:30:37.755Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -25467,7 +25829,7 @@
     "pk": "oereb-thema-kbs",
     "fields": {
       "created_at": "2020-11-11T09:15:36.206Z",
-      "modified_at": "2021-11-05T08:28:02.912Z",
+      "modified_at": "2023-02-03T14:30:37.813Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -25483,7 +25845,7 @@
     "pk": "oereb-thema-knp",
     "fields": {
       "created_at": "2020-11-11T09:15:36.170Z",
-      "modified_at": "2021-11-05T08:28:02.524Z",
+      "modified_at": "2023-02-03T14:30:37.787Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -25499,7 +25861,7 @@
     "pk": "oereb-thema-kpz",
     "fields": {
       "created_at": "2020-11-11T09:15:36.266Z",
-      "modified_at": "2021-11-05T08:28:02.849Z",
+      "modified_at": "2023-02-03T14:30:37.703Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -25512,16 +25874,32 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "oereb-thema-schutzmassnahmen",
+    "fields": {
+      "created_at": "2023-02-03T14:30:38.054Z",
+      "modified_at": "2023-02-03T14:30:38.054Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Schutzmassnahmen Natur-, Landschafts- und Heimatschutz, Denkmalpflege\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "oereb-thema-snp-bl-gemeinde",
     "fields": {
       "created_at": "2020-11-11T09:15:36.285Z",
-      "modified_at": "2021-11-05T08:28:02.599Z",
+      "modified_at": "2023-02-03T14:30:37.893Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Gemeindliche Baulinie\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -25531,13 +25909,13 @@
     "pk": "oereb-thema-snp-qgp-qp",
     "fields": {
       "created_at": "2020-11-11T09:15:36.100Z",
-      "modified_at": "2021-11-05T08:28:02.521Z",
+      "modified_at": "2023-02-03T14:30:37.701Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Sondernutzungsplanung QGP / QP\", \"fr\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -25547,7 +25925,7 @@
     "pk": "oereb-thema-waldgrenze",
     "fields": {
       "created_at": "2020-11-11T09:15:36.303Z",
-      "modified_at": "2021-11-05T08:28:02.500Z",
+      "modified_at": "2023-02-03T14:30:38.058Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -25563,7 +25941,7 @@
     "pk": "oereb-thema-war",
     "fields": {
       "created_at": "2021-11-05T08:26:12.661Z",
-      "modified_at": "2021-11-05T08:28:02.948Z",
+      "modified_at": "2023-02-03T14:30:38.063Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -30104,6 +30482,54 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "verfahrensinhalt-gemeinde-aenderung",
+    "fields": {
+      "created_at": "2023-02-03T14:02:35.466Z",
+      "modified_at": "2023-02-03T14:02:35.466Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"\\u00c4nderung\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "verfahrensinhalt-gemeinde-aufhebung",
+    "fields": {
+      "created_at": "2023-02-03T14:02:35.440Z",
+      "modified_at": "2023-02-03T14:02:35.440Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Aufhebung\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "verfahrensinhalt-gemeinde-neuerlass",
+    "fields": {
+      "created_at": "2023-02-03T14:02:35.411Z",
+      "modified_at": "2023-02-03T14:02:35.411Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Neuerlass\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "verfahrensinhalt-neuerlass",
     "fields": {
       "created_at": "2021-11-05T08:34:45.062Z",
@@ -30385,6 +30811,70 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Dauerhaft\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "waldfeststellung-mit-statischen-waldgrenzen-gemeinde-ja",
+    "fields": {
+      "created_at": "2023-02-03T14:34:12.822Z",
+      "modified_at": "2023-02-03T14:39:06.160Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "waldfeststellung-mit-statischen-waldgrenzen-gemeinde-nein",
+    "fields": {
+      "created_at": "2023-02-03T14:34:12.832Z",
+      "modified_at": "2023-02-03T14:39:06.162Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "waldfeststellung-mit-statischen-waldgrenzen-kanton-ja",
+    "fields": {
+      "created_at": "2023-02-03T14:40:33.914Z",
+      "modified_at": "2023-02-03T14:47:11.909Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "waldfeststellung-mit-statischen-waldgrenzen-kanton-nein",
+    "fields": {
+      "created_at": "2023-02-03T14:40:33.920Z",
+      "modified_at": "2023-02-03T14:47:11.938Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -34509,7 +34999,7 @@
     "pk": "art-der-revision",
     "fields": {
       "created_at": "2020-11-11T09:18:32.483Z",
-      "modified_at": "2021-11-05T08:30:10.233Z",
+      "modified_at": "2023-02-03T13:57:59.510Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -34517,11 +35007,11 @@
       "label": "{\"de\": \"Art der Revision\", \"fr\": null}",
       "type": "choice",
       "is_required": "false",
-      "is_hidden": "!(\"oereb-thema-gnp\" in \"oereb-thema\"|answer)",
+      "is_hidden": "!(\"oereb-thema-gemeinde-gnp\" in \"oereb-thema-gemeinde\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -34664,7 +35154,7 @@
     "pk": "art-snp",
     "fields": {
       "created_at": "2020-11-11T09:31:09.710Z",
-      "modified_at": "2021-11-05T08:23:33.894Z",
+      "modified_at": "2023-02-03T13:57:47.760Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -34672,11 +35162,11 @@
       "label": "{\"de\": \"Art der Sondernutzungsplanung\", \"fr\": null}",
       "type": "choice",
       "is_required": "false",
-      "is_hidden": "!(\"oereb-thema-snp-qgp-qp\" in \"oereb-thema\"|answer)",
+      "is_hidden": "!(\"oereb-thema-gemeinde-snp-qgp-qp\" in \"oereb-thema-gemeinde\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"## INFO\\n\\n### Quartierplan\\nDer Quartierplan ordnet die \\u00dcberbauung eines genau bezeichneten Gemeindeteils, der sich zur gesamthaften Erschliessung eignet. Er regelt die Erschliessung dieses Gebietes, indem er Strassen, Wege, Abstellfl\\u00e4chen, Versorgungsleitungen und dergleichen sowie die entsprechenden Baulinien festlegt.\\n\\n### Quartiergestaltungsplan\\nDer Quartiergestaltungsplan bezweckt eine besonders gute Gesamt\\u00fcberbauung, namentlich in architektonischer und st\\u00e4dtebaulicher Hinsicht. Zus\\u00e4tzlich zu den Elementen des Quartierplans regelt er:  \\n1. die Lage, Stellung, Gr\\u00f6sse und Gestaltung der Bauten und Anlagen sowie die Art und das Mass ihrer Nutzung;  \\n2. die Grenz- und Geb\\u00e4udeabst\\u00e4nde;  \\n3. die Gr\\u00fcnfl\\u00e4chen und Spielpl\\u00e4tze.\", \"fr\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -34695,7 +35185,7 @@
     "pk": "art-snpbl-gemeinde",
     "fields": {
       "created_at": "2020-11-11T09:47:42.379Z",
-      "modified_at": "2021-11-05T08:38:47.665Z",
+      "modified_at": "2023-02-03T14:00:07.272Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -34703,11 +35193,11 @@
       "label": "{\"de\": \"Zweck der gemeindlichen Baulinie\", \"fr\": null}",
       "type": "choice",
       "is_required": "false",
-      "is_hidden": "!(\"oereb-thema-snp-bl-gemeinde\" in \"oereb-thema\"|answer)",
+      "is_hidden": "!(\"oereb-thema-gemeinde-snp-bl-gemeinde\" in \"oereb-thema-gemeinde\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -42861,7 +43351,7 @@
     "pk": "form-type",
     "fields": {
       "created_at": "2020-09-01T14:52:15.343Z",
-      "modified_at": "2023-01-19T17:22:24.506Z",
+      "modified_at": "2023-02-03T13:52:43.240Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -45757,6 +46247,72 @@
       "static_content": "{\"de\": \"<div class=\\\"uk-alert\\\"><p>Wenn die hier erfasste Person zus\\u00e4tzlich Zugang zum Dossier erhalten und \\u00fcber dessen Bearbeitungsfortschritt informiert werden soll, erfassen Sie diese im Men\\u00fc \\\"Berechtigungen\\\".</p>\\n\\n<p>Um auf das Dossier zuzugreifen, muss die eingeladene Personen auf dem eBau Portal registriert sein. Falls dies noch nicht der Fall ist, wird bei der Einladung automatisch eine E-Mail mit einem Link zur Registrierung versendet.</p></div>\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-statische-waldgrenze-gemeinde",
+    "fields": {
+      "created_at": "2023-02-03T14:45:45.491Z",
+      "modified_at": "2023-02-03T14:45:45.491Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis statische Waldgrenze\", \"fr\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\"waldfeststellung-mit-statischen-waldgrenzen-gemeinde-ja\" in \"waldfeststellung-mit-statischen-waldgrenzen-gemeinde\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"Beim Einreichen des Dossiers wird zum \\u00d6REB Thema \\u201cStatische Waldgrenze\\u201d ein separates Dossier f\\u00fcr die KOOR AFJ erstellt.\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-statische-waldgrenze-kanton",
+    "fields": {
+      "created_at": "2023-02-03T14:43:16.683Z",
+      "modified_at": "2023-02-03T14:45:18.167Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis statische Waldgrenze\", \"fr\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\"waldfeststellung-mit-statischen-waldgrenzen-kanton-ja\" in \"waldfeststellung-mit-statischen-waldgrenzen-kanton\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"Beim Einreichen des Dossiers wird zum \\u00d6REB Thema \\u201cStatische Waldgrenze\\u201d ein separates Dossier f\\u00fcr die KOOR AFJ erstellt.\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -50372,19 +50928,50 @@
     "pk": "oereb-thema",
     "fields": {
       "created_at": "2020-11-11T09:15:36.408Z",
-      "modified_at": "2021-11-05T08:28:03.290Z",
+      "modified_at": "2023-02-03T14:30:38.253Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"\\u00d6REB Thema\", \"fr\": null}",
-      "type": "multiple_choice",
+      "type": "choice",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "oereb-thema-gemeinde",
+    "fields": {
+      "created_at": "2023-02-03T13:46:33.812Z",
+      "modified_at": "2023-02-03T14:31:28.559Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"\\u00d6REB Thema\", \"fr\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -50434,12 +51021,12 @@
     "pk": "oereb-verfahren",
     "fields": {
       "created_at": "2020-11-11T08:09:32.705Z",
-      "modified_at": "2020-12-07T15:56:33.928Z",
+      "modified_at": "2023-02-03T14:23:31.647Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
-      "label": "{\"de\": \"\\u00d6REB-Verfahren\", \"fr\": null}",
+      "label": "{\"de\": \"\\u00d6REB-Verfahren Kanton\", \"fr\": null}",
       "type": "form",
       "is_required": "false",
       "is_hidden": "false",
@@ -50453,6 +51040,37 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "oereb-verfahren",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "oereb-verfahren-gemeinde-form-question",
+    "fields": {
+      "created_at": "2023-02-03T13:29:43.050Z",
+      "modified_at": "2023-02-03T13:29:43.050Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"\\u00d6REB Verfahren Gemeinde\", \"fr\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "oereb-verfahren-gemeinde-form",
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -56916,6 +57534,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "verfahrensinhalt-gemeinde",
+    "fields": {
+      "created_at": "2023-02-03T14:02:35.677Z",
+      "modified_at": "2023-02-03T14:02:35.677Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Verfahrensinhalt\", \"fr\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "!([\"oereb-thema-gemeinde-snp-qgp-qp\", \"oereb-thema-gemeinde-kantonale-baulinien\",\"oereb-thema-gemeinde-snp-bl-gemeinde\", \"oereb-thema-gemeinde-waldgrenze\", \"oereb-thema-gemeinde-grundwasserschutz\"] intersects (\"oereb-thema-gemeinde\"|answer || []))",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "verhaeltnis-der-bodenflaeche-zur-fensterflaeche",
     "fields": {
       "created_at": "2020-10-26T09:30:11.384Z",
@@ -57760,6 +58409,99 @@
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "hint_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"####**Waldabstand**\\n\\nWo der Nutzungsplan oder Baulinien nicht einen gr\\u00f6sseren Abstand verlangen, ist f\\u00fcr Bauten und Anlagen gegen\\u00fcber der Waldgrenze gem\\u00e4ss Artikel 93 PBG ein Abstand von 20 Metern einzuhalten. Der Abstand bemisst sich ab dem \\u00e4ussersten Teil des Waldrands oder Waldgrundst\\u00fccks.\\n\\nDie zust\\u00e4ndige Direktion kann Ausnahmen bewilligen, wenn die Voraussetzungen dazu erf\\u00fcllt sind.\\n\\nFalls Ihr Vorhaben Ihrer Meinung nach nicht direkt im Waldareal liegt sondern ausserhalb des Waldareals, jedoch n\\u00e4her als 2o m zum Waldrand, dann machen Sie bitte unter \\\"Bauprojekt\\\", \\\"Abstandsvorschriften\\\" einen entsprechenden Eintrag.  An Standorten wo im Nutzungsplan keine statische Waldgrenze festgelegt ist und der Wald bzw. der Waldrand anhand der Bodenbedeckung der Vermessungsdaten aus dem GIS abgefragt wird, \\u00fcberpr\\u00fcft die Forstbeh\\u00f6rde soweit notwendig, die Richtigkeit der GIS Auswahl anhand der tats\\u00e4chlichen Verh\\u00e4ltnisse vor Ort.\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "waldfeststellung-mit-statischen-waldgrenzen",
+    "fields": {
+      "created_at": "2023-02-03T14:34:12.999Z",
+      "modified_at": "2023-02-03T14:34:12.999Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wird eine Waldfeststellung mit statischen Waldgrenzen parallel durchgef\\u00fchrt?\", \"fr\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "waldfeststellung-mit-statischen-waldgrenzen-gemeinde",
+    "fields": {
+      "created_at": "2023-02-03T14:34:12.999Z",
+      "modified_at": "2023-02-03T14:39:06.334Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wird eine Waldfeststellung mit statischen Waldgrenzen parallel durchgef\\u00fchrt?\", \"fr\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "!(\"oereb-thema-gemeinde-gnp\" in \"oereb-thema-gemeinde\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "waldfeststellung-mit-statischen-waldgrenzen-kanton",
+    "fields": {
+      "created_at": "2023-02-03T14:40:34.086Z",
+      "modified_at": "2023-02-03T14:47:12.112Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wird eine Waldfeststellung mit statischen Waldgrenzen parallel durchgef\\u00fchrt?\", \"fr\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "!(\"oereb-thema-knp\" in \"oereb-thema\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -61029,8 +61771,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-revision.art-der-revision-gesamtrevision",
     "fields": {
-      "created_at": "2021-11-05T08:30:10.273Z",
-      "modified_at": "2021-11-05T08:30:10.273Z",
+      "created_at": "2023-02-03T13:57:59.521Z",
+      "modified_at": "2023-02-03T13:57:59.521Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -61044,8 +61786,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-revision.art-der-revision-teilrevision",
     "fields": {
-      "created_at": "2021-11-05T08:30:10.259Z",
-      "modified_at": "2021-11-05T08:30:10.259Z",
+      "created_at": "2023-02-03T13:57:59.517Z",
+      "modified_at": "2023-02-03T13:57:59.517Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -61299,8 +62041,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-snp.art-snp-qgp",
     "fields": {
-      "created_at": "2021-11-05T08:23:33.907Z",
-      "modified_at": "2021-11-05T08:23:33.907Z",
+      "created_at": "2023-02-03T13:57:47.770Z",
+      "modified_at": "2023-02-03T13:57:47.770Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -61314,8 +62056,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-snp.art-snp-qp",
     "fields": {
-      "created_at": "2021-11-05T08:23:33.902Z",
-      "modified_at": "2021-11-05T08:23:33.903Z",
+      "created_at": "2023-02-03T13:57:47.766Z",
+      "modified_at": "2023-02-03T13:57:47.766Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -61329,8 +62071,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-snpbl-gemeinde.art-snpbl-gemeinde-bl-gewaesser",
     "fields": {
-      "created_at": "2021-11-05T08:38:47.696Z",
-      "modified_at": "2021-11-05T08:38:47.696Z",
+      "created_at": "2023-02-03T14:00:07.291Z",
+      "modified_at": "2023-02-03T14:00:07.291Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -61344,8 +62086,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-snpbl-gemeinde.art-snpbl-gemeinde-bl-immissionsschutz",
     "fields": {
-      "created_at": "2021-11-05T08:38:47.687Z",
-      "modified_at": "2021-11-05T08:38:47.687Z",
+      "created_at": "2023-02-03T14:00:07.287Z",
+      "modified_at": "2023-02-03T14:00:07.287Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -61359,8 +62101,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-snpbl-gemeinde.art-snpbl-gemeinde-bl-strasse",
     "fields": {
-      "created_at": "2021-11-05T08:38:47.704Z",
-      "modified_at": "2021-11-05T08:38:47.705Z",
+      "created_at": "2023-02-03T14:00:07.295Z",
+      "modified_at": "2023-02-03T14:00:07.295Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -61374,8 +62116,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-snpbl-gemeinde.art-snpbl-gemeinde-bl-waldabstand",
     "fields": {
-      "created_at": "2021-11-05T08:38:47.681Z",
-      "modified_at": "2021-11-05T08:38:47.681Z",
+      "created_at": "2023-02-03T14:00:07.283Z",
+      "modified_at": "2023-02-03T14:00:07.283Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -61389,8 +62131,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-snpbl-gemeinde.art-snpbl-gemeinde-bl-weitere",
     "fields": {
-      "created_at": "2021-11-05T08:38:47.675Z",
-      "modified_at": "2021-11-05T08:38:47.675Z",
+      "created_at": "2023-02-03T14:00:07.279Z",
+      "modified_at": "2023-02-03T14:00:07.280Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -63684,990 +64426,1005 @@
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-afe-korporationsgewaesser",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.562Z",
-      "modified_at": "2023-01-19T17:22:24.562Z",
+      "created_at": "2023-02-03T13:52:43.323Z",
+      "modified_at": "2023-02-03T13:52:43.323Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-afe-korporationsgewaesser",
-      "sort": 16
+      "sort": 17
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-archiv",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.669Z",
-      "modified_at": "2023-01-19T17:22:24.669Z",
+      "created_at": "2023-02-03T13:52:43.409Z",
+      "modified_at": "2023-02-03T13:52:43.409Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-archiv",
-      "sort": 43
+      "sort": 44
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-archiv-afj",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.601Z",
-      "modified_at": "2023-01-19T17:22:24.601Z",
+      "created_at": "2023-02-03T13:52:43.368Z",
+      "modified_at": "2023-02-03T13:52:43.368Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-archiv-afj",
-      "sort": 30
+      "sort": 31
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-baubewilligungsverfahren",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.531Z",
-      "modified_at": "2023-01-19T17:22:24.531Z",
+      "created_at": "2023-02-03T13:52:43.285Z",
+      "modified_at": "2023-02-03T13:52:43.285Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-baubewilligungsverfahren",
-      "sort": 6
+      "sort": 7
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-baugesuch-vorabklaerung",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.528Z",
-      "modified_at": "2023-01-19T17:22:24.528Z",
+      "created_at": "2023-02-03T13:52:43.281Z",
+      "modified_at": "2023-02-03T13:52:43.281Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-baugesuch-vorabklaerung",
-      "sort": 5
+      "sort": 6
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-bauverwaltung",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.522Z",
-      "modified_at": "2023-01-19T17:22:24.522Z",
+      "created_at": "2023-02-03T13:52:43.272Z",
+      "modified_at": "2023-02-03T13:52:43.272Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-bauverwaltung",
-      "sort": 3
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-bd-kantonsgewaesser",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.643Z",
-      "modified_at": "2023-01-19T17:22:24.643Z",
+      "created_at": "2023-02-03T13:52:43.391Z",
+      "modified_at": "2023-02-03T13:52:43.391Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-bd-kantonsgewaesser",
-      "sort": 38
+      "sort": 39
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-bgbb",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.674Z",
-      "modified_at": "2023-01-19T17:22:24.674Z",
+      "created_at": "2023-02-03T13:52:43.413Z",
+      "modified_at": "2023-02-03T13:52:43.413Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-bgbb",
-      "sort": 44
+      "sort": 45
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-bohrbewilligung-waermeentnahme",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.519Z",
-      "modified_at": "2023-01-19T17:22:24.519Z",
+      "created_at": "2023-02-03T13:52:43.267Z",
+      "modified_at": "2023-02-03T13:52:43.267Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-bohrbewilligung-waermeentnahme",
-      "sort": 2
+      "sort": 3
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-commercial-permit",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.550Z",
-      "modified_at": "2023-01-19T17:22:24.550Z",
+      "created_at": "2023-02-03T13:52:43.308Z",
+      "modified_at": "2023-02-03T13:52:43.308Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-commercial-permit",
-      "sort": 12
+      "sort": 13
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-genehmigung",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.664Z",
-      "modified_at": "2023-01-19T17:22:24.664Z",
+      "created_at": "2023-02-03T13:52:43.405Z",
+      "modified_at": "2023-02-03T13:52:43.405Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-genehmigung",
-      "sort": 42
+      "sort": 43
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-genehmigung-qgp",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.792Z",
-      "modified_at": "2023-01-19T17:22:24.792Z",
+      "created_at": "2023-02-03T13:52:43.475Z",
+      "modified_at": "2023-02-03T13:52:43.475Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-genehmigung-qgp",
-      "sort": 65
+      "sort": 66
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-genehmigung-qp",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.774Z",
-      "modified_at": "2023-01-19T17:22:24.774Z",
+      "created_at": "2023-02-03T13:52:43.467Z",
+      "modified_at": "2023-02-03T13:52:43.467Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-genehmigung-qp",
-      "sort": 62
+      "sort": 63
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-genehmigung-teilrevision-np",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.768Z",
-      "modified_at": "2023-01-19T17:22:24.768Z",
+      "created_at": "2023-02-03T13:52:43.464Z",
+      "modified_at": "2023-02-03T13:52:43.464Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-genehmigung-teilrevision-np",
-      "sort": 61
+      "sort": 62
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-gesamtrevision-np",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.799Z",
-      "modified_at": "2023-01-19T17:22:24.799Z",
+      "created_at": "2023-02-03T13:52:43.478Z",
+      "modified_at": "2023-02-03T13:52:43.478Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-gesamtrevision-np",
-      "sort": 66
+      "sort": 67
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-kantonsgebiet",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.637Z",
-      "modified_at": "2023-01-19T17:22:24.637Z",
+      "created_at": "2023-02-03T13:52:43.388Z",
+      "modified_at": "2023-02-03T13:52:43.388Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-kantonsgebiet",
-      "sort": 37
+      "sort": 38
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-konzession-landrat",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.653Z",
-      "modified_at": "2023-01-19T17:22:24.653Z",
+      "created_at": "2023-02-03T13:52:43.397Z",
+      "modified_at": "2023-02-03T13:52:43.397Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-konzession-landrat",
-      "sort": 40
+      "sort": 41
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-konzession-landrat-afe",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.570Z",
-      "modified_at": "2023-01-19T17:22:24.570Z",
+      "created_at": "2023-02-03T13:52:43.334Z",
+      "modified_at": "2023-02-03T13:52:43.334Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-konzession-landrat-afe",
-      "sort": 19
+      "sort": 20
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-konzession-regierungsrat-afe",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.573Z",
-      "modified_at": "2023-01-19T17:22:24.573Z",
+      "created_at": "2023-02-03T13:52:43.337Z",
+      "modified_at": "2023-02-03T13:52:43.337Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-konzession-regierungsrat-afe",
-      "sort": 20
+      "sort": 21
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-konzession-waermeentnahme",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.516Z",
-      "modified_at": "2023-01-19T17:22:24.516Z",
+      "created_at": "2023-02-03T13:52:43.262Z",
+      "modified_at": "2023-02-03T13:52:43.262Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-konzession-waermeentnahme",
-      "sort": 1
+      "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-konzession-warme",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.648Z",
-      "modified_at": "2023-01-19T17:22:24.648Z",
+      "created_at": "2023-02-03T13:52:43.394Z",
+      "modified_at": "2023-02-03T13:52:43.394Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-konzession-warme",
-      "sort": 39
+      "sort": 40
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-konzession-warme-afe",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.567Z",
-      "modified_at": "2023-01-19T17:22:24.567Z",
+      "created_at": "2023-02-03T13:52:43.330Z",
+      "modified_at": "2023-02-03T13:52:43.330Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-konzession-warme-afe",
-      "sort": 18
+      "sort": 19
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-konzessions-regierungsrat",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.658Z",
-      "modified_at": "2023-01-19T17:22:24.658Z",
+      "created_at": "2023-02-03T13:52:43.400Z",
+      "modified_at": "2023-02-03T13:52:43.400Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-konzessions-regierungsrat",
-      "sort": 41
+      "sort": 42
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-landerwerb",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.615Z",
-      "modified_at": "2023-01-19T17:22:24.615Z",
+      "created_at": "2023-02-03T13:52:43.377Z",
+      "modified_at": "2023-02-03T13:52:43.377Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-landerwerb",
-      "sort": 33
+      "sort": 34
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-mbv-koor-bg",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.537Z",
-      "modified_at": "2023-01-19T17:22:24.537Z",
+      "created_at": "2023-02-03T13:52:43.293Z",
+      "modified_at": "2023-02-03T13:52:43.293Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-mbv-koor-bg",
-      "sort": 8
+      "sort": 9
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-mitbericht-afe",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.576Z",
-      "modified_at": "2023-01-19T17:22:24.576Z",
+      "created_at": "2023-02-03T13:52:43.341Z",
+      "modified_at": "2023-02-03T13:52:43.341Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-mitbericht-afe",
-      "sort": 21
+      "sort": 22
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-mitbericht-afj",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.609Z",
-      "modified_at": "2023-01-19T17:22:24.609Z",
+      "created_at": "2023-02-03T13:52:43.374Z",
+      "modified_at": "2023-02-03T13:52:43.374Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-mitbericht-afj",
-      "sort": 32
+      "sort": 33
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-mitbericht-afu",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.587Z",
-      "modified_at": "2023-01-19T17:22:24.587Z",
+      "created_at": "2023-02-03T13:52:43.353Z",
+      "modified_at": "2023-02-03T13:52:43.353Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-mitbericht-afu",
-      "sort": 25
+      "sort": 26
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-mitbericht-ala",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.593Z",
-      "modified_at": "2023-01-19T17:22:24.593Z",
+      "created_at": "2023-02-03T13:52:43.359Z",
+      "modified_at": "2023-02-03T13:52:43.359Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-mitbericht-ala",
-      "sort": 27
+      "sort": 28
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-mitbericht-ala-korporation",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.590Z",
-      "modified_at": "2023-01-19T17:22:24.590Z",
+      "created_at": "2023-02-03T13:52:43.357Z",
+      "modified_at": "2023-02-03T13:52:43.357Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-mitbericht-ala-korporation",
-      "sort": 26
+      "sort": 27
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-mitbericht-bd",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.632Z",
-      "modified_at": "2023-01-19T17:22:24.632Z",
+      "created_at": "2023-02-03T13:52:43.385Z",
+      "modified_at": "2023-02-03T13:52:43.385Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-mitbericht-bd",
-      "sort": 36
+      "sort": 37
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-mitbericht-bg",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.596Z",
-      "modified_at": "2023-01-19T17:22:24.596Z",
+      "created_at": "2023-02-03T13:52:43.362Z",
+      "modified_at": "2023-02-03T13:52:43.362Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-mitbericht-bg",
-      "sort": 28
+      "sort": 29
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-mitbericht-bundesstelle",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.544Z",
-      "modified_at": "2023-01-19T17:22:24.544Z",
+      "created_at": "2023-02-03T13:52:43.300Z",
+      "modified_at": "2023-02-03T13:52:43.300Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-mitbericht-bundesstelle",
-      "sort": 10
+      "sort": 11
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-mitbericht-kanton",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.525Z",
-      "modified_at": "2023-01-19T17:22:24.525Z",
+      "created_at": "2023-02-03T13:52:43.277Z",
+      "modified_at": "2023-02-03T13:52:43.277Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-mitbericht-kanton",
-      "sort": 4
+      "sort": 5
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-mitbericht-np",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.684Z",
-      "modified_at": "2023-01-19T17:22:24.684Z",
+      "created_at": "2023-02-03T13:52:43.421Z",
+      "modified_at": "2023-02-03T13:52:43.421Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-mitbericht-np",
-      "sort": 46
+      "sort": 47
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-mitbericht-sd",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.559Z",
-      "modified_at": "2023-01-19T17:22:24.559Z",
+      "created_at": "2023-02-03T13:52:43.319Z",
+      "modified_at": "2023-02-03T13:52:43.319Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-mitbericht-sd",
-      "sort": 15
+      "sort": 16
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-mitbericht-sd-afkp",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.553Z",
-      "modified_at": "2023-01-19T17:22:24.553Z",
+      "created_at": "2023-02-03T13:52:43.312Z",
+      "modified_at": "2023-02-03T13:52:43.312Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-mitbericht-sd-afkp",
-      "sort": 13
+      "sort": 14
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-mitbericht-umweltschutz",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.584Z",
-      "modified_at": "2023-01-19T17:22:24.584Z",
+      "created_at": "2023-02-03T13:52:43.350Z",
+      "modified_at": "2023-02-03T13:52:43.350Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-mitbericht-umweltschutz",
-      "sort": 24
+      "sort": 25
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-mitbericht-uvp",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.581Z",
-      "modified_at": "2023-01-19T17:22:24.581Z",
+      "created_at": "2023-02-03T13:52:43.347Z",
+      "modified_at": "2023-02-03T13:52:43.347Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-mitbericht-uvp",
-      "sort": 23
+      "sort": 24
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-oereb",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.541Z",
-      "modified_at": "2023-01-19T17:22:24.541Z",
+      "created_at": "2023-02-03T13:52:43.297Z",
+      "modified_at": "2023-02-03T13:52:43.297Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-oereb",
-      "sort": 9
+      "sort": 10
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-oereb-afj",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.605Z",
-      "modified_at": "2023-01-19T17:22:24.605Z",
+      "created_at": "2023-02-03T13:52:43.371Z",
+      "modified_at": "2023-02-03T13:52:43.371Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-oereb-afj",
-      "sort": 31
+      "sort": 32
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-oereb-afu",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.579Z",
-      "modified_at": "2023-01-19T17:22:24.579Z",
+      "created_at": "2023-02-03T13:52:43.344Z",
+      "modified_at": "2023-02-03T13:52:43.344Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-oereb-afu",
-      "sort": 22
+      "sort": 23
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-oereb-bd",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.622Z",
-      "modified_at": "2023-01-19T17:22:24.622Z",
+      "created_at": "2023-02-03T13:52:43.380Z",
+      "modified_at": "2023-02-03T13:52:43.380Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-oereb-bd",
-      "sort": 34
+      "sort": 35
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-oereb-np",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.680Z",
-      "modified_at": "2023-01-19T17:22:24.680Z",
+      "created_at": "2023-02-03T13:52:43.417Z",
+      "modified_at": "2023-02-03T13:52:43.417Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-oereb-np",
-      "sort": 45
+      "sort": 46
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "form-type.form-type-oereb-verfahren-gemeinde",
+    "fields": {
+      "created_at": "2023-02-03T13:52:43.257Z",
+      "modified_at": "2023-02-03T13:52:43.257Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "form-type",
+      "option": "form-type-oereb-verfahren-gemeinde",
+      "sort": 1
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-pgv-eisenbahn",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.746Z",
-      "modified_at": "2023-01-19T17:22:24.746Z",
+      "created_at": "2023-02-03T13:52:43.452Z",
+      "modified_at": "2023-02-03T13:52:43.452Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-pgv-eisenbahn",
-      "sort": 57
+      "sort": 58
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-pgv-gemeindestrasse",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.717Z",
-      "modified_at": "2023-01-19T17:22:24.717Z",
+      "created_at": "2023-02-03T13:52:43.438Z",
+      "modified_at": "2023-02-03T13:52:43.438Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-pgv-gemeindestrasse",
-      "sort": 52
+      "sort": 53
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-pgv-kantonsstrasse",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.711Z",
-      "modified_at": "2023-01-19T17:22:24.711Z",
+      "created_at": "2023-02-03T13:52:43.435Z",
+      "modified_at": "2023-02-03T13:52:43.435Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-pgv-kantonsstrasse",
-      "sort": 51
+      "sort": 52
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-pgv-korporationsstrasse",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.706Z",
-      "modified_at": "2023-01-19T17:22:24.706Z",
+      "created_at": "2023-02-03T13:52:43.433Z",
+      "modified_at": "2023-02-03T13:52:43.433Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-pgv-korporationsstrasse",
-      "sort": 50
+      "sort": 51
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-pgv-luftfahrt",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.740Z",
-      "modified_at": "2023-01-19T17:22:24.740Z",
+      "created_at": "2023-02-03T13:52:43.450Z",
+      "modified_at": "2023-02-03T13:52:43.450Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-pgv-luftfahrt",
-      "sort": 56
+      "sort": 57
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-pgv-militaer",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.752Z",
-      "modified_at": "2023-01-19T17:22:24.752Z",
+      "created_at": "2023-02-03T13:52:43.455Z",
+      "modified_at": "2023-02-03T13:52:43.455Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-pgv-militaer",
-      "sort": 58
+      "sort": 59
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-pgv-nationalstrassen",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.734Z",
-      "modified_at": "2023-01-19T17:22:24.734Z",
+      "created_at": "2023-02-03T13:52:43.447Z",
+      "modified_at": "2023-02-03T13:52:43.447Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-pgv-nationalstrassen",
-      "sort": 55
+      "sort": 56
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-pgv-oeffentliche-gewaesser",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.689Z",
-      "modified_at": "2023-01-19T17:22:24.690Z",
+      "created_at": "2023-02-03T13:52:43.424Z",
+      "modified_at": "2023-02-03T13:52:43.424Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-pgv-oeffentliche-gewaesser",
-      "sort": 47
+      "sort": 48
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-pgv-private-gewaesser",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.701Z",
-      "modified_at": "2023-01-19T17:22:24.701Z",
+      "created_at": "2023-02-03T13:52:43.430Z",
+      "modified_at": "2023-02-03T13:52:43.430Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-pgv-private-gewaesser",
-      "sort": 49
+      "sort": 50
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-pgv-seilbahn",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.729Z",
-      "modified_at": "2023-01-19T17:22:24.729Z",
+      "created_at": "2023-02-03T13:52:43.444Z",
+      "modified_at": "2023-02-03T13:52:43.444Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-pgv-seilbahn",
-      "sort": 54
+      "sort": 55
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-pgv-starkstrom",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.723Z",
-      "modified_at": "2023-01-19T17:22:24.723Z",
+      "created_at": "2023-02-03T13:52:43.441Z",
+      "modified_at": "2023-02-03T13:52:43.441Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-pgv-starkstrom",
-      "sort": 53
+      "sort": 54
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-pgv-vereinfachtes-verfahren",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.696Z",
-      "modified_at": "2023-01-19T17:22:24.696Z",
+      "created_at": "2023-02-03T13:52:43.427Z",
+      "modified_at": "2023-02-03T13:52:43.427Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-pgv-vereinfachtes-verfahren",
-      "sort": 48
+      "sort": 49
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-project-announcement",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.564Z",
-      "modified_at": "2023-01-19T17:22:24.564Z",
+      "created_at": "2023-02-03T13:52:43.327Z",
+      "modified_at": "2023-02-03T13:52:43.327Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-project-announcement",
-      "sort": 17
+      "sort": 18
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-project-announcement-afj",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.598Z",
-      "modified_at": "2023-01-19T17:22:24.598Z",
+      "created_at": "2023-02-03T13:52:43.365Z",
+      "modified_at": "2023-02-03T13:52:43.365Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-project-announcement-afj",
-      "sort": 29
+      "sort": 30
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-reklame-bd",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.627Z",
-      "modified_at": "2023-01-19T17:22:24.627Z",
+      "created_at": "2023-02-03T13:52:43.383Z",
+      "modified_at": "2023-02-03T13:52:43.383Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-reklame-bd",
-      "sort": 35
+      "sort": 36
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-solar-announcement",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.556Z",
-      "modified_at": "2023-01-19T17:22:24.556Z",
+      "created_at": "2023-02-03T13:52:43.315Z",
+      "modified_at": "2023-02-03T13:52:43.315Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-solar-announcement",
-      "sort": 14
+      "sort": 15
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-technische-bewilligung",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.534Z",
-      "modified_at": "2023-01-19T17:22:24.534Z",
+      "created_at": "2023-02-03T13:52:43.289Z",
+      "modified_at": "2023-02-03T13:52:43.289Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-technische-bewilligung",
-      "sort": 7
+      "sort": 8
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-veranstaltungsgesuch",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.547Z",
-      "modified_at": "2023-01-19T17:22:24.547Z",
+      "created_at": "2023-02-03T13:52:43.304Z",
+      "modified_at": "2023-02-03T13:52:43.304Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-veranstaltungsgesuch",
-      "sort": 11
+      "sort": 12
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-vorpruefung-gesamtrevision-np",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.786Z",
-      "modified_at": "2023-01-19T17:22:24.786Z",
+      "created_at": "2023-02-03T13:52:43.472Z",
+      "modified_at": "2023-02-03T13:52:43.472Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-vorpruefung-gesamtrevision-np",
-      "sort": 64
+      "sort": 65
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-vorpruefung-qgp",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.762Z",
-      "modified_at": "2023-01-19T17:22:24.762Z",
+      "created_at": "2023-02-03T13:52:43.461Z",
+      "modified_at": "2023-02-03T13:52:43.461Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-vorpruefung-qgp",
-      "sort": 60
+      "sort": 61
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-vorpruefung-qp",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.757Z",
-      "modified_at": "2023-01-19T17:22:24.757Z",
+      "created_at": "2023-02-03T13:52:43.458Z",
+      "modified_at": "2023-02-03T13:52:43.458Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-vorpruefung-qp",
-      "sort": 59
+      "sort": 60
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-vorpruefung-teilrevision-np",
     "fields": {
-      "created_at": "2023-01-19T17:22:24.781Z",
-      "modified_at": "2023-01-19T17:22:24.781Z",
+      "created_at": "2023-02-03T13:52:43.469Z",
+      "modified_at": "2023-02-03T13:52:43.469Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-vorpruefung-teilrevision-np",
-      "sort": 63
+      "sort": 64
     }
   },
   {
@@ -68437,167 +69194,257 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "oereb-thema-gemeinde.oereb-thema-gemeinde-bausperre",
+    "fields": {
+      "created_at": "2023-02-03T14:31:28.566Z",
+      "modified_at": "2023-02-03T14:31:28.566Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "oereb-thema-gemeinde",
+      "option": "oereb-thema-gemeinde-bausperre",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "oereb-thema-gemeinde.oereb-thema-gemeinde-gnp",
+    "fields": {
+      "created_at": "2023-02-03T14:31:28.577Z",
+      "modified_at": "2023-02-03T14:31:28.577Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "oereb-thema-gemeinde",
+      "option": "oereb-thema-gemeinde-gnp",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "oereb-thema-gemeinde.oereb-thema-gemeinde-gpz",
+    "fields": {
+      "created_at": "2023-02-03T14:31:28.580Z",
+      "modified_at": "2023-02-03T14:31:28.580Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "oereb-thema-gemeinde",
+      "option": "oereb-thema-gemeinde-gpz",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "oereb-thema-gemeinde.oereb-thema-gemeinde-snp-bl-gemeinde",
+    "fields": {
+      "created_at": "2023-02-03T14:31:28.570Z",
+      "modified_at": "2023-02-03T14:31:28.570Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "oereb-thema-gemeinde",
+      "option": "oereb-thema-gemeinde-snp-bl-gemeinde",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "oereb-thema-gemeinde.oereb-thema-gemeinde-snp-qgp-qp",
+    "fields": {
+      "created_at": "2023-02-03T14:31:28.573Z",
+      "modified_at": "2023-02-03T14:31:28.573Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "oereb-thema-gemeinde",
+      "option": "oereb-thema-gemeinde-snp-qgp-qp",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "oereb-thema.oereb-thema-gnp",
     "fields": {
-      "created_at": "2021-11-05T08:28:03.360Z",
-      "modified_at": "2021-11-05T08:28:03.360Z",
+      "created_at": "2023-02-03T14:30:38.287Z",
+      "modified_at": "2023-02-03T14:30:38.287Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "oereb-thema",
       "option": "oereb-thema-gnp",
-      "sort": 8
+      "sort": 9
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "oereb-thema.oereb-thema-gpz",
     "fields": {
-      "created_at": "2021-11-05T08:28:03.311Z",
-      "modified_at": "2021-11-05T08:28:03.311Z",
+      "created_at": "2023-02-03T14:30:38.293Z",
+      "modified_at": "2023-02-03T14:30:38.293Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "oereb-thema",
       "option": "oereb-thema-gpz",
-      "sort": 10
+      "sort": 11
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "oereb-thema.oereb-thema-grundwasserschutz",
     "fields": {
-      "created_at": "2021-11-05T08:28:03.330Z",
-      "modified_at": "2021-11-05T08:28:03.330Z",
+      "created_at": "2023-02-03T14:30:38.271Z",
+      "modified_at": "2023-02-03T14:30:38.271Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "oereb-thema",
       "option": "oereb-thema-grundwasserschutz",
-      "sort": 3
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "oereb-thema.oereb-thema-kantonale-baulinien",
     "fields": {
-      "created_at": "2021-11-05T08:28:03.348Z",
-      "modified_at": "2021-11-05T08:28:03.348Z",
+      "created_at": "2023-02-03T14:30:38.280Z",
+      "modified_at": "2023-02-03T14:30:38.280Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "oereb-thema",
       "option": "oereb-thema-kantonale-baulinien",
-      "sort": 6
+      "sort": 7
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "oereb-thema.oereb-thema-kbs",
     "fields": {
-      "created_at": "2021-11-05T08:28:03.322Z",
-      "modified_at": "2021-11-05T08:28:03.322Z",
+      "created_at": "2023-02-03T14:30:38.274Z",
+      "modified_at": "2023-02-03T14:30:38.274Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "oereb-thema",
       "option": "oereb-thema-kbs",
-      "sort": 4
+      "sort": 5
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "oereb-thema.oereb-thema-knp",
     "fields": {
-      "created_at": "2021-11-05T08:28:03.368Z",
-      "modified_at": "2021-11-05T08:28:03.368Z",
+      "created_at": "2023-02-03T14:30:38.290Z",
+      "modified_at": "2023-02-03T14:30:38.290Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "oereb-thema",
       "option": "oereb-thema-knp",
-      "sort": 9
+      "sort": 10
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "oereb-thema.oereb-thema-kpz",
     "fields": {
-      "created_at": "2021-11-05T08:28:03.316Z",
-      "modified_at": "2021-11-05T08:28:03.316Z",
+      "created_at": "2023-02-03T14:30:38.297Z",
+      "modified_at": "2023-02-03T14:30:38.297Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "oereb-thema",
       "option": "oereb-thema-kpz",
-      "sort": 11
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "oereb-thema.oereb-thema-schutzmassnahmen",
+    "fields": {
+      "created_at": "2023-02-03T14:30:38.261Z",
+      "modified_at": "2023-02-03T14:30:38.261Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "oereb-thema",
+      "option": "oereb-thema-schutzmassnahmen",
+      "sort": 1
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "oereb-thema.oereb-thema-snp-bl-gemeinde",
     "fields": {
-      "created_at": "2021-11-05T08:28:03.341Z",
-      "modified_at": "2021-11-05T08:28:03.341Z",
+      "created_at": "2023-02-03T14:30:38.277Z",
+      "modified_at": "2023-02-03T14:30:38.277Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "oereb-thema",
       "option": "oereb-thema-snp-bl-gemeinde",
-      "sort": 5
+      "sort": 6
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "oereb-thema.oereb-thema-snp-qgp-qp",
     "fields": {
-      "created_at": "2021-11-05T08:28:03.354Z",
-      "modified_at": "2021-11-05T08:28:03.354Z",
+      "created_at": "2023-02-03T14:30:38.284Z",
+      "modified_at": "2023-02-03T14:30:38.284Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "oereb-thema",
       "option": "oereb-thema-snp-qgp-qp",
-      "sort": 7
+      "sort": 8
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "oereb-thema.oereb-thema-waldgrenze",
     "fields": {
-      "created_at": "2021-11-05T08:28:03.335Z",
-      "modified_at": "2021-11-05T08:28:03.335Z",
+      "created_at": "2023-02-03T14:30:38.267Z",
+      "modified_at": "2023-02-03T14:30:38.267Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "oereb-thema",
       "option": "oereb-thema-waldgrenze",
-      "sort": 2
+      "sort": 3
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "oereb-thema.oereb-thema-war",
     "fields": {
-      "created_at": "2021-11-05T08:28:03.304Z",
-      "modified_at": "2021-11-05T08:28:03.304Z",
+      "created_at": "2023-02-03T14:30:38.264Z",
+      "modified_at": "2023-02-03T14:30:38.264Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "oereb-thema",
       "option": "oereb-thema-war",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -72847,6 +73694,51 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "verfahrensinhalt-gemeinde.verfahrensinhalt-gemeinde-aenderung",
+    "fields": {
+      "created_at": "2023-02-03T14:02:35.687Z",
+      "modified_at": "2023-02-03T14:02:35.687Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "verfahrensinhalt-gemeinde",
+      "option": "verfahrensinhalt-gemeinde-aenderung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "verfahrensinhalt-gemeinde.verfahrensinhalt-gemeinde-aufhebung",
+    "fields": {
+      "created_at": "2023-02-03T14:02:35.683Z",
+      "modified_at": "2023-02-03T14:02:35.683Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "verfahrensinhalt-gemeinde",
+      "option": "verfahrensinhalt-gemeinde-aufhebung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "verfahrensinhalt-gemeinde.verfahrensinhalt-gemeinde-neuerlass",
+    "fields": {
+      "created_at": "2023-02-03T14:02:35.690Z",
+      "modified_at": "2023-02-03T14:02:35.690Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "verfahrensinhalt-gemeinde",
+      "option": "verfahrensinhalt-gemeinde-neuerlass",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "verfahrensinhalt.verfahrensinhalt-aenderung",
     "fields": {
       "created_at": "2021-11-05T08:40:32.038Z",
@@ -73143,6 +74035,66 @@
       "question": "vorhaben-dauer",
       "option": "vorhaben-dauer-dauerhaft",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "waldfeststellung-mit-statischen-waldgrenzen-gemeinde.waldfeststellung-mit-statischen-waldgrenzen-gemeinde-ja",
+    "fields": {
+      "created_at": "2023-02-03T14:39:06.345Z",
+      "modified_at": "2023-02-03T14:39:06.345Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "waldfeststellung-mit-statischen-waldgrenzen-gemeinde",
+      "option": "waldfeststellung-mit-statischen-waldgrenzen-gemeinde-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "waldfeststellung-mit-statischen-waldgrenzen-gemeinde.waldfeststellung-mit-statischen-waldgrenzen-gemeinde-nein",
+    "fields": {
+      "created_at": "2023-02-03T14:39:06.341Z",
+      "modified_at": "2023-02-03T14:39:06.341Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "waldfeststellung-mit-statischen-waldgrenzen-gemeinde",
+      "option": "waldfeststellung-mit-statischen-waldgrenzen-gemeinde-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "waldfeststellung-mit-statischen-waldgrenzen-kanton.waldfeststellung-mit-statischen-waldgrenzen-kanton-ja",
+    "fields": {
+      "created_at": "2023-02-03T14:47:12.123Z",
+      "modified_at": "2023-02-03T14:47:12.123Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "waldfeststellung-mit-statischen-waldgrenzen-kanton",
+      "option": "waldfeststellung-mit-statischen-waldgrenzen-kanton-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "waldfeststellung-mit-statischen-waldgrenzen-kanton.waldfeststellung-mit-statischen-waldgrenzen-kanton-nein",
+    "fields": {
+      "created_at": "2023-02-03T14:47:12.119Z",
+      "modified_at": "2023-02-03T14:47:12.119Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "waldfeststellung-mit-statischen-waldgrenzen-kanton",
+      "option": "waldfeststellung-mit-statischen-waldgrenzen-kanton-nein",
+      "sort": 1
     }
   },
   {

@@ -5,7 +5,10 @@ export default function getFormTitle(document, answerSlugs) {
     document,
     answerSlugs.oerebProcedure
   );
-  const oerebTopics = getAnswerDisplayValue(document, answerSlugs.oerebTopics);
+  const oerebTopics =
+    getAnswerDisplayValue(document, answerSlugs.oerebTopicsCanton) ||
+    getAnswerDisplayValue(document, answerSlugs.oerebTopicsMunicipality);
+
   const oerebPartialState = getAnswerDisplayValue(
     document,
     answerSlugs.oerebPartialState
@@ -20,7 +23,7 @@ export default function getFormTitle(document, answerSlugs) {
   );
 
   if (oerebProcedure && oerebTopics) {
-    const base = `${oerebTopics?.join(", ")} - ${oerebProcedure}`;
+    const base = `${oerebTopics} - ${oerebProcedure}`;
     return oerebPartialState ? `${base} (${oerebPartialState})` : base;
   } else if (procedureCanton) {
     return procedureCanton;
