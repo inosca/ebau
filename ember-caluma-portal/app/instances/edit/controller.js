@@ -43,7 +43,7 @@ export default class InstancesEditController extends Controller {
 
   @dropTask
   *fetchFeedbackAttachments() {
-    if (!config.APPLICATION.documents.feedbackSection) {
+    if (!config.APPLICATION.documents.feedbackSections) {
       return [];
     }
 
@@ -51,7 +51,8 @@ export default class InstancesEditController extends Controller {
 
     return yield this.store.query("attachment", {
       instance: this.model,
-      attachment_sections: config.APPLICATION.documents.feedbackSection,
+      attachment_sections:
+        config.APPLICATION.documents.feedbackSections.join(","),
       include: "attachment_sections",
     });
   }
