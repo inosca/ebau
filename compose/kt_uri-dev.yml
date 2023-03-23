@@ -112,26 +112,14 @@ services:
     depends_on:
       - mailhog
     volumes:
-      - ../keycloak/config/${APPLICATION}-test-config.json:/etc/keycloak/test-config.json:ro
+      - ../keycloak/config/${APPLICATION}-test-config.json:/opt/keycloak/data/import/test-config.json
     environment:
-      - DB_PASSWORD=camac
-      - KEYCLOAK_PASSWORD=camac
+      - KC_DB_PASSWORD=camac
+      - KC_DB_USERNAME=camac
+      - KC_HOSTNAME=ebau-keycloak.local
+      - KEYCLOAK_ADMIN_PASSWORD=camac
     networks:
       - ebau.local
-    # export is a bit tricky: We need to _start_ keycloak with specific arguments to perform an export
-    # you might need to remove the read only flag in the volume mount for test-config.json (few lines above)
-    # command: ["-Dkeycloak.migration.action=export", "-Dkeycloak.migration.provider=singleFile", "-Dkeycloak.migration.file=/etc/keycloak/test-config.json", "-b", "0.0.0.0"]
-    #
-    # https://www.keycloak.org/docs/11.0/server_admin/#_export_import
-    command:
-      [
-        "-Dkeycloak.migration.action=import",
-        "-Dkeycloak.migration.provider=singleFile",
-        "-Dkeycloak.migration.file=/etc/keycloak/test-config.json",
-        "-Dkeycloak.migration.strategy=OVERWRITE_EXISTING",
-        "-b",
-        "0.0.0.0",
-      ]
 
   document-merge-service:
     networks:
