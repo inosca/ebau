@@ -1,10 +1,13 @@
-.hide-gr {
-  display: none;
-}
+$global-font-family: "Arial", sans-serif;
 
-.show-be,
-.show-sz,
-.show-ur,
-{
-  display: none;
-}
+$global-font-size: 15px;
+
+// Base colors
+$global-primary-background: #0069b4;
+$global-secondary-background: black;
+
+// Font colors
+$global-color: black;
+$global-muted-color: rgb(100, 100, 100);
+$global-link-color: #3387c3;
+$global-link-hover-color: $global-primary-background;
