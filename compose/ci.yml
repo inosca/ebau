@@ -136,6 +136,19 @@ services:
       cache_from:
         - acr.run/camac-ng/camac-ng/ember-ebau-core:master
 
+  ember-ebau:
+    image: acr.run/camac-ng/camac-ng/ember-ebau:${CI_COMMIT_REF_SLUG:-master}
+    build:
+      context: ../
+      dockerfile: ./ember-ebau/Dockerfile
+      cache_from:
+        - acr.run/camac-ng/camac-ng/ember-ebau:master
+      target: build
+    networks:
+      - ebau.local
+    environment:
+      - ENV=docker
+
   mailhog:
     image: mailhog/mailhog
     networks:
