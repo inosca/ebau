@@ -43,7 +43,6 @@ services:
       - db
       - keycloak
       - cache
-      - clamav
     environment:
       - DATABASE_HOST=db
       - DATABASE_NAME=${APPLICATION}
@@ -92,15 +91,16 @@ services:
   keycloak:
     depends_on:
       - db
-    image: acr.run/camac-ng/keycloak-uri/keycloak:16.1.0_theme-v0.3.6
+    image: acr.run/camac-ng/keycloak-uri/keycloak:20.0.5_theme-v0.3.9
     environment:
-      - DB_VENDOR=postgres
-      - DB_ADDR=db
-      - DB_USER=camac
-      - DB_DATABASE=${APPLICATION}
-      - DB_SCHEMA=keycloak
-      - KEYCLOAK_USER=admin
-      - PROXY_ADDRESS_FORWARDING=true
+      - KC_DB=postgres
+      - KC_DB_URL=jdbc:postgresql://db:5432/${APPLICATION}?currentSchema=keycloak
+      - KC_HOSTNAME_STRICT_HTTPS=false
+      - KC_HTTP_ENABLED=true
+      - KC_HTTP_RELATIVE_PATH=/auth
+      - KC_LOG_LEVEL=WARN
+      - KC_PROXY=edge
+      - KEYCLOAK_ADMIN=admin
 
   document-merge-service:
     image: ghcr.io/adfinis/document-merge-service:5.2.1
