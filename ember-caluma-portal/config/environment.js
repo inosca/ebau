@@ -141,7 +141,7 @@ module.exports = function (environment) {
         ],
       },
       documents: {
-        feedbackSection: 3,
+        feedbackSections: [3, 14], // Alle Beteiligten, Rechtsbegehren
         excludeFromDocuments: ["dokumente-platzhalter"],
       },
       instanceStates: instanceStatesBe,

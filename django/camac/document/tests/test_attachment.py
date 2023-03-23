@@ -1241,7 +1241,12 @@ def test_attachment_section_filters(
     # Second test: include filter. Include the forbidden seciton,
     # but its corresponding document should not be returned
     response = admin_client.get(
-        url, data={"attachment_sections": [section_visible_2.pk, section_forbidden.pk]}
+        url,
+        data={
+            "attachment_sections": ",".join(
+                [str(section_visible_2.pk), str(section_forbidden.pk)]
+            )
+        },
     )
     assert response.status_code == status.HTTP_200_OK
     json = response.json()

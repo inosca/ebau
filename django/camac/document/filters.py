@@ -8,7 +8,7 @@ from django_filters.filters import BaseCSVFilter
 from django_filters.rest_framework import BooleanFilter, DateTimeFilter, FilterSet
 from rest_framework.exceptions import ValidationError
 
-from camac.filters import CharMultiValueFilter, NumberFilter
+from camac.filters import CharMultiValueFilter, NumberFilter, NumberMultiValueFilter
 
 from . import models
 
@@ -61,6 +61,7 @@ class AttachmentFilterSet(FilterSet):
     instance_id = NumberFilter(field_name="instance_id")
     name = CharMultiValueFilter(lookup_expr="startswith")
     context = RESTJSONFilter()
+    attachment_sections = NumberMultiValueFilter()
 
     exclude_sections = CharMultiValueFilter(
         exclude=True, field_name="attachment_sections"
