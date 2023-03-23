@@ -16,6 +16,19 @@
                 src="/assets/images/logo-urec.svg"
                 alt={{t "global.urec"}}
               />
+             {{else if (is-application "gr")}}
+              <div class="uk-flex uk-flex-middle logo-gr">
+                <img
+                  class="uk-height-1-1"
+                  src="/assets/images/logo-kanton-gr.svg"
+                  alt={{t "global.title"}}
+                />
+                <div class="uk-flex uk-flex-column aside-languages">
+                  {{#each this.languages as |lang|}}
+                    <span lang="{{lang}}" class="uk-text-bold uk-text-small">{{t "logo-gr.title" locale=lang}}</span>
+                  {{/each}}
+                </div>
+              </<div>
             {{else if (is-application "demo")}}
               <img
                 class="uk-height-1-1"

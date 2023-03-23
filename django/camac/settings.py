@@ -4,6 +4,7 @@ import os
 import re
 from datetime import timedelta
 from importlib import import_module
+from typing import Dict
 
 import environ
 from deepmerge import always_merger
@@ -3625,9 +3626,31 @@ DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
+RM_LOCALE_INFO = {
+    "rm": {
+        "bidi": False,
+        "code": "rm",
+        "name": "Romansh",
+        "name_local": "Rumantsch",
+    }
+}
+
+
+def add_django_foreign_locale(locale_info: Dict[str, dict]):
+    import django.conf.locale
+
+    django.conf.locale.LANG_INFO.update(locale_info)
+
+
 LOCALE_NAME = "de_CH"
 LANGUAGE_CODE = "de"
-LANGUAGES = [("de", _("German")), ("fr", _("French"))]
+LANGUAGES = [
+    ("de", _("German")),
+    ("fr", _("French")),
+    ("it", _("Italian")),
+    ("rm", _("Romansh")),
+]
+add_django_foreign_locale(RM_LOCALE_INFO)
 TIME_ZONE = "Europe/Zurich"
 USE_I18N = True
 USE_L10N = True
