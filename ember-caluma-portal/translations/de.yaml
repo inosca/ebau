@@ -417,3 +417,6 @@ dashboard:
   no-content: 'Es wurde noch kein Inhalt erfasst. Klicken Sie auf "bearbeiten" um neuen Inhalt zu erfassen.'
   load-error: "Fehler beim Laden des Inhaltes"
   save-error: "Fehler beim Speichern des Inhaltes"
+
+logo-gr:
+  title: "Kanton Graubünden"
