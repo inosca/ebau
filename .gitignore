@@ -34,7 +34,7 @@ tools/software/
 !/.vscode/launch.json
 *.swp
 *.swo
-./.idea
+.idea/
 
 # CSS
 .sass-cache/
@@ -42,4 +42,4 @@ tools/software/
 
 node_modules
 __pycache__/
-./.idea/
+django/venv

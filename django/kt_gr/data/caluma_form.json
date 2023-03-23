@@ -232,7 +232,7 @@
       "modified_by_group": null,
       "id": "617879c7-4ba4-41fd-8ef6-b534690702bc",
       "slug": "2",
-      "label": "{\"de\": \"Burgdorf\", \"fr\": \"Burgdorf\"}",
+      "label": "{\"de\": \"Burgdorf\", \"fr\": \"Burgdorf\", \"it\": null, \"rm\": null}",
       "document": "15e3d964-dfe2-4adb-afae-17a555742161",
       "question": "gemeinde",
       "history_date": "2022-10-06T13:47:04.520Z",
@@ -251,7 +251,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "slug": "2",
-      "label": "{\"de\": \"Burgdorf\", \"fr\": \"Burgdorf\"}",
+      "label": "{\"de\": \"Burgdorf\", \"fr\": \"Burgdorf\", \"it\": null, \"rm\": null}",
       "document": "15e3d964-dfe2-4adb-afae-17a555742161",
       "question": "gemeinde"
     }
