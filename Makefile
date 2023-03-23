@@ -133,7 +133,7 @@ format:
 	@yarn --cwd=ember-caluma-portal lint:js --fix
 	@yarn --cwd=ember install
 	@yarn --cwd=ember lint:js --fix
-	@black django
+	@black --config django/pyproject.toml django
 	@yarn prettier --write *.yml
 	@yarn prettier --write compose/*.yml
 
