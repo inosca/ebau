@@ -25,7 +25,7 @@ export default class InstancesEditIndexController extends Controller {
   @controller("instances.edit") editController;
 
   get hasFeedbackSection() {
-    return Boolean(config.APPLICATION.documents.feedbackSection);
+    return Boolean(config.APPLICATION.documents.feedbackSections);
   }
 
   get feedback() {
