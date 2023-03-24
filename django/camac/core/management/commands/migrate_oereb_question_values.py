@@ -20,10 +20,12 @@ class Command(BaseCommand):
 
         answers = Answer.objects.filter(question_id="oereb-thema")
         for answer in answers:
-            if len(answer.value) > 1:
+            if answer.value and len(answer.value) > 1:
                 answer.value = "oereb-thema-gnp"
-            else:
+            elif answer.value:
                 answer.value = answer.value[0]
+            else:
+                answer.value = None
             answer.save()
 
         if options["dry"]:
