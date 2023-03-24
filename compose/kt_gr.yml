@@ -116,7 +116,7 @@ services:
       - minio
     volumes:
       - ../alexandria/gr/dump.json:/tmp/alexandria/dump.json
-
+      - ../alexandria/gr:/app/alexandria/gr
     environment:
       - ENV=development
       - DATABASE_HOST=db
@@ -124,7 +124,7 @@ services:
       - DATABASE_USER=camac
       - MINIO_STORAGE_SERVICE=minio
       - MINIO_STORAGE_ACCESS_KEY=minio
-      - LANGUAGES=de-ch,en
+      - LANGUAGES=de-ch,fr-ch,rm-ch
       - VISIBILITY_CLASSES=alexandria.gr.extensions.visibilities.CustomVisibility
       - PERMISSION_CLASSES=alexandria.gr.extensions.permissions.CustomPermission
 
