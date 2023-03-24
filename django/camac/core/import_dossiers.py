@@ -76,12 +76,6 @@ def _import_dossier(data):
         source_instance=None,
     )
 
-    instance.case.meta["external-id"] = data["external-id"]
-    instance.case.save()
-
-    instance.form.description = "KOOR-ARE-BG;Koordinationsstelle f\u00fcr Baueingaben Amt f\u00fcr Raumentwicklung"
-    instance.form.save()
-
     submit_date = now().strftime(SUBMIT_DATE_FORMAT)
     WorkflowEntry.objects.create(
         workflow_date=submit_date,
@@ -89,6 +83,13 @@ def _import_dossier(data):
         workflow_item_id=uri_constants.WORKFLOW_ITEM_DOSSIER_ERFASST,
         group=1,
     )
+
+    instance.case.meta["external-id"] = data["external-id"]
+    instance.case.meta["submit-date"] = submit_date
+    instance.case.save()
+
+    instance.form.description = "KOOR-ARE-BG;Koordinationsstelle f\u00fcr Baueingaben Amt f\u00fcr Raumentwicklung"
+    instance.form.save()
 
     _write_answers(instance, data)
     _write_attachments(instance, data)
