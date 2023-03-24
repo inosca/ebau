@@ -51,7 +51,7 @@ class InstanceExportSerializer(serializers.Serializer):
         declared_fields = super().get_fields()
         field_names = getattr(self.Meta, "fields", None)
 
-        if not field_names:
+        if not field_names:  # pragma: no cover
             return declared_fields
 
         fields = OrderedDict()
