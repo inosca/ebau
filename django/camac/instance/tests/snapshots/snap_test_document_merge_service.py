@@ -1589,10 +1589,10 @@ snapshots['test_document_merge_service_snapshot baugesuch'] = [
                 'choices': [
                     {
                         'checked': True,
-                        'label': 'Der/die Gesuchsteller/in bestätigt, dass die Bauherrschaft Berechtigung (via Tab "Berechtigungen") auf das Dossier erhalten hat.'
+                        'label': 'Die gesuchstellende Person bestätigt, dass sie die Berechtigung auf das eBau Dossier hat.  Sofern das Baugesuch nicht durch die gesuchstellende Person selbst, sondern durch eine Drittperson (z.B. Vertretung, Architekt(in), Projektverfasser(in) etc.) in eBau erfasst wurde, bestätigt diese Drittperson, welche das Baugesuch ausgefüllt hat, dass sie der gesuchstellenden Person bzw. der Bauherrschaft die Berechtigung (via Tab «Berechtigungen») auf das eBau Dossier erteilt hat.'
                     }
                 ],
-                'label': 'Der/die Gesuchsteller/in bestätigt, dass die Bauherrschaft Berechtigung (via Tab "Berechtigungen") auf das Dossier erhalten hat.',
+                'label': 'Die gesuchstellende Person bestätigt, dass sie die Berechtigung auf das eBau Dossier hat.  Sofern das Baugesuch nicht durch die gesuchstellende Person selbst, sondern durch eine Drittperson (z.B. Vertretung, Architekt(in), Projektverfasser(in) etc.) in eBau erfasst wurde, bestätigt diese Drittperson, welche das Baugesuch ausgefüllt hat, dass sie der gesuchstellenden Person bzw. der Bauherrschaft die Berechtigung (via Tab «Berechtigungen») auf das eBau Dossier erteilt hat.',
                 'slug': 'bestaetigung-berechtigung-bauherrschaft',
                 'type': 'MultipleChoiceQuestion'
             }
