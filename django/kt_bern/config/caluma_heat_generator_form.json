@@ -1100,12 +1100,12 @@
     "pk": "heat-generator-energy-source-new-abwaerme",
     "fields": {
       "created_at": "2022-12-01T12:53:04.561Z",
-      "modified_at": "2022-12-27T08:25:47.152Z",
+      "modified_at": "2023-03-06T07:52:02.560Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Abw\\u00e4rme (inkl. Fernw\\u00e4rme aus KVA, ARA, Industrie)\", \"fr\": \"Rejets de chaleur (y compris chaleur \\u00e0 distance provenant d'UIOM, de STEP, d'industries)\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Fernw\\u00e4rme (inkl. Abw\\u00e4rme aus KVA, ARA, Industrie)\", \"fr\": \"Chaleur \\u00e0 distance (y compris rejets de chaleur provenant d'UIOM, de STEP, d'industries)\", \"it\": null, \"rm\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1116,13 +1116,13 @@
     "pk": "heat-generator-energy-source-new-gasfeuerung",
     "fields": {
       "created_at": "2022-12-01T12:53:04.193Z",
-      "modified_at": "2022-12-27T08:25:46.710Z",
+      "modified_at": "2023-03-06T07:52:03.051Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Gasfeuerung m./ o. W\\u00e4rmeverbund\", \"fr\": \"Chauffage au gaz avec/sans r\\u00e9seau de chaleur\", \"it\": null, \"rm\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -1132,12 +1132,28 @@
     "pk": "heat-generator-energy-source-new-gasfeuerung-kondensierend",
     "fields": {
       "created_at": "2022-12-01T12:53:04.243Z",
-      "modified_at": "2022-12-27T08:25:46.770Z",
+      "modified_at": "2023-03-06T07:52:03.350Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Gasfeuerung kondensierend\", \"fr\": \"Chaudi\\u00e8re \\u00e0 gaz \\u00e0 condensation\", \"it\": null, \"rm\": null}",
+      "is_archived": true,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "heat-generator-energy-source-new-gasfeuerung-neu",
+    "fields": {
+      "created_at": "2023-03-02T11:16:21.670Z",
+      "modified_at": "2023-03-06T07:52:02.456Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gasfeuerung\", \"fr\": \"Chaudi\\u00e8re \\u00e0 gaz\", \"it\": null, \"rm\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1148,12 +1164,60 @@
     "pk": "heat-generator-energy-source-new-holzfeuerung",
     "fields": {
       "created_at": "2022-12-01T12:53:04.195Z",
-      "modified_at": "2022-12-27T08:25:46.911Z",
+      "modified_at": "2023-03-06T07:52:03.230Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Holzfeuerung m./ o. W\\u00e4rmeverbund\", \"fr\": \"Chauffage au bois avec/sans r\\u00e9seau de chaleur\", \"it\": null, \"rm\": null}",
+      "is_archived": true,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "heat-generator-energy-source-new-holzfeuerung-neu",
+    "fields": {
+      "created_at": "2023-03-02T11:16:21.625Z",
+      "modified_at": "2023-03-06T07:52:02.532Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Holzfeuerung (St\\u00fcckholz, Pellet,  Schnitzel)\", \"fr\": \"Chauffage au bois (b\\u00fbches, pellets, copeaux de bois)\", \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "heat-generator-energy-source-new-nahwaerme-erneuerbar",
+    "fields": {
+      "created_at": "2023-03-02T11:16:21.730Z",
+      "modified_at": "2023-03-06T07:52:02.542Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nahw\\u00e4rme erneuerbar (Holz, W\\u00e4rmepumpe, usw.)\", \"fr\": \"R\\u00e9seau de chaleur de proximit\\u00e9 aliment\\u00e9 par des \\u00e9nergies renouvelables (bois, pompe \\u00e0 chaleur, etc.)\", \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "heat-generator-energy-source-new-nahwaerme-fossil",
+    "fields": {
+      "created_at": "2023-03-02T11:16:21.673Z",
+      "modified_at": "2023-03-06T07:52:02.363Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nahw\\u00e4rme fossil (\\u00d6l, Gas)\", \"fr\": \"R\\u00e9seau de chaleur de proximit\\u00e9 aliment\\u00e9 par des \\u00e9nergies fossiles (mazout, gaz)\", \"it\": null, \"rm\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1164,13 +1228,13 @@
     "pk": "heat-generator-energy-source-new-oelfeuerung",
     "fields": {
       "created_at": "2022-12-01T12:53:04.301Z",
-      "modified_at": "2022-12-27T08:25:46.743Z",
+      "modified_at": "2023-03-06T07:52:03.210Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"\\u00d6lfeuerung m. / o. W\\u00e4rmeverbund\", \"fr\": \"Chauffage au mazout avec/sans r\\u00e9seau de chaleur\", \"it\": null, \"rm\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -1180,12 +1244,28 @@
     "pk": "heat-generator-energy-source-new-oelfeuerung-kondensierend",
     "fields": {
       "created_at": "2022-12-01T12:53:04.235Z",
-      "modified_at": "2022-12-27T08:25:46.833Z",
+      "modified_at": "2023-03-06T07:52:03.077Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"\\u00d6lfeuerung kondensierend\", \"fr\": \"Chaudi\\u00e8re \\u00e0 mazout \\u00e0 condensation\", \"it\": null, \"rm\": null}",
+      "is_archived": true,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "heat-generator-energy-source-new-oelfeuerung-neu",
+    "fields": {
+      "created_at": "2023-03-02T11:16:21.460Z",
+      "modified_at": "2023-03-06T07:52:02.369Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"\\u00d6lfeuerung\", \"fr\": \"Chaudi\\u00e8re au mazout\", \"it\": null, \"rm\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1196,13 +1276,13 @@
     "pk": "heat-generator-energy-source-new-pelletfeuerung",
     "fields": {
       "created_at": "2022-12-01T12:53:04.228Z",
-      "modified_at": "2022-12-27T08:25:46.777Z",
+      "modified_at": "2023-03-06T07:52:03.374Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Pelletfeuerung\", \"fr\": \"Chauffage aux pellets\", \"it\": null, \"rm\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -1212,13 +1292,13 @@
     "pk": "heat-generator-energy-source-new-stueckholzfeuerung",
     "fields": {
       "created_at": "2022-12-01T12:53:04.441Z",
-      "modified_at": "2022-12-27T08:25:47.164Z",
+      "modified_at": "2023-03-06T07:52:03.389Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"St\\u00fcckholzfeuerung\", \"fr\": \"Chauffage \\u00e0 b\\u00fbches\", \"it\": null, \"rm\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -1228,7 +1308,7 @@
     "pk": "heat-generator-energy-source-new-thermische-solaranlage",
     "fields": {
       "created_at": "2022-12-01T12:53:04.857Z",
-      "modified_at": "2022-12-27T08:25:47.498Z",
+      "modified_at": "2023-03-06T07:52:03.129Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -1244,7 +1324,7 @@
     "pk": "heat-generator-energy-source-new-waermekraftkopplung",
     "fields": {
       "created_at": "2022-12-01T12:53:04.463Z",
-      "modified_at": "2022-12-27T08:25:47.253Z",
+      "modified_at": "2023-03-06T07:52:02.539Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -1257,16 +1337,32 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "heat-generator-energy-source-new-waermepumpe-aussenaufstellung",
+    "fields": {
+      "created_at": "2023-03-02T11:16:21.746Z",
+      "modified_at": "2023-03-06T07:52:02.650Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"W\\u00e4rmepumpe Aussenluft  (Aussenaufstellung)\", \"fr\": \"Pompe \\u00e0 chaleur air ext\\u00e9rieur (Installation ext\\u00e9rieure)\", \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "heat-generator-energy-source-new-waermepumpe-aussenluft",
     "fields": {
       "created_at": "2022-12-01T12:53:04.623Z",
-      "modified_at": "2022-12-27T08:25:47.232Z",
+      "modified_at": "2023-03-06T07:52:03.378Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"W\\u00e4rmepumpe Aussenluft\", \"fr\": \"Pompe \\u00e0 chaleur air ext\\u00e9rieur\", \"it\": null, \"rm\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -1276,7 +1372,7 @@
     "pk": "heat-generator-energy-source-new-waermepumpe-erdregister",
     "fields": {
       "created_at": "2022-12-01T12:53:04.745Z",
-      "modified_at": "2022-12-27T08:25:47.380Z",
+      "modified_at": "2023-03-06T07:52:02.855Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -1292,7 +1388,7 @@
     "pk": "heat-generator-energy-source-new-waermepumpe-erdsonde",
     "fields": {
       "created_at": "2022-12-01T12:53:04.661Z",
-      "modified_at": "2022-12-27T08:25:47.347Z",
+      "modified_at": "2023-03-06T07:52:02.758Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -1308,7 +1404,7 @@
     "pk": "heat-generator-energy-source-new-waermepumpe-grundwasser",
     "fields": {
       "created_at": "2022-12-01T12:53:04.863Z",
-      "modified_at": "2022-12-27T08:25:47.535Z",
+      "modified_at": "2023-03-06T07:52:02.857Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -1321,10 +1417,26 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "heat-generator-energy-source-new-waermepumpe-innenaufstellung",
+    "fields": {
+      "created_at": "2023-03-02T11:16:21.758Z",
+      "modified_at": "2023-03-06T07:52:02.659Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"W\\u00e4rmepumpe Aussenluft  (Innenaufstellung)\", \"fr\": \"Pompe \\u00e0 chaleur air ext\\u00e9rieur (Installation int\\u00e9rieure)\", \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "heat-generator-energy-source-new-waermepumpe-oberflaechengewaesser",
     "fields": {
       "created_at": "2022-12-01T12:53:04.780Z",
-      "modified_at": "2022-12-27T08:25:47.508Z",
+      "modified_at": "2023-03-06T07:52:03.060Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -1340,12 +1452,12 @@
     "pk": "heat-generator-energy-source-new-with-requirements-abwaerme",
     "fields": {
       "created_at": "2022-12-06T09:24:59.135Z",
-      "modified_at": "2022-12-27T08:28:20.981Z",
+      "modified_at": "2023-03-06T08:29:56.010Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Abw\\u00e4rme (inkl. Fernw\\u00e4rme aus KVA, ARA, Industrie)\", \"fr\": \"Rejets de chaleur (y compris chaleur \\u00e0 distance provenant d'UIOM, de STEP, d'industries)\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Fernw\\u00e4rme (inkl. Abw\\u00e4rme aus KVA, ARA, Industrie)\", \"fr\": \"Chaleur \\u00e0 distance (y compris rejets de chaleur provenant d'UIOM, de STEP, d'industries)\", \"it\": null, \"rm\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1356,12 +1468,12 @@
     "pk": "heat-generator-energy-source-new-with-requirements-gasfeuerung",
     "fields": {
       "created_at": "2022-12-06T09:24:58.799Z",
-      "modified_at": "2022-12-27T08:28:20.596Z",
+      "modified_at": "2023-03-06T08:29:56.066Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Gasfeuerung m./ o. W\\u00e4rmeverbund\", \"fr\": \"Chauffage au gaz avec/sans r\\u00e9seau de chaleur\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Gasfeuerung\", \"fr\": \"Chaudi\\u00e8re \\u00e0 gaz\", \"it\": null, \"rm\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1372,13 +1484,13 @@
     "pk": "heat-generator-energy-source-new-with-requirements-gasfeuerung-kondensierend",
     "fields": {
       "created_at": "2022-12-06T09:24:58.822Z",
-      "modified_at": "2022-12-27T08:28:20.595Z",
+      "modified_at": "2023-03-06T08:29:56.534Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Gasfeuerung kondensierend\", \"fr\": \"Chaudi\\u00e8re \\u00e0 gaz \\u00e0 condensation\", \"it\": null, \"rm\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -1388,12 +1500,44 @@
     "pk": "heat-generator-energy-source-new-with-requirements-holzfeuerung",
     "fields": {
       "created_at": "2022-12-06T09:24:58.865Z",
-      "modified_at": "2022-12-27T08:28:20.509Z",
+      "modified_at": "2023-03-06T08:29:55.874Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Holzfeuerung m./ o. W\\u00e4rmeverbund\", \"fr\": \"Chauffage au bois avec/sans r\\u00e9seau de chaleur\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Holzfeuerung (St\\u00fcckholz, Pellet,  Schnitzel)\", \"fr\": \"Chauffage au bois (b\\u00fbches, pellets, copeaux de bois)\", \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "heat-generator-energy-source-new-with-requirements-nahwaerme-erneuerbar",
+    "fields": {
+      "created_at": "2023-03-06T08:10:56.572Z",
+      "modified_at": "2023-03-06T08:29:55.801Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nahw\\u00e4rme erneuerbar (Holz, W\\u00e4rmepumpe, usw.)\", \"fr\": \"R\\u00e9seau de chaleur de proximit\\u00e9 aliment\\u00e9 par des \\u00e9nergies renouvelables (bois, pompe \\u00e0 chaleur, etc.)\", \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "heat-generator-energy-source-new-with-requirements-nahwaerme-fossil",
+    "fields": {
+      "created_at": "2023-03-06T08:10:56.462Z",
+      "modified_at": "2023-03-06T08:29:55.979Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nahw\\u00e4rme fossil (\\u00d6l, Gas)\", \"fr\": \"R\\u00e9seau de chaleur de proximit\\u00e9 aliment\\u00e9 par des \\u00e9nergies fossiles (mazout, gaz)\", \"it\": null, \"rm\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1404,12 +1548,12 @@
     "pk": "heat-generator-energy-source-new-with-requirements-oelfeuerung",
     "fields": {
       "created_at": "2022-12-06T09:24:58.747Z",
-      "modified_at": "2022-12-27T08:28:20.531Z",
+      "modified_at": "2023-03-06T08:29:55.866Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"\\u00d6lfeuerung m. / o. W\\u00e4rmeverbund\", \"fr\": \"Chauffage au mazout avec/sans r\\u00e9seau de chaleur\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"\\u00d6lfeuerung\", \"fr\": \"Chaudi\\u00e8re au mazout\", \"it\": null, \"rm\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1420,13 +1564,13 @@
     "pk": "heat-generator-energy-source-new-with-requirements-oelfeuerung-kondensierend",
     "fields": {
       "created_at": "2022-12-06T09:24:58.861Z",
-      "modified_at": "2022-12-27T08:28:20.568Z",
+      "modified_at": "2023-03-06T08:29:56.635Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"\\u00d6lfeuerung kondensierend\", \"fr\": \"Chaudi\\u00e8re \\u00e0 mazout \\u00e0 condensation\", \"it\": null, \"rm\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -1436,13 +1580,13 @@
     "pk": "heat-generator-energy-source-new-with-requirements-pelletfeuerung",
     "fields": {
       "created_at": "2022-12-06T09:24:58.830Z",
-      "modified_at": "2022-12-27T08:28:20.690Z",
+      "modified_at": "2023-03-06T08:29:56.687Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Pelletfeuerung\", \"fr\": \"Chauffage aux pellets\", \"it\": null, \"rm\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -1452,12 +1596,12 @@
     "pk": "heat-generator-energy-source-new-with-requirements-provisorium",
     "fields": {
       "created_at": "2022-12-06T09:24:59.496Z",
-      "modified_at": "2022-12-27T08:28:21.487Z",
+      "modified_at": "2023-03-06T08:29:56.505Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Provisorium (Heizungsausfall w\\u00e4hrend Heizperiode)\", \"fr\": \"R\\u00e9gime provisoire (panne de chauffage pendant la p\\u00e9riode de chauffage)\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Provisorium (Heizungsausfall w\\u00e4hrend Heizperiode)\", \"fr\": \"R\\u00e9gime provisoire en cas d\\u2019une panne de chauffage pendant la p\\u00e9riode de chauffage\", \"it\": null, \"rm\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1468,13 +1612,13 @@
     "pk": "heat-generator-energy-source-new-with-requirements-stueckholzfeuerung",
     "fields": {
       "created_at": "2022-12-06T09:24:59.118Z",
-      "modified_at": "2022-12-27T08:28:20.894Z",
+      "modified_at": "2023-03-06T08:29:56.742Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"St\\u00fcckholzfeuerung\", \"fr\": \"Chauffage \\u00e0 b\\u00fbches\", \"it\": null, \"rm\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -1484,7 +1628,7 @@
     "pk": "heat-generator-energy-source-new-with-requirements-thermische-solaranlage",
     "fields": {
       "created_at": "2022-12-06T09:24:59.481Z",
-      "modified_at": "2022-12-27T08:28:21.418Z",
+      "modified_at": "2023-03-06T08:29:56.466Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -1500,12 +1644,12 @@
     "pk": "heat-generator-energy-source-new-with-requirements-uebergangsloesung",
     "fields": {
       "created_at": "2022-12-06T09:24:59.494Z",
-      "modified_at": "2022-12-27T08:28:21.530Z",
+      "modified_at": "2023-03-06T08:29:56.570Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"\\u00dcbergangsl\\u00f6sung in Fernw\\u00e4rmeausbaugebieten\", \"fr\": \"Solution transitoire dans les zones de d\\u00e9veloppement du chauffage \\u00e0 distance\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"\\u00dcbergangsl\\u00f6sung in Fernw\\u00e4rmeausbaugebieten\", \"fr\": \"R\\u00e9gime provisoire dans les zones de d\\u00e9veloppement du chauffage \\u00e0 distance (solution transitoire)\", \"it\": null, \"rm\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1516,7 +1660,7 @@
     "pk": "heat-generator-energy-source-new-with-requirements-waermekraftkopplung",
     "fields": {
       "created_at": "2022-12-06T09:24:59.212Z",
-      "modified_at": "2022-12-27T08:28:20.968Z",
+      "modified_at": "2023-03-06T08:29:56.130Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -1529,16 +1673,32 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "heat-generator-energy-source-new-with-requirements-waermepumpe-aussenaufstellung",
+    "fields": {
+      "created_at": "2023-03-06T08:26:48.574Z",
+      "modified_at": "2023-03-06T08:29:56.120Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"W\\u00e4rmepumpe Aussenluft  (Aussenaufstellung)\", \"fr\": \"Pompe \\u00e0 chaleur air ext\\u00e9rieur (Installation ext\\u00e9rieure)\", \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "heat-generator-energy-source-new-with-requirements-waermepumpe-aussenluft",
     "fields": {
       "created_at": "2022-12-06T09:24:59.209Z",
-      "modified_at": "2022-12-27T08:28:21.095Z",
+      "modified_at": "2023-03-06T08:29:56.703Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"W\\u00e4rmepumpe Aussenluft\", \"fr\": \"Pompe \\u00e0 chaleur air ext\\u00e9rieur\", \"it\": null, \"rm\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -1548,7 +1708,7 @@
     "pk": "heat-generator-energy-source-new-with-requirements-waermepumpe-erdregister",
     "fields": {
       "created_at": "2022-12-06T09:24:59.194Z",
-      "modified_at": "2022-12-27T08:28:21.131Z",
+      "modified_at": "2023-03-06T08:29:56.314Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -1564,7 +1724,7 @@
     "pk": "heat-generator-energy-source-new-with-requirements-waermepumpe-erdsonde",
     "fields": {
       "created_at": "2022-12-06T09:24:59.197Z",
-      "modified_at": "2022-12-27T08:28:21.140Z",
+      "modified_at": "2023-03-06T08:29:56.280Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -1580,7 +1740,7 @@
     "pk": "heat-generator-energy-source-new-with-requirements-waermepumpe-grundwasser",
     "fields": {
       "created_at": "2022-12-06T09:24:59.468Z",
-      "modified_at": "2022-12-27T08:28:21.392Z",
+      "modified_at": "2023-03-06T08:29:56.554Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -1593,10 +1753,26 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "heat-generator-energy-source-new-with-requirements-waermepumpe-innenaufstellung",
+    "fields": {
+      "created_at": "2023-03-06T08:26:48.618Z",
+      "modified_at": "2023-03-06T08:29:56.085Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"W\\u00e4rmepumpe Aussenluft  (Innenaufstellung)\", \"fr\": \"Pompe \\u00e0 chaleur air ext\\u00e9rieur (Installation int\\u00e9rieure)\", \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "heat-generator-energy-source-new-with-requirements-waermepumpe-oberflaechengewaesser",
     "fields": {
       "created_at": "2022-12-06T09:24:59.497Z",
-      "modified_at": "2022-12-27T08:28:21.339Z",
+      "modified_at": "2023-03-06T08:29:56.360Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -1612,7 +1788,7 @@
     "pk": "heat-generator-fuel-change-ja",
     "fields": {
       "created_at": "2022-12-06T09:32:53.838Z",
-      "modified_at": "2022-12-27T08:13:41.012Z",
+      "modified_at": "2023-03-06T07:32:11.733Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -1628,7 +1804,7 @@
     "pk": "heat-generator-fuel-change-nein",
     "fields": {
       "created_at": "2022-12-06T09:32:53.831Z",
-      "modified_at": "2022-12-27T08:13:41.025Z",
+      "modified_at": "2023-03-06T07:32:11.719Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -1948,7 +2124,7 @@
     "pk": "heat-generator-substitution-with-fossil-ja",
     "fields": {
       "created_at": "2022-12-01T12:36:18.715Z",
-      "modified_at": "2022-12-27T08:11:46.909Z",
+      "modified_at": "2023-03-06T07:31:30.618Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -1964,7 +2140,7 @@
     "pk": "heat-generator-substitution-with-fossil-nein",
     "fields": {
       "created_at": "2022-12-01T12:36:18.710Z",
-      "modified_at": "2022-12-27T08:11:46.911Z",
+      "modified_at": "2023-03-06T07:31:30.650Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -2339,7 +2515,7 @@
     "pk": "heat-generator-energy-source-new",
     "fields": {
       "created_at": "2022-12-01T12:53:05.033Z",
-      "modified_at": "2022-12-27T08:25:47.747Z",
+      "modified_at": "2023-03-06T07:52:03.580Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -2370,7 +2546,7 @@
     "pk": "heat-generator-energy-source-new-with-requirements",
     "fields": {
       "created_at": "2022-12-06T09:24:59.791Z",
-      "modified_at": "2022-12-27T08:28:21.736Z",
+      "modified_at": "2023-03-06T08:29:56.934Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -2468,12 +2644,12 @@
     "pk": "heat-generator-fuel-change",
     "fields": {
       "created_at": "2022-12-06T09:32:54.018Z",
-      "modified_at": "2022-12-27T08:13:41.255Z",
+      "modified_at": "2023-03-06T07:32:11.927Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Liegt beim geplanten W\\u00e4rmeerzeugerwechsel ein Brennstoffwechsel vor?\", \"fr\": \"Le changement de g\\u00e9n\\u00e9rateur de chaleur pr\\u00e9vu implique-t-il un changement de combustible ?\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Liegt beim geplanten W\\u00e4rmeerzeuger ein Brennstoffwechsel vor?\", \"fr\": \"Le changement de g\\u00e9n\\u00e9rateur de chaleur pr\\u00e9vu implique-t-il un changement de combustible?\", \"it\": null, \"rm\": null}",
       "type": "choice",
       "is_required": "true",
       "is_hidden": "!(\n\t'heat-generator-category'|answer\n\tintersects\n    [\n    \t'heat-generator-category-wohnen-mfh',\n        'heat-generator-category-wohnen-efh',\n        'heat-generator-category-verwaltung',\n        'heat-generator-category-schulen',\n        'heat-generator-category-verkauf',\n        'heat-generator-category-restaurants'\n    ]\n) ||\n'heat-generator-age'|answer == 'heat-generator-age-nein' ||\n'heat-generator-substitution-with-fossil'|answer == 'heat-generator-substitution-with-fossil-nein'",
@@ -2595,7 +2771,7 @@
     "pk": "heat-generator-info",
     "fields": {
       "created_at": "2022-12-01T12:18:49.348Z",
-      "modified_at": "2022-12-27T08:09:29.817Z",
+      "modified_at": "2023-03-24T10:34:13.576Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -2608,7 +2784,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null, \"rm\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "static_content": "{\"de\": \"Unabh\\u00e4ngig von der Geb\\u00e4udekategorie und vom Heizsystem ist jeder Ersatz eines W\\u00e4rmeerzeugers meldepflichtig. Als W\\u00e4rmeerzeugerersatz gilt der Ersatz vom Gesamtsystem, vom Kessel, vom Brenner (wenn der Kessel \\u00e4lter als 10 Jahre ist), vom Kamin oder vom \\u00d6ltank. Die gesetzliche Grundlage ist in den folgenden Artikeln formuliert:\\n\\n- Gem\\u00e4ss Art. 40a des Kantonalen Energiegesetzes (KEnG) ist der Ersatz eines W\\u00e4rmeerzeugers generell f\\u00fcr alle Geb\\u00e4udekategorien meldepflichtig.\\n- Gem\\u00e4ss Art. 20a der Kantonalen Energieverordnung (KEnV) gilt der Ersatz eines W\\u00e4rmeerzeugers, wenn der Kessel, der Brenner (wenn Kessel \\u00e4lter als 10 Jahre), der Kamin oder der \\u00d6ltank ersetzt werden.\\n- Systematische Sammlung (BSG) der Gesetzgebung im Kanton Bern:\\n    - [KEnG](https://www.belex.sites.be.ch/app/de/texts_of_law/741.1)\\n    - [KEnV](https://www.belex.sites.be.ch/app/de/texts_of_law/741.111)\\n\\nDas Meldeverfahren befreit nicht von der Baubewilligungspflicht. Welche Massnahmen eine Baubewilligung erfordern, ist im Dokument [\\u00abBaubewilligungsverfahren Standardl\\u00f6sungen_Meldepflicht W\\u00e4rmeerzeugerersatz\\u00bb](https://www.weu.be.ch/de/start/themen/energie/energievorschriften-bauen.html) ersichtlich.\\n\\n<hr class=\\\"uk-margin-remove\\\">\", \"fr\": \"Ind\\u00e9pendamment de la cat\\u00e9gorie de b\\u00e2timent et du syst\\u00e8me de chauffage, tout remplacement de g\\u00e9n\\u00e9rateur de chaleur doit \\u00eatre annonc\\u00e9. Est consid\\u00e9r\\u00e9 comme remplacement du g\\u00e9n\\u00e9rateur de chaleur, le remplacement de l'ensemble du syst\\u00e8me, de la chaudi\\u00e8re, du br\\u00fbleur (si la chaudi\\u00e8re a plus de 10 ans), de la chemin\\u00e9e ou de la citerne \\u00e0 mazout. La base l\\u00e9gale est formul\\u00e9e dans les articles suivants :\\n\\n- Conform\\u00e9ment \\u00e0 l'art. 40a de la loi cantonale sur l'\\u00e9nergie (LCEn), le remplacement d'un g\\u00e9n\\u00e9rateur de chaleur est soumis \\u00e0 une obligation d'annonce pour toutes les cat\\u00e9gories de b\\u00e2timents.\\n- Selon l'art. 20a de l'ordonnance cantonale sur l'\\u00e9nergie (OCEn), le remplacement d'un g\\u00e9n\\u00e9rateur de chaleur est consid\\u00e9r\\u00e9 comme tel lorsque la chaudi\\u00e8re, le br\\u00fbleur (si la chaudi\\u00e8re a plus de 10 ans), la chemin\\u00e9e ou la citerne \\u00e0 mazout sont remplac\\u00e9s.\\n- Recueil syst\\u00e9matique (RSB) de la l\\u00e9gislation dans le canton de Berne :\\n    - [LCEn](https://www.belex.sites.be.ch/app/fr/texts_of_law/741.1)\\n    - [OCEn](https://www.belex.sites.be.ch/app/fr/texts_of_law/741.111)\\n\\nLa proc\\u00e9dure d'annonce ne dispense pas de l'obligation d'obtenir un permis de construire. Les mesures n\\u00e9cessitant un permis de construire sont indiqu\\u00e9es dans le document [\\\"Proc\\u00e9dure de permis de construire selon Solution standard_Obligation d'annoncer le remplacement d'un g\\u00e9n\\u00e9rateur de chaleur\\\"](https://www.weu.be.ch/fr/start/themen/energie/energievorschriften-bauen.html). \\n\\n<hr class=\\\"uk-margin-remove\\\">\", \"it\": \"\", \"rm\": \"\"}",
+      "static_content": "{\"de\": \"Unabh\\u00e4ngig von der Geb\\u00e4udekategorie und vom Heizsystem ist jeder Ersatz eines W\\u00e4rmeerzeugers meldepflichtig. Als W\\u00e4rmeerzeugerersatz gilt der Ersatz vom Gesamtsystem, vom Kessel, vom Brenner (wenn der Kessel \\u00e4lter als 10 Jahre ist), vom Kamin oder vom \\u00d6ltank. Die gesetzliche Grundlage ist in den folgenden Artikeln formuliert:\\n\\n- Gem\\u00e4ss Art. 40a des Kantonalen Energiegesetzes (KEnG) ist der Ersatz eines W\\u00e4rmeerzeugers generell f\\u00fcr alle Geb\\u00e4udekategorien meldepflichtig.\\n- Gem\\u00e4ss Art. 20a der Kantonalen Energieverordnung (KEnV) gilt der Ersatz eines W\\u00e4rmeerzeugers, wenn der Kessel, der Brenner (wenn Kessel \\u00e4lter als 10 Jahre), der Kamin oder der \\u00d6ltank ersetzt werden.\\n- Systematische Sammlung (BSG) der Gesetzgebung im Kanton Bern:\\n    - [KEnG](https://www.belex.sites.be.ch/app/de/texts_of_law/741.1)\\n    - [KEnV](https://www.belex.sites.be.ch/app/de/texts_of_law/741.111)\\n\\nDas Meldeverfahren befreit nicht von der Baubewilligungspflicht. Welche Massnahmen eine Baubewilligung erfordern, ist im Dokument [\\u00abBaubewilligungspflicht in Abh\\u00e4ngigkeit der gew\\u00e4hlten Standardl\\u00f6sung\\u00bb](https://www.weu.be.ch/de/start/themen/energie/energievorschriften-bauen.html) ersichtlich.\\n\\n<hr class=\\\"uk-margin-remove\\\">\", \"fr\": \"Ind\\u00e9pendamment de la cat\\u00e9gorie de b\\u00e2timent et du syst\\u00e8me de chauffage, tout remplacement de g\\u00e9n\\u00e9rateur de chaleur doit \\u00eatre annonc\\u00e9. Est consid\\u00e9r\\u00e9 comme remplacement du g\\u00e9n\\u00e9rateur de chaleur, le remplacement de l'ensemble du syst\\u00e8me, de la chaudi\\u00e8re, du br\\u00fbleur (si la chaudi\\u00e8re a plus de 10 ans), de la chemin\\u00e9e ou de la citerne \\u00e0 mazout. La base l\\u00e9gale est formul\\u00e9e dans les articles suivants :\\n\\n- Conform\\u00e9ment \\u00e0 l'art. 40a de la loi cantonale sur l'\\u00e9nergie (LCEn), le remplacement d'un g\\u00e9n\\u00e9rateur de chaleur est soumis \\u00e0 une obligation d'annonce pour toutes les cat\\u00e9gories de b\\u00e2timents.\\n- Selon l'art. 20a de l'ordonnance cantonale sur l'\\u00e9nergie (OCEn), le remplacement d'un g\\u00e9n\\u00e9rateur de chaleur est consid\\u00e9r\\u00e9 comme tel lorsque la chaudi\\u00e8re, le br\\u00fbleur (si la chaudi\\u00e8re a plus de 10 ans), la chemin\\u00e9e ou la citerne \\u00e0 mazout sont remplac\\u00e9s.\\n- Recueil syst\\u00e9matique (RSB) de la l\\u00e9gislation dans le canton de Berne :\\n    - [LCEn](https://www.belex.sites.be.ch/app/fr/texts_of_law/741.1)\\n    - [OCEn](https://www.belex.sites.be.ch/app/fr/texts_of_law/741.111)\\n\\nLa proc\\u00e9dure d'annonce ne dispense pas de l'obligation d'obtenir un permis de construire. Les mesures n\\u00e9cessitant un permis de construire sont indiqu\\u00e9es dans le document [\\u00abObligation d'obtenir un permis de construire en fonction de la solution standard choisie\\u00bb](https://www.weu.be.ch/fr/start/themen/energie/energievorschriften-bauen.html). \\n\\n<hr class=\\\"uk-margin-remove\\\">\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -2766,7 +2942,7 @@
     "pk": "heat-generator-percentage-renewable-gas",
     "fields": {
       "created_at": "2022-12-01T12:41:48.279Z",
-      "modified_at": "2022-12-27T08:13:17.618Z",
+      "modified_at": "2023-03-02T11:27:51.025Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -2774,7 +2950,7 @@
       "label": "{\"de\": \"Anteil Erneuerbares Gas (z.B. Biogas) in Prozent\", \"fr\": \"Part de gaz renouvelable (p. ex. biogaz) en pourcent\", \"it\": null, \"rm\": null}",
       "type": "integer",
       "is_required": "true",
-      "is_hidden": "!(\n\t'heat-generator-new'|answer|mapby('heat-generator-energy-source-new')\n\tintersects\n\t[\n\t\t'heat-generator-energy-source-new-gasfeuerung',\n\t\t'heat-generator-energy-source-new-gasfeuerung-kondensierend',\n\t\t'heat-generator-energy-source-new-waermekraftkopplung'\n\t]\n)\n&&\n!(\n\t'heat-generator-new-with-requirements'|answer|mapby('heat-generator-energy-source-new-with-requirements')\n\tintersects\n\t[\n\t\t'heat-generator-energy-source-new-with-requirements-gasfeuerung',\n\t\t'heat-generator-energy-source-new-with-requirements-gasfeuerung-kondensierend',\n\t\t'heat-generator-energy-source-new-with-requirements-waermekraftkopplung'\n\t]\n)",
+      "is_hidden": "!(\n\t'heat-generator-new'|answer|mapby('heat-generator-energy-source-new')\n\tintersects\n\t[\n\t\t'heat-generator-energy-source-new-gasfeuerung',\n\t\t'heat-generator-energy-source-new-gasfeuerung-kondensierend',\n\t\t'heat-generator-energy-source-new-waermekraftkopplung',\n\t\t'heat-generator-energy-source-new-gasfeuerung-neu',\n\t\t'heat-generator-energy-source-new-nahwaerme-fossil'\n\t]\n)\n&&\n!(\n\t'heat-generator-new-with-requirements'|answer|mapby('heat-generator-energy-source-new-with-requirements')\n\tintersects\n\t[\n\t\t'heat-generator-energy-source-new-with-requirements-gasfeuerung',\n\t\t'heat-generator-energy-source-new-with-requirements-gasfeuerung-kondensierend',\n\t\t'heat-generator-energy-source-new-with-requirements-waermekraftkopplung',\n\t\t'heat-generator-energy-source-new-with-requirements-gasfeuerung-neu',\n\t\t'heat-generator-energy-source-new-with-requirements-nahwaerme-fossil'\n\t]\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": \"\", \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": \"Wie hoch ist der aktuelle prozentuale Anteil erneuerbares Gas (z.B. Biogas) am Gasliefermix?\", \"fr\": \"Quel est le pourcentage actuel de gaz renouvelable (par ex. biogaz) dans le mix de fourniture de gaz ?\", \"it\": null, \"rm\": null}",
@@ -2929,19 +3105,19 @@
     "pk": "heat-generator-substitution-with-fossil",
     "fields": {
       "created_at": "2022-12-01T12:36:18.937Z",
-      "modified_at": "2022-12-27T08:11:47.118Z",
+      "modified_at": "2023-03-06T07:31:30.823Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Geplanter Ersatz mit fossilem Energietr\\u00e4ger (\\u00d6l / Gas)?\", \"fr\": \"Remplacement pr\\u00e9vu par un agent \\u00e9nerg\\u00e9tique fossile (mazout / gaz) ?\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Wird der neue W\\u00e4rmeerzeuger wieder mit einem fossilen Energietr\\u00e4ger betrieben (\\u00d6l / Gas)?\", \"fr\": \"Le nouveau g\\u00e9n\\u00e9rateur de chaleur fonctionnera-t-il \\u00e0 nouveau avec une source d'\\u00e9nergie fossile (mazout / gaz)\\u00a0?\", \"it\": null, \"rm\": null}",
       "type": "choice",
       "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -3056,7 +3232,7 @@
     "pk": "heat-generator-verification-info",
     "fields": {
       "created_at": "2022-12-06T09:08:39.029Z",
-      "modified_at": "2022-12-27T08:07:32.958Z",
+      "modified_at": "2023-03-01T12:00:40.086Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -3069,7 +3245,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null, \"rm\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "static_content": "{\"de\": \"Die Pr\\u00fcfung der Nachweisdokumente erfolgt durch die zust\\u00e4ndige Leitbeh\\u00f6rde Ihrer Gemeinde. Sie erhalten eine Best\\u00e4tigung f\\u00fcr den gesetzeskonformen W\\u00e4rmeerzeugerersatz.\\n\\nFalls es in einem Geb\\u00e4ude technisch nicht machbar oder wirtschaftlich unzumutbar ist, eine Standardl\\u00f6sung umzusetzen oder mit Effizienzmassnahmen die geforderte Gesamtenergieeffizienzklasse D zu erreichen, kann der Bauherr gest\\u00fctzt auf Artikel 36 KEnG eine Ausnahme beantragen. Das [Ausnahmegesuch](https://www.weu.be.ch/de/start/themen/energie/energievorschriften-bauen.html) ist der Leitbeh\\u00f6rde der Gemeinde einzureichen. Die Pr\\u00fcfung und Beurteilung des Ausnahmegesuchs erfolgt durch das Amt f\\u00fcr Umwelt und Energie des Kantons Bern.\", \"fr\": \"Le contr\\u00f4le des documents justificatifs est effectu\\u00e9 par l'autorit\\u00e9 comp\\u00e9tente de votre commune. Vous recevrez une confirmation que le remplacement du g\\u00e9n\\u00e9rateur de chaleur est conforme \\u00e0 la loi.\\n\\nS'il n'est techniquement pas possible ou \\u00e9conomiquement insupportable de mettre en \\u0153uvre une solution standard ou d'atteindre avec des mesures d'efficacit\\u00e9 la classe d'efficacit\\u00e9 \\u00e9nerg\\u00e9tique globale D, le ma\\u00eetre d'ouvrage peut demander une d\\u00e9rogation sur la base de l'article 36 LEne. La [demande de d\\u00e9rogation](https://www.weu.be.ch/fr/start/themen/energie/energievorschriften-bauen.html) doit \\u00eatre soumise \\u00e0 l'autorit\\u00e9 comp\\u00e9tente de la commune. L'examen et le jugement de la demande de d\\u00e9rogation sont effectu\\u00e9s par l'Office de l'environnement et de l'\\u00e9nergie du canton de Berne.\", \"it\": \"\", \"rm\": \"\"}",
+      "static_content": "{\"de\": \"Die Pr\\u00fcfung der Nachweisdokumente erfolgt durch die zust\\u00e4ndige Leitbeh\\u00f6rde Ihrer Gemeinde. Sie erhalten eine Best\\u00e4tigung f\\u00fcr den gesetzeskonformen W\\u00e4rmeerzeugerersatz.\\n\\nFalls es in einem Geb\\u00e4ude technisch nicht machbar oder wirtschaftlich unzumutbar ist, eine Standardl\\u00f6sung umzusetzen oder mit Effizienzmassnahmen die geforderte Gesamtenergieeffizienzklasse D zu erreichen, kann der Bauherr gest\\u00fctzt auf Artikel 36 KEnG eine Ausnahme beantragen. Das Ausnahmegesuch ist der Leitbeh\\u00f6rde der Gemeinde einzureichen. Die Pr\\u00fcfung und Beurteilung des Ausnahmegesuchs erfolgt durch das Amt f\\u00fcr Umwelt und Energie des Kantons Bern.\", \"fr\": \"Le contr\\u00f4le des documents justificatifs est effectu\\u00e9 par l'autorit\\u00e9 comp\\u00e9tente de votre commune. Vous recevrez une confirmation que le remplacement du g\\u00e9n\\u00e9rateur de chaleur est conforme \\u00e0 la loi.\\n\\nS'il n'est techniquement pas possible ou \\u00e9conomiquement insupportable de mettre en \\u0153uvre une solution standard ou d'atteindre avec des mesures d'efficacit\\u00e9 la classe d'efficacit\\u00e9 \\u00e9nerg\\u00e9tique globale D, le ma\\u00eetre d'ouvrage peut demander une d\\u00e9rogation sur la base de l'article 36 LEne. La demande de d\\u00e9rogation doit \\u00eatre soumise \\u00e0 l'autorit\\u00e9 comp\\u00e9tente de la commune. L'examen et le jugement de la demande de d\\u00e9rogation sont effectu\\u00e9s par l'Office de l'environnement et de l'\\u00e9nergie du canton de Berne.\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -3118,19 +3294,19 @@
     "pk": "heat-generator-year",
     "fields": {
       "created_at": "2022-12-01T12:34:47.753Z",
-      "modified_at": "2022-12-27T08:11:16.294Z",
+      "modified_at": "2023-03-06T07:01:24.949Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Erstellungsjahr\", \"fr\": \"Ann\\u00e9e d'ach\\u00e8vement du b\\u00e2timent\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Erstellungsjahr (gem\\u00e4ss rechtskr\\u00e4ftiger Baubewilligung)\", \"fr\": \"Ann\\u00e9e d'ach\\u00e8vement du b\\u00e2timent (selon le permis de construire d\\u00e9finitif)\", \"it\": null, \"rm\": null}",
       "type": "integer",
       "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": \"\", \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null, \"rm\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": \"\", \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {
         "max_value": 9999,
@@ -3482,488 +3658,653 @@
     "model": "caluma_form.questionoption",
     "pk": "heat-generator-energy-source-new-with-requirements.heat-generator-energy-source-new-with-requirements-abwaerme",
     "fields": {
-      "created_at": "2022-12-27T08:28:21.773Z",
-      "modified_at": "2022-12-27T08:28:21.773Z",
+      "created_at": "2023-03-06T08:29:56.995Z",
+      "modified_at": "2023-03-06T08:29:56.995Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "heat-generator-energy-source-new-with-requirements",
       "option": "heat-generator-energy-source-new-with-requirements-abwaerme",
-      "sort": 10
+      "sort": 16
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "heat-generator-energy-source-new-with-requirements.heat-generator-energy-source-new-with-requirements-gasfeuerung",
     "fields": {
-      "created_at": "2022-12-27T08:28:21.789Z",
-      "modified_at": "2022-12-27T08:28:21.789Z",
+      "created_at": "2023-03-06T08:29:57.010Z",
+      "modified_at": "2023-03-06T08:29:57.010Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "heat-generator-energy-source-new-with-requirements",
       "option": "heat-generator-energy-source-new-with-requirements-gasfeuerung",
-      "sort": 15
+      "sort": 20
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "heat-generator-energy-source-new-with-requirements.heat-generator-energy-source-new-with-requirements-gasfeuerung-kondensierend",
     "fields": {
-      "created_at": "2022-12-27T08:28:21.786Z",
-      "modified_at": "2022-12-27T08:28:21.786Z",
+      "created_at": "2023-03-06T08:29:56.954Z",
+      "modified_at": "2023-03-06T08:29:56.954Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "heat-generator-energy-source-new-with-requirements",
       "option": "heat-generator-energy-source-new-with-requirements-gasfeuerung-kondensierend",
-      "sort": 14
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "heat-generator-energy-source-new-with-requirements.heat-generator-energy-source-new-with-requirements-holzfeuerung",
     "fields": {
-      "created_at": "2022-12-27T08:28:21.783Z",
-      "modified_at": "2022-12-27T08:28:21.783Z",
+      "created_at": "2023-03-06T08:29:57.003Z",
+      "modified_at": "2023-03-06T08:29:57.003Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "heat-generator-energy-source-new-with-requirements",
       "option": "heat-generator-energy-source-new-with-requirements-holzfeuerung",
-      "sort": 13
+      "sort": 18
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "heat-generator-energy-source-new-with-requirements.heat-generator-energy-source-new-with-requirements-nahwaerme-erneuerbar",
+    "fields": {
+      "created_at": "2023-03-06T08:29:56.999Z",
+      "modified_at": "2023-03-06T08:29:56.999Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "heat-generator-energy-source-new-with-requirements",
+      "option": "heat-generator-energy-source-new-with-requirements-nahwaerme-erneuerbar",
+      "sort": 17
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "heat-generator-energy-source-new-with-requirements.heat-generator-energy-source-new-with-requirements-nahwaerme-fossil",
+    "fields": {
+      "created_at": "2023-03-06T08:29:57.007Z",
+      "modified_at": "2023-03-06T08:29:57.007Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "heat-generator-energy-source-new-with-requirements",
+      "option": "heat-generator-energy-source-new-with-requirements-nahwaerme-fossil",
+      "sort": 19
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "heat-generator-energy-source-new-with-requirements.heat-generator-energy-source-new-with-requirements-oelfeuerung",
     "fields": {
-      "created_at": "2022-12-27T08:28:21.795Z",
-      "modified_at": "2022-12-27T08:28:21.795Z",
+      "created_at": "2023-03-06T08:29:57.014Z",
+      "modified_at": "2023-03-06T08:29:57.014Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "heat-generator-energy-source-new-with-requirements",
       "option": "heat-generator-energy-source-new-with-requirements-oelfeuerung",
-      "sort": 17
+      "sort": 21
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "heat-generator-energy-source-new-with-requirements.heat-generator-energy-source-new-with-requirements-oelfeuerung-kondensierend",
     "fields": {
-      "created_at": "2022-12-27T08:28:21.792Z",
-      "modified_at": "2022-12-27T08:28:21.792Z",
+      "created_at": "2023-03-06T08:29:56.957Z",
+      "modified_at": "2023-03-06T08:29:56.957Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "heat-generator-energy-source-new-with-requirements",
       "option": "heat-generator-energy-source-new-with-requirements-oelfeuerung-kondensierend",
-      "sort": 16
+      "sort": 5
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "heat-generator-energy-source-new-with-requirements.heat-generator-energy-source-new-with-requirements-pelletfeuerung",
     "fields": {
-      "created_at": "2022-12-27T08:28:21.779Z",
-      "modified_at": "2022-12-27T08:28:21.779Z",
+      "created_at": "2023-03-06T08:29:56.950Z",
+      "modified_at": "2023-03-06T08:29:56.950Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "heat-generator-energy-source-new-with-requirements",
       "option": "heat-generator-energy-source-new-with-requirements-pelletfeuerung",
-      "sort": 12
+      "sort": 3
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "heat-generator-energy-source-new-with-requirements.heat-generator-energy-source-new-with-requirements-provisorium",
     "fields": {
-      "created_at": "2022-12-27T08:28:21.747Z",
-      "modified_at": "2022-12-27T08:28:21.747Z",
+      "created_at": "2023-03-06T08:29:56.964Z",
+      "modified_at": "2023-03-06T08:29:56.964Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "heat-generator-energy-source-new-with-requirements",
       "option": "heat-generator-energy-source-new-with-requirements-provisorium",
-      "sort": 2
+      "sort": 7
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "heat-generator-energy-source-new-with-requirements.heat-generator-energy-source-new-with-requirements-stueckholzfeuerung",
     "fields": {
-      "created_at": "2022-12-27T08:28:21.776Z",
-      "modified_at": "2022-12-27T08:28:21.776Z",
+      "created_at": "2023-03-06T08:29:56.946Z",
+      "modified_at": "2023-03-06T08:29:56.946Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "heat-generator-energy-source-new-with-requirements",
       "option": "heat-generator-energy-source-new-with-requirements-stueckholzfeuerung",
-      "sort": 11
+      "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "heat-generator-energy-source-new-with-requirements.heat-generator-energy-source-new-with-requirements-thermische-solaranlage",
     "fields": {
-      "created_at": "2022-12-27T08:28:21.750Z",
-      "modified_at": "2022-12-27T08:28:21.750Z",
+      "created_at": "2023-03-06T08:29:56.967Z",
+      "modified_at": "2023-03-06T08:29:56.967Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "heat-generator-energy-source-new-with-requirements",
       "option": "heat-generator-energy-source-new-with-requirements-thermische-solaranlage",
-      "sort": 3
+      "sort": 8
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "heat-generator-energy-source-new-with-requirements.heat-generator-energy-source-new-with-requirements-uebergangsloesung",
     "fields": {
-      "created_at": "2022-12-27T08:28:21.743Z",
-      "modified_at": "2022-12-27T08:28:21.743Z",
+      "created_at": "2023-03-06T08:29:56.960Z",
+      "modified_at": "2023-03-06T08:29:56.960Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "heat-generator-energy-source-new-with-requirements",
       "option": "heat-generator-energy-source-new-with-requirements-uebergangsloesung",
-      "sort": 1
+      "sort": 6
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "heat-generator-energy-source-new-with-requirements.heat-generator-energy-source-new-with-requirements-waermekraftkopplung",
     "fields": {
-      "created_at": "2022-12-27T08:28:21.770Z",
-      "modified_at": "2022-12-27T08:28:21.770Z",
+      "created_at": "2023-03-06T08:29:56.992Z",
+      "modified_at": "2023-03-06T08:29:56.992Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "heat-generator-energy-source-new-with-requirements",
       "option": "heat-generator-energy-source-new-with-requirements-waermekraftkopplung",
-      "sort": 9
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "heat-generator-energy-source-new-with-requirements.heat-generator-energy-source-new-with-requirements-waermepumpe-aussenaufstellung",
+    "fields": {
+      "created_at": "2023-03-06T08:29:56.988Z",
+      "modified_at": "2023-03-06T08:29:56.988Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "heat-generator-energy-source-new-with-requirements",
+      "option": "heat-generator-energy-source-new-with-requirements-waermepumpe-aussenaufstellung",
+      "sort": 14
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "heat-generator-energy-source-new-with-requirements.heat-generator-energy-source-new-with-requirements-waermepumpe-aussenluft",
     "fields": {
-      "created_at": "2022-12-27T08:28:21.767Z",
-      "modified_at": "2022-12-27T08:28:21.767Z",
+      "created_at": "2023-03-06T08:29:56.942Z",
+      "modified_at": "2023-03-06T08:29:56.942Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "heat-generator-energy-source-new-with-requirements",
       "option": "heat-generator-energy-source-new-with-requirements-waermepumpe-aussenluft",
-      "sort": 8
+      "sort": 1
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "heat-generator-energy-source-new-with-requirements.heat-generator-energy-source-new-with-requirements-waermepumpe-erdregister",
     "fields": {
-      "created_at": "2022-12-27T08:28:21.760Z",
-      "modified_at": "2022-12-27T08:28:21.760Z",
+      "created_at": "2023-03-06T08:29:56.978Z",
+      "modified_at": "2023-03-06T08:29:56.978Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "heat-generator-energy-source-new-with-requirements",
       "option": "heat-generator-energy-source-new-with-requirements-waermepumpe-erdregister",
-      "sort": 6
+      "sort": 11
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "heat-generator-energy-source-new-with-requirements.heat-generator-energy-source-new-with-requirements-waermepumpe-erdsonde",
     "fields": {
-      "created_at": "2022-12-27T08:28:21.763Z",
-      "modified_at": "2022-12-27T08:28:21.763Z",
+      "created_at": "2023-03-06T08:29:56.981Z",
+      "modified_at": "2023-03-06T08:29:56.981Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "heat-generator-energy-source-new-with-requirements",
       "option": "heat-generator-energy-source-new-with-requirements-waermepumpe-erdsonde",
-      "sort": 7
+      "sort": 12
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "heat-generator-energy-source-new-with-requirements.heat-generator-energy-source-new-with-requirements-waermepumpe-grundwasser",
     "fields": {
-      "created_at": "2022-12-27T08:28:21.754Z",
-      "modified_at": "2022-12-27T08:28:21.754Z",
+      "created_at": "2023-03-06T08:29:56.970Z",
+      "modified_at": "2023-03-06T08:29:56.970Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "heat-generator-energy-source-new-with-requirements",
       "option": "heat-generator-energy-source-new-with-requirements-waermepumpe-grundwasser",
-      "sort": 4
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "heat-generator-energy-source-new-with-requirements.heat-generator-energy-source-new-with-requirements-waermepumpe-innenaufstellung",
+    "fields": {
+      "created_at": "2023-03-06T08:29:56.985Z",
+      "modified_at": "2023-03-06T08:29:56.985Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "heat-generator-energy-source-new-with-requirements",
+      "option": "heat-generator-energy-source-new-with-requirements-waermepumpe-innenaufstellung",
+      "sort": 13
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "heat-generator-energy-source-new-with-requirements.heat-generator-energy-source-new-with-requirements-waermepumpe-oberflaechengewaesser",
     "fields": {
-      "created_at": "2022-12-27T08:28:21.757Z",
-      "modified_at": "2022-12-27T08:28:21.757Z",
+      "created_at": "2023-03-06T08:29:56.974Z",
+      "modified_at": "2023-03-06T08:29:56.974Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "heat-generator-energy-source-new-with-requirements",
       "option": "heat-generator-energy-source-new-with-requirements-waermepumpe-oberflaechengewaesser",
-      "sort": 5
+      "sort": 10
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "heat-generator-energy-source-new.heat-generator-energy-source-new-abwaerme",
     "fields": {
-      "created_at": "2022-12-27T08:25:47.872Z",
-      "modified_at": "2022-12-27T08:25:47.872Z",
+      "created_at": "2023-03-06T07:52:03.651Z",
+      "modified_at": "2023-03-06T07:52:03.651Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "heat-generator-energy-source-new",
       "option": "heat-generator-energy-source-new-abwaerme",
-      "sort": 8
+      "sort": 19
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "heat-generator-energy-source-new.heat-generator-energy-source-new-gasfeuerung",
     "fields": {
-      "created_at": "2022-12-27T08:25:47.904Z",
-      "modified_at": "2022-12-27T08:25:47.904Z",
+      "created_at": "2023-03-06T07:52:03.613Z",
+      "modified_at": "2023-03-06T07:52:03.613Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "heat-generator-energy-source-new",
       "option": "heat-generator-energy-source-new-gasfeuerung",
-      "sort": 13
+      "sort": 8
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "heat-generator-energy-source-new.heat-generator-energy-source-new-gasfeuerung-kondensierend",
     "fields": {
-      "created_at": "2022-12-27T08:25:47.898Z",
-      "modified_at": "2022-12-27T08:25:47.898Z",
+      "created_at": "2023-03-06T07:52:03.599Z",
+      "modified_at": "2023-03-06T07:52:03.599Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "heat-generator-energy-source-new",
       "option": "heat-generator-energy-source-new-gasfeuerung-kondensierend",
-      "sort": 12
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "heat-generator-energy-source-new.heat-generator-energy-source-new-gasfeuerung-neu",
+    "fields": {
+      "created_at": "2023-03-06T07:52:03.663Z",
+      "modified_at": "2023-03-06T07:52:03.663Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "heat-generator-energy-source-new",
+      "option": "heat-generator-energy-source-new-gasfeuerung-neu",
+      "sort": 23
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "heat-generator-energy-source-new.heat-generator-energy-source-new-holzfeuerung",
     "fields": {
-      "created_at": "2022-12-27T08:25:47.891Z",
-      "modified_at": "2022-12-27T08:25:47.891Z",
+      "created_at": "2023-03-06T07:52:03.602Z",
+      "modified_at": "2023-03-06T07:52:03.602Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "heat-generator-energy-source-new",
       "option": "heat-generator-energy-source-new-holzfeuerung",
-      "sort": 11
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "heat-generator-energy-source-new.heat-generator-energy-source-new-holzfeuerung-neu",
+    "fields": {
+      "created_at": "2023-03-06T07:52:03.657Z",
+      "modified_at": "2023-03-06T07:52:03.657Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "heat-generator-energy-source-new",
+      "option": "heat-generator-energy-source-new-holzfeuerung-neu",
+      "sort": 21
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "heat-generator-energy-source-new.heat-generator-energy-source-new-nahwaerme-erneuerbar",
+    "fields": {
+      "created_at": "2023-03-06T07:52:03.654Z",
+      "modified_at": "2023-03-06T07:52:03.654Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "heat-generator-energy-source-new",
+      "option": "heat-generator-energy-source-new-nahwaerme-erneuerbar",
+      "sort": 20
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "heat-generator-energy-source-new.heat-generator-energy-source-new-nahwaerme-fossil",
+    "fields": {
+      "created_at": "2023-03-06T07:52:03.660Z",
+      "modified_at": "2023-03-06T07:52:03.660Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "heat-generator-energy-source-new",
+      "option": "heat-generator-energy-source-new-nahwaerme-fossil",
+      "sort": 22
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "heat-generator-energy-source-new.heat-generator-energy-source-new-oelfeuerung",
     "fields": {
-      "created_at": "2022-12-27T08:25:47.918Z",
-      "modified_at": "2022-12-27T08:25:47.918Z",
+      "created_at": "2023-03-06T07:52:03.606Z",
+      "modified_at": "2023-03-06T07:52:03.606Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "heat-generator-energy-source-new",
       "option": "heat-generator-energy-source-new-oelfeuerung",
-      "sort": 15
+      "sort": 6
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "heat-generator-energy-source-new.heat-generator-energy-source-new-oelfeuerung-kondensierend",
     "fields": {
-      "created_at": "2022-12-27T08:25:47.911Z",
-      "modified_at": "2022-12-27T08:25:47.911Z",
+      "created_at": "2023-03-06T07:52:03.610Z",
+      "modified_at": "2023-03-06T07:52:03.610Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "heat-generator-energy-source-new",
       "option": "heat-generator-energy-source-new-oelfeuerung-kondensierend",
-      "sort": 14
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "heat-generator-energy-source-new.heat-generator-energy-source-new-oelfeuerung-neu",
+    "fields": {
+      "created_at": "2023-03-06T07:52:03.666Z",
+      "modified_at": "2023-03-06T07:52:03.666Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "heat-generator-energy-source-new",
+      "option": "heat-generator-energy-source-new-oelfeuerung-neu",
+      "sort": 24
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "heat-generator-energy-source-new.heat-generator-energy-source-new-pelletfeuerung",
     "fields": {
-      "created_at": "2022-12-27T08:25:47.885Z",
-      "modified_at": "2022-12-27T08:25:47.885Z",
+      "created_at": "2023-03-06T07:52:03.595Z",
+      "modified_at": "2023-03-06T07:52:03.595Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "heat-generator-energy-source-new",
       "option": "heat-generator-energy-source-new-pelletfeuerung",
-      "sort": 10
+      "sort": 3
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "heat-generator-energy-source-new.heat-generator-energy-source-new-stueckholzfeuerung",
     "fields": {
-      "created_at": "2022-12-27T08:25:47.879Z",
-      "modified_at": "2022-12-27T08:25:47.879Z",
+      "created_at": "2023-03-06T07:52:03.591Z",
+      "modified_at": "2023-03-06T07:52:03.591Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "heat-generator-energy-source-new",
       "option": "heat-generator-energy-source-new-stueckholzfeuerung",
-      "sort": 9
+      "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "heat-generator-energy-source-new.heat-generator-energy-source-new-thermische-solaranlage",
     "fields": {
-      "created_at": "2022-12-27T08:25:47.753Z",
-      "modified_at": "2022-12-27T08:25:47.753Z",
+      "created_at": "2023-03-06T07:52:03.624Z",
+      "modified_at": "2023-03-06T07:52:03.624Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "heat-generator-energy-source-new",
       "option": "heat-generator-energy-source-new-thermische-solaranlage",
-      "sort": 1
+      "sort": 11
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "heat-generator-energy-source-new.heat-generator-energy-source-new-waermekraftkopplung",
     "fields": {
-      "created_at": "2022-12-27T08:25:47.862Z",
-      "modified_at": "2022-12-27T08:25:47.862Z",
+      "created_at": "2023-03-06T07:52:03.647Z",
+      "modified_at": "2023-03-06T07:52:03.647Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "heat-generator-energy-source-new",
       "option": "heat-generator-energy-source-new-waermekraftkopplung",
-      "sort": 7
+      "sort": 18
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "heat-generator-energy-source-new.heat-generator-energy-source-new-waermepumpe-aussenaufstellung",
+    "fields": {
+      "created_at": "2023-03-06T07:52:03.644Z",
+      "modified_at": "2023-03-06T07:52:03.644Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "heat-generator-energy-source-new",
+      "option": "heat-generator-energy-source-new-waermepumpe-aussenaufstellung",
+      "sort": 17
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "heat-generator-energy-source-new.heat-generator-energy-source-new-waermepumpe-aussenluft",
     "fields": {
-      "created_at": "2022-12-27T08:25:47.849Z",
-      "modified_at": "2022-12-27T08:25:47.849Z",
+      "created_at": "2023-03-06T07:52:03.588Z",
+      "modified_at": "2023-03-06T07:52:03.588Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "heat-generator-energy-source-new",
       "option": "heat-generator-energy-source-new-waermepumpe-aussenluft",
-      "sort": 6
+      "sort": 1
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "heat-generator-energy-source-new.heat-generator-energy-source-new-waermepumpe-erdregister",
     "fields": {
-      "created_at": "2022-12-27T08:25:47.762Z",
-      "modified_at": "2022-12-27T08:25:47.762Z",
+      "created_at": "2023-03-06T07:52:03.634Z",
+      "modified_at": "2023-03-06T07:52:03.634Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "heat-generator-energy-source-new",
       "option": "heat-generator-energy-source-new-waermepumpe-erdregister",
-      "sort": 4
+      "sort": 14
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "heat-generator-energy-source-new.heat-generator-energy-source-new-waermepumpe-erdsonde",
     "fields": {
-      "created_at": "2022-12-27T08:25:47.837Z",
-      "modified_at": "2022-12-27T08:25:47.837Z",
+      "created_at": "2023-03-06T07:52:03.638Z",
+      "modified_at": "2023-03-06T07:52:03.638Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "heat-generator-energy-source-new",
       "option": "heat-generator-energy-source-new-waermepumpe-erdsonde",
-      "sort": 5
+      "sort": 15
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "heat-generator-energy-source-new.heat-generator-energy-source-new-waermepumpe-grundwasser",
     "fields": {
-      "created_at": "2022-12-27T08:25:47.756Z",
-      "modified_at": "2022-12-27T08:25:47.756Z",
+      "created_at": "2023-03-06T07:52:03.627Z",
+      "modified_at": "2023-03-06T07:52:03.627Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "heat-generator-energy-source-new",
       "option": "heat-generator-energy-source-new-waermepumpe-grundwasser",
-      "sort": 2
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "heat-generator-energy-source-new.heat-generator-energy-source-new-waermepumpe-innenaufstellung",
+    "fields": {
+      "created_at": "2023-03-06T07:52:03.641Z",
+      "modified_at": "2023-03-06T07:52:03.641Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "heat-generator-energy-source-new",
+      "option": "heat-generator-energy-source-new-waermepumpe-innenaufstellung",
+      "sort": 16
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "heat-generator-energy-source-new.heat-generator-energy-source-new-waermepumpe-oberflaechengewaesser",
     "fields": {
-      "created_at": "2022-12-27T08:25:47.759Z",
-      "modified_at": "2022-12-27T08:25:47.759Z",
+      "created_at": "2023-03-06T07:52:03.631Z",
+      "modified_at": "2023-03-06T07:52:03.631Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "heat-generator-energy-source-new",
       "option": "heat-generator-energy-source-new-waermepumpe-oberflaechengewaesser",
-      "sort": 3
+      "sort": 13
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "heat-generator-fuel-change.heat-generator-fuel-change-ja",
     "fields": {
-      "created_at": "2022-12-27T08:13:41.268Z",
-      "modified_at": "2022-12-27T08:13:41.268Z",
+      "created_at": "2023-03-06T07:32:11.941Z",
+      "modified_at": "2023-03-06T07:32:11.941Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -3977,8 +4318,8 @@
     "model": "caluma_form.questionoption",
     "pk": "heat-generator-fuel-change.heat-generator-fuel-change-nein",
     "fields": {
-      "created_at": "2022-12-27T08:13:41.262Z",
-      "modified_at": "2022-12-27T08:13:41.262Z",
+      "created_at": "2023-03-06T07:32:11.935Z",
+      "modified_at": "2023-03-06T07:32:11.935Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -4277,8 +4618,8 @@
     "model": "caluma_form.questionoption",
     "pk": "heat-generator-substitution-with-fossil.heat-generator-substitution-with-fossil-ja",
     "fields": {
-      "created_at": "2022-12-27T08:11:47.129Z",
-      "modified_at": "2022-12-27T08:11:47.129Z",
+      "created_at": "2023-03-06T07:31:30.838Z",
+      "modified_at": "2023-03-06T07:31:30.839Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -4292,8 +4633,8 @@
     "model": "caluma_form.questionoption",
     "pk": "heat-generator-substitution-with-fossil.heat-generator-substitution-with-fossil-nein",
     "fields": {
-      "created_at": "2022-12-27T08:11:47.126Z",
-      "modified_at": "2022-12-27T08:11:47.126Z",
+      "created_at": "2023-03-06T07:31:30.833Z",
+      "modified_at": "2023-03-06T07:31:30.833Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
