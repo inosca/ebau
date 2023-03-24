@@ -5,6 +5,7 @@ import DocumentValidityButtonComponent from "ember-ebau-core/components/document
 import LinkAttachmentsComponent from "ember-ebau-core/components/link-attachments";
 import UrGisComponent from "ember-ebau-core/components/ur-gis";
 
+import AlexandriaDocumentsFormComponent from "caluma-portal/components/alexandria-documents-form";
 import BeClaimsFormComponent from "caluma-portal/components/be-claims-form";
 import BeDisabledInputComponent from "caluma-portal/components/be-disabled-input";
 import BeDocumentsFormComponent from "caluma-portal/components/be-documents-form";
@@ -113,6 +114,11 @@ export default class ApplicationRoute extends Route {
       label: "Dokumente verlinken",
       component: "link-attachments",
       componentClass: LinkAttachmentsComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Alexandria Dokument Formular",
+      component: "alexandria-documents-form",
+      componentClass: AlexandriaDocumentsFormComponent,
     });
   }
 }
