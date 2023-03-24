@@ -4923,15 +4923,6 @@
   },
   {
     "model": "user.usergroup",
-    "pk": 13,
-    "fields": {
-      "user": 1,
-      "group": 1071,
-      "default_group": 1
-    }
-  },
-  {
-    "model": "user.usergroup",
     "pk": 14,
     "fields": {
       "user": 1213,
