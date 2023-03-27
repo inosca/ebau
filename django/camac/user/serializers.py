@@ -5,6 +5,7 @@ from django.core.validators import validate_email
 from rest_framework_json_api import relations, serializers
 
 from camac.core.serializers import MultilingualField, MultilingualSerializer
+from camac.instance.utils import get_lead_authority
 
 from . import models
 
@@ -136,16 +137,27 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
     users = relations.SerializerMethodResourceRelatedField(
         source="get_users", model=models.User, read_only=True, many=True
     )
+    municipality = relations.SerializerMethodResourceRelatedField(
+        source="get_municipality", model=models.Service, read_only=True
+    )
 
     def get_users(self, obj):
         return models.User.objects.filter(
             user_groups__group_id__in=obj.groups.values("pk")
         ).distinct()
 
+    def get_municipality(self, obj):
+        return (
+            get_lead_authority(obj)
+            if obj.service_group.name == "construction-control"
+            else None
+        )
+
     included_serializers = {
         "users": "camac.user.serializers.UserSerializer",
         "service_parent": "camac.user.serializers.ServiceSerializer",
         "service_group": "camac.user.serializers.PublicServiceGroupSerializer",
+        "municipality": "camac.user.serializers.ServiceSerializer",
     }
 
     def validate_email(self, value):
@@ -221,8 +233,15 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
             "service_group",
             "sort",
             "website",
+            "municipality",
         )
-        read_only_fields = ("users", "sort", "service_parent", "service_group")
+        read_only_fields = (
+            "users",
+            "sort",
+            "service_parent",
+            "service_group",
+            "municipality",
+        )
 
 
 class GroupSerializer(MultilingualSerializer, serializers.ModelSerializer):

@@ -12,10 +12,10 @@ from camac.circulation import serializers
 @pytest.mark.parametrize(
     "role__name,instance__user,num_queries",
     [
-        ("Applicant", LazyFixture("admin_user"), 5),
-        ("Canton", LazyFixture("user"), 5),
-        ("Municipality", LazyFixture("user"), 5),
-        ("Service", LazyFixture("user"), 5),
+        ("Applicant", LazyFixture("admin_user"), 6),
+        ("Canton", LazyFixture("user"), 6),
+        ("Municipality", LazyFixture("user"), 6),
+        ("Service", LazyFixture("user"), 6),
     ],
 )
 def test_activation_list(
