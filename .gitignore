@@ -42,4 +42,3 @@ tools/software/
 
 node_modules
 __pycache__/
-django/venv
