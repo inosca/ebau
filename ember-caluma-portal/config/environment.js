@@ -473,6 +473,16 @@ module.exports = function (environment) {
         juristicNameRegexp: "^name-juristische-person.*$",
         emailRegexp: "^e-mail-.*$",
       },
+      paperInstances: {
+        allowedGroups: {
+          roles: [
+            3, // municipality
+          ],
+          serviceGroups: [
+            1, // municipality
+          ],
+        },
+      },
       // Who can create which forms. Roles can be given by ID, or magic key ("internal" or "public")
       formCreationPermissions: [
         {
