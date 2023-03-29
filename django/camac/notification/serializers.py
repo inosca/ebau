@@ -593,7 +593,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
             return (
                 self.format_date(datetime.combine(answer.date, datetime.min.time()))
-                if answer
+                if answer and answer.date
                 else "---"
             )
         return "---"
