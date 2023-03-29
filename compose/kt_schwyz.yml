@@ -77,9 +77,16 @@ services:
       - STREAM_MAX_LENGTH=60M
 
   keycloak:
-    image: acr.run/camac-ng/keycloak:16.1.0_theme-v1.0.1
+    image: acr.run/camac-ng/keycloak:21.0.1_theme-v1.1.0
     environment:
-      - PROXY_ADDRESS_FORWARDING=true
+      - KC_DB=${KC_DB}
+      - KC_DB_URL=${KC_DB_URL}
+      - KC_HOSTNAME_STRICT_HTTPS=true
+      - KC_HTTP_ENABLED=true
+      - KC_HTTP_RELATIVE_PATH=/auth
+      - KC_LOG_LEVEL=WARN
+      - KC_PROXY=edge
+      - KEYCLOAK_ADMIN=${KEYCLOAK_ADMIN}
 
   metabase:
     image: metabase/metabase:v0.45.3
