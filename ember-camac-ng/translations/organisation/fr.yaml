@@ -9,6 +9,7 @@ organisation:
   email: "Courriel"
   website: "Site Internet"
   notification: "Recevoir des notifications"
+  responsibilityConstructionControl: "Reprendre la compétence dans le contrôle de la construction"
 
   saveSuccess: "L'organisation a été enregistrée."
   saveError: "L'organisation n'a pas pu être enregistrée."
