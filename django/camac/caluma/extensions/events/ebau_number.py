@@ -1,4 +1,3 @@
-import reversion
 from caluma.caluma_core.events import on
 from caluma.caluma_workflow.events import post_complete_work_item
 from django.db import transaction
@@ -6,7 +5,6 @@ from django.utils.translation import gettext_noop
 
 from camac.core.utils import create_history_entry
 from camac.ech0211.signals import assigned_ebau_number
-from camac.instance.models import InstanceState
 from camac.user.models import User
 
 from .general import get_caluma_setting, get_instance
@@ -21,13 +19,7 @@ def post_complete_ebau_number(sender, work_item, user, context, **kwargs):
 
         if instance.instance_state.name == "subm":
             # set instance state
-            with reversion.create_revision():
-                reversion.set_user(camac_user)
-                instance.previous_instance_state = instance.instance_state
-                instance.instance_state = InstanceState.objects.get(
-                    name="circulation_init"
-                )
-                instance.save()
+            instance.set_instance_state("circulation_init", camac_user)
 
             # trigger ech event
             assigned_ebau_number.send(

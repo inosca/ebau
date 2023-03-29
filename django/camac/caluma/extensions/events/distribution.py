@@ -1,7 +1,6 @@
 from datetime import datetime, timedelta
 from itertools import chain
 
-import reversion
 from caluma.caluma_core.events import filter_events, on, send_event
 from caluma.caluma_form.api import save_answer
 from caluma.caluma_form.models import Form, Question
@@ -34,7 +33,6 @@ from camac.ech0211.signals import (
     circulation_started,
     task_send,
 )
-from camac.instance.models import InstanceState
 from camac.notification.utils import send_mail_without_request
 from camac.user.models import Service, User
 
@@ -191,17 +189,13 @@ def post_redo_distribution(sender, work_item, user, context=None, **kwargs):
             created_by_group=user.group,
         )
 
-    with reversion.create_revision():
-        reversion.set_user(User.objects.get(username=user.username))
-
-        instance = get_instance(work_item)
-        instance.previous_instance_state = instance.instance_state
-        instance.instance_state = InstanceState.objects.get(
-            name=settings.DISTRIBUTION["INSTANCE_STATE_DISTRIBUTION"]
-        )
-        instance.save()
-
+    instance = get_instance(work_item)
     camac_user = User.objects.get(username=user.username)
+
+    instance.set_instance_state(
+        settings.DISTRIBUTION["INSTANCE_STATE_DISTRIBUTION"],
+        camac_user,
+    )
 
     if settings.DISTRIBUTION["HISTORY"].get("REDO_DISTRIBUTION"):
         create_history_entry(
