@@ -155,6 +155,10 @@ export default class LinkAttachmentsComponent extends Component {
 
       if (!response.ok) throw new Error();
 
+      const { data } = yield response.json();
+
+      this.toggleAttachment(data.id);
+
       scheduleOnce("afterRender", this, "reload");
     } catch (error) {
       this.notification.danger(this.intl.t("link-attachments.upload-error"));
