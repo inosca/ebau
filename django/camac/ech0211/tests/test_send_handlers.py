@@ -130,8 +130,6 @@ def test_notice_ruling_send_handler(
     attachment_factory,
     attachment_section_factory,
     service_factory,
-    service_group_factory,
-    service_group,
     instance_service_factory,
     multilang,
     caluma_admin_user,
@@ -147,29 +145,25 @@ def test_notice_ruling_send_handler(
         notification_template_factory(slug="08-entscheid-gesuchsteller")
         notification_template_factory(slug="08-entscheid-behoerden")
 
-    service_group_gemeinde = ech_instance_be.responsible_service().service_group
-    service_group_baukontrolle = service_group_factory(name="construction-control")
-    service_group_rsta = service_group_factory(name="district")
-
     service_gemeinde = service_factory(
-        service_group=service_group_gemeinde,
+        service_group__name="municipality",
         name=None,
-        trans__name="Leitbehörde Burgdorf",
-        trans__city="Burgdorf",
+        trans__name="Leitbehörde Test",
+        trans__city="Test",
         trans__language="de",
     )
     service_baukontrolle = service_factory(
-        service_group=service_group_baukontrolle,
+        service_group__name="construction-control",
         name=None,
-        trans__name="Baukontrolle Burgdorf",
-        trans__city="Burgdorf",
+        trans__name="Baukontrolle Test",
+        trans__city="Test",
         trans__language="de",
     )
     service_rsta = service_factory(
-        service_group=service_group_rsta,
+        service_group__name="district",
         name=None,
-        trans__name="Regierungsstatthalteramt Emmenthal",
-        trans__city="Emmenthal",
+        trans__name="Regierungsstatthalteramt Test",
+        trans__city="Test",
         trans__language="de",
     )
     active_service = service_gemeinde

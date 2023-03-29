@@ -11,6 +11,7 @@ from django.utils.translation import gettext_noop
 from camac.core.utils import create_history_entry
 from camac.ech0211.signals import ruling
 from camac.instance.utils import (
+    get_lead_authority,
     set_construction_control,
     should_continue_after_decision,
 )
@@ -34,6 +35,20 @@ def copy_municipality_tags(instance, construction_control):
 
     for tag in municipality_tags:
         instance.tags.create(service=construction_control, name=tag.name)
+
+
+def copy_responsible_person_lead_authority(instance, construction_control):
+    lead_authority = get_lead_authority(construction_control)
+
+    responsible_service = instance.responsible_services.filter(
+        service=lead_authority
+    ).first()
+
+    if lead_authority.responsibility_construction_control and responsible_service:
+        instance.responsible_services.create(
+            service=construction_control,
+            responsible_user=responsible_service.responsible_user,
+        )
 
 
 @on(post_create_work_item, raise_exception=True)
@@ -78,6 +93,7 @@ def post_complete_decision(sender, work_item, user, context, **kwargs):
 
                 # copy municipality tags for sb1
                 copy_municipality_tags(instance, construction_control)
+                copy_responsible_person_lead_authority(instance, construction_control)
 
         elif workflow == "preliminary-clarification":
             instance_state_name = "evaluated"
