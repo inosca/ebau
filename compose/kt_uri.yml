@@ -96,12 +96,12 @@ services:
     environment:
       - KC_DB=postgres
       - KC_DB_URL=jdbc:postgresql://db:5432/${APPLICATION}?currentSchema=keycloak
-      - KC_HOSTNAME_STRICT_HTTPS=false
+      - KC_HOSTNAME_STRICT_HTTPS=true
       - KC_HTTP_ENABLED=true
       - KC_HTTP_RELATIVE_PATH=/auth
       - KC_LOG_LEVEL=WARN
       - KC_PROXY=edge
-      - KEYCLOAK_ADMIN=admin
+      - KEYCLOAK_ADMIN=${KEYCLOAK_ADMIN}
 
   document-merge-service:
     image: ghcr.io/adfinis/document-merge-service:5.2.1

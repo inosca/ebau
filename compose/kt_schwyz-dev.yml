@@ -133,29 +133,15 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - ../keycloak/config/${APPLICATION}-test-config.json:/etc/keycloak/test-config.json:ro
+      - ../keycloak/config/${APPLICATION}-test-config.json:/opt/keycloak/data/import/test-config.json
     environment:
-      - DB_VENDOR=postgres
-      - DB_ADDR=db
-      - DB_USER=camac
-      - DB_DATABASE=${APPLICATION}
-      - DB_PASSWORD=camac
-      - KEYCLOAK_USER=admin
-      - KEYCLOAK_PASSWORD=camac
+      - KC_DB_PASSWORD=camac
+      - KC_DB_USERNAME=camac
+      - KC_HOSTNAME=ebau-keycloak.local
+      - KEYCLOAK_ADMIN_PASSWORD=camac
+      - KC_HOSTNAME_STRICT_HTTPS=false
     networks:
       - ebau.local
-    # export is a bit tricky: We need to _start_ keycloak with specific arguments to perform an export
-    # command: ["-Dkeycloak.migration.action=export", "-Dkeycloak.migration.provider=singleFile", "-Dkeycloak.migration.file=/etc/keycloak/test-config.json", "-b", "0.0.0.0"]
-    #
-    # http://www.keycloak.org/docs/3.3/server_admin/topics/export-import.html
-    command:
-      [
-        "-Dkeycloak.migration.action=import",
-        "-Dkeycloak.migration.provider=singleFile",
-        "-Dkeycloak.migration.file=/etc/keycloak/test-config.json",
-        "-b",
-        "0.0.0.0",
-      ]
 
   mailhog:
     image: mailhog/mailhog
