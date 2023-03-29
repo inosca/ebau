@@ -231,6 +231,14 @@ class Instance(models.Model):
 
         return self.group.service
 
+    def set_instance_state(self, instance_state_name: str, user: User) -> None:
+        with reversion.create_revision():
+            reversion.set_user(user)
+
+            self.previous_instance_state = self.instance_state
+            self.instance_state = InstanceState.objects.get(name=instance_state_name)
+            self.save()
+
     class Meta:
         managed = True
         db_table = "INSTANCE"
