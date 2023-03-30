@@ -1,0 +1,15 @@
+{
+  "themes": [
+    {
+      "name": "kanton-uri",
+      "types": [
+        "account",
+        "login"
+      ]
+    },
+    {
+      "name": "kanton-uri-common",
+      "types": []
+    }
+  ]
+}

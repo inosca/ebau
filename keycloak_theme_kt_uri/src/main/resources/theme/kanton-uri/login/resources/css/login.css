@@ -1,0 +1,1058 @@
+@charset "UTF-8";
+/* ========================================================================
+   Component: Base
+ ========================================================================== */
+/*
+ * 1. Set `font-size` to support `rem` units
+ *    Not using `font` property because a leading hyphen (e.g. -apple-system) causes the font to break in IE11 and Edge
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ * 3. Style
+ */
+html {
+  /* 1 */
+  font-family: "Roboto Condensed", Impact, "Franklin Gothic Bold", sans-serif;
+  font-size: 18px;
+  font-weight: normal;
+  line-height: 1.5;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 3 */
+  background: #fff;
+  color: #2c3443; }
+
+/*
+ * Remove the margin in all browsers.
+ */
+body {
+  margin: 0; }
+
+/* Links
+ ========================================================================== */
+/*
+ * Remove the outline on focused links when they are also active or hovered
+ */
+a:active,
+a:hover {
+  outline: none; }
+
+/*
+ * Style
+ */
+a,
+.uk-link {
+  color: #2c3443;
+  text-decoration: none;
+  cursor: pointer; }
+
+a:hover,
+.uk-link:hover,
+.uk-link-toggle:hover .uk-link,
+.uk-link-toggle:focus .uk-link {
+  color: black;
+  text-decoration: underline; }
+
+/* Text-level semantics
+ ========================================================================== */
+/*
+ * 1. Add the correct text decoration in Edge.
+ * 2. The shorthand declaration `underline dotted` is not supported in Safari.
+ */
+abbr[title] {
+  /* 1 */
+  text-decoration: underline dotted;
+  /* 2 */
+  -webkit-text-decoration-style: dotted; }
+
+/*
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+b,
+strong {
+  font-weight: bolder; }
+
+/*
+ * 1. Consolas has a better baseline in running text compared to `Courier`
+ * 2. Correct the odd `em` font sizing in all browsers.
+ * 3. Style
+ */
+:not(pre) > code,
+:not(pre) > kbd,
+:not(pre) > samp {
+  /* 1 */
+  font-family: Consolas, monaco, monospace;
+  /* 2 */
+  font-size: 0.875rem;
+  /* 3 */
+  color: #f0506e;
+  white-space: nowrap;
+  padding: 2px 6px;
+  background: whitesmoke; }
+
+/*
+ * Emphasize
+ */
+em {
+  color: #f0506e; }
+
+/*
+ * Insert
+ */
+ins {
+  background: #ffd;
+  color: #2c3443;
+  text-decoration: none; }
+
+/*
+ * Mark
+ */
+mark {
+  background: #ffd;
+  color: #2c3443; }
+
+/*
+ * Quote
+ */
+q {
+  font-style: italic; }
+
+/*
+ * Add the correct font size in all browsers.
+ */
+small {
+  font-size: 80%; }
+
+/*
+ * Prevents `sub` and `sup` affecting `line-height` in all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sup {
+  top: -0.5em; }
+
+sub {
+  bottom: -0.25em; }
+
+/* Embedded content
+ ========================================================================== */
+/*
+ * Remove the gap between embedded content and the bottom of their containers.
+ */
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle; }
+
+/*
+ * 1. Add responsiveness.
+ * 2. Auto-scale the height. Only needed if `height` attribute is present.
+ * 3. Corrects responsive `max-width` behavior if padding and border are used.
+ * 4. Exclude SVGs for IE11 because they don't preserve their aspect ratio.
+ */
+canvas,
+img,
+video {
+  /* 1 */
+  max-width: 100%;
+  /* 2 */
+  height: auto;
+  /* 3 */
+  box-sizing: border-box; }
+
+/* 4 */
+@supports (display: block) {
+  svg {
+    max-width: 100%;
+    height: auto;
+    box-sizing: border-box; } }
+
+/*
+ * Hide the overflow in IE.
+ */
+svg:not(:root) {
+  overflow: hidden; }
+
+/*
+ * 1. Fix lazy loading images if parent element is set to `display: inline` and has `overflow: hidden`.
+ * 2. Hide `alt` text for lazy loading images.
+ * Note: Selector for background while loading img[data-src*='.jpg'][src*='data:image'] { background: grey; }
+ */
+img:not([src]) {
+  /* 1 */
+  min-width: 1px;
+  /* 2 */
+  visibility: hidden; }
+
+/*
+ * Iframe
+ * Remove border in all browsers
+ */
+iframe {
+  border: 0; }
+
+/* Block elements
+ ========================================================================== */
+/*
+ * Margins
+ */
+p,
+ul,
+ol,
+dl,
+pre,
+address,
+fieldset,
+figure {
+  margin: 0 0 20px 0; }
+
+/* Add margin if adjacent element */
+* + p,
+* + ul,
+* + ol,
+* + dl,
+* + pre,
+* + address,
+* + fieldset,
+* + figure {
+  margin-top: 20px; }
+
+/* Headings
+ ========================================================================== */
+h1, .uk-h1,
+h2, .uk-h2,
+h3, .uk-h3,
+h4, .uk-h4,
+h5, .uk-h5,
+h6, .uk-h6,
+.uk-heading-small,
+.uk-heading-medium,
+.uk-heading-large,
+.uk-heading-xlarge,
+.uk-heading-2xlarge {
+  margin: 0 0 20px 0;
+  font-family: "Roboto Condensed", Impact, "Franklin Gothic Bold", sans-serif;
+  font-weight: normal;
+  color: #323232;
+  text-transform: none; }
+
+/* Add margin if adjacent element */
+* + h1, * + .uk-h1,
+* + h2, * + .uk-h2,
+* + h3, * + .uk-h3,
+* + h4, * + .uk-h4,
+* + h5, * + .uk-h5,
+* + h6, * + .uk-h6,
+* + .uk-heading-small,
+* + .uk-heading-medium,
+* + .uk-heading-large,
+* + .uk-heading-xlarge,
+* + .uk-heading-2xlarge {
+  margin-top: 40px; }
+
+/*
+ * Sizes
+ */
+h1, .uk-h1 {
+  font-size: 2.23125rem;
+  line-height: 1.2; }
+
+h2, .uk-h2 {
+  font-size: 1.7rem;
+  line-height: 1.3; }
+
+h3, .uk-h3 {
+  font-size: 1.5rem;
+  line-height: 1.4; }
+
+h4, .uk-h4 {
+  font-size: 1.25rem;
+  line-height: 1.4; }
+
+h5, .uk-h5 {
+  font-size: 18px;
+  line-height: 1.4; }
+
+h6, .uk-h6 {
+  font-size: 0.875rem;
+  line-height: 1.4; }
+
+/* Tablet landscape and bigger */
+@media (min-width: 960px) {
+  h1, .uk-h1 {
+    font-size: 2.625rem; }
+  h2, .uk-h2 {
+    font-size: 2rem; } }
+
+/* Lists
+ ========================================================================== */
+ul,
+ol {
+  padding-left: 30px; }
+
+/*
+ * Reset margin for nested lists
+ */
+ul > li > ul,
+ul > li > ol,
+ol > li > ol,
+ol > li > ul {
+  margin: 0; }
+
+/* Description lists
+ ========================================================================== */
+dt {
+  font-weight: bold; }
+
+dd {
+  margin-left: 0; }
+
+/* Horizontal rules
+ ========================================================================== */
+/*
+ * 1. Show the overflow in Chrome, Edge and IE.
+ * 2. Add the correct text-align in Edge and IE.
+ * 3. Style
+ */
+hr, .uk-hr {
+  /* 1 */
+  overflow: visible;
+  /* 2 */
+  text-align: inherit;
+  /* 3 */
+  margin: 0 0 20px 0;
+  border: 0;
+  border-top: 1px solid #949494; }
+
+/* Add margin if adjacent element */
+* + hr,
+* + .uk-hr {
+  margin-top: 20px; }
+
+/* Address
+ ========================================================================== */
+address {
+  font-style: normal; }
+
+/* Blockquotes
+ ========================================================================== */
+blockquote {
+  margin: 0 0 20px 0;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  font-style: italic;
+  color: #323232; }
+
+/* Add margin if adjacent element */
+* + blockquote {
+  margin-top: 20px; }
+
+/*
+ * Content
+ */
+blockquote p:last-of-type {
+  margin-bottom: 0; }
+
+blockquote footer {
+  margin-top: 10px;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #2c3443; }
+  blockquote footer::before {
+    content: "— "; }
+
+/* Preformatted text
+ ========================================================================== */
+/*
+ * 1. Contain overflow in all browsers.
+ */
+pre {
+  font: 0.875rem / 1.5 Consolas, monaco, monospace;
+  color: #2c3443;
+  -moz-tab-size: 4;
+  tab-size: 4;
+  /* 1 */
+  overflow: auto;
+  padding: 10px;
+  border: 1px solid #949494;
+  border-radius: 3px;
+  background: #fff; }
+
+pre code {
+  font-family: Consolas, monaco, monospace; }
+
+/* Selection pseudo-element
+ ========================================================================== */
+::selection {
+  background: #39f;
+  color: black;
+  text-shadow: none; }
+
+/* HTML5 elements
+ ========================================================================== */
+/*
+ * 1. Add the correct display in Edge, IE 10+, and Firefox.
+ * 2. Add the correct display in IE.
+ */
+details,
+main {
+  /* 2 */
+  display: block; }
+
+/*
+ * Add the correct display in all browsers.
+ */
+summary {
+  display: list-item; }
+
+/*
+ * Add the correct display in IE.
+ */
+template {
+  display: none; }
+
+/* Pass media breakpoints to JS
+ ========================================================================== */
+/*
+ * Breakpoints
+ */
+.uk-breakpoint-s::before {
+  content: "640px"; }
+
+.uk-breakpoint-m::before {
+  content: "960px"; }
+
+.uk-breakpoint-l::before {
+  content: "1200px"; }
+
+.uk-breakpoint-xl::before {
+  content: "1600px"; }
+
+:root {
+  --uk-breakpoint-s: 640px;
+  --uk-breakpoint-m: 960px;
+  --uk-breakpoint-l: 1200px;
+  --uk-breakpoint-xl: 1600px; }
+
+/* ========================================================================
+   Component: Link
+ ========================================================================== */
+/* Muted
+ ========================================================================== */
+a.uk-link-muted,
+.uk-link-muted a {
+  color: #646464; }
+
+a.uk-link-muted:hover,
+.uk-link-muted a:hover,
+.uk-link-toggle:hover .uk-link-muted,
+.uk-link-toggle:focus .uk-link-muted {
+  color: #2c3443; }
+
+/* Text
+ ========================================================================== */
+a.uk-link-text,
+.uk-link-text a {
+  color: inherit; }
+
+a.uk-link-text:hover,
+.uk-link-text a:hover,
+.uk-link-toggle:hover .uk-link-text,
+.uk-link-toggle:focus .uk-link-text {
+  color: #646464; }
+
+/* Heading
+ ========================================================================== */
+a.uk-link-heading,
+.uk-link-heading a {
+  color: inherit; }
+
+a.uk-link-heading:hover,
+.uk-link-heading a:hover,
+.uk-link-toggle:hover .uk-link-heading,
+.uk-link-toggle:focus .uk-link-heading {
+  color: #ffd401;
+  text-decoration: none; }
+
+/* Reset
+ ========================================================================== */
+/*
+ * `!important` needed to override inverse component
+ */
+a.uk-link-reset,
+.uk-link-reset a {
+  color: inherit !important;
+  text-decoration: none !important; }
+
+/* Toggle
+ ========================================================================== */
+.uk-link-toggle {
+  color: inherit !important;
+  text-decoration: none !important; }
+
+.uk-link-toggle:focus {
+  outline: none; }
+
+/* ========================================================================
+   Component: Heading
+ ========================================================================== */
+.uk-heading-small {
+  font-size: 2.6rem;
+  line-height: 1.2; }
+
+.uk-heading-medium {
+  font-size: 2.8875rem;
+  line-height: 1.1; }
+
+.uk-heading-large {
+  font-size: 3.4rem;
+  line-height: 1.1; }
+
+.uk-heading-xlarge {
+  font-size: 4rem;
+  line-height: 1; }
+
+.uk-heading-2xlarge {
+  font-size: 6rem;
+  line-height: 1; }
+
+/* Tablet Landscape and bigger */
+@media (min-width: 960px) {
+  .uk-heading-small {
+    font-size: 3.25rem; }
+  .uk-heading-medium {
+    font-size: 3.5rem; }
+  .uk-heading-large {
+    font-size: 4rem; }
+  .uk-heading-xlarge {
+    font-size: 6rem; }
+  .uk-heading-2xlarge {
+    font-size: 8rem; } }
+
+/* Laptop and bigger */
+@media (min-width: 1200px) {
+  .uk-heading-medium {
+    font-size: 4rem; }
+  .uk-heading-large {
+    font-size: 6rem; }
+  .uk-heading-xlarge {
+    font-size: 8rem; }
+  .uk-heading-2xlarge {
+    font-size: 11rem; } }
+
+/* Primary
+   Deprecated: Use `uk-heading-medium` instead
+ ========================================================================== */
+/* Tablet landscape and bigger */
+/* Desktop and bigger */
+/* Hero
+   Deprecated: Use `uk-heading-xlarge` instead
+ ========================================================================== */
+/* Tablet landscape and bigger */
+/* Desktop and bigger */
+/* Divider
+ ========================================================================== */
+.uk-heading-divider {
+  padding-bottom: calc(5px + 0.1em);
+  border-bottom: calc(0.2px + 0.05em) solid #949494; }
+
+/* Bullet
+ ========================================================================== */
+.uk-heading-bullet {
+  position: relative; }
+
+/*
+ * 1. Using `inline-block` to make it work with text alignment
+ * 2. Center vertically
+ * 3. Style
+ */
+.uk-heading-bullet::before {
+  content: "";
+  /* 1 */
+  display: inline-block;
+  /* 2 */
+  position: relative;
+  top: calc(-0.1 * 1em);
+  vertical-align: middle;
+  /* 3 */
+  height: calc(4px + 0.7em);
+  margin-right: calc(5px + 0.2em);
+  border-left: calc(5px + 0.1em) solid #949494; }
+
+/* Line
+ ========================================================================== */
+/*
+ * Clip the child element
+ */
+.uk-heading-line {
+  overflow: hidden; }
+
+/*
+ * Extra markup is needed to make it work with text align
+ */
+.uk-heading-line > * {
+  display: inline-block;
+  position: relative; }
+
+/*
+ * 1. Center vertically
+ * 2. Make the element as large as possible. It's clipped by the container.
+ * 3. Style
+ */
+.uk-heading-line > ::before,
+.uk-heading-line > ::after {
+  content: "";
+  /* 1 */
+  position: absolute;
+  top: calc(50% - (calc(0.2px + 0.05em) / 2));
+  /* 2 */
+  width: 2000px;
+  /* 3 */
+  border-bottom: calc(0.2px + 0.05em) solid #949494; }
+
+.uk-heading-line > ::before {
+  right: 100%;
+  margin-right: calc(5px + 0.3em); }
+
+.uk-heading-line > ::after {
+  left: 100%;
+  margin-left: calc(5px + 0.3em); }
+
+/* ========================================================================
+   Component: Divider
+ ========================================================================== */
+/*
+ * 1. Reset default `hr`
+ * 2. Set margin if a `div` is used for semantical reason
+ */
+[class*='uk-divider'] {
+  /* 1 */
+  border: none;
+  /* 2 */
+  margin-bottom: 20px; }
+
+/* Add margin if adjacent element */
+* + [class*='uk-divider'] {
+  margin-top: 20px; }
+
+/* Icon
+ ========================================================================== */
+.uk-divider-icon {
+  position: relative;
+  height: 20px;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Ccircle%20fill%3D%22none%22%20stroke%3D%22%23949494%22%20stroke-width%3D%222%22%20cx%3D%2210%22%20cy%3D%2210%22%20r%3D%227%22%20%2F%3E%0A%3C%2Fsvg%3E%0A");
+  background-repeat: no-repeat;
+  background-position: 50% 50%; }
+
+.uk-divider-icon::before,
+.uk-divider-icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  max-width: calc(50% - (50px / 2));
+  border-bottom: 1px solid #949494; }
+
+.uk-divider-icon::before {
+  right: calc(50% + (50px / 2));
+  width: 100%; }
+
+.uk-divider-icon::after {
+  left: calc(50% + (50px / 2));
+  width: 100%; }
+
+/* Small
+ ========================================================================== */
+/*
+ * 1. Fix height because of `inline-block`
+ * 2. Using ::after and inline-block to make `text-align` work
+ */
+/* 1 */
+.uk-divider-small {
+  line-height: 0; }
+
+/* 2 */
+.uk-divider-small::after {
+  content: "";
+  display: inline-block;
+  width: 100px;
+  max-width: 100%;
+  border-top: 1px solid #949494;
+  vertical-align: top; }
+
+/* Vertical
+ ========================================================================== */
+.uk-divider-vertical {
+  width: 1px;
+  height: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  border-left: 1px solid #949494; }
+
+/* ========================================================================
+   Component: List
+ ========================================================================== */
+.uk-list {
+  font-size: 1.5rem;
+  line-height: 1.5; }
+
+.uk-text-default {
+  font-size: 18px;
+  line-height: 1.5; }
+
+/* Weight modifier
+ ========================================================================== */
+.uk-text-light {
+  font-weight: 300; }
+
+.uk-text-normal {
+  font-weight: 400; }
+
+.uk-text-bold {
+  font-weight: 700; }
+
+.uk-text-lighter {
+  font-weight: lighter; }
+
+.uk-text-bolder {
+  font-weight: bolder; }
+
+/* Style modifier
+ ========================================================================== */
+.uk-text-italic {
+  font-style: italic; }
+
+/* Transform modifier
+ ========================================================================== */
+.uk-text-capitalize {
+  text-transform: capitalize !important; }
+
+.uk-text-uppercase {
+  text-transform: uppercase !important; }
+
+.uk-text-lowercase {
+  text-transform: lowercase !important; }
+
+/* Color modifiers
+ ========================================================================== */
+.uk-text-muted {
+  color: #646464 !important; }
+
+.uk-text-emphasis {
+  color: #323232 !important; }
+
+.uk-text-primary {
+  color: #ffd401 !important; }
+
+.uk-text-secondary {
+  color: #2c3443 !important; }
+
+.uk-text-success {
+  color: #009900 !important; }
+
+.uk-text-warning {
+  color: #faa05a !important; }
+
+.uk-text-danger {
+  color: #f0506e !important; }
+
+/* Background modifier
+ ========================================================================== */
+/*
+ * 1. The background clips to the foreground text. Works in Chrome, Firefox, Safari, Edge and Opera
+ *    Default color is set to transparent
+ * 2. Container fits the text
+ * 3. Fallback color for IE11
+ */
+.uk-text-background {
+  /* 1 */
+  -webkit-background-clip: text;
+  /* 2 */
+  display: inline-block;
+  /* 3 */
+  color: #ffd401 !important; }
+
+@supports (-webkit-background-clip: text) {
+  .uk-text-background {
+    background-color: #ffd401;
+    color: transparent !important; } }
+
+/* Alignment modifiers
+ ========================================================================== */
+.uk-text-left {
+  text-align: left !important; }
+
+.uk-text-right {
+  text-align: right !important; }
+
+.uk-text-center {
+  text-align: center !important; }
+
+.uk-text-justify {
+  text-align: justify !important; }
+
+/* Phone landscape and bigger */
+@media (min-width: 640px) {
+  .uk-text-left\@s {
+    text-align: left !important; }
+  .uk-text-right\@s {
+    text-align: right !important; }
+  .uk-text-center\@s {
+    text-align: center !important; } }
+
+/* Tablet landscape and bigger */
+@media (min-width: 960px) {
+  .uk-text-left\@m {
+    text-align: left !important; }
+  .uk-text-right\@m {
+    text-align: right !important; }
+  .uk-text-center\@m {
+    text-align: center !important; } }
+
+/* Desktop and bigger */
+@media (min-width: 1200px) {
+  .uk-text-left\@l {
+    text-align: left !important; }
+  .uk-text-right\@l {
+    text-align: right !important; }
+  .uk-text-center\@l {
+    text-align: center !important; } }
+
+/* Large screen and bigger */
+@media (min-width: 1600px) {
+  .uk-text-left\@xl {
+    text-align: left !important; }
+  .uk-text-right\@xl {
+    text-align: right !important; }
+  .uk-text-center\@xl {
+    text-align: center !important; } }
+
+/*
+ * Vertical
+ */
+.uk-text-top {
+  vertical-align: top !important; }
+
+    color: black !important; }
+  .uk-light .uk-text-secondary, .uk-section-primary:not(.uk-preserve-color) .uk-text-secondary, .uk-section-secondary:not(.uk-preserve-color) .uk-text-secondary, .uk-tile-primary:not(.uk-preserve-color) .uk-text-secondary, .uk-tile-secondary:not(.uk-preserve-color) .uk-text-secondary, .uk-card-primary.uk-card-body .uk-text-secondary, .uk-card-primary > :not([class*='uk-card-media']) .uk-text-secondary, .uk-card-secondary.uk-card-body .uk-text-secondary, .uk-card-secondary > :not([class*='uk-card-media']) .uk-text-secondary, .uk-overlay-primary .uk-text-secondary, .uk-offcanvas-bar .uk-text-secondary {
+    color: black !important; }
+  .uk-light .uk-column-divider, .uk-section-primary:not(.uk-preserve-color) .uk-column-divider, .uk-section-secondary:not(.uk-preserve-color) .uk-column-divider, .uk-tile-primary:not(.uk-preserve-color) .uk-column-divider, .uk-tile-secondary:not(.uk-preserve-color) .uk-column-divider, .uk-card-primary.uk-card-body .uk-column-divider, .uk-card-primary > :not([class*='uk-card-media']) .uk-column-divider, .uk-card-secondary.uk-card-body .uk-column-divider, .uk-card-secondary > :not([class*='uk-card-media']) .uk-column-divider, .uk-overlay-primary .uk-column-divider, .uk-offcanvas-bar .uk-column-divider {
+    column-rule-color: rgba(0, 0, 0, 0.2); }
+  .uk-light .uk-logo, .uk-section-primary:not(.uk-preserve-color) .uk-logo, .uk-section-secondary:not(.uk-preserve-color) .uk-logo, .uk-tile-primary:not(.uk-preserve-color) .uk-logo, .uk-tile-secondary:not(.uk-preserve-color) .uk-logo, .uk-card-primary.uk-card-body .uk-logo, .uk-card-primary > :not([class*='uk-card-media']) .uk-logo, .uk-card-secondary.uk-card-body .uk-logo, .uk-card-secondary > :not([class*='uk-card-media']) .uk-logo, .uk-overlay-primary .uk-logo, .uk-offcanvas-bar .uk-logo {
+    color: rgba(0, 0, 0, 0.7); }
+  .uk-light .uk-logo:hover, .uk-section-primary:not(.uk-preserve-color) .uk-logo:hover, .uk-section-secondary:not(.uk-preserve-color) .uk-logo:hover, .uk-tile-primary:not(.uk-preserve-color) .uk-logo:hover, .uk-tile-secondary:not(.uk-preserve-color) .uk-logo:hover, .uk-card-primary.uk-card-body .uk-logo:hover, .uk-card-primary > :not([class*='uk-card-media']) .uk-logo:hover, .uk-card-secondary.uk-card-body .uk-logo:hover, .uk-card-secondary > :not([class*='uk-card-media']) .uk-logo:hover, .uk-overlay-primary .uk-logo:hover, .uk-offcanvas-bar .uk-logo:hover,
+  .uk-light .uk-logo:focus,
+  .uk-section-primary:not(.uk-preserve-color) .uk-logo:focus,
+  .uk-section-secondary:not(.uk-preserve-color) .uk-logo:focus,
+  .uk-tile-primary:not(.uk-preserve-color) .uk-logo:focus,
+  .uk-tile-secondary:not(.uk-preserve-color) .uk-logo:focus,
+  .uk-card-primary.uk-card-body .uk-logo:focus,
+  .uk-card-primary > :not([class*='uk-card-media']) .uk-logo:focus,
+  .uk-card-secondary.uk-card-body .uk-logo:focus,
+  .uk-card-secondary > :not([class*='uk-card-media']) .uk-logo:focus,
+  .uk-overlay-primary .uk-logo:focus,
+  .uk-offcanvas-bar .uk-logo:focus {
+    color: rgba(0, 0, 0, 0.7); }
+  .uk-light .uk-logo > :not(.uk-logo-inverse):not(:only-of-type), .uk-section-primary:not(.uk-preserve-color) .uk-logo > :not(.uk-logo-inverse):not(:only-of-type), .uk-section-secondary:not(.uk-preserve-color) .uk-logo > :not(.uk-logo-inverse):not(:only-of-type), .uk-tile-primary:not(.uk-preserve-color) .uk-logo > :not(.uk-logo-inverse):not(:only-of-type), .uk-tile-secondary:not(.uk-preserve-color) .uk-logo > :not(.uk-logo-inverse):not(:only-of-type), .uk-card-primary.uk-card-body .uk-logo > :not(.uk-logo-inverse):not(:only-of-type), .uk-card-primary > :not([class*='uk-card-media']) .uk-logo > :not(.uk-logo-inverse):not(:only-of-type), .uk-card-secondary.uk-card-body .uk-logo > :not(.uk-logo-inverse):not(:only-of-type), .uk-card-secondary > :not([class*='uk-card-media']) .uk-logo > :not(.uk-logo-inverse):not(:only-of-type), .uk-overlay-primary .uk-logo > :not(.uk-logo-inverse):not(:only-of-type), .uk-offcanvas-bar .uk-logo > :not(.uk-logo-inverse):not(:only-of-type) {
+    display: none; }
+  .uk-light .uk-logo-inverse, .uk-section-primary:not(.uk-preserve-color) .uk-logo-inverse, .uk-section-secondary:not(.uk-preserve-color) .uk-logo-inverse, .uk-tile-primary:not(.uk-preserve-color) .uk-logo-inverse, .uk-tile-secondary:not(.uk-preserve-color) .uk-logo-inverse, .uk-card-primary.uk-card-body .uk-logo-inverse, .uk-card-primary > :not([class*='uk-card-media']) .uk-logo-inverse, .uk-card-secondary.uk-card-body .uk-logo-inverse, .uk-card-secondary > :not([class*='uk-card-media']) .uk-logo-inverse, .uk-overlay-primary .uk-logo-inverse, .uk-offcanvas-bar .uk-logo-inverse {
+    display: inline; }
+
+/* ========================================================================
+   Component: Print
+ ========================================================================== */
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important; }
+  a,
+  a:visited {
+    text-decoration: underline; }
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid; }
+  thead {
+    display: table-header-group; }
+  tr,
+  img {
+    page-break-inside: avoid; }
+  img {
+    max-width: 100% !important; }
+  @page {
+    margin: 0.5cm; }
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3; }
+  h2,
+  h3 {
+    page-break-after: avoid; } }
+
+.hidden {
+  display: none; }
+
+a,
+h1,
+h2,
+.uk-button {
+  font-weight: 700; }
+
+#kc-header {
+  height: 100px;
+  background-color: white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); }
+
+#kc-header-wrapper {
+  max-width: 964px;
+  /* account for padding on .kc-form-card */
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between; }
+
+.urec-logo {
+  background-image: url("../img/urec.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  height: 67px;
+  width: 171px;
+  margin-right: 2rem; }
+
+.ur-logo {
+  background-image: url("../img/uri.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  height: 67px;
+  width: 157px; }
+
+.kc-login {
+  background-image: url("../img/reussdelta.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh; }
+
+h1 {
+  margin-top: 2rem; }
+
+#kc-social-providers ul {
+  list-style-type: none;
+  display: flex;
+  padding: 0; }
+
+.social-list-item {
+  flex-grow: 1;
+  flex-basis: 0;
+  margin: 0 1rem 1rem 2rem; }
+
+.social-list-item a {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  height: 150px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0 32px;
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 400;
+  max-width: 536px;
+  margin: 0 auto; }
+
+.social-list-item a span {
+  text-align: left; }
+
+@media (max-width: 959px) {
+  #kc-social-providers ul {
+    display: block; }
+  .social-list-item {
+    margin: 1rem 0; } }
+
+.social-list-item a:hover {
+  text-decoration: none;
+  background: rgba(242, 242, 242, 0.9); }
+
+.social-list-item a.active {
+  background: #ffd401;
+  /* darken($transparent-white, 5%); */ }
+
+.kc-form-card:not(.is-login-page),
+#info-messages {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 32px;
+  margin: 0 1rem 2rem 0; }
+
+#info-messages h2 {
+  margin: 0; }
+
+.kc-form-card:not(.is-login-page),
+#kc-registration {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 32px;
+  padding-top: 0;
+  margin: 5rem auto; }
+
+.kc-form-card:not(.is-login-page),
+#kc-form-login {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 32px;
+  padding-top: 0; }
+
+/* increase width of container on login page to lign up buttons with base design */
+.kc-form-card.is-login-page {
+  max-width: 1000px; }
+
+#kc-form-login h1 {
+  padding-top: 32px;
+  margin: 0; }
+
+.kc-form-card {
+  margin-top: 3rem; }
+
+@media (max-width: 959px) {
+  .kc-form-card {
+    margin-left: 1rem;
+    margin-right: 1rem; } }
+
+/* icons */
+.icon {
+  height: 50px;
+  width: 68px;
+  margin-right: 1rem;
+  flex-shrink: 0;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.icon-iweb {
+  height: 31px;
+  background-image: url("../img/people.svg"); }
+
+.icon-afi {
+  background-image: url("../img/stier.svg"); }
+
+.icon-local {
+  background-image: url("../img/map.svg"); }
+
+.copyright {
+  position: absolute;
+  bottom: 0;
+  font-size: 12px;
+  padding: 0.5rem; }
+
+.copyright a {
+  color: white;
+  font-weight: 400; }
+

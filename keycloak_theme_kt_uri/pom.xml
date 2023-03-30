@@ -1,0 +1,142 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>1.5.10.RELEASE</version>
+    <relativePath/> <!-- lookup parent from repository -->
+  </parent>
+
+  <groupId>ch.linkyard.ebau.ur.theme</groupId>
+  <artifactId>keycloak-theme-kanton-uri</artifactId>
+  <packaging>jar</packaging>
+
+  <!-- Overwrite elements inherited from Spring Boot -->
+  <url>https://git.adfinis-sygroup.ch/camac-ng/keycloak-uri/</url>
+  <organization>
+    <name>linkyard</name>
+    <url>http://www.linkyard.ch</url>
+  </organization>
+  <licenses>
+    <license>
+      <name>Proprietary</name>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <id>winpat</id>
+      <name>Patrick Winter</name>
+      <email>patrick.winter@adfinis.com</email>
+    </developer>
+  </developers>
+  <scm>
+    <url>https://git.adfinis-sygroup.ch/camac-ng/keycloak-uri</url>
+  </scm>
+
+  <version>0.3.11</version>
+
+  <name>keycloak-theme-kanton-uri</name>
+  <description>Keycloak Theme for Kanton Uri</description>
+
+  <properties>
+    <keycloak.version>21.0.1</keycloak.version>
+    <docker.image.name>acr.run/camac-ng/keycloak-uri/keycloak</docker.image.name>
+    <docker.tag.name>${project.version}</docker.tag.name>
+  </properties>
+
+  <build>
+    <finalName>keycloak-theme-kanton-uri</finalName>
+
+    <!-- don't deploy the JAR to a maven registry -->
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-deploy-plugin</artifactId>
+        <configuration>
+          <skip>true</skip>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <profiles>
+    <!-- build the docker-image with maven outside of concourse -->
+    <profile>
+      <id>docker-with-maven</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>copy</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>copy</goal>
+                </goals>
+                <configuration>
+                  <artifactItems>
+                    <artifactItem>
+                      <groupId>ch.linkyard.ebau.ur.theme</groupId>
+                      <artifactId>keycloak-theme-kanton-uri</artifactId>
+                      <version>${project.version}</version>
+                      <overWrite>true</overWrite>
+                      <outputDirectory>src/main/docker</outputDirectory>
+                      <destFileName>keycloak-theme-kanton-uri.jar</destFileName>
+                    </artifactItem>
+                  </artifactItems>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>io.fabric8</groupId>
+            <artifactId>docker-maven-plugin</artifactId>
+            <version>0.24.0</version>
+            <configuration>
+              <verbose>true</verbose>
+              <logStdout>true</logStdout>
+              <autoPull>always</autoPull>
+              <images>
+                <image>
+                  <name>${docker.image.name}:${keycloak.version}_theme-v${docker.tag.name}</name>
+                  <build>
+                    <dockerFile>Dockerfile</dockerFile>
+                    <tags>
+                      <tag>${docker.tag.name}</tag>
+                    </tags>
+                  </build>
+                </image>
+              </images>
+            </configuration>
+            <executions>
+              <execution>
+                <id>build</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>build</goal>
+                </goals>
+              </execution>
+              <execution>
+                <id>deploy</id>
+                <phase>deploy</phase>
+                <goals>
+                  <goal>push</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+
+</project>
+
