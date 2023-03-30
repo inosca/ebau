@@ -191,6 +191,10 @@ profile-full: ## Set docker compose profile to "full"
 .PHONY: profile-slim
 profile-slim: ## Unset docker compose profile
 	$(call set_profile,"",false)
+	
+.PHONY: maven_build
+maven_build: ## Build the .jar file for the keycloak theme
+	@cd keycloak_theme_${APPLICATION}; ./mvnw install
 
 .PHONY: clean
 clean: ## Remove temporary files / build artefacts etc
