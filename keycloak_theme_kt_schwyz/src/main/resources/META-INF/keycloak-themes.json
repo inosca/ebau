@@ -1,0 +1,15 @@
+{
+  "themes": [
+    {
+      "name": "kanton-schwyz",
+      "types": [
+        "account",
+        "login"
+      ]
+    },
+    {
+      "name": "kanton-schwyz-common",
+      "types": []
+    }
+  ]
+}
