@@ -1,0 +1,67 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.0.2.RELEASE</version>
+    <relativePath/> <!-- lookup parent from repository -->
+  </parent>
+
+  <groupId>ch.linkyard.ebau.be.theme</groupId>
+  <artifactId>keycloak-theme-ebau-be</artifactId>
+  <packaging>jar</packaging>
+
+  <!-- Overwrite elements inherited from Spring Boot -->
+  <url>https://github.com/linkyard/keycloak-theme-kanton-schwyz/</url>
+  <organization>
+    <name>linkyard</name>
+    <url>http://www.linkyard.ch</url>
+  </organization>
+  <licenses>
+    <license>
+      <name>Proprietary</name>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <id>ferdi</id>
+      <name>Ferdinand Hübner</name>
+      <email>ferdinand.huebner@linkyard.ch</email>
+    </developer>
+  </developers>
+  <scm>
+    <url>https://github.com/linkyard/keycloak-theme-kanton-schwyz</url>
+  </scm>
+
+  <!--
+    The version of this artifact is derived from git
+    with the jgitver-maven-plugin: https://github.com/jgitver/jgitver-maven-plugin
+  -->
+  <version>derived-from-git</version>
+
+  <name>keycloak-theme-ebau-be</name>
+  <description>Keycloak Theme eBau BE</description>
+
+  <!--<distributionManagement>-->
+    <!--<repository>-->
+      <!--<id>linkyard-releases</id>-->
+      <!--<name>linkyard nexus releases</name>-->
+      <!--<url>https://nexus.linkyard.ch/repository/maven-releases/</url>-->
+      <!--<uniqueVersion>false</uniqueVersion>-->
+    <!--</repository>-->
+    <!--<snapshotRepository>-->
+      <!--<id>linkyard-snapshots</id>-->
+      <!--<name>linkyard nexus snapshots</name>-->
+      <!--<url>https://nexus.linkyard.ch/repository/maven-snapshots/</url>-->
+      <!--<uniqueVersion>true</uniqueVersion>-->
+    <!--</snapshotRepository>-->
+  <!--</distributionManagement>-->
+
+  <build>
+    <finalName>keycloak-theme-ebau-be</finalName>
+  </build>
+
+</project>
