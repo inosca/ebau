@@ -1,5 +1,5 @@
-import Model, { attr, belongsTo, hasMany } from "@ember-data/model";
 import { inject as service } from "@ember/service";
+import Model, { attr, belongsTo, hasMany } from "@ember-data/model";
 import { queryManager } from "ember-apollo-client";
 import { lastValue, dropTask } from "ember-concurrency";
 import getFormTitle from "ember-ebau-core/utils/form-title";

@@ -1,6 +1,6 @@
-import Model, { attr, belongsTo } from "@ember-data/model";
 import { getOwner } from "@ember/application";
 import { get } from "@ember/object";
+import Model, { attr, belongsTo } from "@ember-data/model";
 
 export default class PublicGroup extends Model {
   @attr("string") name;
