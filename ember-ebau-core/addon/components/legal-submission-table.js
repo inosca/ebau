@@ -140,9 +140,7 @@ export default class LegalSubmissionTableComponent extends Component {
       const documentId = decodeId(rawDocumentId);
 
       const rowIds =
-        this.workItem.value.document.answers.edges[0]?.node.value.map((row) =>
-          decodeId(row.id)
-        ) ?? [];
+        this.legalSubmissions.value.map((row) => decodeId(row.id)) ?? [];
 
       yield this.apollo.mutate({
         mutation: linkDocumentMutation,
