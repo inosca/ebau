@@ -3,6 +3,6 @@
 module.exports = {
   extends: "@adfinis-sygroup/eslint-config/ember-addon",
   settings: {
-    "import/internal-regex": "^ember-ebau-core/",
+    "import/internal-regex": "^(ember-ebau-core|dummy)/",
   },
 };

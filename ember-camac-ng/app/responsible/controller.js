@@ -32,7 +32,7 @@ export default class ResponsibleController extends Controller {
   @dropTask
   *fetchData() {
     this.responsibilities = yield this.store.query("responsible-service", {
-      instance: this.model.id,
+      instance: this.model,
       include: "responsible_user,service",
     });
 
@@ -49,7 +49,7 @@ export default class ResponsibleController extends Controller {
       const responsibility =
         this.current ||
         this.store.createRecord("responsible-service", {
-          instance: this.model,
+          instance: yield this.store.findRecord("instance", this.model),
         });
 
       responsibility.responsibleUser = this.selectedUser;

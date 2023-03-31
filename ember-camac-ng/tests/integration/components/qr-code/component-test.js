@@ -1,9 +1,10 @@
 import Service from "@ember/service";
 import { render } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
-import { setupRenderingTest } from "ember-qunit";
 import { module, test } from "qunit";
 import { v4 } from "uuid";
+
+import { setupRenderingTest } from "camac-ng/tests/helpers";
 
 module("Integration | Component | qr-code", function (hooks) {
   setupRenderingTest(hooks);

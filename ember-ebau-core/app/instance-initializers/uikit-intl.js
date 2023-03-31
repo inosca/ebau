@@ -1,1 +1,4 @@
-export { default } from "ember-ebau-core/instance-initializers/uikit-intl";
+export {
+  default,
+  initialize,
+} from "ember-ebau-core/instance-initializers/uikit-intl";

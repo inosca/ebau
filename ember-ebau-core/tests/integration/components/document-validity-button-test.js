@@ -3,8 +3,9 @@ import { tracked } from "@glimmer/tracking";
 import { hbs } from "ember-cli-htmlbars";
 import { task } from "ember-concurrency";
 import { setupIntl } from "ember-intl/test-support";
-import { setupRenderingTest } from "ember-qunit";
 import { module, test } from "qunit";
+
+import { setupRenderingTest } from "dummy/tests/helpers";
 
 class MockField {
   constructor(slug, valid, hidden) {
