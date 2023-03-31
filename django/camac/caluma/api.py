@@ -238,6 +238,7 @@ class CalumaApi:
                 status__in=[
                     caluma_workflow_models.WorkItem.STATUS_READY,
                     caluma_workflow_models.WorkItem.STATUS_SUSPENDED,
+                    caluma_workflow_models.WorkItem.STATUS_REDO,
                 ],
                 case__family__instance=instance,
             )
