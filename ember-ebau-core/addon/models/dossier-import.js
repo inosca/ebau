@@ -1,5 +1,5 @@
-import Model, { attr, belongsTo } from "@ember-data/model";
 import { inject as service } from "@ember/service";
+import Model, { attr, belongsTo } from "@ember-data/model";
 
 export default class DossierImportModel extends Model {
   @service store;
