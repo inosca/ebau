@@ -255,7 +255,7 @@
     "pk": 10001,
     "fields": {
       "role_parent": null,
-      "name": null,
+      "name": "applicant",
       "group_prefix": null
     }
   },
