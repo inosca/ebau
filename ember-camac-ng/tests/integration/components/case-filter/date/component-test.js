@@ -1,8 +1,9 @@
 import { render } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
 import { setupIntl } from "ember-intl/test-support";
-import { setupRenderingTest } from "ember-qunit";
 import { module, test } from "qunit";
+
+import { setupRenderingTest } from "camac-ng/tests/helpers";
 
 module("Integration | Component | case-filter/date", function (hooks) {
   setupRenderingTest(hooks);

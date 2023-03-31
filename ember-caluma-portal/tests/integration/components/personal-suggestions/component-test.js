@@ -3,10 +3,10 @@ import click from "@ember/test-helpers/dom/click";
 import { faker } from "@faker-js/faker";
 import { hbs } from "ember-cli-htmlbars";
 import { setupMirage } from "ember-cli-mirage/test-support";
-import { setupRenderingTest } from "ember-qunit";
 import { module, test } from "qunit";
 
 import config from "caluma-portal/config/environment";
+import { setupRenderingTest } from "caluma-portal/tests/helpers";
 
 const id = (type) => btoa(`${type}:${faker.datatype.uuid()}`);
 const personalSuggestionConfig = config.APPLICATION.personalSuggestions;

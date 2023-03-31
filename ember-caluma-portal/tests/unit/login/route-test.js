@@ -1,5 +1,6 @@
-import { setupTest } from "ember-qunit";
 import { module, test } from "qunit";
+
+import { setupTest } from "caluma-portal/tests/helpers";
 
 module("Unit | Route | login", function (hooks) {
   setupTest(hooks);

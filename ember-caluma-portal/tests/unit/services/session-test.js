@@ -1,6 +1,7 @@
-import { setupTest } from "ember-qunit";
 import { authenticateSession } from "ember-simple-auth/test-support";
 import { module, test } from "qunit";
+
+import { setupTest } from "caluma-portal/tests/helpers";
 
 module("Unit | Service | session", function (hooks) {
   setupTest(hooks);

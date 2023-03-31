@@ -1,7 +1,8 @@
 import { render, settled, click } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
-import { setupRenderingTest } from "ember-qunit";
 import { module, test } from "qunit";
+
+import { setupRenderingTest } from "camac-ng/tests/helpers";
 
 module("Integration | Component | notification", function (hooks) {
   setupRenderingTest(hooks);

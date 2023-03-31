@@ -1,5 +1,6 @@
-import { setupTest } from "ember-qunit";
 import { module, test } from "qunit";
+
+import { setupTest } from "camac-ng/tests/helpers";
 
 module("Unit | Route | work-item.new", function (hooks) {
   setupTest(hooks);
