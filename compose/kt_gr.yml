@@ -110,7 +110,7 @@ services:
       - OIDC_GROUPS_API_HEADERS=AUTHORIZATION,X-CAMAC-GROUP
 
   alexandria:
-    image: ghcr.io/projectcaluma/alexandria:dev
+    image: ghcr.io/projectcaluma/alexandria:0.3.0
     depends_on:
       - db
       - minio
@@ -127,6 +127,7 @@ services:
       - LANGUAGES=de-ch,fr-ch,rm-ch
       - VISIBILITY_CLASSES=alexandria.gr.extensions.visibilities.CustomVisibility
       - PERMISSION_CLASSES=alexandria.gr.extensions.permissions.CustomPermission
+      - OIDC_DRF_AUTH_BACKEND=alexandria.gr.extensions.authentication.CamacAlexandriaAuthenticationBackend
 
   minio:
     image: minio/minio:latest@sha256:7f84f4d07cf0d3562911c6b072e1183436fbc3cad8ccef8157ec5c27456ed452
