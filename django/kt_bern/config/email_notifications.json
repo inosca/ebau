@@ -87,7 +87,7 @@
     "model": "notification.notificationtemplate",
     "pk": 8,
     "fields": {
-      "slug": "02-erklarung-zustandigkeit-gemeinde",
+      "slug": "communications-new-message",
       "purpose": null,
       "subject": null,
       "body": null,
@@ -556,11 +556,11 @@
     "pk": 15,
     "fields": {
       "template": 8,
-      "template_slug": "02-erklarung-zustandigkeit-gemeinde",
+      "template_slug": "communications-new-message",
       "language": "de",
-      "purpose": "02 Erklärung Zuständigkeit  (Gemeinde)",
-      "subject": "Erklärung Zuständigkeit (eBau Nr. {{EBAU_NUMBER}}) / Déclaration relative à la compétence (n° eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nDas Baubewilligungsverfahren für das Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}, {{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde zuständigkeitshalber übernommen. \r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\nMadame, Monsieur,\r\n\r\nNotre autorité se charge du dossier portant le numéro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}, {{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}), qui relève de sa compétence. \r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\n{{LEITBEHOERDE_NAME_FR}}"
+      "purpose": "",
+      "subject": "eBau Bern: #{{EBAU_NUMBER}} - Neue Nachricht zum Thema {{NOTIFICATION_SUBJECT}}",
+      "body": "Guten Tag\n\nIn Bezug auf ihr Baugesuch #{{EBAU_NUMBER}} gab es eine neue Nachricht.\nThema: **{{NOTIFICATION_SUBJECT}}**\n\n\nSie können den gesamten Kommunikationsverlauf hier öffnen und allenfalls\nbeantworten:\n{{PUBLIC_DOSSIER_LINK}}\n\nFreundliche Grüsse,\neBau Bern\n"
     }
   },
   {
