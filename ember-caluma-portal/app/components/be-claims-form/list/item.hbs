@@ -16,10 +16,11 @@
           <li>
             <a
               href="#"
-              title={{format-date @claim.answered.answer.value format="date"}}
-              pos="bottom"
-              delay="200"
-              uk-tooltip
+              {{uk-tooltip
+                (format-date @claim.answered.answer.value format="date")
+                pos="bottom"
+                delay=200
+              }}
             >
               {{t "claims.answered"}} {{format-date @claim.answered.answer.value format="date"}}
             </a>
@@ -29,10 +30,11 @@
             <a
               href="#"
               class={{if @claim.isOverdue "uk-text-warning"}}
-              title={{format-date @claim.deadline.answer.value format="date"}}
-              pos="bottom"
-              delay="200"
-              uk-tooltip
+              {{uk-tooltip
+                (format-date @claim.deadline.answer.value format="date")
+                pos="bottom"
+                delay=200
+              }}
             >
               {{t "claims.deadline"}} {{date-from-now @claim.deadline.answer.value}}
             </a>

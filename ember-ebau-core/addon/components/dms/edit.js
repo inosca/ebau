@@ -1,6 +1,6 @@
-import AdapterError from "@ember-data/adapter/error";
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
+import AdapterError from "@ember-data/adapter/error";
 import Component from "@glimmer/component";
 import { dropTask } from "ember-concurrency";
 import { trackedFunction } from "ember-resources/util/function";
