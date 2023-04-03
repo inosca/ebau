@@ -36,13 +36,13 @@
     <url>https://git.adfinis-sygroup.ch/camac-ng/keycloak-uri</url>
   </scm>
 
-  <version>0.3.11</version>
+  <version>0.3.12</version>
 
   <name>keycloak-theme-kanton-uri</name>
   <description>Keycloak Theme for Kanton Uri</description>
 
   <properties>
-    <keycloak.version>21.0.1</keycloak.version>
+    <keycloak.version>21.0.2</keycloak.version>
     <docker.image.name>acr.run/camac-ng/keycloak-uri/keycloak</docker.image.name>
     <docker.tag.name>${project.version}</docker.tag.name>
   </properties>

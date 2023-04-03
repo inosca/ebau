@@ -91,7 +91,7 @@ services:
   keycloak:
     depends_on:
       - db
-    image: acr.run/camac-ng/keycloak-uri/keycloak:21.0.1_theme-v0.3.11
+    image: acr.run/camac-ng/keycloak-uri/keycloak:21.0.2_theme-v0.3.12
     environment:
       - KC_DB=postgres
       - KC_DB_URL=jdbc:postgresql://db:5432/${APPLICATION}?currentSchema=keycloak
