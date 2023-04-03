@@ -7,6 +7,7 @@ import {
   restartableTask,
   timeout,
 } from "ember-concurrency";
+
 import getCaseMetaQuery from "ember-ebau-core/gql/queries/get-case-meta.graphql";
 
 export default class StatisticsCycleTimeController extends Controller {

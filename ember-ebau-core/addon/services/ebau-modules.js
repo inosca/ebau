@@ -1,8 +1,10 @@
 import { getOwner } from "@ember/application";
-import Service from "@ember/service";
+import Service, { inject as service } from "@ember/service";
 import { singularize } from "ember-inflector";
 
 export default class EbauModulesService extends Service {
+  @service router;
+
   registeredModules = {};
 
   setupModules() {
@@ -22,13 +24,25 @@ export default class EbauModulesService extends Service {
     });
   }
 
-  resolveModuleRoute(moduleName, routeName) {
+  resolveModuleRoute(
+    moduleName,
+    routeName,
+    asURL = false,
+    models = [],
+    queryParams = {}
+  ) {
     if (!routeName.startsWith(moduleName)) {
       routeName = [moduleName, routeName].join(".");
     }
 
-    return [this.registeredModules[moduleName].path, routeName]
+    const fullRouteName = [this.registeredModules[moduleName].path, routeName]
       .filter(Boolean)
       .join(".");
+
+    if (asURL) {
+      return this.router.urlFor(fullRouteName, ...models, { queryParams });
+    }
+
+    return fullRouteName;
   }
 }
