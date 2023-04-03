@@ -7,7 +7,7 @@
     "ember-ebau"
   ],
   "devDependencies": {
-    "prettier": "2.8.1"
+    "prettier": "2.8.7"
   },
   "resolutions": {
     "tracked-maps-and-sets": "3.0.2"

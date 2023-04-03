@@ -19,9 +19,7 @@
           <tr data-test-history-row={{entry.id}}>
             <td>
               <FaIcon
-                uk-tooltip
-                title={{t (concat "history.types." entry.historyType)}}
-                container=".uk-table"
+                {{uk-tooltip (t (concat "history.types." entry.historyType))}}
                 @fixedWidth={{true}}
                 @icon={{entry.icon}}
               />

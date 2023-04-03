@@ -1,6 +1,6 @@
-import Model, { attr, belongsTo, hasMany } from "@ember-data/model";
 import { inject as service } from "@ember/service";
 import { htmlSafe } from "@ember/template";
+import Model, { attr, belongsTo, hasMany } from "@ember-data/model";
 import { dropTask } from "ember-concurrency";
 import { trackedFunction } from "ember-resources/util/function";
 import { saveAs } from "file-saver";
