@@ -17,6 +17,7 @@ from camac.instance.models import Instance
 
 
 class InstanceExportView(ListAPIView, InstanceQuerysetMixin):
+    swagger_schema = None
     instance_field = None
     queryset = Instance.objects
 
@@ -26,7 +27,7 @@ class InstanceExportView(ListAPIView, InstanceQuerysetMixin):
         elif settings.APPLICATION_NAME == "kt_schwyz":
             return InstanceExportSerializerSZ
 
-        return InstanceExportSerializer
+        return InstanceExportSerializer  # pragma: no cover
 
     @property
     def filter_backends(self):
@@ -35,7 +36,7 @@ class InstanceExportView(ListAPIView, InstanceQuerysetMixin):
         elif settings.APPLICATION_NAME == "kt_schwyz":
             return [InstanceExportFilterBackendSZ]
 
-        return [InstanceExportFilterBackend]
+        return [InstanceExportFilterBackend]  # pragma: no cover
 
     def get(self, request):
         queryset = self.filter_queryset(self.get_queryset())
