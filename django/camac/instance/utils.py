@@ -14,6 +14,22 @@ from camac.instance.models import Instance
 from camac.user.models import Service
 
 
+def get_lead_authority(service):
+    """Get lead authority matching a given construction control."""
+    try:
+        return Service.objects.get(
+            service_group__name="municipality",
+            trans__language="de",
+            trans__name=service.trans.get(language="de").name.replace(
+                "Baukontrolle", "Leitbehörde"
+            ),
+        )
+    except Service.DoesNotExist:  # pragma: no cover
+        raise Exception(
+            _("Could not find lead authority for service %(id)d" % {"id": service.pk})
+        )
+
+
 def get_construction_control(service):
     """Get construction control matching a given lead authority."""
     try:
