@@ -78,7 +78,7 @@ services:
       - STREAM_MAX_LENGTH=60M
 
   keycloak:
-    image: acr.run/camac-ng/keycloak:21.0.1_theme-v1.1.0
+    image: acr.run/camac-ng/keycloak:21.0.2_theme-v1.1.1
     environment:
       - KC_DB=${KC_DB}
       - KC_DB_URL=${KC_DB_URL}

@@ -18,7 +18,7 @@ ${KEYCLOAK_VERSION}_theme-${THEME_VERSION}
 Beispiel:
 
 ```
-21.0.1_theme-v0.3.11
+21.0.2_theme-v0.3.12
 ```
 
 ## Entwicklung - Maven und Versionierung
@@ -40,7 +40,7 @@ docker run \
   -e KEYCLOAK_ADMIN=admin \
   -e KEYCLOAK_ADMIN_PASSWORD=camac \
   -p 8080:8080 \
-  quay.io/keycloak/keycloak:21.0.1 \
+  quay.io/keycloak/keycloak:21.0.2 \
   start-dev
 
 ```
