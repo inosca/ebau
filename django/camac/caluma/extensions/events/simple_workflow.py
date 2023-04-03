@@ -1,11 +1,9 @@
-import reversion
 from caluma.caluma_core.events import on
 from caluma.caluma_workflow.events import post_complete_work_item
 from django.db import transaction
 from django.utils.module_loading import import_string
 
 from camac.core.utils import create_history_entry
-from camac.instance.models import InstanceState
 from camac.notification.utils import send_mail_without_request
 from camac.user.models import User
 
@@ -31,15 +29,8 @@ def post_complete_simple_workflow(sender, work_item, user, context, **kwargs):
         notification = config.get("notification")
 
         if next_instance_state:
-            with reversion.create_revision():
-                reversion.set_user(camac_user)
-
-                # go to next instance state
-                instance.previous_instance_state = instance.instance_state
-                instance.instance_state = InstanceState.objects.get(
-                    name=next_instance_state
-                )
-                instance.save()
+            # go to next instance state
+            instance.set_instance_state(next_instance_state, camac_user)
 
         if ech_event:
             # trigger ech message for status change

@@ -1,4 +1,3 @@
-import reversion
 from caluma.caluma_core.events import on
 from caluma.caluma_form.api import save_answer
 from caluma.caluma_form.models import Question
@@ -11,7 +10,6 @@ from django.utils.translation import gettext_noop
 
 from camac.core.utils import create_history_entry
 from camac.ech0211.signals import ruling
-from camac.instance.models import InstanceState
 from camac.instance.utils import (
     set_construction_control,
     should_continue_after_decision,
@@ -98,14 +96,7 @@ def post_complete_decision(sender, work_item, user, context, **kwargs):
                 skip_work_item(ebau_work_item, user, context)
 
         # go to next instance state
-        with reversion.create_revision():
-            reversion.set_user(camac_user)
-
-            instance.previous_instance_state = instance.instance_state
-            instance.instance_state = InstanceState.objects.get(
-                name=instance_state_name
-            )
-            instance.save()
+        instance.set_instance_state(instance_state_name, camac_user)
 
         # trigger ech message for status change
         ruling.send(

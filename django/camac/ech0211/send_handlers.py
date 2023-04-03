@@ -12,7 +12,7 @@ from camac.constants.kt_bern import (
 )
 from camac.core.models import InstanceService
 from camac.document.models import Attachment, AttachmentSection
-from camac.instance.models import Instance, InstanceState
+from camac.instance.models import Instance
 from camac.instance.serializers import CalumaInstanceChangeResponsibleServiceSerializer
 from camac.user.models import Service
 
@@ -148,9 +148,7 @@ class NoticeRulingSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
 
         if judgement == ECH_JUDGEMENT_DECLINED:
             # reject instance
-            self.instance.previous_instance_state = self.instance.instance_state
-            self.instance.instance_state = InstanceState.objects.get(name="rejected")
-            self.instance.save()
+            self.instance.set_instance_state("rejected", self.user)
 
             # send eCH event
             ruling.send(
