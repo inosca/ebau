@@ -40,6 +40,29 @@ def test_me_group(admin_client, admin_user, service):
 
 
 @pytest.mark.parametrize(
+    "service_t__name,service_group__name",
+    [("Baukontrolle Test", "construction-control")],
+)
+def test_me_service_municipality(
+    admin_client, admin_user, service, mocker, service_factory
+):
+    url = reverse("me")
+    lead_authority = service_factory(
+        service_group__name="municipality",
+        trans__language="de",
+        trans__name="Leitbehörde Test",
+    )
+
+    response = admin_client.get(url, data={"include": "service.municipality"})
+    assert response.status_code == status.HTTP_200_OK
+    json = response.json()
+    assert (
+        int(json["included"][0]["relationships"]["municipality"]["data"]["id"])
+        == lead_authority.pk
+    )
+
+
+@pytest.mark.parametrize(
     "role__name,size",
     [
         ("Applicant", 0),
