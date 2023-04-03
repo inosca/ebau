@@ -259,34 +259,36 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
         filter: [
           {
             questions: [
-              "applicant"
-              "landowner"
-              "project-author"
-              "invoice-recipient"
-              "parcel-street"
-              "street-number"
-              "form-type"
-              "proposal-description"
-              "beschreibung-zu-mbv"
-              "bezeichnung"
-              "vorhaben-proposal-description"
-              "veranstaltung-beschrieb"
-              "municipality"
-              "parcels"
-              "status-bauprojekt"
-              "leitbehoerde"
-              "grundnutzung"
-              "ueberlagerte-nutzungen"
-              "typ-des-verfahrens"
-              "oereb-thema"
-              "oereb-thema-gemeinde"
-              "teilstatus"
-              "beschreibung-reklame"
+              "applicant",
+              "landowner",
+              "project-author",
+              "invoice-recipient",
+              "parcel-street",
+              "street-number",
+              "form-type",
+              "proposal-description",
+              "beschreibung-zu-mbv",
+              "bezeichnung",
+              "vorhaben-proposal-description",
+              "veranstaltung-beschrieb",
+              "municipality",
+              "parcels",
+              "status-bauprojekt",
+              "leitbehoerde",
+              "grundnutzung",
+              "ueberlagerte-nutzungen",
+              "typ-des-verfahrens",
+              "oereb-thema",
+              "oereb-thema-gemeinde",
+              "teilstatus",
+              "beschreibung-reklame",
               "mbv-type",
               "mbv-bund-type",
               "solaranlage-art-des-gesuchs",
               "gebaeudetechnik-art-des-gesuchs",
               "reklame-art-des-gesuchs",
+              "waldfeststellung-mit-statischen-waldgrenzen-gemeinde",
+              "waldfeststellung-mit-statischen-waldgrenzen-kanton",
             ]
           }
         ]

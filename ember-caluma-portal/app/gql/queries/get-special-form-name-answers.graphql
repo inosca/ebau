@@ -8,13 +8,15 @@ query GetSpecialFormNameAnswers($instanceId: GenericScalar!) {
         document {
           id
           answers(
-            filter:{
+            filter: {
               questions: [
                 "typ-des-verfahrens"
                 "oereb-thema"
                 "teilstatus"
                 "mbv-type"
                 "mbv-bund-type"
+                "waldfeststellung-mit-statischen-waldgrenzen-gemeinde"
+                "waldfeststellung-mit-statischen-waldgrenzen-kanton"
               ]
             }
           ) {

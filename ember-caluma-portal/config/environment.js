@@ -304,6 +304,10 @@ module.exports = function (environment) {
         oerebPartialState: "teilstatus",
         procedureCanton: "mbv-type",
         procedureConfederation: "mbv-bund-type",
+        staticForestBoundaryCanton:
+          "waldfeststellung-mit-statischen-waldgrenzen-kanton",
+        staticForestBoundaryMunicipality:
+          "waldfeststellung-mit-statischen-waldgrenzen-gemeinde",
       },
       personalSuggestions: {
         tableQuestions: [

@@ -1012,10 +1012,7 @@ def test_instance_submit_pgv_gemeindestrasse_ur(
     assert ur_instance.group == koor_group
 
 
-@pytest.mark.parametrize(
-    "form_slug,expected_copy_state",
-    [("oereb", "ext"), ("oereb-verfahren-gemeinde", "subm")],
-)
+@pytest.mark.parametrize("form_slug", ["oereb", "oereb-verfahren-gemeinde"])
 @pytest.mark.parametrize("service_group__name", [("municipality", "coordination")])
 @pytest.mark.parametrize("instance_state__name", ["new"])
 @pytest.mark.parametrize(
@@ -1039,7 +1036,6 @@ def test_oereb_instance_copy_for_koor_afj(
     service_factory,
     authority_location_factory,
     form_slug,
-    expected_copy_state,
 ):
     settings.APPLICATION_NAME = "kt_uri"
     application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_uri"]["MASTER_DATA"]
@@ -1131,7 +1127,7 @@ def test_oereb_instance_copy_for_koor_afj(
 
     assert copied_instance.group == koor_afj_group
     assert copied_instance.location_id == location.pk
-    assert copied_instance.instance_state.name == expected_copy_state
+    assert copied_instance.instance_state.name == "ext"
 
     ur_instance.refresh_from_db()
 

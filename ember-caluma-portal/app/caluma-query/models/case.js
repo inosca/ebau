@@ -174,6 +174,8 @@ export default class CustomCaseModel extends CaseModel {
             "${answerSlugs.oerebTopics}"
             "${answerSlugs.procedureCanton}"
             "${answerSlugs.procedureConfederation}"
+            "${answerSlugs.staticForestBoundaryCanton}"
+            "${answerSlugs.staticForestBoundaryMunicipality}"
           ]
 	}]
       ) {
