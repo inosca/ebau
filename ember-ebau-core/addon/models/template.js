@@ -8,6 +8,7 @@ export default class TemplateModel extends Model {
   @attr engine;
   @attr group;
   @attr({ defaultValue: () => ({}) }) meta;
+  @attr availablePlaceholders;
 
   get templateFileName() {
     return this.template instanceof File

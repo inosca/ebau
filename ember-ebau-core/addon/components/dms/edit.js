@@ -10,6 +10,7 @@ import { MIME_TYPE_TO_ENGINE } from "ember-ebau-core/utils/dms";
 export default class DmsEditComponent extends Component {
   @service router;
   @service store;
+  @service fetch;
   @service intl;
   @service notification;
   @service ebauModules;
@@ -72,6 +73,16 @@ export default class DmsEditComponent extends Component {
     event.preventDefault();
 
     try {
+      const availablePlaceholders = yield this.fetch.fetch(
+        "/api/v1/dms-placeholders-docs?available_placeholders=true",
+        {
+          headers: { accept: "application/json" },
+        }
+      );
+
+      this.template.value.availablePlaceholders =
+        yield availablePlaceholders.json();
+
       yield this.template.value.save();
 
       this.router.transitionTo(

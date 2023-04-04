@@ -24,52 +24,56 @@
       </div>
     </div>
 
-    <table class="uk-table uk-table-striped">
-      <thead>
-        <tr>
-          <th>{{t "dms.docs.placeholder-and-description"}}</th>
-          {{#if @data}}
-            <th>{{t "dms.docs.value"}}</th>
-          {{/if}}
-        </tr>
-      </thead>
-      <tbody>
-        {{#each this.placeholders as |placeholder|}}
+    {{#if this.docs.isLoading}}
+      <div class="uk-text-center"><UkSpinner @ratio="2" /></div>
+    {{else}}
+      <table class="uk-table uk-table-striped">
+        <thead>
           <tr>
-            <td>
-              <div class="uk-text-nowrap uk-text-bold uk-margin-small-bottom">
-                {{placeholder.placeholder}}
-                {{#if placeholder.isComplex}}
-                  <button
-                    type="button"
-                    class="uk-button uk-button-link uk-text-danger uk-margin-small-left"
-                    {{on "click" (fn (mut this.showComplexInfo) true)}}
-                  >
-                    <UkIcon @icon="info" />
-                  </button>
-                {{/if}}
-              </div>
-              <span class="uk-text-italic">{{placeholder.description}}</span>
-            </td>
+            <th>{{t "dms.docs.placeholder-and-description"}}</th>
             {{#if @data}}
-              <td>
-                {{#if placeholder.isComplex}}
-                  <pre class="uk-width-medium">{{placeholder.value}}</pre>
-                {{else if placeholder.isLink}}
-                  <a
-                    href={{placeholder.value}}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >{{placeholder.value}}</a>
-                {{else}}
-                  {{placeholder.value}}
-                {{/if}}
-              </td>
+              <th>{{t "dms.docs.value"}}</th>
             {{/if}}
           </tr>
-        {{/each}}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {{#each this.placeholders as |placeholder|}}
+            <tr>
+              <td>
+                <div class="uk-text-nowrap uk-text-bold uk-margin-small-bottom">
+                  {{placeholder.placeholder}}
+                  {{#if placeholder.isComplex}}
+                    <button
+                      type="button"
+                      class="uk-button uk-button-link uk-text-danger uk-margin-small-left"
+                      {{on "click" (fn (mut this.showComplexInfo) true)}}
+                    >
+                      <UkIcon @icon="info" />
+                    </button>
+                  {{/if}}
+                </div>
+                <span class="uk-text-italic">{{placeholder.description}}</span>
+              </td>
+              {{#if @data}}
+                <td>
+                  {{#if placeholder.isComplex}}
+                    <pre class="uk-width-medium">{{placeholder.value}}</pre>
+                  {{else if placeholder.isLink}}
+                    <a
+                      href={{placeholder.value}}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >{{placeholder.value}}</a>
+                  {{else}}
+                    {{placeholder.value}}
+                  {{/if}}
+                </td>
+              {{/if}}
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    {{/if}}
   {{/if}}
 </div>
 

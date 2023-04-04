@@ -1,44 +1,34 @@
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
+import { trackedFunction } from "ember-resources/util/function";
 import { cached } from "tracked-toolbox";
-
-import {
-  ALL_PLACEHOLDERS,
-  COMPLEX_PLACEHOLDERS,
-} from "ember-ebau-core/utils/dms";
 
 export default class DmsDocsComponent extends Component {
   @service intl;
+  @service fetch;
 
   @tracked expand = false;
   @tracked search = "";
 
+  docs = trackedFunction(this, async () => {
+    const response = await this.fetch.fetch("/api/v1/dms-placeholders-docs", {
+      headers: { accept: "application/json" },
+    });
+
+    return await response.json();
+  });
+
   @cached
   get allPlaceholders() {
-    const complexPlaceholders = COMPLEX_PLACEHOLDERS.map(
-      (placeholder) => placeholder.split("[]")[0]
-    );
+    if (!this.docs.value) {
+      return [];
+    }
 
-    return ALL_PLACEHOLDERS.filter((placeholder) =>
-      this.intl.exists(`dms.docs.placeholders.${placeholder}-placeholder`)
-    ).map((placeholder) => {
-      const value = this.args.data?.[placeholder] ?? "";
-      const isComplex = complexPlaceholders.includes(placeholder);
-      const isLink = /^http(s)?:\/\//.test(value);
-
-      return {
-        placeholder: this.intl.t(
-          `dms.docs.placeholders.${placeholder}-placeholder`
-        ),
-        description: this.intl.t(
-          `dms.docs.placeholders.${placeholder}-description`
-        ),
-        value: isComplex ? JSON.stringify(value, null, "  ") : value,
-        isComplex,
-        isLink,
-      };
-    });
+    return Object.entries(this.docs.value)
+      .map(([name, docs]) => this.parse(name, docs))
+      .filter(Boolean)
+      .sort((a, b) => a.placeholder.localeCompare(b.placeholder));
   }
 
   get placeholders() {
@@ -47,5 +37,43 @@ export default class DmsDocsComponent extends Component {
     return this.allPlaceholders.filter(({ placeholder }) =>
       placeholder.toLowerCase().includes(this.search.toLowerCase())
     );
+  }
+
+  parse(name, docs) {
+    if (!docs.description) {
+      return null;
+    }
+
+    let value = this.args.data?.[name] ?? "";
+
+    const locale = this.intl.primaryLocale.split("-")[0];
+    const isComplex = Object.keys(docs.nested_aliases).length > 0;
+    const isLink = /^http(s)?:\/\//.test(value);
+
+    if (isComplex && value) {
+      value = JSON.stringify(
+        value.map((item) =>
+          Object.entries(item).reduce((newItem, [key, v]) => {
+            const alias = docs.nested_aliases[key]?.[0]?.[locale];
+
+            if (!alias) {
+              return newItem;
+            }
+
+            return { ...newItem, [alias]: v };
+          }, {})
+        ),
+        null,
+        "  "
+      );
+    }
+
+    return {
+      placeholder: docs.aliases[0][locale],
+      description: docs.description[locale],
+      value,
+      isComplex,
+      isLink,
+    };
   }
 }
