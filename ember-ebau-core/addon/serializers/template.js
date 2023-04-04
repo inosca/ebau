@@ -1,6 +1,5 @@
 import JSONSerializer from "@ember-data/serializer/json";
 
-import { ALL_PLACEHOLDERS } from "ember-ebau-core/utils/dms";
 export default class TemplateSerializer extends JSONSerializer {
   primaryKey = "slug";
 
@@ -12,7 +11,8 @@ export default class TemplateSerializer extends JSONSerializer {
   serializeIntoHash = null;
 
   serialize(snapshot) {
-    const { description, meta, engine, template, slug } = snapshot.attributes();
+    const { description, meta, engine, template, slug, availablePlaceholders } =
+      snapshot.attributes();
 
     const formData = new FormData();
 
@@ -23,7 +23,7 @@ export default class TemplateSerializer extends JSONSerializer {
 
     if (template instanceof File) {
       formData.append("template", template);
-      ALL_PLACEHOLDERS.forEach((placeholder) =>
+      availablePlaceholders.forEach((placeholder) =>
         formData.append("available_placeholders", placeholder)
       );
     }

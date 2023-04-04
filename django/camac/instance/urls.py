@@ -4,6 +4,7 @@ from rest_framework.routers import SimpleRouter
 
 from . import views
 from .export.views import InstanceExportView
+from .placeholders.views import DMSPlaceholdersDocsView
 
 
 class UnswaggeredInstanceView(views.InstanceView):
@@ -15,6 +16,11 @@ urlpatterns = [
         r"instances/export$",
         InstanceExportView.as_view(),
         name="instance-export",
+    ),
+    re_path(
+        r"dms-placeholders-docs$",
+        DMSPlaceholdersDocsView.as_view(),
+        name="dms-placeholders-docs",
     ),
     re_path(
         r"form-config",

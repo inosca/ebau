@@ -6,7 +6,7 @@ from caluma.caluma_form.models import Answer, Document, Question
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.db.models import Exists, OuterRef, Q, Sum
-from django.utils.translation import get_language, gettext as _
+from django.utils.translation import get_language, gettext, gettext_noop as _
 from rest_framework import serializers
 
 from camac.caluma.extensions.visibilities import (
@@ -26,7 +26,26 @@ from .utils import (
 )
 
 
-class DeprecatedField(serializers.ReadOnlyField):
+class AliasedMixin(object):
+    def __init__(
+        self, aliases=[], nested_aliases={}, description=None, *args, **kwargs
+    ):
+        super().__init__(*args, **kwargs)
+
+        self.aliases = aliases
+        self.nested_aliases = nested_aliases
+        self.description = description
+
+
+class AliasedIntegerField(AliasedMixin, serializers.IntegerField):
+    pass
+
+
+class AliasedMethodField(AliasedMixin, serializers.SerializerMethodField):
+    pass
+
+
+class DeprecatedField(AliasedMixin, serializers.ReadOnlyField):
     def __init__(self, value=None, **kwargs):
         super().__init__(**kwargs)
 
@@ -36,7 +55,7 @@ class DeprecatedField(serializers.ReadOnlyField):
         return self.value
 
 
-class ServiceField(serializers.ReadOnlyField):
+class ServiceField(AliasedMixin, serializers.ReadOnlyField):
     def __init__(
         self,
         source_args=[],
@@ -64,7 +83,7 @@ class ServiceField(serializers.ReadOnlyField):
             ).strip()
 
         if value and self.add_municipality_prefix:
-            value = clean_join(_("Municipality"), value)
+            value = clean_join(gettext("Municipality"), value)
 
         return value
 
@@ -95,7 +114,7 @@ class ResponsibleServiceField(ServiceField):
         return instance.responsible_service(filter_type="municipality")
 
 
-class ResponsibleUserField(serializers.ReadOnlyField):
+class ResponsibleUserField(AliasedMixin, serializers.ReadOnlyField):
     def get_user(self, instance):
         responsible_service = instance.responsible_services.filter(
             service=self.context["request"].group.service
@@ -115,9 +134,13 @@ class ResponsibleUserField(serializers.ReadOnlyField):
         return getattr(user, self.source)
 
 
-class BillingEntriesField(serializers.ReadOnlyField):
+class BillingEntriesField(AliasedMixin, serializers.ReadOnlyField):
     def __init__(self, own=False, total=False, **kwargs):
-        super().__init__(**kwargs)
+        nested_aliases = (
+            {"POSITION": [_("POSITION")], "BETRAG": [_("AMOUNT")]} if not total else {}
+        )
+
+        super().__init__(nested_aliases=nested_aliases, **kwargs)
 
         self.own = own
         self.total = total
@@ -148,7 +171,7 @@ class BillingEntriesField(serializers.ReadOnlyField):
         return BillingV2Entry.objects.filter(instance=instance, **own_filters)
 
 
-class PublicationField(serializers.ReadOnlyField):
+class PublicationField(AliasedMixin, serializers.ReadOnlyField):
     def __init__(self, value_key="value", parser=lambda value: value, **kwargs):
         super().__init__(**kwargs)
 
@@ -178,7 +201,7 @@ class PublicationField(serializers.ReadOnlyField):
         return getattr(answer, self.value_key, "") if answer else ""
 
 
-class MasterDataField(serializers.ReadOnlyField):
+class MasterDataField(AliasedMixin, serializers.ReadOnlyField):
     def __init__(self, join_by=None, sum_by=None, parser=lambda value: value, **kwargs):
         super().__init__(**kwargs)
 
@@ -207,7 +230,7 @@ class MasterDataField(serializers.ReadOnlyField):
         return getattr(instance._master_data, self.source)
 
 
-class JointField(serializers.ReadOnlyField):
+class JointField(AliasedMixin, serializers.ReadOnlyField):
     def __init__(self, fields=[], separator=" ", **kwargs):
         super().__init__(**kwargs)
 
@@ -227,7 +250,7 @@ class JointField(serializers.ReadOnlyField):
         )
 
 
-class InquiriesField(serializers.ReadOnlyField):
+class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
     def __init__(
         self,
         only_own=False,
@@ -242,7 +265,26 @@ class InquiriesField(serializers.ReadOnlyField):
         status=None,
         **kwargs,
     ):
-        super().__init__(**kwargs)
+        all_nested_aliases = {
+            "ANTWORT": [_("ANSWER")],
+            "BEANTWORTET": [_("ANSWERED")],
+            "ERSTELLT": [_("CREATED")],
+            "FACHSTELLE": [_("SERVICE")],
+            "FRIST": [_("DEADLINE")],
+            "NAME": [_("NAME")],
+            "NEBENBESTIMMUNGEN": [_("ANCILLARY_CLAUSES")],
+            "STELLUNGNAHME": [_("OPINION")],
+            "TEXT": [_("TEXT")],
+            "VON": [_("BY")],
+        }
+
+        nested_aliases = (
+            {key: all_nested_aliases[key] for _, key in props}
+            if all([isinstance(prop, tuple) for prop in props])
+            else {}
+        )
+
+        super().__init__(nested_aliases=nested_aliases, **kwargs)
 
         self.only_own = only_own
         self.props = props
@@ -340,9 +382,20 @@ class InquiriesField(serializers.ReadOnlyField):
         return queryset.order_by("created_at")
 
 
-class LegalSubmissionField(serializers.ReadOnlyField):
+class LegalSubmissionField(AliasedMixin, serializers.ReadOnlyField):
     def __init__(self, type, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+        super().__init__(
+            nested_aliases={
+                "DATUM_DOKUMENT": [_("DATE_DOCUMENT")],
+                "DATUM_EINGANG": [_("DATE_RECEIPT")],
+                "RECHTSBEGEHRENDE": [_("LEGAL_CLAIMANTS")],
+                "RUEGEPUNKTE": [_("REPRIMANDS")],
+                "TITEL": [_("TITLE")],
+            },
+            *args,
+            **kwargs,
+        )
+
         self.type = type
 
     def to_representation(self, value):
@@ -454,13 +507,26 @@ class MasterDataPersonField(MasterDataField):
         return value[:1] if self.only_first and value else value
 
 
-class InformationOfNeighborsField(serializers.ReadOnlyField):
+class InformationOfNeighborsField(AliasedMixin, serializers.ReadOnlyField):
     def __init__(
         self,
         type,
         **kwargs,
     ):
-        super().__init__(**kwargs)
+        nested_aliases = (
+            {
+                "ADDRESS_1": [_("ADDRESS_1")],
+                "ADDRESS_2": [_("ADDRESS_2")],
+                "NAME": [_("NAME")],
+            }
+            if type == "neighbors"
+            else {}
+        )
+
+        super().__init__(
+            nested_aliases=nested_aliases,
+            **kwargs,
+        )
 
         self.type = type
 
@@ -539,7 +605,7 @@ class InformationOfNeighborsField(serializers.ReadOnlyField):
         return value
 
 
-class DecisionField(serializers.ReadOnlyField):
+class DecisionField(AliasedMixin, serializers.ReadOnlyField):
     def __init__(self, compare_to=None, use_identifier=False, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
