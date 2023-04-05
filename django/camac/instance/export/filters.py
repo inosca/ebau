@@ -342,7 +342,21 @@ class InstanceExportFilterBackendSZ(InstanceExportFilterBackend):
             .values("workflow_date")[:1]
         )
 
-        # TODO: applicants
+        applicants = Coalesce(
+            FormField.objects.filter(
+                name="bauherrschaft-override",
+                instance_id=OuterRef("pk"),
+                value__isnull=False,
+            ).values("value")[:1],
+            FormField.objects.filter(
+                name__in=[
+                    "bauherrschaft",
+                    "bauherrschaft-v2",
+                    "bauherrschaft-v3",
+                ],
+                instance_id=OuterRef("pk"),
+            ).values("value")[:1],
+        )
 
         decision_date_communal = Answer.objects.filter(
             question_id="bewilligungsverfahren-gr-sitzung-bewilligungsdatum",
@@ -355,7 +369,7 @@ class InstanceExportFilterBackendSZ(InstanceExportFilterBackend):
         ).values("date")[:1]
 
         return queryset.annotate(
-            # TODO: applicants=applicants,
+            applicants=applicants,
             intent=intent,
             address=address,
             submit_date=submit_date,
