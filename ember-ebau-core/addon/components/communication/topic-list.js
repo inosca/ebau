@@ -4,14 +4,28 @@ import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { dedupeTracked } from "tracked-toolbox";
 
-import { paginatedQuery } from "ember-ebau-core/resources/paginated";
+import paginatedQuery from "ember-ebau-core/resources/paginated";
 
 export default class CommunicationTopicListComponent extends Component {
   @service router;
 
-  @dedupeTracked showOnlyUnread = false;
+  @dedupeTracked topicsFilter = "all";
   @dedupeTracked page = 1;
   @dedupeTracked element;
+
+  get showOnlyUnread() {
+    switch (this.topicsFilter) {
+      case "read": {
+        return false;
+      }
+      case "unread": {
+        return true;
+      }
+      default: {
+        return undefined;
+      }
+    }
+  }
 
   get topicsListHidden() {
     return parseInt(this.page) === 1 && this.topics.isLoading;
@@ -57,8 +71,9 @@ export default class CommunicationTopicListComponent extends Component {
 
   @action
   updateFilter(value) {
-    this.showOnlyUnread = value;
+    this.topicsFilter = value;
     this.page = 1;
+    this.element = null;
   }
 
   @action

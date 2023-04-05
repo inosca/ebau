@@ -1,0 +1,65 @@
+// TODO replace values with uikit variables
+.communications-message-input {
+  textarea {
+    resize: vertical;
+    border-radius: 10px 10px 0 10px;
+    min-height: 10rem;
+    max-height: 300px;
+  }
+  .file-upload {
+    pointer-events: none;
+  }
+  button.uk-icon-button {
+    pointer-events: all;
+  }
+  button.uk-icon-button:disabled {
+    pointer-events: none;
+  }
+}
+
+.communications-message-list {
+  overflow-y: auto;
+  flex-grow: 5;
+
+  // https://css-tricks.com/books/greatest-css-tricks/pin-scrolling-to-bottom/
+  & * {
+    overflow-anchor: none;
+  }
+
+  .overflow-anchor {
+    overflow-anchor: auto;
+    height: 1px;
+  }
+}
+.communications-topic {
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+
+  & > * {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  & > *:first-child {
+    padding-top: 40px;
+  }
+}
+
+.communications-message {
+  div > p {
+    white-space: pre-wrap;
+
+    &.collapsed {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+
+      &.expandable:hover {
+        text-decoration: underline;
+        cursor: pointer;
+        color: #999;
+      }
+    }
+  }
+}

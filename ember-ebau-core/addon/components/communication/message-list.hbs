@@ -1,0 +1,12 @@
+<div class="communications-message-list" ...attributes>
+  {{#each @messages as |message index|}}
+    <Communication::Message
+      @message={{message}}
+      {{did-insert (fn this.scrollIntoView index)}}
+    />
+    <hr />
+  {{else}}
+    {{t "communications.detail.empty"}}
+  {{/each}}
+  <div class="overflow-anchor"></div>
+</div>

@@ -46,6 +46,12 @@ export class PaginatedQuery extends Resource {
     this.fetchData.perform(...positional);
   }
 
+  async retry(...positional) {
+    return await this.fetchData.perform(
+      ...(positional.length ? positional : this.fetchData.lastSuccessful?.args)
+    );
+  }
+
   @lastValue("fetchData") data;
   fetchData = task({ restartable: true }, async (model, query) => {
     await Promise.resolve();
