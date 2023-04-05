@@ -52,6 +52,10 @@ Router.map(function () {
           as: "distribution",
           path: "/distribution/:case",
         });
+        this.route("communications", function () {
+          this.route("detail", { path: "/:topic_id" });
+          this.route("new");
+        });
         registerLegalSubmission(this);
         registerTaskForm(this);
       });

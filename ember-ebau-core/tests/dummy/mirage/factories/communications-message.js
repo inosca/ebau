@@ -3,6 +3,6 @@ import { Factory } from "miragejs";
 
 export default Factory.extend({
   body: () => faker.lorem.paragraph(),
-  created: () => faker.date.recent(),
+  createdAt: () => faker.date.recent(),
   isRead: false,
 });

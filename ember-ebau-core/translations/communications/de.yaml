@@ -8,7 +8,28 @@ communications:
   noMoreData: Keine weiteren Einträge vorhanden.
   backToFirst: Zurück zum ersten Eintrag
 
-  topics:
+  list:
     all: Alle
     unread: Ungelesene
     newMessage: Neue Nachricht erfassen
+
+  detail:
+    backToList: Nachricht verwerfen und zurück zur Liste
+    sentDate: "am {date} um {time}"
+    readByEveryone: Von allen Teilnehmenden gelesen
+    empty: Keine Nachrichten vorhanden.
+
+  new:
+    newTopic: Neue Konversation eröffnen
+    involvedEntities: Involvierte Parteien
+    involvedEntitiesPlaceholder: Wählen Sie die involvierten Parteien aus...
+    topicName: Thema
+    topicNamePlaceholder: Geben Sie eine Thema ein...
+    readOnly: Keine Antworten erlauben
+    send: Senden
+    discard: Verwerfen
+    fetchError: Die Daten konnten nicht geladen werden. Bitte versuchen Sie es erneut.
+    saveError: Die Nachricht konnten nicht versendet  werden. Bitte versuchen Sie es erneut.
+    fileInputLabel: Dateien anhängen
+    messageInputLabel: Nachricht
+    messageInputPlaceholder: Geben Sie eine Nachricht ein...

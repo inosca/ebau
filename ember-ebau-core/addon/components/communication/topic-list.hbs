@@ -1,4 +1,4 @@
-<div>
+<div {{did-insert this.setElement}}>
   <div class="uk-flex uk-flex-between">
     <div class="uk-button-group">
       <UkButton
@@ -6,14 +6,14 @@
         data-test-show-all
         {{on "click" (fn this.updateFilter false)}}
       >
-        {{t "communications.topics.all"}}
+        {{t "communications.list.all"}}
       </UkButton>
       <UkButton
         @color={{if this.showOnlyUnread "primary" "default"}}
         data-test-show-unread
         {{on "click" (fn this.updateFilter true)}}
       >
-        {{t "communications.topics.unread"}}
+        {{t "communications.list.unread"}}
       </UkButton>
     </div>
     {{#if (and @instance @newRoute)}}
@@ -48,7 +48,7 @@
             data-test-topic
             role="link"
             {{did-insert this.setElement}}
-            {{on "click" (fn this.transitionToTopic topic.instance.id)}}
+            {{on "click" (fn this.transitionToTopic topic)}}
           >
             {{#unless @instance}}
               <td data-test-dossier-number>
@@ -69,7 +69,9 @@
         {{else}}
           {{#unless this.topics.isLoading}}
             <tr>
-              <td>{{t "communications.empty"}}</td>
+              <td colspan="4" class="uk-text-center">{{t
+                  "communications.empty"
+                }}</td>
             </tr>
           {{/unless}}
         {{/each}}
@@ -95,8 +97,8 @@
               type="button"
               class="uk-margin-small-left uk-icon-button"
               uk-icon="chevron-up"
-              uk-tooltip={{t "communications.backToFirst"}}
               data-test-back-to-first
+              {{uk-tooltip (t "communications.backToFirst")}}
               {{on "click" this.scrollToFirst}}
             ></button>
           </td>

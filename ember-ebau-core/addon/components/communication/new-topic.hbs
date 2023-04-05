@@ -1,0 +1,75 @@
+<LinkTo @route={{@listRoute}}>
+  <span class="uk-text-meta">
+    <UkIcon @icon="arrow-left" />
+    {{t "communications.detail.backToList"}}
+  </span>
+</LinkTo>
+
+<h3 class="uk-margin-remove-top">{{t "communications.new.newTopic"}}</h3>
+{{#let this.topic.value as |topic|}}
+  <form class="uk-form-stacked" {{on "submit" this.preventDefault}}>
+    <div class="uk-margin">
+      <label class="uk-form-label uk-text-bold">
+        {{t "communications.new.involvedEntities"}}
+        <span class="uk-text-danger">*</span>
+      </label>
+      <div class="uk-form-controls">
+        <PowerSelectMultiple
+          @required={{true}}
+          @searchEnabled={{true}}
+          @searchField="name"
+          @renderInPlace={{true}}
+          @options={{this.services.records}}
+          @selected={{topic.involvedEntities}}
+          @noMatchesMessage={{t "global.noMatch"}}
+          @placeholder={{t "communications.new.involvedEntitiesPlaceholder"}}
+          @onChange={{this.setInvolvedEntities}}
+          @disabled={{this.createTopic.isRunning}}
+          as |service|
+        >
+          {{service.name}}
+        </PowerSelectMultiple>
+      </div>
+    </div>
+
+    <div class="uk-margin">
+      <label class="uk-form-label uk-text-bold">
+        {{t "communications.new.topicName"}}
+        <span class="uk-text-danger">*</span>
+      </label>
+      <div class="uk-form-controls">
+        <Input
+          aria-label={{t "communications.new.topicName"}}
+          class="uk-input"
+          required={{true}}
+          @value={{topic.subject}}
+          disabled={{this.createTopic.isRunning}}
+          placeholder={{t "communications.new.topicNamePlaceholder"}}
+        />
+      </div>
+    </div>
+
+    <div class="uk-margin">
+      <label class="uk-form-label uk-text-bold">
+        {{t "communications.new.readOnly"}}
+        <span class="uk-text-danger">*</span>
+      </label>
+      <div class="uk-form-controls">
+        <UkToggleSwitch
+          @value={{topic.allowReplies}}
+          @color="onoff"
+          @onToggle={{fn (mut topic.allowReplies)}}
+          @disabled={{this.createTopic.isRunning}}
+        />
+      </div>
+    </div>
+
+    <Communication::MessageInput
+      @topic={{topic}}
+      @sendMessage={{this.createTopic}}
+      @disabled={{this.saveDisabled}}
+      @loading={{this.createTopic.isRunning}}
+    />
+
+  </form>
+{{/let}}

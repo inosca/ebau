@@ -5,7 +5,8 @@ export default class CommunicationMessageModel extends Model {
   @attr createdAt;
   @attr isRead;
 
-  @belongsTo communicationsTopic;
+  @belongsTo("communications-topic") topic;
   @belongsTo("communications-entity") createdBy;
+  @belongsTo("user") createdBy;
   @hasMany("communications-entity") readBy;
 }
