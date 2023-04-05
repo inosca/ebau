@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-05 09:31+0200\n"
-"PO-Revision-Date: 2023-03-23 12:02+0100\n"
+"POT-Creation-Date: 2023-04-06 09:24+0200\n"
+"PO-Revision-Date: 2023-04-06 09:22+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -49,11 +49,11 @@ msgstr "Dossierprüfung übersprungen"
 msgid "Exam completed"
 msgstr "Dossierprüfung abgeschlossen"
 
-#: camac/caluma/extensions/events/decision.py:68
+#: camac/caluma/extensions/events/decision.py:83
 msgid "Evaluation completed"
 msgstr "Beurteilung abgeschlossen"
 
-#: camac/caluma/extensions/events/decision.py:72
+#: camac/caluma/extensions/events/decision.py:87
 msgid "Decision decreed"
 msgstr "Bauentscheid verfügt"
 
@@ -99,12 +99,12 @@ msgstr "Rollen"
 #: camac/user/admin/views.py:258 camac/user/admin/views.py:274
 #: camac/user/models.py:190 camac/user/models.py:249 camac/user/models.py:393
 #: camac/user/models.py:418 camac/user/models.py:438 camac/user/models.py:457
-#: camac/user/models.py:491 camac/user/models.py:558
+#: camac/user/models.py:491 camac/user/models.py:561
 msgid "Name"
 msgstr "Name"
 
 #: camac/core/admin/views.py:37 camac/instance/document_merge_service.py:87
-#: camac/user/models.py:498 camac/user/models.py:565
+#: camac/user/models.py:498 camac/user/models.py:568
 msgid "Description"
 msgstr "Beschreibung"
 
@@ -233,8 +233,8 @@ msgstr ""
 #: camac/dossier_import/loaders.py:300
 #, python-format
 msgid ""
-"Failed to load plot with numbers `%(plot_numbers)s` and egrid values "
-"`%(egrids)s`"
+"Failed to load plot with numbers `%(plot_numbers)s` and egrid values `"
+"%(egrids)s`"
 msgstr ""
 "Parzellendaten konnten nicht geladen werden. Nummer(n): `%(plot_numbers)s`. "
 "Egrid: `%(egrids)s`"
@@ -690,15 +690,15 @@ msgstr "Ungültige Frage %(question)s."
 msgid "%(permission)s is not allowed to edit question %(question)s."
 msgstr "%(permission)s darf die Frage %(question)s nicht bearbeiten."
 
-#: camac/instance/utils.py:29
+#: camac/instance/utils.py:30
 #, python-format
-msgid "Could not find lead authority for service %(id)d"
-msgstr "Keine Baukontrolle für das Dossier %(id)d gefunden"
+msgid "Could not find lead authority for construction control %(id)d"
+msgstr "Keine Leitbehörde für die Baukontrolle %(id)d gefunden"
 
-#: camac/instance/utils.py:46
+#: camac/instance/utils.py:49
 #, python-format
-msgid "Could not find construction control for service %(id)d"
-msgstr "Keine Baukontrolle für das Dossier %(id)d gefunden"
+msgid "Could not find construction control for lead authority %(id)d"
+msgstr "Keine Baukontrolle für die Leitbehörde %(id)d gefunden"
 
 #: camac/instance/validators.py:74
 #, python-format
@@ -985,7 +985,7 @@ msgid "Phone"
 msgstr "Telefon"
 
 #: camac/user/models.py:63 camac/user/models.py:246 camac/user/models.py:415
-#: camac/user/models.py:454 camac/user/models.py:555
+#: camac/user/models.py:454 camac/user/models.py:558
 msgid "Language"
 msgstr "Sprache"
 
@@ -994,7 +994,7 @@ msgid "Last login"
 msgstr "Letztes Login"
 
 #: camac/user/models.py:79 camac/user/models.py:203 camac/user/models.py:252
-#: camac/user/models.py:512 camac/user/models.py:568
+#: camac/user/models.py:512 camac/user/models.py:571
 msgid "City"
 msgstr "Ort"
 
@@ -1006,7 +1006,7 @@ msgstr "PLZ"
 msgid "Role"
 msgstr "Rolle"
 
-#: camac/user/models.py:184 camac/user/models.py:546
+#: camac/user/models.py:184 camac/user/models.py:549
 msgid "Service"
 msgstr "Organisation"
 
@@ -1038,13 +1038,10 @@ msgstr "Organisationstypen"
 msgid "Service parent"
 msgstr "Übergeordnete Organisation"
 
-#: camac/user/models.py:547
+#: camac/user/models.py:542
+msgid "Apply responsibility in construction control?"
+msgstr "Zuständigkeit in Baukontrolle übernehmen?"
+
+#: camac/user/models.py:550
 msgid "Services"
 msgstr "Organisationen"
-
-#~ msgid ""
-#~ "The import has been queued for reversal at %(time)s. This may take some "
-#~ "time."
-#~ msgstr ""
-#~ "Die mit dem Import eingeführten Elemente sind zur Entfernung eingereiht "
-#~ "um %(time). Die Ausführung kann eineWeile dauern."

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-05 09:31+0200\n"
-"PO-Revision-Date: 2023-03-07 09:59+0100\n"
+"POT-Creation-Date: 2023-04-06 09:24+0200\n"
+"PO-Revision-Date: 2023-04-06 09:22+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -48,11 +48,11 @@ msgstr "Examen sauté"
 msgid "Exam completed"
 msgstr "Dossier examiné"
 
-#: camac/caluma/extensions/events/decision.py:68
+#: camac/caluma/extensions/events/decision.py:83
 msgid "Evaluation completed"
 msgstr "Evaluation close"
 
-#: camac/caluma/extensions/events/decision.py:72
+#: camac/caluma/extensions/events/decision.py:87
 msgid "Decision decreed"
 msgstr "Décision relative à la demande de permis de construire rendue"
 
@@ -98,12 +98,12 @@ msgstr "Rôles"
 #: camac/user/admin/views.py:258 camac/user/admin/views.py:274
 #: camac/user/models.py:190 camac/user/models.py:249 camac/user/models.py:393
 #: camac/user/models.py:418 camac/user/models.py:438 camac/user/models.py:457
-#: camac/user/models.py:491 camac/user/models.py:558
+#: camac/user/models.py:491 camac/user/models.py:561
 msgid "Name"
 msgstr "Nom"
 
 #: camac/core/admin/views.py:37 camac/instance/document_merge_service.py:87
-#: camac/user/models.py:498 camac/user/models.py:565
+#: camac/user/models.py:498 camac/user/models.py:568
 msgid "Description"
 msgstr "Description"
 
@@ -229,8 +229,8 @@ msgstr "Charger et transformer le coordinates E: %(e)i et N: %(n)i a échoué"
 #: camac/dossier_import/loaders.py:300
 #, python-format
 msgid ""
-"Failed to load plot with numbers `%(plot_numbers)s` and egrid values "
-"`%(egrids)s`"
+"Failed to load plot with numbers `%(plot_numbers)s` and egrid values `"
+"%(egrids)s`"
 msgstr ""
 "Échec du chargement du graphe avec les numéros `%(plot_numbers)s` et les "
 "valeurs des egrides `%(egrids)s`"
@@ -250,8 +250,8 @@ msgid ""
 "have an invalid value in date field. Please use the format \"DD.MM.YYYY\" (e."
 "g. \"13.04.2021\")"
 msgstr ""
-"n'ont pas de valeur date valable. Veuillez utilizer le format \"DD.MM."
-"YYYY\" (e.g. \"13.04.2021\")"
+"n'ont pas de valeur date valable. Veuillez utilizer le format \"DD.MM.YYYY"
+"\" (e.g. \"13.04.2021\")"
 
 #: camac/dossier_import/messages.py:160
 msgid "have an invalid status"
@@ -693,15 +693,17 @@ msgstr "question invalide %(question)s."
 msgid "%(permission)s is not allowed to edit question %(question)s."
 msgstr "Le %(permission)s n'est pas autorisé à modifier les %(question)s."
 
-#: camac/instance/utils.py:29
+#: camac/instance/utils.py:30
 #, python-format
-msgid "Could not find lead authority for service %(id)d"
-msgstr "Aucun contrôle de construction trouvé pour le dossier %(id)d"
+msgid "Could not find lead authority for construction control %(id)d"
+msgstr ""
+"Aucun autorité directrice trouvé pour le contrôle de construction %(id)d"
 
-#: camac/instance/utils.py:46
+#: camac/instance/utils.py:49
 #, python-format
-msgid "Could not find construction control for service %(id)d"
-msgstr "Aucun contrôle de construction trouvé pour le dossier %(id)d"
+msgid "Could not find construction control for lead authority %(id)d"
+msgstr ""
+"Aucun contrôle de construction trouvé pour l'autorité directrice %(id)d"
 
 #: camac/instance/validators.py:74
 #, python-format
@@ -990,7 +992,7 @@ msgid "Phone"
 msgstr "Téléphone"
 
 #: camac/user/models.py:63 camac/user/models.py:246 camac/user/models.py:415
-#: camac/user/models.py:454 camac/user/models.py:555
+#: camac/user/models.py:454 camac/user/models.py:558
 msgid "Language"
 msgstr "Langue"
 
@@ -999,7 +1001,7 @@ msgid "Last login"
 msgstr "Dernière connexion"
 
 #: camac/user/models.py:79 camac/user/models.py:203 camac/user/models.py:252
-#: camac/user/models.py:512 camac/user/models.py:568
+#: camac/user/models.py:512 camac/user/models.py:571
 msgid "City"
 msgstr "Lieu"
 
@@ -1011,7 +1013,7 @@ msgstr "Code postal"
 msgid "Role"
 msgstr "Rôle"
 
-#: camac/user/models.py:184 camac/user/models.py:546
+#: camac/user/models.py:184 camac/user/models.py:549
 msgid "Service"
 msgstr "Organisation"
 
@@ -1043,14 +1045,10 @@ msgstr "Types d'organisation"
 msgid "Service parent"
 msgstr "Organisation supérieure"
 
-#: camac/user/models.py:547
+#: camac/user/models.py:542
+msgid "Apply responsibility in construction control?"
+msgstr "Reprendre la compétence dans le contrôle de la construction ?"
+
+#: camac/user/models.py:550
 msgid "Services"
 msgstr "Organisations"
-
-#, python-format
-#~ msgid ""
-#~ "The import has been queued for reversal at %(time)s. This may take some "
-#~ "time."
-#~ msgstr ""
-#~ "L'importation a été mise en queue pour revertissement à %(time)s. Ça peut "
-#~ "prendre un moment."
