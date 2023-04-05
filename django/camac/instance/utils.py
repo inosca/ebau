@@ -26,7 +26,10 @@ def get_lead_authority(service):
         )
     except Service.DoesNotExist:  # pragma: no cover
         raise Exception(
-            _("Could not find lead authority for service %(id)d" % {"id": service.pk})
+            _(
+                "Could not find lead authority for construction control %(id)d"
+                % {"id": service.pk}
+            )
         )
 
 
@@ -43,7 +46,7 @@ def get_construction_control(service):
     except Service.DoesNotExist:  # pragma: no cover
         raise Exception(
             _(
-                "Could not find construction control for service %(id)d"
+                "Could not find construction control for lead authority %(id)d"
                 % {"id": service.pk}
             )
         )
