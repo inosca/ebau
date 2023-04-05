@@ -11,6 +11,10 @@ export default class OrganisationController extends Controller {
 
   service = findRecord(this, "service", () => [this.shoebox.content.serviceId]);
 
+  get isMunicipality() {
+    return this.shoebox.baseRole === "municipality";
+  }
+
   @dropTask
   *save(event) {
     event.preventDefault();

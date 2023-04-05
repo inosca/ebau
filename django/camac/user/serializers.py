@@ -234,6 +234,7 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
             "sort",
             "website",
             "municipality",
+            "responsibility_construction_control",
         )
         read_only_fields = (
             "users",

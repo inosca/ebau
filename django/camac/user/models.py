@@ -538,6 +538,9 @@ class Service(core_models.MultilingualModel, models.Model):
     notification = models.PositiveSmallIntegerField(
         default=1, verbose_name=_("Receive notifications?")
     )
+    responsibility_construction_control = models.BooleanField(
+        default=False, verbose_name=_("Apply responsibility in construction control?")
+    )
 
     class Meta:
         managed = True

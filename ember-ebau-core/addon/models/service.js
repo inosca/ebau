@@ -10,6 +10,7 @@ export default class ServiceModel extends Model {
   @attr("string") email;
   @attr("string") website;
   @attr("number") notification;
+  @attr("number") responsibilityConstructionControl;
   @hasMany("user") users;
   @hasMany activations;
   @belongsTo("public-service-group") serviceGroup;
