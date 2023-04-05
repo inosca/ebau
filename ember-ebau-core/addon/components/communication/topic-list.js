@@ -4,7 +4,7 @@ import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { dedupeTracked } from "tracked-toolbox";
 
-import paginatedQuery from "ember-ebau-core/resources/paginated-query";
+import { paginatedQuery } from "ember-ebau-core/resources/paginated";
 
 export default class CommunicationTopicListComponent extends Component {
   @service router;
@@ -24,7 +24,7 @@ export default class CommunicationTopicListComponent extends Component {
   topics = paginatedQuery(this, "communications-topic", () => ({
     has_unread: this.showOnlyUnread,
     instance: this.args.instance,
-    include: "instance,involved_entities",
+    include: "instance",
     page: {
       number: this.page,
       size: 20,
@@ -46,8 +46,8 @@ export default class CommunicationTopicListComponent extends Component {
   }
 
   @action
-  transitionToTopic(instanceId) {
-    this.router.transitionTo(this.args.detailRoute, instanceId);
+  transitionToTopic(topic) {
+    this.router.transitionTo(this.args.detailRoute, topic);
   }
 
   @action

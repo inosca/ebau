@@ -1,0 +1,58 @@
+<div class="uk-margin" ...attributes>
+  <div uk-grid>
+    {{#each this.files as |file|}}
+      <div>
+        {{file.name}}
+        <button
+          type="button"
+          class="uk-icon-button"
+          uk-icon="trash"
+          {{on "click" (fn this.removeFile file)}}
+        ></button>
+      </div>
+    {{/each}}
+  </div>
+
+  <div class="uk-flex uk-flex-bottom">
+    <Textarea
+      @value={{this.messageText}}
+      aria-label={{t "communications.new.messageInputLabel"}}
+      class="uk-textarea communications-message-input"
+      placeholder={{t "communications.message.messageInputPlaceholder"}}
+      rows="1"
+      disabled={{this.disabled}}
+    />
+
+    <div uk-form-custom>
+      <input
+        aria-label={{t "communications.new.fileInputLabel"}}
+        type="file"
+        multiple
+        {{on "input" this.addFiles}}
+        disabled={{this.disabled}}
+      />
+      <button
+        type="button"
+        class="uk-icon-button uk-margin-small-left uk-margin-small-right"
+        uk-icon="file-text"
+        {{on
+          "click"
+          (fn (mut this.showDocumentUpload) (not this.showDocumentUpload))
+        }}
+        disabled={{this.disabled}}
+      ></button>
+    </div>
+    <button
+      type="button"
+      disabled={{this.disabled}}
+      class="uk-icon-button"
+      uk-icon={{this.messageIcon}}
+      {{on "click" (perform @sendMessage this.messageText this.files)}}
+    >
+      {{#if @loading}}
+        <UkSpinner />
+      {{/if}}
+    </button>
+
+  </div>
+</div>

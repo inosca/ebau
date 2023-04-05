@@ -1,0 +1,33 @@
+<h3>{{this.topic.value.subject}}</h3>
+<span class="uk-text-meta">
+  {{this.topic.value.initiatedBy.fullName}}
+</span>
+<hr />
+{{#each this.messages.records as |message|}}
+  <div>
+    <UkFlex @horizontal="between">
+      <span>
+        <span class="uk-text-bold">
+          {{message.createdBy.service.name}}
+
+        </span>
+        <span class="uk-text-meta">
+          {{t
+            "communications.detail.sentDate"
+            date=(format-date message.createdAt format="datetime")
+            time=(format-time message.createdAt format="hhmmss")
+          }}
+        </span>
+      </span>
+      <span class="uk-text-success">
+        <UkIcon @icon="check" />
+        {{t "communications.detail.readByEveryone"}}
+      </span>
+    </UkFlex>
+    <p>{{message.body}}</p>
+    <hr />
+  </div>
+{{else}}
+  {{t "communications.detail.empty"}}
+{{/each}}
+<Communication::MessageInput @sendMessage={{this.sendMessage}} />
