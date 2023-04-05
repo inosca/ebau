@@ -1,0 +1,80 @@
+<div class="communications-message" ...attributes>
+  <UkFlex @horizontal="between" @vertical="middle" class="uk-margin-bottom">
+    <span>
+      <span class="uk-text-bold">
+        {{@message.createdBy.name}}
+        ({{@message.createdByUser.fullName}})
+      </span>
+      <span class="uk-text-meta">
+        {{t
+          "communications.detail.sentDate"
+          date=(format-date @message.createdAt format="datetime")
+          time=(format-time @message.createdAt format="hhmm")
+        }}
+      </span>
+    </span>
+    <span>
+
+      {{#if @message.readAt}}
+        <div class="uk-inline">
+          <button
+            type="button"
+            class="uk-icon-button {{if this.readByEveryone 'uk-text-success'}}"
+            uk-icon="check"
+          />
+          <div uk-dropdown="mode: click" class="uk-width-medium">
+            <span class="uk-text-bold">{{t
+                (concat
+                  "communications.detail."
+                  (if this.readByEveryone "readByEveryone" "readBy")
+                )
+              }}</span>
+            <ul class="uk-list uk-list-collapse uk-list-disc">
+              {{#each @message.readByEntity as |entity|}}
+                <li>{{entity.name}}</li>
+              {{/each}}
+            </ul>
+            <button
+              type="button"
+              class="uk-button uk-button-primary uk-button-small uk-width-1"
+              {{on "click" (perform this.markAsUnread)}}
+            >
+              {{t "communications.detail.markAsUnread"}}
+            </button>
+          </div>
+        </div>
+      {{else}}
+        <button
+          type="button"
+          class="uk-icon-button"
+          uk-icon={{unless this.markAsRead.isRunning "eye"}}
+          uk-tooltip={{t "communications.detail.markAsRead"}}
+          {{on "click" (perform this.markAsRead)}}
+        >
+          {{#if this.markAsRead.isRunning}}
+            <UkSpinner />
+          {{/if}}
+        </button>
+      {{/if}}
+    </span>
+  </UkFlex>
+  <div>
+    <p
+      class="{{if this.collapsed 'collapsed'}}
+        {{if this.isExpandable 'expandable'}}"
+      role="button"
+      {{did-insert this.setParagraph}}
+      {{on "click" this.toggleText}}
+    >{{@message.body}}</p>
+    {{#unless this.collapsed}}
+      <a
+        href="#"
+        class="uk-link uk-link-text"
+        {{on "click" this.toggleText}}
+      >
+        {{t "communications.detail.collapseMessage"}}
+      </a>
+    {{/unless}}
+  </div>
+
+</div>

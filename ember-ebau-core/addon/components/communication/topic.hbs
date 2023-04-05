@@ -1,33 +1,37 @@
-<h3>{{this.topic.value.subject}}</h3>
-<span class="uk-text-meta">
-  {{this.topic.value.initiatedBy.fullName}}
-</span>
-<hr />
-{{#each this.messages.records as |message|}}
-  <div>
-    <UkFlex @horizontal="between">
-      <span>
-        <span class="uk-text-bold">
-          {{message.createdBy.service.name}}
-
-        </span>
-        <span class="uk-text-meta">
-          {{t
-            "communications.detail.sentDate"
-            date=(format-date message.createdAt format="datetime")
-            time=(format-time message.createdAt format="hhmmss")
-          }}
-        </span>
+<div class="communications-topic" ...attributes>
+  <UkFlex @horizontal="between">
+    <div>
+      <h3>{{this.topicResource.record.subject}}</h3>
+      <span class="uk-text-meta">
+        {{t
+          "communications.detail.createdBy"
+          entity=this.topicResource.record.initiatedByEntity.name
+          user=this.topicResource.record.initiatedBy.fullName
+        }}
       </span>
-      <span class="uk-text-success">
-        <UkIcon @icon="check" />
-        {{t "communications.detail.readByEveryone"}}
-      </span>
+    </div>
+    <UkFlex @vertical="bottom">
+      <ul class="uk-list uk-list-collapse uk-text-meta uk-margin-remove">
+        <li>
+          <UkIcon @icon="check" />
+          {{t "communications.detail.readByYou"}}
+        </li>
+        <li>
+          <UkIcon @icon="check" class="uk-text-success" />
+          {{t "communications.detail.readByEveryone"}}
+        </li>
+      </ul>
     </UkFlex>
-    <p>{{message.body}}</p>
-    <hr />
-  </div>
-{{else}}
-  {{t "communications.detail.empty"}}
-{{/each}}
-<Communication::MessageInput @sendMessage={{this.sendMessage}} />
+  </UkFlex>
+
+  <hr />
+  <Communication::MessageList @messages={{this.messagesResource.records}} />
+
+  <Communication::MessageInput
+    @message={{this.newMessage}}
+    @loading={{this.sendMessage.isRunning}}
+    @updateMessage={{this.updateMessage}}
+    @sendMessage={{perform this.sendMessage}}
+    class="uk-margin-bottom"
+  />
+</div>

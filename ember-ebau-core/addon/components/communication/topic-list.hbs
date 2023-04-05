@@ -1,19 +1,26 @@
-<div {{did-insert this.setElement}}>
+<div class="uk-padding" ...attributes>
   <div class="uk-flex uk-flex-between">
     <div class="uk-button-group">
       <UkButton
-        @color={{if this.showOnlyUnread "default" "primary"}}
+        @color={{if (eq this.topicsFilter "all") "primary" "default"}}
         data-test-show-all
-        {{on "click" (fn this.updateFilter false)}}
+        {{on "click" (fn this.updateFilter "all")}}
       >
         {{t "communications.list.all"}}
       </UkButton>
       <UkButton
-        @color={{if this.showOnlyUnread "primary" "default"}}
+        @color={{if (eq this.topicsFilter "unread") "primary" "default"}}
         data-test-show-unread
-        {{on "click" (fn this.updateFilter true)}}
+        {{on "click" (fn this.updateFilter "unread")}}
       >
         {{t "communications.list.unread"}}
+      </UkButton>
+      <UkButton
+        @color={{if (eq this.topicsFilter "read") "primary" "default"}}
+        data-test-show-read
+        {{on "click" (fn this.updateFilter "read")}}
+      >
+        {{t "communications.list.read"}}
       </UkButton>
     </div>
     {{#if (and @instance @newRoute)}}
@@ -22,7 +29,7 @@
         class="uk-button uk-button-primary"
         data-test-new-topic
       >
-        {{t "communications.topics.newMessage"}}
+        {{t "communications.list.newMessage"}}
       </LinkTo>
     {{/if}}
   </div>
@@ -35,8 +42,8 @@
               "communications.dossier"
             }}</th>
         {{/unless}}
-        <th class="uk-table-expand">{{t "communications.topic"}}</th>
-        <th class="uk-table-shrink">{{t "communications.participants"}}</th>
+        <th class="uk-width-1-2">{{t "communications.topic"}}</th>
+        <th class="uk-width-1-2">{{t "communications.participants"}}</th>
         <th class="uk-width-small">{{t "communications.date"}}</th>
       </tr>
     </thead>
@@ -59,7 +66,7 @@
             <td data-test-subject>{{topic.subject}}</td>
             <td data-test-involved-entities>
               {{#each topic.involvedEntities as |entity|}}
-                {{entity.service.name}}<br />
+                {{entity.name}}<br />
               {{else}}
                 -
               {{/each}}

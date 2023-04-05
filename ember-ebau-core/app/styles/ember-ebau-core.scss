@@ -8,8 +8,4 @@
 }
 
 @import "link-attachments";
-
-textarea.communications-message-input {
-  resize: vertical;
-  border-radius: 10px 10px 0 10px;
-}
+@import "communications-module";

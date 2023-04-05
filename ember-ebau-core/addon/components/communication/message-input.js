@@ -3,8 +3,14 @@ import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 
 export default class CommunicationMessageInputComponent extends Component {
-  @tracked messageText;
-  @tracked files = [];
+  @tracked showDocumentUpload = false;
+
+  get body() {
+    return this.args.message?.body;
+  }
+  get files() {
+    return this.args.message?.filesToSave;
+  }
 
   get disabled() {
     return this.args.loading || this.args.disabled;
@@ -14,16 +20,21 @@ export default class CommunicationMessageInputComponent extends Component {
     if (this.args.loading) {
       return null;
     }
-    return this.messageText ? "commenting" : "comment";
+    return this.body ? "commenting" : "comment";
+  }
+
+  @action
+  updateMessage({ target: { value } = {} } = {}) {
+    this.args.updateMessage(value);
   }
 
   @action
   addFiles({ target: { files } = {} } = {}) {
-    this.files = [...this.files, ...files];
+    this.args.updateFiles(this.files.push(files));
   }
 
   @action
-  removeFile(file) {
-    this.files = this.files.filter((_file) => _file !== file);
+  removeFile(fileToRemove) {
+    this.args.updateFiles(this.files.filter((file) => file !== fileToRemove));
   }
 }
