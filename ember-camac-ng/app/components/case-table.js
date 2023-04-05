@@ -464,6 +464,7 @@ export default class CaseTableComponent extends Component {
       const response = yield this.apollo.query(
         {
           query: caseInstanceIdsQuery,
+          fetchPolicy: "network-only",
           variables: { filter: this.gqlFilter },
           context: {
             headers: this.camacFilter,
