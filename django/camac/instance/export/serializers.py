@@ -162,12 +162,12 @@ class InstanceExportSerializerSZ(InstanceExportSerializer):
     )
     form_name = serializers.CharField(
         source="form.description",
-        label=_("Application Type"),
+        label=_("Building permit type"),
     )
     municipality = serializers.CharField(
         source="location.name", label=_("Lead authority")
     )
-    # TODO: applicants = serializers.CharField(label=_("Applicant"))
+    applicants = serializers.SerializerMethodField(label=_("Builder"))
     intent = serializers.CharField(label=_("Intent"))
     address = serializers.CharField(label=_("Address"))
     instance_state_name = serializers.CharField(
@@ -188,13 +188,41 @@ class InstanceExportSerializerSZ(InstanceExportSerializer):
         label=_("Decision Date Cantonal"),
     )
 
+    def get_applicants(self, instance):
+        def answer(applicant, key):
+            return applicant.get(key, "").strip()
+
+        return (
+            ", ".join(
+                filter(
+                    None,
+                    [
+                        answer(applicant, "firma")
+                        if answer(applicant, "firma")
+                        else " ".join(
+                            filter(
+                                None,
+                                [
+                                    answer(applicant, "vorname"),
+                                    answer(applicant, "name"),
+                                ],
+                            )
+                        )
+                        for applicant in instance.applicants
+                    ],
+                )
+            )
+            if instance.applicants
+            else ""
+        )
+
     class Meta(InstanceExportSerializer.Meta):
         # Define order of the fields
         fields = (
             "dossier_number",
             "form_name",
             "municipality",
-            # TODO: "applicants",
+            "applicants",
             "intent",
             "address",
             "instance_state_name",
