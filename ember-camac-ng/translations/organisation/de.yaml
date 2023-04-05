@@ -9,6 +9,7 @@ organisation:
   email: "Email"
   website: "Webseite"
   notification: "Notifikationen empfangen"
+  responsibilityConstructionControl: "Zuständigkeit in Baukontrolle übernehmen"
 
   saveSuccess: "Die Organisation wurde gespeichert."
   saveError: "Die Organisation konnte nicht gespeichert werden."

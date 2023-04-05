@@ -110,5 +110,19 @@
     />
   </div>
 
+  {{#if this.isMunicipality}}
+    <div class="uk-margin">
+      <UkToggleSwitch
+        @value={{this.service.record.responsibilityConstructionControl}}
+        @size="small"
+        @name="responsibility-construction-control"
+        @onToggle={{fn (mut this.service.record.responsibilityConstructionControl)}}
+        @onLabel={{t "organisation.responsibilityConstructionControl"}}
+        @offLabel=""
+        @showLabels={{true}}
+      />
+    </div>
+  {{/if}}
+
   <UkButton @type="submit" @color="primary" @label={{t "global.save"}} @loading={{this.save.isRunning}} />
 </form>

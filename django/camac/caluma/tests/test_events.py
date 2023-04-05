@@ -243,6 +243,59 @@ def test_copy_municipality_tags_for_sb1(
     )
 
 
+def test_copy_responsible_person_lead_authority(
+    db,
+    be_instance,
+    caluma_admin_user,
+    decision_factory,
+    instance_service_factory,
+    instance_state_factory,
+    responsible_service_factory,
+    service_factory,
+    user_factory,
+):
+    instance_state_factory(name="sb1")
+
+    construction_control = service_factory(
+        service_group__name="construction-control",
+        trans__language="de",
+        trans__name="Baukontrolle Test",
+    )
+    lead_authority = service_factory(
+        service_group__name="municipality",
+        trans__language="de",
+        trans__name="Leitbehörde Test",
+        responsibility_construction_control=True,
+    )
+    responsible_user = user_factory()
+
+    responsible_service_factory(
+        instance=be_instance, service=lead_authority, responsible_user=responsible_user
+    )
+    instance_service_factory(instance=be_instance, service=lead_authority, active=1)
+
+    for task_id in [
+        "submit",
+        "ebau-number",
+        "distribution",
+    ]:
+        workflow_api.skip_work_item(
+            work_item=be_instance.case.work_items.get(task_id=task_id),
+            user=caluma_admin_user,
+        )
+
+    decision_factory(decision=DECISIONS_BEWILLIGT)
+
+    workflow_api.complete_work_item(
+        work_item=be_instance.case.work_items.get(task_id="decision"),
+        user=caluma_admin_user,
+    )
+
+    assert be_instance.responsible_services.filter(
+        service=construction_control, responsible_user=responsible_user
+    ).exists()
+
+
 @pytest.mark.parametrize(
     "bewilligungspflichtig_hidden,expect_copy", [("true", True), ("false", False)]
 )
