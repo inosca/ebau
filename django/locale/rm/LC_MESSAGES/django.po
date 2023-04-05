@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-24 10:25+0100\n"
+"POT-Creation-Date: 2023-04-05 09:31+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,11 +30,11 @@ msgstr ""
 msgid "Email '%(email)s' has already access to instance %(instance)s"
 msgstr ""
 
-#: camac/caluma/extensions/data_sources.py:28
+#: camac/caluma/extensions/data_sources.py:30
 msgid "not activated"
 msgstr ""
 
-#: camac/caluma/extensions/data_sources.py:47
+#: camac/caluma/extensions/data_sources.py:49
 msgid "Others"
 msgstr ""
 
@@ -46,15 +46,15 @@ msgstr ""
 msgid "Exam completed"
 msgstr ""
 
-#: camac/caluma/extensions/events/decision.py:70
+#: camac/caluma/extensions/events/decision.py:68
 msgid "Evaluation completed"
 msgstr ""
 
-#: camac/caluma/extensions/events/decision.py:74
+#: camac/caluma/extensions/events/decision.py:72
 msgid "Decision decreed"
 msgstr ""
 
-#: camac/caluma/extensions/events/ebau_number.py:43
+#: camac/caluma/extensions/events/ebau_number.py:35
 msgid "Assigned ebau number"
 msgstr ""
 
@@ -201,8 +201,8 @@ msgstr ""
 #: camac/dossier_import/loaders.py:300
 #, python-format
 msgid ""
-"Failed to load plot with numbers `%(plot_numbers)s` and egrid values `"
-"%(egrids)s`"
+"Failed to load plot with numbers `%(plot_numbers)s` and egrid values "
+"`%(egrids)s`"
 msgstr ""
 
 #: camac/dossier_import/loaders.py:314 camac/dossier_import/validation.py:117
@@ -453,7 +453,6 @@ msgid "Instance number"
 msgstr ""
 
 #: camac/instance/export/serializers.py:83
-#: camac/instance/export/serializers.py:165
 msgid "Application Type"
 msgstr ""
 
@@ -487,8 +486,16 @@ msgstr ""
 msgid "Tags"
 msgstr ""
 
+#: camac/instance/export/serializers.py:165
+msgid "Building permit type"
+msgstr ""
+
 #: camac/instance/export/serializers.py:168
 msgid "Lead authority"
+msgstr ""
+
+#: camac/instance/export/serializers.py:170
+msgid "Builder"
 msgstr ""
 
 #: camac/instance/export/serializers.py:171
@@ -631,7 +638,12 @@ msgstr ""
 msgid "%(permission)s is not allowed to edit question %(question)s."
 msgstr ""
 
-#: camac/instance/utils.py:30
+#: camac/instance/utils.py:29
+#, python-format
+msgid "Could not find lead authority for service %(id)d"
+msgstr ""
+
+#: camac/instance/utils.py:46
 #, python-format
 msgid "Could not find construction control for service %(id)d"
 msgstr ""
