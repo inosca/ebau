@@ -180,7 +180,7 @@ def test_dms_placeholders(
                 "legal-submission-type": ["legal-submission-type-legal-custody"],
                 "legal-submission-document-date": date(2022, 11, 1),
                 "legal-submission-receipt-date": date(2022, 11, 2),
-                "legal-submission-reprimands": "Test RV 1\nTest RV 2",
+                "legal-submission-request-legal-custody": "Test RV 1\nTest RV 2",
                 "legal-submission-title": "Test Rechtsverwahrung",
             },
             {
@@ -189,7 +189,7 @@ def test_dms_placeholders(
                 ],
                 "legal-submission-document-date": date(2022, 10, 1),
                 "legal-submission-receipt-date": date(2022, 10, 2),
-                "legal-submission-reprimands": "Test LAB 1\nTest LAB 2",
+                "legal-submission-request-load-compensation-request": "Test LAB 1\nTest LAB 2",
                 "legal-submission-title": "Test Lastenausgleichsbegehren",
             },
         ],

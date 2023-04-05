@@ -184,16 +184,16 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'DECISION_TYPE': 'GESAMT',
     'DEMANDES_EN_COMPENSATION_DES_CHARGES': [
         {
+            'ANLIEGEN': '''Test LAB 1
+Test LAB 2''',
             'DATE_DOCUMENT': '01.10.2022',
             'DATE_RECEPTION': '02.10.2022',
             'DATUM_DOKUMENT': '01.10.2022',
             'DATUM_EINGANG': '02.10.2022',
-            'GRIEFS': '''Test LAB 1
+            'PREOCCUPATION': '''Test LAB 1
 Test LAB 2''',
             'RECHTSBEGEHRENDE': 'Lastenausgleichsbegehren4you AG',
             'REQUERANTS_CONCLUSIONS': 'Lastenausgleichsbegehren4you AG',
-            'RUEGEPUNKTE': '''Test LAB 1
-Test LAB 2''',
             'TITEL': 'Test Lastenausgleichsbegehren',
             'TITRE': 'Test Lastenausgleichsbegehren'
         }
@@ -440,16 +440,16 @@ Test E 2''',
     'LANGUE': 'de',
     'LASTENAUSGLEICHSBEGEHREN': [
         {
+            'ANLIEGEN': '''Test LAB 1
+Test LAB 2''',
             'DATE_DOCUMENT': '01.10.2022',
             'DATE_RECEPTION': '02.10.2022',
             'DATUM_DOKUMENT': '01.10.2022',
             'DATUM_EINGANG': '02.10.2022',
-            'GRIEFS': '''Test LAB 1
+            'PREOCCUPATION': '''Test LAB 1
 Test LAB 2''',
             'RECHTSBEGEHRENDE': 'Lastenausgleichsbegehren4you AG',
             'REQUERANTS_CONCLUSIONS': 'Lastenausgleichsbegehren4you AG',
-            'RUEGEPUNKTE': '''Test LAB 1
-Test LAB 2''',
             'TITEL': 'Test Lastenausgleichsbegehren',
             'TITRE': 'Test Lastenausgleichsbegehren'
         }
@@ -748,16 +748,16 @@ Test E 2''',
     ],
     'RECHTSVERWAHRUNGEN': [
         {
+            'ANLIEGEN': '''Test RV 1
+Test RV 2''',
             'DATE_DOCUMENT': '01.11.2022',
             'DATE_RECEPTION': '02.11.2022',
             'DATUM_DOKUMENT': '01.11.2022',
             'DATUM_EINGANG': '02.11.2022',
-            'GRIEFS': '''Test RV 1
+            'PREOCCUPATION': '''Test RV 1
 Test RV 2''',
             'RECHTSBEGEHRENDE': 'Martha Rechstverwahrungsson',
             'REQUERANTS_CONCLUSIONS': 'Martha Rechstverwahrungsson',
-            'RUEGEPUNKTE': '''Test RV 1
-Test RV 2''',
             'TITEL': 'Test Rechtsverwahrung',
             'TITRE': 'Test Rechtsverwahrung'
         }
@@ -796,16 +796,16 @@ Test RV 2''',
     'REQUERANT_TOUS_NOM_ADRESSE': 'ACME AG, Max Mustermann, Teststrasse 123, 1234 Testhausen',
     'RESERVES_DE_DROIT': [
         {
+            'ANLIEGEN': '''Test RV 1
+Test RV 2''',
             'DATE_DOCUMENT': '01.11.2022',
             'DATE_RECEPTION': '02.11.2022',
             'DATUM_DOKUMENT': '01.11.2022',
             'DATUM_EINGANG': '02.11.2022',
-            'GRIEFS': '''Test RV 1
+            'PREOCCUPATION': '''Test RV 1
 Test RV 2''',
             'RECHTSBEGEHRENDE': 'Martha Rechstverwahrungsson',
             'REQUERANTS_CONCLUSIONS': 'Martha Rechstverwahrungsson',
-            'RUEGEPUNKTE': '''Test RV 1
-Test RV 2''',
             'TITEL': 'Test Rechtsverwahrung',
             'TITRE': 'Test Rechtsverwahrung'
         }
@@ -2016,6 +2016,12 @@ snapshots['test_dms_placeholders_docs 1'] = {
             'fr': "Toutes les conclusions de type 'Demande en compensation des charges'"
         },
         'nested_aliases': {
+            'ANLIEGEN': [
+                {
+                    'de': 'ANLIEGEN',
+                    'fr': 'PREOCCUPATION'
+                }
+            ],
             'DATUM_DOKUMENT': [
                 {
                     'de': 'DATUM_DOKUMENT',
@@ -2032,12 +2038,6 @@ snapshots['test_dms_placeholders_docs 1'] = {
                 {
                     'de': 'RECHTSBEGEHRENDE',
                     'fr': 'REQUERANTS_CONCLUSIONS'
-                }
-            ],
-            'RUEGEPUNKTE': [
-                {
-                    'de': 'RUEGEPUNKTE',
-                    'fr': 'GRIEFS'
                 }
             ],
             'TITEL': [
@@ -2729,6 +2729,12 @@ snapshots['test_dms_placeholders_docs 1'] = {
             'fr': "Toutes les conclusions de type 'Réserve de droit'"
         },
         'nested_aliases': {
+            'ANLIEGEN': [
+                {
+                    'de': 'ANLIEGEN',
+                    'fr': 'PREOCCUPATION'
+                }
+            ],
             'DATUM_DOKUMENT': [
                 {
                     'de': 'DATUM_DOKUMENT',
@@ -2745,12 +2751,6 @@ snapshots['test_dms_placeholders_docs 1'] = {
                 {
                     'de': 'RECHTSBEGEHRENDE',
                     'fr': 'REQUERANTS_CONCLUSIONS'
-                }
-            ],
-            'RUEGEPUNKTE': [
-                {
-                    'de': 'RUEGEPUNKTE',
-                    'fr': 'GRIEFS'
                 }
             ],
             'TITEL': [
@@ -3245,14 +3245,14 @@ snapshots['test_dms_placeholders_docs_available_placeholders 1'] = [
     'DECISION_TYPE',
     'DEMANDES_EN_COMPENSATION_DES_CHARGES',
     'DEMANDES_EN_COMPENSATION_DES_CHARGES[]',
+    'DEMANDES_EN_COMPENSATION_DES_CHARGES[].ANLIEGEN',
     'DEMANDES_EN_COMPENSATION_DES_CHARGES[].DATE_DOCUMENT',
     'DEMANDES_EN_COMPENSATION_DES_CHARGES[].DATE_RECEPTION',
     'DEMANDES_EN_COMPENSATION_DES_CHARGES[].DATUM_DOKUMENT',
     'DEMANDES_EN_COMPENSATION_DES_CHARGES[].DATUM_EINGANG',
-    'DEMANDES_EN_COMPENSATION_DES_CHARGES[].GRIEFS',
+    'DEMANDES_EN_COMPENSATION_DES_CHARGES[].PREOCCUPATION',
     'DEMANDES_EN_COMPENSATION_DES_CHARGES[].RECHTSBEGEHRENDE',
     'DEMANDES_EN_COMPENSATION_DES_CHARGES[].REQUERANTS_CONCLUSIONS',
-    'DEMANDES_EN_COMPENSATION_DES_CHARGES[].RUEGEPUNKTE',
     'DEMANDES_EN_COMPENSATION_DES_CHARGES[].TITEL',
     'DEMANDES_EN_COMPENSATION_DES_CHARGES[].TITRE',
     'DEPOT_DEMANDE_DATE',
@@ -3364,14 +3364,14 @@ snapshots['test_dms_placeholders_docs_available_placeholders 1'] = [
     'LANGUE',
     'LASTENAUSGLEICHSBEGEHREN',
     'LASTENAUSGLEICHSBEGEHREN[]',
+    'LASTENAUSGLEICHSBEGEHREN[].ANLIEGEN',
     'LASTENAUSGLEICHSBEGEHREN[].DATE_DOCUMENT',
     'LASTENAUSGLEICHSBEGEHREN[].DATE_RECEPTION',
     'LASTENAUSGLEICHSBEGEHREN[].DATUM_DOKUMENT',
     'LASTENAUSGLEICHSBEGEHREN[].DATUM_EINGANG',
-    'LASTENAUSGLEICHSBEGEHREN[].GRIEFS',
+    'LASTENAUSGLEICHSBEGEHREN[].PREOCCUPATION',
     'LASTENAUSGLEICHSBEGEHREN[].RECHTSBEGEHRENDE',
     'LASTENAUSGLEICHSBEGEHREN[].REQUERANTS_CONCLUSIONS',
-    'LASTENAUSGLEICHSBEGEHREN[].RUEGEPUNKTE',
     'LASTENAUSGLEICHSBEGEHREN[].TITEL',
     'LASTENAUSGLEICHSBEGEHREN[].TITRE',
     'LEITBEHOERDE_ADDRESS_1',
@@ -3539,14 +3539,14 @@ snapshots['test_dms_placeholders_docs_available_placeholders 1'] = [
     'RECHTSBEGEHRENDE[].NOM',
     'RECHTSVERWAHRUNGEN',
     'RECHTSVERWAHRUNGEN[]',
+    'RECHTSVERWAHRUNGEN[].ANLIEGEN',
     'RECHTSVERWAHRUNGEN[].DATE_DOCUMENT',
     'RECHTSVERWAHRUNGEN[].DATE_RECEPTION',
     'RECHTSVERWAHRUNGEN[].DATUM_DOKUMENT',
     'RECHTSVERWAHRUNGEN[].DATUM_EINGANG',
-    'RECHTSVERWAHRUNGEN[].GRIEFS',
+    'RECHTSVERWAHRUNGEN[].PREOCCUPATION',
     'RECHTSVERWAHRUNGEN[].RECHTSBEGEHRENDE',
     'RECHTSVERWAHRUNGEN[].REQUERANTS_CONCLUSIONS',
-    'RECHTSVERWAHRUNGEN[].RUEGEPUNKTE',
     'RECHTSVERWAHRUNGEN[].TITEL',
     'RECHTSVERWAHRUNGEN[].TITRE',
     'REPRESENTANT',
@@ -3569,14 +3569,14 @@ snapshots['test_dms_placeholders_docs_available_placeholders 1'] = [
     'REQUERANT_TOUS_NOM_ADRESSE',
     'RESERVES_DE_DROIT',
     'RESERVES_DE_DROIT[]',
+    'RESERVES_DE_DROIT[].ANLIEGEN',
     'RESERVES_DE_DROIT[].DATE_DOCUMENT',
     'RESERVES_DE_DROIT[].DATE_RECEPTION',
     'RESERVES_DE_DROIT[].DATUM_DOKUMENT',
     'RESERVES_DE_DROIT[].DATUM_EINGANG',
-    'RESERVES_DE_DROIT[].GRIEFS',
+    'RESERVES_DE_DROIT[].PREOCCUPATION',
     'RESERVES_DE_DROIT[].RECHTSBEGEHRENDE',
     'RESERVES_DE_DROIT[].REQUERANTS_CONCLUSIONS',
-    'RESERVES_DE_DROIT[].RUEGEPUNKTE',
     'RESERVES_DE_DROIT[].TITEL',
     'RESERVES_DE_DROIT[].TITRE',
     'RESPONSABLE_AUTORITE_DIRECTRICE',
