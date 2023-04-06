@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-05 09:31+0200\n"
+"POT-Creation-Date: 2023-04-06 09:24+0200\n"
 "PO-Revision-Date: 2023-03-21 08:21+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -47,11 +47,11 @@ msgstr ""
 msgid "Exam completed"
 msgstr ""
 
-#: camac/caluma/extensions/events/decision.py:68
+#: camac/caluma/extensions/events/decision.py:83
 msgid "Evaluation completed"
 msgstr ""
 
-#: camac/caluma/extensions/events/decision.py:72
+#: camac/caluma/extensions/events/decision.py:87
 msgid "Decision decreed"
 msgstr ""
 
@@ -97,12 +97,12 @@ msgstr "Ruoli ACL"
 #: camac/user/admin/views.py:258 camac/user/admin/views.py:274
 #: camac/user/models.py:190 camac/user/models.py:249 camac/user/models.py:393
 #: camac/user/models.py:418 camac/user/models.py:438 camac/user/models.py:457
-#: camac/user/models.py:491 camac/user/models.py:558
+#: camac/user/models.py:491 camac/user/models.py:561
 msgid "Name"
 msgstr "Nome"
 
 #: camac/core/admin/views.py:37 camac/instance/document_merge_service.py:87
-#: camac/user/models.py:498 camac/user/models.py:565
+#: camac/user/models.py:498 camac/user/models.py:568
 msgid "Description"
 msgstr "Descrizione"
 
@@ -202,8 +202,8 @@ msgstr ""
 #: camac/dossier_import/loaders.py:300
 #, python-format
 msgid ""
-"Failed to load plot with numbers `%(plot_numbers)s` and egrid values "
-"`%(egrids)s`"
+"Failed to load plot with numbers `%(plot_numbers)s` and egrid values `"
+"%(egrids)s`"
 msgstr ""
 
 #: camac/dossier_import/loaders.py:314 camac/dossier_import/validation.py:117
@@ -639,14 +639,14 @@ msgstr ""
 msgid "%(permission)s is not allowed to edit question %(question)s."
 msgstr ""
 
-#: camac/instance/utils.py:29
+#: camac/instance/utils.py:30
 #, python-format
-msgid "Could not find lead authority for service %(id)d"
+msgid "Could not find lead authority for construction control %(id)d"
 msgstr ""
 
-#: camac/instance/utils.py:46
+#: camac/instance/utils.py:49
 #, python-format
-msgid "Could not find construction control for service %(id)d"
+msgid "Could not find construction control for lead authority %(id)d"
 msgstr ""
 
 #: camac/instance/validators.py:74
@@ -926,7 +926,7 @@ msgid "Phone"
 msgstr "Telefono"
 
 #: camac/user/models.py:63 camac/user/models.py:246 camac/user/models.py:415
-#: camac/user/models.py:454 camac/user/models.py:555
+#: camac/user/models.py:454 camac/user/models.py:558
 msgid "Language"
 msgstr "Lingua"
 
@@ -935,7 +935,7 @@ msgid "Last login"
 msgstr "Ultimo accesso"
 
 #: camac/user/models.py:79 camac/user/models.py:203 camac/user/models.py:252
-#: camac/user/models.py:512 camac/user/models.py:568
+#: camac/user/models.py:512 camac/user/models.py:571
 msgid "City"
 msgstr "Città"
 
@@ -947,7 +947,7 @@ msgstr "Codice postale"
 msgid "Role"
 msgstr "Ruolo"
 
-#: camac/user/models.py:184 camac/user/models.py:546
+#: camac/user/models.py:184 camac/user/models.py:549
 msgid "Service"
 msgstr "Organizzazione"
 
@@ -979,9 +979,10 @@ msgstr "Tipi di organizzazione"
 msgid "Service parent"
 msgstr ""
 
-#: camac/user/models.py:547
+#: camac/user/models.py:542
+msgid "Apply responsibility in construction control?"
+msgstr ""
+
+#: camac/user/models.py:550
 msgid "Services"
 msgstr "Organizzazioni"
-
-#~ msgid "required"
-#~ msgstr "richiesto"
