@@ -190,7 +190,9 @@ class InstanceExportSerializerSZ(InstanceExportSerializer):
 
     def get_applicants(self, instance):
         def answer(applicant, key):
-            return applicant.get(key, "").strip()
+            # Check for missing keys and None values (imported instances)
+            value = applicant.get(key) or ""
+            return value.strip()
 
         return (
             ", ".join(
