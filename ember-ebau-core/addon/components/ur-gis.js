@@ -375,6 +375,7 @@ export default class UrGisComponent extends Component {
         const newDocument = this.calumaStore.push(
           new Document({
             raw: parseDocument(newDocumentRaw),
+            parentDocument: this.args.field.document,
             owner,
           })
         );
