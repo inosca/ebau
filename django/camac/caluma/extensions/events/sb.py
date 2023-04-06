@@ -71,6 +71,7 @@ def custom_sb1_work_item(sender, work_item, user, context, **kwargs):
             case=work_item.case,
             status=WorkItem.STATUS_READY,
             addressed_groups=[str(construction_control)],
+            controlling_groups=[str(construction_control)],
         )
 
         send_event(
