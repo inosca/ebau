@@ -1,10 +1,8 @@
-import { assert } from "@ember/debug";
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { task } from "ember-concurrency";
-import { findAll } from "ember-data-resources";
 import { trackedFunction } from "ember-resources/util/function";
 
 export default class CommunicationNewTopicComponent extends Component {
@@ -16,70 +14,102 @@ export default class CommunicationNewTopicComponent extends Component {
 
   @tracked message;
 
-  services = findAll(this, "service");
+  get topic() {
+    return this.topicResource.value;
+  }
 
-  get servicesWithoutCurrent() {
-    const currentActiveServiceId = this.session.groups
+  get services() {
+    return this.topic?.get("instance.involvedServices");
+  }
+
+  get activeServiceId() {
+    return this.session.groups
       .find((group) => group.id === this.session.group)
       ?.belongsTo("service")
       .id();
+  }
 
-    return this.services.records?.filter(
-      (service) => service.id !== currentActiveServiceId
+  get activeInstanceService() {
+    return this.topic?.get("instance.activeService");
+  }
+
+  // Leitbehörde
+  get isActiveInstanceService() {
+    return this.activeServiceId === this.activeInstanceService?.get("id");
+  }
+
+  get selectableServices() {
+    if (!this.topic) {
+      return null;
+    }
+
+    if (!this.session.isInternal) {
+      // Applicant can only select instance active service
+      return [
+        {
+          id: this.activeInstanceService.get("id"),
+          name: this.activeInstanceService.get("name"),
+        },
+      ];
+    }
+
+    // Without current service
+    const services = this.services
+      ?.filter((service) => service.id !== this.activeServiceId)
+      .map((service) => ({ id: service.get("id"), name: service.name }));
+
+    // We are a Leitbehörde so we add the applicant to the list
+    if (this.isActiveInstanceService) {
+      services.push({
+        id: "APPLICANT",
+        name: this.intl.t("communications.new.applicant"),
+      });
+    }
+
+    return services;
+  }
+
+  get saveDisabled() {
+    return !(
+      this.topic?.involvedEntities?.length &&
+      this.topic?.subject &&
+      this.message?.body
     );
   }
 
-  topic = trackedFunction(this, async () => {
+  topicResource = trackedFunction(this, async () => {
     try {
-      const instance =
-        typeof parseInt(this.args.instance) === "number"
-          ? this.store.peekRecord("instance", this.args.instance) ??
-            (await this.store.findRecord("instance", this.args.instance))
-          : this.args.instance;
+      const instance = await this.store.findRecord(
+        "instance",
+        this.args.instanceId,
+        { include: "involved_services,active_service", reload: true }
+      );
+      this.message = this.store.createRecord("communications-message", {
+        topic: this.topic,
+      });
       return this.store.createRecord("communications-topic", {
         instance,
       });
     } catch (error) {
       console.error(error);
       this.notification.danger(this.intl.t("communications.new.fetchError"));
-      this.router.transitionTo(this.args.listRoute);
     }
   });
 
-  get saveDisabled() {
-    return !(
-      this.topic.value?.involvedEntities?.length &&
-      this.topic.value?.subject &&
-      this.message?.body
-    );
-  }
-
-  constructor(owner, args) {
-    super(owner, args);
-    assert(
-      "Must specify argument @detailRoute on <NewTopic/> component.",
-      typeof args.detailRoute === "string"
-    );
-    assert(
-      "Must specify argument @listRoute on <NewTopic/> component.",
-      typeof args.listRoute === "string"
-    );
-    assert(
-      "Must specify argument @instance on <NewTopic/> component.",
-      typeof args.instance === "string"
-    );
-
-    this.message = this.store.createRecord("communications-message", {
-      topic: this.topic.value,
-    });
-  }
+  createTopic = task(async () => {
+    try {
+      const topic = await this.topic.save();
+      await this.message.save();
+      this.router.transitionTo(this.args.detailRoute, topic);
+    } catch (error) {
+      console.error(error);
+      this.notification.danger(this.intl.t("communications.new.saveError"));
+    }
+  });
 
   @action
   setInvolvedEntities(services) {
-    this.topic.value.involvedEntities = services.map((service) => ({
-      id: service.id,
-      name: service.name,
-    }));
+    this.topic.involvedEntities = services;
   }
 
   @action
@@ -96,15 +126,4 @@ export default class CommunicationNewTopicComponent extends Component {
   updateFiles(files) {
     this.message.filesToSave = files;
   }
-
-  createTopic = task(async () => {
-    try {
-      const topic = await this.topic.value.save();
-      await this.message.save();
-      this.router.transitionTo(this.args.detailRoute, topic);
-    } catch (error) {
-      console.error(error);
-      this.notification.danger(this.intl.t("communications.new.saveError"));
-    }
-  });
 }

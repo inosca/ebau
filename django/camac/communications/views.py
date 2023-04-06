@@ -42,6 +42,7 @@ class TopicView(InvolvedInTopicQuerysetMixin, InstanceQuerysetMixin, ModelViewSe
     search_fields = [
         "subject",
     ]
+    ordering = "-created"
     permission_classes = [IsAuthenticated]
 
     def _annotate_has_unread(self, qs):

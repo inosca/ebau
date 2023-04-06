@@ -5,6 +5,10 @@ export default {
       minute: "numeric",
       second: "numeric",
     },
+    hhmm: {
+      hour: "numeric",
+      minute: "numeric",
+    },
   },
   date: {
     hhmmss: {

@@ -1,8 +1,8 @@
 <div class="communications-topic" ...attributes>
   <UkFlex @horizontal="between">
     <div>
-      <h3>{{this.topicResource.record.subject}}</h3>
-      <span class="uk-text-meta">
+      <h3 data-test-subject>{{this.topicResource.record.subject}}</h3>
+      <span class="uk-text-meta" data-test-created-by>
         {{t
           "communications.detail.createdBy"
           entity=this.topicResource.record.initiatedByEntity.name
@@ -25,13 +25,28 @@
   </UkFlex>
 
   <hr />
-  <Communication::MessageList @messages={{this.messagesResource.records}} />
-
-  <Communication::MessageInput
-    @message={{this.newMessage}}
-    @loading={{this.sendMessage.isRunning}}
-    @updateMessage={{this.updateMessage}}
-    @sendMessage={{perform this.sendMessage}}
-    class="uk-margin-bottom"
+  <Communication::MessageList
+    @refresh={{this.messagesResource.retry}}
+    @messages={{this.messagesResource.records}}
+    data-test-message-list
   />
+
+  {{#if this.topicResource.record.allowReplies}}
+    <Communication::MessageInput
+      @message={{this.newMessage}}
+      @loading={{this.sendMessage.isRunning}}
+      @updateMessage={{this.updateMessage}}
+      @sendMessage={{perform this.sendMessage}}
+      class="uk-margin-bottom"
+      data-test-message-input
+    />
+  {{else}}
+    <div
+      uk-alert
+      class="uk-margin uk-margin-medium-left uk-margin-medium-right uk-text-center"
+      data-test-no-replies
+    >
+      {{t "communications.detail.readOnly"}}
+    </div>
+  {{/if}}
 </div>

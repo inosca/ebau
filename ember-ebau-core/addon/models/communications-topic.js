@@ -5,8 +5,9 @@ export default class CommunicationTopicModel extends Model {
   @attr hasUnread;
   @attr dossierNumber;
   @attr("date") created;
-  @attr involvedEntities;
   @attr({ defaultValue: true }) allowReplies;
+  @attr initiatedByEntity;
+  @attr involvedEntities;
 
   @belongsTo instance;
   @belongsTo("user") initiatedBy;

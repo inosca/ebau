@@ -1,6 +1,6 @@
-import Model, { attr, belongsTo, hasMany } from "@ember-data/model";
-import { tracked } from "@glimmer/tracking";
 import { inject as service } from "@ember/service";
+import Model, { attr, belongsTo } from "@ember-data/model";
+import { tracked } from "@glimmer/tracking";
 
 export default class CommunicationMessageModel extends Model {
   @service store;
@@ -29,10 +29,15 @@ export default class CommunicationMessageModel extends Model {
     };
 
     const response = await fetch(`${url}/${action}`, { method, headers, body });
-    return response.ok;
+    const json = await response.json();
+    this.store.pushPayload(json);
   }
 
   async markAsRead() {
     return await this.apiAction("read");
+  }
+
+  async markAsUnread() {
+    return await this.apiAction("unread");
   }
 }

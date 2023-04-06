@@ -38,6 +38,7 @@
         class="uk-icon-button uk-margin-small-left uk-margin-small-right"
         uk-icon="file-text"
         disabled={{this.disabled}}
+        data-test-select-files
         {{on
           "click"
           (fn (mut this.showDocumentUpload) (not this.showDocumentUpload))
@@ -50,10 +51,11 @@
         disabled={{this.disabled}}
         class="uk-icon-button"
         uk-icon={{this.messageIcon}}
+        data-test-send
         {{on "click" @sendMessage}}
       >
         {{#if @loading}}
-          <UkSpinner />
+          <UkSpinner data-test-loading />
         {{/if}}
       </button>
     {{/if}}

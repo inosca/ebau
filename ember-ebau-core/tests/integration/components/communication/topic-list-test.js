@@ -11,12 +11,12 @@ module("Integration | Component | communication/topic-list", function (hooks) {
   setupMirage(hooks);
   setupIntl(hooks, "de");
 
-  test("it renders instance list", async function (assert) {
+  test("it renders topic list", async function (assert) {
     assert.expect(7);
     this.instance = this.server.create("instance", "withTopics");
 
     await render(
-      hbs`<Communication::TopicList @detailRoute="detail" @instance={{this.instance.id}} @newRoute="new" />`
+      hbs`<Communication::TopicList @detailRoute="detail" @instanceId={{this.instance.id}} @newRoute="new" />`
     );
 
     assert.dom("[data-test-new-topic]").exists();
@@ -38,9 +38,7 @@ module("Integration | Component | communication/topic-list", function (hooks) {
     assert
       .dom("[data-test-involved-entities]")
       .hasText(
-        firstTopic.involvedEntities.models
-          .map((entity) => entity.service.name)
-          .join("\n")
+        firstTopic.involvedEntities.map((entity) => entity.name).join("\n")
       );
   });
 
@@ -61,8 +59,8 @@ module("Integration | Component | communication/topic-list", function (hooks) {
       );
   });
 
-  test("it toggles between read and unread", async function (assert) {
-    assert.expect(3);
+  test("it toggles between all, read and unread", async function (assert) {
+    assert.expect(5);
     const instance = this.server.create("instance");
     this.server.create("communications-topic", {
       hasUnread: true,
@@ -74,7 +72,7 @@ module("Integration | Component | communication/topic-list", function (hooks) {
     });
 
     await render(
-      hbs`<Communication::TopicList @detailRoute="detail" @instance={{1}} @newRoute="new" />`
+      hbs`<Communication::TopicList @detailRoute="detail" @instanceId={{1}} @newRoute="new" />`
     );
 
     assert.dom("[data-test-topic]").exists({ count: 2 });
@@ -86,7 +84,27 @@ module("Integration | Component | communication/topic-list", function (hooks) {
     assert.deepEqual(requests[requests.length - 1].queryParams, {
       has_unread: "true",
       instance: instance.id,
-      include: "instance,involved_entities",
+      include: "instance",
+      order: "-created_at",
+      "page[number]": "1",
+      "page[size]": "20",
+    });
+
+    await click("button[data-test-show-read]");
+    assert.deepEqual(requests[requests.length - 1].queryParams, {
+      has_unread: "false",
+      instance: instance.id,
+      include: "instance",
+      order: "-created_at",
+      "page[number]": "1",
+      "page[size]": "20",
+    });
+
+    await click("button[data-test-show-all]");
+    assert.deepEqual(requests[requests.length - 1].queryParams, {
+      instance: instance.id,
+      include: "instance",
+      order: "-created_at",
       "page[number]": "1",
       "page[size]": "20",
     });
@@ -111,7 +129,7 @@ module("Integration | Component | communication/topic-list", function (hooks) {
     );
 
     await render(
-      hbs`<Communication::TopicList @detailRoute="detail" @instance={{1}} @newRoute="new" />`
+      hbs`<Communication::TopicList @detailRoute="detail" @instanceId={{1}} @newRoute="new" />`
     );
 
     await click("[data-test-new-topic]");
@@ -128,7 +146,7 @@ module("Integration | Component | communication/topic-list", function (hooks) {
     this.server.createList("communications-topic", 40);
 
     await render(
-      hbs`<Communication::TopicList @detailRoute="detail" @instance={{1}} @newRoute="new" />`
+      hbs`<Communication::TopicList @detailRoute="detail" @instanceId={{1}} @newRoute="new" />`
     );
 
     assert.dom("[data-test-topic]").exists({ count: 20 });
@@ -141,9 +159,9 @@ module("Integration | Component | communication/topic-list", function (hooks) {
 
     let requests = this.server.pretender.handledRequests;
     assert.deepEqual(requests[requests.length - 1].queryParams, {
-      has_unread: "false",
       instance: "1",
-      include: "instance,involved_entities",
+      include: "instance",
+      order: "-created_at",
       "page[number]": "2",
       "page[size]": "20",
     });
@@ -155,7 +173,8 @@ module("Integration | Component | communication/topic-list", function (hooks) {
     assert.deepEqual(requests[requests.length - 1].queryParams, {
       has_unread: "true",
       instance: "1",
-      include: "instance,involved_entities",
+      include: "instance",
+      order: "-created_at",
       "page[number]": "1",
       "page[size]": "20",
     });
@@ -166,7 +185,7 @@ module("Integration | Component | communication/topic-list", function (hooks) {
     this.server.createList("communications-topic", 20);
 
     await render(
-      hbs`<Communication::TopicList @detailRoute="detail" @instance={{1}} @newRoute="new" />`
+      hbs`<Communication::TopicList @detailRoute="detail" @instanceId={{1}} @newRoute="new" />`
     );
 
     assert.dom("[data-test-topic]").exists({ count: 20 });
