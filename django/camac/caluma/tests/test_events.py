@@ -172,7 +172,10 @@ def test_post_complete_sb1(
     manual_workitem = caluma_workflow_models.WorkItem.objects.filter(
         task_id="create-manual-workitems", name="Lastenausgleichsstellende informieren"
     ).first()
+
     assert manual_workitem.deadline.strftime("%d.%m.%Y") == "11.01.2023"
+    assert str(service.pk) in manual_workitem.addressed_groups
+    assert str(service.pk) in manual_workitem.controlling_groups
 
 
 def test_copy_municipality_tags_for_sb1(
