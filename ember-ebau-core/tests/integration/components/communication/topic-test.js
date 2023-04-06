@@ -1,26 +1,62 @@
-import { render } from "@ember/test-helpers";
+import { render, fillIn, click } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
+import { setupMirage } from "ember-cli-mirage/test-support";
+import { setupIntl } from "ember-intl/test-support";
 import { setupRenderingTest } from "ember-qunit";
 import { module, test } from "qunit";
 
 module("Integration | Component | communication/topic", function (hooks) {
   setupRenderingTest(hooks);
+  setupMirage(hooks);
+  setupIntl(hooks, "de");
 
-  test("it renders", async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+  test("it renders a topic", async function (assert) {
+    assert.expect(7);
 
-    await render(hbs`<Communication::Topic />`);
+    this.topic = this.server.create("communications-topic", {});
+    this.server.createList("communications-message", 4, {
+      topic: this.topic,
+    });
 
-    assert.dom(this.element).hasText("");
+    await render(hbs`<Communication::Topic @topic={{this.topic.id}}/>`);
 
-    // Template block usage:
-    await render(hbs`
-      <Communication::Topic>
-        template block text
-      </Communication::Topic>
-    `);
+    assert.dom("[data-test-subject]").hasText(this.topic.subject);
+    assert
+      .dom("[data-test-created-by]")
+      .hasText(
+        `Erstellt von ${this.topic.initiatedByEntity.name} (${this.topic.initiatedBy.name} ${this.topic.initiatedBy.surname})`
+      );
+    assert.dom("[data-test-message-list]").exists();
+    assert.dom("[data-test-message-input]").exists();
+    assert.dom("[data-test-no-replies]").doesNotExist();
 
-    assert.dom(this.element).hasText("template block text");
+    assert
+      .dom("[data-test-message-list] [data-test-message]")
+      .exists({ count: 4 });
+    await fillIn("[data-test-message-input] textarea", "New message");
+    await click("[data-test-message-input] [data-test-send]");
+    assert
+      .dom("[data-test-message-list] [data-test-message]")
+      .exists({ count: 5 });
+  });
+
+  test("it renders a read only topic", async function (assert) {
+    assert.expect(3);
+
+    this.topic = this.server.create("communications-topic", {
+      allowReplies: false,
+    });
+    this.server.createList("communications-message", 4, {
+      topic: this.topic,
+    });
+
+    await render(hbs`<Communication::Topic @topic={{this.topic.id}}/>`);
+
+    assert.dom("[data-test-message-input]").doesNotExist();
+    assert.dom("[data-test-no-replies]").exists();
+
+    assert
+      .dom("[data-test-message-list] [data-test-message]")
+      .exists({ count: 4 });
   });
 });

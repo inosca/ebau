@@ -2,11 +2,15 @@
   {{#each @messages as |message index|}}
     <Communication::Message
       @message={{message}}
+      @refresh={{@refresh}}
       {{did-insert (fn this.scrollIntoView index)}}
+      data-test-message={{message.id}}
     />
     <hr />
   {{else}}
-    {{t "communications.detail.empty"}}
+    <span data-test-empty>
+      {{t "communications.detail.empty"}}
+    </span>
   {{/each}}
   <div class="overflow-anchor"></div>
 </div>

@@ -1,4 +1,3 @@
-import { assert } from "@ember/debug";
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
@@ -32,36 +31,23 @@ export default class CommunicationTopicListComponent extends Component {
   }
 
   get colspan() {
-    return this.args.instance ? 3 : 4;
+    return this.args.instanceId ? 3 : 4;
   }
 
   topics = paginatedQuery(this, "communications-topic", () => ({
     has_unread: this.showOnlyUnread,
-    instance: this.args.instance,
+    instance: this.args.instanceId,
     include: "instance",
     page: {
       number: this.page,
       size: 20,
     },
+    order: "-created_at",
   }));
-
-  constructor(owner, args) {
-    super(owner, args);
-    assert(
-      "Must specify argument @detailRoute on <TopicList/> component.",
-      typeof args.detailRoute === "string"
-    );
-    if (args.instance) {
-      assert(
-        "Must specify argument @newRoute on <TopicList/> component.",
-        typeof args.newRoute === "string"
-      );
-    }
-  }
 
   @action
   transitionToTopic(topic) {
-    this.router.transitionTo(this.args.detailRoute, topic);
+    this.router.transitionTo(this.args.detailRoute, topic.id);
   }
 
   @action

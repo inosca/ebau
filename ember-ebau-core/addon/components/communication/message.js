@@ -22,17 +22,14 @@ export default class CommunicationMessageComponent extends Component {
     const message = this.args.message;
     return (
       message.readByEntity.length ===
-      message.topic.get("involvedEntities").length
+      message.topic?.get("involvedEntities").length
     );
   }
 
   markAsRead = task(async () => {
     try {
       await this.args.message.markAsRead();
-      await this.store.findRecord(
-        "communications-message",
-        this.args.message.id
-      );
+      await this.args.refresh();
     } catch (error) {
       console.error(error);
       this.notification.danger(
@@ -43,8 +40,7 @@ export default class CommunicationMessageComponent extends Component {
 
   markAsUnread = task(async () => {
     try {
-      //TODO
-      alert("Not yet implemented in api.");
+      await this.args.message.markAsUnread();
     } catch (error) {
       console.error(error);
       this.notification.danger(

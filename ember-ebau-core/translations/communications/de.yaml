@@ -27,6 +27,7 @@ communications:
     markAsUnread: Als Ungelesen markieren
     markAsUnreadError: Die Nachricht konnte nicht als ungelesen markiert werden. Bitte versuchen Sie es erneut.
     collapseMessage: Nachricht einklappen
+    readOnly: In dieser Konversation können von Ihnen keine Nachrichten erfasst werden.
 
   new:
     newTopic: Neue Konversation eröffnen
@@ -40,6 +41,7 @@ communications:
     discard: Verwerfen
     fetchError: Die Daten konnten nicht geladen werden. Bitte versuchen Sie es erneut.
     saveError: Die Nachricht konnten nicht versendet  werden. Bitte versuchen Sie es erneut.
+    applicant: Gesuchsteller/in
 
   message:
     fileInputLabel: Dateien anhängen

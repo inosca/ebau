@@ -1,11 +1,11 @@
 <div class="communications-message" ...attributes>
   <UkFlex @horizontal="between" @vertical="middle" class="uk-margin-bottom">
     <span>
-      <span class="uk-text-bold">
+      <span class="uk-text-bold" data-test-created-by>
         {{@message.createdBy.name}}
         ({{@message.createdByUser.fullName}})
       </span>
-      <span class="uk-text-meta">
+      <span class="uk-text-meta" data-test-sent-date>
         {{t
           "communications.detail.sentDate"
           date=(format-date @message.createdAt format="datetime")
@@ -21,8 +21,13 @@
             type="button"
             class="uk-icon-button {{if this.readByEveryone 'uk-text-success'}}"
             uk-icon="check"
+            data-test-read-details-trigger
           />
-          <div uk-dropdown="mode: click" class="uk-width-medium">
+          <div
+            uk-dropdown="mode: click"
+            class="uk-width-medium"
+            data-test-read-details
+          >
             <span class="uk-text-bold">{{t
                 (concat
                   "communications.detail."
@@ -38,6 +43,7 @@
               type="button"
               class="uk-button uk-button-primary uk-button-small uk-width-1"
               {{on "click" (perform this.markAsUnread)}}
+              data-test-mark-unread
             >
               {{t "communications.detail.markAsUnread"}}
             </button>
@@ -50,6 +56,7 @@
           uk-icon={{unless this.markAsRead.isRunning "eye"}}
           uk-tooltip={{t "communications.detail.markAsRead"}}
           {{on "click" (perform this.markAsRead)}}
+          data-test-mark-read
         >
           {{#if this.markAsRead.isRunning}}
             <UkSpinner />
@@ -65,12 +72,14 @@
       role="button"
       {{did-insert this.setParagraph}}
       {{on "click" this.toggleText}}
+      data-test-expand
     >{{@message.body}}</p>
     {{#unless this.collapsed}}
       <a
         href="#"
         class="uk-link uk-link-text"
         {{on "click" this.toggleText}}
+        data-test-collapse
       >
         {{t "communications.detail.collapseMessage"}}
       </a>

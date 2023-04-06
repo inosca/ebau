@@ -1,88 +1,101 @@
 <div class="uk-padding" ...attributes>
   <h3 class="uk-margin-remove-top">{{t "communications.new.newTopic"}}</h3>
-  {{#let this.topic.value as |topic|}}
-    <form class="uk-form-stacked" {{on "submit" this.preventDefault}}>
-      <div class="uk-margin">
-        <label class="uk-form-label uk-text-bold">
-          {{t "communications.new.involvedEntities"}}
-          <span class="uk-text-danger">*</span>
-        </label>
-        <div class="uk-form-controls">
-          <PowerSelectMultiple
-            @required={{true}}
-            @searchEnabled={{true}}
-            @searchField="name"
-            @renderInPlace={{true}}
-            @options={{this.servicesWithoutCurrent}}
-            @selected={{topic.involvedEntities}}
-            @noMatchesMessage={{t "global.noMatch"}}
-            @placeholder={{t "communications.new.involvedEntitiesPlaceholder"}}
-            @onChange={{this.setInvolvedEntities}}
-            @disabled={{this.createTopic.isRunning}}
-            as |service|
-          >
-            {{service.name}}
-          </PowerSelectMultiple>
-        </div>
+  <form class="uk-form-stacked" {{on "submit" this.preventDefault}}>
+    <div class="uk-margin">
+      <label class="uk-form-label uk-text-bold">
+        {{t "communications.new.involvedEntities"}}
+        <span class="uk-text-danger">*</span>
+      </label>
+      <div class="uk-form-controls">
+        <PowerSelectMultiple
+          @required={{true}}
+          @searchEnabled={{true}}
+          @searchField="name"
+          @renderInPlace={{true}}
+          @options={{this.selectableServices}}
+          @selected={{this.topic.involvedEntities}}
+          @noMatchesMessage={{t "global.noMatch"}}
+          @placeholder={{t "communications.new.involvedEntitiesPlaceholder"}}
+          @onChange={{this.setInvolvedEntities}}
+          @disabled={{this.createTopic.isRunning}}
+          data-test-involved-entities
+          as |service|
+        >
+          {{service.name}}
+        </PowerSelectMultiple>
       </div>
+    </div>
 
-      <div class="uk-margin">
-        <label class="uk-form-label uk-text-bold">
-          {{t "communications.new.topicName"}}
-          <span class="uk-text-danger">*</span>
-        </label>
-        <div class="uk-form-controls">
-          <Input
-            aria-label={{t "communications.new.topicName"}}
-            class="uk-input"
-            required={{true}}
-            @value={{topic.subject}}
-            disabled={{this.createTopic.isRunning}}
-            placeholder={{t "communications.new.topicNamePlaceholder"}}
-          />
-        </div>
+    <div class="uk-margin">
+      <label class="uk-form-label uk-text-bold">
+        {{t "communications.new.topicName"}}
+        <span class="uk-text-danger">*</span>
+      </label>
+      <div class="uk-form-controls">
+        <Input
+          @value={{this.topic.subject}}
+          aria-label={{t "communications.new.topicName"}}
+          class="uk-input"
+          required={{true}}
+          disabled={{this.createTopic.isRunning}}
+          placeholder={{t "communications.new.topicNamePlaceholder"}}
+          data-test-subject
+        />
       </div>
+    </div>
 
+    {{#if this.isActiveInstanceService}}
       <div class="uk-margin">
         <label class="uk-form-label uk-text-bold">
           {{t "communications.new.allowAnswers"}}
         </label>
         <div class="uk-form-controls">
           <UkToggleSwitch
-            @value={{topic.allowReplies}}
+            @value={{this.topic.allowReplies}}
             @color="onoff"
-            @onToggle={{fn (mut topic.allowReplies)}}
+            @onToggle={{fn (mut this.topic.allowReplies)}}
             @disabled={{this.createTopic.isRunning}}
             @size="small"
+            data-test-allow-answers
           />
         </div>
       </div>
+    {{/if}}
 
-      <div class="uk-margin">
-        <label class="uk-form-label uk-text-bold">
-          {{t "communications.new.message"}}
-          <span class="uk-text-danger">*</span>
-        </label>
-        <div class="uk-form-controls">
-          <Communication::MessageInput
-            @message={{this.message}}
-            @updateMessage={{this.updateMessage}}
-            @updateFiles={{this.updateFiles}}
-          />
-        </div>
-
+    <div class="uk-margin">
+      <label class="uk-form-label uk-text-bold">
+        {{t "communications.new.message"}}
+        <span class="uk-text-danger">*</span>
+      </label>
+      <div class="uk-form-controls">
+        <Communication::MessageInput
+          @message={{this.message}}
+          @updateMessage={{this.updateMessage}}
+          @updateFiles={{this.updateFiles}}
+          data-test-message
+        />
       </div>
 
-      <div class="uk-flex uk-flex-right uk-margin-top">
-        <UkButton
-          @color="primary"
-          @disabled={{this.saveDisabled}}
-          @onClick={{perform this.createTopic}}
-        >
-          {{t "communications.new.send"}}
-        </UkButton>
-      </div>
+    </div>
 
-    </form>
-  {{/let}}
+    <div class="uk-flex uk-flex-between uk-margin-top">
+      <LinkTo
+        @route={{@listRoute}}
+        class="uk-button uk-button-default"
+        disabled={{this.createTopic.isRunning}}
+        data-test-discard
+      >
+        {{t "communications.new.discard"}}
+      </LinkTo>
+      <UkButton
+        @color="primary"
+        @disabled={{this.saveDisabled}}
+        @onClick={{perform this.createTopic}}
+        data-test-save
+      >
+        {{t "communications.new.send"}}
+      </UkButton>
+    </div>
+
+  </form>
 </div>
