@@ -282,7 +282,7 @@ class Landowners(BaseDataSource):
         rows = find_answer(document, "personalien-grundeigentumerin")
 
         if not rows:  # pragma: no cover
-            return
+            return []
 
         landowner_data = []
         for row in rows:
