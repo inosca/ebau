@@ -2,7 +2,6 @@ import csv
 import itertools
 from collections import OrderedDict
 
-from caluma.caluma_form.models import Document
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.utils.timezone import now
@@ -10,7 +9,6 @@ from django.utils.translation import get_language, gettext_noop as _
 from rest_framework import serializers
 
 from camac.caluma.api import CalumaApi
-from camac.caluma.utils import find_answer
 from camac.core.translations import get_translations
 from camac.user.models import Service
 from camac.utils import build_url
@@ -500,7 +498,7 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
     lastenausgleichsbegehren = fields.LegalSubmissionField(
         type="legal-submission-type-load-compensation-request",
         aliases=[_("LOAD_COMPENSATION_REQUESTS")],
-        description=_("All legal submissions of the type 'load compensation request'"),
+        description=_('All legal submissions of the type "load compensation request"'),
     )
     leitbehoerde_address_1 = fields.ResponsibleServiceField(
         source="address",
@@ -651,11 +649,25 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
     objections = fields.LegalSubmissionField(
         type="legal-submission-type-objection",
         aliases=[_("OBJECTIONS")],
-        description=_("All legal submissions of the type 'objection'"),
+        description=_('All legal submissions of the type "objection"'),
     )
-    opposing = fields.AliasedMethodField(
-        aliases=[_("LEGAL_CLAIMANTS"), _("OPPOSING")],
-        nested_aliases={"ADDRESS": [_("ADDRESS")], "NAME": [_("NAME")]},
+    opposing = fields.LegalClaimantsField(
+        type="legal-submission-type-objection",
+        aliases=[_("OPPOSING")],
+        description=_("Opposing with address"),
+    )
+    legal_custodians = fields.LegalClaimantsField(
+        type="legal-submission-type-legal-custody",
+        aliases=[_("LEGAL_CUSTODIANS")],
+        description=_("Legal custodians with address"),
+    )
+    load_compensation_requesting = fields.LegalClaimantsField(
+        type="legal-submission-type-load-compensation-request",
+        aliases=[_("LOAD_COMPENSATION_REQUESTING")],
+        description=_("Load compensation requesting with address"),
+    )
+    legal_claimants = fields.LegalClaimantsField(
+        aliases=[_("LEGAL_CLAIMANTS")],
         description=_("All legal claimants with address"),
     )
     outside_seating = fields.MasterDataField(
@@ -776,7 +788,7 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
     rechtsverwahrungen = fields.LegalSubmissionField(
         type="legal-submission-type-legal-custody",
         aliases=[_("LEGAL_CUSTODIES")],
-        description=_("All legal submissions of the type 'legal custody'"),
+        description=_('All legal submissions of the type "legal custody"'),
     )
     sachverhalt = fields.MasterDataField(
         source="situation",
@@ -961,43 +973,6 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
 
     def get_language(self, instance):
         return get_language()
-
-    def get_opposing(self, instance):
-        data = []
-
-        for claimant in Document.objects.filter(
-            form_id="personalien-tabelle",
-            family__work_item__task_id="legal-submission",
-            family__work_item__case__instance=instance,
-        ):
-            is_juristic = (
-                find_answer(
-                    claimant, "juristische-person-gesuchstellerin", raw_value=True
-                )
-                == "juristische-person-gesuchstellerin-ja"
-            )
-            name = (
-                find_answer(claimant, "name-juristische-person-gesuchstellerin")
-                if is_juristic
-                else clean_join(
-                    find_answer(claimant, "vorname-gesuchstellerin"),
-                    find_answer(claimant, "name-gesuchstellerin"),
-                )
-            )
-            street = clean_join(
-                find_answer(claimant, "strasse-gesuchstellerin"),
-                find_answer(claimant, "nummer-gesuchstellerin"),
-            )
-            location = clean_join(
-                find_answer(claimant, "plz-gesuchstellerin"),
-                find_answer(claimant, "ort-gesuchstellerin"),
-            )
-
-            data.append(
-                {"ADDRESS": clean_join(street, location, separator=", "), "NAME": name}
-            )
-
-        return data
 
     def get_parzelle(self, instance):
         return clean_join(
