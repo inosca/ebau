@@ -398,6 +398,7 @@ export default class BeGisComponent extends Component {
         const newDocument = this.calumaStore.push(
           new Document({
             raw: parseDocument(newDocumentRaw),
+            parentDocument: this.args.field.document,
             owner,
           })
         );
