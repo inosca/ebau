@@ -1,6 +1,24 @@
 [
   {
     "model": "caluma_form.form",
+    "pk": "allgemeine-informationen",
+    "fields": {
+      "created_at": "2023-04-05T10:15:23.636Z",
+      "modified_at": "2023-04-05T10:15:23.636Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Allgemeine Informationen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "baugesuch",
     "fields": {
       "created_at": "2021-02-12T13:03:45.382Z",
@@ -24,6 +42,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "bauvorhaben",
+    "fields": {
+      "created_at": "2023-04-05T10:40:11.043Z",
+      "modified_at": "2023-04-05T10:40:11.043Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Bauvorhaben\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "dossierpruefung",
     "fields": {
       "created_at": "2020-10-13T11:53:41.201Z",
@@ -34,6 +70,42 @@
       "modified_by_group": null,
       "name": "{\"de\": \"Dossierpr\\u00fcfung\", \"fr\": \"Examen du dossier\", \"it\": null, \"rm\": null}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": null, \"rm\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "durchgefuehrte-vorabklaerungen",
+    "fields": {
+      "created_at": "2023-04-05T10:07:29.473Z",
+      "modified_at": "2023-04-05T10:07:33.453Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Durchgef\\u00fchrte Vorabkl\\u00e4rungen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "durchgefuehrte-vorabklaerungen-tabelle",
+    "fields": {
+      "created_at": "2023-04-05T10:08:52.820Z",
+      "modified_at": "2023-04-05T10:08:52.820Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Durchgef\\u00fchrte Vorabkl\\u00e4rungen Tabelle\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "meta": {},
       "is_published": false,
       "is_archived": false,
@@ -59,18 +131,99 @@
     }
   },
   {
-    "model": "caluma_form.formquestion",
-    "pk": "baugesuch.allgemeine-angaben",
+    "model": "caluma_form.form",
+    "pk": "grundstueck",
     "fields": {
-      "created_at": "2022-09-21T12:18:28.725Z",
-      "modified_at": "2022-09-21T12:18:28.725Z",
+      "created_at": "2023-04-05T10:17:32.301Z",
+      "modified_at": "2023-04-05T10:17:32.301Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Grundst\\u00fcck\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "nutzung-bauvorhaben",
+    "fields": {
+      "created_at": "2023-04-05T10:46:01.067Z",
+      "modified_at": "2023-04-05T10:46:01.067Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Nutzung Bauvorhaben\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-informationen.bauvorhaben",
+    "fields": {
+      "created_at": "2023-04-05T10:44:17.879Z",
+      "modified_at": "2023-04-05T10:44:17.879Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-informationen",
+      "question": "bauvorhaben",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-informationen.durchgefuehrte-vorabklaerungen",
+    "fields": {
+      "created_at": "2023-04-05T10:15:45.121Z",
+      "modified_at": "2023-04-05T10:15:45.121Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-informationen",
+      "question": "durchgefuehrte-vorabklaerungen",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-informationen.personalien",
+    "fields": {
+      "created_at": "2023-04-05T10:16:28.020Z",
+      "modified_at": "2023-04-05T10:16:28.020Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-informationen",
+      "question": "personalien",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch.allgemeine-informationen",
+    "fields": {
+      "created_at": "2023-04-05T10:17:03.246Z",
+      "modified_at": "2023-04-05T10:17:03.246Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "baugesuch",
-      "question": "allgemeine-angaben",
-      "sort": 2
+      "question": "allgemeine-informationen",
+      "sort": 4
     }
   },
   {
@@ -90,17 +243,122 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "baugesuch.personalien",
+    "pk": "baugesuch.grundstueck",
     "fields": {
-      "created_at": "2022-09-21T12:18:04.677Z",
-      "modified_at": "2022-09-21T12:18:04.677Z",
+      "created_at": "2023-04-05T10:18:13.882Z",
+      "modified_at": "2023-04-05T10:18:13.882Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "baugesuch",
-      "question": "personalien",
+      "question": "grundstueck",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch.nutzung-bauvorhaben",
+    "fields": {
+      "created_at": "2023-04-05T10:53:32.607Z",
+      "modified_at": "2023-04-05T10:53:32.607Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baugesuch",
+      "question": "nutzung-bauvorhaben",
       "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben.beschreibung-bauvorhaben",
+    "fields": {
+      "created_at": "2023-04-05T10:42:47.145Z",
+      "modified_at": "2023-04-05T10:42:47.145Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben",
+      "question": "beschreibung-bauvorhaben",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben.vorhaben",
+    "fields": {
+      "created_at": "2023-04-05T10:41:47.991Z",
+      "modified_at": "2023-04-05T10:41:47.991Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben",
+      "question": "vorhaben",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "durchgefuehrte-vorabklaerungen-tabelle.amts-fachstelle",
+    "fields": {
+      "created_at": "2023-04-05T10:13:00.807Z",
+      "modified_at": "2023-04-05T10:13:00.807Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "durchgefuehrte-vorabklaerungen-tabelle",
+      "question": "amts-fachstelle",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "durchgefuehrte-vorabklaerungen-tabelle.kontaktperson-vorabklaerungen",
+    "fields": {
+      "created_at": "2023-04-05T10:13:28.199Z",
+      "modified_at": "2023-04-05T10:13:28.199Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "durchgefuehrte-vorabklaerungen-tabelle",
+      "question": "kontaktperson-vorabklaerungen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "durchgefuehrte-vorabklaerungen.vorabklaerungen-tabelle",
+    "fields": {
+      "created_at": "2023-04-05T10:14:12.752Z",
+      "modified_at": "2023-04-05T10:14:12.752Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "durchgefuehrte-vorabklaerungen",
+      "question": "vorabklaerungen-tabelle",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "durchgefuehrte-vorabklaerungen.wurden-vorabklaerungen-durchgefuehrt",
+    "fields": {
+      "created_at": "2023-04-05T10:08:01.584Z",
+      "modified_at": "2023-04-05T10:08:01.584Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "durchgefuehrte-vorabklaerungen",
+      "question": "wurden-vorabklaerungen-durchgefuehrt",
+      "sort": 2
     }
   },
   {
@@ -116,6 +374,368 @@
       "form": "einreichen",
       "question": "einreichen-button",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "grundstueck.allgemeine-angaben",
+    "fields": {
+      "created_at": "2023-04-05T10:17:44.361Z",
+      "modified_at": "2023-04-05T10:17:44.361Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "grundstueck",
+      "question": "allgemeine-angaben",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "nutzung-bauvorhaben.bauvorhaben-ausserhalb-der-bauzone-bab",
+    "fields": {
+      "created_at": "2023-04-05T10:47:02.056Z",
+      "modified_at": "2023-04-05T10:47:02.056Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "nutzung-bauvorhaben",
+      "question": "bauvorhaben-ausserhalb-der-bauzone-bab",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "nutzung-bauvorhaben.bauvorhaben-mit-gewerbenutzung",
+    "fields": {
+      "created_at": "2023-04-05T10:50:36.535Z",
+      "modified_at": "2023-04-05T10:50:36.535Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "nutzung-bauvorhaben",
+      "question": "bauvorhaben-mit-gewerbenutzung",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "nutzung-bauvorhaben.bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten",
+    "fields": {
+      "created_at": "2023-04-05T10:47:28.444Z",
+      "modified_at": "2023-04-05T10:47:28.444Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "nutzung-bauvorhaben",
+      "question": "bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "nutzung-bauvorhaben.beschreibung-der-nutzung",
+    "fields": {
+      "created_at": "2023-04-05T10:51:52.089Z",
+      "modified_at": "2023-04-05T10:51:52.089Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "nutzung-bauvorhaben",
+      "question": "beschreibung-der-nutzung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "nutzung-bauvorhaben.mehr-als-50-arbeitsplaetze",
+    "fields": {
+      "created_at": "2023-04-05T10:55:44.294Z",
+      "modified_at": "2023-04-05T10:55:44.294Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "nutzung-bauvorhaben",
+      "question": "mehr-als-50-arbeitsplaetze",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "amts-fachstelle-amt-fuer-energie-und-verkehr",
+    "fields": {
+      "created_at": "2023-04-05T10:13:00.559Z",
+      "modified_at": "2023-04-05T10:13:00.559Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Amt f\\u00fcr Energie und Verkehr\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "amts-fachstelle-amt-fuer-natur-und-umwelt",
+    "fields": {
+      "created_at": "2023-04-05T10:13:00.554Z",
+      "modified_at": "2023-04-05T10:13:00.554Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Amt f\\u00fcr Natur und Umwelt\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bauvorhaben-ausserhalb-der-bauzone-bab-ja",
+    "fields": {
+      "created_at": "2023-04-05T10:47:01.801Z",
+      "modified_at": "2023-04-05T10:48:41.344Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": true,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bauvorhaben-ausserhalb-der-bauzone-bab-ja-ausserhalb-bauzone",
+    "fields": {
+      "created_at": "2023-04-05T10:48:41.353Z",
+      "modified_at": "2023-04-05T10:48:41.353Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja: ausserhalb Bauzone\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bauvorhaben-ausserhalb-der-bauzone-bab-ja-waldareal",
+    "fields": {
+      "created_at": "2023-04-05T10:48:41.352Z",
+      "modified_at": "2023-04-05T10:48:41.352Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja: Waldareal\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bauvorhaben-ausserhalb-der-bauzone-bab-nein",
+    "fields": {
+      "created_at": "2023-04-05T10:47:01.796Z",
+      "modified_at": "2023-04-05T10:48:41.350Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bauvorhaben-mit-gewerbenutzung-landwirtschaftlichem-gewerbe-ja",
+    "fields": {
+      "created_at": "2023-04-05T10:50:36.287Z",
+      "modified_at": "2023-04-05T10:50:36.287Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bauvorhaben-mit-gewerbenutzung-landwirtschaftlichem-gewerbe-nein",
+    "fields": {
+      "created_at": "2023-04-05T10:50:36.280Z",
+      "modified_at": "2023-04-05T10:50:36.280Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten-ja",
+    "fields": {
+      "created_at": "2023-04-05T10:47:28.183Z",
+      "modified_at": "2023-04-05T10:49:33.852Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": true,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten-ja-beherbergung-oeffentliche-bauten",
+    "fields": {
+      "created_at": "2023-04-05T10:49:33.875Z",
+      "modified_at": "2023-04-05T10:49:33.875Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja, Beherbergung / \\u00f6ffentliche Bauten\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten-ja-mehr-als-vier-wohneinheiten",
+    "fields": {
+      "created_at": "2023-04-05T10:49:33.867Z",
+      "modified_at": "2023-04-05T10:49:33.867Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja, mehr als vier Wohneinheiten\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten-ja-wohn-oder-ferienhaus-spital-heim",
+    "fields": {
+      "created_at": "2023-04-05T10:49:33.864Z",
+      "modified_at": "2023-04-05T10:49:33.864Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja (Wohn- oder Ferienhaus, Spital, Heim)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten-nein",
+    "fields": {
+      "created_at": "2023-04-05T10:47:28.184Z",
+      "modified_at": "2023-04-05T10:49:33.859Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "beschreibung-der-nutzung-abfallanlage",
+    "fields": {
+      "created_at": "2023-04-05T10:51:51.735Z",
+      "modified_at": "2023-04-05T10:54:57.495Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abfallanlage\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "beschreibung-der-nutzung-arbeitsplaetze",
+    "fields": {
+      "created_at": "2023-04-05T10:51:51.736Z",
+      "modified_at": "2023-04-05T10:54:57.497Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Arbeitspl\\u00e4tze\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "beschreibung-der-nutzung-industrie-und-gewerbeabwasser",
+    "fields": {
+      "created_at": "2023-04-05T10:51:51.732Z",
+      "modified_at": "2023-04-05T10:54:57.496Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Industrie- und Gewerbeabwasser\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "beschreibung-der-nutzung-lageranlage",
+    "fields": {
+      "created_at": "2023-04-05T10:51:51.807Z",
+      "modified_at": "2023-04-05T10:54:57.505Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Lageranlage\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
     }
   },
   {
@@ -136,13 +756,29 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "is-paper-no",
+    "pk": "mehr-als-50-arbeitsplaetze-ja",
     "fields": {
-      "created_at": "2020-01-14T07:42:26.848Z",
-      "modified_at": "2020-11-09T10:27:55.727Z",
+      "created_at": "2023-04-05T10:55:44.032Z",
+      "modified_at": "2023-04-05T10:56:25.135Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mehr-als-50-arbeitsplaetze-nein",
+    "fields": {
+      "created_at": "2023-04-05T10:55:44.037Z",
+      "modified_at": "2023-04-05T10:56:25.133Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": false,
@@ -152,15 +788,95 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "is-paper-yes",
+    "pk": "vorhaben-andere",
     "fields": {
-      "created_at": "2020-01-14T07:42:26.842Z",
-      "modified_at": "2020-11-09T10:27:55.737Z",
+      "created_at": "2023-04-05T10:41:47.660Z",
+      "modified_at": "2023-04-05T10:41:47.660Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "vorhaben-neubau",
+    "fields": {
+      "created_at": "2023-04-05T10:41:47.659Z",
+      "modified_at": "2023-04-05T10:41:47.659Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Neubau\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "vorhaben-projektaenderung-einer-bewilligten-baute-anlage",
+    "fields": {
+      "created_at": "2023-04-05T10:41:47.662Z",
+      "modified_at": "2023-04-05T10:41:47.662Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Projekt\\u00e4nderung einer bewilligten Baute / Anlage\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "vorhaben-umbau-erweiterung-zweckaenderung",
+    "fields": {
+      "created_at": "2023-04-05T10:41:47.666Z",
+      "modified_at": "2023-04-05T10:41:47.666Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Umbau / Erweiterung / Zweck\\u00e4nderung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "wurden-vorabklaerungen-durchgefuehrt-ja",
+    "fields": {
+      "created_at": "2023-04-05T10:08:01.227Z",
+      "modified_at": "2023-04-05T10:08:01.227Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "wurden-vorabklaerungen-durchgefuehrt-nein",
+    "fields": {
+      "created_at": "2023-04-05T10:08:01.222Z",
+      "modified_at": "2023-04-05T10:08:01.222Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -190,6 +906,254 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "allgemeine-angaben-kurz",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "allgemeine-informationen",
+    "fields": {
+      "created_at": "2023-04-05T10:17:03.149Z",
+      "modified_at": "2023-04-05T10:17:03.149Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Allgemeine Informationen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "allgemeine-informationen",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "amts-fachstelle",
+    "fields": {
+      "created_at": "2023-04-05T10:13:00.690Z",
+      "modified_at": "2023-04-05T10:13:00.690Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Amts- / Fachstelle\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bauvorhaben",
+    "fields": {
+      "created_at": "2023-04-05T10:44:17.764Z",
+      "modified_at": "2023-04-05T10:44:17.764Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bauvorhaben\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "bauvorhaben",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bauvorhaben-ausserhalb-der-bauzone-bab",
+    "fields": {
+      "created_at": "2023-04-05T10:47:01.938Z",
+      "modified_at": "2023-04-05T10:48:41.576Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bauvorhaben ausserhalb der Bauzone (BAB)?\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bauvorhaben-mit-gewerbenutzung",
+    "fields": {
+      "created_at": "2023-04-05T10:50:36.417Z",
+      "modified_at": "2023-04-05T10:50:36.417Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bauvorhaben mit Gewerbenutzung / landwirtschaftlichem Gewerbe\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten",
+    "fields": {
+      "created_at": "2023-04-05T10:47:28.323Z",
+      "modified_at": "2023-04-05T10:49:34.101Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bauvorhaben mit Wohnnutzung / Beherbergungsbetrieb / \\u00f6ffentliche Bauten\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "beschreibung-der-nutzung",
+    "fields": {
+      "created_at": "2023-04-05T10:51:51.947Z",
+      "modified_at": "2023-04-05T10:54:57.743Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung der Nutzung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "!(\n\t\"bauvorhaben-mit-gewerbenutzung\"|answer == \"bauvorhaben-mit-gewerbenutzung-landwirtschaftlichem-gewerbe-ja\"\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "durchgefuehrte-vorabklaerungen",
+    "fields": {
+      "created_at": "2023-04-05T10:15:45.017Z",
+      "modified_at": "2023-04-05T10:15:45.017Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Durchgef\\u00fchrte Vorabkl\\u00e4rungen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "durchgefuehrte-vorabklaerungen",
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -265,28 +1229,59 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "is-paper",
+    "pk": "grundstueck",
     "fields": {
-      "created_at": "2020-01-14T07:42:26.963Z",
-      "modified_at": "2020-11-09T10:27:56Z",
+      "created_at": "2023-04-05T10:18:13.786Z",
+      "modified_at": "2023-04-05T10:18:13.786Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"is-paper\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "type": "choice",
+      "label": "{\"de\": \"Grundst\\u00fcck\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "form",
       "is_required": "false",
-      "is_hidden": "'verlaengerung-geltungsdauer' == form || 'migriertes-dossier' == form",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
-      "meta": {
-        "hideLabel": true,
-        "widgetOverride": "cf-field/input/hidden"
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "grundstueck",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "kontaktperson-vorabklaerungen",
+    "fields": {
+      "created_at": "2023-04-05T10:13:28.096Z",
+      "modified_at": "2023-04-05T10:13:28.096Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kontaktperson\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
       },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -299,33 +1294,59 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "karte",
+    "pk": "mehr-als-50-arbeitsplaetze",
     "fields": {
-      "created_at": "2019-05-05T11:28:18.012Z",
-      "modified_at": "2022-05-05T12:15:02.197Z",
+      "created_at": "2023-04-05T10:55:44.175Z",
+      "modified_at": "2023-04-05T10:56:25.296Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
+      "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Karte\", \"fr\": \"Carte\", \"it\": null, \"rm\": null}",
-      "type": "text",
+      "label": "{\"de\": \"Mehr als 50 Arbeitspl\\u00e4tze?\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "!(\"beschreibung-der-nutzung-arbeitsplaetze\" in \"beschreibung-der-nutzung\"|answer)",
       "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": \"\", \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": \"![Steuerelement Suche](/assets/images/gis_search.png)![Suchfeld](/assets/images/gis_search_open.png)\\n\\nBeim Klick auf die Lupe \\u00f6ffnet sich das Suchfenster. \\u00dcber das Suchfenster kann die Parzelle \\u00fcber die Strasse gesucht werden.  Durch das Anklicken der Strasse, gelangt man zur gesuchten Parzelle.\\n\\n![Steuerelemente](/assets/images/gis_controls.png)\\n\\nAlternativ kann man direkt \\u00fcber die Karte nach der gew\\u00fcnschten Parzelle suchen. F\\u00fcr das Hinein- und Herauszoomen stehen das + und - Symbol und f\\u00fcr das Fortbewegen stehen die Pfeilsymbole zur Verf\\u00fcgung.\\n\\n![Steuerelement Vollbild](/assets/images/gis_fullscreen.png)\\n\\nDieses Symbol richtet die Karte wieder auf den gesamten Kanton Bern aus.\\n\\n![Steuerelement Kartenansicht](/assets/images/gis_legend.png)\\n\\n\\u00dcber dieses Symbol kann die Kartenansicht ver\\u00e4ndert werden. Es stehen folgende Kartenansichten zur Verf\\u00fcgung.\\n- Standard\\n- Geb\\u00e4udeadressen 1:7500\\n- Gemeinden\\n- Grundst\\u00fccke 1:6000\\n\\n![Steuerelement Zoom](/assets/images/gis_zoom.png)\\n\\nDamit die Parzelle ausgew\\u00e4hlt werden kann, muss vorg\\u00e4ngig auf den Button +/- geklickt werden.\\n\\n![Steuerelement Auswahl](/assets/images/gis_select_unselected.png)![Steuerelement Auswahl (ausgew\\u00e4hlt)](/assets/images/gis_select_selected.png)\\n\\nWenn die gew\\u00fcnschte Parzelle ausgew\\u00e4hlt wurde, erscheint ein Haken Symbol. Die Auswahl wird durch einen Klick auf das Symbol best\\u00e4tigt. Das Symbol f\\u00e4rbt sich rot ein und die Parzelle wird markiert.\\n\\n![Daten \\u00fcbernehmen](/assets/images/gis_button_de.png)\\n\\nNachdem die Parzelle ausgew\\u00e4hlt wurde, muss auf den Button \\u00abDaten \\u00fcbernehmen\\u00bb geklickt werden, damit die Formularfelder ausgef\\u00fcllt werden. Der Button befindet sich unterhalb der Karte.\\n\\n![Neu laden](/assets/images/gis_refresh_de.png)\\n\\nWenn die Karte nicht richtig dargestellt wird, kann das Problem \\u00fcber \\u00abNeu laden\\u00bb behoben werden. Der Button befindet sich unterhalb der Karte.\", \"fr\": \"![Contr\\u00f4le de recherche](/assets/images/gis_search.png)![Champ de recherche](/assets/images/gis_search_open.png)\\n\\nUn clic sur la loupe ouvre la fen\\u00eatre de recherche. Cette fen\\u00eatre de recherche permet de rechercher la parcelle via la rue.  En cliquant sur la rue, vous arrivez \\u00e0 la parcelle que vous recherchez.\\n\\n![El\\u00e9ments de contr\\u00f4le](/assets/images/gis_controls.png)\\n\\nVous pouvez \\u00e9galement rechercher la parcelle souhait\\u00e9e directement sur la carte. Les symboles + et - permettent d'effectuer un zoom en avant ou en arri\\u00e8re, et les fl\\u00e8ches permettent de se d\\u00e9placer.\\n\\n![Contr\\u00f4le du plein \\u00e9cran](/assets/images/gis_fullscreen.png)\\n\\nCe symbole permet de r\\u00e9aligner la carte sur l'ensemble du canton de Berne.\\n\\n![Contr\\u00f4le de la vue cartographique](/assets/images/gis_legend.png)\\n\\nCe symbole peut \\u00eatre utilis\\u00e9 pour changer la vue cartographique. Les affichages cartographiques suivants sont disponibles. \\n- Standard\\n- N\\u00b0 d\\u2019immeuble 1:7500\\n- Communes\\n- Parcelles 1:6000\\n\\n![Contr\\u00f4le du zoom](/assets/images/gis_zoom.png)\\n\\nAfin de s\\u00e9lectionner le trac\\u00e9, il faut d'abord cliquer sur le bouton +/-.\\n\\n![Contr\\u00f4le de s\\u00e9lection](/assets/images/gis_select_unselected.png)![Contr\\u00f4le de s\\u00e9lection (s\\u00e9lectionn\\u00e9)](/assets/images/gis_select_selected.png)\\n\\nLorsque le trac\\u00e9 souhait\\u00e9 a \\u00e9t\\u00e9 s\\u00e9lectionn\\u00e9, un symbole de coche appara\\u00eet. La s\\u00e9lection est confirm\\u00e9e en cliquant sur le symbole. Le symbole devient rouge et la parcelle est marqu\\u00e9e.\\n\\n![Reprendre les donn\\u00e9es](/assets/images/gis_button_fr.png)\\n\\nApr\\u00e8s avoir s\\u00e9lectionn\\u00e9 le terrain, il faut cliquer sur le bouton \\u00abReprendre les donn\\u00e9es\\u00bb pour que les champs du formulaire soient remplis. Le bouton est situ\\u00e9 en dessous de la carte.\\n\\n![Recharger](/assets/images/gis_refresh_fr.png)\\n\\nSi la carte ne s'affiche pas correctement, le probl\\u00e8me peut \\u00eatre r\\u00e9solu en cliquant sur \\u00abRecharger\\u00bb. Le bouton est situ\\u00e9 en dessous de la carte.\", \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null, \"rm\": null}",
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
-      "meta": {
-        "widgetOverride": "be-gis"
-      },
+      "configuration": {},
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "nutzung-bauvorhaben",
+    "fields": {
+      "created_at": "2023-04-05T10:53:12.788Z",
+      "modified_at": "2023-04-05T10:53:12.788Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nutzung Bauvorhaben\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "nutzung-bauvorhaben",
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -366,27 +1387,55 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "standort-migriert",
+    "pk": "vorabklaerungen-tabelle",
     "fields": {
-      "created_at": "2020-10-07T13:52:21.285Z",
-      "modified_at": "2020-10-15T12:20:17.392Z",
+      "created_at": "2023-04-05T10:14:12.638Z",
+      "modified_at": "2023-04-05T10:19:58.234Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Durchgef\\u00fchrte Vorabkl\\u00e4rungen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "table",
+      "is_required": "false",
+      "is_hidden": "!(\n  'wurden-vorabklaerungen-durchgefuehrt-ja' == 'wurden-vorabklaerungen-durchgefuehrt'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": "durchgefuehrte-vorabklaerungen-tabelle",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "vorhaben",
+    "fields": {
+      "created_at": "2023-04-05T10:41:47.866Z",
+      "modified_at": "2023-04-05T10:41:47.866Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Standort\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "type": "text",
+      "label": "{\"de\": \"Vorhaben\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
       "is_required": "false",
-      "is_hidden": "form != 'migriertes-dossier'",
+      "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
+      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -396,6 +1445,292 @@
       "default_answer": null,
       "calc_expression": null,
       "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "wurden-vorabklaerungen-durchgefuehrt",
+    "fields": {
+      "created_at": "2023-04-05T10:08:01.370Z",
+      "modified_at": "2023-04-05T10:08:01.370Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wurden Vorabkl\\u00e4rungen durchgef\\u00fchrt?\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "amts-fachstelle.amts-fachstelle-amt-fuer-energie-und-verkehr",
+    "fields": {
+      "created_at": "2023-04-05T10:13:00.695Z",
+      "modified_at": "2023-04-05T10:13:00.695Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "amts-fachstelle",
+      "option": "amts-fachstelle-amt-fuer-energie-und-verkehr",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "amts-fachstelle.amts-fachstelle-amt-fuer-natur-und-umwelt",
+    "fields": {
+      "created_at": "2023-04-05T10:13:00.699Z",
+      "modified_at": "2023-04-05T10:13:00.699Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "amts-fachstelle",
+      "option": "amts-fachstelle-amt-fuer-natur-und-umwelt",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bauvorhaben-ausserhalb-der-bauzone-bab.bauvorhaben-ausserhalb-der-bauzone-bab-ja",
+    "fields": {
+      "created_at": "2023-04-05T10:48:41.591Z",
+      "modified_at": "2023-04-05T10:48:41.591Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "bauvorhaben-ausserhalb-der-bauzone-bab",
+      "option": "bauvorhaben-ausserhalb-der-bauzone-bab-ja",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bauvorhaben-ausserhalb-der-bauzone-bab.bauvorhaben-ausserhalb-der-bauzone-bab-ja-ausserhalb-bauzone",
+    "fields": {
+      "created_at": "2023-04-05T10:48:41.585Z",
+      "modified_at": "2023-04-05T10:48:41.585Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "bauvorhaben-ausserhalb-der-bauzone-bab",
+      "option": "bauvorhaben-ausserhalb-der-bauzone-bab-ja-ausserhalb-bauzone",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bauvorhaben-ausserhalb-der-bauzone-bab.bauvorhaben-ausserhalb-der-bauzone-bab-ja-waldareal",
+    "fields": {
+      "created_at": "2023-04-05T10:48:41.582Z",
+      "modified_at": "2023-04-05T10:48:41.582Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "bauvorhaben-ausserhalb-der-bauzone-bab",
+      "option": "bauvorhaben-ausserhalb-der-bauzone-bab-ja-waldareal",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bauvorhaben-ausserhalb-der-bauzone-bab.bauvorhaben-ausserhalb-der-bauzone-bab-nein",
+    "fields": {
+      "created_at": "2023-04-05T10:48:41.588Z",
+      "modified_at": "2023-04-05T10:48:41.588Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "bauvorhaben-ausserhalb-der-bauzone-bab",
+      "option": "bauvorhaben-ausserhalb-der-bauzone-bab-nein",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bauvorhaben-mit-gewerbenutzung.bauvorhaben-mit-gewerbenutzung-landwirtschaftlichem-gewerbe-ja",
+    "fields": {
+      "created_at": "2023-04-05T10:50:36.426Z",
+      "modified_at": "2023-04-05T10:50:36.426Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "bauvorhaben-mit-gewerbenutzung",
+      "option": "bauvorhaben-mit-gewerbenutzung-landwirtschaftlichem-gewerbe-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bauvorhaben-mit-gewerbenutzung.bauvorhaben-mit-gewerbenutzung-landwirtschaftlichem-gewerbe-nein",
+    "fields": {
+      "created_at": "2023-04-05T10:50:36.423Z",
+      "modified_at": "2023-04-05T10:50:36.423Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "bauvorhaben-mit-gewerbenutzung",
+      "option": "bauvorhaben-mit-gewerbenutzung-landwirtschaftlichem-gewerbe-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten.bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten-ja",
+    "fields": {
+      "created_at": "2023-04-05T10:49:34.117Z",
+      "modified_at": "2023-04-05T10:49:34.117Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten",
+      "option": "bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten-ja",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten.bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten-ja-beherbergung-oeffentliche-bauten",
+    "fields": {
+      "created_at": "2023-04-05T10:49:34.107Z",
+      "modified_at": "2023-04-05T10:49:34.107Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten",
+      "option": "bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten-ja-beherbergung-oeffentliche-bauten",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten.bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten-ja-mehr-als-vier-wohneinheiten",
+    "fields": {
+      "created_at": "2023-04-05T10:49:34.110Z",
+      "modified_at": "2023-04-05T10:49:34.110Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten",
+      "option": "bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten-ja-mehr-als-vier-wohneinheiten",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten.bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten-ja-wohn-oder-ferienhaus-spital-heim",
+    "fields": {
+      "created_at": "2023-04-05T10:49:34.112Z",
+      "modified_at": "2023-04-05T10:49:34.112Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten",
+      "option": "bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten-ja-wohn-oder-ferienhaus-spital-heim",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten.bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten-nein",
+    "fields": {
+      "created_at": "2023-04-05T10:49:34.115Z",
+      "modified_at": "2023-04-05T10:49:34.115Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten",
+      "option": "bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten-nein",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "beschreibung-der-nutzung.beschreibung-der-nutzung-abfallanlage",
+    "fields": {
+      "created_at": "2023-04-05T10:54:57.756Z",
+      "modified_at": "2023-04-05T10:54:57.756Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "beschreibung-der-nutzung",
+      "option": "beschreibung-der-nutzung-abfallanlage",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "beschreibung-der-nutzung.beschreibung-der-nutzung-arbeitsplaetze",
+    "fields": {
+      "created_at": "2023-04-05T10:54:57.759Z",
+      "modified_at": "2023-04-05T10:54:57.759Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "beschreibung-der-nutzung",
+      "option": "beschreibung-der-nutzung-arbeitsplaetze",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "beschreibung-der-nutzung.beschreibung-der-nutzung-industrie-und-gewerbeabwasser",
+    "fields": {
+      "created_at": "2023-04-05T10:54:57.753Z",
+      "modified_at": "2023-04-05T10:54:57.753Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "beschreibung-der-nutzung",
+      "option": "beschreibung-der-nutzung-industrie-und-gewerbeabwasser",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "beschreibung-der-nutzung.beschreibung-der-nutzung-lageranlage",
+    "fields": {
+      "created_at": "2023-04-05T10:54:57.750Z",
+      "modified_at": "2023-04-05T10:54:57.750Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "beschreibung-der-nutzung",
+      "option": "beschreibung-der-nutzung-lageranlage",
+      "sort": 1
     }
   },
   {
@@ -415,32 +1750,122 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "is-paper.is-paper-no",
+    "pk": "mehr-als-50-arbeitsplaetze.mehr-als-50-arbeitsplaetze-ja",
     "fields": {
-      "created_at": "2020-11-09T10:27:56.015Z",
-      "modified_at": "2020-11-09T10:27:56.015Z",
+      "created_at": "2023-04-05T10:56:25.305Z",
+      "modified_at": "2023-04-05T10:56:25.305Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "question": "is-paper",
-      "option": "is-paper-no",
+      "question": "mehr-als-50-arbeitsplaetze",
+      "option": "mehr-als-50-arbeitsplaetze-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mehr-als-50-arbeitsplaetze.mehr-als-50-arbeitsplaetze-nein",
+    "fields": {
+      "created_at": "2023-04-05T10:56:25.302Z",
+      "modified_at": "2023-04-05T10:56:25.302Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "mehr-als-50-arbeitsplaetze",
+      "option": "mehr-als-50-arbeitsplaetze-nein",
       "sort": 1
     }
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "is-paper.is-paper-yes",
+    "pk": "vorhaben.vorhaben-andere",
     "fields": {
-      "created_at": "2020-11-09T10:27:56.023Z",
-      "modified_at": "2020-11-09T10:27:56.023Z",
+      "created_at": "2023-04-05T10:41:47.871Z",
+      "modified_at": "2023-04-05T10:41:47.871Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "question": "is-paper",
-      "option": "is-paper-yes",
+      "question": "vorhaben",
+      "option": "vorhaben-andere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "vorhaben.vorhaben-neubau",
+    "fields": {
+      "created_at": "2023-04-05T10:41:47.880Z",
+      "modified_at": "2023-04-05T10:41:47.880Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "vorhaben",
+      "option": "vorhaben-neubau",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "vorhaben.vorhaben-projektaenderung-einer-bewilligten-baute-anlage",
+    "fields": {
+      "created_at": "2023-04-05T10:41:47.874Z",
+      "modified_at": "2023-04-05T10:41:47.874Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "vorhaben",
+      "option": "vorhaben-projektaenderung-einer-bewilligten-baute-anlage",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "vorhaben.vorhaben-umbau-erweiterung-zweckaenderung",
+    "fields": {
+      "created_at": "2023-04-05T10:41:47.877Z",
+      "modified_at": "2023-04-05T10:41:47.877Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "vorhaben",
+      "option": "vorhaben-umbau-erweiterung-zweckaenderung",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "wurden-vorabklaerungen-durchgefuehrt.wurden-vorabklaerungen-durchgefuehrt-ja",
+    "fields": {
+      "created_at": "2023-04-05T10:08:01.384Z",
+      "modified_at": "2023-04-05T10:08:01.384Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "wurden-vorabklaerungen-durchgefuehrt",
+      "option": "wurden-vorabklaerungen-durchgefuehrt-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "wurden-vorabklaerungen-durchgefuehrt.wurden-vorabklaerungen-durchgefuehrt-nein",
+    "fields": {
+      "created_at": "2023-04-05T10:08:01.380Z",
+      "modified_at": "2023-04-05T10:08:01.380Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "wurden-vorabklaerungen-durchgefuehrt",
+      "option": "wurden-vorabklaerungen-durchgefuehrt-nein",
+      "sort": 1
     }
   }
 ]
