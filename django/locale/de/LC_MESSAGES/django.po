@@ -67,7 +67,7 @@ msgstr "Meldeformular an AWA weiterleiten"
 
 #: camac/caluma/extensions/events/sb.py:67
 msgid "Inform load compensation bodies"
-msgstr "Lastenausgleichsstellende informieren"
+msgstr "Lastenausgleichstellende informieren"
 
 #: camac/core/admin/forms.py:17 camac/core/admin/forms.py:33
 #: camac/core/admin/views.py:41 camac/core/admin/views.py:78

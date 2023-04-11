@@ -170,7 +170,7 @@ def test_post_complete_sb1(
     )
 
     manual_workitem = caluma_workflow_models.WorkItem.objects.filter(
-        task_id="create-manual-workitems", name="Lastenausgleichsstellende informieren"
+        task_id="create-manual-workitems", name="Lastenausgleichstellende informieren"
     ).first()
 
     assert manual_workitem.deadline.strftime("%d.%m.%Y") == "11.01.2023"
