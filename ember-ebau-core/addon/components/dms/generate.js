@@ -11,8 +11,15 @@ import {
   sortByDescription,
 } from "ember-ebau-core/utils/dms";
 
+function extractCategories(templates) {
+  return [...new Set(templates.map((t) => t.meta.category?.trim()))]
+    .filter(Boolean)
+    .sort((a, b) => a.localeCompare(b));
+}
+
 export default class DmsGenerateComponent extends Component {
   @service notification;
+  @service ebauModules;
   @service fetch;
   @service intl;
 
@@ -38,21 +45,26 @@ export default class DmsGenerateComponent extends Component {
       .filter((t) => t.description)
       .sort(sortByDescription);
 
-    const ownTemplates = templates.filter((t) => t.group);
-    const ownUncategorized = ownTemplates.filter((t) => !t.meta.category);
+    const ownTemplates = templates.filter(
+      (t) => parseInt(t.group) === parseInt(this.ebauModules.serviceId)
+    );
+    const inheritedTemplates = templates.filter(
+      (t) =>
+        t.group && parseInt(t.group) !== parseInt(this.ebauModules.serviceId)
+    );
     const systemTemplates = templates.filter((t) => !t.group);
 
-    const categories = [
-      ...new Set(ownTemplates.map((t) => t.meta.category?.trim())),
-    ]
-      .filter(Boolean)
-      .sort((a, b) => a.localeCompare(b));
+    const ownUncategorized = ownTemplates.filter((t) => !t.meta.category);
+    const inheritedUncategorized = inheritedTemplates.filter(
+      (t) => !t.meta.category
+    );
+
+    const categories = extractCategories(ownTemplates);
+    const inheritedCategories = extractCategories(inheritedTemplates);
 
     return [
       ...categories.map((category) => ({
-        groupName: this.args.isInherited
-          ? `${category} (${this.intl.t("dms.inherited")})`
-          : category,
+        groupName: category,
         options: ownTemplates.filter(
           (t) => t.meta.category?.trim() === category
         ),
@@ -60,10 +72,22 @@ export default class DmsGenerateComponent extends Component {
       ...(ownUncategorized.length
         ? [
             {
-              groupName: this.args.isInherited
-                ? this.intl.t("dms.inheritedUncategorized")
-                : this.intl.t("dms.ownUncategorized"),
+              groupName: this.intl.t("dms.ownUncategorized"),
               options: ownUncategorized,
+            },
+          ]
+        : []),
+      ...inheritedCategories.map((category) => ({
+        groupName: `${category} (${this.intl.t("dms.inherited")})`,
+        options: inheritedTemplates.filter(
+          (t) => t.meta.category?.trim() === category
+        ),
+      })),
+      ...(inheritedUncategorized.length
+        ? [
+            {
+              groupName: this.intl.t("dms.inheritedUncategorized"),
+              options: inheritedUncategorized,
             },
           ]
         : []),
