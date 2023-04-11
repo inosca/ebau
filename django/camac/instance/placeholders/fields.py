@@ -2,7 +2,7 @@ import base64
 from io import BytesIO
 
 import qrcode
-from caluma.caluma_form.models import Answer, Document, Question
+from caluma.caluma_form.models import Answer, AnswerDocument, Document, Question
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.db.models import Exists, OuterRef, Q, Sum
@@ -468,6 +468,73 @@ class LegalSubmissionField(AliasedMixin, serializers.ReadOnlyField):
             )
             .prefetch_related("answers")
         )
+
+
+class LegalClaimantsField(AliasedMixin, serializers.ReadOnlyField):
+    def __init__(self, type=None, *args, **kwargs):
+        super().__init__(
+            nested_aliases={"ADDRESS": [_("ADDRESS")], "NAME": [_("NAME")]},
+            *args,
+            **kwargs,
+        )
+
+        self.type = type
+
+    def to_representation(self, value):
+        data = []
+
+        for claimant in value:
+            is_juristic = (
+                find_answer(
+                    claimant, "juristische-person-gesuchstellerin", raw_value=True
+                )
+                == "juristische-person-gesuchstellerin-ja"
+            )
+            name = (
+                find_answer(claimant, "name-juristische-person-gesuchstellerin")
+                if is_juristic
+                else clean_join(
+                    find_answer(claimant, "vorname-gesuchstellerin"),
+                    find_answer(claimant, "name-gesuchstellerin"),
+                )
+            )
+            street = clean_join(
+                find_answer(claimant, "strasse-gesuchstellerin"),
+                find_answer(claimant, "nummer-gesuchstellerin"),
+            )
+            location = clean_join(
+                find_answer(claimant, "plz-gesuchstellerin"),
+                find_answer(claimant, "ort-gesuchstellerin"),
+            )
+
+            data.append(
+                {"ADDRESS": clean_join(street, location, separator=", "), "NAME": name}
+            )
+
+        return data
+
+    def get_attribute(self, instance):
+        legal_submissions = Document.objects.filter(
+            form_id="legal-submission-form", family__work_item__case__instance=instance
+        )
+
+        if self.type:
+            legal_submissions = legal_submissions.filter(
+                Exists(
+                    Answer.objects.filter(
+                        question_id="legal-submission-type",
+                        value__contains=self.type,
+                        document_id=OuterRef("pk"),
+                    )
+                )
+            )
+
+        return Document.objects.filter(
+            pk__in=AnswerDocument.objects.filter(
+                answer__document__in=legal_submissions,
+                answer__question_id="legal-submission-legal-claimants-table-question",
+            ).values("document")
+        ).order_by("created_at")
 
 
 class MasterDataPersonField(MasterDataField):

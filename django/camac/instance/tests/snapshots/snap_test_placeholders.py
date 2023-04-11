@@ -248,18 +248,6 @@ Test E 2''',
             'ADRESSE': 'Beispielstrasse 1, 4321 Beispieldorf',
             'NAME': 'Heinz Einsprachenmann',
             'NOM': 'Heinz Einsprachenmann'
-        },
-        {
-            'ADDRESS': 'Beispielstrasse 2, 4321 Beispieldorf',
-            'ADRESSE': 'Beispielstrasse 2, 4321 Beispieldorf',
-            'NAME': 'Martha Rechstverwahrungsson',
-            'NOM': 'Martha Rechstverwahrungsson'
-        },
-        {
-            'ADDRESS': 'Beispielstrasse 3, 4321 Beispieldorf',
-            'ADRESSE': 'Beispielstrasse 3, 4321 Beispieldorf',
-            'NAME': 'Lastenausgleichsbegehren4you AG',
-            'NOM': 'Lastenausgleichsbegehren4you AG'
         }
     ],
     'EMAIL': '',
@@ -454,6 +442,42 @@ Test LAB 2''',
             'TITRE': 'Test Lastenausgleichsbegehren'
         }
     ],
+    'LASTENAUSGLEICHSBEGEHRENDE': [
+        {
+            'ADDRESS': 'Beispielstrasse 3, 4321 Beispieldorf',
+            'ADRESSE': 'Beispielstrasse 3, 4321 Beispieldorf',
+            'NAME': 'Lastenausgleichsbegehren4you AG',
+            'NOM': 'Lastenausgleichsbegehren4you AG'
+        }
+    ],
+    'LEGAL_CLAIMANTS': [
+        {
+            'ADDRESS': 'Beispielstrasse 1, 4321 Beispieldorf',
+            'ADRESSE': 'Beispielstrasse 1, 4321 Beispieldorf',
+            'NAME': 'Heinz Einsprachenmann',
+            'NOM': 'Heinz Einsprachenmann'
+        },
+        {
+            'ADDRESS': 'Beispielstrasse 2, 4321 Beispieldorf',
+            'ADRESSE': 'Beispielstrasse 2, 4321 Beispieldorf',
+            'NAME': 'Martha Rechstverwahrungsson',
+            'NOM': 'Martha Rechstverwahrungsson'
+        },
+        {
+            'ADDRESS': 'Beispielstrasse 3, 4321 Beispieldorf',
+            'ADRESSE': 'Beispielstrasse 3, 4321 Beispieldorf',
+            'NAME': 'Lastenausgleichsbegehren4you AG',
+            'NOM': 'Lastenausgleichsbegehren4you AG'
+        }
+    ],
+    'LEGAL_CUSTODIANS': [
+        {
+            'ADDRESS': 'Beispielstrasse 2, 4321 Beispieldorf',
+            'ADRESSE': 'Beispielstrasse 2, 4321 Beispieldorf',
+            'NAME': 'Martha Rechstverwahrungsson',
+            'NOM': 'Martha Rechstverwahrungsson'
+        }
+    ],
     'LEITBEHOERDE_ADDRESS_1': '',
     'LEITBEHOERDE_ADDRESS_2': 'Jeffreyfort',
     'LEITBEHOERDE_ADRESSE_1': '',
@@ -467,6 +491,14 @@ Test LAB 2''',
     'LEITBEHOERDE_TELEFON': '',
     'LEITPERSON': 'Thomas Morgan',
     'LIEN_PUBLICATION': 'http://ebau-portal.local/public-instances/1',
+    'LOAD_COMPENSATION_REQUESTING': [
+        {
+            'ADDRESS': 'Beispielstrasse 3, 4321 Beispieldorf',
+            'ADRESSE': 'Beispielstrasse 3, 4321 Beispieldorf',
+            'NAME': 'Lastenausgleichsbegehren4you AG',
+            'NOM': 'Lastenausgleichsbegehren4you AG'
+        }
+    ],
     'MEINE_ORGANISATION_ADRESSE_1': '',
     'MEINE_ORGANISATION_ADRESSE_2': 'Jeffreyfort',
     'MEINE_ORGANISATION_EMAIL': 'judithallen@example.com',
@@ -628,18 +660,6 @@ Test E 2''',
             'ADRESSE': 'Beispielstrasse 1, 4321 Beispieldorf',
             'NAME': 'Heinz Einsprachenmann',
             'NOM': 'Heinz Einsprachenmann'
-        },
-        {
-            'ADDRESS': 'Beispielstrasse 2, 4321 Beispieldorf',
-            'ADRESSE': 'Beispielstrasse 2, 4321 Beispieldorf',
-            'NAME': 'Martha Rechstverwahrungsson',
-            'NOM': 'Martha Rechstverwahrungsson'
-        },
-        {
-            'ADDRESS': 'Beispielstrasse 3, 4321 Beispieldorf',
-            'ADRESSE': 'Beispielstrasse 3, 4321 Beispieldorf',
-            'NAME': 'Lastenausgleichsbegehren4you AG',
-            'NOM': 'Lastenausgleichsbegehren4you AG'
         }
     ],
     'OPPOSING': [
@@ -648,18 +668,6 @@ Test E 2''',
             'ADRESSE': 'Beispielstrasse 1, 4321 Beispieldorf',
             'NAME': 'Heinz Einsprachenmann',
             'NOM': 'Heinz Einsprachenmann'
-        },
-        {
-            'ADDRESS': 'Beispielstrasse 2, 4321 Beispieldorf',
-            'ADRESSE': 'Beispielstrasse 2, 4321 Beispieldorf',
-            'NAME': 'Martha Rechstverwahrungsson',
-            'NOM': 'Martha Rechstverwahrungsson'
-        },
-        {
-            'ADDRESS': 'Beispielstrasse 3, 4321 Beispieldorf',
-            'ADRESSE': 'Beispielstrasse 3, 4321 Beispieldorf',
-            'NAME': 'Lastenausgleichsbegehren4you AG',
-            'NOM': 'Lastenausgleichsbegehren4you AG'
         }
     ],
     'OPPOSITIONS': [
@@ -746,6 +754,14 @@ Test E 2''',
             'NOM': 'Lastenausgleichsbegehren4you AG'
         }
     ],
+    'RECHTSVERWAHRENDE': [
+        {
+            'ADDRESS': 'Beispielstrasse 2, 4321 Beispieldorf',
+            'ADRESSE': 'Beispielstrasse 2, 4321 Beispieldorf',
+            'NAME': 'Martha Rechstverwahrungsson',
+            'NOM': 'Martha Rechstverwahrungsson'
+        }
+    ],
     'RECHTSVERWAHRUNGEN': [
         {
             'ANLIEGEN': '''Test RV 1
@@ -769,6 +785,14 @@ Test RV 2''',
     'REPRESENTANT_TOUS': 'Mustermann und Söhne AG',
     'REPRESENTANT_TOUS_NOM_ADRESSE': 'Mustermann und Söhne AG, Juristenweg 99, 3008 Bern',
     'REQUERANT': 'ACME AG, Max Mustermann',
+    'REQUERANTS_COMPENSATION_DES_CHARGES': [
+        {
+            'ADDRESS': 'Beispielstrasse 3, 4321 Beispieldorf',
+            'ADRESSE': 'Beispielstrasse 3, 4321 Beispieldorf',
+            'NAME': 'Lastenausgleichsbegehren4you AG',
+            'NOM': 'Lastenausgleichsbegehren4you AG'
+        }
+    ],
     'REQUERANTS_CONCLUSIONS': [
         {
             'ADDRESS': 'Beispielstrasse 1, 4321 Beispieldorf',
@@ -787,6 +811,14 @@ Test RV 2''',
             'ADRESSE': 'Beispielstrasse 3, 4321 Beispieldorf',
             'NAME': 'Lastenausgleichsbegehren4you AG',
             'NOM': 'Lastenausgleichsbegehren4you AG'
+        }
+    ],
+    'REQUERANTS_RESERVE_DE_DROIT': [
+        {
+            'ADDRESS': 'Beispielstrasse 2, 4321 Beispieldorf',
+            'ADRESSE': 'Beispielstrasse 2, 4321 Beispieldorf',
+            'NAME': 'Martha Rechstverwahrungsson',
+            'NOM': 'Martha Rechstverwahrungsson'
         }
     ],
     'REQUERANT_ADRESSE_1': 'Teststrasse 123',
@@ -2012,8 +2044,8 @@ snapshots['test_dms_placeholders_docs 1'] = {
             }
         ],
         'description': {
-            'de': "Alle Rechtsbegehren vom Typ 'Lastenausgleichsbegehren'",
-            'fr': "Toutes les conclusions de type 'Demande en compensation des charges'"
+            'de': 'Alle Rechtsbegehren vom Typ "Lastenausgleichsbegehren"',
+            'fr': 'Toutes les conclusions de type "Demande en compensation des charges"'
         },
         'nested_aliases': {
             'ANLIEGEN': [
@@ -2044,6 +2076,58 @@ snapshots['test_dms_placeholders_docs 1'] = {
                 {
                     'de': 'TITEL',
                     'fr': 'TITRE'
+                }
+            ]
+        }
+    },
+    'LEGAL_CLAIMANTS': {
+        'aliases': [
+            {
+                'de': 'RECHTSBEGEHRENDE',
+                'fr': 'REQUERANTS_CONCLUSIONS'
+            }
+        ],
+        'description': {
+            'de': 'Alle Rechtsbegehrende mit Adresse',
+            'fr': 'Tous les requérants conclusions avec adresse'
+        },
+        'nested_aliases': {
+            'ADDRESS': [
+                {
+                    'de': 'ADRESSE',
+                    'fr': 'ADRESSE'
+                }
+            ],
+            'NAME': [
+                {
+                    'de': 'NAME',
+                    'fr': 'NOM'
+                }
+            ]
+        }
+    },
+    'LEGAL_CUSTODIANS': {
+        'aliases': [
+            {
+                'de': 'RECHTSVERWAHRENDE',
+                'fr': 'REQUERANTS_RESERVE_DE_DROIT'
+            }
+        ],
+        'description': {
+            'de': 'Rechtsverwahrende mit Adresse',
+            'fr': 'Requérants réserve de droit avec adresse'
+        },
+        'nested_aliases': {
+            'ADDRESS': [
+                {
+                    'de': 'ADRESSE',
+                    'fr': 'ADRESSE'
+                }
+            ],
+            'NAME': [
+                {
+                    'de': 'NAME',
+                    'fr': 'NOM'
                 }
             ]
         }
@@ -2158,6 +2242,32 @@ snapshots['test_dms_placeholders_docs 1'] = {
             'fr': "Personne responsable de l'autorité directrice compétente"
         },
         'nested_aliases': {
+        }
+    },
+    'LOAD_COMPENSATION_REQUESTING': {
+        'aliases': [
+            {
+                'de': 'LASTENAUSGLEICHSBEGEHRENDE',
+                'fr': 'REQUERANTS_COMPENSATION_DES_CHARGES'
+            }
+        ],
+        'description': {
+            'de': 'Lastenausgleichsbegehrende mit Adresse',
+            'fr': 'Requérants compensation des charges avec adresse'
+        },
+        'nested_aliases': {
+            'ADDRESS': [
+                {
+                    'de': 'ADRESSE',
+                    'fr': 'ADRESSE'
+                }
+            ],
+            'NAME': [
+                {
+                    'de': 'NAME',
+                    'fr': 'NOM'
+                }
+            ]
         }
     },
     'MEINE_ORGANISATION_ADRESSE_1': {
@@ -2427,8 +2537,8 @@ snapshots['test_dms_placeholders_docs 1'] = {
             }
         ],
         'description': {
-            'de': "Alle Rechtsbegehren vom Typ 'Einsprache'",
-            'fr': "Toutes les conclusions de type 'Opposition'"
+            'de': 'Alle Rechtsbegehren vom Typ "Einsprache"',
+            'fr': 'Toutes les conclusions de type "Opposition"'
         },
         'nested_aliases': {
             'DATUM_DOKUMENT': [
@@ -2466,17 +2576,13 @@ snapshots['test_dms_placeholders_docs 1'] = {
     'OPPOSING': {
         'aliases': [
             {
-                'de': 'RECHTSBEGEHRENDE',
-                'fr': 'REQUERANTS_CONCLUSIONS'
-            },
-            {
                 'de': 'EINSPRECHENDE',
                 'fr': 'OPPOSANTS'
             }
         ],
         'description': {
-            'de': 'Alle Rechtsbegehrenden mit Adresse',
-            'fr': 'Tous les requérants conclusions avec adresse'
+            'de': 'Einsprechende mit Adresse',
+            'fr': 'Opposants avec adresse'
         },
         'nested_aliases': {
             'ADDRESS': [
@@ -2725,8 +2831,8 @@ snapshots['test_dms_placeholders_docs 1'] = {
             }
         ],
         'description': {
-            'de': "Alle Rechtsbegehren vom Typ 'Rechtsverwahrung'",
-            'fr': "Toutes les conclusions de type 'Réserve de droit'"
+            'de': 'Alle Rechtsbegehren vom Typ "Rechtsverwahrung"',
+            'fr': 'Toutes les conclusions de type "Réserve de droit"'
         },
         'nested_aliases': {
             'ANLIEGEN': [
@@ -3363,6 +3469,12 @@ snapshots['test_dms_placeholders_docs_available_placeholders 1'] = [
     'LANGUAGE',
     'LANGUE',
     'LASTENAUSGLEICHSBEGEHREN',
+    'LASTENAUSGLEICHSBEGEHRENDE',
+    'LASTENAUSGLEICHSBEGEHRENDE[]',
+    'LASTENAUSGLEICHSBEGEHRENDE[].ADDRESS',
+    'LASTENAUSGLEICHSBEGEHRENDE[].ADRESSE',
+    'LASTENAUSGLEICHSBEGEHRENDE[].NAME',
+    'LASTENAUSGLEICHSBEGEHRENDE[].NOM',
     'LASTENAUSGLEICHSBEGEHREN[]',
     'LASTENAUSGLEICHSBEGEHREN[].ANLIEGEN',
     'LASTENAUSGLEICHSBEGEHREN[].DATE_DOCUMENT',
@@ -3374,6 +3486,18 @@ snapshots['test_dms_placeholders_docs_available_placeholders 1'] = [
     'LASTENAUSGLEICHSBEGEHREN[].REQUERANTS_CONCLUSIONS',
     'LASTENAUSGLEICHSBEGEHREN[].TITEL',
     'LASTENAUSGLEICHSBEGEHREN[].TITRE',
+    'LEGAL_CLAIMANTS',
+    'LEGAL_CLAIMANTS[]',
+    'LEGAL_CLAIMANTS[].ADDRESS',
+    'LEGAL_CLAIMANTS[].ADRESSE',
+    'LEGAL_CLAIMANTS[].NAME',
+    'LEGAL_CLAIMANTS[].NOM',
+    'LEGAL_CUSTODIANS',
+    'LEGAL_CUSTODIANS[]',
+    'LEGAL_CUSTODIANS[].ADDRESS',
+    'LEGAL_CUSTODIANS[].ADRESSE',
+    'LEGAL_CUSTODIANS[].NAME',
+    'LEGAL_CUSTODIANS[].NOM',
     'LEITBEHOERDE_ADDRESS_1',
     'LEITBEHOERDE_ADDRESS_2',
     'LEITBEHOERDE_ADRESSE_1',
@@ -3387,6 +3511,12 @@ snapshots['test_dms_placeholders_docs_available_placeholders 1'] = [
     'LEITBEHOERDE_TELEFON',
     'LEITPERSON',
     'LIEN_PUBLICATION',
+    'LOAD_COMPENSATION_REQUESTING',
+    'LOAD_COMPENSATION_REQUESTING[]',
+    'LOAD_COMPENSATION_REQUESTING[].ADDRESS',
+    'LOAD_COMPENSATION_REQUESTING[].ADRESSE',
+    'LOAD_COMPENSATION_REQUESTING[].NAME',
+    'LOAD_COMPENSATION_REQUESTING[].NOM',
     'MEINE_ORGANISATION_ADRESSE_1',
     'MEINE_ORGANISATION_ADRESSE_2',
     'MEINE_ORGANISATION_EMAIL',
@@ -3537,6 +3667,12 @@ snapshots['test_dms_placeholders_docs_available_placeholders 1'] = [
     'RECHTSBEGEHRENDE[].ADRESSE',
     'RECHTSBEGEHRENDE[].NAME',
     'RECHTSBEGEHRENDE[].NOM',
+    'RECHTSVERWAHRENDE',
+    'RECHTSVERWAHRENDE[]',
+    'RECHTSVERWAHRENDE[].ADDRESS',
+    'RECHTSVERWAHRENDE[].ADRESSE',
+    'RECHTSVERWAHRENDE[].NAME',
+    'RECHTSVERWAHRENDE[].NOM',
     'RECHTSVERWAHRUNGEN',
     'RECHTSVERWAHRUNGEN[]',
     'RECHTSVERWAHRUNGEN[].ANLIEGEN',
@@ -3556,12 +3692,24 @@ snapshots['test_dms_placeholders_docs_available_placeholders 1'] = [
     'REPRESENTANT_TOUS',
     'REPRESENTANT_TOUS_NOM_ADRESSE',
     'REQUERANT',
+    'REQUERANTS_COMPENSATION_DES_CHARGES',
+    'REQUERANTS_COMPENSATION_DES_CHARGES[]',
+    'REQUERANTS_COMPENSATION_DES_CHARGES[].ADDRESS',
+    'REQUERANTS_COMPENSATION_DES_CHARGES[].ADRESSE',
+    'REQUERANTS_COMPENSATION_DES_CHARGES[].NAME',
+    'REQUERANTS_COMPENSATION_DES_CHARGES[].NOM',
     'REQUERANTS_CONCLUSIONS',
     'REQUERANTS_CONCLUSIONS[]',
     'REQUERANTS_CONCLUSIONS[].ADDRESS',
     'REQUERANTS_CONCLUSIONS[].ADRESSE',
     'REQUERANTS_CONCLUSIONS[].NAME',
     'REQUERANTS_CONCLUSIONS[].NOM',
+    'REQUERANTS_RESERVE_DE_DROIT',
+    'REQUERANTS_RESERVE_DE_DROIT[]',
+    'REQUERANTS_RESERVE_DE_DROIT[].ADDRESS',
+    'REQUERANTS_RESERVE_DE_DROIT[].ADRESSE',
+    'REQUERANTS_RESERVE_DE_DROIT[].NAME',
+    'REQUERANTS_RESERVE_DE_DROIT[].NOM',
     'REQUERANT_ADRESSE_1',
     'REQUERANT_ADRESSE_2',
     'REQUERANT_NOM_ADRESSE',
@@ -3846,6 +3994,12 @@ snapshots['test_dms_placeholders_empty[Municipality] 1'] = {
     'LANGUE': 'de',
     'LASTENAUSGLEICHSBEGEHREN': [
     ],
+    'LASTENAUSGLEICHSBEGEHRENDE': [
+    ],
+    'LEGAL_CLAIMANTS': [
+    ],
+    'LEGAL_CUSTODIANS': [
+    ],
     'LEITBEHOERDE_ADDRESS_1': '',
     'LEITBEHOERDE_ADDRESS_2': '',
     'LEITBEHOERDE_ADRESSE_1': '',
@@ -3859,6 +4013,8 @@ snapshots['test_dms_placeholders_empty[Municipality] 1'] = {
     'LEITBEHOERDE_TELEFON': '',
     'LEITPERSON': '',
     'LIEN_PUBLICATION': 'http://ebau-portal.local/public-instances/1',
+    'LOAD_COMPENSATION_REQUESTING': [
+    ],
     'MEINE_ORGANISATION_ADRESSE_1': '',
     'MEINE_ORGANISATION_ADRESSE_2': '',
     'MEINE_ORGANISATION_EMAIL': 'michelleboone@example.org',
@@ -3956,6 +4112,8 @@ snapshots['test_dms_placeholders_empty[Municipality] 1'] = {
     'RECENSEMENT': '',
     'RECHTSBEGEHRENDE': [
     ],
+    'RECHTSVERWAHRENDE': [
+    ],
     'RECHTSVERWAHRUNGEN': [
     ],
     'REPRESENTANT': '',
@@ -3965,7 +4123,11 @@ snapshots['test_dms_placeholders_empty[Municipality] 1'] = {
     'REPRESENTANT_TOUS': '',
     'REPRESENTANT_TOUS_NOM_ADRESSE': '',
     'REQUERANT': '',
+    'REQUERANTS_COMPENSATION_DES_CHARGES': [
+    ],
     'REQUERANTS_CONCLUSIONS': [
+    ],
+    'REQUERANTS_RESERVE_DE_DROIT': [
     ],
     'REQUERANT_ADRESSE_1': '',
     'REQUERANT_ADRESSE_2': '',
