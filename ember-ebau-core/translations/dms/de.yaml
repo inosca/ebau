@@ -4,6 +4,7 @@ dms:
   edit: "Vorlage bearbeiten"
   empty: "Keine Vorlagen gefunden"
   inherited: "übergeordnet"
+  inheritedTemplates: "Übergeordnete Vorlagen"
   inheritedUncategorized: "Übergeordnete Vorlagen (unkategorisiert)"
   merge-and-save: "Dokument ablegen"
   merge: "Dokument erstellen"
