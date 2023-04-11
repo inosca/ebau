@@ -384,17 +384,19 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
 
 class LegalSubmissionField(AliasedMixin, serializers.ReadOnlyField):
     def __init__(self, type, *args, **kwargs):
-        super().__init__(
-            nested_aliases={
-                "DATUM_DOKUMENT": [_("DATE_DOCUMENT")],
-                "DATUM_EINGANG": [_("DATE_RECEIPT")],
-                "RECHTSBEGEHRENDE": [_("LEGAL_CLAIMANTS")],
-                "RUEGEPUNKTE": [_("REPRIMANDS")],
-                "TITEL": [_("TITLE")],
-            },
-            *args,
-            **kwargs,
-        )
+        nested_aliases = {
+            "DATUM_DOKUMENT": [_("DATE_DOCUMENT")],
+            "DATUM_EINGANG": [_("DATE_RECEIPT")],
+            "RECHTSBEGEHRENDE": [_("LEGAL_CLAIMANTS")],
+            "TITEL": [_("TITLE")],
+        }
+
+        if type == "legal-submission-type-objection":
+            nested_aliases["RUEGEPUNKTE"] = [_("REPRIMANDS")]
+        else:
+            nested_aliases["ANLIEGEN"] = [_("REQUEST")]
+
+        super().__init__(nested_aliases=nested_aliases, *args, **kwargs)
 
         self.type = type
 
@@ -423,19 +425,29 @@ class LegalSubmissionField(AliasedMixin, serializers.ReadOnlyField):
                 )
                 legal_claimants.append(name)
 
-            data.append(
-                {
-                    "DATUM_EINGANG": find_answer(
-                        document, "legal-submission-receipt-date"
-                    ),
-                    "DATUM_DOKUMENT": find_answer(
-                        document, "legal-submission-document-date"
-                    ),
-                    "TITEL": find_answer(document, "legal-submission-title"),
-                    "RUEGEPUNKTE": find_answer(document, "legal-submission-reprimands"),
-                    "RECHTSBEGEHRENDE": clean_join(*legal_claimants, separator=", "),
-                }
-            )
+            legal_submission = {
+                "DATUM_EINGANG": find_answer(document, "legal-submission-receipt-date"),
+                "DATUM_DOKUMENT": find_answer(
+                    document, "legal-submission-document-date"
+                ),
+                "TITEL": find_answer(document, "legal-submission-title"),
+                "RECHTSBEGEHRENDE": clean_join(*legal_claimants, separator=", "),
+            }
+
+            if self.type == "legal-submission-type-objection":
+                legal_submission["RUEGEPUNKTE"] = find_answer(
+                    document, "legal-submission-reprimands"
+                )
+            elif self.type == "legal-submission-type-load-compensation-request":
+                legal_submission["ANLIEGEN"] = find_answer(
+                    document, "legal-submission-request-load-compensation-request"
+                )
+            elif self.type == "legal-submission-type-legal-custody":
+                legal_submission["ANLIEGEN"] = find_answer(
+                    document, "legal-submission-request-legal-custody"
+                )
+
+            data.append(legal_submission)
 
         return data
 

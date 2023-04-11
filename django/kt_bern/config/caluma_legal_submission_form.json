@@ -169,7 +169,7 @@
       "modified_by_group": null,
       "form": "legal-submission-form",
       "question": "legal-submission-postmark-date",
-      "sort": 8
+      "sort": 11
     }
   },
   {
@@ -184,7 +184,7 @@
       "modified_by_group": null,
       "form": "legal-submission-form",
       "question": "legal-submission-receipt-date",
-      "sort": 9
+      "sort": 12
     }
   },
   {
@@ -204,6 +204,36 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "legal-submission-form.legal-submission-request-legal-custody",
+    "fields": {
+      "created_at": "2023-04-06T08:28:46.214Z",
+      "modified_at": "2023-04-06T08:28:46.214Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "legal-submission-form",
+      "question": "legal-submission-request-legal-custody",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "legal-submission-form.legal-submission-request-load-compensation-request",
+    "fields": {
+      "created_at": "2023-04-06T08:28:24.855Z",
+      "modified_at": "2023-04-06T08:28:24.855Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "legal-submission-form",
+      "question": "legal-submission-request-load-compensation-request",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "legal-submission-form.legal-submission-status",
     "fields": {
       "created_at": "2022-11-10T13:43:52.560Z",
@@ -214,7 +244,7 @@
       "modified_by_group": null,
       "form": "legal-submission-form",
       "question": "legal-submission-status",
-      "sort": 12
+      "sort": 14
     }
   },
   {
@@ -229,7 +259,7 @@
       "modified_by_group": null,
       "form": "legal-submission-form",
       "question": "legal-submission-title",
-      "sort": 11
+      "sort": 13
     }
   },
   {
@@ -244,7 +274,7 @@
       "modified_by_group": null,
       "form": "legal-submission-form",
       "question": "legal-submission-type",
-      "sort": 13
+      "sort": 15
     }
   },
   {
@@ -652,6 +682,74 @@
       "placeholder": "{\"de\": null, \"fr\": \"\", \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null, \"rm\": null}",
       "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "legal-submission-request-legal-custody",
+    "fields": {
+      "created_at": "2023-04-06T08:28:45.957Z",
+      "modified_at": "2023-04-11T07:22:08.796Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anliegen Rechtsverwahrung\", \"fr\": \"Pr\\u00e9occupation r\\u00e9serve de droit\", \"it\": null, \"rm\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "!('legal-submission-type-legal-custody' in 'legal-submission-type'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": \"\", \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "legal-submission-request-load-compensation-request",
+    "fields": {
+      "created_at": "2023-04-06T08:28:24.499Z",
+      "modified_at": "2023-04-11T07:22:25.004Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anliegen Lastenausgleichsbegehren\", \"fr\": \"Pr\\u00e9occupation compensation des charges\", \"it\": null, \"rm\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "!('legal-submission-type-load-compensation-request' in 'legal-submission-type'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": \"\", \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {
         "max_length": null,
