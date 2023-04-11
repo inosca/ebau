@@ -11,6 +11,7 @@ import {
 
 export default class DmsListComponent extends Component {
   @service notification;
+  @service ebauModules;
   @service fetch;
   @service intl;
 
@@ -24,7 +25,20 @@ export default class DmsListComponent extends Component {
 
   get ownTemplates() {
     return this.templates.records
-      ?.filter((template) => template.group)
+      ?.filter(
+        (template) =>
+          parseInt(template.group) === parseInt(this.ebauModules.serviceId)
+      )
+      .sort(sortByDescription);
+  }
+
+  get inheritedTemplates() {
+    return this.templates.records
+      ?.filter(
+        (template) =>
+          template.group &&
+          parseInt(template.group) !== parseInt(this.ebauModules.serviceId)
+      )
       .sort(sortByDescription);
   }
 

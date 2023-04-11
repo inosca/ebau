@@ -4,6 +4,7 @@ dms:
   edit: "Modifier le modèle"
   empty: "Aucun modèle trouvé"
   inherited: "supérieur"
+  inheritedTemplates: "Modèles supérieurs"
   inheritedUncategorized: "Modèles supérieurs (non catégorisé)"
   merge-and-save: "Déposer le document"
   merge: "Créer un document"

@@ -52,6 +52,38 @@
     </tbody>
   </table>
 
+  {{#if this.inheritedTemplates}}
+    <h2>{{t "dms.inheritedTemplates"}}</h2>
+
+    <table class="uk-table uk-table-striped uk-table-middle">
+      <thead>
+        <tr>
+          <th>{{t "dms.name"}}</th>
+          <th>{{t "dms.category"}}</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each this.inheritedTemplates as |template|}}
+          <tr>
+            <td>{{template.description}}</td>
+            <td>{{or template.meta.category "-"}}</td>
+            <td class="uk-text-right">
+              <button
+                type="button"
+                class="uk-button uk-button-link"
+                {{uk-tooltip (t "dms.download") pos="left"}}
+                {{on "click" (perform this.downloadTemplate template)}}
+              >
+                <UkIcon @icon="download" />
+              </button>
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  {{/if}}
+
   <h2>{{t "dms.system"}}</h2>
 
   <table class="uk-table uk-table-striped uk-table-middle">
