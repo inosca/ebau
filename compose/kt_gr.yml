@@ -16,24 +16,12 @@ services:
       - djangomedia:/var/lib/camac/media:ro
       - djangotmpmedia:/tmp/camac/tmpfiles:ro
 
-  db:
-    build:
-      context: ../db
-      cache_from:
-        - acr.run/camac-ng/camac-ng/db:master
-    environment:
-      - POSTGRES_USER=camac
-      - POSTGRES_DATABASE=${APPLICATION}
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-
-  django: &django
+  django:
     build:
       context: ../django
       cache_from:
         - acr.run/camac-ng/camac-ng/django:master
     depends_on:
-      - db
       - cache
       - keycloak
       - mailhog
@@ -57,10 +45,6 @@ services:
       - LANGUAGES=de
       - META_FIELDS=camac-instance-id,submit-date
       - ENABLE_HISTORICAL_API=true
-    volumes:
-      - djangomedia:/var/lib/camac/media
-      - djangotmpmedia:/tmp/camac/tmpfiles
-
   ember-caluma-portal:
     build:
       context: ../
@@ -83,8 +67,6 @@ services:
     image: mailhog/mailhog
 
   keycloak:
-    depends_on:
-      - db
     build:
       context: ../keycloak
       cache_from:
@@ -92,8 +74,6 @@ services:
 
   document-merge-service:
     image: ghcr.io/adfinis/document-merge-service:5.0.5
-    depends_on:
-      - db
     volumes:
       - ../document-merge-service/uwsgi.ini:/app/uwsgi.ini:ro
       - ../document-merge-service/demo/templatefiles:/var/lib/document-merge-service/media
@@ -110,13 +90,9 @@ services:
       - OIDC_GROUPS_API_HEADERS=AUTHORIZATION,X-CAMAC-GROUP
 
   alexandria:
-    image: ghcr.io/projectcaluma/alexandria:0.3.0
-    depends_on:
-      - db
-      - minio
+    image: ghcr.io/projectcaluma/alexandria:dev
     volumes:
-      - ../alexandria/kt_gr/dump.json:/tmp/alexandria/dump.json
-      - ../alexandria/kt_gr:/app/alexandria/kt_gr
+      - ../alexandria/demo/dump.json:/tmp/alexandria/dump.json
     environment:
       - ENV=development
       - DATABASE_HOST=db
@@ -124,35 +100,7 @@ services:
       - DATABASE_USER=camac
       - MINIO_STORAGE_SERVICE=minio
       - MINIO_STORAGE_ACCESS_KEY=minio
-      - LANGUAGES=de-ch,fr-ch,rm-ch
-      - VISIBILITY_CLASSES=alexandria.kt_gr.extensions.visibilities.CustomVisibility
-      - PERMISSION_CLASSES=alexandria.kt_gr.extensions.permissions.CustomPermission
-      - OIDC_DRF_AUTH_BACKEND=alexandria.kt_gr.extensions.authentication.CamacAlexandriaAuthenticationBackend
-
-  minio:
-    image: minio/minio:latest@sha256:7f84f4d07cf0d3562911c6b072e1183436fbc3cad8ccef8157ec5c27456ed452
-    volumes:
-      - minio_data:/data
-    environment:
-      - MINIO_ACCESS_KEY=minio
-      - MINIO_NOTIFY_WEBHOOK_ENABLE_ALEXANDRIA=on
-      - MINIO_NOTIFY_WEBHOOK_ENDPOINT_ALEXANDRIA=http://alexandria:8000/api/v1/hook
-    command: server data
-
-  mc:
-    image: minio/mc:RELEASE.2020-10-03T02-54-56Z
-    restart: on-failure
-    environment:
-      - MINIO_ACCESS_KEY=minio
-      - MINIO_SECRET_KEY=minio123
-    entrypoint: >
-      /bin/sh -c "
-      mc config host add dc-minio http://minio:9000 $${MINIO_ACCESS_KEY} $${MINIO_SECRET_KEY} --api S3v4;
-      mc mb dc-minio/alexandria-media;
-      mc event add dc-minio/alexandria-media arn:minio:sqs::ALEXANDRIA:webhook --event put;
-      mc event list dc-minio/alexandria-media;"
-    depends_on:
-      - minio
+      - LANGUAGES=de-ch,en
 
 volumes:
   pgdata:
