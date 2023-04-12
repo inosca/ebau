@@ -273,6 +273,51 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben.baugespann",
+    "fields": {
+      "created_at": "2023-04-12T07:53:03.964Z",
+      "modified_at": "2023-04-12T07:53:03.964Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben",
+      "question": "baugespann",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben.baugespann-erstellt-am",
+    "fields": {
+      "created_at": "2023-04-12T07:53:46.663Z",
+      "modified_at": "2023-04-12T07:53:46.663Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben",
+      "question": "baugespann-erstellt-am",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben.baukosten",
+    "fields": {
+      "created_at": "2023-04-12T07:52:08.456Z",
+      "modified_at": "2023-04-12T07:52:08.456Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben",
+      "question": "baukosten",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "bauvorhaben.beschreibung-bauvorhaben",
     "fields": {
       "created_at": "2023-04-05T10:42:47.145Z",
@@ -283,7 +328,52 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "beschreibung-bauvorhaben",
-      "sort": 2
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben.divider",
+    "fields": {
+      "created_at": "2023-04-12T07:48:18.434Z",
+      "modified_at": "2023-04-12T07:48:18.434Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben",
+      "question": "divider",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben.gebaeudekubatur",
+    "fields": {
+      "created_at": "2023-04-12T07:50:27.239Z",
+      "modified_at": "2023-04-12T07:50:27.239Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben",
+      "question": "gebaeudekubatur",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben.kosten-pro-m3",
+    "fields": {
+      "created_at": "2023-04-12T07:51:33.707Z",
+      "modified_at": "2023-04-12T07:51:33.707Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben",
+      "question": "kosten-pro-m3",
+      "sort": 4
     }
   },
   {
@@ -298,7 +388,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "vorhaben",
-      "sort": 3
+      "sort": 8
     }
   },
   {
@@ -393,17 +483,17 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "nutzung-bauvorhaben.bauvorhaben-ausserhalb-der-bauzone-bab",
+    "pk": "nutzung-bauvorhaben.ausserhalb-bauzone",
     "fields": {
-      "created_at": "2023-04-05T10:47:02.056Z",
-      "modified_at": "2023-04-05T10:47:02.056Z",
+      "created_at": "2023-04-12T07:57:55.373Z",
+      "modified_at": "2023-04-12T07:57:55.373Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
-      "question": "bauvorhaben-ausserhalb-der-bauzone-bab",
-      "sort": 5
+      "question": "ausserhalb-bauzone",
+      "sort": 13
     }
   },
   {
@@ -418,22 +508,22 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "bauvorhaben-mit-gewerbenutzung",
-      "sort": 3
+      "sort": 9
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "nutzung-bauvorhaben.bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten",
+    "pk": "nutzung-bauvorhaben.beschreibung-der-anlagen",
     "fields": {
-      "created_at": "2023-04-05T10:47:28.444Z",
-      "modified_at": "2023-04-05T10:47:28.444Z",
+      "created_at": "2023-04-12T08:08:33.006Z",
+      "modified_at": "2023-04-12T08:08:33.006Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
-      "question": "bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten",
-      "sort": 4
+      "question": "beschreibung-der-anlagen",
+      "sort": 5
     }
   },
   {
@@ -448,7 +538,97 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "beschreibung-der-nutzung",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "nutzung-bauvorhaben.beschreibung-der-wohnnutzung",
+    "fields": {
+      "created_at": "2023-04-12T08:03:50.169Z",
+      "modified_at": "2023-04-12T08:03:50.169Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "nutzung-bauvorhaben",
+      "question": "beschreibung-der-wohnnutzung",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "nutzung-bauvorhaben.beschreibung-kantonsstrassen",
+    "fields": {
+      "created_at": "2023-04-12T08:11:26.596Z",
+      "modified_at": "2023-04-12T08:11:26.596Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "nutzung-bauvorhaben",
+      "question": "beschreibung-kantonsstrassen",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "nutzung-bauvorhaben.besondere-anlagen",
+    "fields": {
+      "created_at": "2023-04-12T08:06:17.237Z",
+      "modified_at": "2023-04-12T08:06:17.237Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "nutzung-bauvorhaben",
+      "question": "besondere-anlagen",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "nutzung-bauvorhaben.besondere-bedingungen",
+    "fields": {
+      "created_at": "2023-04-12T08:17:03.133Z",
+      "modified_at": "2023-04-12T08:17:03.133Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "nutzung-bauvorhaben",
+      "question": "besondere-bedingungen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "nutzung-bauvorhaben.haustechnische-anlagen-brandschutz",
+    "fields": {
+      "created_at": "2023-04-12T08:12:58.062Z",
+      "modified_at": "2023-04-12T08:12:58.062Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "nutzung-bauvorhaben",
+      "question": "haustechnische-anlagen-brandschutz",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "nutzung-bauvorhaben.kantonsstrassen",
+    "fields": {
+      "created_at": "2023-04-12T08:10:14.764Z",
+      "modified_at": "2023-04-12T08:10:14.764Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "nutzung-bauvorhaben",
+      "question": "kantonsstrassen",
+      "sort": 4
     }
   },
   {
@@ -463,7 +643,37 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "mehr-als-50-arbeitsplaetze",
-      "sort": 1
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "nutzung-bauvorhaben.waldareal",
+    "fields": {
+      "created_at": "2023-04-12T07:58:42.525Z",
+      "modified_at": "2023-04-12T07:58:42.525Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "nutzung-bauvorhaben",
+      "question": "waldareal",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "nutzung-bauvorhaben.wohnnutzung",
+    "fields": {
+      "created_at": "2023-04-12T08:01:54.163Z",
+      "modified_at": "2023-04-12T08:01:54.163Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "nutzung-bauvorhaben",
+      "question": "wohnnutzung",
+      "sort": 11
     }
   },
   {
@@ -500,13 +710,13 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "bauvorhaben-ausserhalb-der-bauzone-bab-ja",
+    "pk": "ausserhalb-bauzone-bauvorhaben-ausserhalb-bauzone-ja",
     "fields": {
-      "created_at": "2023-04-05T10:47:01.801Z",
-      "modified_at": "2023-04-05T10:48:41.344Z",
+      "created_at": "2023-04-12T08:00:14.746Z",
+      "modified_at": "2023-04-12T08:00:14.746Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": true,
@@ -516,15 +726,31 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "bauvorhaben-ausserhalb-der-bauzone-bab-ja-ausserhalb-bauzone",
+    "pk": "ausserhalb-bauzone-bauvorhaben-ausserhalb-bauzone-nein",
     "fields": {
-      "created_at": "2023-04-05T10:48:41.353Z",
-      "modified_at": "2023-04-05T10:48:41.353Z",
+      "created_at": "2023-04-12T08:00:14.736Z",
+      "modified_at": "2023-04-12T08:00:14.736Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Ja: ausserhalb Bauzone\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": true,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "ausserhalb-bauzone-ja",
+    "fields": {
+      "created_at": "2023-04-12T08:00:14.737Z",
+      "modified_at": "2023-04-12T08:00:14.737Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -532,15 +758,15 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "bauvorhaben-ausserhalb-der-bauzone-bab-ja-waldareal",
+    "pk": "ausserhalb-bauzone-nein",
     "fields": {
-      "created_at": "2023-04-05T10:48:41.352Z",
-      "modified_at": "2023-04-05T10:48:41.352Z",
+      "created_at": "2023-04-12T08:00:14.738Z",
+      "modified_at": "2023-04-12T08:00:14.738Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Ja: Waldareal\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -548,13 +774,61 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "bauvorhaben-ausserhalb-der-bauzone-bab-nein",
+    "pk": "baugespann-ja",
     "fields": {
-      "created_at": "2023-04-05T10:47:01.796Z",
-      "modified_at": "2023-04-05T10:48:41.350Z",
+      "created_at": "2023-04-12T07:53:03.705Z",
+      "modified_at": "2023-04-12T07:54:00.303Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "baugespann-nein",
+    "fields": {
+      "created_at": "2023-04-12T07:53:03.700Z",
+      "modified_at": "2023-04-12T07:54:00.308Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bauvorhaben-ausserhalb-bauzone-ja",
+    "fields": {
+      "created_at": "2023-04-12T07:57:55.128Z",
+      "modified_at": "2023-04-12T07:57:55.128Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bauvorhaben-ausserhalb-bauzone-nein",
+    "fields": {
+      "created_at": "2023-04-12T07:57:55.129Z",
+      "modified_at": "2023-04-12T07:57:55.129Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": false,
@@ -596,31 +870,15 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten-ja",
+    "pk": "beschreibung-der-anlagen-gewaesser",
     "fields": {
-      "created_at": "2023-04-05T10:47:28.183Z",
-      "modified_at": "2023-04-05T10:49:33.852Z",
+      "created_at": "2023-04-12T08:08:32.564Z",
+      "modified_at": "2023-04-12T08:08:57.271Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "is_archived": true,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten-ja-beherbergung-oeffentliche-bauten",
-    "fields": {
-      "created_at": "2023-04-05T10:49:33.875Z",
-      "modified_at": "2023-04-05T10:49:33.875Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ja, Beherbergung / \\u00f6ffentliche Bauten\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Gew\\u00e4sser (stehend, fliessend, eingedolt)\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -628,47 +886,63 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten-ja-mehr-als-vier-wohneinheiten",
+    "pk": "beschreibung-der-anlagen-solaranlagen",
     "fields": {
-      "created_at": "2023-04-05T10:49:33.867Z",
-      "modified_at": "2023-04-05T10:49:33.867Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ja, mehr als vier Wohneinheiten\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten-ja-wohn-oder-ferienhaus-spital-heim",
-    "fields": {
-      "created_at": "2023-04-05T10:49:33.864Z",
-      "modified_at": "2023-04-05T10:49:33.864Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ja (Wohn- oder Ferienhaus, Spital, Heim)\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten-nein",
-    "fields": {
-      "created_at": "2023-04-05T10:47:28.184Z",
-      "modified_at": "2023-04-05T10:49:33.859Z",
+      "created_at": "2023-04-12T08:08:32.553Z",
+      "modified_at": "2023-04-12T08:08:57.272Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Solartechnische Anlagen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "beschreibung-der-anlagen-terrainveraenderung",
+    "fields": {
+      "created_at": "2023-04-12T08:08:32.554Z",
+      "modified_at": "2023-04-12T08:08:57.268Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Terrainver\\u00e4nderung (> 200m\\u00b2 / > 50m\\u00b3)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "beschreibung-der-anlagen-untergrund",
+    "fields": {
+      "created_at": "2023-04-12T08:08:32.552Z",
+      "modified_at": "2023-04-12T08:08:57.273Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Untergrund (Sonde / Register / Wasser)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "beschreibung-der-anlagen-verkehrsanlagen",
+    "fields": {
+      "created_at": "2023-04-12T08:08:32.565Z",
+      "modified_at": "2023-04-12T08:08:57.270Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Verkehrsanlagen (Trottoire, Haltestellen)\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -740,6 +1014,278 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "beschreibung-der-wohnnutzung-beherbergung-oeffentliche-bauten",
+    "fields": {
+      "created_at": "2023-04-12T08:03:49.799Z",
+      "modified_at": "2023-04-12T08:05:28.895Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beherbergung / \\u00f6ffentliche Bauten\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "beschreibung-der-wohnnutzung-mehr-als-vier-wohneinheiten",
+    "fields": {
+      "created_at": "2023-04-12T08:03:49.797Z",
+      "modified_at": "2023-04-12T08:05:28.897Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"mehr als vier Wohneinheiten\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "beschreibung-der-wohnnutzung-wohn-oder-ferienhaus-spital-heim",
+    "fields": {
+      "created_at": "2023-04-12T08:03:49.798Z",
+      "modified_at": "2023-04-12T08:05:28.903Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wohn- oder Ferienhaus, Spital, Heim\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "beschreibung-kantonsstrassen-leitungen",
+    "fields": {
+      "created_at": "2023-04-12T08:11:26.280Z",
+      "modified_at": "2023-04-12T08:13:23.973Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Leitungen in und \\u00fcber Kantonsstrasse\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "beschreibung-kantonsstrassen-naeherbauten",
+    "fields": {
+      "created_at": "2023-04-12T08:11:26.298Z",
+      "modified_at": "2023-04-12T08:13:23.981Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"N\\u00e4herbauten, Zufahrten, Parkpl\\u00e4tze, usw.\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "beschreibung-kantonsstrassen-strassenreklamen",
+    "fields": {
+      "created_at": "2023-04-12T08:11:26.280Z",
+      "modified_at": "2023-04-12T08:13:23.974Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Strassenreklamen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "besondere-anlagen-ja",
+    "fields": {
+      "created_at": "2023-04-12T08:06:16.973Z",
+      "modified_at": "2023-04-12T08:06:16.973Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "besondere-anlagen-nein",
+    "fields": {
+      "created_at": "2023-04-12T08:06:16.968Z",
+      "modified_at": "2023-04-12T08:06:16.968Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "besondere-bedingungen-abbruch-rueckbau-aufbereitung",
+    "fields": {
+      "created_at": "2023-04-12T08:17:02.446Z",
+      "modified_at": "2023-04-12T08:17:02.446Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abbruch / R\\u00fcckbau / Aufbereitung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "besondere-bedingungen-archaeologie",
+    "fields": {
+      "created_at": "2023-04-12T08:17:02.821Z",
+      "modified_at": "2023-04-12T08:17:02.821Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Objekt Arch\\u00e4ologie und Denkmalpflege\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "besondere-bedingungen-belasteter-standort",
+    "fields": {
+      "created_at": "2023-04-12T08:17:02.445Z",
+      "modified_at": "2023-04-12T08:17:02.445Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"belasteter Standort (Kbs)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "besondere-bedingungen-emissionen",
+    "fields": {
+      "created_at": "2023-04-12T08:17:02.420Z",
+      "modified_at": "2023-04-12T08:17:02.420Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Emissionen (Gewerbe / Feuerung / > 150 Parkpl\\u00e4tze)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "besondere-bedingungen-entfernung-ufervegetation-hecken",
+    "fields": {
+      "created_at": "2023-04-12T08:17:02.454Z",
+      "modified_at": "2023-04-12T08:17:02.454Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entfernung Ufervegetation / Hecken\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "besondere-bedingungen-gewaesserschutzbereich",
+    "fields": {
+      "created_at": "2023-04-12T08:17:02.444Z",
+      "modified_at": "2023-04-12T08:17:02.444Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gew\\u00e4sserschutzbereich\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "besondere-bedingungen-laermbelastetes-gebiet",
+    "fields": {
+      "created_at": "2023-04-12T08:17:02.820Z",
+      "modified_at": "2023-04-12T08:17:02.820Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"L\\u00e4rmbelastetes Gebiet (Strasse, Bahn)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "besondere-bedingungen-naturgefahren",
+    "fields": {
+      "created_at": "2023-04-12T08:17:02.456Z",
+      "modified_at": "2023-04-12T08:17:02.456Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Naturgefahren\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "besondere-bedingungen-uvp-pflichtig",
+    "fields": {
+      "created_at": "2023-04-12T08:17:02.814Z",
+      "modified_at": "2023-04-12T08:17:02.814Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"UVP-Pflichtig\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "einreichen-button-eingereicht",
     "fields": {
       "created_at": "2019-06-14T14:30:32.966Z",
@@ -749,6 +1295,70 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Eingereicht\", \"fr\": \"soumis/transmis\", \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "haustechnische-anlagen-brandschutz-ja",
+    "fields": {
+      "created_at": "2023-04-12T08:12:57.810Z",
+      "modified_at": "2023-04-12T08:12:57.810Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja, Gesuch f\\u00fcr feuerpolizeiliche Bewilligung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "haustechnische-anlagen-brandschutz-nein",
+    "fields": {
+      "created_at": "2023-04-12T08:12:57.816Z",
+      "modified_at": "2023-04-12T08:12:57.816Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonsstrassen-ja",
+    "fields": {
+      "created_at": "2023-04-12T08:10:14.505Z",
+      "modified_at": "2023-04-12T08:10:14.505Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonsstrassen-nein",
+    "fields": {
+      "created_at": "2023-04-12T08:10:14.500Z",
+      "modified_at": "2023-04-12T08:10:14.500Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -791,10 +1401,10 @@
     "pk": "vorhaben-andere",
     "fields": {
       "created_at": "2023-04-05T10:41:47.660Z",
-      "modified_at": "2023-04-05T10:41:47.660Z",
+      "modified_at": "2023-04-12T07:45:38.417Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": false,
@@ -807,10 +1417,10 @@
     "pk": "vorhaben-neubau",
     "fields": {
       "created_at": "2023-04-05T10:41:47.659Z",
-      "modified_at": "2023-04-05T10:41:47.659Z",
+      "modified_at": "2023-04-12T07:45:38.409Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Neubau\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": false,
@@ -823,10 +1433,10 @@
     "pk": "vorhaben-projektaenderung-einer-bewilligten-baute-anlage",
     "fields": {
       "created_at": "2023-04-05T10:41:47.662Z",
-      "modified_at": "2023-04-05T10:41:47.662Z",
+      "modified_at": "2023-04-12T07:45:38.406Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Projekt\\u00e4nderung einer bewilligten Baute / Anlage\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": false,
@@ -839,12 +1449,76 @@
     "pk": "vorhaben-umbau-erweiterung-zweckaenderung",
     "fields": {
       "created_at": "2023-04-05T10:41:47.666Z",
-      "modified_at": "2023-04-05T10:41:47.666Z",
+      "modified_at": "2023-04-12T07:45:38.420Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Umbau / Erweiterung / Zweck\\u00e4nderung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "waldareal-ja",
+    "fields": {
+      "created_at": "2023-04-12T07:58:42.169Z",
+      "modified_at": "2023-04-12T07:58:42.169Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Umbau / Erweiterung / Zweck\\u00e4nderung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "waldareal-nein",
+    "fields": {
+      "created_at": "2023-04-12T07:58:42.164Z",
+      "modified_at": "2023-04-12T07:58:42.164Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "wohnnutzung-ja",
+    "fields": {
+      "created_at": "2023-04-12T08:01:53.820Z",
+      "modified_at": "2023-04-12T08:01:53.820Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "wohnnutzung-nein",
+    "fields": {
+      "created_at": "2023-04-12T08:01:53.815Z",
+      "modified_at": "2023-04-12T08:01:53.815Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -977,6 +1651,133 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "ausserhalb-bauzone",
+    "fields": {
+      "created_at": "2023-04-12T07:57:55.257Z",
+      "modified_at": "2023-04-12T08:00:14.961Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bauvorhaben ausserhalb Bauzone\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "baugespann",
+    "fields": {
+      "created_at": "2023-04-12T07:53:03.844Z",
+      "modified_at": "2023-04-12T07:54:00.438Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Baugespann\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "baugespann-erstellt-am",
+    "fields": {
+      "created_at": "2023-04-12T07:53:46.553Z",
+      "modified_at": "2023-04-12T07:53:46.553Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Erstellt am\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "date",
+      "is_required": "true",
+      "is_hidden": "!(\"baugespann-ja\" == \"baugespann\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "baukosten",
+    "fields": {
+      "created_at": "2023-04-12T07:52:08.352Z",
+      "modified_at": "2023-04-12T07:52:26.277Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Total (Fr.)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "bauvorhaben",
     "fields": {
       "created_at": "2023-04-05T10:44:17.764Z",
@@ -999,37 +1800,6 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "bauvorhaben",
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "bauvorhaben-ausserhalb-der-bauzone-bab",
-    "fields": {
-      "created_at": "2023-04-05T10:47:01.938Z",
-      "modified_at": "2023-04-05T10:48:41.576Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Bauvorhaben ausserhalb der Bauzone (BAB)?\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "type": "choice",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -1070,18 +1840,18 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten",
+    "pk": "beschreibung-der-anlagen",
     "fields": {
-      "created_at": "2023-04-05T10:47:28.323Z",
-      "modified_at": "2023-04-05T10:49:34.101Z",
+      "created_at": "2023-04-12T08:08:32.877Z",
+      "modified_at": "2023-04-12T08:08:57.623Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Bauvorhaben mit Wohnnutzung / Beherbergungsbetrieb / \\u00f6ffentliche Bauten\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "type": "choice",
+      "label": "{\"de\": \"Beschreibung der Anlagen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "multiple_choice",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "!(\"besondere-anlagen-ja\" == \"besondere-anlagen\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
@@ -1118,6 +1888,161 @@
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "beschreibung-der-wohnnutzung",
+    "fields": {
+      "created_at": "2023-04-12T08:03:50.050Z",
+      "modified_at": "2023-04-12T08:05:29.095Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung der Wohnnutzung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "!(\"wohnnutzung-ja\" == \"wohnnutzung\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "beschreibung-kantonsstrassen",
+    "fields": {
+      "created_at": "2023-04-12T08:11:26.468Z",
+      "modified_at": "2023-04-12T08:13:24.261Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "!(\"kantonsstrassen-ja\" == \"kantonsstrassen\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "besondere-anlagen",
+    "fields": {
+      "created_at": "2023-04-12T08:06:17.121Z",
+      "modified_at": "2023-04-12T08:06:17.121Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bauvorhaben mit besonderen Anlagen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "besondere-bedingungen",
+    "fields": {
+      "created_at": "2023-04-12T08:17:02.973Z",
+      "modified_at": "2023-04-12T08:17:02.973Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Besondere Bedingungen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "divider",
+    "fields": {
+      "created_at": "2023-04-12T07:48:18.329Z",
+      "modified_at": "2023-04-12T07:49:51.902Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Titel Baukosten\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"---\\n\\n### Approximative Baukosten / Baugespann\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -1229,6 +2154,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "gebaeudekubatur",
+    "fields": {
+      "created_at": "2023-04-12T07:50:27.132Z",
+      "modified_at": "2023-04-12T07:50:27.132Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Geb\\u00e4udekubatur (m\\u00b3 nach SIA 416)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "grundstueck",
     "fields": {
       "created_at": "2023-04-05T10:18:13.786Z",
@@ -1260,6 +2219,68 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "haustechnische-anlagen-brandschutz",
+    "fields": {
+      "created_at": "2023-04-12T08:12:57.951Z",
+      "modified_at": "2023-04-12T08:12:57.951Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Neubauten, Ver\\u00e4nderungen, Umnutzungen von Geb\\u00e4uden, haustechnischen Anlagen und Brandschutzeinrichtungen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "kantonsstrassen",
+    "fields": {
+      "created_at": "2023-04-12T08:10:14.647Z",
+      "modified_at": "2023-04-12T08:10:14.647Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bauvorhaben an Kantonsstrassen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "kontaktperson-vorabklaerungen",
     "fields": {
       "created_at": "2023-04-05T10:13:28.096Z",
@@ -1280,6 +2301,40 @@
       "configuration": {
         "max_length": null,
         "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "kosten-pro-m3",
+    "fields": {
+      "created_at": "2023-04-12T07:51:33.595Z",
+      "modified_at": "2023-04-12T07:51:33.595Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kosten pro m\\u00b3 (Fr.)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
       },
       "meta": {},
       "data_source": null,
@@ -1421,12 +2476,74 @@
     "pk": "vorhaben",
     "fields": {
       "created_at": "2023-04-05T10:41:47.866Z",
-      "modified_at": "2023-04-05T10:41:47.866Z",
+      "modified_at": "2023-04-12T07:45:38.628Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vorhaben\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "waldareal",
+    "fields": {
+      "created_at": "2023-04-12T07:58:42.402Z",
+      "modified_at": "2023-04-12T07:58:42.402Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Vorhaben\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Waldareal\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "!(\"ausserhalb-bauzone-ja\" == \"ausserhalb-bauzone\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "wohnnutzung",
+    "fields": {
+      "created_at": "2023-04-12T08:01:53.957Z",
+      "modified_at": "2023-04-12T08:01:53.957Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bauvorhaben mit Wohnnutzung / Beherbergungsbetrieb / \\u00f6ffentliche Bauten\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "choice",
       "is_required": "false",
       "is_hidden": "false",
@@ -1510,62 +2627,92 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "bauvorhaben-ausserhalb-der-bauzone-bab.bauvorhaben-ausserhalb-der-bauzone-bab-ja",
+    "pk": "ausserhalb-bauzone.ausserhalb-bauzone-bauvorhaben-ausserhalb-bauzone-ja",
     "fields": {
-      "created_at": "2023-04-05T10:48:41.591Z",
-      "modified_at": "2023-04-05T10:48:41.591Z",
+      "created_at": "2023-04-12T08:00:14.981Z",
+      "modified_at": "2023-04-12T08:00:14.981Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "question": "bauvorhaben-ausserhalb-der-bauzone-bab",
-      "option": "bauvorhaben-ausserhalb-der-bauzone-bab-ja",
+      "question": "ausserhalb-bauzone",
+      "option": "ausserhalb-bauzone-bauvorhaben-ausserhalb-bauzone-ja",
       "sort": 4
     }
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "bauvorhaben-ausserhalb-der-bauzone-bab.bauvorhaben-ausserhalb-der-bauzone-bab-ja-ausserhalb-bauzone",
+    "pk": "ausserhalb-bauzone.ausserhalb-bauzone-bauvorhaben-ausserhalb-bauzone-nein",
     "fields": {
-      "created_at": "2023-04-05T10:48:41.585Z",
-      "modified_at": "2023-04-05T10:48:41.585Z",
+      "created_at": "2023-04-12T08:00:14.977Z",
+      "modified_at": "2023-04-12T08:00:14.977Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "question": "bauvorhaben-ausserhalb-der-bauzone-bab",
-      "option": "bauvorhaben-ausserhalb-der-bauzone-bab-ja-ausserhalb-bauzone",
+      "question": "ausserhalb-bauzone",
+      "option": "ausserhalb-bauzone-bauvorhaben-ausserhalb-bauzone-nein",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "ausserhalb-bauzone.ausserhalb-bauzone-ja",
+    "fields": {
+      "created_at": "2023-04-12T08:00:14.973Z",
+      "modified_at": "2023-04-12T08:00:14.973Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "ausserhalb-bauzone",
+      "option": "ausserhalb-bauzone-ja",
       "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "bauvorhaben-ausserhalb-der-bauzone-bab.bauvorhaben-ausserhalb-der-bauzone-bab-ja-waldareal",
+    "pk": "ausserhalb-bauzone.ausserhalb-bauzone-nein",
     "fields": {
-      "created_at": "2023-04-05T10:48:41.582Z",
-      "modified_at": "2023-04-05T10:48:41.582Z",
+      "created_at": "2023-04-12T08:00:14.969Z",
+      "modified_at": "2023-04-12T08:00:14.969Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "question": "bauvorhaben-ausserhalb-der-bauzone-bab",
-      "option": "bauvorhaben-ausserhalb-der-bauzone-bab-ja-waldareal",
+      "question": "ausserhalb-bauzone",
+      "option": "ausserhalb-bauzone-nein",
       "sort": 1
     }
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "bauvorhaben-ausserhalb-der-bauzone-bab.bauvorhaben-ausserhalb-der-bauzone-bab-nein",
+    "pk": "baugespann.baugespann-ja",
     "fields": {
-      "created_at": "2023-04-05T10:48:41.588Z",
-      "modified_at": "2023-04-05T10:48:41.588Z",
+      "created_at": "2023-04-12T07:54:00.447Z",
+      "modified_at": "2023-04-12T07:54:00.447Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "question": "bauvorhaben-ausserhalb-der-bauzone-bab",
-      "option": "bauvorhaben-ausserhalb-der-bauzone-bab-nein",
-      "sort": 3
+      "question": "baugespann",
+      "option": "baugespann-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "baugespann.baugespann-nein",
+    "fields": {
+      "created_at": "2023-04-12T07:54:00.444Z",
+      "modified_at": "2023-04-12T07:54:00.444Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "baugespann",
+      "option": "baugespann-nein",
+      "sort": 1
     }
   },
   {
@@ -1600,76 +2747,76 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten.bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten-ja",
+    "pk": "beschreibung-der-anlagen.beschreibung-der-anlagen-gewaesser",
     "fields": {
-      "created_at": "2023-04-05T10:49:34.117Z",
-      "modified_at": "2023-04-05T10:49:34.117Z",
+      "created_at": "2023-04-12T08:08:57.629Z",
+      "modified_at": "2023-04-12T08:08:57.629Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "question": "bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten",
-      "option": "bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten-ja",
-      "sort": 5
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten.bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten-ja-beherbergung-oeffentliche-bauten",
-    "fields": {
-      "created_at": "2023-04-05T10:49:34.107Z",
-      "modified_at": "2023-04-05T10:49:34.107Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "question": "bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten",
-      "option": "bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten-ja-beherbergung-oeffentliche-bauten",
+      "question": "beschreibung-der-anlagen",
+      "option": "beschreibung-der-anlagen-gewaesser",
       "sort": 1
     }
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten.bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten-ja-mehr-als-vier-wohneinheiten",
+    "pk": "beschreibung-der-anlagen.beschreibung-der-anlagen-solaranlagen",
     "fields": {
-      "created_at": "2023-04-05T10:49:34.110Z",
-      "modified_at": "2023-04-05T10:49:34.110Z",
+      "created_at": "2023-04-12T08:08:57.642Z",
+      "modified_at": "2023-04-12T08:08:57.642Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "question": "bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten",
-      "option": "bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten-ja-mehr-als-vier-wohneinheiten",
+      "question": "beschreibung-der-anlagen",
+      "option": "beschreibung-der-anlagen-solaranlagen",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "beschreibung-der-anlagen.beschreibung-der-anlagen-terrainveraenderung",
+    "fields": {
+      "created_at": "2023-04-12T08:08:57.633Z",
+      "modified_at": "2023-04-12T08:08:57.633Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "beschreibung-der-anlagen",
+      "option": "beschreibung-der-anlagen-terrainveraenderung",
       "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten.bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten-ja-wohn-oder-ferienhaus-spital-heim",
+    "pk": "beschreibung-der-anlagen.beschreibung-der-anlagen-untergrund",
     "fields": {
-      "created_at": "2023-04-05T10:49:34.112Z",
-      "modified_at": "2023-04-05T10:49:34.112Z",
+      "created_at": "2023-04-12T08:08:57.636Z",
+      "modified_at": "2023-04-12T08:08:57.636Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "question": "bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten",
-      "option": "bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten-ja-wohn-oder-ferienhaus-spital-heim",
+      "question": "beschreibung-der-anlagen",
+      "option": "beschreibung-der-anlagen-untergrund",
       "sort": 3
     }
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten.bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten-nein",
+    "pk": "beschreibung-der-anlagen.beschreibung-der-anlagen-verkehrsanlagen",
     "fields": {
-      "created_at": "2023-04-05T10:49:34.115Z",
-      "modified_at": "2023-04-05T10:49:34.115Z",
+      "created_at": "2023-04-12T08:08:57.639Z",
+      "modified_at": "2023-04-12T08:08:57.639Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "question": "bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten",
-      "option": "bauvorhaben-mit-wohnnutzung-beherbergungsbetrieb-oeffentliche-bauten-nein",
+      "question": "beschreibung-der-anlagen",
+      "option": "beschreibung-der-anlagen-verkehrsanlagen",
       "sort": 4
     }
   },
@@ -1735,6 +2882,261 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "beschreibung-der-wohnnutzung.beschreibung-der-wohnnutzung-beherbergung-oeffentliche-bauten",
+    "fields": {
+      "created_at": "2023-04-12T08:05:29.102Z",
+      "modified_at": "2023-04-12T08:05:29.102Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "beschreibung-der-wohnnutzung",
+      "option": "beschreibung-der-wohnnutzung-beherbergung-oeffentliche-bauten",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "beschreibung-der-wohnnutzung.beschreibung-der-wohnnutzung-mehr-als-vier-wohneinheiten",
+    "fields": {
+      "created_at": "2023-04-12T08:05:29.105Z",
+      "modified_at": "2023-04-12T08:05:29.105Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "beschreibung-der-wohnnutzung",
+      "option": "beschreibung-der-wohnnutzung-mehr-als-vier-wohneinheiten",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "beschreibung-der-wohnnutzung.beschreibung-der-wohnnutzung-wohn-oder-ferienhaus-spital-heim",
+    "fields": {
+      "created_at": "2023-04-12T08:05:29.108Z",
+      "modified_at": "2023-04-12T08:05:29.108Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "beschreibung-der-wohnnutzung",
+      "option": "beschreibung-der-wohnnutzung-wohn-oder-ferienhaus-spital-heim",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "beschreibung-kantonsstrassen.beschreibung-kantonsstrassen-leitungen",
+    "fields": {
+      "created_at": "2023-04-12T08:13:24.267Z",
+      "modified_at": "2023-04-12T08:13:24.267Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "beschreibung-kantonsstrassen",
+      "option": "beschreibung-kantonsstrassen-leitungen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "beschreibung-kantonsstrassen.beschreibung-kantonsstrassen-naeherbauten",
+    "fields": {
+      "created_at": "2023-04-12T08:13:24.270Z",
+      "modified_at": "2023-04-12T08:13:24.270Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "beschreibung-kantonsstrassen",
+      "option": "beschreibung-kantonsstrassen-naeherbauten",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "beschreibung-kantonsstrassen.beschreibung-kantonsstrassen-strassenreklamen",
+    "fields": {
+      "created_at": "2023-04-12T08:13:24.274Z",
+      "modified_at": "2023-04-12T08:13:24.274Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "beschreibung-kantonsstrassen",
+      "option": "beschreibung-kantonsstrassen-strassenreklamen",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "besondere-anlagen.besondere-anlagen-ja",
+    "fields": {
+      "created_at": "2023-04-12T08:06:17.131Z",
+      "modified_at": "2023-04-12T08:06:17.131Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "besondere-anlagen",
+      "option": "besondere-anlagen-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "besondere-anlagen.besondere-anlagen-nein",
+    "fields": {
+      "created_at": "2023-04-12T08:06:17.127Z",
+      "modified_at": "2023-04-12T08:06:17.127Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "besondere-anlagen",
+      "option": "besondere-anlagen-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "besondere-bedingungen.besondere-bedingungen-abbruch-rueckbau-aufbereitung",
+    "fields": {
+      "created_at": "2023-04-12T08:17:02.989Z",
+      "modified_at": "2023-04-12T08:17:02.989Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "besondere-bedingungen",
+      "option": "besondere-bedingungen-abbruch-rueckbau-aufbereitung",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "besondere-bedingungen.besondere-bedingungen-archaeologie",
+    "fields": {
+      "created_at": "2023-04-12T08:17:02.978Z",
+      "modified_at": "2023-04-12T08:17:02.978Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "besondere-bedingungen",
+      "option": "besondere-bedingungen-archaeologie",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "besondere-bedingungen.besondere-bedingungen-belasteter-standort",
+    "fields": {
+      "created_at": "2023-04-12T08:17:02.996Z",
+      "modified_at": "2023-04-12T08:17:02.996Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "besondere-bedingungen",
+      "option": "besondere-bedingungen-belasteter-standort",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "besondere-bedingungen.besondere-bedingungen-emissionen",
+    "fields": {
+      "created_at": "2023-04-12T08:17:02.991Z",
+      "modified_at": "2023-04-12T08:17:02.991Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "besondere-bedingungen",
+      "option": "besondere-bedingungen-emissionen",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "besondere-bedingungen.besondere-bedingungen-entfernung-ufervegetation-hecken",
+    "fields": {
+      "created_at": "2023-04-12T08:17:02.986Z",
+      "modified_at": "2023-04-12T08:17:02.986Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "besondere-bedingungen",
+      "option": "besondere-bedingungen-entfernung-ufervegetation-hecken",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "besondere-bedingungen.besondere-bedingungen-gewaesserschutzbereich",
+    "fields": {
+      "created_at": "2023-04-12T08:17:02.994Z",
+      "modified_at": "2023-04-12T08:17:02.994Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "besondere-bedingungen",
+      "option": "besondere-bedingungen-gewaesserschutzbereich",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "besondere-bedingungen.besondere-bedingungen-laermbelastetes-gebiet",
+    "fields": {
+      "created_at": "2023-04-12T08:17:02.984Z",
+      "modified_at": "2023-04-12T08:17:02.984Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "besondere-bedingungen",
+      "option": "besondere-bedingungen-laermbelastetes-gebiet",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "besondere-bedingungen.besondere-bedingungen-naturgefahren",
+    "fields": {
+      "created_at": "2023-04-12T08:17:02.999Z",
+      "modified_at": "2023-04-12T08:17:02.999Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "besondere-bedingungen",
+      "option": "besondere-bedingungen-naturgefahren",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "besondere-bedingungen.besondere-bedingungen-uvp-pflichtig",
+    "fields": {
+      "created_at": "2023-04-12T08:17:02.981Z",
+      "modified_at": "2023-04-12T08:17:02.981Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "besondere-bedingungen",
+      "option": "besondere-bedingungen-uvp-pflichtig",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "einreichen-button.einreichen-button-eingereicht",
     "fields": {
       "created_at": "2022-09-21T12:51:49.852Z",
@@ -1745,6 +3147,66 @@
       "modified_by_group": null,
       "question": "einreichen-button",
       "option": "einreichen-button-eingereicht",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "haustechnische-anlagen-brandschutz.haustechnische-anlagen-brandschutz-ja",
+    "fields": {
+      "created_at": "2023-04-12T08:12:57.959Z",
+      "modified_at": "2023-04-12T08:12:57.959Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "haustechnische-anlagen-brandschutz",
+      "option": "haustechnische-anlagen-brandschutz-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "haustechnische-anlagen-brandschutz.haustechnische-anlagen-brandschutz-nein",
+    "fields": {
+      "created_at": "2023-04-12T08:12:57.956Z",
+      "modified_at": "2023-04-12T08:12:57.956Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "haustechnische-anlagen-brandschutz",
+      "option": "haustechnische-anlagen-brandschutz-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonsstrassen.kantonsstrassen-ja",
+    "fields": {
+      "created_at": "2023-04-12T08:10:14.656Z",
+      "modified_at": "2023-04-12T08:10:14.656Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "kantonsstrassen",
+      "option": "kantonsstrassen-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonsstrassen.kantonsstrassen-nein",
+    "fields": {
+      "created_at": "2023-04-12T08:10:14.653Z",
+      "modified_at": "2023-04-12T08:10:14.653Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "kantonsstrassen",
+      "option": "kantonsstrassen-nein",
       "sort": 1
     }
   },
@@ -1782,8 +3244,8 @@
     "model": "caluma_form.questionoption",
     "pk": "vorhaben.vorhaben-andere",
     "fields": {
-      "created_at": "2023-04-05T10:41:47.871Z",
-      "modified_at": "2023-04-05T10:41:47.871Z",
+      "created_at": "2023-04-12T07:45:38.634Z",
+      "modified_at": "2023-04-12T07:45:38.634Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -1797,8 +3259,8 @@
     "model": "caluma_form.questionoption",
     "pk": "vorhaben.vorhaben-neubau",
     "fields": {
-      "created_at": "2023-04-05T10:41:47.880Z",
-      "modified_at": "2023-04-05T10:41:47.880Z",
+      "created_at": "2023-04-12T07:45:38.641Z",
+      "modified_at": "2023-04-12T07:45:38.641Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -1812,8 +3274,8 @@
     "model": "caluma_form.questionoption",
     "pk": "vorhaben.vorhaben-projektaenderung-einer-bewilligten-baute-anlage",
     "fields": {
-      "created_at": "2023-04-05T10:41:47.874Z",
-      "modified_at": "2023-04-05T10:41:47.874Z",
+      "created_at": "2023-04-12T07:45:38.637Z",
+      "modified_at": "2023-04-12T07:45:38.637Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -1827,8 +3289,8 @@
     "model": "caluma_form.questionoption",
     "pk": "vorhaben.vorhaben-umbau-erweiterung-zweckaenderung",
     "fields": {
-      "created_at": "2023-04-05T10:41:47.877Z",
-      "modified_at": "2023-04-05T10:41:47.877Z",
+      "created_at": "2023-04-12T07:45:38.639Z",
+      "modified_at": "2023-04-12T07:45:38.639Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -1836,6 +3298,66 @@
       "question": "vorhaben",
       "option": "vorhaben-umbau-erweiterung-zweckaenderung",
       "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "waldareal.waldareal-ja",
+    "fields": {
+      "created_at": "2023-04-12T07:58:42.410Z",
+      "modified_at": "2023-04-12T07:58:42.410Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "waldareal",
+      "option": "waldareal-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "waldareal.waldareal-nein",
+    "fields": {
+      "created_at": "2023-04-12T07:58:42.407Z",
+      "modified_at": "2023-04-12T07:58:42.407Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "waldareal",
+      "option": "waldareal-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "wohnnutzung.wohnnutzung-ja",
+    "fields": {
+      "created_at": "2023-04-12T08:01:53.966Z",
+      "modified_at": "2023-04-12T08:01:53.966Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "wohnnutzung",
+      "option": "wohnnutzung-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "wohnnutzung.wohnnutzung-nein",
+    "fields": {
+      "created_at": "2023-04-12T08:01:53.963Z",
+      "modified_at": "2023-04-12T08:01:53.963Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "wohnnutzung",
+      "option": "wohnnutzung-nein",
+      "sort": 1
     }
   },
   {
