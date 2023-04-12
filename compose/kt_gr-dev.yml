@@ -24,18 +24,27 @@ services:
     # better be named differently once following is fixed:
     # https://github.com/docker/compose/issues/5458
     # see also other services below
+    build:
+      context: ../db
+      cache_from:
+        - acr.run/camac-ng/camac-ng/db:master
     image: acr.run/camac-ng/camac-ng/db:master
     ports:
       - "5432:5432"
     environment:
+      - POSTGRES_USER=camac
       - POSTGRES_PASSWORD=camac
+      - POSTGRES_DATABASE=${APPLICATION}
     volumes:
       - ../db/init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh:ro
+      - pgdata:/var/lib/postgresql/data
     networks:
       - ebau.local
 
-  django: &django
+  django:
     image: acr.run/camac-ng/camac-ng/django:master
+    depends_on:
+      - db
     build:
       args:
         REQUIREMENTS: requirements-dev.txt
@@ -44,8 +53,9 @@ services:
       - "5678:5678"
     volumes:
       - ../django:/app
+      - djangomedia:/var/lib/camac/media
+      - djangotmpmedia:/tmp/camac/tmpfiles
     environment:
-      - ENV=development
       - APPLICATION_ENV=development
       - KEYCLOAK_URL=http://ebau-keycloak.local/auth/
       - DATABASE_PASSWORD=camac
@@ -59,7 +69,6 @@ services:
     networks:
       - ebau.local
     command: /bin/sh -c "./wait-for-it.sh db:5432 -- ./manage.py migrate && ./manage.py collectstatic --noinput && ./manage.py runserver 0:80 --pythonpath /app/$APPLICATION"
-    # command: /bin/sh -c "while true; do sleep 10; done"
 
   ember-caluma-portal:
     image: acr.run/camac-ng/camac-ng/ember-caluma-portal:master
@@ -73,6 +82,8 @@ services:
 
   keycloak:
     image: acr.run/camac-ng/camac-ng/keycloak-${APPLICATION}:master
+    depends_on:
+      - db
     volumes:
       - ../keycloak/config/${APPLICATION}-test-config.json:/opt/keycloak/data/import/test-config.json
     environment:
@@ -93,6 +104,8 @@ services:
   document-merge-service:
     networks:
       - ebau.local
+    depends_on:
+      - db
     environment:
       - ENV=dev
       - OIDC_USERINFO_ENDPOINT=http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
@@ -129,12 +142,32 @@ services:
       - ebau.local
 
   minio:
+    image: minio/minio:latest@sha256:7f84f4d07cf0d3562911c6b072e1183436fbc3cad8ccef8157ec5c27456ed452
+    volumes:
+      - minio_data:/data
     environment:
+      - MINIO_ACCESS_KEY=minio
+      - MINIO_NOTIFY_WEBHOOK_ENABLE_ALEXANDRIA=on
+      - MINIO_NOTIFY_WEBHOOK_ENDPOINT_ALEXANDRIA=http://alexandria:8000/api/v1/hook
       - MINIO_SECRET_KEY=minio123
+    command: server data
     networks:
       - ebau.local
 
   mc:
+    image: minio/mc:RELEASE.2020-10-03T02-54-56Z
+    restart: on-failure
+    environment:
+      - MINIO_ACCESS_KEY=minio
+      - MINIO_SECRET_KEY=minio123
+    entrypoint: >
+      /bin/sh -c "
+      mc config host add dc-minio http://minio:9000 $${MINIO_ACCESS_KEY} $${MINIO_SECRET_KEY} --api S3v4;
+      mc mb dc-minio/alexandria-media;
+      mc event add dc-minio/alexandria-media arn:minio:sqs::ALEXANDRIA:webhook --event put;
+      mc event list dc-minio/alexandria-media;"
+    depends_on:
+      - minio
     networks:
       - ebau.local
 
