@@ -19,6 +19,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "bab",
+    "fields": {
+      "created_at": "2023-04-12T08:21:46.941Z",
+      "modified_at": "2023-04-12T08:21:46.941Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Bauten und Anlagen ausserhalb der Bauzone (BAB)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "baugesuch",
     "fields": {
       "created_at": "2021-02-12T13:03:45.382Z",
@@ -167,6 +185,24 @@
     }
   },
   {
+    "model": "caluma_form.form",
+    "pk": "spezialformulare",
+    "fields": {
+      "created_at": "2023-04-12T08:21:20.586Z",
+      "modified_at": "2023-04-12T08:21:20.586Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Spezialformulare\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
     "model": "caluma_form.formquestion",
     "pk": "allgemeine-informationen.bauvorhaben",
     "fields": {
@@ -213,6 +249,381 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "bab.abtransport-ort-der-entsorgung",
+    "fields": {
+      "created_at": "2023-04-12T09:08:35.116Z",
+      "modified_at": "2023-04-12T09:08:35.116Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "abtransport-ort-der-entsorgung",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.abtransport-volumen",
+    "fields": {
+      "created_at": "2023-04-12T09:08:51.938Z",
+      "modified_at": "2023-04-12T09:08:51.938Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "abtransport-volumen",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.aushub-vor-ort-volumen",
+    "fields": {
+      "created_at": "2023-04-12T09:11:21.504Z",
+      "modified_at": "2023-04-12T09:11:21.505Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "aushub-vor-ort-volumen",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.bab-begruendung",
+    "fields": {
+      "created_at": "2023-04-12T08:42:31.701Z",
+      "modified_at": "2023-04-12T08:42:31.701Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "bab-begruendung",
+      "sort": 22
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.bab-beschrieb",
+    "fields": {
+      "created_at": "2023-04-12T08:42:09.993Z",
+      "modified_at": "2023-04-12T08:42:09.993Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "bab-beschrieb",
+      "sort": 23
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.bauabfaelle-titel",
+    "fields": {
+      "created_at": "2023-04-12T09:10:11.565Z",
+      "modified_at": "2023-04-12T09:10:11.565Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "bauabfaelle-titel",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.beschreibung-wasserversorgung-fassung-vorgesehen",
+    "fields": {
+      "created_at": "2023-04-12T08:59:55.069Z",
+      "modified_at": "2023-04-12T08:59:55.069Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "beschreibung-wasserversorgung-fassung-vorgesehen",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.beschreibung-wasserversorgung-vorhanden",
+    "fields": {
+      "created_at": "2023-04-12T08:59:02.473Z",
+      "modified_at": "2023-04-12T08:59:02.473Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "beschreibung-wasserversorgung-vorhanden",
+      "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.erschliessung-wasserversorgung",
+    "fields": {
+      "created_at": "2023-04-12T08:57:50.176Z",
+      "modified_at": "2023-04-12T08:57:50.176Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "erschliessung-wasserversorgung",
+      "sort": 17
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.erschliessungsanlagen",
+    "fields": {
+      "created_at": "2023-04-12T08:46:21.645Z",
+      "modified_at": "2023-04-12T08:46:21.645Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "erschliessungsanlagen",
+      "sort": 21
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.erschliessungsanlagen-beschreibung",
+    "fields": {
+      "created_at": "2023-04-12T08:46:58.739Z",
+      "modified_at": "2023-04-12T08:46:58.739Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "erschliessungsanlagen-beschreibung",
+      "sort": 20
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.landwirtschaftliches-vorhaben",
+    "fields": {
+      "created_at": "2023-04-12T08:22:19.971Z",
+      "modified_at": "2023-04-12T08:22:19.971Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "landwirtschaftliches-vorhaben",
+      "sort": 25
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.materialablagerung-beschreibung",
+    "fields": {
+      "created_at": "2023-04-12T09:06:03.037Z",
+      "modified_at": "2023-04-12T09:06:03.038Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "materialablagerung-beschreibung",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.materialablagerung-flaeche",
+    "fields": {
+      "created_at": "2023-04-12T09:04:36.712Z",
+      "modified_at": "2023-04-12T09:04:36.712Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "materialablagerung-flaeche",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.materialablagerung-titel",
+    "fields": {
+      "created_at": "2023-04-12T09:04:10.059Z",
+      "modified_at": "2023-04-12T09:04:10.059Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "materialablagerung-titel",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.materialablagerung-volumen",
+    "fields": {
+      "created_at": "2023-04-12T09:05:07.173Z",
+      "modified_at": "2023-04-12T09:05:07.173Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "materialablagerung-volumen",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.paechter",
+    "fields": {
+      "created_at": "2023-04-12T08:44:14.960Z",
+      "modified_at": "2023-04-12T08:44:14.960Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "paechter",
+      "sort": 24
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.schuettmaterial-herkunft",
+    "fields": {
+      "created_at": "2023-04-12T09:06:52.513Z",
+      "modified_at": "2023-04-12T09:06:52.513Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "schuettmaterial-herkunft",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.schuettmaterial-volumen",
+    "fields": {
+      "created_at": "2023-04-12T09:07:20.369Z",
+      "modified_at": "2023-04-12T09:07:20.369Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "schuettmaterial-volumen",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.ueberschuessiges-material",
+    "fields": {
+      "created_at": "2023-04-12T09:12:08.890Z",
+      "modified_at": "2023-04-12T09:12:08.890Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "ueberschuessiges-material",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.ueberschuessiges-material-ort-der-entsorgung",
+    "fields": {
+      "created_at": "2023-04-12T09:13:07.895Z",
+      "modified_at": "2023-04-12T09:13:07.895Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "ueberschuessiges-material-ort-der-entsorgung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.ueberschuessiges-material-volumen",
+    "fields": {
+      "created_at": "2023-04-12T09:12:49.401Z",
+      "modified_at": "2023-04-12T09:12:49.401Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "ueberschuessiges-material-volumen",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.verwendung-des-aushubs-vor-ort",
+    "fields": {
+      "created_at": "2023-04-12T09:10:34.837Z",
+      "modified_at": "2023-04-12T09:10:34.837Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "verwendung-des-aushubs-vor-ort",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.weitere-anlagen",
+    "fields": {
+      "created_at": "2023-04-12T08:48:36.153Z",
+      "modified_at": "2023-04-12T08:48:36.153Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "weitere-anlagen",
+      "sort": 19
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.weitere-anlagen-beschreibung",
+    "fields": {
+      "created_at": "2023-04-12T08:49:12.315Z",
+      "modified_at": "2023-04-12T08:49:12.315Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "weitere-anlagen-beschreibung",
+      "sort": 18
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "baugesuch.allgemeine-informationen",
     "fields": {
       "created_at": "2023-04-05T10:17:03.246Z",
@@ -223,7 +634,7 @@
       "modified_by_group": null,
       "form": "baugesuch",
       "question": "allgemeine-informationen",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -253,7 +664,7 @@
       "modified_by_group": null,
       "form": "baugesuch",
       "question": "grundstueck",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -268,7 +679,22 @@
       "modified_by_group": null,
       "form": "baugesuch",
       "question": "nutzung-bauvorhaben",
-      "sort": 3
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch.spezialformulare",
+    "fields": {
+      "created_at": "2023-04-12T08:23:22.738Z",
+      "modified_at": "2023-04-12T08:23:22.738Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baugesuch",
+      "question": "spezialformulare",
+      "sort": 2
     }
   },
   {
@@ -677,6 +1103,21 @@
     }
   },
   {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare.bauten-ausserhalb-bauzone",
+    "fields": {
+      "created_at": "2023-04-12T08:22:43.557Z",
+      "modified_at": "2023-04-12T08:22:43.557Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare",
+      "question": "bauten-ausserhalb-bauzone",
+      "sort": 1
+    }
+  },
+  {
     "model": "caluma_form.option",
     "pk": "amts-fachstelle-amt-fuer-energie-und-verkehr",
     "fields": {
@@ -797,38 +1238,6 @@
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "bauvorhaben-ausserhalb-bauzone-ja",
-    "fields": {
-      "created_at": "2023-04-12T07:57:55.128Z",
-      "modified_at": "2023-04-12T07:57:55.128Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "bauvorhaben-ausserhalb-bauzone-nein",
-    "fields": {
-      "created_at": "2023-04-12T07:57:55.129Z",
-      "modified_at": "2023-04-12T07:57:55.129Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": false,
@@ -1110,6 +1519,118 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "beschreibung-wasserversorgung-fassung-vorgesehen-brunnen",
+    "fields": {
+      "created_at": "2023-04-12T08:59:54.705Z",
+      "modified_at": "2023-04-12T09:01:02.168Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Brunnen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "beschreibung-wasserversorgung-fassung-vorgesehen-oeffentliche-wasserversorgung",
+    "fields": {
+      "created_at": "2023-04-12T08:59:54.684Z",
+      "modified_at": "2023-04-12T09:01:02.158Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"\\u00f6ffentliche Wasserversorgung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "beschreibung-wasserversorgung-fassung-vorgesehen-quellfassung",
+    "fields": {
+      "created_at": "2023-04-12T08:59:54.690Z",
+      "modified_at": "2023-04-12T09:01:02.167Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Quellfassung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "beschreibung-wasserversorgung-vorhanden-bach",
+    "fields": {
+      "created_at": "2023-04-12T08:59:02.047Z",
+      "modified_at": "2023-04-12T09:00:07.363Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bach\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "beschreibung-wasserversorgung-vorhanden-brunnen",
+    "fields": {
+      "created_at": "2023-04-12T08:59:02.036Z",
+      "modified_at": "2023-04-12T09:00:07.373Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Brunnen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "beschreibung-wasserversorgung-vorhanden-oeffentliche-wasserversorgung",
+    "fields": {
+      "created_at": "2023-04-12T08:59:02.039Z",
+      "modified_at": "2023-04-12T09:00:07.370Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"\\u00f6ffentliche Wasserversorgung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "beschreibung-wasserversorgung-vorhanden-quelle",
+    "fields": {
+      "created_at": "2023-04-12T08:59:02.040Z",
+      "modified_at": "2023-04-12T09:00:07.360Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Quelle\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "besondere-anlagen-ja",
     "fields": {
       "created_at": "2023-04-12T08:06:16.973Z",
@@ -1302,6 +1823,102 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "erschliessung-wasserversorgung-fassung-vorgesehen",
+    "fields": {
+      "created_at": "2023-04-12T08:57:49.924Z",
+      "modified_at": "2023-04-12T08:57:49.924Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fassung vorgesehen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "erschliessung-wasserversorgung-vorhanden",
+    "fields": {
+      "created_at": "2023-04-12T08:57:49.925Z",
+      "modified_at": "2023-04-12T08:57:49.925Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"vorhanden\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "erschliessungsanlagen-andere",
+    "fields": {
+      "created_at": "2023-04-12T08:46:21.322Z",
+      "modified_at": "2023-04-12T08:46:21.323Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "erschliessungsanlagen-touristische-infrastruktur",
+    "fields": {
+      "created_at": "2023-04-12T08:46:21.329Z",
+      "modified_at": "2023-04-12T08:46:21.329Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Touristische Infrastruktur\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "erschliessungsanlagen-verkehr",
+    "fields": {
+      "created_at": "2023-04-12T08:46:21.325Z",
+      "modified_at": "2023-04-12T08:46:21.325Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Verkehr (Strassen / Wege)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "erschliessungsanlagen-versorgung-entsorgung",
+    "fields": {
+      "created_at": "2023-04-12T08:46:21.324Z",
+      "modified_at": "2023-04-12T08:46:21.324Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Versorgung / Entsorgung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "haustechnische-anlagen-brandschutz-ja",
     "fields": {
       "created_at": "2023-04-12T08:12:57.810Z",
@@ -1366,6 +1983,86 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "landwirtschaftliches-vorhaben-ja",
+    "fields": {
+      "created_at": "2023-04-12T08:22:19.685Z",
+      "modified_at": "2023-04-12T08:41:02.494Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "landwirtschaftliches-vorhaben-nein",
+    "fields": {
+      "created_at": "2023-04-12T08:22:19.687Z",
+      "modified_at": "2023-04-12T08:41:02.488Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "materialablagerung-beschreibung-abtransport-von-material",
+    "fields": {
+      "created_at": "2023-04-12T09:06:02.659Z",
+      "modified_at": "2023-04-12T09:06:02.659Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abtransport von Material\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "materialablagerung-beschreibung-landwirtschaftliche-bewirtschaftungsverbesserung",
+    "fields": {
+      "created_at": "2023-04-12T09:06:02.649Z",
+      "modified_at": "2023-04-12T09:06:02.649Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Landwirtschaftliche Bewirtschaftungsverbesserung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "materialablagerung-beschreibung-zufuhr-von-schuettmaterial",
+    "fields": {
+      "created_at": "2023-04-12T09:06:02.651Z",
+      "modified_at": "2023-04-12T09:06:02.651Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zufuhr von Sch\\u00fcttmaterial\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "mehr-als-50-arbeitsplaetze-ja",
     "fields": {
       "created_at": "2023-04-05T10:55:44.032Z",
@@ -1389,6 +2086,70 @@
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "ueberschuessiges-material-ja",
+    "fields": {
+      "created_at": "2023-04-12T09:12:01.967Z",
+      "modified_at": "2023-04-12T09:12:08.634Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "ueberschuessiges-material-nein",
+    "fields": {
+      "created_at": "2023-04-12T09:12:01.961Z",
+      "modified_at": "2023-04-12T09:12:08.640Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "verwendung-des-aushubs-vor-ort-ja",
+    "fields": {
+      "created_at": "2023-04-12T09:10:34.589Z",
+      "modified_at": "2023-04-12T09:10:34.589Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "verwendung-des-aushubs-vor-ort-nein",
+    "fields": {
+      "created_at": "2023-04-12T09:10:34.588Z",
+      "modified_at": "2023-04-12T09:10:34.588Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": false,
@@ -1494,6 +2255,102 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "weitere-anlagen-andere",
+    "fields": {
+      "created_at": "2023-04-12T08:48:35.743Z",
+      "modified_at": "2023-04-12T08:48:35.743Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "weitere-anlagen-antennenanlage",
+    "fields": {
+      "created_at": "2023-04-12T08:48:35.779Z",
+      "modified_at": "2023-04-12T08:48:35.779Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Antennenanlage\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "weitere-anlagen-beschneiungsanlage",
+    "fields": {
+      "created_at": "2023-04-12T08:48:35.748Z",
+      "modified_at": "2023-04-12T08:48:35.748Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschneiungsanlage\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "weitere-anlagen-materialablagerung",
+    "fields": {
+      "created_at": "2023-04-12T08:48:35.741Z",
+      "modified_at": "2023-04-12T08:48:35.741Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Materialablagerung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "weitere-anlagen-pistenkorrektur",
+    "fields": {
+      "created_at": "2023-04-12T08:48:35.752Z",
+      "modified_at": "2023-04-12T08:48:35.752Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Pistenkorrektur\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "weitere-anlagen-terrainveraenderung",
+    "fields": {
+      "created_at": "2023-04-12T08:48:35.791Z",
+      "modified_at": "2023-04-12T08:48:35.791Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Terrainver\\u00e4nderung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "wohnnutzung-ja",
     "fields": {
       "created_at": "2023-04-12T08:01:53.820Z",
@@ -1554,6 +2411,74 @@
       "is_archived": false,
       "meta": {},
       "source": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "abtransport-ort-der-entsorgung",
+    "fields": {
+      "created_at": "2023-04-12T09:08:34.991Z",
+      "modified_at": "2023-04-12T09:08:34.991Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abtransport: Ort der Entsorgung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!(\"materialablagerung-beschreibung-abtransport-von-material\" in \"materialablagerung-beschreibung\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "abtransport-volumen",
+    "fields": {
+      "created_at": "2023-04-12T09:08:51.835Z",
+      "modified_at": "2023-04-12T09:09:14.382Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Volumen Abtransport (m\\u00b3)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "!(\"materialablagerung-beschreibung-abtransport-von-material\" in \"materialablagerung-beschreibung\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
     }
   },
   {
@@ -1651,6 +2576,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "aushub-vor-ort-volumen",
+    "fields": {
+      "created_at": "2023-04-12T09:11:21.388Z",
+      "modified_at": "2023-04-12T09:11:21.388Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Volumen (m\\u00b3)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "!(\"verwendung-des-aushubs-vor-ort-ja\" == \"verwendung-des-aushubs-vor-ort\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "ausserhalb-bauzone",
     "fields": {
       "created_at": "2023-04-12T07:57:55.257Z",
@@ -1668,6 +2627,105 @@
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bab-begruendung",
+    "fields": {
+      "created_at": "2023-04-12T08:42:31.596Z",
+      "modified_at": "2023-04-12T08:42:37.805Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Begr\\u00fcndung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bab-beschrieb",
+    "fields": {
+      "created_at": "2023-04-12T08:42:09.890Z",
+      "modified_at": "2023-04-12T08:42:18.153Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschrieb\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bauabfaelle-titel",
+    "fields": {
+      "created_at": "2023-04-12T09:10:11.459Z",
+      "modified_at": "2023-04-12T09:10:11.459Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bauabf\\u00e4lle Titel\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"---\\n\\n#### Bauabf\\u00e4lle und Aushub\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -1769,6 +2827,37 @@
       "data_source": null,
       "row_form": null,
       "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bauten-ausserhalb-bauzone",
+    "fields": {
+      "created_at": "2023-04-12T08:22:43.441Z",
+      "modified_at": "2023-04-12T08:37:02.015Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bauten ausserhalb Bauzone\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "!(\"ausserhalb-bauzone-ja\" == \"ausserhalb-bauzone\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "bab",
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -1945,6 +3034,68 @@
       "type": "multiple_choice",
       "is_required": "false",
       "is_hidden": "!(\"kantonsstrassen-ja\" == \"kantonsstrassen\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "beschreibung-wasserversorgung-fassung-vorgesehen",
+    "fields": {
+      "created_at": "2023-04-12T08:59:54.858Z",
+      "modified_at": "2023-04-12T09:01:02.358Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung Fassung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "!(\"erschliessung-wasserversorgung-fassung-vorgesehen\" in \"erschliessung-wasserversorgung\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "beschreibung-wasserversorgung-vorhanden",
+    "fields": {
+      "created_at": "2023-04-12T08:59:02.338Z",
+      "modified_at": "2023-04-12T09:00:07.682Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung vorhandene Wasserversorgung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "!(\"erschliessung-wasserversorgung-vorhanden\" in \"erschliessung-wasserversorgung\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
@@ -2154,6 +3305,102 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "erschliessung-wasserversorgung",
+    "fields": {
+      "created_at": "2023-04-12T08:57:50.057Z",
+      "modified_at": "2023-04-12T08:57:50.058Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Erschliessung Wasserversorgung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "erschliessungsanlagen",
+    "fields": {
+      "created_at": "2023-04-12T08:46:21.525Z",
+      "modified_at": "2023-04-12T08:46:21.525Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Erschliessungsanlagen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "erschliessungsanlagen-beschreibung",
+    "fields": {
+      "created_at": "2023-04-12T08:46:58.630Z",
+      "modified_at": "2023-04-12T08:47:11.164Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!(\"erschliessungsanlagen-andere\" in \"erschliessungsanlagen\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "gebaeudekubatur",
     "fields": {
       "created_at": "2023-04-12T07:50:27.132Z",
@@ -2349,6 +3596,167 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "landwirtschaftliches-vorhaben",
+    "fields": {
+      "created_at": "2023-04-12T08:22:19.838Z",
+      "modified_at": "2023-04-12T08:41:02.627Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Landwirtschaftliches Vorhaben\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materialablagerung-beschreibung",
+    "fields": {
+      "created_at": "2023-04-12T09:06:02.912Z",
+      "modified_at": "2023-04-12T09:06:02.912Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materialablagerung-flaeche",
+    "fields": {
+      "created_at": "2023-04-12T09:04:36.603Z",
+      "modified_at": "2023-04-12T09:04:43.014Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fl\\u00e4che (m\\u00b2)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materialablagerung-titel",
+    "fields": {
+      "created_at": "2023-04-12T09:04:09.954Z",
+      "modified_at": "2023-04-12T09:09:41.244Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Materialablagerung Titel\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"---\\n\\n#### Materialablagerung und -abtrag, Pistenplanie, landwirtschaftliche Terrainver\\u00e4nderung usw.\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materialablagerung-volumen",
+    "fields": {
+      "created_at": "2023-04-12T09:05:07.063Z",
+      "modified_at": "2023-04-12T09:05:07.063Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Volumen (m\\u00b3)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "mehr-als-50-arbeitsplaetze",
     "fields": {
       "created_at": "2023-04-05T10:55:44.175Z",
@@ -2411,6 +3819,45 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "paechter",
+    "fields": {
+      "created_at": "2023-04-12T08:44:14.851Z",
+      "modified_at": "2023-04-12T08:44:36.465Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"P\\u00e4chter\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "table",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "columnsToDisplay": [
+          "name-juristische-person-gesuchstellerin",
+          "name-gesuchstellerin",
+          "vorname-gesuchstellerin",
+          "telefon-oder-mobile-gesuchstellerin",
+          "e-mail-gesuchstellerin"
+        ]
+      },
+      "data_source": null,
+      "row_form": "personalien-tabelle",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "personalien",
     "fields": {
       "created_at": "2022-09-21T12:18:04.569Z",
@@ -2433,6 +3880,235 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "personalien",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "schuettmaterial-herkunft",
+    "fields": {
+      "created_at": "2023-04-12T09:06:52.404Z",
+      "modified_at": "2023-04-12T09:07:49.302Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Herkunft Sch\\u00fcttmaterial\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!(\"materialablagerung-beschreibung-zufuhr-von-schuettmaterial\" in \"materialablagerung-beschreibung\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "schuettmaterial-volumen",
+    "fields": {
+      "created_at": "2023-04-12T09:07:20.261Z",
+      "modified_at": "2023-04-12T09:07:57.137Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Volumen Sch\\u00fcttmaterial (m\\u00b3)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "!(\"materialablagerung-beschreibung-zufuhr-von-schuettmaterial\" in \"materialablagerung-beschreibung\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "spezialformulare",
+    "fields": {
+      "created_at": "2023-04-12T08:23:22.640Z",
+      "modified_at": "2023-04-12T08:23:22.640Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Spezialformulare\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "spezialformulare",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "ueberschuessiges-material",
+    "fields": {
+      "created_at": "2023-04-12T09:12:08.768Z",
+      "modified_at": "2023-04-12T09:12:08.768Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entsorgung von \\u00fcbersch\\u00fcssigem Material\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "ueberschuessiges-material-ort-der-entsorgung",
+    "fields": {
+      "created_at": "2023-04-12T09:13:07.789Z",
+      "modified_at": "2023-04-12T09:13:07.789Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ort der Entsorgung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!(\"ueberschuessiges-material-ja\" == \"ueberschuessiges-material\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "ueberschuessiges-material-volumen",
+    "fields": {
+      "created_at": "2023-04-12T09:12:49.285Z",
+      "modified_at": "2023-04-12T09:12:49.285Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Volumen (m\\u00b3)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "!(\"ueberschuessiges-material-ja\" == \"ueberschuessiges-material\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "verwendung-des-aushubs-vor-ort",
+    "fields": {
+      "created_at": "2023-04-12T09:10:34.724Z",
+      "modified_at": "2023-04-12T09:10:34.724Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Verwendung des Aushubs vor Ort\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -2522,6 +4198,71 @@
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "weitere-anlagen",
+    "fields": {
+      "created_at": "2023-04-12T08:48:36.019Z",
+      "modified_at": "2023-04-12T08:48:36.019Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Weitere Anlagen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "weitere-anlagen-beschreibung",
+    "fields": {
+      "created_at": "2023-04-12T08:49:12.206Z",
+      "modified_at": "2023-04-12T08:49:12.206Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!(\"weitere-anlagen-andere\" == \"weitere-anlagen\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -2972,6 +4713,111 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "beschreibung-wasserversorgung-fassung-vorgesehen.beschreibung-wasserversorgung-fassung-vorgesehen-brunnen",
+    "fields": {
+      "created_at": "2023-04-12T09:01:02.364Z",
+      "modified_at": "2023-04-12T09:01:02.364Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "beschreibung-wasserversorgung-fassung-vorgesehen",
+      "option": "beschreibung-wasserversorgung-fassung-vorgesehen-brunnen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "beschreibung-wasserversorgung-fassung-vorgesehen.beschreibung-wasserversorgung-fassung-vorgesehen-oeffentliche-wasserversorgung",
+    "fields": {
+      "created_at": "2023-04-12T09:01:02.369Z",
+      "modified_at": "2023-04-12T09:01:02.369Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "beschreibung-wasserversorgung-fassung-vorgesehen",
+      "option": "beschreibung-wasserversorgung-fassung-vorgesehen-oeffentliche-wasserversorgung",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "beschreibung-wasserversorgung-fassung-vorgesehen.beschreibung-wasserversorgung-fassung-vorgesehen-quellfassung",
+    "fields": {
+      "created_at": "2023-04-12T09:01:02.367Z",
+      "modified_at": "2023-04-12T09:01:02.367Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "beschreibung-wasserversorgung-fassung-vorgesehen",
+      "option": "beschreibung-wasserversorgung-fassung-vorgesehen-quellfassung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "beschreibung-wasserversorgung-vorhanden.beschreibung-wasserversorgung-vorhanden-bach",
+    "fields": {
+      "created_at": "2023-04-12T09:00:07.694Z",
+      "modified_at": "2023-04-12T09:00:07.694Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "beschreibung-wasserversorgung-vorhanden",
+      "option": "beschreibung-wasserversorgung-vorhanden-bach",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "beschreibung-wasserversorgung-vorhanden.beschreibung-wasserversorgung-vorhanden-brunnen",
+    "fields": {
+      "created_at": "2023-04-12T09:00:07.691Z",
+      "modified_at": "2023-04-12T09:00:07.691Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "beschreibung-wasserversorgung-vorhanden",
+      "option": "beschreibung-wasserversorgung-vorhanden-brunnen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "beschreibung-wasserversorgung-vorhanden.beschreibung-wasserversorgung-vorhanden-oeffentliche-wasserversorgung",
+    "fields": {
+      "created_at": "2023-04-12T09:00:07.700Z",
+      "modified_at": "2023-04-12T09:00:07.700Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "beschreibung-wasserversorgung-vorhanden",
+      "option": "beschreibung-wasserversorgung-vorhanden-oeffentliche-wasserversorgung",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "beschreibung-wasserversorgung-vorhanden.beschreibung-wasserversorgung-vorhanden-quelle",
+    "fields": {
+      "created_at": "2023-04-12T09:00:07.697Z",
+      "modified_at": "2023-04-12T09:00:07.697Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "beschreibung-wasserversorgung-vorhanden",
+      "option": "beschreibung-wasserversorgung-vorhanden-quelle",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "besondere-anlagen.besondere-anlagen-ja",
     "fields": {
       "created_at": "2023-04-12T08:06:17.131Z",
@@ -3152,6 +4998,96 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "erschliessung-wasserversorgung.erschliessung-wasserversorgung-fassung-vorgesehen",
+    "fields": {
+      "created_at": "2023-04-12T08:57:50.063Z",
+      "modified_at": "2023-04-12T08:57:50.063Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "erschliessung-wasserversorgung",
+      "option": "erschliessung-wasserversorgung-fassung-vorgesehen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "erschliessung-wasserversorgung.erschliessung-wasserversorgung-vorhanden",
+    "fields": {
+      "created_at": "2023-04-12T08:57:50.066Z",
+      "modified_at": "2023-04-12T08:57:50.066Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "erschliessung-wasserversorgung",
+      "option": "erschliessung-wasserversorgung-vorhanden",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "erschliessungsanlagen.erschliessungsanlagen-andere",
+    "fields": {
+      "created_at": "2023-04-12T08:46:21.530Z",
+      "modified_at": "2023-04-12T08:46:21.530Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "erschliessungsanlagen",
+      "option": "erschliessungsanlagen-andere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "erschliessungsanlagen.erschliessungsanlagen-touristische-infrastruktur",
+    "fields": {
+      "created_at": "2023-04-12T08:46:21.533Z",
+      "modified_at": "2023-04-12T08:46:21.534Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "erschliessungsanlagen",
+      "option": "erschliessungsanlagen-touristische-infrastruktur",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "erschliessungsanlagen.erschliessungsanlagen-verkehr",
+    "fields": {
+      "created_at": "2023-04-12T08:46:21.538Z",
+      "modified_at": "2023-04-12T08:46:21.538Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "erschliessungsanlagen",
+      "option": "erschliessungsanlagen-verkehr",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "erschliessungsanlagen.erschliessungsanlagen-versorgung-entsorgung",
+    "fields": {
+      "created_at": "2023-04-12T08:46:21.536Z",
+      "modified_at": "2023-04-12T08:46:21.536Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "erschliessungsanlagen",
+      "option": "erschliessungsanlagen-versorgung-entsorgung",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "haustechnische-anlagen-brandschutz.haustechnische-anlagen-brandschutz-ja",
     "fields": {
       "created_at": "2023-04-12T08:12:57.959Z",
@@ -3212,6 +5148,81 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "landwirtschaftliches-vorhaben.landwirtschaftliches-vorhaben-ja",
+    "fields": {
+      "created_at": "2023-04-12T08:41:02.636Z",
+      "modified_at": "2023-04-12T08:41:02.636Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "landwirtschaftliches-vorhaben",
+      "option": "landwirtschaftliches-vorhaben-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "landwirtschaftliches-vorhaben.landwirtschaftliches-vorhaben-nein",
+    "fields": {
+      "created_at": "2023-04-12T08:41:02.633Z",
+      "modified_at": "2023-04-12T08:41:02.633Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "landwirtschaftliches-vorhaben",
+      "option": "landwirtschaftliches-vorhaben-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "materialablagerung-beschreibung.materialablagerung-beschreibung-abtransport-von-material",
+    "fields": {
+      "created_at": "2023-04-12T09:06:02.920Z",
+      "modified_at": "2023-04-12T09:06:02.920Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "materialablagerung-beschreibung",
+      "option": "materialablagerung-beschreibung-abtransport-von-material",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "materialablagerung-beschreibung.materialablagerung-beschreibung-landwirtschaftliche-bewirtschaftungsverbesserung",
+    "fields": {
+      "created_at": "2023-04-12T09:06:02.917Z",
+      "modified_at": "2023-04-12T09:06:02.917Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "materialablagerung-beschreibung",
+      "option": "materialablagerung-beschreibung-landwirtschaftliche-bewirtschaftungsverbesserung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "materialablagerung-beschreibung.materialablagerung-beschreibung-zufuhr-von-schuettmaterial",
+    "fields": {
+      "created_at": "2023-04-12T09:06:02.923Z",
+      "modified_at": "2023-04-12T09:06:02.923Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "materialablagerung-beschreibung",
+      "option": "materialablagerung-beschreibung-zufuhr-von-schuettmaterial",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "mehr-als-50-arbeitsplaetze.mehr-als-50-arbeitsplaetze-ja",
     "fields": {
       "created_at": "2023-04-05T10:56:25.305Z",
@@ -3237,6 +5248,66 @@
       "modified_by_group": null,
       "question": "mehr-als-50-arbeitsplaetze",
       "option": "mehr-als-50-arbeitsplaetze-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "ueberschuessiges-material.ueberschuessiges-material-ja",
+    "fields": {
+      "created_at": "2023-04-12T09:12:08.777Z",
+      "modified_at": "2023-04-12T09:12:08.777Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "ueberschuessiges-material",
+      "option": "ueberschuessiges-material-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "ueberschuessiges-material.ueberschuessiges-material-nein",
+    "fields": {
+      "created_at": "2023-04-12T09:12:08.773Z",
+      "modified_at": "2023-04-12T09:12:08.773Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "ueberschuessiges-material",
+      "option": "ueberschuessiges-material-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "verwendung-des-aushubs-vor-ort.verwendung-des-aushubs-vor-ort-ja",
+    "fields": {
+      "created_at": "2023-04-12T09:10:34.733Z",
+      "modified_at": "2023-04-12T09:10:34.733Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "verwendung-des-aushubs-vor-ort",
+      "option": "verwendung-des-aushubs-vor-ort-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "verwendung-des-aushubs-vor-ort.verwendung-des-aushubs-vor-ort-nein",
+    "fields": {
+      "created_at": "2023-04-12T09:10:34.729Z",
+      "modified_at": "2023-04-12T09:10:34.729Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "verwendung-des-aushubs-vor-ort",
+      "option": "verwendung-des-aushubs-vor-ort-nein",
       "sort": 1
     }
   },
@@ -3328,6 +5399,96 @@
       "question": "waldareal",
       "option": "waldareal-nein",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "weitere-anlagen.weitere-anlagen-andere",
+    "fields": {
+      "created_at": "2023-04-12T08:48:36.024Z",
+      "modified_at": "2023-04-12T08:48:36.024Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "weitere-anlagen",
+      "option": "weitere-anlagen-andere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "weitere-anlagen.weitere-anlagen-antennenanlage",
+    "fields": {
+      "created_at": "2023-04-12T08:48:36.039Z",
+      "modified_at": "2023-04-12T08:48:36.039Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "weitere-anlagen",
+      "option": "weitere-anlagen-antennenanlage",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "weitere-anlagen.weitere-anlagen-beschneiungsanlage",
+    "fields": {
+      "created_at": "2023-04-12T08:48:36.036Z",
+      "modified_at": "2023-04-12T08:48:36.036Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "weitere-anlagen",
+      "option": "weitere-anlagen-beschneiungsanlage",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "weitere-anlagen.weitere-anlagen-materialablagerung",
+    "fields": {
+      "created_at": "2023-04-12T08:48:36.028Z",
+      "modified_at": "2023-04-12T08:48:36.028Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "weitere-anlagen",
+      "option": "weitere-anlagen-materialablagerung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "weitere-anlagen.weitere-anlagen-pistenkorrektur",
+    "fields": {
+      "created_at": "2023-04-12T08:48:36.033Z",
+      "modified_at": "2023-04-12T08:48:36.033Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "weitere-anlagen",
+      "option": "weitere-anlagen-pistenkorrektur",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "weitere-anlagen.weitere-anlagen-terrainveraenderung",
+    "fields": {
+      "created_at": "2023-04-12T08:48:36.030Z",
+      "modified_at": "2023-04-12T08:48:36.030Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "weitere-anlagen",
+      "option": "weitere-anlagen-terrainveraenderung",
+      "sort": 3
     }
   },
   {
