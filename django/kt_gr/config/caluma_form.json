@@ -78,6 +78,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "betriebsleiterwohnhaus",
+    "fields": {
+      "created_at": "2023-04-12T11:25:58.383Z",
+      "modified_at": "2023-04-12T11:25:58.383Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Betriebsleiterwohnhaus\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "dossierpruefung",
     "fields": {
       "created_at": "2020-10-13T11:53:41.201Z",
@@ -259,7 +277,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "abtransport-ort-der-entsorgung",
-      "sort": 8
+      "sort": 25
     }
   },
   {
@@ -274,7 +292,22 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "abtransport-volumen",
-      "sort": 7
+      "sort": 24
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.anlagen-titel",
+    "fields": {
+      "created_at": "2023-04-12T10:44:59.092Z",
+      "modified_at": "2023-04-12T10:44:59.092Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "anlagen-titel",
+      "sort": 39
     }
   },
   {
@@ -289,7 +322,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "aushub-vor-ort-volumen",
-      "sort": 4
+      "sort": 21
     }
   },
   {
@@ -304,7 +337,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-begruendung",
-      "sort": 22
+      "sort": 40
     }
   },
   {
@@ -319,7 +352,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-beschrieb",
-      "sort": 23
+      "sort": 41
     }
   },
   {
@@ -334,6 +367,51 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bauabfaelle-titel",
+      "sort": 23
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.bauten-titel",
+    "fields": {
+      "created_at": "2023-04-12T10:48:09.150Z",
+      "modified_at": "2023-04-12T10:48:09.150Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "bauten-titel",
+      "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.beschreibung-grossviehstall",
+    "fields": {
+      "created_at": "2023-04-12T11:18:24.303Z",
+      "modified_at": "2023-04-12T11:18:24.303Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "beschreibung-grossviehstall",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.beschreibung-kleinviehstall",
+    "fields": {
+      "created_at": "2023-04-12T11:21:04.153Z",
+      "modified_at": "2023-04-12T11:21:04.153Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "beschreibung-kleinviehstall",
       "sort": 6
     }
   },
@@ -349,7 +427,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "beschreibung-wasserversorgung-fassung-vorgesehen",
-      "sort": 15
+      "sort": 32
     }
   },
   {
@@ -364,7 +442,67 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "beschreibung-wasserversorgung-vorhanden",
-      "sort": 16
+      "sort": 33
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.bewirtschaftung-durch",
+    "fields": {
+      "created_at": "2023-04-12T11:23:16.204Z",
+      "modified_at": "2023-04-12T11:23:16.204Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "bewirtschaftung-durch",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.bis-jahr",
+    "fields": {
+      "created_at": "2023-04-12T10:50:36.164Z",
+      "modified_at": "2023-04-12T10:50:36.164Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "bis-jahr",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.dach-material-und-farbe",
+    "fields": {
+      "created_at": "2023-04-12T10:48:53.556Z",
+      "modified_at": "2023-04-12T10:48:53.556Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "dach-material-und-farbe",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.eigenland",
+    "fields": {
+      "created_at": "2023-04-12T11:24:04.393Z",
+      "modified_at": "2023-04-12T11:24:04.393Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "eigenland",
+      "sort": 2
     }
   },
   {
@@ -379,7 +517,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "erschliessung-wasserversorgung",
-      "sort": 17
+      "sort": 34
     }
   },
   {
@@ -394,7 +532,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "erschliessungsanlagen",
-      "sort": 21
+      "sort": 38
     }
   },
   {
@@ -409,7 +547,82 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "erschliessungsanlagen-beschreibung",
-      "sort": 20
+      "sort": 37
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.fassade-material-und-farbe",
+    "fields": {
+      "created_at": "2023-04-12T10:48:40.823Z",
+      "modified_at": "2023-04-12T10:48:40.823Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "fassade-material-und-farbe",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.grossviehstall-andere",
+    "fields": {
+      "created_at": "2023-04-12T11:19:19.139Z",
+      "modified_at": "2023-04-12T11:19:19.139Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "grossviehstall-andere",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.handelt-es-sich-um-einen-subventionierten-stall",
+    "fields": {
+      "created_at": "2023-04-12T11:05:53.708Z",
+      "modified_at": "2023-04-12T11:05:53.708Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "handelt-es-sich-um-einen-subventionierten-stall",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.kleinviehstall-andere",
+    "fields": {
+      "created_at": "2023-04-12T11:22:09.323Z",
+      "modified_at": "2023-04-12T11:22:09.323Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "kleinviehstall-andere",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.landwirtschaftliche-oekonomiebauten-und-gewerbebauten-titel",
+    "fields": {
+      "created_at": "2023-04-12T11:00:45.828Z",
+      "modified_at": "2023-04-12T11:00:45.828Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "landwirtschaftliche-oekonomiebauten-und-gewerbebauten-titel",
+      "sort": 10
     }
   },
   {
@@ -424,7 +637,22 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "landwirtschaftliches-vorhaben",
-      "sort": 25
+      "sort": 43
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.letzter-umbau",
+    "fields": {
+      "created_at": "2023-04-12T10:50:19.443Z",
+      "modified_at": "2023-04-12T10:50:19.444Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "letzter-umbau",
+      "sort": 12
     }
   },
   {
@@ -439,7 +667,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "materialablagerung-beschreibung",
-      "sort": 11
+      "sort": 28
     }
   },
   {
@@ -454,7 +682,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "materialablagerung-flaeche",
-      "sort": 13
+      "sort": 30
     }
   },
   {
@@ -469,7 +697,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "materialablagerung-titel",
-      "sort": 14
+      "sort": 31
     }
   },
   {
@@ -484,7 +712,37 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "materialablagerung-volumen",
-      "sort": 12
+      "sort": 29
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.nutzungszweck-landwirtschaft",
+    "fields": {
+      "created_at": "2023-04-12T11:04:00.501Z",
+      "modified_at": "2023-04-12T11:04:00.501Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "nutzungszweck-landwirtschaft",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.pachtland",
+    "fields": {
+      "created_at": "2023-04-12T11:24:17.526Z",
+      "modified_at": "2023-04-12T11:24:17.526Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "pachtland",
+      "sort": 1
     }
   },
   {
@@ -499,7 +757,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "paechter",
-      "sort": 24
+      "sort": 42
     }
   },
   {
@@ -514,7 +772,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "schuettmaterial-herkunft",
-      "sort": 10
+      "sort": 27
     }
   },
   {
@@ -529,7 +787,22 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "schuettmaterial-volumen",
-      "sort": 9
+      "sort": 26
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.standort-des-sammel-und-sortierplatzes-zur-entsorgung-der-uebrigen-bauabfaelle",
+    "fields": {
+      "created_at": "2023-04-12T09:14:09.046Z",
+      "modified_at": "2023-04-12T09:14:09.046Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "standort-des-sammel-und-sortierplatzes-zur-entsorgung-der-uebrigen-bauabfaelle",
+      "sort": 17
     }
   },
   {
@@ -544,7 +817,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "ueberschuessiges-material",
-      "sort": 3
+      "sort": 20
     }
   },
   {
@@ -559,7 +832,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "ueberschuessiges-material-ort-der-entsorgung",
-      "sort": 1
+      "sort": 18
     }
   },
   {
@@ -574,7 +847,22 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "ueberschuessiges-material-volumen",
-      "sort": 2
+      "sort": 19
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.urspruenglicher-zweck-der-baute",
+    "fields": {
+      "created_at": "2023-04-12T10:50:01.322Z",
+      "modified_at": "2023-04-12T10:50:01.322Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "urspruenglicher-zweck-der-baute",
+      "sort": 13
     }
   },
   {
@@ -589,7 +877,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "verwendung-des-aushubs-vor-ort",
-      "sort": 5
+      "sort": 22
     }
   },
   {
@@ -604,7 +892,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "weitere-anlagen",
-      "sort": 19
+      "sort": 36
     }
   },
   {
@@ -619,7 +907,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "weitere-anlagen-beschreibung",
-      "sort": 18
+      "sort": 35
     }
   },
   {
@@ -1471,6 +1759,54 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "beschreibung-grossviehstall-andere",
+    "fields": {
+      "created_at": "2023-04-12T11:18:24.010Z",
+      "modified_at": "2023-04-12T11:19:57.559Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "beschreibung-grossviehstall-pferdestall",
+    "fields": {
+      "created_at": "2023-04-12T11:18:24.001Z",
+      "modified_at": "2023-04-12T11:19:57.560Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Pferdestall\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "beschreibung-grossviehstall-rinderstall",
+    "fields": {
+      "created_at": "2023-04-12T11:18:24.000Z",
+      "modified_at": "2023-04-12T11:19:57.550Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Rinderstall\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "beschreibung-kantonsstrassen-leitungen",
     "fields": {
       "created_at": "2023-04-12T08:11:26.280Z",
@@ -1512,6 +1848,86 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Strassenreklamen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "beschreibung-kleinviehstall-andere",
+    "fields": {
+      "created_at": "2023-04-12T11:21:03.701Z",
+      "modified_at": "2023-04-12T11:21:17.243Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "beschreibung-kleinviehstall-gefluegelstall",
+    "fields": {
+      "created_at": "2023-04-12T11:21:03.714Z",
+      "modified_at": "2023-04-12T11:21:17.261Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gefl\\u00fcgelstall\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "beschreibung-kleinviehstall-schafstall",
+    "fields": {
+      "created_at": "2023-04-12T11:21:03.713Z",
+      "modified_at": "2023-04-12T11:21:17.242Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Schafstall\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "beschreibung-kleinviehstall-schweinestall",
+    "fields": {
+      "created_at": "2023-04-12T11:21:03.702Z",
+      "modified_at": "2023-04-12T11:21:17.240Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Schweinestall\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "beschreibung-kleinviehstall-ziegenstall",
+    "fields": {
+      "created_at": "2023-04-12T11:21:03.704Z",
+      "modified_at": "2023-04-12T11:21:17.244Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ziegenstall\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1807,6 +2223,38 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "bewirtschaftung-durch-eigentuemer",
+    "fields": {
+      "created_at": "2023-04-12T11:23:15.937Z",
+      "modified_at": "2023-04-12T11:24:55.628Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Eigent\\u00fcmer\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bewirtschaftung-durch-paechter",
+    "fields": {
+      "created_at": "2023-04-12T11:23:15.932Z",
+      "modified_at": "2023-04-12T11:24:55.622Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"P\\u00e4chter\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "einreichen-button-eingereicht",
     "fields": {
       "created_at": "2019-06-14T14:30:32.966Z",
@@ -1912,6 +2360,38 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Versorgung / Entsorgung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "handelt-es-sich-um-einen-subventionierten-stall-ja",
+    "fields": {
+      "created_at": "2023-04-12T11:05:53.327Z",
+      "modified_at": "2023-04-12T11:24:48.986Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "handelt-es-sich-um-einen-subventionierten-stall-nein",
+    "fields": {
+      "created_at": "2023-04-12T11:05:53.320Z",
+      "modified_at": "2023-04-12T11:24:48.984Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2088,6 +2568,358 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "nutzungszweck-landwirtschaft-alpwirtschaftlicher-betrieb",
+    "fields": {
+      "created_at": "2023-04-12T11:16:09.898Z",
+      "modified_at": "2023-04-12T11:16:09.898Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Alpwirtschaftlicher Betrieb\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "nutzungszweck-landwirtschaft-andere",
+    "fields": {
+      "created_at": "2023-04-12T11:16:10.153Z",
+      "modified_at": "2023-04-12T11:16:10.153Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "nutzungszweck-landwirtschaft-aufbereitungsraum",
+    "fields": {
+      "created_at": "2023-04-12T11:16:10.096Z",
+      "modified_at": "2023-04-12T11:16:10.096Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Aufbereitungs-, bzw. Lagerraum f\\u00fcr den Obst-, Wein- und Gartenbau\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "nutzungszweck-landwirtschaft-bienenhaus",
+    "fields": {
+      "created_at": "2023-04-12T11:16:10.159Z",
+      "modified_at": "2023-04-12T11:16:10.159Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bienenhaus\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "nutzungszweck-landwirtschaft-gastronomie",
+    "fields": {
+      "created_at": "2023-04-12T11:16:09.873Z",
+      "modified_at": "2023-04-12T11:16:09.873Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gastronomie\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "nutzungszweck-landwirtschaft-grossviehstall",
+    "fields": {
+      "created_at": "2023-04-12T11:16:09.505Z",
+      "modified_at": "2023-04-12T11:16:09.505Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Grossviehstall\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "nutzungszweck-landwirtschaft-heustall",
+    "fields": {
+      "created_at": "2023-04-12T11:16:09.913Z",
+      "modified_at": "2023-04-12T11:16:09.913Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Heustall\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "nutzungszweck-landwirtschaft-hofduengeranlage",
+    "fields": {
+      "created_at": "2023-04-12T11:16:09.876Z",
+      "modified_at": "2023-04-12T11:16:09.876Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hofd\\u00fcngeranlage\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "nutzungszweck-landwirtschaft-hotel",
+    "fields": {
+      "created_at": "2023-04-12T11:16:09.868Z",
+      "modified_at": "2023-04-12T11:16:09.868Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hotel\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "nutzungszweck-landwirtschaft-kleinviehstall",
+    "fields": {
+      "created_at": "2023-04-12T11:16:09.811Z",
+      "modified_at": "2023-04-12T11:16:09.811Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kleinviehstall\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "nutzungszweck-landwirtschaft-nutzungszweck-der-baute-alpwirtschaftlicher-betrieb",
+    "fields": {
+      "created_at": "2023-04-12T11:16:09.431Z",
+      "modified_at": "2023-04-12T11:16:09.431Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Alpwirtschaftlicher Betrieb\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": true,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "nutzungszweck-landwirtschaft-nutzungszweck-der-baute-andere",
+    "fields": {
+      "created_at": "2023-04-12T11:16:09.504Z",
+      "modified_at": "2023-04-12T11:16:09.504Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": true,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "nutzungszweck-landwirtschaft-nutzungszweck-der-baute-aufbereitungsraum",
+    "fields": {
+      "created_at": "2023-04-12T11:16:09.426Z",
+      "modified_at": "2023-04-12T11:16:09.426Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Aufbereitungs-, bzw. Lagerraum f\\u00fcr den Obst-, Wein- und Gartenbau\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": true,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "nutzungszweck-landwirtschaft-nutzungszweck-der-baute-bienenhaus",
+    "fields": {
+      "created_at": "2023-04-12T11:16:09.498Z",
+      "modified_at": "2023-04-12T11:16:09.498Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bienenhaus\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": true,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "nutzungszweck-landwirtschaft-nutzungszweck-der-baute-gastronomie",
+    "fields": {
+      "created_at": "2023-04-12T11:16:09.199Z",
+      "modified_at": "2023-04-12T11:16:09.199Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gastronomie\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": true,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "nutzungszweck-landwirtschaft-nutzungszweck-der-baute-grossviehstall",
+    "fields": {
+      "created_at": "2023-04-12T11:16:09.082Z",
+      "modified_at": "2023-04-12T11:16:09.082Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Grossviehstall\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": true,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "nutzungszweck-landwirtschaft-nutzungszweck-der-baute-heustall",
+    "fields": {
+      "created_at": "2023-04-12T11:16:09.085Z",
+      "modified_at": "2023-04-12T11:16:09.085Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Heustall\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": true,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "nutzungszweck-landwirtschaft-nutzungszweck-der-baute-hofduengeranlage",
+    "fields": {
+      "created_at": "2023-04-12T11:16:09.095Z",
+      "modified_at": "2023-04-12T11:16:09.095Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hofd\\u00fcngeranlage\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": true,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "nutzungszweck-landwirtschaft-nutzungszweck-der-baute-hotel",
+    "fields": {
+      "created_at": "2023-04-12T11:16:09.087Z",
+      "modified_at": "2023-04-12T11:16:09.087Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hotel\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": true,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "nutzungszweck-landwirtschaft-nutzungszweck-der-baute-kleinviehstall",
+    "fields": {
+      "created_at": "2023-04-12T11:16:09.093Z",
+      "modified_at": "2023-04-12T11:16:09.093Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kleinviehstall\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": true,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "nutzungszweck-landwirtschaft-nutzungszweck-der-baute-remise",
+    "fields": {
+      "created_at": "2023-04-12T11:16:09.451Z",
+      "modified_at": "2023-04-12T11:16:09.451Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Remise\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": true,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "nutzungszweck-landwirtschaft-remise",
+    "fields": {
+      "created_at": "2023-04-12T11:16:10.148Z",
+      "modified_at": "2023-04-12T11:16:10.148Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Remise\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2576,6 +3408,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "anlagen-titel",
+    "fields": {
+      "created_at": "2023-04-12T10:44:58.897Z",
+      "modified_at": "2023-04-12T10:44:58.897Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anlagen Titel\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"---\\n### Anlagen\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "aushub-vor-ort-volumen",
     "fields": {
       "created_at": "2023-04-12T09:11:21.388Z",
@@ -2712,10 +3575,10 @@
     "pk": "bauabfaelle-titel",
     "fields": {
       "created_at": "2023-04-12T09:10:11.459Z",
-      "modified_at": "2023-04-12T09:10:11.459Z",
+      "modified_at": "2023-04-12T10:47:17.863Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Bauabf\\u00e4lle Titel\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "static",
@@ -2723,9 +3586,9 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "static_content": "{\"de\": \"---\\n\\n#### Bauabf\\u00e4lle und Aushub\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "static_content": "{\"de\": \"---\\n#### Bauabf\\u00e4lle und Aushub\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -2858,6 +3721,37 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "bab",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bauten-titel",
+    "fields": {
+      "created_at": "2023-04-12T10:48:09.050Z",
+      "modified_at": "2023-04-12T10:48:09.050Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bauten Titel\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"---\\n### Bauten\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -3022,6 +3916,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "beschreibung-grossviehstall",
+    "fields": {
+      "created_at": "2023-04-12T11:18:24.176Z",
+      "modified_at": "2023-04-12T11:19:57.750Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung Grossviehstall\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "!(\"nutzungszweck-landwirtschaft-grossviehstall\" in \"nutzungszweck-landwirtschaft\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "beschreibung-kantonsstrassen",
     "fields": {
       "created_at": "2023-04-12T08:11:26.468Z",
@@ -3034,6 +3959,37 @@
       "type": "multiple_choice",
       "is_required": "false",
       "is_hidden": "!(\"kantonsstrassen-ja\" == \"kantonsstrassen\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "beschreibung-kleinviehstall",
+    "fields": {
+      "created_at": "2023-04-12T11:21:04.024Z",
+      "modified_at": "2023-04-12T11:21:17.506Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung Kleinviehstall\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "!(\"nutzungszweck-landwirtschaft-kleinviehstall\" in \"nutzungszweck-landwirtschaft\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
@@ -3177,6 +4133,105 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "bewirtschaftung-durch",
+    "fields": {
+      "created_at": "2023-04-12T11:23:16.081Z",
+      "modified_at": "2023-04-12T11:24:55.763Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Die Bewirtschaftung erfolgt durch\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bis-jahr",
+    "fields": {
+      "created_at": "2023-04-12T10:50:36.057Z",
+      "modified_at": "2023-04-12T10:50:36.057Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"bis (Jahr)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "dach-material-und-farbe",
+    "fields": {
+      "created_at": "2023-04-12T10:48:53.454Z",
+      "modified_at": "2023-04-12T10:49:08.204Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dach (Material und Farbe)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "divider",
     "fields": {
       "created_at": "2023-04-12T07:48:18.329Z",
@@ -3230,6 +4285,40 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "durchgefuehrte-vorabklaerungen",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "eigenland",
+    "fields": {
+      "created_at": "2023-04-12T11:24:04.285Z",
+      "modified_at": "2023-04-12T11:24:04.285Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Eigenland (ha)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "float",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -3401,6 +4490,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "fassade-material-und-farbe",
+    "fields": {
+      "created_at": "2023-04-12T10:48:40.720Z",
+      "modified_at": "2023-04-12T10:49:04.805Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fassade (Material und Farbe)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "gebaeudekubatur",
     "fields": {
       "created_at": "2023-04-12T07:50:27.132Z",
@@ -3421,6 +4544,40 @@
       "configuration": {
         "max_value": null,
         "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "grossviehstall-andere",
+    "fields": {
+      "created_at": "2023-04-12T11:19:19.020Z",
+      "modified_at": "2023-04-12T11:19:19.020Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!(\"beschreibung-grossviehstall-andere\" in \"beschreibung-grossviehstall\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
       },
       "meta": {},
       "data_source": null,
@@ -3457,6 +4614,37 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "grundstueck",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "handelt-es-sich-um-einen-subventionierten-stall",
+    "fields": {
+      "created_at": "2023-04-12T11:05:53.493Z",
+      "modified_at": "2023-04-12T11:24:49.116Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Handelt es sich um einen subventionierten Stall?\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "!([\n\t\"nutzungszweck-landwirtschaft-grossviehstall\",\n\t\"nutzungszweck-landwirtschaft-kleinviehstall\",\n\t\"nutzungszweck-landwirtschaft-heustall\"\n  ] intersects \"nutzungszweck-landwirtschaft\"|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -3515,6 +4703,40 @@
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "kleinviehstall-andere",
+    "fields": {
+      "created_at": "2023-04-12T11:22:09.210Z",
+      "modified_at": "2023-04-12T11:22:09.210Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!(\"beschreibung-kleinviehstall-andere\" in \"beschreibung-kleinviehstall\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -3596,6 +4818,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "landwirtschaftliche-oekonomiebauten-und-gewerbebauten-titel",
+    "fields": {
+      "created_at": "2023-04-12T11:00:45.716Z",
+      "modified_at": "2023-04-12T11:00:45.716Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Landwirtschaftliche \\u00d6konomiebauten und Gewerbebauten Titel\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"---\\n#### Landwirtschaftliche \\u00d6konomiebauten und Gewerbebauten\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "landwirtschaftliches-vorhaben",
     "fields": {
       "created_at": "2023-04-12T08:22:19.838Z",
@@ -3614,6 +4867,40 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "letzter-umbau",
+    "fields": {
+      "created_at": "2023-04-12T10:50:19.334Z",
+      "modified_at": "2023-04-12T10:50:19.334Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Letzter Umbau\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -3695,7 +4982,7 @@
     "pk": "materialablagerung-titel",
     "fields": {
       "created_at": "2023-04-12T09:04:09.954Z",
-      "modified_at": "2023-04-12T09:09:41.244Z",
+      "modified_at": "2023-04-12T10:47:05.078Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -3708,7 +4995,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "static_content": "{\"de\": \"---\\n\\n#### Materialablagerung und -abtrag, Pistenplanie, landwirtschaftliche Terrainver\\u00e4nderung usw.\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "static_content": "{\"de\": \"---\\n#### Materialablagerung und -abtrag, Pistenplanie, landwirtschaftliche Terrainver\\u00e4nderung usw.\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -3810,6 +5097,71 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "nutzung-bauvorhaben",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "nutzungszweck-landwirtschaft",
+    "fields": {
+      "created_at": "2023-04-12T11:04:00.261Z",
+      "modified_at": "2023-04-12T11:16:10.364Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nutzungszweck der Baute\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "pachtland",
+    "fields": {
+      "created_at": "2023-04-12T11:24:17.423Z",
+      "modified_at": "2023-04-12T11:24:17.423Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Pachtland (ha)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "float",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -3988,6 +5340,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "standort-des-sammel-und-sortierplatzes-zur-entsorgung-der-uebrigen-bauabfaelle",
+    "fields": {
+      "created_at": "2023-04-12T09:14:08.941Z",
+      "modified_at": "2023-04-12T09:14:08.941Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Standort des Sammel- und Sortierplatzes zur Entsorgung der \\u00fcbrigen Bauabf\\u00e4lle\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "ueberschuessiges-material",
     "fields": {
       "created_at": "2023-04-12T09:12:08.768Z",
@@ -4073,6 +5459,40 @@
       "configuration": {
         "max_value": null,
         "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "urspruenglicher-zweck-der-baute",
+    "fields": {
+      "created_at": "2023-04-12T10:50:01.213Z",
+      "modified_at": "2023-04-12T10:50:01.213Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nichtlandwirtschaftliche Wohnbauten: Urspr\\u00fcnglicher Zweck der Baute\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
       },
       "meta": {},
       "data_source": null,
@@ -4668,6 +6088,51 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "beschreibung-grossviehstall.beschreibung-grossviehstall-andere",
+    "fields": {
+      "created_at": "2023-04-12T11:19:57.757Z",
+      "modified_at": "2023-04-12T11:19:57.757Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "beschreibung-grossviehstall",
+      "option": "beschreibung-grossviehstall-andere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "beschreibung-grossviehstall.beschreibung-grossviehstall-pferdestall",
+    "fields": {
+      "created_at": "2023-04-12T11:19:57.760Z",
+      "modified_at": "2023-04-12T11:19:57.760Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "beschreibung-grossviehstall",
+      "option": "beschreibung-grossviehstall-pferdestall",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "beschreibung-grossviehstall.beschreibung-grossviehstall-rinderstall",
+    "fields": {
+      "created_at": "2023-04-12T11:19:57.764Z",
+      "modified_at": "2023-04-12T11:19:57.764Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "beschreibung-grossviehstall",
+      "option": "beschreibung-grossviehstall-rinderstall",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "beschreibung-kantonsstrassen.beschreibung-kantonsstrassen-leitungen",
     "fields": {
       "created_at": "2023-04-12T08:13:24.267Z",
@@ -4709,6 +6174,81 @@
       "question": "beschreibung-kantonsstrassen",
       "option": "beschreibung-kantonsstrassen-strassenreklamen",
       "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "beschreibung-kleinviehstall.beschreibung-kleinviehstall-andere",
+    "fields": {
+      "created_at": "2023-04-12T11:21:17.512Z",
+      "modified_at": "2023-04-12T11:21:17.512Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "beschreibung-kleinviehstall",
+      "option": "beschreibung-kleinviehstall-andere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "beschreibung-kleinviehstall.beschreibung-kleinviehstall-gefluegelstall",
+    "fields": {
+      "created_at": "2023-04-12T11:21:17.514Z",
+      "modified_at": "2023-04-12T11:21:17.514Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "beschreibung-kleinviehstall",
+      "option": "beschreibung-kleinviehstall-gefluegelstall",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "beschreibung-kleinviehstall.beschreibung-kleinviehstall-schafstall",
+    "fields": {
+      "created_at": "2023-04-12T11:21:17.523Z",
+      "modified_at": "2023-04-12T11:21:17.523Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "beschreibung-kleinviehstall",
+      "option": "beschreibung-kleinviehstall-schafstall",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "beschreibung-kleinviehstall.beschreibung-kleinviehstall-schweinestall",
+    "fields": {
+      "created_at": "2023-04-12T11:21:17.517Z",
+      "modified_at": "2023-04-12T11:21:17.517Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "beschreibung-kleinviehstall",
+      "option": "beschreibung-kleinviehstall-schweinestall",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "beschreibung-kleinviehstall.beschreibung-kleinviehstall-ziegenstall",
+    "fields": {
+      "created_at": "2023-04-12T11:21:17.520Z",
+      "modified_at": "2023-04-12T11:21:17.520Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "beschreibung-kleinviehstall",
+      "option": "beschreibung-kleinviehstall-ziegenstall",
+      "sort": 4
     }
   },
   {
@@ -4983,6 +6523,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "bewirtschaftung-durch.bewirtschaftung-durch-eigentuemer",
+    "fields": {
+      "created_at": "2023-04-12T11:24:55.773Z",
+      "modified_at": "2023-04-12T11:24:55.773Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "bewirtschaftung-durch",
+      "option": "bewirtschaftung-durch-eigentuemer",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bewirtschaftung-durch.bewirtschaftung-durch-paechter",
+    "fields": {
+      "created_at": "2023-04-12T11:24:55.771Z",
+      "modified_at": "2023-04-12T11:24:55.771Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "bewirtschaftung-durch",
+      "option": "bewirtschaftung-durch-paechter",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "einreichen-button.einreichen-button-eingereicht",
     "fields": {
       "created_at": "2022-09-21T12:51:49.852Z",
@@ -5084,6 +6654,36 @@
       "question": "erschliessungsanlagen",
       "option": "erschliessungsanlagen-versorgung-entsorgung",
       "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "handelt-es-sich-um-einen-subventionierten-stall.handelt-es-sich-um-einen-subventionierten-stall-ja",
+    "fields": {
+      "created_at": "2023-04-12T11:24:49.125Z",
+      "modified_at": "2023-04-12T11:24:49.125Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "handelt-es-sich-um-einen-subventionierten-stall",
+      "option": "handelt-es-sich-um-einen-subventionierten-stall-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "handelt-es-sich-um-einen-subventionierten-stall.handelt-es-sich-um-einen-subventionierten-stall-nein",
+    "fields": {
+      "created_at": "2023-04-12T11:24:49.122Z",
+      "modified_at": "2023-04-12T11:24:49.122Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "handelt-es-sich-um-einen-subventionierten-stall",
+      "option": "handelt-es-sich-um-einen-subventionierten-stall-nein",
+      "sort": 1
     }
   },
   {
@@ -5249,6 +6849,336 @@
       "question": "mehr-als-50-arbeitsplaetze",
       "option": "mehr-als-50-arbeitsplaetze-nein",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "nutzungszweck-landwirtschaft.nutzungszweck-landwirtschaft-alpwirtschaftlicher-betrieb",
+    "fields": {
+      "created_at": "2023-04-12T11:16:10.381Z",
+      "modified_at": "2023-04-12T11:16:10.381Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "nutzungszweck-landwirtschaft",
+      "option": "nutzungszweck-landwirtschaft-alpwirtschaftlicher-betrieb",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "nutzungszweck-landwirtschaft.nutzungszweck-landwirtschaft-andere",
+    "fields": {
+      "created_at": "2023-04-12T11:16:10.370Z",
+      "modified_at": "2023-04-12T11:16:10.370Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "nutzungszweck-landwirtschaft",
+      "option": "nutzungszweck-landwirtschaft-andere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "nutzungszweck-landwirtschaft.nutzungszweck-landwirtschaft-aufbereitungsraum",
+    "fields": {
+      "created_at": "2023-04-12T11:16:10.378Z",
+      "modified_at": "2023-04-12T11:16:10.378Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "nutzungszweck-landwirtschaft",
+      "option": "nutzungszweck-landwirtschaft-aufbereitungsraum",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "nutzungszweck-landwirtschaft.nutzungszweck-landwirtschaft-bienenhaus",
+    "fields": {
+      "created_at": "2023-04-12T11:16:10.373Z",
+      "modified_at": "2023-04-12T11:16:10.373Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "nutzungszweck-landwirtschaft",
+      "option": "nutzungszweck-landwirtschaft-bienenhaus",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "nutzungszweck-landwirtschaft.nutzungszweck-landwirtschaft-gastronomie",
+    "fields": {
+      "created_at": "2023-04-12T11:16:10.390Z",
+      "modified_at": "2023-04-12T11:16:10.390Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "nutzungszweck-landwirtschaft",
+      "option": "nutzungszweck-landwirtschaft-gastronomie",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "nutzungszweck-landwirtschaft.nutzungszweck-landwirtschaft-grossviehstall",
+    "fields": {
+      "created_at": "2023-04-12T11:16:10.397Z",
+      "modified_at": "2023-04-12T11:16:10.397Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "nutzungszweck-landwirtschaft",
+      "option": "nutzungszweck-landwirtschaft-grossviehstall",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "nutzungszweck-landwirtschaft.nutzungszweck-landwirtschaft-heustall",
+    "fields": {
+      "created_at": "2023-04-12T11:16:10.387Z",
+      "modified_at": "2023-04-12T11:16:10.387Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "nutzungszweck-landwirtschaft",
+      "option": "nutzungszweck-landwirtschaft-heustall",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "nutzungszweck-landwirtschaft.nutzungszweck-landwirtschaft-hofduengeranlage",
+    "fields": {
+      "created_at": "2023-04-12T11:16:10.384Z",
+      "modified_at": "2023-04-12T11:16:10.384Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "nutzungszweck-landwirtschaft",
+      "option": "nutzungszweck-landwirtschaft-hofduengeranlage",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "nutzungszweck-landwirtschaft.nutzungszweck-landwirtschaft-hotel",
+    "fields": {
+      "created_at": "2023-04-12T11:16:10.392Z",
+      "modified_at": "2023-04-12T11:16:10.392Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "nutzungszweck-landwirtschaft",
+      "option": "nutzungszweck-landwirtschaft-hotel",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "nutzungszweck-landwirtschaft.nutzungszweck-landwirtschaft-kleinviehstall",
+    "fields": {
+      "created_at": "2023-04-12T11:16:10.394Z",
+      "modified_at": "2023-04-12T11:16:10.394Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "nutzungszweck-landwirtschaft",
+      "option": "nutzungszweck-landwirtschaft-kleinviehstall",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "nutzungszweck-landwirtschaft.nutzungszweck-landwirtschaft-nutzungszweck-der-baute-alpwirtschaftlicher-betrieb",
+    "fields": {
+      "created_at": "2023-04-12T11:16:10.409Z",
+      "modified_at": "2023-04-12T11:16:10.409Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "nutzungszweck-landwirtschaft",
+      "option": "nutzungszweck-landwirtschaft-nutzungszweck-der-baute-alpwirtschaftlicher-betrieb",
+      "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "nutzungszweck-landwirtschaft.nutzungszweck-landwirtschaft-nutzungszweck-der-baute-andere",
+    "fields": {
+      "created_at": "2023-04-12T11:16:10.399Z",
+      "modified_at": "2023-04-12T11:16:10.399Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "nutzungszweck-landwirtschaft",
+      "option": "nutzungszweck-landwirtschaft-nutzungszweck-der-baute-andere",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "nutzungszweck-landwirtschaft.nutzungszweck-landwirtschaft-nutzungszweck-der-baute-aufbereitungsraum",
+    "fields": {
+      "created_at": "2023-04-12T11:16:10.406Z",
+      "modified_at": "2023-04-12T11:16:10.406Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "nutzungszweck-landwirtschaft",
+      "option": "nutzungszweck-landwirtschaft-nutzungszweck-der-baute-aufbereitungsraum",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "nutzungszweck-landwirtschaft.nutzungszweck-landwirtschaft-nutzungszweck-der-baute-bienenhaus",
+    "fields": {
+      "created_at": "2023-04-12T11:16:10.401Z",
+      "modified_at": "2023-04-12T11:16:10.401Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "nutzungszweck-landwirtschaft",
+      "option": "nutzungszweck-landwirtschaft-nutzungszweck-der-baute-bienenhaus",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "nutzungszweck-landwirtschaft.nutzungszweck-landwirtschaft-nutzungszweck-der-baute-gastronomie",
+    "fields": {
+      "created_at": "2023-04-12T11:16:10.417Z",
+      "modified_at": "2023-04-12T11:16:10.417Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "nutzungszweck-landwirtschaft",
+      "option": "nutzungszweck-landwirtschaft-nutzungszweck-der-baute-gastronomie",
+      "sort": 19
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "nutzungszweck-landwirtschaft.nutzungszweck-landwirtschaft-nutzungszweck-der-baute-grossviehstall",
+    "fields": {
+      "created_at": "2023-04-12T11:16:10.425Z",
+      "modified_at": "2023-04-12T11:16:10.425Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "nutzungszweck-landwirtschaft",
+      "option": "nutzungszweck-landwirtschaft-nutzungszweck-der-baute-grossviehstall",
+      "sort": 22
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "nutzungszweck-landwirtschaft.nutzungszweck-landwirtschaft-nutzungszweck-der-baute-heustall",
+    "fields": {
+      "created_at": "2023-04-12T11:16:10.414Z",
+      "modified_at": "2023-04-12T11:16:10.414Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "nutzungszweck-landwirtschaft",
+      "option": "nutzungszweck-landwirtschaft-nutzungszweck-der-baute-heustall",
+      "sort": 18
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "nutzungszweck-landwirtschaft.nutzungszweck-landwirtschaft-nutzungszweck-der-baute-hofduengeranlage",
+    "fields": {
+      "created_at": "2023-04-12T11:16:10.411Z",
+      "modified_at": "2023-04-12T11:16:10.411Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "nutzungszweck-landwirtschaft",
+      "option": "nutzungszweck-landwirtschaft-nutzungszweck-der-baute-hofduengeranlage",
+      "sort": 17
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "nutzungszweck-landwirtschaft.nutzungszweck-landwirtschaft-nutzungszweck-der-baute-hotel",
+    "fields": {
+      "created_at": "2023-04-12T11:16:10.420Z",
+      "modified_at": "2023-04-12T11:16:10.420Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "nutzungszweck-landwirtschaft",
+      "option": "nutzungszweck-landwirtschaft-nutzungszweck-der-baute-hotel",
+      "sort": 20
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "nutzungszweck-landwirtschaft.nutzungszweck-landwirtschaft-nutzungszweck-der-baute-kleinviehstall",
+    "fields": {
+      "created_at": "2023-04-12T11:16:10.422Z",
+      "modified_at": "2023-04-12T11:16:10.422Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "nutzungszweck-landwirtschaft",
+      "option": "nutzungszweck-landwirtschaft-nutzungszweck-der-baute-kleinviehstall",
+      "sort": 21
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "nutzungszweck-landwirtschaft.nutzungszweck-landwirtschaft-nutzungszweck-der-baute-remise",
+    "fields": {
+      "created_at": "2023-04-12T11:16:10.404Z",
+      "modified_at": "2023-04-12T11:16:10.404Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "nutzungszweck-landwirtschaft",
+      "option": "nutzungszweck-landwirtschaft-nutzungszweck-der-baute-remise",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "nutzungszweck-landwirtschaft.nutzungszweck-landwirtschaft-remise",
+    "fields": {
+      "created_at": "2023-04-12T11:16:10.376Z",
+      "modified_at": "2023-04-12T11:16:10.376Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "nutzungszweck-landwirtschaft",
+      "option": "nutzungszweck-landwirtschaft-remise",
+      "sort": 3
     }
   },
   {
