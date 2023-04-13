@@ -12,7 +12,7 @@ function requiredArgument(_, name) {
   return {
     get() {
       const value = this.args[name];
-      assert(`@${name} must be passed to <BeDocumentBucket />`, value);
+      assert(`@${name} must be passed to <AlexandriaDocumentBucket />`, value);
       return value;
     },
   };

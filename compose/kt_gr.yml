@@ -115,8 +115,8 @@ services:
       - db
       - minio
     volumes:
-      - ../alexandria/gr/dump.json:/tmp/alexandria/dump.json
-      - ../alexandria/gr:/app/alexandria/gr
+      - ../alexandria/kt_gr/dump.json:/tmp/alexandria/dump.json
+      - ../alexandria/kt_gr:/app/alexandria/kt_gr
     environment:
       - ENV=development
       - DATABASE_HOST=db
@@ -125,9 +125,9 @@ services:
       - MINIO_STORAGE_SERVICE=minio
       - MINIO_STORAGE_ACCESS_KEY=minio
       - LANGUAGES=de-ch,fr-ch,rm-ch
-      - VISIBILITY_CLASSES=alexandria.gr.extensions.visibilities.CustomVisibility
-      - PERMISSION_CLASSES=alexandria.gr.extensions.permissions.CustomPermission
-      - OIDC_DRF_AUTH_BACKEND=alexandria.gr.extensions.authentication.CamacAlexandriaAuthenticationBackend
+      - VISIBILITY_CLASSES=alexandria.kt_gr.extensions.visibilities.CustomVisibility
+      - PERMISSION_CLASSES=alexandria.kt_gr.extensions.permissions.CustomPermission
+      - OIDC_DRF_AUTH_BACKEND=alexandria.kt_gr.extensions.authentication.CamacAlexandriaAuthenticationBackend
 
   minio:
     image: minio/minio:latest@sha256:7f84f4d07cf0d3562911c6b072e1183436fbc3cad8ccef8157ec5c27456ed452

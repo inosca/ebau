@@ -20,10 +20,8 @@ class CamacUser(BaseUser):
         self.is_authenticated = True
         self.username = user["id"]
 
-        # set groups to service?
-        self.groups = map(
-            lambda group: group["id"], user["relationships"]["groups"]["data"]
-        )
+        # set groups to services?
+        self.groups = ["10000"]
         groups_data = {}
         for inclusion in included:
             if inclusion["type"] == "groups":
@@ -31,17 +29,8 @@ class CamacUser(BaseUser):
         self.groups_data = groups_data
 
         # group should be service in camac context
-        """
-        self.group = (
-            user["relationships"]["service"]["data"]["id"]
-            if user["relationships"]["service"]["data"] is not None
-            else "10001"
-        )
-        """
         self.group = user["relationships"]["default-group"]["data"]["id"]
         self.group_data = groups_data[self.group]
-        
-        self.is_superuser = self.group_data["relationships"]["role"]["data"]["id"] == ADMIN_ROLE
 
 
 class CamacAlexandriaAuthenticationBackend(OIDCAuthenticationBackend):

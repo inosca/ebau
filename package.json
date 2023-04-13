@@ -10,6 +10,7 @@
     "prettier": "2.8.7"
   },
   "resolutions": {
-    "tracked-maps-and-sets": "3.0.2"
+    "tracked-maps-and-sets": "3.0.2",
+    "ember-data": "3.28.12"
   }
 }

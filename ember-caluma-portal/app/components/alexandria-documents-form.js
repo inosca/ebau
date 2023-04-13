@@ -1,7 +1,7 @@
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
-import { task, dropTask, restartableTask } from "ember-concurrency";
+import { task, dropTask } from "ember-concurrency";
 import { trackedFunction } from "ember-resources/util/function";
 
 import config from "caluma-portal/config/environment";
@@ -77,7 +77,7 @@ export default class AlexandriaDocumentsFormComponent extends Component {
 
   get allAttachments() {
     const fetchedAttachmentIds = this.fetchAttachments.value?.map(
-      (attachment) => attachment.get("id")
+      (attachment) => attachment.id
     );
 
     const byInstance = (attachment) =>
@@ -103,7 +103,7 @@ export default class AlexandriaDocumentsFormComponent extends Component {
       this.buckets.map(async (bucket) => {
         const attachments = [];
         for (const attachment of this.allAttachments) {
-          const tags = await attachment.tags;
+          const tags = attachment.tags;
           if (tags.some((tag) => tag.id === bucket)) {
             attachments.push(attachment);
           }
@@ -148,10 +148,13 @@ export default class AlexandriaDocumentsFormComponent extends Component {
       yield this.alexandriaTags.fetchAllTags.perform();
       yield this.alexandriaTags.add(documentModel[0], bucket);
 
+      /*
       this.uploadedAttachmentIds = [
         ...this.uploadedAttachmentIds,
         documentModel[0].id,
       ];
+      */
+      this.uploadedAttachmentIds.push(documentModel[0].id);
 
       this.notification.success(this.intl.t("documents.uploadSuccess"));
     } catch (error) {

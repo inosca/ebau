@@ -1,3 +1,3 @@
-import FileModel from "ember-alexandria/models/file"; 
+import FileModel from "ember-alexandria/models/file";
 
-export default class File extends FileModel {}
+export default FileModel;

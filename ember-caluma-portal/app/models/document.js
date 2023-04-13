@@ -1,12 +1,17 @@
-import { belongsTo, hasMany, attr } from "@ember-data/model";
 import { inject as service } from "@ember/service";
+import { belongsTo, hasMany, attr } from "@ember-data/model";
 import { dropTask } from "ember-concurrency";
 import { LocalizedModel, localizedAttr } from "ember-localized-model";
 import { saveAs } from "file-saver";
 
+/*
+ * This does not extend DocumentModel from ember-alexandria
+ * because localizedAttr has problems, overwriting also does not work
+ */
 export default class DocumentModel extends LocalizedModel {
   @localizedAttr title;
   @localizedAttr description;
+
   @attr meta;
 
   @attr createdAt;
@@ -16,7 +21,7 @@ export default class DocumentModel extends LocalizedModel {
   @attr modifiedByUser;
   @attr modifiedByGroup;
 
-  @belongsTo("category", { inverse: "documents" }) category;
+  @belongsTo("category", { inverse: "documents", async: false }) category;
   @hasMany("tag", { inverse: "documents" }) tags;
   @hasMany("file", { inverse: "document" }) files;
 
