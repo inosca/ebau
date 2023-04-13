@@ -98,8 +98,6 @@ services:
       - DATABASE_HOST=db
       - DATABASE_NAME=${APPLICATION}
       - DATABASE_USER=camac
-      - MINIO_STORAGE_SERVICE=minio
-      - MINIO_STORAGE_ACCESS_KEY=minio
       - LANGUAGES=de-ch,en
 
 volumes:
