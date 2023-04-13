@@ -221,6 +221,39 @@
     }
   },
   {
+    "model": "caluma_form.form",
+    "pk": "stallbau-und-hofduengerlager",
+    "fields": {
+      "created_at": "2023-04-12T11:40:56.806Z",
+      "modified_at": "2023-04-12T11:40:56.806Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Stallbau und Hofd\\u00fcngerlager\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-informationen.allgemeine-angaben",
+    "fields": {
+      "created_at": "2023-04-12T14:28:10.920Z",
+      "modified_at": "2023-04-12T14:28:10.920Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-informationen",
+      "question": "allgemeine-angaben",
+      "sort": 1
+    }
+  },
+  {
     "model": "caluma_form.formquestion",
     "pk": "allgemeine-informationen.bauvorhaben",
     "fields": {
@@ -232,22 +265,7 @@
       "modified_by_group": null,
       "form": "allgemeine-informationen",
       "question": "bauvorhaben",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "allgemeine-informationen.durchgefuehrte-vorabklaerungen",
-    "fields": {
-      "created_at": "2023-04-05T10:15:45.121Z",
-      "modified_at": "2023-04-05T10:15:45.121Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "allgemeine-informationen",
-      "question": "durchgefuehrte-vorabklaerungen",
-      "sort": 3
+      "sort": 2
     }
   },
   {
@@ -262,7 +280,7 @@
       "modified_by_group": null,
       "form": "allgemeine-informationen",
       "question": "personalien",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -277,7 +295,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "abtransport-ort-der-entsorgung",
-      "sort": 25
+      "sort": 26
     }
   },
   {
@@ -292,7 +310,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "abtransport-volumen",
-      "sort": 24
+      "sort": 25
     }
   },
   {
@@ -307,7 +325,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "anlagen-titel",
-      "sort": 39
+      "sort": 40
     }
   },
   {
@@ -322,7 +340,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "aushub-vor-ort-volumen",
-      "sort": 21
+      "sort": 22
     }
   },
   {
@@ -337,7 +355,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-begruendung",
-      "sort": 40
+      "sort": 41
     }
   },
   {
@@ -352,7 +370,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-beschrieb",
-      "sort": 41
+      "sort": 42
     }
   },
   {
@@ -367,7 +385,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bauabfaelle-titel",
-      "sort": 23
+      "sort": 24
     }
   },
   {
@@ -382,7 +400,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bauten-titel",
-      "sort": 16
+      "sort": 17
     }
   },
   {
@@ -427,7 +445,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "beschreibung-wasserversorgung-fassung-vorgesehen",
-      "sort": 32
+      "sort": 33
     }
   },
   {
@@ -442,7 +460,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "beschreibung-wasserversorgung-vorhanden",
-      "sort": 33
+      "sort": 34
     }
   },
   {
@@ -472,7 +490,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bis-jahr",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -487,7 +505,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "dach-material-und-farbe",
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -517,7 +535,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "erschliessung-wasserversorgung",
-      "sort": 34
+      "sort": 35
     }
   },
   {
@@ -532,7 +550,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "erschliessungsanlagen",
-      "sort": 38
+      "sort": 39
     }
   },
   {
@@ -547,7 +565,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "erschliessungsanlagen-beschreibung",
-      "sort": 37
+      "sort": 38
     }
   },
   {
@@ -562,7 +580,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "fassade-material-und-farbe",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -627,6 +645,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "bab.landwirtschaftliche-wohnbaute",
+    "fields": {
+      "created_at": "2023-04-12T11:40:23.854Z",
+      "modified_at": "2023-04-12T11:40:23.854Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "landwirtschaftliche-wohnbaute",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "bab.landwirtschaftliches-vorhaben",
     "fields": {
       "created_at": "2023-04-12T08:22:19.971Z",
@@ -637,7 +670,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "landwirtschaftliches-vorhaben",
-      "sort": 43
+      "sort": 44
     }
   },
   {
@@ -652,7 +685,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "letzter-umbau",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -667,7 +700,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "materialablagerung-beschreibung",
-      "sort": 28
+      "sort": 29
     }
   },
   {
@@ -682,7 +715,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "materialablagerung-flaeche",
-      "sort": 30
+      "sort": 31
     }
   },
   {
@@ -697,7 +730,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "materialablagerung-titel",
-      "sort": 31
+      "sort": 32
     }
   },
   {
@@ -712,7 +745,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "materialablagerung-volumen",
-      "sort": 29
+      "sort": 30
     }
   },
   {
@@ -757,7 +790,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "paechter",
-      "sort": 42
+      "sort": 43
     }
   },
   {
@@ -772,7 +805,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "schuettmaterial-herkunft",
-      "sort": 27
+      "sort": 28
     }
   },
   {
@@ -787,7 +820,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "schuettmaterial-volumen",
-      "sort": 26
+      "sort": 27
     }
   },
   {
@@ -802,7 +835,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "standort-des-sammel-und-sortierplatzes-zur-entsorgung-der-uebrigen-bauabfaelle",
-      "sort": 17
+      "sort": 18
     }
   },
   {
@@ -817,7 +850,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "ueberschuessiges-material",
-      "sort": 20
+      "sort": 21
     }
   },
   {
@@ -832,7 +865,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "ueberschuessiges-material-ort-der-entsorgung",
-      "sort": 18
+      "sort": 19
     }
   },
   {
@@ -847,7 +880,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "ueberschuessiges-material-volumen",
-      "sort": 19
+      "sort": 20
     }
   },
   {
@@ -862,7 +895,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "urspruenglicher-zweck-der-baute",
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -877,7 +910,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "verwendung-des-aushubs-vor-ort",
-      "sort": 22
+      "sort": 23
     }
   },
   {
@@ -892,7 +925,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "weitere-anlagen",
-      "sort": 36
+      "sort": 37
     }
   },
   {
@@ -907,7 +940,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "weitere-anlagen-beschreibung",
-      "sort": 35
+      "sort": 36
     }
   },
   {
@@ -938,21 +971,6 @@
       "form": "baugesuch",
       "question": "einreichen",
       "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "baugesuch.grundstueck",
-    "fields": {
-      "created_at": "2023-04-05T10:18:13.882Z",
-      "modified_at": "2023-04-05T10:18:13.882Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "baugesuch",
-      "question": "grundstueck",
-      "sort": 3
     }
   },
   {
@@ -1107,6 +1125,156 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "betriebsleiterwohnhaus.besitzverhaeltnis",
+    "fields": {
+      "created_at": "2023-04-12T11:30:02.857Z",
+      "modified_at": "2023-04-12T11:30:02.857Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "betriebsleiterwohnhaus",
+      "question": "besitzverhaeltnis",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "betriebsleiterwohnhaus.betriebsleiter-anzahl-wohnungen",
+    "fields": {
+      "created_at": "2023-04-12T11:30:52.855Z",
+      "modified_at": "2023-04-12T11:30:52.855Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "betriebsleiterwohnhaus",
+      "question": "betriebsleiter-anzahl-wohnungen",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "betriebsleiterwohnhaus.betriebsleiter-baujahr",
+    "fields": {
+      "created_at": "2023-04-12T11:31:08.374Z",
+      "modified_at": "2023-04-12T11:31:08.374Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "betriebsleiterwohnhaus",
+      "question": "betriebsleiter-baujahr",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "betriebsleiterwohnhaus.betriebsleiter-bemerkungen",
+    "fields": {
+      "created_at": "2023-04-12T11:33:01.490Z",
+      "modified_at": "2023-04-12T11:33:01.490Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "betriebsleiterwohnhaus",
+      "question": "betriebsleiter-bemerkungen",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "betriebsleiterwohnhaus.betriebsleiter-weitere-adressen",
+    "fields": {
+      "created_at": "2023-04-12T11:33:13.393Z",
+      "modified_at": "2023-04-12T11:33:13.393Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "betriebsleiterwohnhaus",
+      "question": "betriebsleiter-weitere-adressen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "betriebsleiterwohnhaus.ertragswert-in-chf",
+    "fields": {
+      "created_at": "2023-04-12T11:32:20.739Z",
+      "modified_at": "2023-04-12T11:32:20.739Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "betriebsleiterwohnhaus",
+      "question": "ertragswert-in-chf",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "betriebsleiterwohnhaus.gva-nummer",
+    "fields": {
+      "created_at": "2023-04-12T11:32:08.898Z",
+      "modified_at": "2023-04-12T11:32:08.898Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "betriebsleiterwohnhaus",
+      "question": "gva-nummer",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "betriebsleiterwohnhaus.wohnhaus-bestandteil-landwirtschaftliches-gewerbe",
+    "fields": {
+      "created_at": "2023-04-12T11:28:03.994Z",
+      "modified_at": "2023-04-12T11:28:03.994Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "betriebsleiterwohnhaus",
+      "question": "wohnhaus-bestandteil-landwirtschaftliches-gewerbe",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "betriebsleiterwohnhaus.wohnhaus-bewohnt-durch",
+    "fields": {
+      "created_at": "2023-04-12T11:28:50.268Z",
+      "modified_at": "2023-04-12T11:28:50.268Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "betriebsleiterwohnhaus",
+      "question": "wohnhaus-bewohnt-durch",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "betriebsleiterwohnhaus.zustand",
+    "fields": {
+      "created_at": "2023-04-12T11:32:48.241Z",
+      "modified_at": "2023-04-12T11:32:48.241Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "betriebsleiterwohnhaus",
+      "question": "zustand",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "durchgefuehrte-vorabklaerungen-tabelle.amts-fachstelle",
     "fields": {
       "created_at": "2023-04-05T10:13:00.807Z",
@@ -1222,7 +1390,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "bauvorhaben-mit-gewerbenutzung",
-      "sort": 9
+      "sort": 8
     }
   },
   {
@@ -1237,7 +1405,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "beschreibung-der-anlagen",
-      "sort": 5
+      "sort": 2
     }
   },
   {
@@ -1252,7 +1420,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "beschreibung-der-nutzung",
-      "sort": 8
+      "sort": 7
     }
   },
   {
@@ -1267,7 +1435,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "beschreibung-der-wohnnutzung",
-      "sort": 10
+      "sort": 9
     }
   },
   {
@@ -1282,22 +1450,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "beschreibung-kantonsstrassen",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "nutzung-bauvorhaben.besondere-anlagen",
-    "fields": {
-      "created_at": "2023-04-12T08:06:17.237Z",
-      "modified_at": "2023-04-12T08:06:17.237Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "nutzung-bauvorhaben",
-      "question": "besondere-anlagen",
-      "sort": 6
+      "sort": 4
     }
   },
   {
@@ -1327,7 +1480,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "haustechnische-anlagen-brandschutz",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -1342,7 +1495,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "kantonsstrassen",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -1357,7 +1510,22 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "mehr-als-50-arbeitsplaetze",
-      "sort": 7
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "nutzung-bauvorhaben.mehr-als-vier-wohneinheiten",
+    "fields": {
+      "created_at": "2023-04-12T14:46:53.718Z",
+      "modified_at": "2023-04-12T14:46:53.718Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "nutzung-bauvorhaben",
+      "question": "mehr-als-vier-wohneinheiten",
+      "sort": 10
     }
   },
   {
@@ -1402,7 +1570,562 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "bauten-ausserhalb-bauzone",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare.betriebsleiterwohnhaus",
+    "fields": {
+      "created_at": "2023-04-12T11:36:55.014Z",
+      "modified_at": "2023-04-12T11:36:55.014Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare",
+      "question": "betriebsleiterwohnhaus",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare.stallbau-und-hofduengerlager",
+    "fields": {
+      "created_at": "2023-04-12T11:44:50.546Z",
+      "modified_at": "2023-04-12T11:44:50.546Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare",
+      "question": "stallbau-und-hofduengerlager",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "stallbau-und-hofduengerlager.anzahl-seiten-mit-umrandung",
+    "fields": {
+      "created_at": "2023-04-12T12:30:09.485Z",
+      "modified_at": "2023-04-12T12:30:09.485Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "stallbau-und-hofduengerlager",
+      "question": "anzahl-seiten-mit-umrandung",
+      "sort": 18
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "stallbau-und-hofduengerlager.bestehender-abflussloser-sammelschacht",
+    "fields": {
+      "created_at": "2023-04-12T12:36:51.927Z",
+      "modified_at": "2023-04-12T12:36:51.927Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "stallbau-und-hofduengerlager",
+      "question": "bestehender-abflussloser-sammelschacht",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "stallbau-und-hofduengerlager.bitte-das-geplante-system-genau-umschreiben",
+    "fields": {
+      "created_at": "2023-04-12T12:41:00.842Z",
+      "modified_at": "2023-04-12T12:41:00.842Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "stallbau-und-hofduengerlager",
+      "question": "bitte-das-geplante-system-genau-umschreiben",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "stallbau-und-hofduengerlager.bodenbelaege-aus-beton",
+    "fields": {
+      "created_at": "2023-04-12T12:40:24.585Z",
+      "modified_at": "2023-04-12T12:40:24.585Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "stallbau-und-hofduengerlager",
+      "question": "bodenbelaege-aus-beton",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "stallbau-und-hofduengerlager.bodenbelag-laufhof",
+    "fields": {
+      "created_at": "2023-04-12T11:58:58.526Z",
+      "modified_at": "2023-04-12T11:58:58.526Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "stallbau-und-hofduengerlager",
+      "question": "bodenbelag-laufhof",
+      "sort": 30
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "stallbau-und-hofduengerlager.entwaesserung-bemerkungen",
+    "fields": {
+      "created_at": "2023-04-12T11:43:50.898Z",
+      "modified_at": "2023-04-12T11:43:50.898Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "stallbau-und-hofduengerlager",
+      "question": "entwaesserung-bemerkungen",
+      "sort": 33
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "stallbau-und-hofduengerlager.entwaesserung-guellegrube",
+    "fields": {
+      "created_at": "2023-04-12T11:41:58.039Z",
+      "modified_at": "2023-04-12T11:41:58.039Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "stallbau-und-hofduengerlager",
+      "question": "entwaesserung-guellegrube",
+      "sort": 35
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "stallbau-und-hofduengerlager.entwaesserung-guellegrube-warum-nicht",
+    "fields": {
+      "created_at": "2023-04-12T11:43:32.458Z",
+      "modified_at": "2023-04-12T11:43:32.458Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "stallbau-und-hofduengerlager",
+      "question": "entwaesserung-guellegrube-warum-nicht",
+      "sort": 34
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "stallbau-und-hofduengerlager.guellebehaelter-bemerkungen",
+    "fields": {
+      "created_at": "2023-04-12T12:39:30.844Z",
+      "modified_at": "2023-04-12T12:39:30.844Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "stallbau-und-hofduengerlager",
+      "question": "guellebehaelter-bemerkungen",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "stallbau-und-hofduengerlager.guellebehaelter-beschreibung-material",
+    "fields": {
+      "created_at": "2023-04-12T12:39:05.581Z",
+      "modified_at": "2023-04-12T12:39:05.581Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "stallbau-und-hofduengerlager",
+      "question": "guellebehaelter-beschreibung-material",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "stallbau-und-hofduengerlager.guellelager-laenge",
+    "fields": {
+      "created_at": "2023-04-12T12:47:41.933Z",
+      "modified_at": "2023-04-12T12:47:41.933Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "stallbau-und-hofduengerlager",
+      "question": "guellelager-laenge",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "stallbau-und-hofduengerlager.guellelager-neubau-oder-erweiterung",
+    "fields": {
+      "created_at": "2023-04-12T12:45:32.496Z",
+      "modified_at": "2023-04-12T12:45:32.496Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "stallbau-und-hofduengerlager",
+      "question": "guellelager-neubau-oder-erweiterung",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "stallbau-und-hofduengerlager.guellelager-titel",
+    "fields": {
+      "created_at": "2023-04-12T12:44:13.913Z",
+      "modified_at": "2023-04-12T12:44:13.913Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "stallbau-und-hofduengerlager",
+      "question": "guellelager-titel",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "stallbau-und-hofduengerlager.kein-mistwasser-ueber-die-offene-seite-der-mistplatte",
+    "fields": {
+      "created_at": "2023-04-12T12:33:19.285Z",
+      "modified_at": "2023-04-12T12:33:19.285Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "stallbau-und-hofduengerlager",
+      "question": "kein-mistwasser-ueber-die-offene-seite-der-mistplatte",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "stallbau-und-hofduengerlager.laufhof-bemerkungen",
+    "fields": {
+      "created_at": "2023-04-12T12:00:10.265Z",
+      "modified_at": "2023-04-12T12:00:10.265Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "stallbau-und-hofduengerlager",
+      "question": "laufhof-bemerkungen",
+      "sort": 27
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "stallbau-und-hofduengerlager.laufhof-in-guellegrube-entwaessert",
+    "fields": {
+      "created_at": "2023-04-12T11:59:53.370Z",
+      "modified_at": "2023-04-12T11:59:53.370Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "stallbau-und-hofduengerlager",
+      "question": "laufhof-in-guellegrube-entwaessert",
+      "sort": 28
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "stallbau-und-hofduengerlager.laufhof-laenger-als-2-stunden",
+    "fields": {
+      "created_at": "2023-04-12T11:59:26.294Z",
+      "modified_at": "2023-04-12T11:59:26.294Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "stallbau-und-hofduengerlager",
+      "question": "laufhof-laenger-als-2-stunden",
+      "sort": 29
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "stallbau-und-hofduengerlager.laufhof-titel",
+    "fields": {
+      "created_at": "2023-04-12T11:56:28.359Z",
+      "modified_at": "2023-04-12T11:56:28.359Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "stallbau-und-hofduengerlager",
+      "question": "laufhof-titel",
+      "sort": 32
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "stallbau-und-hofduengerlager.masse-guellegrube-titel",
+    "fields": {
+      "created_at": "2023-04-12T12:47:01.135Z",
+      "modified_at": "2023-04-12T12:47:01.135Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "stallbau-und-hofduengerlager",
+      "question": "masse-guellegrube-titel",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "stallbau-und-hofduengerlager.masse-titel",
+    "fields": {
+      "created_at": "2023-04-12T12:28:56.103Z",
+      "modified_at": "2023-04-12T12:28:56.103Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "stallbau-und-hofduengerlager",
+      "question": "masse-titel",
+      "sort": 22
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "stallbau-und-hofduengerlager.material-guellebehaelter",
+    "fields": {
+      "created_at": "2023-04-12T12:38:06.413Z",
+      "modified_at": "2023-04-12T12:38:06.413Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "stallbau-und-hofduengerlager",
+      "question": "material-guellebehaelter",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "stallbau-und-hofduengerlager.mistlager-breite",
+    "fields": {
+      "created_at": "2023-04-12T12:29:26.497Z",
+      "modified_at": "2023-04-12T12:29:26.497Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "stallbau-und-hofduengerlager",
+      "question": "mistlager-breite",
+      "sort": 20
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "stallbau-und-hofduengerlager.mistlager-hoehe",
+    "fields": {
+      "created_at": "2023-04-12T12:29:55.245Z",
+      "modified_at": "2023-04-12T12:29:55.245Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "stallbau-und-hofduengerlager",
+      "question": "mistlager-hoehe",
+      "sort": 19
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "stallbau-und-hofduengerlager.mistlager-in-guellegrube-entwaessert",
+    "fields": {
+      "created_at": "2023-04-12T12:35:47.081Z",
+      "modified_at": "2023-04-12T12:35:47.081Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "stallbau-und-hofduengerlager",
+      "question": "mistlager-in-guellegrube-entwaessert",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "stallbau-und-hofduengerlager.mistlager-laenge",
+    "fields": {
+      "created_at": "2023-04-12T12:29:14.200Z",
+      "modified_at": "2023-04-12T12:29:14.200Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "stallbau-und-hofduengerlager",
+      "question": "mistlager-laenge",
+      "sort": 21
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "stallbau-und-hofduengerlager.mistlager-neubau-oder-erweiterung",
+    "fields": {
+      "created_at": "2023-04-12T12:28:20.224Z",
+      "modified_at": "2023-04-12T12:28:20.224Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "stallbau-und-hofduengerlager",
+      "question": "mistlager-neubau-oder-erweiterung",
+      "sort": 23
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "stallbau-und-hofduengerlager.mistlager-titel",
+    "fields": {
+      "created_at": "2023-04-12T12:27:25.022Z",
+      "modified_at": "2023-04-12T12:27:25.022Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "stallbau-und-hofduengerlager",
+      "question": "mistlager-titel",
+      "sort": 24
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "stallbau-und-hofduengerlager.mistlager-ueberdacht",
+    "fields": {
+      "created_at": "2023-04-12T12:39:54.059Z",
+      "modified_at": "2023-04-12T12:39:54.059Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "stallbau-und-hofduengerlager",
+      "question": "mistlager-ueberdacht",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "stallbau-und-hofduengerlager.mistwasser-abfluss-bemerkungen",
+    "fields": {
+      "created_at": "2023-04-12T12:33:53.738Z",
+      "modified_at": "2023-04-12T12:33:53.738Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "stallbau-und-hofduengerlager",
+      "question": "mistwasser-abfluss-bemerkungen",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "stallbau-und-hofduengerlager.mistwasser-bemerkungen",
+    "fields": {
+      "created_at": "2023-04-12T12:27:00.158Z",
+      "modified_at": "2023-04-12T12:27:00.158Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "stallbau-und-hofduengerlager",
+      "question": "mistwasser-bemerkungen",
+      "sort": 25
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "stallbau-und-hofduengerlager.mistwasser-laufhof-in-umgebung",
+    "fields": {
+      "created_at": "2023-04-12T12:26:46.036Z",
+      "modified_at": "2023-04-12T12:26:46.036Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "stallbau-und-hofduengerlager",
+      "question": "mistwasser-laufhof-in-umgebung",
+      "sort": 26
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "stallbau-und-hofduengerlager.neuer-auslauf-beim-stall",
+    "fields": {
+      "created_at": "2023-04-12T11:56:30.219Z",
+      "modified_at": "2023-04-12T11:56:30.219Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "stallbau-und-hofduengerlager",
+      "question": "neuer-auslauf-beim-stall",
+      "sort": 31
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "stallbau-und-hofduengerlager.nutzvolumen-guellebehaelter",
+    "fields": {
+      "created_at": "2023-04-12T12:37:36.010Z",
+      "modified_at": "2023-04-12T12:37:36.010Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "stallbau-und-hofduengerlager",
+      "question": "nutzvolumen-guellebehaelter",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "stallbau-und-hofduengerlager.situation-genauer-beschreiben",
+    "fields": {
+      "created_at": "2023-04-12T12:31:55.512Z",
+      "modified_at": "2023-04-12T12:31:55.512Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "stallbau-und-hofduengerlager",
+      "question": "situation-genauer-beschreiben",
+      "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "stallbau-und-hofduengerlager.umrandungen-auf-allen-seiten-gleich-hoch",
+    "fields": {
+      "created_at": "2023-04-12T12:30:29.794Z",
+      "modified_at": "2023-04-12T12:30:29.794Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "stallbau-und-hofduengerlager",
+      "question": "umrandungen-auf-allen-seiten-gleich-hoch",
+      "sort": 17
     }
   },
   {
@@ -1570,7 +2293,7 @@
     "pk": "beschreibung-der-anlagen-gewaesser",
     "fields": {
       "created_at": "2023-04-12T08:08:32.564Z",
-      "modified_at": "2023-04-12T08:08:57.271Z",
+      "modified_at": "2023-04-12T14:50:41.469Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -1586,7 +2309,7 @@
     "pk": "beschreibung-der-anlagen-solaranlagen",
     "fields": {
       "created_at": "2023-04-12T08:08:32.553Z",
-      "modified_at": "2023-04-12T08:08:57.272Z",
+      "modified_at": "2023-04-12T14:50:41.458Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -1602,7 +2325,7 @@
     "pk": "beschreibung-der-anlagen-terrainveraenderung",
     "fields": {
       "created_at": "2023-04-12T08:08:32.554Z",
-      "modified_at": "2023-04-12T08:08:57.268Z",
+      "modified_at": "2023-04-12T14:50:41.452Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -1618,7 +2341,7 @@
     "pk": "beschreibung-der-anlagen-untergrund",
     "fields": {
       "created_at": "2023-04-12T08:08:32.552Z",
-      "modified_at": "2023-04-12T08:08:57.273Z",
+      "modified_at": "2023-04-12T14:50:41.476Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -1634,7 +2357,7 @@
     "pk": "beschreibung-der-anlagen-verkehrsanlagen",
     "fields": {
       "created_at": "2023-04-12T08:08:32.565Z",
-      "modified_at": "2023-04-12T08:08:57.270Z",
+      "modified_at": "2023-04-12T14:50:41.454Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -1714,7 +2437,7 @@
     "pk": "beschreibung-der-wohnnutzung-beherbergung-oeffentliche-bauten",
     "fields": {
       "created_at": "2023-04-12T08:03:49.799Z",
-      "modified_at": "2023-04-12T08:05:28.895Z",
+      "modified_at": "2023-04-12T14:47:41.169Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -1730,13 +2453,13 @@
     "pk": "beschreibung-der-wohnnutzung-mehr-als-vier-wohneinheiten",
     "fields": {
       "created_at": "2023-04-12T08:03:49.797Z",
-      "modified_at": "2023-04-12T08:05:28.897Z",
+      "modified_at": "2023-04-12T14:47:41.167Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"mehr als vier Wohneinheiten\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -1746,7 +2469,7 @@
     "pk": "beschreibung-der-wohnnutzung-wohn-oder-ferienhaus-spital-heim",
     "fields": {
       "created_at": "2023-04-12T08:03:49.798Z",
-      "modified_at": "2023-04-12T08:05:28.903Z",
+      "modified_at": "2023-04-12T14:47:41.158Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -2047,6 +2770,38 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "besitzverhaeltnis-eigentum",
+    "fields": {
+      "created_at": "2023-04-12T11:30:02.586Z",
+      "modified_at": "2023-04-12T11:30:02.586Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Eigentum\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "besitzverhaeltnis-miete",
+    "fields": {
+      "created_at": "2023-04-12T11:30:02.589Z",
+      "modified_at": "2023-04-12T11:30:02.589Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Miete\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "besondere-anlagen-ja",
     "fields": {
       "created_at": "2023-04-12T08:06:16.973Z",
@@ -2223,6 +2978,38 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "bestehender-abflussloser-sammelschacht-ja",
+    "fields": {
+      "created_at": "2023-04-12T12:36:51.558Z",
+      "modified_at": "2023-04-12T12:36:51.558Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bestehender-abflussloser-sammelschacht-nein",
+    "fields": {
+      "created_at": "2023-04-12T12:36:51.553Z",
+      "modified_at": "2023-04-12T12:36:51.553Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "bewirtschaftung-durch-eigentuemer",
     "fields": {
       "created_at": "2023-04-12T11:23:15.937Z",
@@ -2255,6 +3042,134 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "bodenbelaege-aus-beton-ja",
+    "fields": {
+      "created_at": "2023-04-12T12:40:24.336Z",
+      "modified_at": "2023-04-12T12:40:24.336Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bodenbelaege-aus-beton-nein",
+    "fields": {
+      "created_at": "2023-04-12T12:40:24.341Z",
+      "modified_at": "2023-04-12T12:40:24.341Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bodenbelag-laufhof-dicht",
+    "fields": {
+      "created_at": "2023-04-12T11:58:58.185Z",
+      "modified_at": "2023-04-12T11:58:58.185Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beton (= dichte Bel\\u00e4ge)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bodenbelag-laufhof-spaltenboden",
+    "fields": {
+      "created_at": "2023-04-12T11:58:58.184Z",
+      "modified_at": "2023-04-12T11:58:58.184Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Spaltenboden\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bodenbelag-laufhof-undicht",
+    "fields": {
+      "created_at": "2023-04-12T11:58:58.176Z",
+      "modified_at": "2023-04-12T11:58:58.176Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ecoraster / Rasengittersteine / Kies / Sand (= undichte Bel\\u00e4ge)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bodenbelag-laufhof-verbundsteine",
+    "fields": {
+      "created_at": "2023-04-12T11:58:58.183Z",
+      "modified_at": "2023-04-12T11:58:58.183Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Verbundsteine\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "das-wohnhaus-wird-bewohnt-durch-eigentuemer",
+    "fields": {
+      "created_at": "2023-04-12T11:28:50.032Z",
+      "modified_at": "2023-04-12T11:28:50.032Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Eigent\\u00fcmer\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "das-wohnhaus-wird-bewohnt-durch-paechter",
+    "fields": {
+      "created_at": "2023-04-12T11:28:50.013Z",
+      "modified_at": "2023-04-12T11:28:50.013Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"P\\u00e4chter\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "einreichen-button-eingereicht",
     "fields": {
       "created_at": "2019-06-14T14:30:32.966Z",
@@ -2264,6 +3179,70 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Eingereicht\", \"fr\": \"soumis/transmis\", \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "entwaesserung-guellegrube-ja",
+    "fields": {
+      "created_at": "2023-04-12T11:41:57.774Z",
+      "modified_at": "2023-04-12T11:56:40.905Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "entwaesserung-guellegrube-nein",
+    "fields": {
+      "created_at": "2023-04-12T11:41:57.779Z",
+      "modified_at": "2023-04-12T11:56:40.912Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "entwaesserung-guellegrube-warum-nicht-einleitung-in-ara",
+    "fields": {
+      "created_at": "2023-04-12T11:43:32.104Z",
+      "modified_at": "2023-04-12T11:44:14.112Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Einleitung in ARA\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "entwaesserung-guellegrube-warum-nicht-keine-milchproduktion",
+    "fields": {
+      "created_at": "2023-04-12T11:43:32.100Z",
+      "modified_at": "2023-04-12T11:44:14.105Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Keine Milchproduktion\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2367,6 +3346,38 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "guellelager-neubau-oder-erweiterung-erweiterung-umbau",
+    "fields": {
+      "created_at": "2023-04-12T12:45:32.223Z",
+      "modified_at": "2023-04-12T12:46:14.831Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Erweiterung / Umbau\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "guellelager-neubau-oder-erweiterung-neubau",
+    "fields": {
+      "created_at": "2023-04-12T12:45:32.218Z",
+      "modified_at": "2023-04-12T12:46:14.837Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Neubau\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "handelt-es-sich-um-einen-subventionierten-stall-ja",
     "fields": {
       "created_at": "2023-04-12T11:05:53.327Z",
@@ -2402,12 +3413,12 @@
     "pk": "haustechnische-anlagen-brandschutz-ja",
     "fields": {
       "created_at": "2023-04-12T08:12:57.810Z",
-      "modified_at": "2023-04-12T08:12:57.810Z",
+      "modified_at": "2023-04-12T14:54:09.015Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Ja, Gesuch f\\u00fcr feuerpolizeiliche Bewilligung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2418,10 +3429,10 @@
     "pk": "haustechnische-anlagen-brandschutz-nein",
     "fields": {
       "created_at": "2023-04-12T08:12:57.816Z",
-      "modified_at": "2023-04-12T08:12:57.816Z",
+      "modified_at": "2023-04-12T14:54:09.023Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": false,
@@ -2463,6 +3474,118 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "kein-mistwasser-ueber-die-offene-seite-der-mistplatte-abflussrinne",
+    "fields": {
+      "created_at": "2023-04-12T12:33:18.886Z",
+      "modified_at": "2023-04-12T12:33:18.886Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abflussrinne\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kein-mistwasser-ueber-die-offene-seite-der-mistplatte-aufbordung",
+    "fields": {
+      "created_at": "2023-04-12T12:33:18.895Z",
+      "modified_at": "2023-04-12T12:33:18.895Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Aufbordung / Kleine Mauer\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kein-mistwasser-ueber-die-offene-seite-der-mistplatte-gefaelle",
+    "fields": {
+      "created_at": "2023-04-12T12:33:18.900Z",
+      "modified_at": "2023-04-12T12:33:18.900Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gef\\u00e4lle gegen die Mistplatte\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kein-mistwasser-ueber-die-offene-seite-der-mistplatte-schacht",
+    "fields": {
+      "created_at": "2023-04-12T12:33:18.887Z",
+      "modified_at": "2023-04-12T12:33:18.887Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Schacht \\u00fcber die gesamte L\\u00e4nge der offenen Seite\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kein-mistwasser-ueber-die-offene-seite-der-mistplatte-umrandung",
+    "fields": {
+      "created_at": "2023-04-12T12:33:18.898Z",
+      "modified_at": "2023-04-12T12:33:18.898Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Umrandung auf allen vier Seiten\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "landwirtschaftliche-wohnbaute-ja",
+    "fields": {
+      "created_at": "2023-04-12T11:40:23.584Z",
+      "modified_at": "2023-04-12T11:40:23.584Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "landwirtschaftliche-wohnbaute-nein",
+    "fields": {
+      "created_at": "2023-04-12T11:40:23.588Z",
+      "modified_at": "2023-04-12T11:40:23.588Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "landwirtschaftliches-vorhaben-ja",
     "fields": {
       "created_at": "2023-04-12T08:22:19.685Z",
@@ -2488,6 +3611,102 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "laufhof-in-guellegrube-entwaessert-ja",
+    "fields": {
+      "created_at": "2023-04-12T11:59:53.101Z",
+      "modified_at": "2023-04-12T12:25:38.622Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "laufhof-in-guellegrube-entwaessert-nein",
+    "fields": {
+      "created_at": "2023-04-12T11:59:53.097Z",
+      "modified_at": "2023-04-12T12:25:38.616Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "laufhof-laenger-als-2-stunden-ja",
+    "fields": {
+      "created_at": "2023-04-12T11:59:26.054Z",
+      "modified_at": "2023-04-12T12:25:32.061Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "laufhof-laenger-als-2-stunden-nein",
+    "fields": {
+      "created_at": "2023-04-12T11:59:26.053Z",
+      "modified_at": "2023-04-12T12:25:32.055Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "material-guellebehaelter-anderes",
+    "fields": {
+      "created_at": "2023-04-12T12:38:06.137Z",
+      "modified_at": "2023-04-12T12:38:06.137Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anderes\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "material-guellebehaelter-beton",
+    "fields": {
+      "created_at": "2023-04-12T12:38:06.134Z",
+      "modified_at": "2023-04-12T12:38:06.134Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beton\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2563,6 +3782,246 @@
     "fields": {
       "created_at": "2023-04-05T10:55:44.037Z",
       "modified_at": "2023-04-05T10:56:25.133Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mehr-als-vier-wohneinheiten-ja",
+    "fields": {
+      "created_at": "2023-04-12T14:46:53.411Z",
+      "modified_at": "2023-04-12T14:47:24.976Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mehr-als-vier-wohneinheiten-nein",
+    "fields": {
+      "created_at": "2023-04-12T14:46:53.404Z",
+      "modified_at": "2023-04-12T14:47:24.984Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mistlager-in-guellegrube-entwaessert-ja",
+    "fields": {
+      "created_at": "2023-04-12T12:35:46.809Z",
+      "modified_at": "2023-04-12T12:35:46.809Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mistlager-in-guellegrube-entwaessert-nein",
+    "fields": {
+      "created_at": "2023-04-12T12:35:46.814Z",
+      "modified_at": "2023-04-12T12:35:46.814Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mistlager-neubau-oder-erweiterung-erweiterung-umbau",
+    "fields": {
+      "created_at": "2023-04-12T12:28:19.949Z",
+      "modified_at": "2023-04-12T12:28:19.949Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Erweiterung / Umbau\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mistlager-neubau-oder-erweiterung-neubau",
+    "fields": {
+      "created_at": "2023-04-12T12:28:19.949Z",
+      "modified_at": "2023-04-12T12:28:19.949Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Neubau\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mistlager-ueberdacht-ja",
+    "fields": {
+      "created_at": "2023-04-12T12:39:53.787Z",
+      "modified_at": "2023-04-12T12:39:53.787Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mistlager-ueberdacht-nein",
+    "fields": {
+      "created_at": "2023-04-12T12:39:53.787Z",
+      "modified_at": "2023-04-12T12:39:53.787Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mistwasser-laufhof-in-umgebung-abflussrinne",
+    "fields": {
+      "created_at": "2023-04-12T12:26:45.560Z",
+      "modified_at": "2023-04-12T12:26:45.560Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abflussrinne mit Entw\\u00e4sserung in G\\u00fcllegrube\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mistwasser-laufhof-in-umgebung-gefaelle",
+    "fields": {
+      "created_at": "2023-04-12T12:26:45.569Z",
+      "modified_at": "2023-04-12T12:26:45.569Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gef\\u00e4lle in Richtung Schacht / Abfluss / G\\u00fcllegrube\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mistwasser-laufhof-in-umgebung-spaltenboden",
+    "fields": {
+      "created_at": "2023-04-12T12:26:45.565Z",
+      "modified_at": "2023-04-12T12:26:45.565Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Spaltenboden\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mistwasser-laufhof-in-umgebung-ueber-die-schulter",
+    "fields": {
+      "created_at": "2023-04-12T12:26:45.567Z",
+      "modified_at": "2023-04-12T12:26:45.567Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entw\\u00e4sserung \\u00fcber die Schulter in den aktiven Oberboden\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mistwasser-laufhof-in-umgebung-umrandung",
+    "fields": {
+      "created_at": "2023-04-12T12:26:45.557Z",
+      "modified_at": "2023-04-12T12:26:45.557Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Umrandung / Aufbordung / Kleine Mauer\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "neuer-auslauf-beim-stall-ja",
+    "fields": {
+      "created_at": "2023-04-12T11:55:56.135Z",
+      "modified_at": "2023-04-12T11:56:46.846Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "neuer-auslauf-beim-stall-nein",
+    "fields": {
+      "created_at": "2023-04-12T11:55:56.130Z",
+      "modified_at": "2023-04-12T11:56:46.840Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -2959,6 +4418,38 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "umrandungen-auf-allen-seiten-gleich-hoch-ja",
+    "fields": {
+      "created_at": "2023-04-12T12:30:29.539Z",
+      "modified_at": "2023-04-12T12:30:29.539Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "umrandungen-auf-allen-seiten-gleich-hoch-nein",
+    "fields": {
+      "created_at": "2023-04-12T12:30:29.544Z",
+      "modified_at": "2023-04-12T12:30:29.544Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "verwendung-des-aushubs-vor-ort-ja",
     "fields": {
       "created_at": "2023-04-12T09:10:34.589Z",
@@ -3183,6 +4674,38 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "wohnhaus-bestandteil-landwirtschaftliches-gewerbe-ja",
+    "fields": {
+      "created_at": "2023-04-12T11:28:03.707Z",
+      "modified_at": "2023-04-12T11:28:03.707Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "wohnhaus-bestandteil-landwirtschaftliches-gewerbe-nein",
+    "fields": {
+      "created_at": "2023-04-12T11:28:03.711Z",
+      "modified_at": "2023-04-12T11:28:03.711Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "wohnnutzung-ja",
     "fields": {
       "created_at": "2023-04-12T08:01:53.820Z",
@@ -3318,18 +4841,18 @@
     "pk": "allgemeine-angaben",
     "fields": {
       "created_at": "2022-09-21T12:18:28.632Z",
-      "modified_at": "2022-09-21T12:18:28.632Z",
+      "modified_at": "2023-04-12T14:28:31.719Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Allgemeine Angaben\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Lage des Vorhabens\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "form",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
@@ -3426,6 +4949,40 @@
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"---\\n### Anlagen\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "anzahl-seiten-mit-umrandung",
+    "fields": {
+      "created_at": "2023-04-12T12:30:09.381Z",
+      "modified_at": "2023-04-12T12:30:09.381Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anzahl Seiten mit Umrandung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -3665,6 +5222,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "baujahr",
+    "fields": {
+      "created_at": "2023-04-12T11:30:29.598Z",
+      "modified_at": "2023-04-12T11:30:29.598Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Baujahr\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "baukosten",
     "fields": {
       "created_at": "2023-04-12T07:52:08.352Z",
@@ -3764,18 +5355,18 @@
     "pk": "bauvorhaben",
     "fields": {
       "created_at": "2023-04-05T10:44:17.764Z",
-      "modified_at": "2023-04-05T10:44:17.764Z",
+      "modified_at": "2023-04-12T14:22:01.842Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Bauvorhaben\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Vorhaben\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "form",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
@@ -3823,18 +5414,52 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "beschreibung-bauvorhaben",
+    "fields": {
+      "created_at": "2019-04-12T08:18:11.316Z",
+      "modified_at": "2023-04-12T07:45:43.438Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung\", \"fr\": \"Description\", \"it\": null, \"rm\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"M\\u00f6glichst genaue Umschreibung des Bauvorhabens. Die wesentlichen Gegenst\\u00e4nde des Bauvorhabens sind aufzuf\\u00fchren.\", \"fr\": \"Description aussi pr\\u00e9cise que possible du projet de construction. Les \\u00e9l\\u00e9ments essentiels du projet doivent \\u00eatre pr\\u00e9sent\\u00e9s.\", \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": 1000,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "beschreibung-der-anlagen",
     "fields": {
       "created_at": "2023-04-12T08:08:32.877Z",
-      "modified_at": "2023-04-12T08:08:57.623Z",
+      "modified_at": "2023-04-12T14:50:41.855Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Beschreibung der Anlagen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Bauvorhaben mit besonderen Anlagen\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "multiple_choice",
       "is_required": "false",
-      "is_hidden": "!(\"besondere-anlagen-ja\" == \"besondere-anlagen\"|answer)",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
@@ -3888,7 +5513,7 @@
     "pk": "beschreibung-der-wohnnutzung",
     "fields": {
       "created_at": "2023-04-12T08:03:50.050Z",
-      "modified_at": "2023-04-12T08:05:29.095Z",
+      "modified_at": "2023-04-12T14:47:41.383Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -4071,6 +5696,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "besitzverhaeltnis",
+    "fields": {
+      "created_at": "2023-04-12T11:30:02.742Z",
+      "modified_at": "2023-04-12T11:30:02.742Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Besitzverh\\u00e4ltnis\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "besondere-anlagen",
     "fields": {
       "created_at": "2023-04-12T08:06:17.121Z",
@@ -4133,6 +5789,204 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "bestehender-abflussloser-sammelschacht",
+    "fields": {
+      "created_at": "2023-04-12T12:36:51.724Z",
+      "modified_at": "2023-04-12T12:36:51.724Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gibt es einen bestehenden abflusslosen Sammelschacht/Sammelgrube beim Mistlagerraum, in welchem das anfallende Mistwasser gesammelt wird?\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "!(\"mistlager-in-guellegrube-entwaessert-nein\" == \"mistlager-in-guellegrube-entwaessert\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "betriebsleiter-anzahl-wohnungen",
+    "fields": {
+      "created_at": "2023-04-12T11:30:52.748Z",
+      "modified_at": "2023-04-12T11:30:52.748Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anzahl Wohnungen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "betriebsleiter-baujahr",
+    "fields": {
+      "created_at": "2023-04-12T11:31:08.272Z",
+      "modified_at": "2023-04-12T11:31:08.273Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Baujahr\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "betriebsleiter-bemerkungen",
+    "fields": {
+      "created_at": "2023-04-12T11:33:01.391Z",
+      "modified_at": "2023-04-12T11:33:01.391Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "betriebsleiter-weitere-adressen",
+    "fields": {
+      "created_at": "2023-04-12T11:33:13.292Z",
+      "modified_at": "2023-04-12T11:33:13.292Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Weitere Adressen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "betriebsleiterwohnhaus",
+    "fields": {
+      "created_at": "2023-04-12T11:36:54.904Z",
+      "modified_at": "2023-04-12T11:48:48.861Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Betriebsleiterwohnhaus\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "!(\"landwirtschaftliche-wohnbaute-ja\" == \"landwirtschaftliche-wohnbaute\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "betriebsleiterwohnhaus",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "bewirtschaftung-durch",
     "fields": {
       "created_at": "2023-04-12T11:23:16.081Z",
@@ -4185,6 +6039,102 @@
         "max_value": null,
         "min_value": null
       },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bitte-das-geplante-system-genau-umschreiben",
+    "fields": {
+      "created_at": "2023-04-12T12:41:00.709Z",
+      "modified_at": "2023-04-12T12:41:00.709Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bitte das geplante System genau umschreiben:\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "!(\"bodenbelaege-aus-beton-nein\" == \"bodenbelaege-aus-beton\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bodenbelaege-aus-beton",
+    "fields": {
+      "created_at": "2023-04-12T12:40:24.472Z",
+      "modified_at": "2023-04-12T12:40:24.472Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Werden s\\u00e4mtliche Bodenbel\\u00e4ge und Seitenmauern aus Beton erstellt?\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bodenbelag-laufhof",
+    "fields": {
+      "created_at": "2023-04-12T11:58:58.399Z",
+      "modified_at": "2023-04-12T11:58:58.399Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Was f\\u00fcr ein Bodenbelag wird f\\u00fcr den Laufhof verwendet?\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -4394,6 +6344,102 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "entwaesserung-bemerkungen",
+    "fields": {
+      "created_at": "2023-04-12T11:43:50.797Z",
+      "modified_at": "2023-04-12T11:43:50.797Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "entwaesserung-guellegrube",
+    "fields": {
+      "created_at": "2023-04-12T11:41:57.917Z",
+      "modified_at": "2023-04-12T11:56:41.146Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wird das Abwasser des Milchzimmers in die G\\u00fcllegrube entw\\u00e4ssert?\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "entwaesserung-guellegrube-warum-nicht",
+    "fields": {
+      "created_at": "2023-04-12T11:43:32.341Z",
+      "modified_at": "2023-04-12T11:44:14.268Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Warum nicht?\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "!(\"entwaesserung-guellegrube-nein\" == \"entwaesserung-guellegrube\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "erschliessung-wasserversorgung",
     "fields": {
       "created_at": "2023-04-12T08:57:50.057Z",
@@ -4476,6 +6522,40 @@
       "configuration": {
         "max_length": null,
         "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "ertragswert-in-chf",
+    "fields": {
+      "created_at": "2023-04-12T11:32:20.636Z",
+      "modified_at": "2023-04-12T11:32:20.636Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ertragswert in CHF\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
       },
       "meta": {},
       "data_source": null,
@@ -4623,6 +6703,238 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "guellebehaelter-bemerkungen",
+    "fields": {
+      "created_at": "2023-04-12T12:39:30.737Z",
+      "modified_at": "2023-04-12T12:39:30.737Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "guellebehaelter-beschreibung-material",
+    "fields": {
+      "created_at": "2023-04-12T12:39:05.468Z",
+      "modified_at": "2023-04-12T12:39:05.468Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung Material\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!(\"material-guellebehaelter-anderes\" == \"material-guellebehaelter\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "guellelager-laenge",
+    "fields": {
+      "created_at": "2023-04-12T12:47:41.828Z",
+      "modified_at": "2023-04-12T12:47:41.828Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"L\\u00e4nge (m)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "float",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "guellelager-neubau-oder-erweiterung",
+    "fields": {
+      "created_at": "2023-04-12T12:45:32.379Z",
+      "modified_at": "2023-04-12T12:46:14.980Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Handelt es sich um einen Neubau oder eine Erweiterung / Umbau einer bestehenden Baute?\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "guellelager-titel",
+    "fields": {
+      "created_at": "2023-04-12T12:44:13.812Z",
+      "modified_at": "2023-04-12T12:44:13.812Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"G\\u00fcllelager Titel\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"---\\n### G\\u00fcllelager\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "gva-nummer",
+    "fields": {
+      "created_at": "2023-04-12T11:32:08.800Z",
+      "modified_at": "2023-04-12T11:32:08.800Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"GVA-Nummer\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "gwr-egid",
+    "fields": {
+      "created_at": "2019-03-28T14:56:20.402Z",
+      "modified_at": "2020-01-14T13:46:54.277Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"GWR-EGID\", \"fr\": \"N\\u00b0 RegBL-EGID\", \"it\": null, \"rm\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"Eidgen\\u00f6ssischer Geb\\u00e4udeidentifikator\", \"fr\": \"Identificateur f\\u00e9d\\u00e9ral du b\\u00e2timent\", \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": 900000000,
+        "min_value": 1
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "handelt-es-sich-um-einen-subventionierten-stall",
     "fields": {
       "created_at": "2023-04-12T11:05:53.493Z",
@@ -4657,10 +6969,10 @@
     "pk": "haustechnische-anlagen-brandschutz",
     "fields": {
       "created_at": "2023-04-12T08:12:57.951Z",
-      "modified_at": "2023-04-12T08:12:57.951Z",
+      "modified_at": "2023-04-12T14:54:09.193Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Neubauten, Ver\\u00e4nderungen, Umnutzungen von Geb\\u00e4uden, haustechnischen Anlagen und Brandschutzeinrichtungen\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "choice",
@@ -4668,8 +6980,8 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -4695,6 +7007,37 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Bauvorhaben an Kantonsstrassen\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "kein-mistwasser-ueber-die-offene-seite-der-mistplatte",
+    "fields": {
+      "created_at": "2023-04-12T12:33:19.143Z",
+      "modified_at": "2023-04-12T12:33:19.143Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wie wird daf\\u00fcr gesorgt, dass kein Mistwasser \\u00fcber die offene Seite der Mistplatte (Bedienungsseite) in die Umgebung  abfliesst?\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "multiple_choice",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
@@ -4849,6 +7192,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "landwirtschaftliche-wohnbaute",
+    "fields": {
+      "created_at": "2023-04-12T11:40:23.734Z",
+      "modified_at": "2023-04-12T11:40:23.734Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Landwirtschaftliche Wohnbaute\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "landwirtschaftliches-vorhaben",
     "fields": {
       "created_at": "2023-04-12T08:22:19.838Z",
@@ -4866,6 +7240,133 @@
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "laufhof-bemerkungen",
+    "fields": {
+      "created_at": "2023-04-12T12:00:10.159Z",
+      "modified_at": "2023-04-12T12:00:10.159Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "laufhof-in-guellegrube-entwaessert",
+    "fields": {
+      "created_at": "2023-04-12T11:59:53.238Z",
+      "modified_at": "2023-04-12T12:25:38.757Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wird der Laufhof in die G\\u00fcllegrube entw\\u00e4ssert?\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "laufhof-laenger-als-2-stunden",
+    "fields": {
+      "created_at": "2023-04-12T11:59:26.178Z",
+      "modified_at": "2023-04-12T12:25:32.198Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Handelt es sich um einen Laufhof, welcher t\\u00e4glich l\\u00e4nger als 2 Stunden genutzt wird?\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "laufhof-titel",
+    "fields": {
+      "created_at": "2023-04-12T11:55:29.848Z",
+      "modified_at": "2023-04-12T11:55:29.848Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Laufhof Titel\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"---\\n#### Laufhof / Auslauf\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -4901,6 +7402,99 @@
         "max_length": null,
         "min_length": null
       },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "masse-guellegrube-titel",
+    "fields": {
+      "created_at": "2023-04-12T12:47:01.029Z",
+      "modified_at": "2023-04-12T12:47:01.029Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Masse der neuen G\\u00fcllegrube Titel\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"Masse der neuen G\\u00fcllegrube / des neuen G\\u00fcllebeh\\u00e4lters respektive Erweiterung\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "masse-titel",
+    "fields": {
+      "created_at": "2023-04-12T12:28:55.991Z",
+      "modified_at": "2023-04-12T12:28:55.991Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Masse Titel\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"Masse des neuen Mistlagers respektive Erweiterung\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "material-guellebehaelter",
+    "fields": {
+      "created_at": "2023-04-12T12:38:06.296Z",
+      "modified_at": "2023-04-12T12:38:06.296Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Aus welchem Material besteht der G\\u00fcllebeh\\u00e4lter?\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -5075,21 +7669,408 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "nutzung-bauvorhaben",
+    "pk": "mehr-als-vier-wohneinheiten",
     "fields": {
-      "created_at": "2023-04-05T10:53:12.788Z",
-      "modified_at": "2023-04-05T10:53:12.788Z",
+      "created_at": "2023-04-12T14:46:53.571Z",
+      "modified_at": "2023-04-12T14:47:25.161Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Mehr als vier Wohneinheiten?\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "!(\"wohnnutzung-ja\" == \"wohnnutzung\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mistlager-breite",
+    "fields": {
+      "created_at": "2023-04-12T12:29:26.383Z",
+      "modified_at": "2023-04-12T12:29:26.383Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Nutzung Bauvorhaben\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "type": "form",
+      "label": "{\"de\": \"Breite (m)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "float",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mistlager-hoehe",
+    "fields": {
+      "created_at": "2023-04-12T12:29:55.134Z",
+      "modified_at": "2023-04-12T12:29:55.134Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"H\\u00f6he / Tiefe (m)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "float",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mistlager-in-guellegrube-entwaessert",
+    "fields": {
+      "created_at": "2023-04-12T12:35:46.961Z",
+      "modified_at": "2023-04-12T12:35:46.961Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wird das Mistlager in die G\\u00fcllegrube entw\\u00e4ssert?\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mistlager-laenge",
+    "fields": {
+      "created_at": "2023-04-12T12:29:14.082Z",
+      "modified_at": "2023-04-12T12:29:33.646Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"L\\u00e4nge (m)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "float",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mistlager-neubau-oder-erweiterung",
+    "fields": {
+      "created_at": "2023-04-12T12:28:20.099Z",
+      "modified_at": "2023-04-12T12:28:20.099Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Handelt es sich um einen Neubau oder eine Erweiterung / Umbau einer bestehenden Baute?\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mistlager-titel",
+    "fields": {
+      "created_at": "2023-04-12T12:27:24.917Z",
+      "modified_at": "2023-04-12T12:27:24.917Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Mistlager Titel\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"---\\n#### Mistlager\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mistlager-ueberdacht",
+    "fields": {
+      "created_at": "2023-04-12T12:39:53.940Z",
+      "modified_at": "2023-04-12T12:39:53.940Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ist / Wird das gesamte Mistlager \\u00fcberdacht?\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mistwasser-abfluss-bemerkungen",
+    "fields": {
+      "created_at": "2023-04-12T12:33:53.633Z",
+      "modified_at": "2023-04-12T12:33:53.633Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mistwasser-bemerkungen",
+    "fields": {
+      "created_at": "2023-04-12T12:26:59.965Z",
+      "modified_at": "2023-04-12T12:26:59.965Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mistwasser-laufhof-in-umgebung",
+    "fields": {
+      "created_at": "2023-04-12T12:26:45.892Z",
+      "modified_at": "2023-04-12T12:26:45.892Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wie wird daf\\u00fcr gesorgt, dass kein Mistwasser vom Laufhof in die Umgebung abfliesst?\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "neuer-auslauf-beim-stall",
+    "fields": {
+      "created_at": "2023-04-12T11:55:56.285Z",
+      "modified_at": "2023-04-12T11:56:46.984Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wird ein neuer Auslauf beim Stall erstellt / eingerichtet?\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "nutzung-bauvorhaben",
+    "fields": {
+      "created_at": "2023-04-05T10:53:12.788Z",
+      "modified_at": "2023-04-12T14:44:04.080Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Triage\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
@@ -5124,6 +8105,40 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "nutzvolumen-guellebehaelter",
+    "fields": {
+      "created_at": "2023-04-12T12:37:35.899Z",
+      "modified_at": "2023-04-12T12:37:35.899Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wie gross ist das Nutzvolumen des G\\u00fcllebeh\\u00e4lters? (m\\u00b3)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "float",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -5309,21 +8324,55 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "spezialformulare",
+    "pk": "situation-genauer-beschreiben",
     "fields": {
-      "created_at": "2023-04-12T08:23:22.640Z",
-      "modified_at": "2023-04-12T08:23:22.640Z",
+      "created_at": "2023-04-12T12:31:55.403Z",
+      "modified_at": "2023-04-12T12:31:55.403Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Spezialformulare\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Falls Nein, bitte die Situation genauer beschreiben und in einer Bauskizze eintragen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "!(\"umrandungen-auf-allen-seiten-gleich-hoch-nein\" == \"umrandungen-auf-allen-seiten-gleich-hoch\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "spezialformulare",
+    "fields": {
+      "created_at": "2023-04-12T08:23:22.640Z",
+      "modified_at": "2023-04-12T14:44:34.081Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zusatzformulare\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "form",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
@@ -5331,6 +8380,37 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "spezialformulare",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "stallbau-und-hofduengerlager",
+    "fields": {
+      "created_at": "2023-04-12T11:44:50.442Z",
+      "modified_at": "2023-04-12T11:45:06.777Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Stallbau und Hofd\\u00fcngerlager\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "!([\n\t\"nutzungszweck-landwirtschaft-grossviehstall\",\n\t\"nutzungszweck-landwirtschaft-kleinviehstall\",\n\t\"nutzungszweck-landwirtschaft-heustall\"\n  ] intersects \"nutzungszweck-landwirtschaft\"|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "stallbau-und-hofduengerlager",
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -5460,6 +8540,37 @@
         "max_value": null,
         "min_value": null
       },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "umrandungen-auf-allen-seiten-gleich-hoch",
+    "fields": {
+      "created_at": "2023-04-12T12:30:29.675Z",
+      "modified_at": "2023-04-12T12:30:29.675Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Sind die Umrandungen auf allen Seiten gleich hoch?\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -5696,6 +8807,68 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "wohnhaus-bestandteil-landwirtschaftliches-gewerbe",
+    "fields": {
+      "created_at": "2023-04-12T11:28:03.869Z",
+      "modified_at": "2023-04-12T11:28:03.869Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ist das Wohnhaus Bestandteil eines landwirtschaftlichen Gewerbes im Sinne des b\\u00e4uerlichen Bodenrechts?\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "wohnhaus-bewohnt-durch",
+    "fields": {
+      "created_at": "2023-04-12T11:28:50.149Z",
+      "modified_at": "2023-04-12T11:28:50.149Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Das Wohnhaus wird bewohnt durch\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "wohnnutzung",
     "fields": {
       "created_at": "2023-04-12T08:01:53.957Z",
@@ -5745,6 +8918,40 @@
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zustand",
+    "fields": {
+      "created_at": "2023-04-12T11:32:48.127Z",
+      "modified_at": "2023-04-12T11:32:48.127Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zustand\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -5910,8 +9117,8 @@
     "model": "caluma_form.questionoption",
     "pk": "beschreibung-der-anlagen.beschreibung-der-anlagen-gewaesser",
     "fields": {
-      "created_at": "2023-04-12T08:08:57.629Z",
-      "modified_at": "2023-04-12T08:08:57.629Z",
+      "created_at": "2023-04-12T14:50:41.863Z",
+      "modified_at": "2023-04-12T14:50:41.863Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -5925,8 +9132,8 @@
     "model": "caluma_form.questionoption",
     "pk": "beschreibung-der-anlagen.beschreibung-der-anlagen-solaranlagen",
     "fields": {
-      "created_at": "2023-04-12T08:08:57.642Z",
-      "modified_at": "2023-04-12T08:08:57.642Z",
+      "created_at": "2023-04-12T14:50:41.885Z",
+      "modified_at": "2023-04-12T14:50:41.885Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -5940,8 +9147,8 @@
     "model": "caluma_form.questionoption",
     "pk": "beschreibung-der-anlagen.beschreibung-der-anlagen-terrainveraenderung",
     "fields": {
-      "created_at": "2023-04-12T08:08:57.633Z",
-      "modified_at": "2023-04-12T08:08:57.633Z",
+      "created_at": "2023-04-12T14:50:41.875Z",
+      "modified_at": "2023-04-12T14:50:41.875Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -5955,8 +9162,8 @@
     "model": "caluma_form.questionoption",
     "pk": "beschreibung-der-anlagen.beschreibung-der-anlagen-untergrund",
     "fields": {
-      "created_at": "2023-04-12T08:08:57.636Z",
-      "modified_at": "2023-04-12T08:08:57.636Z",
+      "created_at": "2023-04-12T14:50:41.878Z",
+      "modified_at": "2023-04-12T14:50:41.878Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -5970,8 +9177,8 @@
     "model": "caluma_form.questionoption",
     "pk": "beschreibung-der-anlagen.beschreibung-der-anlagen-verkehrsanlagen",
     "fields": {
-      "created_at": "2023-04-12T08:08:57.639Z",
-      "modified_at": "2023-04-12T08:08:57.639Z",
+      "created_at": "2023-04-12T14:50:41.881Z",
+      "modified_at": "2023-04-12T14:50:41.881Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -6045,8 +9252,8 @@
     "model": "caluma_form.questionoption",
     "pk": "beschreibung-der-wohnnutzung.beschreibung-der-wohnnutzung-beherbergung-oeffentliche-bauten",
     "fields": {
-      "created_at": "2023-04-12T08:05:29.102Z",
-      "modified_at": "2023-04-12T08:05:29.102Z",
+      "created_at": "2023-04-12T14:47:41.394Z",
+      "modified_at": "2023-04-12T14:47:41.394Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -6060,8 +9267,8 @@
     "model": "caluma_form.questionoption",
     "pk": "beschreibung-der-wohnnutzung.beschreibung-der-wohnnutzung-mehr-als-vier-wohneinheiten",
     "fields": {
-      "created_at": "2023-04-12T08:05:29.105Z",
-      "modified_at": "2023-04-12T08:05:29.105Z",
+      "created_at": "2023-04-12T14:47:41.398Z",
+      "modified_at": "2023-04-12T14:47:41.398Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -6075,8 +9282,8 @@
     "model": "caluma_form.questionoption",
     "pk": "beschreibung-der-wohnnutzung.beschreibung-der-wohnnutzung-wohn-oder-ferienhaus-spital-heim",
     "fields": {
-      "created_at": "2023-04-12T08:05:29.108Z",
-      "modified_at": "2023-04-12T08:05:29.108Z",
+      "created_at": "2023-04-12T14:47:41.402Z",
+      "modified_at": "2023-04-12T14:47:41.402Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -6358,6 +9565,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "besitzverhaeltnis.besitzverhaeltnis-eigentum",
+    "fields": {
+      "created_at": "2023-04-12T11:30:02.751Z",
+      "modified_at": "2023-04-12T11:30:02.751Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "besitzverhaeltnis",
+      "option": "besitzverhaeltnis-eigentum",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "besitzverhaeltnis.besitzverhaeltnis-miete",
+    "fields": {
+      "created_at": "2023-04-12T11:30:02.747Z",
+      "modified_at": "2023-04-12T11:30:02.748Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "besitzverhaeltnis",
+      "option": "besitzverhaeltnis-miete",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "besondere-anlagen.besondere-anlagen-ja",
     "fields": {
       "created_at": "2023-04-12T08:06:17.131Z",
@@ -6523,6 +9760,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "bestehender-abflussloser-sammelschacht.bestehender-abflussloser-sammelschacht-ja",
+    "fields": {
+      "created_at": "2023-04-12T12:36:51.733Z",
+      "modified_at": "2023-04-12T12:36:51.733Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "bestehender-abflussloser-sammelschacht",
+      "option": "bestehender-abflussloser-sammelschacht-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bestehender-abflussloser-sammelschacht.bestehender-abflussloser-sammelschacht-nein",
+    "fields": {
+      "created_at": "2023-04-12T12:36:51.729Z",
+      "modified_at": "2023-04-12T12:36:51.729Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "bestehender-abflussloser-sammelschacht",
+      "option": "bestehender-abflussloser-sammelschacht-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "bewirtschaftung-durch.bewirtschaftung-durch-eigentuemer",
     "fields": {
       "created_at": "2023-04-12T11:24:55.773Z",
@@ -6553,6 +9820,96 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "bodenbelaege-aus-beton.bodenbelaege-aus-beton-ja",
+    "fields": {
+      "created_at": "2023-04-12T12:40:24.480Z",
+      "modified_at": "2023-04-12T12:40:24.480Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "bodenbelaege-aus-beton",
+      "option": "bodenbelaege-aus-beton-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bodenbelaege-aus-beton.bodenbelaege-aus-beton-nein",
+    "fields": {
+      "created_at": "2023-04-12T12:40:24.477Z",
+      "modified_at": "2023-04-12T12:40:24.477Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "bodenbelaege-aus-beton",
+      "option": "bodenbelaege-aus-beton-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bodenbelag-laufhof.bodenbelag-laufhof-dicht",
+    "fields": {
+      "created_at": "2023-04-12T11:58:58.413Z",
+      "modified_at": "2023-04-12T11:58:58.413Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "bodenbelag-laufhof",
+      "option": "bodenbelag-laufhof-dicht",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bodenbelag-laufhof.bodenbelag-laufhof-spaltenboden",
+    "fields": {
+      "created_at": "2023-04-12T11:58:58.404Z",
+      "modified_at": "2023-04-12T11:58:58.404Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "bodenbelag-laufhof",
+      "option": "bodenbelag-laufhof-spaltenboden",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bodenbelag-laufhof.bodenbelag-laufhof-undicht",
+    "fields": {
+      "created_at": "2023-04-12T11:58:58.410Z",
+      "modified_at": "2023-04-12T11:58:58.410Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "bodenbelag-laufhof",
+      "option": "bodenbelag-laufhof-undicht",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bodenbelag-laufhof.bodenbelag-laufhof-verbundsteine",
+    "fields": {
+      "created_at": "2023-04-12T11:58:58.408Z",
+      "modified_at": "2023-04-12T11:58:58.408Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "bodenbelag-laufhof",
+      "option": "bodenbelag-laufhof-verbundsteine",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "einreichen-button.einreichen-button-eingereicht",
     "fields": {
       "created_at": "2022-09-21T12:51:49.852Z",
@@ -6563,6 +9920,66 @@
       "modified_by_group": null,
       "question": "einreichen-button",
       "option": "einreichen-button-eingereicht",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "entwaesserung-guellegrube-warum-nicht.entwaesserung-guellegrube-warum-nicht-einleitung-in-ara",
+    "fields": {
+      "created_at": "2023-04-12T11:44:14.274Z",
+      "modified_at": "2023-04-12T11:44:14.274Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "entwaesserung-guellegrube-warum-nicht",
+      "option": "entwaesserung-guellegrube-warum-nicht-einleitung-in-ara",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "entwaesserung-guellegrube-warum-nicht.entwaesserung-guellegrube-warum-nicht-keine-milchproduktion",
+    "fields": {
+      "created_at": "2023-04-12T11:44:14.277Z",
+      "modified_at": "2023-04-12T11:44:14.277Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "entwaesserung-guellegrube-warum-nicht",
+      "option": "entwaesserung-guellegrube-warum-nicht-keine-milchproduktion",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "entwaesserung-guellegrube.entwaesserung-guellegrube-ja",
+    "fields": {
+      "created_at": "2023-04-12T11:56:41.155Z",
+      "modified_at": "2023-04-12T11:56:41.155Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "entwaesserung-guellegrube",
+      "option": "entwaesserung-guellegrube-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "entwaesserung-guellegrube.entwaesserung-guellegrube-nein",
+    "fields": {
+      "created_at": "2023-04-12T11:56:41.152Z",
+      "modified_at": "2023-04-12T11:56:41.152Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "entwaesserung-guellegrube",
+      "option": "entwaesserung-guellegrube-nein",
       "sort": 1
     }
   },
@@ -6658,6 +10075,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "guellelager-neubau-oder-erweiterung.guellelager-neubau-oder-erweiterung-erweiterung-umbau",
+    "fields": {
+      "created_at": "2023-04-12T12:46:14.987Z",
+      "modified_at": "2023-04-12T12:46:14.987Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "guellelager-neubau-oder-erweiterung",
+      "option": "guellelager-neubau-oder-erweiterung-erweiterung-umbau",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "guellelager-neubau-oder-erweiterung.guellelager-neubau-oder-erweiterung-neubau",
+    "fields": {
+      "created_at": "2023-04-12T12:46:14.990Z",
+      "modified_at": "2023-04-12T12:46:14.990Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "guellelager-neubau-oder-erweiterung",
+      "option": "guellelager-neubau-oder-erweiterung-neubau",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "handelt-es-sich-um-einen-subventionierten-stall.handelt-es-sich-um-einen-subventionierten-stall-ja",
     "fields": {
       "created_at": "2023-04-12T11:24:49.125Z",
@@ -6690,8 +10137,8 @@
     "model": "caluma_form.questionoption",
     "pk": "haustechnische-anlagen-brandschutz.haustechnische-anlagen-brandschutz-ja",
     "fields": {
-      "created_at": "2023-04-12T08:12:57.959Z",
-      "modified_at": "2023-04-12T08:12:57.959Z",
+      "created_at": "2023-04-12T14:54:09.204Z",
+      "modified_at": "2023-04-12T14:54:09.204Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -6705,8 +10152,8 @@
     "model": "caluma_form.questionoption",
     "pk": "haustechnische-anlagen-brandschutz.haustechnische-anlagen-brandschutz-nein",
     "fields": {
-      "created_at": "2023-04-12T08:12:57.956Z",
-      "modified_at": "2023-04-12T08:12:57.956Z",
+      "created_at": "2023-04-12T14:54:09.201Z",
+      "modified_at": "2023-04-12T14:54:09.201Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -6748,6 +10195,111 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "kein-mistwasser-ueber-die-offene-seite-der-mistplatte.kein-mistwasser-ueber-die-offene-seite-der-mistplatte-abflussrinne",
+    "fields": {
+      "created_at": "2023-04-12T12:33:19.152Z",
+      "modified_at": "2023-04-12T12:33:19.152Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "kein-mistwasser-ueber-die-offene-seite-der-mistplatte",
+      "option": "kein-mistwasser-ueber-die-offene-seite-der-mistplatte-abflussrinne",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kein-mistwasser-ueber-die-offene-seite-der-mistplatte.kein-mistwasser-ueber-die-offene-seite-der-mistplatte-aufbordung",
+    "fields": {
+      "created_at": "2023-04-12T12:33:19.158Z",
+      "modified_at": "2023-04-12T12:33:19.158Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "kein-mistwasser-ueber-die-offene-seite-der-mistplatte",
+      "option": "kein-mistwasser-ueber-die-offene-seite-der-mistplatte-aufbordung",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kein-mistwasser-ueber-die-offene-seite-der-mistplatte.kein-mistwasser-ueber-die-offene-seite-der-mistplatte-gefaelle",
+    "fields": {
+      "created_at": "2023-04-12T12:33:19.161Z",
+      "modified_at": "2023-04-12T12:33:19.161Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "kein-mistwasser-ueber-die-offene-seite-der-mistplatte",
+      "option": "kein-mistwasser-ueber-die-offene-seite-der-mistplatte-gefaelle",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kein-mistwasser-ueber-die-offene-seite-der-mistplatte.kein-mistwasser-ueber-die-offene-seite-der-mistplatte-schacht",
+    "fields": {
+      "created_at": "2023-04-12T12:33:19.155Z",
+      "modified_at": "2023-04-12T12:33:19.155Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "kein-mistwasser-ueber-die-offene-seite-der-mistplatte",
+      "option": "kein-mistwasser-ueber-die-offene-seite-der-mistplatte-schacht",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kein-mistwasser-ueber-die-offene-seite-der-mistplatte.kein-mistwasser-ueber-die-offene-seite-der-mistplatte-umrandung",
+    "fields": {
+      "created_at": "2023-04-12T12:33:19.149Z",
+      "modified_at": "2023-04-12T12:33:19.149Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "kein-mistwasser-ueber-die-offene-seite-der-mistplatte",
+      "option": "kein-mistwasser-ueber-die-offene-seite-der-mistplatte-umrandung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "landwirtschaftliche-wohnbaute.landwirtschaftliche-wohnbaute-ja",
+    "fields": {
+      "created_at": "2023-04-12T11:40:23.743Z",
+      "modified_at": "2023-04-12T11:40:23.743Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "landwirtschaftliche-wohnbaute",
+      "option": "landwirtschaftliche-wohnbaute-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "landwirtschaftliche-wohnbaute.landwirtschaftliche-wohnbaute-nein",
+    "fields": {
+      "created_at": "2023-04-12T11:40:23.739Z",
+      "modified_at": "2023-04-12T11:40:23.739Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "landwirtschaftliche-wohnbaute",
+      "option": "landwirtschaftliche-wohnbaute-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "landwirtschaftliches-vorhaben.landwirtschaftliches-vorhaben-ja",
     "fields": {
       "created_at": "2023-04-12T08:41:02.636Z",
@@ -6774,6 +10326,96 @@
       "question": "landwirtschaftliches-vorhaben",
       "option": "landwirtschaftliches-vorhaben-nein",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "laufhof-in-guellegrube-entwaessert.laufhof-in-guellegrube-entwaessert-ja",
+    "fields": {
+      "created_at": "2023-04-12T12:25:38.768Z",
+      "modified_at": "2023-04-12T12:25:38.768Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "laufhof-in-guellegrube-entwaessert",
+      "option": "laufhof-in-guellegrube-entwaessert-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "laufhof-in-guellegrube-entwaessert.laufhof-in-guellegrube-entwaessert-nein",
+    "fields": {
+      "created_at": "2023-04-12T12:25:38.764Z",
+      "modified_at": "2023-04-12T12:25:38.764Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "laufhof-in-guellegrube-entwaessert",
+      "option": "laufhof-in-guellegrube-entwaessert-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "laufhof-laenger-als-2-stunden.laufhof-laenger-als-2-stunden-ja",
+    "fields": {
+      "created_at": "2023-04-12T12:25:32.209Z",
+      "modified_at": "2023-04-12T12:25:32.209Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "laufhof-laenger-als-2-stunden",
+      "option": "laufhof-laenger-als-2-stunden-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "laufhof-laenger-als-2-stunden.laufhof-laenger-als-2-stunden-nein",
+    "fields": {
+      "created_at": "2023-04-12T12:25:32.206Z",
+      "modified_at": "2023-04-12T12:25:32.206Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "laufhof-laenger-als-2-stunden",
+      "option": "laufhof-laenger-als-2-stunden-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "material-guellebehaelter.material-guellebehaelter-anderes",
+    "fields": {
+      "created_at": "2023-04-12T12:38:06.301Z",
+      "modified_at": "2023-04-12T12:38:06.301Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "material-guellebehaelter",
+      "option": "material-guellebehaelter-anderes",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "material-guellebehaelter.material-guellebehaelter-beton",
+    "fields": {
+      "created_at": "2023-04-12T12:38:06.305Z",
+      "modified_at": "2023-04-12T12:38:06.305Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "material-guellebehaelter",
+      "option": "material-guellebehaelter-beton",
+      "sort": 2
     }
   },
   {
@@ -6848,6 +10490,231 @@
       "modified_by_group": null,
       "question": "mehr-als-50-arbeitsplaetze",
       "option": "mehr-als-50-arbeitsplaetze-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mehr-als-vier-wohneinheiten.mehr-als-vier-wohneinheiten-ja",
+    "fields": {
+      "created_at": "2023-04-12T14:47:25.172Z",
+      "modified_at": "2023-04-12T14:47:25.172Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "mehr-als-vier-wohneinheiten",
+      "option": "mehr-als-vier-wohneinheiten-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mehr-als-vier-wohneinheiten.mehr-als-vier-wohneinheiten-nein",
+    "fields": {
+      "created_at": "2023-04-12T14:47:25.169Z",
+      "modified_at": "2023-04-12T14:47:25.169Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "mehr-als-vier-wohneinheiten",
+      "option": "mehr-als-vier-wohneinheiten-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mistlager-in-guellegrube-entwaessert.mistlager-in-guellegrube-entwaessert-ja",
+    "fields": {
+      "created_at": "2023-04-12T12:35:46.970Z",
+      "modified_at": "2023-04-12T12:35:46.970Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "mistlager-in-guellegrube-entwaessert",
+      "option": "mistlager-in-guellegrube-entwaessert-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mistlager-in-guellegrube-entwaessert.mistlager-in-guellegrube-entwaessert-nein",
+    "fields": {
+      "created_at": "2023-04-12T12:35:46.966Z",
+      "modified_at": "2023-04-12T12:35:46.966Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "mistlager-in-guellegrube-entwaessert",
+      "option": "mistlager-in-guellegrube-entwaessert-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mistlager-neubau-oder-erweiterung.mistlager-neubau-oder-erweiterung-erweiterung-umbau",
+    "fields": {
+      "created_at": "2023-04-12T12:28:20.104Z",
+      "modified_at": "2023-04-12T12:28:20.104Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "mistlager-neubau-oder-erweiterung",
+      "option": "mistlager-neubau-oder-erweiterung-erweiterung-umbau",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mistlager-neubau-oder-erweiterung.mistlager-neubau-oder-erweiterung-neubau",
+    "fields": {
+      "created_at": "2023-04-12T12:28:20.107Z",
+      "modified_at": "2023-04-12T12:28:20.107Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "mistlager-neubau-oder-erweiterung",
+      "option": "mistlager-neubau-oder-erweiterung-neubau",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mistlager-ueberdacht.mistlager-ueberdacht-ja",
+    "fields": {
+      "created_at": "2023-04-12T12:39:53.949Z",
+      "modified_at": "2023-04-12T12:39:53.949Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "mistlager-ueberdacht",
+      "option": "mistlager-ueberdacht-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mistlager-ueberdacht.mistlager-ueberdacht-nein",
+    "fields": {
+      "created_at": "2023-04-12T12:39:53.945Z",
+      "modified_at": "2023-04-12T12:39:53.945Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "mistlager-ueberdacht",
+      "option": "mistlager-ueberdacht-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mistwasser-laufhof-in-umgebung.mistwasser-laufhof-in-umgebung-abflussrinne",
+    "fields": {
+      "created_at": "2023-04-12T12:26:45.906Z",
+      "modified_at": "2023-04-12T12:26:45.906Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "mistwasser-laufhof-in-umgebung",
+      "option": "mistwasser-laufhof-in-umgebung-abflussrinne",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mistwasser-laufhof-in-umgebung.mistwasser-laufhof-in-umgebung-gefaelle",
+    "fields": {
+      "created_at": "2023-04-12T12:26:45.912Z",
+      "modified_at": "2023-04-12T12:26:45.912Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "mistwasser-laufhof-in-umgebung",
+      "option": "mistwasser-laufhof-in-umgebung-gefaelle",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mistwasser-laufhof-in-umgebung.mistwasser-laufhof-in-umgebung-spaltenboden",
+    "fields": {
+      "created_at": "2023-04-12T12:26:45.901Z",
+      "modified_at": "2023-04-12T12:26:45.901Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "mistwasser-laufhof-in-umgebung",
+      "option": "mistwasser-laufhof-in-umgebung-spaltenboden",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mistwasser-laufhof-in-umgebung.mistwasser-laufhof-in-umgebung-ueber-die-schulter",
+    "fields": {
+      "created_at": "2023-04-12T12:26:45.898Z",
+      "modified_at": "2023-04-12T12:26:45.898Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "mistwasser-laufhof-in-umgebung",
+      "option": "mistwasser-laufhof-in-umgebung-ueber-die-schulter",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mistwasser-laufhof-in-umgebung.mistwasser-laufhof-in-umgebung-umrandung",
+    "fields": {
+      "created_at": "2023-04-12T12:26:45.909Z",
+      "modified_at": "2023-04-12T12:26:45.909Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "mistwasser-laufhof-in-umgebung",
+      "option": "mistwasser-laufhof-in-umgebung-umrandung",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "neuer-auslauf-beim-stall.neuer-auslauf-beim-stall-ja",
+    "fields": {
+      "created_at": "2023-04-12T11:56:46.995Z",
+      "modified_at": "2023-04-12T11:56:46.995Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "neuer-auslauf-beim-stall",
+      "option": "neuer-auslauf-beim-stall-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "neuer-auslauf-beim-stall.neuer-auslauf-beim-stall-nein",
+    "fields": {
+      "created_at": "2023-04-12T11:56:46.992Z",
+      "modified_at": "2023-04-12T11:56:46.992Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "neuer-auslauf-beim-stall",
+      "option": "neuer-auslauf-beim-stall-nein",
       "sort": 1
     }
   },
@@ -7213,6 +11080,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "umrandungen-auf-allen-seiten-gleich-hoch.umrandungen-auf-allen-seiten-gleich-hoch-ja",
+    "fields": {
+      "created_at": "2023-04-12T12:30:29.684Z",
+      "modified_at": "2023-04-12T12:30:29.684Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "umrandungen-auf-allen-seiten-gleich-hoch",
+      "option": "umrandungen-auf-allen-seiten-gleich-hoch-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "umrandungen-auf-allen-seiten-gleich-hoch.umrandungen-auf-allen-seiten-gleich-hoch-nein",
+    "fields": {
+      "created_at": "2023-04-12T12:30:29.680Z",
+      "modified_at": "2023-04-12T12:30:29.680Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "umrandungen-auf-allen-seiten-gleich-hoch",
+      "option": "umrandungen-auf-allen-seiten-gleich-hoch-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "verwendung-des-aushubs-vor-ort.verwendung-des-aushubs-vor-ort-ja",
     "fields": {
       "created_at": "2023-04-12T09:10:34.733Z",
@@ -7419,6 +11316,66 @@
       "question": "weitere-anlagen",
       "option": "weitere-anlagen-terrainveraenderung",
       "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "wohnhaus-bestandteil-landwirtschaftliches-gewerbe.wohnhaus-bestandteil-landwirtschaftliches-gewerbe-ja",
+    "fields": {
+      "created_at": "2023-04-12T11:28:03.879Z",
+      "modified_at": "2023-04-12T11:28:03.879Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "wohnhaus-bestandteil-landwirtschaftliches-gewerbe",
+      "option": "wohnhaus-bestandteil-landwirtschaftliches-gewerbe-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "wohnhaus-bestandteil-landwirtschaftliches-gewerbe.wohnhaus-bestandteil-landwirtschaftliches-gewerbe-nein",
+    "fields": {
+      "created_at": "2023-04-12T11:28:03.875Z",
+      "modified_at": "2023-04-12T11:28:03.875Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "wohnhaus-bestandteil-landwirtschaftliches-gewerbe",
+      "option": "wohnhaus-bestandteil-landwirtschaftliches-gewerbe-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "wohnhaus-bewohnt-durch.das-wohnhaus-wird-bewohnt-durch-eigentuemer",
+    "fields": {
+      "created_at": "2023-04-12T11:28:50.159Z",
+      "modified_at": "2023-04-12T11:28:50.159Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "wohnhaus-bewohnt-durch",
+      "option": "das-wohnhaus-wird-bewohnt-durch-eigentuemer",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "wohnhaus-bewohnt-durch.das-wohnhaus-wird-bewohnt-durch-paechter",
+    "fields": {
+      "created_at": "2023-04-12T11:28:50.155Z",
+      "modified_at": "2023-04-12T11:28:50.155Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "wohnhaus-bewohnt-durch",
+      "option": "das-wohnhaus-wird-bewohnt-durch-paechter",
+      "sort": 1
     }
   },
   {
