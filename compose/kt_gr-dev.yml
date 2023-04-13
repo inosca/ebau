@@ -66,6 +66,8 @@ services:
       - OIDC_USERINFO_ENDPOINT=http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
       - PYTHONDONTWRITEBYTECODE=1
       - GWR_FERNET_KEY=GUdwT6yKxqfszrnHC7wyKDmtVZdhjSVQEPnpeJYNLf8=
+    env_file:
+      - test_env
     networks:
       - ebau.local
     command: /bin/sh -c "./wait-for-it.sh db:5432 -- ./manage.py migrate && ./manage.py collectstatic --noinput && ./manage.py runserver 0:80 --pythonpath /app/$APPLICATION"
@@ -138,6 +140,8 @@ services:
       - OIDC_OP_USER_ENDPOINT=http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
       - MINIO_STORAGE_ENDPOINT=ember-ebau.local
       - MINIO_STORAGE_SECRET_KEY=minio123
+      - MINIO_STORAGE_SERVICE=minio
+      - MINIO_STORAGE_ACCESS_KEY=minio
     networks:
       - ebau.local
 

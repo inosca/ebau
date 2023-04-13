@@ -21,6 +21,8 @@ from camac.constants.kt_bern import (
 from camac.utils import build_url
 
 env = environ.Env()
+
+# resolves to folder django or /app in container
 ROOT_DIR = environ.Path(__file__) - 2
 
 ENV_FILE = env.str("DJANGO_ENV_FILE", default=ROOT_DIR(".env"))
