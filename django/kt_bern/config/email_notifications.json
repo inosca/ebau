@@ -39,7 +39,7 @@
     "model": "notification.notificationtemplate",
     "pk": 4,
     "fields": {
-      "slug": "00-empfang-meldung-waermeerzeugerersatz-behoerden",
+      "slug": "00-empfang-meldung-waermeerzeugerersatz-gesuchsteller",
       "purpose": null,
       "subject": null,
       "body": null,
@@ -51,7 +51,7 @@
     "model": "notification.notificationtemplate",
     "pk": 5,
     "fields": {
-      "slug": "00-empfang-meldung-waermeerzeugerersatz-gesuchsteller",
+      "slug": "00-empfang-meldung-waermeerzeugerersatz-behoerden",
       "purpose": null,
       "subject": null,
       "body": null,
@@ -508,7 +508,7 @@
     "pk": 7,
     "fields": {
       "template": 4,
-      "template_slug": "00-empfang-meldung-waermeerzeugerersatz-behoerden",
+      "template_slug": "00-empfang-meldung-waermeerzeugerersatz-gesuchsteller",
       "language": "de",
       "purpose": "00 Empfang Meldung Wärmeerzeugerersatz (Gesuchsteller)",
       "subject": "Erfolgreiche Einreichung / Formulaire déposé avec succès\t",
@@ -520,7 +520,7 @@
     "pk": 9,
     "fields": {
       "template": 5,
-      "template_slug": "00-empfang-meldung-waermeerzeugerersatz-gesuchsteller",
+      "template_slug": "00-empfang-meldung-waermeerzeugerersatz-behoerden",
       "language": "de",
       "purpose": "00 Empfang Meldung Wärmererzeugerersatz (Behörden)",
       "subject": "Neu eingegangen / Nouvelle entrée",
