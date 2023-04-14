@@ -26,6 +26,12 @@ module.exports = function (defaults) {
         enableModificationConfirm: ENV === "be",
         instancePaperFilterDefault: ENV === "ur",
       },
+      setConfig: {
+        "@ember-data/store": {
+          // https://github.com/emberjs/data/pull/8109
+          polyfillUUID: true,
+        },
+      },
     },
     "ember-simple-auth": {
       useSessionSetupMethod: true,
