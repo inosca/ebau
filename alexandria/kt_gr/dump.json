@@ -1,0 +1,82 @@
+[
+  {
+    "model": "alexandria_core.category",
+    "pk": "alle-beteiligten",
+    "fields": {
+      "created_at": "2020-08-04T13:24:00.704Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2020-08-04T13:24:00.704Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "meta": {},
+      "name": "{\"de-ch\": \"Alle Beteiligten\", \"en\": \"All involved\"}",
+      "description": "{\"de-ch\": \"\", \"en\": \"\"}",
+      "color": "#CB68C1"
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "beilagen-zum-gesuch",
+    "fields": {
+      "created_at": "2020-08-04T13:24:00.677Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2020-08-04T13:24:00.677Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "meta": {},
+      "name": "{\"de-ch\": \"Beilagen zum Gesuch\", \"en\": \"Supplements to the application\"}",
+      "description": "{\"de-ch\": \"\", \"en\": \"\"}",
+      "color": "#9CDD69"
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "beteiligte-beh\u00f6rden",
+    "fields": {
+      "created_at": "2020-08-04T13:24:00.699Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2020-08-04T13:24:00.699Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "meta": {},
+      "name": "{\"de-ch\": \"Beteiligte Beh\\u00f6rden\", \"en\": \"Involved Authorities\"}",
+      "description": "{\"de-ch\": \"\", \"en\": \"\"}",
+      "color": "#8791EC"
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "inter",
+    "fields": {
+      "created_at": "2020-08-04T13:24:00.708Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2020-08-04T13:24:00.708Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "meta": {},
+      "name": "{\"de-ch\": \"Intern\", \"en\": \"Internal\"}",
+      "description": "{\"de-ch\": \"\", \"en\": \"\"}",
+      "color": "#DB8B72"
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "nachforderungen",
+    "fields": {
+      "created_at": "2020-08-04T13:24:00.690Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2020-08-04T13:24:00.690Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "meta": { "instanceid": "1" },
+      "name": "{\"de-ch\": \"Nachforderungen\", \"en\": \"Additional claims\"}",
+      "description": "{\"de-ch\": \"\", \"en\": \"\"}",
+      "color": "#66CFC9"
+    }
+  }
+]

@@ -1,0 +1,49 @@
+<div class="uk-position-relative">
+  <CfField::info
+    @text={{concat (t "documents.buckets.descriptions.prefix") (t (concat "documents.buckets.descriptions." this.slug))}}
+    class="uk-position-top-right uk-margin-small-right uk-margin-small-top"
+  />
+
+  {{#if @disabled}}
+    <div class="uk-placeholder uk-margin-remove uk-padding-medium">
+      <p class="uk-text-center uk-margin-left uk-margin-right uk-margin-remove-bottom">{{t (concat "documents.buckets." this.slug)}}</p>
+
+      {{#if (or @loading @attachments.length)}}
+        <div class="uk-margin uk-width-1-1">
+          <AlexandriaAttachmentList
+            @loading={{@loading}}
+            @attachments={{@attachments}}
+            @deletable={{false}}
+          />
+        </div>
+      {{/if}}
+    </div>
+  {{else}}
+    <Dropzone
+      @multiple={{true}}
+      @allowedMimetypes={{this.allowedMimetypes}}
+      @onFileAdded={{perform this.upload}}
+      @onValidationError={{this.onValidationError}}
+      class="uk-text-meta"
+    >
+      <:header>
+        <p class="uk-margin-right uk-margin-left">{{t (concat "documents.buckets." this.slug)}}</p>
+      </:header>
+      <:footer>
+        {{#if (or @loading @attachments.length)}}
+          <div class="uk-text-left uk-margin uk-width-1-1">
+            <AlexandriaAttachmentList
+              @loading={{@loading}}
+              @attachments={{@attachments}}
+              @deletable={{@deletable}}
+              @onDelete={{perform this.delete}}
+              @useConfidential={{this.useConfidential}}
+              @onConfidential={{this.toggleConfidential}}
+              @attachmentLoading={{this.attachmentLoading}}
+            />
+          </div>
+        {{/if}}
+      </:footer>
+    </Dropzone>
+  {{/if}}
+</div>
