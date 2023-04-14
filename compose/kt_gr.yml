@@ -55,6 +55,8 @@ services:
 
   mailhog:
     image: mailhog/mailhog
+    environment:
+      - MH_UI_WEB_PATH=mailhog
 
   keycloak:
     build:
@@ -86,6 +88,8 @@ services:
       - DATABASE_NAME=${APPLICATION}
       - DATABASE_USER=camac
       - LANGUAGES=de-ch,en
+      # Todo: remove if it is the default
+      - DB_VENDOR=postgres
 
 volumes:
   pgdata:
