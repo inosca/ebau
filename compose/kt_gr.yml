@@ -5,16 +5,6 @@ services:
 
   proxy:
     image: nginx:1.23-alpine
-    depends_on:
-      - ember-caluma-portal
-      - django
-      - keycloak
-      - mailhog
-      - document-merge-service
-      - ember-ebau
-    volumes:
-      - djangomedia:/var/lib/camac/media:ro
-      - djangotmpmedia:/tmp/camac/tmpfiles:ro
 
   django:
     build:
@@ -91,10 +81,7 @@ services:
 
   alexandria:
     image: ghcr.io/projectcaluma/alexandria:dev
-    volumes:
-      - ../alexandria/demo/dump.json:/tmp/alexandria/dump.json
     environment:
-      - ENV=development
       - DATABASE_HOST=db
       - DATABASE_NAME=${APPLICATION}
       - DATABASE_USER=camac
