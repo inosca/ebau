@@ -193,6 +193,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     billing_total_kommunal = serializers.SerializerMethodField()
     billing_total_kanton = serializers.SerializerMethodField()
     billing_total = serializers.SerializerMethodField()
+    billing_total_uncharged = serializers.SerializerMethodField()
     my_activations = serializers.SerializerMethodField()
     objections = serializers.SerializerMethodField()
     bauverwaltung = serializers.SerializerMethodField()
@@ -612,6 +613,11 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         return BillingV2Entry.objects.filter(instance=instance).aggregate(
             total=Sum("final_rate")
         )["total"]
+
+    def get_billing_total_uncharged(self, instance):
+        return BillingV2Entry.objects.filter(
+            instance=instance, date_charged__isnull=True
+        ).aggregate(total=Sum("final_rate"))["total"]
 
     def _get_inquiries(self, instance):
         if not settings.DISTRIBUTION:

@@ -3968,6 +3968,7 @@ class BillingV2Entry(models.Model):
     # Billing text
     text = models.TextField()
     date_added = models.DateField()
+    date_charged = models.DateField(null=True, blank=True)
 
     # Tax mode = calculation model for tax
     tax_mode = models.CharField(choices=TAX_MODE_CHOICES, max_length=20)
