@@ -257,6 +257,10 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
                 icon: "camera",
                 color: "warning",
               },
+              "inquiry-answer-status-interim-report": {
+                icon: "future",
+                color: "warning",
+              },
             },
             details: (inquiry) => {
               const releasedForReviewWorkItem =

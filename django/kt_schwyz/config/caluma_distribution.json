@@ -267,6 +267,22 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "inquiry-answer-status-interim-report",
+    "fields": {
+      "created_at": "2023-04-18T16:15:16.121Z",
+      "modified_at": "2023-04-18T16:15:16.121Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zwischenbericht\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "inquiry-answer-status-legal-hearing",
     "fields": {
       "created_at": "2022-04-25T08:54:28.549Z",
@@ -605,7 +621,7 @@
       "modified_by_group": null,
       "question": "inquiry-answer-status",
       "option": "inquiry-answer-status-claim",
-      "sort": 6
+      "sort": 5
     }
   },
   {
@@ -635,7 +651,7 @@
       "modified_by_group": null,
       "question": "inquiry-answer-status",
       "option": "inquiry-answer-status-final",
-      "sort": 3
+      "sort": 9
     }
   },
   {
@@ -650,7 +666,7 @@
       "modified_by_group": null,
       "question": "inquiry-answer-status",
       "option": "inquiry-answer-status-further-clarification",
-      "sort": 8
+      "sort": 3
     }
   },
   {
@@ -665,6 +681,21 @@
       "modified_by_group": null,
       "question": "inquiry-answer-status",
       "option": "inquiry-answer-status-inspection",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "inquiry-answer-status.inquiry-answer-status-interim-report",
+    "fields": {
+      "created_at": "2023-04-18T16:15:16.731Z",
+      "modified_at": "2023-04-18T16:15:16.731Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "inquiry-answer-status",
+      "option": "inquiry-answer-status-interim-report",
       "sort": 1
     }
   },
@@ -680,7 +711,7 @@
       "modified_by_group": null,
       "question": "inquiry-answer-status",
       "option": "inquiry-answer-status-legal-hearing",
-      "sort": 5
+      "sort": 6
     }
   },
   {
