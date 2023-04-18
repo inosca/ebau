@@ -1,6 +1,24 @@
 [
   {
     "model": "caluma_form.form",
+    "pk": "abfallanlage",
+    "fields": {
+      "created_at": "2023-04-18T19:08:52.152Z",
+      "modified_at": "2023-04-18T19:08:52.152Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Abfallanlage\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "allgemeine-informationen",
     "fields": {
       "created_at": "2023-04-05T10:15:23.636Z",
@@ -10,6 +28,24 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "name": "{\"de\": \"Allgemeine Informationen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "ausbildungsnachweis-tabelle",
+    "fields": {
+      "created_at": "2023-04-18T19:21:55.576Z",
+      "modified_at": "2023-04-18T19:21:55.576Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Ausbildungsnachweis Tabelle\", \"fr\": null, \"it\": null, \"rm\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "meta": {},
       "is_published": false,
@@ -189,12 +225,30 @@
     "pk": "nutzung-bauvorhaben",
     "fields": {
       "created_at": "2023-04-05T10:46:01.067Z",
-      "modified_at": "2023-04-05T10:46:01.067Z",
+      "modified_at": "2023-04-18T18:58:35.817Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Triage\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "schutzplaetze",
+    "fields": {
+      "created_at": "2023-04-18T18:55:06.669Z",
+      "modified_at": "2023-04-18T18:55:06.669Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"Nutzung Bauvorhaben\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "name": "{\"de\": \"Schutzpl\\u00e4tze\", \"fr\": null, \"it\": null, \"rm\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "meta": {},
       "is_published": false,
@@ -236,6 +290,369 @@
       "is_published": false,
       "is_archived": false,
       "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "unterschriftenberechtigung-tabelle",
+    "fields": {
+      "created_at": "2023-04-18T19:17:23.011Z",
+      "modified_at": "2023-04-18T19:17:23.011Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Unterschriftenberechtigung Tabelle\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abfallanlage.ablaufdatum",
+    "fields": {
+      "created_at": "2023-04-18T19:16:09.276Z",
+      "modified_at": "2023-04-18T19:16:09.276Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abfallanlage",
+      "question": "ablaufdatum",
+      "sort": 17
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abfallanlage.administrative-angaben-titel",
+    "fields": {
+      "created_at": "2023-04-18T19:19:56.532Z",
+      "modified_at": "2023-04-18T19:19:56.532Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abfallanlage",
+      "question": "administrative-angaben-titel",
+      "sort": 23
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abfallanlage.anlageart",
+    "fields": {
+      "created_at": "2023-04-18T19:12:49.581Z",
+      "modified_at": "2023-04-18T19:12:49.581Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abfallanlage",
+      "question": "anlageart",
+      "sort": 21
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abfallanlage.art-der-abfallanlage",
+    "fields": {
+      "created_at": "2023-04-18T19:10:15.556Z",
+      "modified_at": "2023-04-18T19:10:15.556Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abfallanlage",
+      "question": "art-der-abfallanlage",
+      "sort": 22
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abfallanlage.art-der-kontrolle",
+    "fields": {
+      "created_at": "2023-04-18T19:26:35.711Z",
+      "modified_at": "2023-04-18T19:26:35.711Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abfallanlage",
+      "question": "art-der-kontrolle",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abfallanlage.ausbildungsnachweis-vorhanden",
+    "fields": {
+      "created_at": "2023-04-18T19:21:36Z",
+      "modified_at": "2023-04-18T19:21:36Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abfallanlage",
+      "question": "ausbildungsnachweis-vorhanden",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abfallanlage.begruendung-kein-ausbildungsnachweis",
+    "fields": {
+      "created_at": "2023-04-18T19:24:46.728Z",
+      "modified_at": "2023-04-18T19:24:46.728Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abfallanlage",
+      "question": "begruendung-kein-ausbildungsnachweis",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abfallanlage.begruendung-keine-eingangskontrolle",
+    "fields": {
+      "created_at": "2023-04-18T19:27:31.363Z",
+      "modified_at": "2023-04-18T19:27:31.363Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abfallanlage",
+      "question": "begruendung-keine-eingangskontrolle",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abfallanlage.begruendung-keine-in-prozesskontrolle",
+    "fields": {
+      "created_at": "2023-04-18T19:29:49.034Z",
+      "modified_at": "2023-04-18T19:29:49.034Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abfallanlage",
+      "question": "begruendung-keine-in-prozesskontrolle",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abfallanlage.betriebsbewilligung-nr",
+    "fields": {
+      "created_at": "2023-04-18T19:15:54.057Z",
+      "modified_at": "2023-04-18T19:15:54.057Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abfallanlage",
+      "question": "betriebsbewilligung-nr",
+      "sort": 18
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abfallanlage.bisherige-abfallrechtliche-bewilligungen-titel",
+    "fields": {
+      "created_at": "2023-04-18T19:14:58.431Z",
+      "modified_at": "2023-04-18T19:14:58.431Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abfallanlage",
+      "question": "bisherige-abfallrechtliche-bewilligungen-titel",
+      "sort": 20
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abfallanlage.eingangskontrolle",
+    "fields": {
+      "created_at": "2023-04-18T19:26:10.356Z",
+      "modified_at": "2023-04-18T19:26:10.356Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abfallanlage",
+      "question": "eingangskontrolle",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abfallanlage.errichtungsbewilligung-nr",
+    "fields": {
+      "created_at": "2023-04-18T19:14:21.826Z",
+      "modified_at": "2023-04-18T19:14:21.826Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abfallanlage",
+      "question": "errichtungsbewilligung-nr",
+      "sort": 19
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abfallanlage.haeufigkeit",
+    "fields": {
+      "created_at": "2023-04-18T19:26:54.357Z",
+      "modified_at": "2023-04-18T19:26:54.357Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abfallanlage",
+      "question": "haeufigkeit",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abfallanlage.in-prozesskontrolle",
+    "fields": {
+      "created_at": "2023-04-18T19:28:02.094Z",
+      "modified_at": "2023-04-18T19:28:02.094Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abfallanlage",
+      "question": "in-prozesskontrolle",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abfallanlage.in-prozesskontrolle-art-der-kontrolle",
+    "fields": {
+      "created_at": "2023-04-18T19:28:21.551Z",
+      "modified_at": "2023-04-18T19:28:21.551Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abfallanlage",
+      "question": "in-prozesskontrolle-art-der-kontrolle",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abfallanlage.in-prozesskontrolle-haeufigkeit",
+    "fields": {
+      "created_at": "2023-04-18T19:28:35.210Z",
+      "modified_at": "2023-04-18T19:28:35.210Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abfallanlage",
+      "question": "in-prozesskontrolle-haeufigkeit",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abfallanlage.in-prozesskontrolle-verfahren-geraet",
+    "fields": {
+      "created_at": "2023-04-18T19:28:43.939Z",
+      "modified_at": "2023-04-18T19:28:43.939Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abfallanlage",
+      "question": "in-prozesskontrolle-verfahren-geraet",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abfallanlage.kontrolle-der-prozesse-titel",
+    "fields": {
+      "created_at": "2023-04-18T19:20:33.505Z",
+      "modified_at": "2023-04-18T19:20:33.505Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abfallanlage",
+      "question": "kontrolle-der-prozesse-titel",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abfallanlage.personen-mit-ausbildungsnachweis",
+    "fields": {
+      "created_at": "2023-04-18T19:23:20.812Z",
+      "modified_at": "2023-04-18T19:23:20.812Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abfallanlage",
+      "question": "personen-mit-ausbildungsnachweis",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abfallanlage.unterschriftenberechtigung",
+    "fields": {
+      "created_at": "2023-04-18T19:18:51.113Z",
+      "modified_at": "2023-04-18T19:18:51.113Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abfallanlage",
+      "question": "unterschriftenberechtigung",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abfallanlage.verfahren-geraet",
+    "fields": {
+      "created_at": "2023-04-18T19:27:08.968Z",
+      "modified_at": "2023-04-18T19:27:08.968Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abfallanlage",
+      "question": "verfahren-geraet",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abfallanlage.zustaendige-person-titel",
+    "fields": {
+      "created_at": "2023-04-18T19:16:51.255Z",
+      "modified_at": "2023-04-18T19:16:51.255Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abfallanlage",
+      "question": "zustaendige-person-titel",
+      "sort": 16
     }
   },
   {
@@ -281,6 +698,36 @@
       "form": "allgemeine-informationen",
       "question": "personalien",
       "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "ausbildungsnachweis-tabelle.name-ausbildungsnachweis",
+    "fields": {
+      "created_at": "2023-04-18T19:22:06.220Z",
+      "modified_at": "2023-04-18T19:22:06.220Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "ausbildungsnachweis-tabelle",
+      "question": "name-ausbildungsnachweis",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "ausbildungsnachweis-tabelle.position-ausbildungsnachweis",
+    "fields": {
+      "created_at": "2023-04-18T19:22:20.264Z",
+      "modified_at": "2023-04-18T19:22:20.264Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "ausbildungsnachweis-tabelle",
+      "question": "position-ausbildungsnachweis",
+      "sort": 1
     }
   },
   {
@@ -1440,6 +1887,96 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "schutzplaetze.anzahl-schutzplaetze",
+    "fields": {
+      "created_at": "2023-04-18T19:04:16.225Z",
+      "modified_at": "2023-04-18T19:04:16.225Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "schutzplaetze",
+      "question": "anzahl-schutzplaetze",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "schutzplaetze.gebaeudeart",
+    "fields": {
+      "created_at": "2023-04-18T19:01:03.205Z",
+      "modified_at": "2023-04-18T19:01:03.205Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "schutzplaetze",
+      "question": "gebaeudeart",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "schutzplaetze.spital-anzahl-betten",
+    "fields": {
+      "created_at": "2023-04-18T19:03:26.029Z",
+      "modified_at": "2023-04-18T19:03:26.029Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "schutzplaetze",
+      "question": "spital-anzahl-betten",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "schutzplaetze.werden-schutzplaetze-erstellt",
+    "fields": {
+      "created_at": "2023-04-18T18:56:31.961Z",
+      "modified_at": "2023-04-18T18:56:31.961Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "schutzplaetze",
+      "question": "werden-schutzplaetze-erstellt",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "schutzplaetze.wohnhaus-anzahl-zimmer",
+    "fields": {
+      "created_at": "2023-04-18T19:01:55.600Z",
+      "modified_at": "2023-04-18T19:01:55.600Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "schutzplaetze",
+      "question": "wohnhaus-anzahl-zimmer",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare.abfallanlage",
+    "fields": {
+      "created_at": "2023-04-18T19:11:42.700Z",
+      "modified_at": "2023-04-18T19:11:42.700Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare",
+      "question": "abfallanlage",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "spezialformulare.bauten-ausserhalb-bauzone",
     "fields": {
       "created_at": "2023-04-12T08:22:43.557Z",
@@ -1466,6 +2003,21 @@
       "form": "spezialformulare",
       "question": "betriebsleiterwohnhaus",
       "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare.schutzplaetze",
+    "fields": {
+      "created_at": "2023-04-18T18:56:51.059Z",
+      "modified_at": "2023-04-18T18:56:51.059Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare",
+      "question": "schutzplaetze",
+      "sort": 2
     }
   },
   {
@@ -2159,6 +2711,36 @@
     }
   },
   {
+    "model": "caluma_form.formquestion",
+    "pk": "unterschriftenberechtigung-tabelle.name-unterschriftenberechtigung",
+    "fields": {
+      "created_at": "2023-04-18T19:18:22.061Z",
+      "modified_at": "2023-04-18T19:18:22.061Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "unterschriftenberechtigung-tabelle",
+      "question": "name-unterschriftenberechtigung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "unterschriftenberechtigung-tabelle.vorname-unterschriftenberechtigung",
+    "fields": {
+      "created_at": "2023-04-18T19:18:10.789Z",
+      "modified_at": "2023-04-18T19:18:10.789Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "unterschriftenberechtigung-tabelle",
+      "question": "vorname-unterschriftenberechtigung",
+      "sort": 2
+    }
+  },
+  {
     "model": "caluma_form.option",
     "pk": "amts-fachstelle-amt-fuer-energie-und-verkehr",
     "fields": {
@@ -2185,6 +2767,150 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Amt f\\u00fcr Natur und Umwelt\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-der-abfallanlage-andere",
+    "fields": {
+      "created_at": "2023-04-18T19:10:15.297Z",
+      "modified_at": "2023-04-18T19:10:15.297Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-der-abfallanlage-aufbereitungsanlage",
+    "fields": {
+      "created_at": "2023-04-18T19:10:14.987Z",
+      "modified_at": "2023-04-18T19:10:14.987Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Aufbereitungsanlage\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-der-abfallanlage-kompostierungsanlage",
+    "fields": {
+      "created_at": "2023-04-18T19:10:14.978Z",
+      "modified_at": "2023-04-18T19:10:14.978Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kompostierungsanlage\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-der-abfallanlage-recyclinganlage",
+    "fields": {
+      "created_at": "2023-04-18T19:10:15.026Z",
+      "modified_at": "2023-04-18T19:10:15.026Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Recyclinganlage\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-der-abfallanlage-thermische-behandlungsanlage",
+    "fields": {
+      "created_at": "2023-04-18T19:10:14.977Z",
+      "modified_at": "2023-04-18T19:10:14.977Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Thermische Behandlungsanlage\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-der-abfallanlage-vergaerungsanlage",
+    "fields": {
+      "created_at": "2023-04-18T19:10:15.093Z",
+      "modified_at": "2023-04-18T19:10:15.093Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Verg\\u00e4rungsanlage\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-der-abfallanlage-zwischenlager",
+    "fields": {
+      "created_at": "2023-04-18T19:10:14.981Z",
+      "modified_at": "2023-04-18T19:10:14.981Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zwischenlager\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "ausbildungsnachweis-vorhanden-ja",
+    "fields": {
+      "created_at": "2023-04-18T19:21:35.741Z",
+      "modified_at": "2023-04-18T19:21:35.741Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "ausbildungsnachweis-vorhanden-nein",
+    "fields": {
+      "created_at": "2023-04-18T19:21:35.736Z",
+      "modified_at": "2023-04-18T19:21:35.736Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2594,7 +3320,7 @@
     "model": "caluma_form.option",
     "pk": "beschreibung-grossviehstall-rinderstall",
     "fields": {
-      "created_at": "2023-04-12T11:18:24.000Z",
+      "created_at": "2023-04-12T11:18:24Z",
       "modified_at": "2023-04-12T11:19:57.550Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
@@ -3248,6 +3974,38 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "eingangskontrolle-ja",
+    "fields": {
+      "created_at": "2023-04-18T19:26:09.989Z",
+      "modified_at": "2023-04-18T19:26:09.989Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "eingangskontrolle-nein",
+    "fields": {
+      "created_at": "2023-04-18T19:26:09.988Z",
+      "modified_at": "2023-04-18T19:26:09.988Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "einreichen-button-eingereicht",
     "fields": {
       "created_at": "2019-06-14T14:30:32.966Z",
@@ -3504,6 +4262,38 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "gebaeudeart-spital-oder-heim",
+    "fields": {
+      "created_at": "2023-04-18T19:01:02.942Z",
+      "modified_at": "2023-04-18T19:01:02.942Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Spital oder Heim\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "gebaeudeart-wohn-oder-ferienhaus",
+    "fields": {
+      "created_at": "2023-04-18T19:01:02.945Z",
+      "modified_at": "2023-04-18T19:01:02.945Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wohn- oder Ferienhaus\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "guellelager-neubau-oder-erweiterung-erweiterung-umbau",
     "fields": {
       "created_at": "2023-04-12T12:45:32.223Z",
@@ -3623,6 +4413,38 @@
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "in-prozesskontrolle-ja",
+    "fields": {
+      "created_at": "2023-04-18T19:28:01.821Z",
+      "modified_at": "2023-04-18T19:28:01.821Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "in-prozesskontrolle-nein",
+    "fields": {
+      "created_at": "2023-04-18T19:28:01.826Z",
+      "modified_at": "2023-04-18T19:28:01.826Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": false,
@@ -3955,7 +4777,7 @@
     "pk": "materialablagerung-beschreibung-landwirtschaftliche-bewirtschaftungsverbesserung",
     "fields": {
       "created_at": "2023-04-12T09:06:02.649Z",
-      "modified_at": "2023-04-14T08:27:46.000Z",
+      "modified_at": "2023-04-14T08:27:46Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -4944,6 +5766,38 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "werden-schutzplaetze-erstellt-ja",
+    "fields": {
+      "created_at": "2023-04-18T18:56:31.659Z",
+      "modified_at": "2023-04-18T18:56:31.659Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werden-schutzplaetze-erstellt-nein",
+    "fields": {
+      "created_at": "2023-04-18T18:56:31.663Z",
+      "modified_at": "2023-04-18T18:56:31.663Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein (Ersatzbeitrag)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "wohnhaus-bestandteil-landwirtschaftliches-gewerbe-ja",
     "fields": {
       "created_at": "2023-04-12T11:28:03.707Z",
@@ -5040,6 +5894,68 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "abfallanlage",
+    "fields": {
+      "created_at": "2023-04-18T19:11:42.592Z",
+      "modified_at": "2023-04-18T19:11:42.592Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abfallanlage\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "!(\"beschreibung-der-nutzung-abfallanlage\" in \"beschreibung-der-nutzung\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "abfallanlage",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "ablaufdatum",
+    "fields": {
+      "created_at": "2023-04-18T19:16:09.150Z",
+      "modified_at": "2023-04-18T19:16:09.150Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ablaufdatum\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "date",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "abtransport-ort-der-entsorgung",
     "fields": {
       "created_at": "2023-04-12T09:08:34.991Z",
@@ -5095,6 +6011,37 @@
         "max_value": null,
         "min_value": null
       },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "administrative-angaben-titel",
+    "fields": {
+      "created_at": "2023-04-18T19:19:56.418Z",
+      "modified_at": "2023-04-18T19:19:56.418Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Administrative Angaben Titel\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"### Administrative Angaben\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -5201,6 +6148,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "anlageart",
+    "fields": {
+      "created_at": "2023-04-18T19:12:49.461Z",
+      "modified_at": "2023-04-18T19:12:49.461Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anlageart\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!(\"art-der-abfallanlage-andere\" in \"art-der-abfallanlage\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "anlagen-titel",
     "fields": {
       "created_at": "2023-04-12T10:44:58.897Z",
@@ -5266,6 +6247,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "anzahl-schutzplaetze",
+    "fields": {
+      "created_at": "2023-04-18T19:04:16.106Z",
+      "modified_at": "2023-04-18T19:07:32.331Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anzahl Schutzpl\\u00e4tze\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "calculated_float",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": "\"spital-anzahl-betten\"|answer + \"wohnhaus-anzahl-zimmer\"|answer * 2 // 3",
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "anzahl-seiten-mit-umrandung",
     "fields": {
       "created_at": "2023-04-12T12:30:09.381Z",
@@ -5287,6 +6299,102 @@
         "max_value": null,
         "min_value": null
       },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "art-der-abfallanlage",
+    "fields": {
+      "created_at": "2023-04-18T19:10:15.407Z",
+      "modified_at": "2023-04-18T19:10:15.407Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Art der Abfallanlage\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "art-der-kontrolle",
+    "fields": {
+      "created_at": "2023-04-18T19:26:35.593Z",
+      "modified_at": "2023-04-18T19:26:35.593Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Art der Kontrolle\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!(\"eingangskontrolle-ja\" == \"eingangskontrolle\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "ausbildungsnachweis-vorhanden",
+    "fields": {
+      "created_at": "2023-04-18T19:21:35.885Z",
+      "modified_at": "2023-04-18T19:21:35.885Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ausbildungsnachweis vorhanden?\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -5705,6 +6813,108 @@
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "begruendung-kein-ausbildungsnachweis",
+    "fields": {
+      "created_at": "2023-04-18T19:24:46.605Z",
+      "modified_at": "2023-04-18T19:25:21.255Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Begr\\u00fcndung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "!(\"ausbildungsnachweis-vorhanden-nein\" == \"ausbildungsnachweis-vorhanden\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "begruendung-keine-eingangskontrolle",
+    "fields": {
+      "created_at": "2023-04-18T19:27:31.251Z",
+      "modified_at": "2023-04-18T19:27:31.251Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Begr\\u00fcndung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "!(\"eingangskontrolle-nein\" == \"eingangskontrolle\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "begruendung-keine-in-prozesskontrolle",
+    "fields": {
+      "created_at": "2023-04-18T19:29:48.924Z",
+      "modified_at": "2023-04-18T19:30:46.140Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Begr\\u00fcndung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "!(\"in-prozesskontrolle-nein\" == \"in-prozesskontrolle\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -6155,6 +7365,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "betriebsbewilligung-nr",
+    "fields": {
+      "created_at": "2023-04-18T19:15:53.945Z",
+      "modified_at": "2023-04-18T19:15:53.945Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Betriebsbewilligung Nr.\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"AV-\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "betriebsleiter-anzahl-wohnungen",
     "fields": {
       "created_at": "2023-04-12T11:30:52.748Z",
@@ -6374,6 +7618,37 @@
         "max_value": null,
         "min_value": null
       },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bisherige-abfallrechtliche-bewilligungen-titel",
+    "fields": {
+      "created_at": "2023-04-18T19:14:58.324Z",
+      "modified_at": "2023-04-18T19:14:58.324Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bisherige abfallrechtliche Bewilligungen Titel\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"---\\n#### Bisherige abfallrechtliche Bewilligungen\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -6647,6 +7922,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "eingangskontrolle",
+    "fields": {
+      "created_at": "2023-04-18T19:26:10.230Z",
+      "modified_at": "2023-04-18T19:26:10.230Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Erfolgt eine Eingangskontrolle\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "einreichen",
     "fields": {
       "created_at": "2022-09-21T12:52:11.818Z",
@@ -6796,6 +8102,40 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "errichtungsbewilligung-nr",
+    "fields": {
+      "created_at": "2023-04-18T19:14:21.712Z",
+      "modified_at": "2023-04-18T19:14:21.712Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Errichtungsbewilligung Nr.\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"AV-\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -6960,6 +8300,37 @@
         "max_length": null,
         "min_length": null
       },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "gebaeudeart",
+    "fields": {
+      "created_at": "2023-04-18T19:01:03.084Z",
+      "modified_at": "2023-04-18T19:01:03.084Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Geb\\u00e4udeart\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -7542,6 +8913,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "haeufigkeit",
+    "fields": {
+      "created_at": "2023-04-18T19:26:54.245Z",
+      "modified_at": "2023-04-18T19:26:54.245Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"H\\u00e4ufigkeit\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!(\"eingangskontrolle-ja\" == \"eingangskontrolle\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "haeusliches-abwasser-in-guellegrube",
     "fields": {
       "created_at": "2023-04-14T07:44:11.646Z",
@@ -7622,6 +9027,139 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "in-prozesskontrolle",
+    "fields": {
+      "created_at": "2023-04-18T19:28:01.969Z",
+      "modified_at": "2023-04-18T19:28:01.969Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Erfolgt eine In-Prozesskontrolle\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "in-prozesskontrolle-art-der-kontrolle",
+    "fields": {
+      "created_at": "2023-04-18T19:28:21.441Z",
+      "modified_at": "2023-04-18T19:30:40.518Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Art der Kontrolle\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!(\"in-prozesskontrolle-ja\" == \"in-prozesskontrolle\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "in-prozesskontrolle-haeufigkeit",
+    "fields": {
+      "created_at": "2023-04-18T19:28:35.096Z",
+      "modified_at": "2023-04-18T19:30:24.327Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"H\\u00e4ufigkeit\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!(\"in-prozesskontrolle-ja\" == \"in-prozesskontrolle\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "in-prozesskontrolle-verfahren-geraet",
+    "fields": {
+      "created_at": "2023-04-18T19:28:43.826Z",
+      "modified_at": "2023-04-18T19:30:31.356Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Verfahren / Ger\\u00e4t\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!(\"in-prozesskontrolle-ja\" == \"in-prozesskontrolle\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -7752,6 +9290,37 @@
         "max_length": null,
         "min_length": null
       },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "kontrolle-der-prozesse-titel",
+    "fields": {
+      "created_at": "2023-04-18T19:20:33.388Z",
+      "modified_at": "2023-04-18T19:20:33.388Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kontrolle der Prozesse Titel\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"---\\n### Kontrolle der Prozesse\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -8694,6 +10263,74 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "name-ausbildungsnachweis",
+    "fields": {
+      "created_at": "2023-04-18T19:22:06.109Z",
+      "modified_at": "2023-04-18T19:22:06.109Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Name\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "name-unterschriftenberechtigung",
+    "fields": {
+      "created_at": "2023-04-18T19:18:21.938Z",
+      "modified_at": "2023-04-18T19:18:21.938Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Name\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "neuer-auslauf-beim-stall",
     "fields": {
       "created_at": "2023-04-12T11:55:56.285Z",
@@ -8956,6 +10593,71 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "personen-mit-ausbildungsnachweis",
+    "fields": {
+      "created_at": "2023-04-18T19:23:20.693Z",
+      "modified_at": "2023-04-18T19:23:45.677Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Personen mit Ausbildungsnachweis\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "table",
+      "is_required": "false",
+      "is_hidden": "!(\"ausbildungsnachweis-vorhanden-ja\" == \"ausbildungsnachweis-vorhanden\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": "ausbildungsnachweis-tabelle",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "position-ausbildungsnachweis",
+    "fields": {
+      "created_at": "2023-04-18T19:22:20.071Z",
+      "modified_at": "2023-04-18T19:22:20.071Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Position\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "schuettmaterial-herkunft",
     "fields": {
       "created_at": "2023-04-12T09:06:52.404Z",
@@ -9015,6 +10717,37 @@
       "data_source": null,
       "row_form": null,
       "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "schutzplaetze",
+    "fields": {
+      "created_at": "2023-04-18T18:56:50.952Z",
+      "modified_at": "2023-04-18T18:59:23.626Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Schutzpl\\u00e4tze\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "!(\"wohnnutzung-ja\" == \"wohnnutzung\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "schutzplaetze",
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -9085,6 +10818,40 @@
       "default_answer": null,
       "calc_expression": null,
       "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "spital-anzahl-betten",
+    "fields": {
+      "created_at": "2023-04-18T19:03:25.921Z",
+      "modified_at": "2023-04-18T19:04:16.101Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Spital oder Heim: Anzahl Patientenbetten\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "!(\"gebaeudeart-spital-oder-heim\" in \"gebaeudeart\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[\"anzahl-schutzplaetze\"]"
     }
   },
   {
@@ -9284,6 +11051,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "unterschriftenberechtigung",
+    "fields": {
+      "created_at": "2023-04-18T19:18:50.998Z",
+      "modified_at": "2023-04-18T19:18:50.998Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Unterschriftenberechtigung (Begleitscheine, Lieferscheine)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "table",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": "unterschriftenberechtigung-tabelle",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "urspruenglicher-zweck-der-baute",
     "fields": {
       "created_at": "2023-04-12T10:50:01.213Z",
@@ -9300,6 +11098,40 @@
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "verfahren-geraet",
+    "fields": {
+      "created_at": "2023-04-18T19:27:08.868Z",
+      "modified_at": "2023-04-18T19:27:08.868Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Verfahren / Ger\\u00e4t\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!(\"eingangskontrolle-ja\" == \"eingangskontrolle\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -9411,6 +11243,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "vorname-unterschriftenberechtigung",
+    "fields": {
+      "created_at": "2023-04-18T19:18:10.684Z",
+      "modified_at": "2023-04-18T19:18:10.685Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vorname\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "waldareal",
     "fields": {
       "created_at": "2023-04-12T07:58:42.402Z",
@@ -9503,6 +11369,71 @@
       "default_answer": null,
       "calc_expression": null,
       "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "werden-schutzplaetze-erstellt",
+    "fields": {
+      "created_at": "2023-04-18T18:56:31.814Z",
+      "modified_at": "2023-04-18T18:56:31.814Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Werden Schutzpl\\u00e4tze erstellt?\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "wohnhaus-anzahl-zimmer",
+    "fields": {
+      "created_at": "2023-04-18T19:01:55.491Z",
+      "modified_at": "2023-04-18T19:05:35.296Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wohn- oder Ferienhaus: Anzahl Zimmer\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "float",
+      "is_required": "false",
+      "is_hidden": "!(\"gebaeudeart-wohn-oder-ferienhaus\" in \"gebaeudeart\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[\"anzahl-schutzplaetze\"]"
     }
   },
   {
@@ -9631,6 +11562,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "zustaendige-person-titel",
+    "fields": {
+      "created_at": "2023-04-18T19:16:51.144Z",
+      "modified_at": "2023-04-18T19:16:51.144Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zust\\u00e4ndige Person Titel\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"---\\n#### Zust\\u00e4ndige Person\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "zustand",
     "fields": {
       "created_at": "2023-04-12T11:32:48.127Z",
@@ -9691,6 +11653,141 @@
       "question": "amts-fachstelle",
       "option": "amts-fachstelle-amt-fuer-natur-und-umwelt",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-abfallanlage.art-der-abfallanlage-andere",
+    "fields": {
+      "created_at": "2023-04-18T19:10:15.412Z",
+      "modified_at": "2023-04-18T19:10:15.412Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "art-der-abfallanlage",
+      "option": "art-der-abfallanlage-andere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-abfallanlage.art-der-abfallanlage-aufbereitungsanlage",
+    "fields": {
+      "created_at": "2023-04-18T19:10:15.429Z",
+      "modified_at": "2023-04-18T19:10:15.429Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "art-der-abfallanlage",
+      "option": "art-der-abfallanlage-aufbereitungsanlage",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-abfallanlage.art-der-abfallanlage-kompostierungsanlage",
+    "fields": {
+      "created_at": "2023-04-18T19:10:15.427Z",
+      "modified_at": "2023-04-18T19:10:15.427Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "art-der-abfallanlage",
+      "option": "art-der-abfallanlage-kompostierungsanlage",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-abfallanlage.art-der-abfallanlage-recyclinganlage",
+    "fields": {
+      "created_at": "2023-04-18T19:10:15.424Z",
+      "modified_at": "2023-04-18T19:10:15.424Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "art-der-abfallanlage",
+      "option": "art-der-abfallanlage-recyclinganlage",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-abfallanlage.art-der-abfallanlage-thermische-behandlungsanlage",
+    "fields": {
+      "created_at": "2023-04-18T19:10:15.419Z",
+      "modified_at": "2023-04-18T19:10:15.419Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "art-der-abfallanlage",
+      "option": "art-der-abfallanlage-thermische-behandlungsanlage",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-abfallanlage.art-der-abfallanlage-vergaerungsanlage",
+    "fields": {
+      "created_at": "2023-04-18T19:10:15.421Z",
+      "modified_at": "2023-04-18T19:10:15.421Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "art-der-abfallanlage",
+      "option": "art-der-abfallanlage-vergaerungsanlage",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-abfallanlage.art-der-abfallanlage-zwischenlager",
+    "fields": {
+      "created_at": "2023-04-18T19:10:15.416Z",
+      "modified_at": "2023-04-18T19:10:15.416Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "art-der-abfallanlage",
+      "option": "art-der-abfallanlage-zwischenlager",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "ausbildungsnachweis-vorhanden.ausbildungsnachweis-vorhanden-ja",
+    "fields": {
+      "created_at": "2023-04-18T19:21:35.894Z",
+      "modified_at": "2023-04-18T19:21:35.894Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "ausbildungsnachweis-vorhanden",
+      "option": "ausbildungsnachweis-vorhanden-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "ausbildungsnachweis-vorhanden.ausbildungsnachweis-vorhanden-nein",
+    "fields": {
+      "created_at": "2023-04-18T19:21:35.890Z",
+      "modified_at": "2023-04-18T19:21:35.890Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "ausbildungsnachweis-vorhanden",
+      "option": "ausbildungsnachweis-vorhanden-nein",
+      "sort": 1
     }
   },
   {
@@ -10655,6 +12752,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "eingangskontrolle.eingangskontrolle-ja",
+    "fields": {
+      "created_at": "2023-04-18T19:26:10.239Z",
+      "modified_at": "2023-04-18T19:26:10.239Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "eingangskontrolle",
+      "option": "eingangskontrolle-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "eingangskontrolle.eingangskontrolle-nein",
+    "fields": {
+      "created_at": "2023-04-18T19:26:10.235Z",
+      "modified_at": "2023-04-18T19:26:10.235Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "eingangskontrolle",
+      "option": "eingangskontrolle-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "einreichen-button.einreichen-button-eingereicht",
     "fields": {
       "created_at": "2022-09-21T12:51:49.852Z",
@@ -10895,6 +13022,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "gebaeudeart.gebaeudeart-spital-oder-heim",
+    "fields": {
+      "created_at": "2023-04-18T19:01:03.089Z",
+      "modified_at": "2023-04-18T19:01:03.089Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "gebaeudeart",
+      "option": "gebaeudeart-spital-oder-heim",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "gebaeudeart.gebaeudeart-wohn-oder-ferienhaus",
+    "fields": {
+      "created_at": "2023-04-18T19:01:03.093Z",
+      "modified_at": "2023-04-18T19:01:03.093Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "gebaeudeart",
+      "option": "gebaeudeart-wohn-oder-ferienhaus",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "guellelager-neubau-oder-erweiterung.guellelager-neubau-oder-erweiterung-erweiterung-umbau",
     "fields": {
       "created_at": "2023-04-12T12:46:14.987Z",
@@ -11010,6 +13167,36 @@
       "modified_by_group": null,
       "question": "haustechnische-anlagen-brandschutz",
       "option": "haustechnische-anlagen-brandschutz-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "in-prozesskontrolle.in-prozesskontrolle-ja",
+    "fields": {
+      "created_at": "2023-04-18T19:28:01.979Z",
+      "modified_at": "2023-04-18T19:28:01.979Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "in-prozesskontrolle",
+      "option": "in-prozesskontrolle-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "in-prozesskontrolle.in-prozesskontrolle-nein",
+    "fields": {
+      "created_at": "2023-04-18T19:28:01.975Z",
+      "modified_at": "2023-04-18T19:28:01.975Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "in-prozesskontrolle",
+      "option": "in-prozesskontrolle-nein",
       "sort": 1
     }
   },
@@ -12241,6 +14428,36 @@
       "question": "weitere-anlagen",
       "option": "weitere-anlagen-terrainveraenderung",
       "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werden-schutzplaetze-erstellt.werden-schutzplaetze-erstellt-ja",
+    "fields": {
+      "created_at": "2023-04-18T18:56:31.838Z",
+      "modified_at": "2023-04-18T18:56:31.838Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "werden-schutzplaetze-erstellt",
+      "option": "werden-schutzplaetze-erstellt-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werden-schutzplaetze-erstellt.werden-schutzplaetze-erstellt-nein",
+    "fields": {
+      "created_at": "2023-04-18T18:56:31.826Z",
+      "modified_at": "2023-04-18T18:56:31.826Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "werden-schutzplaetze-erstellt",
+      "option": "werden-schutzplaetze-erstellt-nein",
+      "sort": 1
     }
   },
   {
