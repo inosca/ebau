@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-31 09:30+0200\n"
+"POT-Creation-Date: 2023-05-31 09:32+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -46,11 +46,11 @@ msgstr ""
 msgid "Exam completed"
 msgstr ""
 
-#: camac/caluma/extensions/events/decision.py:111
+#: camac/caluma/extensions/events/decision.py:114
 msgid "Evaluation completed"
 msgstr ""
 
-#: camac/caluma/extensions/events/decision.py:115
+#: camac/caluma/extensions/events/decision.py:118
 msgid "Decision decreed"
 msgstr ""
 
@@ -642,7 +642,7 @@ msgstr ""
 msgid "%(permission)s is not allowed to edit question %(question)s."
 msgstr ""
 
-#: camac/instance/serializers.py:2274
+#: camac/instance/serializers.py:2278
 msgid "Appeal received"
 msgstr ""
 

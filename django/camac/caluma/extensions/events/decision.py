@@ -55,6 +55,9 @@ def handle_appeal_decision(instance, work_item, user, camac_user):
             user=camac_user,
             caluma_user=user,
             skip_submit=True,
+            # Mark the new instance as result of a rejected appeal so the
+            # frontend can find it in the copies of the previous instance to
+            # redirect after the decision was submitted.
             new_meta={"is-rejected-appeal": True},
         )
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-31 09:30+0200\n"
+"POT-Creation-Date: 2023-05-31 09:32+0200\n"
 "PO-Revision-Date: 2023-04-06 09:22+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -48,11 +48,11 @@ msgstr "Examen sauté"
 msgid "Exam completed"
 msgstr "Dossier examiné"
 
-#: camac/caluma/extensions/events/decision.py:111
+#: camac/caluma/extensions/events/decision.py:114
 msgid "Evaluation completed"
 msgstr "Evaluation close"
 
-#: camac/caluma/extensions/events/decision.py:115
+#: camac/caluma/extensions/events/decision.py:118
 msgid "Decision decreed"
 msgstr "Décision relative à la demande de permis de construire rendue"
 
@@ -697,7 +697,7 @@ msgstr "question invalide %(question)s."
 msgid "%(permission)s is not allowed to edit question %(question)s."
 msgstr "Le %(permission)s n'est pas autorisé à modifier les %(question)s."
 
-#: camac/instance/serializers.py:2274
+#: camac/instance/serializers.py:2278
 msgid "Appeal received"
 msgstr "Recours reçu"
 

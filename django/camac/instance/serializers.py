@@ -2246,6 +2246,10 @@ class CalumaInstanceAppealSerializer(serializers.Serializer):
             user=user,
             caluma_user=caluma_user,
             skip_submit=True,
+            # Mark the new instance as appeal so we can determine whether to
+            # show the appeal module in the navigation and mark it in the name.
+            # Also, we mark the old instance as "has-appeal" so we can prevent
+            # another appeal from that instance.
             new_meta={"is-appeal": True},
             old_meta={"has-appeal": True},
         )

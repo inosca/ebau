@@ -37,10 +37,10 @@ export default class DecisionAppealButtonComponent extends Component {
         ?.instanceStates;
 
     return (
-      // Instance state is "In Koordination"
+      // Previous instance state is "In Koordination"
       parseInt(this.instance.record.belongsTo("previousInstanceState").id()) ===
         INSTANCE_STATES.coordination &&
-      // Previous instance state is "Selbstdeklaration 1 (SB1)" or "Abgeschlossen"
+      // Instance state is "Selbstdeklaration 1 (SB1)" or "Abgeschlossen"
       [INSTANCE_STATES.sb1, INSTANCE_STATES.finished].includes(
         parseInt(this.instance.record.belongsTo("instanceState").id())
       ) &&
