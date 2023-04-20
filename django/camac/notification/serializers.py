@@ -194,6 +194,8 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     billing_total_kanton = serializers.SerializerMethodField()
     billing_total = serializers.SerializerMethodField()
     billing_total_uncharged = serializers.SerializerMethodField()
+    billing_total_uncharged_kommunal = serializers.SerializerMethodField()
+    billing_total_uncharged_kanton = serializers.SerializerMethodField()
     my_activations = serializers.SerializerMethodField()
     objections = serializers.SerializerMethodField()
     bauverwaltung = serializers.SerializerMethodField()
@@ -600,24 +602,56 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         return "---"
 
     def get_billing_total_kommunal(self, instance):
-        return BillingV2Entry.objects.filter(
-            instance=instance, organization=BillingV2Entry.MUNICIPAL
-        ).aggregate(total=Sum("final_rate"))["total"]
+        return (
+            BillingV2Entry.objects.filter(
+                instance=instance, organization=BillingV2Entry.MUNICIPAL
+            ).aggregate(total=Sum("final_rate"))["total"]
+            or 0
+        )
 
     def get_billing_total_kanton(self, instance):
-        return BillingV2Entry.objects.filter(
-            instance=instance, organization=BillingV2Entry.CANTONAL
-        ).aggregate(total=Sum("final_rate"))["total"]
+        return (
+            BillingV2Entry.objects.filter(
+                instance=instance, organization=BillingV2Entry.CANTONAL
+            ).aggregate(total=Sum("final_rate"))["total"]
+            or 0
+        )
 
     def get_billing_total(self, instance):
-        return BillingV2Entry.objects.filter(instance=instance).aggregate(
-            total=Sum("final_rate")
-        )["total"]
+        return (
+            BillingV2Entry.objects.filter(instance=instance).aggregate(
+                total=Sum("final_rate")
+            )["total"]
+            or 0
+        )
 
     def get_billing_total_uncharged(self, instance):
-        return BillingV2Entry.objects.filter(
-            instance=instance, date_charged__isnull=True
-        ).aggregate(total=Sum("final_rate"))["total"]
+        return (
+            BillingV2Entry.objects.filter(
+                instance=instance, date_charged__isnull=True
+            ).aggregate(total=Sum("final_rate"))["total"]
+            or 0
+        )
+
+    def get_billing_total_uncharged_kommunal(self, instance):
+        return (
+            BillingV2Entry.objects.filter(
+                instance=instance,
+                organization=BillingV2Entry.MUNICIPAL,
+                date_charged__isnull=True,
+            ).aggregate(total=Sum("final_rate"))["total"]
+            or 0
+        )
+
+    def get_billing_total_uncharged_kanton(self, instance):
+        return (
+            BillingV2Entry.objects.filter(
+                instance=instance,
+                organization=BillingV2Entry.CANTONAL,
+                date_charged__isnull=True,
+            ).aggregate(total=Sum("final_rate"))["total"]
+            or 0
+        )
 
     def _get_inquiries(self, instance):
         if not settings.DISTRIBUTION:
