@@ -3,11 +3,7 @@ import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import calumaQuery from "@projectcaluma/ember-core/caluma-query";
 import { allForms } from "@projectcaluma/ember-core/caluma-query/queries";
-import {
-  restartableTask,
-  dropTask,
-  lastValue,
-} from "ember-concurrency-decorators";
+import { restartableTask, dropTask, lastValue } from "ember-concurrency";
 
 import ENV from "camac-ng/config/environment";
 
