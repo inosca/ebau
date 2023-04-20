@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-31 09:32+0200\n"
+"POT-Creation-Date: 2023-05-31 09:35+0200\n"
 "PO-Revision-Date: 2023-03-21 08:21+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -65,6 +65,10 @@ msgstr ""
 
 #: camac/caluma/extensions/events/sb.py:67
 msgid "Inform load compensation bodies"
+msgstr ""
+
+#: camac/caluma/extensions/validations.py:193
+msgid "Issue statement on appeal"
 msgstr ""
 
 #: camac/core/admin/forms.py:17 camac/core/admin/forms.py:33
