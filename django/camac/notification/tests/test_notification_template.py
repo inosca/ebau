@@ -556,6 +556,8 @@ def test_notification_template_sendmail_koor(
                 CURRENT_SERVICE_DESCRIPTION: {{current_service_description}}
                 OBJECTIONS: {{objections}}
                 BILLING_TOTAL_UNCHARGED: {{billing_total_uncharged}}
+                BILLING_TOTAL_UNCHARGED_KOMMUNAL: {{billing_total_uncharged_kommunal}}
+                BILLING_TOTAL_UNCHARGED_KANTON: {{billing_total_uncharged_kanton}}
             """,
         )
     ],
@@ -614,8 +616,11 @@ def test_notification_placeholders(
     kanton_amount = billing_v2_entry_factory(
         instance=sz_instance, organization="cantonal", date_charged="2023-04-13"
     ).final_rate
-    uncharged_amount = billing_v2_entry_factory(
+    uncharged_amount_kommunal = billing_v2_entry_factory(
         instance=sz_instance, organization="municipal", date_charged=None
+    ).final_rate
+    uncharged_amount_kantonal = billing_v2_entry_factory(
+        instance=sz_instance, organization="cantonal", date_charged=None
     ).final_rate
 
     objection_participant_factory(objection=objection, representative=1)
@@ -656,12 +661,14 @@ def test_notification_placeholders(
         "DATE_DOSSIEREINGANG: 22.07.2019",
         "DATE_START_ZIRKULATION: 24.09.2019",
         "DATE_BAU_EINSPRACHEENTSCHEID: 24.10.2019",
-        f"BILLING_TOTAL_KOMMUNAL: {round(kommunal_amount + uncharged_amount, 2)}",
-        f"BILLING_TOTAL_KANTON: {format(kanton_amount, '.2f')}",
-        f"BILLING_TOTAL: {round(kommunal_amount + kanton_amount + uncharged_amount, 2)}",
+        f"BILLING_TOTAL_KOMMUNAL: {kommunal_amount + uncharged_amount_kommunal}",
+        f"BILLING_TOTAL_KANTON: {kanton_amount + uncharged_amount_kantonal}",
+        f"BILLING_TOTAL: {kommunal_amount + kanton_amount + uncharged_amount_kantonal + uncharged_amount_kommunal}",
         f"CURRENT_SERVICE_DESCRIPTION: {admin_svc.description}",
         f"OBJECTIONS: <QuerySet [<Objection: Objection object ({objection.id})>]>",
-        f"BILLING_TOTAL_UNCHARGED: {uncharged_amount}",
+        f"BILLING_TOTAL_UNCHARGED: {uncharged_amount_kommunal + uncharged_amount_kantonal}",
+        f"BILLING_TOTAL_UNCHARGED_KOMMUNAL: {uncharged_amount_kommunal}",
+        f"BILLING_TOTAL_UNCHARGED_KANTON: {uncharged_amount_kantonal}",
     ]
 
 
