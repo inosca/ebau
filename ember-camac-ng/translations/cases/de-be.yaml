@@ -10,6 +10,8 @@ cases:
     dossierNumber-placeholder: "2022-123"
     dossierNumber: "eBau-Nummer"
     instanceId: "Dossier-Nummer"
+    intent-placeholder: "Beschreibung des Bauvorhabens"
+    intent: "Bauvorhaben"
     parcel: "Parzellen-Nr. / Liegenschaftsnummer"
     responsibleServiceUser-placeholder: "Alle zuständigen Mitarbeiter/innen"
     responsibleServiceUser: "Zuständige/r. Mitarbeiter/in"
