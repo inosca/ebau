@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-31 09:32+0200\n"
+"POT-Creation-Date: 2023-05-31 09:35+0200\n"
 "PO-Revision-Date: 2023-04-06 09:22+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -68,6 +68,10 @@ msgstr "Meldeformular an AWA weiterleiten"
 #: camac/caluma/extensions/events/sb.py:67
 msgid "Inform load compensation bodies"
 msgstr "Lastenausgleichstellende informieren"
+
+#: camac/caluma/extensions/validations.py:193
+msgid "Issue statement on appeal"
+msgstr "Stellungnahme zu Beschwerde abgeben"
 
 #: camac/core/admin/forms.py:17 camac/core/admin/forms.py:33
 #: camac/core/admin/views.py:41 camac/core/admin/views.py:78

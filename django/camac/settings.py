@@ -4012,11 +4012,11 @@ OIDC_VERIFY_SSL = env.bool("OIDC_VERIFY_SSL", default=True)
 STATICFILES_DIRS += APPLICATIONS[APPLICATION_NAME].get("INCLUDE_STATIC_FILES", [])
 
 
-def load_module_settings(module_name):
+def load_module_settings(module_name, application_name=APPLICATION_NAME):
     module = getattr(
         import_module(f"camac.settings_{module_name.lower()}"), module_name.upper()
     )
-    app_config = module.get(APPLICATION_NAME, {})
+    app_config = module.get(application_name, {})
 
     return (
         always_merger.merge(module["default"], app_config)
@@ -4025,4 +4025,5 @@ def load_module_settings(module_name):
     )
 
 
+APPEAL = load_module_settings("appeal")
 DISTRIBUTION = load_module_settings("distribution")

@@ -2,10 +2,12 @@ import copy
 import glob
 import inspect
 import logging
+import os
 import sys
 from copy import deepcopy
 from dataclasses import dataclass, field
 from datetime import date
+from pathlib import Path
 
 import faker
 import pytest
@@ -1081,3 +1083,31 @@ def master_data_is_visible_mock(mocker):
     mocker.patch(
         "camac.instance.master_data.MasterData._answer_is_visible", return_value=True
     )
+
+
+@pytest.fixture
+def gql():
+    """Fixture to load GraphQL files as string into tests.
+
+    By default the function will look for the file in a sibling directory "gql"
+    of the test file. For example:
+
+    `gql("foo")` called in `/a/b/tests/test.py` will resolve to
+    `/a/b/tests/gql/foo.graphql`.
+
+    If this behaviour is not preferred, you can also pass a path directly to the
+    function as a second parameter.
+    """
+
+    def wrapper(name, path=None):
+        if not path:
+            base = os.path.dirname(
+                inspect.getouterframes(inspect.currentframe())[1].filename
+            )
+            path = os.path.join(base, "gql")
+
+        file = os.path.join(path, f"{name}.graphql")
+
+        return Path(file).read_text()
+
+    return wrapper
