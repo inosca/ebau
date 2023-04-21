@@ -134,8 +134,6 @@ services:
       ]
 
   alexandria:
-    volumes:
-      - ../alexandria/kt_gr:/app/alexandria/kt_gr
     ports:
       - "8000:8000"
     depends_on:
@@ -152,6 +150,7 @@ services:
       - MINIO_STORAGE_ACCESS_KEY=minio
     volumes:
       - ../alexandria/demo/dump.json:/tmp/alexandria/dump.json
+      - ../alexandria/kt_gr:/app/alexandria/kt_gr
     networks:
       - ebau.local
 
