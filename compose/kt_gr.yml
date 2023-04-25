@@ -82,13 +82,12 @@ services:
       - OIDC_GROUPS_API_HEADERS=AUTHORIZATION,X-CAMAC-GROUP
 
   alexandria:
-    image: ghcr.io/projectcaluma/alexandria:0.3.0
+    image: acr.run/camac-ng/camac-ng/alexandria:master
     environment:
       - DATABASE_HOST=db
       - DATABASE_NAME=${APPLICATION}
       - DATABASE_USER=camac
       - LANGUAGES=de-ch,en
-      # Todo: remove if it is the default
       - DB_VENDOR=postgres
 
 volumes:
