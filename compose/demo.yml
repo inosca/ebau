@@ -1,10 +1,12 @@
 version: "3.4"
 services:
   cache:
+    container_name: cache
     image: memcached:1.6-alpine
 
   proxy:
-    image: nginx:1.23-alpine
+    container_name: proxy
+    image: nginx:1.23-alpine  
     depends_on:
       - ember-caluma-portal
       - django
@@ -17,6 +19,7 @@ services:
       - djangotmpmedia:/tmp/camac/tmpfiles:ro
 
   db:
+    container_name: ebau-db
     build:
       context: ../db
       cache_from:
@@ -28,6 +31,7 @@ services:
       - pgdata:/var/lib/postgresql/data
 
   django: &django
+    container_name: django
     build:
       context: ../django
       cache_from:
@@ -62,6 +66,7 @@ services:
       - djangotmpmedia:/tmp/camac/tmpfiles
 
   ember-caluma-portal:
+    container_name: caluma-portal
     build:
       context: ../
       dockerfile: ./ember-caluma-portal/Dockerfile
@@ -71,6 +76,7 @@ services:
         - APPLICATION=${APPLICATION}
 
   ember-ebau:
+    container_name: ebau
     build:
       context: ../
       dockerfile: ./ember-ebau/Dockerfile
@@ -80,9 +86,11 @@ services:
         - APPLICATION=${APPLICATION}
 
   mailhog:
+    container_name: mailhog
     image: mailhog/mailhog
 
   keycloak:
+    container_name: keycloak
     depends_on:
       - db
     build:
@@ -91,6 +99,7 @@ services:
         - acr.run/camac-ng/camac-ng/keycloak-${APPLICATION}:master
 
   document-merge-service:
+    container_name: document-merge-service
     image: ghcr.io/adfinis/document-merge-service:5.0.5
     depends_on:
       - db
@@ -110,6 +119,7 @@ services:
       - OIDC_GROUPS_API_HEADERS=AUTHORIZATION,X-CAMAC-GROUP
 
   alexandria:
+    container_name: alexandria
     image: ghcr.io/projectcaluma/alexandria:dev
     depends_on:
       - db
@@ -127,6 +137,7 @@ services:
       - LANGUAGES=de-ch,en
 
   minio:
+    container_name: minio
     image: minio/minio:latest@sha256:7f84f4d07cf0d3562911c6b072e1183436fbc3cad8ccef8157ec5c27456ed452
     volumes:
       - minio_data:/data
@@ -137,6 +148,7 @@ services:
     command: server data
 
   mc:
+    container_name: mc
     image: minio/mc:RELEASE.2020-10-03T02-54-56Z
     restart: on-failure
     environment:
