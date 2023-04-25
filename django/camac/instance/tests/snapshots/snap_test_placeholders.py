@@ -190,6 +190,8 @@ Test LAB 2''',
             'DATE_RECEPTION': '02.10.2022',
             'DATUM_DOKUMENT': '01.10.2022',
             'DATUM_EINGANG': '02.10.2022',
+            'DEMANDE_REQUETE': '''Test LAB 1
+Test LAB 2''',
             'PREOCCUPATION': '''Test LAB 1
 Test LAB 2''',
             'RECHTSBEGEHRENDE': 'Lastenausgleichsbegehren4you AG',
@@ -434,6 +436,8 @@ Test LAB 2''',
             'DATE_RECEPTION': '02.10.2022',
             'DATUM_DOKUMENT': '01.10.2022',
             'DATUM_EINGANG': '02.10.2022',
+            'DEMANDE_REQUETE': '''Test LAB 1
+Test LAB 2''',
             'PREOCCUPATION': '''Test LAB 1
 Test LAB 2''',
             'RECHTSBEGEHRENDE': 'Lastenausgleichsbegehren4you AG',
@@ -770,6 +774,8 @@ Test RV 2''',
             'DATE_RECEPTION': '02.11.2022',
             'DATUM_DOKUMENT': '01.11.2022',
             'DATUM_EINGANG': '02.11.2022',
+            'DEMANDE_REQUETE': '''Test RV 1
+Test RV 2''',
             'PREOCCUPATION': '''Test RV 1
 Test RV 2''',
             'RECHTSBEGEHRENDE': 'Martha Rechstverwahrungsson',
@@ -834,6 +840,8 @@ Test RV 2''',
             'DATE_RECEPTION': '02.11.2022',
             'DATUM_DOKUMENT': '01.11.2022',
             'DATUM_EINGANG': '02.11.2022',
+            'DEMANDE_REQUETE': '''Test RV 1
+Test RV 2''',
             'PREOCCUPATION': '''Test RV 1
 Test RV 2''',
             'RECHTSBEGEHRENDE': 'Martha Rechstverwahrungsson',
@@ -2051,6 +2059,10 @@ snapshots['test_dms_placeholders_docs 1'] = {
             'ANLIEGEN': [
                 {
                     'de': 'ANLIEGEN',
+                    'fr': 'DEMANDE_REQUETE'
+                },
+                {
+                    'de': 'ANLIEGEN',
                     'fr': 'PREOCCUPATION'
                 }
             ],
@@ -2838,6 +2850,10 @@ snapshots['test_dms_placeholders_docs 1'] = {
             'ANLIEGEN': [
                 {
                     'de': 'ANLIEGEN',
+                    'fr': 'DEMANDE_REQUETE'
+                },
+                {
+                    'de': 'ANLIEGEN',
                     'fr': 'PREOCCUPATION'
                 }
             ],
@@ -3356,6 +3372,7 @@ snapshots['test_dms_placeholders_docs_available_placeholders 1'] = [
     'DEMANDES_EN_COMPENSATION_DES_CHARGES[].DATE_RECEPTION',
     'DEMANDES_EN_COMPENSATION_DES_CHARGES[].DATUM_DOKUMENT',
     'DEMANDES_EN_COMPENSATION_DES_CHARGES[].DATUM_EINGANG',
+    'DEMANDES_EN_COMPENSATION_DES_CHARGES[].DEMANDE_REQUETE',
     'DEMANDES_EN_COMPENSATION_DES_CHARGES[].PREOCCUPATION',
     'DEMANDES_EN_COMPENSATION_DES_CHARGES[].RECHTSBEGEHRENDE',
     'DEMANDES_EN_COMPENSATION_DES_CHARGES[].REQUERANTS_CONCLUSIONS',
@@ -3481,6 +3498,7 @@ snapshots['test_dms_placeholders_docs_available_placeholders 1'] = [
     'LASTENAUSGLEICHSBEGEHREN[].DATE_RECEPTION',
     'LASTENAUSGLEICHSBEGEHREN[].DATUM_DOKUMENT',
     'LASTENAUSGLEICHSBEGEHREN[].DATUM_EINGANG',
+    'LASTENAUSGLEICHSBEGEHREN[].DEMANDE_REQUETE',
     'LASTENAUSGLEICHSBEGEHREN[].PREOCCUPATION',
     'LASTENAUSGLEICHSBEGEHREN[].RECHTSBEGEHRENDE',
     'LASTENAUSGLEICHSBEGEHREN[].REQUERANTS_CONCLUSIONS',
@@ -3680,6 +3698,7 @@ snapshots['test_dms_placeholders_docs_available_placeholders 1'] = [
     'RECHTSVERWAHRUNGEN[].DATE_RECEPTION',
     'RECHTSVERWAHRUNGEN[].DATUM_DOKUMENT',
     'RECHTSVERWAHRUNGEN[].DATUM_EINGANG',
+    'RECHTSVERWAHRUNGEN[].DEMANDE_REQUETE',
     'RECHTSVERWAHRUNGEN[].PREOCCUPATION',
     'RECHTSVERWAHRUNGEN[].RECHTSBEGEHRENDE',
     'RECHTSVERWAHRUNGEN[].REQUERANTS_CONCLUSIONS',
@@ -3722,6 +3741,7 @@ snapshots['test_dms_placeholders_docs_available_placeholders 1'] = [
     'RESERVES_DE_DROIT[].DATE_RECEPTION',
     'RESERVES_DE_DROIT[].DATUM_DOKUMENT',
     'RESERVES_DE_DROIT[].DATUM_EINGANG',
+    'RESERVES_DE_DROIT[].DEMANDE_REQUETE',
     'RESERVES_DE_DROIT[].PREOCCUPATION',
     'RESERVES_DE_DROIT[].RECHTSBEGEHRENDE',
     'RESERVES_DE_DROIT[].REQUERANTS_CONCLUSIONS',
