@@ -139,6 +139,12 @@ services:
     depends_on:
       - db
       - minio
+    image: acr.run/camac-ng/camac-ng/alexandria:master
+    build:
+      context: ../
+      dockerfile: ./alexandria/Dockerfile
+      cache_from:
+        - acr.run/camac-ng/camac-ng/alexandria:master
     environment:
       - ENV=development
       - DATABASE_PASSWORD=camac
