@@ -6,6 +6,7 @@ Electronic building permit application for Swiss cantons.
 
 <!-- vim-markdown-toc GFM -->
 
+- [Table of Contents](#table-of-contents)
 - [Overview](#overview)
   - [Folder structure](#folder-structure)
   - [Modules](#modules)
@@ -129,7 +130,7 @@ After, you should be able to use to the following services:
 - [ember-ebau.local](http://ember-ebau.local) - new main application used for "internal" users
 - [ebau-portal.local](http://ebau-portal.local) - public-facing portal (Caluma-based, default choice for new projects, used in Kt. BE, UR)
 - [ebau.local/django/admin/](http://ebau.local/django/admin/) - Django admin interface
-- [ebau-keycloak.local/auth](http://ebau-keycloak.local/auth) - IAM solution
+- [ebau-keycloak.local/auth](http://ebau-keycloak.local/auth/) - IAM solution
 
 ### Predefined credentials
 
@@ -224,7 +225,7 @@ In development mode, the application is configured to send all email to a
 Mailhog instance, so unless you specify something else, no email will be
 sent out from the development environment.
 
-You can access the Mailhog via http://ebau.local/mailhog . Any email sent out
+You can access the Mailhog via <http://ebau.local/mailhog/> . Any email sent out
 will be instantly visible there.
 
 ## License
