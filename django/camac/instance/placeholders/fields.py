@@ -394,7 +394,7 @@ class LegalSubmissionField(AliasedMixin, serializers.ReadOnlyField):
         if type == "legal-submission-type-objection":
             nested_aliases["RUEGEPUNKTE"] = [_("REPRIMANDS")]
         else:
-            nested_aliases["ANLIEGEN"] = [_("REQUEST")]
+            nested_aliases["ANLIEGEN"] = [_("REQUEST"), _("CONCERN")]
 
         super().__init__(nested_aliases=nested_aliases, *args, **kwargs)
 
