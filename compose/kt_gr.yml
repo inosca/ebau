@@ -82,7 +82,7 @@ services:
       - OIDC_GROUPS_API_HEADERS=AUTHORIZATION,X-CAMAC-GROUP
 
   alexandria:
-    image: ghcr.io/projectcaluma/alexandria:dev
+    image: ghcr.io/projectcaluma/alexandria:0.3.0
     environment:
       - DATABASE_HOST=db
       - DATABASE_NAME=${APPLICATION}
