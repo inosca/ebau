@@ -139,12 +139,7 @@ services:
     depends_on:
       - db
       - minio
-    image: acr.run/camac-ng/camac-ng/alexandria:master
-    build:
-      context: ../
-      dockerfile: ./alexandria/Dockerfile
-      cache_from:
-        - acr.run/camac-ng/camac-ng/alexandria:master
+    image: ghcr.io/projectcaluma/alexandria:0.3.0
     environment:
       - ENV=development
       - DATABASE_PASSWORD=camac
@@ -154,9 +149,11 @@ services:
       - MINIO_STORAGE_SECRET_KEY=minio123
       - MINIO_STORAGE_SERVICE=minio
       - MINIO_STORAGE_ACCESS_KEY=minio
+#      - VISIBILITY_CLASSES=alexandria.extensions.extensions.visibilities.CustomVisibility
+#      - PERMISSION_CLASSES=alexandria.extensions.permissions.CustomPermission
+#      - VALIDATION_CLASSES=alexandria.extensions.validations.CustomValidation
     volumes:
       - ../alexandria/demo/dump.json:/tmp/alexandria/dump.json
-      - ../alexandria/kt_gr:/app/alexandria/kt_gr
     networks:
       - ebau.local
 
