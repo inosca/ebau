@@ -46081,7 +46081,7 @@
       "label": "{\"de\": \"Zentrale Feuerungen\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "form",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "!(\"haustechnische-anlagen-brandschutz-ja\" == \"haustechnische-anlagen-brandschutz\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
