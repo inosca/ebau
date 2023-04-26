@@ -42,19 +42,21 @@
           >
         </div>
       </div>
-      <div>
-        <label class="uk-form-label" for="specialId">{{t "instances.special-id"}}</label>
-        <div class="uk-form-controls">
-          <input
-            type="text"
-            class="uk-input"
-            name="specialId"
-            id="specialId"
-            value={{this.specialId}}
-            {{on "change" this.updateFilter}}
-          >
+      {{#if (not (is-application "gr"))}}
+        <div>
+          <label class="uk-form-label" for="specialId">{{t "instances.special-id"}}</label>
+          <div class="uk-form-controls">
+            <input
+              type="text"
+              class="uk-input"
+              name="specialId"
+              id="specialId"
+              value={{this.specialId}}
+              {{on "change" this.updateFilter}}
+            >
+          </div>
         </div>
-      </div>
+      {{/if}}
       <div>
         <label class="uk-form-label" for="parcel">{{t "instances.parcel"}}</label>
         <div class="uk-form-controls">
@@ -185,7 +187,9 @@
       <thead>
         <tr>
           <th class="uk-text-nowrap">{{t "instances.instance-id"}}</th>
-          <th class="uk-text-nowrap">{{t "instances.special-id"}}</th>
+          {{#if (not (is-application "gr"))}}
+            <th class="uk-text-nowrap">{{t "instances.special-id"}}</th>
+          {{/if}}
           <th class="uk-text-nowrap">{{t "instances.type"}}</th>
           <th class="uk-text-nowrap">{{t "instances.municipality"}}</th>
           <th class="uk-text-nowrap">{{t "instances.address"}}</th>
@@ -203,7 +207,9 @@
             <td>
               <LinkTo @route="instances.edit" @model={{case.instanceId}} class="uk-text-bold">{{case.instanceId}}</LinkTo>
             </td>
-            <td class="uk-text-nowrap">{{case.specialId}}</td>
+            {{#if (not (is-application "gr"))}}
+              <td class="uk-text-nowrap">{{case.specialId}}</td>
+            {{/if}}
             <td class="uk-text-nowrap">{{case.type}} {{case.instance.typeDetail}}</td>
             <td>{{case.municipality}}</td>
             <td class="uk-text-truncate" title={{case.address}}>{{case.address}}</td>
