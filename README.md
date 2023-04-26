@@ -6,7 +6,6 @@ Electronic building permit application for Swiss cantons.
 
 <!-- vim-markdown-toc GFM -->
 
-- [Table of Contents](#table-of-contents)
 - [Overview](#overview)
   - [Folder structure](#folder-structure)
   - [Modules](#modules)
@@ -18,7 +17,11 @@ Electronic building permit application for Swiss cantons.
   - [Working locally with ember](#working-locally-with-ember)
     - [Yarn workspace](#yarn-workspace)
   - [Django profiling](#django-profiling)
+  - [Switching tenant](#switching-tenant)
+    - [Working locally with ember](#working-locally-with-ember-1)
+    - [Working with docker only](#working-with-docker-only)
   - [Visual Studio Code](#visual-studio-code)
+  - [GraphQL](#graphql)
   - [GWR API](#gwr-api)
   - [Customize API](#customize-api)
   - [Sending email](#sending-email)
@@ -212,10 +215,10 @@ Since this debug server collides with other setups (PyCharm, PyDev) it will
 only be started if the env var `ENABLE_PTVSD_DEBUGGER` is set to `True` in
 [`django/.env`](django/.env).
 
-### GraphQl
+### GraphQL
 
-In order to talk to the graphql endpoint with authentication, you can install 
-a GraphQL Tool (much like Postman). Things you might consider here:
+In order to talk to the `/graphql` endpoint with authentication, you can install
+a GraphQL Tool (much like Postman). Tools you might consider here:
 
 - [Insomnia](https://insomnia.rest/download)
 - [Altair GraphQL client](https://altairgraphql.dev/#download)
