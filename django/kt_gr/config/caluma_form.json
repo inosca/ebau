@@ -186,6 +186,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "dokumente",
+    "fields": {
+      "created_at": "2023-04-26T07:09:06.403Z",
+      "modified_at": "2023-04-26T07:09:06.403Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Dokumente\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "dossierpruefung",
     "fields": {
       "created_at": "2020-10-13T11:53:41.201Z",
@@ -2853,6 +2871,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "baugesuch.dokumente",
+    "fields": {
+      "created_at": "2023-04-26T07:17:50.319Z",
+      "modified_at": "2023-04-26T07:17:50.319Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baugesuch",
+      "question": "dokumente",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "baugesuch.einreichen",
     "fields": {
       "created_at": "2022-09-21T12:52:11.917Z",
@@ -2893,7 +2926,7 @@
       "modified_by_group": null,
       "form": "baugesuch",
       "question": "spezialformulare",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -3164,6 +3197,66 @@
       "form": "betriebsleiterwohnhaus",
       "question": "zustand",
       "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente.ausbildungsnachweis",
+    "fields": {
+      "created_at": "2023-04-26T07:34:30.461Z",
+      "modified_at": "2023-04-26T07:34:30.461Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "ausbildungsnachweis",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente.gesuch-feuerpolizeiliche-bewilligung",
+    "fields": {
+      "created_at": "2023-04-26T07:16:53.389Z",
+      "modified_at": "2023-04-26T07:16:53.389Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "gesuch-feuerpolizeiliche-bewilligung",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente.messbericht",
+    "fields": {
+      "created_at": "2023-04-26T07:26:28.599Z",
+      "modified_at": "2023-04-26T07:26:28.599Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "messbericht",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente.resultate-der-geforderten-bodenuntersuchung",
+    "fields": {
+      "created_at": "2023-04-26T07:38:22.539Z",
+      "modified_at": "2023-04-26T07:38:22.539Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "resultate-der-geforderten-bodenuntersuchung",
+      "sort": 1
     }
   },
   {
@@ -13400,6 +13493,22 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "ausbildungsnachweis-ja",
+    "fields": {
+      "created_at": "2023-04-26T07:34:30.129Z",
+      "modified_at": "2023-04-26T07:34:30.129Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ausbildungsnachweis\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "ausbildungsnachweis-vorhanden-ja",
     "fields": {
       "created_at": "2023-04-18T19:21:35.741Z",
@@ -16648,6 +16757,22 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "gesuch-feuerpolizeiliche-bewilligung-ja",
+    "fields": {
+      "created_at": "2023-04-26T07:16:52.997Z",
+      "modified_at": "2023-04-26T07:16:52.997Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gesuch f\\u00fcr feuerpolizeiliche Bewilligung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "gewaesserschutzbereich-au",
     "fields": {
       "created_at": "2023-04-20T14:43:40.318Z",
@@ -18200,6 +18325,22 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "messbericht-ja",
+    "fields": {
+      "created_at": "2023-04-26T07:26:28.274Z",
+      "modified_at": "2023-04-26T07:26:28.274Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Messbericht\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "minderungstechnik-ja",
     "fields": {
       "created_at": "2023-04-24T12:43:01.569Z",
@@ -19329,6 +19470,22 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "resultate-der-geforderten-bodenuntersuchung-ja",
+    "fields": {
+      "created_at": "2023-04-26T07:38:22.179Z",
+      "modified_at": "2023-04-26T07:38:22.179Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Resultate der geforderten Bodenuntersuchung\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -25684,6 +25841,39 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "ausbildungsnachweis",
+    "fields": {
+      "created_at": "2023-04-26T07:34:30.305Z",
+      "modified_at": "2023-04-26T07:34:30.305Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ausbildungsnachweis\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "!(\"ausbildungsnachweis-vorhanden-ja\" == \"ausbildungsnachweis-vorhanden\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "ausbildungsnachweis-vorhanden",
     "fields": {
       "created_at": "2023-04-18T19:21:35.885Z",
@@ -30301,6 +30491,39 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "dokumente",
+    "fields": {
+      "created_at": "2023-04-26T07:17:50.155Z",
+      "modified_at": "2023-04-26T07:29:57.012Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dokumente\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "alexandria-documents-form"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "dokumente",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "druckentlastungsflaeche",
     "fields": {
       "created_at": "2023-04-24T07:47:58.933Z",
@@ -33357,6 +33580,39 @@
       "static_content": "{\"de\": \"---\\n#### Bundesrecht - Gesetzliche Vorgaben f\\u00fcr baubewilligungsbefreite Solaranlagen\\n(Artikel 32a Raumplanungsverordnung RPV)\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
       "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "gesuch-feuerpolizeiliche-bewilligung",
+    "fields": {
+      "created_at": "2023-04-26T07:16:53.224Z",
+      "modified_at": "2023-04-26T07:16:53.224Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gesuch f\\u00fcr feuerpolizeiliche Bewilligung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -38556,6 +38812,39 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "messbericht",
+    "fields": {
+      "created_at": "2023-04-26T07:26:28.452Z",
+      "modified_at": "2023-04-26T07:26:28.452Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Messbericht\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "!(\"emissionsmessungen-ja\" == \"emissionsmessungen\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "minderungstechnik",
     "fields": {
       "created_at": "2023-04-24T12:43:01.725Z",
@@ -40804,6 +41093,39 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
       "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "resultate-der-geforderten-bodenuntersuchung",
+    "fields": {
+      "created_at": "2023-04-26T07:38:22.368Z",
+      "modified_at": "2023-04-26T07:38:22.368Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Resultate der geforderten Bodenuntersuchung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "!(\"chemische-bodenbelastung-ja\" == \"chemische-bodenbelastung\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -48274,6 +48596,21 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "ausbildungsnachweis.ausbildungsnachweis-ja",
+    "fields": {
+      "created_at": "2023-04-26T07:34:30.322Z",
+      "modified_at": "2023-04-26T07:34:30.322Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "ausbildungsnachweis",
+      "option": "ausbildungsnachweis-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "ausfuehrungsart-der-produkteleitung.ausfuehrungsart-der-produkteleitung-doppelwandig-ueberwacht",
     "fields": {
       "created_at": "2023-04-20T08:06:59.839Z",
@@ -51214,6 +51551,21 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "gesuch-feuerpolizeiliche-bewilligung.gesuch-feuerpolizeiliche-bewilligung-ja",
+    "fields": {
+      "created_at": "2023-04-26T07:16:53.241Z",
+      "modified_at": "2023-04-26T07:16:53.241Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "gesuch-feuerpolizeiliche-bewilligung",
+      "option": "gesuch-feuerpolizeiliche-bewilligung-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "gewaesserschutzbereich.gewaesserschutzbereich-au",
     "fields": {
       "created_at": "2023-04-21T06:33:55.351Z",
@@ -52684,6 +53036,21 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "messbericht.messbericht-ja",
+    "fields": {
+      "created_at": "2023-04-26T07:26:28.473Z",
+      "modified_at": "2023-04-26T07:26:28.473Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "messbericht",
+      "option": "messbericht-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "minderungstechnik.minderungstechnik-ja",
     "fields": {
       "created_at": "2023-04-24T12:43:01.737Z",
@@ -53744,6 +54111,21 @@
       "modified_by_group": null,
       "question": "reflexionsarm",
       "option": "reflexionsarm-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "resultate-der-geforderten-bodenuntersuchung.resultate-der-geforderten-bodenuntersuchung-ja",
+    "fields": {
+      "created_at": "2023-04-26T07:38:22.385Z",
+      "modified_at": "2023-04-26T07:38:22.385Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "resultate-der-geforderten-bodenuntersuchung",
+      "option": "resultate-der-geforderten-bodenuntersuchung-ja",
       "sort": 1
     }
   },
