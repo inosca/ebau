@@ -4,3 +4,18 @@ global:
 
 index:
   welcome: "Willkommen im eBau-Portal des Kantons Graubünden"
+
+instances:
+  new:
+    building-permit:
+      title: "Baubewilligungsverfahren"
+      info : ""
+
+    special-procedure:
+      title: "Weitere Verfahren"
+      info: ""
+
+support:
+  info: ""
+  email: ""
+  subject: ""
