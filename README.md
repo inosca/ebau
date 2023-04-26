@@ -17,7 +17,11 @@ Electronic building permit application for Swiss cantons.
   - [Working locally with ember](#working-locally-with-ember)
     - [Yarn workspace](#yarn-workspace)
   - [Django profiling](#django-profiling)
+  - [Switching tenant](#switching-tenant)
+    - [Working locally with ember](#working-locally-with-ember-1)
+    - [Working with docker only](#working-with-docker-only)
   - [Visual Studio Code](#visual-studio-code)
+  - [GraphQL](#graphql)
   - [GWR API](#gwr-api)
   - [Customize API](#customize-api)
   - [Sending email](#sending-email)
@@ -129,7 +133,7 @@ After, you should be able to use to the following services:
 - [ember-ebau.local](http://ember-ebau.local) - new main application used for "internal" users
 - [ebau-portal.local](http://ebau-portal.local) - public-facing portal (Caluma-based, default choice for new projects, used in Kt. BE, UR)
 - [ebau.local/django/admin/](http://ebau.local/django/admin/) - Django admin interface
-- [ebau-keycloak.local/auth](http://ebau-keycloak.local/auth) - IAM solution
+- [ebau-keycloak.local/auth](http://ebau-keycloak.local/auth/) - IAM solution
 
 ### Predefined credentials
 
@@ -211,10 +215,10 @@ Since this debug server collides with other setups (PyCharm, PyDev) it will
 only be started if the env var `ENABLE_PTVSD_DEBUGGER` is set to `True` in
 [`django/.env`](django/.env).
 
-### GraphQl
+### GraphQL
 
-In order to talk to the graphql endpoint with authentication, you can install 
-a GraphQL Tool (much like Postman). Things you might consider here:
+In order to talk to the `/graphql` endpoint with authentication, you can install
+a GraphQL Tool (much like Postman). Tools you might consider here:
 
 - [Insomnia](https://insomnia.rest/download)
 - [Altair GraphQL client](https://altairgraphql.dev/#download)
@@ -251,7 +255,7 @@ In development mode, the application is configured to send all email to a
 Mailhog instance, so unless you specify something else, no email will be
 sent out from the development environment.
 
-You can access the Mailhog via http://ebau.local/mailhog . Any email sent out
+You can access the Mailhog via <http://ebau.local/mailhog/> . Any email sent out
 will be instantly visible there.
 
 ## License
