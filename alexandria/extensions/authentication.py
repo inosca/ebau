@@ -42,8 +42,6 @@ class CamacUser(BaseUser):
                 roles_data[inclusion["id"]] = inclusion
 
         # groups are services in camac context
-        print(groups_data.items())
-        print(current_group)
         self.groups = [
             group["relationships"]["service"]["data"]["id"]
             if group["relationships"]["service"]["data"] is not None
@@ -51,6 +49,8 @@ class CamacUser(BaseUser):
             for _, group in groups_data.items()
         ]
 
+        self.group = "2"
+        """
         if current_group in groups_data:
             self.group_data = groups_data[current_group]
             self.group = self.group_data["relationships"]["service"]["data"]["id"]
@@ -60,6 +60,7 @@ class CamacUser(BaseUser):
         self.role = roles_data[
             groups_data[self.group]["relationships"]["role"]["data"]["id"]
         ]["attributes"]["name"]
+        """
 
 
 class CamacAlexandriaAuthentication(OIDCAuthentication):
@@ -126,6 +127,7 @@ class CamacAlexandriaAuthentication(OIDCAuthentication):
                 .first()
             )
             """
+            group = group_id
         else:
             group = self._get_group_for_portal(request)
 

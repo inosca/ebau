@@ -21,7 +21,7 @@ class CustomPermission(BasePermission):
     @permission_for(File)
     @permission_for(Document)
     def has_permission_for_document(self, request):
-        print(request)
+        print(request.data)
         # PERMISSIONS["kt_gr"][request.user.group]
         return True
 

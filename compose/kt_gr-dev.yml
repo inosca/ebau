@@ -76,6 +76,11 @@ services:
       - PYTHONDONTWRITEBYTECODE=1
       - GWR_FERNET_KEY=GUdwT6yKxqfszrnHC7wyKDmtVZdhjSVQEPnpeJYNLf8=
       - DJANGO_INTERNAL_BASE_URL=http://ember-ebau.local
+        # alexandria
+      - ALLOWED_HOSTS=*
+      - OIDC_OP_USER_ENDPOINT=http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
+      - MINIO_STORAGE_ENDPOINT=ember-ebau.local
+      - MINIO_STORAGE_SECRET_KEY=minio123
     networks:
       - ebau.local
     command: /bin/sh -c "./wait-for-it.sh db:5432 -- ./manage.py migrate && ./manage.py collectstatic --noinput && ./manage.py runserver 0:80 --pythonpath /app/$APPLICATION"
