@@ -12,6 +12,18 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   gettext \
   locales \
   libreoffice \
+  zlib1g-dev \
+  libjpeg-dev \
+  python3-pythonmagick \
+  libmagic-dev \
+  inkscape \
+  xvfb \
+  poppler-utils \
+  libfile-mimeinfo-perl \
+  qpdf \
+  libimage-exiftool-perl \
+  ffmpeg \
+  scribus \
 && rm -rf /var/lib/apt/lists/* \
 && mkdir /app \
 && sed -i -e 's/# de_CH.UTF-8 UTF-8/de_CH.UTF-8 UTF-8/' /etc/locale.gen \
@@ -38,7 +50,7 @@ ENV UWSGI_INI /app/uwsgi.ini
 ENV DATABASE_PORT 5432
 
 ARG REQUIREMENTS=requirements.txt
-COPY requirements.txt requirements-dev.txt /app/
+COPY requirements.txt requirements-dev.txt alexandria-0.3.0-py3-none-any.whl /app/
 
 RUN pip install --no-cache-dir --upgrade -r $REQUIREMENTS  --disable-pip-version-check
 

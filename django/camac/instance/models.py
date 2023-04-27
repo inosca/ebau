@@ -3,6 +3,7 @@ import logging
 import reversion
 from django.conf import settings
 from django.db import models
+from django.contrib.contenttypes.fields import GenericRelation
 
 from camac.core.models import HistoryActionConfig
 from camac.user.models import Group, User
@@ -172,6 +173,7 @@ class Instance(models.Model):
     instance_group = models.ForeignKey(
         InstanceGroup, models.SET_NULL, related_name="instances", null=True
     )
+    # documents = GenericRelation()
 
     def _responsible_service_instance_service(self, filter_type=None, **kwargs):
         active_services_settings = settings.APPLICATION.get("ACTIVE_SERVICES", {})
@@ -262,6 +264,7 @@ class InstanceResponsibility(models.Model):
     class Meta:
         unique_together = (("instance", "user", "service"),)
 
+
 class InstanceAlexandriaDocument(models.Model):
     instance = models.ForeignKey(Instance, models.CASCADE, related_name="documents")
     alexandria_document = models.ForeignKey(
@@ -270,6 +273,7 @@ class InstanceAlexandriaDocument(models.Model):
 
     class Meta:
         unique_together = (("instance", "alexandria_document"),)
+
 
 class JournalEntryManager(models.Manager):
     def get_queryset(self):
