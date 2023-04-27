@@ -67,6 +67,7 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
             server_url=settings.KEYCLOAK_URL,
             client_id=settings.KEYCLOAK_CLIENT,
             realm_name=settings.KEYCLOAK_REALM,
+            verify=settings.OIDC_VERIFY_SSL,
         )
 
         options = {"exp": True, "verify_aud": False, "verify_signature": True}
