@@ -22,6 +22,22 @@
   },
   {
     "model": "caluma_form.document",
+    "pk": "14c5ec0e-a9a3-48e0-aa9e-007057386c4b",
+    "fields": {
+      "created_at": "2022-10-06T13:46:56.852Z",
+      "modified_at": "2022-10-06T13:46:56.852Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "family": "14c5ec0e-a9a3-48e0-aa9e-007057386c4b",
+      "form": "dashboard",
+      "source": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "caluma_form.document",
     "pk": "15e3d964-dfe2-4adb-afae-17a555742161",
     "fields": {
       "created_at": "2022-10-06T13:46:56.852Z",
@@ -78,6 +94,29 @@
       "question": "beschreibung-bauvorhaben",
       "document": "15e3d964-dfe2-4adb-afae-17a555742161",
       "history_date": "2022-10-06T13:47:11.051Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
+    "pk": "9f4cf4f6-1bb8-4d7b-aec6-f7a27fa953ba",
+    "fields": {
+      "created_at": "2023-04-26T09:43:27.456Z",
+      "modified_at": "2023-04-26T09:43:27.456Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "history_question_type": "textarea",
+      "id": "c7639aaf-4f05-4e98-8fd1-2928081bd976",
+      "value": "Hier werden aktuelle News aufgeschaltet",
+      "meta": {},
+      "date": null,
+      "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "question": "portal-inhalt-de",
+      "document": "14c5ec0e-a9a3-48e0-aa9e-007057386c4b",
+      "history_date": "2023-04-26T09:43:27.457Z",
       "history_change_reason": null,
       "history_type": "+"
     }
@@ -216,6 +255,23 @@
       "value": ["einreichen-button-eingereicht"],
       "meta": {},
       "document": "15e3d964-dfe2-4adb-afae-17a555742161",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "c7639aaf-4f05-4e98-8fd1-2928081bd976",
+    "fields": {
+      "created_at": "2023-04-26T09:43:27.456Z",
+      "modified_at": "2023-04-26T09:43:27.456Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "portal-inhalt-de",
+      "value": "Hier werden aktuelle News aufgeschaltet",
+      "meta": {},
+      "document": "14c5ec0e-a9a3-48e0-aa9e-007057386c4b",
       "date": null
     }
   },
