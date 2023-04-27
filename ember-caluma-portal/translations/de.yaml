@@ -42,7 +42,7 @@ documents:
   confidential: "(vertraulich)"
   setConfidential: "Als vertraulich markieren"
   setNonConfidential: "Vertraulich Markierung entfernen"
-  confirm: "Hiermit bestätige ich, dass ich {count, plural, =1 {den folgenden Pflichtinhalt} other {die folgenden # Pflichtinhalte}} hochgeladen habe:"
+  confirm: "Hiermit bestätige ich, dass ich {count, plural, =1 {den folgenden Pflichtinhalt} other {die folgenden # Pflichtinhalte}} hochgeladen habe. Bitte beachten Sie, dass die Liste der angegebenen Pflichtdokumente nicht abschliessend ist. Bitte konsultieren Sie das kommunale Baugesetz."
   confirm-reduced: "Hiermit bestätige ich, dass ich die benötigten Pflichtinhalte hochgeladen habe:"
   buckets:
     dokument-grundstucksangaben: "Grundstücksangaben und Projektbeschrieb"
