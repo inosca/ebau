@@ -224,7 +224,7 @@ export default class InstancesIndexController extends Controller {
               answerSlugs.objectNumber,
               answerSlugs.objectZIP,
               answerSlugs.objectLocation,
-            ],
+            ].filter(Boolean),
             value: this._address,
           },
           {
