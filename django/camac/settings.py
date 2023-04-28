@@ -3204,9 +3204,6 @@ APPLICATIONS = {
                 "caluma_form.Option": Q(questions__forms__pk__in=COMMON_FORM_SLUGS_BE)
                 | Q(questions__pk__in=COMMON_QUESTION_SLUGS_BE),
             },
-            "caluma_ebau_number_form": generate_form_dump_config(
-                regex=r"^ebau-number$"
-            ),
             "caluma_decision_form": generate_form_dump_config(regex=r"^decision$"),
             # Distribution
             **DISTRIBUTION_DUMP_CONFIG,
