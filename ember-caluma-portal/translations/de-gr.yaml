@@ -6,16 +6,18 @@ index:
   welcome: "Willkommen im eBau-Portal des Kantons Graubünden"
 
 instances:
+  instance-id: "ID"
+  special-id: "Dossier-Nr."
   new:
     building-permit:
       title: "Baubewilligungsverfahren"
-      info : ""
+      info: ""
 
     special-procedure:
       title: "Weitere Verfahren"
       info: ""
 
 support:
-  info: ""
-  email: ""
-  subject: ""
+  info: "Im Falle von Problemen oder Fragen, welche durch die hinterlegten Hilfestellungen nicht geklärt werden, können Sie sich entweder an <b>die zuständige Bauverwaltung der entsprechenden Gemeinde</b> oder an <b>das Amt für Raumentwicklung</b> wenden."
+  email: "<tbd>@gr.ch"
+  subject: "eBau - Supportanfrage"

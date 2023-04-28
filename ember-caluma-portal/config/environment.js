@@ -458,7 +458,21 @@ module.exports = function (environment) {
         allowForms: ["baugesuch"],
         disallowStates: [instanceStatesGr.new, instanceStatesGr.finished],
       },
-      answerSlugs: {},
+      answerSlugs: {
+        objectStreet: "strasse-flurname",
+        objectNumber: "nr",
+        objectZIP: "plz-grundstueck",
+        objectLocation: "ort-grundstueck",
+        description: "beschreibung-bauvorhaben",
+        municipality: "gemeinde",
+        parcelNumber: "parzellennummer",
+        firstNameApplicant: "vorname-gesuchstellerin",
+        lastNameApplicant: "name-gesuchstellerin",
+        juristicNameApplicant: "name-juristische-person-gesuchstellerin",
+        isJuristicApplicant: "juristische-person-gesuchstellerin",
+        isJuristicApplicantYes: "juristische-person-gesuchstellerin-ja",
+        personalDataApplicant: "personalien-gesuchstellerin",
+      },
       personalSuggestions: {
         tableQuestions: [
           "personalien-gesuchstellerin",

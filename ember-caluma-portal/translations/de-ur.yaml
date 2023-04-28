@@ -95,3 +95,7 @@ documents:
   tags:
     weitere-unterlagen: ""
 
+support:
+  info: "Im Falle von Problemen oder Fragen, welche durch die hinterlegten Hilfestellungen nicht geklärt werden, können Sie sich entweder an <b>die zuständige Bauverwaltung der entsprechenden Gemeinde</b> oder an <b>das Amt für Raumentwicklung</b> wenden."
+  email: "urec@ur.ch"
+  subject: "URec - Supportanfrage"
