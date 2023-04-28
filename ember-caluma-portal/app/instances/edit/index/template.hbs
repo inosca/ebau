@@ -6,12 +6,10 @@
   </div>
   <div class="uk-width-3-4 uk-width-2-3@m">
     <div class="uk-width-1-1 uk-grid-small" uk-grid>
-      {{#if (not (is-application "gr"))}}
-        <BeOverviewGridCell
-          @label={{t "instances.special-id"}}
-          @value={{or this.case.specialId "-"}}
-        />
-      {{/if}}
+      <BeOverviewGridCell
+        @label={{t "instances.special-id"}}
+        @value={{or this.case.specialId "-"}}
+      />
       <BeOverviewGridCell
         @label={{t "instances.address"}}
         @value={{or this.case.address "-"}}
