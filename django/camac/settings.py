@@ -21,6 +21,8 @@ from camac.constants.kt_bern import (
 from camac.utils import build_url
 
 env = environ.Env()
+
+# resolves to folder django or /app in container
 ROOT_DIR = environ.Path(__file__) - 2
 
 ENV_FILE = env.str("DJANGO_ENV_FILE", default=ROOT_DIR(".env"))
@@ -3572,6 +3574,9 @@ UNOCONV_URL = env.str("DJANGO_UNOCONV_URL", default="http://unoconv:3000")
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
+database_options = {}
+if env.bool("DATABASE_ENABLE_SSL", default=False):
+    database_options["sslmode"] = "require"
 
 DATABASES = {
     "default": {
@@ -3581,7 +3586,7 @@ DATABASES = {
         "PASSWORD": env.str("DATABASE_PASSWORD", default=default("camac")),
         "HOST": env.str("DATABASE_HOST", default="localhost"),
         "PORT": env.str("DATABASE_PORT", default=""),
-        "OPTIONS": env.dict("DATABASE_OPTIONS", default={}),
+        "OPTIONS": env.dict("DATABASE_OPTIONS", default=database_options),
     }
 }
 
@@ -3986,6 +3991,8 @@ OIDC_EXEMPT_URLS = [re.compile(r"^(?!/django).*")]
 OIDC_EMAIL_CLAIM = env.str("DJANGO_OIDC_EMAIL_CLAIM", default="email")
 OIDC_FIRSTNAME_CLAIM = env.str("DJANGO_OIDC_FIRSTNAME_CLAIM", default="given_name")
 OIDC_LASTNAME_CLAIM = env.str("DJANGO_OIDC_LASTNAME_CLAIM", default="family_name")
+
+OIDC_VERIFY_SSL = env.bool("OIDC_VERIFY_SSL", default=True)
 
 STATICFILES_DIRS += APPLICATIONS[APPLICATION_NAME].get("INCLUDE_STATIC_FILES", [])
 
