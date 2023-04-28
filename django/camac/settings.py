@@ -3575,7 +3575,7 @@ UNOCONV_URL = env.str("DJANGO_UNOCONV_URL", default="http://unoconv:3000")
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 database_options = {}
-if env.bool("DATABASE_ENABLE_SSL", default=False):
+if env.bool("DATABASE_ENABLE_SSL", default=False):  # pragma: no cover
     database_options["sslmode"] = "require"
 
 DATABASES = {
