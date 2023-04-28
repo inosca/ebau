@@ -3181,6 +3181,10 @@ APPLICATIONS = {
                     "recipient_types": ["leitbehoerde"],
                 },
             ],
+            "APPLICANT": {
+                "NEW": "gesuchsbearbeitungs-einladung-neu",
+                "EXISTING": "gesuchsbearbeitungs-einladung-bestehend",
+            },
         },
         "DUMP_CONFIG_GROUPS": {
             "email_notifications": {
